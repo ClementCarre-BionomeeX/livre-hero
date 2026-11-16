@@ -375,6 +375,10 @@
             h("button", { class: "btn sm danger", onclick: function () { removeProfile(cur, theirs); } }, "Oui, retirer"),
             h("button", { class: "btn sm", onclick: function () { A.confirmDelProfile = null; render(); } }, "Non"))
         : h("div", { class: "row" },
+            cur.hero && cur.hero.name ? h("span", { class: "habitual" }, h("span", { html: Heraldry.portrait("habituel|" + cur.hero.name, { face: cur.hero.face, size: 40 }) }),
+              h("span", { class: "small" }, "Héros habituel : ", h("b", null, cur.hero.name)),
+              h("button", { class: "btn ghost sm", title: "La prochaine histoire repartira d'un héros vide ; le prochain héros créé pourra le remplacer.", onclick: function () { delete cur.hero; Store.put("profils", cur.id, cur).catch(function () {}); render(); } }, "Oublier"))
+              : h("span", { class: "small muted" }, "Pas encore de héros habituel : le prochain héros créé pourra le devenir."),
             Words.list(cur).length >= WORDS_MIN_GAME ? h("button", { class: "btn sm", onclick: Words.start }, "🎯 Jeu des mots (" + Words.list(cur).length + ")") : null,
             h("button", { class: "btn ghost sm", onclick: function () { A.confirmDelProfile = cur.id; render(); } }, "Retirer " + cur.name)));
     }
@@ -1576,8 +1580,37 @@
   function newGame(id) {
     loadStory(id).then(function (st) {
       A.create = { story: st, name: "", arch: "", past: (st.past || []).map(function () { return -1; }), toutJouer: true, difficulty: "aventurier" };
+      habitualHero(A.create, A.profile);
       A.screen = "create"; render(); window.scrollTo(0, 0);
     }).catch(function (e) { flash(e.message, true); });
+  }
+  // ------------------------------------------------------------------ the habitual hero (Clément, 16/11)
+  // Intent: profile.hero = { name, fem, face } = the name, the way the book speaks and the face a reader takes in every
+  // story; a new game starts with them, the reader changes them for this game only or keeps the new ones.
+  // Why: « les enfants cherchent à avoir de la régularité » : the same hero from one book to the next, not remade each time.
+  function readerById(id) { return (A.profiles || []).filter(function (p) { return p.id === id; })[0] || null; }
+  function habitualHero(C, prof) {
+    C.reader = prof ? prof.id : null;
+    var H = prof && prof.hero; if (!H || !H.name) return;
+    C.name = H.name; C.fem = !!H.fem; C.face = H.face ? clone(H.face) : null;
+  }
+  // The face as it shows in this game, every trait written down: a face drawn from the name would change with the
+  // name and with the book, so the habitual one keeps the drawing itself.
+  function creationFace(C) { return Heraldry.faceOf(C.story.id + "|" + (C.name || "").trim(), { arch: C.arch, face: C.face }); }
+  function heroOfCreation(C) { return { name: C.name.trim(), fem: !!C.fem, face: creationFace(C) }; }
+  function sameHero(a, b) { return !!a && !!b && a.name === b.name && !!a.fem === !!b.fem && JSON.stringify(a.face) === JSON.stringify(b.face); }
+  function keepsHero(C, prof) { return C.keep == null ? !(prof && prof.hero) : C.keep; }
+  function saveHabitualHero(prof, C) {
+    prof.hero = heroOfCreation(C);
+    Store.put("profils", prof.id, prof).catch(function () { /* kept in this browser; the next save tries again */ });
+  }
+  // Intent: renderHeroKeep(Creation, Story) -> Element? = under the face: « the habitual hero of X » or the box to keep this one
+  function renderHeroKeep(C) {
+    var prof = readerById(C.reader); if (!prof) return null;
+    if (sameHero(prof.hero, heroOfCreation(C))) return h("p", { class: "small muted hero-keep" }, "C'est le héros habituel de " + prof.name + ". Ce que tu changes ici vaut pour cette partie, ou devient le nouveau héros habituel si tu le demandes.");
+    return h("label", { class: "toggle hero-keep" }, h("input", { type: "checkbox", checked: keepsHero(C, prof), onchange: function (e) { C.keep = e.target.checked; } }),
+      h("span", null, h("b", null, prof.hero ? "En faire le nouveau héros habituel de " + prof.name : "Garder ce nom et ce visage pour les prochaines histoires de " + prof.name), h("br"),
+        h("span", { class: "small muted" }, prof.hero ? "Sinon, " + prof.hero.name + " reste le héros proposé au début des autres histoires." : "Ils seront proposés au début de chaque nouvelle histoire ; on peut toujours les changer.")));
   }
   function renderCreate() {
     var C = A.create, st = C.story;
@@ -1618,7 +1651,7 @@
         h("b", null, a.label), h("span", { class: "small muted" }, a.tip), h("span", { class: "small" }, best.map(function (d) { return M.DOMAINS[d] + " +" + a.bonus[d]; }).join(" · "))));
     });
     if (!byStory) w.appendChild(h("div", { class: "stack" }, h("span", { class: "label" }, "Ta voie"), archs));
-    if (!cast) w.appendChild(renderFacePicker(C, st));
+    if (!cast) { w.appendChild(renderFacePicker(C, st)); var hk = renderHeroKeep(C); if (hk) w.appendChild(hk); }
     (st.past || []).forEach(function (q, qi) {
       var box = h("div", { class: "past" }, h("h3", null, ac(q.q)));
       q.answers.forEach(function (a, ai) {
@@ -1801,6 +1834,8 @@
   }
   function startGame() {
     var C = A.create, st = C.story, s = buildState(C);
+    var cast = !!st.heroes && !playerHero(st) && !C.multi, prof = readerById(C.reader);
+    if (prof && !st.lecture && !cast && C.name.trim() && !sameHero(prof.hero, heroOfCreation(C)) && keepsHero(C, prof)) saveHabitualHero(prof, C);
     if (C.multi) { multiCreated(C, s); return; }
     var g = { id: uid(), profil: A.profile.id, story: st.id, storyTitle: st.title, storyVersion: st.version || 1, created: Date.now() };
     A.game = { doc: g, story: st, s: s, undo: [], log: [], recit: { k: 0, pages: [] }, since: Date.now() };
@@ -2104,6 +2139,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "9.5", items: ["Héros habituel : chaque lecteur garde un nom et un visage d'une histoire à l'autre. Le premier héros créé le devient (case cochée) ; ensuite, chaque nouvelle histoire commence avec lui, et on peut le changer pour une partie ou pour de bon.", "À plusieurs : « Qui joue » propose la liste des lecteurs enregistrés, chacun avec son héros habituel, ou « Autre joueur… » pour taper un nom."] },
     { v: "9.4", items: ["Accueil rangé en trois onglets. « Bibliothèque » : la partie à reprendre en tête, puis les livres en cartes courtes (« En savoir plus » ouvre le reste). « Mes parties » : les parties et leurs archives. « Plus » : sauvegardes, ajout d'histoires, famille, espace parent, atelier.", "Le lecteur se change d'un toucher sur son nom, en haut ; ⚙ ouvre ses réglages.", "Une partie s'efface depuis les archives : on la range d'abord."] },
     { v: "9.3", items: ["Archives : une partie (surtout finie) se range aux archives d'un bouton, ou toutes les parties terminées d'un coup. Elle quitte la liste sans être effacée ; « Archives », sous la liste, la montre et « Remettre dans la liste » la ramène. Le rangement suit le dossier de sauvegarde partagé sur les autres appareils."] },
     { v: "9.1", items: ["Nouveau grand livre : « Le Trésor des Taiseurs », une chasse au trésor dans une république marchande où chacun parle à double fond.", "Paroles cachées : avec certains objets, des mots se mettent à bouger sur la page (ils tremblent, luisent, ondulent). Touche-les : le texte caché dessous remonte.", "Nouvel onglet du carnet, dans les histoires qui en ont : Sous les mots (ce que tu as entendu dessous, et ce qui te fait entendre)."] },
@@ -3088,8 +3124,10 @@
   // ---- setup
   function multiSetup(id) {
     loadStory(id).then(function (st) {
-      var S = A.msetup = { story: st, mode: "local", n: minPlayers(st), names: [] };
-      for (var i = 0; i < 6; i++) S.names.push((A.profiles[i] && A.profiles[i].name) || "Joueur " + (i + 1));
+      var S = A.msetup = { story: st, mode: "local", n: minPlayers(st), names: [], readers: [] };
+      // The registered readers first, the one who opened the book at the head (Clément, 16/11).
+      var ps = (A.profile ? [A.profile] : []).concat((A.profiles || []).filter(function (p) { return !A.profile || p.id !== A.profile.id; }));
+      for (var i = 0; i < 6; i++) { S.readers.push(ps[i] ? ps[i].id : null); S.names.push(ps[i] ? ps[i].name : "Joueur " + (i + 1)); }
       redeal(S);
       A.screen = "msetup"; render(); window.scrollTo(0, 0);
     }).catch(function (e) { flash(e.message, true); });
@@ -3118,9 +3156,17 @@
       counts.appendChild(h("button", { class: "btn sm" + (S.n === n ? " primary" : ""), "aria-pressed": S.n === n ? "true" : "false", onclick: function () { S.n = n; redeal(S); render(); } }, String(n)));
     })(n);
     w.appendChild(h("div", { class: "stack" }, h("span", { class: "label" }, "Combien de joueurs ?"), counts));
+    // Who plays: a list of the registered readers (their habitual hero comes with them), or another name typed in.
     var names = h("div", { class: "stack" });
     for (var i = 0; i < S.n; i++) (function (i) {
-      names.appendChild(h("input", { value: S.names[i], maxlength: 24, "aria-label": "Nom du joueur " + (i + 1), oninput: function (e) { S.names[i] = e.target.value; document.querySelectorAll("option[data-player='" + i + "']").forEach(function (o) { o.textContent = e.target.value || "Joueur " + (i + 1); }); } }));
+      var OTHER = "", sel = h("select", { class: "who-sel", "aria-label": "Joueur " + (i + 1), onchange: function (e) {
+        var p = readerById(e.target.value); S.readers[i] = p ? p.id : null; S.names[i] = p ? p.name : ""; render();
+      } }, (A.profiles || []).map(function (p) {
+        return h("option", { value: p.id, selected: S.readers[i] === p.id }, p.name + (p.hero && p.hero.name ? " · " + p.hero.name : ""));
+      }).concat([h("option", { value: OTHER, selected: !S.readers[i] }, "Autre joueur…")]));
+      var row = h("div", { class: "row who-row" }, h("span", { class: "who-n small muted" }, String(i + 1)), sel);
+      if (!S.readers[i]) row.appendChild(h("input", { value: S.names[i], maxlength: 24, placeholder: "Son nom", "aria-label": "Nom du joueur " + (i + 1), oninput: function (e) { S.names[i] = e.target.value; document.querySelectorAll("option[data-player='" + i + "']").forEach(function (o) { o.textContent = e.target.value || "Joueur " + (i + 1); }); } }));
+      names.appendChild(row);
     })(i);
     w.appendChild(h("div", { class: "stack" }, h("span", { class: "label" }, S.mode === "salle" ? "Les places de la salle" : "Les joueurs"), names));
     var empty = [];
@@ -3144,20 +3190,21 @@
   function multiGo() {
     var S = A.msetup, st = S.story;
     S.seats = [];
-    for (var i = 0; i < S.n; i++) S.seats.push({ id: "j" + (i + 1), name: (S.names[i] || "").trim() || "Joueur " + (i + 1), color: COLORS[i % COLORS.length],
+    for (var i = 0; i < S.n; i++) S.seats.push({ id: "j" + (i + 1), name: (S.names[i] || "").trim() || "Joueur " + (i + 1), reader: S.readers ? S.readers[i] || null : null, color: (readerById(S.readers && S.readers[i]) || {}).color || COLORS[i % COLORS.length],
       heroes: st.heroes ? Object.keys(st.heroes).filter(function (x) { return S.deal[x] === i; }) : [] });
     var title = "À plusieurs · " + st.title;
     if (st.heroes) {
       var maker = playerHero(st), who = maker ? S.seats.filter(function (p) { return p.heroes.indexOf(maker) >= 0; })[0] : null;
-      openCreate(st, { title: title, who: who ? who.name : null, next: S.mode === "salle" ? "Ouvrir la salle" : "Commencer la partie", setup: S });
+      openCreate(st, { title: title, who: who ? who.name : null, reader: who ? who.reader : null, next: S.mode === "salle" ? "Ouvrir la salle" : "Commencer la partie", setup: S });
       return;
     }
     if (S.mode === "salle") { openSalleNew(S, null); return; }
     S.states = [];
-    openCreate(st, { title: title, who: S.seats[0].name, next: S.seats.length > 1 ? "Au héros suivant" : "Commencer la partie", setup: S, idx: 0 });
+    openCreate(st, { title: title, who: S.seats[0].name, reader: S.seats[0].reader, next: S.seats.length > 1 ? "Au héros suivant" : "Commencer la partie", setup: S, idx: 0 });
   }
   function openCreate(st, multi) {
     A.create = { story: st, name: "", arch: "", past: (st.past || []).map(function () { return -1; }), toutJouer: !multi.setup || multi.setup.toutJouer !== false, multi: multi };
+    habitualHero(A.create, readerById(multi.reader));
     A.screen = "create"; render(); window.scrollTo(0, 0);
   }
   // Intent: created(Creation, State) -> () = the next hero to make, or the game
@@ -3167,7 +3214,7 @@
     if (st.heroes) { if (S.mode === "salle") openSalleNew(S, s); else startLocal(S, s); return; }
     S.states[C.multi.idx] = s;
     var i = C.multi.idx + 1;
-    if (i < S.seats.length) { openCreate(st, { title: C.multi.title, who: S.seats[i].name, next: i + 1 < S.seats.length ? "Au héros suivant" : "Commencer la partie", setup: S, idx: i }); return; }
+    if (i < S.seats.length) { openCreate(st, { title: C.multi.title, who: S.seats[i].name, reader: S.seats[i].reader, next: i + 1 < S.seats.length ? "Au héros suivant" : "Commencer la partie", setup: S, idx: i }); return; }
     startLocal(S, null);
   }
 
@@ -3569,7 +3616,7 @@
   }
   function playSeat(pid) {
     var X = A.multi, p = MU.player(X.g, pid);
-    if (!p.s) { openCreate(X.story, { title: "Salle commune · " + X.story.title, who: p.name, next: "Entrer dans la partie", setup: { toutJouer: X.doc.toutJouer }, seat: pid }); return; }
+    if (!p.s) { openCreate(X.story, { title: "Salle commune · " + X.story.title, who: p.name, reader: readerById(p.reader) ? p.reader : A.profile && A.profile.id, next: "Entrer dans la partie", setup: { toutJouer: X.doc.toutJouer }, seat: pid }); return; }
     enterTurn(pid);
   }
   function seatCreated(pid, s) {
