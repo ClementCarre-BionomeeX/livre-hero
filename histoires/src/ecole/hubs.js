@@ -34,11 +34,11 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
   H_cour: {
     title: "La cour des tilleuls", place: "cour", hub: true, veillee: true, backName: "la cour",
     text: [
-      { first: true, text: "La cour du collège est un grand carré de pavés usés, fermé sur ses quatre côtés par les quatre ailes de pierre grise. Huit tilleuls y poussent en deux rangées, si vieux que leurs racines soulèvent les pavés. Au milieu, un puits à margelle de granit ; au nord, le clocher et la porte du réfectoire ; à l'ouest, la loge de la portière, près du grand portail qui donne sur la ville." },
+      { first: true, text: "La cour du collège est un grand carré de pavés usés, fermé sur ses quatre côtés par les quatre ailes de pierre grise. Huit tilleuls y poussent en deux rangées, si vieux que leurs racines soulèvent les pavés, avec une lenteur et une obstination que le règlement n'a jamais su punir. Au milieu, un puits à margelle de granit ; au nord, le clocher et la porte du réfectoire ; à l'ouest, la loge de la portière, près du grand portail qui donne sur la ville." },
       { again: true, saison: "automne", text: "Les tilleuls de la cour jaunissent, et le vent pousse les feuilles contre le puits. Des élèves traversent en courant, leurs livres serrés contre la poitrine." },
       { again: true, saison: "hiver", text: "Le froid tient la cour. La neige reste sur les branches des tilleuls et fond sur les pavés, et le puits fume un peu, le matin." },
       { again: true, saison: "printemps", text: "Le printemps est venu dans la cour. Les tilleuls ont des feuilles tendres, presque jaunes, et les élèves de quatrième année révisent assis par terre, adossés aux troncs." },
-      { when: "night", text: "La nuit, une seule lanterne brûle au-dessus de la porte du réfectoire. Les fenêtres des maîtres s'éteignent l'une après l'autre ; celle du Recteur reste allumée tard." },
+      { when: "night", text: "La nuit, une seule lanterne brûle au-dessus de la porte du réfectoire, et son rond de lumière jaune rend la cour plus noire encore autour de lui ; les tilleuls y remuent, invisibles, avec un bruit de papier froissé. Les fenêtres des maîtres s'éteignent l'une après l'autre ; celle du Recteur reste allumée tard." },
       { after: "B_tempete", before: "C_printemps", once: true, text: "Depuis la tempête, on entend parfois, la nuit, un son grave et faux monter de la digue jusqu'au collège, comme une corde de contrebasse mal accordée." },
     ],
     choices: [
@@ -56,7 +56,7 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
   K_refectoire: {
     title: "Le réfectoire", place: "cour", back: true, rumeur: "refectoire",
     text: [
-      { first: true, text: "Le réfectoire est une longue salle voûtée où mangent deux cents élèves sur des bancs, par années, sous les portraits des anciens recteurs. Les premières années occupent la table du bas, près de la porte, là où il fait froid." },
+      { first: true, text: "Le réfectoire est une longue salle voûtée où mangent deux cents élèves sur des bancs, par années, sous les portraits des anciens recteurs, qui ont tous la mine de gens ayant mieux dîné qu'eux. Les premières années occupent la table du bas, près de la porte, là où il fait froid." },
       { again: true, text: "Tu prends ta place au bout de la table des premières années, devant une soupe épaisse, du pain gris et un morceau de fromage." },
       { with: "jodoc", once: true, text: "Jodoc mange pour trois et parle pour deux. Il connaît toutes les histoires du collège : il a eu trois ans pour les entendre." },
     ],
@@ -138,9 +138,9 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
   H_biblio: {
     title: "La bibliothèque", place: "bibliotheque", hub: true, backName: "la bibliothèque",
     text: [
-      { first: true, text: "La bibliothèque occupe toute l'aile ouest, sur trois étages reliés par des escaliers de fer. La voûte est peinte d'un ciel d'étoiles, et des galeries courent le long des rayonnages, si hauts qu'on y monte par des échelles à roulettes. Des lampes à abat-jour vert éclairent les tables de lecture. Tout au fond, derrière une grille, se dresse une armoire de chêne noir ferrée de fer : le cabinet scellé, où les maîtres rangent les livres défendus." },
+      { first: true, text: "La bibliothèque occupe toute l'aile ouest, sur trois étages reliés par des escaliers de fer. La voûte est peinte d'un ciel d'étoiles, et des galeries courent le long des rayonnages, si hauts qu'on y monte par des échelles à roulettes. Des lampes à abat-jour vert éclairent les tables de lecture. Tout au fond, derrière une grille, se dresse une armoire de chêne noir ferrée de fer : le cabinet scellé, où les maîtres rangent les livres défendus, c'est-à-dire ceux qu'ils ont lus eux-mêmes avec le plus de soin." },
       { again: true, when: "day", text: "La bibliothèque luit sous ses lampes vertes, dans un silence plein de petits bruits : une échelle qui roule, une page, une toux étouffée." },
-      { when: "night", text: "La nuit, la bibliothèque est noire. La lune entre seule par les fenêtres hautes et pose des carrés pâles sur les tables." },
+      { when: "night", text: "La nuit, la bibliothèque est noire. La lune entre seule par les fenêtres hautes et pose des carrés pâles sur les tables ; au-dessus, les trois étages de rayonnages se perdent dans une ombre où les étoiles peintes de la voûte luisent encore faiblement, et le fer des escaliers craque de lui-même en refroidissant. On croirait entendre les livres retenir leur souffle." },
       { after: "cabinet:bloque", before: "cahier:trouve", text: "Le cadenas du cabinet est resté bloqué. Il pend de travers dans sa chaîne, et Sœur Mélisande l'a regardé plusieurs fois d'un air pensif." },
     ],
     choices: [
@@ -196,7 +196,7 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
     title: "L'atelier de la Main", place: "atelier", hub: true, atelier: true, backName: "l'atelier",
     text: [
       { first: true, text: "L'atelier de la Main est une ancienne grange voûtée, au bas du collège, avec une forge, deux fours à verre, des établis couverts d'outils, et une odeur de charbon, de copeaux et de métal chaud. Des pièces d'élèves pendent au mur par centaines, chacune avec une étiquette et une date : des clés, des poignées, des plaques gravées, des bols de verre soufflé." },
-      { again: true, text: "La forge ronfle, les marteaux sonnent, et Mère Fage jure contre un soufflet." },
+      { again: true, text: "La forge ronfle, les marteaux sonnent, et Mère Fage jure contre un soufflet avec une richesse de vocabulaire que les trois autres Arts lui envient." },
       { saison: "hiver", text: "En hiver, l'atelier est l'endroit le plus chaud du collège, et les élèves de tous les Arts se trouvent des raisons d'y passer." },
     ],
     choices: [
@@ -342,7 +342,7 @@ module.exports = { moves: moves, SLEEP: SLEEP, passages: {
   K_stele: {
     title: "Au pied de la digue", place: "digue", back: true,
     text: [
-      "Des marches glissantes descendent le long du granit jusqu'à une petite grève de galets, côté mer, que la marée découvre deux fois par jour. Il y fait sombre et froid ; les vagues claquent contre les blocs, et l'écume te mouille le visage.",
+      "Des marches glissantes descendent le long du granit jusqu'à une petite grève de galets, côté mer, que la marée découvre deux fois par jour. La digue, vue d'en bas, est une paroi noire et suintante qui cache la ville et la moitié du ciel ; il fait sombre et froid à son pied, les vagues claquent contre les blocs avec un bruit de portes qu'on ferme, et l'écume te mouille le visage.",
       "Contre la digue, presque cachée par les algues, une petite {{or:s1|s}}tèle de pierre tendre, à demi rongée par le sel. Quelqu'un a gratté les algues autour de l'inscription, il y a peu de temps.",
       "Sur la stèle reposent une couronne de fleurs séchées et un coquillage posé à plat.",
     ],
