@@ -90,6 +90,47 @@ Object.assign(P, {
     ] },
 });
 
+Object.assign(P, {
+  M04: { act: "II", title: "Midi, de part et d'autre", backName: "la borne", charniere: true, aparte: true, depot: { put: ["cahier"], take: ["cahier"] },
+    text: [
+      { first: true, if: J, text: "Midi. L'ombre du style tombe droit sur le trait de bronze, et la borne de la vingt-troisième lieue n'a plus d'ombre du tout, ou si peu. Tu t'adosses à la pierre chaude. Tu as du foin dans le col et des ampoules, et il te faut un moment pour te rappeler que tu es ici en mission." },
+      { first: true, if: J, text: "Tu ouvres le Cahier. La page d'hier n'est plus seule : en dessous, des lettres en bâtons ont poussé, serrées, appuyées, qui ont dû coûter à leur auteur. *LA GARDE EST VENUE À LA GRANGE APRÈS TOI. ILS ONT PRIS LINE. ILS LA MÈNENT À ARVOISE, CHEZ LE MAÎTRE DES SABLES. ELLE Y VA DE SON PLEIN GRÉ, ELLE DIT QU'IL LUI DOIT UNE RÉPONSE. J'AI LE CAHIER. JE SUIS DEHORS.*" },
+      { first: true, if: J, text: "Tu relis *ils ont pris Line*, assis{e} à vingt toises d'une cour où elle a neuf ans et grimpe aux arbres. Puis tu écris, à ton tour, vite, mal : la ferme pleine, les trois noyers, le pain blanc, les cloches d'un clocher à l'autre. Tu écris qu'elle t'a percé{e} à jour avant la soupe." },
+      { first: true, if: R, text: "À la sortie des Trois-Noyers, sous le reposoir des Veilleurs, la route royale commence, et sa première borne est là, enfoncée jusqu'à mi-corps dans les orties : la vingt-quatrième lieue. Personne, au village, ne s'est jamais demandé pourquoi une pierre qui ne mène plus nulle part gardait un cadran. À midi, tu t'y assois, le dos aux lampes, et tu ouvres le Cahier." },
+      { first: true, if: R, text: "L'encre monte dans le papier. *La ferme est pleine. Il y a trois noyers, celui du milieu est debout. On fauche. Il y a des cloches partout, d'un clocher à l'autre. Line a neuf ans, deux nattes, une dent en moins. Elle m'a percé{autre:e} à jour avant la soupe.* Tu lis lentement, en suivant du doigt. Tu vois très bien la cour : tu y étais cette nuit, avec un chat en l'air. Tu essaies d'y mettre des poules." },
+      { first: true, if: { all: [R, { has: "monde:marque_poutre" }] }, text: "Une ligne encore, soulignée : *Quand tu repasseras par la grange, lève ta lanterne sur la grosse poutre.* Tu fronces les sourcils. Tu l'as levée, cette nuit. La poutre était noire et lisse ; tu en mettrais ta main au feu." },
+      { again: true, text: "Le Cahier est ouvert sur tes genoux, à la page où vos deux écritures se suivent : la penchée, et celle en bâtons." },
+    ],
+    choices: [
+      { label: "Recopier pour {autre} ce que la Chronique dit du pont d'Arvoise", hide: { any: [J, { has: "monde:su:pont" }] }, to: "E_pont" },
+      { label: "Refermer le Cahier : la cour t'attend, et un cabriolet arrive sur la route", hide: R, to: "K04j_tantot", big: true },
+      { label: "Refermer le Cahier : il reste un après-midi à tenir dans ce village", hide: J, to: "K04r_tantot", big: true },
+    ] },
+  E_pont: { title: "Six jours avant le Grand Midi", back: true, fx: { flag: "monde:su:pont" },
+    text: [
+      "Tu ouvres le gros livre noir à la page de l'an 541. La ligne est là, entre un édit sur les mesures à grain et la mort d'un évêque. Tu la recopies en bâtons, sans rien y mettre de toi : *SIX JOURS AVANT LE GRAND MIDI LE PONT-NEUF D'ARVOISE EST TOMBÉ DANS LA THIORNE À L'HEURE DE SA BÉNÉDICTION. QUARANTE MORTS. LE MAÎTRE QUI L'A BÂTI S'APPELAIT BAUDRI, IL EST MORT AVEC.*",
+      "Tu comptes sur tes doigts. Six jours avant : c'est après-demain, de son côté. Tu ajoutes : *TU Y SERAS.* L'encre pâlit et s'en va.",
+    ] },
+
+  B04: { act: "II", title: "Une coudée, du côté de l'ombre", backName: "la borne", charniere: true, aparte: true, depot: { put: ["borne_ferme", "cahier"], take: ["cahier"] },
+    text: [
+      { first: true, if: J, text: "Le soleil sort derrière Roquebise, que l'on devine au bout de la route, sur sa butte, avec ses fumées. La borne de la vingt-troisième lieue a une ombre longue comme un clocher. La charrette des Noyers n'a pas encore passé le portail : tu as le temps d'un Pater, de deux peut-être." },
+      { first: true, if: J, text: "Vous êtes convenus de l'endroit, {autre} et toi, par l'entremise d'une vieille femme qui pense à tout : une coudée de profondeur, du côté où la pierre fait de l'ombre à midi. La terre est meuble, là, et personne n'a de raison d'y creuser avant soixante ans." },
+      { first: true, if: J, text: "Tu ouvres le Cahier sur ton genou. *J'AI LU*, ont répondu les bâtons, sous tes lignes d'hier. *JE VOIS LA COUR. J'ESSAIE D'Y METTRE DES POULES.*" },
+      { first: true, if: R, text: "Tu arrives à la borne de la vingt-troisième lieue avant le jour, par les prés pris, et tu t'y laisses tomber. La Ferme-Vieille est à vingt toises, grise, muette. Quatre gardes y montaient la faction hier ; ils ont été relevés, ou rappelés. La planche est toujours clouée en travers de la porte de la grange." },
+      { first: true, if: R, with: "rouget", text: "Rouget s'est couché en chien de fusil contre la pierre, les mains sous les aisselles. Il dort déjà. Il t'a suivi{e} toute la nuit sans se plaindre, ce qui chez lui tient du prodige, et il a demandé une seule chose : qu'on le réveille s'il y a à manger." },
+      { first: true, if: R, text: "Tu ouvres le Cahier. L'écriture penchée a rempli la page pendant que tu courais : le marchand de bois, la colporteuse, le souper, la chandelle dans le fenil. Tu lis tout. C'est une drôle de chose, de lire le soir d'une maison où l'on n'a jamais été invité, et de savoir ce qu'on y mangeait." },
+      { first: true, if: { all: [R, { has: "monde:line_sait" }] }, text: "*Elle sait d'où je viens. Elle l'avait trouvé toute seule.* Tu penses à la vieille, sur ses deux hallebardes, faisant à sa cour un signe de la main. Elle savait donc. Elle a su pendant soixante ans." },
+      { again: true, if: J, text: "La borne, l'ombre longue, la terre meuble au pied de la pierre. Sur la route, derrière toi, les essieux de la charrette commencent à chanter." },
+      { again: true, if: R, text: "La borne penche dans le jour gris. Au pied de la pierre, du côté où elle ferait de l'ombre s'il y avait un soleil franc, la terre est tassée, moussue, vieille." },
+    ],
+    choices: [
+      { label: "Recopier pour {autre} ce que la Chronique dit du pont d'Arvoise", hide: { any: [J, { has: "monde:su:pont" }] }, to: "E_pont" },
+      { label: "Rejoindre Perrine et la charrette : quatre lieues jusqu'à Roquebise", hide: R, to: "K05j_route", big: true },
+      { label: "Te lever, et entrer dans la cour de la Ferme-Vieille", hide: J, to: "K05r_cour", big: true },
+    ] },
+});
+
 module.exports = { passages: P, extras: {
   quests: [
     { id: "I_porte", act: "I", kind: "principale", title: "La porte de la grange", start: "B01" },
@@ -98,6 +139,13 @@ module.exports = { passages: P, extras: {
     chronique_livre: { name: "La Chronique d'Aurime", kind: "divers", keep: true, nodepot: true, price: 0, desc: "Un gros livre relié de toile noire : l'histoire du royaume telle qu'on l'enseigne, avec, dans les marges, l'écriture serrée de Line." },
   },
   // What the kingdom says of the year 541 (the one who stays reads it; the lines change with what the other does).
+  // What the one who stays has copied for the other, from the years to come.
+  avenir: [
+    { id: "line", head: "Les Trois-Noyers, soixante ans après", v: [
+      { text: "*La Garde est venue à la grange après toi. Ils ont pris Line. Ils la mènent à Arvoise, chez le Maître des Sables.*" }] },
+    { id: "pont", head: "Arvoise, dans la Chronique", v: [
+      { if: { has: "monde:su:pont" }, text: "*Six jours avant le Grand Midi, le Pont-Neuf d'Arvoise est tombé dans la Thiorne à l'heure de sa bénédiction. Quarante morts. Le maître qui l'a bâti s'appelait Baudri, il est mort avec. Tu y seras.*" }] },
+  ],
   chronique: [
     { id: "grandmidi", head: "An 541 · Le Grand Midi", v: [
       { text: "« Le jour du Grand Midi, par la malice de Barnabé Coudrier, Grand Maître des Horlogers-Jurés, dit depuis le Maudit, la ville de Méridane fut ravie au temps avec la Reine, Madame Aélis sa fille, et quarante mille âmes. »" }] },

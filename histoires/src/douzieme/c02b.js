@@ -46,7 +46,7 @@ Object.assign(P, {
   K02_lubin_banc: { act: "I", title: "Face au levant", place: "troisnoyers", fx: { item: "gnole" },
     text: [
       "Vous portez le banc à deux jusqu'au bout du jardin, et vous le tournez vers les prés. Le père Lubin tient à l'alignement : il vise la Ferme-Vieille entre deux dents de sa fourche, fait reculer le banc d'un pied, le cale avec une tuile. Puis il rentre, et ressort dans son habit de noces, qui a cinquante-cinq ans et lui va comme une cloche à un battant.",
-      "« D'après les jalons, elle fait ses deux toises par jour. Elle sera au rosier vers la Saint-Jean. » Il s'assoit, essaie plusieurs façons de tenir ses mains, choisit de les poser à plat sur ses genoux. « Comme ça. On ne sait pas combien de temps on garde la pose. »",
+      "« D'après les jalons, elle fait ses deux toises par jour. Elle sera au rosier pour la Toussaint. » Il s'assoit, essaie plusieurs façons de tenir ses mains, choisit de les poser à plat sur ses genoux. « Comme ça. On ne sait pas combien de temps on garde la pose. »",
       "Il te donne Midi-Juste à porter chez le charron, qui a des poules, et une fiole carrée, de la prune de 589, qu'il gardait pour son enterrement et dont il n'a plus l'emploi. « Une chose encore. Si jamais ça se remet en route, et que tu sois de ce monde : viens me dire en quelle année on est. Je n'aimerai pas avoir à le demander. »",
     ],
     choices: [{ label: "Promettre, et emporter le coq", back: "K02_place" }] },
