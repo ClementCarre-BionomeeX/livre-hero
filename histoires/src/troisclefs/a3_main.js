@@ -53,7 +53,7 @@ module.exports = {
         "« *À mon oncle et bienfaiteur*, lit-il. C'est un beau modèle. On n'en fait plus. Dix sous, parce que c'est vous. »",
         "Tu paies. Il remonte se coucher, en te recommandant de tirer la porte. Tu poses la couronne sur la pile, et tu achèves tes planches.",
       ],
-      fx: { gold: -1 },
+      fx: { gold: -10 },
       choices: [{ label: "Passer derrière les planches", to: "A3m_galerie", big: true }] },
     A3m_bouche: { act: "III", title: "La Bouche-aux-Os", place: "ossevaux",
       text: [

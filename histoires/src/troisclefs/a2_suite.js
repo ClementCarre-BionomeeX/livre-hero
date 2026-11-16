@@ -104,7 +104,7 @@ module.exports = {
       ],
       choices: [{ label: "Attendre le total", to: "A2c_vendre_2", big: true }] },
     A2c_vendre_2: { act: "II", title: "Trois cents écus", place: "manoir",
-      fx: { gold: 300, flag: "monde:mineurs:trahis", ep: ["histoire", 800] },
+      fx: { gold: 6000, flag: "monde:mineurs:trahis", ep: ["histoire", 800] },
       text: [
         "« Trois cents écus chacun », dit Maître Quincarnon.",
         "Il ouvre un tiroir, en tire trois rouleaux cachetés, et les aligne sur le bureau, du bout du doigt, à distance égale. C'est de la monnaie du roi. Elle n'a jamais passé par l'Économat.",
@@ -233,7 +233,7 @@ module.exports = {
 
     // ───────────────────────────── Loridan ─────────────────────────────
     A2c_loridan: { act: "II", title: "Le jour de la première clef", place: "boisnoir",
-      fx: { gold: 150, clue: "c_premiere" },
+      fx: { gold: 3000, clue: "c_premiere" },
       text: [
         "« Vous avez deux jours de retard sur mon calcul », dit Vespasien Loridan. Il n'a pas levé les yeux du petit livre qu'il lisait. « Je m'en félicite. Si vous aviez été à l'heure, c'est que vous auriez bâclé. »",
         "Il ferme le livre. C'est un bréviaire. Il se lève, regarde chacun de vous à la figure, puis aux mains, puis à la figure encore, comme un médecin.",
