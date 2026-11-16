@@ -28,7 +28,7 @@ module.exports = {
   version: 1,
   start: "A_reveil",
   intro: [
-    "Orbeval tient sur l'Aune par onze ponts. Le plus beau, celui des Changeurs, porte des maisons à trois étages et des boutiques qui s'ouvrent sur l'eau. Le plus pauvre, celui des Lavandières, est une simple passerelle de planches au-dessus du canal des Tanneurs.",
+    "Orbeval tient sur l'Aune par onze ponts, et sur le reste du monde par sa monnaie. Le plus beau, celui des Changeurs, porte des maisons à trois étages et des boutiques qui s'ouvrent sur l'eau. Le plus pauvre, celui des Lavandières, est une simple passerelle de planches au-dessus du canal des Tanneurs.",
     "Hier soir, c'était la Fête des Lanternes. Toute la ville a mis à l'eau des milliers de petites barques de papier, chacune avec sa chandelle, et le fleuve est descendu vers la mer en brûlant jusqu'à minuit. Tu as regardé le spectacle depuis la fenêtre de ton auberge, un pot de vin chaud à la main. Tu t'es couché{e} tard.",
   ],
   acts: [
