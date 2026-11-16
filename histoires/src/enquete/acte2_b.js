@@ -288,7 +288,7 @@ module.exports = {
   H_corps: { act: "II", title: "La salle des morts", place: "haute", back: true,
     fx: { clue: "m_corps_main", meet: "ermeline" },
     text: [
-      "La salle des morts de l'Hôtel-Dieu est une cave voûtée et fraîche, qui sent le vinaigre et la chaux vive. Sœur Ermeline, une petite femme sèche aux manches retroussées, lit le jeton de la sergente, hoche la tête et soulève le drap.",
+      "La salle des morts de l'Hôtel-Dieu est une cave voûtée et fraîche, qui sent le vinaigre et la chaux vive, et où le jour descend d'un soupirail comme à regret. Sœur Ermeline, une petite femme sèche aux manches retroussées, lit le jeton de la sergente, hoche la tête et soulève le drap.",
       "Tu as déjà vu des morts. Celui-là, tu le regardes vite, puis plus lentement. Le visage n'existe plus : les portes de l'écluse l'ont battu toute la nuit. Les cheveux sont châtains, mouillés encore, collés. Le corps est grand, maigre, plus maigre que tu ne l'aurais cru sous une robe d'essayeur.",
       "Ce sont les mains que tu regardes le plus longtemps. Les ongles sont rongés jusqu'à la chair, à chaque doigt. Et le petit doigt de la main droite est tordu, en dehors, avec une bosse à la deuxième phalange : un os cassé autrefois, et mal ressoudé.",
       { second: true, text: "À l'annulaire gauche, là où était la bague, la peau est à peine plus pâle : la trace légère d'un anneau porté peu de temps." },

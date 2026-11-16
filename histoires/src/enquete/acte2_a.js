@@ -19,7 +19,7 @@ module.exports.passages = {
   // ------------------------------------------------------------------ crossroads
   H_pont: { act: "II", title: "Le Pont des Changeurs", place: "pont", hub: true,
     text: [
-      { first: true, text: "Le Pont des Changeurs, en plein jour, est la rue la plus riche d'Orbeval : on y pèse, on y compte, et l'on y parle toutes les langues du fleuve. À sa tête, côté Haute-Ville, grince au vent l'enseigne du Pot d'Étain, où tu dors." },
+      { first: true, text: "Le Pont des Changeurs, en plein jour, est la rue la plus riche d'Orbeval : on y pèse, on y compte, et l'on y parle toutes les langues du fleuve, l'argent se chargeant de la traduction. À sa tête, côté Haute-Ville, grince au vent l'enseigne du Pot d'Étain, où tu dors." },
       { again: true, when: "day", text: "Le Pont des Changeurs aligne ses boutiques et ses balances, dans un bruit d'argent qui dure du matin au soir. À sa tête, l'enseigne du Pot d'Étain grince." },
       { when: "night", text: "La nuit, le pont devient un couloir de volets clos, avec une seule lumière : celle du Pot d'Étain, où l'on boit encore." },
       DAY3,
@@ -32,7 +32,7 @@ module.exports.passages = {
 
   H_orfevres: { act: "II", title: "Le quai des Orfèvres", place: "orfevres", hub: true,
     text: [
-      { first: true, text: "Le quai des Orfèvres longe un canal étroit, aux eaux sombres et propres, qui descend vers les Tanneurs. Les maisons y sont de pierre blanche, avec des portes cloutées et des marches qui descendent jusqu'à l'eau. D'un côté de la place se dresse la Monnaie, un bâtiment carré, aveugle au rez-de-chaussée, avec deux gardes en livrée à la porte. En face, plus petite et plus vieille, se tient la Maison de l'Essai, où vivait et travaillait l'essayeur-juré." },
+      { first: true, text: "Le quai des Orfèvres longe un canal étroit, aux eaux sombres et propres, qui descend vers les Tanneurs. Les maisons y sont de pierre blanche, avec des portes cloutées et des marches qui descendent jusqu'à l'eau. D'un côté de la place se dresse la Monnaie, un bâtiment carré, aveugle au rez-de-chaussée, comme il convient à une maison où l'on fabrique la confiance publique, avec deux gardes en livrée à la porte. En face, plus petite et plus vieille, se tient la Maison de l'Essai, où vivait et travaillait l'essayeur-juré." },
       { first: true, text: "Les volets de la Maison de l'Essai sont tirés, et un crêpe noir pend au heurtoir. Côté canal, une porte d'eau, basse, fermée d'une chaîne, ouvre directement sur le quai." },
       { again: true, when: "day", text: "Tu retrouves le quai des Orfèvres, la Monnaie et ses gardes, la Maison de l'Essai et son crêpe noir au heurtoir. Le canal file vers les Tanneurs." },
       { when: "night", text: "Le soir est tombé sur le quai. Une lanterne brûle devant la Monnaie, où veille un garde. À la Maison de l'Essai, les volets sont clos ; un filet de lumière passe sous ceux de l'étage." },
@@ -50,7 +50,7 @@ module.exports.passages = {
       { first: true, text: "Les Tanneurs vivent au bord du canal, entre l'écluse et le pont des Lavandières. L'eau y est trouble, et l'air sent la chaux et l'écorce de chêne qu'on fait macérer dans les cuves. Des peaux sèchent sur des perches, au-dessus des têtes. Sur les marches qui descendent au canal, les lavandières battent le linge à genoux." },
       { first: true, text: "Au coin de la rue des Cuves pend une enseigne en fer découpé, qui figure une lanterne à volet fermé : c'est la Lanterne Sourde, où l'essayeur, la veille de la fête, a giflé un batelier devant tout le monde." },
       { again: true, when: "day", text: "Tu retrouves l'odeur de chaux, les peaux sur les perches, le battoir des lavandières ; l'écluse en bas, le pont des Lavandières en haut, et la Lanterne Sourde au coin de la rue des Cuves." },
-      { when: "night", text: "La nuit, les Tanneurs sont noirs, sauf la Lanterne Sourde, où l'on chante, et la maison de l'éclusier, où brûle une chandelle. On entend l'eau passer sous les portes de l'écluse." },
+      { when: "night", text: "La nuit, les Tanneurs sont noirs, sauf la Lanterne Sourde, où l'on chante, et la maison de l'éclusier, où brûle une chandelle. Entre deux refrains, on entend l'eau passer sous les portes de l'écluse, avec un bruit de gorge." },
       { if: { all: [{ day: { min: 1, max: 1 } }, { not: { night: true } }] }, text: "Le ciel se couvre lentement du côté de l'aval. Les lavandières regardent en l'air, puis rentrent le linge des perches les plus hautes." },
       DAY3,
     ],
@@ -60,7 +60,7 @@ module.exports.passages = {
 
   H_haute: { act: "II", title: "La Haute-Ville", place: "haute", hub: true,
     text: [
-      { first: true, text: "On monte à la Haute-Ville par cent douze marches, ou par une rampe pour les voitures qui fait trois fois le tour de la colline. En haut, l'air est plus froid et plus propre. Sur une place pavée s'élèvent l'Échevinage, avec ses arcades, sa grande horloge et sa cloche ; à gauche, la tour du Guet, carrée, percée de fenêtres comme des meurtrières ; à droite, derrière un mur, la cour de l'Hôtel-Dieu, où l'on soigne les pauvres et où l'on garde les morts." },
+      { first: true, text: "On monte à la Haute-Ville par cent douze marches, ou par une rampe pour les voitures qui fait trois fois le tour de la colline : les pauvres y arrivent essoufflés, les riches en retard, et les échevins y gagnent d'être rarement dérangés. En haut, l'air est plus froid et plus propre. Sur une place pavée s'élèvent l'Échevinage, avec ses arcades, sa grande horloge et sa cloche ; à gauche, la tour du Guet, carrée, percée de fenêtres comme des meurtrières ; à droite, derrière un mur, la cour de l'Hôtel-Dieu, où l'on soigne les pauvres et où l'on garde les morts." },
       { again: true, when: "day", text: "Tu retrouves la place de la Haute-Ville : les arcades de l'Échevinage, la tour du Guet, la cour de l'Hôtel-Dieu. L'horloge marque les heures, et la cloche les dit." },
       { when: "night", text: "La nuit, la place est vide. L'horloge de l'Échevinage brille d'une lanterne intérieure, et les hôtels des grandes familles ont leurs fenêtres éclairées derrière des rideaux." },
       { if: { all: [{ day: { min: 2, max: 2 } }, { not: { night: true } }] }, fresh: "m_corps_main", text: "À l'Hôtel-Dieu, deux hommes chargent une bière sur une charrette tendue de noir : on enterre l'essayeur à trois heures." },
@@ -345,7 +345,7 @@ module.exports.passages = {
   P_malestroit: { act: "II", title: "Le maître de la Monnaie", backName: "Malestroit", montrer: "malestroit", back: true,
     fx: { meet: "malestroit", clue: "r_malestroit_dit" },
     text: [
-      { if: { place: "orfevres" }, text: "On te fait attendre une heure dans un vestibule de pierre nue, entre deux gardes qui regardent droit devant eux. Puis on t'introduit dans un bureau aux murs couverts de registres, où un homme d'une cinquantaine d'années signe des papiers à la chaîne." },
+      { if: { place: "orfevres" }, text: "On te fait attendre une heure dans un vestibule de pierre nue, entre deux gardes qui regardent droit devant eux, avec l'application de gens payés pour ne rien voir. Puis on t'introduit dans un bureau aux murs couverts de registres, où un homme d'une cinquantaine d'années signe des papiers à la chaîne." },
       { if: { place: "haute" }, text: "À l'Échevinage, tu attrapes Malestroit entre deux portes, dans une galerie où des clercs courent avec des liasses. Il s'arrête, parce qu'il y a du monde et qu'un homme qui veut être réélu évite de bousculer les gens en public." },
       { first: true, text: "Évrard Malestroit a des cheveux noirs, sans doute teints, une moustache impeccable, un visage carré rasé de frais, et la voix basse d'un homme obéi depuis vingt ans." },
       { regard: { malestroit: "hostile" }, text: "« Vous, dit-il. Je vous ai déjà dit de sortir. Je ne le dirai pas une troisième fois : la prochaine fois, ce seront mes gens. »" },

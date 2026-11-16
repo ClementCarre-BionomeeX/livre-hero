@@ -243,7 +243,7 @@
  "version": 1,
  "start": "A_reveil",
  "intro": [
-  "Orbeval tient sur l'Aune par onze ponts. Le plus beau, celui des Changeurs, porte des maisons à trois étages et des boutiques qui s'ouvrent sur l'eau. Le plus pauvre, celui des Lavandières, est une simple passerelle de planches au-dessus du canal des Tanneurs.",
+  "Orbeval tient sur l'Aune par onze ponts, et sur le reste du monde par sa monnaie. Le plus beau, celui des Changeurs, porte des maisons à trois étages et des boutiques qui s'ouvrent sur l'eau. Le plus pauvre, celui des Lavandières, est une simple passerelle de planches au-dessus du canal des Tanneurs.",
   "Hier soir, c'était la Fête des Lanternes. Toute la ville a mis à l'eau des milliers de petites barques de papier, chacune avec sa chandelle, et le fleuve est descendu vers la mer en brûlant jusqu'à minuit. Tu as regardé le spectacle depuis la fenêtre de ton auberge, un pot de vin chaud à la main. Tu t'es couché{e} tard."
  ],
  "acts": [
@@ -1988,7 +1988,7 @@
    "place": "pont",
    "text": [
     "On frappe à ta porte comme on frappe chez un médecin : vite, fort, et sans s'arrêter.",
-    "Le jour se lève à peine. Par la fenêtre, tu vois l'Aune rouler une eau grise et lente, encombrée des débris de la nuit : des carcasses de petites barques en papier, des chandelles mortes, des rubans. Sur le Pont des Changeurs, les boutiquiers lèvent leurs volets un à un, en bâillant. Les cloches de la Haute-Ville sonnent sept heures.",
+    "Le jour se lève à peine. Par la fenêtre, tu vois l'Aune rouler une eau grise et lente, encombrée des débris de la nuit : des carcasses de petites barques en papier, des chandelles mortes, des rubans ; une fête, vue le lendemain, ressemble toujours un peu à un naufrage. Sur le Pont des Changeurs, les boutiquiers lèvent leurs volets un à un, en bâillant. Les cloches de la Haute-Ville sonnent sept heures.",
     "Tu as la bouche pâteuse du vin chaud d'hier, et ta chemise attend sur le dossier de la chaise, là où tu l'as jetée. On frappe encore.",
     "« S'il vous plaît, dit une voix de femme derrière la porte. S'il vous plaît. On m'a dit que c'était ici. »"
    ],
@@ -2137,7 +2137,7 @@
     ]
    },
    "text": [
-    "Le Pont des Changeurs est une rue posée sur l'eau. Les maisons y ont trois étages, les boutiques s'ouvrent des deux côtés, et l'on aperçoit le fleuve seulement par les fentes entre elles. Ce matin, il y a du monde : on parle bas, par petits groupes, et chaque groupe regarde le même endroit.",
+    "Le Pont des Changeurs est une rue posée sur l'eau. Les maisons y ont trois étages, les boutiques s'ouvrent des deux côtés, et l'on aperçoit le fleuve seulement par les fentes entre elles : Orbeval a trop d'affaires sur ce pont pour y perdre de la place à regarder couler l'Aune. Ce matin, il y a du monde : on parle bas, par petits groupes, et chaque groupe regarde le même endroit.",
     "C'est un comptoir de changeuse, au milieu du pont : une plaque de marbre, une balance de cuivre sous un globe de verre, des piles de pièces de tous les pays rangées dans des godets. Derrière, une vieille femme à lunettes, le dos très droit, fait sonner des écus un par un sur le marbre et les range sans lever la tête. On te dit son nom à voix basse, comme s'il pouvait la déranger : Dame Isaline Veillon. C'est à elle que le garçon a voulu vendre la bague.",
     "« Elle l'a reconnue tout de suite, dit un apprenti boulanger, avec son panier de pains sur la tête. Elle a fermé le globe de la balance dessus, elle a dit au garçon d'attendre, et elle a sifflé le guet. Il n'a même pas couru. »",
     "Au bout du pont, le quai descend vers les Tanneurs, et l'odeur change en cent pas : le pain, la cire et la poussière d'argent cèdent la place à l'eau croupie, au cuir mouillé et à la chaux."
@@ -2160,7 +2160,7 @@
     ]
    },
    "text": [
-    "L'écluse des Tanneurs est un bassin de pierre noire long comme une église, fermé à chaque bout par deux grandes portes de chêne bardées de fer. L'eau y dort, verte et lisse. En amont, le canal arrive des Orfèvres ; en aval, il descend vers l'Aune et le port. Autour du bassin, tu relèves une maisonnette d'éclusier, des perches, des chaînes et un treuil.",
+    "L'écluse des Tanneurs est un bassin de pierre noire long comme une église, fermé à chaque bout par deux grandes portes de chêne bardées de fer. L'eau y dort, verte et lisse, d'un sommeil si épais que les murs s'y reflètent sans trembler ; à la regarder, on lui prête la patience des choses qui ont tout leur temps. En amont, le canal arrive des Orfèvres ; en aval, il descend vers l'Aune et le port. Autour du bassin, tu relèves une maisonnette d'éclusier, des perches, des chaînes et un treuil.",
     "Une trentaine de personnes regardent les portes d'aval, comme si le mort allait y revenir. Un vieil homme à barbe blanche, le pantalon trempé jusqu'aux cuisses, les tient à distance avec sa perche et une patience usée : c'est l'éclusier, qu'on appelle Barthe.",
     "Au bord du bassin, une femme en manteau de cuir du guet prend des notes sur une tablette de cire, le pied posé sur une borne. Elle a des cheveux roux coupés court, une vieille cicatrice qui lui tire le coin de la bouche, et l'air de quelqu'un qui veille depuis la veille de la fête. C'est la sergente Hallard.",
     {
@@ -2263,7 +2263,7 @@
    "text": [
     {
      "first": true,
-     "text": "Le Pont des Changeurs, en plein jour, est la rue la plus riche d'Orbeval : on y pèse, on y compte, et l'on y parle toutes les langues du fleuve. À sa tête, côté Haute-Ville, grince au vent l'enseigne du Pot d'Étain, où tu dors."
+     "text": "Le Pont des Changeurs, en plein jour, est la rue la plus riche d'Orbeval : on y pèse, on y compte, et l'on y parle toutes les langues du fleuve, l'argent se chargeant de la traduction. À sa tête, côté Haute-Ville, grince au vent l'enseigne du Pot d'Étain, où tu dors."
     },
     {
      "again": true,
@@ -2326,7 +2326,7 @@
    "text": [
     {
      "first": true,
-     "text": "Le quai des Orfèvres longe un canal étroit, aux eaux sombres et propres, qui descend vers les Tanneurs. Les maisons y sont de pierre blanche, avec des portes cloutées et des marches qui descendent jusqu'à l'eau. D'un côté de la place se dresse la Monnaie, un bâtiment carré, aveugle au rez-de-chaussée, avec deux gardes en livrée à la porte. En face, plus petite et plus vieille, se tient la Maison de l'Essai, où vivait et travaillait l'essayeur-juré."
+     "text": "Le quai des Orfèvres longe un canal étroit, aux eaux sombres et propres, qui descend vers les Tanneurs. Les maisons y sont de pierre blanche, avec des portes cloutées et des marches qui descendent jusqu'à l'eau. D'un côté de la place se dresse la Monnaie, un bâtiment carré, aveugle au rez-de-chaussée, comme il convient à une maison où l'on fabrique la confiance publique, avec deux gardes en livrée à la porte. En face, plus petite et plus vieille, se tient la Maison de l'Essai, où vivait et travaillait l'essayeur-juré."
     },
     {
      "first": true,
@@ -2435,7 +2435,7 @@
     },
     {
      "when": "night",
-     "text": "La nuit, les Tanneurs sont noirs, sauf la Lanterne Sourde, où l'on chante, et la maison de l'éclusier, où brûle une chandelle. On entend l'eau passer sous les portes de l'écluse."
+     "text": "La nuit, les Tanneurs sont noirs, sauf la Lanterne Sourde, où l'on chante, et la maison de l'éclusier, où brûle une chandelle. Entre deux refrains, on entend l'eau passer sous les portes de l'écluse, avec un bruit de gorge."
     },
     {
      "if": {
@@ -2496,7 +2496,7 @@
    "text": [
     {
      "first": true,
-     "text": "On monte à la Haute-Ville par cent douze marches, ou par une rampe pour les voitures qui fait trois fois le tour de la colline. En haut, l'air est plus froid et plus propre. Sur une place pavée s'élèvent l'Échevinage, avec ses arcades, sa grande horloge et sa cloche ; à gauche, la tour du Guet, carrée, percée de fenêtres comme des meurtrières ; à droite, derrière un mur, la cour de l'Hôtel-Dieu, où l'on soigne les pauvres et où l'on garde les morts."
+     "text": "On monte à la Haute-Ville par cent douze marches, ou par une rampe pour les voitures qui fait trois fois le tour de la colline : les pauvres y arrivent essoufflés, les riches en retard, et les échevins y gagnent d'être rarement dérangés. En haut, l'air est plus froid et plus propre. Sur une place pavée s'élèvent l'Échevinage, avec ses arcades, sa grande horloge et sa cloche ; à gauche, la tour du Guet, carrée, percée de fenêtres comme des meurtrières ; à droite, derrière un mur, la cour de l'Hôtel-Dieu, où l'on soigne les pauvres et où l'on garde les morts."
     },
     {
      "again": true,
@@ -3474,7 +3474,7 @@
      "if": {
       "place": "orfevres"
      },
-     "text": "On te fait attendre une heure dans un vestibule de pierre nue, entre deux gardes qui regardent droit devant eux. Puis on t'introduit dans un bureau aux murs couverts de registres, où un homme d'une cinquantaine d'années signe des papiers à la chaîne."
+     "text": "On te fait attendre une heure dans un vestibule de pierre nue, entre deux gardes qui regardent droit devant eux, avec l'application de gens payés pour ne rien voir. Puis on t'introduit dans un bureau aux murs couverts de registres, où un homme d'une cinquantaine d'années signe des papiers à la chaîne."
     },
     {
      "if": {
@@ -4518,7 +4518,7 @@
     "meet": "ermeline"
    },
    "text": [
-    "La salle des morts de l'Hôtel-Dieu est une cave voûtée et fraîche, qui sent le vinaigre et la chaux vive. Sœur Ermeline, une petite femme sèche aux manches retroussées, lit le jeton de la sergente, hoche la tête et soulève le drap.",
+    "La salle des morts de l'Hôtel-Dieu est une cave voûtée et fraîche, qui sent le vinaigre et la chaux vive, et où le jour descend d'un soupirail comme à regret. Sœur Ermeline, une petite femme sèche aux manches retroussées, lit le jeton de la sergente, hoche la tête et soulève le drap.",
     "Tu as déjà vu des morts. Celui-là, tu le regardes vite, puis plus lentement. Le visage n'existe plus : les portes de l'écluse l'ont battu toute la nuit. Les cheveux sont châtains, mouillés encore, collés. Le corps est grand, maigre, plus maigre que tu ne l'aurais cru sous une robe d'essayeur.",
     "Ce sont les mains que tu regardes le plus longtemps. Les ongles sont rongés jusqu'à la chair, à chaque doigt. Et le petit doigt de la main droite est tordu, en dehors, avec une bosse à la deuxième phalange : un os cassé autrefois, et mal ressoudé.",
     {
