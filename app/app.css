@@ -976,3 +976,32 @@ button.pp.pp-face-btn { border-bottom: 0; display: inline-flex; align-items: cen
 .card.rar-rare .card-foot, .card.rar-legende .card-foot { color: var(--gold); font-weight: 600; }
 .card-why { font-size: 0.8em; color: var(--ink); background: var(--paper-2); border-radius: 6px; padding: 3px 6px; }
 @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover:not(:disabled) { transform: none; } }
+
+/* Statistiques de lecture (9.9) */
+.stats .stats-who { margin-top: 14px; }
+.stats .stats-who .avatar { width: 20px; height: 20px; font-size: 11px; }
+.stats .bilan { grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); }
+.stats .bilan dd { font-size: 17px; overflow-wrap: anywhere; }
+.stat-bars { display: flex; gap: 6px; align-items: flex-end; height: 130px; max-width: 40rem; overflow-x: auto; }
+.sb { display: flex; flex-direction: column; justify-content: flex-end; height: 100%; text-align: center; min-width: 2.4rem; max-width: 4rem; flex: 1 0 2.4rem; }
+.sb-bar { display: block; background: var(--accent); border-radius: 4px 4px 0 0; min-height: 2px; }
+.sb-n { font-size: 11px; font-variant-numeric: tabular-nums; }
+.sb-d { font-size: 10.5px; color: var(--muted); white-space: nowrap; }
+.stat-rows { display: grid; gap: 6px; max-width: 40rem; }
+.sr { display: grid; grid-template-columns: minmax(6rem, 12rem) 1fr auto; gap: 10px; align-items: center; font-size: 14px; }
+.sr-l { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sr-bar { height: 10px; background: var(--line); border-radius: 5px; overflow: hidden; }
+.sr-bar span { display: block; height: 100%; background: var(--accent); border-radius: 5px; }
+.sr-n { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 13px; white-space: nowrap; }
+.run-card { border: 1px solid var(--line); border-radius: 12px; background: var(--paper); margin-top: 10px; }
+.run-card .run-sheet { padding: 0 16px 16px; }
+.run-card h3 { margin: 10px 0 4px; font-size: 15px; }
+.tl-strip { display: flex; align-items: flex-end; gap: 2px; height: 44px; margin: 6px 0 10px; border-bottom: 1px solid var(--line); }
+.tl-day { flex: 1 1 0; min-width: 2px; max-width: 14px; height: 2px; background: var(--line); border-radius: 2px 2px 0 0; }
+.tl-day.on { background: var(--accent); }
+.tl-list { list-style: none; padding: 0 0 0 14px; margin: 0; border-left: 2px solid var(--line); display: grid; gap: 8px; }
+.tl-list li { position: relative; }
+.tl-list li::before { content: ""; position: absolute; left: -20px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+.tl-list li.end::before { background: var(--ink); }
+.stats-book { max-width: 100%; }
+@media (max-width: 520px) { .sr { grid-template-columns: minmax(5rem, 8rem) 1fr auto; font-size: 13px; } }
