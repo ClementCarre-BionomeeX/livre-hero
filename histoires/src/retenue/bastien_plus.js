@@ -40,7 +40,7 @@ module.exports = {
   B_champs: { act: A, title: "Les prés de la Sorge", place: "berge", fx: { time: 0.75 },
     text: [
       "Tu sautes le fossé. Les prés sont gorgés d'eau ; tu enfonces jusqu'aux chevilles à chaque pas. Derrière toi, la lanterne s'arrête sur la route, balaie le pré, passe sur toi sans te voir, et repart.",
-      "Tu rejoins la berge de la Sorge et tu la remontes dans le noir, à tâtons, en te tenant aux saules. Tu as perdu un soulier. La clé, tu la tiens toujours.",
+      "Tu rejoins la berge de la Sorge et tu la remontes dans le noir, à tâtons, en te tenant aux saules ; la rivière coule tout près, grosse, sans une lueur, et tu la devines seulement au froid qu'elle te souffle sur les jambes. Tu as perdu un soulier. La clé, tu la tiens toujours.",
     ],
     choices: [{ label: "Remonter jusqu'à la digue", to: "B_route_fin", via: "pres" }] },
   B_rattrape_nuit: { act: A, title: "La longe", place: "berge", fx: { drop: "cle_vannes", time: 1 },

@@ -4,10 +4,10 @@ var A = "I";
 module.exports = {
   M_boutique: { act: A, title: "L'apothicairerie", place: "foulons", skip: { to: "M_rue", label: "Tu connais la suite : prendre le paquet et partir", fx: { item: "paquet", time: 0.25 } },
     text: [
-      "La boutique d'Ilde Saunier sent la camomille, le soufre et la cire chaude. Trois bocaux de sangsues dorment sur le comptoir, et une balance de cuivre attend, plateaux vides, à côté du registre. Derrière, Ilde ferme un tiroir à clé, puis un deuxième, puis elle revient vers toi avec un paquet dans les bras, comme on porte un enfant malade.",
+      "La boutique d'Ilde Saunier sent la camomille, le soufre et la cire chaude. Trois bocaux de sangsues dorment sur le comptoir, repues et sans remords, en créancières qu'on vient de payer ; une balance de cuivre attend, plateaux vides, à côté du registre. Derrière, Ilde ferme un tiroir à clé, puis un deuxième, puis elle revient vers toi avec un paquet dans les bras, comme on porte un enfant malade.",
       "C'est une toile cirée ficelée en croix, longue comme ton avant-bras. Elle te la pose dans les mains. Tes genoux plient d'eux-mêmes : le paquet pèse autant qu'une barre de fer, quatre ou cinq livres au jugé, pour un volume de lettre.",
-      "« Pour Jacquette, à la cabane des Loutres, au pied de la digue, dit Ilde. Avant minuit. À elle, et à personne d'autre. » Elle pose un écu d'argent sur le comptoir. Une course de nuit se paie quatre sous. L'écu en vaut vingt. Tu fais le compte, et le compte ne te plaît pas.",
-      "Ilde regarde la fenêtre. De l'autre côté de la rue, sur le seuil de la teinturerie, une pipe rougeoie dans le noir, s'éteint, rougeoie.",
+      "« Pour Jacquette, à la cabane des Loutres, au pied de la digue, dit Ilde. Avant minuit. À elle, et à personne d'autre. » Elle pose un écu d'argent sur le comptoir. Une course de nuit se paie quatre sous. L'écu en vaut vingt. Tu fais le compte, et le compte ne te plaît pas : quand une course se paie cinq fois son prix, c'est que le porteur fait partie de la marchandise.",
+      "Ilde regarde la fenêtre. De l'autre côté de la rue, sur le seuil de la teinturerie, une pipe rougeoie dans le noir, s'éteint, rougeoie, avec la patience d'un œil.",
     ],
     choices: [
       { label: "Prendre le paquet et l'écu, et partir", to: "M_rue", fx: { item: "paquet", time: 0.25 } },
@@ -35,7 +35,7 @@ module.exports = {
 
   M_rue: { act: A, title: "La rue des Teinturiers", place: "foulons",
     text: [
-      { first: true, text: "Dehors, le vent t'arrache la porte des mains. La rue des Teinturiers descend vers la Sorge entre les cuves couvertes de planches. L'eau des teintures coule dans la rigole du milieu, bleue le jour, noire la nuit." },
+      { first: true, text: "Dehors, le vent t'arrache la porte des mains. La rue des Teinturiers descend vers la Sorge entre les cuves couvertes de planches ; chaque cuve a son odeur et son clapotis, et l'on croirait longer, dans le noir, une étable de grosses bêtes qui ruminent. L'eau des teintures coule dans la rigole du milieu, bleue le jour, noire la nuit." },
       { first: true, text: "Sur le seuil d'en face, Fulbert Cosson fume sa pipe. Il te salue de la tête. Ses mains, posées sur ses genoux, sont bleues jusqu'aux poignets, comme toujours : trente ans d'indigo ont teint la peau plus sûrement que la laine. Il regarde le paquet." },
       { again: true, text: "Tu es de retour en bas de la rue des Teinturiers. La pipe de Fulbert rougeoie toujours sur son seuil." },
       { if: { has: "pont:refoulee" }, text: "Là-haut, sur le pont, la lanterne du guet est restée à sa place." },
@@ -87,8 +87,8 @@ module.exports = {
   // ------------------------------------------------------------------ the bridge
   M_moulins: { act: A, title: "Le pont des Moulins", place: "pont",
     text: [
-      "Le pont des Moulins dort sur ses trois arches. En dessous, la Sorge cogne contre les piles. Elle a gagné une main depuis la semaine dernière : la marque verte des basses eaux a disparu sous le courant. Au milieu du pont, une lanterne pend à une hallebarde plantée entre deux pavés.",
-      "Trois hommes du guet. Deux jeunes, qui se frottent les mains. Et un sergent large d'épaules, à la moustache grise, qui lève la lanterne à hauteur de ton visage.",
+      "Le pont des Moulins dort sur ses trois arches. En dessous, la Sorge cogne contre les piles, avec l'obstination d'un visiteur sûr qu'on finira par lui ouvrir. Elle a gagné une main depuis la semaine dernière : la marque verte des basses eaux a disparu sous le courant. Au milieu du pont, une lanterne pend à une hallebarde plantée entre deux pavés.",
+      "Trois hommes du guet. Deux jeunes, qui se frottent les mains et regrettent leur lit avec une sincérité visible. Et un sergent large d'épaules, à la moustache grise, qui lève la lanterne à hauteur de ton visage.",
       "« Halte. Où vas-tu, à cette heure, avec ça sous le bras ? »",
       { via: "denonce", text: "Tu tends la lettre ouverte avant qu'il ait fini sa phrase. Le sergent la lit à la lanterne. Ses sourcils montent, redescendent. Il replie la feuille avec soin." },
       { via: "vendre", text: "Tu as ta phrase prête depuis la rue des Teinturiers." },
@@ -106,7 +106,7 @@ module.exports = {
   M_pont_tante: { act: A, title: "La tante de la rue des Cordiers", place: "pont",
     text: [
       "« Ma tante est malade. Rue des Cordiers, derrière Saint-Rieul. C'est son remède. »",
-      "Le sergent hoche la tête, comme s'il te croyait. Il te croit sans doute à moitié. Puis il tend la main.",
+      "Le sergent hoche la tête, comme s'il te croyait. Il te croit sans doute à moitié, ce qui, de la part du guet, est déjà de la crédulité. Puis il tend la main.",
       "« Un remède qui pèse ce poids-là, je veux le voir. Ordre du capitaine : rien ne passe ce pont cette nuit sans que je l'aie regardé. »",
       "Derrière lui, les deux jeunes se sont rapprochés.",
     ],
@@ -153,7 +153,7 @@ module.exports = {
     text: [
       "Après le lavoir, les pavés s'arrêtent. Le sentier des pêcheurs file entre les saules, à deux pas de l'eau : une bande de terre noire qui colle aux semelles et pèse une livre de plus à chaque pas.",
       "La Sorge est haute. Elle charrie des branches, des paquets d'herbe, une planche de clôture. Elle fait un bruit continu de foule qui parle à voix basse.",
-      "Derrière toi, les dernières fenêtres des Foulons s'éteignent une à une. Devant toi, le vent dans les saules, et tout au bout de la vallée, si haut qu'on dirait une étoile, la petite lumière de la Maison des Vannes.",
+      "Derrière toi, les dernières fenêtres des Foulons s'éteignent une à une. Devant toi, le vent dans les saules, dont chaque tronc, à dix pas, prend la carrure d'un homme qui attend ; et tout au bout de la vallée, si haut qu'on dirait une étoile, la petite lumière de la Maison des Vannes.",
     ],
     choices: [{ label: "Avancer", to: "M_aulnes_tannerie", fx: { time: 0.5 } }] },
   M_aulnes_gue: { act: A, title: "Le déversoir des tanneries", place: "berge",
@@ -190,7 +190,7 @@ module.exports = {
   M_aulnes_fulbert: { act: A, title: "Les mains bleues", place: "berge",
     text: [
       "Tu l'attends derrière le gros saule du tournant. Quand la lanterne arrive à ta hauteur, tu sors du noir.",
-      "Fulbert Cosson pousse un cri de femme et manque de lâcher sa lanterne. Il est en sueur, crotté jusqu'aux genoux.",
+      "Fulbert Cosson pousse un cri de fausset et manque de lâcher sa lanterne. Il est en sueur, crotté jusqu'aux genoux.",
       "« Je prends l'air, dit-il. J'ai bien le droit de prendre l'air. »",
       "« À onze heures du soir, sur la berge des Aulnes, avec ta lanterne ? »",
       "Il reste muet. Il regarde le paquet que tu tiens derrière ton dos, puis il crache par terre et repart vers les Foulons, le dos raide.",
@@ -198,7 +198,7 @@ module.exports = {
     choices: [{ label: "Repartir vers la digue", to: "M_aulnes_croix", fx: { time: 0.25 } }] },
   M_cabane_tard: { act: A, title: "La cabane des Loutres", place: "berge", fx: { item: "mot_jacquette", learn: "pierre_bleue" },
     text: [
-      "La digue sort de la nuit d'un coup : un mur de pierre qui monte plus haut que le clocher de Saint-Rieul et se perd dans le noir. Tu lèves la tête et tu cesses de compter les assises de pierre au-delà de la trentième. Au pied du mur, l'eau de fuite coule dans un canal de pierre avec un bruit de grosse respiration.",
+      "La digue sort de la nuit d'un coup : un mur de pierre qui monte plus haut que le clocher de Saint-Rieul et se perd dans le noir. Tu lèves la tête et tu cesses de compter les assises de pierre au-delà de la trentième ; derrière elles, tu le sens à une sorte de froid, tout un lac s'appuie. Au pied du mur, l'eau de fuite coule dans un canal de pierre avec un bruit de grosse respiration.",
       "La cabane des Loutres est là, entre le canal et les roseaux : des planches goudronnées, un toit de tôle, un ponton. Le ponton est vide de barque, la fenêtre est noire.",
       "Sur la porte, quelqu'un a écrit à la craie, sur une planche clouée :",
       "*Partie au-devant. Laisse ce que tu portes sous la pierre bleue.*",
@@ -237,9 +237,9 @@ module.exports = {
   // ------------------------------------------------------------------ the first two endings
   M_pont_nuit: { act: A, title: "Le poste", place: "hauteville", fx: { time: 3 },
     text: [
-      "Le poste du guet est au pied de la tour, dans la Haute-Ville : une salle voûtée, un poêle, un banc, et derrière une grille, une cellule qui sent la paille mouillée. Le jeune garde t'y enferme et va s'asseoir près du poêle, le dos tourné, comme s'il avait honte.",
-      "Vers minuit, la porte s'ouvre. Un homme bien nourri entre, en manteau de capitaine, les bottes cirées. Il prend le paquet sur la table, le soupèse, sourit. Derrière lui attend un valet en livrée verte, une couronne brodée sur la poitrine. Le capitaine lui tend le paquet. Le valet s'en va avec.",
-      "Le capitaine passe devant ta grille, les yeux ailleurs.",
+      "Le poste du guet est au pied de la tour, dans la Haute-Ville : une salle voûtée, un poêle, un banc, et derrière une grille, une cellule qui sent la paille mouillée. Le jeune garde t'y enferme et va s'asseoir près du poêle, face au mur, comme s'il avait honte.",
+      "Vers minuit, la porte s'ouvre. Un homme bien nourri entre, en manteau de capitaine, les bottes cirées ; à minuit, par ce temps, des bottes cirées en disent long sur un homme, et sur ceux qui marchent à sa place. Il prend le paquet sur la table, le soupèse, sourit. Derrière lui attend un valet en livrée verte, une couronne brodée sur la poitrine. Le capitaine lui tend le paquet. Le valet s'en va avec.",
+      "Le capitaine passe devant ta grille sans tourner la tête.",
       "Tu dors un peu, assise contre le mur. Le vent te réveille. Puis la pluie, vers quatre heures, une pluie lourde qui crépite sur les tuiles de la tour.",
     ],
     choices: [{ label: "Attendre le jour", to: "M_pont" }] },
@@ -267,7 +267,7 @@ module.exports = {
   M_ponceau: { act: A, title: "Le ponceau des Teinturiers", place: "pont",
     text: [
       "Au bout de la rue des Teinturiers, contre la culée du pont, une grille rouillée ferme une bouche de pierre à hauteur de genou. Elle tient par un seul gond. Tu la soulèves, elle grince à peine, et tu te glisses dessous.",
-      "Le vieil égout des teinturiers est sec. Il sent la vieille garance et le rat. La voûte est si basse que tu avances courbée, le paquet serré contre la poitrine, une main sur la pierre.",
+      "Le vieil égout des teinturiers est sec. Il sent la vieille garance et le rat. La voûte est si basse que tu avances courbée, le paquet serré contre la poitrine, une main sur la pierre ; par moments, quelque chose détale devant toi, que tu aimes mieux entendre que voir.",
       "Au milieu, juste au-dessus de ta tête, tu entends des bottes sur le pont, et la voix grave du sergent : « Elle accouche au printemps, je vous dis. Je serai grand-père. » Un des jeunes rit.",
       "À l'autre bout, la bouche s'ouvre dans les orties, côté Haute-Ville, au pied de la route de la Digue.",
     ],
@@ -289,7 +289,7 @@ module.exports = {
       { via: "chute", text: "À mi-pente, une racine cède. Tu roules jusqu'en bas, le paquet serré contre le ventre, et tu t'arrêtes dans les orties, au bord du canal. Tu fais l'inventaire : deux coudes écorchés, une joue piquée, le paquet entier. Tu restes un moment couchée à écouter. En haut, le cavalier n'a pas bougé." },
       "Il n'est pas onze heures. La cabane des Loutres est fermée, le ponton vide. Sur la porte, rien que les traces de vieilles craies que la pluie a mangées.",
       "Devant la porte, une pierre plate peinte en bleu, de la taille d'une main.",
-      "Le lac est de l'autre côté de la digue. D'ici, on l'entend sans le voir : un clapotis énorme et lent, très haut, au-dessus de ta tête.",
+      "Le lac est de l'autre côté de la digue. D'ici, on l'entend sans le voir : un clapotis énorme et lent, très haut, au-dessus de ta tête, là où l'eau n'a aucun droit de se trouver.",
     ],
     choices: [
       { label: "T'asseoir sur le ponton et attendre", to: "M_jacquette", via: "attente", fx: { time: 0.75 } },
@@ -316,7 +316,7 @@ module.exports = {
       "Jacquette jette ses sacs de sel dans les roseaux, un par un, sans regarder où ils tombent. Tu montes dans la barque. Elle rame vers le pied de la digue, là où le canal de fuite sort du mur par une arche basse, fermée d'une grille.",
       "Elle a la clé de la grille pendue à son cou, au bout d'un lacet de cuir. « Le vieux me laisse passer par là depuis six ans, dit-elle. Le sel de Brême, sous le nez de l'octroi. Il dit que l'octroi lui a volé sa paie en quarante-neuf. »",
       "Sous l'arche, la barque glisse dans un tunnel de pierre. L'eau est noire et rapide, et l'air résonne comme dans une église. Au bout, un escalier de fer remonte vers une lueur.",
-      "Vous attendez là, dans le ventre de la digue, assises sur les marches de fer, pendant que l'heure passe. Le mur, autour de vous, respire. De temps en temps, quelque part plus bas, une pierre craque.",
+      "Vous attendez là, dans le ventre de la digue, assises sur les marches de fer, pendant que l'heure passe. Le mur, autour de vous, respire. De temps en temps, quelque part plus bas, une pierre craque ; et chaque fois vous cessez de parler, sans vous être donné le mot.",
     ],
     choices: [
       { label: "Monter vers la lueur quand la cloche sonne deux heures", to: "M_chambre_vanne", via: "canal" },
@@ -324,7 +324,7 @@ module.exports = {
     ] },
   M_escalier: { act: A, title: "Les deux cents marches", place: "digue", fx: { time: 0.75 },
     text: [
-      "L'escalier de la digue est taillé dans le parement, sans rampe, chaque marche usée en creux au milieu par soixante ans de bottes. Le vent du lac te plaque contre la pierre. Tu comptes les marches pour garder les yeux loin du vide. À cent quatre-vingt-sept, tu cesses de compter.",
+      "L'escalier de la digue est taillé dans le parement, sans rampe, chaque marche usée en creux au milieu par soixante ans de bottes. Le vent du lac te plaque contre la pierre ; le vide est à ta gauche, à une semelle, et il a une voix, qui est celle de ce vent. Tu comptes les marches pour garder les yeux loin de lui. À cent quatre-vingt-sept, tu cesses de compter.",
       "La Maison des Vannes est une bâtisse basse, couverte d'ardoise, posée au bout de la digue comme une borne. Tu frappes. Un pas traînant, un verrou.",
       "Le vieil homme qui ouvre est grand, maigre, la peau jaune, une couverture sur les épaules. Il sent le laudanum. Il voit le paquet. Il ferme les yeux.",
       "« Ilde, dit-il. Merci, Ilde. »",
@@ -336,7 +336,7 @@ module.exports = {
     text: [
       "La chambre de la vanne de fond est une salle voûtée, ronde, creusée au cœur de la digue. Au milieu, une roue de fer haute comme deux hommes, à douze rayons, posée à plat sur un arbre de fer qui descend dans le sol. Une chaîne grosse comme un bras s'enroule autour de l'arbre. Une serrure de fer fermée d'un verrou bloque la roue.",
       { via: "canal", text: "Le vieil homme descend l'escalier intérieur une marche après l'autre, une main au mur, une lanterne dans l'autre. Il est grand, maigre, la peau jaune. Jacquette va le prendre sous le bras." },
-      { via: "canal", text: "« Il y a deux gardes là-haut, chez moi, dit Anselme Vellard. Le capitaine Rambert me les a envoyés à minuit, pour veiller sur ma santé. Ils boivent mon vin. J'ai mis dans la deuxième bouteille de quoi les faire veiller jusqu'à midi. »" },
+      { via: "canal", text: "« Il y a deux gardes là-haut, chez moi, dit Anselme Vellard. Le capitaine Rambert me les a envoyés à minuit, pour veiller sur ma santé ; elle ne l'avait jamais tant intéressé. Ils boivent mon vin, qui vaut mieux qu'eux. J'ai mis dans la deuxième bouteille de quoi les faire veiller jusqu'à midi. »" },
       "Anselme enfonce la clé dans la serrure. Il lui faut ses deux mains, et elles tremblent. La clé tourne. Le verrou tombe avec un bruit de cloche fêlée.",
       "« Quarante tours, dit-il. Sens de la marche. Et une fois parties, gardez la roue en mouvement jusqu'au bout, ou elle repartira en arrière. »",
     ],
@@ -380,7 +380,7 @@ module.exports = {
     text: [
       "Tu frappes chez les Mallet, en bas de chez toi. Le vieux Mallet ouvre en chemise, une bougie à la main, l'œil mauvais et le bonnet de travers.",
       "« L'eau va monter, dis-tu. Cette nuit. À trois heures. Il faut monter à Saint-Rieul. »",
-      "« L'eau monte à la Toussaint et à la Saint-Jean, dit Mallet. Elle monte jusqu'aux genoux, et elle redescend. Qui t'a dit ça, à toi ? »",
+      "« L'eau monte à la Toussaint et à la Saint-Jean, dit Mallet. Elle monte jusqu'aux genoux, et elle redescend. Elle fait ça depuis avant ta naissance, et elle s'est toujours passée de courrière pour l'annoncer. Qui t'a dit ça, à toi ? »",
       "En face, une fenêtre s'ouvre. Fulbert Cosson se penche, en bonnet de nuit. « C'est la petite Ternier, crie-t-il à la rue. Elle a bu, ou elle a un galant qui lui raconte des histoires. Rentrez vous coucher. »",
       "Les volets se referment un à un.",
     ],
@@ -408,7 +408,7 @@ module.exports = {
     text: [
       "« À la maison Corlay », dis-tu, et tu montres un coin de la toile cirée.",
       "Le sergent te regarde un long moment. Quelque chose passe sur son visage, du dégoût, ou de la fatigue. « Va, dit-il. Tu connais le chemin, j'imagine. »",
-      "La maison Corlay occupe tout un côté de la rue Haute. Il y a de la lumière à toutes les fenêtres du premier étage, des rires, le bruit des couverts. Une femme en robe grise t'ouvre la porte de service avant que tu aies frappé deux fois. Elle a des lunettes rondes et de l'encre au majeur droit.",
+      "La maison Corlay occupe tout un côté de la rue Haute. Il y a de la lumière à toutes les fenêtres du premier étage, des rires, le bruit des couverts ; on soupe de bon appétit chez les gens qui attendent une clé. Une femme en robe grise t'ouvre la porte de service avant que tu aies frappé deux fois. Elle a des lunettes rondes et de l'encre au majeur droit.",
       "« Pernelle Daguet, secrétaire de Monsieur, dit-elle. Montrez. »",
       "Tu écartes la toile. Elle regarde la clé, les deux lettres sur la tige. Ses mains restent croisées devant elle.",
       "« Combien ? »",
