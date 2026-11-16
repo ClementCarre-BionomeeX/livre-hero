@@ -30,7 +30,7 @@ module.exports = {
 
   E_brouillard: { title: "Le brouillard",
     text: [
-      "Le brouillard tombe d'un coup, comme un drap qu'on jette. En vingt coups de rame, la proue disparaît. Les rameurs lèvent les avirons et attendent, immobiles, l'oreille tendue. On entend l'eau, et quelque part, très près, une autre barque qui avance tous feux éteints.",
+      "Le brouillard tombe d'un coup, comme un drap qu'on jette. En vingt coups de rame, la proue disparaît. Les rameurs lèvent les avirons et attendent, immobiles, l'oreille tendue. L'eau qui s'égoutte des pelles compte les secondes ; et quelque part, très près, une autre barque avance tous feux éteints.",
     ],
     choices: [
       { label: "Rester immobile, et laisser passer", test: { dom: "discretion", label: "Discrétion" },

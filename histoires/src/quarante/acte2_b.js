@@ -71,7 +71,7 @@ module.exports = {
   C_sec_theran_nuit: { act: "II", title: "L'armoire à secrets", place: "ambassade",
     fx: { quest: "C_secret", flag: ["secret:repris", "secret:regle", "lettres:brume"], clock: { emprise: 1 }, ep: ["histoire", 3000] },
     text: [
-      "La villa dort. Tu passes par le jardin, entre les orangers, puis par une fenêtre de l'office que Joris a repérée la veille. La bibliothèque sent le thé froid et le cuir. L'armoire à secrets est derrière les in-folio de géographie, là où tout le monde la met.",
+      "La villa dort. Tu passes par le jardin, entre les orangers ; le gravier blanc, qui luit comme de l'os, crie sous chaque pas. Puis tu entres par une fenêtre de l'office que Joris a repérée la veille. La bibliothèque sent le thé froid et le cuir. L'armoire à secrets est derrière les in-folio de géographie, là où tout le monde la met.",
       "Six lettres, nouées d'un ruban. Ton écriture d'il y a douze ans. Tu les prends. Tu laisses le reste.",
       "En ressortant, tu vois sur l'échiquier un billet à ton nom, de la main du comte : *Les copies sont à Castel-Brume. Celles-là sont hors de ma portée. Bonne nuit.*",
     ],
@@ -234,7 +234,7 @@ module.exports = {
     ] },
   C_tessa_nuit: { act: "II", title: "Les torches", place: "loge",
     text: [
-      "La lune se couche derrière les clochers. Le port est noir. Devant les entrepôts de la Loge, une vingtaine d'ombres se glissent le long du quai, des seaux à la main. Une odeur de poix. Puis une première torche s'allume, et dans sa lumière apparaît le visage de Tessa.",
+      "La lune se couche derrière les clochers. Le port est noir ; l'eau et la pierre s'y confondent, et l'on reconnaît le quai au seul bruit du clapot. Devant les entrepôts de la Loge, une vingtaine d'ombres se glissent le long du quai, des seaux à la main. Une odeur de poix. Puis une première torche s'allume, et dans sa lumière apparaît le visage de Tessa.",
       "Tu sors de l'ombre, Joris derrière toi. Les vingt s'arrêtent.",
       "« Vous, dit Tessa. Évidemment. »",
     ],
@@ -304,7 +304,7 @@ module.exports = {
   Q_morts: { act: "II", title: "L'Île des Morts", place: "morts", backName: "l'Île des Morts",
     fx: { ep: ["histoire", 2000] },
     text: [
-      "Le brouillard est tombé sur la lagune, épais, blanc, immobile ; tu perds de vue la proue depuis la poupe. Les rameurs avancent au jugé, de pieu en pieu. L'Île des Morts sort de la brume d'un coup, son mur rose, ses cyprès noirs.",
+      "Le brouillard est tombé sur la lagune, épais, blanc, immobile ; tu perds de vue la proue depuis la poupe. Les rameurs avancent au jugé, de pieu en pieu, et chaque pieu surgit du blanc à une longueur de rame, noir, ruisselant, comme un homme qui attendait là. L'Île des Morts sort de la brume d'un coup, son mur rose, ses cyprès noirs.",
       "La petite barque des cuisines est échouée contre le quai de marbre, mal amarrée, une rame dans l'eau.",
       "Tu montes entre les tombes jusqu'au caveau des Térac. Iselda est assise sur les marches, devant la grille, en chemise de nuit sous un manteau trop grand, les pieds mouillés. Elle tient un placard déchiré sur ses genoux. Elle a les yeux secs, et l'air d'avoir froid depuis longtemps.",
       "Elle lève les yeux vers toi.",

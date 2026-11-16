@@ -151,7 +151,7 @@ module.exports = {
   // ------------------------------------------------------------------ the water gate
   Q_portedeau: { act: "I", title: "La porte d'eau", place: "palais",
     text: [
-      "La porte d'eau est une arche basse sous l'aile est, haute d'une toise à marée haute ; les barques y entrent dans le palais sans passer par la cour d'honneur. On s'en sert pour les livraisons, pour les médecins, et pour les visites qu'on préfère taire.",
+      "La porte d'eau est une arche basse sous l'aile est, haute d'une toise à marée haute ; les barques y entrent dans le palais sans passer par la cour d'honneur. L'eau y est noire en plein midi, la voûte verdit jusqu'à la clef, et chaque coup de rame y éveille un écho lent à mourir. On s'en sert pour les livraisons, pour les médecins, et pour les visites qu'on préfère taire.",
       "Le portier s'appelle Gaspard. Il a soixante ans, une jambe raide, et un registre aux pages blanches : ceux qui passent par la porte d'eau paient pour y rester invisibles.",
     ],
     choices: [

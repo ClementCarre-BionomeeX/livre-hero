@@ -115,7 +115,7 @@ module.exports = {
     choices: [{ label: "Continuer jusqu'à l'Île", to: "Q_fun_ile" }] },
   Q_fun_ile: { act: "I", title: "L'Île des Morts", place: "morts",
     text: [
-      "L'Île des Morts est un enclos de murs roses posé sur la lagune, d'où dépassent des cyprès noirs. On débarque à un quai de marbre usé en creux par quatre siècles de cercueils. Les porteurs prennent le cercueil sur leurs épaules et le montent, à pas comptés, entre les tombes, jusqu'au caveau des Térac : une chapelle basse à moitié enfoncée dans la terre, fermée d'une grille de fer forgé en forme de vagues.",
+      "L'Île des Morts est un enclos de murs roses posé sur la lagune, d'où dépassent des cyprès noirs. On débarque à un quai de marbre usé en creux par quatre siècles de cercueils. Entre les tombes, sous les cyprès, le jour prend la couleur d'une eau profonde, et les voix baissent d'elles-mêmes. Les porteurs prennent le cercueil sur leurs épaules et le montent, à pas comptés, jusqu'au caveau des Térac : une chapelle basse à moitié enfoncée dans la terre, fermée d'une grille de fer forgé en forme de vagues.",
       "On pose le cercueil devant la grille. Mère Ysaure verse sur le couvercle un peu d'eau de la lagune, puisée au bassin du Temple, et dit les paroles des Eaux, que l'assistance reprend à mi-voix.",
       { after: "iselda:lagune", text: "Puis Iselda s'avance seule, avant que quiconque ait pu la retenir. Elle pose sur le couvercle un murex brun et blanc, tout neuf, ramassé au banc à l'aube d'un autre jour, et revient à sa place. Toi seul sais ce que c'est." },
       { after: "iselda:envoi", text: "Iselda reste à sa place. Elle serre quelque chose contre elle, dans son poing fermé." },
@@ -237,7 +237,7 @@ module.exports = {
       win: { fx: { flag: "gris:vaincu", ep: ["seance", 3000] }, to: "Q_nuit_apres" }, lose: { fx: { flag: "gris:fui" }, to: "Q_nuit_blesse" },
       flee: { label: "Te jeter par la fenêtre dans le canal", dom: "discretion", diff: -10, to: "Q_nuit_canal" } },
     text: [
-      "Le cabinet est noir. La porte cède sous ta main ; d'habitude, elle est fermée à clé. Tu entres. La pièce semble vide. Le coffret du Sceau est sur la table, à sa place. La fenêtre sur le Grand Canal est ouverte, et le vent soulève les papiers.",
+      "Le cabinet est noir. La porte cède sous ta main ; d'habitude, elle est fermée à clé. Tu entres. La pièce semble vide. Le coffret du Sceau est sur la table, à sa place. La fenêtre sur le Grand Canal est ouverte ; le vent soulève les papiers un à un, et ce froissement, dans le noir, ressemble à la respiration de quelqu'un qui se retient.",
       "Tu as le temps de te rappeler que la fenêtre était fermée à ton départ. Puis une forme grise se décolle du mur, à côté du poêle ; deux autres ombres entrent derrière toi par la porte et la referment.",
       "L'homme gris garde le silence. Il tient dans la main droite une lame courte et fine, la garde basse, le pied gauche en avant : la posture d'un homme qui a appris l'escrime pour gagner sa vie, et à qui les salles d'armes ont rapporté moins que les ruelles.",
     ] },
