@@ -1586,7 +1586,7 @@
    "text": [
     {
      "first": true,
-     "text": "L'hospice du col des Gélines est un long bâtiment de pierre à deux étages, adossé à la montagne comme un homme qui se protège du vent. Tu en prends la mesure en le parcourant : un couloir unique de soixante pas, des portes de chaque côté, et au bout, la chapelle. Il y fait froid partout, sauf au réfectoire, où brûle le seul grand poêle. La tempête dure : le vent siffle sous les portes, et les fenêtres du nord sont aveuglées de neige jusqu'au linteau."
+     "text": "L'hospice du col des Gélines est un long bâtiment de pierre à deux étages, adossé à la montagne comme un homme qui se protège du vent. Tu en prends la mesure en le parcourant : un couloir unique de soixante pas, des portes de chaque côté, et au bout, la chapelle. Il y fait froid partout, sauf au réfectoire, où brûle le seul grand poêle. La tempête dure : le vent siffle sous les portes, les fenêtres du nord sont aveuglées de neige jusqu'au linteau, et la maison entière craque par moments, d'un bout à l'autre, comme un navire qui travaille."
     },
     {
      "first": true,
@@ -1605,7 +1605,7 @@
        }
       ]
      },
-     "text": "Le premier jour s'étire. La lumière reste la même, un gris uniforme du matin au soir, et seule la cloche de la chapelle dit les heures."
+     "text": "Le premier jour s'étire. La lumière reste la même, un gris uniforme du matin au soir, et seule la cloche de la chapelle dit les heures ; entre deux coups, le temps a l'air de s'être couché dans la neige avec le reste."
     },
     {
      "if": {
@@ -1758,7 +1758,7 @@
    "title": "Le réfectoire",
    "place": "hospice",
    "text": [
-    "Une longue table, des bancs, le grand poêle de faïence verte qui ronfle. On y mange, on y lit, on y attend. Les deux voyageurs bloqués y passent leurs journées : un marchand de dentelles de Lorvanne, qui se plaint, et un homme en noir, la cinquantaine, des lunettes cerclées d'acier, qui lit un livre de médecine en annotant les marges d'une écriture serrée.",
+    "Une longue table, des bancs, le grand poêle de faïence verte qui ronfle. On y mange, on y lit, on y attend. Les deux voyageurs bloqués y passent leurs journées : un marchand de dentelles de Lorvanne, qui se plaint avec la constance d'un homme payé à l'heure, et un homme en noir, la cinquantaine, des lunettes cerclées d'acier, qui lit un livre de médecine en annotant les marges d'une écriture serrée.",
     {
      "if": {
       "not": {
@@ -3048,7 +3048,7 @@
    "title": "La première nuit",
    "place": "hospice",
    "text": [
-    "On souffle les chandelles à huit heures. Le vent redouble. Tu es seul dans l'infirmerie, sur ton lit de fer, et ta main bat au rythme de ton cœur.",
+    "On souffle les chandelles à huit heures. Le vent redouble. Tu es seul dans l'infirmerie, sur ton lit de fer, et ta main bat au rythme de ton cœur. La nuit d'un hospice de montagne est entière : pour toute clarté, à la fenêtre, le gris de la neige qui passe.",
     {
      "if": {
       "seen": "H_seance1"
@@ -4881,7 +4881,7 @@
    "place": "village",
    "backName": "le cabinet du docteur",
    "text": [
-    "Un cabinet clair, propre, qui sent l'éther et la cire. Des bocaux, une bibliothèque, un squelette accroché à une potence, une table d'examen couverte d'un drap blanc, et le fauteuil à haut dossier, le même qu'à l'hospice, ou son frère jumeau.",
+    "Un cabinet clair, propre, qui sent l'éther et la cire. Des bocaux, une bibliothèque, un squelette accroché à une potence, le seul patient du docteur qui se soit laissé examiner jusqu'au bout, une table d'examen couverte d'un drap blanc, et le fauteuil à haut dossier, le même qu'à l'hospice, ou son frère jumeau.",
     {
      "first": true,
      "text": "« Je vous attendais », dit le docteur Corvin. Cette fois, il garde son sourire pour lui. Il a l'air d'un homme qui a un travail à finir. « Les assises sont dans trois jours. Le bailli Dorval est un homme sec. Si vous arrivez devant lui la tête vide, il remplira le vide lui-même. Il vaut mieux que ce soit nous qui le remplissions, vous ne croyez pas ? »"
