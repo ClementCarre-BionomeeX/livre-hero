@@ -75,9 +75,9 @@ module.exports = {
   // ------------------------------------------------------------------ the hospice (hub of act I)
   H_hospice: { act: "I", title: "L'hospice", place: "hospice", hub: true, backName: "le couloir de l'hospice",
     text: [
-      { first: true, text: "L'hospice du col des Gélines est un long bâtiment de pierre à deux étages, adossé à la montagne comme un homme qui se protège du vent. Tu en prends la mesure en le parcourant : un couloir unique de soixante pas, des portes de chaque côté, et au bout, la chapelle. Il y fait froid partout, sauf au réfectoire, où brûle le seul grand poêle. La tempête dure : le vent siffle sous les portes, et les fenêtres du nord sont aveuglées de neige jusqu'au linteau." },
+      { first: true, text: "L'hospice du col des Gélines est un long bâtiment de pierre à deux étages, adossé à la montagne comme un homme qui se protège du vent. Tu en prends la mesure en le parcourant : un couloir unique de soixante pas, des portes de chaque côté, et au bout, la chapelle. Il y fait froid partout, sauf au réfectoire, où brûle le seul grand poêle. La tempête dure : le vent siffle sous les portes, les fenêtres du nord sont aveuglées de neige jusqu'au linteau, et la maison entière craque par moments, d'un bout à l'autre, comme un navire qui travaille." },
       { first: true, text: "Le recensement est vite fait : six religieuses, quatre pensionnaires, deux voyageurs bloqués par la neige, un chien, et toi." },
-      { if: { all: [{ not: { has: "jour:2" } }, { seen: "H_hospice" }] }, text: "Le premier jour s'étire. La lumière reste la même, un gris uniforme du matin au soir, et seule la cloche de la chapelle dit les heures." },
+      { if: { all: [{ not: { has: "jour:2" } }, { seen: "H_hospice" }] }, text: "Le premier jour s'étire. La lumière reste la même, un gris uniforme du matin au soir, et seule la cloche de la chapelle dit les heures ; entre deux coups, le temps a l'air de s'être couché dans la neige avec le reste." },
       { if: { all: [{ has: "jour:2" }, { not: { has: "jour:3" } }] }, text: "Le deuxième jour. Le prévôt est là, et avec lui un homme qui te suit des yeux partout. L'hospice a changé de son : on parle plus bas, les portes se ferment." },
       { if: { has: "jour:3" }, text: "Le troisième jour. Le vent est tombé à l'aube. La lumière, sur la neige fraîche, est si forte qu'elle entre par les fentes des volets comme des lames." },
     ],
@@ -105,7 +105,7 @@ module.exports = {
   // the refectory: the travellers, the first meeting with Corvin
   H_refectoire: { act: "I", title: "Le réfectoire", place: "hospice",
     text: [
-      "Une longue table, des bancs, le grand poêle de faïence verte qui ronfle. On y mange, on y lit, on y attend. Les deux voyageurs bloqués y passent leurs journées : un marchand de dentelles de Lorvanne, qui se plaint, et un homme en noir, la cinquantaine, des lunettes cerclées d'acier, qui lit un livre de médecine en annotant les marges d'une écriture serrée.",
+      "Une longue table, des bancs, le grand poêle de faïence verte qui ronfle. On y mange, on y lit, on y attend. Les deux voyageurs bloqués y passent leurs journées : un marchand de dentelles de Lorvanne, qui se plaint avec la constance d'un homme payé à l'heure, et un homme en noir, la cinquantaine, des lunettes cerclées d'acier, qui lit un livre de médecine en annotant les marges d'une écriture serrée.",
       { if: { not: { seen: "H_corvin_rencontre" } }, text: "L'homme en noir lève les yeux à ton entrée. Il referme son livre en gardant le doigt dedans, et il te sourit, d'un sourire de médecin qui sait déjà de quoi on va lui parler." },
       { if: { has: "jour:2" }, text: "Au bout de la table, le frère du fermier des Combes mange sa soupe les yeux dans l'assiette, sa hache posée sur le banc à côté de lui comme un chien. Les places autour de lui restent vides." },
     ],
@@ -448,7 +448,7 @@ module.exports = {
   // the first night
   H_nuit1: { act: "I", title: "La première nuit", place: "hospice",
     text: [
-      "On souffle les chandelles à huit heures. Le vent redouble. Tu es seul dans l'infirmerie, sur ton lit de fer, et ta main bat au rythme de ton cœur.",
+      "On souffle les chandelles à huit heures. Le vent redouble. Tu es seul dans l'infirmerie, sur ton lit de fer, et ta main bat au rythme de ton cœur. La nuit d'un hospice de montagne est entière : pour toute clarté, à la fenêtre, le gris de la neige qui passe.",
       { if: { seen: "H_seance1" }, text: "Le laudanum du docteur te tient encore. Tu glisses dans le sommeil comme dans une eau tiède, et tu rêves d'une table de bois et d'un homme qui crie. Le rêve recommence, et recommence, chaque fois un peu plus net." },
       { if: { not: { seen: "H_seance1" } }, text: "Tu restes éveillé. Tu écoutes l'hospice : les pas d'une sœur qui fait sa ronde, la toux du vieux Gaudry au bout du couloir, le chien qui gémit en rêvant dans l'étable. Et, vers minuit, des pas légers, nus, sur les dalles, qui s'arrêtent devant ta porte." },
     ],
