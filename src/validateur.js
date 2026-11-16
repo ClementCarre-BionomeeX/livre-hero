@@ -867,11 +867,12 @@
     }
     // 8.5: a reader who holds a lens taps the words that stir on the page (and in the documents in the bag), often.
     // Returns the view when nothing was revealed (the caller reuses it: a view costs much on a long story), else null.
-    function tryVeils(s, chance, rnd) {
+    // sure: the words lifted whatever the chance (a search that knows which words its target asks for).
+    function tryVeils(s, chance, rnd, sure) {
       if (!story.lenses || !P[s.node]) return null;
       var any = false, v0 = M.view(story, s), texts = (v0.marked || v0.text).slice();
       (s.items || []).forEach(function (k) { var it = (story.items || {})[k]; if (it && it.text) texts.push(M.veilMark(story, s, it.text)); });
-      M.veilsIn(texts).forEach(function (x) { if (x.state === "cache" && rnd() < chance && M.reveal(story, s, x.id)) any = true; });
+      M.veilsIn(texts).forEach(function (x) { if (x.state === "cache" && ((sure && sure.indexOf(x.id) >= 0) || rnd() < chance) && M.reveal(story, s, x.id)) any = true; });
       return any ? null : v0;
     }
     // At the accusation, the walk tries every who / why / proof and keeps the one that brings the target nearest.
@@ -932,6 +933,7 @@
     // Why: a rare branch (a failed roll after a rare choice) is missed by random games and was reported as an error
     // although a reader can reach it. What this search cannot reach either is a real fault of the story.
     function reachMissing() {
+      var actIdx = {}; story.acts.forEach(function (a, i) { actIdx[a.id] = i; });
       var rev = {}; ids.forEach(function (id) { edgesOf(id).forEach(function (t) { (rev[t] = rev[t] || []).push(id); }); });
       // A forced success opens the die (98, then 95: an open-ended roll), so that even a hard test can be won.
       var rnd = seededRng(4242), fixed = null, s = null, calls = 0;
@@ -967,18 +969,56 @@
       // is a remark, not an error. "hurt": the walk starts with 1 PV, so that a fight can be lost (fights keep their
       // real dice), as any reader may lose one.
       var MONEY = /"(gold|food)"/;
-      ["plain", "plain", "plain", "rich", "rich", "hurt", "hurt"].some(function (pass, round) {
-        var missing = ids.filter(function (id) { return !seen[id]; });
-        if (!missing.length) return true;
-        var found = 0;
-        missing.forEach(function (target) {
+      // Intent: doorOf(target) -> { shut: [Cond], veils: [VeilId] } — shut: what must still be false for the target to
+      // be offered, the marks (has) and the companions (present) that hide every choice leading to it once they are
+      // there; veils: the hidden words every such choice asks to have lifted.
+      // Why: a page reserved to the reader who never learnt a thing, or never took someone along, is closed for good
+      // long before its door; a walk that only counts steps arrives there with the door shut, or with a lens spent on
+      // other words.
+      function doorOf(target) {
+        var common = null;
+        function leads(to) { return Array.isArray(to) ? to.some(function (x) { return leads(x.to); }) : to === target; }
+        function shut(c) {
+          var out = {};
+          function put(a) { if (a && (typeof a.has === "string" || typeof a.present === "string")) out[JSON.stringify(a)] = a; }
+          function ask(a) { if (a && typeof a.voile === "string") out[JSON.stringify(a)] = a; }
+          if (c.hide) (c.hide.any || [c.hide]).forEach(function (a) { put(a); if (a && a.not) ask(a.not); });
+          if (c.if) (c.if.all || [c.if]).forEach(function (a) { ask(a); if (a && a.not) put(a.not); });
+          [].concat(c.without || []).forEach(function (k) { put({ present: k }); });
+          return out;
+        }
+        ids.forEach(function (id) { (P[id].choices || []).forEach(function (c) {
+          if (!(leads(c.to) || (c.win && leads(c.win.to)) || (c.lose && leads(c.lose.to)))) return;
+          var o = shut(c);
+          if (!common) common = o; else Object.keys(common).forEach(function (k) { if (!o[k]) delete common[k]; });
+        }); });
+        var all = Object.keys(common || {}).map(function (k) { return common[k]; });
+        return { shut: all.filter(function (a) { return !a.voile; }), veils: all.filter(function (a) { return a.voile; }).map(function (a) { return a.voile; }) };
+      }
+      // Whether an effect shuts the door: it sets one of its marks, or brings one of its companions along.
+      function shuts(fx, door) {
+        if (!fx) return false;
+        return [].concat(fx).some(function (x) { return door.some(function (a) { return a.has ? [].concat(x.flag || [], x.flags || []).indexOf(a.has) >= 0 : [].concat(x.join || []).indexOf(a.present) >= 0; }); });
+      }
+      function choiceShuts(c, door, target) {
+        if (c.sys) return false;
+        var to = liveTargetsOf(story, s, c);
+        if (to.indexOf(target) >= 0) return false; // the target itself may shut its own door behind the reader
+        return shuts(c.fx, door) || to.some(function (t) { return P[t] && shuts(P[t].fx, door); });
+      }
+      function open(door) { return !door.some(function (a) { return M.evalCond(story, s, a); }); }
+      // door: null for the plain search; else the walks start only from states where the door is still open, the
+      // furthest in the story first, never take a choice that shuts it while another is offered, stop as soon as it
+      // is shut, walk longer, and keep their lenses for the words the door asks (one walk in two lifts no other).
+      function seek(target, pass, door) {
           if (seen[target]) return;
           var d = distTo(target);
           // Half the walks start from the nearest kept states, half from any earlier one (a flag set two acts before),
           // within a fixed budget; one walk in three wanders more.
           var from = Object.keys(snaps).filter(function (k) { return d[k] != null; }).sort(function (a, b) { return d[a] - d[b]; });
-          var budget = 300, near = [];
-          from.forEach(function (k) { snaps[k].forEach(function (x) { near.push(x); }); });
+          var budget = 300, near = [], steps = door ? 1000 : 300;
+          if (door) from.sort(function (a, b) { return actIdx[P[b].act] - actIdx[P[a].act] || d[a] - d[b]; });
+          from.forEach(function (k) { snaps[k].forEach(function (x) { if (door) { s = JSON.parse(x); if (!open(door.shut)) return; } near.push(x); }); });
           for (var wi = 0; wi < budget && wi < near.length * 4 && !seen[target]; wi++) {
             var wander = wi % 3 === 2 ? 0.4 : 0.15, half = wi >> 1;
             s = JSON.parse(wi % 2 === 0 && half < near.length ? near[half] : near[Math.floor(rnd() * near.length)]);
@@ -986,16 +1026,17 @@
             var extra = s._extra || { gold: 0, food: 0 }, paid = !!s._paid;
             if (pass === "rich" && P[s.node] && !s._extra) { var mx = actMax[P[s.node].act] || {}; extra = { gold: Math.max(0, (mx.gold || 0) - (s.gold || 0)), food: Math.max(0, (mx.food || 0) - (s.food || 0)) }; s.gold = (s.gold || 0) + extra.gold; s.food = (s.food || 0) + extra.food; s._extra = extra; }
             if (pass === "hurt") s.pv = 1;
-            var mark = function (k) { if (seen[k] || !P[k]) return; seen[k] = 1; found++; if (paid) richOnly.push(k); };
-            for (var step = 0; step < 300; step++) {
+            var mark = function (k) { if (seen[k] || !P[k]) return; seen[k] = 1; if (paid) richOnly.push(k); };
+            for (var step = 0; step < steps; step++) {
               var v; fixed = null;
-              try { v = tryVeils(s, [1, 1, 0.5, 0][wi % 4], rnd) || M.view(story, s); } catch (e) { break; } // one walk in four leaves the words untouched, one lifts half of them, as a reader may
+              try { v = tryVeils(s, door ? [0, 0.3][wi % 2] : [1, 1, 0.5, 0][wi % 4], rnd, door && door.veils) || M.view(story, s); } catch (e) { break; } // one walk in four leaves the words untouched, one lifts half of them, as a reader may
               if (P[s.node]) { mark(s.node); keepSnap(s); }
               if (s.seen && s.seen[target]) mark(target); // the whole walk is marked once it ends (below): cheaper
               if (seen[target] || v.kind === "end") { if (v.kind === "end" && P[s.node]) endings[s.node] = (endings[s.node] || 0) + 1; break; }
               if (s.node === "@accuse" && s.acc && s.acc.step === "qui" && rnd() > wander) { var sa = accuseSearch(s, d); if (sa) { s = sa; continue; } }
               tryContra(s, 1, rnd); tryDoubt(s, 1, rnd);
               var cs = v.choices.filter(function (c) { if (c.ok && !c.sys) allowedCount[s.node + " | " + c.label] = 1; return c.ok && !c.restart; });
+              if (door) { if (!open(door.shut)) break; var kept = cs.filter(function (c) { return !choiceShuts(c, door.shut, target); }); if (kept.length) cs = kept; }
               if (!cs.length) break;
               var scored = cs.map(function (c) { return { c: c, sc: score(c, d, s.node) }; });
               var bestD = Math.min.apply(null, scored.map(function (x) { return x.sc.d; }));
@@ -1010,9 +1051,15 @@
             }
             if (s && s.seen) Object.keys(s.seen).forEach(mark);
           }
-        });
+      }
+      ["plain", "plain", "plain", "rich", "rich", "hurt", "hurt"].some(function (pass) {
+        var missing = ids.filter(function (id) { return !seen[id]; });
+        if (!missing.length) return true;
+        missing.forEach(function (target) { seek(target, pass, null); });
         return false;
       });
+      // Last: what is still missing behind a door that shuts (see doorOf) is looked for with that door kept open.
+      ids.filter(function (id) { return !seen[id]; }).forEach(function (target) { var door = doorOf(target); if (door.shut.length) seek(target, "plain", door); });
     }
     // The games read like a reader: on a puzzle, they type the right answer most of the time, a wrong one otherwise.
     // pr: the chance of typing the right answer (a lost game errs more; a targeted search answers as its target needs).
