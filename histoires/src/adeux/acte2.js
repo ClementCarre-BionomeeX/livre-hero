@@ -23,7 +23,7 @@ module.exports = {
   B_montee: { act: "II", title: "La montée", place: "pontgele",
     text: [
       { first: true, text: "Au-dessus de Pont-Gelé, la vallée se resserre. Les peupliers cèdent la place aux mélèzes, les mélèzes s'espacent, et vers dix heures il commence à neiger, une neige fine et sèche qui crisse sous les sabots de Brunette." },
-      { first: true, text: "Au loin, devant, les Dents de Sorgue ferment le ciel : deux pics noirs et entre eux une selle blanche, le col de l'Ourse. Un panache de neige s'envole du col, comme une fumée." },
+      { first: true, text: "Au loin, devant, les Dents de Sorgue ferment le ciel : deux pics noirs et entre eux une selle blanche, le col de l'Ourse. Un panache de neige s'envole du col, comme une fumée ; à cette distance, on dirait que la montagne respire, et qu'elle a tout son temps." },
       { again: true, text: "La neige tombe, fine et sèche. Le col fume au bout de la vallée." },
     ],
     choices: [
@@ -60,7 +60,7 @@ module.exports = {
     ] },
   B_berthe: { act: "II", title: "L'auberge de Berthe", place: "sorgue", fx: { meet: "berthe", clue: "vert_sorgue" },
     text: [
-      { if: PLI, text: "Berthe te fait entrer, t'assied près du feu, et te sert une écuelle de soupe à l'orge avant même ta première question. « Deux lits, je sais. Avec {autre}, je sais aussi. Tout Sorgue le sait depuis que vous avez passé le pont. »" },
+      { if: PLI, text: "Berthe te fait entrer, t'assied près du feu, et te sert une écuelle de soupe à l'orge avant même ta première question. « Deux lits, je sais. Avec {autre}, je sais aussi. Tout Sorgue le sait depuis que vous avez passé le pont. Ici, une nouvelle fait le tour du village avant qu'une mule ait fini de boire. »" },
       { if: PLI, text: "Elle s'assied en face de toi, les bras croisés. « Et vous allez où, comme ça, avec la mule ? » Tu lui dis : le col. Elle ouvre de grands yeux." },
       { if: { all: [PLI, { not: { secret: "g_hiver" } }] }, text: "« Le col ? En cette saison ? Avec {autre} ? » Elle rit, puis son rire tombe. « Je l'ai vu{autre:e} naître. Onze ans de mules, onze étés. Après la Saint-Michel, ceux de Sorgue laissent le col aux morts, et vont les chercher au printemps. »" },
       { if: { all: [PLI, { secret: "g_hiver" }] }, text: "« Le col ? En cette saison ? » Elle te regarde, et elle comprend que tu sais déjà ce qu'elle allait dire. « Alors on vous l'a dit. Tant mieux. »" },
@@ -72,7 +72,7 @@ module.exports = {
     choices: [{ label: "Attendre {autre} pour la soupe du soir", to: "B_veillee" }] },
   B_forge: { act: "II", title: "La forge de Matthieu", place: "sorgue", fx: { flag: "ciel_su" },
     text: [
-      "La forge sent le charbon et la corne brûlée. Le vieux Matthieu est un homme carré aux avant-bras couverts de petites brûlures blanches, qui regarde les bêtes avant de regarder les gens.",
+      "La forge sent le charbon et la corne brûlée. Le vieux Matthieu est un homme carré aux avant-bras couverts de petites brûlures blanches, qui regarde les bêtes avant de regarder les gens, et qui les trouve en général mieux tenues.",
       { if: { all: [ROUTE, { has: "monde:retard_mule" }] }, text: "Il prend le pied gauche de Brunette, gratte, et sort le caillou plat du bout de son crochet. Il le pose sur l'enclume, entre vous deux. « Un menteur. » Il te regarde longtemps. « Ta mère n'en mettait jamais. Un jour de repos, pas moins. Je lui mets un cataplasme. »" },
       { if: { all: [ROUTE, { not: { has: "monde:retard_mule" } }] }, text: "Il passe les mains sur les quatre jambes de Brunette, sur le dos, sous le bât. « Elle est bonne. Elle passera, si toi tu passes. » Il serre les lanières de tes crampons sans attendre que tu le lui demandes." },
       { if: PLI, text: "« La mule de {autre} ? Je la verrai ce soir, à l'écurie de Berthe. » Il prend tes bottes de ville, les retourne, et secoue la tête. « Avec ça, vous glisserez jusqu'au lac sur le derrière. » Il te vend une paire de vieux crampons pour deux écus, et te montre comment les lacer." },
@@ -123,8 +123,8 @@ module.exports = {
 
   B_col: { act: "II", title: "Le col de l'Ourse", place: "col",
     text: [
-      { if: TEMPETE, text: "À neuf heures, vous êtes au-dessus des derniers mélèzes, et le col hurle comme Matthieu l'a dit. Le vent arrive de face, chargé de neige dure comme du sable. Les Dents ont disparu. On voit à peine ses propres pieds, et la silhouette de {autre}, trois pas devant, qui se penche contre le vent." },
-      { if: { not: TEMPETE }, text: "À neuf heures, vous êtes au-dessus des derniers mélèzes, et le col dort. Le ciel est d'un bleu dur, l'air brûle les narines, la neige fraîche efface tout : le chemin, les cairns, les pierres. Les Dents de Sorgue se dressent de chaque côté, noires et nettes, si proches qu'on croit les toucher." },
+      { if: TEMPETE, text: "À neuf heures, vous êtes au-dessus des derniers mélèzes, et le col hurle comme Matthieu l'a dit. Le vent arrive de face, chargé de neige dure comme du sable ; il a une voix, continue, sans reprise de souffle, où l'oreille finit par chercher des mots. Les Dents ont disparu. On voit à peine ses propres pieds, et la silhouette de {autre}, trois pas devant, qui se penche contre le vent." },
+      { if: { not: TEMPETE }, text: "À neuf heures, vous êtes au-dessus des derniers mélèzes, et le col dort. Le ciel est d'un bleu dur, l'air brûle les narines, la neige fraîche efface tout : le chemin, les cairns, les pierres. Les Dents de Sorgue se dressent de chaque côté, noires et nettes, si proches qu'on croit les toucher. Après les récits de la veillée, ce calme a l'air d'une politesse, et l'on s'en méfie d'autant." },
       { if: { has: "monde:sans_brunette" }, text: "Le bât pèse sur tes épaules." },
       { if: { all: [PLI, { secret: "g_hiver" }] }, text: "{autre} cherche les cairns sous la neige, s'arrête, repart, revient. Tu sais maintenant pourquoi {autre:il} s'arrête." },
       "Le chemin d'été monte en lacets jusqu'à la selle du col. Sous la neige, il faut le deviner.",
@@ -150,7 +150,7 @@ module.exports = {
     choices: [{ label: "Reprendre la montée", to: "B_montee_col" }] },
   B_montee_col: { act: "II", title: "Sous la selle", place: "col",
     text: [
-      "Vers midi, vous arrivez sous la selle du col. La pente est raide et lisse, et au milieu, sur toute sa largeur, une crevasse coupe le chemin : une fente bleue, dont l'œil cherche le fond en vain, traversée par un pont de neige que le vent a construit pendant la nuit.",
+      "Vers midi, vous arrivez sous la selle du col. La pente est raide et lisse, et au milieu, sur toute sa largeur, une crevasse coupe le chemin : une fente bleue, dont l'œil cherche le fond en vain, traversée par un pont de neige que le vent a construit pendant la nuit. Le bleu y fonce de toise en toise, et le regard y descend malgré lui, comme on écoute malgré soi une mauvaise nouvelle.",
       { if: TEMPETE, text: "Le vent hurle dans la fente. Des loups ont laissé des traces sur le bord, des traces fraîches, et tu entends quelque part, dans la neige qui vole, un aboiement bref." },
       { if: { not: TEMPETE }, text: "Sur le bord de la crevasse, des traces de loups, profondes, nettes, d'un jour à peine : le vent de la nuit a seulement arrondi leurs bords. Au-dessus, sur l'arête, trois silhouettes grises vous regardent, assises." },
     ],
@@ -256,7 +256,7 @@ module.exports = {
     choices: [{ back: "B_refuge" }] },
   B_garde: { act: "II", title: "Une lumière dans la gorge", place: "col", fx: { flag: "monde:lumiere_gorge" },
     text: [
-      "Dehors, le froid est si sec qu'il crépite. Les étoiles descendent jusqu'aux crêtes. Tu fais les cent pas devant la porte, les mains sous les aisselles.",
+      "Dehors, le froid est si sec qu'il crépite. Les étoiles descendent jusqu'aux crêtes. Tu fais les cent pas devant la porte, les mains sous les aisselles. À cette hauteur, le silence a une épaisseur ; tu y entends ton sang, et la neige qui se tasse.",
       "En bas, au nord-est, là où la montagne se fend pour laisser passer le torrent de l'Ourse, une lumière bouge. Une lanterne, minuscule, qui descend la gorge, s'arrête, remonte un peu, et s'éteint.",
       "En hiver, seuls les contrebandiers prennent la gorge.",
     ],
