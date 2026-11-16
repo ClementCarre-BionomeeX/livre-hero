@@ -80,6 +80,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .prose .reread { font-style: italic; }
 .notice { padding: 10px 14px; border-radius: 8px; background: var(--paper); border: 1px dashed var(--line); color: var(--muted); font-size: 14px; }
 .notice.bad { color: var(--bad); border-color: var(--bad); }
+.start-help { padding: 24px 16px; }
+.start-help ol { padding-left: 1.4em; line-height: 1.5; }
 
 /* --- creation --- */
 .create { padding: 28px 0; display: grid; gap: 22px; }
