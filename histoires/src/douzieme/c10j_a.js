@@ -277,7 +277,7 @@ Object.assign(P, {
     ],
     choices: [{ back: "K10j_coudrier" }] },
 
-  K10j_coudrier_verite: { act: "III", title: "De quand", place: "guilde", ambiance: "chateau", fx: { flag: "j:coudrier_sait", ep: ["perso", 600] },
+  K10j_coudrier_verite: { act: "III", title: "De quand", place: "guilde", ambiance: "chateau", fx: { flag: ["j:coudrier_sait", "monde:coudrier_sait"], ep: ["perso", 600] },
     text: [
       "Tu le dis. Tu n'as trouvé aucune manière habile, depuis la ferme des Noyers ; tu prends la plus courte. Que tu es né{e} après. Que dans ton pays la cloche a sonné onze, un jour de Grand Midi, et que le douzième n'est pas venu. Que la ville est prise depuis soixante ans, avec la Reine, l'enfant, et quarante mille personnes, et que cela gagne d'un quart de lieue par an. Que tu es revenu{e} par une porte.",
       "Il t'écoute comme il lit. Il ne dit pas que c'est impossible. C'est un homme qui garde depuis quarante ans, sous une tour, une chose qu'il ne comprend pas ; il a perdu l'habitude de ce mot.",
@@ -527,7 +527,10 @@ Object.assign(P, {
       { with: "josquin", text: "Josquin s'est assis à côté de toi sans rien dire. Au douzième, il a remué les lèvres. « Je les compte depuis que j'ai trois ans, dit-il. On m'a trouvé dans un panier, là, au portail, un matin de Grand Midi. On me l'a raconté si souvent que je crois m'en souvenir. Le sous-maître aussi, trente ans avant moi. Nous sommes deux enfants de la même porte. » Il essuie ses besicles. « Je me demande souvent pourquoi cela n'a pas donné le même homme. »" },
       "Tu ouvres le Cahier contre le marbre tiède, à l'endroit où l'on a gravé *POUR MÉMOIRE.*",
     ],
-    choices: [{ label: "Écrire", to: "M10", big: true }] },
+    choices: [
+      { label: "Écrire", hide: { not: { has: "monde:combinaison" } }, fx: { flag: "monde:combinaison_midi" }, to: "M10", big: true },
+      { label: "Écrire", hide: { has: "monde:combinaison" }, to: "M10", big: true },
+    ] },
 });
 
 module.exports = {

@@ -141,7 +141,8 @@ Object.assign(P, {
       { label: "Un vieux pont, avec trois chandelles dans une niche", to: "K10r_pont3" },
       { label: "Une petite église enfoncée de six marches", to: "K10r_gnomon" },
       { label: "Jehan, resté au coin de la rue", hide: { any: [{ not: JEHAN }, { has: "r:jehan_entre" }, { has: "r:jehan_porte" }] }, to: "K10r_jehan_seuil" },
-      { label: "Les trois marches de la Petite : il sera bientôt midi au soleil", to: "K10r_midi", big: true },
+      { label: "Les trois marches de la Petite : il sera bientôt midi au soleil", hide: { seen: "M10" }, to: "K10r_midi", big: true },
+      { label: "Monter vers la colline, par la rue aux fontaines", hide: { not: { seen: "M10" } }, to: "K10r_carrefour", big: true },
     ] },
 
   // --- The quay ---
@@ -465,6 +466,6 @@ Object.assign(P, {
 
 module.exports = { passages: P, extras: {
   items: {
-    memoire_graveur: { name: "Mémoire du graveur Thomassin", kind: "divers", keep: true, price: 0, desc: "Un papier plié en quatre, trouvé sous le velours d'un écrin vide, à l'hôtel de Hautgué. « Un sceau d'argent, légende : ODERIC RÉGENT D'AURIME. Livré le 12 juin 541. Quarante écus. Reçu. »" },
+    memoire_graveur: { name: "Mémoire du graveur Thomassin", kind: "divers", keep: true, flat: true, price: 0, desc: "Un papier plié en quatre, trouvé sous le velours d'un écrin vide, à l'hôtel de Hautgué. « Un sceau d'argent, légende : ODERIC RÉGENT D'AURIME. Livré le 12 juin 541. Quarante écus. Reçu. »" },
   },
 } };
