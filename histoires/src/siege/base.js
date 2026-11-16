@@ -34,7 +34,7 @@ module.exports = {
   start: "A_reveil",
   intro: [
     "Sarance tient sur un éperon de roche, dans une boucle de la Dorve. En haut, la Haute-Ville : le château du capitaine, l'église Saint-Aubin, l'Hôtel-Dieu. En bas, au bord de l'eau, la Basse-Ville des bateliers, des tanneurs et des meuniers, avec sa Halle aux grains, la plus grande du pays.",
-    "Il y a onze jours, l'armée du Margrave de Hautpré est sortie des brumes du nord et s'est installée sur les pâtures, face à la Porte des Tanneurs. Le vieux comte est mort sans fils l'hiver dernier ; le Margrave, qui avait épousé sa sœur, dit que la ville lui revient. Le capitaine du Roi lui a fermé les portes.",
+    "Il y a onze jours, l'armée du Margrave de Hautpré est sortie des brumes du nord et s'est installée sur les pâtures, face à la Porte des Tanneurs. Le vieux comte est mort sans fils l'hiver dernier ; le Margrave, qui avait épousé sa sœur, dit que la ville lui revient, et il est venu soutenir cette opinion avec une armée, ce qui est la plus ancienne manière d'avoir raison. Le capitaine du Roi lui a fermé les portes.",
     "Toi, tu es arrivé{e} trois semaines plus tôt, avec un convoi qui n'est jamais reparti. Tu loges au Chat-Huant, près du port. Il te reste un peu d'argent, une chambre sous le toit, et la sensation, chaque matin, d'être étranger{e} dans une maison qui brûle.",
   ],
   acts: [

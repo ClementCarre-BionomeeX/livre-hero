@@ -245,7 +245,7 @@ module.exports = {
   TL_souper: {
     title: "Le souper des jurés",
     text: [
-      "La salle à manger des Vassal sent la cire et le chapon. Sur la table, il y a du pain blanc, du vin de la côte et des poires. Autour sont assis Carbonnel, deux maîtres de la guilde des drapiers et un chanoine ; Dame Vassal, en bout de table, découpe elle-même.",
+      "La salle à manger des Vassal sent la cire et le chapon. Sur la table, il y a du pain blanc, du vin de la côte et des poires. Autour sont assis Carbonnel, deux maîtres de la guilde des drapiers et un chanoine, dont l'appétit console de bien des carêmes ; Dame Vassal, en bout de table, découpe elle-même.",
       "On parle de tout sauf du siège jusqu'aux poires. Puis Dame Vassal pose son couteau. « Messire de Rouvre, le héraut du Margrave, m'a fait savoir que les conditions tiennent jusqu'au soir du dixième jour, et pas une heure de plus. » Personne ne demande comment elle le sait. Tout le monde le sait.",
       "« Les vies et les biens saufs. Les franchises confirmées. C'est mieux que ce que nous aurions du Roi, qui nous oublie, et du capitaine, qui nous fera tous mourir pour son honneur. » Elle te regarde. « Il nous manque une voix. »",
     ],
@@ -388,7 +388,7 @@ module.exports = {
     title: "Mère Ysaure", back: true,
     text: [
       { first: true, text: "Mère Ysaure est petite et ridée, les manches roulées sur des avant-bras de lavandière. Elle a un grain de beauté sur la joue, et une voix qui porte jusqu'au fond de la salle sans qu'elle ait besoin de crier." },
-      { first: true, text: "« C'est vous, l'intendance ? » Elle ne te laisse pas répondre. « Alors c'est à vous que je demande du pain. J'ai quatre-vingts malades, des blessés, et sept cents réfugiés dans mon cloître. Ils mangent tous. »" },
+      { first: true, text: "« C'est vous, l'intendance ? » Elle ne te laisse pas répondre. « Alors c'est à vous que je demande du pain. J'ai quatre-vingts malades, des blessés, et sept cents réfugiés dans mon cloître. Ils mangent tous ; c'est un travers dont le carême lui-même n'a pas su les corriger. »" },
       { again: true, text: "Mère Ysaure s'essuie les mains à son tablier. « Faites vite, on m'attend. »" },
       { regard: { ysaure: ["trahi", "hostile"] }, text: "Elle te regarde comme on regarde quelqu'un qu'on a cessé d'attendre." },
     ],
@@ -681,7 +681,7 @@ module.exports = {
     title: "Le comptoir du Lombard", back: true,
     text: [
       { first: true, text: "Ugolin Tasca te reçoit derrière une grille de fer, entre deux balances et un registre ouvert. Il porte des lunettes rondes et une moustache fine, et il te sourit de tout le visage, sauf des yeux." },
-      { first: true, text: "« L'intendance ! Je vous attendais. Tout le monde vient me voir, tôt ou tard. Le capitaine a besoin de soixante écus pour la solde, je le sais, le Conseil ne les a pas, je le sais aussi. Moi, je les ai. »" },
+      { first: true, text: "« L'intendance ! Je vous attendais. Tout le monde vient me voir, tôt ou tard ; je suis le confesseur de cette ville, à ceci près que l'on me rembourse. Le capitaine a besoin de soixante écus pour la solde, je le sais, le Conseil ne les a pas, je le sais aussi. Moi, je les ai. »" },
       { again: true, text: "Ugolin Tasca lève les yeux de sa balance. « Que puis-je ? »" },
     ],
     choices: [

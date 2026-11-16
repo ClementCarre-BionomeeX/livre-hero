@@ -27,7 +27,7 @@ module.exports = {
   H_heraut: {
     act: "II", title: "Le héraut", place: "remparts",
     text: [
-      "Une trompette sonne devant la Porte des Tanneurs : trois notes, puis trois encore. Un cavalier attend au bord du fossé, seul, en tabard rouge à la tour d'or, une branche verte à la main. On épargne les hérauts, même en temps de siège.",
+      "Une trompette sonne devant la Porte des Tanneurs : trois notes, puis trois encore. Un cavalier attend au bord du fossé, seul, en tabard rouge à la tour d'or, une branche verte à la main. On épargne les hérauts, même en temps de siège : il faut bien que quelqu'un porte les mauvaises nouvelles avec élégance.",
       "Aussonne monte à la porte, le Conseil derrière lui, et l'on te fait signe de suivre.",
       "« Messire Gautier de Rouvre, héraut de Monseigneur le Margrave de Hautpré, seigneur légitime de Sarance par sa défunte épouse. » Il a une voix de chantre, claire et sans colère. « Monseigneur salue la vaillance de la garnison. Il offre ceci : les portes ouvertes, la garnison libre de partir avec ses armes et ses bannières, les vies et les biens des habitants saufs, les franchises de la ville confirmées. »",
       "« Ces conditions tiennent cinq jours, jusqu'au soir du dixième jour de ce mois. Passé ce terme, Monseigneur prendra la ville par la force, et il ne répondra plus de ce que feront ses soldats. »",
@@ -41,7 +41,7 @@ module.exports = {
   S1_sortie: {
     title: "La sortie", place: "remparts",
     text: [
-      "Il est minuit. Vingt sergents, Oudart de Lys et toi attendez dans le noir de la barbacane, chacun avec un pot de poix sur le dos et une mèche dans la ceinture. On a graissé les gonds de la petite porte.",
+      "Il est minuit. Vingt sergents, Oudart de Lys et toi attendez dans le noir de la barbacane, chacun avec un pot de poix sur le dos et une mèche dans la ceinture. On a graissé les gonds de la petite porte ; et dans ce silence, vingt hommes qui retiennent leur souffle font plus de bruit qu'on ne l'aurait cru.",
       { if: { has: "barbacane:perdue" }, text: "La barbacane est aux mains du Margrave : vous sortez donc par une échelle, au bout du mur des tanneries, et vous descendez un par un dans le fossé." },
       "Oudart passe devant, tête nue, la moustache au vent, et se retourne pour sourire. « Si on meurt, ce sera la plus belle mort de la saison. »",
       "Vous traversez les pâtures à quatre pattes, entre les feux de garde, jusqu'à la butte aux Pendus, où la Truie se dresse au-dessus de vous comme une bête endormie. Autour du bâti, des charpentiers dorment dans la sciure. Un chien lève la tête.",
@@ -107,7 +107,7 @@ module.exports = {
     title: "Le toit crevé", place: "halle",
     text: [
       "Tu montes voir. La pierre de la Truie a traversé le toit et deux planchers de grenier avant de finir sa course dans un tas de sacs éventrés. Par le trou, on voit le ciel gris. À la première pluie, l'eau tombera droit sur le grain du grenier ouest, et le grain mouillé germe ou pourrit en trois jours.",
-      "Le maître couvreur de la ville, un vieil homme aux mains tremblantes, établit son devis à voix haute : des poutres, des lattes, des tuiles à prendre sur les maisons détruites, six hommes et deux jours. « Quarante écus. Pas un sou de moins, avec les pierres qui tombent. »",
+      "Le maître couvreur de la ville, un vieil homme aux mains tremblantes, établit son devis à voix haute : des poutres, des lattes, des tuiles à prendre sur les maisons détruites, six hommes et deux jours. « Quarante écus. Pas un sou de moins. J'ai couvert Saint-Aubin, moi, et le bon Dieu, lui, se retenait de me lancer des pierres pendant l'ouvrage. »",
     ],
     choices: [
       { label: "Payer les couvreurs", if: { gold: { min: 800 } }, why: "Il te faut quarante écus.", fx: { gold: -800, flag: "halle:reparee", quest: "II_toit", ep: ["seance", 600] }, to: "G_toit_fait" },
@@ -135,7 +135,7 @@ module.exports = {
   G_caves: {
     title: "Les caves Vassal", place: "marche",
     text: [
-      "La maison Vassal a une porte de cave sur la ruelle de derrière, fermée d'un cadenas que tu ouvres avec la patience d'un voleur et une épingle à cheveux. Les marches descendent dans une odeur de terre et de futaille.",
+      "La maison Vassal a une porte de cave sur la ruelle de derrière, fermée d'un cadenas que tu ouvres avec la patience d'un voleur et une épingle à cheveux. Les marches descendent dans une odeur de terre et de futaille, vers un noir où ta chandelle ouvre tout juste un trou de la largeur de ta main.",
       "La première cave est pleine de vin, et la deuxième de draps en ballots. La troisième, la plus grande, voûtée, est remplie jusqu'à la voûte de sacs de blé en rangs serrés, comme dans un grenier.",
       "Tu approches ta chandelle. Chaque sac est cousu du S couronné des greniers de la ville de Sarance. Tu en ouvres un : c'est du bon blé, sec et doré, qui coule entre tes doigts.",
       { if: { has: "grain:vendu" }, text: "Un bon tiers des rangées est vide, et des traces fraîches de sacs traînés mènent vers l'escalier." },
@@ -230,7 +230,7 @@ module.exports = {
     title: "Le bruit sous la terre", place: "remparts",
     text: [
       { first: true, text: "Au pied de la Tour du Sel, dans la salle basse, une sentinelle te montre un seau d'eau posé sur les dalles. Tu attends. Au bout d'un moment, l'eau frissonne sans raison, et des cercles naissent au milieu de la surface. Puis l'eau se calme, et recommence." },
-      { first: true, text: "Tu colles l'oreille contre la dalle. Très loin, très bas, tu entends des coups réguliers et sourds, comme un cœur. Ils creusent une galerie sous le mur, pour l'étayer de bois, y mettre le feu et faire tomber la tour dans son trou." },
+      { first: true, text: "Tu colles l'oreille contre la dalle. Très loin, très bas, tu entends des coups sourds, d'une régularité d'horloge ; quelque chose travaille sous la ville avec la patience d'un ver dans un fruit. Ils creusent une galerie sous le mur, pour l'étayer de bois, y mettre le feu et faire tomber la tour dans son trou." },
       { again: true, text: "Le seau d'eau attend sur les dalles de la salle basse. Des cercles courent à sa surface, et les coups sont plus proches qu'hier." },
       { if: { has: "contremine" }, text: "Dans un coin, les mineurs de la garnison ont ouvert un puits dans le sol, et tu entends leurs pioches répondre à celles d'en face." },
       "Le sergent du secteur se gratte la nuque. « Une contre-mine, il faudrait. Des bras, du bois, et du pain pour ceux qui creusent. Ou alors savoir par où passe l'eau, sous cette ville. »",
@@ -265,7 +265,7 @@ module.exports = {
   L_courrier: {
     title: "Le registre du courrier", place: "chateau",
     text: [
-      "Le registre du courrier du château est tenu dans une petite pièce au pied de l'escalier, par un clerc à manchettes de lustrine. L'intendance a le droit de le consulter, puisque les achats de grain passent par les lettres. Le clerc te le tend en soupirant.",
+      "Le registre du courrier du château est tenu dans une petite pièce au pied de l'escalier, par un clerc à manchettes de lustrine. L'intendance a le droit de le consulter, puisque les achats de grain passent par les lettres. Le clerc te le tend avec le soupir d'un avare à qui l'on emprunte sa vaisselle.",
       "Les entrées sont toutes de la même main, une belle écriture penchée. « Le lieutenant tient la correspondance du capitaine », dit le clerc. « Moi, je recopie. »",
       "Tu remontes les pages. Des lettres aux villes voisines, aux abbayes, au sénéchal. Rien de l'extérieur depuis le début du siège, sauf une ligne, au neuvième jour : « Reçu du Roi, une lettre close, par le passeur des Moulins. »",
       "Aucune réponse n'est inscrite. Tu poses la question au clerc, qui hausse les épaules. « Le capitaine l'a gardée. »",
@@ -323,7 +323,7 @@ module.exports = {
   C3_seance: {
     act: "II", title: "Le Conseil de la reddition", place: "chateau",
     text: [
-      "C'est le dixième jour, à six heures du soir, et le terme du héraut expire à minuit. La salle du Conseil est pleine : on a laissé entrer les maîtres des métiers, les chanoines et les capitaines de quartier, qui se tiennent debout contre les murs. Tout le monde sait de quoi l'on va parler.",
+      "C'est le dixième jour, à six heures du soir, et le terme du héraut expire à minuit. La salle du Conseil est pleine : on a laissé entrer les maîtres des métiers, les chanoines et les capitaines de quartier, qui se tiennent debout contre les murs. Tout le monde sait de quoi l'on va parler, et chacun a préparé l'étonnement qu'il montrera.",
       { after: "oudart:arrete", text: "La place d'Oudart de Lys est vide. On a laissé son tabouret." },
       { after: "oudart:fui", text: "La place d'Oudart de Lys est vide. On ne parle pas de lui." },
       { after: "alienor:arretee", text: "Dame Vassal et Carbonnel sont assis entre deux sergents, sur des bancs qu'on a apportés. On leur a laissé leur voix, faute d'un vote du Conseil pour la leur retirer." },

@@ -17,8 +17,8 @@ module.exports = {
   A_conseil: {
     act: "I", title: "La salle du Conseil", place: "chateau",
     text: [
-      "La salle du Conseil est une pièce haute et froide, tendue de tapisseries usées jusqu'à la trame. Autour d'une table de chêne, six personnes t'attendent, et aucune ne se lève.",
-      "Au bout de la table siège un homme de cinquante ans, une balafre blanche de la tempe au menton : Bertrand d'Aussonne, capitaine du Roi. À sa droite, son lieutenant, Oudart de Lys, en pourpoint bleu, te sourit comme à une vieille connaissance. En face, une femme sèche vêtue de gris, Dame Aliénor Vassal, jurée des marchands ; à côté d'elle, Maître Carbonnel, le prévôt, essuie ses lunettes. Plus loin se tiennent une abbesse aux avant-bras de lavandière, Mère Ysaure, et un grand roux aux mains de batelier, Gilles Aubron, l'élu du port.",
+      "La salle du Conseil est une pièce haute et froide, tendue de tapisseries usées jusqu'à la trame, où des chasseurs sans visage poursuivent depuis deux siècles un cerf qui a perdu ses bois. Autour d'une table de chêne, six personnes t'attendent, et aucune ne se lève ; à Sarance, on se lève pour ses égaux et pour ses créanciers.",
+      "Au bout de la table siège un homme de cinquante ans, une balafre blanche de la tempe au menton : Bertrand d'Aussonne, capitaine du Roi. À sa droite, son lieutenant, Oudart de Lys, en pourpoint bleu, te sourit comme à une vieille connaissance. En face, une femme sèche vêtue de gris, Dame Aliénor Vassal, jurée des marchands ; à côté d'elle, Maître Carbonnel, le prévôt, essuie ses lunettes avec le soin d'un homme qui préfère voir les choses d'un peu loin. Plus loin se tiennent une abbesse aux avant-bras de lavandière, Mère Ysaure, et un grand roux aux mains de batelier, Gilles Aubron, l'élu du port.",
       "C'est Aussonne qui parle. « Josse Bréhal, l'intendant des greniers, est mort avant-hier soir. Il est tombé de la Tour du Sel. Ivre, à ce qu'on dit. Il nous faut quelqu'un pour tenir les greniers, et ce Conseil n'arrive pas à s'entendre sur un nom de la ville. »",
       "Dame Vassal achève pour lui, d'une voix égale : « Chacun de nous soupçonne le candidat des autres de vouloir nourrir ses amis. Vous n'avez pas d'amis ici. C'est votre principale qualité. »",
       "Gilles Aubron éclate de rire. Carbonnel sourit, sans savoir s'il le doit. Mère Ysaure te détaille comme on détaille un cheval qu'on vous propose à la foire.",
@@ -81,7 +81,7 @@ module.exports = {
   R_tour: {
     title: "La Tour du Sel", place: "remparts",
     text: [
-      { first: true, text: "La Tour du Sel est ronde et trapue, coiffée d'une plate-forme à créneaux où l'on monte par un escalier de quatre-vingts marches. De là-haut, on voit tout : le camp du Margrave étalé sur les pâtures, la boucle de la Dorve, les Moulins et, à l'aplomb du mur, trente pieds plus bas, les dalles du fossé où l'on a trouvé Josse Bréhal." },
+      { first: true, text: "La Tour du Sel est ronde et trapue, coiffée d'une plate-forme à créneaux où l'on monte par un escalier de quatre-vingts marches, étroit et tournant, où le bruit de tes pas te précède. De là-haut, on voit tout : le camp du Margrave étalé sur les pâtures, la boucle de la Dorve, les Moulins et, à l'aplomb du mur, trente pieds plus bas, les dalles du fossé où l'on a trouvé Josse Bréhal ; le regard y descend malgré lui, et s'y attarde plus qu'il ne faudrait." },
       { first: true, text: "Le parapet t'arrive à la hanche. Pour passer par-dessus, il faut le vouloir, ou y être aidé." },
       { again: true, text: "La plate-forme de la Tour du Sel, le vent, et en bas le fossé." },
       { when: "night", text: "La nuit, les feux du camp dessinent une seconde ville en face de la première. En aval, les Moulins font des masses noires sur l'eau noire." },
@@ -112,7 +112,7 @@ module.exports = {
   R_tour_nuit: {
     title: "Minuit sur la Tour du Sel", place: "remparts",
     text: [
-      "Tu restes accoudé{e} au parapet, ton manteau serré. La sentinelle a fini par s'asseoir dans l'escalier, à l'abri du vent. Les feux du camp s'éteignent un à un.",
+      "Tu restes accoudé{e} au parapet, ton manteau serré. La sentinelle a fini par s'asseoir dans l'escalier, à l'abri du vent. Les feux du camp s'éteignent un à un ; et à mesure qu'ils meurent, la plaine reprend toute son étendue, noire et sans bords, où une armée entière dort à portée de voix.",
       "Un peu avant minuit, en aval, une lumière s'allume derrière une lucarne du Moulin du milieu. Elle s'éteint, se rallume et s'éteint, trois fois. De l'autre côté de la Dorve, une lanterne répond, une seule fois.",
       "Puis la rivière seule.",
     ],
@@ -123,7 +123,7 @@ module.exports = {
     title: "La Truie", place: "remparts",
     text: [
       "Tu restes un long moment au créneau à regarder la machine. Sur la butte aux Pendus, au bord de la Dorve, des charpentiers ont dressé un bâti de poutres haut comme trois maisons. Le grand bras est déjà en place ; il leur reste à monter la caisse du contrepoids et à la remplir de pierres.",
-      "Un vieil arbalétrier crache par-dessus le mur. « Deux jours pour le contrepoids. Après, elle tirera par-dessus la Porte des Tanneurs, droit sur la Basse-Ville. La Halle est en plein dessous. »",
+      "Un vieil arbalétrier crache par-dessus le mur. « Deux jours pour le contrepoids. J'en ai vu monter six, de ces bêtes-là, et je ne me suis jamais trompé d'une heure. Après, elle tirera par-dessus la Porte des Tanneurs, droit sur la Basse-Ville. La Halle est en plein dessous. »",
       "« Il faudrait la brûler avant », dit un autre. « Avec quoi ? Et par où ? On n'a pas de bras qui portent jusque-là. » Ils regardent tous les deux vers la barbacane, puis vers la rivière, et ils se taisent.",
     ],
     choices: [{ back: "H_remparts" }],
@@ -133,7 +133,7 @@ module.exports = {
   C1_seance: {
     act: "I", title: "Le Conseil de la Herse", place: "chateau",
     text: [
-      "La cloche du château sonne six coups. Dans la salle du Conseil, on a allumé des chandelles de suif qui fument et qui sentent le mouton. Les six sont là, à leurs places, et l'on t'a mis un tabouret au bout de la table, en face du capitaine.",
+      "La cloche du château sonne six coups. Dans la salle du Conseil, on a allumé des chandelles de suif qui fument et qui sentent le mouton. Les six sont là, à leurs places, et l'on t'a mis un tabouret au bout de la table, en face du capitaine : le siège des gens dont on attend des chiffres, et point d'avis.",
       "Aussonne ouvre la séance sans préambule. « L'intendance. Combien de jours ? »",
       { if: { clue: "g_compte" }, text: "Tu as ton chiffre, juste et vérifié : sept cent quatre-vingts setiers, et trois cents qui manquent par rapport au registre. Tu donnes les deux. Un silence suit. Dame Vassal regarde ses mains, et Gilles Aubron frappe la table du plat de la main. « Trois cents setiers ne s'envolent pas ! »" },
       { if: { not: { clue: "g_compte" } }, text: "Tu donnes le chiffre du registre de Bréhal, faute d'en avoir un meilleur. Dame Vassal hoche la tête, satisfaite, comme on approuve un élève qui a bien récité." },
