@@ -1110,7 +1110,11 @@
       var ai = (story.acts || []).map(function (a) { return a.id; }).indexOf(P[id].act);
       (function scan(o, key, cond) { if (o == null) return; if (typeof o === "string") { if (key === "clue" && !cond && (story.clues || {})[o] && (CLUE_ACT[o] == null || ai < CLUE_ACT[o])) CLUE_ACT[o] = ai; return; } if (Array.isArray(o)) { o.forEach(function (x) { scan(x, key, cond); }); return; } if (typeof o === "object") Object.keys(o).forEach(function (k) { scan(o[k], k, cond || /^(if|hide|closes|after|before|help)$/.test(k)); }); })(P[id], "", false);
     });
+    // A shared state (set: { "monde:…": value }) the others may have set: the ghost gives it one of its values.
+    var GHOST_SETS = {};
+    if (story.multi) (function scan(o, key) { if (o == null || typeof o !== "object") return; if (Array.isArray(o)) { o.forEach(function (x) { scan(x, key); }); return; } if (o.monde) return; if (key === "set") Object.keys(o).forEach(function (k) { if (k.indexOf("monde:") === 0 && o[k] != null) { GHOST_SETS[k] = GHOST_SETS[k] || []; if (GHOST_SETS[k].indexOf(o[k]) < 0) GHOST_SETS[k].push(o[k]); } }); Object.keys(o).forEach(function (k) { scan(o[k], k); }); })(story.passages, "");
     function ghostTable(s, rnd) {
+      Object.keys(GHOST_SETS).forEach(function (k) { if (M.stateValue(s, "", k) == null && rnd() < 0.5) s.flags[k + "=" + GHOST_SETS[k][Math.floor(rnd() * GHOST_SETS[k].length)]] = true; });
       BALLOTS.forEach(function (k) {
         if (M.stateValue(s, M.VOICE_FLAG, k) == null || M.stateValue(s, M.BALLOT_FLAG, k) != null) return;
         var S = story.scrutins[k], opts = Object.keys(S.options || {}); if (S.tie && opts.indexOf(S.tie) < 0) opts.push(S.tie);
