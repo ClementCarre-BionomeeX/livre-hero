@@ -6,7 +6,7 @@ var base = require("./base.js");
 var LOTS = ["bornes", "secrets", "c01", "c02a", "c02b", "c03",
   "c04j_a", "c04j_b", "c04r_a", "c04r_b", "c05j_a", "c05j_b", "c05r_a", "c05r_b",
   "c06j_a", "c06j_b", "c06r_a", "c06r_b", "c07j_a", "c07j_b", "c07r_a", "c07r_b",
-  "c08j_a", "c08j_b", "c08r_a", "c08r_b", "c09j_a", "c09j_b", "c09r_a", "c09r_b",
+  "c08j_a", "c08j_b", "c08j_c", "c08r_a", "c08r_b", "c09j_a", "c09j_b", "c09r_a", "c09r_b",
   "c10j_a", "c10j_b", "c10r_a", "c10r_b", "c11j_a", "c11j_b", "c11r_a", "c11r_b",
   "c12j_a", "c12j_b", "c12r_a", "c12r_b", "c13j_a", "c13j_b", "c13r_a", "c13r_b",
   "c14j", "c14r", "c15", "c16", "c17", "fins", "interludes"];
