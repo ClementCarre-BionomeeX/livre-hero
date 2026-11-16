@@ -406,9 +406,9 @@ module.exports = {
         "Tu restes entre tes deux dalles, la joue dans l'herbe.",
         "Ils ouvrent la petite porte. Quatre descendent ; deux gardent le seuil. Tu comptes. Tu comptes jusqu'à six cents.",
         { if: { has: "monde:a3:douce_livree" }, text: "Ils remontent les mains vides, en soufflant, blancs de craie jusqu'aux genoux. « Personne. Des rats, et les vieux assis. » Le sergent jure. Il a déjà une prisonnière, cette nuit ; il aurait voulu la paire.", else: "Ils remontent à cinq. Entre les quatre Suisses, il y a un voile noir, déchiré, et dessous un pourpoint de daim. Elle marche. Elle a les mains liées devant elle, avec sa propre soie. Derrière, on traîne un homme large, sans connaissance, par les aisselles." },
-        { if: { not: "monde:a3:douce_livree" }, text: "Au seuil, le sergent lui ôte quelque chose de la main, qu'il lève à la lanterne. De ton if, tu n'en vois que l'anneau, qui brille : une larme." },
-        { if: { not: "monde:a3:douce_livree" }, text: "« Monseigneur sera content, dit-il. Il aura sa voleuse, et son bien. »" },
-        { if: { not: "monde:a3:douce_livree" }, text: "Tu ne sais pas, d'ici, quelle clef c'est. Tu ne sais pas où est {qui:a3:main}. Tu sais seulement qu'on n'a remonté qu'une personne, et que ce n'est pas des vôtres." },
+        { if: { not: "monde:a3:douce_livree" }, text: "Au seuil, le sergent la fouille lui-même, à la lanterne : les manches, le pourpoint, les bottes. Il lui tourne le dos de ton côté ; ce qu'il trouve, ou ce qu'il cherche encore, ton if te le cache." },
+        { if: { not: "monde:a3:douce_livree" }, text: "« Monseigneur sera content, dit-il. Il attendait Madame depuis quatre jours. »" },
+        { if: { not: "monde:a3:douce_livree" }, text: "Tu ignores où est {qui:a3:main}. Tu sais seulement qu'on a remonté une seule personne de là-dessous, et qu'elle est de l'autre bande." },
       ],
       choices: [{ label: "Attendre qu'ils soient rentrés, et courir à l'auberge", to: "A3c_apres", big: true }] },
 

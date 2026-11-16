@@ -299,7 +299,7 @@ module.exports = {
         "Au milieu de la nef, une dalle plus usée que les autres porte une bêche gravée et un nom que mille semelles ont rendu illisible. C'est là qu'on s'arrête. Les deux apprentis ont dressé les tréteaux, qui sont à la corporation et qui passent l'année dans l'appentis de Tassetrou : deux chevalets de chêne, noirs de vieillesse, creusés de trous de vers.",
         "On pose. On change d'épaule. Tassetrou entonne le *De profundis* d'une voix de taureau, et sept Bêcheurs répondent, faux, de tout leur cœur.",
         "Pendant qu'ils chantent, tu regardes le tréteau sous ta main. Le chêne en est fendu par le haut, d'une fente où l'on glisserait deux doigts. Elle est pleine de poussière.",
-        "Ces tréteaux dormiront cette nuit dans un appentis qui ferme au loquet. Ils entreront demain dans la nef sur le dos de deux gamins, sans que personne y passe la main. Ce qu'on aura mis ce soir dans la fente du chêne se trouvera, demain, sous la main du huitième porteur, pendant un psaume.",
+        "Ces tréteaux dormiront cette nuit dans un appentis qui ferme au loquet. Ils entreront demain dans la nef sur le dos de deux gamins, sans que personne y passe la main. Ce qu'on aura mis ce soir dans la fente du chêne se trouvera, demain, sous la main du huitième porteur, pendant un psaume ; et ce que le huitième porteur y laissera tomber ressortira de l'église, l'office fini, sur le dos d'un gamin.",
       ],
       fx: { flag: "monde:a3:cachette" },
       choices: [{ label: "Reprendre la hampe", to: "A3o_repet_doyen", big: true }] },
