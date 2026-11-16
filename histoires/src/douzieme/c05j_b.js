@@ -277,7 +277,7 @@ Object.assign(P, {
       "À côté de toi, Line n'a pas remué. Elle a les deux mains agrippées au rebord de la lucarne. « Tu as vu ses yeux ? dit-elle, très bas. Il n'a pas regardé le papillon comme on regarde une bête. Il l'a regardé comme je regarde les ressorts. »",
     ],
     choices: [{ label: "Redescendre des fagots", to: "K05j_feu" }] },
-  K05j_aubespin: { act: "II", title: "Le sous-maître", place: "roquebise", fx: { flag: "j:aubespin_connait" },
+  K05j_aubespin: { act: "II", title: "Le sous-maître", place: "roquebise", fx: { flag: ["j:aubespin_connait", "monde:aubespin_vu"] },
     text: [
       "Au fond de la cuve, la pincée grise finit de couler. Le papillon reprend son vol. Le monsieur gris rebouche sa fiole, se retourne, et vous découvre sur le seuil, entre les mains de son cocher : une petite fille en chemise, et toi.",
       "Il vient à vous sans hâte. De près, il est plus jeune encore, soigné, presque beau ; les deux yeux ne s'accordent pas, et l'on ne sait auquel répondre. « Des curieux. À cet âge, c'est une vertu. » Il se penche vers Line. « Tu as vu le papillon, mademoiselle ? » Line fait oui. « Et qu'en as-tu pensé ? »",
@@ -285,7 +285,7 @@ Object.assign(P, {
       "Le sous-maître se redresse lentement. Il la considère comme il a considéré la cuve. « C'est très exactement cela. Tu iras loin, ou l'on t'en empêchera. » Puis l'œil gris et l'œil brun viennent à toi, descendent, s'arrêtent à ton gilet, où passe un bout de chaînette de laiton. « Et toi. Tu as les doigts de quelqu'un qui lime. Chez qui apprends-tu ? »",
     ],
     choices: [
-      { label: "« Chez une horlogère de campagne. Vous ne la connaissez pas. »", fx: { flag: "j:aubespin_vrai" }, to: "K05j_aubespin2" },
+      { label: "« Chez une horlogère de campagne. Vous ne la connaissez pas. »", fx: { flag: ["j:aubespin_vrai", "monde:aubespin_horlogere"] }, to: "K05j_aubespin2" },
       { label: "« Chez personne. Je porte la hotte d'une colporteuse. »", test: { dom: "social", diff: 5, label: "Mentir", help: [{ if: { voie: "diseur" }, v: 15 }, { if: { voie: "leste" }, v: 10 }] },
         win: { fx: { flag: "j:aubespin_dupe" }, to: "K05j_aubespin2" }, lose: { fx: { flag: "j:aubespin_doute" }, to: "K05j_aubespin2" } },
     ] },
