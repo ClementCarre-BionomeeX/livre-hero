@@ -1997,7 +1997,7 @@
     notePick(G, before, c);
     var queue = (c.diced || []).slice();
     if (c.diced) M.setDice(function () { return queue.length ? queue.shift() : null; });
-    var fight0 = G.s.combat, act0 = G.s.lastAct; actTrack(G, null);   // the exchange's blows stay on it even when the fight ends with this choice
+    var fight0 = G.s.combat, act0 = G.s.lastAct, people0 = Object.keys(G.s.people || {}); actTrack(G, null);   // the exchange's blows stay on it even when the fight ends with this choice
     try { M.choose(G.story, G.s, c); }
     catch (e) { M.setDice(null); if (!G.s.ironman) G.undo.pop(); G.s = JSON.parse(snap); A.notice = "Ce choix a buté sur une erreur de l'histoire : " + e.message; render(); return; }
     M.setDice(null);
@@ -2005,7 +2005,7 @@
     var now = Date.now(), dt = Math.min(now - (G.since || now), pageCapMs(words)); G.since = now;
     tally(G.doc, dt, words, now);
     var la = act0 && (G.doc.actLog || {})[act0]; if (la) { la.ms = (la.ms || 0) + dt; la.w = (la.w || 0) + words; }
-    var closed = actTrack(G, act0); if (closed && !A.modal) A.modal = { kind: "chapter", act: closed };
+    var closed = actTrack(G, act0, people0); if (closed && !A.modal) A.modal = { kind: "chapter", act: closed };
     if (!/^jeu/.test(c.sys || "")) logStep(c.label, others);   // a game of dice at the inn is not a page of the story
     G.fate = G.s.ironman && !/^jeu/.test(c.sys || "") ? { snap: snap, label: c.label, sys: c.sys || "", act: act0 || "", turn: G.s.turn } : null;
     persist(); bedtimeAfterChoice(); render();
@@ -2467,6 +2467,8 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "10.2", items: ["« L'Île du docteur Moreau » de H. G. Wells, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1896. Sans choix, avec les gens, les lieux et les mots d'un toucher. Le livre est dur, et sa notice le dit."] },
+ { v: "10.1", items: ["« La Machine à explorer le temps » de H. G. Wells, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1895. Sans choix, avec les gens, les lieux et les mots d'un toucher."] },
     { v: "10.0", items: ["Deux romans de H. G. Wells à lire en entier, dans leurs traductions françaises d'époque : « La Guerre des mondes » (Henry-D. Davray) et « L'Homme invisible » (Achille Laurent). Comme « Le Monde perdu », sans choix, avec les gens, les lieux et les mots d'un toucher, et leur temps de lecture compté dans les statistiques."] },
     { v: "9.9", items: ["Statistiques de lecture (Plus › 📊) : pour chaque lecteur, ses habitudes, ses livres finis mois par mois et son allure d'un livre à l'autre ; pour chaque livre fini, le temps mis, les séances, les jours, le temps par acte, la part du livre découverte et une frise.", "Vue « Par livre » : le temps de chaque lecteur, le plus rapide et la moyenne. On y arrive aussi par « 📊 Statistiques » sur une partie terminée ou sur la fiche d'un livre.", "Une page longue compte maintenant tout le temps passé à la lire (jusqu'à 20 minutes), au lieu de 3 minutes au plus.", "À plusieurs, chaque joueur a son propre temps de lecture."] },
     { v: "9.8", items: ["« Mes parties » ne montre plus que les parties à plusieurs où joue le lecteur choisi.", "Les parties à plusieurs s'archivent aussi, une par une ou toutes les terminées d'un coup, et se retrouvent dans leurs « Archives »."] },
@@ -3115,12 +3117,16 @@
       ep: s.ep, time: s.time, places: s.place ? [s.place] : [], people: Object.keys(s.people || {}), t: Date.now(), ms: 0, w: 0 };
   }
   // Called around each choice: opens the act's record, follows the hero from place to place, tells when an act closed.
-  function actTrack(G, before) {
+  // people0: who the reader knew before this choice. A chapter's record starts from it, so that the people its first page
+  // meets count in this chapter (and not in the one before). The book's first chapter starts from nobody.
+  function actTrack(G, before, people0) {
     var s = G.s, st = G.story; if (G.multi || G.ephemeral) return null;
-    var L = G.doc.actLog = G.doc.actLog || {}, now = s.lastAct || "";
-    if (now && !L[now]) L[now] = actSnap(st, s);
+    var L = G.doc.actLog = G.doc.actLog || {}, now = s.lastAct || "", first = !Object.keys(L).length;
+    if (now && !L[now]) { L[now] = actSnap(st, s); if (people0) L[now].people = people0.slice(); else if (first && st.lecture) L[now].people = []; }
     if (now && s.place) { var pl = L[now].places; if (pl[pl.length - 1] !== s.place) pl.push(s.place); }
-    return before && now && before !== now && L[before] ? before : null;
+    var closed = before && now && before !== now && L[before] ? before : null;
+    if (closed && people0) L[closed].peopleEnd = people0.slice();
+    return closed;
   }
   function modalChapter(box, close, m) {
     var G = A.game, st = G.story, s = G.s, act = (st.acts || []).filter(function (x) { return x.id === m.act; })[0] || { title: m.act }, L = G.doc.actLog[m.act];
@@ -3151,7 +3157,7 @@
     // A book to read (9.0): the chapter's summary and the people met in it, no days, experience or level.
     if (st.lecture) {
       if (act.recap) b.appendChild(h("p", { class: "chapter-stats" }, act.recap));
-      var newPeople = Object.keys(s.people || {}).filter(function (k) { return (L.people || []).indexOf(k) < 0 && (st.people || {})[k]; });
+      var newPeople = (L.peopleEnd || Object.keys(s.people || {})).filter(function (k) { return (L.people || []).indexOf(k) < 0 && (st.people || {})[k]; });
       if (newPeople.length) b.appendChild(h("p", { class: "small" }, h("span", { class: "label" }, "Rencontrés "), newPeople.map(function (k) { return st.people[k].name; }).join(", ")));
     } else {
     var hours = s.time - L.time, days = Math.max(1, Math.round(hours / 24)), ep = s.ep - L.ep;
