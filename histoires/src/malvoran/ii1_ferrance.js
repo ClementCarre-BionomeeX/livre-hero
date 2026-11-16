@@ -152,7 +152,7 @@ add({
     ] },
   II_leg_bac_eau: { act: "II", title: "Au milieu de la Sorbe", place: null,
     text: [
-      "Le bac avance par à-coups, à chaque traction sur le câble. Au milieu de la rivière, l'eau devient plus sombre, et le bac s'alourdit comme si on l'avait chargé de sacs. Hardouin jure entre ses dents et tire plus fort. Une vache morte passe au fil du courant, le ventre gonflé, les pattes en l'air, une corneille debout dessus qui reste perchée, sans daigner s'envoler.",
+      "Le bac avance par à-coups, à chaque traction sur le câble. Au milieu de la rivière, l'eau devient plus sombre, et le bac s'alourdit comme si on l'avait chargé de sacs ; le câble gémit dans ses anneaux, et le courant, qui clapotait contre le bord, se tait sous la coque comme une chose qui retient son souffle. Hardouin jure entre ses dents et tire plus fort. Une vache morte passe au fil du courant, le ventre gonflé, les pattes en l'air, une corneille debout dessus qui reste perchée, sans daigner s'envoler.",
       "Tu regardes par-dessus le bord. Sous la surface, rien, sinon l'eau brune et, très bas, le câble qui descend vers le fond selon un angle anormal, comme si un poids invisible pendait au milieu.",
       { with: "pip", text: "Pip s'est caché dans ton col. Tu sens sa lumière contre ta nuque, petite et chaude. Il attend pour ressortir que le fond du bac racle les galets de l'autre rive." },
       "Sur la berge nord, Hardouin s'assied sur un plot et s'éponge le front. « Tous les jours, dit-il. Tous les jours, c'est plus lourd. Un de ces matins, ça ne viendra plus. » Il rallume sa pipe. « Bonne route. Et ne bois pas à la rivière avant la croix des Pèlerins. »",
@@ -162,7 +162,7 @@ add({
   II_leg_anselme: { act: "II", title: "La charrette d'Anselme", place: null,
     text: [
       "Au milieu du deuxième jour, une charrette verte est arrêtée sur le bas-côté, une roue en l'air, la mule dételée qui broute tranquillement le talus. Assis sur le timon, un homme à moustache répare un rayon avec du fil de fer et une patience infinie. Il lève les yeux et sourit de toutes ses dents, comme si tu étais exactement la personne qu'il attendait.",
-      { if: { person: "anselme" }, text: "« Toi ! dit Anselme. Mais c'est toi ! On se retrouve toujours, sur les routes. C'est qu'elles sont moins nombreuses qu'on croit. » Il te serre la main entre les deux siennes, qui sont noires de cambouis." , else: "« Anselme, dit-il en tendant une main noire de cambouis. Colporteur. Tout ce qu'il faut, et souvent ce qu'il ne faut pas. On dit ça de moi, et c'est vrai. »" },
+      { if: { person: "anselme" }, text: "« Toi ! dit Anselme. Mais c'est toi ! On se retrouve toujours, sur les routes. C'est qu'elles sont moins nombreuses qu'on croit. » Il te serre la main entre les deux siennes, qui sont noires de cambouis." , else: "« Anselme, dit-il en tendant une main noire de cambouis. Colporteur. Tout ce qu'il faut, et souvent ce qu'il ne faut pas. On dit ça de moi, et c'est vrai, ce qui le distingue du reste de ce qu'on dit de moi. »" },
       "Il ouvre les volets de sa charrette, qui se déplient comme les ailes d'un retable. Dedans, sur des étagères, il y a des aiguilles, des almanachs, des images pieuses, des boucles de ceinture, des fioles bouchées à la cire, une boîte à musique sans clé. Et, posé sur un coussin de velours râpé, un gros clou de fer noir, long comme la main.",
       "« Le Clou de Hildre, dit Anselme en baissant la voix. Le vrai. Volé à la Forge-Mère par un apprenti, il y a vingt ans, et remplacé par un faux. Dix sous, parce que c'est toi. » Il garde un visage parfaitement sérieux, sans le moindre clin d'œil. Il n'en a pas besoin.",
     ],
@@ -264,7 +264,7 @@ add({
 
   EII_charrette: { act: "II", title: "La charrette de charbon",
     text: [
-      "Une charrette de charbon de bois est embourbée jusqu'aux moyeux dans une ornière, en travers du chemin. Deux bœufs tirent, la langue pendante, en pure perte. Le charretier, un homme noir de suie des pieds à la tête, cogne sur la roue avec un bâton, ce qui n'aide en rien, et il jure en patois des forges.",
+      "Une charrette de charbon de bois est embourbée jusqu'aux moyeux dans une ornière, en travers du chemin. Deux bœufs tirent, la langue pendante, en pure perte. Le charretier, un homme noir de suie des pieds à la tête, cogne sur la roue avec un bâton, méthode qui soulage sans rien avancer et dont plus d'un gouvernement a fait son ordinaire ; il jure en patois des forges.",
       "« Pour Ferrance, dit-il quand il te voit. Douze sacs. La Forge-Mère attend son charbon depuis deux jours, et le maître Ansgar ne pardonne pas les retards. Il ne pardonne rien, remarque. Il n'a plus de mains pour ça. »",
     ],
     choices: [
@@ -426,7 +426,7 @@ add({
       { first: true, text: "La commanderie tient tout entière autour d'une cour pavée où l'herbe pousse entre les pierres. La tour carrée au nord, avec la salle du sénéchal au premier étage et la chambre du Grand Maître au-dessus, volets clos. Le cloître à l'ouest, et sa chapelle. À l'est, les écuries, l'intendance et l'hôtellerie des pèlerins. Au milieu de la cour, un abreuvoir de pierre et un tilleul. Une cloche sonne les heures, un peu fêlée, et dix-neuf frères vont et viennent dans une maison faite pour soixante." },
       { first: true, text: "Dans ton carnet, sous la date, tu écris une question, parce que c'est celle que tout le monde ici évite : *Qui gardait le Sceau ?*" },
       { again: true, text: "La cour de la commanderie, ses pavés moussus, son tilleul, son abreuvoir. Un frère traverse avec un seau, un autre avec une selle. La cloche fêlée sonne une heure qui n'est peut-être pas la bonne." },
-      { when: "night", text: "La nuit, la cour reçoit pour seules lumières une lanterne pendue sous la voûte et la fenêtre du sénéchal, où brûle une chandelle jusque très tard. Un frère de garde fait les cent pas sur le chemin de ronde, et ses pas sonnent sur les dalles comme ceux d'un homme seul dans une église." },
+      { when: "night", text: "La nuit, la cour reçoit pour seules lumières une lanterne pendue sous la voûte et la fenêtre du sénéchal, où brûle une chandelle jusque très tard ; le reste est une obscurité de grande maison vide, où les galeries du cloître ouvrent leurs arches noires sur des chambres que personne n'occupe plus. Un frère de garde fait les cent pas sur le chemin de ronde, et ses pas sonnent sur les dalles comme ceux d'un homme seul dans une église." },
       { if: { clock: "voix", min: 2 }, text: "Depuis quelques jours, les frères ont cessé de tirer de l'eau au puits du cloître. Une toile goudronnée le couvre, lestée de pierres, et ils font un détour pour l'éviter. Ils descendent à la rivière avec des seaux, deux par deux." },
       { if: { clock: "voix", min: 3 }, text: "L'abreuvoir de la cour est vide, raclé jusqu'à la pierre, et les chevaux boivent à des baquets qu'on remplit à la rivière. Le nom de Frère Foulques reste dans les gorges. Tout le monde y pense. La chapelle est éclairée nuit et jour." },
       { with: "thavary", text: "Thavary s'est arrêtée sous la voûte, et elle regarde le drapeau à la main ouverte. « Mon arrière-grand-père s'asseyait à la table du sénéchal, dit-elle. À sa droite. » Qui s'y assoit maintenant, elle le garde pour elle." },
@@ -496,7 +496,7 @@ add({
   II_brann_greve: { act: "II", title: "La grève de Ferrance", place: "commanderie",
     fx: { questSeen: "II_greve", ep: ["perso", 200] },
     text: [
-      "Brann prend une lettre sur la pile et te la tend. Un beau papier, une belle écriture, un cachet de cire verte : *Le prévôt de Ferrance au sénéchal de l'Ordre de la Main.* Il demande dix gants gris « pour rendre à la circulation la rue des Fours, que des ouvriers séditieux occupent au mépris des franchises de la ville ».",
+      "Brann prend une lettre sur la pile et te la tend. Un beau papier, une belle écriture, un cachet de cire verte : *Le prévôt de Ferrance au sénéchal de l'Ordre de la Main.* Il demande dix gants gris « pour rendre à la circulation la rue des Fours, que des ouvriers séditieux occupent au mépris des franchises de la ville ». Le style est d'un homme qui a toujours dîné à l'heure, et qui en a tiré une doctrine.",
       "« Je n'ai pas dix gants gris, dit Brann. Et si je les avais, je ne les enverrais pas déloger des souffleurs de verre qui ont faim. L'Ordre garde les routes et le Sceau. Il ne garde pas la bourse du doyen des verriers. » Il reprend la lettre. « Le prévôt ira chercher des hommes ailleurs. Des hommes moins regardants. Si tu passes par Ferrance, et si tu peux faire en sorte que ça se termine sans morts, tu rendras service à plus de gens que tu ne crois. »",
     ],
     choices: [{ back: "II_brann" }] },
@@ -559,7 +559,7 @@ add({
     ] },
   II_duel: { act: "II", title: "L'assaut", place: "commanderie",
     text: [
-      "Gauvard te jauge des pieds à la tête, puis il prend sur le râtelier deux lames émoussées, en lance une, et garde l'autre. « Au premier sang, ou à terre, dit-il. Pas de coup à la tête, pas de coup sous la ceinture, pas de pitié. » Il se met en garde, de trois quarts, la main mutilée derrière le dos. « Les gens qui reviennent du sud me disent tous qu'ils savent se battre. Montre-moi. »",
+      "Gauvard te jauge des pieds à la tête, puis il prend sur le râtelier deux lames émoussées, en lance une, et garde l'autre. « Au premier sang, ou à terre, dit-il. Pas de coup à la tête, pas de coup sous la ceinture, pas de pitié. » Il se met en garde, de trois quarts, la main mutilée derrière le dos. « Les gens qui reviennent du sud me disent tous qu'ils savent se battre ; les cimetières du sud sont pleins de gens qui le disaient aussi. Montre-moi. »",
       { if: { arch: "guerrier" }, text: "Il regarde la façon dont tu prends la lame, et un coin de sa bouche se relève. « Une école, dit-il. Bien. Voyons laquelle. »" },
       { if: { arch: "mage" }, text: "« Pas de sortilège, ajoute-t-il, en regardant tes mains. Ici on se bat avec du fer. Le jour où quelqu'un te prendra ta magie, il te restera ça. »" },
       "Les jeunes frères ont arrêté de taper sur les mannequins. Ils se sont assis sur la barrière, comme au spectacle.",
@@ -644,7 +644,7 @@ add({
   II_edrin: { act: "II", title: "L'escalier du Grand Maître", place: "commanderie", backName: "l'escalier du Grand Maître",
     fx: { meet: "II_hilaire" },
     text: [
-      { first: true, text: "L'escalier de la tour monte en colimaçon au-delà de la salle du sénéchal, étroit, usé au milieu des marches. En haut, une porte de chêne noir, cloutée, fermée. Devant la porte, sur un tabouret, un frère très vieux dort assis, le menton sur la poitrine, un trousseau de clés sur les genoux. C'est Frère Hilaire, le portier du Grand Maître. Il se réveille quand tu montes la dernière marche, et il se lève, ce qui lui prend un certain temps." },
+      { first: true, text: "L'escalier de la tour monte en colimaçon au-delà de la salle du sénéchal, étroit, usé au milieu des marches. En haut, une porte de chêne noir, cloutée, fermée. Devant la porte, sur un tabouret, un frère très vieux dort assis, le menton sur la poitrine, un trousseau de clés sur les genoux. C'est Frère Hilaire, le portier du Grand Maître. Il se réveille quand tu montes la dernière marche, et il se lève par étapes, comme on déplie un vieux mètre de charpentier." },
       { first: true, text: "« Le Grand Maître ne reçoit pas, dit-il. Il ne reçoit personne. » Il le dit gentiment, comme on dit à un enfant qu'il fait nuit. Derrière la porte, tu entends une respiration lente, un raclement de chaise, puis une voix très vieille, presque un souffle, qui dit quelque chose d'inaudible pour toi. Frère Hilaire tend l'oreille, et répète, mot pour mot : « *Demandez ce qu'est devenue la main.* »" },
       { again: true, text: "La porte noire, le tabouret, Frère Hilaire qui dort assis. Il reste endormi, cette fois, ou il fait semblant. Derrière la porte, une toux sèche, et le silence." },
     ],
@@ -678,7 +678,7 @@ add({
     text: [
       { first: true, text: "Le puits du cloître est au milieu du préau, sous un petit toit de tuiles moussues. Hier encore, d'après les frères, l'eau y était claire et froide. Ce matin, le seau est remonté plein d'une eau noire et tiède, avec une odeur de vase et de feuilles mortes. Le frère qui l'a tiré a lâché la corde. Le seau est retombé au fond, et il y est resté." },
       { again: true, text: "La toile goudronnée, les pierres posées dessus, et ce silence autour du puits que les frères contournent sans un mot." },
-      "Tu soulèves un coin de la toile. L'eau est là, à trois toises sous la margelle, immobile, lisse comme une plaque d'ardoise. Ton reflet manque. Tu vois le ciel, et le toit de tuiles, et un vide à la place de ta tête.",
+      "Tu soulèves un coin de la toile. L'eau est là, à trois toises sous la margelle, immobile, lisse comme une plaque d'ardoise, et d'une noirceur si pleine que le puits semble bouché plutôt que rempli ; un air tiède en monte, qui sent la cave et la feuille morte. Ton reflet manque. Tu vois le ciel, et le toit de tuiles, et un vide à la place de ta tête.",
       { if: { has: "passe:aide" }, text: "À Saint-Gilles, c'est comme ça que ça avait commencé : le puits du temple, d'abord. Puis la fontaine. Tu avais porté les malades, un par un, jusqu'à ce que le temple soit plein, et tu te souviens de leur soif. Ils réclamaient tous de l'eau. Tu n'avais que celle-là." },
       { if: { has: "passe:fui" }, text: "À Saint-Gilles, c'est comme ça que ça avait commencé. Le puits, d'abord. Tu étais parti{e} la semaine d'après. Tu as appris plus tard, par un marchand, combien étaient restés. Tu regardes l'eau noire, et tu comptes sans le vouloir." },
       { if: { has: "passe:profite" }, text: "À Saint-Gilles, c'est comme ça que ça avait commencé, et c'est à ce moment-là que les terres s'étaient mises à se vendre pour rien. Tu te souviens d'avoir pensé, en voyant l'eau tourner : *maintenant, ça va baisser.* Tu te souviens d'avoir eu raison." },
@@ -723,7 +723,7 @@ add({
       { first: true, text: "Ferrance est une ville qui fait du bruit. Avant même de passer la porte, tu l'entends : des centaines de marteaux qui frappent sans s'accorder, le souffle des soufflets, le grondement des fours, le cri des charretiers, le chuintement du fer rouge qu'on trempe. Les murailles sont noires de suie, et au-dessus des toits, cent cheminées crachent une fumée qui stagne en permanence, et qui fait au-dessus de la ville un deuxième ciel, plus bas que l'autre." },
       { first: true, text: "La place des Portes est le cœur de la ville basse. Au nord, sur une butte, une halle immense au toit de cuivre vert-de-grisé, d'où sort une colonne de fumée plus haute que les autres : la Forge-Mère. À l'ouest, au bout d'une rue montante, la façade blanche et sage d'un bâtiment à colonnes qui a l'air d'avoir été posé là par erreur : l'Athénée du Cercle. Et à l'est, la rue des Fours, d'habitude la plus bruyante, aujourd'hui silencieuse." },
       { again: true, text: "La place des Portes, la cendre qui tombe, le vacarme des forges. Les gens de Ferrance marchent vite, la tête rentrée dans les épaules, les yeux au sol." },
-      { when: "night", text: "La nuit, Ferrance veille : les fours restent allumés, et leurs gueules rouges éclairent les rues par en dessous, comme si la ville était posée sur une braise. Les ombres des passants sont longues et tremblantes sur les murs." },
+      { when: "night", text: "La nuit, Ferrance veille : les fours restent allumés, et leurs gueules rouges éclairent les rues par en dessous, comme si la ville était posée sur une braise ; la fumée, au-dessus des toits, en prend une teinte de viande, et les ombres des passants montent le long des murs, longues, tremblantes, plus hautes que les maisons." },
       { if: { all: [{ quest: "II_greve" }, { is: { greve: "accord" } }] }, text: "Dans la rue des Fours, les cheminées fument à nouveau. On entend les verriers chanter en soufflant, une chanson à deux temps, très vieille, absente à ton arrivée." },
       { if: { is: { greve: "sang" } }, text: "La rue des Fours est vide. Les portes des ateliers sont clouées. Sur le pavé, on a jeté du sable, mais on voit encore où." },
       { with: "charline", text: "Charline garde la tête baissée sur la place. On la reconnaît, ici : deux femmes se poussent du coude en la voyant, un forgeron crache par terre. Elle reste muette. Ses mains, dans ses manches, sont serrées." },
@@ -796,7 +796,7 @@ add({
   IIF_athenee: { act: "II", title: "L'Athénée du Cercle", place: "ferrance", backName: "le péristyle de l'Athénée",
     fx: { ep: ["perso", 300] },
     text: [
-      { first: true, text: "L'Athénée est tout en pierre blanche, la seule chose blanche de Ferrance : on la lave chaque semaine à grande eau, et chaque semaine la suie revient. Six colonnes, un fronton gravé d'un cercle brisé, un perron de douze marches. Sous le péristyle, des étudiants en robe bleue discutent en se tenant à un pas des colonnes, pour garder leurs manches propres." },
+      { first: true, text: "L'Athénée est tout en pierre blanche, la seule chose blanche de Ferrance : on la lave chaque semaine à grande eau, et chaque semaine la suie revient, la ville ayant sur le savoir des opinions qu'elle exprime comme elle peut. Six colonnes, un fronton gravé d'un cercle brisé, un perron de douze marches. Sous le péristyle, des étudiants en robe bleue discutent en se tenant à un pas des colonnes, pour garder leurs manches propres." },
       { first: true, text: "En haut des marches, une jeune femme rousse se dispute avec le portier. Elle est petite, mince, les cheveux tirés en une natte épaisse qui lui bat le dos, le visage criblé de taches de rousseur, et sur la joue gauche et le cou, une large cicatrice de brûlure, lisse et brillante. Elle tient un carnet serré contre sa poitrine, et elle parle fort. « Je ne demande pas à entrer à l'Athénée, je demande à consulter un registre de la ville ! Il appartient à la ville ! » Le portier, impassible, secoue la tête. « Pas vous, mademoiselle Hildrand. Ordre du recteur. »" },
       { again: true, text: "Le perron blanc, les colonnes salies, les étudiants en bleu. Le portier te salue d'un signe de tête." },
       { with: "charline", text: "Charline s'arrête au pied du perron et y reste. « Je t'attends là, dit-elle. Le portier a des ordres. Et moi j'ai de la mémoire. »" },
@@ -1092,7 +1092,7 @@ add({
 
   IIF_vol: { act: "II", title: "La Forge, la nuit", place: "ferrance", takes: "night",
     text: [
-      "La nuit, la Forge-Mère garde son feu. Les douze foyers sont couverts, ils rougeoient sous la cendre, et deux compagnons de garde somnolent sur un banc, près de la porte murée de la chambre d'Hildre. La halle est pleine d'ombres rouges, de reflets sur le cuivre, de craquements de braise. Au milieu, l'enclume noire boit toute la lumière qu'on lui envoie.",
+      "La nuit, la Forge-Mère garde son feu. Les douze foyers sont couverts, ils rougeoient sous la cendre comme douze paupières mal fermées, et deux compagnons de garde somnolent sur un banc, près de la porte murée de la chambre d'Hildre. La halle est pleine d'ombres rouges, de reflets sur le cuivre, de craquements de braise ; le toit se perd dans une obscurité où, de loin en loin, un métal cliquette en refroidissant. Au milieu, l'enclume noire boit toute la lumière qu'on lui envoie.",
       "Il y a une porte de service, côté charbon. Elle est ouverte. On ne vole pas à la Forge-Mère : l'idée n'est venue à personne en quatre cents ans, et la porte en témoigne.",
       { with: "pip", text: "Pip reste sur le seuil, sa lumière toute petite. Quand tu te retournes vers lui, il recule d'un battement d'ailes, comme pour te dire qu'il s'arrête là." },
     ],
@@ -1387,7 +1387,7 @@ add({
 
   IIF_bibliotheque: { act: "II", title: "La bibliothèque de l'Athénée", place: "ferrance", backName: "la bibliothèque de l'Athénée",
     text: [
-      { first: true, text: "La bibliothèque de l'Athénée est une longue galerie à deux étages, éclairée par des verrières que la suie a rendues grises. Des milliers de livres sur des rayonnages de chêne, des échelles à roulettes, de grandes tables où des étudiants en bleu recopient en silence. Les livres les plus précieux sont enchaînés à leurs pupitres par des chaînes de fer fin, assez longues pour qu'on les ouvre, trop courtes pour qu'on les emporte. Au fond, une porte basse ferrée, gardée par un vieil homme qui fait semblant de lire, et qui tourne ses pages trop rarement pour qu'on le croie : les archives." },
+      { first: true, text: "La bibliothèque de l'Athénée est une longue galerie à deux étages, éclairée par des verrières que la suie a rendues grises. Des milliers de livres sur des rayonnages de chêne, des échelles à roulettes, de grandes tables où des étudiants en bleu recopient en silence. Les livres les plus précieux sont enchaînés à leurs pupitres par des chaînes de fer fin, assez longues pour qu'on les ouvre, trop courtes pour qu'on les emporte : c'est toute la pensée du Cercle sur la lecture, mise en ferronnerie. Au fond, une porte basse ferrée, gardée par un vieil homme qui fait semblant de lire, et qui tourne ses pages trop rarement pour qu'on le croie : les archives." },
       { again: true, text: "La galerie, ses verrières grises, le grattement des plumes. Le vieux gardien des archives, au fond, lève les yeux de son livre et les rabaisse." },
       { if: { all: [{ quest: "II_livre" }, { is: { livre: "rendu" } }] }, text: "Au troisième pupitre de la travée des chroniques, la chronique de l'an 3 est revenue à sa place, sous une chaîne neuve, plus grosse que les autres." },
       { if: { all: [{ seen: "IIF_livre_vol" }, { not: { quest: "II_livre" } }] }, text: "Au troisième pupitre de la travée des chroniques, une chaîne pend dans le vide, coupée net." },
@@ -1399,7 +1399,7 @@ add({
     ] },
   IIF_archives: { act: "II", title: "La porte des archives", place: "ferrance",
     text: [
-      "Le gardien des archives s'appelle Maître Isembart. Il a quatre-vingts ans, une loupe pendue au cou, et il garde les yeux sur son livre quand tu arrives devant sa porte. « Les archives sont fermées au public, dit-il. Ouvertes aux membres du Cercle. Ouvertes à ceux qui portent son jeton. Pour les autres, il faut une lettre du recteur. Le recteur n'en donne jamais. »",
+      "Le gardien des archives s'appelle Maître Isembart. Il a quatre-vingts ans, une loupe pendue au cou, et il garde les yeux sur son livre quand tu arrives devant sa porte. « Les archives sont fermées au public, dit-il. Ouvertes aux membres du Cercle. Ouvertes à ceux qui portent son jeton. Pour les autres, il faut une lettre du recteur. Le recteur n'en donne jamais ; l'arrangement est admirable, et il tient depuis cinquante ans sans avoir laissé passer un curieux. »",
       { with: "charline", text: "Charline, à côté de toi, te touche le coude et fait un petit geste du menton vers une tenture, au fond de la galerie, qui semble cacher seulement un mur." },
     ],
     choices: [
@@ -1495,7 +1495,7 @@ add({
 
   IIF_pont: { act: "II", title: "Le Pont-aux-Scories", place: "ferrance", takes: "night",
     text: [
-      "Le Pont-aux-Scories enjambe le canal noir à l'endroit où les forges y jettent leurs déchets. La nuit, l'eau fume. Les scories, sur les berges, luisent d'un reste de chaleur, et l'air sent le soufre à vomir. La cloche de l'Athénée sonne minuit. Bertille est au milieu du pont, toute petite, son paquet serré contre elle.",
+      "Le Pont-aux-Scories enjambe le canal noir à l'endroit où les forges y jettent leurs déchets. La nuit, l'eau fume ; une vapeur basse, jaunâtre, rampe d'une berge à l'autre et se déchire aux piles du pont, et les scories, sur les rives, luisent d'un reste de chaleur, d'une lueur sourde de braise sous la peau, tandis que l'air sent le soufre à vomir. La cloche de l'Athénée sonne minuit. Bertille est au milieu du pont, toute petite, son paquet serré contre elle.",
       "Un homme vient de l'autre rive. Il porte un manteau de bonne laine, un chapeau, et des gants blancs, impeccables, qui brillent dans le noir : des gants qu'on change chaque jour, dans une ville où la suie tache tout en une heure. Deux autres hommes le suivent, à distance, les mains sous leurs manteaux. « Mademoiselle Ferrat, dit l'homme aux gants blancs, d'une voix douce, avec l'accent des hautes terres. Ponctuelle. C'est une qualité. » Il te voit, et poursuit sa marche. « Et vous avez amené quelqu'un. C'est un défaut. »",
       { with: "coliane", text: "Coliane s'est fondue dans l'ombre de la rambarde, si bien qu'elle disparaît à tes yeux. Tu sais seulement qu'elle est là, quelque part, à portée de couteau des deux hommes du fond." },
     ],
