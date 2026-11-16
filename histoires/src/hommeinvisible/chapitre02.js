@@ -1,0 +1,77 @@
+// « L'Homme invisible » (The Invisible Man), H. G. Wells, 1897 : un livre à lire, sans choix (lecture: true).
+// Texte : la traduction d'Achille Laurent (La Revue de Paris, 1900-1901, puis Mercure de France), transcrite par
+// Wikisource (domaine public ; transcription reprise d'un export Wikisource de février 2025). Texte gardé tel quel, sauf la
+// typographie ; la note du traducteur sur les fenêtres anglaises est mise entre parenthèses dans sa page.
+// Tout ce qui n'est pas de Wells ou de son traducteur vit dans les tags : gens, lieux, mots, résumés des chapitres.
+// Chapitre II · Chapitre II · Les premières impressions de Teddy Henfrey
+module.exports = {
+  II_1: { act: "II", title: "La pendule du petit salon", place: "auberge", fx: { meet: ["henfrey"] },
+    text: [
+      "À quatre heures, il faisait tout à fait sombre. Au moment où madame Hall prenait son courage à deux mains pour aller demander à son hôte s'il désirait du thé, Teddy Henfrey, le petit horloger, entra dans le bar.",
+      "— Vrai, madame Hall, voilà un fichu temps pour des bottines légères !",
+      "La neige tombait de plus en plus fort.",
+      "Madame Hall acquiesça d'un hochement de tête et remarqua que Teddy avait sa trousse avec lui.",
+      "— Pendant que vous êtes là, monsieur Teddy, je vous serais obligée de vouloir bien donner à la vieille pendule, dans le salon, un petit coup d'œil. Elle marche et elle sonne bien, mais la petite aiguille s'obstine à marquer six heures.",
+      "Lui montrant le chemin, elle se dirigea vers la porte du salon ; elle frappa et entra.",
+      "Son hôte – elle le vit en entrant – était assis dans le fauteuil devant le feu, assoupi à ce qu'il semblait ; sa tête emmaillotée s'inclinait de côté. Pour toute lumière dans la chambre, la lueur rougeâtre qui venait du foyer. Tout était ou violemment éclairé ou tout à fait sombre. Elle avait d'autant plus de peine à rien distinguer qu'elle venait précisément d'allumer la lampe du bar et que ses yeux étaient encore éblouis. Mais, pendant une seconde, il lui parut que l'homme qu'elle regardait avait une bouche énorme, béante, une bouche invraisemblable, qui « mangeait » tout le bas de sa figure. Ce fut une image instantanée : une tête enveloppée de blanc, de gros yeux à fleur de front, et, au-dessous, un large four.",
+      "Alors, il bougea, il se redressa sur son siège, il leva la main. Ayant ouvert la porte toute grande, pour que la chambre fût mieux éclairée, madame Hall le vit plus nettement : il tenait un foulard sur sa figure, tout comme elle l'avait vu auparavant tenir sa serviette. L'obscurité, pensa-t-elle, l'avait trompée.",
+      "— Est-ce que vous voudriez bien permettre que monsieur vienne arranger l'horloge ? dit-elle en surmontant son trouble.",
+      "— Arranger l'horloge ? répéta le voyageur, jetant autour de lui des regards endormis et parlant par-dessus sa main ; puis, tout à fait réveillé : — Mais, certainement !…",
+      "Madame Hall sortit pour prendre une lampe ; lui se leva et s'étira. Alors, la pièce éclairée, M. Teddy Henfrey se trouva face à face avec l'homme aux bandeaux. Il en fut, disait-il, « tout chose ».",
+      "— Bonjour ! lui dit l'étranger, en le fixant « avec des yeux de langouste », selon l'expression pittoresque de M. Henfrey qui désignait ainsi les lunettes aux verres fumés.",
+      "— J'espère, dit celui-ci, que je ne vous gêne pas.",
+      "— Non, pas du tout, répondit l'étranger. Pourtant, j'entends – et il se tournait vers madame Hall – que cette pièce soit bien à moi, pour mon usage particulier.",
+      "— Je pensais, monsieur, que vous préféreriez que l'horloge…",
+      "— Certainement, certainement… Mais, règle générale, je désire être seul et que l'on ne me dérange pas.",
+      "Il fit volte-face, les épaules à la cheminée, les mains derrière son dos.",
+      "— Et maintenant, ajouta-t-il, quand la réparation sera faite, je voudrais avoir du thé… Mais pas avant que la réparation soit terminée.",
+      "Madame Hall était sur le point de sortir — cette fois, elle n'essaya pas d'engager la conversation, pour ne pas s'exposer à être rabrouée devant M. Henfrey — lorsque le client lui demanda si elle avait pris ses dispositions au sujet des malles restées à Bramblehurst. Elle répondit qu'elle avait parlé au facteur et que le voiturier les apporterait le lendemain.",
+      "— Êtes-vous sûre que ce soit le moyen le plus rapide ?",
+      "Elle en était sûre, elle l'affirma avec froideur.",
+      "— C'est que, voyez-vous… Je vais vous expliquer ce que je n'ai pu vous dire plus tôt parce que j'étais trop gelé et trop fatigué : je suis un travailleur, un homme de laboratoire…",
+      "— Ah ! vraiment, monsieur ! fit madame Hall, très intéressée.",
+      "— Et mes bagages contiennent des appareils, un matériel…",
+      "— Toutes choses bien utiles, sans doute !",
+      "— Naturellement, je suis impatient de poursuivre mes recherches.",
+      "— Naturellement, monsieur !",
+      "— Ma raison de venir à Iping, — continua-t-il d'un ton assez délibéré, — était le désir de la solitude. Je tiens à n'être pas troublé dans mon travail. En plus, d'ailleurs, de mon travail, un accident qui m'est arrivé… (« Je le pensais bien ! » se dit madame Hall)… exige une certaine retraite. Mes yeux sont quelquefois si affaiblis et si douloureux que je dois m'enfermer dans l'obscurité des heures entières, m'enfermer à clef. Cela, de temps à autre. Pas pour le quart d'heure, toutefois. À ces moments-là, le moindre dérangement, par exemple l'entrée de quelqu'un dans ma chambre, est pour moi une cause de véritable torture… Il est bon que cela soit entendu."
+    ] },
+
+  II_2: { act: "II", title: "Les soupçons de M. Hall", place: "auberge",
+    text: [
+      "— Parfaitement, monsieur. Si j'osais me permettre de demander…",
+      "— C'est bien tout, je crois, — dit l'étranger, de ce ton tranquille et sans réplique qu'il savait prendre pour couper court aux interrogations.",
+      "Madame Hall dut garder sa question et sa pitié pour une circonstance meilleure.",
+      "Quand elle eut quitté la pièce, il resta debout devant le foyer, attentif – M. Henfrey le rapporta – à la réparation de l'horloge.",
+      "M. Henfrey travaillait, une lampe posée tout près de lui : l'abat-jour vert jetait une lumière plus vive sur ses mains, sur le cadran et sur les petites roues de l'horloge, laissant dans l'ombre le reste du salon.",
+      "Lorsqu'il leva la tête, sa vue d'abord fut troublée par les reflets colorés. Curieux de sa nature, il avait démonté les pièces, chose parfaitement inutile, avec l'idée de retarder son départ et d'arriver ainsi peut-être à engager la conversation avec l'étranger. Mais celui-ci demeurait silencieux et immobile. Si bien immobile que cela finit par agacer Henfrey. Il eut l'impression d'être seul et regarda : grise et peu éclairée, se dressait l'énorme tête à bandeaux, qui l'examinait avec ses grosses lunettes sombres, obscurcies d'une buée verdâtre. Cela devint pour Henfrey si insupportable que, pendant une minute, ils demeurèrent tous deux à se considérer d'un air confus. Puis Henfrey baissa les yeux. Situation vraiment bien gênante ! Il eût aimé à dire quelque chose. Convenait-il de faire observer que le temps était bien froid pour la saison ? Il se redressa comme pour choisir l'instant de placer cette remarque.",
+      "— Le temps…, commença-t-il.",
+      "— Pourquoi ne terminez-vous pas et ne partez-vous pas ? dit la figure rigide, évidemment en proie à une fureur difficilement contenue. — Tout ce que vous êtes parvenu à faire, c'est de resserrer l'aiguille sur le cadran. Vous vous moquez du monde !",
+      "— Bien, monsieur… Une seule minute encore. Je revoyais avec soin…",
+      "M. Henfrey finit sa besogne et s'en alla. Mais il s'en alla extrêmement contrarié.",
+      "« Sacrebleu ! — se disait-il en traversant à pied le village au milieu d'une rafale de neige, — il y a des fois où il faut bien arranger une horloge, tout de même ! »",
+      "Puis :",
+      "« Un homme n'a-t-il donc pas le droit de vous regarder ? Vilain singe ! »",
+      "Et encore :",
+      "« Non, à ce qu'il paraît… La police serait à ses trousses qu'il ne serait pas mieux enveloppé, mieux entortillé ! »",
+      "Au coin de la rue, devant chez Gleeson, il vit Hall, qui avait depuis peu épousé la patronne de l'auberge, et qui maintenant conduisait la « voiture à volonté », d'Iping à l'embranchement de Sidderbridge, quand par hasard quelqu'un en avait besoin ; Hall se dirigeait vers lui, revenant de la gare. À n'en pas douter, « il s'était arrêté un brin » à Sidderbridge : il suffisait, pour en être sûr, de le voir conduire.",
+      "— Comment va, Teddy ? demanda-t-il en passant.",
+      "— Ah ! vous avez chez vous un drôle de corps !",
+      "Hall, sans se faire prier, arrêta son cheval.",
+      "— Quoi donc ?",
+      "— Un client qui a l'air bien original est descendu chez vous, mon vieux !…",
+      "Et Teddy commença de faire à Hall une description pittoresque de l'hôte bizarre de sa femme.",
+      "— Il a un peu l'air d'un déguisé. Moi, je tiendrais à voir la figure d'un homme si j'avais à le loger dans mon établissement. Mais les femmes sont si pleines de confiance, dès qu'il s'agit d'étrangers ! Hall, il s'est installé chez vous, et il n'a même pas encore donné de nom !",
+      "— Vraiment ? répondit Hall, qui avait l'intelligence plutôt paresseuse.",
+      "— Parfaitement ! reprit Teddy. Il a loué à la semaine, et vous ne serez pas débarrassé de lui avant huit jours. Et il traîne un tas de bagages, qui arriveront demain, à ce qu'il dit. Espérons, Hall, que ce ne sont pas seulement des caisses remplies de pierres !",
+      "Il raconta comment sa tante, à Hastings, avait été refaite par un étranger dont les valises étaient vides. Bref, il laissa Hall vaguement inquiet.",
+      "— Hue, donc ! fit celui-ci. Il faut que j'y aille voir.",
+      "Teddy poursuivit sa route, l'esprit tout à fait soulagé.",
+      "Au lieu « d'y aller voir », Hall, à son retour chez lui, fut sévèrement attrapé par sa femme pour le temps qu'il avait passé à Sidderbridge ; ses questions timides furent accueillies avec aigreur, sans qu'elle répondît à l'objet de ses préoccupations. Mais, en dépit des rebuffades, la graine de méfiance semée par Teddy germait dans sa cervelle.",
+      "— Vous ne savez pas tout, vous autres femmes ! dit M. Hall, résolu à être renseigné le plus tôt possible sur la qualité de son hôte.",
+      "Dès que l'étranger fut couché, vers neuf heures et demie, M. Hall entra, l'air agressif, dans le salon, et il examina d'un œil soupçonneux le mobilier de sa femme, pour bien affirmer que l'étranger n'était pas maître dans la place ; il reluqua, non sans un peu de mépris, une feuille d'opérations mathématiques oubliée par l'autre. En se retirant, il recommanda à madame Hall de veiller de très près aux bagages, quand ils arriveraient le lendemain.",
+      "— Occupez-vous de vos affaires, Hall ! répliqua celle-ci ; moi, je m'occuperai des miennes.",
+      "Elle était d'autant plus portée à quereller son mari que l'étranger était évidemment un voyageur extraordinaire, et que, au fond, elle ne se trouvait pas du tout rassurée sur son compte. Au milieu de la nuit, elle s'éveilla en sursaut, rêvant de grosses têtes, blanches comme des navets, montées sur des cous sans fin, avec de gros yeux noirs, qui s'avançaient vers elle en rampant. Mais, femme de bon sens, elle maîtrisa ses terreurs, se retourna et se rendormit."
+    ] },
+
+};
