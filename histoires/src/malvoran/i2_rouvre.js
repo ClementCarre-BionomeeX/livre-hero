@@ -8,7 +8,7 @@ var P = {};
 Object.assign(P, {
   IF_route_croix: { act: "I", title: "La croix des Charbonniers", place: null,
     text: [
-      "Le chemin quitte Brumefeuille par le haut du village, entre deux haies de prunelliers dont les baies ont noirci sur la branche, faute de mains pour les cueillir. Au bout d'une heure, les champs cèdent la place aux premiers chênes, et le chemin se met à monter par une tranchée creusée dans l'argile rouge, où les roues des chariots de bois ont laissé deux ornières profondes comme des fossés.",
+      "Le chemin quitte Brumefeuille par le haut du village, entre deux haies de prunelliers dont les baies ont noirci sur la branche, faute de mains pour les cueillir. Au bout d'une heure, les champs cèdent la place aux premiers chênes, et le chemin se met à monter par une tranchée creusée dans l'argile rouge, où les roues des chariots de bois ont laissé deux ornières profondes comme des fossés ; on y marche entre deux murs de terre, la tête au niveau des racines, avec l'impression d'entrer dans la forêt par sa cave.",
       "À la fourche, une croix de bois se dresse sur un tas de pierres. Quelqu'un y a cloué, à hauteur d'homme, une planchette peinte à la chaux : *NE BUVEZ PAS AUX MARES*. Plus bas, d'une autre main, en lettres plus petites : *ni aux flaques*. Et plus bas encore, gravé au couteau dans le bois, si frais que les copeaux sont encore blancs : *Tiennot, si tu lis ça, rentre.* Trois mains, trois avertissements, chacun plus pressant que le précédent.",
       { with: "pip", text: "Pip descend de ton épaule et fait le tour de la croix, lentement, à hauteur des lettres, comme quelqu'un qui épelle. « Qui est Tiennot ? » demande-t-il. Tu l'ignores, et la forêt, devant vous, garde la réponse." },
       { without: "pip", text: "Tu restes un moment devant la planchette. Celui qui a gravé la dernière ligne a appuyé si fort que la lame a glissé et entaillé le montant sur un pouce." },
@@ -16,15 +16,15 @@ Object.assign(P, {
     choices: [{ label: "Reprendre la route", back: R }] },
   IM_route_chaussee: { act: "I", title: "La chaussée des Moines", place: null,
     text: [
-      "Au sortir de Brumefeuille, vers le sud, la route se change en chaussée : un long remblai de terre et de fascines, que les moines du temps jadis ont élevé au-dessus des prés inondés pour aller d'une rive à l'autre les pieds au sec. Il en reste un dos d'âne herbeux, troué par endroits, où les dalles d'origine affleurent comme des vertèbres. De chaque côté, les prés ont cessé d'être des prés. L'eau y dort sous une peau verte, si épaisse que le vent glisse dessus sans la rider.",
+      "Au sortir de Brumefeuille, vers le sud, la route se change en chaussée : un long remblai de terre et de fascines, que les moines du temps jadis ont élevé au-dessus des prés inondés pour aller d'une rive à l'autre les pieds au sec, le salut des âmes n'ayant jamais exigé qu'on se mouille les sandales. Il en reste un dos d'âne herbeux, troué par endroits, où les dalles d'origine affleurent comme des vertèbres. De chaque côté, les prés ont cessé d'être des prés. L'eau y dort sous une peau verte, si épaisse que le vent glisse dessus sans la rider.",
       "À mi-chemin, une borne à demi enfoncée porte une croix effacée et, au pied, une gerbe de roseaux tressés en forme de poupée, avec deux cailloux pour les yeux. Un enfant l'a faite, ou une mère. Elle regarde vers l'eau.",
       { with: "coliane", text: "Coliane donne un coup de pied dans la poupée de roseaux, qui roule dans l'herbe. Puis elle se baisse, la ramasse, et la remet à sa place, exactement, les yeux vers l'eau. « Chez moi aussi, ils en faisaient, dit-elle. Ça n'a rien empêché. » Où est chez elle, elle le garde pour elle." },
-      "Plus loin, la chaussée s'enfonce dans la brume. Il reste le bruit de tes pas et, de temps en temps, celui de quelque chose de lourd qui se laisse glisser dans l'eau.",
+      "Plus loin, la chaussée s'enfonce dans la brume. Il reste le bruit de tes pas et, de temps en temps, celui de quelque chose de lourd qui se laisse glisser dans l'eau, sans hâte, à droite, puis à gauche, toujours un peu en avant de toi.",
     ],
     choices: [{ label: "Reprendre la route", back: R }] },
   IM_route_gue: { act: "I", title: "Le gué des Saules", place: null,
     text: [
-      "Entre la forêt et les marais, le chemin descend par une pente de racines vers un gué que les gens d'ici appellent le gué des Saules, bien que le dernier saule vivant soit à plus de cent pas. Les arbres morts sont restés debout, gris, sans écorce, les branches levées comme des bras qui se rendent. L'eau du gué est basse et brune, et elle sent le fer.",
+      "Entre la forêt et les marais, le chemin descend par une pente de racines vers un gué que les gens d'ici appellent le gué des Saules, bien que le dernier saule vivant soit à plus de cent pas ; les noms de lieux sont les épitaphes de la campagne. Les arbres morts sont restés debout, gris, sans écorce, les branches levées comme des bras qui se rendent. L'eau du gué est basse et brune, et elle sent le fer.",
       "Sur la rive d'en face, des traces de sabots fendus, larges comme une main d'homme, descendent à l'eau et en ressortent. Les bords sont nets, la boue encore humide au fond : quelques heures, tout au plus. Les poils accrochés aux ronces sont gris, d'un gris de cendre mouillée.",
       { with: "gloup", text: "Gloup refuse d'entrer dans le gué. Il reste sur la rive, tremblant de tout son corps, jusqu'à ce que tu reviennes le chercher et le portes, à bout de bras, au-dessus de l'eau. Il pèse le poids d'un chat mouillé et il sent la mare. Une fois de l'autre côté, il se colle à tes bottes et y reste collé une bonne heure." },
       { with: "coliane", text: "Coliane passe le gué sans ralentir, les couteaux hors de l'eau. De l'autre côté, elle s'accroupit sur les traces. « Une laie et trois bêtes de l'année. Grises toutes les quatre. Elles ont bu ici, puis elles ont remonté vers le bois. » Elle crache dans le gué. « Tout ce qui boit à cette eau-là change de couleur. »" },
@@ -36,11 +36,11 @@ Object.assign(P, {
 Object.assign(P, {
   IF_lisiere: { act: "I", title: "La lisière du Rouvre", place: "rouvre", hub: true, routes: true, backName: "la lisière du Rouvre",
     text: [
-      { first: true, text: "La forêt du Rouvre commence d'un coup, comme un mur : la dernière haie, un fossé, et derrière, les chênes. Des chênes si vieux que leurs troncs ont pris des formes de rochers, couverts de mousse sur le côté du nord, avec des racines qui sortent de terre et y rentrent comme des dos de bêtes. Sous eux, le jour change de couleur. Il devient vert, puis brun, et à cent pas dans le sous-bois, il cède la place à une pénombre de cave." },
+      { first: true, text: "La forêt du Rouvre commence d'un coup, comme un mur : la dernière haie, un fossé, et derrière, les chênes. Des chênes si vieux que leurs troncs ont pris des formes de rochers, couverts de mousse sur le côté du nord, avec des racines qui sortent de terre et y rentrent comme des dos de bêtes. Sous eux, le jour change de couleur. Il devient vert, puis brun ; et à cent pas dans le sous-bois, il cède la place à une pénombre de cave, immobile, humide, où les troncs se perdent les uns derrière les autres jusqu'à une profondeur que l'œil renonce à sonder." },
       { first: true, text: "Des générations de bûcherons ont ouvert une clairière à la lisière : des souches grises, des piles de bûches couvertes d'écorce, un chevalet de scieur, une cabane de rondins à la cheminée froide. Plus loin, un sentier entre sous les arbres, marqué d'une entaille tous les trois troncs. Ailleurs, des sentes plus étroites, tracées par d'autres pieds que ceux des hommes." },
-      { first: true, text: "Le silence, d'abord. Aucun oiseau. C'est la première chose que tu remarques, et une fois remarquée, elle s'impose à chaque pas." },
+      { first: true, text: "Le silence, d'abord. Aucun oiseau. C'est la première chose que tu remarques ; et une fois remarquée, elle s'impose à chaque pas, elle grandit, elle occupe l'oreille tout entière, comme il arrive des choses qui manquent là où elles devraient être." },
       { again: true, text: "La clairière des bûcherons, les souches, les piles de bûches sous leur écorce. Le sous-bois commence derrière, sombre et muet." },
-      { again: true, when: "night", text: "La nuit, la lisière est un mur noir. On entend parfois, très loin, un grognement trop grave pour un sanglier ordinaire, et puis le silence revient." },
+      { again: true, when: "night", text: "La nuit, la lisière est un mur noir. On entend parfois, très loin, un grognement trop grave pour un sanglier ordinaire ; puis le silence revient, et l'on se surprend à regretter le grognement, qui du moins disait où était la bête." },
       { after: "I:repaire", text: "Depuis que le repaire est vide, quelque chose a changé dans le sous-bois. Les oiseaux manquent toujours. Mais la forêt a l'air de respirer plus librement, comme un malade dont la fièvre est tombée et qui dort enfin." },
       { after: "IF:peaux_brulees", text: "Il traîne encore, quand le vent vient du creux du braconnier, une odeur de peau brûlée." },
       { after: "bucheron=soigne", text: "La cheminée de la cabane fume. Devant la porte, Tiennot fend du petit bois, lentement, en s'arrêtant souvent. Il te fait signe de la hache." },
@@ -118,7 +118,7 @@ Object.assign(P, {
     ] },
   IF_tiennot_traces: { act: "I", title: "Le chêne fourchu", place: "rouvre",
     text: [
-      "Le chêne fourchu est facile à trouver : la foudre l'a fendu en deux, il y a longtemps, et les deux moitiés ont continué à pousser chacune de leur côté, comme deux frères fâchés. Sous lui, un cercle de pierres noircies, des cendres froides, des arêtes de poisson et un bout de ficelle. Un seul creux dans les feuilles, de la longueur d'un garçon : il a dormi là, seul.",
+      "Le chêne fourchu est facile à trouver : la foudre l'a fendu en deux, il y a longtemps, et les deux moitiés ont continué à pousser chacune de leur côté, comme deux frères fâchés qui auraient gardé la maison en indivis. Sous lui, un cercle de pierres noircies, des cendres froides, des arêtes de poisson et un bout de ficelle. Un seul creux dans les feuilles, de la longueur d'un garçon : il a dormi là, seul.",
       "Au-delà, le sol monte vers les combes, et devient ce que Guillot avait dit : mauvais. Une mousse épaisse, gorgée d'eau, où chaque pas s'enfonce puis ressort sans laisser de forme. Des flaques entre les racines, noires, immobiles. Ici et là, une branche cassée à hauteur d'épaule, un brin de laine accroché, peut-être. Ou un brin de mousse sèche, qui lui ressemble.",
       { with: "pip", text: "Pip vole bas au-dessus de la mousse, en éclairant le sol. « Il y a des endroits où ça brille, dit-il. Comme si quelqu'un avait marché avec de l'eau sale sous les pieds. » Le garçon, ou une bête : Pip l'ignore." },
     ],
@@ -130,7 +130,7 @@ Object.assign(P, {
     ] },
   IF_tiennot_perdu: { act: "I", title: "Les combes", place: "rouvre", takes: "night",
     text: [
-      "Tu perds la piste dans une combe où l'eau suinte de partout, entre des rochers couverts de lichen. Tu reviens sur tes pas, tu la retrouves, tu la reperds. Le jour baisse sans que tu t'en aperçoives, puis tout à coup la nuit est là, et la forêt se referme autour de toi avec ses bruits de nuit : des craquements, un ruissellement, une chose qui marche et qui s'arrête quand tu t'arrêtes.",
+      "Tu perds la piste dans une combe où l'eau suinte de partout, entre des rochers couverts de lichen. Tu reviens sur tes pas, tu la retrouves, tu la reperds. Le jour baisse sans que tu t'en aperçoives, puis tout à coup la nuit est là, et la forêt se referme autour de toi avec ses bruits de nuit : des craquements ; un ruissellement ; et, derrière toi, une chose qui marche et qui s'arrête quand tu t'arrêtes, avec une exactitude où tu voudrais reconnaître un écho.",
       "Tu attends l'aube sous un rocher, sans feu, les yeux ouverts. Une fois, très loin, il te semble entendre quelqu'un pleurer, ou un renard glapir. Les deux se ressemblent, dans le Rouvre.",
       { with: "coliane", text: "Coliane veille avec toi, assise dos au rocher. Elle se tait toute la nuit, sauf une fois : « On aurait dû partir plus tôt. » Elle le dit sans reproche, et c'est pire." },
       "À l'aube, tu te remets en marche. Il fait froid, et ton souffle fume.",
@@ -144,7 +144,7 @@ Object.assign(P, {
       "Tu le trouves au fond d'une combe, dans le creux d'un chêne mort dont le tronc s'est ouvert comme une porte. Un garçon maigre, roulé en boule, les genoux contre le menton, la petite cognée de son père serrée sur la poitrine. Il est éveillé. Il a les yeux ouverts et il te regarde sans te voir.",
       "Sa peau a pris une couleur de suif. Sur ses mains, sur son cou, des veines grises courent sous la peau comme des racines, et sa bouche est noire jusqu'aux gencives. À côté de lui, dans le creux, une flaque où il a bu, d'un noir d'encre, sans le moindre reflet.",
       { if: { has: "IF:tiennot_tard_trouve" }, text: "Une nuit de plus ici, et cela se voit. Les veines grises lui montent jusqu'aux tempes. Quand il respire, on entend un bruit d'eau dans sa poitrine." },
-      "Autour du chêne, dans les fougères, trois renards sont assis. Gris tous les trois, maigres, la langue pendante. Ils restent à distance du garçon. Ils attendent, comme on attend devant une porte qu'on vous ouvre.",
+      "Autour du chêne, dans les fougères, trois renards sont assis. Gris tous les trois, maigres, la langue pendante. Ils restent à distance du garçon. Ils attendent, avec la patience horrible et tranquille de créanciers assis dans une antichambre, qu'on leur ouvre une porte.",
       { with: "pip", text: "Pip s'est arrêté net en l'air, sa lumière tombée à rien. « Il a froid, dit-il tout bas. Il a froid de l'intérieur. »" },
     ],
     choices: [
@@ -247,8 +247,8 @@ Object.assign(P, {
 Object.assign(P, {
   IF_piste: { act: "I", title: "La sente des bêtes", place: "rouvre",
     text: [
-      "La sente ignore les chemins des bûcherons. Elle passe sous les branches basses, à hauteur de hanche, là où un homme doit se courber et où une bête passe sans y penser. La terre y est retournée par endroits, comme labourée à coups de groin. Sur l'écorce des chênes, à la hauteur où les sangliers se frottent, des plaques de boue grise ont séché, avec des poils pris dedans. Tu en mesures la hauteur à ta hanche : des bêtes plus grandes que la normale d'une bonne main.",
-      "Plus loin, au bord d'une souille, tu trouves un renard mort. Aucune blessure : il est mort couché, le museau sur les pattes, comme un chien qui dort. Son poil est gris de la queue aux oreilles, et ses yeux, quand tu le retournes du bout du pied, sont blancs comme des œufs cuits.",
+      "La sente ignore les chemins des bûcherons. Elle passe sous les branches basses, à hauteur de hanche, là où un homme doit se courber et où une bête passe sans y penser. La terre y est retournée par endroits, comme labourée à coups de groin. Sur l'écorce des chênes, à la hauteur où les sangliers se frottent, des plaques de boue grise ont séché, avec des poils pris dedans. Tu en mesures la hauteur à ta hanche : des bêtes plus grandes que la normale d'une bonne main. C'est une de ces mesures qu'on prend avec soin et qu'on aimerait avoir mal prises.",
+      "Plus loin, au bord d'une souille, tu trouves un renard mort. Aucune blessure : il est mort couché, le museau sur les pattes, comme un chien qui dort. Son poil est gris de la queue aux oreilles ; et ses yeux, quand tu le retournes du bout du pied, sont blancs comme des œufs cuits, et paraissent, dans cette blancheur, regarder encore quelque chose.",
       { with: "pip", text: "Pip se tient très haut au-dessus du renard, hors de portée de tout. « Il ne sent pas la mort, dit-il. Il sent la mare. » Il a raison : aucune mouche, pas même une." },
       { if: { has: "maitre:ortie" }, text: "Ortie t'a appris à lire une bête morte comme on lit une lettre. Celle-ci garde le secret de sa mort. Elle dit seulement qu'elle a eu soif, longtemps, et qu'elle a bu." },
       "La sente continue vers le nord, vers un ravin qu'on devine à la façon dont les arbres, là-bas, semblent pousser plus bas que les autres.",
@@ -257,9 +257,9 @@ Object.assign(P, {
   IF_collet: { act: "I", title: "Le collet", place: "rouvre",
     fx: { met: "coliane" },
     text: [
-      "Le nœud se referme sur ta cheville au moment où tu poses le pied. Une branche de noisetier, courbée et tenue par une clavette, se redresse d'un coup, et tu te retrouves la tête en bas, pendu{e} par un pied à deux toises du sol, avec tout ce que tu portes qui te tombe sur la figure.",
+      "Le nœud se referme sur ta cheville au moment où tu poses le pied. Une branche de noisetier, courbée et tenue par une clavette, se redresse d'un coup, et tu te retrouves la tête en bas, pendu{e} par un pied à deux toises du sol, avec tout ce que tu portes qui te tombe sur la figure. La forêt, vue ainsi, n'est guère plus rassurante ; elle est seulement plus ridicule.",
       "« Ah, dit une voix. Ce n'est pas un sanglier. »",
-      "Une jeune femme sort d'entre deux troncs. Elle a les cheveux coupés court, à la diable, comme on les coupe soi-même au couteau, la peau brûlée par le grand air, et une balafre qui lui part de la pommette et lui descend jusqu'au coin de la lèvre. Deux couteaux à la ceinture, un troisième dans la botte. Elle te regarde tourner lentement au bout de ta corde, la tête penchée, sans la moindre hâte.",
+      "Une jeune femme sort d'entre deux troncs. Elle a les cheveux coupés court, à la diable, comme on les coupe soi-même au couteau, la peau brûlée par le grand air, et une balafre qui lui part de la pommette et lui descend jusqu'au coin de la lèvre. Deux couteaux à la ceinture, un troisième dans la botte. Elle te regarde tourner lentement au bout de ta corde, la tête penchée, sans la moindre hâte, en chasseuse qui se demande si la prise vaut la peine d'être dépouillée.",
       "« C'était pour la laie, dit-elle. Ça fait deux jours que je le règle. Tu viens de me le gâcher. » Elle s'assoit sur une racine. « Qu'est-ce que tu fais sur ma sente ? »",
       { with: "pip", text: "Pip tourne autour de ta tête en poussant de petits cris aigus, et sa lumière tombe sur le visage de la jeune femme. Elle reste où elle est. Elle plisse les yeux. « Tiens, dit-elle. Une lumière qui parle. On aura tout vu. »" },
     ],
@@ -303,7 +303,7 @@ Object.assign(P, {
   IF_abreuvoir: { act: "I", title: "L'abreuvoir", place: "rouvre",
     text: [
       "La sente descend vers le sud-est, vers les terres basses, jusqu'à un endroit où la forêt finit dans un fond humide planté d'aulnes. Là, un canal de pierre sort de dessous les arbres : un vieux bief, maçonné jadis, aujourd'hui à moitié comblé de feuilles, qui vient de la direction de Brumefeuille et se perd en marécage sous les aulnes. L'eau y coule à peine. Elle est sombre, et l'ombre des arbres suffit mal à l'expliquer.",
-      "La berge est piétinée, labourée, réduite en boue sur vingt pas : des sabots fendus, des pattes de renard, d'autres empreintes, illisibles pour toi. Toutes descendent à l'eau. Toutes ici, et aucune au ruisseau qui court, clair et froid, à cinquante pas de là.",
+      "La berge est piétinée, labourée, réduite en boue sur vingt pas : des sabots fendus, des pattes de renard, d'autres empreintes, illisibles pour toi. Toutes descendent à l'eau. Toutes ici, et aucune au ruisseau qui court, clair et froid, à cinquante pas de là. Tu vérifies deux fois ce dernier point, tant il offense le bon sens : une bête qui a soif va au plus près, et celles-ci font le détour pour boire le pire.",
       { with: "coliane", text: "« Voilà, dit Coliane à voix basse. Le ruisseau est propre. Elles passent à côté sans le regarder. Elles viennent toutes ici. » Elle s'accroupit derrière un aulne. « Le soir, tu verras. Elles arrivent à la file. Comme des gens à la messe. »" },
     ],
     choices: [
@@ -313,7 +313,7 @@ Object.assign(P, {
   IF_abreuvoir_guet: { act: "I", title: "Le soir à l'abreuvoir", place: "rouvre", takes: "evening",
     fx: { clue: "r1_betes", ep: ["perso", 600] },
     text: [
-      "Elles arrivent quand la lumière tombe. D'abord deux renards, puis une portée de marcassins qui ont perdu leurs rayures, gris et maigres, puis trois sangliers adultes qui avancent épaule contre épaule. Aucune bataille pour la place. Elles boivent ensemble, longtemps, la tête basse, à l'endroit exact où le bief du moulin sort de sous les arbres et se mêle à la forêt.",
+      "Elles arrivent quand la lumière tombe. D'abord deux renards, puis une portée de marcassins qui ont perdu leurs rayures, gris et maigres, puis trois sangliers adultes qui avancent épaule contre épaule. Aucune bataille pour la place ; le renard boit à côté du marcassin, et cette paix-là est plus sinistre qu'une curée. Elles boivent ensemble, longtemps, la tête basse, à l'endroit exact où le bief du moulin sort de sous les arbres et se mêle à la forêt.",
       "Une biche vient aussi, une biche ordinaire, brune, encore intacte. Elle hésite au bord, les naseaux tendus vers l'eau sombre. Puis elle recule, fait demi-tour, et va boire au ruisseau clair. Les sangliers la regardent partir.",
       { with: "pip", text: "Pip, caché dans ton capuchon, chuchote : « Elles écoutent. Regarde leurs oreilles. Elles boivent, et elles écoutent. » Tu regardes. Il a raison. Les oreilles des bêtes sont toutes tournées vers l'eau." },
       "Quand elles repartent, en file, vers le nord et le ravin, la nuit est tombée.",
@@ -325,8 +325,8 @@ Object.assign(P, {
 Object.assign(P, {
   IF_repaire_abords: { act: "I", title: "Le ravin du repaire", place: "rouvre", backName: "le ravin du repaire",
     text: [
-      "Le ravin s'ouvre d'un coup sous tes pieds, une entaille dans la forêt, profonde de cinq ou six toises, aux parois de grès rouge couvertes de racines qui pendent comme des cordes. Au fond, un filet d'eau sombre. Et contre la paroi nord, sous un surplomb, l'entrée d'une grotte, basse et large, comme une bouche qui bâille.",
-      "Devant l'entrée, la terre est nue, damée par les sabots. Des os traînent : des os de chevreuil, de mouton, de chien. Deux sangliers gris sont couchés en travers de l'entrée, comme des gardes, et ils ont les yeux ouverts. Leurs groins se lèvent quand le vent tourne. Plus loin, dans le noir, quelque chose de beaucoup plus gros respire.",
+      "Le ravin s'ouvre d'un coup sous tes pieds, une entaille dans la forêt, profonde de cinq ou six toises, aux parois de grès rouge couvertes de racines qui pendent comme des cordes. Au fond, un filet d'eau sombre. Et contre la paroi nord, sous un surplomb, l'entrée d'une grotte, basse et large, comme une bouche qui bâille ; il en sort un air plus froid que celui du ravin, et d'une odeur que tu connais.",
+      "Devant l'entrée, la terre est nue, damée par les sabots. Des os traînent : des os de chevreuil, de mouton, de chien. Deux sangliers gris sont couchés en travers de l'entrée, comme des gardes, et ils ont les yeux ouverts. Leurs groins se lèvent quand le vent tourne. Plus loin, dans le noir, quelque chose de beaucoup plus gros respire ; lentement, largement, avec le bruit d'un soufflet de forge qu'on aurait enterré.",
       { with: "coliane", text: "Coliane s'est couchée à plat ventre au bord du ravin, à côté de toi. « Il y a un passage, souffle-t-elle, par les racines, sur la gauche. Je l'ai repéré hier. On descend sans qu'ils nous sentent, si le vent ne tourne pas. Ou on y va par devant, et on se bat. Ou tu as une meilleure idée. »" },
       { without: "coliane", after: "IF_coliane_rivale", text: "Au bord du ravin, des traces de bottes, plus petites que les tiennes, toutes fraîches, descendent vers la gauche par les racines. Coliane est passée devant toi. Elle a disparu dans le ravin." },
       { with: "pip", text: "Pip tremble. « Il y a quelque chose qui chante, là-dedans, dit-il. Tout bas. »" },
@@ -386,7 +386,7 @@ Object.assign(P, {
     ] },
   IF_repaire_entree: { act: "I", title: "La grande laie", place: "rouvre",
     text: [
-      "La grotte s'enfonce sous la colline, plus haute qu'elle ne le paraissait du dehors. Le sol est couvert de litière, de feuilles, d'os rongés. Une odeur épaisse, de bête et de vase, te prend à la gorge. Au fond, une lueur grise, sans flamme ni torche : une flaque, peut-être, qui renvoie une lumière venue d'ailleurs.",
+      "La grotte s'enfonce sous la colline, plus haute qu'elle ne le paraissait du dehors. Le sol est couvert de litière, de feuilles, d'os rongés. Une odeur épaisse, de bête et de vase, te prend à la gorge. Au fond, une lueur grise, sans flamme ni torche : une flaque, peut-être, qui renvoie une lumière venue d'ailleurs. Elle éclaire juste assez pour qu'on devine ce qu'on aurait préféré voir tout à fait, ou pas du tout.",
       "Et entre toi et la lueur, la laie. Elle est énorme, plus haute au garrot que ta ceinture, longue comme une barque, le poil gris et raide comme du chaume brûlé. Ses défenses ont poussé comme celles d'un vieux mâle, recourbées et noires, longues d'un empan ; une laie, normalement, n'en porte pas de pareilles. Elle reste plantée sur ses quatre pattes, sans charger, et elle te regarde avec des yeux blancs.",
       { after: "IF_coliane_rivale", before: "coliane:rejoint", text: "Contre la paroi, à gauche, il y a Coliane. Elle est acculée dans un renfoncement, un couteau à la main, l'autre perdu quelque part dans la litière, et sa cuisse saigne à travers sa chausse. La laie la tient là depuis un moment, on dirait. Elle tourne la tête vers toi, puis vers elle, et hésite entre les deux proies." },
       { with: "coliane", text: "Coliane s'est arrêtée à côté de toi, ses deux couteaux bas, le long des cuisses. « Elle ne garde pas sa portée, souffle-t-elle. Regarde : aucun petit. Elle garde ce qu'il y a derrière. »" },
@@ -430,7 +430,7 @@ Object.assign(P, {
   IF_grotte: { act: "I", title: "La salle ronde", place: "rouvre",
     fx: { met: "gloup" },
     text: [
-      "La salle est ronde comme un four, et basse : il faut se courber. Au milieu, une flaque large comme une table, d'une eau grise qui luit d'elle-même, faiblement, comme le bois pourri luit la nuit. Par une fente de la paroi, un suintement noir descend goutte à goutte et vient s'y perdre. Tout autour, sur la roche, des traces de groins, de pattes, de langues : les bêtes sont venues ici lécher la pierre, et la pierre en est polie comme un seuil d'église.",
+      "La salle est ronde comme un four, et basse : il faut se courber. Au milieu, une flaque large comme une table, d'une eau grise qui luit d'elle-même, faiblement, comme le bois pourri luit la nuit. Par une fente de la paroi, un suintement noir descend goutte à goutte et vient s'y perdre. Tout autour, sur la roche, des traces de groins, de pattes, de langues : les bêtes sont venues ici lécher la pierre, et la pierre en est polie comme un seuil d'église, par une dévotion qui valait bien l'autre pour l'assiduité.",
       "Et au bord de la flaque, il y a quelque chose qui bouge.",
       "C'est petit. Gros comme un chou, à peu près, et à peu près de la même forme. Une boule de gelée grise et translucide, avec des choses qui flottent dedans, des brins d'herbe, un gland, une dent. Deux yeux noirs, ronds, posés sur le dessus, qui te regardent. Quand tu fais un pas, la boule recule, tremble, et fait un bruit. Un seul bruit, mouillé, qui ressemble à un mot : « Gloup. »",
       { with: "pip", text: "Pip descend lentement vers la chose, à hauteur de ses yeux, et les deux se regardent un long moment, la petite lumière et la petite gelée. « Bonjour », dit Pip. La chose tremble. « Gloup », dit-elle. Pip se tourne vers toi, ravi. « Il parle ! »" },
@@ -497,7 +497,7 @@ Object.assign(P, {
   IF_repaire_fin: { act: "I", title: "Le repaire vide", place: "rouvre",
     fx: { flag: ["I:repaire", "IF:source_connue"], clock: { voix: 1 }, ep: ["seance", 2000] },
     text: [
-      "Quand tu ressors du ravin, le soir tombe. Les bêtes grises qui gardaient l'entrée sont parties, ou couchées dans les fougères, et elles restent couchées à ton passage. Le repaire est vide de ce qui le tenait. La forêt, autour, est toujours aussi silencieuse, mais d'un autre silence : celui d'une maison où l'on vient d'éteindre la lampe.",
+      "Quand tu ressors du ravin, le soir tombe. Les bêtes grises qui gardaient l'entrée sont parties, ou couchées dans les fougères, et elles restent couchées à ton passage. Le repaire est vide de ce qui le tenait. La forêt, autour, est toujours aussi silencieuse, mais d'un autre silence : celui d'une maison où l'on vient d'éteindre la lampe, et où l'obscurité, pour une fois, n'est que de l'obscurité.",
       { if: { has: "IF:laie_tuee" }, text: "La grande laie est restée dans la grotte. Il faudra que quelqu'un vienne la brûler, ou qu'on laisse la colline la manger. Ses défenses noires luisaient encore quand tu es passé{e} à côté." },
       { if: { has: "IF:laie_epargnee" }, text: "La grande laie est sortie derrière toi, lentement, et elle s'est éloignée vers le nord, sans se retourner, comme une vieille qui quitte une maison qu'on a vendue. Sa garde est finie." },
       { with: "coliane", text: "Coliane s'arrête au bord du ravin et regarde vers le sud, vers les terres basses, là où le bief sort de sous les aulnes. « Le suintement, dans la fente, dit-elle. Ça ne vient pas de la colline. Ça vient d'en bas. De l'eau qui remonte. » Elle s'en tient là. Elle a l'air de quelqu'un qui garde une idée dans sa poche, comme un caillou, pour la retourner plus tard." },
@@ -524,7 +524,7 @@ Object.assign(P, {
   IF_source: { act: "I", title: "La source du Rouvre", place: "rouvre", backName: "la source du Rouvre",
     text: [
       { first: true, text: "Le chemin monte à travers les ronces jusqu'à un rocher couvert de mousse, haut comme une grange, que les gens d'ici appellent le rocher des Fées. À son pied, une fente. De la fente sort une eau si claire qu'elle disparaît : on voit seulement le fond de la vasque qu'elle a creusée dans la pierre, avec ses cailloux blancs et ses grains de sable qui dansent, et sa surface qui frémit à peine." },
-      { first: true, text: "Autour, sur les branches basses d'un if, des gens ont noué des choses : des rubans, des mèches de cheveux, une petite chaussure d'enfant, une médaille de la Main. Certains rubans sont si vieux qu'ils ont perdu leur couleur, gris comme des toiles d'araignée. Il fait plus froid ici qu'ailleurs, et l'air sent la pierre mouillée. Un merle chante dans l'if : le premier oiseau que tu entends dans le Rouvre." },
+      { first: true, text: "Autour, sur les branches basses d'un if, des gens ont noué des choses : des rubans, des mèches de cheveux, une petite chaussure d'enfant, une médaille de la Main. Certains rubans sont si vieux qu'ils ont perdu leur couleur, gris comme des toiles d'araignée ; les fées, à en juger par l'arriéré, instruisent les requêtes avec la lenteur d'un tribunal. Il fait plus froid ici qu'ailleurs, et l'air sent la pierre mouillée. Un merle chante dans l'if : le premier oiseau que tu entends dans le Rouvre." },
       { again: true, text: "Le rocher des Fées, la vasque, les rubans dans l'if. Le merle est toujours là." },
       { if: { has: "IF:source_troublee" }, text: "La vasque a perdu un peu de sa clarté. Au fond, entre les cailloux blancs, un voile gris s'est posé, comme une poussière sur une vitre. L'eau coule toujours, propre, de la fente ; mais elle ne lave plus la vasque." },
       { with: "coliane", text: "Coliane s'agenouille au bord, plonge les deux mains dans l'eau jusqu'aux poignets, et boit dans ses paumes, longtemps. Puis elle se passe les mains mouillées sur la figure, sur la balafre, et reste un moment les yeux fermés." },
@@ -572,7 +572,7 @@ Object.assign(P, {
   IF_scieurs: { act: "I", title: "Le camp des scieurs", place: "rouvre", backName: "le camp des scieurs",
     fx: { flag: "IF:source_connue", meet: "IF_barnabe" },
     text: [
-      { first: true, text: "Dans une clairière à une demi-heure de la lisière, trois scieurs de long ont dressé leur camp sous un appentis de branches : une fosse, un tronc posé en travers sur des tréteaux, la grande scie à deux poignées, l'un en haut sur le tronc, l'autre en bas dans la fosse, qui reçoit la sciure dans les yeux. Le troisième fait la cuisine. Ce sont des hommes du Haut-Pays, qui descendent chaque automne couper pour les charpentiers de Sorbe et qui parlent entre eux une langue rocailleuse dont tu saisis un mot sur trois." },
+      { first: true, text: "Dans une clairière à une demi-heure de la lisière, trois scieurs de long ont dressé leur camp sous un appentis de branches : une fosse, un tronc posé en travers sur des tréteaux, la grande scie à deux poignées, l'un en haut sur le tronc, l'autre en bas dans la fosse, qui reçoit la sciure dans les yeux, selon un partage des tâches aussi ancien que le monde. Le troisième fait la cuisine. Ce sont des hommes du Haut-Pays, qui descendent chaque automne couper pour les charpentiers de Sorbe et qui parlent entre eux une langue rocailleuse dont tu saisis un mot sur trois." },
       { first: true, text: "Le cuisinier, qui parle la langue d'ici, s'appelle Barnabé. Il te tend un bol de soupe aux pois sans te demander qui tu es. « On s'en va dans trois jours, dit-il. Avant, on restait jusqu'aux neiges. Mais les bêtes. » Il montre du menton un tas de branches près de la fosse, sous lequel tu devines la forme d'un chien. « Et l'eau. On boit à la source des Fées, maintenant, là-haut sous le rocher. C'est une heure de marche aller-retour, pour chaque seau. Mais c'est la seule qu'on ose boire. »" },
       { again: true, text: "La fosse, le tronc, la grande scie qui va et vient avec son bruit de respiration. Barnabé remue sa soupe. Il te fait signe de la cuillère." },
       { after: "I:repaire", text: "« On a entendu dire que tu étais descendu{e} au ravin, dit Barnabé. Les deux autres disent qu'on n'entend plus grogner, la nuit. Alors on reste une semaine de plus. » Il te remplit ton bol à ras bord." },
@@ -586,7 +586,7 @@ Object.assign(P, {
   IF_scieurs_veillee: { act: "I", title: "La veillée des scieurs", place: "rouvre", takes: "night",
     fx: { rest: true, ep: ["perso", 300] },
     text: [
-      "Le soir, ils mangent autour du feu, et ils chantent, à mi-voix, pour eux seuls, des chansons du Haut-Pays qui parlent de neige, de mulets et de filles qu'on aurait dû épouser. Barnabé traduit les plus drôles. Les autres te passent la gourde. C'est un vin noir et âpre, qui sent la résine.",
+      "Le soir, ils mangent autour du feu, et ils chantent, à mi-voix, pour eux seuls, des chansons du Haut-Pays qui parlent de neige, de mulets et de filles qu'on aurait dû épouser. Barnabé traduit les plus drôles, et s'arrête prudemment avant les couplets où les filles donnent leur avis. Les autres te passent la gourde. C'est un vin noir et âpre, qui sent la résine.",
       "Plus tard, quand le feu est bas, le plus vieux des scieurs, un homme sans dents resté muet toute la journée, parle longtemps dans sa langue, en regardant les braises. Barnabé laisse passer un moment avant de traduire. Puis il dit : « Il dit que chez lui, dans le Haut-Pays, il y a une vieille chanson qui dit que ceux qui ont fermé la porte étaient plus nombreux qu'on ne le dit. Il dit que sa grand-mère comptait sur ses doigts, et qu'il lui en restait un. » Il hausse les épaules. « C'est un vieux. Il dit des choses. »",
       { with: "coliane", text: "Coliane s'est endormie la première, assise, la tête sur les genoux, un couteau dans la main. Les scieurs la regardent avec une sorte de respect, et parlent plus bas." },
       { with: "gloup", text: "Gloup, d'abord caché sous ta cape, finit par sortir, attiré par la chanson. Les scieurs le voient. Il y a un silence. Puis le vieux sans dents se met à rire, d'un rire énorme, et tend à Gloup un bout de croûte. Gloup le prend. Toute la nuit, ensuite, il reste près du vieux, et le vieux lui chante des choses." },
@@ -619,10 +619,10 @@ Object.assign(P, {
 Object.assign(P, {
   IM_bord: { act: "I", title: "Le bord des marais", place: "marais", hub: true, routes: true, backName: "le bord des marais",
     text: [
-      { first: true, text: "La chaussée finit sur une langue de terre ferme où se serrent trois cabanes de roseaux et de torchis, des filets qui sèchent sur des perches, des nasses empilées, une barque retournée. Au-delà, la terre s'arrête : ce sont les marais de la Sorbe, à perte de vue, une plaine de roseaux plus hauts qu'un homme, coupée de chenaux, d'étangs morts, de bouquets de saules blancs, morts debout." },
-      { first: true, text: "L'eau stagne partout. Elle se tient. Elle a la couleur du thé froid dans les chenaux, et ailleurs une couleur d'ardoise avec, dessous, quelque chose de plus sombre qui bouge dès qu'on détourne les yeux. Une odeur de vase et de racine pourrie monte de partout. Au loin, très loin, un butor pousse son cri de bœuf, une fois, et se tait." },
+      { first: true, text: "La chaussée finit sur une langue de terre ferme où se serrent trois cabanes de roseaux et de torchis, des filets qui sèchent sur des perches, des nasses empilées, une barque retournée. Au-delà, la terre s'arrête, et avec elle tout ce qui ressemble à une certitude : ce sont les marais de la Sorbe, à perte de vue, une plaine de roseaux plus hauts qu'un homme, coupée de chenaux, d'étangs morts, de bouquets de saules blancs, morts debout." },
+      { first: true, text: "L'eau stagne partout. Elle se tient. Elle a la couleur du thé froid dans les chenaux, et ailleurs une couleur d'ardoise avec, dessous, quelque chose de plus sombre qui bouge dès qu'on détourne les yeux, et qui a l'adresse de cesser dès qu'on y revient. Une odeur de vase et de racine pourrie monte de partout. Au loin, très loin, un butor pousse son cri de bœuf, une fois, et se tait." },
       { again: true, when: "day", text: "Les cabanes de roseaux, les filets sur leurs perches, et les marais devant, à perte de vue, gris et immobiles sous un ciel bas." },
-      { again: true, when: "night", text: "La nuit, les marais s'allument. Des lueurs bleues, très pâles, flottent au ras des roseaux, s'éteignent, se rallument plus loin. Pernelle a tiré son volet. Il reste les grenouilles, et parfois un clapotis lourd." },
+      { again: true, when: "night", text: "La nuit, les marais s'allument. Des lueurs bleues, très pâles, flottent au ras des roseaux, s'éteignent, se rallument plus loin, sans hâte, à la façon de veilleurs qui feraient leur ronde. Pernelle a tiré son volet. Il reste les grenouilles, et parfois un clapotis lourd." },
       { after: "I:marais", text: "Depuis la nuit des noyés, Pernelle a déplacé toutes ses nasses vers l'est, loin du bief, là où l'eau est seulement brune." },
       { after: "sauge=brulee", text: "Au-dessus des roseaux, vers la Noue Morte, la fumée a disparu depuis longtemps, mais l'air sent encore le bois brûlé, quand le vent vient de là." },
       { with: "coliane", text: "Coliane a mis un pied dans la vase au bord de la langue de terre, et l'a retiré aussitôt, avec un bruit de succion. Elle regarde sa botte. « Je déteste les marais, dit-elle. Tout ce qui meurt ici reste ici. »" },
@@ -640,7 +640,7 @@ Object.assign(P, {
   IM_pernelle: { act: "I", title: "La cabane de Pernelle", place: "marais", shop: "IM_pernelle", backName: "la cabane de Pernelle",
     fx: { meet: "IM_pernelle" },
     text: [
-      { first: true, text: "La cabane la plus proche de l'eau est celle de Pernelle. Une femme sans âge, sèche et noire comme une anguille fumée, qui travaille assise sur le seuil, un couteau à la main, une bassine entre les genoux. Elle dépiaute des anguilles. Elle les tient par la tête avec un chiffon, elle fend la peau autour du cou, et elle la retire d'un coup, comme on ôte un bas. L'anguille continue de se tordre, nue et blanche, longtemps après. Tu comptes une trentaine de peaux dans le seau : elle est à l'ouvrage depuis l'aube." },
+      { first: true, text: "La cabane la plus proche de l'eau est celle de Pernelle. Une femme sans âge, sèche et noire comme une anguille fumée, qui travaille assise sur le seuil, un couteau à la main, une bassine entre les genoux. Elle dépiaute des anguilles. Elle les tient par la tête avec un chiffon, elle fend la peau autour du cou, et elle la retire d'un coup, comme on ôte un bas. L'anguille continue de se tordre, nue et blanche, longtemps après ; tu as connu des receveurs des tailles qui opéraient de même, avec moins de franchise. Tu comptes une trentaine de peaux dans le seau : elle est à l'ouvrage depuis l'aube." },
       { first: true, text: "« Si c'est pour la Sauge, dit-elle, les yeux sur son couteau, c'est tout droit dans les roseaux, en suivant les piquets à tête rouge. Si c'est pour la mousse, c'est les saules morts, à l'ouest. Si c'est pour le bief, n'y allez pas. Et si c'est pour acheter, j'ai du poisson fumé, des herbes, de la corde. » Elle te regarde enfin. « Les gens de Brumefeuille viennent ici pour une de ces quatre choses, jamais pour autre chose. »" },
       { again: true, text: "Pernelle dépiaute ses anguilles sur le seuil. Elle te salue du couteau." },
       { with: "gloup", text: "Pernelle voit Gloup. Elle arrête son couteau, une anguille à moitié nue dans la main. Elle le détaille. « J'en ai vu un comme ça, dit-elle, il y a trois ans, dans une nasse. Je l'ai rejeté à l'eau. J'ai pas osé le tuer. » Elle reprend son travail. « Il était plus petit que celui-ci. Ou c'est le même, et il a grandi. »" },
@@ -685,18 +685,18 @@ Object.assign(P, {
 Object.assign(P, {
   IM_sauge_hutte: { act: "I", title: "Les piquets rouges", place: "marais",
     text: [
-      "Les piquets à tête rouge mènent à travers les roseaux par un sentier de planches pourries, posées sur la vase, qui s'enfoncent sous tes pieds et remontent derrière toi avec un soupir. Les roseaux se referment au-dessus de ta tête. Il reste le ciel, une bande grise, et les piquets, un tous les vingt pas.",
-      "Au bout, sur une butte à peine plus haute que l'eau, une hutte sur pilotis. Des murs de roseaux tressés, un toit de chaume noirci, une échelle, une galerie où pendent des bottes d'herbes, des chapelets d'oignons, des têtes d'oiseaux séchées. Sur la galerie, un héron cendré se tient sur une patte. Il te regarde arriver sans bouger une plume.",
+      "Les piquets à tête rouge mènent à travers les roseaux par un sentier de planches pourries, posées sur la vase, qui s'enfoncent sous tes pieds et remontent derrière toi avec un soupir. Les roseaux se referment au-dessus de ta tête, bruissants, innombrables, tous pareils ; au bout de cent pas, tu as perdu l'est et l'ouest, et tu marches dans un couloir sans murs dont on ne voit ni l'entrée ni le fond. Il reste le ciel, une bande grise, et les piquets, un tous les vingt pas.",
+      "Au bout, sur une butte à peine plus haute que l'eau, une hutte sur pilotis. Des murs de roseaux tressés, un toit de chaume noirci, une échelle, une galerie où pendent des bottes d'herbes, des chapelets d'oignons, des têtes d'oiseaux séchées. Sur la galerie, un héron cendré se tient sur une patte. Il te regarde arriver sans bouger une plume, avec la morgue d'un huissier de grande maison qui a déjà décidé que tu attendrais.",
       "Une vieille femme est assise à côté du héron, dans un fauteuil d'osier, une pipe de terre aux dents, une couverture sur les genoux. Elle est si petite et si ridée qu'on dirait une pomme oubliée au grenier. Ses yeux, eux, sont sans âge : deux points noirs, vifs, qui te suivent depuis que tu es sorti{e} des roseaux.",
-      "« Monte, dit-elle. Ne fais pas peur à Messire. Il est vieux, comme moi. »",
+      "« Monte, dit-elle. Et ne fais pas peur à Messire. Il est vieux, comme moi, et il a comme moi le défaut de mépriser les gens qui courent. »",
     ],
     fx: { meet: "IM_sauge" },
     choices: [{ label: "Monter l'échelle", big: true, to: "IM_sauge" }] },
   IM_sauge: { act: "I", title: "La Vieille Sauge", place: "marais", backName: "la hutte de la Vieille Sauge",
     text: [
       { first: true, text: "Elle te fait asseoir sur un tabouret, en face d'elle, et elle te regarde longtemps, en tirant sur sa pipe. La fumée sent le piment royal et la tourbe. « Tu viens de loin, dit-elle enfin. Et tu as vu des choses en route. Ça se voit à la façon dont tu regardes l'eau : comme si elle allait te mordre. » Elle hoche la tête. « Elle peut. »" },
-      { first: true, if: { has: "maitre:ortie" }, text: "Puis elle se penche, et elle renifle, comme un chien. « Tu sens la sauge sauvage et la cire. Tu sens comme elle. » Elle te prend le poignet, le retourne, regarde la paume, les doigts. « Ortie. C'est Ortie qui t'a appris. Je le vois à tes mains. La petite Ortie. » Elle rit, d'un rire de crécelle. « C'est moi qui lui ai appris à regarder l'eau avant de la boire. Elle avait douze ans, et elle buvait à toutes les mares, à plat ventre. »" },
-      { again: true, text: "La Vieille Sauge fume sur sa galerie. Messire le héron fait semblant de dormir. « Encore toi, dit-elle. Bon. Assieds-toi. »" },
+      { first: true, if: { has: "maitre:ortie" }, text: "Puis elle se penche, et elle renifle, comme un chien. « Tu sens la sauge sauvage et la cire. Tu sens comme elle. » Elle te prend le poignet, le retourne, regarde la paume, les doigts. « Ortie. C'est Ortie qui t'a appris. Je le vois à tes mains. La petite Ortie. » Elle rit, d'un rire de crécelle. « C'est moi qui lui ai appris à regarder l'eau avant de la boire. Elle avait douze ans, et elle buvait à toutes les mares, à plat ventre, la sotte, comme un veau ! Tout ce qu'elle sait de bon, elle le tient de moi. Le reste, elle l'a pris dans les livres, et ça se voit. »" },
+      { again: true, text: "La Vieille Sauge fume sur sa galerie. Messire le héron fait semblant de dormir, en vieux courtisan. « Encore toi, dit-elle. Bon. Assieds-toi. »" },
       { with: "pip", first: true, text: "Elle regarde Pip, qui s'est posé sur le rebord de la galerie. Elle le regarde si fixement que sa pipe s'éteint dans sa main. « Toi, dit-elle à mi-voix, je t'ai déjà vu quelque part. Pas toi. Quelque chose comme toi. Dans une chanson, peut-être. » Pip la regarde, très sérieux. « Je ne me souviens pas », dit-il. « Moi non plus, dit la vieille. C'est l'âge. Ou c'est autre chose. »" },
       { with: "gloup", text: "Messire le héron a ouvert un œil et regarde Gloup avec beaucoup d'intérêt. Gloup se cache derrière ta jambe." },
       { with: "coliane", first: true, text: "Coliane est restée en bas de l'échelle. La vieille se penche par-dessus la rambarde. « Toi aussi, tu peux monter, la fille aux couteaux. Je ne mords plus. » Coliane monte. Elle s'assoit par terre, contre le mur, et se tait. La vieille la regarde, et une ombre de pitié passe sur son visage, vite rangée." },
@@ -755,7 +755,7 @@ Object.assign(P, {
     fx: { flag: "IM:mousse_conseil" },
     text: [
       "« Pour Lune ? Pour la fièvre ? » La vieille hoche la tête. « Elle est bonne, Lune. Elle a de la tête. La mousse, tu la trouveras sur les saules morts, à l'ouest, du côté du nord de l'écorce. Mais tu ne la trouveras pas le jour : le jour, elle est grise comme toutes les mousses. C'est la nuit qu'elle se montre. Elle brille un peu, sous la lune, comme de la rosée. Tu prends celle qui brille, et pas l'autre. »",
-      "Elle lève un doigt sec. « Et la nuit, aux saules, il y a les feux. Ne les suis pas. Quoi qu'ils te montrent. Ils te montreront quelque chose que tu veux voir, et ils t'emmèneront dans les fondrières, et au matin on ne trouvera que ton chapeau. »",
+      "Elle lève un doigt sec. « Et la nuit, aux saules, il y a les feux. Ne les suis pas. Quoi qu'ils te montrent. Ils te montreront quelque chose que tu veux voir, et ils t'emmèneront dans les fondrières, et au matin on ne trouvera que ton chapeau. J'en ai une collection, de chapeaux. Tous à des gens qui se croyaient plus malins que la vieille. »",
     ],
     choices: [{ back: "IM_sauge" }] },
   IM_sauge_dette: { act: "I", title: "La barque de Fulbert", place: "marais",
@@ -773,9 +773,9 @@ Object.assign(P, {
   IM_barque: { act: "I", title: "La Noue Morte", place: "marais", backName: "la Noue Morte",
     takes: "night",
     text: [
-      "La Noue Morte est un ancien bras de la Sorbe que le fleuve a abandonné, il y a des siècles, et qui a pourri sur place : une longue eau noire et sans courant, sous une voûte de saules fendus. Tu y arrives à la nuit tombée, parce que c'est la nuit qu'il vient. L'air est immobile. Aucune grenouille, aucun insecte : le marais retient son souffle.",
+      "La Noue Morte est un ancien bras de la Sorbe que le fleuve a abandonné, il y a des siècles, et qui a pourri sur place : une longue eau noire et sans courant, sous une voûte de saules fendus. Tu y arrives à la nuit tombée, parce que c'est la nuit qu'il vient. L'air est immobile. Aucune grenouille, aucun insecte : le marais retient son souffle, et ce silence d'un lieu qui devrait grouiller pèse sur les tempes comme l'approche d'un orage.",
       "La barque est là, amarrée au plus gros saule par une chaîne rouillée. Une barque plate de pêcheur, noire de goudron, avec une proue relevée. Et dans la barque, à l'arrière, quelqu'un est assis.",
-      "Un homme, ou ce qui reste d'un homme après trente ans d'eau. Il est gris et luisant, et il a de la vase plein les cheveux. Ses mains reposent sur ses genoux. Il chante, tout bas, d'une voix qui fait des bulles, une chanson de pêcheur, et il s'arrête quand il te voit. Il tourne la tête. « Sauge ? » dit-il. Puis, plus doucement, avec une voix d'homme vivant, une voix chaude qui te glace : « Sauge, c'est toi ? Viens. Il fait bon, en bas. »",
+      "Un homme, ou ce qui reste d'un homme après trente ans d'eau. Il est gris et luisant, et il a de la vase plein les cheveux. Ses mains reposent sur ses genoux, sagement, à la manière d'un passager qui attend qu'on pousse au large. Il chante, tout bas, d'une voix qui fait des bulles, une chanson de pêcheur, et il s'arrête quand il te voit. Il tourne la tête. « Sauge ? » dit-il. Puis, plus doucement, avec une voix d'homme vivant, une voix chaude qui te glace : « Sauge, c'est toi ? Viens. Il fait bon, en bas. »",
       { with: "pip", text: "Pip s'est collé contre ton cou. « Ce n'est pas lui qui parle, chuchote-t-il. C'est quelqu'un qui parle à travers lui. Comme on parle à travers une porte. »" },
       { with: "gloup", text: "Gloup s'est mis à trembler si fort que ta besace tressaute, sans émettre le moindre son." },
     ],
@@ -827,7 +827,7 @@ Object.assign(P, {
   IM_barque_perdue: { act: "I", title: "L'eau noire", place: "marais",
     fx: { set: { sauge: "perdue" }, quest: "I_sauge", pv: 1 },
     text: [
-      "Tu te réveilles dans les roseaux, trempé{e} jusqu'aux os, à plat ventre dans la vase, avec un goût de fer dans la bouche. Comment es-tu sorti{e} de l'eau ? Tu l'ignores. Tu te souviens de mains froides, très douces, qui te tiraient vers le fond, et d'une voix qui te disait qu'il faisait bon en bas.",
+      "Tu te réveilles dans les roseaux, trempé{e} jusqu'aux os, à plat ventre dans la vase, avec un goût de fer dans la bouche. Comment es-tu sorti{e} de l'eau ? Tu l'ignores. Tu te souviens de mains froides, très douces, qui te tiraient vers le fond, et d'une voix qui te disait qu'il faisait bon en bas ; et tu te souviens aussi, avec une honte dont tu ne parleras à personne, de l'instant où tu l'as crue.",
       "Quand tu te relèves, la Noue est vide. La chaîne pend au saule, rompue. La barque est partie. Tu la cherches jusqu'à l'aube, le long de l'eau noire, en vain. L'eau l'a gardée, elle aussi, avec ce qui était assis dedans.",
       { with: "coliane", text: "Coliane t'a tiré{e} par le col jusqu'aux roseaux. Elle est trempée elle aussi, et elle claque des dents. « Il était fort, dit-elle. Plus fort qu'un mort ne devrait l'être. »" },
     ],
@@ -852,7 +852,7 @@ Object.assign(P, {
 Object.assign(P, {
   IM_saules: { act: "I", title: "Les saules morts", place: "marais", backName: "les saules morts",
     text: [
-      "À l'ouest des cabanes, après une heure de planches et de buttes, les roseaux s'ouvrent sur une grande étendue d'eau basse où se dressent des saules. Des centaines de saules, morts, blancs, debout dans l'eau jusqu'aux genoux. Ils ont perdu leur écorce, et leur bois nu a pris la couleur de l'os. Leurs branches s'emmêlent au-dessus de l'eau comme des doigts qui cherchent à se tenir.",
+      "À l'ouest des cabanes, après une heure de planches et de buttes, les roseaux s'ouvrent sur une grande étendue d'eau basse où se dressent des saules. Des centaines de saules, morts, blancs, debout dans l'eau jusqu'aux genoux. Ils ont perdu leur écorce, et leur bois nu a pris la couleur de l'os ; on croirait traverser l'ossuaire d'une race de géants qu'on aurait enterrés debout. Leurs branches s'emmêlent au-dessus de l'eau comme des doigts qui cherchent à se tenir.",
       "Sur le côté nord des troncs pousse une mousse épaisse, grise, pareille à toutes les mousses. Tu en arraches une poignée. Elle sent la terre, et c'est tout.",
       { if: { has: "IM:mousse_conseil" }, text: "*C'est la nuit qu'elle se montre*, a dit la Vieille Sauge. *Tu prends celle qui brille, et pas l'autre.*" },
       { if: { not: { has: "IM:mousse_conseil" } }, text: "Les mousses se ressemblent toutes. Lune a parlé d'une mousse argentée. Celle-ci est grise comme de la cendre. Peut-être faut-il une autre lumière pour la voir." },
@@ -869,7 +869,7 @@ Object.assign(P, {
       "Tu la cueilles brin par brin, dans l'eau jusqu'aux genoux, en passant d'un saule à l'autre. Elle se détache facilement, avec un petit bruit de déchirure. Dans ta main, elle continue de briller un moment, puis elle s'éteint et redevient grise. Mais elle garde, au fond, un reflet d'argent tenace. Tu en remplis un linge, que tu noues.",
       { with: "gloup", text: "Gloup va de saule en saule devant toi, et s'arrête au pied de chacun de ceux qui brillent. Il en trouve plus que toi. Il a l'air très fier." },
       "Et puis tu lèves les yeux, et les feux sont là.",
-      "Ils sont venus sans bruit. Une dizaine de lueurs bleues, à hauteur d'homme, qui flottent entre les saules, immobiles. Elles attendent. Et dans chacune, quand tu la regardes, il y a quelque chose. Un visage. Une porte ouverte. Une table servie.",
+      "Ils sont venus sans bruit. Une dizaine de lueurs bleues, à hauteur d'homme, qui flottent entre les saules, immobiles. Elles attendent. Et dans chacune, quand tu la regardes, il y a quelque chose, qui se précise à mesure que tu le regardes, comme si ton attention même lui prêtait des traits. Un visage. Une porte ouverte. Une table servie.",
       { if: { has: "maitre:hauberte" }, text: "Dans la plus proche, tu vois Hauberte, ta maîtresse, debout au bord d'une eau noire, qui te fait signe de venir." },
       { if: { has: "maitre:ortie" }, text: "Dans la plus proche, tu vois Ortie, ta maîtresse, accroupie au bord d'une eau noire, qui te fait signe de venir." },
       { if: { has: "maitre:maelle" }, text: "Dans la plus proche, tu vois Maëlle, ta maîtresse, ses lunettes à la main, au bord d'une eau noire, qui te fait signe de venir." },
@@ -903,8 +903,8 @@ Object.assign(P, {
 Object.assign(P, {
   IM_bief: { act: "I", title: "La bouche du bief", place: "marais", backName: "la bouche du bief",
     text: [
-      "Le bief du moulin de Brumefeuille, après avoir traversé le bas de la forêt, finit ici : un canal maçonné qui se jette dans le marais par une bouche de pierre à moitié effondrée. Autrefois, il y avait une vanne. Il en reste deux montants pourris et une crémaillère rouillée. L'eau qui sort du canal refuse d'abord de se mêler à celle du marais. Elle s'étale, plus sombre, plus lourde, comme de l'huile sur de l'eau, et elle descend lentement entre les roseaux en les laissant gris derrière elle.",
-      "Tout autour de la bouche, sur dix pas, la vase est nue, noire, sans un brin d'herbe, craquelée en surface comme une croûte. Elle sent le fer et la farine moisie.",
+      "Le bief du moulin de Brumefeuille, après avoir traversé le bas de la forêt, finit ici : un canal maçonné qui se jette dans le marais par une bouche de pierre à moitié effondrée, noire et baveuse comme celle d'une bête morte la gueule ouverte. Autrefois, il y avait une vanne ; il en reste deux montants pourris et une crémaillère rouillée, dressés au-dessus de l'eau comme les bois d'une potence dont on aurait oublié l'usage. L'eau qui sort du canal refuse d'abord de se mêler à celle du marais. Elle s'étale, plus sombre, plus lourde, comme de l'huile sur de l'eau, et elle descend lentement entre les roseaux en les laissant gris derrière elle.",
+      "Tout autour de la bouche, sur dix pas, la vase est nue, noire, sans un brin d'herbe, craquelée en surface comme une croûte ; le marais, qui pourtant s'accommode de tout, s'est retiré de ce cercle. Elle sent le fer et la farine moisie.",
       { with: "coliane", text: "Coliane s'est arrêtée à vingt pas de l'eau. « Je ne m'approche pas plus, dit-elle. Chez moi, ça sentait exactement comme ça. »" },
       { with: "gloup", text: "Gloup, au contraire, tire vers l'eau. Il tire si fort que tu dois le retenir par la gelée. Il reste muet. Il regarde l'eau noire avec ses deux yeux ronds, comme un enfant regarde par la fenêtre une maison où il a vécu." },
     ],
@@ -926,7 +926,7 @@ Object.assign(P, {
   IM_bief_remonter: { act: "I", title: "Le talus du bief", place: "marais",
     fx: { clue: "r1_bief", ep: ["perso", 600] },
     text: [
-      "Le talus du bief est un chemin de halage abandonné, envahi d'orties, qui suit le canal à travers les aulnes puis à travers les prés, vers le nord. Tu le remontes pendant deux heures. Le canal est droit, régulier, ses pierres bien jointes : un ouvrage ancien, fait par des gens qui savaient faire. L'eau y coule lentement, noire tout du long.",
+      "Le talus du bief est un chemin de halage abandonné, envahi d'orties, qui suit le canal à travers les aulnes puis à travers les prés, vers le nord. Tu le remontes pendant deux heures. Le canal est droit, régulier, ses pierres bien jointes : un ouvrage ancien, fait par des gens qui savaient faire, espèce dont chaque siècle assure qu'elle s'est éteinte au précédent. L'eau y coule lentement, noire tout du long.",
       "Et puis tu arrives en vue du moulin. Une grande bâtisse de pierre au toit d'ardoise, à l'écart du village, au bord de la Sorbe. La roue tourne. Le bief passe dessous, sort de dessous, et c'est là qu'il change.",
       "Au-dessus du moulin, dans le canal qui amène l'eau de la Sorbe jusqu'à la roue, l'eau est claire. Claire et vive, avec des herbes qui ondulent au fond et un poisson qui file. Sous la roue, à l'endroit exact où l'eau tombe des aubes, elle devient noire. D'un coup, sans transition, comme si on avait tracé une ligne. Et elle reste noire jusqu'aux marais.",
       { with: "coliane", text: "Coliane s'est accroupie dans les orties, à l'abri d'un aulne, et elle regarde le moulin longtemps, en silence, avec ses yeux de chasseuse. Puis elle se relève. « On s'en va, dit-elle. Pas maintenant. Pas en plein jour. »" },
@@ -938,8 +938,8 @@ Object.assign(P, {
     ] },
   IM_noyes: { act: "I", title: "Les noyés du bief", place: "marais", takes: "evening",
     text: [
-      "Le soir tombe pendant que tu descends le long du bief. Les aulnes deviennent noirs, puis l'eau devient noire elle aussi, plus noire encore, et tu devines le canal à la seule absence de reflets. Le marais est encore à une demi-lieue quand tu entends le premier bruit. Un bruit d'eau qu'on brasse, lentement, derrière toi. Puis devant.",
-      "Ils sortent du bief. Trois, puis quatre, puis tu cesses de compter. Des hommes et des femmes gris, ruisselants, les cheveux collés au crâne, les yeux blancs, vêtus de ce qui reste de vêtements d'un autre temps : une blouse de meunier, une jupe de lavandière, un tablier de cuir. Les noyés de la Sorbe, ceux que l'eau a gardés depuis des générations, et qui ont quitté le fond.",
+      "Le soir tombe pendant que tu descends le long du bief. Les aulnes deviennent noirs, puis l'eau devient noire elle aussi, plus noire encore, d'un noir sans fond et sans reflet, si bien que tu devines le canal à ce seul trou d'ombre qui file entre deux talus à peine moins sombres ; et le silence, à mesure que le jour s'en va, prend cette qualité particulière des lieux où quelque chose écoute. Le marais est encore à une demi-lieue quand tu entends le premier bruit. Un bruit d'eau qu'on brasse, lentement, derrière toi. Puis devant.",
+      "Ils sortent du bief. Trois, puis quatre, puis tu cesses de compter. Des hommes et des femmes gris, ruisselants, les cheveux collés au crâne, les yeux blancs, vêtus de ce qui reste de vêtements d'un autre temps : une blouse de meunier, une jupe de lavandière, un tablier de cuir ; et l'eau qui coule de ces hardes tombe sur le talus dans un silence complet. Les noyés de la Sorbe, ceux que l'eau a gardés depuis des générations, et qui ont quitté le fond.",
       "Ils se mettent en travers du talus, devant et derrière, sans se jeter sur toi, et ils te regardent. Puis ils commencent à dire des noms. Des noms de gens inconnus, des noms de village, de vieux noms : Jehan, Perrine, Colas, Mathurine. Les noms de ceux qui les ont pleurés. Ils les disent comme on appelle.",
       { with: "pip", text: "Pip s'est mis à briller si fort que les noyés les plus proches détournent la tête. Il tremble. « Ils ont froid, dit-il, la voix toute petite. Quelqu'un leur a dit qu'en t'emmenant ils auraient chaud. »" },
       { with: "coliane", text: "Coliane a ses deux couteaux en main, dos contre ton dos. « Je ne sais pas tuer ce qui est déjà mort, dit-elle. Mais je vais essayer. »" },
@@ -988,7 +988,7 @@ Object.assign(P, {
 Object.assign(P, {
   IM_chapelle: { act: "I", title: "La chapelle des Moines", place: "marais", backName: "la chapelle des Moines",
     text: [
-      { first: true, text: "On y va à gué, par une ligne de pierres plates que l'eau recouvre d'un doigt. L'îlot est une butte ronde couverte de frênes, et la chapelle est au sommet : quatre murs de pierre grise sans toit, une abside, un autel de pierre nue où quelqu'un a posé un bouquet de bruyère sèche. Le sol est couvert de feuilles. Il fait sec, et étrangement doux, comme si les murs gardaient encore un peu de la chaleur d'un autre siècle." },
+      { first: true, text: "On y va à gué, par une ligne de pierres plates que l'eau recouvre d'un doigt. L'îlot est une butte ronde couverte de frênes, et la chapelle est au sommet : quatre murs de pierre grise sans toit, une abside, un autel de pierre nue où quelqu'un a posé un bouquet de bruyère sèche. Le toit est parti, le desservant aussi, et le tronc avec eux ; il reste le bouquet, et bien des cathédrales en montreraient moins. Le sol est couvert de feuilles. Il fait sec, et étrangement doux, comme si les murs gardaient encore un peu de la chaleur d'un autre siècle." },
       { first: true, text: "Au-dessus de la porte, le linteau porte des mains sculptées, usées par la pluie jusqu'à devenir de simples formes, des paumes ouvertes vers le ciel. Une mousse dorée a poussé dans les creux. Au-dessus de l'autel, sur le mur de l'abside, une inscription est restée lisible, en lettres anciennes : *ICI L'EAU S'ARRÊTE.*" },
       { again: true, text: "Les quatre murs sans toit, l'autel nu, le bouquet de bruyère. L'air est doux et sec, et le marais semble très loin." },
       { with: "pip", text: "Pip fait le tour de la chapelle en volant le long des murs, lentement, en touchant la pierre de sa lumière. « C'est un endroit qui a été aimé, dit-il. Longtemps. Ça se sent. »" },
@@ -1002,7 +1002,7 @@ Object.assign(P, {
     fx: { rest: true, ep: ["perso", 400] },
     text: [
       "Tu dors contre l'autel, roulé{e} dans ta cape, sur un lit de feuilles. Tu dors profondément, sans rêves.",
-      "Au milieu de la nuit, tu te réveilles sans savoir pourquoi. Dehors, au pied de l'îlot, l'eau du marais clapote contre les pierres du gué, un peu plus fort que tout à l'heure. Et dans le clapotis, très bas, à la limite de ce qu'on entend, il y a ton nom. Dit doucement, avec affection, comme le dirait quelqu'un qui t'attend depuis longtemps. *{hero}.*",
+      "Au milieu de la nuit, tu te réveilles sans savoir pourquoi, avec cette certitude des dormeurs qu'on vient de toucher à l'épaule. Dehors, au pied de l'îlot, l'eau du marais clapote contre les pierres du gué, un peu plus fort que tout à l'heure ; et dans le clapotis, très bas, à la limite de ce qu'on entend, il y a ton nom. Dit doucement, avec affection, comme le dirait quelqu'un qui t'attend depuis longtemps. *{hero}.*",
       { if: { item: "IM_noeud" }, text: "Tu serres dans ta main le nœud de jonc de la Vieille Sauge. Le clapotis hésite. Ton nom se défait au milieu, comme un fil qu'on tire, et le silence le remplace." },
       { if: { not: { item: "IM_noeud" } }, text: "Ton nom revient, encore et encore, avec la patience de l'eau. Mais il s'arrête au seuil. Il reste dehors, au pied des murs. À l'aube, il se tait." },
       { with: "coliane", text: "Coliane est assise contre le mur d'en face, les yeux ouverts. Elle l'a entendu aussi. « Elle connaît ton nom, dit-elle. Moi, elle ne m'appelle jamais. Je ne sais pas si je dois être contente. »" },
@@ -1024,7 +1024,7 @@ Object.assign(P, {
     choices: [{ back: "IF_lisiere" }] },
   IF_coliane_couteaux: { act: "I", title: "Les couteaux", place: "rouvre", with: "coliane",
     text: [
-      { with: "coliane", text: "Coliane a planté une bûche debout contre une souche, à douze pas, et elle y lance ses couteaux. L'un après l'autre, sans viser, semble-t-il : un mouvement du poignet, et la lame est dans le bois, en vibrant. Les trois lames se plantent dans un rond de la taille d'une paume. Elle va les rechercher, revient, recommence. Elle fait ça chaque soir, tu l'as remarqué. Comme d'autres disent leurs prières." },
+      { with: "coliane", text: "Coliane a planté une bûche debout contre une souche, à douze pas, et elle y lance ses couteaux. L'un après l'autre, sans viser, semble-t-il : un mouvement du poignet, et la lame est dans le bois, en vibrant. Les trois lames se plantent dans un rond de la taille d'une paume. Elle va les rechercher, revient, recommence. Elle fait ça chaque soir, tu l'as remarqué. Comme d'autres disent leurs prières, et avec plus de résultat." },
       { with: "coliane", text: "« Tu veux essayer ? » Elle te tend un couteau par la lame. Tu essaies. Le premier rebondit sur la bûche et part dans les fougères. Le deuxième s'arrête à un pied de la cible. Coliane garde son sérieux. Elle te prend le poignet, le place, te montre comment lâcher. « Pas avec le bras. Avec le bout des doigts. Le couteau sait où il va. Tu n'as qu'à ne pas le gêner. »" },
       { with: "coliane", text: "Le dixième se plante. De travers, mal, à peine, mais il se plante. Coliane hoche la tête. « Mon frère m'a appris comme ça, dit-elle. Il disait que j'étais la plus douée de la famille. Il disait ça pour me faire plaisir. » Elle va chercher le couteau. « Il avait raison quand même. »" },
     ],
@@ -1039,7 +1039,7 @@ Object.assign(P, {
     choices: [{ label: "Reprendre la route", back: R }] },
   IM_route_retour: { act: "I", title: "La chaussée, au retour", place: null,
     text: [
-      "Sur la chaussée des Moines, en revenant des marais, tu croises une charrette tirée par un âne et conduite par un vieil homme qui dort, les rênes autour du poignet. L'âne connaît le chemin. Dans la charrette, sous une bâche, des tonneaux vides sonnent creux à chaque cahot.",
+      "Sur la chaussée des Moines, en revenant des marais, tu croises une charrette tirée par un âne et conduite par un vieil homme qui dort, les rênes autour du poignet. L'âne connaît le chemin, et des deux c'est visiblement lui qui dirige l'entreprise. Dans la charrette, sous une bâche, des tonneaux vides sonnent creux à chaque cahot.",
       "Le vieil homme se réveille quand tu passes. Il te regarde, il regarde les marais derrière toi. « De l'eau, dit-il. Je vais chercher de l'eau à la source de Sorbe, à six lieues. Pour Charron. Il la revend au village. » Il crache par-dessus la ridelle. « Trois fois le prix. Moi, il me paie un denier le tonneau. » Il se rendort avant ta réponse.",
       { with: "pip", text: "Pip suit la charrette des yeux. « Il fait six lieues pour de l'eau, dit-il. Et les gens qui la boivent ignorent jusqu'à son nom. » Il a l'air de trouver ça très triste, et très important." },
     ],
@@ -1103,7 +1103,7 @@ Object.assign(P, {
     choices: [{ label: "Reprendre la route", back: R }] },
   EF_cerf: { act: "I", title: "Le cerf gris",
     text: [
-      "Il est là, au milieu du chemin, à trente pas. Un grand cerf, plus grand que tous ceux que tu as vus, avec des bois comme une couronne : tu comptes douze cors, et tu t'arrêtes là. Son poil est gris, d'un gris de cendre mouillée, et il fume légèrement dans l'air froid. Il te regarde. Il reste immobile.",
+      "Il est là, au milieu du chemin, à trente pas. Un grand cerf, plus grand que tous ceux que tu as vus, avec des bois comme une couronne : tu comptes douze cors, et tu t'arrêtes là. Son poil est gris, d'un gris de cendre mouillée, et il fume légèrement dans l'air froid, d'une vapeur lente qui monte de ses flancs et se défait entre les branches, tandis que la bête elle-même garde une immobilité de pierre levée. Il te regarde.",
       "Ses yeux sont noirs, profonds, loin du blanc des renards, et dedans, quand tu les regardes, il y a de l'eau.",
       { with: "coliane", text: "Coliane a un couteau dans la main, et tu as manqué le geste. « Une couronne d'or, la peau, souffle-t-elle. C'est ce que dit le marchand de Sorbe. » Elle garde le couteau en main. Elle attend de voir ce que tu fais." },
     ],
@@ -1162,13 +1162,13 @@ Object.assign(P, {
     text: [
       "La chaussée est coupée, sur dix pas, par une brèche où l'eau passe. Il faut entrer dedans jusqu'à la taille. L'eau est tiède, brune, et le fond est mou. Tu traverses en tenant ton sac au-dessus de ta tête.",
       "De l'autre côté, en te déchaussant, tu les trouves : sept sangsues, noires et luisantes, collées à tes jambes, gonflées. Tu les arraches une à une. Elles laissent de petites morsures en forme d'étoile qui saignent longtemps.",
-      { with: "gloup", text: "Gloup te regarde faire avec un grand intérêt. Puis il roule jusqu'à la dernière sangsue, celle que tu as jetée dans l'herbe, et il l'avale. Il fait un « gloup » satisfait. Dégoûtant ou utile, tu hésites. Les deux, sans doute." },
+      { with: "gloup", text: "Gloup te regarde faire avec un grand intérêt. Puis il roule jusqu'à la dernière sangsue, celle que tu as jetée dans l'herbe, et il l'avale. Il fait un « gloup » satisfait. Dégoûtant ou utile, tu hésites. Les deux, sans doute, comme beaucoup de gens en place." },
     ],
     fx: { pv: -1 },
     choices: [{ label: "Reprendre la route", back: R }] },
   EM_brume: { act: "I", title: "La brume",
     text: [
-      "La brume monte d'un coup, comme du lait qui déborde. En quelques instants, le bord de la chaussée disparaît, puis tes pieds. Tout est blanc, mouillé, silencieux. Il reste le bruit de l'eau, de chaque côté.",
+      "La brume monte d'un coup, comme du lait qui déborde. En quelques instants, le bord de la chaussée disparaît, puis tes pieds, puis ta main quand tu la tends ; tout est blanc, mouillé, silencieux, d'un silence d'étoupe où ta propre respiration te paraît venir d'un autre. Il reste le bruit de l'eau, de chaque côté.",
     ],
     choices: [
       { label: "Avancer en tâtant le sol du pied, pas à pas", test: { dom: "nature", diff: 0, label: "Garder la chaussée", help: [{ with: "coliane", v: 10 }, { with: "gloup", v: 10 }] }, win: { fx: { ep: ["perso", 300] }, to: R }, lose: { to: "EM_brume_perdu" } },
@@ -1266,7 +1266,7 @@ Object.assign(P, {
     fx: { meet: "IF_jacquemin" },
     text: [
       "À un quart de lieue de la lisière, dans un creux humide, une cabane basse dont le toit de mottes est couvert de peaux qui sèchent, tendues sur des cadres de saule. Des peaux de renard, grises. Des peaux de sanglier, grises. Une peau de chevreuil, grise. Tu en comptes une quarantaine. L'odeur est épouvantable, une odeur de tannerie et de mare.",
-      "Un homme gratte une peau sur un chevalet, avec un couteau à deux manches. Il est roux, d'un roux sale, avec une barbe de trois jours. Il s'appelle Jacquemin. Il le dit fièrement, comme si le nom devait te dire quelque chose. « Je les prends au collet, dit-il. Elles ne se méfient plus de rien, ces bêtes-là. C'est le bon temps. Le marchand de Sorbe me les prend toutes. Il dit qu'à Vel-Orin, les dames en veulent, du gris. C'est la mode. »",
+      "Un homme gratte une peau sur un chevalet, avec un couteau à deux manches. Il est roux, d'un roux sale, avec une barbe de trois jours. Il s'appelle Jacquemin. Il le dit fièrement, comme si le nom devait te dire quelque chose. « Je les prends au collet, dit-il. Elles ne se méfient plus de rien, ces bêtes-là. C'est le bon temps. Le marchand de Sorbe me les prend toutes. Il dit qu'à Vel-Orin, les dames en veulent, du gris. C'est la mode. » La mode, c'est connu, a l'estomac solide.",
       "Ses mains, sur le couteau, sont grises jusqu'aux poignets. De la peau grise, avec des veines plus sombres dessous. Il l'ignore, par distraction ou par choix.",
       { with: "coliane", text: "Coliane a regardé les peaux, puis les mains de l'homme, et elle a reculé d'un pas. « Tu sais ce que tu vends, toi ? dit-elle. Tu sais où elles vont finir, tes peaux ? Au cou des gens. »" },
     ],
@@ -1315,7 +1315,7 @@ Object.assign(P, {
   IM_sauge_coliane: { act: "I", title: "La vieille et la fille aux couteaux", place: "marais", with: "coliane",
     text: [
       { with: "coliane", text: "La vieille tend la main vers Coliane, paume ouverte, sans chercher à la toucher, et elle attend. Coliane la regarde un long moment. Puis, à ta surprise, elle se lève, va s'asseoir aux pieds de la vieille, et lui donne sa main." },
-      { with: "coliane", text: "Sauge la tient dans les siennes, la retourne, suit les lignes du pouce. « Tu cherches quelqu'un, dit-elle. Depuis longtemps. Tu crois que c'est pour le tuer. » Coliane retire sa main d'un coup. La vieille prend la chose sans s'offusquer. « Je ne lis pas les mains, ma fille. Je lis les gens. Et toi, tu te lis à cent pas. »" },
+      { with: "coliane", text: "Sauge la tient dans les siennes, la retourne, suit les lignes du pouce. « Tu cherches quelqu'un, dit-elle. Depuis longtemps. Tu crois que c'est pour le tuer. » Coliane retire sa main d'un coup. La vieille prend la chose sans s'offusquer. « Je ne lis pas les mains, ma fille ; c'est bon pour les foires, où l'on paie pour s'entendre dire qu'on sera riche. Je lis les gens. Et toi, tu te lis à cent pas. »" },
       { with: "coliane", text: "Coliane se relève. Elle va sur la galerie, à côté du héron, et elle regarde le marais. Au bout d'un moment, sans se retourner, elle demande : « Et si c'était pour autre chose ? » La vieille tire sur sa pipe. « Alors tu le sauras quand tu le verras. Pas avant. C'est comme ça. »" },
     ],
     fx: { conf: { coliane: 5 }, ep: ["perso", 300] },
@@ -1323,7 +1323,7 @@ Object.assign(P, {
   EF_flaque: { act: "I", title: "La flaque",
     text: [
       "Au milieu du chemin, une flaque, ronde, large comme une meule, qu'il faut enjamber ou contourner. Elle est noire et parfaitement lisse. En passant à côté, tu y jettes un œil, comme on fait toujours.",
-      "Ton reflet est là. Et derrière ton reflet, juste derrière ton épaule, il y a quelqu'un. Une silhouette de femme, mince, debout, avec de longs cheveux qui pendent comme des algues. Elle a la tête penchée, comme pour mieux te voir. Tu te retournes : le chemin est vide. Dans la flaque, elle est toujours là.",
+      "Ton reflet est là. Et derrière ton reflet, juste derrière ton épaule, il y a quelqu'un. Une silhouette de femme, mince, debout, avec de longs cheveux qui pendent comme des algues ; elle a la tête penchée, de ce mouvement attentif et presque tendre qu'on a pour regarder dormir, et elle se tient si près que son souffle, si elle en avait un, te toucherait la nuque. Tu te retournes : le chemin est vide. Dans la flaque, elle est toujours là.",
       { with: "pip", text: "Pip a vu aussi. Il s'est jeté entre toi et l'eau, sa lumière dressée comme un bouclier, et il tremble de partout. « Ne la regarde pas, dit-il. S'il te plaît. Ne la regarde pas. »" },
     ],
     choices: [
@@ -1340,8 +1340,8 @@ Object.assign(P, {
   IM_pernelle_nuit: { act: "I", title: "Une nuit chez Pernelle", place: "marais", takes: "morning",
     fx: { rest: true, gold: -2, ep: ["perso", 200] },
     text: [
-      "Pernelle te fait payer deux sous pour une paillasse dans l'appentis, à côté des nasses, et une écuelle de soupe d'anguille. La soupe est grasse et bonne, avec du thym et des oignons. Elle la mange en face de toi, en silence, en regardant le feu.",
-      "La nuit, tu entends les grenouilles, les roseaux, le clapotis de l'eau contre les pilotis. Et vers minuit, un bruit de pas dans l'eau, lent, qui fait le tour de la cabane, deux fois, et s'éloigne. Pernelle, dans le noir, dit tout bas : « Ne bouge pas. Il fait ça toutes les nuits. Il ne rentre jamais. »",
+      "Pernelle te fait payer deux sous pour une paillasse dans l'appentis, à côté des nasses, et une écuelle de soupe d'anguille ; l'hospitalité des marais se pratique au comptant. La soupe est grasse et bonne, avec du thym et des oignons. Elle la mange en face de toi, en silence, en regardant le feu.",
+      "La nuit, tu entends les grenouilles, les roseaux, le clapotis de l'eau contre les pilotis, tout ce petit peuple de bruits dont un marais se sert pour dire que rien ne s'y passe. Vers minuit, les grenouilles se taisent d'un seul coup ; alors vient un bruit de pas dans l'eau, lent, qui fait le tour de la cabane, deux fois, avec la régularité d'une ronde, et s'éloigne. Pernelle, dans le noir, dit tout bas : « Ne bouge pas. Il fait ça toutes les nuits. Il ne rentre jamais. »",
       { with: "coliane", text: "Coliane a dormi assise contre la porte, les couteaux sur les genoux. Au matin, elle affirme qu'elle a dormi d'une traite. Elle ment, et elle sait que tu le sais." },
       "Au matin, autour de la cabane, il y a des traces de pieds nus dans la vase. Elles viennent de l'eau, et elles y retournent.",
     ],
