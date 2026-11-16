@@ -554,7 +554,7 @@ module.exports = {
       clef_tour: { name: "Clef de bronze du sous-maître", kind: "divers", keep: true, desc: "Une clef de bronze, pareille à celle des apprentis, avec un papillon dans l'anneau. Elle ouvre aussi la porte de fer de la Tour. Il la portait sur lui." },
     },
     councils: {
-      jures: { title: "Le Conseil des sept Jurés", hero: false, order: ["coudrier", "lunel", "foliot", "rouet", "balancourt", "cliquet", "aubespin"],
+      jures: { title: "Le Conseil des sept Jurés", hero: false, order: ["coudrier", "lunel", "rouet", "balancourt", "cliquet", "foliot", "aubespin"],
         members: { coudrier: {}, lunel: {}, foliot: {}, rouet: {}, balancourt: {}, cliquet: {}, aubespin: {} } },
     },
     motions: {
