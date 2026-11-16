@@ -137,9 +137,9 @@ Object.assign(P, {
       { again: true, after: "j:girard_charrette", text: "Il te fait un signe de tête, entendu, et tape du plat de la main sur la croupe de la jument." },
     ],
     choices: [
-      { label: "« Le matin de la fête, tu peux garder la jument attelée, le nez vers le canal ? »", hide: { any: [{ has: "j:girard_charrette" }, { seen: "K08j_girard_non" }, { not: { seen: "K04j_girard_ami" } }] }, fx: { flag: "j:girard_charrette" }, to: "K08j_girard_oui" },
+      { label: "« Le matin de la fête, tu peux garder la jument attelée, le nez vers le canal ? »", hide: { any: [{ has: "j:girard_charrette" }, { seen: "K08j_girard_non" }, { not: { seen: "K04j_girard_ami" } }] }, fx: { flag: ["j:girard_charrette", "monde:girard_attele"] }, to: "K08j_girard_oui" },
       { label: "« Le matin de la fête, tu peux garder la jument attelée, le nez vers le canal ? »", hide: { any: [{ has: "j:girard_charrette" }, { seen: "K08j_girard_non" }, { seen: "K04j_girard_ami" }] }, test: { dom: "social", diff: 5, label: "Se faire croire d'un garçon de quatorze ans", help: [{ if: { voie: "diseur" }, v: 15 }, { if: { has: "j:concours_gagne" }, v: 15 }, { if: { has: "monde:noyer_sauve" }, v: 10 }] },
-        win: { fx: { flag: "j:girard_charrette" }, to: "K08j_girard_oui" }, lose: { to: "K08j_girard_non" } },
+        win: { fx: { flag: ["j:girard_charrette", "monde:girard_attele"] }, to: "K08j_girard_oui" }, lose: { to: "K08j_girard_non" } },
       { back: "K08j_noyers" },
     ] },
   K08j_girard_oui: { act: "III", title: "Le nez vers le canal", place: "foire", ambiance: "champs",
