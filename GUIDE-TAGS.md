@@ -467,3 +467,18 @@ L'appli : les mots qui bougent sont des boutons (clavier et lecteur d'écran com
 Le validateur : syntaxe des voiles, lentille déclarée, objet existant, même voile qui cacherait deux textes (collision d'id), voile sur un bouton, conditions et effets qui citent un voile inconnu. Les parties d'essai dévoilent ce qui bouge (souvent ; toujours en exploration), comme un lecteur curieux.
 
 Pièges : un voile sans `#id` dont les mots dits sont courts (« rien ») risque de rencontrer un autre voile ; donner un `#id` dès qu'il a une suite. Les charges se dépensent aussi sur les voiles sans suite : un lecteur prudent les garde.
+
+## À trois (16/11, 9.6) : vote entre joueurs, postes, indices mis en commun
+
+Pour une histoire à trois joueurs, un héros chacun (voir GUIDE-MULTI.md, « À trois »).
+
+| Où | Clé | Sens |
+|---|---|---|
+| `story.scrutins` | `{ <id>: { title, options: { <opt>: "libellé" }, tie, tieSay, secret } }` | Un vote entre les joueurs. `tie` : l'issue quand aucune option n'a la majorité (une option de plus, que seule l'égalité donne). |
+| choix | `voix: "<scrutin>", option: "<opt>"` | Le joueur donne sa voix. Le moteur pose `voix:<scrutin>=<opt>` chez lui, compte au rendez-vous suivant et pose chez tous `monde:scrutin:<scrutin>=<résultat>`. |
+| condition | `{ scrutin: "<id>", is: "<opt>" }` · `{ voix: "<id>", is: "<opt>" }` · `{ role: "<rôle>", is: "<opt>" }` | Le résultat du vote · la voix du héros · le poste qu'il a pris (`is: null` : pas encore). |
+| texte | `{qui:<rôle>:<opt>}` · `{qui:<rôle>:<opt>:e}` | Le héros qui tient ce poste, et son accord. |
+| `story.multi` | `commun: true` | Les indices sont mis en commun à chaque rendez-vous. |
+| indice | `prive: true` | Cet indice ne se met pas en commun. |
+
+Le validateur refuse une voix pour un scrutin ou une option inconnus, une condition sur un rôle qu'aucun choix ne porte, et signale une option pour laquelle personne ne peut voter.

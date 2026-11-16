@@ -3031,6 +3031,7 @@
       if (c.test) meta = h("span", { class: "meta test", title: "Chance de réussite" }, (c.who ? M.nameOf(A.game.story, c.who) + " · " : "") + (c.test.label || M.DOMAINS[c.test.dom]) + " · " + c.chance + " %");
       else if (c.decidedBy) meta = h("span", { class: "meta" }, "choisi par " + c.decidedBy);
       else if (c.monde) meta = h("span", { class: "meta" }, "choix du monde · le premier décide pour tous");
+      else if (c.voix && A.game && A.game.multi) meta = h("span", { class: "meta" }, "ta voix · on compte quand tout le monde a voté");
       else if (c.role && A.game && A.game.multi) meta = h("span", { class: "meta" }, "un seul joueur peut le prendre");
       else if (c.hint) meta = h("span", { class: "meta" }, c.hint);
       else if (c.exit) meta = h("span", { class: "meta" }, "fin de l'acte");
