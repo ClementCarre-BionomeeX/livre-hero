@@ -15,7 +15,7 @@ Object.assign(P, {
       { first: true, with: "salome", text: "Salomé fait entrer *La Bavarde* dans un bassin de roche au pied du phare, à la voile seule, en lisant les remous comme d'autres lisent une enseigne. L'ancre descend, la chaîne racle, le fond tient. « Le bassin des Gardiens, dit-elle. Seul mouillage sûr à dix lieues. {{oreille#iie_sourds|Les Sourds, c'est l'écume, là-bas, au sud. Rien à voir|Je ne regarderai pas au sud tant que tu ne m'y obligeras pas}}. »" },
       { first: true, without: "salome", text: "Le patron que Salomé t'a prêté mouille *La Bavarde* dans un bassin de roche au pied du phare et se met aussitôt à pêcher à la traîne, le dos tourné au sud." },
       { again: true, when: "day", text: "Le bassin des Gardiens, l'eau verte et calme entre deux bras de roche. *La Bavarde* tire doucement sur sa chaîne. Au-dessus, la tour de l'Ouïe ; autour, les îles, les oiseaux, l'écume des Sourds." },
-      { again: true, when: "night", text: "Le bassin, la nuit. Le fanal de *La Bavarde* fait une tache jaune sur l'eau noire. Plus haut, la lampe du phare brûle, faible et rouge, et la houle respire contre les rochers." },
+      { again: true, when: "night", text: "Le bassin, la nuit. Le fanal de *La Bavarde* fait une tache jaune sur l'eau noire. Plus haut, la lampe du phare brûle, faible et rouge, comme un œil qui lutterait contre le sommeil, et la houle respire contre les rochers." },
       { again: true, after: "ecueils:ouverte", text: "Le bassin {{echo#iie_e_bassin|clapote contre la coque, et la chaîne grince dans l'écubier|rend une voix de femme, gaie, essoufflée : « Salo ! Neuf brasses, et l'eau claire comme un verre ! »}}." },
       { after: "voile:iie_e_bassin", with: "salome", once: true, text: "Salomé s'est figée, une main sur le plat-bord. Elle a entendu aussi. Elle regarde l'eau à l'endroit exact où la voix est montée, et elle se tait longtemps. Puis elle va à l'avant, très droite, et recommence à lover une aussière déjà lovée." },
       { after: "iie:ravaud=allie", text: "Une barque de l'île Plate passe à portée de voix. Les hommes de Ravaud lèvent la main, de mauvaise grâce, mais ils la lèvent." },
@@ -212,7 +212,7 @@ Object.assign(P, {
 
   IIE_gosier: { act: "II", title: "Le gosier", place: "ecueils",
     text: [
-      "L'échelle descend dans un puits creusé au cœur du rocher. Les barreaux sont gras de sel. À vingt pieds, l'air devient si humide que ta lanterne grésille ; à quarante, tu entends la mer, en dessous, qui entre et sort d'une cavité avec un bruit de soufflet de forge.",
+      "L'échelle descend dans un puits creusé au cœur du rocher. Les barreaux sont gras de sel. À vingt pieds, l'air devient si humide que ta lanterne grésille ; à quarante, tu entends la mer, en dessous, qui entre et sort d'une cavité avec le bruit d'une poitrine énorme, endormie sous le rocher.",
       "Le puits s'arrête au-dessus d'une grille de bronze, scellée dans la roche. Sous la grille, l'eau monte et descend, noire et lisse, et une lumière grise vient de quelque part sur le côté : une grotte, ouverte sur la mer. La grille porte au centre un relief usé, une conque à cinq tours, et autour, une ligne gravée : *{{loupe#iie_grille|Pour ceux de la mer|Pour ceux de la mer : la main au cinquième tour, d'en haut ou d'en bas}}*.",
       "Tu tires sur la grille. Elle tient comme un mur. Elle doit s'ouvrir d'en bas, ou d'en haut, par un mécanisme caché.",
       { if: { has: "metier:mains" }, text: "Tes doigts trouvent dans la roche, à droite de la grille, une rainure lisse et usée, le passage d'une chaîne qui monte vers la tour. On a ouvert cette grille souvent, il y a longtemps." },
@@ -237,7 +237,7 @@ Object.assign(P, {
       { first: true, text: "La lanterne est une cage de fer et de verre épais, verdi par le sel, autour d'une grande lampe de cuivre à sept mèches. Les mèches baignent dans une graisse grise qui pue le phoque. Le pied de la lampe est {{pie#iie_lampe_pied|en cuivre martelé, cabossé par les ans|en argent, sous trois couches de peinture de cuivre que quelqu'un a passées pour décourager les voleurs d'épaves}}. Des bûches d'épave, noires de goudron, attendent dans une caisse. Les vitres sont couvertes d'une suie grasse de plusieurs hivers." },
       { first: true, text: "De la galerie, tu vois tout l'archipel : le bassin et *La Bavarde*, l'île aux Fous sous ses oiseaux, la fumée de l'île Plate, et au sud, la ligne blanche des Sourds. Au milieu de l'écume, à marée basse, un mât noir sort de l'eau, penché, avec un reste de hune." },
       { again: true, when: "day", text: "La galerie, le vent, l'archipel en dessous. Le mât noir des Sourds sort de l'écume." },
-      { again: true, when: "night", text: "La galerie de nuit. La lampe fume et rougeoie. En dessous, le bassin, un fanal, et rien d'autre dans le noir." },
+      { again: true, when: "night", text: "La galerie de nuit. La lampe fume et rougeoie. En dessous, le bassin, un fanal, et rien d'autre dans le noir ; l'archipel entier s'est retiré de la vue, et l'on n'en garde que la voix, ce ressac éparpillé qui monte de partout à la fois." },
       { after: "iie:goulven=huile", text: "Les vitres ont été lavées au vinaigre. Les sept mèches baignent dans une huile claire et brûlent blanc." },
       { again: true, after: "ecueils:ouverte", text: "La galerie {{echo#iie_e_sorne|siffle dans le vent du large, et les vitres vibrent|rend deux voix, l'une jeune, l'autre lasse : « D'ici, à la Grande Basse, on voit les toits de Sorne, au nord-est. — Alors le dernier ira là-bas, avec elle. »}}." },
     ],
@@ -446,7 +446,7 @@ Object.assign(P, {
 Object.assign(P, {
   IIE_fous: { act: "II", title: "L'île aux Fous", place: "ecueils", backName: "l'île aux Fous",
     text: [
-      { first: true, text: "Le bruit arrive avant l'odeur, et l'odeur avant l'île. Des milliers de fous, blancs, la tête jaune, serrés sur chaque corniche à un bec l'un de l'autre, qui crient, se battent, plongent en flèche dans la houle et remontent avec un hareng. La roche est blanche de fiente sur trois toises d'épaisseur. Le canot touche une grève de galets où traînent des plumes, des arêtes, des bouts de filet." },
+      { first: true, text: "Le bruit arrive avant l'odeur, et l'odeur avant l'île. Des milliers de fous, blancs, la tête jaune, serrés sur chaque corniche à un bec l'un de l'autre, qui crient, se battent, plongent en flèche dans la houle et remontent avec un hareng. La roche est blanche de fiente sur trois toises d'épaisseur, seule richesse des Écueils que la Banque n'ait pas encore songé à réclamer. Le canot touche une grève de galets où traînent des plumes, des arêtes, des bouts de filet." },
       { first: true, text: "Au pied de la falaise, une barque tirée au sec, deux paniers d'osier pleins d'œufs bleutés, une corde lovée. Et une femme qui hurle vers le haut de la falaise, les mains en porte-voix, un nom que les oiseaux couvrent à chaque fois." },
       { again: true, text: "L'île aux Fous, ses cris, sa fiente, ses oiseaux qui tombent dans la mer comme des pierres. Sur la grève, les paniers de Klervi." },
       { again: true, after: "ecueils:ouverte", text: "La falaise {{echo#iie_e_fous|crie de tous ses oiseaux, et rien d'autre ne s'entend|rend, sous les cris, une voix d'homme qui hurle à un canot : « Le bateau de l'huile est sur les Fous ! Elouan ! Ronan ! Par ici, il y a encore deux hommes sur la quille ! »}}." },
@@ -562,7 +562,7 @@ Object.assign(P, {
 
   IIE_gorge: { act: "II", title: "La Gorge", place: "ecueils", takes: 3, backName: "le couloir de la Gorge",
     text: [
-      { first: true, text: "Les marches naturelles montent, puis redescendent, dans un couloir de roche qui sent l'iode et la vase. L'eau reste dans des vasques larges comme des étangs, d'un noir parfait. Dans la plus grande, quelque chose bouge : un dos luisant, puis deux, puis une tête en coin, plate, aux dents en aiguilles. Des anguilles de mer, longues comme un homme, piégées là par le reflux et affamées." },
+      { first: true, text: "Les marches naturelles montent, puis redescendent, dans un couloir de roche qui sent l'iode et la vase. L'eau reste dans des vasques larges comme des étangs, d'un noir parfait, où ta lanterne se regarde sans rien éclairer. Dans la plus grande, quelque chose bouge : un dos luisant, puis deux, puis une tête en coin, plate, aux dents en aiguilles. Des anguilles de mer, longues comme un homme, piégées là par le reflux et affamées." },
       { again: true, before: "iie:gorge", text: "Les vasques noires du couloir. Les anguilles y tournent encore." },
       { again: true, after: "iie:gorge", text: "Le couloir de la Gorge, ses vasques noires, la lumière verte au fond." },
     ],
@@ -662,9 +662,9 @@ Object.assign(P, {
 Object.assign(P, {
   IIE_ilot_plat: { act: "II", title: "L'île Plate", place: "ecueils", backName: "le camp de l'île Plate",
     text: [
-      { first: true, text: "Une table de roche nue, à peine plus haute que la mer, nue comme une enclume. Une demi-douzaine de cabanes de planches d'épave, calfatées de goudron, un feu de varech qui fume noir, des filets qui sèchent, et trois barques tirées au sec. Une quinzaine d'hommes et deux femmes, maigres, mal rasés, qui s'arrêtent tous de travailler pour te regarder aborder." },
+      { first: true, text: "Une table de roche, à peine plus haute que la mer, nue comme une enclume. Une demi-douzaine de cabanes de planches d'épave, calfatées de goudron, un feu de varech qui fume noir, des filets qui sèchent, et trois barques tirées au sec. Une quinzaine d'hommes et deux femmes, maigres, mal rasés, qui s'arrêtent tous de travailler pour te regarder aborder." },
       { first: true, text: "Près du feu, un garçon roux écaille des maquereaux avec un couteau trop grand pour lui. Il lève les yeux vers toi une seule fois, puis les garde baissés. Ses mains tremblent." },
-      { again: true, when: "day", text: "L'île Plate, ses cabanes goudronnées, son feu de varech. Les hommes de Ravaud ravaudent leurs filets en te surveillant de biais." },
+      { again: true, when: "day", text: "L'île Plate, ses cabanes goudronnées, son feu de varech. Les hommes de Ravaud réparent leurs filets en te surveillant de biais." },
       { again: true, when: "night", text: "L'île Plate, la nuit : un feu, des silhouettes autour, une bouteille qui passe de main en main." },
       { again: true, after: "ecueils:ouverte", text: "Le feu de varech {{echo#iie_e_plate|craque et fume, et l'odeur de goudron te prend à la gorge|rend une voix d'homme, mal assurée, la voix de Ravaud : « Le cotre gris paie deux ducats la semaine pour qu'on chasse les plongeurs des Sourds. Deux ducats, les gars. On ne crache pas dessus. »}}." },
       { with: "salome", first: true, text: "Salomé reste dans le canot, la main sur l'aviron. « Ravaud et moi, on ne se parle plus. Vas-y. Je te regarde. »" },
