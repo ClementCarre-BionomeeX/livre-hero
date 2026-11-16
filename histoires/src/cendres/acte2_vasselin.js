@@ -55,7 +55,7 @@ module.exports = {
     fx: { questSeen: "II_Q_luthier" },
     text: [
       "Rue Basse, sous l'enseigne d'une vielle de bois peint, l'atelier de Maître Fabien, qui a fait ton luth il y a dix ans, quand tu es arrivée à la cour avec une voix et rien d'autre. Il t'avait fait crédit. Tu l'as remboursé en trois ans, et il t'a dit, le dernier jour : « Maintenant tu me dois une chanson. » Tu ne la lui as jamais écrite.",
-      "L'atelier est plein. Des luths, des vielles, des rebecs, accrochés aux poutres, posés sur les établis, sur les chaises, par terre. Tous inachevés. À l'un il manque le manche, à l'autre la table, au troisième les cordes. Tu en comptes quarante-trois avant de renoncer.",
+      "L'atelier est plein, et l'œil met un moment à comprendre de quoi. Des luths, des vielles, des rebecs pendent aux poutres, encombrent les établis, les chaises, le plancher ; chacun attend quelque chose. À l'un il manque le manche, à l'autre la table, au troisième les cordes, et cette assemblée de corps inachevés garde le silence particulier des instruments qui n'ont jamais sonné. Tu en comptes quarante-trois avant de renoncer.",
       "Fabien est au milieu, avec un rabot, devant une table de sapin qu'il rabote depuis si longtemps qu'elle est devenue transparente.",
     ],
     choices: [
@@ -137,7 +137,7 @@ module.exports = {
   II_Q_crieur_cave: P({ title: "La cave aux noms", place: "vasselin",
     text: [
       "Les deux hommes descendent vers le port, entrent dans une cave sous une maison de change, et ressortent sans leurs gourdins. Tu attends. Tu descends.",
-      "La cave est petite, voûtée, à peine assez haute pour se tenir debout. Une table, une lampe, et des papiers, en piles nettes, tenues par des galets. Les papiers de tous les crieurs de Vasselin, de toutes les paroisses, depuis le printemps, recopiés, avec des noms rayés. Et une liste, à part, des noms rayés, avec en face de chacun une somme. Payée par qui, le registre le tait. À qui, si : *Pour la Tour.*",
+      "La cave est petite, voûtée, à peine assez haute pour se tenir debout. Une table, une lampe, et des papiers, en piles nettes, tenues par des galets : la besogne, ici, se fait avec une propreté de comptoir. Les papiers de tous les crieurs de Vasselin, de toutes les paroisses, depuis le printemps, recopiés, avec des noms rayés. Et une liste, à part, des noms rayés, avec en face de chacun une somme. Payée par qui, le registre le tait. À qui, si : *Pour la Tour.*",
       "Les noms rayés sont des noms de gens morts dans leur lit, de vieillesse, de fièvre. Mais ce sont tous des gens qui savaient écrire. Des notaires, des maîtres d'école, des clercs, une sage-femme qui tenait un registre des naissances. Ceux qui se souviennent sur le papier.",
       "Tu prends la liste. Tu remontes, sans témoin.",
     ],

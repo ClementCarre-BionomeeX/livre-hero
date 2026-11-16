@@ -18,7 +18,7 @@ module.exports = {
     ] }),
   II_G_approche: P({ takes: "night", title: "La nuit sur le bassin", place: "vasselin",
     text: [
-      "Minuit. Le bassin est noir, l'eau clapote contre les coques, et l'air sent le goudron et le poisson de la veille. Sur la passerelle de la galère grise, deux gardes, une lanterne. À la poupe, une fenêtre allumée : la cabine du capitaine, qui a des invités. On entend rire.",
+      "Minuit. Le bassin est noir, d'un noir d'huile où les fanaux du quai s'allongent sans rien éclairer ; l'eau clapote contre les coques à petits coups patients, et l'air sent le goudron et le poisson de la veille. Sur la passerelle de la galère grise, deux gardes, une lanterne. À la poupe, une fenêtre allumée : la cabine du capitaine, qui a des invités. On entend rire, et le rire porte loin sur l'eau, comme tout ce qu'on voudrait taire.",
     ],
     choices: [
       { label: "Te présenter à la passerelle comme la chanteuse qu'on a demandée pour le souper", test: { dom: "social", label: "L'aplomb", help: [{ if: { item: "luth" }, v: 15 }, { if: { has: "lisandre:disgrace" }, v: -10 }] },

@@ -26,7 +26,7 @@ module.exports = {
     choices: BACK }),
   II_S2_tribune: P({ title: "La tribune des musiciens",
     text: [
-      "La grande salle de bal est vide, éclairée comme en plein jour par trois lustres de cent bougies chacun, les parquets cirés comme pour une noce. Au-dessus, dans la tribune des musiciens, un seul homme joue. Un vieillard, à la harpe, les yeux fermés. Maître Grégoire, qui t'a appris tes premiers accords, et qui dirige les musiciens de la cour depuis trente ans.",
+      "La grande salle de bal est vide, éclairée comme en plein jour par trois lustres de cent bougies chacun, les parquets cirés comme pour une noce ; trois cents flammes brûlent là pour le seul agrément des miroirs, et la cire, au palais, n'a jamais regardé à la dépense. Au-dessus, dans la tribune des musiciens, un seul homme joue. Un vieillard, à la harpe, les yeux fermés. Maître Grégoire, qui t'a appris tes premiers accords, et qui dirige les musiciens de la cour depuis trente ans.",
       "Il joue une pavane, lentement, pour personne. Ou pour quelqu'un : la chambre bleue est juste au-dessus, et le son monte par les conduits de la cheminée. Ton pupitre est encore là, à sa droite, avec ton nom peint dessus, à demi effacé. Le sien, à côté, n'a plus de nom du tout.",
       { if: { not: { has: "lisandre:fins" } }, text: "Deux mesures avant la fin, il s'arrête, les mains en l'air, et il reprend au début. Il ne sait toujours pas les fins." },
       { if: { has: "lisandre:fins" }, text: "Il va jusqu'au bout. Les fins que tu as chantées aux musiciens, dans la galerie, quatre jours avant la Fête, sont restées. Il ne sait plus qui les lui a rendues." },

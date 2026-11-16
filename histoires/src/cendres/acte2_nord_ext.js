@@ -36,7 +36,7 @@ module.exports = {
   II_Q_echo: P({ title: "La salle de l'écho", place: "lacnoir",
     fx: { questSeen: "II_Q_echo" },
     text: [
-      "Derrière la grande paroi, une fente à peine large comme un homme de profil. Tu passes. De l'autre côté, une petite salle ronde, nue, parfaitement noire. Ta torche n'en éclaire que le sol.",
+      "Derrière la grande paroi, une fente à peine large comme un homme de profil. Tu passes. De l'autre côté s'ouvre une petite salle ronde, nue, d'un noir si entier que ta torche y perd sa portée : elle éclaire le sol à tes pieds, un cercle de trois pas, et le reste de la salle commence au bord de ce cercle, tout près, sans mesure possible.",
       "Tu toussotes. La salle te renvoie la toux. Puis une autre toux, plus grave, sortie d'une autre poitrine. Puis un rire d'enfant.",
       "Tu dis : « Il y a quelqu'un ? » La salle répond, avec ta voix, puis avec une voix de vieille femme, puis avec une voix d'homme qui a l'accent du clan : *Il y a quelqu'un. Il y a quelqu'un.*",
     ],

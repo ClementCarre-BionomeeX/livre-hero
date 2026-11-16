@@ -39,7 +39,7 @@ module.exports = {
 
   II_S5_egouts: P({ title: "Sous la ville", place: "vasselin",
     text: [
-      "La grille se soulève sans bruit : on l'a huilée. Dessous, un égout de pierre, voûté, haut de quatre pieds et demi, où l'on marche courbé dans l'eau jusqu'aux chevilles. Il monte. Vasselin est bâtie sur une colline, et ses égouts ont suivi.",
+      "La grille se soulève sans bruit : on l'a huilée. Dessous, un égout de pierre, voûté, haut de quatre pieds et demi, où l'on marche courbé, dans l'eau jusqu'aux chevilles et dans une odeur dont la ville haute est l'auteur, bien qu'elle s'en défende. Il monte. Vasselin est bâtie sur une colline, et ses égouts ont suivi.",
       "Sur les parois, à hauteur d'épaule, des traces blanches, comme si on avait frotté de la craie. Les traces sont fraîches, et nombreuses : les Glaneurs passent par là, et souvent.",
       "Au bout d'une heure, une échelle de fer, et au-dessus, une trappe. Au-dessus de la trappe, du froid.",
     ],
