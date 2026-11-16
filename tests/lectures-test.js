@@ -43,7 +43,20 @@ var BOOKS = (IDS.length ? IDS : require("./page.js").STORIES).map(function (id) 
       if (named.length) check(await pg.locator("button.pp").count() > 0, st.id + " : les gens de la première page sont cliquables");
       await shot("2-premiere-page.png");
       await pg.waitForTimeout(1200);
-      for (var i = 0; i < 3; i++) { await pg.locator(".choices button").first().click(); await pg.waitForTimeout(250); }
+      // A chapter of one page (an introduction) ends at the first « Suivant » : its summary opens, and is closed.
+      for (var i = 0; i < 3; i++) {
+        await pg.locator(".choices button").first().click(); await pg.waitForTimeout(250);
+        var turn = pg.getByRole("button", { name: "Tourner la page" });
+        if (await turn.count()) {
+          // Its « Rencontrés » are the people of the chapter just read: those of its first page, none of the next one's.
+          var met = turn.locator("xpath=ancestor::*[contains(@class,'drawer-body')]").locator("p.small").filter({ hasText: "Rencontrés" });
+          var box = (await met.count()) ? await met.first().innerText() : "";
+          var was = st.passages[order[i]], now = st.passages[order[i + 1]];
+          ((was.fx && was.fx.meet) || []).forEach(function (k) { check(box.indexOf(st.people[k].name) >= 0, st.id + " : fin de chapitre, " + st.people[k].name + " compte parmi ses rencontres"); });
+          ((now.fx && now.fx.meet) || []).forEach(function (k) { check(box.indexOf(st.people[k].name) < 0, st.id + " : fin de chapitre, " + st.people[k].name + " (chapitre suivant) n'y est pas"); });
+          await turn.click(); await pg.waitForTimeout(150);
+        }
+      }
       check(await pg.locator("#page-title").innerText() === st.passages[order[3]].title, st.id + " : « Suivant » mène aux pages dans l'ordre du livre");
       await shot("3-quatrieme-page.png");
       var g = await pg.evaluate(function (id) {
