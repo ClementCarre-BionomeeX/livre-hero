@@ -41,7 +41,7 @@ module.exports = {
 
   III_v_marche: P({ title: "Le marché", place: "valcendre",
     text: [
-      "On vend des choses disparues : des fruits d'une espèce éteinte, des étoffes d'une couleur que l'esquarrois ignore, des jouets. On paie avec des chansons. Tu vois une femme acheter un panier de pommes rouges contre un couplet.",
+      "On vend des choses disparues : des fruits d'une espèce éteinte, des étoffes d'une couleur que l'esquarrois ignore, des jouets. On paie avec des chansons, monnaie qu'aucun prince n'a encore trouvé moyen de rogner. Tu vois une femme acheter un panier de pommes rouges contre un couplet.",
       "Une marchande te tend une pomme, et refuse ta chanson. « Pour le fils de Maëra », dit-elle, et les gens autour hochent la tête.",
       "La pomme a le goût d'une pomme. Exactement : acide d'abord, puis sucrée, avec un fond de cidre près du trognon. Tu avais oublié que les pommes avaient un goût aussi précis.",
     ],
@@ -101,7 +101,7 @@ module.exports = {
 
   III_v_palais: P({ title: "Le palais de givre", place: "valcendre",
     text: [
-      "Le palais est sans gardes. Les portes s'ouvrent devant le Sans-Nom. Des escaliers, des galeries, des salles vides, toutes blanches, toutes froides, et au sommet, une salle ronde, ouverte sur le blanc, sans murs, sous un toit porté par des colonnes de glace.",
+      "Le palais est sans gardes. Les portes s'ouvrent devant le Sans-Nom. Des escaliers, des galeries, des salles vides se succèdent, toutes blanches, toutes froides, si pareilles que tu crois, à la quatrième, repasser par la première ; vos pas y sonnent longtemps après vous. Au sommet, une salle ronde, ouverte sur le blanc, sans murs, sous un toit porté par des colonnes de glace.",
       "Au milieu, un homme assis sur un siège de pierre. Il est très grand. Il est très vieux, et il a l'air d'avoir quarante ans. Il porte sur la tête une couronne de givre qui fond et se refait sans cesse, goutte à goutte. Il a les yeux gris presque blancs.",
       "Le Roi-Hiver. Ardaël.",
       "Il se lève quand tu entres, en silence. Il descend les trois marches. Il s'arrête devant toi.",

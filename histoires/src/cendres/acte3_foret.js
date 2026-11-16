@@ -19,7 +19,7 @@ module.exports = {
     ] }),
   III_F_bois: P({ title: "Les arbres noirs", place: "enfance", hub: true,
     text: [
-      { first: true, text: "Sous les arbres, à la place de la neige, de la cendre, épaisse, douce, qui étouffe les pas. Les troncs sont noirs, lisses, comme vernis, et ils tiennent debout. Ni feuilles ni oiseaux. Une odeur, très ancienne, de bois brûlé et de résine." },
+      { first: true, text: "Sous les arbres, à la place de la neige, de la cendre, épaisse, douce, qui étouffe les pas ; on y avance sans s'entendre, et l'oreille, privée du bruit de ses propres semelles, se met à guetter celui des autres. Les troncs sont noirs, lisses, comme vernis, et ils tiennent debout. Ni feuilles ni oiseaux. Une odeur, très ancienne, de bois brûlé et de résine." },
       "Quelque part devant toi, très loin, une lueur rouge, à peine, qui va et qui vient, comme une respiration.",
     ],
     choices: [
