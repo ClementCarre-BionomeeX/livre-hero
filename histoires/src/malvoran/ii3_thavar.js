@@ -1120,7 +1120,7 @@ Object.assign(P, {
     choices: [{ label: "Partir pour la Gorge-Blanche", big: true, to: "IIE_route" }] },
   IIE_route: { act: "II", title: "La montée", place: null, ambiance: "montagne", takes: 8,
     text: [
-      "La route quitte le Val par le nord et remonte le cours de la Blanche, un torrent laiteux qui descend du massif en grondant entre des blocs de granit gros comme des maisons. Le chemin est une corniche taillée dans la paroi, large comme une charrette, avec le vide d'un côté et la roche suintante de l'autre. Il fait froid. L'air sent la neige qui viendra.",
+      "La route quitte le Val par le nord et remonte le cours de la Blanche, un torrent laiteux qui descend du massif en grondant entre des blocs de granit gros comme des maisons. Le chemin est une corniche taillée dans la paroi, large comme une charrette, avec le vide d'un côté et la roche suintante de l'autre ; le jour y descend de très haut, appauvri, verdâtre, et l'on y avance avec le sentiment d'entrer dans le gosier d'une bête qui aurait la patience des montagnes. Il fait froid. L'air sent la neige qui viendra.",
       "La route est déserte. Un berger, une fois, assis sur un rocher avec ses chèvres, te regarde passer sans un salut. Plus haut, les arbres s'arrêtent. Il reste la roche, le ciel gris, et le bruit du torrent, qui couvre tout, même les pas, même la voix.",
       { with: "pip", text: "Pip reste dans ton col, muet. Une fois, quand le chemin longe le torrent de tout près, tu le sens frissonner contre ta peau, et il murmure : « Elle est dans l'eau. Elle nous suit. Elle remonte avec nous. »" },
       { with: "gloup", text: "Gloup se tient loin du bord. Il roule contre la paroi, le plus loin possible de l'eau, et quand le chemin s'en rapproche, il se met à trembler et à faire de toutes petites bulles." },
@@ -1128,7 +1128,7 @@ Object.assign(P, {
     choices: [{ label: "Continuer jusqu'au pont du passeur", to: "IIE_pont" }] },
   IIE_pont: { act: "II", title: "La cabane du passeur", place: null, ambiance: "montagne",
     text: [
-      "Au soir, le défilé s'étrangle. La Blanche s'y engouffre entre deux murailles de granit, à trente toises en contrebas, dans un fracas qui fait vibrer la pierre sous les semelles. Un pont de cordes enjambe le gouffre, avec un plancher de lattes disjointes. De ce côté-ci, la cabane du passeur, une hutte de pierres sèches au toit de lauzes.",
+      "Au soir, le défilé s'étrangle. La Blanche s'y engouffre entre deux murailles de granit, à trente toises en contrebas, dans un fracas qui fait vibrer la pierre sous les semelles. Un pont de cordes enjambe le gouffre, avec un plancher de lattes disjointes ; la poussière d'eau qui monte d'en bas en noircit les câbles, qui luisent, tendus sur le vide, comme les fils d'une toile. De ce côté-ci, la cabane du passeur, une hutte de pierres sèches au toit de lauzes.",
       "La porte est ouverte, la cabane vide. Un feu qui couve encore sous la cendre, une marmite de soupe tiède, un pain entamé, une paire de sabots d'enfant près de l'âtre. La soupe est tiède : quelques heures. Le pain est resté : un départ précipité. Les sabots sont restés : on n'a pas laissé à l'enfant le temps de se chausser. On les a fait partir.",
       { if: { has: "iie:averti" }, text: "Tu savais. Tu le savais en lisant la lettre. Tu regardes les rochers de l'autre côté du pont, un par un, comme Thavary te l'a appris, ou comme tu l'as appris tout{e} seul{e} : celui-là est trop rond, celui-là porte une ombre qui n'est pas la sienne." },
     ],
