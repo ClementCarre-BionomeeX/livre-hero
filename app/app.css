@@ -120,7 +120,10 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .prose p.second { position: relative; }
 .prose p.second::after { content: "✧"; position: absolute; left: -1.1em; top: .1em; font-size: .8em; color: var(--accent); opacity: .55; }
 @media (max-width: 520px) { .prose p.second::after { left: -.85em; } }
-.prose p:first-child::first-letter { font-family: var(--title); font-size: 3.1em; float: left; line-height: .82; padding: 6px 8px 0 0; color: var(--accent); }
+.prose .lettrine { font-style: normal; font-family: var(--title); font-size: 3.1em; float: left; line-height: .82; padding: 6px 8px 0 0; color: var(--accent); }
+/* An opening quote or dash before the drop cap stays in the frame, small (the letter itself is the drop cap). */
+.prose .lettrine-avant { font-size: .4em; vertical-align: top; margin-right: .08em; }
+:root[data-font="lisible"] .prose .lettrine-avant, :root[data-font="grimoire"][data-lettrine="non"] .prose .lettrine-avant { font-size: inherit; vertical-align: baseline; margin: 0; }
 .choices { display: grid; gap: 8px; margin-top: 18px; }
 .group-label { margin-top: 12px; }
 .choice { text-align: left; border: 1px solid var(--line); background: var(--bg); border-radius: 10px; padding: 11px 14px; display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; align-items: center; font: 16px/1.4 var(--serif); }
@@ -268,7 +271,7 @@ textarea.json { font: 12.5px/1.45 var(--mono); width: 100%; }
 :root[data-skin] .page-head h2, :root[data-skin] .hero-head h1, :root[data-skin] .create h1 { font-family: var(--title); }
 :root[data-skin] .choice { background: color-mix(in srgb, var(--paper) 70%, transparent); }
 :root[data-skin] body { background: var(--bg); }
-:root[data-skin="enluminure"] .prose p:first-child::first-letter { color: var(--accent); text-shadow: 1px 1px 0 var(--gold); font-size: 3.4em; }
+:root[data-skin="enluminure"] .prose .lettrine { color: var(--accent); text-shadow: 1px 1px 0 var(--gold); font-size: 3.4em; }
 :root[data-skin="enluminure"] .page-head h2 { color: var(--accent); }
 :root[data-skin="givre"] .page-head h2 { letter-spacing: .01em; }
 :root[data-skin] .vignette { opacity: .9; }
@@ -284,7 +287,7 @@ textarea.json { font: 12.5px/1.45 var(--mono); width: 100%; }
 :root[data-font="lisible"] .prose, :root[data-font="lisible"] .recit p { letter-spacing: .02em; word-spacing: .08em; }
 /* A detached ornate capital and cut words are hard for dyslexic readers: plain first letter, no hyphenation. */
 :root[data-font="lisible"] .prose { hyphens: none; }
-:root[data-font="lisible"] .prose p:first-child::first-letter { font: inherit; float: none; padding: 0; color: inherit; text-shadow: none; }
+:root[data-font="lisible"] .prose .lettrine { font: inherit; float: none; padding: 0; color: inherit; text-shadow: none; }
 /* Grimoire (Clément, 13/11): a medieval book a dyslexic child can read. Grimoire Clair (Atkinson's letters with book serifs)
    dresses the whole page like "lisible", and each passage opens on an illuminated capital: the same clear letter, bold, in a
    gilded frame of scrolls. Turn off with the "Grande lettrine" setting. */
@@ -294,11 +297,11 @@ textarea.json { font: 12.5px/1.45 var(--mono); width: 100%; }
 :root[data-font="grimoire"] body, :root[data-font="grimoire"] button, :root[data-font="grimoire"] input, :root[data-font="grimoire"] select, :root[data-font="grimoire"] textarea { font-family: 'Grimoire Clair', var(--sans); }
 :root[data-font="grimoire"] .prose, :root[data-font="grimoire"] .recit p { letter-spacing: .01em; word-spacing: .06em; hyphens: none; }
 :root[data-font="grimoire"] .brand, :root[data-font="grimoire"] .hero-head h1, :root[data-font="grimoire"] .create h1, :root[data-font="grimoire"] .page-head h2 { font-weight: 700; }
-:root[data-font="grimoire"] .prose p:first-child::first-letter { font-family: 'Grimoire Clair', var(--sans); font-weight: 700; font-style: normal; font-size: 3.6em; line-height: 1; float: left;
+:root[data-font="grimoire"] .prose .lettrine { font-family: 'Grimoire Clair', var(--sans); font-weight: 700; font-style: normal; font-size: 3.6em; line-height: 1; float: left;
   margin: .1em .16em 0 0; padding: .12em .2em .08em; color: var(--lettrine-ink); text-shadow: none;
   background: var(--lettrine-art) center / 100% 100% no-repeat, var(--lettrine-field); border: 2px solid var(--lettrine-gold); border-radius: 2px;
   box-shadow: inset 0 0 0 2px var(--lettrine-field), inset 0 0 0 3px var(--lettrine-line); }
-:root[data-font="grimoire"][data-lettrine="non"] .prose p:first-child::first-letter { font: inherit; float: none; margin: 0; padding: 0; color: inherit; background: none; border: 0; box-shadow: none; }
+:root[data-font="grimoire"][data-lettrine="non"] .prose .lettrine { font: inherit; float: none; margin: 0; padding: 0; color: inherit; background: none; border: 0; box-shadow: none; }
 @media (prefers-color-scheme: dark) { :root[data-font="grimoire"]:not([data-theme="light"]):not([data-skin]) { --lettrine-field: #3a2614; --lettrine-ink: #f0c96a; --lettrine-gold: #e0b45a; --lettrine-line: #a87a2c; } }
 :root[data-font="grimoire"][data-theme="dark"] { --lettrine-field: #3a2614; --lettrine-ink: #f0c96a; --lettrine-gold: #e0b45a; --lettrine-line: #a87a2c; }
 .neural-row { flex-wrap: wrap; gap: 8px 12px; align-items: center; }
