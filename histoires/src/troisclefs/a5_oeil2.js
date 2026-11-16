@@ -295,7 +295,7 @@ module.exports = {
         { if: { is: { reve: "plombs" } }, text: "Vous vous regardez. Deux hivers. Tu avais préparé des mots pendant six semaines de route : il n'en reste pas un. Tu tends le bras, et l'on s'y appuie, de ce poids que tu as porté toute ton enfance dans l'autre sens.", else: "Tu dis un nom, celui de l'un de vous. La tête se lève, et la figure se défait, de bonheur, comme d'autres se défont de chagrin. Tu donnes ton bras." },
         "Les trois autres n'ont rien dit. Ils regardent la porte ouverte. La Douairière les regarde.",
         "« Je note vos noms, dit-elle. Demain, quoi qu'il arrive cette nuit, il y a quelqu'un à mon comptoir qui paie vos trois dettes. J'ai dit. » Elle referme la porte, doucement, et l'on entend, derrière, quelqu'un qui pleure sans bruit, de ce qu'on l'ait refermée ou de ce qu'on ait promis.",
-        "« Ne fais pas cette tête, mon enfant. On ne vide pas une prison avec une clef. On la vide avec une loi. Il y en a une qui s'écrit ce soir, à cent pas d'ici, si j'ai bien compris ce que vous êtes allés faire. »",
+        "« Ne fais pas cette tête, mon enfant. On ne vide pas une prison avec une clef. On la vide avec une loi. Il y en a une qui s'écrit ce soir, à cent pas d'ici, si j'ai bien compris votre affaire. »",
       ],
       choices: [{ label: "Dans la cour", to: "A5o_lanterne", big: true }] },
 

@@ -154,8 +154,8 @@ module.exports = {
         "« Je ne suis pas venue pour toi. Je suis venue entendre une Cause. Mais puisque tu es là, dis ce que tu as à dire, et dis-le court. »",
       ],
       choices: [
-        { label: "Ne rien plaider. Poser ta bourse sur le quai, entière, pour la veuve d'Anselme, et dire seulement où il faut être ce soir",
-          fx: { gold: -300, flag: "monde:a5:f_mineurs", ep: ["perso", 1000] }, to: "A5o_min_tr_ok" },
+        { label: "Ne rien plaider. Poser cent écus sur le quai, pour la maison d'Anselme, et dire seulement où il faut être ce soir",
+          if: { gold: { min: 2000 } }, why: "Il te faudrait cent écus.", fx: { gold: -2000, flag: "monde:a5:f_mineurs", ep: ["perso", 1000] }, to: "A5o_min_tr_ok" },
         { label: "Dire la vérité : que vous avez vendu leur heure pour une clef, et ce que cette clef ouvre",
           test: { dom: "social", diff: 15, label: "Avouer à trente hommes", help: [{ if: { has: "juge:verite" }, v: 10 }, { if: { voie: "rebouteux" }, v: 10 }, { if: { voie: "comedien" }, v: 5 }] },
           win: { fx: { flag: "monde:a5:f_mineurs", ep: ["perso", 1500] }, to: "A5o_min_tr_ok" }, lose: { fx: { flag: "monde:a5:mineurs_colere" }, to: "A5o_min_tr_ko" } },
