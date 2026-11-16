@@ -13,7 +13,7 @@ Object.assign(P, {
       { first: true, text: "Les maisons sont faites de bateaux. Tu reconnais une étrave dans un pignon, un bordé goudronné en guise de mur, un sabord de cabine qui sert de fenêtre à une boulangerie. Au bout de la jetée, une grande carcasse de navire échouée, des herbes sur le pont, porte un pavillon rouge barré d'or : la maison des Écumeurs. Plus près, sur la vase, une gabare de mer à voile au tiers, coque noire, nom peint en lettres blanches à la proue : *La Bavarde*." },
       { first: true, text: "La place du port {{echo#iim_place|sent la marée et la friture|garde la voix d'un crieur : « Trois noyés de la Banque cette année, et la Banque paie les cercueils, remerciez la Banque »}}. Des enfants jouent aux osselets avec des vertèbres de morue sur une ancre couchée." },
       { again: true, when: "day", text: "Port-Vasier, la vase luisante, les claies de poisson, le pavillon rouge des Écumeurs au bout de la jetée. Des femmes ravaudent des filets assises sur des coques retournées." },
-      { again: true, when: "night", text: "Port-Vasier, la nuit. Des lanternes pendent aux étraves des maisons. La marée monte en clapotant sous les planches. Le Hareng Saur est la seule porte encore ouverte, et elle chante." },
+      { again: true, when: "night", text: "Port-Vasier, la nuit. Des lanternes pendent aux étraves des maisons, et ces proues éclairées, tournées vers la mer, ont l'air d'une flotte échouée qui attendrait encore l'ordre d'appareiller. La marée monte en clapotant sous les planches. Le Hareng Saur est la seule porte encore ouverte, et elle chante." },
       { with: "lison", once: true, text: "Lison renifle l'air avec une grimace. « Port-Vasier. Ils vendent tout ce que la mer rend, et un peu de ce qu'elle n'a pas encore rendu. Garde ta bourse sous ta chemise. Les gens d'ici {{oreille#iim_lison_vasier|ne nous aiment pas beaucoup|en veulent aux Joncs-Bas depuis que ma grand-mère a refusé de rallumer le phare de l'Ouïe}}. »" },
       { with: "tibere", once: true, text: "Tibère regarde la jetée, les Écumeurs, la carcasse. « Au Guet, on envoyait ici les sergents qu'on voulait voir démissionner. Il y en a un qui est resté. Il tient une buvette, maintenant. »" },
       { after: "mandat", once: true, text: "Sur la porte du comptoir de la Banque, à l'angle de la place, une affiche neuve claque au vent. Ton signalement. On a mal dessiné ton nez." },
@@ -103,7 +103,7 @@ Object.assign(P, {
 
   IIM_marche: { act: "II", title: "Le marché aux épaves", place: "vasier", backName: "le marché aux épaves", shop: "iim_marche",
     text: [
-      { first: true, text: "Une halle sans murs, dont la charpente est faite de vieux mâts plantés dans la vase. Dessous, sur des tréteaux, tout ce que la mer a rendu cette saison : des tonneaux défoncés, des cordages, des poulies, des bottes dépareillées, des coffres vides, une figure de proue en forme de femme qui a perdu son nez, des bouteilles de verre vert encore bouchées. Chaque objet porte un bout de ficelle et un prix écrit à la craie." },
+      { first: true, text: "Une halle sans murs, dont la charpente est faite de vieux mâts plantés dans la vase. Dessous, sur des tréteaux, tout ce que la mer a rendu cette saison : des tonneaux défoncés, des cordages, des poulies, des bottes dépareillées, des coffres vides, une figure de proue en forme de femme qui a perdu son nez et garde malgré tout l'air de vous juger, des bouteilles de verre vert encore bouchées. Chaque objet porte un bout de ficelle et un prix écrit à la craie." },
       { first: true, text: "L'étal le plus grand appartient à Gaïd, la fripière d'épaves, une petite femme ridée qui fume une pipe en terre et regarde ta bourse avant ton visage. Elle travaille pour la Veuve Corbière : un dixième de chaque vente part à la carcasse." },
       { again: true, text: "Le marché aux épaves. Gaïd tire sur sa pipe et lève un sourcil. « Il est arrivé du neuf. Rien pour vous. »" },
       "Au bout de l'étal, une boîte de bois flotté porte une étiquette à la craie : *{{loupe#iim_etiquette|lot de la Sainte-Agnès, 3 liards|lot de la chapelle, ne pas vendre aux gens du pays}}*. Dedans, des ex-voto de cire fondue, des chapelets de nacre, une lampe de cuivre.",
@@ -203,7 +203,7 @@ Object.assign(P, {
 
   IIM_chapelle: { act: "II", title: "La chapelle des noyés", place: "vasier", backName: "la chapelle des noyés",
     text: [
-      { first: true, text: "Sur la butte qui domine le port, une chapelle basse, aux murs chaulés, au toit de lauzes vertes de mousse. La porte est un panneau de cale. Dedans, les murs sont couverts du sol au plafond de planches de bordé, et sur chaque planche, un nom gravé au couteau, une date, parfois un bateau. Des ex-voto pendent à la charpente : des navires de bois, de cire, d'os, qui tournent doucement dans le courant d'air." },
+      { first: true, text: "Sur la butte qui domine le port, une chapelle basse, aux murs chaulés, au toit de lauzes vertes de mousse. La porte est un panneau de cale. Dedans, les murs sont couverts du sol au plafond de planches de bordé, et sur chaque planche, un nom gravé au couteau, une date, parfois un bateau. Des ex-voto pendent à la charpente : des navires de bois, de cire, d'os, qui tournent doucement dans le courant d'air, chacun sur son fil, avec la lenteur des choses qui ont renoncé à arriver." },
       { first: true, text: "Un vieil homme en soutane rapiécée grave un nom à la lueur d'une chandelle, la langue entre les dents : Tugdual, le sacristain. Il te fait signe d'attendre, finit sa lettre, souffle sur les copeaux." },
       { again: true, text: "La chapelle des noyés, les noms aux murs, les navires qui tournent. Tugdual grave, toujours un nom de plus." },
       "La chapelle {{echo#iim_chapelle_maiwenn|sent la cire froide et le sel|garde une voix de femme, basse, un matin : « Il veut que je descende seule, et c'est lui qui tiendra la corde. Salomé, s'il remonte sans moi, regarde ses mains »}}. Devant l'autel, quelqu'un a laissé une lanterne de la nuit des Lanternes, éteinte, et une cordelette de chanvre nouée en huit.",
@@ -261,7 +261,7 @@ Object.assign(P, {
 
   IIM_facteur: { act: "II", title: "Le comptoir de la Banque", place: "vasier", backName: "le comptoir de la Banque Marrel",
     text: [
-      { first: true, text: "La seule maison de pierre de Port-Vasier : deux étages, des barreaux aux fenêtres, une plaque de cuivre poli à la porte, *Banque Marrel · Comptoir de Port-Vasier*. Dedans, un comptoir de chêne, une balance, des registres, et un homme rasé de près dans un habit noir que le sel a blanchi aux coutures : Maître Ségur, le facteur. Deux gardes en vareuse jouent aux cartes près du poêle." },
+      { first: true, text: "La seule maison de pierre de Port-Vasier, ce qui renseigne assez sur le chemin que prend ici l'argent des autres : deux étages, des barreaux aux fenêtres, une plaque de cuivre poli à la porte, *Banque Marrel · Comptoir de Port-Vasier*. Dedans, un comptoir de chêne, une balance, des registres, et un homme rasé de près dans un habit noir que le sel a blanchi aux coutures : Maître Ségur, le facteur. Deux gardes en vareuse jouent aux cartes près du poêle." },
       { first: true, text: "« Vous venez emprunter, dit Ségur avec un sourire aimable. Tout le monde vient emprunter. La Banque {{oreille#iim_segur_preter|aime aider les gens de la mer|aime prêter aux pêcheurs qui ne rendront pas, parce qu'ensuite elle a leur barque}}. »" },
       { again: true, text: "Le comptoir de la Banque. Ségur lève les yeux de son registre et sourit, du même sourire." },
       { after: "mandat", text: "Sur la porte, ton signalement. Ségur te regarde, puis regarde l'affiche, puis te regarde encore. « {{oreille#iim_segur_mandat|Vous ressemblez à quelqu'un|Cinquante ducats, et Lothaire Brunel veut l'instrument intact, je n'ai que deux gardes}}, dit-il doucement. »" },
@@ -298,7 +298,7 @@ Object.assign(P, {
 
   IIM_digue: { act: "II", title: "La jetée, à la nuit", place: "vasier", when: "night", backName: "la jetée",
     text: [
-      "La marée descend vite, en suçant les pierres. Tu marches sur la jetée jusqu'à mi-chemin de la carcasse, une lanterne sourde à la main. Les pierres de la jetée, en bas, sont de grosses pierres taillées, plus vieilles que le port : un ancien môle, du temps où l'on venait ici en vaisseau.",
+      "La marée descend vite, en suçant les pierres. Tu marches sur la jetée jusqu'à mi-chemin de la carcasse, une lanterne sourde à la main ; de part et d'autre, la vase découverte luit faiblement, comme le dos d'une bête qui dormirait sous le port. Les pierres de la jetée, en bas, sont de grosses pierres taillées, plus vieilles que le port : un ancien môle, du temps où l'on venait ici en vaisseau.",
       "Près de la carcasse, deux silhouettes parlent bas, sous le pavillon. L'une porte le bonnet rouge des Écumeurs, l'autre un habit noir blanchi aux coutures. « La Veuve {{oreille#iim_riwal_vend|ne saura rien de notre affaire|ne saura pas que je lui vends ses propres routes, tant que vous payez en or, Maître Ségur}}, dit le bonnet rouge. » Riwal. L'autre lui remet une bourse.",
       "En contrebas, découverte par la marée, une niche entre deux blocs. Dedans, pris dans la vase, {{pie#iim_fanal|un vieux fanal rouillé, tordu|un fanal de bronze doré sous le vert-de-gris, aux armes de la reine}}.",
     ],
@@ -478,7 +478,7 @@ Object.assign(P, {
 
   IIM_service_nuit: { act: "II", title: "La chaîne, la nuit", place: "vasier", when: "night", backName: "la vase, sous La Bavarde",
     text: [
-      "La marée est basse, la lune cachée. Tu descends sur la vase par la planche, sans lanterne. La Bavarde est une grande ombre couchée. À vingt pas, une cabane de planches, une lueur sous la porte : le garde de la Banque, qui veille la saisie, et qui tousse.",
+      "La marée est basse, la lune cachée. Tu descends sur la vase par la planche, sans lanterne. La Bavarde est une grande ombre couchée, plus noire que la nuit autour, et la vase, sous tes bottes, cède et se referme avec un soupir à chaque pas. À vingt pas, une cabane de planches, une lueur sous la porte : le garde de la Banque, qui veille la saisie, et qui tousse.",
       "La chaîne fait trois tours autour de la mèche du gouvernail et finit dans un cadenas gros comme un poing, {{pie#iim_cadenas|neuf et solide, de fer forgé|neuf, mais à ressort de laiton, de ceux qu'on ouvre avec un clou tordu si l'on sait où appuyer}}.",
       { with: "tibere", text: "Tibère regarde la cabane. « Je connais ce genre de garde, murmure-t-il. Il a froid, il s'ennuie, il est payé une misère. Je vais lui tenir compagnie. Ce que tu fais pendant ce temps, je ne l'ai pas vu. »" },
     ],
@@ -850,7 +850,7 @@ Object.assign(P, {
 
   IIM_bluff: { act: "II", title: "Le jeu des menteurs", place: "vasier", backName: "le pont de la carcasse",
     text: [
-      "On installe un tonneau entre vous, deux gobelets de cuir, dix dés. Le jeu des menteurs : chacun secoue ses cinq dés sous son gobelet, regarde, et annonce ce qu'il y a sur la table en tout, plus haut chaque fois, jusqu'à ce que l'un dise à l'autre « menteur ». On soulève. Celui qui s'est trompé perd.",
+      "On installe un tonneau entre vous, deux gobelets de cuir, dix dés. Le jeu des menteurs : chacun secoue ses cinq dés sous son gobelet, regarde, et annonce ce qu'il y a sur la table en tout, plus haut chaque fois, jusqu'à ce que l'un dise à l'autre « menteur ». On soulève. Celui qui s'est trompé perd ; c'est, en somme, tout le commerce de Salvèze réduit à dix dés.",
       { after: "iim:bluff_jaouen", text: "« La dette du petit Hamon contre cinq ducats, dit Riwal. Ça vous va ? » Ça te va. Les Écumeurs posent leurs paris à côté." },
       "Riwal secoue, regarde sous son gobelet, sourit. « Quatre six, dit-il. » Tu annonces cinq six. Il fait la moue. « Six six. Je {{oreille#iim_riwal_des|les ai presque tous sous la main|n'en ai qu'un seul, mais sur mon pont on me croit toujours}}. »",
       "Les Écumeurs se penchent. Riwal joue avec son gobelet, le fait tourner entre ses doigts. « Alors ? {{oreille#iim_riwal_peur|C'est à vous|Si elle monte, je suis cuit}}. »",
@@ -928,7 +928,7 @@ Object.assign(P, {
 
   IIM_leg_sourds: { act: "II", title: "La ceinture des Sourds", place: null,
     text: [
-      "Au deuxième jour, la mer change de couleur. Elle devient plus claire, presque blanche par plaques, là où les roches affleurent. Devant, sur toute la largeur de l'horizon, une ligne d'écume se lève et retombe sans cesse : la ceinture des Sourds, un collier de récifs qui entoure les Écueils. Derrière, très loin, une tour grise sur un rocher. L'Ouïe.",
+      "Au deuxième jour, la mer change de couleur. Elle devient plus claire, presque blanche par plaques, là où les roches affleurent. Devant, sur toute la largeur de l'horizon, une ligne d'écume se lève et retombe sans cesse, comme travaille une mâchoire : la ceinture des Sourds, un collier de récifs qui entoure les Écueils. Derrière, très loin, une tour grise sur un rocher. L'Ouïe.",
       "Le récif {{echo#iim_sourds_chant|gronde comme un moulin, en dessous de tout|chante, sous le grondement, une note longue et basse, et dans la note une voix : « Salomé, je le vois, il est là »}}.",
       { with: "salome", text: "Salomé a pâli. Ses mains sont blanches sur la barre. Elle regarde droit devant, sur la tour, et nulle part ailleurs. « On passe, dit-elle d'une voix sans timbre. {{oreille#iim_salome_passe|On passe, c'est tout|Ne me laisse pas regarder au sud, l'écueil des Sourds est au sud, et si je le regarde je vire de bord}}. »" },
       { without: "salome", text: "Le patron que Salomé t'a prêté crache par-dessus bord pour la chance, et regarde la ligne d'écume en se mordant la moustache." },
@@ -1102,7 +1102,7 @@ Object.assign(P, {
 
   IIM_ev_calme: { act: "II", title: "Le calme plat",
     text: [
-      "Le vent meurt au milieu de l'après-midi, et ne revient pas. La voile pend. La mer devient un miroir lourd, sans une ride, où La Bavarde tourne lentement sur elle-même. Le soleil cogne. L'eau douce du tonnelet devient tiède, puis chaude.",
+      "Le vent meurt au milieu de l'après-midi, et ne revient pas. La voile pend. La mer devient un miroir lourd, sans une ride, où La Bavarde tourne lentement sur elle-même, en aiguille de boussole qui a perdu son nord. Le soleil cogne. L'eau douce du tonnelet devient tiède, puis chaude.",
       { with: "salome", text: "À la nuit, sous des étoiles si nombreuses qu'elles se reflètent dans l'eau, Salomé parle, allongée sur le panneau de cale, les mains sous la nuque. « Maïwenn disait qu'un calme comme ça, c'était la mer qui retient son souffle avant de plonger. » Un long silence. « Je {{oreille#iim_salome_calme|ne crois pas à ces choses-là|lui parle, la nuit, quand il fait calme, et j'attends qu'elle réponde}}. »" },
       { without: "salome", text: "À la nuit, sous des étoiles si nombreuses qu'elles se reflètent dans l'eau, le patron de La Bavarde dort à plat dos sur le panneau de cale, et ronfle." },
     ],
