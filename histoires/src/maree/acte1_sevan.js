@@ -8,20 +8,20 @@ module.exports = {
   P_nuit: { act: "I", title: "Deux heures, au palais", place: "palais", ambiance: "chateau",
     fx: { assign: { sevan: "sevan", jasse: "jasse", oriane: "oriane" }, set: { clef1: "oriane", clef2: "sevan", clef3: "ponton", nella: "palais" } },
     text: [
-      "On a frappé à ta porte de l'hospice à une heure et demie. Sur le seuil, un valet du palais, la livrée trempée jusqu'aux genoux : la marée monte déjà dans les rues basses, et il a pris le chemin de Bas-Port au pas de course. Il a le souffle d'un homme qui a monté soixante marches et l'air de quelqu'un qui en redescendra autant. « La Doyenne vous demande, maître Aldric. Vous seul. »",
-      "Tu as pris ta sacoche, ton manteau et la barque du Temple. La lagune était noire et lisse comme une ardoise mouillée. Au loin, sur les Passes, les fanaux de la flotte d'Orcanne traçaient une ligne de points jaunes. Tu en as compté une quarantaine avant que le palais te les cache, posés sur la mer comme les lampes d'une rue.",
-      "Maintenant tu montes le petit escalier de service, celui qui sent la cire et le pain. Tu as cinquante et un ans, des genoux qui le font savoir à chaque marche, et tu soignes Ermesinde Valcor depuis onze ans. Depuis la Saint-Martin, tu la confesses aussi. Elle a choisi un médecin plutôt qu'un prêtre pour cet office, et elle a donné sa raison : « Toi, au moins, tu sais ce qu'est un corps. »",
-      "La porte de la chambre est entrouverte. Une seule chandelle brûle. La Doyenne est assise dans son lit, le dos calé contre trois oreillers, les mains posées à plat sur le drap comme sur une table de séance.",
+      "On a frappé à ta porte de l'hospice à une heure et demie. Sur le seuil, un valet du palais, la livrée trempée jusqu'aux genoux : la marée monte déjà dans les rues basses, et il a pris le chemin de Bas-Port au pas de course. Il a le souffle d'un homme qui a monté soixante marches et l'air de quelqu'un qui en redescendra autant. « La Doyenne vous demande, maître Aldric. Vous seul. » On réveille un médecin à cette heure pour deux sortes de malades, ceux qui vont mourir et ceux qui paient bien ; la Doyenne d'Escalombre a toujours eu le privilège d'appartenir aux deux.",
+      "Tu as pris ta sacoche, ton manteau et la barque du Temple. La lagune était noire et lisse comme une ardoise mouillée ; la rame y entrait sans bruit, et l'eau se refermait sur elle avec la discrétion d'une chose qui garde ce qu'on lui confie. Au loin, sur les Passes, les fanaux de la flotte d'Orcanne traçaient une ligne de points jaunes. Tu en as compté une quarantaine avant que le palais te les cache, posés sur la mer comme les lampes d'une rue ; et tu as songé qu'une rue capable de lever l'ancre fait un voisinage inquiétant.",
+      "Maintenant tu montes le petit escalier de service, celui qui sent la cire et le pain. Tu as cinquante et un ans, des genoux qui en informent chaque marche, et tu soignes Ermesinde Valcor depuis onze ans. Depuis la Saint-Martin, tu la confesses aussi. Elle a choisi un médecin plutôt qu'un prêtre pour cet office, au grand scandale des sacristies, et elle a donné sa raison avec sa brutalité ordinaire : « Toi, au moins, tu sais ce qu'est un corps. »",
+      "La porte de la chambre est entrouverte. Une seule chandelle y brûle, et sa flamme abandonne aux angles de la pièce toute l'ombre qu'ils réclament. La Doyenne est assise dans son lit, le dos calé contre trois oreillers, les mains posées à plat sur le drap comme sur une table de séance.",
     ],
     choices: [{ label: "Entrer", to: "P_chevet" }] },
 
   P_chevet: { act: "I", title: "Les mains d'Ermesinde", place: "palais",
     fx: { clue: "ongles", meet: "ermesinde" },
     text: [
-      "« Ferme la porte. » Sa voix est restée la même, une voix de séance, faite pour porter jusqu'au fond de la salle du Conseil. Le reste d'elle a fondu depuis l'automne : les joues, les épaules, et les cheveux qu'on ramasse chaque matin par poignées sur l'oreiller.",
+      "« Ferme la porte. » Sa voix est restée la même, une voix de séance, faite pour porter jusqu'au fond de la salle du Conseil et pour y réveiller les dormeurs. Le reste d'elle a fondu depuis l'automne : les joues, les épaules, et les cheveux qu'on ramasse chaque matin par poignées sur l'oreiller.",
       "« Approche la chandelle. Regarde mes mains. »",
       "Tu prends ses mains. Elles sont froides et légères comme des gants vides. Une strie blanche barre chaque ongle, nette, à la même hauteur sur les dix doigts, comme un trait tiré à la règle. Tu as vu ce trait une seule fois, à l'hospice, sur un teinturier qui maniait l'orpiment. Le teinturier est mort en trois semaines. Un ongle pousse d'environ une ligne par mois ; à la distance où courent ces stries, le mal date de l'automne.",
-      "« Tu l'as vu il y a dix jours, dit-elle. Tu n'as rien dit. Moi non plus. On est deux vieux lâches. » Elle sourit. « On me sale, Sévan. Depuis l'automne. Je sais qui, je crois savoir comment, et je n'ai pas de preuve qu'un Conseil acceptera. J'ai mis ce que je sais dans le coffre. »",
+      "« Tu l'as vu il y a dix jours, dit-elle. Tu n'as rien dit. Moi non plus. Deux vieux lâches dans la même chambre : c'est beaucoup, même pour un palais. » Elle sourit. « On me sale, Sévan. Depuis l'automne. Je sais qui, je crois savoir comment, et je n'ai pas de preuve qu'un Conseil acceptera. Tu connais le Conseil : il lui faut dix preuves pour condamner un riche et une rumeur pour l'absoudre. J'ai mis ce que je sais dans le coffre. »",
       "Elle serre tes doigts. « Je n'ai plus que des semaines, et ce seront de mauvaises semaines. Je ne veux pas les leur donner. Tu as du lait de pavot dans ta sacoche. Prépare-le. Assez. »",
     ],
     choices: [
@@ -31,11 +31,11 @@ module.exports = {
 
   P_donne: { act: "I", title: "Le lait de pavot", place: "palais",
     text: [
-      "Tu poses la sacoche sur la table de nuit. Tes mains font ce qu'elles savent faire : le gobelet d'étain, l'eau tiède du broc, la fiole brune, le compte des gouttes. Tu comptes à voix basse, comme à l'hospice. À vingt, d'ordinaire, tu t'arrêtes. Ce soir, tu vas jusqu'à quatre-vingts, et ta voix reste égale du premier chiffre au dernier.",
+      "Tu poses la sacoche sur la table de nuit. Tes mains font ce qu'elles savent faire : le gobelet d'étain, l'eau tiède du broc, la fiole brune, le compte des gouttes. Tu comptes à voix basse, comme à l'hospice. À vingt, d'ordinaire, tu t'arrêtes. Ce soir, tu vas jusqu'à quatre-vingts ; et ce qui t'effraie, dans cette chambre où la chandelle seule te regarde faire, c'est que ta voix reste égale du premier chiffre au dernier.",
       "Elle boit lentement, en grimaçant. « C'est amer. Tu aurais pu y mettre du miel. » Puis elle se laisse aller contre les oreillers.",
       "« Écoute bien, maintenant, pendant que j'ai encore ma tête. Le coffre de la Chambre des Sceaux. Trois serrures. La clef d'argent est à Oriane. La clef de fer, tu l'as : je te l'ai donnée à toi, et le père Anselme ne me le pardonnera pas. La clef de bronze, je l'ai confiée à quelqu'un qui ne sait pas ce qu'elle ouvre. Le coffre doit s'ouvrir devant le Conseil, avant les lanternes. Avec ses trois clefs. Un coffre forcé ne vaut rien devant la loi. »",
       "Ses yeux se ferment, se rouvrent. « Ce que je t'ai dit en confession, à la Saint-Martin, tu le gardes. Jusqu'au coffre. Après, fais ce que tu crois juste. » Puis, plus bas : « Elle ne sait rien. Protège-la. »",
-      "Elle s'endort vers trois heures. Tu gardes sa main dans la tienne et tu comptes son souffle, par habitude. Douze par minute, puis huit, puis quatre. Le souffle s'espace, s'arrête, reprend, s'arrête. À quatre heures moins le quart, il ne reprend plus.",
+      "Elle s'endort vers trois heures. Tu gardes sa main dans la tienne et tu comptes son souffle, par habitude. Douze par minute, puis huit, puis quatre. Le souffle s'espace, s'arrête, reprend, s'arrête ; entre deux reprises le silence de la chambre s'allonge, et tu l'écoutes comme on écoute un pas dans un escalier. À quatre heures moins le quart, le souffle ne reprend plus.",
     ],
     choices: [{ label: "Rester près d'elle jusqu'au jour", to: "P_aube", fx: { until: 5 } }] },
 
@@ -46,7 +46,7 @@ module.exports = {
       "Elle te regarde longtemps. « Alors reste. Assieds-toi là. Je n'aime pas la nuit toute seule. »",
       "Tu t'assieds dans le fauteuil. Elle parle, et elle parle en Doyenne, avec ordre, point par point. Le coffre de la Chambre des Sceaux et ses trois serrures. La clef d'argent d'Oriane. La clef de fer, qu'elle t'a donnée à toi au lieu du Temple, « et Anselme ne me le pardonnera pas ». La clef de bronze, « confiée à quelqu'un qui ne sait pas ce qu'elle ouvre ». Le coffre ouvert devant le Conseil, avant les lanternes, avec ses trois clefs, « parce qu'un coffre forcé ne vaut rien devant la loi ».",
       "« Ce que je t'ai dit à la Saint-Martin, tu le gardes jusqu'au coffre. Elle ne sait rien. Protège-la. »",
-      "Elle se tait. Tu lui donnes les vingt gouttes. La chandelle baisse d'un pouce. La chaleur de la chambre, la fatigue d'une journée commencée à cinq heures, le bruit régulier de la marée contre le quai : tu fermes les yeux une minute.",
+      "Elle se tait. Tu lui donnes les vingt gouttes. La chandelle baisse d'un pouce. La chaleur de la chambre, la fatigue d'une journée commencée à cinq heures, le bruit de la marée contre le quai, régulier comme une berceuse que personne n'a demandée : tu fermes les yeux une minute.",
       "Quand tu les rouvres, la fenêtre est grise et la chandelle est morte. Ta sacoche est ouverte sur la table de nuit. La fiole brune est vide, à côté du gobelet. Ermesinde Valcor est morte, les mains croisées sur le drap. Sur l'ardoise où elle notait ses rendez-vous, une écriture descend en travers : *Pardonne-moi d'avoir fouillé ta sacoche.*",
     ],
     choices: [{ label: "Te lever", to: "P_aube", fx: { until: 5 } }] },
@@ -56,7 +56,7 @@ module.exports = {
       "Il est cinq heures et demie. Dans une demi-heure, Nella montera l'eau chaude, comme chaque matin. Dans une heure, le palais entier sera dans cette chambre, et chacun y regardera ce qui l'intéresse.",
       "Tu fais l'inventaire de la table de nuit, comme le fera le premier venu. Le gobelet d'étain, avec au fond un dépôt brun. La fiole de pavot, vide.",
       { if: { has: "pavot=pris" }, text: "L'ardoise, et ses sept mots en travers." },
-      "Le règlement du Temple est clair. Le médecin qui constate une mort décrit ce qu'il a trouvé et ce qu'il a fait. Ce que tu as trouvé, tu le sais. Pour ce que tu as fait cette nuit, le règlement garde le silence, et toi aussi, pour l'instant.",
+      "Le règlement du Temple est clair, comme tous les règlements rédigés par des gens qui dorment la nuit. Le médecin qui constate une mort décrit ce qu'il a trouvé et ce qu'il a fait. Ce que tu as trouvé, tu le sais. Sur ce que tu as fait cette nuit, le règlement se tait, et toi aussi, pour l'instant.",
     ],
     choices: [
       { label: "Laver le gobelet, ranger la fiole, effacer toute trace de la nuit", to: "P_traces", fx: { set: { traces: "effacees" } }, big: true },
@@ -65,7 +65,7 @@ module.exports = {
 
   P_traces: { act: "I", title: "L'eau du broc", place: "palais", fx: { until: 6 },
     text: [
-      "Tu rinces le gobelet dans l'eau du broc, deux fois, et tu essuies l'étain avec ton mouchoir jusqu'à ce qu'il brille. La fiole retourne dans la sacoche, dans son étui de cuir. Tu remarques que tes mains font cela très proprement. La remarque te plaît peu.",
+      "Tu rinces le gobelet dans l'eau du broc, deux fois, et tu essuies l'étain avec ton mouchoir jusqu'à ce qu'il brille. La fiole retourne dans la sacoche, dans son étui de cuir. Tes mains font cela très proprement, en mains qui auraient passé leur vie à effacer ; tu le remarques, et la remarque te plaît peu.",
       { if: { has: "pavot=pris" }, text: "Tu prends l'ardoise. Tu mouilles ton pouce, et les sept mots deviennent une tache grise. Tu frottes jusqu'à effacer la tache aussi." },
       "Puis tu ouvres la fenêtre. L'air de la lagune entre, froid et salé. Les cloches de Sainte-Agathe sonnent six heures, et la ville entière se réveille pour le premier jour des Hautes-Eaux.",
       "Tu tires le cordon de la sonnette.",
@@ -84,8 +84,8 @@ module.exports = {
   S1_chambre: { act: "I", title: "La chambre de la Doyenne", place: "palais", hub: true, noLead: true, backName: "la chambre de la Doyenne",
     text: [
       { first: true, text: "Nella arrive la première, un broc d'eau chaude dans les bras. Elle a dix-neuf ans, des taches de son sur le nez et des tresses noires roulées sous un bonnet. Elle voit le lit. Le broc tombe ; l'eau fume sur le carrelage. Nella reste muette. Elle s'agenouille contre le lit et prend la main de la morte, du même geste que toi tout à l'heure." },
-      { first: true, text: "Ensuite, tout va vite. La capitaine du Guet, Ysabeau Dorne, arrive en corselet ; la balafre qui lui coupe la joue est plus blanche que d'habitude. Le père Anselme, Grand Prêtre de la Marée, entre en robe verte, touche le front de la morte et dit la prière des noyés, puisque toute mort à Escalombre est une noyade. À sept heures paraît Hugues Morvan, le Grand Argentier. Derrière lui marche un jeune homme blond à lunettes, les doigts tachés d'encre : Léonce Brisard, l'apothicaire de la Maison des Sels." },
-      { again: true, text: "La chambre se remplit de gens qui parlent bas. Le corps est sous le drap, le visage découvert." },
+      { first: true, text: "Ensuite, tout va vite, car la mort d'une Doyenne est de ces nouvelles qui montent les escaliers plus vite que les valets. La capitaine du Guet, Ysabeau Dorne, arrive en corselet ; la balafre qui lui coupe la joue est plus blanche que d'habitude. Le père Anselme, Grand Prêtre de la Marée, entre en robe verte, touche le front de la morte et dit la prière des noyés, puisque toute mort à Escalombre est une noyade. À sept heures paraît Hugues Morvan, le Grand Argentier. Derrière lui marche un jeune homme blond à lunettes, les doigts tachés d'encre : Léonce Brisard, l'apothicaire de la Maison des Sels." },
+      { again: true, text: "La chambre se remplit de gens qui parlent bas, du ton qu'on prend chez les morts et chez les créanciers. Le corps est sous le drap, le visage découvert." },
       { if: { has: "traces=laissees" }, text: "Le gobelet et la fiole vide sont toujours sur la table de nuit. Léonce Brisard les a regardés en entrant. Ensuite il a regardé le plafond, la fenêtre et ses propres souliers, avec beaucoup d'application." },
       { before: "S1_morvan", text: "Morvan s'entretient à voix basse avec la capitaine, près de la fenêtre. Il a fait dire qu'il voulait te parler « quand tu auras fini »." },
       { after: "S1_morvan", before: "S1_arrest", text: "La capitaine Dorne attend ton rapport. Elle le veut avant la séance du Conseil, ce soir." },
@@ -104,7 +104,7 @@ module.exports = {
   S1_examen: { act: "I", title: "Ce que dit un corps", place: "palais",
     fx: { clue: "haleine" },
     text: [
-      "Tu demandes qu'on te laisse le lit. Anselme recule d'un pas, Ysabeau de deux. Morvan reste où il est.",
+      "Tu demandes qu'on te laisse le lit. Anselme recule d'un pas, Ysabeau de deux. Morvan reste où il est, en homme qui a payé sa place.",
       "Tu examines Ermesinde comme une inconnue de l'hospice, de la tête aux pieds, en suivant l'ordre qu'on t'a appris à vingt ans. Les ongles, déjà vus. Les cheveux, qui viennent par mèches entières sous la main. La peau du ventre, sèche, fendillée, semée de plaques brunes. Tu te penches sur la bouche : elle sent l'ail. La Doyenne avait l'ail en horreur, et son cuisinier le savait depuis vingt ans.",
       "Chacun de ces signes compte en mois. Mis bout à bout, ils racontent une poudre blanche, un peu chaque jour, dans un aliment qu'elle mangeait seule.",
       "Sous tous ces signes, il y a la nuit. Les pupilles réduites à des têtes d'épingle, le gris des lèvres : le pavot. Un médecin le verrait s'il le cherchait. Le seul médecin dans cette chambre, c'est toi.",
@@ -150,7 +150,7 @@ module.exports = {
   S1_plateau_rate: { act: "I", title: "L'argenterie", place: "palais",
     text: [
       "Ta main se referme sur la salière. Léonce, aimable : « Vous emportez l'argenterie de la Doyenne, maître Aldric ? La capitaine Dorne va vouloir un inventaire. »",
-      "Tu reposes la salière. Léonce te remercie d'un signe de tête, prend le plateau entier et l'emporte vers l'office, « pour qu'on ne mange pas ces restes ». Il traverse la chambre au milieu de quinze personnes, et toutes s'écartent pour le laisser passer. Léonce Brisard fait les choses ordinaires avec une grande assurance, et l'assurance tient lieu de permission.",
+      "Tu reposes la salière. Léonce te remercie d'un signe de tête, prend le plateau entier et l'emporte vers l'office, « pour qu'on ne mange pas ces restes ». Il traverse la chambre au milieu de quinze personnes, et toutes s'écartent pour le laisser passer. Léonce Brisard fait les choses ordinaires avec une grande assurance ; or l'assurance, dans un palais, tient lieu de permission, de laissez-passer et, au besoin, d'innocence.",
     ],
     choices: [{ back: "S1_chambre" }] },
   S1_plateau_laisse: { act: "I", title: "Le couvercle", place: "palais",
@@ -196,8 +196,8 @@ module.exports = {
 
   S1_mansarde: { act: "I", title: "Sous les toits", place: "palais",
     text: [
-      "Les servantes dorment sous les toits, dans des chambres où l'on tient debout au milieu seulement. Celle de Nella sent la lavande et le linge humide. Tu en fais le tour en trois regards : un lit étroit, une cuvette, une Vierge de plâtre peinte en bleu, une boîte à couture.",
-      "Tu soulèves la paillasse : du crin et de la toile. Tu passes la main entre la paillasse et le cadre, du côté du mur. Tes doigts touchent du verre.",
+      "Les servantes dorment sous les toits, dans des chambres où l'on tient debout au milieu seulement ; l'architecte du palais aura jugé qu'une servante couchée se passe de plafond. Celle de Nella sent la lavande et le linge humide. Tu en fais le tour en trois regards : un lit étroit, une cuvette, une Vierge de plâtre peinte en bleu, une boîte à couture.",
+      "Tu soulèves la paillasse : du crin et de la toile. Tu passes la main entre la paillasse et le cadre, du côté du mur, à l'aveugle, avec la répugnance qu'on éprouve pour les endroits où la main précède l'œil. Tes doigts touchent du verre.",
       "C'est un flacon bleu, bouché de cire, plein d'une poudre blanche. La cire garde l'empreinte nette d'un pouce, et le creux de l'empreinte est noirci d'encre.",
     ],
     choices: [
@@ -221,8 +221,8 @@ module.exports = {
     fx: { meet: "anselme" },
     text: [
       "Le père Anselme t'attend dans l'embrasure d'une fenêtre. Il a soixante-dix ans, le crâne rasé de frais et des yeux pâles qui tombent aux coins, comme ceux d'un chien de chasse fatigué. Il a été ton maître au Temple quand tu avais vingt ans. Il s'en souvient chaque fois qu'il te voit, et toi aussi.",
-      "« Tu étais là, cette nuit. » Ce n'est pas une question. « On t'a fait chercher à une heure et demie, et pas moi. »",
-      "Puis, plus bas : « La clef de fer. La clef du Temple. Elle était dans le tabernacle de la chapelle depuis cent ans. À la Saint-Martin, la Doyenne l'a fait prendre. Le sacristain dit qu'elle l'a donnée à quelqu'un. Je crois savoir à qui. »",
+      "« Tu étais là, cette nuit. » Il l'affirme du ton dont il affirme le dogme. « On t'a fait chercher à une heure et demie. Toi, un médecin. Et moi, le Grand Prêtre de la Marée, on m'a laissé dormir comme un bedeau. »",
+      "Puis, plus bas : « La clef de fer. La clef du Temple. Elle était dans le tabernacle de la chapelle depuis cent ans, entre le ciboire et les saintes huiles, où elle ne gênait personne. À la Saint-Martin, la Doyenne l'a fait prendre, comme on envoie chercher un manteau. Le sacristain dit qu'elle l'a donnée à quelqu'un. Je crois savoir à qui. »",
     ],
     choices: [
       { label: "« Elle me l'a donnée. Je la porterai au Conseil, comme elle l'a voulu. »", fx: { flag: "anselme:sait_clef", regard: { anselme: "mefiant" } }, to: "S1_anselme_fin" },
@@ -230,7 +230,7 @@ module.exports = {
     ] },
   S1_anselme_fin: { act: "I", title: "Le Grand Prêtre", place: "palais",
     text: [
-      { if: { has: "anselme:sait_clef" }, text: "Anselme ferme les yeux un instant. « Elle a toujours aimé humilier le Temple. Elle le fait encore morte. » Il pose la main sur ton bras, légèrement. « Le Temple a six sièges au Conseil, Sévan. Et une clef qui lui appartient. Pense à ce que tu dois au Temple. »" },
+      { if: { has: "anselme:sait_clef" }, text: "Anselme ferme les yeux un instant. « Elle a toujours aimé humilier le Temple. Elle le fait encore morte, ce qui demande un certain talent. » Il pose la main sur ton bras, légèrement. « Le Temple a six sièges au Conseil, Sévan. Et une clef qui lui appartient. Pense à ce que tu dois au Temple. »" },
       { if: { has: "anselme:menti" }, text: "Anselme sourit, de ce sourire qui te faisait trembler à vingt ans. « Bien sûr. » Il pose la main sur ton bras, légèrement. « Si jamais tu en apprenais quelque chose, tu te souviendrais que le Temple a six sièges au Conseil, et une clef qui lui appartient. »" },
       "Anselme s'en va vers le lit dire une autre prière, à voix haute, pour que toute la chambre l'entende.",
     ],
@@ -239,7 +239,7 @@ module.exports = {
   S1_morvan: { act: "I", title: "Le Grand Argentier", place: "palais",
     fx: { meet: ["morvan", "leonce", "ysabeau"], time: 1 },
     text: [
-      "Hugues Morvan est un homme lourd, à la barbe grise taillée court, aux yeux bleus très calmes. Il porte le deuil depuis une heure : un manteau noir doublé de loutre, cousu pour un autre deuil et gardé prêt dans une armoire.",
+      "Hugues Morvan est un homme lourd, à la barbe grise taillée court, aux yeux bleus très calmes. Il porte le deuil depuis une heure : un manteau noir doublé de loutre, cousu pour un autre deuil et gardé prêt dans une armoire. Les hommes prévoyants ont toujours un chagrin d'avance.",
       "« Maître Aldric. Quelle nuit pour vous. » Il te prend le coude et t'emmène vers la fenêtre. Dehors, la lagune est haute et verte, et les premières barques masquées descendent le Grand Canal en chantant.",
       "« La capitaine Dorne voudra un rapport. Le Conseil aussi. Je ne suis pas médecin. Mais j'ai vu ses mains, comme vous. » Il baisse la voix. « On l'a empoisonnée, n'est-ce pas ? Une petite main, sans doute. Quelqu'un qui portait ses plateaux. »",
       { if: { has: "traces=laissees" }, text: "Il glisse la main dans son manteau et en sort, entre deux doigts, ta fiole de pavot vide. « Léonce l'a ramassée sur la table de nuit, pour éviter un malentendu. Un médecin qui laisse traîner son pavot au chevet d'une morte, les gens bavardent. Je la garde. Vous voyez ? Je vous rends service. » Il la remet dans sa poche." },
@@ -257,7 +257,7 @@ module.exports = {
       { if: T.fuite, text: "Vers neuf heures, la capitaine Dorne demande où est la servante qui portait les plateaux. On la cherche à l'office, à la lingerie, sous les toits. Une laveuse dit l'avoir vue descendre vers la porte de l'eau, le châle sur la tête. Ysabeau Dorne envoie quatre gardes à Bas-Port. Morvan dit : « Une innocente ne s'enfuit pas. » Il le dit doucement, à la cantonade, pour que les murs l'apprennent." },
       { if: { all: [T.fuite, { has: "fiole=garde" }] }, text: "Une heure plus tard, un garde redescend des combles avec un flacon bleu trouvé sous la paillasse de la fugitive. Léonce Brisard l'accompagnait. En voyant le flacon, il dit : « Du blanc d'Orcanne. On en vend pour les rats. » Ysabeau Dorne prend le flacon et le tourne longtemps vers la fenêtre, le pouce sur la cire." },
       { if: { not: T.fuite }, text: "Vers neuf heures, Léonce Brisard monte aux combles « pour aider le Guet », avec deux gardes. Il redescend un quart d'heure plus tard." },
-      { if: { all: [{ not: T.fuite }, { has: "fiole=garde" }] }, text: "Un garde tient un flacon bleu trouvé sous la paillasse de Nella. « Du blanc d'Orcanne, dit Léonce. On en vend pour les rats. » La capitaine prend le flacon et le tourne longtemps vers la fenêtre, le pouce sur la cire. Puis elle dit : « Nella Ferrant, tu viens avec nous. » Nella garde le silence. En passant, elle te regarde, une seule fois." },
+      { if: { all: [{ not: T.fuite }, { has: "fiole=garde" }] }, text: "Un garde tient un flacon bleu trouvé sous la paillasse de Nella. « Du blanc d'Orcanne, dit Léonce. On en vend pour les rats. » La capitaine prend le flacon et le tourne longtemps vers la fenêtre, le pouce sur la cire. Puis elle dit : « Nella Ferrant, tu viens avec nous. » Nella se tait. En passant, elle te regarde, une seule fois." },
       { if: { all: [{ not: T.fuite }, { not: { has: "fiole=garde" } }] }, text: "Les gardes redescendent les mains vides. Léonce a l'air contrarié d'un homme qui cherche ses clefs dans une poche où il les avait mises. Morvan garde son calme : « Elle portait le sel. Elle a eu toute la nuit pour jeter ce qu'il fallait. » La capitaine hésite longtemps. Puis elle dit : « Nella Ferrant, tu viens avec nous. Pour tes réponses. » En passant, Nella te regarde, une seule fois." },
       { if: { not: T.fuite }, text: "On l'emmène à la Tour du Guet. Le transfert se fera par l'eau, à une heure, par le canal des Sels, quand la barque de la prison sera revenue de sa tournée." },
     ],
@@ -267,7 +267,7 @@ module.exports = {
   S1_rapport: { act: "I", title: "Le rapport", place: "palais", fx: { until: 11 },
     text: [
       "On t'a donné le petit cabinet de la Doyenne pour écrire, avec son encre et son sable. La plume sent la violette, comme ses lettres. Onze heures sonnent à Sainte-Agathe.",
-      "Le rapport du médecin du Temple sera lu ce soir devant le Conseil des Lanternes. Quarante personnes entendront ce que tu écris. Ensuite, la ville entière.",
+      "Le rapport du médecin du Temple sera lu ce soir devant le Conseil des Lanternes. Quarante personnes entendront ce que tu écris. Ensuite, la ville entière : un secret confié à quarante conseillers est un secret crié sur le quai.",
       "Tu poses les faits comme sur une feuille de consultation. Ils sont trois. Ermesinde Valcor a été empoisonnée lentement, depuis des mois, par une poudre blanche dans son sel. Ce poison l'aurait tuée avant l'été. Et cette nuit, c'est ton pavot qui l'a endormie.",
       { if: { has: "pavot=donne" }, text: "Ta main l'a versé. Quatre-vingts gouttes. Tu les as comptées." },
       { if: { has: "pavot=pris" }, text: "Sa main à elle l'a pris dans ta sacoche, pendant que tu dormais. Tu cherches si cela fait de toi un innocent, et tu trouves la question plus difficile que les trois faits réunis." },
@@ -321,7 +321,7 @@ module.exports = {
 
   S1_fin: { act: "I", title: "Fin de la matinée", place: "palais",
     text: [
-      { if: { is: { rapport: "public" } }, text: "La barque de la prison glisse sur le canal des Sels. Les masques qui passent en chantant se taisent en voyant ta robe de médecin entre deux hallebardes. À la Tour du Guet, on te donne une cellule au troisième étage : six pas sur quatre, une paillasse, une fenêtre sur la lagune. Tu as dormi dans des chambres de garde plus petites." },
+      { if: { is: { rapport: "public" } }, text: "La barque de la prison glisse sur le canal des Sels. Les masques qui passent en chantant se taisent en voyant ta robe de médecin entre deux hallebardes ; la fête a horreur qu'on lui montre ce qui l'attend au matin. À la Tour du Guet, on te donne une cellule au troisième étage : six pas sur quatre, une paillasse, une fenêtre sur la lagune. Tu as dormi dans des chambres de garde plus petites, avec la clef de ton côté il est vrai." },
       { if: { is: { rapport: ["naturelle", "poison", "temple"] } }, text: "Tu rentres à l'hospice par les ruelles hautes, parce que les basses sont déjà sous l'eau. Dans ta chambre, tu poses la clef de fer sur la table : une main de long, une tige ronde, un panneton à trois dents. Tu la regardes longtemps." },
       "Il est midi. À Bas-Port, la marée monte dans les rues, et un passeur apprend la nouvelle.",
     ],

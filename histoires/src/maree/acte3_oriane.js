@@ -56,7 +56,7 @@ module.exports = {
   // ================================================================ three things before eleven
   O3_palais: { act: "III", title: "Le palais", hub: true, noLead: true, backName: "les galeries",
     text: [
-      { first: true, text: "Les galeries du palais sont pleines de conseillers qui se parlent à l'oreille. On t'arrête toutes les trois marches. On te félicite, on te plaint, on te demande où tu en es. Tu as quatre heures." },
+      { first: true, text: "Les galeries du palais sont pleines de conseillers qui se parlent à l'oreille ; il s'y confie ce soir plus de secrets que dans tous les confessionnaux du Temple, et ils y sont moins bien gardés. On t'arrête toutes les trois marches. On te félicite, on te plaint, on te demande où tu en es. Tu as quatre heures." },
       { if: { clock: "o3", min: 1, max: 1 }, text: "Huit heures. Il te reste du temps pour trois choses." },
       { if: { clock: "o3", min: 2, max: 2 }, text: "Neuf heures. Il te reste du temps pour deux choses." },
       { if: { clock: "o3", min: 3, max: 3 }, text: "Dix heures. Il te reste le temps d'une chose." },
@@ -224,7 +224,7 @@ module.exports = {
     choices: [{ label: "Sortir", to: "O3_suite" }] },
   O3M_visage: { act: "III", title: "Le visage", place: "palais",
     text: [
-      "Tu reprends la lettre et tu la ranges. Tu le regardes encore un instant, comme on regarde un tableau dans un musée avant de passer au suivant.",
+      "Tu reprends la lettre et tu la ranges. Tu le regardes encore un instant, avec la curiosité qu'on accorde à un tableau avant de passer au suivant.",
       "Puis tu sors du salon des Sels. Derrière toi, la cour tarde à se refermer.",
     ],
     choices: [{ label: "Sortir", to: "O3_suite" }] },
@@ -318,7 +318,7 @@ module.exports = {
   O3Y_chaine: { act: "III", title: "La chaîne", place: "palais",
     text: [
       "Tu dis l'ordre, la flotte, les quarante voiles au large.",
-      { if: { has: "chaine_ordre=signe" }, text: "Tu dis aussi que c'est ta signature, au bas. Tu le dis les yeux droits. Ysabeau Dorne te regarde comme on regarde quelqu'un qui se dénonce. La chose est rare, et elle en a vu deux en trois jours." },
+      { if: { has: "chaine_ordre=signe" }, text: "Tu dis aussi que c'est ta signature, au bas. Tu le dis les yeux droits. Ysabeau Dorne te considère avec l'air qu'elle réserve aux gens qui se dénoncent. La chose est rare, et elle en a vu deux en trois jours." },
       "« Personne ne touchera au treuil cette nuit, madame. Quel que soit l'ordre et quel que soit le sceau. » Elle appelle son lieutenant. Six hommes partent vers la tour de la Chaîne.",
     ],
     choices: [{ label: "La remercier", fx: { set: { chaine: "gardee" } }, to: "O3_suite" }] },
@@ -326,7 +326,7 @@ module.exports = {
   // ================================================================ eleven o'clock
   O3_fin: { act: "III", title: "Onze heures", place: "palais", ambiance: "chateau",
     text: [
-      "Onze heures. Tu entres seule dans la Chambre des Sceaux. Le coffre est là, sur sa table de pierre, ses trois serrures en ligne : une d'argent, une de fer, une de bronze. Tu poses la main sur le couvercle. Il est froid comme une pierre tombale.",
+      "Onze heures. Tu entres seule dans la Chambre des Sceaux. Ta lanterne y découpe un cercle, au-delà duquel les murs se devinent plus qu'ils ne se voient. Le coffre est là, sur sa table de pierre, ses trois serrures en ligne : une d'argent, une de fer, une de bronze. Tu poses la main sur le couvercle. Il est froid comme une pierre tombale.",
       { if: { has: "clef1=oriane" }, text: "Ta clef d'argent est contre ta peau. La première serrure t'attend." },
       { if: { all: [{ has: "oriane:reprend_clef" }, { has: "clef1=oriane" }] }, text: "Tu l'as reprise hier soir dans le cabinet de Morvan, sous son nez, pendant qu'il regardait danser ses invités." },
       { if: { has: "clef1=morvan" }, text: "Ta clef d'argent est dans la cassette de Morvan. La première serrure restera fermée, sauf s'il l'ouvre lui-même." },

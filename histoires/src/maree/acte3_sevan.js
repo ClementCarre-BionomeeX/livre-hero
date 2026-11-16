@@ -21,7 +21,7 @@ module.exports = {
   // ================================================================ openings
   S3H: { act: "III", title: "Les lanternes", place: "temple", ambiance: "temple",
     text: [
-      "À sept heures, les sœurs de l'hospice allument les lanternes aux fenêtres des malades. Une par fenêtre, même chez les mourants. Surtout chez les mourants, dit la sœur portière : les morts de la Nuit des Lanternes trouvent ainsi leur chemin.",
+      "À sept heures, les sœurs de l'hospice allument les lanternes aux fenêtres des malades. Une par fenêtre, même chez les mourants. Surtout chez les mourants, dit la sœur portière : les morts de la Nuit des Lanternes trouvent ainsi leur chemin. Tu regardes les petites flammes naître une à une le long de la salle, et tu comptes malgré toi les fenêtres dont le lit sera vide au matin.",
       "Tu as passé la journée à préparer cette nuit, sans savoir ce qu'elle serait. Ta sacoche est sur la table. Tu en fais l'inventaire, comme avant une tournée : ce que tu as gardé de trois jours.",
       { if: { has: "preuves_volees=oui" }, text: "L'inventaire est vite fait. Les hommes de la Maison des Sels ont tout pris hier soir. Il te reste ta mémoire, et ce que tu as vu de tes yeux." },
       { if: { has: "sevan:sbires_battus" }, text: "Ton poignet te fait encore mal du tisonnier d'hier soir. Les hommes de la Maison des Sels savent maintenant qu'un vieux médecin peut frapper." },
@@ -32,7 +32,7 @@ module.exports = {
     choices: [{ label: "Prendre ta sacoche", to: "S3_ville" }] },
   S3B: { act: "III", title: "Le grenier", place: "basport", ambiance: "eau",
     text: [
-      "Tu te réveilles dans le grenier de l'Ancre Basse, entre deux filets qui sèchent. En bas, la taverne est pleine. Les chopes restent pleines aussi : on attend. Les voix sont basses, les gaffes appuyées contre les tables.",
+      "Tu te réveilles dans le grenier de l'Ancre Basse, entre deux filets qui sèchent. En bas, la taverne est pleine. Les chopes restent pleines aussi : on attend. Les voix sont basses, les gaffes appuyées contre les tables ; une salle entière de buveurs qui laissent leur vin a de quoi inquiéter davantage qu'une émeute.",
       "La Mère Gouge monte l'échelle à sept heures, une lanterne à la main, et la pose à côté de toi.",
       { if: { has: "basport=souleve" }, text: "« Trois cents barques sur la digue, médecin. Si quelqu'un tire une flèche ce soir, la ville brûle. Je voulais que tu le saches. Les médecins aiment savoir où sont les blessés avant qu'il y en ait. »" },
       { if: { not: { has: "basport=souleve" } }, text: "« Bas-Port reste chez lui ce soir. Pour l'instant. » Elle s'assied sur un tonneau. « Tu as dormi comme un homme qui n'a plus rien à cacher. Ou comme un homme qui va tout dire. Je ne sais pas lequel. »" },
@@ -52,7 +52,7 @@ module.exports = {
     fx: { meet: "anselme" },
     text: [
       "À sept heures, Gildas t'apporte une robe de cérémonie, blanche à bordure verte, et la pose sur ton lit en silence.",
-      "Anselme entre derrière lui. Il est déjà habillé pour le Conseil, la mitre basse, l'anneau de la Marée au doigt. Il a le teint frais d'un homme qui a dormi ses huit heures.",
+      "Anselme entre derrière lui. Il est déjà habillé pour le Conseil, la mitre basse, l'anneau de la Marée au doigt. Il a le teint frais d'un homme qui a dormi ses huit heures, privilège des consciences spacieuses.",
       "« À minuit, tu marcheras à ma droite. Quand le Conseil t'interrogera, tu diras que la Doyenne a été empoisonnée au sel par la Maison des Sels. Tu diras que tu l'as soignée jusqu'au bout. Tu ne diras rien d'autre. » Il ajuste ton col. « Et le Temple te gardera, mon fils. »",
       { if: { has: "sevan:lettre_nella" }, text: "Derrière lui, Gildas croise ton regard. Il touche sa manche, à l'endroit où il avait glissé ta lettre. Elle est arrivée." },
     ],
@@ -81,14 +81,14 @@ module.exports = {
   S3T_rattrape: { act: "III", title: "Le coude", place: "temple", ambiance: "ville",
     text: [
       "Tu te baisses. La main d'Anselme garde ton coude. Elle serre doucement, comme un père retient un enfant au bord d'un quai.",
-      "« Pas ce soir, mon fils. » Il garde les yeux sur la route. Le cortège repart.",
+      "« Pas ce soir, mon fils. » Il regarde droit devant lui. Le cortège repart.",
     ],
     choices: [{ label: "Marcher", to: "S3T_marche" }] },
   S3T_marche: { act: "III", title: "À sa droite", place: "palais", ambiance: "ville",
     text: [
       "Vous arrivez au palais à onze heures. L'eau monte jusqu'à la troisième marche. Les prêtres relèvent leurs robes. Anselme garde la sienne basse, et la mouille, pour qu'on le voie.",
       "Dans l'antichambre du Conseil, il te fait asseoir sur un banc, entre deux frères. « Tu attendras qu'on t'appelle. »",
-      { if: { has: "ysabeau=allie" }, text: "La capitaine du Guet passe devant le banc. Elle te regarde, puis regarde les deux frères. Elle se tait. Elle place un garde à la porte de l'antichambre, et ce garde-là garde les yeux sur le banc jusqu'au bout." },
+      { if: { has: "ysabeau=allie" }, text: "La capitaine du Guet passe devant le banc. Elle te regarde, puis regarde les deux frères. Elle se tait. Elle place un garde à la porte de l'antichambre, et ce garde-là surveille le banc jusqu'au bout." },
       "Tu regardes tes mains. Ce sont des mains qui ont endormi une femme. Ce soir, elles vont prêter serment.",
     ],
     choices: [FIN] },
@@ -278,7 +278,7 @@ module.exports = {
   S3L_laisse: { act: "III", title: "La barque", place: "sels",
     text: [
       "Tu sors en silence. Sur le pont, tu croises les trois hommes qui montent. Ils te saluent poliment, comme on salue un prêtre.",
-      "Tu gardes les yeux devant toi. À dix heures, une barque sans lanterne passe sous le pont des Sels, plus lourde qu'à l'aller.",
+      "Tu marches sans te retourner. À dix heures, une barque sans lanterne passe sous le pont des Sels, plus lourde qu'à l'aller ; elle cale plus bas de la hauteur d'une paume, et tu sais au juste ce que pèse cette paume-là.",
     ],
     choices: [{ label: "Continuer ta route", to: "S3_suite" }] },
 
@@ -294,8 +294,8 @@ module.exports = {
       { if: TOUR, text: "Ysabeau Dorne t'ouvre elle-même la cellule de Nella, et reste dans l'escalier." },
       { if: VILLE, text: "Le gardien de nuit te laisse monter : un prêtre a le droit d'entendre une condamnée la veille du reflux." },
       "Nella est debout à la fenêtre. Elle regarde les lanternes, des milliers, qui s'allument sur la lagune.",
-      { if: { has: "nella_sait=sevan" }, text: "« Ma mère aimait cette nuit-là, dit-elle, le dos tourné. Je le sais, maintenant, que c'était ma mère. Elle me faisait monter sur la tour du palais pour voir. Je croyais qu'elle faisait ça avec toutes les servantes. »" },
-      { if: { any: [{ has: "nella_sait=jasse" }, { has: "nella_sait=oriane" }] }, text: "« Vous saviez, dit-elle, le dos tourné. Pour ma mère. On me l'a dit. Vous saviez depuis dix-neuf ans. »" },
+      { if: { has: "nella_sait=sevan" }, text: "« Ma mère aimait cette nuit-là, dit-elle sans se retourner. Je le sais, maintenant, que c'était ma mère. Elle me faisait monter sur la tour du palais pour voir. Je croyais qu'elle faisait ça avec toutes les servantes. »" },
+      { if: { any: [{ has: "nella_sait=jasse" }, { has: "nella_sait=oriane" }] }, text: "« Vous saviez, dit-elle, tournée vers la fenêtre. Pour ma mère. On me l'a dit. Vous saviez depuis dix-neuf ans. »" },
       { if: { is: { nella_sait: null } }, text: "« Vous m'aviez promis de me dire ses raisons avant les lanternes, maître. » Elle se retourne. « Les lanternes sont allumées. »" },
       { if: { has: "evasion=prevue" }, text: "Elle baisse la voix. « Il y a un homme, à la porte d'eau. Le mari d'une nièce de la Mère Gouge. Il m'a fait un signe ce soir. À minuit. » Puis : « Il y a aussi un garde au palier, un nouveau, qui ne boit pas. »" },
     ],
@@ -386,7 +386,7 @@ module.exports = {
     fx: { clock: { s3: 1 }, flag: "sevan:priere3" },
     text: [
       { if: TOUR, text: "La Tour a une chapelle de garnison, une pièce nue avec une Vierge des Noyés en bois peint. Ysabeau Dorne te laisse y entrer seul et ferme la porte." },
-      { if: VILLE, text: "La chapelle des Noyés, au bout du quai, est vide : tout le monde est au palais. Il reste les ex-voto, des centaines de petites barques d'argent pendues au plafond, qui tournent dans le courant d'air." },
+      { if: VILLE, text: "La chapelle des Noyés, au bout du quai, est vide : tout le monde est au palais. Il reste les ex-voto, des centaines de petites barques d'argent pendues au plafond, qui tournent dans le courant d'air et se touchent avec un bruit léger de monnaie comptée dans l'ombre." },
       "Tu t'agenouilles. Tu as entendu des milliers de confessions sur ce genre de dalle. Tu t'es toujours demandé à qui se confesse le confesseur.",
       { if: { has: "pavot=donne" }, text: "Tu dis à la Vierge de bois ce que tu as donné, combien, et pourquoi. Elle t'écoute comme tu écoutais les autres, sans rien promettre." },
       { if: { has: "pavot=pris" }, text: "Tu dis à la Vierge de bois que tu t'es endormi, et que la sacoche était ouverte. Tu lui demandes si l'on pèche en dormant. Elle garde son avis." },
@@ -398,7 +398,7 @@ module.exports = {
   S3_ysabeau: { act: "III", title: "Le bureau de la capitaine", place: "tour", ambiance: "chateau",
     fx: { meet: "ysabeau", flag: "sevan:ysabeau3", clock: { s3: 1 } },
     text: [
-      "Ysabeau Dorne t'écoute derrière son bureau, sous les portraits de tous les capitaines du Guet depuis deux cents ans : trente-quatre visages, dont trois seulement sourient. Elle prend des notes.",
+      "Ysabeau Dorne t'écoute derrière son bureau, sous les portraits de tous les capitaines du Guet depuis deux cents ans : trente-quatre visages, dont trois seulement sourient ; le métier veut cela. Elle prend des notes.",
       { if: { has: "ysabeau=allie" }, text: "« Je sais déjà, maître. Quelqu'un est venu avant vous, ce soir. J'ai pris ma décision. » Elle se lève. « Mais vos pièces m'aideront à la tenir. »" },
       { if: { clock: "preuves", min: 3 }, text: "Tu poses sur la table ce que tu as. Elle examine chaque pièce comme un rapport de ronde. Puis elle reste longtemps immobile." },
       { if: { clock: "preuves", max: 2 }, text: "Tu as peu de chose à poser sur la table. Ta parole, surtout. Celle d'un prêtre qui s'est contredit." },

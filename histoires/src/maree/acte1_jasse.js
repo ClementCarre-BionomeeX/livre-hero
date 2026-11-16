@@ -9,9 +9,9 @@ module.exports = {
   J1_barque: { act: "I", title: "Les Hautes-Eaux", place: "basport", ambiance: "eau",
     fx: { meet: ["mo", "corentin"] },
     text: [
-      "À Bas-Port, la marée est entrée dans les rues pendant la nuit, comme chaque année à la même lune. L'eau monte aux genoux dans la rue des Cordiers et à la taille sur la place aux Poissons. Les gens d'ici ont mis leurs meubles sur les tables, leurs enfants sur les toits, et ils ont sorti les masques. Trois jours de fête, trois jours sans pavés, et tous les cordonniers fermés.",
+      "À Bas-Port, la marée est entrée dans les rues pendant la nuit, comme chaque année à la même lune, en propriétaire qui rentre chez lui sans frapper. L'eau monte aux genoux dans la rue des Cordiers et à la taille sur la place aux Poissons. Les gens d'ici ont mis leurs meubles sur les tables, leurs enfants sur les toits, et ils ont sorti les masques. Trois jours de fête, trois jours sans pavés, et tous les cordonniers fermés.",
       "Tu as vingt-deux ans et une barque plate que ton père t'a laissée, la *Pimprenelle*, peinte en bleu, dix-huit pieds de long et une fuite à bâbord que tu connais comme un vieux voisin. Pendant les Hautes-Eaux, un passeur gagne en trois jours ce qu'il gagne en deux mois. Depuis l'aube, tu as fait traverser la place aux Poissons à deux cents personnes, à un sou pièce, sous les cloches de deuil qui sonnent sans relâche depuis sept heures.",
-      "La Doyenne est morte. Chacun le dit, puis chacun remet son masque, parce que la fête est la fête.",
+      "La Doyenne est morte. Chacun le dit, se signe, puis remet son masque, parce que la fête est la fête, et qu'à Bas-Port on a toujours porté le deuil des grands avec une chope à la main.",
       { if: PRISON, text: "Vers onze heures et demie, une voix aiguë crie ton nom par-dessus l'eau. Petit Mo arrive en courant sur le rebord des façades, de fenêtre en fenêtre, comme un chat. Il a onze ans et des jambes de héron. Il saute dans la barque si fort qu'elle embarque un seau d'eau. « Jasse ! Ils ont pris Nella ! »" },
       { if: LIBRE, text: "Vers onze heures et demie, quelqu'un se laisse tomber dans ta barque depuis le rebord d'une fenêtre, un châle trempé sur la tête. Tu lèves ta gaffe. Le châle glisse : c'est Nella. Ta sœur porte un tablier de servante du palais, mouillé jusqu'à la ceinture. « Pousse, Jasse. Pousse, s'il te plaît. Le Guet est derrière moi. »" },
       "Derrière toi, sur le perron de la taverne de la Morue, Corentin Lasalle lève la tête de sa chope.",
@@ -54,10 +54,10 @@ module.exports = {
   J1_ponton: { act: "I", title: "La Vierge du ponton", place: "ponton", ambiance: "eau",
     fx: { flag: "j1:ponton" },
     text: [
-      "Le vieux ponton des pêcheurs est au bout de Bas-Port, là où finissent les maisons et où commence la lagune. Pendant les Hautes-Eaux, les planches sont à fleur d'eau, et l'on marche sur la mer.",
+      "Le vieux ponton des pêcheurs est au bout de Bas-Port, là où finissent les maisons et où commence la lagune. Pendant les Hautes-Eaux, les planches sont à fleur d'eau, et l'on marche sur la mer ; Bas-Port accomplit ce miracle une fois l'an et a le bon goût de n'en tirer aucune religion.",
       "Au bout du ponton, une niche de bois est clouée sur un poteau. Elle abrite une petite Vierge peinte, aux pieds rongés de sel. Les femmes de pêcheurs y laissent des coquillages. Ta mère y laissait des coquillages. Nella aussi.",
       { if: { has: "j1:avec_corentin" }, text: "Corentin te suit, les pouces dans la ceinture, en sifflant entre ses dents." },
-      "Tu passes la main derrière la statue. Tes doigts touchent du tissu mouillé.",
+      "Tu passes la main derrière la statue, dans ce recoin d'ombre et de sel où les doigts vont seuls. Ils touchent du tissu mouillé.",
       "C'est un ruban bleu, épais, roulé sur lui-même. Dedans, cousue, une clef de bronze longue comme ta main, avec un panneton découpé en dents fines, travail d'un bon serrurier. Un billet plié l'accompagne, protégé par un bout de toile cirée. L'écriture est fine et droite : *Le jour de ma mort, porte-la au Conseil. E.*",
     ],
     choices: [{ label: "Regarder la clef", to: "J1_ponton2" }] },
@@ -77,9 +77,9 @@ module.exports = {
   J1_canal: { act: "I", title: "Le pont des Sels", place: "basport",
     fx: { clock: { j1: 1 } },
     text: [
-      "Le canal des Sels passe sous un pont de pierre à une seule arche, si bas qu'il faut baisser la tête en barque quand la marée est haute. Et cet après-midi, la marée est très haute : entre l'eau et la clef de voûte, tu estimes trois pieds, peut-être moins.",
+      "Le canal des Sels passe sous un pont de pierre à une seule arche, si bas qu'il faut baisser la tête en barque quand la marée est haute. Et cet après-midi, la marée est très haute : entre l'eau et la clef de voûte, tu estimes trois pieds, peut-être moins. Sous l'arche, le jour devient vert, les voix prennent un écho de cave, et l'eau lèche la pierre avec un bruit de bête qui boit.",
       "Tu as une heure. Corentin connaît le patron d'un chaland de sel amarré dix brasses avant le pont. Mo connaît tous les gamins de Bas-Port. Toi, tu connais l'eau.",
-      "La barque de la prison emporte quatre rameurs du Guet et deux gardes armés de hallebardes. Ils rament tranquilles. En cent ans, la barque de la prison a toujours fait sa route en paix, et ses rameurs le savent.",
+      "La barque de la prison emporte quatre rameurs du Guet et deux gardes armés de hallebardes. Ils rament tranquilles. En cent ans, la barque de la prison a toujours fait sa route en paix, et ses rameurs le savent ; rien n'endort un soldat comme un siècle sans histoire.",
     ],
     choices: [
       { label: "Le chaland : le lâcher en travers du canal juste avant le pont, et prendre Nella dans la confusion", test: { dom: "discretion", diff: 0, label: "Ruse" },
@@ -123,10 +123,10 @@ module.exports = {
   J1_gouge: { act: "I", title: "La Mère Gouge", place: "basport",
     fx: { meet: "gouge" },
     text: [
-      "La Mère Gouge tient la taverne de l'Ancre Basse, au coin de la place aux Poissons. Pendant les Hautes-Eaux, elle tient séance sur la table du fond, posée sur quatre tonneaux, avec l'eau qui clapote sous ses bottes. Elle a soixante-dix ans, un foulard rouge et une ancre tatouée sur le dos de la main, si ancienne que l'encre a viré au vert. Quand elle tape sur un tonneau, mille barques sortent.",
+      "La Mère Gouge tient la taverne de l'Ancre Basse, au coin de la place aux Poissons. Pendant les Hautes-Eaux, elle tient séance sur la table du fond, posée sur quatre tonneaux, avec l'eau qui clapote sous ses bottes. Elle a soixante-dix ans, un foulard rouge et une ancre tatouée sur le dos de la main, si ancienne que l'encre a viré au vert. Quand elle tape sur un tonneau, mille barques sortent. Le Conseil des Lanternes, avec sa coupole et ses quarante fauteuils, en ferait sortir douze, et encore faudrait-il un vote.",
       { if: LIBRE, text: "Elle regarde Nella, tremblante dans son tablier du palais. Elle la regarde longtemps, plus longtemps qu'il ne faut. « La petite des Ferrant. » Sa voix change un peu. « Je t'ai vue naître, ou presque. L'hiver de la grande passe. Tu avais trois mois quand ta mère t'a montrée sur le ponton. »" },
       { if: PRISON, text: "Elle t'écoute jusqu'au bout : Nella, le sel, la Tour. Quand tu as fini, elle reste un moment à regarder l'eau. « La petite des Ferrant. » Sa voix change un peu. « Je l'ai vue sur le ponton, l'hiver de la grande passe. Elle avait trois mois. »" },
-      "« Le palais accuse une fille de Bas-Port d'avoir tué la Doyenne. Le palais a toujours eu besoin de quelqu'un de Bas-Port pour ses pendaisons. »",
+      "« Le palais accuse une fille de Bas-Port d'avoir tué la Doyenne. Le palais a toujours eu besoin de quelqu'un de Bas-Port pour ses pendaisons. Ces messieurs ont des fauteuils, des lanternes, une coupole de verre, et le jour où il leur faut un cou pour la corde, c'est encore chez nous qu'ils viennent se servir ! »",
     ],
     choices: [
       { label: "« Aide-nous. Bas-Port doit montrer au palais qu'il n'acceptera pas ça. »", to: "J1_gouge_foule", big: true },
@@ -136,7 +136,7 @@ module.exports = {
     fx: { set: { gouge: "allie", basport: "agite" }, regard: { gouge: "allie" } },
     text: [
       "La Mère Gouge se lève. Elle prend un maillet sur la table et frappe trois coups sur le tonneau. Le bruit roule sur l'eau, d'une maison à l'autre. Dans la taverne, les conversations s'arrêtent.",
-      "« Ce soir, dit-elle, toutes les barques de Bas-Port iront jusqu'à la digue des Pendus, avec des lanternes, et resteront là. Toute la nuit. Pour que le Guet voie combien on est. »",
+      "« Ce soir, dit-elle, toutes les barques de Bas-Port iront jusqu'à la digue des Pendus, avec des lanternes, et resteront là. Toute la nuit. Pour que le Guet voie combien on est. Ces gens-là savent compter les ducats ; on va leur apprendre à compter les barques. »",
       { if: LIBRE, text: "Puis, plus bas, pour toi : « Et la petite dort ici, dans ma soupente. On entre chez la Mère Gouge quand elle le veut, le Guet comme les autres. » Nella monte l'échelle en silence." },
       "Tu viens de mettre le feu à Bas-Port. Un feu sur l'eau, en principe, ça brûle mal.",
     ],
@@ -144,7 +144,7 @@ module.exports = {
   J1_gouge_prudente: { act: "I", title: "Sans bruit", place: "basport",
     fx: { set: { gouge: "prudente" }, regard: { gouge: "cordial" } },
     text: [
-      "La Mère Gouge hoche lentement la tête. « Tu as plus de jugeote que ton père. » Elle se gratte le menton. « Sans bruit, alors. J'ai des cousins dans les cuisines de la Tour, et une nièce qui lave le linge du Guet. On saura ce qu'on lui fait, heure par heure. Si on la touche, tu le sauras avant le capitaine. »",
+      "La Mère Gouge hoche lentement la tête. « Tu as plus de jugeote que ton père. Ce qui est un petit exploit, soit dit sans offenser les noyés. » Elle se gratte le menton. « Sans bruit, alors. J'ai des cousins dans les cuisines de la Tour, et une nièce qui lave le linge du Guet. On saura ce qu'on lui fait, heure par heure. Si on la touche, tu le sauras avant le capitaine. »",
       { if: LIBRE, text: "Elle désigne une échelle, au fond. « Et la petite dort ici, dans ma soupente. On entre chez la Mère Gouge quand elle le veut. » Nella monte l'échelle en silence." },
     ],
     choices: [{ label: "Revenir à la place aux Poissons", to: "J1_gouge_fin" }] },
@@ -156,7 +156,7 @@ module.exports = {
   J1_cache_corentin: { act: "I", title: "L'entrepôt de Corentin", place: "basport",
     fx: { flag: "j1:cache", set: { cache: "corentin" } },
     text: [
-      "Derrière la taverne de la Morue, Corentin loue un entrepôt à moitié sous l'eau, plein de caisses anonymes. Tu en comptes vingt-trois, de tailles diverses, et toutes ont perdu leur marque sous un coup de rabot. Corentin soulève une trappe dans le plancher : au-dessus, sous les tuiles, un grenier sec, avec une paillasse et une lanterne.",
+      "Derrière la taverne de la Morue, Corentin loue un entrepôt à moitié sous l'eau, plein de caisses anonymes. Tu en comptes vingt-trois, de tailles diverses, et toutes ont perdu leur marque sous un coup de rabot, accident fréquent dans le commerce de Corentin. Il soulève une trappe dans le plancher : au-dessus, sous les tuiles, un grenier sec, avec une paillasse et une lanterne.",
       "« Ici, même ma mère ne me trouve pas. » Il aide Nella à monter et lui donne sa propre couverture. Il est doux avec elle, comme toujours, depuis qu'elle avait six ans et qu'il lui apprenait à siffler.",
       "« Elle ne bougera pas d'ici, dit-il. Je te le jure sur la Vierge. »",
     ],
@@ -189,16 +189,16 @@ module.exports = {
   J1_tour: { act: "I", title: "La digue des Pendus", place: "tour", ambiance: "chateau",
     fx: { meet: "ysabeau" },
     text: [
-      "La Tour du Guet se dresse au bout de la digue des Pendus, une langue de pierre qui s'avance dans la lagune. Tous les cent pas se dresse un poteau noir, avec sa poulie. Aujourd'hui, les poteaux sont nus. Ce sera pour la troisième nuit, au reflux, disent les gens qui passent.",
+      "La Tour du Guet se dresse au bout de la digue des Pendus, une langue de pierre qui s'avance dans la lagune. Tous les cent pas se dresse un poteau noir, avec sa poulie ; et chaque poulie, quand le vent la prend, grince pour elle seule, d'un petit bruit patient. Aujourd'hui, les poteaux sont nus. Ce sera pour la troisième nuit, au reflux, disent les gens qui passent, du ton dont on annonce un marché.",
       { if: { has: "canal:attaque" }, text: "Les gardes à la porte de la Tour ont la mine de gens qu'on vient d'effrayer. L'un d'eux porte une bosse au front. Tu gardes ton chapeau bas sur la tempe." },
-      "On te fait attendre deux heures dans une cour. Puis la capitaine Dorne descend elle-même. Elle est brune, carrée, et une balafre blanche lui court du coin de l'œil au coin de la bouche. Elle t'écoute dire que ta sœur est innocente.",
+      "On te fait attendre deux heures dans une cour ; l'attente est la première peine que le Guet inflige, et la seule qu'il distribue à tout le monde. Puis la capitaine Dorne descend elle-même. Elle est brune, carrée, et une balafre blanche lui court du coin de l'œil au coin de la bouche. Elle t'écoute dire que ta sœur est innocente.",
       "« Peut-être. Le Conseil en jugera ; moi, je garde la porte. » Elle t'examine. « Tu peux la voir. Dix minutes. Devant moi. »",
     ],
     choices: [{ label: "Voir Nella", to: "J1_tour_nella" }] },
   J1_tour_nella: { act: "I", title: "Dix minutes", place: "tour",
     fx: { regard: { ysabeau: "neutre" }, flag: "j1:vu_nella" },
     text: [
-      "Une salle basse, une table, deux chaises. Nella a les mains libres et les yeux rouges. Elle se jette contre toi. La capitaine reste debout près de la porte, les bras croisés.",
+      "Une salle basse, une table, deux chaises, et sur les murs cette sueur froide des pièces qu'on a bâties au niveau de l'eau. Nella a les mains libres et les yeux rouges. Elle se jette contre toi. La capitaine reste debout près de la porte, les bras croisés.",
       "Nella parle fort, pour la capitaine : elle est innocente, elle portait le plateau, comme chaque soir. Puis, la joue contre ton épaule, elle souffle, si bas que tu l'entends à peine : « La Vierge du ponton. Le ruban. Elle me l'a donné il y a trois mois, elle m'a dit de le porter au Conseil le jour de sa mort. Je ne sais pas ce que c'est. Je l'ai caché cette nuit, quand j'ai vu l'apothicaire de la Maison des Sels sortir de la cuisine. »",
       "« C'est fini », dit la capitaine.",
       "En partant, tu entends Ysabeau Dorne dire à un garde : « Le frère. Tu le reconnaîtras. »",
@@ -214,7 +214,7 @@ module.exports = {
   ] },
   J1_soir: { act: "I", title: "Le soir sur l'eau", place: "basport", fx: { until: 19 },
     text: [
-      "Le soleil descend derrière les Passes. Sur la lagune, les quarante voiles d'Orcanne deviennent noires contre le ciel rouge. Bas-Port allume ses lanternes, une par fenêtre, et la fête reprend plus fort, comme pour couvrir les cloches.",
+      "Le soleil descend derrière les Passes. Sur la lagune, les quarante voiles d'Orcanne deviennent noires contre le ciel rouge, immobiles, alignées, pareilles à des cierges qu'on aurait soufflés. Bas-Port allume ses lanternes, une par fenêtre, et la fête reprend plus fort, comme pour couvrir les cloches.",
       { if: { all: [{ not: { has: "j1:ponton" } }] }, text: "En revenant vers la place, tu passes au bout du vieux ponton. Tu y vas, parce qu'il le faut. Derrière la Vierge, la niche est vide. Sur les planches, tu relèves des traces de bottes mouillées, de grosses bottes de quai, et une chope de la Morue posée par terre, retournée." },
       { if: { all: [{ has: "j1:avec_corentin" }, { has: "clef3_ou=niche" }] }, text: "Ce soir, en passant au bout du ponton, tu glisses la main derrière la Vierge pour vérifier. Tes doigts trouvent le bois mouillé, et rien d'autre. Une seule personne au monde t'a vu remettre la clef là." },
       { if: { has: "clef3_ou=jasse" }, text: "La clef de bronze pèse contre ta poitrine, sous la chemise, à chaque coup de gaffe." },
@@ -240,7 +240,7 @@ module.exports = {
   J1_soir_mere: { act: "I", title: "La phrase", place: "basport",
     fx: { clue: "eau" },
     text: [
-      "Tu restes sur la *Pimprenelle*, amarrée sous ta fenêtre, et tu regardes les lanternes trembler sur l'eau.",
+      "Tu restes sur la *Pimprenelle*, amarrée sous ta fenêtre, et tu regardes les lanternes trembler sur l'eau. Chacune a son double sous elle, qui tremble aussi ; à force de les regarder, tu doutes laquelle des deux villes est la vraie.",
       "L'hiver dernier, ta mère est morte de la poitrine, dans le lit où elle t'avait mis au monde. La dernière nuit, elle t'a serré la main très fort et elle a dit : « Nella n'est pas à nous. Elle est à l'eau. » Tu as cru à la fièvre. Tu as cru à une prière de batelière.",
       "Ce soir, une Doyenne morte a cousu une clef dans le ruban de ta sœur. Ce soir, toutes tes certitudes flottent.",
     ],

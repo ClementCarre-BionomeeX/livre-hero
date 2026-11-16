@@ -18,7 +18,7 @@ module.exports = {
   J2L_matin: { act: "II", title: "Les crieurs", place: "basport", ambiance: "eau",
     text: [
       "Tu te réveilles dans la *Pimprenelle* au son des crieurs. Il y en a un à chaque pont, en masque de coq, une feuille à la main. *Nella Ferrant, servante, en fuite. Cinq cents ducats à qui la livrera au Guet, offerts par la Maison des Sels.*",
-      "Cinq cents ducats. À Bas-Port, c'est une maison avec un étage. C'est dix ans de passeur, sans compter les fuites à bâbord.",
+      "Cinq cents ducats. À Bas-Port, c'est une maison avec un étage. C'est dix ans de passeur, sans compter les fuites à bâbord. C'est aussi le prix auquel beaucoup d'honnêtes gens découvrent qu'ils l'étaient faute d'occasion.",
       { if: { has: "canal:attaque" }, text: "Le crieur ajoute : *Et cent ducats pour le passeur de la Pimprenelle, qui a attaqué la barque de la prison.* Tu repeins le nom de ta barque à la suie avant d'avoir fini ton pain. Cent ducats : tu trouves la somme vexante, à côté des cinq cents." },
       { if: { has: "cache=gouge" }, text: "Chez la Mère Gouge, Nella a dormi. La vieille femme a posté deux neveux au pied de l'échelle, avec des gaffes. « À Bas-Port, dit-elle, on garde les siens. Pour cinq cents ducats, en tout cas. Pour mille, je ne dis pas. » Elle rit, seule." },
       { if: { is: { cache: null } }, text: "Nella a dormi au fond de ta barque, sous la bâche, contre toi. Ce matin, elle a les yeux de quelqu'un qui a compté toute la nuit les gens capables de la vendre." },
@@ -72,7 +72,7 @@ module.exports = {
     fx: { set: { nella: "prison", corentin: "traitre", nella_reprise: "corentin", cache: null }, regard: { corentin: "craintif" } },
     text: [
       "Corentin rit, te tape sur l'épaule, dit que tu t'inquiètes trop. Il te propose d'aller chercher du pain et des harengs pour la petite. Tu y vas.",
-      "Quand tu reviens, à midi passé, la porte de l'entrepôt est ouverte. Le plancher mouillé porte des traces de bottes, la trappe du grenier pend, et la couverture traîne par terre.",
+      "Quand tu reviens, à midi passé, la porte de l'entrepôt est ouverte. Le plancher mouillé porte des traces de bottes, la trappe du grenier pend, et la couverture traîne par terre ; il règne là le silence particulier des pièces où l'on vient de crier.",
       "Une voisine en masque de poule, sur son balcon, te dit ce qu'elle a vu : quatre gardes du Guet, un homme en manteau de la Maison des Sels, et la petite, muette, entre eux. Corentin se tenait sur le seuil. Il regardait ailleurs.",
       "Nella est à la Tour du Guet. Corentin a disparu, avec cinq cents ducats.",
     ],
@@ -119,7 +119,7 @@ module.exports = {
     fx: { meet: "gouge" },
     text: [
       "La Mère Gouge tient séance sur sa table posée sur des tonneaux, à visage nu. Elle dit qu'à soixante-dix ans, la peste la connaît assez bien pour la reconnaître sous n'importe quel masque.",
-      { if: { has: "gouge=allie" }, text: "« Hier soir, deux cents barques sur la digue. Ce soir, trois cents. Demain soir, toutes. » Elle frappe sur le tonneau. « Ils pendront la petite devant tout Bas-Port, ou ils ne la pendront pas. »" },
+      { if: { has: "gouge=allie" }, text: "« Hier soir, deux cents barques sur la digue. Ce soir, trois cents. Demain soir, toutes. » Elle frappe sur le tonneau. « Ils pendront la petite devant tout Bas-Port, ou ils ne la pendront pas. Et je veux voir la mine du bourreau quand il aura nos lanternes plein les yeux ! »" },
       { if: { has: "gouge=prudente" }, text: "« Sans bruit, je t'avais dit. Mais le bruit vient tout seul. Les gens de Bas-Port ont entendu les crieurs. Ils parlent de la digue. »" },
       { if: { is: { gouge: null } }, text: "« Le passeur Ferrant. » Elle t'examine. « Je connaissais ton père. Et ta sœur, je l'ai vue sur le ponton quand elle avait trois mois. L'hiver de la grande passe. » Elle prononce « ta sœur » avec une petite hésitation, comme on enjambe une flaque." },
       { if: { has: "sevan_cache=gouge" }, text: "Elle désigne le plafond d'un coup de menton. « J'ai un médecin du Temple dans mon grenier, ce soir. Bas-Port devient à la mode. »" },
@@ -172,9 +172,9 @@ module.exports = {
   // ---------------------------------------------------------------- the Tour, under a mask
   J2_tour: { act: "II", title: "Sous le masque", place: "tour", ambiance: "chateau",
     text: [
-      "Le jour des masques, la Tour du Guet laisse entrer les familles une heure, à midi. C'est une vieille coutume : on ne refuse pas un visage qu'on ne voit pas. Tu passes la porte en masque de chouette, un panier de pain au bras, derrière une grand-mère qui vient voir son petit-fils voleur de poules.",
+      "Le jour des masques, la Tour du Guet laisse entrer les familles une heure, à midi. C'est une vieille coutume : on ne refuse pas un visage qu'on ne voit pas. Tu passes la porte en masque de chouette, un panier de pain au bras, derrière une grand-mère qui vient voir son petit-fils voleur de poules et qui répète sa semonce dans l'escalier.",
       { if: { has: "jasse_blesse=canal" }, text: "Un garde te regarde un peu trop longtemps, à cause de ta tempe gonflée sous le masque. Puis une barque de vin entre dans la cour, et la barque l'intéresse davantage." },
-      "Nella est dans une cellule du deuxième étage. On te laisse lui parler à travers la grille du judas, un carré de fer large comme deux mains.",
+      "Nella est dans une cellule du deuxième étage, au bout d'un couloir où chaque porte a son judas, et chaque judas l'air d'un œil. On te laisse lui parler à travers la grille, un carré de fer large comme deux mains.",
       { if: { has: "nella_sait=sevan" }, text: "Elle a changé depuis hier. Elle se tient plus droite. « Le médecin est venu. Il m'a dit des choses. Sur elle, et sur moi. » Elle garde le reste pour elle. Elle te regarde à travers la grille comme pour vérifier que tu es toujours son frère." },
       { if: { not: { has: "nella_sait=sevan" } }, text: "« Jasse. » Elle colle son front contre la grille. « J'ai peur de la soupe. J'ai peur de dormir. » Puis, plus bas : « La clef. Tu l'as ? »" },
     ],
@@ -202,7 +202,7 @@ module.exports = {
   // ---------------------------------------------------------------- the secretary
   J2_oriane: { act: "II", title: "Le quai des Saules", place: "saules", ambiance: "ville",
     text: [
-      "La maison au saule est au bout du quai, derrière un mur couvert de lierre. Une servante en masque de colombe t'ouvre la porte du jardin, te toise des pieds à la tête et va chercher sa maîtresse.",
+      "La maison au saule est au bout du quai, derrière un mur couvert de lierre. Une servante en masque de colombe t'ouvre la porte du jardin, te toise des pieds à la tête, fait l'addition, la trouve courte, et va chercher sa maîtresse.",
       "Oriane Valcor descend l'escalier à visage nu. Trente-quatre ans, une robe noire, des cheveux châtains tirés en chignon, des yeux gris qui te détaillent comme une lettre à classer. Le même gris que celui de Nella. Tu le remarques sans savoir pourquoi.",
       { if: { has: "oriane=pacte" }, text: "« Le frère de la servante. » Elle a seulement l'air fatiguée. « Asseyez-vous. J'ai dix minutes. Le Grand Argentier m'attend à midi. »" },
       { if: { has: "oriane=seule" }, text: "« Le frère de la servante. » Elle te fait asseoir dans le jardin, sous le saule. « Je me présente au siège de ma tante, et je n'ai que huit voix. Tout ce qui touche à sa mort me touche. Parlez. »" },
@@ -238,7 +238,7 @@ module.exports = {
     choices: [{ label: "Partir", to: "J2_suite" }] },
   J2_oriane_parle: { act: "II", title: "Ce qu'elle sait", place: "saules",
     text: [
-      { if: { has: "oriane=pacte" }, text: "Elle te dit ce que dit le Conseil : le poison, le sel, la servante qui le portait. Elle le dit d'une voix plate, comme on lit un procès-verbal. Puis elle ajoute, les yeux ailleurs : « Le Grand Argentier tient beaucoup à ce que le coffre reste fermé. J'ignore pourquoi. À votre place, je me le demanderais. »" },
+      { if: { has: "oriane=pacte" }, text: "Elle te dit ce que dit le Conseil : le poison, le sel, la servante qui le portait. Elle le dit d'une voix plate, comme on lit un procès-verbal. Puis elle ajoute, en regardant ses mains : « Le Grand Argentier tient beaucoup à ce que le coffre reste fermé. J'ignore pourquoi. À votre place, je me le demanderais. »" },
       { if: { not: { has: "oriane=pacte" } }, text: "Elle te dit ce qu'elle sait : le carnet de sa tante, *N. — le ruban* ; l'apothicaire de la Maison des Sels, que ta sœur a vu dans la cuisine ; le Grand Argentier, qui a menti au Conseil sur la clef de bronze." },
       "Elle te regarde. « Votre sœur. Depuis quand sert-elle au palais ? »",
       "« Depuis ses quinze ans. La Doyenne l'a fait venir. On ne sait pas pourquoi. »",
@@ -250,7 +250,7 @@ module.exports = {
   J2_temple: { act: "II", title: "La coupole verte", place: "temple", ambiance: "temple",
     fx: { meet: "anselme" },
     text: [
-      "Le Temple de la Marée est le seul endroit d'Escalombre où l'on entre à visage nu le jour des masques. On te fait ôter ta chouette à la porte. Tu attends une heure sous la coupole verte, à regarder l'eau entrer par les bouches de bronze du pavement. Tu en comptes douze, et la marée les remplit dans l'ordre, de l'est vers l'ouest.",
+      "Le Temple de la Marée est le seul endroit d'Escalombre où l'on entre à visage nu le jour des masques. On te fait ôter ta chouette à la porte. Tu attends une heure sous la coupole verte, à regarder l'eau entrer par les bouches de bronze du pavement. Tu en comptes douze, et la marée les remplit dans l'ordre, de l'est vers l'ouest, avec un bruit de gorge ; ceux qui ont bâti ce temple voulaient qu'on y entende la mer avaler.",
       "Le père Anselme te reçoit dans une petite salle aux murs couverts de coquillages. Il est aimable. Il te demande ton nom, ta barque, ta mère. Il sait déjà tout, et il écoute tes réponses comme on vérifie un compte.",
       { if: LIBRE, text: "« Ta sœur est en danger, mon fils. Le Temple a le droit d'asile. Une fois sous la coupole, nul ne la touche, pas même le Guet. Je peux la recevoir cette nuit. »" },
       { if: PRISON, text: "« Ta sœur est en danger, mon fils. Le Temple peut demander au Conseil qu'une accusée soit gardée sous la coupole jusqu'à son jugement, plutôt qu'à la Tour. Le Conseil ne refuse rien au Temple, la veille d'une élection. »" },
@@ -286,7 +286,7 @@ module.exports = {
   J2_morvan: { act: "II", title: "La Maison des Sels", place: "sels", ambiance: "ville",
     fx: { meet: "morvan" },
     text: [
-      "On t'introduit aussitôt. C'est ce qui te fait peur. Un commis en masque de héron te mène jusqu'au cabinet du Grand Argentier, au dernier étage de l'entrepôt de marbre, au-dessus des montagnes de sel gris. Tu montes cent douze marches, et l'odeur de saumure monte avec toi jusqu'à la dernière.",
+      "On t'introduit aussitôt. C'est ce qui te fait peur : un riche qui reçoit un passeur sans le faire attendre a déjà calculé ce qu'il en tirera. Un commis en masque de héron te mène jusqu'au cabinet du Grand Argentier, au dernier étage de l'entrepôt de marbre, au-dessus des montagnes de sel gris. Tu montes cent douze marches, et l'odeur de saumure monte avec toi jusqu'à la dernière.",
       "Chez lui, Hugues Morvan va le visage nu. Il te fait asseoir. Il te sert lui-même un verre de vin, et laisse le sien plein.",
       "« Le passeur Ferrant. Tu as quelque chose à me vendre, je crois. » Il sourit. « Je suis marchand. J'écoute. »",
     ],
@@ -328,7 +328,7 @@ module.exports = {
   J2_fente: { act: "II", title: "Les roseaux du nord", place: "ponton", ambiance: "eau",
     fx: { clue: "voiles" },
     text: [
-      "Au nord de Bas-Port, après les marais salants, la lagune se perd dans les roseaux. Les contrebandiers y tiennent des chemins d'eau que les cartes ignorent. L'un d'eux, la Fente, passe sous les murs de la tour de la Chaîne et rejoint le large en contournant la chaîne. Il faut une barque plate, une nuit sans lune, et de la chance.",
+      "Au nord de Bas-Port, après les marais salants, la lagune se perd dans les roseaux. Les contrebandiers y tiennent des chemins d'eau que les cartes ignorent, étroits et tournants, où la barque frôle des deux bords une muraille de tiges qui chuchotent. L'un d'eux, la Fente, passe sous les murs de la tour de la Chaîne et rejoint le large en contournant la chaîne. Il faut une barque plate, une nuit sans lune, et de la chance.",
       "Tu la remontes dans la *Pimprenelle* jusqu'à voir la mer. Au large mouillent les quarante voiles d'Orcanne. De près, on distingue leurs sabords, tous ouverts. Tu comptes douze sabords sur le plus proche, et tu en déduis que la fête qu'ils viennent saluer sera bruyante.",
       { if: { any: [{ has: "corentin=ami" }, { has: "corentin=repenti" }] }, text: "Corentin connaît la Fente mieux que personne. Il a dit qu'il viendrait, si tu le lui demandais." },
     ],
@@ -347,7 +347,7 @@ module.exports = {
   J2_bal: { act: "II", title: "Le bal de la Maison des Sels", place: "sels", ambiance: "ville",
     fx: { until: 20 },
     text: [
-      "Le bal masqué de la Maison des Sels se donne chaque année dans le grand entrepôt, entre les montagnes de sel gris qu'on a couvertes de draps blancs. Trois cents masques, des musiciens sur une estrade, des lanternes de papier pendues aux poutres. On entre avec un masque et un habit. Tu as un masque de chouette et l'habit de ton père, qui sent la naphtaline et qui te serre aux épaules.",
+      "Le bal masqué de la Maison des Sels se donne chaque année dans le grand entrepôt, entre les montagnes de sel gris qu'on a couvertes de draps blancs ; la Maison danse sur sa marchandise, comme l'avare dîne sur son coffre. Trois cents masques, des musiciens sur une estrade, des lanternes de papier pendues aux poutres. On entre avec un masque et un habit. Tu as un masque de chouette et l'habit de ton père, qui sent la naphtaline et qui te serre aux épaules.",
       { if: { has: "clef3=corentin" }, text: "Tu cherches un renard. Tu en comptes onze. Un seul a des mains de batelier, une barbe rousse qui dépasse du carton, et la façon de se tenir de quelqu'un qui attend qu'on le paie." },
       { if: { not: { has: "clef3=corentin" } }, text: "Tu cherches sans trop savoir quoi. Tu écoutes. Dans un bal masqué, les gens parlent comme s'ils étaient seuls." },
       { if: { has: "oriane=pacte" }, text: "Au fond de la salle, une femme en robe noire et loup de velours parle avec le Grand Argentier. Tu reconnais le chignon : Oriane Valcor." },
@@ -403,7 +403,7 @@ module.exports = {
     choices: [{ label: "Sortir avec lui", fx: { item: "clef_bronze", set: { clef3: "jasse", corentin: "repenti" }, regard: { corentin: "redevable" } }, to: "J2_suite" }] },
   J2_bal_tenture: { act: "II", title: "Derrière la tenture", place: "sels",
     text: [
-      "Derrière la tenture de l'estrade s'ouvre un réduit plein de chaises empilées, qui sent la poussière. De l'autre côté, Hugues Morvan parle avec un homme qui a l'accent d'Orcanne, un accent qui roule les r comme des galets.",
+      "Derrière la tenture de l'estrade s'ouvre un réduit plein de chaises empilées, qui sent la poussière, et où ton propre souffle te paraît faire un bruit de forge. De l'autre côté, Hugues Morvan parle avec un homme qui a l'accent d'Orcanne, un accent qui roule les r comme des galets.",
       "« L'amiral s'impatiente. » « L'amiral attendra demain minuit, comme convenu. Dès que je serai élu, la chaîne descend. Quarante voiles entrent saluer le nouveau Doyen. Après, nous parlerons des péages. » « Et si vous n'êtes pas élu ? » Un silence. Puis Morvan : « Alors la chaîne descendra quand même. Il suffit d'un ordre scellé du Doyen élu. Celle que j'aurai fait élire signera. »",
       "L'homme d'Orcanne rit. « Les femmes signent ce qu'on leur dit, chez vous ? » « Celle-là signera. Elle a un mari qui me doit trois mille ducats. »",
     ],
@@ -419,7 +419,7 @@ module.exports = {
       { if: { all: [LIBRE, { is: { cache: null } }] }, text: "Nella dort au fond de ta barque, sous la bâche, comme hier. Tu veilles, la gaffe en travers des genoux." },
       { if: PRISON, text: "Nella dort à la Tour du Guet. Demain soir, les lanternes." },
       { if: KEY, text: "Tu dors la main sur ta poitrine, sur le ruban." },
-      { if: { has: "jasse:sait_chaine" }, text: "Le sommeil te fuit. Tu penses à quarante voiles et à une chaîne qui descend à minuit." },
+      { if: { has: "jasse:sait_chaine" }, text: "Tu restes éveillé. Tu penses à quarante voiles aux sabords ouverts, et à une chaîne qui descend à minuit, maillon après maillon, dans une eau où personne ne l'entendra." },
     ],
     choices: [FIN] },
 };

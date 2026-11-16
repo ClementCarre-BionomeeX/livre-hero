@@ -15,7 +15,7 @@ module.exports = {
   // ================================================================ act II: three remembrances
   S2V: { act: "II", title: "Il y a dix-neuf ans", souvenir: "Il y a dix-neuf ans",
     text: [
-      "C'est un hiver de grande passe, le plus froid depuis trente ans. La lagune a gelé sur les bords, sur une largeur de dix pas, et les barques restent à quai. On t'a fait venir de nuit, par la porte du jardin, dans une maison du quai des Saules que la Doyenne loue sous un autre nom.",
+      "C'est un hiver de grande passe, le plus froid depuis trente ans. La lagune a gelé sur les bords, sur une largeur de dix pas, et les barques restent à quai ; la nuit, la glace craque sous les fenêtres avec des bruits d'os. On t'a fait venir à la faveur de l'obscurité, par la porte du jardin, dans une maison du quai des Saules que la Doyenne loue sous un autre nom.",
       "Ermesinde Valcor a quarante-trois ans. Elle est couchée dans un lit de location, sous des draps d'emprunt, et elle serre les dents depuis six heures. En arrivant, elle t'a fait jurer le silence, et elle se l'impose d'abord à elle-même : de toute la nuit, elle n'a pas crié une fois.",
       "À l'aube, l'enfant vient. Une fille, petite, bleue, sans souffle. Tu la frottes, tu la retournes, tu lui souffles dans la bouche. Elle crache, elle hurle. Ermesinde rit en pleurant, une seule fois, puis elle tend les bras.",
       "Elle garde l'enfant contre elle une heure. Puis elle te la rend. « Les Ferrant viennent la prendre à midi. Ils ont perdu une petite fille le mois dernier. Ils l'appelleront comme ils voudront. » Elle te regarde. « Toi, tu sais. Jure-moi que tu ne diras rien. »",
@@ -67,7 +67,7 @@ module.exports = {
 
   O2V: { act: "II", title: "Il y a douze ans", souvenir: "Il y a douze ans",
     text: [
-      "C'est ton premier jour au palais. Tu as vingt-deux ans, une robe trop neuve, et trois plumes taillées dans ton écritoire. Ta tante te fait asseoir à la petite table, sous la fenêtre, et commence à dicter, les yeux sur le canal.",
+      "C'est ton premier jour au palais. Tu as vingt-deux ans, une robe trop neuve, et trois plumes taillées dans ton écritoire. Ta tante te fait asseoir à la petite table, sous la fenêtre, et commence à dicter, tournée vers le canal.",
       "Une lettre au doge de Lisse. Une lettre au Grand Argentier de l'époque, le père de Morvan. Une lettre à une veuve de Bas-Port qui réclame la barque de son mari. Ermesinde dicte les trois du même ton. Tu écris vite. Ta main tremble à la troisième.",
       "À midi, elle se tait, prend tes feuilles et les lit. Elle corrige une virgule. Puis elle relève les yeux.",
       "« Pourquoi veux-tu ce poste, Oriane ? Tu pourrais épouser n'importe qui. Pourquoi venir écrire mes lettres ? »",
@@ -94,9 +94,9 @@ module.exports = {
   // ================================================================ act III: three more remembrances, then the third day
   S3M: { act: "III", title: "La Saint-Martin", souvenir: "À la Saint-Martin",
     text: [
-      "C'est un soir de novembre, il y a quatre mois. Il pleut sur la lagune depuis trois jours. Ermesinde Valcor t'a fait appeler pour une toux, et la toux est un prétexte : elle t'attend assise, habillée, devant le feu de son cabinet, avec deux verres de vin chaud.",
+      "C'est un soir de novembre, il y a quatre mois. Il pleut sur la lagune depuis trois jours, d'une pluie droite et grise qui efface les îles une à une. Ermesinde Valcor t'a fait appeler pour une toux, et la toux est un prétexte : elle t'attend assise, habillée, devant le feu de son cabinet, avec deux verres de vin chaud.",
       "Elle parle d'abord des comptes de l'hospice, des toits du Temple qui fuient, du prix du bois. Puis elle sort de sa manche une clef de fer noir, longue comme la main, à l'anneau usé par cent ans de doigts. Elle la pose sur la table, entre les deux verres.",
-      "« La clef du Temple. Elle dormait dans le tabernacle de la chapelle depuis la fondation. Mon sacristain me l'a apportée ce matin. Le père Anselme s'en apercevra dimanche. »",
+      "« La clef du Temple. Elle dormait dans le tabernacle de la chapelle depuis la fondation. Mon sacristain me l'a apportée ce matin. Le père Anselme s'en apercevra dimanche ; cela lui laisse la semaine pour mûrir son indignation, il les préfère faites à point. »",
       "Elle pousse la clef vers toi, du bout de l'index. « Tu la garderas. Et à partir de ce soir, c'est toi qui m'entendras en confession. J'ai des choses à dire, et je veux les dire à quelqu'un qui sait se taire. »",
     ],
     choices: [
@@ -175,7 +175,7 @@ module.exports = {
   S3V: { act: "III", title: "Le troisième jour", ambiance: "eau",
     fx: { until: 9 },
     text: [
-      "Le troisième jour des Hautes-Eaux, la marée monte jusqu'à midi, plus haut que de toute l'année. On l'entend partout : un clapotis sous les portes, dans les caves, dans les escaliers des maisons basses.",
+      "Le troisième jour des Hautes-Eaux, la marée monte jusqu'à midi, plus haut que de toute l'année. On l'entend partout : un clapotis sous les portes, dans les caves, dans les escaliers des maisons basses ; la ville entière a ce bruit de bouche, patient, d'une chose qui goûte ce qu'elle va prendre.",
       { if: SV_TEMPLE, text: "Dans ta cellule du Temple, Gildas t'apporte le pain du matin. Il reste sur le seuil, gêné. « Maître. Mon grand-père est en bas, dans le cloître. On l'a porté jusqu'ici en barque. Il demande le médecin du Temple. Le Grand Prêtre a dit oui, pour une heure. »" },
       { if: SV_TOUR, text: "Dans ta cellule de la Tour, la capitaine Dorne vient elle-même ouvrir. « Le père de mon gardien de nuit se meurt au rez-de-chaussée. Les médecins de la ville sont tous au palais. Vous êtes le seul que j'ai sous la main. » Elle ajoute : « Sous la main, c'est le mot. »" },
       { if: SV_GOUGE, text: "Dans le grenier de l'Ancre Basse, la Mère Gouge te réveille à l'aube. « Mon cousin Anatole. Il étouffe depuis trois jours. Il te demande. Tout Bas-Port sait que tu es là, médecin. Ils savent aussi ce qu'on dit de toi. »" },
@@ -270,7 +270,7 @@ module.exports = {
   J3V: { act: "III", title: "La grande marée", place: "basport", ambiance: "eau",
     fx: { until: 8 },
     text: [
-      "Le troisième jour, la marée monte à Bas-Port jusqu'au premier étage. Les gens vivent sur les toits, avec leurs poules et leurs matelas. On se passe le pain d'une fenêtre à l'autre au bout d'une gaffe. Les enfants pêchent dans les cuisines, et prennent des gobies entre les pieds des tables.",
+      "Le troisième jour, la marée monte à Bas-Port jusqu'au premier étage. Les gens vivent sur les toits, avec leurs poules et leurs matelas. On se passe le pain d'une fenêtre à l'autre au bout d'une gaffe. Les enfants pêchent dans les cuisines, et prennent des gobies entre les pieds des tables. Bas-Port est le seul quartier de la lagune où l'on monte se coucher en bateau, et il a la faiblesse de s'en vanter.",
       "Mo te trouve à l'aube, assis dans ta barque, à regarder l'eau monter sur la façade de l'Ancre Basse. Tu as compté les rangs de briques : elle a gagné quatre rangs depuis minuit.",
       { if: { has: "jasse_souvenir=promesse" }, text: "Tu as promis à ta mère de veiller sur Nella. Ce soir, tu tiendras cette promesse ou tu la perdras. D'ici là, la journée est longue, et Bas-Port a besoin de bras." },
       { if: { has: "jasse_souvenir=question" }, text: "Ta mère t'a dit de demander à la vieille de l'Ancre le jour où l'on voudrait te prendre Nella. Ce jour-là est passé depuis trois jours." },
@@ -319,7 +319,7 @@ module.exports = {
     fx: { clock: { j3v: 1 }, flag: "jasse:maison3" },
     text: [
       "La maison où tu as grandi est vide depuis la mort de ta mère. Tu as été incapable de la vendre comme d'y revenir. La porte d'en bas a lâché cette nuit, et la marée est entrée jusqu'à la deuxième marche de l'escalier.",
-      "Tu entres en barque dans la cuisine. Les chaises flottent. Une poupée de chiffon tourne sur l'eau : celle de Nella. Le coffre de ton père, celui qu'il tenait fermé, flotte aussi, entre deux eaux, le couvercle entrouvert.",
+      "Tu entres en barque dans la cuisine. Les chaises flottent, lentes, tournées les unes vers les autres comme pour une veillée. Une poupée de chiffon tourne sur l'eau : celle de Nella. Le coffre de ton père, celui qu'il tenait fermé, flotte aussi, entre deux eaux, le couvercle entrouvert.",
     ],
     choices: [
       { label: "Repêcher le coffre et l'ouvrir", to: "J3V_coffre" },
@@ -342,10 +342,10 @@ module.exports = {
   J3V_tombe: { act: "III", title: "Le cimetière des Noyés", place: "basport", ambiance: "eau",
     fx: { clock: { j3v: 1 }, flag: "jasse:tombe", meet: "gouge" },
     text: [
-      "Le cimetière des Noyés est une île basse, plantée de cyprès, où l'on enterre ceux que la lagune a pris. Ce matin, la marée couvre les tombes ; seules dépassent les croix, et les gens viennent en barque prier au-dessus de l'eau.",
+      "Le cimetière des Noyés est une île basse, plantée de cyprès, où l'on enterre ceux que la lagune a pris. Ce matin, la marée couvre les tombes ; seules dépassent les croix, et les gens viennent en barque prier au-dessus de l'eau, penchés sur leur reflet, à l'aplomb de leurs morts.",
       "La croix de ta mère est au bout de l'île, près du mur. Une barque est déjà amarrée à côté. Dedans, la Mère Gouge, seule, un bouquet de chardons bleus sur les genoux.",
       { if: { has: "gouge:sait_nella" }, text: "Sa prière va à la croix voisine, une vieille croix de bois sans nom, à demi pourrie. Elle te voit. « Tomas. Mon fils. Ils l'ont mis là, à côté de ta mère, l'hiver où il s'est noyé. Elle venait le voir, elle aussi. Je n'avais jamais compris pourquoi. »" },
-      { if: { not: { has: "gouge:sait_nella" } }, text: "Sa prière va à la croix voisine, une vieille croix de bois sans nom. « Mon fils, dit-elle, le dos tourné. Tomas. Ta mère venait le voir, chaque hiver. Elle disait qu'elle lui devait une visite. Je n'ai jamais su pourquoi. »" },
+      { if: { not: { has: "gouge:sait_nella" } }, text: "Sa prière va à la croix voisine, une vieille croix de bois sans nom. « Mon fils, dit-elle sans se retourner. Tomas. Ta mère venait le voir, chaque hiver. Elle disait qu'elle lui devait une visite. Je n'ai jamais su pourquoi. »" },
     ],
     choices: [
       { label: "Lui dire ce que tu sais de Nella", if: { clue: "eau" }, why: "Tu ne sais rien qui la concerne.", fx: { set: { gouge: "allie" }, flag: "gouge:sait_nella", regard: { gouge: "allie" } }, to: "J3V_tombe_dit", big: true },
@@ -394,7 +394,7 @@ module.exports = {
   O3V_morvan: { act: "III", title: "Le Grand Argentier", place: "palais", ambiance: "chateau",
     fx: { meet: "morvan", flag: "oriane:veille_morvan" },
     text: [
-      "Morvan s'agenouille au pied du lit, longtemps. Il prie, ou il fait semblant, avec un égal talent. Puis il se relève, s'approche de toi et parle à voix basse, les yeux sur la morte.",
+      "Morvan s'agenouille au pied du lit, longtemps. Il prie, ou il fait semblant, avec un égal talent. Puis il se relève, s'approche de toi et parle à voix basse, tourné vers la morte.",
       "« Elle était la plus grande adversaire que j'aie eue. Je l'admirais. Je voulais que vous le sachiez, avant ce soir. »",
       { if: { has: "oriane=pacte" }, text: "« Ce soir, vous ferez ce que nous avons dit. Et dans dix ans, quelqu'un dira de vous ce que je dis d'elle. »" },
       { if: { not: { has: "oriane=pacte" } }, text: "« Ce soir, vous allez perdre. Je ne m'en réjouis pas. Je vous aurais aimée à mes côtés. »" },
@@ -406,7 +406,7 @@ module.exports = {
     ] },
   O3V_morvan_ongles: { act: "III", title: "Les ongles", place: "palais", ambiance: "chateau",
     text: [
-      "Morvan garde les yeux sur les mains. Il sourit, très légèrement. « Les morts ont souvent les ongles pâles, madame. Votre médecin vous l'expliquera. »",
+      "Morvan continue de regarder les mains. Il sourit, très légèrement. « Les morts ont souvent les ongles pâles, madame. Votre médecin vous l'expliquera. »",
       "Il s'en va. Le garde du Guet le plus proche, un jeune sergent, a tout entendu. Il te regarde. Il note quelque chose sur sa tablette, en cachette.",
     ],
     choices: [{ label: "Reprendre ta veille", to: "O3V_discours" }] },
