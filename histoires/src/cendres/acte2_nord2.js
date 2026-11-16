@@ -53,7 +53,7 @@ module.exports = {
 
   II_N2_lac: P({ title: "Le lac noir", place: null,
     text: [
-      "Le lac est au fond d'un cirque de falaises, rond comme un œil, large de quatre cents pas d'une rive à l'autre. Tout autour, la neige. Lui reste liquide en toute saison. Il est noir, d'un noir mat, et l'air au-dessus de lui est immobile.",
+      "Le lac est au fond d'un cirque de falaises, rond comme un œil, large de quatre cents pas d'une rive à l'autre. Tout autour, la neige. Lui reste liquide en toute saison. Il est noir, d'un noir mat qui boit le ciel au lieu de le rendre ; l'air, au-dessus, est immobile, et l'on baisse la voix en approchant, comme au chevet de quelqu'un.",
       "Au-dessus, dans la falaise, à mi-hauteur, une fente sombre où tournent des corbeaux. La grotte.",
       "Quand tu te penches, l'eau te renvoie une image : un autre visage que le tien.",
       { if: { souv: "corbe:frere" }, text: "C'est Bran. Bran à quinze ans, qui rit, avec une dent en moins, et qui te tend un oisillon tombé du nid." },
@@ -145,7 +145,7 @@ module.exports = {
 
   II_N2_fond: P({ title: "Le fond", place: "lacnoir",
     text: [
-      "Le boyau descend en pente raide, de plus en plus froid. Les parois se couvrent de givre, puis de glace. Au bout, une salle ronde, et au fond de la salle, un mur de glace bleue, épais, transparent comme de l'eau.",
+      "Le boyau descend en pente raide, et le froid y croît à chaque pas, régulièrement, comme une chose qu'on mesure. Les parois se couvrent de givre, puis de glace ; ton haleine te précède et va se poser sur la pierre. Au bout, une salle ronde, et au fond de la salle, un mur de glace bleue, épais, transparent comme de l'eau.",
       { if: { has: "nord:corbeau_guide" }, text: "Le vieux corbeau est posé sur une pierre devant le mur. Il donne un coup de bec dans la glace, puis te regarde." },
       "Dans la glace, assise en tailleur, il y a une vieille femme. Les yeux ouverts. Les mains sur les genoux, paumes en l'air. Dans ses mains, un tambour plat, en peau, couvert de signes.",
       { if: { souv: "corbe:aieule" }, text: "Tu la connais. C'est elle. Les rides, la bouche sans dents, le collier de vertèbres de truite. L'aïeule. On t'a dit, quand tu avais neuf ans, qu'elle était partie mourir dans la montagne, comme font les vieux. Elle est venue ici." },

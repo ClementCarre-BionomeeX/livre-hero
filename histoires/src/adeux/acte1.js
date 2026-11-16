@@ -6,7 +6,7 @@ var PLI = { has: "role:pli" }, ROUTE = { has: "role:route" };
 module.exports = {
   D_aube: { act: "I", title: "Vérenne, avant le jour", place: "verenne",
     text: [
-      "La cloche de Saint-Vaast sonne cinq heures sur Vérenne. Il gèle. Les toits d'ardoise sont blancs, les fontaines portent des barbes de glace longues d'un empan, et le marché aux sels, sous les fenêtres de la chancellerie, est vide depuis trois ans : il y pousse de l'herbe entre les pavés, et l'herbe a gelé aussi.",
+      "La cloche de Saint-Vaast sonne cinq heures sur Vérenne. Il gèle. Les toits d'ardoise sont blancs, les fontaines portent des barbes de glace longues d'un empan, et le marché aux sels, sous les fenêtres de la chancellerie, est vide depuis trois ans : il y pousse de l'herbe entre les pavés, et l'herbe a gelé aussi. La chancellerie, elle, a de la lumière à tous les étages ; la guerre, qui vide les marchés, donne beaucoup à écrire.",
       "Ce matin, deux personnes vont quitter la ville par la porte du Nord avec la réponse de la duchesse. L'une portera le pli. L'autre connaît la route du col de l'Ourse, la seule qui mène au lac de Brume en cinq jours.",
       "Laquelle es-tu ?",
     ],
@@ -19,7 +19,7 @@ module.exports = {
   A_pli: { act: "I", title: "L'antichambre", place: "verenne",
     fx: { secret: "p_pere" },
     text: [
-      "Tu as passé la nuit sur un banc de chêne, dans l'antichambre du chancelier, ton manteau roulé sous la tête. Hier soir, le clerc de garde t'a dit : « Maître Oriel te recevra avant l'aube. Tu restes ici. »",
+      "Tu as passé la nuit sur un banc de chêne, dans l'antichambre du chancelier, ton manteau roulé sous la tête. Hier soir, le clerc de garde t'a dit : « Maître Oriel te recevra avant l'aube. Tu restes ici. » Les antichambres servent à cela : on y pose les gens comme on pose un manteau, pour les reprendre quand on en a l'usage.",
       "Tu es courrier de la chancellerie depuis quatre ans. Tu as porté des lettres à Lunel, à Saint-Aubrac, aux comtes de la côte, et tu as appris à dormir n'importe où, la main sur la sacoche. Brumefond, jamais : depuis la guerre des salines, les courriers de Vérenne s'arrêtent à la frontière.",
       "Ce pli-là, tu l'as demandé. Deux fois : au clerc, puis au secrétaire du chancelier. Ton père, Aymon Cabrol, est mort à Brumefond il y a douze ans, sur la place du Marché-aux-Sels, au bout d'une corde. On l'a pendu comme espion de Vérenne. Tu avais neuf ans. Tu veux voir cette place.",
       { if: { has: "passe:couteau" }, text: "Ta main trouve dans ta botte le couteau à manche de corne. Ta mère te l'a donné le soir où la nouvelle est arrivée de Brumefond, en disant : « Il était à lui. »" },
@@ -32,7 +32,7 @@ module.exports = {
     fx: { item: "pli", meet: "oriel" },
     text: [
       "Le cabinet sent la cire chaude et le bois de la cheminée. Sur la table, un seul objet : un pli plié en quatre, fermé de cire rouge au sceau de la chancellerie, la tour et les trois clés.",
-      "Maître Oriel Daumas a soixante ans, des mains de clerc tachées d'encre jusqu'à la deuxième phalange, et une voix si basse qu'il faut tendre l'oreille. « La réponse de Sa Grâce à l'Assemblée des Ligues. Tu la remettras à la présidente Aude Lorge, en séance, devant l'Assemblée réunie. Pas avant l'ouverture de la séance. Pas à un autre. La séance du vote se tient au soir de la nouvelle lune, dans cinq jours. »",
+      "Maître Oriel Daumas a soixante ans, des mains de clerc tachées d'encre jusqu'à la deuxième phalange, et une voix si basse qu'il faut tendre l'oreille : la voix d'un homme qui a perdu depuis longtemps l'habitude d'être interrompu. « La réponse de Sa Grâce à l'Assemblée des Ligues. Tu la remettras à la présidente Aude Lorge, en séance, devant l'Assemblée réunie. Pas avant l'ouverture de la séance. Pas à un autre. La séance du vote se tient au soir de la nouvelle lune, dans cinq jours. »",
       "Il pousse le pli vers toi du bout de deux doigts. « Ton guide t'attend dans la cour. Un muletier de Sorgue, qui connaît le col en hiver. Tu dormiras à Pont-Gelé ce soir, à Sorgue-le-Haut demain. »",
       "Puis il te regarde, un temps de trop. « Cabrol. J'ai connu ton père. Il servait bien. »",
     ],
@@ -73,7 +73,7 @@ module.exports = {
   A_souvenir: { title: "Minuit, dans l'antichambre", souvenir: "Cette nuit, vers minuit", back: true,
     fx: { secret: "p_vu" },
     text: [
-      "Le sommeil tarde. Le banc est dur, la chandelle du couloir s'est éteinte, et sous la porte du cabinet passe un trait de lumière jaune.",
+      "Le sommeil tarde. Le banc est dur, la chandelle du couloir s'est éteinte, et sous la porte du cabinet passe un trait de lumière jaune. Dans une maison où tout dort, une lumière à minuit a l'air d'une confidence ; tu la regardes un long moment, avec le sentiment de l'écouter.",
       "La porte est entrouverte d'un doigt. Par la fente, tu vois le chancelier assis à sa table, en chemise, les manches relevées. Il écrit lentement, en s'arrêtant à chaque ligne pour regarder à côté de lui : le geste d'un homme qui recopie. Près de son coude, il y a une autre lettre, fermée, posée à plat.",
       "Il termine, il sèche l'encre au sable, il plie, il scelle. Puis il prend la lettre fermée, la tourne une fois entre ses doigts, et l'approche de la chandelle. Le papier se recroqueville. Il le tient jusqu'au bout, jusqu'à ce que la flamme lui lèche les doigts, et il laisse tomber les cendres dans un bassin de cuivre.",
     ],
@@ -99,7 +99,7 @@ module.exports = {
   A_route: { act: "I", title: "À la Corne", place: "verenne",
     fx: { secret: "g_hiver", item: "corde" },
     text: [
-      "La Corne est une auberge de rouliers, en bas de la ville, près de la porte du Nord. On y sert la soupe à cinq heures et le vin à toute heure. Tu manges ta soupe près du feu. Dans la cour, ta mule Brunette mâche le foin que tu as payé hier soir, et ta corde de chanvre est roulée sur le bât, comme toujours.",
+      "La Corne est une auberge de rouliers, en bas de la ville, près de la porte du Nord. On y sert la soupe à cinq heures et le vin à toute heure, ce qui dit assez l'ordre de ses préférences. Tu manges ta soupe près du feu. Dans la cour, ta mule Brunette mâche le foin que tu as payé hier soir, et ta corde de chanvre est roulée sur le bât, comme toujours.",
       "Tu es de Sorgue-le-Haut, au pied du col de l'Ourse. Depuis onze ans tu fais passer le sel et la laine de l'autre côté des Dents, avec des mules. Depuis trois ans, le sel a cessé de passer : la guerre a fermé les salines, et les muletiers de Sorgue vendent leurs bêtes une à une.",
       "Hier, un clerc de la chancellerie est venu à la Corne chercher un guide pour Brumefond. Dix écus. Il t'a demandé : « Tu as passé l'Ourse en hiver ? » Tu as répondu oui. Tu l'as passé onze fois, toutes entre la Saint-Jean et la Saint-Michel, quand la neige reste dans les creux.",
       { if: { has: "passe:couteau" }, text: "Tu coupes ton pain avec le couteau à manche de corne de ta mère. Elle a fait ce chemin avant toi, avec les mules de ton grand-père." },
@@ -154,7 +154,7 @@ module.exports = {
     ] },
   A_brunette_achat: { act: "I", title: "Des griffes de fer", place: "verenne",
     text: [
-      "Les crampons sont de bon fer de Lunel, avec des lanières neuves. Le roulier te les vend en te regardant de travers. « Pour l'Ourse ? En cette saison ? » Tu lui dis que oui. Il compte tes pièces deux fois.",
+      "Les crampons sont de bon fer de Lunel, avec des lanières neuves. Le roulier te les vend en te regardant de travers. « Pour l'Ourse ? En cette saison ? » Tu lui dis que oui. Il compte tes pièces deux fois, en homme qui doute de revoir la pratique.",
     ],
     choices: [{ back: "A_brunette" }] },
   A_brunette_onguent: { act: "I", title: "Graisse de marmotte", place: "verenne",
@@ -166,7 +166,7 @@ module.exports = {
   // ---------------------------------------------------------------- together
   C_cour: { act: "I", title: "La cour de la chancellerie", place: "verenne", charniere: true,
     text: [
-      "Le soleil est levé. La cour de la chancellerie est pavée de gris, avec une fontaine au milieu, prise dans sa glace, et un clerc frileux qui tient un registre contre sa poitrine.",
+      "Le soleil est levé. La cour de la chancellerie est pavée de gris, avec une fontaine au milieu, prise dans sa glace, et un clerc frileux qui serre un registre contre sa poitrine, moins pour le lire que pour s'en couvrir.",
       { if: PLI, text: "Ton guide est là, près de la fontaine, avec une mule baie chargée jusqu'aux oreilles : {autre}, de Sorgue-le-Haut. Un manteau de berger, des bottes ressemelées au moins deux fois, des mains marquées en travers des paumes par les cordes. {autre} te salue d'un signe de tête et regarde ta sacoche avant de regarder ton visage." },
       { if: ROUTE, text: "Le courrier descend l'escalier de la chancellerie : {autre}. Un manteau de drap bleu aux armes de Vérenne, une sacoche de cuir en bandoulière, et sous la chemise, à la façon dont la main y revient, l'étui du pli. {autre} te regarde, puis regarde Brunette, et a l'air de se demander qui, de la mule ou de toi, connaît le chemin." },
       "Le clerc lit son registre à voix haute, sans lever les yeux : « Départ ce jour, au lever du soleil. Pont-Gelé ce soir, Sorgue-le-Haut demain, le col de l'Ourse le troisième jour, Brumefond le cinquième au matin. Séance du vote le cinquième au soir. » Il ferme le registre. « Que Dieu vous garde du vent. »",
@@ -218,7 +218,7 @@ module.exports = {
     choices: [{ label: "Entrer au relais", to: "C_relais" }] },
   C_relais: { act: "I", title: "Le relais de Pont-Gelé", place: "pontgele", hub: true, takes: "evening",
     text: [
-      { first: true, text: "Le relais est une maison basse au bord du torrent, avec une écurie plus grande que la maison et, peint sur la porte, le cor de chasse des postes de la duchesse. Le maître de poste est un vieil homme à barbe blanche qui s'appelle le père Tiburce et qui compte tout : les chevaux, les voyageurs, les bûches." },
+      { first: true, text: "Le relais est une maison basse au bord du torrent, avec une écurie plus grande que la maison et, peint sur la porte, le cor de chasse des postes de la duchesse. Le maître de poste est un vieil homme à barbe blanche qui s'appelle le père Tiburce et qui compte tout : les chevaux, les voyageurs, les bûches, et sans doute les étoiles, les soirs où il n'a rien d'autre." },
       { first: true, text: "Dans l'écurie, entre deux chevaux de poste, il y a un grand cheval noir sous une housse verte." },
       { again: true, text: "La salle du relais est chaude. Le père Tiburce compte ses bûches près du feu." },
     ],

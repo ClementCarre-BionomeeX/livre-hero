@@ -1219,10 +1219,10 @@
     }
    },
    "text": [
-    "On a frappé à ta porte de l'hospice à une heure et demie. Sur le seuil, un valet du palais, la livrée trempée jusqu'aux genoux : la marée monte déjà dans les rues basses, et il a pris le chemin de Bas-Port au pas de course. Il a le souffle d'un homme qui a monté soixante marches et l'air de quelqu'un qui en redescendra autant. « La Doyenne vous demande, maître Aldric. Vous seul. »",
-    "Tu as pris ta sacoche, ton manteau et la barque du Temple. La lagune était noire et lisse comme une ardoise mouillée. Au loin, sur les Passes, les fanaux de la flotte d'Orcanne traçaient une ligne de points jaunes. Tu en as compté une quarantaine avant que le palais te les cache, posés sur la mer comme les lampes d'une rue.",
-    "Maintenant tu montes le petit escalier de service, celui qui sent la cire et le pain. Tu as cinquante et un ans, des genoux qui le font savoir à chaque marche, et tu soignes Ermesinde Valcor depuis onze ans. Depuis la Saint-Martin, tu la confesses aussi. Elle a choisi un médecin plutôt qu'un prêtre pour cet office, et elle a donné sa raison : « Toi, au moins, tu sais ce qu'est un corps. »",
-    "La porte de la chambre est entrouverte. Une seule chandelle brûle. La Doyenne est assise dans son lit, le dos calé contre trois oreillers, les mains posées à plat sur le drap comme sur une table de séance."
+    "On a frappé à ta porte de l'hospice à une heure et demie. Sur le seuil, un valet du palais, la livrée trempée jusqu'aux genoux : la marée monte déjà dans les rues basses, et il a pris le chemin de Bas-Port au pas de course. Il a le souffle d'un homme qui a monté soixante marches et l'air de quelqu'un qui en redescendra autant. « La Doyenne vous demande, maître Aldric. Vous seul. » On réveille un médecin à cette heure pour deux sortes de malades, ceux qui vont mourir et ceux qui paient bien ; la Doyenne d'Escalombre a toujours eu le privilège d'appartenir aux deux.",
+    "Tu as pris ta sacoche, ton manteau et la barque du Temple. La lagune était noire et lisse comme une ardoise mouillée ; la rame y entrait sans bruit, et l'eau se refermait sur elle avec la discrétion d'une chose qui garde ce qu'on lui confie. Au loin, sur les Passes, les fanaux de la flotte d'Orcanne traçaient une ligne de points jaunes. Tu en as compté une quarantaine avant que le palais te les cache, posés sur la mer comme les lampes d'une rue ; et tu as songé qu'une rue capable de lever l'ancre fait un voisinage inquiétant.",
+    "Maintenant tu montes le petit escalier de service, celui qui sent la cire et le pain. Tu as cinquante et un ans, des genoux qui en informent chaque marche, et tu soignes Ermesinde Valcor depuis onze ans. Depuis la Saint-Martin, tu la confesses aussi. Elle a choisi un médecin plutôt qu'un prêtre pour cet office, au grand scandale des sacristies, et elle a donné sa raison avec sa brutalité ordinaire : « Toi, au moins, tu sais ce qu'est un corps. »",
+    "La porte de la chambre est entrouverte. Une seule chandelle y brûle, et sa flamme abandonne aux angles de la pièce toute l'ombre qu'ils réclament. La Doyenne est assise dans son lit, le dos calé contre trois oreillers, les mains posées à plat sur le drap comme sur une table de séance."
    ],
    "choices": [
     {
@@ -1240,10 +1240,10 @@
     "meet": "ermesinde"
    },
    "text": [
-    "« Ferme la porte. » Sa voix est restée la même, une voix de séance, faite pour porter jusqu'au fond de la salle du Conseil. Le reste d'elle a fondu depuis l'automne : les joues, les épaules, et les cheveux qu'on ramasse chaque matin par poignées sur l'oreiller.",
+    "« Ferme la porte. » Sa voix est restée la même, une voix de séance, faite pour porter jusqu'au fond de la salle du Conseil et pour y réveiller les dormeurs. Le reste d'elle a fondu depuis l'automne : les joues, les épaules, et les cheveux qu'on ramasse chaque matin par poignées sur l'oreiller.",
     "« Approche la chandelle. Regarde mes mains. »",
     "Tu prends ses mains. Elles sont froides et légères comme des gants vides. Une strie blanche barre chaque ongle, nette, à la même hauteur sur les dix doigts, comme un trait tiré à la règle. Tu as vu ce trait une seule fois, à l'hospice, sur un teinturier qui maniait l'orpiment. Le teinturier est mort en trois semaines. Un ongle pousse d'environ une ligne par mois ; à la distance où courent ces stries, le mal date de l'automne.",
-    "« Tu l'as vu il y a dix jours, dit-elle. Tu n'as rien dit. Moi non plus. On est deux vieux lâches. » Elle sourit. « On me sale, Sévan. Depuis l'automne. Je sais qui, je crois savoir comment, et je n'ai pas de preuve qu'un Conseil acceptera. J'ai mis ce que je sais dans le coffre. »",
+    "« Tu l'as vu il y a dix jours, dit-elle. Tu n'as rien dit. Moi non plus. Deux vieux lâches dans la même chambre : c'est beaucoup, même pour un palais. » Elle sourit. « On me sale, Sévan. Depuis l'automne. Je sais qui, je crois savoir comment, et je n'ai pas de preuve qu'un Conseil acceptera. Tu connais le Conseil : il lui faut dix preuves pour condamner un riche et une rumeur pour l'absoudre. J'ai mis ce que je sais dans le coffre. »",
     "Elle serre tes doigts. « Je n'ai plus que des semaines, et ce seront de mauvaises semaines. Je ne veux pas les leur donner. Tu as du lait de pavot dans ta sacoche. Prépare-le. Assez. »"
    ],
    "choices": [
@@ -1269,11 +1269,11 @@
    "title": "Le lait de pavot",
    "place": "palais",
    "text": [
-    "Tu poses la sacoche sur la table de nuit. Tes mains font ce qu'elles savent faire : le gobelet d'étain, l'eau tiède du broc, la fiole brune, le compte des gouttes. Tu comptes à voix basse, comme à l'hospice. À vingt, d'ordinaire, tu t'arrêtes. Ce soir, tu vas jusqu'à quatre-vingts, et ta voix reste égale du premier chiffre au dernier.",
+    "Tu poses la sacoche sur la table de nuit. Tes mains font ce qu'elles savent faire : le gobelet d'étain, l'eau tiède du broc, la fiole brune, le compte des gouttes. Tu comptes à voix basse, comme à l'hospice. À vingt, d'ordinaire, tu t'arrêtes. Ce soir, tu vas jusqu'à quatre-vingts ; et ce qui t'effraie, dans cette chambre où la chandelle seule te regarde faire, c'est que ta voix reste égale du premier chiffre au dernier.",
     "Elle boit lentement, en grimaçant. « C'est amer. Tu aurais pu y mettre du miel. » Puis elle se laisse aller contre les oreillers.",
     "« Écoute bien, maintenant, pendant que j'ai encore ma tête. Le coffre de la Chambre des Sceaux. Trois serrures. La clef d'argent est à Oriane. La clef de fer, tu l'as : je te l'ai donnée à toi, et le père Anselme ne me le pardonnera pas. La clef de bronze, je l'ai confiée à quelqu'un qui ne sait pas ce qu'elle ouvre. Le coffre doit s'ouvrir devant le Conseil, avant les lanternes. Avec ses trois clefs. Un coffre forcé ne vaut rien devant la loi. »",
     "Ses yeux se ferment, se rouvrent. « Ce que je t'ai dit en confession, à la Saint-Martin, tu le gardes. Jusqu'au coffre. Après, fais ce que tu crois juste. » Puis, plus bas : « Elle ne sait rien. Protège-la. »",
-    "Elle s'endort vers trois heures. Tu gardes sa main dans la tienne et tu comptes son souffle, par habitude. Douze par minute, puis huit, puis quatre. Le souffle s'espace, s'arrête, reprend, s'arrête. À quatre heures moins le quart, il ne reprend plus."
+    "Elle s'endort vers trois heures. Tu gardes sa main dans la tienne et tu comptes son souffle, par habitude. Douze par minute, puis huit, puis quatre. Le souffle s'espace, s'arrête, reprend, s'arrête ; entre deux reprises le silence de la chambre s'allonge, et tu l'écoutes comme on écoute un pas dans un escalier. À quatre heures moins le quart, le souffle ne reprend plus."
    ],
    "choices": [
     {
@@ -1299,7 +1299,7 @@
     "Elle te regarde longtemps. « Alors reste. Assieds-toi là. Je n'aime pas la nuit toute seule. »",
     "Tu t'assieds dans le fauteuil. Elle parle, et elle parle en Doyenne, avec ordre, point par point. Le coffre de la Chambre des Sceaux et ses trois serrures. La clef d'argent d'Oriane. La clef de fer, qu'elle t'a donnée à toi au lieu du Temple, « et Anselme ne me le pardonnera pas ». La clef de bronze, « confiée à quelqu'un qui ne sait pas ce qu'elle ouvre ». Le coffre ouvert devant le Conseil, avant les lanternes, avec ses trois clefs, « parce qu'un coffre forcé ne vaut rien devant la loi ».",
     "« Ce que je t'ai dit à la Saint-Martin, tu le gardes jusqu'au coffre. Elle ne sait rien. Protège-la. »",
-    "Elle se tait. Tu lui donnes les vingt gouttes. La chandelle baisse d'un pouce. La chaleur de la chambre, la fatigue d'une journée commencée à cinq heures, le bruit régulier de la marée contre le quai : tu fermes les yeux une minute.",
+    "Elle se tait. Tu lui donnes les vingt gouttes. La chandelle baisse d'un pouce. La chaleur de la chambre, la fatigue d'une journée commencée à cinq heures, le bruit de la marée contre le quai, régulier comme une berceuse que personne n'a demandée : tu fermes les yeux une minute.",
     "Quand tu les rouvres, la fenêtre est grise et la chandelle est morte. Ta sacoche est ouverte sur la table de nuit. La fiole brune est vide, à côté du gobelet. Ermesinde Valcor est morte, les mains croisées sur le drap. Sur l'ardoise où elle notait ses rendez-vous, une écriture descend en travers : *Pardonne-moi d'avoir fouillé ta sacoche.*"
    ],
    "choices": [
@@ -1325,7 +1325,7 @@
      },
      "text": "L'ardoise, et ses sept mots en travers."
     },
-    "Le règlement du Temple est clair. Le médecin qui constate une mort décrit ce qu'il a trouvé et ce qu'il a fait. Ce que tu as trouvé, tu le sais. Pour ce que tu as fait cette nuit, le règlement garde le silence, et toi aussi, pour l'instant."
+    "Le règlement du Temple est clair, comme tous les règlements rédigés par des gens qui dorment la nuit. Le médecin qui constate une mort décrit ce qu'il a trouvé et ce qu'il a fait. Ce que tu as trouvé, tu le sais. Sur ce que tu as fait cette nuit, le règlement se tait, et toi aussi, pour l'instant."
    ],
    "choices": [
     {
@@ -1358,7 +1358,7 @@
     "until": 6
    },
    "text": [
-    "Tu rinces le gobelet dans l'eau du broc, deux fois, et tu essuies l'étain avec ton mouchoir jusqu'à ce qu'il brille. La fiole retourne dans la sacoche, dans son étui de cuir. Tu remarques que tes mains font cela très proprement. La remarque te plaît peu.",
+    "Tu rinces le gobelet dans l'eau du broc, deux fois, et tu essuies l'étain avec ton mouchoir jusqu'à ce qu'il brille. La fiole retourne dans la sacoche, dans son étui de cuir. Tes mains font cela très proprement, en mains qui auraient passé leur vie à effacer ; tu le remarques, et la remarque te plaît peu.",
     {
      "if": {
       "has": "pavot=pris"
@@ -1408,11 +1408,11 @@
     },
     {
      "first": true,
-     "text": "Ensuite, tout va vite. La capitaine du Guet, Ysabeau Dorne, arrive en corselet ; la balafre qui lui coupe la joue est plus blanche que d'habitude. Le père Anselme, Grand Prêtre de la Marée, entre en robe verte, touche le front de la morte et dit la prière des noyés, puisque toute mort à Escalombre est une noyade. À sept heures paraît Hugues Morvan, le Grand Argentier. Derrière lui marche un jeune homme blond à lunettes, les doigts tachés d'encre : Léonce Brisard, l'apothicaire de la Maison des Sels."
+     "text": "Ensuite, tout va vite, car la mort d'une Doyenne est de ces nouvelles qui montent les escaliers plus vite que les valets. La capitaine du Guet, Ysabeau Dorne, arrive en corselet ; la balafre qui lui coupe la joue est plus blanche que d'habitude. Le père Anselme, Grand Prêtre de la Marée, entre en robe verte, touche le front de la morte et dit la prière des noyés, puisque toute mort à Escalombre est une noyade. À sept heures paraît Hugues Morvan, le Grand Argentier. Derrière lui marche un jeune homme blond à lunettes, les doigts tachés d'encre : Léonce Brisard, l'apothicaire de la Maison des Sels."
     },
     {
      "again": true,
-     "text": "La chambre se remplit de gens qui parlent bas. Le corps est sous le drap, le visage découvert."
+     "text": "La chambre se remplit de gens qui parlent bas, du ton qu'on prend chez les morts et chez les créanciers. Le corps est sous le drap, le visage découvert."
     },
     {
      "if": {
@@ -1510,7 +1510,7 @@
     "clue": "haleine"
    },
    "text": [
-    "Tu demandes qu'on te laisse le lit. Anselme recule d'un pas, Ysabeau de deux. Morvan reste où il est.",
+    "Tu demandes qu'on te laisse le lit. Anselme recule d'un pas, Ysabeau de deux. Morvan reste où il est, en homme qui a payé sa place.",
     "Tu examines Ermesinde comme une inconnue de l'hospice, de la tête aux pieds, en suivant l'ordre qu'on t'a appris à vingt ans. Les ongles, déjà vus. Les cheveux, qui viennent par mèches entières sous la main. La peau du ventre, sèche, fendillée, semée de plaques brunes. Tu te penches sur la bouche : elle sent l'ail. La Doyenne avait l'ail en horreur, et son cuisinier le savait depuis vingt ans.",
     "Chacun de ces signes compte en mois. Mis bout à bout, ils racontent une poudre blanche, un peu chaque jour, dans un aliment qu'elle mangeait seule.",
     "Sous tous ces signes, il y a la nuit. Les pupilles réduites à des têtes d'épingle, le gris des lèvres : le pavot. Un médecin le verrait s'il le cherchait. Le seul médecin dans cette chambre, c'est toi."
@@ -1647,7 +1647,7 @@
    "place": "palais",
    "text": [
     "Ta main se referme sur la salière. Léonce, aimable : « Vous emportez l'argenterie de la Doyenne, maître Aldric ? La capitaine Dorne va vouloir un inventaire. »",
-    "Tu reposes la salière. Léonce te remercie d'un signe de tête, prend le plateau entier et l'emporte vers l'office, « pour qu'on ne mange pas ces restes ». Il traverse la chambre au milieu de quinze personnes, et toutes s'écartent pour le laisser passer. Léonce Brisard fait les choses ordinaires avec une grande assurance, et l'assurance tient lieu de permission."
+    "Tu reposes la salière. Léonce te remercie d'un signe de tête, prend le plateau entier et l'emporte vers l'office, « pour qu'on ne mange pas ces restes ». Il traverse la chambre au milieu de quinze personnes, et toutes s'écartent pour le laisser passer. Léonce Brisard fait les choses ordinaires avec une grande assurance ; or l'assurance, dans un palais, tient lieu de permission, de laissez-passer et, au besoin, d'innocence."
    ],
    "choices": [
     {
@@ -1758,8 +1758,8 @@
    "title": "Sous les toits",
    "place": "palais",
    "text": [
-    "Les servantes dorment sous les toits, dans des chambres où l'on tient debout au milieu seulement. Celle de Nella sent la lavande et le linge humide. Tu en fais le tour en trois regards : un lit étroit, une cuvette, une Vierge de plâtre peinte en bleu, une boîte à couture.",
-    "Tu soulèves la paillasse : du crin et de la toile. Tu passes la main entre la paillasse et le cadre, du côté du mur. Tes doigts touchent du verre.",
+    "Les servantes dorment sous les toits, dans des chambres où l'on tient debout au milieu seulement ; l'architecte du palais aura jugé qu'une servante couchée se passe de plafond. Celle de Nella sent la lavande et le linge humide. Tu en fais le tour en trois regards : un lit étroit, une cuvette, une Vierge de plâtre peinte en bleu, une boîte à couture.",
+    "Tu soulèves la paillasse : du crin et de la toile. Tu passes la main entre la paillasse et le cadre, du côté du mur, à l'aveugle, avec la répugnance qu'on éprouve pour les endroits où la main précède l'œil. Tes doigts touchent du verre.",
     "C'est un flacon bleu, bouché de cire, plein d'une poudre blanche. La cire garde l'empreinte nette d'un pouce, et le creux de l'empreinte est noirci d'encre."
    ],
    "choices": [
@@ -1825,8 +1825,8 @@
    },
    "text": [
     "Le père Anselme t'attend dans l'embrasure d'une fenêtre. Il a soixante-dix ans, le crâne rasé de frais et des yeux pâles qui tombent aux coins, comme ceux d'un chien de chasse fatigué. Il a été ton maître au Temple quand tu avais vingt ans. Il s'en souvient chaque fois qu'il te voit, et toi aussi.",
-    "« Tu étais là, cette nuit. » Ce n'est pas une question. « On t'a fait chercher à une heure et demie, et pas moi. »",
-    "Puis, plus bas : « La clef de fer. La clef du Temple. Elle était dans le tabernacle de la chapelle depuis cent ans. À la Saint-Martin, la Doyenne l'a fait prendre. Le sacristain dit qu'elle l'a donnée à quelqu'un. Je crois savoir à qui. »"
+    "« Tu étais là, cette nuit. » Il l'affirme du ton dont il affirme le dogme. « On t'a fait chercher à une heure et demie. Toi, un médecin. Et moi, le Grand Prêtre de la Marée, on m'a laissé dormir comme un bedeau. »",
+    "Puis, plus bas : « La clef de fer. La clef du Temple. Elle était dans le tabernacle de la chapelle depuis cent ans, entre le ciboire et les saintes huiles, où elle ne gênait personne. À la Saint-Martin, la Doyenne l'a fait prendre, comme on envoie chercher un manteau. Le sacristain dit qu'elle l'a donnée à quelqu'un. Je crois savoir à qui. »"
    ],
    "choices": [
     {
@@ -1860,7 +1860,7 @@
      "if": {
       "has": "anselme:sait_clef"
      },
-     "text": "Anselme ferme les yeux un instant. « Elle a toujours aimé humilier le Temple. Elle le fait encore morte. » Il pose la main sur ton bras, légèrement. « Le Temple a six sièges au Conseil, Sévan. Et une clef qui lui appartient. Pense à ce que tu dois au Temple. »"
+     "text": "Anselme ferme les yeux un instant. « Elle a toujours aimé humilier le Temple. Elle le fait encore morte, ce qui demande un certain talent. » Il pose la main sur ton bras, légèrement. « Le Temple a six sièges au Conseil, Sévan. Et une clef qui lui appartient. Pense à ce que tu dois au Temple. »"
     },
     {
      "if": {
@@ -1889,7 +1889,7 @@
     "time": 1
    },
    "text": [
-    "Hugues Morvan est un homme lourd, à la barbe grise taillée court, aux yeux bleus très calmes. Il porte le deuil depuis une heure : un manteau noir doublé de loutre, cousu pour un autre deuil et gardé prêt dans une armoire.",
+    "Hugues Morvan est un homme lourd, à la barbe grise taillée court, aux yeux bleus très calmes. Il porte le deuil depuis une heure : un manteau noir doublé de loutre, cousu pour un autre deuil et gardé prêt dans une armoire. Les hommes prévoyants ont toujours un chagrin d'avance.",
     "« Maître Aldric. Quelle nuit pour vous. » Il te prend le coude et t'emmène vers la fenêtre. Dehors, la lagune est haute et verte, et les premières barques masquées descendent le Grand Canal en chantant.",
     "« La capitaine Dorne voudra un rapport. Le Conseil aussi. Je ne suis pas médecin. Mais j'ai vu ses mains, comme vous. » Il baisse la voix. « On l'a empoisonnée, n'est-ce pas ? Une petite main, sans doute. Quelqu'un qui portait ses plateaux. »",
     {
@@ -1976,7 +1976,7 @@
        }
       ]
      },
-     "text": "Un garde tient un flacon bleu trouvé sous la paillasse de Nella. « Du blanc d'Orcanne, dit Léonce. On en vend pour les rats. » La capitaine prend le flacon et le tourne longtemps vers la fenêtre, le pouce sur la cire. Puis elle dit : « Nella Ferrant, tu viens avec nous. » Nella garde le silence. En passant, elle te regarde, une seule fois."
+     "text": "Un garde tient un flacon bleu trouvé sous la paillasse de Nella. « Du blanc d'Orcanne, dit Léonce. On en vend pour les rats. » La capitaine prend le flacon et le tourne longtemps vers la fenêtre, le pouce sur la cire. Puis elle dit : « Nella Ferrant, tu viens avec nous. » Nella se tait. En passant, elle te regarde, une seule fois."
     },
     {
      "if": {
@@ -2019,7 +2019,7 @@
    },
    "text": [
     "On t'a donné le petit cabinet de la Doyenne pour écrire, avec son encre et son sable. La plume sent la violette, comme ses lettres. Onze heures sonnent à Sainte-Agathe.",
-    "Le rapport du médecin du Temple sera lu ce soir devant le Conseil des Lanternes. Quarante personnes entendront ce que tu écris. Ensuite, la ville entière.",
+    "Le rapport du médecin du Temple sera lu ce soir devant le Conseil des Lanternes. Quarante personnes entendront ce que tu écris. Ensuite, la ville entière : un secret confié à quarante conseillers est un secret crié sur le quai.",
     "Tu poses les faits comme sur une feuille de consultation. Ils sont trois. Ermesinde Valcor a été empoisonnée lentement, depuis des mois, par une poudre blanche dans son sel. Ce poison l'aurait tuée avant l'été. Et cette nuit, c'est ton pavot qui l'a endormie.",
     {
      "if": {
@@ -2216,7 +2216,7 @@
        "rapport": "public"
       }
      },
-     "text": "La barque de la prison glisse sur le canal des Sels. Les masques qui passent en chantant se taisent en voyant ta robe de médecin entre deux hallebardes. À la Tour du Guet, on te donne une cellule au troisième étage : six pas sur quatre, une paillasse, une fenêtre sur la lagune. Tu as dormi dans des chambres de garde plus petites."
+     "text": "La barque de la prison glisse sur le canal des Sels. Les masques qui passent en chantant se taisent en voyant ta robe de médecin entre deux hallebardes ; la fête a horreur qu'on lui montre ce qui l'attend au matin. À la Tour du Guet, on te donne une cellule au troisième étage : six pas sur quatre, une paillasse, une fenêtre sur la lagune. Tu as dormi dans des chambres de garde plus petites, avec la clef de ton côté il est vrai."
     },
     {
      "if": {
@@ -2255,9 +2255,9 @@
     ]
    },
    "text": [
-    "À Bas-Port, la marée est entrée dans les rues pendant la nuit, comme chaque année à la même lune. L'eau monte aux genoux dans la rue des Cordiers et à la taille sur la place aux Poissons. Les gens d'ici ont mis leurs meubles sur les tables, leurs enfants sur les toits, et ils ont sorti les masques. Trois jours de fête, trois jours sans pavés, et tous les cordonniers fermés.",
+    "À Bas-Port, la marée est entrée dans les rues pendant la nuit, comme chaque année à la même lune, en propriétaire qui rentre chez lui sans frapper. L'eau monte aux genoux dans la rue des Cordiers et à la taille sur la place aux Poissons. Les gens d'ici ont mis leurs meubles sur les tables, leurs enfants sur les toits, et ils ont sorti les masques. Trois jours de fête, trois jours sans pavés, et tous les cordonniers fermés.",
     "Tu as vingt-deux ans et une barque plate que ton père t'a laissée, la *Pimprenelle*, peinte en bleu, dix-huit pieds de long et une fuite à bâbord que tu connais comme un vieux voisin. Pendant les Hautes-Eaux, un passeur gagne en trois jours ce qu'il gagne en deux mois. Depuis l'aube, tu as fait traverser la place aux Poissons à deux cents personnes, à un sou pièce, sous les cloches de deuil qui sonnent sans relâche depuis sept heures.",
-    "La Doyenne est morte. Chacun le dit, puis chacun remet son masque, parce que la fête est la fête.",
+    "La Doyenne est morte. Chacun le dit, se signe, puis remet son masque, parce que la fête est la fête, et qu'à Bas-Port on a toujours porté le deuil des grands avec une chope à la main.",
     {
      "if": {
       "has": "nella=prison"
@@ -2513,7 +2513,7 @@
     "flag": "j1:ponton"
    },
    "text": [
-    "Le vieux ponton des pêcheurs est au bout de Bas-Port, là où finissent les maisons et où commence la lagune. Pendant les Hautes-Eaux, les planches sont à fleur d'eau, et l'on marche sur la mer.",
+    "Le vieux ponton des pêcheurs est au bout de Bas-Port, là où finissent les maisons et où commence la lagune. Pendant les Hautes-Eaux, les planches sont à fleur d'eau, et l'on marche sur la mer ; Bas-Port accomplit ce miracle une fois l'an et a le bon goût de n'en tirer aucune religion.",
     "Au bout du ponton, une niche de bois est clouée sur un poteau. Elle abrite une petite Vierge peinte, aux pieds rongés de sel. Les femmes de pêcheurs y laissent des coquillages. Ta mère y laissait des coquillages. Nella aussi.",
     {
      "if": {
@@ -2521,7 +2521,7 @@
      },
      "text": "Corentin te suit, les pouces dans la ceinture, en sifflant entre ses dents."
     },
-    "Tu passes la main derrière la statue. Tes doigts touchent du tissu mouillé.",
+    "Tu passes la main derrière la statue, dans ce recoin d'ombre et de sel où les doigts vont seuls. Ils touchent du tissu mouillé.",
     "C'est un ruban bleu, épais, roulé sur lui-même. Dedans, cousue, une clef de bronze longue comme ta main, avec un panneton découpé en dents fines, travail d'un bon serrurier. Un billet plié l'accompagne, protégé par un bout de toile cirée. L'écriture est fine et droite : *Le jour de ma mort, porte-la au Conseil. E.*"
    ],
    "choices": [
@@ -2590,9 +2590,9 @@
     }
    },
    "text": [
-    "Le canal des Sels passe sous un pont de pierre à une seule arche, si bas qu'il faut baisser la tête en barque quand la marée est haute. Et cet après-midi, la marée est très haute : entre l'eau et la clef de voûte, tu estimes trois pieds, peut-être moins.",
+    "Le canal des Sels passe sous un pont de pierre à une seule arche, si bas qu'il faut baisser la tête en barque quand la marée est haute. Et cet après-midi, la marée est très haute : entre l'eau et la clef de voûte, tu estimes trois pieds, peut-être moins. Sous l'arche, le jour devient vert, les voix prennent un écho de cave, et l'eau lèche la pierre avec un bruit de bête qui boit.",
     "Tu as une heure. Corentin connaît le patron d'un chaland de sel amarré dix brasses avant le pont. Mo connaît tous les gamins de Bas-Port. Toi, tu connais l'eau.",
-    "La barque de la prison emporte quatre rameurs du Guet et deux gardes armés de hallebardes. Ils rament tranquilles. En cent ans, la barque de la prison a toujours fait sa route en paix, et ses rameurs le savent."
+    "La barque de la prison emporte quatre rameurs du Guet et deux gardes armés de hallebardes. Ils rament tranquilles. En cent ans, la barque de la prison a toujours fait sa route en paix, et ses rameurs le savent ; rien n'endort un soldat comme un siècle sans histoire."
    ],
    "choices": [
     {
@@ -2733,7 +2733,7 @@
     "meet": "gouge"
    },
    "text": [
-    "La Mère Gouge tient la taverne de l'Ancre Basse, au coin de la place aux Poissons. Pendant les Hautes-Eaux, elle tient séance sur la table du fond, posée sur quatre tonneaux, avec l'eau qui clapote sous ses bottes. Elle a soixante-dix ans, un foulard rouge et une ancre tatouée sur le dos de la main, si ancienne que l'encre a viré au vert. Quand elle tape sur un tonneau, mille barques sortent.",
+    "La Mère Gouge tient la taverne de l'Ancre Basse, au coin de la place aux Poissons. Pendant les Hautes-Eaux, elle tient séance sur la table du fond, posée sur quatre tonneaux, avec l'eau qui clapote sous ses bottes. Elle a soixante-dix ans, un foulard rouge et une ancre tatouée sur le dos de la main, si ancienne que l'encre a viré au vert. Quand elle tape sur un tonneau, mille barques sortent. Le Conseil des Lanternes, avec sa coupole et ses quarante fauteuils, en ferait sortir douze, et encore faudrait-il un vote.",
     {
      "if": {
       "has": "nella=libre"
@@ -2746,7 +2746,7 @@
      },
      "text": "Elle t'écoute jusqu'au bout : Nella, le sel, la Tour. Quand tu as fini, elle reste un moment à regarder l'eau. « La petite des Ferrant. » Sa voix change un peu. « Je l'ai vue sur le ponton, l'hiver de la grande passe. Elle avait trois mois. »"
     },
-    "« Le palais accuse une fille de Bas-Port d'avoir tué la Doyenne. Le palais a toujours eu besoin de quelqu'un de Bas-Port pour ses pendaisons. »"
+    "« Le palais accuse une fille de Bas-Port d'avoir tué la Doyenne. Le palais a toujours eu besoin de quelqu'un de Bas-Port pour ses pendaisons. Ces messieurs ont des fauteuils, des lanternes, une coupole de verre, et le jour où il leur faut un cou pour la corde, c'est encore chez nous qu'ils viennent se servir ! »"
    ],
    "choices": [
     {
@@ -2775,7 +2775,7 @@
    },
    "text": [
     "La Mère Gouge se lève. Elle prend un maillet sur la table et frappe trois coups sur le tonneau. Le bruit roule sur l'eau, d'une maison à l'autre. Dans la taverne, les conversations s'arrêtent.",
-    "« Ce soir, dit-elle, toutes les barques de Bas-Port iront jusqu'à la digue des Pendus, avec des lanternes, et resteront là. Toute la nuit. Pour que le Guet voie combien on est. »",
+    "« Ce soir, dit-elle, toutes les barques de Bas-Port iront jusqu'à la digue des Pendus, avec des lanternes, et resteront là. Toute la nuit. Pour que le Guet voie combien on est. Ces gens-là savent compter les ducats ; on va leur apprendre à compter les barques. »",
     {
      "if": {
       "has": "nella=libre"
@@ -2804,7 +2804,7 @@
     }
    },
    "text": [
-    "La Mère Gouge hoche lentement la tête. « Tu as plus de jugeote que ton père. » Elle se gratte le menton. « Sans bruit, alors. J'ai des cousins dans les cuisines de la Tour, et une nièce qui lave le linge du Guet. On saura ce qu'on lui fait, heure par heure. Si on la touche, tu le sauras avant le capitaine. »",
+    "La Mère Gouge hoche lentement la tête. « Tu as plus de jugeote que ton père. Ce qui est un petit exploit, soit dit sans offenser les noyés. » Elle se gratte le menton. « Sans bruit, alors. J'ai des cousins dans les cuisines de la Tour, et une nièce qui lave le linge du Guet. On saura ce qu'on lui fait, heure par heure. Si on la touche, tu le sauras avant le capitaine. »",
     {
      "if": {
       "has": "nella=libre"
@@ -2849,7 +2849,7 @@
     }
    },
    "text": [
-    "Derrière la taverne de la Morue, Corentin loue un entrepôt à moitié sous l'eau, plein de caisses anonymes. Tu en comptes vingt-trois, de tailles diverses, et toutes ont perdu leur marque sous un coup de rabot. Corentin soulève une trappe dans le plancher : au-dessus, sous les tuiles, un grenier sec, avec une paillasse et une lanterne.",
+    "Derrière la taverne de la Morue, Corentin loue un entrepôt à moitié sous l'eau, plein de caisses anonymes. Tu en comptes vingt-trois, de tailles diverses, et toutes ont perdu leur marque sous un coup de rabot, accident fréquent dans le commerce de Corentin. Il soulève une trappe dans le plancher : au-dessus, sous les tuiles, un grenier sec, avec une paillasse et une lanterne.",
     "« Ici, même ma mère ne me trouve pas. » Il aide Nella à monter et lui donne sa propre couverture. Il est doux avec elle, comme toujours, depuis qu'elle avait six ans et qu'il lui apprenait à siffler.",
     "« Elle ne bougera pas d'ici, dit-il. Je te le jure sur la Vierge. »"
    ],
@@ -2933,14 +2933,14 @@
     "meet": "ysabeau"
    },
    "text": [
-    "La Tour du Guet se dresse au bout de la digue des Pendus, une langue de pierre qui s'avance dans la lagune. Tous les cent pas se dresse un poteau noir, avec sa poulie. Aujourd'hui, les poteaux sont nus. Ce sera pour la troisième nuit, au reflux, disent les gens qui passent.",
+    "La Tour du Guet se dresse au bout de la digue des Pendus, une langue de pierre qui s'avance dans la lagune. Tous les cent pas se dresse un poteau noir, avec sa poulie ; et chaque poulie, quand le vent la prend, grince pour elle seule, d'un petit bruit patient. Aujourd'hui, les poteaux sont nus. Ce sera pour la troisième nuit, au reflux, disent les gens qui passent, du ton dont on annonce un marché.",
     {
      "if": {
       "has": "canal:attaque"
      },
      "text": "Les gardes à la porte de la Tour ont la mine de gens qu'on vient d'effrayer. L'un d'eux porte une bosse au front. Tu gardes ton chapeau bas sur la tempe."
     },
-    "On te fait attendre deux heures dans une cour. Puis la capitaine Dorne descend elle-même. Elle est brune, carrée, et une balafre blanche lui court du coin de l'œil au coin de la bouche. Elle t'écoute dire que ta sœur est innocente.",
+    "On te fait attendre deux heures dans une cour ; l'attente est la première peine que le Guet inflige, et la seule qu'il distribue à tout le monde. Puis la capitaine Dorne descend elle-même. Elle est brune, carrée, et une balafre blanche lui court du coin de l'œil au coin de la bouche. Elle t'écoute dire que ta sœur est innocente.",
     "« Peut-être. Le Conseil en jugera ; moi, je garde la porte. » Elle t'examine. « Tu peux la voir. Dix minutes. Devant moi. »"
    ],
    "choices": [
@@ -2961,7 +2961,7 @@
     "flag": "j1:vu_nella"
    },
    "text": [
-    "Une salle basse, une table, deux chaises. Nella a les mains libres et les yeux rouges. Elle se jette contre toi. La capitaine reste debout près de la porte, les bras croisés.",
+    "Une salle basse, une table, deux chaises, et sur les murs cette sueur froide des pièces qu'on a bâties au niveau de l'eau. Nella a les mains libres et les yeux rouges. Elle se jette contre toi. La capitaine reste debout près de la porte, les bras croisés.",
     "Nella parle fort, pour la capitaine : elle est innocente, elle portait le plateau, comme chaque soir. Puis, la joue contre ton épaule, elle souffle, si bas que tu l'entends à peine : « La Vierge du ponton. Le ruban. Elle me l'a donné il y a trois mois, elle m'a dit de le porter au Conseil le jour de sa mort. Je ne sais pas ce que c'est. Je l'ai caché cette nuit, quand j'ai vu l'apothicaire de la Maison des Sels sortir de la cuisine. »",
     "« C'est fini », dit la capitaine.",
     "En partant, tu entends Ysabeau Dorne dire à un garde : « Le frère. Tu le reconnaîtras. »"
@@ -3041,7 +3041,7 @@
     "until": 19
    },
    "text": [
-    "Le soleil descend derrière les Passes. Sur la lagune, les quarante voiles d'Orcanne deviennent noires contre le ciel rouge. Bas-Port allume ses lanternes, une par fenêtre, et la fête reprend plus fort, comme pour couvrir les cloches.",
+    "Le soleil descend derrière les Passes. Sur la lagune, les quarante voiles d'Orcanne deviennent noires contre le ciel rouge, immobiles, alignées, pareilles à des cierges qu'on aurait soufflés. Bas-Port allume ses lanternes, une par fenêtre, et la fête reprend plus fort, comme pour couvrir les cloches.",
     {
      "if": {
       "all": [
@@ -3171,7 +3171,7 @@
     "clue": "eau"
    },
    "text": [
-    "Tu restes sur la *Pimprenelle*, amarrée sous ta fenêtre, et tu regardes les lanternes trembler sur l'eau.",
+    "Tu restes sur la *Pimprenelle*, amarrée sous ta fenêtre, et tu regardes les lanternes trembler sur l'eau. Chacune a son double sous elle, qui tremble aussi ; à force de les regarder, tu doutes laquelle des deux villes est la vraie.",
     "L'hiver dernier, ta mère est morte de la poitrine, dans le lit où elle t'avait mis au monde. La dernière nuit, elle t'a serré la main très fort et elle a dit : « Nella n'est pas à nous. Elle est à l'eau. » Tu as cru à la fièvre. Tu as cru à une prière de batelière.",
     "Ce soir, une Doyenne morte a cousu une clef dans le ruban de ta sœur. Ce soir, toutes tes certitudes flottent."
    ],
@@ -3209,7 +3209,7 @@
     "meet": "renaud"
    },
    "text": [
-    "Tu as passé la journée dans le cabinet d'Ermesinde, porte fermée, à faire ce que tu fais depuis douze ans : trier. Les lettres à répondre, les lettres à brûler, les lettres à garder. Trois tas sur la table, et le troisième est toujours le plus mince. Ta tante est morte cette nuit ; le courrier continue d'arriver à la même cadence.",
+    "Tu as passé la journée dans le cabinet d'Ermesinde, porte fermée, à faire ce que tu fais depuis douze ans : trier. Les lettres à répondre, les lettres à brûler, les lettres à garder. Trois tas sur la table, et le troisième est toujours le plus mince. Ta tante est morte cette nuit ; le courrier continue d'arriver à la même cadence, avec des condoléances en tête et la même demande en bas de page.",
     "Tu as trente-quatre ans. Tu es sa nièce, la fille de son frère mort, et sa secrétaire. Tu as écrit sous sa dictée quelque vingt mille lettres, à raison de cinq par jour ouvrable. Tu connais sa façon de raturer, ses tics de syntaxe, les mots qu'elle bannissait. Personne ne la connaissait mieux que toi. Entre vous deux, le mot « aimer » est resté au fond de l'encrier, des deux côtés.",
     "La clef d'argent du coffre pend à une chaîne sous ton col. Tu la sens chaque fois que tu te penches sur la table.",
     "Cinq heures sonnent. La porte s'ouvre sans qu'on frappe : c'est Renaud, ton mari, en habit de conseiller, le sourire déjà en place. « Morvan t'attend dans la salle des Cartes. Avant la séance. Il dit que c'est important. »"
@@ -3283,7 +3283,7 @@
    "title": "Renaud",
    "place": "palais",
    "text": [
-    "Renaud de Querelle est beau, aimable, et conseiller des Lanternes par héritage. Vous êtes mariés depuis neuf ans. Il te fait rire quand il est heureux. Depuis un an, il dort mal.",
+    "Renaud de Querelle est beau, aimable, et conseiller des Lanternes par héritage : trois qualités qui dispensent d'ordinaire d'en acquérir une quatrième. Vous êtes mariés depuis neuf ans. Il te fait rire quand il est heureux. Depuis un an, il dort mal.",
     "« Je ne fais les commissions de personne. Morvan m'a croisé dans la galerie, c'est tout. » Il ajuste ses manchettes. Il les ajuste toujours quand il ment."
    ],
    "choices": [
@@ -3358,7 +3358,7 @@
     "meet": "morvan"
    },
    "text": [
-    "La salle des Cartes est une longue pièce dont les murs portent la lagune entière : chaque île, chaque canal, chaque banc de sable, peints il y a deux cents ans et restés tels depuis. Trois bancs ont disparu depuis sous la marée, et deux autres sont nés, que la carte ignore. Hugues Morvan se tient devant la carte des Passes, les mains dans le dos.",
+    "La salle des Cartes est une longue pièce dont les murs portent la lagune entière : chaque île, chaque canal, chaque banc de sable, peints il y a deux cents ans et restés tels depuis. Trois bancs ont disparu depuis sous la marée, et deux autres sont nés, que la carte ignore ; le Conseil gouverne d'après la carte, ce qui explique bien des naufrages. Hugues Morvan se tient devant la carte des Passes, les mains dans le dos.",
     "« Madame. Mes condoléances. Vraiment. » Il le dit bien ; Morvan sait dire les choses. « Je vais être bref, parce que nous avons peu de temps. Le Conseil élira quelqu'un dans deux nuits. Si c'est moi, la moitié de la ville me haïra. Si c'est le père Anselme, nous serons gouvernés par des sermons. Si c'est vous, la ville pleurera sa Doyenne en applaudissant sa nièce. »",
     "« Mes quatorze sièges sont à vous. Avec vos amis des vieilles maisons, vous passez au premier tour. En échange, deux petites choses. Le coffre reste fermé jusqu'après les lanternes : les testaments de mourants sont des humeurs, et la ville n'a pas besoin d'humeurs cette semaine. Et vous me confiez votre clef, en gage, jusqu'à l'élection. »"
    ],
@@ -3423,8 +3423,8 @@
     "until": 19
    },
    "text": [
-    "La salle du Conseil est ronde, sous une coupole de verre. Quarante fauteuils s'étagent en gradins, chacun avec sa lanterne éteinte, qu'on allumera la troisième nuit. Au centre, le fauteuil de la Doyenne reste vide, un crêpe noir sur le dossier. Tu es assise au premier rang, à ta place de secrétaire, la plume à la main, comme toujours.",
-    "Dame Hélis Arnaud préside. Elle a soixante-quinze ans, des tresses blanches, et une voix qui reste basse et qu'on entend jusqu'au dernier rang. Elle ouvre la séance par le règlement : le siège est vide ; on élira la troisième nuit, avant le reflux ; et la loi veut que le testament d'un Doyen soit lu avant les lanternes, tiré du coffre aux trois serrures.",
+    "La salle du Conseil est ronde, sous une coupole de verre où le soir met un ciel couleur d'encre. Quarante fauteuils s'étagent en gradins, chacun avec sa lanterne éteinte, qu'on allumera la troisième nuit. Au centre, le fauteuil de la Doyenne reste vide, un crêpe noir sur le dossier ; quarante regards l'évitent avec soin et y reviennent sans cesse. Tu es assise au premier rang, à ta place de secrétaire, la plume à la main, comme toujours.",
+    "Dame Hélis Arnaud préside. Elle a soixante-quinze ans, des tresses blanches, et une voix qui reste basse et qu'on entend jusqu'au dernier rang ; elle sait le règlement comme d'autres savent leurs péchés, et le cite plus volontiers. Elle ouvre la séance par le règlement : le siège est vide ; on élira la troisième nuit, avant le reflux ; et la loi veut que le testament d'un Doyen soit lu avant les lanternes, tiré du coffre aux trois serrures.",
     "Puis on lit le rapport du médecin.",
     {
      "if": {
@@ -3456,7 +3456,7 @@
        "rapport": "public"
       }
      },
-     "text": "Ysabeau Dorne le lit debout, et la coupole elle-même semble retenir son souffle. *Empoisonnée, depuis l'automne, par une poudre d'arsenic dans son sel.* Puis : *Cette nuit, à sa demande, la Doyenne a reçu de moi une dose de lait de pavot dont elle ne s'est pas réveillée.* Quelqu'un crie « Assassin ! » au fond. La capitaine annonce que maître Aldric est à la Tour du Guet et qu'il s'est livré lui-même. Morvan garde le silence. Il regarde ses mains."
+     "text": "Ysabeau Dorne le lit debout, et la coupole elle-même semble retenir son souffle. *Empoisonnée, depuis l'automne, par une poudre d'arsenic dans son sel.* Puis : *Cette nuit, à sa demande, la Doyenne a reçu de moi une dose de lait de pavot dont elle ne s'est pas réveillée.* Quelqu'un crie « Assassin ! » au fond. La capitaine annonce que maître Aldric est à la Tour du Guet et qu'il s'est livré lui-même. Morvan se tait. Il regarde ses mains."
     },
     {
      "if": {
@@ -3624,7 +3624,7 @@
    },
    "text": [
     "Tu annonces ta candidature. Tu dis que la ville a besoin de continuité, et que la Maison des Sels t'a fait l'honneur de son soutien. Tu dis que le coffre sera ouvert, bien sûr, après les lanternes, quand la ville aura retrouvé son calme.",
-    "Les quatorze sièges de Morvan applaudissent ensemble, comme une seule main. Les vieilles maisons hésitent, puis applaudissent aussi, plus mollement. Hélis Arnaud te regarde longtemps par-dessus ses lunettes et note quelque chose.",
+    "Les quatorze sièges de Morvan applaudissent ensemble, comme une seule main ; c'est du reste ce qu'ils sont. Les vieilles maisons hésitent, puis applaudissent aussi, plus mollement. Hélis Arnaud te regarde longtemps par-dessus ses lunettes et note quelque chose.",
     "Après la séance, dans la galerie, Morvan te rejoint. « Bien parlé. » Il tend la main, paume ouverte. « La clef, madame. Comme convenu. »"
    ],
    "choices": [
@@ -3701,7 +3701,7 @@
    },
    "text": [
     "Tu annonces ta candidature. Tu dis que tu te présentes seule, et que tu demanderas des soutiens après avoir lu, avec eux, ce que la Doyenne a laissé. Le coffre s'ouvrira avant les lanternes. C'est la loi. Tu la cites de mémoire, article et alinéa.",
-    "Un silence. Puis huit fauteuils applaudissent : les vieilles maisons qui ont connu ton père. Les quatorze de Morvan croisent les bras. Le Temple attend de voir d'où souffle le vent.",
+    "Un silence. Puis huit fauteuils applaudissent : les vieilles maisons qui ont connu ton père. Les quatorze de Morvan croisent les bras. Le Temple attend de voir d'où souffle le vent, exercice où il a une longue pratique.",
     "Huit voix. Il en faut vingt et une. Tu as deux jours, et tu sais compter.",
     "Dans la galerie, après la séance, Morvan passe près de toi sans s'arrêter. « Dommage », dit-il, à la cantonade."
    ],
@@ -3744,12 +3744,12 @@
     "until": 23
    },
    "text": [
-    "La séance est levée à dix heures et demie. Les conseillers rentrent chez eux en barque, sous les lanternes de la fête. La musique de Bas-Port arrive par bouffées sur l'eau.",
+    "La séance est levée à dix heures et demie. Les conseillers rentrent chez eux en barque, sous les lanternes de la fête, chacun avec son rameur, son manteau et son opinion de rechange. La musique de Bas-Port arrive par bouffées sur l'eau.",
     {
      "if": {
       "has": "basport=agite"
      },
-     "text": "Du côté de la digue des Pendus brille une ligne de lumières immobiles : les barques de Bas-Port, à l'ancre, qui attendent."
+     "text": "Du côté de la digue des Pendus brille une ligne de lumières immobiles : les barques de Bas-Port, à l'ancre, qui attendent. Elles attendent en silence, et ce silence de deux cents barques s'entend de plus loin que la musique."
     },
     "Tu as la fatigue d'une nuit blanche, et c'est la deuxième."
    ],
@@ -3776,7 +3776,7 @@
     "meet": "nella"
    },
    "text": [
-    "La capitaine Dorne te laisse entrer parce que tu es la secrétaire de la Doyenne et qu'il est trop tard pour discuter. La cellule est au deuxième étage, propre, avec une fenêtre sur la lagune. Nella est assise sur le lit, les genoux contre la poitrine.",
+    "La capitaine Dorne te laisse entrer parce que tu es la secrétaire de la Doyenne et qu'il est trop tard pour discuter. L'escalier de la Tour tourne sur lui-même entre deux murs qui suintent ; à chaque palier, une porte ferrée, et derrière chaque porte, quelqu'un qui écoute monter ton pas. La cellule est au deuxième étage, propre, avec une fenêtre sur la lagune. Nella est assise sur le lit, les genoux contre la poitrine.",
     "Elle se lève quand tu entres. Elle te connaît : elle a servi ton thé cent fois, et pendant ces cent fois tu as regardé ta tasse.",
     "Tu la regardes maintenant. Dix-neuf ans, des tresses noires, des taches de son. Des yeux gris, très clairs, qui soutiennent les tiens. Tu as vu ce gris-là toute ta vie, chaque matin, au-dessus d'une table de travail."
    ],
@@ -3841,12 +3841,12 @@
    "title": "Le quai des Saules",
    "place": "saules",
    "text": [
-    "La maison du quai des Saules est fraîche et sombre, avec son jardin clos et son vieux saule qui trempe ses branches dans le canal. Ta tante y est née. Tu y vis depuis ton mariage.",
+    "La maison du quai des Saules est fraîche et sombre, avec son jardin clos et son vieux saule qui trempe ses branches dans le canal. Ta tante y est née. Tu y vis depuis ton mariage ; et ce soir, pour la première fois, chaque marche de l'escalier craque comme sous un pas qui précéderait le tien.",
     {
      "if": {
       "has": "renaud=aveu"
      },
-     "text": "Renaud t'attend dans la chambre, assis sur le lit, en chemise. Il garde le silence ; toi aussi. Tu t'allonges à côté de lui. Il prend ta main dans le noir, et vous restez ainsi, avec trois mille ducats entre vous."
+     "text": "Renaud t'attend dans la chambre, assis sur le lit, en chemise. Il se tait ; toi aussi. Tu t'allonges à côté de lui. Il prend ta main dans le noir, et vous restez ainsi, avec trois mille ducats entre vous."
     },
     {
      "if": {
@@ -4100,7 +4100,7 @@
    },
    "text": [
     "À sept heures, on frappe à ta porte de l'hospice. Sur le seuil, un homme en masque de héron porte des lunettes par-dessus le carton. Léonce Brisard ôte le masque blanc de son visage avec un petit rire d'excuse : « Ridicule, n'est-ce pas ? La loi est la loi. »",
-    "Il pose sur ta table une bourse de cuir qui tombe avec le bruit mat de l'or bien compté. « De la part du Grand Argentier. Pour l'hospice. Deux cents ducats. Il a été touché par la sobriété de votre rapport. Il dit que la ville vous doit beaucoup. »",
+    "Il pose sur ta table une bourse de cuir qui tombe avec le bruit mat de l'or bien compté ; l'or seul a ce bruit-là, discret et satisfait comme un notaire après dîner. « De la part du Grand Argentier. Pour l'hospice. Deux cents ducats. Il a été touché par la sobriété de votre rapport. Il dit que la ville vous doit beaucoup. »",
     {
      "if": {
       "has": "traces=laissees"
@@ -4142,7 +4142,7 @@
    "title": "Les fièvres",
    "place": "temple",
    "text": [
-    "La porte se referme. Tu restes devant ta table, la bourse d'un côté, ta tasse froide de l'autre. *On y attrape de ces fièvres.*",
+    "La porte se referme. Tu restes devant ta table, la bourse d'un côté, ta tasse froide de l'autre. *On y attrape de ces fièvres.* La phrase demeure dans la chambre après celui qui l'a dite ; elle s'y installe, elle y prend ses aises, et tu l'entends encore quand le pas de Léonce a quitté l'escalier.",
     "Hier, tu as écrit que la Doyenne était morte de son mal, pour que Nella échappe à la corde des empoisonneurs. Tu as cru la sauver. Tu as seulement rendu sa mort plus discrète. Une servante qui meurt de fièvre en prison, le Conseil l'enterre sans enquête.",
     {
      "if": {
@@ -4207,7 +4207,7 @@
       "clock": "s2",
       "max": 1
      },
-     "text": "La matinée avance. Le soleil chauffe le carton des masques, les gens ont soif, et les tavernes débordent sur l'eau."
+     "text": "La matinée avance. Le soleil chauffe le carton des masques, les gens ont soif, et les tavernes débordent sur l'eau ; Escalombre, le jour où elle cache son visage, montre volontiers son gosier."
     },
     {
      "again": true,
@@ -4318,7 +4318,7 @@
     "meet": "nella"
    },
    "text": [
-    "Un prêtre du Temple a le droit d'entrer chez un prisonnier pour l'entendre. C'est la loi, et Ysabeau Dorne applique la loi : on t'ouvre la porte du deuxième étage, puis on la referme derrière toi.",
+    "Un prêtre du Temple a le droit d'entrer chez un prisonnier pour l'entendre. C'est la loi, et Ysabeau Dorne applique la loi : on t'ouvre la porte du deuxième étage, puis on la referme derrière toi, et le verrou rend ce son net, définitif, que les serruriers de prison semblent rechercher comme les luthiers une note.",
     "Nella est assise sur le lit. Elle porte sous les yeux les cernes de deux nuits sans sommeil.",
     {
      "if": {
@@ -4440,7 +4440,7 @@
    "text": [
     "Sous les arcades de la Maison des Sels, l'apothicairerie de Léonce Brisard a ses volets fermés, avec un papier cloué dessus : *Fermé pour la fête.* Les autres boutiques de l'arcade sont ouvertes, et vendent des masques, des rubans et du vin chaud.",
     "La voisine, une marchande de rubans en masque de chatte, te dit que l'apothicaire est parti ce matin avant le jour, avec deux malles, sur une barque à rideaux bleus. Une barque du palais : elle a reconnu les armes des Valcor sur la poupe.",
-    "Tu forces la petite porte de derrière d'un coup d'épaule, comme à vingt ans, et ton épaule te rappelle aussitôt que tu en as cinquante et un. Dedans, des tiroirs vidés, des bocaux renversés. Dans la cheminée, des papiers brûlés, encore tièdes au toucher. Une seule chose oubliée sous l'établi : un pot de grès à moitié plein de poudre blanche, avec l'étiquette de la Maison des Sels."
+    "Tu forces la petite porte de derrière d'un coup d'épaule, comme à vingt ans, et ton épaule te rappelle aussitôt que tu en as cinquante et un. Dedans, des tiroirs vidés, des bocaux renversés, tout le désordre d'un lieu qu'on a quitté en regardant derrière soi. Dans la cheminée, des papiers brûlés, encore tièdes au toucher. Une seule chose oubliée sous l'établi : un pot de grès à moitié plein de poudre blanche, avec l'étiquette de la Maison des Sels."
    ],
    "choices": [
     {
@@ -4478,7 +4478,7 @@
    "place": "sels",
    "ambiance": "ville",
    "text": [
-    "L'apothicairerie de Léonce Brisard est une longue boutique fraîche sous les arcades de la Maison des Sels. Tu en fais l'inventaire d'un coup d'œil : trois rangées de bocaux étiquetés à la main, deux balances, dont une de précision sous globe, et une odeur de camphre. Léonce est derrière son comptoir, sans masque, en train de peser quelque chose avec des gestes de dentellière.",
+    "L'apothicairerie de Léonce Brisard est une longue boutique fraîche sous les arcades de la Maison des Sels. Tu en fais l'inventaire d'un coup d'œil : trois rangées de bocaux étiquetés à la main, deux balances, dont une de précision sous globe, et une odeur de camphre. Tout y est net, rangé, aligné ; c'est la boutique d'un homme qui dort bien, ou qui s'y applique. Léonce est derrière son comptoir, sans masque, en train de peser quelque chose avec des gestes de dentellière.",
     "Il lève les yeux. Il reconnaît ton bec de cuir, ou ta façon de te tenir. « Maître Aldric. » Il pose sa balance. « Vous venez acheter, ou vous venez voir ? »",
     "Il a peur. Ses doigts le disent : ils cherchent quelque chose à tenir et passent de la balance à l'encrier, puis de l'encrier au bord du comptoir."
    ],
@@ -4649,7 +4649,7 @@
    "place": "palais",
    "ambiance": "chateau",
    "text": [
-    "Les cuisines du palais sont en sous-sol, au ras de l'eau, avec une porte qui ouvre directement sur le canal : la porte de l'eau, celle des livreurs. Sur la marche, l'eau a laissé quatre lignes vertes, une par marée d'équinoxe. Le cuisinier, maître Aubin, porte un masque de bœuf et pleure dedans. Il a servi la Doyenne trente ans.",
+    "Les cuisines du palais sont en sous-sol, au ras de l'eau, sous des voûtes basses que la fumée a vernies de noir ; une porte y ouvre directement sur le canal : la porte de l'eau, celle des livreurs. Sur la marche, l'eau a laissé quatre lignes vertes, une par marée d'équinoxe. Le cuisinier, maître Aubin, porte un masque de bœuf et pleure dedans. Il a servi la Doyenne trente ans.",
     {
      "if": {
       "has": "pot=garde"
@@ -4714,8 +4714,8 @@
     "meet": "anselme"
    },
    "text": [
-    "Le père Anselme t'attend dans la sacristie, à visage nu : un Grand Prêtre se passe de masque, la Marée le voit tel qu'il est. Il a fait servir du vin d'orange et te sert lui-même, d'une main qui mesure exactement deux doigts.",
-    "« Sévan. Il y aura un Doyen après-demain. Si c'est Morvan, il nous mangera. Si c'est la nièce, elle nous ignorera, comme sa tante. Le Temple a six sièges, et une clef. Avec la clef, on peut ouvrir le coffre, ou le garder fermé. Ça vaut beaucoup de voix, un coffre. »",
+    "Le père Anselme t'attend dans la sacristie, à visage nu : un Grand Prêtre se passe de masque, la Marée le voit tel qu'il est. Il a fait servir du vin d'orange et te sert lui-même, d'une main qui mesure exactement deux doigts ; la charité du Temple a toujours su compter.",
+    "« Sévan. Il y aura un Doyen après-demain. Si c'est Morvan, il nous mangera, et sans dire le bénédicité. Si c'est la nièce, elle nous ignorera, comme sa tante, qui a ignoré le Temple toute sa vie avec une constance digne d'une meilleure cause. Le Temple a six sièges, et une clef. Avec la clef, on peut ouvrir le coffre, ou le garder fermé. Ça vaut beaucoup de voix, un coffre. »",
     "Il tend la main, paume ouverte. « La clef de fer appartient au Temple. Rends-la au Temple. »",
     {
      "if": {
@@ -4892,7 +4892,7 @@
      },
      "text": "« Elle me l'a demandé. J'ai refusé. Je me suis endormi. Elle l'a pris dans ma sacoche. C'était ma fiole, et c'est moi qui ai dormi. »"
     },
-    "Ysabeau Dorne pose sa plume. Elle regarde par la fenêtre la digue des Pendus et ses poteaux noirs.",
+    "Ysabeau Dorne pose sa plume. Elle regarde par la fenêtre la digue des Pendus et ses poteaux noirs, longuement, comme d'autres consultent un code.",
     "« La loi d'Escalombre ne connaît pas votre cas, maître. Elle connaît l'empoisonneur, et elle connaît le médecin. Pas le médecin qui fait ce que vous avez fait. » Elle se tourne vers toi. « Je ne vous arrête pas. Vous direz ça au Conseil, demain soir, vous-même. Si vous ne le dites pas, c'est moi qui le dirai. »"
    ],
    "choices": [
@@ -4927,7 +4927,7 @@
    },
    "text": [
     "Le soleil s'est couché sur les Passes. Les masques tombent dans toute la ville en même temps, et pendant une minute, sur les canaux, monte un grand soupir de soulagement, comme d'un seul visage.",
-    "Tu rentres à l'hospice. Ta chambre est telle que tu l'as laissée : le lit fait au carré, les livres en pile, la bourse de Morvan à la même place.",
+    "Tu rentres à l'hospice. Ta chambre est telle que tu l'as laissée : le lit fait au carré, les livres en pile, la bourse de Morvan à la même place, patiente comme tout ce qui vient de lui.",
     {
      "if": {
       "has": "sevan:ecuelle"
@@ -4948,7 +4948,7 @@
        }
       ]
      },
-     "text": "Vers dix heures, tu entends des rames sous ta fenêtre. Trois hommes descendent d'une barque sans lanterne, au ras de l'eau, au pied du mur de l'hospice. Tu reconnais les manteaux de la Maison des Sels."
+     "text": "Vers dix heures, tu entends des rames sous ta fenêtre : un bruit étouffé, prudent, de rames qu'on a garnies de chiffons. Trois hommes descendent d'une barque sans lanterne, au ras de l'eau, au pied du mur de l'hospice. Tu reconnais les manteaux de la Maison des Sels."
     }
    ],
    "choices": [
@@ -5133,7 +5133,7 @@
    "title": "Le sommeil",
    "place": "temple",
    "text": [
-    "Le sommeil te fuit. Tu restes allongé, les yeux ouverts, à compter les cloches. À trois heures, tu te lèves et tu écris, pour personne, tout ce que tu sais. Puis tu plies la feuille et tu la ranges avec la clef.",
+    "Le sommeil te fuit. Tu restes allongé, les yeux ouverts, à compter les cloches ; entre deux cloches la maison craque, l'eau travaille contre le mur, et chaque bruit prend à son tour la forme d'un pas. À trois heures, tu te lèves et tu écris, pour personne, tout ce que tu sais. Puis tu plies la feuille et tu la ranges avec la clef.",
     "Demain soir, la Nuit des Lanternes."
    ],
    "choices": [
@@ -5153,7 +5153,7 @@
    "ambiance": "temple",
    "text": [
     "On t'a donné une cellule de novice au-dessus du cloître : un lit, une cruche, et une fenêtre grillagée de quatre barreaux qui donne sur la coupole verte. Un frère convers garde la porte. Il s'appelle Gildas, il a vingt ans, et il t'apporte ton pain en s'excusant.",
-    "Tu es en retraite. C'est le mot du Grand Prêtre. Une retraite, au Temple de la Marée, est une prison dont la porte reste ouverte et que garde la seule obéissance.",
+    "Tu es en retraite. C'est le mot du Grand Prêtre. Une retraite, au Temple de la Marée, est une prison dont la porte reste ouverte et que garde la seule obéissance ; c'est la moins coûteuse des geôles, et le Temple, bon ménager, s'en est toujours contenté.",
     "À neuf heures, le père Anselme entre et s'assied sur ton lit."
    ],
    "choices": [
@@ -5218,7 +5218,7 @@
     "Tu défais l'ourlet de ta robe, là où tu l'avais cousue. Anselme prend la clef comme on reçoit une hostie.",
     "« Tu as bien fait, mon fils. » Il se lève. « Repose-toi. Demain soir, tu viendras avec moi au Conseil, et tu diras ce que je te dirai de dire. »",
     "Il sort. Gildas referme la porte, sans la verrouiller. L'obéissance suffit, désormais.",
-    "Tu passes la journée à regarder la coupole verte par la grille. Les masques défilent sur le canal en contrebas. Tu penses à une servante en cellule, et à une vieille femme qui t'a dit : *protège-la*."
+    "Tu passes la journée à regarder la coupole verte par la grille. Les masques défilent sur le canal en contrebas, et leurs rires montent jusqu'à toi, amortis, comme d'un monde où tu aurais vécu autrefois. Tu penses à une servante en cellule, et à une vieille femme qui t'a dit : *protège-la*."
    ],
    "choices": [
     {
@@ -5256,7 +5256,7 @@
    "text": [
     "« Non, mon père. »",
     "Anselme te regarde longtemps. Puis il se lève et va à la porte. « Gildas. Personne n'entre, personne ne sort. Il prie. » Il se retourne. « Tu as jusqu'à demain soir pour changer d'avis, Sévan. Après, le Temple dira au Conseil ce que tu as fait cette nuit-là. Avec tes mots. Je les ai gardés. »",
-    "La porte se referme. Cette fois, tu entends la clef tourner deux fois."
+    "La porte se referme. Cette fois, tu entends la clef tourner deux fois, lentement, avec l'application d'une main qui veut être entendue."
    ],
    "choices": [
     {
@@ -5727,7 +5727,7 @@
    "ambiance": "eau",
    "text": [
     "Tu te réveilles dans la *Pimprenelle* au son des crieurs. Il y en a un à chaque pont, en masque de coq, une feuille à la main. *Nella Ferrant, servante, en fuite. Cinq cents ducats à qui la livrera au Guet, offerts par la Maison des Sels.*",
-    "Cinq cents ducats. À Bas-Port, c'est une maison avec un étage. C'est dix ans de passeur, sans compter les fuites à bâbord.",
+    "Cinq cents ducats. À Bas-Port, c'est une maison avec un étage. C'est dix ans de passeur, sans compter les fuites à bâbord. C'est aussi le prix auquel beaucoup d'honnêtes gens découvrent qu'ils l'étaient faute d'occasion.",
     {
      "if": {
       "has": "canal:attaque"
@@ -5916,7 +5916,7 @@
    },
    "text": [
     "Corentin rit, te tape sur l'épaule, dit que tu t'inquiètes trop. Il te propose d'aller chercher du pain et des harengs pour la petite. Tu y vas.",
-    "Quand tu reviens, à midi passé, la porte de l'entrepôt est ouverte. Le plancher mouillé porte des traces de bottes, la trappe du grenier pend, et la couverture traîne par terre.",
+    "Quand tu reviens, à midi passé, la porte de l'entrepôt est ouverte. Le plancher mouillé porte des traces de bottes, la trappe du grenier pend, et la couverture traîne par terre ; il règne là le silence particulier des pièces où l'on vient de crier.",
     "Une voisine en masque de poule, sur son balcon, te dit ce qu'elle a vu : quatre gardes du Guet, un homme en manteau de la Maison des Sels, et la petite, muette, entre eux. Corentin se tenait sur le seuil. Il regardait ailleurs.",
     "Nella est à la Tour du Guet. Corentin a disparu, avec cinq cents ducats."
    ],
@@ -6177,7 +6177,7 @@
      "if": {
       "has": "gouge=allie"
      },
-     "text": "« Hier soir, deux cents barques sur la digue. Ce soir, trois cents. Demain soir, toutes. » Elle frappe sur le tonneau. « Ils pendront la petite devant tout Bas-Port, ou ils ne la pendront pas. »"
+     "text": "« Hier soir, deux cents barques sur la digue. Ce soir, trois cents. Demain soir, toutes. » Elle frappe sur le tonneau. « Ils pendront la petite devant tout Bas-Port, ou ils ne la pendront pas. Et je veux voir la mine du bourreau quand il aura nos lanternes plein les yeux ! »"
     },
     {
      "if": {
@@ -6363,14 +6363,14 @@
    "place": "tour",
    "ambiance": "chateau",
    "text": [
-    "Le jour des masques, la Tour du Guet laisse entrer les familles une heure, à midi. C'est une vieille coutume : on ne refuse pas un visage qu'on ne voit pas. Tu passes la porte en masque de chouette, un panier de pain au bras, derrière une grand-mère qui vient voir son petit-fils voleur de poules.",
+    "Le jour des masques, la Tour du Guet laisse entrer les familles une heure, à midi. C'est une vieille coutume : on ne refuse pas un visage qu'on ne voit pas. Tu passes la porte en masque de chouette, un panier de pain au bras, derrière une grand-mère qui vient voir son petit-fils voleur de poules et qui répète sa semonce dans l'escalier.",
     {
      "if": {
       "has": "jasse_blesse=canal"
      },
      "text": "Un garde te regarde un peu trop longtemps, à cause de ta tempe gonflée sous le masque. Puis une barque de vin entre dans la cour, et la barque l'intéresse davantage."
     },
-    "Nella est dans une cellule du deuxième étage. On te laisse lui parler à travers la grille du judas, un carré de fer large comme deux mains.",
+    "Nella est dans une cellule du deuxième étage, au bout d'un couloir où chaque porte a son judas, et chaque judas l'air d'un œil. On te laisse lui parler à travers la grille, un carré de fer large comme deux mains.",
     {
      "if": {
       "has": "nella_sait=sevan"
@@ -6450,7 +6450,7 @@
    "place": "saules",
    "ambiance": "ville",
    "text": [
-    "La maison au saule est au bout du quai, derrière un mur couvert de lierre. Une servante en masque de colombe t'ouvre la porte du jardin, te toise des pieds à la tête et va chercher sa maîtresse.",
+    "La maison au saule est au bout du quai, derrière un mur couvert de lierre. Une servante en masque de colombe t'ouvre la porte du jardin, te toise des pieds à la tête, fait l'addition, la trouve courte, et va chercher sa maîtresse.",
     "Oriane Valcor descend l'escalier à visage nu. Trente-quatre ans, une robe noire, des cheveux châtains tirés en chignon, des yeux gris qui te détaillent comme une lettre à classer. Le même gris que celui de Nella. Tu le remarques sans savoir pourquoi.",
     {
      "if": {
@@ -6590,7 +6590,7 @@
      "if": {
       "has": "oriane=pacte"
      },
-     "text": "Elle te dit ce que dit le Conseil : le poison, le sel, la servante qui le portait. Elle le dit d'une voix plate, comme on lit un procès-verbal. Puis elle ajoute, les yeux ailleurs : « Le Grand Argentier tient beaucoup à ce que le coffre reste fermé. J'ignore pourquoi. À votre place, je me le demanderais. »"
+     "text": "Elle te dit ce que dit le Conseil : le poison, le sel, la servante qui le portait. Elle le dit d'une voix plate, comme on lit un procès-verbal. Puis elle ajoute, en regardant ses mains : « Le Grand Argentier tient beaucoup à ce que le coffre reste fermé. J'ignore pourquoi. À votre place, je me le demanderais. »"
     },
     {
      "if": {
@@ -6620,7 +6620,7 @@
     "meet": "anselme"
    },
    "text": [
-    "Le Temple de la Marée est le seul endroit d'Escalombre où l'on entre à visage nu le jour des masques. On te fait ôter ta chouette à la porte. Tu attends une heure sous la coupole verte, à regarder l'eau entrer par les bouches de bronze du pavement. Tu en comptes douze, et la marée les remplit dans l'ordre, de l'est vers l'ouest.",
+    "Le Temple de la Marée est le seul endroit d'Escalombre où l'on entre à visage nu le jour des masques. On te fait ôter ta chouette à la porte. Tu attends une heure sous la coupole verte, à regarder l'eau entrer par les bouches de bronze du pavement. Tu en comptes douze, et la marée les remplit dans l'ordre, de l'est vers l'ouest, avec un bruit de gorge ; ceux qui ont bâti ce temple voulaient qu'on y entende la mer avaler.",
     "Le père Anselme te reçoit dans une petite salle aux murs couverts de coquillages. Il est aimable. Il te demande ton nom, ta barque, ta mère. Il sait déjà tout, et il écoute tes réponses comme on vérifie un compte.",
     {
      "if": {
@@ -6763,7 +6763,7 @@
     "meet": "morvan"
    },
    "text": [
-    "On t'introduit aussitôt. C'est ce qui te fait peur. Un commis en masque de héron te mène jusqu'au cabinet du Grand Argentier, au dernier étage de l'entrepôt de marbre, au-dessus des montagnes de sel gris. Tu montes cent douze marches, et l'odeur de saumure monte avec toi jusqu'à la dernière.",
+    "On t'introduit aussitôt. C'est ce qui te fait peur : un riche qui reçoit un passeur sans le faire attendre a déjà calculé ce qu'il en tirera. Un commis en masque de héron te mène jusqu'au cabinet du Grand Argentier, au dernier étage de l'entrepôt de marbre, au-dessus des montagnes de sel gris. Tu montes cent douze marches, et l'odeur de saumure monte avec toi jusqu'à la dernière.",
     "Chez lui, Hugues Morvan va le visage nu. Il te fait asseoir. Il te sert lui-même un verre de vin, et laisse le sien plein.",
     "« Le passeur Ferrant. Tu as quelque chose à me vendre, je crois. » Il sourit. « Je suis marchand. J'écoute. »"
    ],
@@ -6874,7 +6874,7 @@
     "clue": "voiles"
    },
    "text": [
-    "Au nord de Bas-Port, après les marais salants, la lagune se perd dans les roseaux. Les contrebandiers y tiennent des chemins d'eau que les cartes ignorent. L'un d'eux, la Fente, passe sous les murs de la tour de la Chaîne et rejoint le large en contournant la chaîne. Il faut une barque plate, une nuit sans lune, et de la chance.",
+    "Au nord de Bas-Port, après les marais salants, la lagune se perd dans les roseaux. Les contrebandiers y tiennent des chemins d'eau que les cartes ignorent, étroits et tournants, où la barque frôle des deux bords une muraille de tiges qui chuchotent. L'un d'eux, la Fente, passe sous les murs de la tour de la Chaîne et rejoint le large en contournant la chaîne. Il faut une barque plate, une nuit sans lune, et de la chance.",
     "Tu la remontes dans la *Pimprenelle* jusqu'à voir la mer. Au large mouillent les quarante voiles d'Orcanne. De près, on distingue leurs sabords, tous ouverts. Tu comptes douze sabords sur le plus proche, et tu en déduis que la fête qu'ils viennent saluer sera bruyante.",
     {
      "if": {
@@ -6930,7 +6930,7 @@
     "until": 20
    },
    "text": [
-    "Le bal masqué de la Maison des Sels se donne chaque année dans le grand entrepôt, entre les montagnes de sel gris qu'on a couvertes de draps blancs. Trois cents masques, des musiciens sur une estrade, des lanternes de papier pendues aux poutres. On entre avec un masque et un habit. Tu as un masque de chouette et l'habit de ton père, qui sent la naphtaline et qui te serre aux épaules.",
+    "Le bal masqué de la Maison des Sels se donne chaque année dans le grand entrepôt, entre les montagnes de sel gris qu'on a couvertes de draps blancs ; la Maison danse sur sa marchandise, comme l'avare dîne sur son coffre. Trois cents masques, des musiciens sur une estrade, des lanternes de papier pendues aux poutres. On entre avec un masque et un habit. Tu as un masque de chouette et l'habit de ton père, qui sent la naphtaline et qui te serre aux épaules.",
     {
      "if": {
       "has": "clef3=corentin"
@@ -7134,7 +7134,7 @@
    "title": "Derrière la tenture",
    "place": "sels",
    "text": [
-    "Derrière la tenture de l'estrade s'ouvre un réduit plein de chaises empilées, qui sent la poussière. De l'autre côté, Hugues Morvan parle avec un homme qui a l'accent d'Orcanne, un accent qui roule les r comme des galets.",
+    "Derrière la tenture de l'estrade s'ouvre un réduit plein de chaises empilées, qui sent la poussière, et où ton propre souffle te paraît faire un bruit de forge. De l'autre côté, Hugues Morvan parle avec un homme qui a l'accent d'Orcanne, un accent qui roule les r comme des galets.",
     "« L'amiral s'impatiente. » « L'amiral attendra demain minuit, comme convenu. Dès que je serai élu, la chaîne descend. Quarante voiles entrent saluer le nouveau Doyen. Après, nous parlerons des péages. » « Et si vous n'êtes pas élu ? » Un silence. Puis Morvan : « Alors la chaîne descendra quand même. Il suffit d'un ordre scellé du Doyen élu. Celle que j'aurai fait élire signera. »",
     "L'homme d'Orcanne rit. « Les femmes signent ce qu'on leur dit, chez vous ? » « Celle-là signera. Elle a un mari qui me doit trois mille ducats. »"
    ],
@@ -7212,7 +7212,7 @@
      "if": {
       "has": "jasse:sait_chaine"
      },
-     "text": "Le sommeil te fuit. Tu penses à quarante voiles et à une chaîne qui descend à minuit."
+     "text": "Tu restes éveillé. Tu penses à quarante voiles aux sabords ouverts, et à une chaîne qui descend à minuit, maillon après maillon, dans une eau où personne ne l'entendra."
     }
    ],
    "choices": [
@@ -7263,9 +7263,9 @@
     "clue": "voiles"
    },
    "text": [
-    "À huit heures, la barque du Grand Argentier t'attend au pied du quai des Saules : huit rameurs en livrée bleue, un dais de soie, des coussins brodés de sel blanc sur fond bleu. Morvan porte un masque de lion en or. De la même main, il t'en tend un autre : une lionne.",
+    "À huit heures, la barque du Grand Argentier t'attend au pied du quai des Saules : huit rameurs en livrée bleue, un dais de soie, des coussins brodés de sel blanc sur fond bleu. Morvan porte un masque de lion en or ; la modestie est une vertu qu'il abandonne à ceux qui n'ont pas les moyens de s'en passer. De la même main, il t'en tend un autre : une lionne.",
     "« Aujourd'hui, la ville doit nous voir ensemble. Masqués, mais ensemble. »",
-    "Vous traversez la lagune jusqu'aux Passes. La tour de la Chaîne est une tour ronde et trapue, plantée sur un îlot. Il en part une chaîne de fer aussi grosse qu'un homme, qui plonge dans l'eau et ressort de l'autre côté, sur la pointe de Sainte-Agathe : trois cents toises de maillons, à vue d'œil. Derrière, au large, mouillent les quarante voiles d'Orcanne. De près, on voit leurs sabords. Ils sont ouverts.",
+    "Vous traversez la lagune jusqu'aux Passes. La tour de la Chaîne est une tour ronde et trapue, plantée sur un îlot. Il en part une chaîne de fer aussi grosse qu'un homme, qui plonge dans l'eau et ressort de l'autre côté, sur la pointe de Sainte-Agathe : trois cents toises de maillons, à vue d'œil. Derrière, au large, mouillent les quarante voiles d'Orcanne. De près, on voit leurs sabords. Ils sont ouverts ; et chacun montre, au fond de son carré d'ombre, un rond plus noir encore, qui regarde la ville.",
     "Sur le pont du navire amiral, la *Constance*, un homme en habit noir à boutons d'or lève son chapeau dans votre direction. « L'amiral Drenn, dit Morvan. Un ami de la ville. Il est venu saluer notre fête. »"
    ],
    "choices": [
@@ -7298,7 +7298,7 @@
    },
    "text": [
     "Le gardien de la Chaîne est un vieil homme qui s'appelle Bastide et qui garde la tour depuis quarante ans ; il a les avant-bras d'un forgeron et la barbe d'un ermite. Il vous montre le treuil, une roue de chêne haute comme une maison, que vingt hommes font tourner. Il vous montre les registres : chaque fois qu'on a baissé la chaîne depuis cent ans, la date, l'heure, et le sceau du Doyen.",
-    "« Elle ne se baisse que sur un ordre écrit et scellé du Doyen, madame. Ou de qui le Conseil a élu. Pas d'ordre, pas de chaîne. » Il tapote le registre. « La dernière fois, c'était pour la flotte de Lisse, il y a douze ans. La Doyenne était venue elle-même. »",
+    "« Elle ne se baisse que sur un ordre écrit et scellé du Doyen, madame. Ou de qui le Conseil a élu. Pas d'ordre, pas de chaîne. Un amiral peut tousser, un argentier peut sourire : je suis sourd de cette oreille-là depuis quarante ans. » Il tapote le registre. « La dernière fois, c'était pour la flotte de Lisse, il y a douze ans. La Doyenne était venue elle-même. »",
     "Morvan écoute avec un intérêt poli. Il demande combien de temps il faut pour baisser la chaîne. Une demi-heure, dit Bastide. Une demi-heure pour la remonter. Morvan hoche la tête, comme un homme qui note un prix."
    ],
    "choices": [
@@ -7510,7 +7510,7 @@
     "until": 20
    },
    "text": [
-    "Le grand entrepôt de la Maison des Sels a couvert ses montagnes de sel gris de draps blancs et pendu des lanternes de papier aux poutres. Trois cents masques. Tu es au bras de Morvan, en lionne. On s'écarte devant vous.",
+    "Le grand entrepôt de la Maison des Sels a couvert ses montagnes de sel gris de draps blancs et pendu des lanternes de papier aux poutres. Trois cents masques. Tu es au bras de Morvan, en lionne. On s'écarte devant vous comme on s'écarte devant un attelage : par prudence.",
     {
      "if": {
       "has": "renaud=aveu"
@@ -7602,7 +7602,7 @@
    "place": "sels",
    "text": [
     "Morvan s'incline et redescend. Il laisse la porte entrouverte. La musique monte par l'escalier.",
-    "Tu as quelques minutes. Le bureau a trois tiroirs. Deux s'ouvrent. Le troisième est fermé à clef."
+    "Tu as quelques minutes, et chacune fait dans ta poitrine le bruit d'un pas dans l'escalier. Le bureau a trois tiroirs. Deux s'ouvrent. Le troisième est fermé à clef."
    ],
    "choices": [
     {
@@ -7880,7 +7880,7 @@
    },
    "text": [
     "Dame Hélis Arnaud te reçoit dans sa bibliothèque, à visage nu, des lunettes sur le nez, un règlement du Conseil ouvert sur les genoux comme un livre d'heures. Le volume a perdu sa reliure à force d'être ouvert au même endroit.",
-    "« Les vieilles maisons voteront pour vous, ma petite, si vous leur prouvez une chose : que vous n'êtes la créature de personne. Ni de Morvan, ni du Temple, ni de votre tante. » Elle referme le règlement. « Le coffre. Vous avez dit au Conseil qu'il s'ouvrirait avant les lanternes. Vous le maintenez ? Même si ce qu'il contient vous déshérite ? »"
+    "« Les vieilles maisons voteront pour vous, ma petite, si vous leur prouvez une chose : que vous n'êtes la créature de personne. Ni de Morvan, ni du Temple, ni de votre tante. J'ai vu siéger à ce Conseil trois générations de créatures, et je les reconnais de dos. » Elle referme le règlement. « Le coffre. Vous avez dit au Conseil qu'il s'ouvrirait avant les lanternes. Vous le maintenez ? Même si ce qu'il contient vous déshérite ? »"
    ],
    "choices": [
     {
@@ -7947,7 +7947,7 @@
    "title": "Les verriers",
    "place": "sels",
    "text": [
-    "La salle de la guilde des verriers sent le sable chaud et la potasse. Les maîtres des huit métiers sont là, masqués en animaux de la lagune, assis sur des bancs. Ils te laissent parler debout.",
+    "La salle de la guilde des verriers sent le sable chaud et la potasse. Les maîtres des huit métiers sont là, masqués en animaux de la lagune, assis sur des bancs. Ils te laissent parler debout ; chez les artisans, c'est celui qui demande qui reste sur ses jambes, fût-il de la famille d'une Doyenne.",
     "Ils veulent une seule chose, et ils le disent tous de la même façon : le prix du sel. La Maison des Sels le fixe seule depuis trente ans. Le verre, la salaison, la teinture, tout passe par le sel."
    ],
    "choices": [
@@ -8097,8 +8097,8 @@
     "meet": "gouge"
    },
    "text": [
-    "Tu descends à Bas-Port en barque, avec de l'eau jusqu'au plat-bord. Tu n'y étais pas venue depuis tes douze ans. La taverne de l'Ancre Basse est pleine de gens qui se taisent quand tu entres, malgré ton loup.",
-    "La Mère Gouge te regarde depuis sa table posée sur des tonneaux. « La nièce. » Elle te laisse debout. « Bas-Port est absent du Conseil, madame. Il l'a toujours été. Qu'est-ce que vous venez chercher ici ? »",
+    "Tu descends à Bas-Port en barque, avec de l'eau jusqu'au plat-bord. Tu n'y étais pas venue depuis tes douze ans. La taverne de l'Ancre Basse est pleine de gens qui se taisent quand tu entres, malgré ton loup. Tous les visages sont nus et tournés vers ton velours ; tu comprends que le seul masque de la salle, c'est toi.",
+    "La Mère Gouge te regarde depuis sa table posée sur des tonneaux. « La nièce. » Elle te laisse debout. « Bas-Port est absent du Conseil, madame. Il l'a toujours été. Qu'est-ce que vous venez chercher ici ? Le poisson se vend sur la place ; quant aux voix, on aurait du mal à vous en vendre, on a oublié de nous en donner. »",
     {
      "if": {
       "has": "sevan_cache=gouge"
@@ -8284,7 +8284,7 @@
    "place": "sels",
    "text": [
     "« Non. »",
-    "« Alors à demain soir. » Il retourne à ses comptes. Au moment où tu passes la porte, il ajoute, les yeux sur ses colonnes : « Ne buvez rien, au bal. On ne sait jamais ce qu'on met dans les verres, les soirs de fête. »"
+    "« Alors à demain soir. » Il retourne à ses comptes. Au moment où tu passes la porte, il ajoute, sans lever la plume : « Ne buvez rien, au bal. On ne sait jamais ce qu'on met dans les verres, les soirs de fête. »"
    ],
    "choices": [
     {
@@ -8342,7 +8342,7 @@
    "text": [
     "Tu prends la coupe, tu la lèves vers la salle, tu y trempes les lèvres sans boire. Puis tu la poses sur une montagne de sel, derrière un drap, et tu t'éloignes.",
     "Dix minutes plus tard, le gros chat gris qui mange les souris de l'entrepôt renverse la coupe et lèche le vin sur le drap. À dix heures, il est mort sous l'estrade, les pattes raides.",
-    "Tu quittes le bal avant onze heures. Tes mains tremblent dans tes gants. Pour la première fois de ta vie, quelqu'un a voulu te tuer."
+    "Tu quittes le bal avant onze heures. Tes mains tremblent dans tes gants. Pour la première fois de ta vie, quelqu'un a voulu te tuer ; et cette pensée, que tu retournes dans la barque du retour, a ceci d'étrange qu'elle te semble regarder une autre femme, que tu plains."
    ],
    "choices": [
     {
@@ -8820,7 +8820,7 @@
     }
    },
    "text": [
-    "Les commis de la Maison des Sels vous reçoivent avec une politesse glacée. L'ordre du Conseil est l'ordre du Conseil. On vous ouvre la salle des registres : cent ans de sel, entrées et sorties, sur des rayonnages qui montent jusqu'au plafond.",
+    "Les commis de la Maison des Sels vous reçoivent avec une politesse glacée. L'ordre du Conseil est l'ordre du Conseil. On vous ouvre la salle des registres : cent ans de sel, entrées et sorties, sur des rayonnages qui montent jusqu'au plafond. La Maison tient ses livres comme le Temple ses reliques, et elle y croit davantage.",
     "Tu cherches ce que tu sais chercher. Les arrivées de navires d'Orcanne, depuis l'automne : un tous les dix jours, toujours le même, la *Fidèle*, et toujours la même cargaison. *Citrons, vingt caisses, pour l'apothicairerie.* Vingt caisses de citrons tous les dix jours pour un seul apothicaire. Toute la ville pourrait guérir du scorbut sur cette boutique.",
     "Et dans les sorties, chaque lundi depuis la Saint-Michel : *Un pot, fleur de sel fine, pour la table de la Doyenne, préparé par L. B.* Avant la Saint-Michel, la même ligne, sans les initiales."
    ],
@@ -9018,7 +9018,7 @@
    "place": "saules",
    "ambiance": "ville",
    "text": [
-    "Tu dors mal. À trois heures, tu sens le matelas bouger. Renaud se lève et marche pieds nus. Tu l'entends ouvrir le tiroir de la table de nuit, celui où tu ranges la chaîne de la clef d'argent.",
+    "Tu dors mal. À trois heures, tu sens le matelas bouger. Renaud se lève et marche pieds nus, avec la lenteur des gens qui écoutent leur propre bruit. Tu l'entends ouvrir le tiroir de la table de nuit, celui où tu ranges la chaîne de la clef d'argent.",
     "Tu as les yeux ouverts dans le noir."
    ],
    "choices": [
@@ -9215,7 +9215,7 @@
    "title": "Il y a dix-neuf ans",
    "souvenir": "Il y a dix-neuf ans",
    "text": [
-    "C'est un hiver de grande passe, le plus froid depuis trente ans. La lagune a gelé sur les bords, sur une largeur de dix pas, et les barques restent à quai. On t'a fait venir de nuit, par la porte du jardin, dans une maison du quai des Saules que la Doyenne loue sous un autre nom.",
+    "C'est un hiver de grande passe, le plus froid depuis trente ans. La lagune a gelé sur les bords, sur une largeur de dix pas, et les barques restent à quai ; la nuit, la glace craque sous les fenêtres avec des bruits d'os. On t'a fait venir à la faveur de l'obscurité, par la porte du jardin, dans une maison du quai des Saules que la Doyenne loue sous un autre nom.",
     "Ermesinde Valcor a quarante-trois ans. Elle est couchée dans un lit de location, sous des draps d'emprunt, et elle serre les dents depuis six heures. En arrivant, elle t'a fait jurer le silence, et elle se l'impose d'abord à elle-même : de toute la nuit, elle n'a pas crié une fois.",
     "À l'aube, l'enfant vient. Une fille, petite, bleue, sans souffle. Tu la frottes, tu la retournes, tu lui souffles dans la bouche. Elle crache, elle hurle. Ermesinde rit en pleurant, une seule fois, puis elle tend les bras.",
     "Elle garde l'enfant contre elle une heure. Puis elle te la rend. « Les Ferrant viennent la prendre à midi. Ils ont perdu une petite fille le mois dernier. Ils l'appelleront comme ils voudront. » Elle te regarde. « Toi, tu sais. Jure-moi que tu ne diras rien. »"
@@ -9346,7 +9346,7 @@
    "title": "Il y a douze ans",
    "souvenir": "Il y a douze ans",
    "text": [
-    "C'est ton premier jour au palais. Tu as vingt-deux ans, une robe trop neuve, et trois plumes taillées dans ton écritoire. Ta tante te fait asseoir à la petite table, sous la fenêtre, et commence à dicter, les yeux sur le canal.",
+    "C'est ton premier jour au palais. Tu as vingt-deux ans, une robe trop neuve, et trois plumes taillées dans ton écritoire. Ta tante te fait asseoir à la petite table, sous la fenêtre, et commence à dicter, tournée vers le canal.",
     "Une lettre au doge de Lisse. Une lettre au Grand Argentier de l'époque, le père de Morvan. Une lettre à une veuve de Bas-Port qui réclame la barque de son mari. Ermesinde dicte les trois du même ton. Tu écris vite. Ta main tremble à la troisième.",
     "À midi, elle se tait, prend tes feuilles et les lit. Elle corrige une virgule. Puis elle relève les yeux.",
     "« Pourquoi veux-tu ce poste, Oriane ? Tu pourrais épouser n'importe qui. Pourquoi venir écrire mes lettres ? »"
@@ -9407,9 +9407,9 @@
    "title": "La Saint-Martin",
    "souvenir": "À la Saint-Martin",
    "text": [
-    "C'est un soir de novembre, il y a quatre mois. Il pleut sur la lagune depuis trois jours. Ermesinde Valcor t'a fait appeler pour une toux, et la toux est un prétexte : elle t'attend assise, habillée, devant le feu de son cabinet, avec deux verres de vin chaud.",
+    "C'est un soir de novembre, il y a quatre mois. Il pleut sur la lagune depuis trois jours, d'une pluie droite et grise qui efface les îles une à une. Ermesinde Valcor t'a fait appeler pour une toux, et la toux est un prétexte : elle t'attend assise, habillée, devant le feu de son cabinet, avec deux verres de vin chaud.",
     "Elle parle d'abord des comptes de l'hospice, des toits du Temple qui fuient, du prix du bois. Puis elle sort de sa manche une clef de fer noir, longue comme la main, à l'anneau usé par cent ans de doigts. Elle la pose sur la table, entre les deux verres.",
-    "« La clef du Temple. Elle dormait dans le tabernacle de la chapelle depuis la fondation. Mon sacristain me l'a apportée ce matin. Le père Anselme s'en apercevra dimanche. »",
+    "« La clef du Temple. Elle dormait dans le tabernacle de la chapelle depuis la fondation. Mon sacristain me l'a apportée ce matin. Le père Anselme s'en apercevra dimanche ; cela lui laisse la semaine pour mûrir son indignation, il les préfère faites à point. »",
     "Elle pousse la clef vers toi, du bout de l'index. « Tu la garderas. Et à partir de ce soir, c'est toi qui m'entendras en confession. J'ai des choses à dire, et je veux les dire à quelqu'un qui sait se taire. »"
    ],
    "choices": [
@@ -9600,7 +9600,7 @@
     "until": 9
    },
    "text": [
-    "Le troisième jour des Hautes-Eaux, la marée monte jusqu'à midi, plus haut que de toute l'année. On l'entend partout : un clapotis sous les portes, dans les caves, dans les escaliers des maisons basses.",
+    "Le troisième jour des Hautes-Eaux, la marée monte jusqu'à midi, plus haut que de toute l'année. On l'entend partout : un clapotis sous les portes, dans les caves, dans les escaliers des maisons basses ; la ville entière a ce bruit de bouche, patient, d'une chose qui goûte ce qu'elle va prendre.",
     {
      "if": {
       "any": [
@@ -10240,7 +10240,7 @@
     "until": 8
    },
    "text": [
-    "Le troisième jour, la marée monte à Bas-Port jusqu'au premier étage. Les gens vivent sur les toits, avec leurs poules et leurs matelas. On se passe le pain d'une fenêtre à l'autre au bout d'une gaffe. Les enfants pêchent dans les cuisines, et prennent des gobies entre les pieds des tables.",
+    "Le troisième jour, la marée monte à Bas-Port jusqu'au premier étage. Les gens vivent sur les toits, avec leurs poules et leurs matelas. On se passe le pain d'une fenêtre à l'autre au bout d'une gaffe. Les enfants pêchent dans les cuisines, et prennent des gobies entre les pieds des tables. Bas-Port est le seul quartier de la lagune où l'on monte se coucher en bateau, et il a la faiblesse de s'en vanter.",
     "Mo te trouve à l'aube, assis dans ta barque, à regarder l'eau monter sur la façade de l'Ancre Basse. Tu as compté les rangs de briques : elle a gagné quatre rangs depuis minuit.",
     {
      "if": {
@@ -10416,7 +10416,7 @@
    },
    "text": [
     "La maison où tu as grandi est vide depuis la mort de ta mère. Tu as été incapable de la vendre comme d'y revenir. La porte d'en bas a lâché cette nuit, et la marée est entrée jusqu'à la deuxième marche de l'escalier.",
-    "Tu entres en barque dans la cuisine. Les chaises flottent. Une poupée de chiffon tourne sur l'eau : celle de Nella. Le coffre de ton père, celui qu'il tenait fermé, flotte aussi, entre deux eaux, le couvercle entrouvert."
+    "Tu entres en barque dans la cuisine. Les chaises flottent, lentes, tournées les unes vers les autres comme pour une veillée. Une poupée de chiffon tourne sur l'eau : celle de Nella. Le coffre de ton père, celui qu'il tenait fermé, flotte aussi, entre deux eaux, le couvercle entrouvert."
    ],
    "choices": [
     {
@@ -10481,7 +10481,7 @@
     "meet": "gouge"
    },
    "text": [
-    "Le cimetière des Noyés est une île basse, plantée de cyprès, où l'on enterre ceux que la lagune a pris. Ce matin, la marée couvre les tombes ; seules dépassent les croix, et les gens viennent en barque prier au-dessus de l'eau.",
+    "Le cimetière des Noyés est une île basse, plantée de cyprès, où l'on enterre ceux que la lagune a pris. Ce matin, la marée couvre les tombes ; seules dépassent les croix, et les gens viennent en barque prier au-dessus de l'eau, penchés sur leur reflet, à l'aplomb de leurs morts.",
     "La croix de ta mère est au bout de l'île, près du mur. Une barque est déjà amarrée à côté. Dedans, la Mère Gouge, seule, un bouquet de chardons bleus sur les genoux.",
     {
      "if": {
@@ -10495,7 +10495,7 @@
        "has": "gouge:sait_nella"
       }
      },
-     "text": "Sa prière va à la croix voisine, une vieille croix de bois sans nom. « Mon fils, dit-elle, le dos tourné. Tomas. Ta mère venait le voir, chaque hiver. Elle disait qu'elle lui devait une visite. Je n'ai jamais su pourquoi. »"
+     "text": "Sa prière va à la croix voisine, une vieille croix de bois sans nom. « Mon fils, dit-elle sans se retourner. Tomas. Ta mère venait le voir, chaque hiver. Elle disait qu'elle lui devait une visite. Je n'ai jamais su pourquoi. »"
     }
    ],
    "choices": [
@@ -10657,7 +10657,7 @@
     "flag": "oriane:veille_morvan"
    },
    "text": [
-    "Morvan s'agenouille au pied du lit, longtemps. Il prie, ou il fait semblant, avec un égal talent. Puis il se relève, s'approche de toi et parle à voix basse, les yeux sur la morte.",
+    "Morvan s'agenouille au pied du lit, longtemps. Il prie, ou il fait semblant, avec un égal talent. Puis il se relève, s'approche de toi et parle à voix basse, tourné vers la morte.",
     "« Elle était la plus grande adversaire que j'aie eue. Je l'admirais. Je voulais que vous le sachiez, avant ce soir. »",
     {
      "if": {
@@ -10699,7 +10699,7 @@
    "place": "palais",
    "ambiance": "chateau",
    "text": [
-    "Morvan garde les yeux sur les mains. Il sourit, très légèrement. « Les morts ont souvent les ongles pâles, madame. Votre médecin vous l'expliquera. »",
+    "Morvan continue de regarder les mains. Il sourit, très légèrement. « Les morts ont souvent les ongles pâles, madame. Votre médecin vous l'expliquera. »",
     "Il s'en va. Le garde du Guet le plus proche, un jeune sergent, a tout entendu. Il te regarde. Il note quelque chose sur sa tablette, en cachette."
    ],
    "choices": [
@@ -11189,7 +11189,7 @@
    "place": "temple",
    "ambiance": "temple",
    "text": [
-    "À sept heures, les sœurs de l'hospice allument les lanternes aux fenêtres des malades. Une par fenêtre, même chez les mourants. Surtout chez les mourants, dit la sœur portière : les morts de la Nuit des Lanternes trouvent ainsi leur chemin.",
+    "À sept heures, les sœurs de l'hospice allument les lanternes aux fenêtres des malades. Une par fenêtre, même chez les mourants. Surtout chez les mourants, dit la sœur portière : les morts de la Nuit des Lanternes trouvent ainsi leur chemin. Tu regardes les petites flammes naître une à une le long de la salle, et tu comptes malgré toi les fenêtres dont le lit sera vide au matin.",
     "Tu as passé la journée à préparer cette nuit, sans savoir ce qu'elle serait. Ta sacoche est sur la table. Tu en fais l'inventaire, comme avant une tournée : ce que tu as gardé de trois jours.",
     {
      "if": {
@@ -11236,7 +11236,7 @@
    "place": "basport",
    "ambiance": "eau",
    "text": [
-    "Tu te réveilles dans le grenier de l'Ancre Basse, entre deux filets qui sèchent. En bas, la taverne est pleine. Les chopes restent pleines aussi : on attend. Les voix sont basses, les gaffes appuyées contre les tables.",
+    "Tu te réveilles dans le grenier de l'Ancre Basse, entre deux filets qui sèchent. En bas, la taverne est pleine. Les chopes restent pleines aussi : on attend. Les voix sont basses, les gaffes appuyées contre les tables ; une salle entière de buveurs qui laissent leur vin a de quoi inquiéter davantage qu'une émeute.",
     "La Mère Gouge monte l'échelle à sept heures, une lanterne à la main, et la pose à côté de toi.",
     {
      "if": {
@@ -11312,7 +11312,7 @@
    },
    "text": [
     "À sept heures, Gildas t'apporte une robe de cérémonie, blanche à bordure verte, et la pose sur ton lit en silence.",
-    "Anselme entre derrière lui. Il est déjà habillé pour le Conseil, la mitre basse, l'anneau de la Marée au doigt. Il a le teint frais d'un homme qui a dormi ses huit heures.",
+    "Anselme entre derrière lui. Il est déjà habillé pour le Conseil, la mitre basse, l'anneau de la Marée au doigt. Il a le teint frais d'un homme qui a dormi ses huit heures, privilège des consciences spacieuses.",
     "« À minuit, tu marcheras à ma droite. Quand le Conseil t'interrogera, tu diras que la Doyenne a été empoisonnée au sel par la Maison des Sels. Tu diras que tu l'as soignée jusqu'au bout. Tu ne diras rien d'autre. » Il ajuste ton col. « Et le Temple te gardera, mon fils. »",
     {
      "if": {
@@ -11417,7 +11417,7 @@
    "ambiance": "ville",
    "text": [
     "Tu te baisses. La main d'Anselme garde ton coude. Elle serre doucement, comme un père retient un enfant au bord d'un quai.",
-    "« Pas ce soir, mon fils. » Il garde les yeux sur la route. Le cortège repart."
+    "« Pas ce soir, mon fils. » Il regarde droit devant lui. Le cortège repart."
    ],
    "choices": [
     {
@@ -11438,7 +11438,7 @@
      "if": {
       "has": "ysabeau=allie"
      },
-     "text": "La capitaine du Guet passe devant le banc. Elle te regarde, puis regarde les deux frères. Elle se tait. Elle place un garde à la porte de l'antichambre, et ce garde-là garde les yeux sur le banc jusqu'au bout."
+     "text": "La capitaine du Guet passe devant le banc. Elle te regarde, puis regarde les deux frères. Elle se tait. Elle place un garde à la porte de l'antichambre, et ce garde-là surveille le banc jusqu'au bout."
     },
     "Tu regardes tes mains. Ce sont des mains qui ont endormi une femme. Ce soir, elles vont prêter serment."
    ],
@@ -12271,7 +12271,7 @@
    "place": "sels",
    "text": [
     "Tu sors en silence. Sur le pont, tu croises les trois hommes qui montent. Ils te saluent poliment, comme on salue un prêtre.",
-    "Tu gardes les yeux devant toi. À dix heures, une barque sans lanterne passe sous le pont des Sels, plus lourde qu'à l'aller."
+    "Tu marches sans te retourner. À dix heures, une barque sans lanterne passe sous le pont des Sels, plus lourde qu'à l'aller ; elle cale plus bas de la hauteur d'une paume, et tu sais au juste ce que pèse cette paume-là."
    ],
    "choices": [
     {
@@ -12343,7 +12343,7 @@
      "if": {
       "has": "nella_sait=sevan"
      },
-     "text": "« Ma mère aimait cette nuit-là, dit-elle, le dos tourné. Je le sais, maintenant, que c'était ma mère. Elle me faisait monter sur la tour du palais pour voir. Je croyais qu'elle faisait ça avec toutes les servantes. »"
+     "text": "« Ma mère aimait cette nuit-là, dit-elle sans se retourner. Je le sais, maintenant, que c'était ma mère. Elle me faisait monter sur la tour du palais pour voir. Je croyais qu'elle faisait ça avec toutes les servantes. »"
     },
     {
      "if": {
@@ -12356,7 +12356,7 @@
        }
       ]
      },
-     "text": "« Vous saviez, dit-elle, le dos tourné. Pour ma mère. On me l'a dit. Vous saviez depuis dix-neuf ans. »"
+     "text": "« Vous saviez, dit-elle, tournée vers la fenêtre. Pour ma mère. On me l'a dit. Vous saviez depuis dix-neuf ans. »"
     },
     {
      "if": {
@@ -12719,7 +12719,7 @@
      "if": {
       "has": "sv3l=ville"
      },
-     "text": "La chapelle des Noyés, au bout du quai, est vide : tout le monde est au palais. Il reste les ex-voto, des centaines de petites barques d'argent pendues au plafond, qui tournent dans le courant d'air."
+     "text": "La chapelle des Noyés, au bout du quai, est vide : tout le monde est au palais. Il reste les ex-voto, des centaines de petites barques d'argent pendues au plafond, qui tournent dans le courant d'air et se touchent avec un bruit léger de monnaie comptée dans l'ombre."
     },
     "Tu t'agenouilles. Tu as entendu des milliers de confessions sur ce genre de dalle. Tu t'es toujours demandé à qui se confesse le confesseur.",
     {
@@ -12756,7 +12756,7 @@
     }
    },
    "text": [
-    "Ysabeau Dorne t'écoute derrière son bureau, sous les portraits de tous les capitaines du Guet depuis deux cents ans : trente-quatre visages, dont trois seulement sourient. Elle prend des notes.",
+    "Ysabeau Dorne t'écoute derrière son bureau, sous les portraits de tous les capitaines du Guet depuis deux cents ans : trente-quatre visages, dont trois seulement sourient ; le métier veut cela. Elle prend des notes.",
     {
      "if": {
       "has": "ysabeau=allie"
@@ -13328,7 +13328,7 @@
    "place": "tour",
    "ambiance": "eau",
    "text": [
-    "À sept heures, tu es dans ta barque, au pied de la Tour du Guet, côté lagune. Tu comptes les fenêtres : deuxième étage, la quatrième depuis l'angle. Elle est éclairée.",
+    "À sept heures, tu es dans ta barque, au pied de la Tour du Guet, côté lagune. D'en bas, le mur monte droit dans la nuit, noir et lisse, et l'eau le bat avec un bruit creux de tonneau vide. Tu comptes les fenêtres : deuxième étage, la quatrième depuis l'angle. Elle est éclairée.",
     "Ton inventaire tient en une phrase : une gaffe, un couteau, Petit Mo qui t'attend sur le quai, et cinq heures avant que la ville entière regarde ailleurs. Pour les barques, les bras et le gardien acheté, tu repasseras.",
     {
      "if": {
@@ -13942,7 +13942,7 @@
    "place": "sels",
    "text": [
     "Corentin est assis sur la dernière marche, la main sur sa cuisse qui saigne. L'homme de la Maison des Sels a disparu avec sa bourse.",
-    "Tu tiens le ruban. Corentin garde les yeux sur l'eau. « Va. Va donc la sauver, ta sœur qui n'est pas ta sœur. »"
+    "Tu tiens le ruban. Corentin regarde l'eau. « Va. Va donc la sauver, ta sœur qui n'est pas ta sœur. »"
    ],
    "choices": [
     {
@@ -14004,7 +14004,7 @@
     "flag": "jasse:chaine3"
    },
    "text": [
-    "La tour de la Chaîne se dresse au bout de la digue, face aux Passes. Au large, sur l'eau noire, quarante lanternes immobiles s'alignent comme une deuxième digue. La flotte d'Orcanne attend.",
+    "La tour de la Chaîne se dresse au bout de la digue, face aux Passes. Au large, sur l'eau noire, quarante lanternes immobiles s'alignent comme une deuxième digue. La flotte d'Orcanne attend ; ses quarante ponts restent muets, la nuit même où une ville entière chante à portée de leurs canons.",
     "La chaîne sort de la tour par une arche, chaque maillon gros comme la cuisse d'un homme, et plonge dans la passe. Pour la baisser, il faut un treuil, six hommes, et un ordre.",
     {
      "if": {
@@ -15050,7 +15050,7 @@
    "text": [
     {
      "first": true,
-     "text": "Les galeries du palais sont pleines de conseillers qui se parlent à l'oreille. On t'arrête toutes les trois marches. On te félicite, on te plaint, on te demande où tu en es. Tu as quatre heures."
+     "text": "Les galeries du palais sont pleines de conseillers qui se parlent à l'oreille ; il s'y confie ce soir plus de secrets que dans tous les confessionnaux du Temple, et ils y sont moins bien gardés. On t'arrête toutes les trois marches. On te félicite, on te plaint, on te demande où tu en es. Tu as quatre heures."
     },
     {
      "if": {
@@ -15723,7 +15723,7 @@
    "title": "Le visage",
    "place": "palais",
    "text": [
-    "Tu reprends la lettre et tu la ranges. Tu le regardes encore un instant, comme on regarde un tableau dans un musée avant de passer au suivant.",
+    "Tu reprends la lettre et tu la ranges. Tu le regardes encore un instant, avec la curiosité qu'on accorde à un tableau avant de passer au suivant.",
     "Puis tu sors du salon des Sels. Derrière toi, la cour tarde à se refermer."
    ],
    "choices": [
@@ -16121,7 +16121,7 @@
      "if": {
       "has": "chaine_ordre=signe"
      },
-     "text": "Tu dis aussi que c'est ta signature, au bas. Tu le dis les yeux droits. Ysabeau Dorne te regarde comme on regarde quelqu'un qui se dénonce. La chose est rare, et elle en a vu deux en trois jours."
+     "text": "Tu dis aussi que c'est ta signature, au bas. Tu le dis les yeux droits. Ysabeau Dorne te considère avec l'air qu'elle réserve aux gens qui se dénoncent. La chose est rare, et elle en a vu deux en trois jours."
     },
     "« Personne ne touchera au treuil cette nuit, madame. Quel que soit l'ordre et quel que soit le sceau. » Elle appelle son lieutenant. Six hommes partent vers la tour de la Chaîne."
    ],
@@ -16143,7 +16143,7 @@
    "place": "palais",
    "ambiance": "chateau",
    "text": [
-    "Onze heures. Tu entres seule dans la Chambre des Sceaux. Le coffre est là, sur sa table de pierre, ses trois serrures en ligne : une d'argent, une de fer, une de bronze. Tu poses la main sur le couvercle. Il est froid comme une pierre tombale.",
+    "Onze heures. Tu entres seule dans la Chambre des Sceaux. Ta lanterne y découpe un cercle, au-delà duquel les murs se devinent plus qu'ils ne se voient. Le coffre est là, sur sa table de pierre, ses trois serrures en ligne : une d'argent, une de fer, une de bronze. Tu poses la main sur le couvercle. Il est froid comme une pierre tombale.",
     {
      "if": {
       "has": "clef1=oriane"
@@ -16256,8 +16256,8 @@
    "ambiance": "eau",
    "noLead": true,
    "text": [
-    "À minuit moins le quart, la marée est à son plus haut. L'eau recouvre la troisième marche du palais et lèche la quatrième. Les barques des conseillers s'amarrent aux pieux peints, flanc contre flanc, et leurs passeurs se passent des gourdes de vin d'une barque à l'autre en attendant leurs maîtres.",
-    "Sur la tour du palais, quatre hommes hissent la grande lanterne éteinte jusqu'à son crochet de fer. Elle a la taille d'une barrique et pèse, dit-on, le poids de trois hommes. On l'allumera aux douze coups. Toute la ville a les yeux levés vers elle.",
+    "À minuit moins le quart, la marée est à son plus haut. L'eau recouvre la troisième marche du palais et lèche la quatrième. Les barques des conseillers s'amarrent aux pieux peints, flanc contre flanc, et leurs passeurs se passent des gourdes de vin d'une barque à l'autre en attendant leurs maîtres ; on gouverne là-haut, on boit en bas, et la ville s'est toujours mieux trouvée de la seconde occupation.",
+    "Sur la tour du palais, quatre hommes hissent la grande lanterne éteinte jusqu'à son crochet de fer. Elle a la taille d'une barrique et pèse, dit-on, le poids de trois hommes ; noire encore contre le ciel, elle pend au-dessus de la ville comme une chose qui attend son heure. On l'allumera aux douze coups. Toute la ville a les yeux levés vers elle.",
     {
      "if": {
       "has": "oriane_malade=oui"
@@ -16288,7 +16288,7 @@
      "if": {
       "has": "sv3=tour"
      },
-     "text": "Au pied de la Tour du Guet, Sévan Aldric est assis sur une borne, les yeux sur une fenêtre du deuxième étage. Il a choisi d'être là. Il se demande, une fois encore, si c'était le bon endroit."
+     "text": "Au pied de la Tour du Guet, Sévan Aldric est assis sur une borne, tourné vers une fenêtre du deuxième étage. Il a choisi d'être là. Il se demande, une fois encore, si c'était le bon endroit."
     },
     {
      "if": {
@@ -16312,7 +16312,7 @@
      "if": {
       "has": "jasse3=fuite"
      },
-     "text": "Dans les roseaux du nord, une barque plate glisse sans lanterne. Deux neveux de la Mère Gouge rament. Jasse Ferrant, à la proue, tient la main de sa sœur, le dos tourné au palais."
+     "text": "Dans les roseaux du nord, une barque plate glisse sans lanterne. Deux neveux de la Mère Gouge rament. Jasse Ferrant, à la proue, tient la main de sa sœur et regarde la mer."
     },
     {
      "if": {
@@ -16368,7 +16368,7 @@
      "if": {
       "has": "leonce=temoin"
      },
-     "text": "À côté de lui tremble un homme pâle, enveloppé dans un manteau de pêcheur : Léonce Brisard, l'apothicaire de la Maison des Sels. Morvan le voit, et ses yeux restent sur lui jusqu'au bout."
+     "text": "À côté de lui tremble un homme pâle, enveloppé dans un manteau de pêcheur : Léonce Brisard, l'apothicaire de la Maison des Sels. Morvan le voit, et ne le quitte plus du regard."
     },
     {
      "if": {
@@ -18019,7 +18019,7 @@
        }
       ]
      },
-     "text": "Elle lit le mot « Bas-Port » devant une lagune vide. Les vieilles maisons s'en offusquent, et la lagune garde le silence."
+     "text": "Elle lit le mot « Bas-Port » devant une lagune vide. Les vieilles maisons s'en offusquent, et la lagune se tait."
     },
     "Elle se rassoit. Hélis Arnaud note quelque chose dans la marge de son registre."
    ],
@@ -18463,7 +18463,7 @@
      "if": {
       "has": "elu=morvan"
      },
-     "text": "Alors Morvan se lève. De toute la nuit, il a gardé le silence. « Puisque la secrétaire n'y arrive pas… » Quatorze mains se lèvent avant qu'il ait fini sa phrase, puis les vieilles maisons qui ont peur, une par une. Vingt-deux."
+     "text": "Alors Morvan se lève. De toute la nuit, il s'est tu. « Puisque la secrétaire n'y arrive pas… » Quatorze mains se lèvent avant qu'il ait fini sa phrase, puis les vieilles maisons qui ont peur, une par une. Vingt-deux."
     },
     {
      "if": {
@@ -19016,7 +19016,7 @@
     "flag": "fin:orcanne"
    },
    "text": [
-    "À une heure, la marée tourne. Dans la tour de la Chaîne, six hommes pèsent sur le treuil, et la grande chaîne des Passes descend dans l'eau noire, maillon par maillon, avec un bruit que toute la ville entend.",
+    "À une heure, la marée tourne. Dans la tour de la Chaîne, six hommes pèsent sur le treuil, et la grande chaîne des Passes descend dans l'eau noire, maillon par maillon, avec un bruit de fer traîné que toute la ville entend, et que chacun, sur son quai ou dans son lit, comprend aussitôt.",
     {
      "if": {
       "has": "morvan=fui"

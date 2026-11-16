@@ -859,7 +859,7 @@
    "title": "Vérenne, avant le jour",
    "place": "verenne",
    "text": [
-    "La cloche de Saint-Vaast sonne cinq heures sur Vérenne. Il gèle. Les toits d'ardoise sont blancs, les fontaines portent des barbes de glace longues d'un empan, et le marché aux sels, sous les fenêtres de la chancellerie, est vide depuis trois ans : il y pousse de l'herbe entre les pavés, et l'herbe a gelé aussi.",
+    "La cloche de Saint-Vaast sonne cinq heures sur Vérenne. Il gèle. Les toits d'ardoise sont blancs, les fontaines portent des barbes de glace longues d'un empan, et le marché aux sels, sous les fenêtres de la chancellerie, est vide depuis trois ans : il y pousse de l'herbe entre les pavés, et l'herbe a gelé aussi. La chancellerie, elle, a de la lumière à tous les étages ; la guerre, qui vide les marchés, donne beaucoup à écrire.",
     "Ce matin, deux personnes vont quitter la ville par la porte du Nord avec la réponse de la duchesse. L'une portera le pli. L'autre connaît la route du col de l'Ourse, la seule qui mène au lac de Brume en cinq jours.",
     "Laquelle es-tu ?"
    ],
@@ -894,7 +894,7 @@
     "secret": "p_pere"
    },
    "text": [
-    "Tu as passé la nuit sur un banc de chêne, dans l'antichambre du chancelier, ton manteau roulé sous la tête. Hier soir, le clerc de garde t'a dit : « Maître Oriel te recevra avant l'aube. Tu restes ici. »",
+    "Tu as passé la nuit sur un banc de chêne, dans l'antichambre du chancelier, ton manteau roulé sous la tête. Hier soir, le clerc de garde t'a dit : « Maître Oriel te recevra avant l'aube. Tu restes ici. » Les antichambres servent à cela : on y pose les gens comme on pose un manteau, pour les reprendre quand on en a l'usage.",
     "Tu es courrier de la chancellerie depuis quatre ans. Tu as porté des lettres à Lunel, à Saint-Aubrac, aux comtes de la côte, et tu as appris à dormir n'importe où, la main sur la sacoche. Brumefond, jamais : depuis la guerre des salines, les courriers de Vérenne s'arrêtent à la frontière.",
     "Ce pli-là, tu l'as demandé. Deux fois : au clerc, puis au secrétaire du chancelier. Ton père, Aymon Cabrol, est mort à Brumefond il y a douze ans, sur la place du Marché-aux-Sels, au bout d'une corde. On l'a pendu comme espion de Vérenne. Tu avais neuf ans. Tu veux voir cette place.",
     {
@@ -934,7 +934,7 @@
    },
    "text": [
     "Le cabinet sent la cire chaude et le bois de la cheminée. Sur la table, un seul objet : un pli plié en quatre, fermé de cire rouge au sceau de la chancellerie, la tour et les trois clés.",
-    "Maître Oriel Daumas a soixante ans, des mains de clerc tachées d'encre jusqu'à la deuxième phalange, et une voix si basse qu'il faut tendre l'oreille. « La réponse de Sa Grâce à l'Assemblée des Ligues. Tu la remettras à la présidente Aude Lorge, en séance, devant l'Assemblée réunie. Pas avant l'ouverture de la séance. Pas à un autre. La séance du vote se tient au soir de la nouvelle lune, dans cinq jours. »",
+    "Maître Oriel Daumas a soixante ans, des mains de clerc tachées d'encre jusqu'à la deuxième phalange, et une voix si basse qu'il faut tendre l'oreille : la voix d'un homme qui a perdu depuis longtemps l'habitude d'être interrompu. « La réponse de Sa Grâce à l'Assemblée des Ligues. Tu la remettras à la présidente Aude Lorge, en séance, devant l'Assemblée réunie. Pas avant l'ouverture de la séance. Pas à un autre. La séance du vote se tient au soir de la nouvelle lune, dans cinq jours. »",
     "Il pousse le pli vers toi du bout de deux doigts. « Ton guide t'attend dans la cour. Un muletier de Sorgue, qui connaît le col en hiver. Tu dormiras à Pont-Gelé ce soir, à Sorgue-le-Haut demain. »",
     "Puis il te regarde, un temps de trop. « Cabrol. J'ai connu ton père. Il servait bien. »"
    ],
@@ -1063,7 +1063,7 @@
     "secret": "p_vu"
    },
    "text": [
-    "Le sommeil tarde. Le banc est dur, la chandelle du couloir s'est éteinte, et sous la porte du cabinet passe un trait de lumière jaune.",
+    "Le sommeil tarde. Le banc est dur, la chandelle du couloir s'est éteinte, et sous la porte du cabinet passe un trait de lumière jaune. Dans une maison où tout dort, une lumière à minuit a l'air d'une confidence ; tu la regardes un long moment, avec le sentiment de l'écouter.",
     "La porte est entrouverte d'un doigt. Par la fente, tu vois le chancelier assis à sa table, en chemise, les manches relevées. Il écrit lentement, en s'arrêtant à chaque ligne pour regarder à côté de lui : le geste d'un homme qui recopie. Près de son coude, il y a une autre lettre, fermée, posée à plat.",
     "Il termine, il sèche l'encre au sable, il plie, il scelle. Puis il prend la lettre fermée, la tourne une fois entre ses doigts, et l'approche de la chandelle. Le papier se recroqueville. Il le tient jusqu'au bout, jusqu'à ce que la flamme lui lèche les doigts, et il laisse tomber les cendres dans un bassin de cuivre."
    ],
@@ -1122,7 +1122,7 @@
     "item": "corde"
    },
    "text": [
-    "La Corne est une auberge de rouliers, en bas de la ville, près de la porte du Nord. On y sert la soupe à cinq heures et le vin à toute heure. Tu manges ta soupe près du feu. Dans la cour, ta mule Brunette mâche le foin que tu as payé hier soir, et ta corde de chanvre est roulée sur le bât, comme toujours.",
+    "La Corne est une auberge de rouliers, en bas de la ville, près de la porte du Nord. On y sert la soupe à cinq heures et le vin à toute heure, ce qui dit assez l'ordre de ses préférences. Tu manges ta soupe près du feu. Dans la cour, ta mule Brunette mâche le foin que tu as payé hier soir, et ta corde de chanvre est roulée sur le bât, comme toujours.",
     "Tu es de Sorgue-le-Haut, au pied du col de l'Ourse. Depuis onze ans tu fais passer le sel et la laine de l'autre côté des Dents, avec des mules. Depuis trois ans, le sel a cessé de passer : la guerre a fermé les salines, et les muletiers de Sorgue vendent leurs bêtes une à une.",
     "Hier, un clerc de la chancellerie est venu à la Corne chercher un guide pour Brumefond. Dix écus. Il t'a demandé : « Tu as passé l'Ourse en hiver ? » Tu as répondu oui. Tu l'as passé onze fois, toutes entre la Saint-Jean et la Saint-Michel, quand la neige reste dans les creux.",
     {
@@ -1304,7 +1304,7 @@
    "title": "Des griffes de fer",
    "place": "verenne",
    "text": [
-    "Les crampons sont de bon fer de Lunel, avec des lanières neuves. Le roulier te les vend en te regardant de travers. « Pour l'Ourse ? En cette saison ? » Tu lui dis que oui. Il compte tes pièces deux fois."
+    "Les crampons sont de bon fer de Lunel, avec des lanières neuves. Le roulier te les vend en te regardant de travers. « Pour l'Ourse ? En cette saison ? » Tu lui dis que oui. Il compte tes pièces deux fois, en homme qui doute de revoir la pratique."
    ],
    "choices": [
     {
@@ -1331,7 +1331,7 @@
    "place": "verenne",
    "charniere": true,
    "text": [
-    "Le soleil est levé. La cour de la chancellerie est pavée de gris, avec une fontaine au milieu, prise dans sa glace, et un clerc frileux qui tient un registre contre sa poitrine.",
+    "Le soleil est levé. La cour de la chancellerie est pavée de gris, avec une fontaine au milieu, prise dans sa glace, et un clerc frileux qui serre un registre contre sa poitrine, moins pour le lire que pour s'en couvrir.",
     {
      "if": {
       "has": "role:pli"
@@ -1525,7 +1525,7 @@
    "text": [
     {
      "first": true,
-     "text": "Le relais est une maison basse au bord du torrent, avec une écurie plus grande que la maison et, peint sur la porte, le cor de chasse des postes de la duchesse. Le maître de poste est un vieil homme à barbe blanche qui s'appelle le père Tiburce et qui compte tout : les chevaux, les voyageurs, les bûches."
+     "text": "Le relais est une maison basse au bord du torrent, avec une écurie plus grande que la maison et, peint sur la porte, le cor de chasse des postes de la duchesse. Le maître de poste est un vieil homme à barbe blanche qui s'appelle le père Tiburce et qui compte tout : les chevaux, les voyageurs, les bûches, et sans doute les étoiles, les soirs où il n'a rien d'autre."
     },
     {
      "first": true,
@@ -2147,7 +2147,7 @@
     },
     {
      "first": true,
-     "text": "Au loin, devant, les Dents de Sorgue ferment le ciel : deux pics noirs et entre eux une selle blanche, le col de l'Ourse. Un panache de neige s'envole du col, comme une fumée."
+     "text": "Au loin, devant, les Dents de Sorgue ferment le ciel : deux pics noirs et entre eux une selle blanche, le col de l'Ourse. Un panache de neige s'envole du col, comme une fumée ; à cette distance, on dirait que la montagne respire, et qu'elle a tout son temps."
     },
     {
      "again": true,
@@ -2293,7 +2293,7 @@
      "if": {
       "has": "role:pli"
      },
-     "text": "Berthe te fait entrer, t'assied près du feu, et te sert une écuelle de soupe à l'orge avant même ta première question. « Deux lits, je sais. Avec {autre}, je sais aussi. Tout Sorgue le sait depuis que vous avez passé le pont. »"
+     "text": "Berthe te fait entrer, t'assied près du feu, et te sert une écuelle de soupe à l'orge avant même ta première question. « Deux lits, je sais. Avec {autre}, je sais aussi. Tout Sorgue le sait depuis que vous avez passé le pont. Ici, une nouvelle fait le tour du village avant qu'une mule ait fini de boire. »"
     },
     {
      "if": {
@@ -2364,7 +2364,7 @@
     "flag": "ciel_su"
    },
    "text": [
-    "La forge sent le charbon et la corne brûlée. Le vieux Matthieu est un homme carré aux avant-bras couverts de petites brûlures blanches, qui regarde les bêtes avant de regarder les gens.",
+    "La forge sent le charbon et la corne brûlée. Le vieux Matthieu est un homme carré aux avant-bras couverts de petites brûlures blanches, qui regarde les bêtes avant de regarder les gens, et qui les trouve en général mieux tenues.",
     {
      "if": {
       "all": [
@@ -2612,7 +2612,7 @@
        "depart": "aube"
       }
      },
-     "text": "À neuf heures, vous êtes au-dessus des derniers mélèzes, et le col hurle comme Matthieu l'a dit. Le vent arrive de face, chargé de neige dure comme du sable. Les Dents ont disparu. On voit à peine ses propres pieds, et la silhouette de {autre}, trois pas devant, qui se penche contre le vent."
+     "text": "À neuf heures, vous êtes au-dessus des derniers mélèzes, et le col hurle comme Matthieu l'a dit. Le vent arrive de face, chargé de neige dure comme du sable ; il a une voix, continue, sans reprise de souffle, où l'oreille finit par chercher des mots. Les Dents ont disparu. On voit à peine ses propres pieds, et la silhouette de {autre}, trois pas devant, qui se penche contre le vent."
     },
     {
      "if": {
@@ -2622,7 +2622,7 @@
        }
       }
      },
-     "text": "À neuf heures, vous êtes au-dessus des derniers mélèzes, et le col dort. Le ciel est d'un bleu dur, l'air brûle les narines, la neige fraîche efface tout : le chemin, les cairns, les pierres. Les Dents de Sorgue se dressent de chaque côté, noires et nettes, si proches qu'on croit les toucher."
+     "text": "À neuf heures, vous êtes au-dessus des derniers mélèzes, et le col dort. Le ciel est d'un bleu dur, l'air brûle les narines, la neige fraîche efface tout : le chemin, les cairns, les pierres. Les Dents de Sorgue se dressent de chaque côté, noires et nettes, si proches qu'on croit les toucher. Après les récits de la veillée, ce calme a l'air d'une politesse, et l'on s'en méfie d'autant."
     },
     {
      "if": {
@@ -2757,7 +2757,7 @@
    "title": "Sous la selle",
    "place": "col",
    "text": [
-    "Vers midi, vous arrivez sous la selle du col. La pente est raide et lisse, et au milieu, sur toute sa largeur, une crevasse coupe le chemin : une fente bleue, dont l'œil cherche le fond en vain, traversée par un pont de neige que le vent a construit pendant la nuit.",
+    "Vers midi, vous arrivez sous la selle du col. La pente est raide et lisse, et au milieu, sur toute sa largeur, une crevasse coupe le chemin : une fente bleue, dont l'œil cherche le fond en vain, traversée par un pont de neige que le vent a construit pendant la nuit. Le bleu y fonce de toise en toise, et le regard y descend malgré lui, comme on écoute malgré soi une mauvaise nouvelle.",
     {
      "if": {
       "is": {
@@ -3206,7 +3206,7 @@
     "flag": "monde:lumiere_gorge"
    },
    "text": [
-    "Dehors, le froid est si sec qu'il crépite. Les étoiles descendent jusqu'aux crêtes. Tu fais les cent pas devant la porte, les mains sous les aisselles.",
+    "Dehors, le froid est si sec qu'il crépite. Les étoiles descendent jusqu'aux crêtes. Tu fais les cent pas devant la porte, les mains sous les aisselles. À cette hauteur, le silence a une épaisseur ; tu y entends ton sang, et la neige qui se tasse.",
     "En bas, au nord-est, là où la montagne se fend pour laisser passer le torrent de l'Ourse, une lumière bouge. Une lanterne, minuscule, qui descend la gorge, s'arrête, remonte un peu, et s'éteint.",
     "En hiver, seuls les contrebandiers prennent la gorge."
    ],

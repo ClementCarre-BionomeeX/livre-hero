@@ -19,7 +19,7 @@ module.exports = {
     ] }),
   IV_N_descente: P({ title: "La crevasse", place: "moutier",
     text: [
-      "La crevasse s'ouvre au fond du cirque, sous un surplomb de glace bleue. Un souffle en sort, régulier, glacé, comme une respiration. Elle descend à pic sur trente toises, puis le noir prend le relais.",
+      "La crevasse s'ouvre au fond du cirque, sous un surplomb de glace bleue. Un souffle en sort, régulier, glacé, comme une respiration ; à force de l'écouter, tu surprends la tienne à se régler sur lui. La paroi descend à pic sur trente toises, bleue d'abord, puis verte, puis d'une couleur de bouteille, et le noir prend le relais.",
       "Il faudra descendre à la corde, sur la glace, dans le noir.",
     ],
     choices: [{ label: "Descendre", test: { dom: "nature", label: "La crevasse", help: [{ if: { item: "corde" }, v: 20 }, { if: { present: "corbe" }, v: 10 }, { if: { present: "ysolde" }, v: 5 }] },

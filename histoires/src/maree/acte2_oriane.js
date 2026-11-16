@@ -19,9 +19,9 @@ module.exports = {
   O2P_matin: { act: "II", title: "La barque du Grand Argentier", place: "chaine", ambiance: "mer",
     fx: { meet: "drenn", clue: "voiles" },
     text: [
-      "À huit heures, la barque du Grand Argentier t'attend au pied du quai des Saules : huit rameurs en livrée bleue, un dais de soie, des coussins brodés de sel blanc sur fond bleu. Morvan porte un masque de lion en or. De la même main, il t'en tend un autre : une lionne.",
+      "À huit heures, la barque du Grand Argentier t'attend au pied du quai des Saules : huit rameurs en livrée bleue, un dais de soie, des coussins brodés de sel blanc sur fond bleu. Morvan porte un masque de lion en or ; la modestie est une vertu qu'il abandonne à ceux qui n'ont pas les moyens de s'en passer. De la même main, il t'en tend un autre : une lionne.",
       "« Aujourd'hui, la ville doit nous voir ensemble. Masqués, mais ensemble. »",
-      "Vous traversez la lagune jusqu'aux Passes. La tour de la Chaîne est une tour ronde et trapue, plantée sur un îlot. Il en part une chaîne de fer aussi grosse qu'un homme, qui plonge dans l'eau et ressort de l'autre côté, sur la pointe de Sainte-Agathe : trois cents toises de maillons, à vue d'œil. Derrière, au large, mouillent les quarante voiles d'Orcanne. De près, on voit leurs sabords. Ils sont ouverts.",
+      "Vous traversez la lagune jusqu'aux Passes. La tour de la Chaîne est une tour ronde et trapue, plantée sur un îlot. Il en part une chaîne de fer aussi grosse qu'un homme, qui plonge dans l'eau et ressort de l'autre côté, sur la pointe de Sainte-Agathe : trois cents toises de maillons, à vue d'œil. Derrière, au large, mouillent les quarante voiles d'Orcanne. De près, on voit leurs sabords. Ils sont ouverts ; et chacun montre, au fond de son carré d'ombre, un rond plus noir encore, qui regarde la ville.",
       "Sur le pont du navire amiral, la *Constance*, un homme en habit noir à boutons d'or lève son chapeau dans votre direction. « L'amiral Drenn, dit Morvan. Un ami de la ville. Il est venu saluer notre fête. »",
     ],
     choices: [
@@ -33,7 +33,7 @@ module.exports = {
     fx: { clue: "chaine_ordre" },
     text: [
       "Le gardien de la Chaîne est un vieil homme qui s'appelle Bastide et qui garde la tour depuis quarante ans ; il a les avant-bras d'un forgeron et la barbe d'un ermite. Il vous montre le treuil, une roue de chêne haute comme une maison, que vingt hommes font tourner. Il vous montre les registres : chaque fois qu'on a baissé la chaîne depuis cent ans, la date, l'heure, et le sceau du Doyen.",
-      "« Elle ne se baisse que sur un ordre écrit et scellé du Doyen, madame. Ou de qui le Conseil a élu. Pas d'ordre, pas de chaîne. » Il tapote le registre. « La dernière fois, c'était pour la flotte de Lisse, il y a douze ans. La Doyenne était venue elle-même. »",
+      "« Elle ne se baisse que sur un ordre écrit et scellé du Doyen, madame. Ou de qui le Conseil a élu. Pas d'ordre, pas de chaîne. Un amiral peut tousser, un argentier peut sourire : je suis sourd de cette oreille-là depuis quarante ans. » Il tapote le registre. « La dernière fois, c'était pour la flotte de Lisse, il y a douze ans. La Doyenne était venue elle-même. »",
       "Morvan écoute avec un intérêt poli. Il demande combien de temps il faut pour baisser la chaîne. Une demi-heure, dit Bastide. Une demi-heure pour la remonter. Morvan hoche la tête, comme un homme qui note un prix.",
     ],
     choices: [{ back: "O2P_matin" }] },
@@ -107,7 +107,7 @@ module.exports = {
   O2P_bal: { act: "II", title: "Le bal de la Maison des Sels", place: "sels", ambiance: "ville",
     fx: { until: 20 },
     text: [
-      "Le grand entrepôt de la Maison des Sels a couvert ses montagnes de sel gris de draps blancs et pendu des lanternes de papier aux poutres. Trois cents masques. Tu es au bras de Morvan, en lionne. On s'écarte devant vous.",
+      "Le grand entrepôt de la Maison des Sels a couvert ses montagnes de sel gris de draps blancs et pendu des lanternes de papier aux poutres. Trois cents masques. Tu es au bras de Morvan, en lionne. On s'écarte devant vous comme on s'écarte devant un attelage : par prudence.",
       { if: { has: "renaud=aveu" }, text: "Renaud est là, en masque de cerf. Il te regarde de loin, comme un homme qui regarde sa maison brûler." },
       "Vers neuf heures, Morvan t'emmène dans son cabinet, au dernier étage, et ôte son masque. Sur le bureau attendent une feuille, de l'encre, de la cire, et le sceau du Doyen, la lanterne et la vague, qu'on a sorti de la Chambre des Sceaux pour le faire nettoyer avant l'élection. Ce sceau n'est pas encore le tien.",
       "« L'ordre de la chaîne. Pour demain minuit, quand vous serez élue. La flotte d'Orcanne entrera saluer la nouvelle Doyenne. C'est l'usage. » Il trempe la plume. « Votre tante l'aurait fait. Elle l'a fait pour Lisse. »",
@@ -122,7 +122,7 @@ module.exports = {
   O2P_cabinet: { act: "II", title: "Le cabinet", place: "sels",
     text: [
       "Morvan s'incline et redescend. Il laisse la porte entrouverte. La musique monte par l'escalier.",
-      "Tu as quelques minutes. Le bureau a trois tiroirs. Deux s'ouvrent. Le troisième est fermé à clef.",
+      "Tu as quelques minutes, et chacune fait dans ta poitrine le bruit d'un pas dans l'escalier. Le bureau a trois tiroirs. Deux s'ouvrent. Le troisième est fermé à clef.",
     ],
     choices: [
       { label: "Forcer le tiroir avec ta dague à manche d'ivoire", test: { dom: "discretion", diff: -5, label: "Discrétion" },
@@ -204,7 +204,7 @@ module.exports = {
     fx: { meet: "helis" },
     text: [
       "Dame Hélis Arnaud te reçoit dans sa bibliothèque, à visage nu, des lunettes sur le nez, un règlement du Conseil ouvert sur les genoux comme un livre d'heures. Le volume a perdu sa reliure à force d'être ouvert au même endroit.",
-      "« Les vieilles maisons voteront pour vous, ma petite, si vous leur prouvez une chose : que vous n'êtes la créature de personne. Ni de Morvan, ni du Temple, ni de votre tante. » Elle referme le règlement. « Le coffre. Vous avez dit au Conseil qu'il s'ouvrirait avant les lanternes. Vous le maintenez ? Même si ce qu'il contient vous déshérite ? »",
+      "« Les vieilles maisons voteront pour vous, ma petite, si vous leur prouvez une chose : que vous n'êtes la créature de personne. Ni de Morvan, ni du Temple, ni de votre tante. J'ai vu siéger à ce Conseil trois générations de créatures, et je les reconnais de dos. » Elle referme le règlement. « Le coffre. Vous avez dit au Conseil qu'il s'ouvrirait avant les lanternes. Vous le maintenez ? Même si ce qu'il contient vous déshérite ? »",
     ],
     choices: [
       { label: "« Même s'il me déshérite. »", fx: { clock: { voix: 4 }, flag: "oriane:promet_coffre", regard: { helis: "admiratif" } }, to: "O2S_helis_oui" },
@@ -223,7 +223,7 @@ module.exports = {
     choices: [{ label: "La remercier", to: "O2S_suite" }] },
   O2S_metiers: { act: "II", title: "Les verriers", place: "sels",
     text: [
-      "La salle de la guilde des verriers sent le sable chaud et la potasse. Les maîtres des huit métiers sont là, masqués en animaux de la lagune, assis sur des bancs. Ils te laissent parler debout.",
+      "La salle de la guilde des verriers sent le sable chaud et la potasse. Les maîtres des huit métiers sont là, masqués en animaux de la lagune, assis sur des bancs. Ils te laissent parler debout ; chez les artisans, c'est celui qui demande qui reste sur ses jambes, fût-il de la famille d'une Doyenne.",
       "Ils veulent une seule chose, et ils le disent tous de la même façon : le prix du sel. La Maison des Sels le fixe seule depuis trente ans. Le verre, la salaison, la teinture, tout passe par le sel.",
     ],
     choices: [
@@ -267,8 +267,8 @@ module.exports = {
   O2S_gouge: { act: "II", title: "L'Ancre Basse", place: "basport", ambiance: "eau",
     fx: { meet: "gouge" },
     text: [
-      "Tu descends à Bas-Port en barque, avec de l'eau jusqu'au plat-bord. Tu n'y étais pas venue depuis tes douze ans. La taverne de l'Ancre Basse est pleine de gens qui se taisent quand tu entres, malgré ton loup.",
-      "La Mère Gouge te regarde depuis sa table posée sur des tonneaux. « La nièce. » Elle te laisse debout. « Bas-Port est absent du Conseil, madame. Il l'a toujours été. Qu'est-ce que vous venez chercher ici ? »",
+      "Tu descends à Bas-Port en barque, avec de l'eau jusqu'au plat-bord. Tu n'y étais pas venue depuis tes douze ans. La taverne de l'Ancre Basse est pleine de gens qui se taisent quand tu entres, malgré ton loup. Tous les visages sont nus et tournés vers ton velours ; tu comprends que le seul masque de la salle, c'est toi.",
+      "La Mère Gouge te regarde depuis sa table posée sur des tonneaux. « La nièce. » Elle te laisse debout. « Bas-Port est absent du Conseil, madame. Il l'a toujours été. Qu'est-ce que vous venez chercher ici ? Le poisson se vend sur la place ; quant aux voix, on aurait du mal à vous en vendre, on a oublié de nous en donner. »",
       { if: { has: "sevan_cache=gouge" }, text: "Au-dessus de vous, une latte du plafond grince. Quelqu'un écoute, dans le grenier." },
     ],
     choices: [
@@ -318,7 +318,7 @@ module.exports = {
   O2S_morvan_non: { act: "II", title: "Non", place: "sels",
     text: [
       "« Non. »",
-      "« Alors à demain soir. » Il retourne à ses comptes. Au moment où tu passes la porte, il ajoute, les yeux sur ses colonnes : « Ne buvez rien, au bal. On ne sait jamais ce qu'on met dans les verres, les soirs de fête. »",
+      "« Alors à demain soir. » Il retourne à ses comptes. Au moment où tu passes la porte, il ajoute, sans lever la plume : « Ne buvez rien, au bal. On ne sait jamais ce qu'on met dans les verres, les soirs de fête. »",
     ],
     choices: [{ label: "Partir", to: "O2S_suite" }] },
   O2S_bal: { branch: [
@@ -340,7 +340,7 @@ module.exports = {
     text: [
       "Tu prends la coupe, tu la lèves vers la salle, tu y trempes les lèvres sans boire. Puis tu la poses sur une montagne de sel, derrière un drap, et tu t'éloignes.",
       "Dix minutes plus tard, le gros chat gris qui mange les souris de l'entrepôt renverse la coupe et lèche le vin sur le drap. À dix heures, il est mort sous l'estrade, les pattes raides.",
-      "Tu quittes le bal avant onze heures. Tes mains tremblent dans tes gants. Pour la première fois de ta vie, quelqu'un a voulu te tuer.",
+      "Tu quittes le bal avant onze heures. Tes mains tremblent dans tes gants. Pour la première fois de ta vie, quelqu'un a voulu te tuer ; et cette pensée, que tu retournes dans la barque du retour, a ceci d'étrange qu'elle te semble regarder une autre femme, que tu plains.",
     ],
     choices: [{ label: "Rentrer", fx: { flag: "oriane:coupe_evitee" }, to: "O2_nuit" }] },
   O2S_bal_bu: { act: "II", title: "Le vin d'orange", place: "sels",
@@ -466,7 +466,7 @@ module.exports = {
   O2E_comptes: { act: "II", title: "Les livres de la Maison des Sels", place: "sels", ambiance: "ville",
     fx: { regard: { morvan: "hostile" } },
     text: [
-      "Les commis de la Maison des Sels vous reçoivent avec une politesse glacée. L'ordre du Conseil est l'ordre du Conseil. On vous ouvre la salle des registres : cent ans de sel, entrées et sorties, sur des rayonnages qui montent jusqu'au plafond.",
+      "Les commis de la Maison des Sels vous reçoivent avec une politesse glacée. L'ordre du Conseil est l'ordre du Conseil. On vous ouvre la salle des registres : cent ans de sel, entrées et sorties, sur des rayonnages qui montent jusqu'au plafond. La Maison tient ses livres comme le Temple ses reliques, et elle y croit davantage.",
       "Tu cherches ce que tu sais chercher. Les arrivées de navires d'Orcanne, depuis l'automne : un tous les dix jours, toujours le même, la *Fidèle*, et toujours la même cargaison. *Citrons, vingt caisses, pour l'apothicairerie.* Vingt caisses de citrons tous les dix jours pour un seul apothicaire. Toute la ville pourrait guérir du scorbut sur cette boutique.",
       "Et dans les sorties, chaque lundi depuis la Saint-Michel : *Un pot, fleur de sel fine, pour la table de la Doyenne, préparé par L. B.* Avant la Saint-Michel, la même ligne, sans les initiales.",
     ],
@@ -516,7 +516,7 @@ module.exports = {
   ] },
   O2_renaud_vol: { act: "II", title: "Trois heures du matin", place: "saules", ambiance: "ville",
     text: [
-      "Tu dors mal. À trois heures, tu sens le matelas bouger. Renaud se lève et marche pieds nus. Tu l'entends ouvrir le tiroir de la table de nuit, celui où tu ranges la chaîne de la clef d'argent.",
+      "Tu dors mal. À trois heures, tu sens le matelas bouger. Renaud se lève et marche pieds nus, avec la lenteur des gens qui écoutent leur propre bruit. Tu l'entends ouvrir le tiroir de la table de nuit, celui où tu ranges la chaîne de la clef d'argent.",
       "Tu as les yeux ouverts dans le noir.",
     ],
     choices: [

@@ -26,7 +26,7 @@ module.exports = {
     choices: [{ label: "Trois heures", to: "J3_nuit" }] },
   J3P: { act: "III", title: "La Tour, d'en bas", place: "tour", ambiance: "eau",
     text: [
-      "À sept heures, tu es dans ta barque, au pied de la Tour du Guet, côté lagune. Tu comptes les fenêtres : deuxième étage, la quatrième depuis l'angle. Elle est éclairée.",
+      "À sept heures, tu es dans ta barque, au pied de la Tour du Guet, côté lagune. D'en bas, le mur monte droit dans la nuit, noir et lisse, et l'eau le bat avec un bruit creux de tonneau vide. Tu comptes les fenêtres : deuxième étage, la quatrième depuis l'angle. Elle est éclairée.",
       "Ton inventaire tient en une phrase : une gaffe, un couteau, Petit Mo qui t'attend sur le quai, et cinq heures avant que la ville entière regarde ailleurs. Pour les barques, les bras et le gardien acheté, tu repasseras.",
       { if: { has: "j1:vu_nella" }, text: "Avant-hier, à cette même fenêtre, elle t'a fait un signe de la main, comme autrefois, quand elle partait au palais." },
       { if: { item: "acte_grace" }, text: "Tu as aussi, dans ta chemise, un acte de grâce signé de Morvan. Il dit que Nella sortira à l'aube, si Morvan est élu. Tu sais ce que vaut la parole de Morvan. Tu cherches encore ce qu'elle vaut d'autre." },
@@ -154,7 +154,7 @@ module.exports = {
   J3_corentin_battu: { act: "III", title: "Le quai", place: "sels",
     text: [
       "Corentin est assis sur la dernière marche, la main sur sa cuisse qui saigne. L'homme de la Maison des Sels a disparu avec sa bourse.",
-      "Tu tiens le ruban. Corentin garde les yeux sur l'eau. « Va. Va donc la sauver, ta sœur qui n'est pas ta sœur. »",
+      "Tu tiens le ruban. Corentin regarde l'eau. « Va. Va donc la sauver, ta sœur qui n'est pas ta sœur. »",
     ],
     choices: [{ label: "Le laisser là", fx: { set: { corentin: "chasse" } }, to: "J3_suite" }] },
   J3_corentin_vol: { act: "III", title: "L'échange", place: "sels",
@@ -175,7 +175,7 @@ module.exports = {
   J3_chaine: { act: "III", title: "La tour de la Chaîne", place: "chaine", ambiance: "eau",
     fx: { clock: { j3: 1 }, flag: "jasse:chaine3" },
     text: [
-      "La tour de la Chaîne se dresse au bout de la digue, face aux Passes. Au large, sur l'eau noire, quarante lanternes immobiles s'alignent comme une deuxième digue. La flotte d'Orcanne attend.",
+      "La tour de la Chaîne se dresse au bout de la digue, face aux Passes. Au large, sur l'eau noire, quarante lanternes immobiles s'alignent comme une deuxième digue. La flotte d'Orcanne attend ; ses quarante ponts restent muets, la nuit même où une ville entière chante à portée de leurs canons.",
       "La chaîne sort de la tour par une arche, chaque maillon gros comme la cuisse d'un homme, et plonge dans la passe. Pour la baisser, il faut un treuil, six hommes, et un ordre.",
       { if: { any: [{ has: "ysabeau:chaine_sevan" }, { has: "ysabeau:chaine_oriane" }] }, text: "Devant la porte, quatre hallebardiers du Guet montent déjà la garde, la tour noire sur la poitrine. Quelqu'un a prévenu la capitaine." },
       { if: { not: { any: [{ has: "ysabeau:chaine_sevan" }, { has: "ysabeau:chaine_oriane" }] } }, text: "Devant la porte, deux gardes de la tour jouent aux cartes. Le Conseil les paie. Ce soir, ils attendent un ordre." },

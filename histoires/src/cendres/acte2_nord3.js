@@ -61,7 +61,7 @@ module.exports = {
   II_N3_cloitre: P({ title: "Le cloître", place: "moutier", hub: true,
     text: [
       { first: true, text: "Le cloître est intact, carré, avec un puits au milieu. Et partout, les moines, dans la glace. Tu en comptes vingt-trois dans les quatre galeries. Un qui balayait, le balai levé. Deux qui parlaient, la bouche ouverte. Un qui courait vers la chapelle, un pied en l'air. Ils sont pris dans des blocs de glace claire, bien droits, comme des saints dans leurs niches." },
-      "Il fait très froid, et c'est un froid d'un silence total. Juste, de temps en temps, quelque part, le bruit d'une goutte qui tombe.",
+      "Il fait très froid, et ce froid a son silence à lui, complet, sans défaut. De temps en temps seulement, quelque part, une goutte tombe ; l'oreille l'attend, la redoute, et finit par mesurer l'intervalle, qui est toujours le même.",
       "Vers le nord, par les arcades, on voit le col de l'Ourse, très proche. Il y a sur lui une lumière blanche, même en plein jour.",
     ],
     choices: [

@@ -6,10 +6,10 @@ module.exports = {
   K_depart: { act: "I", title: "Le relais de Sorel", place: "sorel", routes: true,
     fx: { meet: "brune" },
     text: [
-      "Le relais de Sorel est une grande ferme fortifiée où l'on a mis des tables. Tu y as dormi dans le foin, au-dessus des mules, et ce sont elles qui t'ont réveillé avant l'aube, d'un piétinement aussi régulier qu'un tambour de garnison. Le jour se lève maintenant sur la cour. Par la porte charretière ouverte, tu vois commencer le pays que tout le monde, ici, appelle simplement *la vallée sèche*.",
-      "Brune, la patronne, te sert du lait caillé et du pain gris avant que tu aies rien demandé. C'est une femme carrée, aux avant-bras couverts de vieilles brûlures, du genre qui écoute tout et garde tout pour elle.",
+      "Le relais de Sorel est une grande ferme fortifiée où l'on a mis des tables, ce qui suffit, dans ce pays, à faire une auberge. Tu y as dormi dans le foin, au-dessus des mules, et ce sont elles qui ont sonné ton réveil avant l'aube, d'un piétinement aussi régulier qu'un tambour de garnison. Le jour se lève maintenant sur la cour. Par la porte charretière ouverte, tu vois commencer le pays que tout le monde, ici, appelle simplement *la vallée sèche* : une étendue de pierre blanche où le regard cherche un arbre, puis une ombre, puis renonce.",
+      "Brune, la patronne, te sert du lait caillé et du pain gris avant que tu aies rien demandé. C'est une femme carrée, aux avant-bras couverts de vieilles brûlures, du genre qui écoute tout et garde tout pour elle : qualité rare chez une aubergiste, et qui ferait la fortune d'un confesseur.",
       { if: { has: "passe:lettre" }, text: "Hier soir, à la chandelle, tu as relu la lettre pour la centième fois. *Je suis à Sorel, au relais, chez une femme qui ne pose pas de questions.* La description va à Brune comme un gant." },
-      { if: { has: "passe:sifflet" }, text: "Dans ta poche, le sifflet d'os d'Aurèle a pris la tiédeur de ta cuisse. Tu as toujours évité de souffler dedans, par crainte, un peu, de ce que tu ressentirais." },
+      { if: { has: "passe:sifflet" }, text: "Dans ta poche, le sifflet d'os d'Aurèle a pris la tiédeur de ta cuisse. Tu as toujours évité d'y souffler ; il y a des sons qui rouvrent sept années d'un coup, et tu crains ce que tu trouverais dedans." },
       { if: { has: "passe:souvenir" }, text: "Cette nuit, dans le foin, tu as cru l'entendre t'appeler Moineau. Vérification faite, c'était une mule qui rêvait." },
       "Trois jours de route jusqu'à Kardan, dit-on : trois jours de cailloux, de puits taris et de soleil. Puis le vert.",
     ],
@@ -20,7 +20,7 @@ module.exports = {
 
   K_sorel: { act: "I", title: "La cour du relais", place: "sorel", routes: true,
     text: [
-      "La cour s'est remplie : deux charrettes de sel, un marchand de toile qui se dispute avec son cocher sur le prix d'un essieu, un chien qui dort au milieu de l'agitation avec une parfaite philosophie. La porte du sud est ouverte. Au-delà, la route descend vers une lumière blanche.",
+      "La cour s'est remplie : deux charrettes de sel, un marchand de toile qui dispute à son cocher le prix d'un essieu avec l'éloquence d'un avocat payé à l'heure, un chien qui dort au milieu de l'agitation avec une parfaite philosophie. La porte du sud est ouverte. Au-delà, la route descend vers une lumière blanche.",
     ],
     choices: [
       { label: "Parler d'Aurèle avec Brune", to: "K_brune", hide: { seen: "K_brune" } },
@@ -29,8 +29,8 @@ module.exports = {
 
   K_relais: { act: "I", title: "Le comptoir de Brune", place: "sorel", shop: "relais",
     text: [
-      "Brune vend ce que les voyageurs oublient toujours : des cordes, des torches, une lanterne à volet, des onguents de sa fabrication dans des pots de grès ébréchés, et du pain de route si dur qu'il se garde une semaine et se casse au marteau.",
-      "« Il vous faudra des vivres, dit-elle. Entre ici et Kardan, la route est déserte, vous ne trouverez rien à acheter. Et à Kardan, ils vous offriront tout. » Elle dit ça sans sourire.",
+      "Brune vend ce que les voyageurs oublient toujours : des cordes, des torches, une lanterne à volet, des onguents de sa fabrication dans des pots de grès ébréchés, et du pain de route si dur qu'il se garde une semaine et se casse au marteau. Elle l'appelle du pain avec un aplomb qui force le respect.",
+      "« Il vous faudra des vivres, dit-elle. Entre ici et Kardan, la route est déserte, vous ne trouverez rien à acheter. Et à Kardan, ils vous offriront tout. » Elle garde, pour le dire, le visage qu'elle a pour rendre la monnaie.",
     ],
     choices: [{ back: "K_sorel" }] },
 
@@ -38,7 +38,7 @@ module.exports = {
     fx: { item: "onguent", ep: ["perso", 200] },
     text: [
       "Tu décris Aurèle : grand, les cheveux bruns et la barbe rousse, rieur, une cicatrice blanche au sourcil gauche, et cette façon de barrer les sept qu'il tenait d'un maître d'école mort depuis longtemps.",
-      "Brune essuie la table avec plus de soin qu'il ne faut. « Il a dormi là où vous avez dormi. Il chantait faux. Il m'a payée deux fois, une fois en argent et une fois en me réparant la poulie du puits. » Elle s'arrête. « Il est parti pour Kardan au matin. Il n'est pas repassé. »",
+      "Brune essuie la table avec plus de soin que la table n'en demande. « Il a dormi là où vous avez dormi. Il chantait faux. Il m'a payée deux fois, une fois en argent et une fois en me réparant la poulie du puits. » Elle s'arrête. « Il est parti pour Kardan au matin. Il n'est pas repassé. »",
       "« Ceux qui reviennent de Kardan, ajoute-t-elle plus bas, je n'en ai jamais vu beaucoup. Ceux qui y vont, si. Les caravanes y passent en groupe, et elles repassent. Les gens seuls… » Elle hausse les épaules et ne finit pas sa phrase.",
       "Elle pose sur la table un petit pot de grès. « Pour la route. Il m'en avait acheté un, lui aussi. »",
       { if: { has: "passe:heritage" }, text: "Tu gardes pour toi qu'Aurèle est parti avec l'argent de la maison. Pendant sept ans, tu l'as répété à qui voulait l'entendre, et tu as oublié en route pourquoi tu y tenais tant." },
@@ -48,9 +48,9 @@ module.exports = {
   // ---------------------------------------------------------------- the south road
   K_odon: { act: "I", title: "Le moine au bord de la route",
     text: [
-      "À mi-journée, la route longe un muret de pierres sèches où un homme est assis, comme s'il attendait quelqu'un. Il a une cinquantaine d'années et la maigreur d'une branche morte. Sa robe de bure porte tant de pièces rapportées que l'étoffe d'origine relève désormais de l'hypothèse. À côté de lui sont posés un bâton, une écuelle et des sandales, et il remue ses orteils nus dans la poussière avec le sérieux d'un enfant.",
-      "« Bonne route, dit-il. Je suis Frère Odon, de l'ordre des Mendiants du Chemin, et je n'ai rien mangé depuis hier, ce qui est conforme à notre règle et contraire à mon tempérament. Vous allez au sud ? Tout le monde va au sud, ici. Il n'y a que du sud. »",
-      "Il te regarde avec des yeux très clairs, des yeux qui attendent sans rien réclamer.",
+      "À mi-journée, la route longe un muret de pierres sèches où un homme est assis, avec l'air d'attendre quelqu'un et de trouver qu'on le fait attendre. Il a une cinquantaine d'années et la maigreur d'une branche morte. Sa robe de bure porte tant de pièces rapportées que l'étoffe d'origine relève désormais de l'hypothèse. À côté de lui sont posés un bâton, une écuelle et des sandales, et il remue ses orteils nus dans la poussière avec le sérieux d'un enfant.",
+      "« Bonne route, dit-il. Je suis Frère Odon, de l'ordre des Mendiants du Chemin, et je n'ai rien mangé depuis hier, ce qui est conforme à notre règle et contraire à mon tempérament. Notre fondateur jeûnait par plaisir ; c'était un saint, et je le soupçonne d'avoir eu un mauvais cuisinier. Vous allez au sud ? Tout le monde va au sud, ici. Il n'y a que du sud. »",
+      "Il te regarde avec des yeux très clairs, où l'appétit attend poliment son tour.",
     ],
     choices: [
       { label: "Partager ton pain avec lui", if: { food: { min: 1 } }, why: "Tu n'as plus rien à partager.", fx: { food: -1, join: "odon", conf: { odon: 15 }, ep: ["perso", 300] }, to: "K_odon_pain" },
@@ -59,13 +59,13 @@ module.exports = {
     ] },
   K_odon_pain: { act: "I", title: "Le pain partagé",
     text: [
-      "Il rompt le pain en deux, compare les morceaux avec soin et te tend le plus gros. Puis il mange lentement, les yeux fermés, comme on prie.",
-      "« Je vais à Kardan, moi aussi, dit-il quand il a fini. On dit qu'ils y sont généreux. J'aimerais voir à quoi ressemble un village généreux ; je n'en ai vu que dans les sermons. » Il se lève, remet ses sandales. « Si vous voulez bien d'un compagnon qui marche lentement et parle trop, je suis votre homme. Sinon, je vous suivrai de loin, ce qui revient au même pour les brigands. »",
+      "Il rompt le pain en deux, compare les morceaux avec le soin d'un changeur et te tend le plus gros. Puis il mange lentement, les yeux fermés, avec une ferveur que ses prières doivent lui envier.",
+      "« Je vais à Kardan, moi aussi, dit-il quand il a fini. On dit qu'ils y sont généreux. J'aimerais voir à quoi ressemble un village généreux ; je n'en ai vu que dans les sermons, et j'en ai prononcé assez moi-même pour savoir ce que valent les sermons. » Il se lève, remet ses sandales. « Si vous voulez bien d'un compagnon qui marche lentement et parle trop, je suis votre homme. Sinon, je vous suivrai de loin, ce qui revient au même pour les brigands. »",
     ],
     choices: [{ label: "Reprendre la route à deux", back: ROUTE }] },
   K_odon_piece: { act: "I", title: "La pièce",
     text: [
-      "Il considère la pièce un long moment au creux de sa main, puis la glisse dans une couture de sa robe. « Je la donnerai à quelqu'un qui en aura plus besoin que moi. C'est une façon de la faire durer. »",
+      "Il considère la pièce un long moment au creux de sa main, puis la glisse dans une couture de sa robe. « Je la donnerai à quelqu'un qui en aura plus besoin que moi. C'est une façon de la faire durer, et la seule que je connaisse : dans ma poche, l'argent a toujours eu la santé fragile. »",
       "Puis il ramasse son bâton. « Marcher avec vous ? Volontiers. Je vais à Kardan. Tout le monde va à Kardan. »",
     ],
     choices: [{ label: "Reprendre la route à deux", back: ROUTE }] },
@@ -73,7 +73,7 @@ module.exports = {
   K_borne: { act: "I", title: "La borne",
     fx: { clue: "a_borne", ep: ["perso", 400] },
     text: [
-      "Le soir tombe quand tu arrives à la borne. C'est une vieille pierre militaire, d'une toise et demie de haut, plantée là par un empire dont le nom s'est perdu. On y a gravé des distances que plus personne ne parcourt. Plus bas, à hauteur de main, les voyageurs ont laissé leurs inscriptions : des noms, des dates, une prière, un dessin obscène.",
+      "Le soir tombe quand tu arrives à la borne. C'est une vieille pierre militaire, d'une toise et demie de haut, plantée là par un empire dont le nom s'est perdu ; elle annonce encore, avec l'entêtement des choses gravées, des distances que plus personne ne parcourt. Plus bas, à hauteur de main, les voyageurs ont laissé leurs inscriptions : des noms, des dates, une prière, un dessin obscène. L'humanité de passage tient assez bien dans ces quatre articles.",
       "Et ceci, gravé profondément au couteau, d'une main rageuse et patiente :",
       "**NE BOIS PAS**",
       "Au-dessous, une date. Le dernier chiffre est un 7, barré d'un petit trait au milieu.",
@@ -89,12 +89,12 @@ module.exports = {
   K_borne_ancienne: { act: "I", title: "Ce que dit la mousse",
     text: [
       "Tu grattes la mousse avec l'ongle. Dessous apparaissent d'autres mains et d'autres siècles. *Ne bois pas*, encore, dans une langue plus ancienne, que tu lis à moitié. Et plus bas, presque effacé, un dessin : une spirale de couloirs, et au centre, une coupe.",
-      "Il y a très longtemps, quelqu'un a voulu prévenir les passants.",
+      "Il y a très longtemps, quelqu'un a voulu prévenir les passants ; et les passants, depuis des siècles, lisent, hochent la tête, et continuent vers le sud.",
     ],
     choices: [{ label: "Monter le camp", to: ROUTE }] },
   K_borne_nuit: { act: "I", title: "Au pied de la borne",
     text: [
-      "Le soleil touche l'horizon, et la pierre passe du rouge au gris en l'espace de quelques souffles. Tu poses la paume à plat sur les lettres. Elles sont déjà froides. Quelque part au sud brille une lumière immobile : Kardan, peut-être, ou une étoile basse.",
+      "Le soleil touche l'horizon, et la pierre passe du rouge au gris en l'espace de quelques souffles. Tu poses la paume à plat sur les lettres. Elles sont déjà froides ; la pierre rend vite au soir ce que le jour lui a prêté, et la vallée entière, autour de toi, se refroidit avec le même empressement. Quelque part au sud brille une lumière immobile : Kardan, peut-être, ou une étoile basse.",
     ],
     choices: [{ label: "Monter le camp", to: ROUTE }] },
 
@@ -129,9 +129,9 @@ module.exports = {
 
   E_caravane: { act: "I", title: "La caravane qui fait demi-tour", shop: "caravane",
     text: [
-      "Un nuage de poussière grossit sur la route et devient une caravane. Tu comptes douze chameaux, autant de mules, et des hommes en turban qui marchent à côté des bêtes. Elle remonte vers le nord. Son chef, un homme sec à la barbe teinte au henné, lève la main pour te saluer et fait arrêter la file.",
+      "Un nuage de poussière grossit sur la route et devient une caravane. Tu comptes douze chameaux, autant de mules, et des hommes en turban qui marchent à côté des bêtes. La file remonte vers le nord. Son chef, un homme sec à la barbe teinte au henné, lève la main pour te saluer et fait arrêter tout le monde.",
       "« Tu descends à Kardan ? Seul ? » Il échange un regard avec ses hommes. « Nous, on y passe chaque année, à vingt, et on repart le lendemain. Ils sont très aimables, à Kardan. Très. » Il crache de côté. « On ne passe pas à Kardan seul. C'est un proverbe de caravanier. Maintenant tu le connais. »",
-      "Il a des marchandises à vendre, puisque tu es là.",
+      "Il a d'ailleurs des marchandises à vendre, puisque tu es là : un caravanier qui plaint son prochain lui fait quand même l'article.",
     ],
     choices: [
       { label: "Lui demander ce que veut dire son proverbe", test: { dom: "social", label: "Social" },
@@ -152,8 +152,8 @@ module.exports = {
 
   E_vautours: { act: "I", title: "Les vautours",
     text: [
-      "Une dizaine de vautours tournent en cercle au-dessus d'un repli du terrain, et trois autres, posés, se disputent quelque chose à grands cris rauques. C'est une mule, morte depuis un jour ou deux, à en juger par l'odeur. Son bât est encore sanglé : son maître l'a abandonnée sans prendre le temps de la décharger.",
-      "À ton approche, les vautours restent sur place. Le plus gros ouvre ses ailes à moitié, une envergure de près d'une toise, et siffle.",
+      "Une dizaine de vautours tournent en cercle au-dessus d'un repli du terrain, avec la patience de notaires qui attendent l'ouverture d'un testament ; trois autres, posés, se disputent déjà l'héritage à grands cris rauques. C'est une mule, morte depuis un jour ou deux, à en juger par l'odeur. Son bât est encore sanglé : son maître l'a abandonnée sans prendre le temps de la décharger.",
+      "À ton approche, les vautours restent sur place. Le plus gros ouvre ses ailes à moitié, une envergure de près d'une toise, et siffle, en propriétaire.",
     ],
     choices: [
       { label: "Les chasser à grands gestes et fouiller le bât", test: { dom: "nature", label: "Nature" },
@@ -175,7 +175,7 @@ module.exports = {
   E_chevrier: { act: "I", title: "Le chevrier",
     fx: { meet: "chevrier" },
     text: [
-      "Des clochettes, d'abord. Puis des chèvres qui coulent sur la pente comme de l'eau brune, puis un homme jeune, pieds nus, un bâton en travers des épaules et les poignets posés dessus. Il s'appelle Ismaël, il te le dit tout de suite, et il te demande d'où tu viens avant même de savoir où tu vas.",
+      "Des clochettes, d'abord. Puis des chèvres qui coulent sur la pente comme de l'eau brune, puis un homme jeune, pieds nus, un bâton en travers des épaules et les poignets posés dessus. Il s'appelle Ismaël, il te le dit tout de suite, et il te demande d'où tu viens avant même de savoir où tu vas ; la solitude fait des bavards aussi sûrement que des muets.",
       "Il partage avec toi un fromage de chèvre roulé dans la cendre, très salé. « Kardan ? dit-il. Tu arrives pour la Lune sèche, alors. C'est leur fête. Une fois l'an, au plus sec de l'été, ils remercient l'eau. » Il gratte la tête d'un bouc qui essaie de manger ta manche. « On dit que l'eau de Kardan a un gardien. Un monstre, dans la colline. Ils le nourrissent. »",
       "« De quoi ? »",
       "Il rit. « De pain. De fleurs. Je l'ignore. Je suis étranger à Kardan. Je m'arrête aux jardins, et je repars avant le soir. »",
@@ -196,11 +196,11 @@ module.exports = {
     fx: { meet: "hesna", stamp: "kardan", fac: { kardan: 10 }, ep: ["perso", 300] },
     text: [
       "Tu la vois longtemps avant d'y arriver : une tache verte au fond de la vallée brune, si verte qu'elle paraît peinte. Puis la route tourne, et le village est là, d'un coup. Des jardins en terrasses, des canaux de pierre où l'eau court en chantant, des figuiers, des grenadiers, des rangs de fèves, des femmes qui lavent du linge en riant. Après trois jours de poussière, l'odeur de menthe et de terre mouillée te monte à la tête comme un vin.",
-      "Derrière le village se dresse la colline, ronde, rousse et nue. Sur son flanc s'ouvre une porte de pierre taillée, haute comme trois hommes, et fermée.",
+      "Derrière le village se dresse la colline, ronde, rousse et nue, posée sur tout ce vert comme un couvercle. Sur son flanc s'ouvre une porte de pierre taillée, haute comme trois hommes, et fermée ; et ton œil, qui se reposait sur les jardins, revient à cette porte malgré lui, comme la langue à une dent gâtée.",
       { second: true, text: "Sept serrures de bronze. Tu sais, cette fois, ce qui dort derrière la porte, et qui tient l'eau qui chante dans les canaux." },
-      "Des enfants t'ont vu. Ils courent devant toi en criant *un voyageur, un voyageur !*, et quand tu arrives sur la place, une femme t'attend déjà, les mains sur les hanches. Elle a le visage rond et rouge des gens qui passent leur vie près d'un four. « Bienvenue à Kardan ! Je suis Hesna, je tiens le Puits-Vert. Vous logerez chez moi, et vous ne paierez rien, vous m'entendez ? Rien ! Ce soir on fait la fête pour vous. On fait toujours la fête pour ceux qui arrivent. »",
-      { if: { present: "odon" }, text: "Elle embrasse Odon sur les deux joues. Le moine en reste muet, ce qui chez lui tient de l'exploit." },
-      "En la suivant, tu as l'impression que tout le village te regarde, et que tout le village sourit.",
+      "Des enfants ont donné l'alarme. Ils courent devant toi en criant *un voyageur, un voyageur !*, et quand tu arrives sur la place, une femme t'attend déjà, les mains sur les hanches. Elle a le visage rond et rouge des gens qui passent leur vie près d'un four. « Bienvenue à Kardan ! Je suis Hesna, je tiens le Puits-Vert. Vous logerez chez moi, et vous ne paierez rien, vous m'entendez ? Rien ! Ce soir on fait la fête pour vous. On fait toujours la fête pour ceux qui arrivent. »",
+      { if: { present: "odon" }, text: "Elle embrasse Odon sur les deux joues. Le moine en reste muet, ce qui chez lui tient du miracle, et du seul qu'on lui connaisse." },
+      "En la suivant, tu sens que tout le village te regarde, et que tout le village sourit : tant de sourires à la fois, et si pareils, qu'on les dirait sortis du même moule.",
     ],
     choices: [
       { label: "Suivre Hesna au Puits-Vert", to: "K_puits" },
@@ -209,8 +209,8 @@ module.exports = {
 
   K_kardan: { act: "I", title: "La place de Kardan", place: "kardan", hub: true, routes: true,
     text: [
-      { if: { night: true }, text: "La nuit est douce sur Kardan. Les canaux murmurent comme des gens qui parlent à voix basse, et les fenêtres du Puits-Vert sont jaunes. Là-haut sur la colline, la porte du dédale fait une tache plus noire que la nuit.",
-        else: "La place est le cœur du village : une fontaine à vasque de pierre verte où l'eau déborde sans arrêt, un platane de six brasses de tour, des bancs où les vieux jouent aux osselets. Autour se tiennent le Puits-Vert, la forge de Garance qui tinte, la boutique d'Oriel qui sent l'amande, la chapelle blanche et la vieille tour ronde. Au-dessus de tout, la colline et sa porte." },
+      { if: { night: true }, text: "La nuit est douce sur Kardan. Les canaux murmurent comme des gens qui parlent à voix basse d'une affaire qui te concerne, et les fenêtres du Puits-Vert sont jaunes. Là-haut sur la colline, la porte du dédale fait une tache plus noire que la nuit ; et la nuit, autour d'elle, en paraît presque claire.",
+        else: "La place est le cœur du village : une fontaine à vasque de pierre verte où l'eau déborde sans arrêt, un platane de six brasses de tour, des bancs où les vieux jouent aux osselets et trichent avec dignité. Autour se tiennent le Puits-Vert, la forge de Garance qui tinte, la boutique d'Oriel qui sent l'amande, la chapelle blanche et la vieille tour ronde. Au-dessus de tout, la colline et sa porte." },
       { if: { since: "kardan", min: 2 }, text: "On prépare la Lune sèche. Des lanternes de papier pendent aux branches du platane, des femmes tressent des guirlandes de menthe, et l'on a posé au pied de la fontaine des corbeilles de pain. Les gens sourient toujours. Ils te regardent pourtant un peu trop longtemps, et détournent les yeux un peu trop vite." },
       { if: { all: [{ since: "kardan", max: 1 }, { not: { night: true } }] }, text: "Partout où tu passes, on te salue. Un vieux t'offre une grenade, une fille une fleur. Un homme te tape sur l'épaule en silence, du geste qu'on a aux enterrements." },
       "La question qui t'a fait venir tient en une ligne : *qu'est-il arrivé à Aurèle, ici ?*",
@@ -251,7 +251,7 @@ module.exports = {
   K_puits_repos: { act: "I", title: "Un banc au frais", place: "kardan",
     text: [
       "Tu t'allonges sur un banc, sous la fenêtre. Le grincement de la corde dans la poulie, les voix des buveurs, l'odeur du pain chaud t'emportent. Tu dors d'un sommeil léger et vide, et quand tu rouvres les yeux, la tache de soleil a parcouru deux bonnes coudées sur le mur.",
-      "Hesna a posé une couverture sur toi. Tu dormais trop bien pour la sentir venir.",
+      "Hesna a posé une couverture sur toi. Tu dormais trop bien pour la sentir venir ; il y a là une sollicitude de mère, tu en conviens, et aussi une main fort légère.",
     ],
     choices: [{ label: "Te lever", to: "K_puits" }] },
   K_registre_lu: { act: "I", title: "La page arrachée", place: "kardan",
@@ -271,12 +271,12 @@ module.exports = {
   K_fete: { act: "I", title: "La fête de Kardan", place: "kardan",
     fx: { meet: ["maeve", "tobie", "garance", "oriel"], clue: "a_toast", quest: "K_fete", ep: ["histoire", 3000], fac: { kardan: 5 } },
     text: [
-      "Ils ont dressé les tables sur la place, sous le platane, et allumé des lampes à huile dans les branches. Tout Kardan est là : soixante personnes, peut-être plus, en comptant les vieux, les bébés et les chiens. On t'installe au bout de la table, sur une chaise à haut dossier qui doit venir de la chapelle. On te sert d'abord. On te sert beaucoup.",
+      "Ils ont dressé les tables sur la place, sous le platane, et allumé des lampes à huile dans les branches. Tout Kardan est là : soixante personnes, peut-être plus, en comptant les vieux, les bébés et les chiens. On t'installe au bout de la table, sur une chaise à haut dossier qui doit venir de la chapelle, et qui garde de son premier emploi une raideur de sermon. On te sert d'abord. On te sert beaucoup.",
       "Il y a de l'agneau aux abricots, du pain plat brûlant, des fèves à l'huile, des pastèques fendues, du vin de grenade qui monte à la tête. Un garçon d'une dizaine d'années, Tobie, te regarde manger, son assiette intacte devant lui. Une forgeronne aux bras énormes, Garance, te fait goûter son eau-de-vie, qui pourrait décaper une enclume. Une femme mince aux doigts verts, Oriel, t'observe en silence.",
-      "À l'autre bout de la table se tient une vieille femme minuscule, droite comme un piquet, les cheveux blancs tressés en couronne : l'Aïeule, Maève. Quand elle lève son gobelet, la place se tait d'un coup.",
+      "À l'autre bout de la table se tient une vieille femme minuscule, droite comme un piquet, les cheveux blancs tressés en couronne : l'Aïeule, Maève. Quand elle lève son gobelet, la place se tait d'un coup ; bien des rois paieraient cher ce silence-là.",
       "« Au Gardien, dit-elle d'une voix claire, et à celui qui le nourrira. »",
       { second: true, text: "*Et à celui qui le nourrira.* Tu sais à présent que le mot est mal choisi. Personne ne nourrit le Gardien. On le remplace." },
-      "Soixante gobelets se lèvent. Soixante visages se tournent vers toi, et sourient.",
+      "Soixante gobelets se lèvent. Soixante visages se tournent vers toi, et sourient ; dans ce sourire unanime, tu cherches un seul visage qui s'amuse, et tu le cherches longtemps.",
       { if: { present: "odon" }, text: "À côté de toi, Odon a reposé son gobelet plein. Il te regarde, le visage grave." },
       "Plus tard, l'Aïeule t'envoie dire par un enfant qu'elle te recevra chez elle quand tu voudras.",
     ],
@@ -294,8 +294,8 @@ module.exports = {
   K_fete_nuit: { act: "I", title: "Après la fête", place: "kardan",
     fx: { until: 8, pv: "max", rest: true, meet: "bastien" },
     text: [
-      "La fête finit tard, en chansons, et quelqu'un te raccompagne au Puits-Vert en te tenant par le bras. Ta chambre est petite et blanche, avec un lit trop grand et une fenêtre sur les jardins. Tu dors d'un sommeil de plomb.",
-      "Au matin, tout est propre. Les tables sont rangées, les lampes décrochées. Sur ta table de nuit, quelqu'un a posé une grenade ouverte, un pain et une fleur de câprier.",
+      "La fête finit tard, en chansons, et quelqu'un te raccompagne au Puits-Vert en te tenant par le bras, avec la sollicitude d'un geôlier bien élevé. Ta chambre est petite et blanche, avec un lit trop grand et une fenêtre sur les jardins. Tu dors d'un sommeil de plomb.",
+      "Au matin, tout est propre. Les tables sont rangées, les lampes décrochées ; la fête a été ôtée de la place avec le soin qu'on met à effacer des traces. Sur ta table de nuit, tu trouves une grenade ouverte, un pain et une fleur de câprier. Quelqu'un est donc entré pendant ton sommeil, et ce présent aimable te gâte un peu le déjeuner.",
     ],
     choices: [{ label: "Descendre", to: "K_kardan" }] },
 
@@ -401,7 +401,7 @@ module.exports = {
     fx: { meet: "oriel", flag: "oriel:demande", reveal: "ravine" },
     fxEvery: { time: 1 },
     text: [
-      "Une pièce basse et sombre, encombrée de bottes d'herbes qui sèchent la tête en bas. Des pots, des mortiers, des bocaux où flottent des choses que tu préfères laisser sans nom. Ça sent le foin, la cire et, par-dessous, une note d'amande amère qui te pique le nez.",
+      "Une pièce basse et sombre, encombrée de bottes d'herbes qui sèchent la tête en bas, comme de petits pendus. Des pots, des mortiers, des bocaux où flottent des choses que tu préfères laisser sans nom, et dont certaines semblent te regarder aussi. Ça sent le foin, la cire et, par-dessous, une note d'amande amère qui te pique le nez.",
       "Oriel pile quelque chose sans lever les yeux. Elle a les doigts teints de vert jusqu'aux poignets et une voix si basse qu'il faut se pencher pour l'entendre.",
       { if: { not: { quest: "K_chardon" } }, text: "« Vous êtes de passage, dit-elle. Vous avez de bonnes jambes. Il me faut des chardons-lune, ils poussent à l'ombre dans la ravine, au nord-est, sur le plateau. Une demi-journée de marche. Moi, je n'ai plus les jambes. » Elle lève enfin les yeux. « Je paie. Et je vous apprendrai quelque chose d'utile. »" },
       { if: { quest: "K_chardon" }, text: "Oriel te salue d'un signe de tête. Depuis que tu lui as rapporté les chardons, elle te regarde comme on regarde un créancier qu'on sait ne jamais pouvoir rembourser." },
@@ -433,7 +433,7 @@ module.exports = {
   K_ravine_cueille: { act: "I", title: "La brassée bleue", place: "ravine",
     text: [
       "Tu coupes les tiges au couteau, une à une, en respirant par la bouche et en tournant la tête entre deux coupes. La sève colle aux doigts et sent fort. Au bout d'une heure, tu as une brassée, liée dans ta chemise.",
-      "Quand tu te redresses, le soleil a disparu derrière le bord de la ravine. Et sur ce bord, découpées contre le ciel, trois silhouettes basses aux oreilles pointues te regardent.",
+      "Quand tu te redresses, le soleil a disparu derrière le bord de la ravine. Et sur ce bord, découpées contre le ciel, trois silhouettes basses aux oreilles pointues te regardent, avec l'intérêt de convives qui voient arriver le plat.",
     ],
     choices: [
       { label: "Tendre un collet au pied de l'éboulis avant de remonter", if: { arch: "rodeur" }, why: "Il faudrait savoir poser un collet.", hint: "rôdeur",
@@ -442,7 +442,7 @@ module.exports = {
     ] },
   K_ravine_epines: { act: "I", title: "Le sommeil vert", place: "ravine",
     text: [
-      "Tu as respiré trop fort, ou trop longtemps. Le monde se met à tourner doucement, comme une roue de moulin. Tu te réveilles allongé dans les chardons, le visage plein d'épines, sans aucune idée de l'heure. Tu as la brassée serrée contre toi, au moins. Le souvenir de la cueillette, lui, s'est envolé.",
+      "Tu as respiré trop fort, ou trop longtemps. Le monde se met à tourner doucement, comme une roue de moulin. Tu reprends tes esprits au milieu des chardons, le visage plein d'épines, sans aucune idée de l'heure. Tu as la brassée serrée contre toi, au moins. Le souvenir de la cueillette, lui, s'est envolé.",
       "Le soleil a disparu derrière le bord de la ravine. Et sur ce bord, découpées contre le ciel, trois silhouettes basses aux oreilles pointues te regardent.",
     ],
     choices: [
@@ -512,8 +512,8 @@ module.exports = {
     fx: { item: "eau_source", ep: ["perso", 300] },
     fxEvery: { time: 2 },
     text: [
-      "La maison de l'Aïeule est la plus haute du village, la plus proche de la colline, et la plus simple : une seule pièce chaulée, un lit, un coffre, un métier à tisser, une fenêtre qui donne sur la porte du dédale. Maève t'attend assise, les mains sur les genoux.",
-      "Elle te sert un thé à la menthe si sucré qu'il colle aux dents. Elle te demande d'où tu viens, et elle écoute la réponse, vraiment, avec une attention rare. Elle te parle de Kardan : deux cents ans d'eau, depuis que l'architecte a creusé la colline. « Nous avons de la chance. Nous le savons. Nous essayons de la mériter. »",
+      "La maison de l'Aïeule est la plus haute du village, la plus proche de la colline, et la plus simple : une seule pièce chaulée, un lit, un coffre, un métier à tisser, une fenêtre qui donne sur la porte du dédale. De tout Kardan, c'est la seule vue qu'elle ait voulue. Maève t'attend assise, les mains sur les genoux.",
+      "Elle te sert un thé à la menthe si sucré qu'il colle aux dents. Elle te demande d'où tu viens, et elle écoute la réponse : chose rare chez les gens qui posent des questions, et presque inouïe chez ceux qui gouvernent. Elle te parle de Kardan : deux cents ans d'eau, depuis que l'architecte a creusé la colline. « Nous avons de la chance. Nous le savons. Nous essayons de la mériter. »",
       "Avant que tu partes, elle te met dans la main une petite fiole de terre fermée de cire. « De l'eau de la Source. Elle guérit. On ne la donne qu'aux gens qu'on aime. » Elle sourit. « Vous voyez. Nous vous aimons déjà. »",
       { second: true, text: "La fiole est tiède dans ta main. Tu sais d'où vient cette eau, et qui la tient, sous la colline, depuis sept ans." },
     ],
@@ -533,7 +533,7 @@ module.exports = {
     choices: [{ label: "Prendre congé", to: "K_kardan" }] },
   K_aieule_the: { act: "I", title: "Le thé", place: "kardan",
     text: [
-      "Vous parlez encore un moment de choses sans importance : la récolte de grenades, les caravanes, la sécheresse qui gagne au nord. Maève a une manière de clore chaque sujet d'une phrase si juste que la conversation s'arrête là. Une fois dehors, tu as l'impression d'avoir été reçu par une reine, et tu en sais exactement autant qu'avant.",
+      "Vous parlez encore un moment de choses sans importance : la récolte de grenades, les caravanes, la sécheresse qui gagne au nord. Maève a une manière de clore chaque sujet d'une phrase si juste que la conversation s'arrête là. Une fois dehors, tu as l'impression de sortir d'une audience royale : on t'a tout accordé, sauf ce que tu venais chercher.",
     ],
     choices: [{ back: "K_kardan" }] },
 
@@ -542,7 +542,7 @@ module.exports = {
     fx: { clue: "a_chapelle", ep: ["perso", 400] },
     fxEvery: { time: 1 },
     text: [
-      "La chapelle est petite, blanchie à la chaux, si fraîche qu'on y frissonne. Pour tout autel, une vasque de pierre verte où l'eau coule d'un tuyau de cuivre. Sur le mur du fond, une grande plaque de bois peinte en noir porte des noms en lettres blanches.",
+      "La chapelle est petite, blanchie à la chaux, si fraîche qu'on y frissonne. Pour tout autel, une vasque de pierre verte où l'eau coule d'un tuyau de cuivre : on prie ici ce qu'on boit, ce qui a du moins le mérite de la franchise. Sur le mur du fond, une grande plaque de bois peinte en noir porte des noms en lettres blanches.",
       "En haut de la plaque, en lettres dorées : *À CEUX QUI ONT GARDÉ L'EAU.*",
       "Il y a des dizaines de noms. Les plus anciens sont presque effacés. Les plus récents sont des descriptions : *un marchand de Vasque. Une femme au chapeau vert. Le muletier de la caravane.* Et le dernier, d'une peinture encore brillante : *L'homme du Nord, l'an de la grêle.*",
       { second: true, text: "*À ceux qui ont gardé l'eau.* La première fois, tu as lu une liste de morts. Tu lis, cette fois, une liste de gardiens, chacun à son tour, et la place encore libre au bas de la plaque." },
@@ -564,8 +564,8 @@ module.exports = {
   K_porte: { act: "I", title: "La porte du dédale", place: "kardan",
     fxEvery: { time: 1 },
     text: [
-      "On monte à la porte par un escalier taillé dans le flanc de la colline, bordé d'offrandes : des pains ronds, des bouquets de menthe, des petites lampes, des jouets de bois. La porte elle-même est une dalle de pierre ocre, haute comme trois hommes, lisse et sans poignée, scellée par sept serrures de bronze vert-de-grisé. Au-dessus, gravé dans la roche, un seul mot : KARDAN.",
-      "Deux miliciens en cuirasse de cuir montent la garde, la lance au pied. Ils te saluent poliment et te tiennent à dix pas. « C'est la maison du Gardien, dit l'un. On ne le dérange pas. »",
+      "On monte à la porte par un escalier taillé dans le flanc de la colline, bordé d'offrandes : des pains ronds, des bouquets de menthe, des petites lampes, des jouets de bois. La porte elle-même est une dalle de pierre ocre, haute comme trois hommes, lisse et sans poignée, scellée par sept serrures de bronze vert-de-grisé ; on a mis à cette seule porte plus de métal qu'à tous les coffres du village. Au-dessus, gravé dans la roche, un seul mot : KARDAN.",
+      "Deux miliciens en cuirasse de cuir montent la garde, la lance au pied. Ils te saluent poliment et te tiennent à dix pas ; la politesse, à Kardan, a toujours une lance à portée de main. « C'est la maison du Gardien, dit l'un. On ne le dérange pas. »",
       { second: true, text: "Au bord des marches, entre les pains et les lampes, des jouets de bois. Tu les regardes, cette fois, en comptant les années." },
       { if: { since: "kardan", min: 2 }, text: "Aujourd'hui, il y a quatre gardes au lieu de deux, et une corbeille de pain plus grande que les autres, couverte d'un linge blanc." },
     ],
@@ -577,7 +577,7 @@ module.exports = {
   K_porte_griffures: { act: "I", title: "Les griffures", place: "kardan",
     text: [
       "Les gardes descendent ; la relève est encore en bas. Tu as le temps de compter jusqu'à cinquante. Tu franchis les dix pas en courant, plié en deux, et tu te plaques contre la dalle.",
-      "Elle est froide, et elle vibre très légèrement, comme une peau de tambour. De près, tu vois qu'elle joint mal le roc : en bas court une fente large d'un doigt. Sur le bord de la dalle, du côté du roc, à hauteur de genou, tu relèves des griffures. Des dizaines. Des traces d'ongles humains. Certaines sont anciennes, polies par le temps. D'autres sont si fraîches que la poussière de pierre y est encore blanche.",
+      "Elle est froide, et elle vibre très légèrement, comme une peau de tambour. De près, tu vois qu'elle joint mal le roc : en bas court une fente large d'un doigt. Sur le bord de la dalle, du côté du roc, à hauteur de genou, tu relèves des griffures. Des dizaines. Des traces d'ongles humains. Certaines sont anciennes, polies par le temps. D'autres sont si fraîches que la poussière de pierre y est encore blanche. Tu les regardes plus longtemps que la prudence ne le permet ; l'œil met du temps à admettre ce que la raison a compris d'emblée.",
       "Elles viennent de l'intérieur.",
       "Tu entends les pas de la relève dans l'escalier. Tu repars en courant.",
     ],
@@ -605,7 +605,7 @@ module.exports = {
   K_nuit: { act: "I", title: "La nuit de la Lune sèche", place: "kardan", urgent: 25,
     fx: { until: 23 },
     text: [
-      "La fête de la Lune sèche a duré tout le soir. On a chanté pour l'eau, on a jeté des fleurs dans la fontaine, on a mangé debout. La lune s'est levée énorme et rousse au-dessus de la colline. Maintenant le village se tait, et tu montes à ta chambre.",
+      "La fête de la Lune sèche a duré tout le soir. On a chanté pour l'eau, on a jeté des fleurs dans la fontaine, on a mangé debout. La lune s'est levée énorme et rousse au-dessus de la colline, si basse qu'elle semblait posée sur la porte. Maintenant le village se tait ; c'est un silence appliqué, comme en font les gens qui écoutent, et tu montes à ta chambre avec la sensation très nette que chaque marche est comptée par quelqu'un.",
       "On frappe. C'est Hesna, avec un plateau : une tasse fumante, un gâteau au miel. « Une tisane, dit-elle. Pour dormir. Après une fête, on dort mal, on a trop chaud. » Elle pose le plateau sur la table de nuit et reste sur le seuil, les mains serrées l'une contre l'autre.",
       "La vapeur monte de la tasse. Une odeur d'amande. Et derrière, à peine, une odeur de linge mouillé.",
       { second: true, text: "Hesna serre les mains l'une contre l'autre. Tu sais ce qu'elle garde dans la poche de son tablier, plié en quatre, et pourquoi elle reste sur le seuil." },
@@ -623,7 +623,7 @@ module.exports = {
     fx: { flag: "capture:bu", drop: ["dague", "dague_jet", "arc_court", "baton", "epee_courte", "epee_longue", "hache", "gambison", "cuir", "broigne", "corde", "lanterne", "torche"], gold: -9999, food: -9999 },
     text: [
       "La tisane est douce, un peu épaisse. Hesna attend que tu aies fini la tasse, puis elle la reprend et te caresse les cheveux, une fois, comme à un enfant. Le geste te paraît étrange. Le sommeil t'emporte avant que tu aies pu y réfléchir.",
-      "Tu rêves qu'on te porte. Qu'on te lave les pieds. Que des gens chantent tout bas, en marchant, la même phrase encore et encore. Tu rêves d'une porte qui s'ouvre avec un bruit de meule, d'un souffle froid qui sent la pierre, de mains qui te lâchent.",
+      "Tu rêves qu'on te porte. Qu'on te lave les pieds. Que des gens chantent tout bas, en marchant, la même phrase encore et encore, avec l'application de ceux qui chantent pour s'empêcher de penser. Tu rêves d'une porte qui s'ouvre avec un bruit de meule, d'un souffle froid qui sent la pierre, de mains qui te lâchent.",
       "Tu rêves que tu tombes.",
       { if: { has: "couteau:aurele" }, text: "Dans ton rêve, quelqu'un pose sur ta poitrine un couteau à manche de corne. *Rends-le-lui*, dit une voix de femme. *C'est à lui.*" },
     ],
@@ -632,7 +632,7 @@ module.exports = {
     fx: { flag: ["capture:feinte", "capture:visages"], drop: ["gambison", "cuir", "broigne", "corde"], gold: -9999, food: -9999, ep: ["seance", 1500] },
     text: [
       "Tu bois sans boire, tu bâilles, tu remercies. Hesna reprend la tasse vide (tu l'as vidée dans ta manche) et elle reste longtemps à te regarder dormir. Puis elle souffle la chandelle et pleure, debout dans le noir, sans bruit.",
-      "Ils viennent une heure plus tard. Six, huit : les yeux fermés, le compte est difficile. Ils te soulèvent avec une douceur qui te glace. Tu reconnais les voix. Garance, qui porte tes jambes et dit *il est lourd, celui-là*. Bastien, qui commande. Oriel, muette, dont tu sens l'odeur d'amande. Hesna, qui suit en tenant ta main.",
+      "Ils viennent une heure plus tard. Six, huit : les yeux fermés, le compte est difficile. Ils te soulèvent avec une douceur qui te glace ; on ne manie ainsi que les mourants et la vaisselle de prix. Tu reconnais les voix. Garance, qui porte tes jambes et dit *il est lourd, celui-là*. Bastien, qui commande. Oriel, muette, dont tu sens l'odeur d'amande. Hesna, qui suit en tenant ta main.",
       "On te porte dans la rue, puis dans l'escalier de la colline. On chante, très bas. La porte s'ouvre avec un bruit de meule. Quelqu'un glisse ta lame et ta lanterne dans ta ceinture, en chuchotant : *qu'il ait au moins de la lumière.* Puis on te pose au bord de quelque chose, et on te pousse.",
       "Tu tombes, les yeux grands ouverts, dans un noir qui sent la pierre.",
     ],
@@ -641,14 +641,14 @@ module.exports = {
     combat: { title: "Les gens de Kardan", enemies: [{ id: "villageois", n: 3 }], terrain: "bati",
       win: { fx: { ep: ["seance", 1500] }, to: "K_capture_nombre" }, lose: { to: "K_capture_nombre" } },
     text: [
-      "Tu remercies Hesna et tu la pousses doucement dehors. Tu verses la tasse par la fenêtre, puis tu traînes le coffre contre la porte. Ensuite tu attends, assis sur le lit, ton arme sur les genoux.",
+      "Tu remercies Hesna et tu la pousses doucement dehors. Tu verses la tasse par la fenêtre, puis tu traînes le coffre contre la porte. Ensuite tu attends sur le lit, ton arme sur les genoux ; et l'attente, dans cette chambre blanche où tout a été préparé pour ton sommeil, te paraît plus longue que les trois jours de route.",
       "Ils viennent une heure plus tard. On gratte, on pousse, on chuchote. Puis on pousse plus fort. Le coffre recule d'un pouce, puis d'un autre. Une voix d'homme, celle de Bastien, dit : *il ne dort pas.* Et une voix de femme, celle d'Hesna, gémit : *je vous l'avais dit, je vous l'avais dit.*",
       "La porte cède. Ils entrent à trois, avec des gourdins et une couverture à te jeter sur la tête. Ils ont l'air d'avoir peur, bien plus que de vouloir te tuer.",
     ] },
   K_capture_nombre: { act: "I", title: "Le nombre", place: "kardan",
     fx: { flag: ["capture:combat", "capture:visages"], drop: ["gambison", "cuir", "broigne", "corde", "lanterne", "torche"], gold: -9999, food: -9999 },
     text: [
-      "Tu en jettes un dans l'escalier, tu en fais saigner un autre. Il en vient d'autres, et d'autres encore : c'est tout Kardan qui monte l'escalier du Puits-Vert, en chemise de nuit, avec des bâtons, des louches, des lanternes. À la fin, ils sont dix sur toi. La couverture tombe, et quelqu'un te frappe derrière l'oreille, juste assez fort.",
+      "Tu en jettes un dans l'escalier, tu en fais saigner un autre. Il en vient d'autres, et d'autres encore : c'est tout Kardan qui monte l'escalier du Puits-Vert, en chemise de nuit, avec des bâtons, des louches, des lanternes. On a rarement vu émeute plus bourgeoise, ni plus résolue. À la fin, ils sont dix sur toi. La couverture tombe, et quelqu'un te frappe derrière l'oreille, juste assez fort.",
       "Tu gardes un fil de conscience. Tu sens qu'on te porte, qu'on chante, qu'une porte s'ouvre avec un bruit de meule. Quelqu'un te remet ton arme dans la main et te referme les doigts dessus, en disant d'une voix brisée : *il s'est bien battu. Qu'il la garde.*",
       "Puis on te pousse, et tu tombes.",
     ],
@@ -667,7 +667,7 @@ module.exports = {
     ] },
   B_odon_kardan: { act: "I", title: "Odon, sous le platane",
     text: [
-      "Odon te rejoint sur la place, les mains dans les manches. « J'ai mangé trois fois aujourd'hui, dit-il, et on m'a offert un manteau, des sandales neuves et une fille à marier. J'ai tout refusé, sauf les sandales. » Il baisse la voix. « Je n'ai jamais vu un village aussi généreux. Et je n'ai jamais vu de gens aussi tristes d'être généreux. On dirait qu'ils paient une dette. Ou qu'ils en contractent une. »",
+      "Odon te rejoint sur la place, les mains dans les manches. « J'ai mangé trois fois aujourd'hui, dit-il, et on m'a offert un manteau, des sandales neuves et une fille à marier. J'ai tout refusé, sauf les sandales : notre règle est formelle sur le mariage et muette sur la chaussure. » Il baisse la voix. « Je n'ai jamais vu un village aussi généreux. Et je n'ai jamais vu de gens aussi tristes d'être généreux. On dirait qu'ils paient une dette. Ou qu'ils en contractent une. »",
     ],
     choices: [
       { label: "Lui demander de garder les yeux ouverts", fx: { conf: { odon: 5 }, flag: "odon:veille" }, to: "@ret" },

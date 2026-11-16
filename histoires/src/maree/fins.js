@@ -6,7 +6,7 @@ function fin(id, title, text) {
 }
 module.exports = {
   F_orcanne: fin("orcanne", "Les voiles d'Orcanne", [
-    "À une heure, la marée tourne. Dans la tour de la Chaîne, six hommes pèsent sur le treuil, et la grande chaîne des Passes descend dans l'eau noire, maillon par maillon, avec un bruit que toute la ville entend.",
+    "À une heure, la marée tourne. Dans la tour de la Chaîne, six hommes pèsent sur le treuil, et la grande chaîne des Passes descend dans l'eau noire, maillon par maillon, avec un bruit de fer traîné que toute la ville entend, et que chacun, sur son quai ou dans son lit, comprend aussitôt.",
     { if: { has: "morvan=fui" }, text: "C'est Morvan lui-même qui a donné l'ordre, debout dans la tour, son manteau trempé, l'ordre signé à la main. Les gardes de la Chaîne obéissent au papier. Ils ont toujours obéi au papier, et le papier, cette nuit, porte un sceau." },
     { if: { has: "elu=morvan" }, text: "Le nouveau Doyen a signé son premier ordre avant même de s'asseoir. On l'a porté en barque à la tour, avec la grande lanterne encore fumante." },
     { if: { all: [{ has: "chaine_ordre=signe" }, { not: { has: "elu=morvan" } }, { not: { has: "morvan=fui" } }] }, text: "L'ordre était signé. Le nom au bas était celui d'une secrétaire. À la tour, on s'est contenté du nom, sans demander ce qu'elle était devenue entre-temps." },

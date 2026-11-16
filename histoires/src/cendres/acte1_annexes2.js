@@ -28,7 +28,7 @@ module.exports = {
   LI_Q_perroquet: P("vasselin", { title: "Le perroquet",
     fx: { questSeen: "LI_Q_perroquet" },
     text: [
-      "Dans l'antichambre de la reine, sur un perchoir d'argent, le perroquet gris que l'ambassadeur des îles lui a offert l'an dernier, la queue rouge vif, l'œil jaune et un vocabulaire inconnu de tous. Il s'appelle Monseigneur. Il ne parle presque jamais. Il écoute.",
+      "Dans l'antichambre de la reine, sur un perchoir d'argent, le perroquet gris que l'ambassadeur des îles lui a offert l'an dernier, la queue rouge vif, l'œil jaune et un vocabulaire inconnu de tous. Il s'appelle Monseigneur. Il ne parle presque jamais ; il écoute, ce qui fait de lui, à la cour, un personnage plus redoutable que bien des ministres.",
       "Ce matin, il parle. Il répète sans se lasser, d'une voix de vieille duchesse :« Pas avant la Fête, mon cœur. Pas avant la Fête. » Puis, d'une voix d'homme, grave, avec un accent du nord : « Dis-moi seulement si c'est le mien. »",
       "Deux dames d'atour passent, entendent, rougissent jusqu'aux oreilles, et pressent le pas.",
     ],

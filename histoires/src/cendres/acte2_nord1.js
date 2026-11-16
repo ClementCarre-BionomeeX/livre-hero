@@ -39,7 +39,7 @@ module.exports = {
   II_N_arrivee: P({ title: "Le silence du camp", place: null,
     text: [
       "Tu entends le camp avant de le voir, d'habitude : les chiens, les tambours, les enfants, les corbeaux. Aujourd'hui, depuis la dernière crête, tu entends le silence.",
-      "Les tentes sont là, quarante et une, tu les comptes. La fumée monte. Les gens sont dehors, assis devant les tentes, au soleil, dans la neige. Ils se taisent. Les corbeaux sont sur les claies à viande, immobiles.",
+      "Les tentes sont là, quarante et une, tu les comptes. La fumée monte. Les gens sont dehors, assis devant les tentes, au soleil, dans la neige, les mains ouvertes sur les genoux, comme on attend son tour. Ils se taisent. Les corbeaux sont sur les claies à viande, immobiles ; et de tout ce que tu vois, ce sont ces corbeaux muets qui te serrent le plus la gorge.",
     ],
     choices: [{ label: "Descendre au camp", to: "@route" }] }),
 

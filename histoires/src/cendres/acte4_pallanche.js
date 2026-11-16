@@ -204,7 +204,7 @@ module.exports = {
   IV_tour_nuit: P({ takes: "night", title: "Minuit", place: "pallanche",
     text: [
       "Minuit. La place aux Clercs est vide, la file s'est dispersée, il reste des paquets oubliés et des enfants endormis sous le porche, que leurs parents reprendront à l'aube pour garder leur place.",
-      "La tour monte dans le noir. Une seule fenêtre est allumée, tout en haut, sous la plume et la clé.",
+      "La tour monte dans le noir, plus noire que lui, et l'œil qui la suit jusqu'en haut perd en route le compte des étages. Une seule fenêtre est allumée, tout au sommet, sous la plume et la clé ; quelqu'un veille là, à l'heure qui appartient d'ordinaire aux mourants et aux comptables.",
     ],
     choices: [
       { label: "La porte de service, où Pie attend", hide: { not: { has: "pal:pie_dedans" } }, to: "IV_tour_escalier" },
@@ -283,7 +283,7 @@ module.exports = {
 
   IV_tour_caveau: P({ title: "Le caveau", place: "pallanche",
     text: [
-      "Trois cents marches : tu les comptes, par habitude. La pierre devient humide, puis froide, puis gelée. Au fond, une porte basse, une salle voûtée, et au milieu, sur un lutrin de fer, un registre noir, fermé, une plume et une clé gravées sur le dos.",
+      "Trois cents marches : tu les comptes, par habitude. La pierre devient humide, puis froide, puis gelée, et l'air prend ce goût de fer qu'ont les lieux où personne ne respire d'ordinaire. Au fond, une porte basse, une salle voûtée, et au milieu, sur un lutrin de fer, un registre noir, fermé, une plume et une clé gravées sur le dos ; toute la tour, avec ses pupitres et ses serrures, pèse sur cette seule chose.",
       { if: { not: HYLAS_LA }, text: "Devant le lutrin, sur un tabouret, un vieil homme aux yeux blancs, une canne d'ébène sur les genoux. Hylas. Il tourne la tête vers la porte." },
       { if: { all: [{ not: HYLAS_LA }, { not: { has: "hylas:oublie_enfant" } }] }, text: "« Je reconnais ton pas, dit-il. Tu marches comme ta mère. » Il ne se lève pas. « Il m'a mis là parce qu'il sait que je ne partirai pas. Quelqu'un doit garder. Tant qu'il est là, il ne l'ouvre pas sans moi. C'est tout ce que je peux. »" },
       { if: { all: [{ not: HYLAS_LA }, { has: "hylas:oublie_enfant" }] }, text: "« Qui est là ? » Il ne te reconnaît pas. Tu lui dis qui tu es. Il fronce les sourcils, il cherche. Puis il dit, très lentement : « Il y a un trou, là où tu devrais être. Je l'ai fait moi-même. Je ne sais plus pourquoi. Je sais que c'était pour toi. »" },

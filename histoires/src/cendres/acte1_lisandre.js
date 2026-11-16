@@ -155,7 +155,7 @@ module.exports = {
   LI_cabinet: P({ title: "Le cabinet de la reine",
     text: [
       "Tu connais le chemin. La porte dérobée derrière la tapisserie des chasses, le couloir des servantes, la clé qu'Ermengarde cache sous le pot de myrte. Il est deux heures du matin. La reine dort.",
-      "Le cabinet sent l'encre et la fleur d'oranger. Sur l'écritoire, des lettres en trois piles : les lues, les à lire, et une troisième, plus mince, sous un presse-papier de cristal. Tu les lis à la lueur d'une veilleuse.",
+      "Le cabinet sent l'encre et la fleur d'oranger. Sur l'écritoire, des lettres en trois piles : les lues, les à lire, et une troisième, plus mince, sous un presse-papier de cristal. Dans tous les cabinets du monde, c'est la pile la plus mince qui gouverne. Tu les lis à la lueur d'une veilleuse.",
     ],
     choices: [
       { label: "Lire vite, tout, avant que la veilleuse s'éteigne", test: { dom: "discretion", label: "Discrétion" },
@@ -264,7 +264,7 @@ module.exports = {
   LI_pallanche: P({ title: "La grande salle", place: "pallanche",
     fx: { meet: "mordace" },
     text: [
-      "On te conduit, le soir même, dans la tour noire, pour la répétition. La grande salle de la Chancellerie est ronde, haute, aveugle, éclairée par cent lampes. Tu les comptes par habitude de musicienne, qui aime savoir combien de souffles brûlent l'air d'une salle : cent, tout juste. Au milieu, sur un lutrin de pierre, un livre ouvert, immense, relié de rouge. Le Grand Livre de la Fête. Autour, des gradins, pour la cour.",
+      "On te conduit, le soir même, dans la tour noire, pour la répétition. La grande salle de la Chancellerie est ronde, haute, aveugle, éclairée par cent lampes. Tu les comptes par habitude de musicienne, qui aime savoir combien de souffles brûlent l'air d'une salle : cent, tout juste. Cent flammes, et la voûte leur échappe quand même ; ta voix, quand tu l'essaies, monte dans ce noir et tarde à redescendre. Au milieu, sur un lutrin de pierre, un livre ouvert, immense, relié de rouge. Le Grand Livre de la Fête. Autour, des gradins, pour la cour.",
       "Un homme en noir t'attend au pied du lutrin. Grand, mince, la cinquantaine, le visage doux. Il a les mains froides quand il te salue. « Je suis Mordace. Vous chanterez ici, demain, à minuit moins le quart. La ballade dure un quart d'heure. Il faut qu'elle finisse exactement quand les cloches commencent. Pas avant. Pas après. »",
       { if: { has: "hylas:voie=mordace" }, text: "Pendant la répétition, un vieil aveugle monte l'escalier de la galerie, lentement, en comptant les marches à voix basse. Mordace le regarde passer sans s'interrompre." },
       { if: { has: "pie:choix=liste" }, text: "Un greffier vient parler à l'oreille de Mordace. Tu entends : *la page du registre rouge*. Mordace ne se retourne pas. Il dit seulement : « Elle reviendra. Tout revient. »" },

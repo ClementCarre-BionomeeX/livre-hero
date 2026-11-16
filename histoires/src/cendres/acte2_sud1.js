@@ -55,7 +55,7 @@ module.exports = {
 
   II_S_cortege: P({ title: "Le cortège", place: null,
     text: [
-      "Vous rattrapez la cour au deuxième jour, au gué de Marsanne. Elle avance lentement, une lieue à l'heure : quarante voitures, deux cents cavaliers, les chariots des cuisines, les musiciens. La cour, d'ordinaire, chante en route. Aujourd'hui elle se tait, et les bannières pendent.",
+      "Vous rattrapez la cour au deuxième jour, au gué de Marsanne. Elle avance lentement, une lieue à l'heure, qui est l'allure des cours et des enterrements : quarante voitures, deux cents cavaliers, les chariots des cuisines, les musiciens. La cour, d'ordinaire, chante en route. Aujourd'hui elle se tait, et les bannières pendent.",
       { if: { has: "nuit:ysolde=reine" }, text: "La voiture de la reine est fermée, rideaux tirés. Huit gardes l'entourent à cheval, l'épée au clair, et ils regardent les bas-côtés comme si la neige allait en sortir." },
       { if: { not: { has: "nuit:ysolde=reine" } }, text: "La voiture de la reine est ouverte. Isaure y est assise, droite, sans couronne, et regarde les vignes. De loin, on croirait qu'elle sourit." },
       "Derrière elle, à la place qui revient d'ordinaire au chancelier, une voiture noire, sans armes, aux rideaux de cuir. Quatre gardes en noir marchent à côté, à pied. Ils ne transpirent pas.",
@@ -122,7 +122,7 @@ module.exports = {
     text: [
       { first: true, text: "Vous prenez deux chambres à l'Ancre, une auberge de mariniers derrière la halle aux poissons, où l'odeur suffit à écarter la cour. La patronne te regarde longtemps, puis garde ses questions pour elle." },
       "Vasselin est comme tu l'as laissée, et pas tout à fait. Les cloches sonnent les heures. Les marchands crient. Mais on parle bas, aux carrefours, et chaque soir, un peu plus de gens s'arrêtent au milieu d'une phrase et regardent le nord.",
-      "Au-dessus des toits, dans la haute ville, la Tour des Archives royales. Il y a de la lumière à toutes les fenêtres, la nuit comme le jour.",
+      "Au-dessus des toits, dans la haute ville, la Tour des Archives royales. Il y a de la lumière à toutes les fenêtres, la nuit comme le jour. Une maison éclairée rassure, d'ordinaire ; celle-ci veille comme on veille un malade, et c'est la ville entière qui a l'air d'être couchée dessous.",
     ],
     choices: [
       { label: "Retrouver Ermengarde, aux cuisines du palais", to: "II_S_ermengarde", hide: { seen: "II_S_ermengarde" } },

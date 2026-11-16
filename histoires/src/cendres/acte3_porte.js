@@ -139,7 +139,7 @@ module.exports = {
     text: [
       "Ardaël marche avec vous jusqu'aux portes de la ville, et s'arrête là. Valcendre est sa limite. « Au bout du blanc, dit-il, il y a la porte. Tu la reconnaîtras. Elle crève les yeux. » Il pose la main sur ta tête, une dernière fois. « Aëlan. N'oublie pas que tu as un nom ici. »",
       "Vous marchez longtemps. La plaine se resserre. Le blanc devient gris, puis gris sombre. Les marcheurs sont de plus en plus nombreux, serrés, épaule contre épaule, et tous vont dans la même direction que vous.",
-      "Puis vous la voyez. Une porte de pierre noire, haute comme une falaise, au milieu du vide, seule, sans un mur de part et d'autre. Une fente la traverse de haut en bas, large comme une main, et par la fente coule une lumière jaune, une lumière de soleil. Les marcheurs se pressent contre elle comme des papillons contre une vitre.",
+      "Puis vous la voyez. Une porte de pierre noire, haute comme une falaise, dressée au milieu du vide, seule, sans un mur de part et d'autre ; l'œil en cherche les gonds, le linteau, la muraille qu'elle devrait fermer, et revient chaque fois à cette seule chose noire dans tout le gris. Une fente la traverse de haut en bas, large comme une main, et par la fente coule une lumière jaune, une lumière de soleil. Les marcheurs se pressent contre elle comme des papillons contre une vitre.",
       "Et au pied de la porte, des formes blanches, immobiles au milieu du flot. Elles ont une marque au front. Elles se penchent sur les marcheurs, une à une, et elles mangent.",
     ],
     choices: [{ label: "Approcher", to: "III_a_glaneurs" }] }),

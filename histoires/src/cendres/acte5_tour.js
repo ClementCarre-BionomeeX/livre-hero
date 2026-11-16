@@ -47,7 +47,7 @@ module.exports = {
 
   V_ville: P({ title: "Pallanche sous la neige", place: "pallanche",
     text: [
-      "Pallanche est blanche, et silencieuse, et pleine. Les gens sont dehors, partout, debout, assis, arrêtés au milieu d'un geste. Les cent cloches sont muettes, toutes à la fois, pour la première fois depuis qu'on les a fondues.",
+      "Pallanche est blanche, et silencieuse, et pleine. Les gens sont dehors, partout, debout, assis, arrêtés au milieu d'un geste ; une ville entière a suspendu sa phrase, et le silence qui en résulte a la qualité de celui qui suit une question. Les cent cloches sont muettes, toutes à la fois, pour la première fois depuis qu'on les a fondues.",
       "Sur la place aux Clercs, la queue est toujours là. Elle fait trois fois le tour de la place. Les gens sont à la même place depuis hier soir ; la neige leur fait des épaulettes d'un doigt. Ils tiennent leurs jetons de plomb dans la main, et la neige s'accumule sur leurs épaules, et ils sourient.",
       "Au centre, la tour des Greffiers. De son sommet monte une colonne blanche, droite, épaisse comme la tour elle-même, qui s'élève dans le ciel jusqu'à se perdre. La neige, ici, ne tombe plus : elle monte. Tout ce qu'on cède, cette nuit, monte par là.",
       { if: { has: "lisse:cession" }, text: "Au milieu de la file, des soldats en bleu, qui ignorent avoir été bleus. Ils ont été écrits les premiers." },
@@ -80,7 +80,7 @@ module.exports = {
   V_t_porche: P({ title: "Le porche", place: "pallanche",
     text: [
       "Le porche est ouvert, désert de gardes. Les dix greffiers des dix pupitres sont assis à leur place, la plume levée, immobiles, souriants. Ils ont cédé aussi.",
-      "Un escalier monte, large, dans le noir. On entend, très haut, un grattement régulier, comme une souris dans un mur. Une plume, sans un temps de repos.",
+      "Un escalier monte, large, dans le noir. On entend, très haut, un grattement régulier, comme une souris dans un mur ; l'oreille s'y attache malgré elle, attend la pause où la bête reprendrait haleine, et l'attend en vain. Une plume, sans un temps de repos.",
     ],
     choices: [{ label: "Monter", to: "V_t_cessions" }] }),
 
