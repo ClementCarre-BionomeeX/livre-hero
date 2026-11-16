@@ -204,6 +204,66 @@ Object.assign(P, {
       { label: "Fermer le Cahier : cinq lieues jusqu'à la Thiorne", hide: R, to: "K06j_route", big: true },
       { label: "Fermer le Cahier, et descendre vers Roquebise", hide: J, to: "K06r_descente", big: true },
     ] },
+  // ------------------------------------------------------------ chapter 6
+  M06: { act: "II", title: "Une heure avant midi", backName: "la borne", charniere: true, aparte: true, depot: { put: ["cahier"], take: ["borne_roquebise", "cahier"] },
+    text: [
+      { first: true, if: J, text: "Les bâtons t'attendent, serrés, sur une demi-page. *JE SUIS AU PIED DE ROQUEBISE. J'AI DESCENDU PAR LA CHAUSSÉE. C'EST UN PAYS QU'ON A PRIS EN PLEINE NUIT. IL Y A DES CHOUETTES EN L'AIR ET UNE VOITURE AU MILIEU D'UN GUÉ. JE MONTE CHEZ MOI TANTÔT.*" },
+      { first: true, if: { all: [J, { has: "monde:lison_berceau" }] }, text: "*LA PETITE QUE TU AS VUE DANS SON PANIER, C'ÉTAIT MA GRAND-MÈRE. ELLE EST MORTE VIEILLE, L'HIVER D'AVANT LE BOND. JE TE LE DIS POUR QUE TU SACHES À QUI TU AS PARLÉ.*" },
+      { first: true, if: { all: [J, { has: "monde:porte_dite" }, { has: "monde:vu:tombe_tiennot" }] }, text: "*SON PÈRE EST AU CIMETIÈRE SOUS UNE CROIX BLEUE. IL A ÉCRIT DESSUS : J'AI MIS VINGT-DEUX CUISSONS, ON M'EN AVAIT PROMIS DIX. C'EST TOI QUI AS PROMIS ?* Tu relis la question au milieu de dix mille personnes. Tu avais dit dix au hasard, pour faire plaisir. Un homme a compté dessus toute sa vie." },
+      { first: true, if: J, text: "Tu lèves les yeux sur le pont, blanc dans le soleil de onze heures. Tu écris vite : les cinq arches, la troisième pile, ce que tu as trouvé ce matin, ce qu'il te manque. Tu écris l'heure qu'il est." },
+      { first: true, if: { all: [J, { has: "monde:line_route" }] }, text: "Tu ajoutes une ligne, parce qu'elle regarde par-dessus ton coude : *Line est avec moi. Elle s'était cachée dans une hotte.* Line lit, pour autant qu'elle sache lire, et rectifie de la voix : « Je m'étais pas cachée. Je m'étais rangée. »" },
+      { first: true, if: R, text: "Tu ouvres le Cahier sur le buis taillé, à plat, pendant que ton couteau cherche le nord de la pierre. L'écriture penchée court déjà. *Je suis à Arvoise, à la quatorzième borne, sur le quai. Il y a dix mille personnes. Le pont est blanc, il a cinq arches, on le bénit à midi. Dans une heure.*" },
+      { first: true, if: { all: [R, { has: "monde:su:pont" }] }, text: "*Je sais ce que dit ton livre. J'ai cherché toute la matinée de quoi les faire douter. Je ne sais pas encore si c'est assez.*" },
+      { first: true, if: { all: [R, { not: { has: "monde:su:pont" } }] }, text: "*Tout le pays est venu. On a mis des enfants en blanc pour passer les premiers. Quelque chose me gêne dans ce pont, et je ne sais pas quoi.* Tu regardes ton sac, où le livre noir pèse son poids. Tu ne l'as jamais ouvert à cette page pour {autre}." },
+      { first: true, if: { all: [R, { has: "monde:line_route" }] }, text: "*Line est avec moi. Elle s'était cachée dans une hotte.* Tu relis cela. La vieille qui t'a mis ce Cahier dans les mains a fait cette route à neuf ans, dans un panier d'osier, et elle ne t'en a rien dit. Elle ne dit jamais ce qu'on peut trouver seul." },
+      { first: true, if: R, text: "*Dans une heure.* De ton côté, c'est fait depuis soixante ans, et imprimé. Tu regardes vers le levant, par-dessus la plaine grise. Cette heure-là se joue à cinq lieues d'ici et à une vie de distance, et tu n'y peux rien que d'attendre le soir. Tu creuses." },
+      { again: true, if: J, text: "La borne aux guirlandes, le quai, le bruit de dix mille personnes. Au clocher d'en face, l'aiguille monte." },
+      { again: true, if: R, text: "La borne de la dix-neuvième lieue, le buis en boule, le trou que tu as fait à son pied. Là-haut, Roquebise." },
+    ],
+    choices: [
+      { label: "Écrire à {autre} ce que tu as trouvé dans la malle du gué", hide: { any: [J, { not: { has: "r:sait_bond" } }, { has: "monde:su:bond" }] }, to: "E_bond" },
+      { label: "Écrire à {autre} ce que la vieille a dit d'une certaine écriture", hide: { any: [J, { not: { has: "r:sait_main" } }, { has: "monde:su:main" }] }, to: "E_main" },
+      { label: "Répondre à {autre} sur la langueur grise", hide: { any: [J, { not: { has: "monde:placard" } }, { has: "monde:su:remede" }] }, to: "E_remede" },
+      { label: "Fermer le Cahier : il te reste une heure", hide: R, to: "K06j_heure", big: true },
+      { label: "Fermer le Cahier, et monter la rampe", hide: J, to: "K06r_rampe", big: true },
+    ] },
+  E_bond: { title: "Trois jours avant", back: true, fx: { flag: "monde:su:bond" },
+    text: [
+      "Tu écris en appuyant, et le crayon traverse presque. *J'AI TROUVÉ UNE LETTRE DANS UNE VOITURE, AU GUÉ SOUS ROQUEBISE. LA MAÎTRISE DES SABLES SAVAIT LA NUIT DU BOND TROIS JOURS AVANT. ELLE A FAIT ENLEVER SES CUVETTES ET SES COMMIS. ELLE N'A PRÉVENU PERSONNE. IL Y AVAIT DOUZE CENTS PERSONNES.*",
+      "Tu t'arrêtes. {autre} est en 541. De son côté, il n'y a ni Maîtrise, ni Bond, ni Roquebise prise : il y a une noce qui finit. Tu écris quand même. Il faut que quelqu'un d'autre le sache, et tu n'as personne d'autre.",
+      "*CELUI QUI A SIGNÉ S'APPELLE MELCHIOR LE JEUNE. IL SAIT LES DATES D'AVANCE. LA VIEILLE DIT QU'IL Y EN A UNE DERNIÈRE, ET QUE C'EST DANS SIX JOURS.*",
+    ] },
+  B06: { act: "II", title: "Ce que dit le livre, ce matin", backName: "la borne", charniere: true, aparte: true, depot: { put: ["borne_arvoise", "cahier"], take: ["cahier"] },
+    text: [
+      { first: true, if: J, text: "Les bâtons sont venus pendant la nuit. Ils tiennent une page entière, et ils sont moins droits que d'habitude. *J'AI PASSÉ LA NUIT À ROQUEBISE. TOUT LE BOURG DORT. IL ÉTAIT MINUIT QUAND C'EST ARRIVÉ, IL Y A DES VEILLEUSES AUX FENÊTRES. JE SUIS ENTRÉ{autre:E} CHEZ MOI. LA PORTE EST BLEUE. MON PÈRE EST À SON TOUR, MA MÈRE DORT, MA SŒUR A CINQ ANS.*" },
+      { first: true, if: { all: [J, { has: "monde:lison_parle" }] }, text: "*JE LUI AI DONNÉ UNE PINCÉE. ELLE M'A PARLÉ. ELLE M'A PRIS{autre:E} POUR QUELQU'UN D'AUTRE. ELLE A DIT DIX PHRASES, JE LES AI TOUTES.*" },
+      { first: true, if: { all: [J, { not: { has: "monde:lison_parle" } }] }, text: "*JE L'AI LAISSÉE DORMIR. ELLE M'ARRIVE À LA CEINTURE. JE LA CROYAIS PLUS GRANDE.*" },
+      { first: true, if: { all: [J, { has: "monde:lison_parle" }, { has: "monde:chanson" }] }, text: "*ELLE CHANTAIT EN SE RENDORMANT. C'EST L'AIR QUE LA VIEILLE CHANTE À SON ÉTABLI. D'OÙ UNE PETITE DE ROQUEBISE TIENT-ELLE L'AIR DE LA VIEILLE ?* Tu lis la question. Tu sais la réponse, et elle tourne en rond comme l'air lui-même." },
+      { first: true, if: { all: [J, { has: "monde:su:cuves_boivent" }] }, text: "*J'AI VU TROIS DES CUVES, À LA VERRERIE. UNE ÉTAIT RESTÉE OUVERTE SIX ANS. ELLE EST PLEINE DE SABLE EN DEDANS. CE VERRE LE BOIT TOUT SEUL.*" },
+      { first: true, if: { all: [J, { has: "monde:pont_reporte" }] }, text: "Tu écris à ton tour. Tu écris qu'il est debout. Que personne n'est monté dessus, que les gens sont rentrés fâchés, et que maître Baudri a passé la nuit avec un fil à plomb. Tu ajoutes : *ouvre ton livre.*" },
+      { first: true, if: { all: [J, { has: "monde:pont_sauve" }, { not: { has: "monde:pont_reporte" } }] }, text: "Tu écris à ton tour. Tu écris qu'il est tombé à midi, sous douze chariots de pierre qu'on avait fait passer d'abord, et qu'il n'y avait dessus que des bœufs. Tu ajoutes : *ouvre ton livre.*" },
+      { first: true, if: { all: [J, { has: "monde:pont_tombe" }, { has: "monde:pont_secours" }, { not: { has: "monde:pont_reporte" } }, { not: { has: "monde:pont_sauve" } }] }, text: "Tu écris à ton tour. Tu écris *onze*. Tu avais quarante dans la tête depuis deux jours. Tu écris onze, et tu ne sais pas de quel ton il faut l'écrire." },
+      { first: true, if: { all: [J, { not: { has: "monde:pont_secours" } }, { not: { has: "monde:pont_reporte" } }, { not: { has: "monde:pont_sauve" } }] }, text: "Tu écris à ton tour. Tu écris que tu y étais. Que le livre de {autre} peut garder sa ligne. Puis ta plume reste en l'air un long moment, au-dessus d'un mot que tu ne trouves pas." },
+      { first: true, if: R, text: "Le cadran de la dix-neuvième t'a rendu deux pincées. Tu ouvres le Cahier sur ton genou, au bas de la rampe, sous le cri muet du père Tasse. L'écriture penchée est là. Par endroits, la plume a troué le papier." },
+      { first: true, if: { all: [R, { has: "monde:pont_reporte" }] }, text: "*Il est debout. Maître Baudri l'a fermé lui-même, avant midi, de sa main. Personne n'est monté dessus. Ils ont chanté sur la berge, face à l'eau. Les gens sont rentrés fâchés d'être venus de si loin pour rien.*" },
+      { first: true, if: { all: [R, { has: "monde:pont_sauve" }, { not: { has: "monde:pont_reporte" } }] }, text: "*Il est tombé à midi. On avait fait passer douze chariots de pierre d'abord, pour l'éprouver. Il n'y avait dessus que des bœufs, et les bœufs savent nager.*" },
+      { first: true, if: { all: [R, { has: "monde:pont_tombe" }, { has: "monde:pont_secours" }, { not: { has: "monde:pont_reporte" } }, { not: { has: "monde:pont_sauve" } }] }, text: "*Il est tombé à midi, avec eux dessus. Les passeurs avaient mis leurs barques dessous. Ils en ont repris cent quatorze. Il en manque onze.*" },
+      { first: true, if: { all: [R, { has: "monde:su:pont" }, { not: { has: "monde:pont_secours" } }, { not: { has: "monde:pont_reporte" } }, { not: { has: "monde:pont_sauve" } }] }, text: "*Il est tombé à midi, avec eux dessus. J'y étais. Je le savais depuis deux jours, et j'y étais. Quarante.*" },
+      { first: true, if: { all: [R, { not: { has: "monde:su:pont" } }, { not: { has: "monde:pont_secours" } }, { not: { has: "monde:pont_reporte" } }, { not: { has: "monde:pont_sauve" } }] }, text: "*Le pont est tombé à midi, sous la procession. Quarante. Ton livre le savait ?* Tu poses le Cahier. Le livre le savait. Il était dans ton sac, et tu ne l'as pas ouvert à cette page." },
+      { first: true, if: { all: [R, { any: [{ has: "monde:pont_reporte" }, { has: "monde:pont_sauve" }, { has: "monde:pont_secours" }] }] }, text: "Tu ouvres la Chronique à l'an 541. La ligne a changé. Tu la lis dans son encre d'imprimerie, vieille de soixante ans, tranquille, comme si elle avait toujours dit cela. Hier, à cette place, il y avait un autre chiffre. Vous êtes deux au monde à le savoir, avec un cahier." },
+      { first: true, if: { all: [R, { not: { any: [{ has: "monde:pont_reporte" }, { has: "monde:pont_sauve" }, { has: "monde:pont_secours" }] } }] }, text: "Tu ouvres la Chronique à l'an 541. La ligne est la même, à la lettre. Quarante. Tu gardes un moment le doigt dessus. C'est la première fois que le livre a raison contre {autre}, et tu aurais donné cher pour qu'il eût tort." },
+      { first: true, if: { all: [R, { has: "monde:line_route" }] }, text: "*Line a tout vu, du haut d'une borne. Elle n'a rien dit de la soirée. Elle a démonté sa boîte à ressorts et l'a remontée, deux fois.*" },
+      { first: true, if: R, text: "Tu écris à ton tour. Tu écris la maison. Il te faut longtemps, pour peu de bâtons." },
+      { again: true, if: J, text: "La borne de la quatorzième lieue, ses guirlandes fanées, la brume sur l'eau. Les passeurs appellent." },
+      { again: true, if: R, text: "La borne de la dix-neuvième lieue, au bas de la rampe. La chaussée contourne la butte et s'en va vers le levant." },
+    ],
+    choices: [
+      { label: "Écrire à {autre} ce que tu as trouvé dans la malle du gué", hide: { any: [J, { not: { has: "r:sait_bond" } }, { has: "monde:su:bond" }] }, to: "E_bond" },
+      { label: "Écrire à {autre} ce que la vieille a dit d'une certaine écriture", hide: { any: [J, { not: { has: "r:sait_main" } }, { has: "monde:su:main" }] }, to: "E_main" },
+      { label: "Répondre à {autre} sur la langueur grise", hide: { any: [J, { not: { has: "monde:placard" } }, { has: "monde:su:remede" }] }, to: "E_remede" },
+      { label: "Fermer le Cahier, et embarquer sur la première plate", hide: R, to: "K07j_route", big: true },
+      { label: "Fermer le Cahier : cinq lieues jusqu'à la Thiorne", hide: J, to: "K07r_route", big: true },
+    ] },
 });
 
 module.exports = { passages: P, extras: {
@@ -222,6 +282,13 @@ module.exports = { passages: P, extras: {
       { if: { has: "monde:su:cuves" }, text: "*La Maîtrise des Sables mène à Méridane douze cuves de verre hautes comme un homme, pour le jour du Serment. Elle y met tout le sable de la route.*" }] },
     { id: "remede", head: "La langueur grise", v: [
       { if: { has: "monde:su:remede" }, text: "*On en guérit. Toutes les mères savent. C'est l'écorce de fièvrier, bouillie, trois semaines. C'est un arbre des îles. Chez toi il n'y en a pas. J'en chercherai.*" }] },
+    { id: "bond", head: "La nuit du Bond", v: [
+      { if: { has: "monde:su:bond" }, text: "*La Maîtrise des Sables savait la nuit du Bond trois jours avant. Elle a fait enlever ses cuvettes et ses commis. Elle n'a prévenu personne. Celui qui a signé s'appelle Melchior le Jeune. Il sait les dates d'avance.*" }] },
+    { id: "cuves_boivent", head: "Ce que boit le verre", v: [
+      { if: { has: "monde:su:cuves_boivent" }, text: "*J'ai vu trois de ces cuves à la verrerie de Roquebise. Une était restée ouverte six ans : elle est pleine de sable en dedans, comme une vitre a du givre. Ce verre boit la rosée tout seul.*" }] },
+    { id: "maison", head: "Roquebise, la troisième maison", v: [
+      { if: { has: "monde:lison_parle" }, text: "*Je suis entré{autre:e} chez moi. La porte est bleue. Ma sœur a cinq ans. Je lui ai donné une pincée : elle a dit dix phrases.*" },
+      { if: { has: "monde:r_chez_soi" }, text: "*Je suis entré{autre:e} chez moi. La porte est bleue. Ils dorment tous les trois. Ma sœur m'arrive à la ceinture.*" }] },
     { id: "line", head: "Les Trois-Noyers, soixante ans après", v: [
       { text: "*La Garde est venue à la grange après toi. Ils ont pris Line. Ils la mènent à Arvoise, chez le Maître des Sables.*" }] },
     { id: "pont", head: "Arvoise, dans la Chronique", v: [

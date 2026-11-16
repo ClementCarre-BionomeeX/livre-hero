@@ -230,7 +230,7 @@ Object.assign(P, {
       "Il prend le dernier carreau, le moins laid, et le tourne au jour. « Je m'en approche. Encore dix cuissons. Ce jour-là, je vernis un pot entier, je le casse devant témoins pour qu'on voie que la couleur va jusqu'au cœur, et du reste du seau je peins ma porte. Les voisins sauront. »",
     ],
     choices: [
-      { label: "« Vous l'aurez. Je la vois d'ici, votre porte. »", fx: { flag: "j:porte_dite", regard: { tiennot: "cordial" } }, to: "K05j_tiennot_bleu2" },
+      { label: "« Vous l'aurez. Je la vois d'ici, votre porte. »", fx: { flag: ["j:porte_dite", "monde:porte_dite"], regard: { tiennot: "cordial" } }, to: "K05j_tiennot_bleu2" },
       { label: "Hocher la tête, et le laisser à ses carreaux", to: "K05j_tiennot" },
     ] },
   K05j_tiennot_bleu2: { act: "II", title: "Un pari", place: "roquebise",
@@ -345,8 +345,8 @@ Object.assign(P, {
     choices: [
       { label: "La mariée, sur la margelle du puits", to: "K05j_ysabeau", hide: { has: "monde:coupe_noce" } },
       { label: "Porter à la mariée la coupe de verre", to: "K05j_coupe_donnee", hide: { any: [{ not: { item: "coupe_verre" } }, { has: "monde:coupe_noce" }] }, fx: { drop: "coupe_verre", flag: "j:coupe_verre_donnee" } },
-      { label: "Tendre à la mariée l'écuelle que tu as tournée ce matin", to: "K05j_coupe_donnee", hide: { any: [{ not: { item: "ecuelle_droite" } }, { not: { has: "quete-vue:II_coupe" } }, { has: "monde:coupe_noce" }] }, fx: { drop: "ecuelle_droite", flag: "j:coupe_ecuelle" } },
-      { label: "Tendre à la mariée ton écuelle, telle qu'elle est", to: "K05j_coupe_donnee", hide: { any: [{ not: { item: "ecuelle_travers" } }, { not: { has: "quete-vue:II_coupe" } }, { has: "monde:coupe_noce" }] }, fx: { drop: "ecuelle_travers", flag: ["j:coupe_ecuelle", "j:coupe_travers"] } },
+      { label: "Tendre à la mariée l'écuelle que tu as tournée ce matin", to: "K05j_coupe_donnee", hide: { any: [{ not: { item: "ecuelle_droite" } }, { not: { has: "quete-vue:II_coupe" } }, { has: "monde:coupe_noce" }] }, fx: { drop: "ecuelle_droite", flag: ["j:coupe_ecuelle", "monde:coupe_terre"] } },
+      { label: "Tendre à la mariée ton écuelle, telle qu'elle est", to: "K05j_coupe_donnee", hide: { any: [{ not: { item: "ecuelle_travers" } }, { not: { has: "quete-vue:II_coupe" } }, { has: "monde:coupe_noce" }] }, fx: { drop: "ecuelle_travers", flag: ["j:coupe_ecuelle", "j:coupe_travers", "monde:coupe_terre", "monde:coupe_travers"] } },
       { label: "Une grande fille en souliers rouges, qui garde un panier", to: "K05j_margot", hide: { seen: "K05j_margot" } },
       { label: "La tante Guillemette, sur son seuil", to: "K05j_tante", hide: { seen: "K05j_tante" } },
       { back: "K05j_bourg" },
@@ -361,8 +361,8 @@ Object.assign(P, {
     ],
     choices: [
       { label: "« Une coupe en verre ? La verrerie est à deux pas. »", to: "K05j_ysabeau_verre", hide: { seen: "K05j_ysabeau_verre" } },
-      { label: "Tendre à la mariée l'écuelle que tu as tournée ce matin", to: "K05j_coupe_donnee", hide: { any: [{ not: { item: "ecuelle_droite" } }, { not: { has: "quete-vue:II_coupe" } }, { has: "monde:coupe_noce" }] }, fx: { drop: "ecuelle_droite", flag: "j:coupe_ecuelle" } },
-      { label: "Tendre à la mariée ton écuelle, telle qu'elle est", to: "K05j_coupe_donnee", hide: { any: [{ not: { item: "ecuelle_travers" } }, { not: { has: "quete-vue:II_coupe" } }, { has: "monde:coupe_noce" }] }, fx: { drop: "ecuelle_travers", flag: ["j:coupe_ecuelle", "j:coupe_travers"] } },
+      { label: "Tendre à la mariée l'écuelle que tu as tournée ce matin", to: "K05j_coupe_donnee", hide: { any: [{ not: { item: "ecuelle_droite" } }, { not: { has: "quete-vue:II_coupe" } }, { has: "monde:coupe_noce" }] }, fx: { drop: "ecuelle_droite", flag: ["j:coupe_ecuelle", "monde:coupe_terre"] } },
+      { label: "Tendre à la mariée ton écuelle, telle qu'elle est", to: "K05j_coupe_donnee", hide: { any: [{ not: { item: "ecuelle_travers" } }, { not: { has: "quete-vue:II_coupe" } }, { has: "monde:coupe_noce" }] }, fx: { drop: "ecuelle_travers", flag: ["j:coupe_ecuelle", "j:coupe_travers", "monde:coupe_terre", "monde:coupe_travers"] } },
       { back: "K05j_noce_maison" },
     ] },
   K05j_ysabeau_verre: { act: "II", title: "Du verre chez les potiers", place: "roquebise",
