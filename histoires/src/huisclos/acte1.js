@@ -5,7 +5,7 @@ module.exports = {
     act: "I", title: "La première neige", place: "cour", ambiance: "neige", fx: { meet: "germain" },
     text: [
       "Le cocher de Saint-Amans t'a laissé{e} au pied de la côte, avec ta malle, parce que ses chevaux refusaient la neige. Tu as monté le dernier quart de lieue à pied, la malle sur l'épaule, et la neige est tombée tout le long, de plus en plus épaisse, comme un rideau qu'on tire derrière toi.",
-      "Te voici dans la cour. La maison est là, plus petite que dans ta mémoire, et plus haute à la fois. Toutes les fenêtres du rez-de-chaussée sont éclairées ; à l'étage, une seule brille, celle de la chambre de ta mère, où la lumière tremble, jaune, comme celle des cierges.",
+      "Te voici dans la cour. La maison est là, plus petite que dans ta mémoire, et plus haute à la fois ; la neige a déjà pris le toit, les appuis des fenêtres et le dessus de la barrière, et la façade grise, au milieu de tout ce blanc, a la mine fermée d'un visage qui te reconnaît et qui attend que tu parles. Toutes les fenêtres du rez-de-chaussée sont éclairées ; à l'étage, une seule brille, celle de la chambre de ta mère, où la lumière tremble, jaune, comme celle des cierges.",
       "Un homme sort de la grange avec une lanterne : grand, large d'épaules, en manteau de drap fin. Il lève sa lanterne vers ton visage. « Ah, dit-il. Te voilà. Germain Rouvière. Le mari d'Odile. » Il tend la main vers ta malle. « Tu arrives un jour trop tard, je suis désolé de te le dire comme ça. Elle est morte avant-hier dans la nuit. »",
       "Derrière vous, au bas de la côte, tu entends le cocher qui fait tourner ses chevaux, et le bruit des grelots qui s'éloigne vers Saint-Amans. Demain, la route sera fermée.",
     ],
@@ -77,7 +77,7 @@ module.exports = {
     act: "I", title: "Le souper", place: "salle", fx: { quest: "I_retour" }, devant: ["odile", "germain"],
     text: [
       "À sept heures, Mariette sonne la cloche du souper, comme toujours, et tout le monde descend, comme toujours. On mange dans la grande salle, à un bout de la longue table, sous la pendule arrêtée : une soupe, du lard, des pommes de terre. Personne n'a faim, et tout le monde mange.",
-      "Germain parle pour tous : de la neige, de la route, du curé qui montera dès qu'on pourra passer, du prix du sapin à Saint-Amans. Le docteur boit. Jeanne coupe son pain en petits carrés qu'elle laisse sur l'assiette. Mariette fait le service debout, malgré Odile qui lui demande deux fois de s'asseoir.",
+      "Germain parle pour tous, avec le zèle d'un homme que les silences inquiètent : de la neige, de la route, du curé qui montera dès qu'on pourra passer, du prix du sapin à Saint-Amans. Le docteur boit. Jeanne coupe son pain en petits carrés qu'elle laisse sur l'assiette. Mariette fait le service debout, malgré Odile qui lui demande deux fois de s'asseoir.",
       { calme: true, text: "Odile, en face de toi, tend la main vers le sel. Sur le bord de sa manche gauche, une tache ronde, raide, brun-jaune, que le savon n'a pas enlevée." },
       { trouble: true, text: "Odile, en face de toi, tend la main vers le sel. Sur le bord de sa manche gauche, une tache sombre, presque noire. Du sang, penses-tu, et ton cœur bondit. Tu regardes de nouveau : la tache est toujours là, et tu ne sais plus de quelle couleur elle est." },
       "Au dessert, Germain se tourne vers toi, très aimable. « Et tu restes jusqu'à quand, alors ? Après l'enterrement, il faudra parler un peu des affaires. Rien de pressé. Le bois, la scierie, les papiers. »",

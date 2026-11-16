@@ -1454,7 +1454,7 @@
    "text": [
     {
      "first": true,
-     "text": "La grande salle tient tout le rez-de-chaussée côté vallée : un plafond bas à poutres noires, une cheminée où l'on entrerait debout, la longue table où l'on a mangé à douze les jours de battage. Contre le mur, la pendule de ton grand-père a les aiguilles arrêtées sur minuit vingt. Le miroir au-dessus du buffet est couvert d'un drap noir."
+     "text": "La grande salle tient tout le rez-de-chaussée côté vallée : un plafond bas à poutres noires, une cheminée où l'on entrerait debout, la longue table où l'on a mangé à douze les jours de battage, et qui paraît deux fois plus longue depuis qu'on n'en occupe plus qu'un bout. Contre le mur, la pendule de ton grand-père a les aiguilles arrêtées sur minuit vingt. Le miroir au-dessus du buffet est couvert d'un drap noir."
     },
     {
      "again": true,
@@ -1464,7 +1464,7 @@
     {
      "again": true,
      "when": "night",
-     "text": "La grande salle à la nuit : le feu baisse, la lampe à huile fait un rond jaune sur la table, et tout le reste de la pièce appartient aux ombres."
+     "text": "La grande salle à la nuit : le feu baisse, la lampe à huile fait un rond jaune sur la table, et tout le reste de la pièce appartient aux ombres ; elles montent le long des poutres, s'épaississent dans les angles, et le drap du miroir y fait un rectangle plus noir encore, où l'œil revient malgré lui."
     },
     {
      "after": "B_lampe",
@@ -2001,7 +2001,7 @@
     },
     {
      "when": "night",
-     "text": "Une veilleuse brûle au bout du couloir, devant la porte de ta mère. Partout ailleurs, le noir."
+     "text": "Une veilleuse brûle au bout du couloir, devant la porte de ta mère, petite flamme rouge qui éclaire juste assez pour montrer combien le couloir est long. Partout ailleurs, le noir ; les cinq autres portes s'y devinent au toucher, et la maison, autour de toi, craque et se tasse sous le poids de la neige."
     }
    ],
    "choices": [
@@ -2481,7 +2481,7 @@
     {
      "again": true,
      "when": "night",
-     "text": "La cour, la nuit. La neige éclaire un peu d'elle-même. Les fenêtres de la maison sont des carrés jaunes, et au-delà, plus rien."
+     "text": "La cour, la nuit. La neige éclaire un peu d'elle-même, d'une lueur bleue et morte qui dessine la grange, le bûcher, et le toit de la scierie en contrebas. Les fenêtres de la maison sont des carrés jaunes ; au-delà, la montagne et la vallée ont disparu, et le monde s'arrête à la barrière du jardin."
     },
     {
      "after": "C_matin",
@@ -2574,7 +2574,7 @@
     },
     {
      "when": "night",
-     "text": "La nuit, l'étang n'est plus qu'une plaque pâle sous les saules noirs. La glace craque de temps en temps, un bruit long qui court d'une rive à l'autre."
+     "text": "La nuit, l'étang n'est plus qu'une plaque pâle sous les saules noirs. La glace craque de temps en temps, un bruit long qui court d'une rive à l'autre et meurt du côté de la source ; après lui, le silence est si entier que tu entends la neige glisser des branches."
     },
     {
      "trouble": true,
@@ -3688,7 +3688,7 @@
     },
     {
      "when": "night",
-     "text": "Mariette veille dans la chambre de ta mère, droite sur sa chaise paillée. Ses lèvres bougent sur des prières qu'elle ne dit pas à voix haute."
+     "text": "Mariette veille dans la chambre de ta mère, droite sur sa chaise paillée. Ses lèvres bougent sur des prières qu'elle ne dit pas à voix haute ; les quatre cierges ont déjà perdu un doigt de cire, et leur lumière monte et descend au plafond avec la lenteur d'une respiration."
     }
    ],
    "choices": [
@@ -4933,7 +4933,7 @@
    },
    "text": [
     "Le cocher de Saint-Amans t'a laissé{e} au pied de la côte, avec ta malle, parce que ses chevaux refusaient la neige. Tu as monté le dernier quart de lieue à pied, la malle sur l'épaule, et la neige est tombée tout le long, de plus en plus épaisse, comme un rideau qu'on tire derrière toi.",
-    "Te voici dans la cour. La maison est là, plus petite que dans ta mémoire, et plus haute à la fois. Toutes les fenêtres du rez-de-chaussée sont éclairées ; à l'étage, une seule brille, celle de la chambre de ta mère, où la lumière tremble, jaune, comme celle des cierges.",
+    "Te voici dans la cour. La maison est là, plus petite que dans ta mémoire, et plus haute à la fois ; la neige a déjà pris le toit, les appuis des fenêtres et le dessus de la barrière, et la façade grise, au milieu de tout ce blanc, a la mine fermée d'un visage qui te reconnaît et qui attend que tu parles. Toutes les fenêtres du rez-de-chaussée sont éclairées ; à l'étage, une seule brille, celle de la chambre de ta mère, où la lumière tremble, jaune, comme celle des cierges.",
     "Un homme sort de la grange avec une lanterne : grand, large d'épaules, en manteau de drap fin. Il lève sa lanterne vers ton visage. « Ah, dit-il. Te voilà. Germain Rouvière. Le mari d'Odile. » Il tend la main vers ta malle. « Tu arrives un jour trop tard, je suis désolé de te le dire comme ça. Elle est morte avant-hier dans la nuit. »",
     "Derrière vous, au bas de la côte, tu entends le cocher qui fait tourner ses chevaux, et le bruit des grelots qui s'éloigne vers Saint-Amans. Demain, la route sera fermée."
    ],
@@ -5131,7 +5131,7 @@
    ],
    "text": [
     "À sept heures, Mariette sonne la cloche du souper, comme toujours, et tout le monde descend, comme toujours. On mange dans la grande salle, à un bout de la longue table, sous la pendule arrêtée : une soupe, du lard, des pommes de terre. Personne n'a faim, et tout le monde mange.",
-    "Germain parle pour tous : de la neige, de la route, du curé qui montera dès qu'on pourra passer, du prix du sapin à Saint-Amans. Le docteur boit. Jeanne coupe son pain en petits carrés qu'elle laisse sur l'assiette. Mariette fait le service debout, malgré Odile qui lui demande deux fois de s'asseoir.",
+    "Germain parle pour tous, avec le zèle d'un homme que les silences inquiètent : de la neige, de la route, du curé qui montera dès qu'on pourra passer, du prix du sapin à Saint-Amans. Le docteur boit. Jeanne coupe son pain en petits carrés qu'elle laisse sur l'assiette. Mariette fait le service debout, malgré Odile qui lui demande deux fois de s'asseoir.",
     {
      "calme": true,
      "text": "Odile, en face de toi, tend la main vers le sel. Sur le bord de sa manche gauche, une tache ronde, raide, brun-jaune, que le savon n'a pas enlevée."
@@ -5250,7 +5250,7 @@
    "place": "cuisine",
    "devant": "mariette",
    "text": [
-    "Le deuxième jour commence dans un vent qui fait gémir toute la maison. Il neige à l'horizontale, et de la fenêtre de la cuisine, la grange elle-même a disparu dans le blanc.",
+    "Le deuxième jour commence dans un vent qui fait gémir toute la maison ; il trouve chaque fente des volets, chaque tuile mal jointe, et en tire une note longue qui monte et retombe comme une plainte dans une pièce voisine. Il neige à l'horizontale, et de la fenêtre de la cuisine, la grange elle-même a disparu dans le blanc.",
     "Mariette te sert ton café et reste debout à côté de toi, la cafetière à la main, plus longtemps qu'il ne faut. Puis elle parle bas et vite, en regardant la porte.",
     "« Ta mère t'avait écrit. L'après-midi d'avant, en quatre heures, avec la plume attachée à la main. C'est moi qui ai posé la lettre sur le bureau, sous l'encrier, à ton nom. Hier matin, elle n'y était plus. » Elle repose la cafetière sur le fourneau. « Je n'ai rien vu. Je te le dis parce qu'elle était à toi. »",
     "Elle retourne à son évier : elle a dit tout ce qu'elle dira."
