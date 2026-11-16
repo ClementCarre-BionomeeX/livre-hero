@@ -76,7 +76,7 @@ module.exports = {
         "Tu ne sens plus tes bras à trois pieds. À trois et demi, tu ne sens plus rien, et c'est alors que cela va le mieux : la bêche entre toute seule, sort toute seule, et la craie vole par-dessus ton épaule sans que tu t'en mêles.",
         { if: { has: "monde:mineurs:allies" }, text: "Tu as tenu une nuit, à Ferrières, auprès de gens qui abattent la roche pour vivre. Il t'en est resté quelque chose dans les reins." },
         "La chandelle s'éteint. Tassetrou descend dans le trou, ce qui lui demande de l'aide, et mesure avec le manche de sa propre bêche, qui est gradué.",
-        "« Quatre pieds deux pouces. » Il passe sa grosse main sur la paroi. « Et droit. Regardez-moi ça, bande de marmottes : un étranger, et c'est droit ! » Il te tape sur l'épaule à t'enfoncer. « Tu portes. Arrière-main droite, à la place de Mathurin. Répétition demain, après vêpres, à la porte de la crypte. Viens en sarrau, viens à jeun, et si tu lâches le brancard dans l'escalier, je t'enterre gratis. »",
+        "« Quatre pieds deux pouces. » Il passe sa grosse main sur la paroi. « Et droit. Regardez-moi ça, bande de marmottes : quelqu'un d'ailleurs, et c'est droit ! » Il te tape sur l'épaule à t'enfoncer. « Tu portes. Arrière-main droite, à la place de Mathurin. Répétition demain, après vêpres, à la porte de la crypte. Viens en sarrau, viens à jeun, et si tu lâches le brancard dans l'escalier, je t'enterre gratis. »",
         "Il te laisse la bêche. « Elle est à Mathurin. Il n'en aura pas l'usage d'ici la Saint-Martin. Rends-la propre. »",
       ],
       choices: [{ label: "Boire ce qu'on te tend, et l'écouter parler de la procession", to: "A3o_tassetrou_dit", big: true }] },
@@ -204,7 +204,7 @@ module.exports = {
       text: [
         "Tu es à quatre pieds quand les lanternes arrivent. Elles sont six. Elles n'ont mis qu'un quart d'heure.",
         "Ce ne sont pas des Bêcheurs. Ce sont des Suisses noirs, la hallebarde basse, et au milieu d'eux un gros homme rose en robe de chambre, une trousse sous le bras, essoufflé, aimable.",
-        "« Écartez-vous, mon jeune ami. Vous êtes plein de zèle, et vous alliez commettre un sacrilège. » Le docteur Cornillon regarde le trou, la clochette immobile, sa montre. « Laissez faire les gens de l'art. »",
+        "« Écartez-vous, je vous prie. Vous êtes plein de zèle, et vous alliez commettre un sacrilège. » Le docteur Cornillon regarde le trou, la clochette immobile, sa montre. « Laissez faire les gens de l'art. »",
         "Deux Suisses achèvent la fosse en dix coups de pelle. On ouvre. Tu vois, par-dessus une épaule noire, une petite figure tonsurée, la bouche pleine de terre, les yeux ouverts, qui cherche l'air.",
         "« Tiens, dit le docteur, avec un intérêt sincère. Catalepsie. Le second cas en deux ans ; j'en ferai un mémoire. » Il se penche, tâte un pouls, sourit. « Dom Anthelme, vous nous avez fait une belle peur. Monseigneur sera si heureux. Il vous fait porter à l'infirmerie de l'évêché, où vous serez veillé nuit et jour. »",
         "Le petit chanoine te regarde, toi, pendant qu'on le roule dans une couverture. Il ne peut pas parler. Il remue les lèvres. Tu lis un mot, deux fois : *le Clos*.",
@@ -275,7 +275,7 @@ module.exports = {
     A3o_jean: { act: "III", title: "Jean-qui-Remonte", place: "fosses", ambiance: "nuit",
       text: [
         "Les trois tabliers ont lâché la civière et pris leurs pinces. Le grand maigre les arrête d'un geste, sans se retourner tout à fait.",
-        "« Un vivant, dit-il. À cette heure, dans ce carré. Ou bien c'est un confrère, et je ne lui connais pas la figure ; ou bien c'est un curieux, et il n'a pas crié. Les deux m'intéressent. » Il te salue, d'une inclinaison de buste. « Jean, pour vous servir. Les sots ajoutent : *qui remonte*. J'ai été, dans une première vie, compagnon Bêcheur. J'ai trouvé que l'on enfouissait là beaucoup de science, et j'ai changé de sens. »",
+        "« Quelqu'un de vivant, dit-il. À cette heure, dans ce carré. Ou bien cela est du métier, et je ne lui connais pas la figure ; ou bien cela regarde par curiosité, et n'a pas crié. Les deux m'intéressent. » Il te salue, d'une inclinaison de buste. « Jean, pour vous servir. Les sots ajoutent : *qui remonte*. J'ai été, dans une première vie, compagnon Bêcheur. J'ai trouvé que l'on enfouissait là beaucoup de science, et j'ai changé de sens. »",
         "Il a une voix de professeur, précise, sans gaieté. Il te regarde aux mains, comme tout le monde dans cette ville, mais il y regarde autre chose : les tendons.",
         "« Vous n'êtes ni du guet, ni de l'évêché, ni de ce gros Tassetrou, qui me ferait pendre s'il osait venir la nuit. Vous cherchez quelque chose, et vous avez pensé que je le savais. C'est exact. Je sais tout ce qui se promène dans mes cimetières entre le couvre-feu et l'angélus : c'est une question de sûreté. Que m'offrez-vous ? »",
       ],
@@ -318,7 +318,7 @@ module.exports = {
     A3o_jean_perdu: { act: "III", title: "Pas de commande", place: "fosses", ambiance: "nuit",
       text: [
         "Les tabliers se battent comme ils creusent. Tu te retrouves allongé{e} sur une dalle, les bras tenus, pendant que le grand maigre, penché sur toi, te soulève une paupière du pouce.",
-        "« Rien de cassé. Rate normale, à la palpation. » Il se redresse, déçu. « Lâchez-le. Je n'ai pas de commande pour un sujet de cet âge, et je ne travaille pas pour le plaisir. »",
+        "« Rien de cassé. Rate normale, à la palpation. » Il se redresse, déçu. « Lâchez. Je n'ai pas de commande pour un sujet de cet âge, et je ne travaille pas pour le plaisir. »",
         "Il remet sa cravate d'aplomb.",
         "« Vous m'avez fait perdre un quart d'heure et une hanche. Je m'en souviendrai. »",
         "Ils s'en vont avec leur civière, sans bruit, par le mur des Veuves.",

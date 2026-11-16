@@ -128,7 +128,7 @@ module.exports = {
         "Il est à genoux devant un tas, sous un fanal accroché à un fémur. C'est un très vieil homme, blanc de craie, sec, cassé en deux par soixante ans de voûtes basses, et qui a fini par ressembler à ce qu'il range. Il prend un crâne dans le tas, le tourne vers la lumière, lui regarde les dents, et le pose sur une étagère avec un mot aimable.",
         "« Un drapier. Vois-tu ces molaires ? Du pain blanc toute sa vie. Je te mets à côté de ton confrère, vous parlerez boutique. »",
         "Il a senti ta lumière avant de te voir. Il ne se retourne pas.",
-        "« Tu n'es pas des miens : mes hommes traînent les pieds. Tu n'es pas de Monseigneur : ses Suisses sonnent comme une batterie de cuisine. Tu es donc un curieux, ou un voleur de dents. » Il prend un autre crâne. « Dans les deux cas, ne touche à rien. J'ai mis cinquante-huit ans à ce que ce soit en ordre. »",
+        "« Tu n'es pas des miens : mes hommes traînent les pieds. Tu n'es pas de Monseigneur : ses Suisses sonnent comme une batterie de cuisine. Tu viens donc par curiosité, ou pour les dents. » Il prend un autre crâne. « Dans les deux cas, ne touche à rien. J'ai mis cinquante-huit ans à ce que ce soit en ordre. »",
         "On l'appelle le père Cubitus. Il a dû avoir un autre nom ; il l'a rangé quelque part.",
       ],
       choices: [
@@ -144,8 +144,8 @@ module.exports = {
         "« C'est moi. » Il le dit avec une simplicité d'empereur. « Avant moi, on versait. En tas. Le notaire sur le charretier, la dame sur le pendu. Des gens qui ne s'étaient jamais adressé la parole. J'ai trouvé cela inconvenant. »",
         "Une fois parti, il ne s'arrête plus. Il te montre ses apothicaires, qu'il a rangés par ordre de dentition, ses musiciens, dont il a fait une lyre. Il t'explique qu'on reconnaît un tailleur à l'usure des incisives, où il coupait son fil, et un sonneur à l'épaule. Il n'a parlé à personne depuis la Saint-Michel.",
         "Tu glisses, dans un silence, que l'on dit la ville plus creuse encore sous l'église.",
-        "« Le Vieux Chantier. » Il hoche sa tête blanche. « C'est par là qu'on a commencé, sous le chœur même : la pierre y était la plus fine. J'y ai rangé, jeune homme, les premiers chanoines. Monseigneur l'a fait fermer l'année de son sacre, il y a quarante ans, par une porte de fer au bout de la galerie des Chantres. Depuis, il y descend seul, par chez lui. Je ne sais pas ce qu'il y range. » Il y a là une jalousie de collectionneur.",
-        "« Il y a la porte. Elle a une grille de caveau, du modèle ordinaire ; Monseigneur est économe. Et il y a l'eau. Sous la galerie des Chantres en passe une autre, plus vieille, que la nappe a noyée : elle ressort de l'autre côté de la porte, dans le Vieux Chantier, par un escalier. Je l'ai faite, à vingt ans, pour une gageure. On retient son souffle le temps de dire un *De profundis*, et il vaut mieux le dire vite. »",
+        "« Le Vieux Chantier. » Il hoche sa tête blanche. « C'est par là qu'on a commencé, sous le chœur même : la pierre y était la plus fine. J'y ai rangé, à vingt ans, les premiers chanoines. Monseigneur l'a fait fermer l'année de son sacre, il y a quarante ans, par une porte de fer au bout de la galerie des Chantres. Depuis, il y descend seul, par chez lui. Je ne sais pas ce qu'il y range. » Il y a là une jalousie de collectionneur.",
+        "« Il y a la porte. Elle a une grille de caveau, du modèle ordinaire ; Monseigneur est économe. Et il y a l'eau. Sous la galerie des Chantres en passe une autre, plus vieille, que la nappe a noyée : elle ressort de l'autre côté de la porte, dans le Vieux Chantier, par un escalier. Je l'ai faite la même année, pour une gageure. On retient son souffle le temps de dire un *De profundis*, et il vaut mieux le dire vite. »",
         "Il te regarde, de ses yeux d'eau.",
         "« Tu vas y aller. Ça se voit à ta façon de ne pas demander pourquoi je te le dis. Quand tu passeras devant mes chanoines, ne les dérange pas. Ils sont par ordre de préséance. »",
       ],
@@ -241,7 +241,7 @@ module.exports = {
         "C'est une resserre, et c'est en ordre. Il y a des cuves de saumure, rangées contre le mur, avec des couvercles et des pierres dessus. Il y a une table de boucher, lavée, des crochets, une pince à déclouer, un rouleau de toile à sac. Un escalier monte vers une porte peinte en vert, par où descend un bruit de vaisselle.",
         "Deux hommes en tablier jouent aux cartes sur un couvercle. Ils te tournent le dos. Entre eux, piquée au mur par un clou, une feuille de papier écrite d'une belle main de médecin, que tu lis par-dessus leurs têtes :",
         "*Pour la séance de la Saint-Hubert. Un sujet mâle, soixante ans environ, fracture du rocher derrière l'oreille droite, pièce rare. Dépositoire des Cadrans, classe première, bière de chêne clair. À lever dans la nuit des Trépassés, pendant l'office : le veilleur y sera. Trente écus. A. C.*",
-        "Tu connais ce sujet. Tu l'as vu vivant, dans son échoppe, qui réglait une pendule. On lui a fendu la tête pour le faire taire, et un docteur à ruban violet trouve la fente intéressante.",
+        "Tu connais ce sujet. Tu l'as vu à son établi, la joue sur le bois, sous sa lampe. On lui a fendu la tête pour le faire taire, et un docteur à ruban violet trouve la fente intéressante.",
       ],
       fx: { flag: "monde:a3:commande_balancier", clue: "r_commande" },
       choices: [
@@ -255,8 +255,8 @@ module.exports = {
       text: [
         "Une pierre roule sous ton pied. Les cartes s'arrêtent.",
         "Ils se lèvent sans hâte. Ce sont des hommes paisibles, larges, aux avant-bras de débardeurs, et qui te regardent comme leur patron regarde le bouilli : en estimant.",
-        "« Il est venu tout seul, dit le premier. Ça nous change. »",
-        "« Il est frais », dit le second.",
+        "« C'est venu tout seul, dit le premier. Ça nous change. »",
+        "« Et c'est frais », dit le second.",
       ],
       choices: [
         { label: "Dégainer",
@@ -269,7 +269,7 @@ module.exports = {
       text: [
         "Ils se regardent. Le nom a porté ; le détail aussi. On ne sait cela que si l'on est de la maison.",
         "« Dis-lui que c'est entendu, fait le premier, en se rasseyant. Jean-qui-Remonte s'en charge lui-même. Il veut pas qu'on l'abîme, celui-là : c'est la tête qui vaut. » Il ramasse ses cartes. « Et dis-lui que le veilleur des Cadrans a demandé le double. Il dit qu'un mort de première classe, ça se remarque. »",
-        "Tu promets de le dire. Tu traverses la cave à pas comptés, entre les cuves, en homme qui connaît le chemin, et tu ne respires qu'une fois dans le noir, de l'autre côté.",
+        "Tu promets de le dire. Tu traverses la cave à pas comptés, entre les cuves, comme on traverse chez soi, et tu ne respires qu'une fois dans le noir, de l'autre côté.",
       ],
       choices: [{ label: "Regagner les galeries", to: "A3m_fontis", big: true }] },
     A3m_ecorcherie_bat: { act: "III", title: "La saumure", place: "carrieres", ambiance: "nuit",
@@ -282,7 +282,7 @@ module.exports = {
     A3m_ecorcherie_perd: { act: "III", title: "Trop maigre", place: "carrieres", ambiance: "nuit",
       text: [
         "Ils savent cogner sans abîmer : c'est leur état. Tu te retrouves sur la table de boucher, un genou sur la gorge, pendant que le second te tâte les côtes d'un pouce d'expert.",
-        "« Trop maigre, conclut-il. Et il a tout ce qu'il faut derrière les oreilles. Le docteur en a dix comme ça. »",
+        "« Trop maigre, conclut-il. Et rien de fendu derrière les oreilles. Le docteur en a dix comme ça. »",
         "Ils te vident les poches, par principe, et te jettent dans la galerie, d'où tu les entends reprendre leur partie. Tu as mal partout. Tu as, au moins, l'avantage d'être sans intérêt pour la science.",
       ],
       choices: [{ label: "Te relever", to: "A3m_fontis", big: true }] },

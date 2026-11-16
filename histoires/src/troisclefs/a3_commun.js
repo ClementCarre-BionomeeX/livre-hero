@@ -41,7 +41,7 @@ module.exports = {
         "*Monseigneur fait savoir à sa bonne ville que trois voyageurs y sont attendus pour les fêtes : jeunes, gens de métier, venant du nord, et qui pourront se donner pour ce qu'il leur plaira. Monseigneur désire les recevoir. Quiconque les lui adressera, ou dira seulement où ils logent, sera remercié de cent écus par son aumônier. Qu'on ne leur fasse aucun mal : ce sont des hôtes.*",
         "Tu le lis deux fois. Tu as vu ton signalement sur des murs, depuis un mois, avec ta taille, ton poil, et le prix de ta tête ; tu t'y es fait, on se fait à tout. Celui-ci te donne froid entre les épaules. Un homme qui vous cherche vous décrit. Celui qui a dicté ces lignes ne s'en est pas donné la peine : il sait que vous viendrez à lui.",
         { if: { has: "a1:signalement" }, text: "Dessous, à moitié recouvert, il y a l'autre, celui du guet d'Aiguemorne, venu par le coche avec les morts : tes cheveux, ta taille, ta façon de marcher. Quelqu'un a collé le placard de l'évêque par-dessus, proprement, en laissant dépasser le bas." },
-        "« Cent écus », dit une femme à côté de toi, son panier sur la hanche. Elle parle bas, comme tout le monde. « Et *des hôtes*. Quand Monseigneur reçoit, mon pauvre monsieur, on sort de chez lui les pieds devant, avec une très belle messe. »",
+        "« Cent écus », dit une femme à côté de toi, son panier sur la hanche. Elle parle bas, comme tout le monde. « Et *des hôtes*. Quand Monseigneur reçoit, pauvre de nous, on sort de chez lui les pieds devant, avec une très belle messe. »",
       ],
       choices: [{ back: "A3c_place" }] },
 
@@ -100,7 +100,7 @@ module.exports = {
         "La boutique de Maître Pancrace Lestelle est une forêt de pierres debout. Il y en a de toutes les tailles et pour toutes les bourses, rangées par allées comme des livres ; et la plupart sont déjà gravées, à un blanc près.",
         "C'est l'invention de la maison. *CI-GÎT* est tout fait. *ÉPOUX MODÈLE* est tout fait, *MÈRE ADMIRABLE*, *BON PÈRE ET BON VOISIN*, *IL FIT LE BIEN SANS BRUIT*. On laisse entre le *ci-gît* et la vertu une largeur de main, où l'apprenti viendra pousser le nom du client, à un sou la lettre, quand le client en aura un. Tu apprends en trois minutes que *regretté* coûte huit sous, *regrettée* neuf, et que les familles regardent à la dépense.",
         "Maître Lestelle est un gros homme poudré de marbre jusqu'aux cils, qui vous prend pour des héritiers et vous traite en conséquence.",
-        "« Monsieur est pour quelle classe ? J'ai un *citoyen intègre* en pierre de Tonne, qui me reste d'un échevin dont la veuve a changé d'avis. Je le céderais. »",
+        "« C'est pour quelle classe ? J'ai un *citoyen intègre* en pierre de Tonne, qui me reste d'un échevin dont la veuve a changé d'avis. Je le céderais. »",
         "Au fond de l'atelier, un apprenti finit une stèle d'ardoise noire, à genoux, le ciseau à plat. Celle-là n'a pas été prise au rayon. Tu la lis à l'envers, par-dessus son épaule :",
         "*ICI REPOSE SYMPHORIEN BALANCIER · QUI REMONTA QUARANTE ANS L'HEURE DES AUTRES · LA SIENNE A SONNÉ.*",
         "« Commande des Heures d'Aiguemorne, dit Lestelle. Quatre-vingt-sept lettres. Ils ont discuté la dernière ligne par courrier : ils la trouvaient chère. » Il baisse la voix, par habitude et par goût. « On me dit qu'il est mort d'un coup à la tête. Je n'ai pas mis *subitement* ; ça faisait onze sous. »",
@@ -268,7 +268,7 @@ module.exports = {
         "« Une chanoinesse, il y a deux hivers. Catalepsie. Un cas superbe ; j'en ai fait un mémoire. » Il ne semble pas gêné d'avoir signé celle-là aussi.",
         { if: { has: "a3:coche_tenu" }, text: "Tu as dans ta manche une carte de visite, ramassée sur la route des Cyprès, entre les mains d'un homme en tablier de boucher qui s'intéressait à tes fourgons. Elle porte ce nom, ce titre, et une adresse : *rue de l'Écorcherie, la porte verte, après dix heures.* Tu regardes ce gros homme rose reprendre du bouilli. Il vérifie les morts le jour. La nuit, il semble qu'il les revérifie." },
         "Il essuie son couteau, le plie, et le range dans une trousse de maroquin, entre d'autres, plus fins.",
-        "« La science, mon jeune ami, manque de tout dans ce pays, sauf de sujets. Et ceux-là, on les lui met sous clef. »",
+        "« La science, voyez-vous, manque de tout dans ce pays, sauf de sujets. Et ceux-là, on les lui met sous clef. »",
       ],
       choices: [{ back: "A3c_table" }] },
 
