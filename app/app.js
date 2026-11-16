@@ -293,6 +293,7 @@
     else if (A.screen === "stats") renderStats();
     if (A.carnet) renderCarnet();
     if (A.modal) renderModal();
+    Array.prototype.forEach.call(document.querySelectorAll(".prose"), Lettrine.place);
     applyPrefs();
     Ambiance.update();
     Music.update();
@@ -1204,6 +1205,49 @@
       }).join("");
     }
     return { split: split, mark: mark };
+  })();
+
+  // ------------------------------------------------------------------ the drop cap
+  // Intent: Lettrine.place(prose) ! the drop cap goes on the first letter of the first narrative paragraph: a stage
+  // note (a paragraph between parentheses, or all in italics, such as "(Une heure passe.)") and the "already read"
+  // line are passed over, and an opening parenthesis is never swallowed. An opening quote or dash stays in the frame,
+  // small, before the letter. The letter is wrapped in span.lettrine (the CSS ::first-letter took "(U").
+  // Why: Clément, 16/11: on "(Une heure passe.)" then "Tu prends ta place…", the drop cap must be the T of "Tu".
+  var Lettrine = (function () {
+    var LETTER = /[A-Za-zÀ-ÖØ-öø-ÿŒœÆæ0-9]/, LEAD = /^[\s«»“”"'‘’—–-]*$/;
+    function aside(p) {
+      if (p.classList.contains("reread")) return true;
+      var t = p.textContent.trim(); if (!t || !LETTER.test(t)) return true;
+      if (/^[(\[]/.test(t)) return true;
+      // All in italics: every letter sits inside an em or i.
+      var w = document.createTreeWalker(p, NodeFilter.SHOW_TEXT), n;
+      while ((n = w.nextNode())) if (LETTER.test(n.data) && !(n.parentNode.closest && n.parentNode.closest("em, i"))) return false;
+      return true;
+    }
+    function wrap(p) {
+      var w = document.createTreeWalker(p, NodeFilter.SHOW_TEXT), n, lead = [];
+      while ((n = w.nextNode())) {
+        var m = LETTER.exec(n.data);
+        if (!m) { lead.push(n); continue; }
+        if (!LEAD.test(n.data.slice(0, m.index)) || lead.some(function (x) { return !LEAD.test(x.data); })) return false;
+        var span = document.createElement("span"); span.className = "lettrine";
+        // The opening quote or dash moves into the frame, small; spaces around it are dropped.
+        var before = (lead.map(function (x) { return x.data; }).join("") + n.data.slice(0, m.index)).replace(/\s+/g, " ").trim();
+        lead.forEach(function (x) { x.data = ""; });
+        if (before) span.appendChild(h("span", { class: "lettrine-avant" }, before));
+        span.appendChild(document.createTextNode(m[0]));
+        var rest = n.splitText(m.index); rest.data = rest.data.slice(1);
+        n.data = ""; rest.parentNode.insertBefore(span, rest);
+        return true;
+      }
+      return false;
+    }
+    function place(prose) {
+      if (prose.querySelector(".lettrine")) return;
+      var ps = Array.prototype.filter.call(prose.children, function (x) { return x.tagName === "P"; });
+      for (var i = 0; i < ps.length; i++) if (!aside(ps[i])) { if (wrap(ps[i])) ps[i].classList.add("a-lettrine"); return; }
+    }
+    return { place: place, aside: aside };
   })();
 
   // ------------------------------------------------------------------ the reader's word notebook and word game
