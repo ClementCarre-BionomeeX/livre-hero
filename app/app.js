@@ -2139,6 +2139,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "9.7", items: ["Nouveau : les histoires à cartes. À chaque halte, tu joues une carte de ta main (une rencontre, un obstacle, un détour, une trahison…) et l'histoire te dit ce qu'elle devient à cet endroit. Les cartes ont une enseigne (Lame, Masque, Lanterne, Racine) qui aide les jets de sa manière, un coût en élan, et certaines ouvrent ou nouent des fils que la fin relit.", "Première histoire à cartes : « Le Courrier de Vèze », trois haltes et un pli scellé, à rejouer avec une autre main."] },
     { v: "9.5", items: ["Héros habituel : chaque lecteur garde un nom et un visage d'une histoire à l'autre. Le premier héros créé le devient (case cochée) ; ensuite, chaque nouvelle histoire commence avec lui, et on peut le changer pour une partie ou pour de bon.", "À plusieurs : « Qui joue » propose la liste des lecteurs enregistrés, chacun avec son héros habituel, ou « Autre joueur… » pour taper un nom."] },
     { v: "9.4", items: ["Accueil rangé en trois onglets. « Bibliothèque » : la partie à reprendre en tête, puis les livres en cartes courtes (« En savoir plus » ouvre le reste). « Mes parties » : les parties et leurs archives. « Plus » : sauvegardes, ajout d'histoires, famille, espace parent, atelier.", "Le lecteur se change d'un toucher sur son nom, en haut ; ⚙ ouvre ses réglages.", "Une partie s'efface depuis les archives : on la range d'abord."] },
     { v: "9.3", items: ["Archives : une partie (surtout finie) se range aux archives d'un bouton, ou toutes les parties terminées d'un coup. Elle quitte la liste sans être effacée ; « Archives », sous la liste, la montre et « Remettre dans la liste » la ramène. Le rangement suit le dossier de sauvegarde partagé sur les autres appareils."] },
@@ -2633,6 +2634,7 @@
     if (G.multi && v.wait) page.appendChild(renderWait(v));
     else {
       if (v.urgent && !G.multi && !G.ephemeral && !folded) page.appendChild(urgentBar(G, v));
+      if (v.hand) page.appendChild(renderHand(st, v));
       page.appendChild(renderChoices(v));
     }
     if (v.kind === "end") page.appendChild(renderEnding(st, s, v));
@@ -3014,6 +3016,48 @@
     if (!c) return;
     pick(c);
     A.notice = "⏳ Trop tard : tu n'as pas choisi à temps."; render();
+  }
+  // ------------------------------------------------------------------ the hand (9.7, stories with cards)
+  // Intent: renderHand(Story, View) -> Element = at a stop, the reader's cards: the élan, the piles, the threads, and
+  // one card per kind in the hand (« × 2 » for twins). A card that cannot be played says why. Why: Clément, 16/11 —
+  // stories built from the cards one plays, for his brother who loves drafting.
+  var SUIT_ICONS = {
+    lame: '<path d="M12 2l2 3v10h-4V5z"/><path d="M7 15h10v2H7z"/><path d="M11 17h2v5h-2z"/>',
+    masque: '<path d="M3 8c3-2 15-2 18 0 0 6-3 9-6 9-1.5 0-2-2-3-2s-1.5 2-3 2c-3 0-6-3-6-9z"/><circle cx="8.5" cy="11" r="1.6" fill="var(--paper)"/><circle cx="15.5" cy="11" r="1.6" fill="var(--paper)"/>',
+    lanterne: '<path d="M9 3h6v2H9z"/><path d="M8 6h8l1 11H7z"/><path d="M7 18h10v2H7z"/><circle cx="12" cy="11.5" r="2.4" fill="var(--paper)"/>',
+    racine: '<path d="M11 3h2v9h-2z"/><path d="M12 12c-4 0-6 3-8 8h2c2-4 3-6 6-6s4 2 6 6h2c-2-5-4-8-8-8z"/><path d="M11 12h2v9h-2z"/>',
+  };
+  function suitIcon(k) { return h("span", { class: "suit suit-" + k, "aria-hidden": "true", html: '<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">' + (SUIT_ICONS[k] || "") + "</svg>" }); }
+  function cardFace(st, id, opts) {
+    opts = opts || {};
+    var C = M.cardInfo(st, id), dots = "";
+    for (var i = 0; i < C.elan; i++) dots += "●";
+    return h(opts.button ? "button" : "div", { class: "card card-" + C.enseigne + " rar-" + C.rarete + (opts.off ? " off" : ""), disabled: opts.button && opts.off ? true : null, onclick: opts.onclick || null,
+        "aria-label": C.titre + ", " + C.typeNom + ", " + C.enseigneNom + (C.elan ? ", coûte " + C.elan + " d'élan" : "") + (opts.why ? ". " + opts.why : "") },
+      h("span", { class: "card-top" }, suitIcon(C.enseigne), h("span", { class: "card-type" }, C.typeNom), h("span", { class: "card-elan", title: C.elan ? C.elan + " d'élan" : "Gratuite" }, dots || "○")),
+      h("span", { class: "card-title" }, C.titre),
+      C.texte ? h("span", { class: "card-text" }, C.texte) : null,
+      C.accroche ? h("span", { class: "card-hook" }, C.accroche) : null,
+      h("span", { class: "card-foot" }, C.enseigneNom + " · " + (M.RARITIES[C.rarete] || C.rarete), opts.n > 1 ? h("b", { class: "card-n" }, " × " + opts.n) : null),
+      opts.why ? h("span", { class: "card-why" }, opts.why) : null);
+  }
+  function renderHand(st, v) {
+    var H = v.hand, box = h("section", { class: "hand", "aria-label": "Ta main" });
+    box.appendChild(h("div", { class: "hand-bar" },
+      h("span", { class: "hand-elan", title: "L'élan se gagne à chaque halte ; les cartes fortes en coûtent." }, "Élan ", h("b", null, String(H.elan))),
+      h("span", { class: "muted small" }, "Pioche " + H.pioche + " · Défausse " + H.defausse),
+      H.types ? h("span", { class: "muted small" }, "Ici : " + H.types.map(function (t) { return M.CARD_TYPES[t]; }).join(", ")) : null));
+    if (H.fils.length) box.appendChild(h("ul", { class: "hand-fils" }, H.fils.map(function (f) {
+      return h("li", { class: "fil-" + f.etat }, h("b", null, f.titre), " · " + (f.etat === "noue" ? "noué" : f.etat === "rate" ? "manqué" : "ouvert") + (f.texte ? " — " + f.texte : ""));
+    })));
+    var cards = v.choices.filter(function (c) { return c.sys === "carte" && c.ui; });
+    if (!H.joue && cards.length) {
+      if (H.premiere) box.appendChild(h("p", { class: "notice soft small" }, "Choisis une carte : elle décide de ce qui arrive ici. Ce qu'elle devient dépend de l'endroit, de son enseigne et des fils déjà ouverts."));
+      box.appendChild(h("div", { class: "hand-cards", role: "group", "aria-label": "Les cartes de ta main" }, cards.map(function (c) {
+        return cardFace(st, c.carte, { button: true, off: !c.ok, why: c.ok ? "" : c.why, n: c.n, onclick: function () { pick(c); } });
+      })));
+    }
+    return box;
   }
   var NUMBER_WORDS = ["", "Un", "Deux", "Trois", "Quatre", "Cinq", "Six", "Sept"];
   function renderChoices(v) {

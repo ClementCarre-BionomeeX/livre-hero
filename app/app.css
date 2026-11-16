@@ -945,3 +945,34 @@ button.pp.pp-face-btn { border-bottom: 0; display: inline-flex; align-items: cen
 .who-row select { flex: 1 1 10em; min-width: 0; }
 .who-row input { flex: 1 1 8em; min-width: 0; }
 .hero-keep { margin-top: -4px; }
+
+/* ---- Stories with cards (9.7): the hand at a stop ---- */
+.hand { margin: 18px 0 8px; display: grid; gap: 10px; }
+.hand-bar { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: baseline; }
+.hand-elan b { font-size: 1.15em; color: var(--accent); }
+.hand-fils { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: 0.92em; }
+.hand-fils li { padding: 4px 10px; border-left: 3px solid var(--mark); background: var(--paper-2); border-radius: 0 6px 6px 0; }
+.hand-fils li.fil-noue { border-left-color: var(--accent); }
+.hand-fils li.fil-rate { opacity: 0.7; }
+.hand-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 8px; }
+.card { --suit: #7a6a55; display: flex; flex-direction: column; gap: 6px; text-align: left; min-height: 150px; padding: 9px 9px 7px;
+  background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-top: 5px solid var(--suit); border-radius: 10px;
+  font: inherit; font-size: 0.9em; line-height: 1.3; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); cursor: pointer; transition: transform 0.12s, box-shadow 0.12s; }
+.card:hover:not(:disabled), .card:focus-visible { transform: translateY(-3px); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.14); }
+.card:disabled, .card.off { cursor: not-allowed; opacity: 0.55; transform: none; }
+.card-lame { --suit: #a3423a; } .card-masque { --suit: #6a4b93; } .card-lanterne { --suit: #b07a12; } .card-racine { --suit: #3e7a46; }
+:root[data-theme="dark"] .card-lame { --suit: #e0837a; } :root[data-theme="dark"] .card-masque { --suit: #b59be0; }
+:root[data-theme="dark"] .card-lanterne { --suit: #e5b754; } :root[data-theme="dark"] .card-racine { --suit: #86c08d; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .card-lame { --suit: #e0837a; } :root:not([data-theme="light"]) .card-masque { --suit: #b59be0; }
+  :root:not([data-theme="light"]) .card-lanterne { --suit: #e5b754; } :root:not([data-theme="light"]) .card-racine { --suit: #86c08d; } }
+.card-top { display: flex; align-items: center; gap: 6px; }
+.card .suit { color: var(--suit); display: inline-flex; }
+.card-type { font-size: 0.78em; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); flex: 1; }
+.card-elan { color: var(--suit); font-size: 0.85em; letter-spacing: 1px; }
+.card-title { font-weight: 700; font-size: 1.05em; }
+.card-text { font-style: italic; color: var(--muted); flex: 1; }
+.card-hook { font-size: 0.85em; color: var(--mark); font-weight: 600; }
+.card-foot { font-size: 0.75em; color: var(--muted); border-top: 1px solid var(--line); padding-top: 4px; }
+.card.rar-rare .card-foot, .card.rar-legende .card-foot { color: var(--gold); font-weight: 600; }
+.card-why { font-size: 0.8em; color: var(--ink); background: var(--paper-2); border-radius: 6px; padding: 3px 6px; }
+@media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover:not(:disabled) { transform: none; } }
