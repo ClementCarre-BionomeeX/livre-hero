@@ -279,7 +279,7 @@ Object.assign(P, {
       { label: "Lui demander ce qu'on dit du vote, chez son oncle", hide: { any: [{ not: { has: "j:sait_vote" } }, { seen: "K08j_aymon_vote" }] }, to: "K08j_aymon_vote" },
       { back: "K08j_concours" },
     ] },
-  K08j_aymon_481: { act: "III", title: "Les papiers de l'aïeul Évrard", place: "foire", ambiance: "ville", fx: { flag: "j:sait_cire", ep: ["histoire", 400] },
+  K08j_aymon_481: { act: "III", title: "Les papiers de l'aïeul Évrard", place: "foire", ambiance: "ville", fx: { flag: ["j:sait_cire", "monde:lu:cire"], ep: ["histoire", 400] },
     text: [
       "Les mains d'Aymon s'arrêtent sur le fermoir d'argent. « On ne prononce pas ce nom chez nous. On le prononce donc beaucoup, à voix basse, dans les escaliers. D'où le tenez-vous ? » Tu dis : d'un registre, dans une abbaye. Il hoche la tête. « Les religieuses écrivent tout. C'est ce qui les rend dangereuses. »",
       "Il s'assoit sur le bord de l'estrade. « Évrard Foliot. Mon bisaïeul. Grand Maître à trente-cinq ans, déposé à trente-six. Il a voulu voir ce que le Livre défend ; il a tenu le Balancier entre le troisième coup de none et le quatrième. Le temps de trois psaumes. Tout le monde sait cela, dans la famille, et tout le monde en a honte. »",
