@@ -318,53 +318,89 @@
       if (!v || !v.id) return; A.buildChecked = true; A.newBuild = v; if (A.screen === "home") render();
     }).catch(function () { /* offline: nothing to say */ });
   }
+  // ------------------------------------------------------------------ the home page (Clément, 16/11: « trop fouillis »)
+  // Intent: renderHome() -> () = a top bar (reader, settings, shared folder), then three tabs: « Bibliothèque » (the
+  // game to resume, then the books, in short cards), « Mes parties » (games, archives, games for several), « Plus »
+  // (saves, imports, the family, the parents, the workshop, each folded with one line saying what it holds).
+  // Why: the page had grown into one column of fifteen sections, 15 000 pixels tall on a phone.
+  var HOME_TABS = [["livres", "Bibliothèque"], ["parties", "Mes parties"], ["plus", "Plus"]];
+  var RESUME_MORE = 2;   // games in progress shown under the big « Reprendre » card
   function renderHome() {
     if (!A.newsDone) { A.newsDone = true; var nw = newsToShow(); if (nw.length && !A.modal) A.modal = { kind: "news", news: nw }; }
-    var stories = allStories();
-    app.appendChild(topBar([h("span", { class: "brand grow" }, "Livre-jeu"),
-      Sync.on() ? h("button", { class: "pill small", title: "Les lecteurs et les parties se retrouvent sur chaque appareil branché.", onclick: function () { A.modal = { kind: "sync" }; render(); } }, Sync.busy ? "☁ Synchronisation…" : Sync.error ? "☁ Dossier partagé ⚠" : "☁ Dossier partagé") : h("span", { class: "pill small", title: Store.mode === "db" ? "Les profils, parties et histoires importées suivent ce lien sur tous les appareils." : "Rien n'est partagé : tout reste dans ce navigateur." }, Store.mode === "db" ? "Sauvegardes partagées" : "Sauvegardes dans ce navigateur")]));
-    var w = h("main", { class: "wrap" });
-    w.appendChild(h("div", { class: "hero-head" }, h("h1", null, "La bibliothèque"),
-      h("p", null, "Des romans dont tu tiens la plume : chaque histoire se lit, se voyage et se joue jusqu'au bout. Choisis qui lit, puis ouvre un livre.")));
+    var cur = A.profile;
+    app.appendChild(topBar([h("span", { class: "brand grow home-brand" }, "Livre-jeu"),
+      Sync.on() ? h("button", { class: "pill small", title: "Dossier de sauvegarde partagé : les lecteurs et les parties se retrouvent sur chaque appareil branché.", onclick: function () { A.modal = { kind: "sync" }; render(); } }, Sync.busy ? "☁ …" : Sync.error ? "☁ ⚠" : "☁") : null,
+      cur ? h("button", { class: "btn ghost sm icon-btn", title: "Réglages de lecture de " + cur.name, "aria-label": "Réglages de lecture de " + cur.name, onclick: function () { A.modal = { kind: "prefs" }; render(); } }, "⚙") : null,
+      cur ? h("button", { class: "reader-btn", "aria-expanded": A.open.readers ? "true" : "false", title: "Changer de lecteur", onclick: function () { A.open.readers = !A.open.readers; render(); } }, avatar(cur), h("span", { class: "reader-name" }, cur.name), " ▾") : null]));
+    var w = h("main", { class: "wrap home" });
     if (A.notice) w.appendChild(h("div", { class: "notice" + (A.noticeBad ? " bad" : "") }, A.notice));
     var nudge = renderBackupNudge(); if (nudge) w.appendChild(nudge);
-
-    // Profiles
-    var prof = h("section", { class: "section" }, h("h2", null, "Qui lit ?"));
+    if (!cur || A.open.readers) w.appendChild(renderReaders());
+    var tab = A.homeTab || lsGet("homeTab") || "livres";
+    if (!HOME_TABS.some(function (t) { return t[0] === tab; })) tab = "livres";
+    var shownGames = A.games.filter(function (g) { return !g.archived; }).length + (A.multis || []).length;
+    w.appendChild(h("nav", { class: "home-tabs", role: "tablist", "aria-label": "Pages de l'accueil" }, HOME_TABS.map(function (t) {
+      return h("button", { class: "home-tab" + (tab === t[0] ? " on" : ""), role: "tab", "aria-selected": tab === t[0] ? "true" : "false", onclick: function () { A.homeTab = t[0]; lsSet("homeTab", t[0]); A.notice = ""; render(); window.scrollTo(0, 0); } },
+        t[1], t[0] === "parties" && shownGames ? h("span", { class: "count" }, String(shownGames)) : null);
+    })));
+    if (tab === "livres") renderHomeBooks(w);
+    else if (tab === "parties") renderHomeGames(w);
+    else renderHomeMore(w);
+    w.appendChild(buildLine());
+    app.appendChild(w);
+  }
+  // Intent: renderReaders() -> Element = who reads: pick a reader, add one, the words game, remove one
+  function renderReaders() {
+    var cur = A.profile;
+    var prof = h("section", { class: "section readers" }, h("h2", null, cur ? "Qui lit ?" : "Bienvenue ! Qui lit ?"));
+    if (!cur) prof.appendChild(h("p", { class: "small muted" }, "Chaque lecteur a ses parties, ses réglages et les fins qu'il a trouvées."));
     var row = h("div", { class: "profiles" });
     A.profiles.forEach(function (p) {
-      row.appendChild(h("button", { class: "profile" + (A.profile && A.profile.id === p.id ? " on" : ""), onclick: function () { A.profile = p; lsSet("profil", p.id); A.games = A.allGames.filter(function (g) { return g.profil === p.id; }).sort(function (a, b) { return (b.updated || 0) - (a.updated || 0); }); render(); } }, avatar(p), p.name));
+      row.appendChild(h("button", { class: "profile" + (cur && cur.id === p.id ? " on" : ""), onclick: function () { A.profile = p; lsSet("profil", p.id); A.open.readers = false; A.games = A.allGames.filter(function (g) { return g.profil === p.id; }).sort(function (a, b) { return (b.updated || 0) - (a.updated || 0); }); render(); } }, avatar(p), p.name));
     });
     var nameIn = h("input", { placeholder: "Nouveau lecteur", "aria-label": "Nom du nouveau lecteur", maxlength: 24, style: "width:12em" });
     var addP = function () {
       var n = nameIn.value.trim(); if (!n) { nameIn.focus(); return; }
       var p = { id: uid(), name: n, color: COLORS[A.profiles.length % COLORS.length], created: Date.now() };
-      A.profiles.push(p); A.profile = p; A.games = []; lsSet("profil", p.id); A.notice = ""; render();
+      A.profiles.push(p); A.profile = p; A.games = []; lsSet("profil", p.id); A.notice = ""; A.open.readers = false; render();
       Store.put("profils", p.id, p).catch(function (e) { flash(n + " est enregistré dans ce navigateur seulement (partage refusé : " + ((e && e.code) || "erreur") + ").", true); });
     };
     nameIn.addEventListener("keydown", function (e) { if (e.key === "Enter") addP(); });
-    row.appendChild(h("span", { class: "row" }, nameIn, h("button", { class: "btn sm", onclick: addP }, "Ajouter")));
+    row.appendChild(h("span", { class: "row" }, nameIn, h("button", { class: "btn sm" + (cur ? "" : " primary"), onclick: addP }, "Ajouter")));
     prof.appendChild(row);
-    if (A.profile) {
-      var cur = A.profile, theirs = (A.allGames || []).filter(function (g) { return g.profil === cur.id; });
+    if (cur) {
+      var theirs = (A.allGames || []).filter(function (g) { return g.profil === cur.id; });
       prof.appendChild(A.confirmDelProfile === cur.id
         ? h("div", { class: "confirm small" }, "Retirer " + cur.name + (theirs.length ? " et ses " + theirs.length + " partie" + (theirs.length > 1 ? "s" : "") : "") + " ?",
             h("button", { class: "btn sm danger", onclick: function () { removeProfile(cur, theirs); } }, "Oui, retirer"),
             h("button", { class: "btn sm", onclick: function () { A.confirmDelProfile = null; render(); } }, "Non"))
-        : h("div", { class: "row" }, h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "prefs" }; render(); } }, "⚙ Réglages de lecture de " + cur.name),
+        : h("div", { class: "row" },
             Words.list(cur).length >= WORDS_MIN_GAME ? h("button", { class: "btn sm", onclick: Words.start }, "🎯 Jeu des mots (" + Words.list(cur).length + ")") : null,
             h("button", { class: "btn ghost sm", onclick: function () { A.confirmDelProfile = cur.id; render(); } }, "Retirer " + cur.name)));
     }
-    w.appendChild(prof);
-
-    // Saved games
-    if (A.profile) w.appendChild(renderSavedGames());
-
+    return prof;
+  }
+  // Intent: renderHomeBooks(Element) -> () = « Bibliothèque »: the game to resume, then the shelves of books
+  function renderHomeBooks(w) {
+    var going = A.games.filter(function (g) { return !g.archived && !g.ended && !g.test; });
+    if (A.profile && going.length) {
+      var g0 = going[0], m0 = allStories().filter(function (m) { return m.id === g0.story; })[0] || { id: g0.story, title: g0.storyTitle };
+      var res = h("section", { class: "section resume" },
+        h("article", { class: "resume-card" }, cover(m0, A.builtins[g0.story] || null),
+          h("div", { class: "resume-body" }, h("div", { class: "label" }, "Reprendre"),
+            h("h2", null, g0.storyTitle), h("div", { class: "small" }, g0.hero + (g0.where ? " · " + g0.where : "")), h("div", { class: "small muted" }, when(g0.updated)),
+            h("div", { class: "row" }, h("button", { class: "btn primary", onclick: function () { openGame(g0.id); } }, "Reprendre la lecture")))));
+      going.slice(1, 1 + RESUME_MORE).forEach(function (g) {
+        res.appendChild(h("div", { class: "save-line slim" }, h("div", { class: "grow" }, h("b", null, g.storyTitle), h("span", { class: "small muted" }, " · " + g.hero + " · " + when(g.updated))),
+          h("button", { class: "btn sm", onclick: function () { openGame(g.id); } }, "Reprendre")));
+      });
+      var all = A.games.filter(function (g) { return !g.archived; }).length;
+      if (all > 1 + RESUME_MORE || all > going.length) res.appendChild(h("button", { class: "btn ghost sm more-link", onclick: function () { A.homeTab = "parties"; lsSet("homeTab", "parties"); render(); window.scrollTo(0, 0); } }, "Toutes mes parties (" + all + ") →"));
+      w.appendChild(res);
+    }
     var live = renderLiveList(); if (live) w.appendChild(live);
-    w.appendChild(renderMultiList());
 
-    // Library, in shelves (8.5, Clément 15/11): short stories, novels, long novels, to play together; a filter for
-    // the adult themes, and each book's « En savoir plus » card.
+    var stories = allStories();
     var lib = h("section", { class: "section" }, h("h2", null, "Les livres"));
     var shelf = A.shelf || lsGet("shelf") || "tout";
     var pick = function (k) { A.shelf = k; lsSet("shelf", k); render(); };
@@ -386,49 +422,79 @@
       lib.appendChild(cards);
     });
     if (!keep.length) lib.appendChild(h("div", { class: "notice" }, "Aucun livre sur ce rayon."));
-    function bookCard(m) {
-      return h("article", { class: "card has-cover" + (m.adult ? " adult" : "") },
-        cover(m, A.builtins[m.id] || null),
-        m.adult ? h("div", { class: "adult-tag" }, "Thème adulte") : null,
-        h("h3", null, m.title), m.subtitle ? h("div", { class: "sub" }, m.subtitle) : null,
-        h("p", null, m.summary),
-        h("div", { class: "small muted" }, (m.age ? "Dès " + m.age + " ans · " : "") + (A.builtins[m.id] && !m.multi ? "environ " + minutesLabel(storyMinutes(A.builtins[m.id])) + " de lecture par partie · " : "") + (m.multi ? playersLabel(m.multi) + " · " : "") + m.acts + " actes · " + m.passages + " passages" + (m.builtin ? "" : " · importée")),
-        m.multi ? null : renderRecords(m),
-        h("div", { class: "row" },
-          // Clément, 11/11: stories for several players are written for it; the others stay solo.
-          m.multi ? h("button", { class: "btn primary", onclick: function () { adultGate(m, function () { multiSetup(m.id); }); } }, "Jouer à plusieurs")
-            : h("button", { class: "btn primary", onclick: function () { if (!A.profile) { needReader(); return; } adultGate(m, function () { newGame(m.id); }); } }, "Nouvelle partie"),
-          canDownload() ? h("button", { class: "btn sm ghost", onclick: function () { loadStory(m.id).then(function (st) { download(m.id + ".json", JSON.stringify(st, null, 1)); }); } }, "Exporter") : null,
-          !m.builtin ? (A.confirmDel === "s:" + m.id
-            ? h("span", { class: "confirm small" }, "Retirer ?", h("button", { class: "btn sm danger", onclick: function () { removeStory(m); } }, "Oui"), h("button", { class: "btn sm", onclick: function () { A.confirmDel = null; render(); } }, "Non"))
-            : h("button", { class: "btn sm ghost", onclick: function () { A.confirmDel = "s:" + m.id; render(); } }, "Retirer")) : null), aboutBook(m));
-    }
-    var file = h("input", { type: "file", accept: ".json,application/json", "aria-label": "Fichier d'histoire", onchange: function (e) { importStory(e.target.files[0]); e.target.value = ""; } });
-    lib.appendChild(h("div", { class: "row" }, h("span", { class: "label" }, "Importer une histoire (.json)"), file));
-    if (A.importReport) lib.appendChild(h("pre", { class: "report" }, A.importReport));
     if (A.builtinsErr) lib.appendChild(h("div", { class: "notice bad" }, BUILTINS_MISSING));
     w.appendChild(lib);
-    if (catalogueOn()) w.appendChild(renderCatalogue());
-
-    // Backup: move readers and games between the claude.ai page and the offline copy, or between devices.
-    var bk = h("section", { class: "section" }, h("h2", null, "Sauvegardes"),
-      h("p", { class: "small muted" }, "Un seul fichier avec les lecteurs, leurs parties et les histoires importées. Exporte-le ici, importe-le sur l'autre appareil ou dans l'autre version du jeu : la partie la plus récente l'emporte."));
-    var bkFile = h("input", { type: "file", accept: ".json,application/json", "aria-label": "Fichier de sauvegarde", onchange: function (e) { importBackup(e.target.files[0]); e.target.value = ""; } });
-    bk.appendChild(h("div", { class: "row" },
-      canDownload() ? h("button", { class: "btn sm", onclick: exportBackup }, "Exporter toutes les sauvegardes") : null,
-      h("span", { class: "label" }, "Importer une sauvegarde"), bkFile,
-      Transfer.available() ? h("button", { class: "btn sm", onclick: function () { Transfer.receive(); } }, "📷 Recevoir une partie") : null));
-    if (Sync.available()) bk.appendChild(h("div", { class: "row" }, h("button", { class: "btn sm" + (Sync.on() ? "" : " primary"), onclick: function () { A.modal = { kind: "sync" }; render(); } },
-      Sync.on() ? "☁ Dossier de sauvegarde partagé" + (Sync.busy ? " · synchronisation…" : Sync.error ? " · ⚠ à vérifier" : "") : "☁ Configurer un dossier de sauvegarde partagé")));
-    w.appendChild(bk);
-    w.appendChild(renderKidsShelf());
-    if (A.profile) w.appendChild(renderBilan(A.profile));
-    var fam = renderFamily(); if (fam) { fam.appendChild(h("div", { class: "row" }, h("button", { class: "btn sm", onclick: function () { A.screen = "album"; render(); } }, "📖 Ouvrir l'album de la famille"))); w.appendChild(fam); }
-    var dfs = renderChallenges(); if (dfs) w.appendChild(dfs);
-    w.appendChild(renderParents());
-    w.appendChild(renderAtelier());
-    w.appendChild(buildLine());
-    app.appendChild(w);
+  }
+  // Intent: bookCard(StoryMeta) -> Element = cover, title, one line of facts, three lines of the summary and the
+  // button to play; the rest (whole summary, endings found, export, details) behind « En savoir plus ».
+  function bookCard(m) {
+    var st = A.builtins[m.id] || null, open = !!A.open["book:" + m.id];
+    var facts = [m.multi ? playersLabel(m.multi) : st ? "environ " + minutesLabel(storyMinutes(st)) + " par partie" : null, m.age ? "dès " + m.age + " ans" : null, m.builtin ? null : "importée"].filter(Boolean);
+    return h("article", { class: "card has-cover book" + (m.adult ? " adult" : "") + (open ? " open" : "") },
+      cover(m, st),
+      m.adult ? h("div", { class: "adult-tag" }, "Thème adulte") : null,
+      h("h3", null, m.title), m.subtitle ? h("div", { class: "sub" }, m.subtitle) : null,
+      facts.length ? h("div", { class: "small muted" }, facts.join(" · ")) : null,
+      h("p", { class: "summary" }, m.summary),
+      open ? h("div", { class: "small muted" }, m.acts + " actes · " + m.passages + " passages") : null,
+      open && !m.multi ? renderRecords(m) : null,
+      h("div", { class: "row" },
+        // Clément, 11/11: stories for several players are written for it; the others stay solo.
+        m.multi ? h("button", { class: "btn primary", onclick: function () { adultGate(m, function () { multiSetup(m.id); }); } }, "Jouer à plusieurs")
+          : h("button", { class: "btn primary", onclick: function () { if (!A.profile) { needReader(); return; } adultGate(m, function () { newGame(m.id); }); } }, "Nouvelle partie"),
+        h("button", { class: "btn ghost sm", "aria-expanded": open ? "true" : "false", onclick: function () { A.open["book:" + m.id] = !open; render(); } }, open ? "Moins" : "En savoir plus"),
+        open && canDownload() ? h("button", { class: "btn sm ghost", onclick: function () { loadStory(m.id).then(function (x) { download(m.id + ".json", JSON.stringify(x, null, 1)); }); } }, "Exporter") : null,
+        open && !m.builtin ? (A.confirmDel === "s:" + m.id
+          ? h("span", { class: "confirm small" }, "Retirer ?", h("button", { class: "btn sm danger", onclick: function () { removeStory(m); } }, "Oui"), h("button", { class: "btn sm", onclick: function () { A.confirmDel = null; render(); } }, "Non"))
+          : h("button", { class: "btn sm ghost", onclick: function () { A.confirmDel = "s:" + m.id; render(); } }, "Retirer")) : null),
+      open ? aboutDetails(m) : null);
+  }
+  // the details of « En savoir plus », without its own button (the card has it beside « Nouvelle partie »)
+  function aboutDetails(m) { var box = aboutBook(m); box.removeChild(box.firstChild); return box; }
+  // Intent: renderHomeGames(Element) -> () = « Mes parties »: the reader's games and archives, then games for several
+  function renderHomeGames(w) {
+    if (A.profile) w.appendChild(renderSavedGames());
+    var live = renderLiveList(); if (live) w.appendChild(live);
+    w.appendChild(renderMultiList());
+  }
+  // Intent: homeFold(key, title, line, body: () -> Element|[Element]) -> Element = one folded part of « Plus »
+  function homeFold(key, title, line, body) {
+    var open = !!A.open[key];
+    var sec = h("section", { class: "section home-fold" + (open ? " open" : "") },
+      h("button", { class: "fold-head", "aria-expanded": open ? "true" : "false", onclick: function () { A.open[key] = !open; render(); } },
+        h("span", { class: "fold-title" }, (open ? "▾ " : "▸ ") + title), h("span", { class: "small muted" }, line)));
+    if (open) { var b = body(); (Array.isArray(b) ? b : [b]).forEach(function (x) { if (x) sec.appendChild(x); }); }
+    return sec;
+  }
+  // The sections below were whole parts of the old page; inside a fold, their own title would say it twice.
+  function inner(sec) { if (sec && sec.firstChild && sec.firstChild.tagName === "H2") sec.removeChild(sec.firstChild); if (sec) sec.classList.remove("section"); return sec; }
+  // Intent: renderHomeMore(Element) -> () = « Plus »: what one opens now and then
+  function renderHomeMore(w) {
+    w.appendChild(homeFold("plus:sauvegardes", "Sauvegardes", Sync.on() ? "Dossier partagé branché" + (Sync.error ? " · ⚠ à vérifier" : "") : "Exporter, importer, partager entre appareils", function () {
+      var bk = h("div", { class: "stack" }, h("p", { class: "small muted" }, "Un seul fichier avec les lecteurs, leurs parties et les histoires importées. Exporte-le ici, importe-le sur l'autre appareil ou dans l'autre version du jeu : la partie la plus récente l'emporte."));
+      var bkFile = h("input", { type: "file", accept: ".json,application/json", "aria-label": "Fichier de sauvegarde", onchange: function (e) { importBackup(e.target.files[0]); e.target.value = ""; } });
+      bk.appendChild(h("div", { class: "row" },
+        canDownload() ? h("button", { class: "btn sm", onclick: exportBackup }, "Exporter toutes les sauvegardes") : null,
+        h("span", { class: "label" }, "Importer une sauvegarde"), bkFile,
+        Transfer.available() ? h("button", { class: "btn sm", onclick: function () { Transfer.receive(); } }, "📷 Recevoir une partie") : null));
+      if (Sync.available()) bk.appendChild(h("div", { class: "row" }, h("button", { class: "btn sm" + (Sync.on() ? "" : " primary"), onclick: function () { A.modal = { kind: "sync" }; render(); } },
+        Sync.on() ? "☁ Dossier de sauvegarde partagé" + (Sync.busy ? " · synchronisation…" : Sync.error ? " · ⚠ à vérifier" : "") : "☁ Configurer un dossier de sauvegarde partagé")));
+      return bk;
+    }));
+    w.appendChild(homeFold("plus:ajouter", "Ajouter des histoires", "Un fichier .json" + (catalogueOn() ? ", ou le catalogue partagé" : ""), function () {
+      var file = h("input", { type: "file", accept: ".json,application/json", "aria-label": "Fichier d'histoire", onchange: function (e) { importStory(e.target.files[0]); e.target.value = ""; } });
+      return [h("div", { class: "row" }, h("span", { class: "label" }, "Importer une histoire (.json)"), file),
+        A.importReport ? h("pre", { class: "report" }, A.importReport) : null,
+        catalogueOn() ? renderCatalogue() : null];
+    }));
+    w.appendChild(homeFold("plus:ecrire", "J'écris mon histoire", "Inventer une histoire à choix pour la famille", function () { return inner(renderKidsShelf()); }));
+    if (A.profile) w.appendChild(homeFold("plus:bilan", "Bilan de lecture de " + A.profile.name, "Temps, fins, hauts faits, mots", function () { A.open.bilan = true; return inner(renderBilan(A.profile)); }));
+    var fam = renderFamily(), dfs = renderChallenges();
+    if (fam || dfs) w.appendChild(homeFold("plus:famille", "La famille", "Tableau, défis et album", function () {
+      return [fam ? inner(fam) : null, h("div", { class: "row" }, h("button", { class: "btn sm", onclick: function () { A.screen = "album"; render(); } }, "📖 Ouvrir l'album de la famille")), dfs];
+    }));
+    w.appendChild(homeFold("plus:parents", "Espace parent", "Temps de lecture, heure du coucher, objectifs", function () { A.open.parents = true; return inner(renderParents()); }));
+    w.appendChild(homeFold("plus:atelier", "Atelier d'auteur", "Éditeur, essai d'un passage, signalements", function () { if (!A.open.atelier) { A.open.atelier = true; loadSignals(); } return inner(renderAtelier()); }));
   }
   // ------------------------------------------------------------------ saved games, and their archive (Clément, 16/11)
   // Intent: renderSavedGames() -> Element = the reader's games still in the list, then « Archives (n) », folded.
@@ -457,13 +523,15 @@
     var del = A.confirmDel === g.id
       ? h("span", { class: "confirm small" }, "Effacer cette partie ?", h("button", { class: "btn sm danger", onclick: function () { Store.del("parties", g.id).then(refresh).then(function () { A.confirmDel = null; render(); }); } }, "Oui, effacer"), h("button", { class: "btn sm", onclick: function () { A.confirmDel = null; render(); } }, "Non"))
       : h("button", { class: "btn sm ghost", onclick: function () { A.confirmDel = g.id; render(); } }, "Effacer");
+    // In the list: play, put away, send. Deleting is done from the archives (a game is put away before it is erased).
     return h("div", { class: "save-line" + (g.archived ? " archived" : "") },
       h("div", { class: "grow" }, h("b", null, g.hero + " · " + g.storyTitle + (g.test ? " (essai)" : "")), h("div", { class: "small muted" }, (g.archLabel || "") + " niveau " + (g.level || 1) + " · " + (g.where || "") + (g.ended ? " · terminée" : "") + " · " + when(g.updated))),
-      Transfer.available() && !g.test && A.builtins[g.story] ? h("button", { class: "btn sm ghost", title: "Envoyer cette partie vers un autre appareil par codes QR", onclick: function () { Transfer.send(g.id); } }, "📱 Envoyer") : null,
-      h("button", { class: "btn primary sm", onclick: function () { openGame(g.id); } }, g.ended ? "Relire la fin" : "Reprendre"),
-      g.archived ? h("button", { class: "btn sm", onclick: function () { archiveGames([g], false); } }, "Remettre dans la liste")
-        : h("button", { class: "btn sm ghost", title: "Ranger cette partie aux archives : elle quitte la liste sans être effacée.", onclick: function () { archiveGames([g], true); } }, "Archiver"),
-      del);
+      h("div", { class: "save-actions" },
+        h("button", { class: "btn primary sm", onclick: function () { openGame(g.id); } }, g.ended ? "Relire la fin" : "Reprendre"),
+        g.archived ? h("button", { class: "btn sm", onclick: function () { archiveGames([g], false); } }, "Remettre dans la liste")
+          : h("button", { class: "btn sm ghost", title: "Ranger cette partie aux archives : elle quitte la liste sans être effacée.", onclick: function () { archiveGames([g], true); } }, "🗄 Archiver"),
+        !g.archived && Transfer.available() && !g.test && A.builtins[g.story] ? h("button", { class: "btn sm ghost", title: "Envoyer cette partie vers un autre appareil par codes QR", onclick: function () { Transfer.send(g.id); } }, "📱 Envoyer") : null,
+        g.archived ? del : null));
   }
   // Intent: archiveGames([Game], Bool) -> () ! writes(Store) = puts games away or back; the list changes at once
   function archiveGames(games, on) {
@@ -2036,6 +2104,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "9.4", items: ["Accueil rangé en trois onglets. « Bibliothèque » : la partie à reprendre en tête, puis les livres en cartes courtes (« En savoir plus » ouvre le reste). « Mes parties » : les parties et leurs archives. « Plus » : sauvegardes, ajout d'histoires, famille, espace parent, atelier.", "Le lecteur se change d'un toucher sur son nom, en haut ; ⚙ ouvre ses réglages.", "Une partie s'efface depuis les archives : on la range d'abord."] },
     { v: "9.3", items: ["Archives : une partie (surtout finie) se range aux archives d'un bouton, ou toutes les parties terminées d'un coup. Elle quitte la liste sans être effacée ; « Archives », sous la liste, la montre et « Remettre dans la liste » la ramène. Le rangement suit le dossier de sauvegarde partagé sur les autres appareils."] },
     { v: "9.1", items: ["Nouveau grand livre : « Le Trésor des Taiseurs », une chasse au trésor dans une république marchande où chacun parle à double fond.", "Paroles cachées : avec certains objets, des mots se mettent à bouger sur la page (ils tremblent, luisent, ondulent). Touche-les : le texte caché dessous remonte.", "Nouvel onglet du carnet, dans les histoires qui en ont : Sous les mots (ce que tu as entendu dessous, et ce qui te fait entendre)."] },
     { v: "9.0", items: ["Nouveau livre à lire : « Le Monde perdu » d'Arthur Conan Doyle (1912), traduit en entier. Pas de choix : un bouton « Suivant », et les noms des personnages touchables.", "Une notice ouvre le livre et revient en tête des chapitres qui en ont besoin : le texte de 1912 contient des mots et des idées racistes de son époque, gardés tels quels.", "« Où en étais-je ? » résume les chapitres déjà lus, et « ← Page précédente » revient en arrière."] },

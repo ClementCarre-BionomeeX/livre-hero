@@ -28,7 +28,10 @@ var SCREENS = [
     await pg.locator("article.card").filter({ hasText: "Kardan" }).getByRole("button", { name: "Lire sans jouer" }).click();
   }],
 ];
-async function openAtelier(pg) { var b = pg.locator("button.fold", { hasText: "Atelier" }).first(); if (await b.count()) await b.click(); }
+async function openAtelier(pg) {
+  var t = pg.getByRole("tab", { name: "Plus" }); if (await t.count()) await t.click();   // the home in tabs (9.4)
+  var b = pg.locator("button.fold, button.fold-head", { hasText: "Atelier" }).first(); if (await b.count()) await b.click();
+}
 async function newGame(pg, start) {
   await pg.locator("article.card").filter({ hasText: "Kardan" }).first().getByRole("button", { name: /Nouvelle partie/ }).click();
   await pg.fill('input[aria-label="Nom du héros"]', "Ivo"); await pg.locator("button.arch").first().click();

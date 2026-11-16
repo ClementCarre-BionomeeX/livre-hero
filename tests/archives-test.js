@@ -36,8 +36,10 @@ var SEED = {
   }, SEED);
   var doc = function (id) { return pg.evaluate(function (k) { return JSON.parse(localStorage.getItem("livre-heros:parties:" + k)); }, id); };
   var lines = function () { return pg.locator(".saved-games > .save-line").count(); };
+  // the home in tabs (9.4): the games are under « Mes parties »
+  var gamesTab = async function () { var t = pg.getByRole("tab", { name: /Mes parties/ }); if (await t.count()) await t.click(); await pg.waitForSelector(".saved-games"); };
   try {
-    await pg.goto(url); await pg.waitForSelector(".saved-games");
+    await pg.goto(url); await pg.waitForSelector("section"); await gamesTab();
     check(await lines() === 3, "trois parties dans la liste au départ");
     check(await pg.locator(".archives-fold").count() === 0, "pas d'archives au départ");
     await pg.getByRole("button", { name: "🗄 Archiver les 2 parties terminées" }).click();
@@ -49,7 +51,7 @@ var SEED = {
     check(g1 && g1.updated === T0 + 60000, "archiver ne change pas la date de la dernière lecture");
     check(g1 && g1.state === "{}", "la partie archivée garde sa sauvegarde");
 
-    await pg.reload(); await pg.waitForSelector(".saved-games");
+    await pg.reload(); await pg.waitForSelector("section"); await gamesTab();
     check(await lines() === 1, "l'archivage tient après un rechargement");
     await pg.locator(".archives-fold").click();
     check(await pg.locator(".archives .save-line").count() === 2, "le pli ouvert montre les deux parties archivées");
@@ -66,10 +68,12 @@ var SEED = {
     var file = path.join(require("os").tmpdir(), "archives-test-sauvegarde.json");
     var other = Object.assign({}, g2, { id: "g2", archived: true, archivedAt: T0 + 3600000 });
     fs.writeFileSync(file, JSON.stringify({ format: "livre-heros-sauvegarde", version: 1, exported: Date.now(), collections: { parties: [other] } }));
-    await pg.reload(); await pg.waitForSelector(".saved-games");
+    await pg.reload(); await pg.waitForSelector("section"); await gamesTab();
     check(await lines() === 3, "avant l'import, Mara est dans la liste");
+    var more = pg.getByRole("tab", { name: "Plus" });
+    if (await more.count()) { await more.click(); await pg.locator("button.fold-head", { hasText: "Sauvegardes" }).click(); }
     await pg.setInputFiles('input[aria-label="Fichier de sauvegarde"]', file);
-    await pg.waitForTimeout(600);
+    await pg.waitForTimeout(600); await gamesTab();
     check((await doc("g2")).archived === true, "une sauvegarde importée où la partie a été archivée plus tard l'archive ici");
     check(await lines() === 2, "après l'import, Mara a quitté la liste");
   } catch (e) { bad.push("le parcours s'est arrêté : " + String(e.message).split("\n")[0]); }
