@@ -18,7 +18,7 @@ module.exports = {
   B_porte: { act: "II", title: "Trois coups", place: "aubiers",
     fx: { clue: "i_chien" },
     text: [
-      { via: "toi", text: "Tu soulèves le loquet. La porte s'ouvre d'elle-même, poussée par le vent, et la neige entre avec lui, en tourbillon, jusqu'au milieu de la salle." },
+      { via: "toi", text: "Tu soulèves le loquet. La porte s'ouvre d'elle-même, poussée par le vent, et la neige entre avec lui, en tourbillon, jusqu'au milieu de la salle ; dans la cheminée, les flammes se couchent toutes ensemble, comme une assemblée qui salue." },
       { via: "arme", text: "Le tisonnier dans la main droite, tu soulèves le loquet de la gauche. La porte s'ouvre sous le vent. L'homme qui est sur le seuil regarde d'abord le fer, puis toi, sans surprise. « Vous pouvez le garder à la main, si ça vous rassure », dit-il doucement." },
       { via: "isaure", text: "Isaure essuie ses mains à son tablier et va ouvrir. Tu la vois reculer d'un pas, un seul, la main encore sur le loquet. Ta sœur, d'ordinaire, tient tête à tout le monde." },
       "C'est un jeune homme de vingt-deux ou vingt-trois ans. Il est tête nue, avec des cheveux noirs où la neige tient sans fondre. Il porte un long manteau de toile huilée, d'une coupe passée de mode depuis deux générations, trempé jusqu'à la taille, et il tient à la main une perche de flotteur, longue comme deux hommes, avec un crochet de fer au bout. Sous ses bottes, sur le seuil, coule de l'eau vive.",
@@ -233,7 +233,7 @@ module.exports = {
   B_grenier: { act: "II", title: "Le coffre bleu", place: "aubiers",
     fx: { flag: "coffre:ouvert", quest: "II_coffre", clue: "i_lettres", item: "lettres_a" },
     text: [
-      "L'échelle du grenier grince à chaque barreau. Là-haut, il fait aussi froid que dehors ; le vent passe sous les tuiles, et la flamme de ta chandelle se couche. Des pommes sur des claies, des sacs de grain, des harnais, le berceau où vous avez dormi tous les deux. Sous la lucarne, un coffre de bois peint, d'un bleu presque effacé.",
+      "L'échelle du grenier grince à chaque barreau. Là-haut, il fait aussi froid que dehors ; le vent passe sous les tuiles, la flamme de ta chandelle se couche, et les ombres en profitent pour changer de place. Des pommes sur des claies, des sacs de grain, des harnais, le berceau où vous avez dormi tous les deux. Sous la lucarne, un coffre de bois peint, d'un bleu presque effacé.",
       { second: true, text: "La poussière du couvercle a été essuyée d'un seul geste, sur la largeur d'une main. Le sac de grain d'à côté garde la forme d'un corps assis. Tu en conclus que quelqu'un est monté ici récemment, avec difficulté, et s'est assis là longtemps." },
       "La clé tourne. Dedans, sur un lit de lavande sèche : une liasse de lettres liées d'un ruban bleu passé, une enveloppe épaisse de notaire, une bourse de cuir. Et un petit oiseau de bois, devenu gris avec les années. Un bouvreuil, la queue en éventail, la tête tournée de côté.",
       "Tu lis la première lettre debout. Puis tu t'assois sur le sac de grain, et tu les lis toutes.",

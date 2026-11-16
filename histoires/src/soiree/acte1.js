@@ -6,11 +6,11 @@ module.exports = {
   A_pont: { act: "I", title: "Le pont de Brévannes", place: "pont",
     fx: { clue: "r_lettre" },
     text: [
-      "Le pont a trois arches, et sous les trois la Ganne passe vite, grosse, couleur d'ardoise. Elle a pris deux bonnes coudées depuis l'automne. À son pied, le moulin du père Gaubert tourne encore ; on entend la roue cogner l'eau à intervalles réguliers, avec un bruit mouillé.",
+      "Le pont a trois arches, et sous les trois la Ganne passe vite, grosse, couleur d'ardoise. Elle a pris deux bonnes coudées depuis l'automne. À son pied, le moulin du père Gaubert tourne encore ; on entend la roue cogner l'eau à intervalles réguliers, avec un bruit mouillé et patient, comme si elle tenait un compte.",
       "Le ciel est bas et jaune. Les premiers flocons descendent sans se presser, un par un, et fondent sur le parapet. De l'autre côté de la rivière, la pente monte vers les Aubiers. D'ici, la ferme reste cachée : tu vois seulement le noyer de la cour, noir sur le ciel, et un peu de fumée.",
       "Dans Brévannes, derrière toi, quelqu'un allume déjà la chandelle de la Longue Nuit. Puis une autre fenêtre, puis une autre. Onze ans que tu n'as pas vu ça.",
       { second: true, text: "Au moulin, la fenêtre du père Gaubert est la seule restée sans chandelle. Le vieux est debout derrière la vitre. Il tourne le dos au pont et regarde l'amont, du côté des saules." },
-      "Deux chemins montent aux Aubiers. La route traverse le bourg et fait le grand tour par la côte : une heure de marche, et des gens qui te reconnaîtront. Le vieux chemin du gué longe la rivière jusqu'aux saules et grimpe tout droit dans le verger : moitié moins, si la boue le permet.",
+      "Deux chemins montent aux Aubiers. La route traverse le bourg et fait le grand tour par la côte : une heure de marche, et des gens qui te reconnaîtront, ce qui, dans un bourg, vaut une seconde heure. Le vieux chemin du gué longe la rivière jusqu'aux saules et grimpe tout droit dans le verger : moitié moins, si la boue le permet.",
     ],
     choices: [
       { label: "Monter par la route, à travers Brévannes", via: "route", to: "A_village" },
@@ -25,7 +25,7 @@ module.exports = {
       "Devant la Truite d'Or, une femme large secoue une nappe dans la neige. Mère Guite. Elle s'arrête, la nappe en l'air, et te regarde approcher.",
       "« Ah ben ça, dit-elle. Tu es revenu{e}. » Elle plisse les yeux, comme pour vérifier qu'elle ne se trompe pas de visage. « Elle t'a écrit, alors. »",
       "Tu demandes comment elle le sait.",
-      "« Elle est descendue la semaine dernière. Seule, à pied, par le froid, à son âge. Elle a passé une heure chez le notaire, et en sortant elle est venue boire un vin chaud ici, ce qu'elle ne fait jamais. Elle avait l'air contente. » Mère Guite plie sa nappe. « Les gens contents chez le notaire, j'en ai pas vu beaucoup. »",
+      "« Elle est descendue la semaine dernière. Seule, à pied, par le froid, à son âge. Elle a passé une heure chez le notaire, et en sortant elle est venue boire un vin chaud ici, ce qu'elle ne fait jamais. Elle avait l'air contente. » Mère Guite plie sa nappe. « Des gens contents en sortant de chez le notaire, j'en ai vu deux dans ma vie, et l'autre venait d'hériter. »",
     ],
     choices: [
       { label: "Entrer te réchauffer à la Truite d'Or", to: "A_auberge" },
@@ -34,7 +34,7 @@ module.exports = {
   A_auberge: { act: "I", title: "La Truite d'Or", place: "village", takes: 1,
     fx: { meet: ["merac"], flag: "merac:vu" },
     text: [
-      "Il fait chaud et sombre ; ça sent le vin cuit, la laine mouillée et la pipe. Quatre hommes jouent aux cartes près du poêle. L'un d'eux, une moustache grise et des lunettes rondes, lève les yeux sur toi et repose son jeu.",
+      "Il fait chaud et sombre ; ça sent le vin cuit, la laine mouillée et la pipe. Quatre hommes jouent aux cartes près du poêle, avec le sérieux d'un chapitre qui élit son abbé. L'un d'eux, une moustache grise et des lunettes rondes, lève les yeux sur toi et repose son jeu.",
       "« Le docteur Mérac, dit Mère Guite en te servant un vin chaud. Il soigne ta grand-mère. Enfin, il essaie. Elle ne se laisse pas faire. »",
       "Le docteur vient s'asseoir en face de toi, son verre à la main. Il a le regard un peu trop clair des hommes qui ont commencé à boire tôt, et la voix d'un homme qui sait encore exactement ce qu'il dit. Tu notes les deux, et tu te demandes lequel l'emportera vers minuit.",
       "« Son cœur est une vieille horloge, dit-il. Elle sonne encore, mais elle retarde. Je lui ai dit de ne pas passer l'hiver seule là-haut avec votre sœur et le gamin. Elle m'a répondu qu'elle ne passerait pas l'hiver du tout, et que ça, elle le savait mieux que moi. » Il boit. « Elle a peut-être raison. Elle a souvent raison. »",
@@ -48,7 +48,7 @@ module.exports = {
   // ------------------------------------------------------------------ by the ford
   A_gue: { act: "I", title: "Le gué des Saules", place: "gue",
     text: [
-      { first: true, text: "Le chemin longe l'eau sous une rangée de saules têtards, dont les branches nues pendent jusqu'au courant. Là où la rivière s'élargit, elle se fait basse et rapide sur un fond de galets : c'est le gué des Saules, par où passaient les charrettes avant qu'on bâtisse le pont. Les ornières descendent encore dans l'eau d'un côté, et en ressortent de l'autre." },
+      { first: true, text: "Le chemin longe l'eau sous une rangée de saules têtards, dont les branches nues pendent jusqu'au courant. Là où la rivière s'élargit, elle se fait basse et rapide sur un fond de galets : c'est le gué des Saules, par où passaient les charrettes avant qu'on bâtisse le pont. Les ornières descendent encore dans l'eau d'un côté, et en ressortent de l'autre ; la neige qui commence les souligne de blanc, si nettes qu'on croirait la dernière charrette passée de la veille." },
       { first: true, text: "Au milieu du gué, il y a un homme." },
       { first: true, text: "Il est debout dans le courant jusqu'aux genoux, tête nue sous la neige, appuyé sur une longue perche à crochet. Il reste planté là, les mains vides, face au courant, et il regarde la pente, en face, vers les Aubiers." },
       { first: true, second: true, text: "Son regard dépasse la ferme et se pose sur une seule fenêtre, celle du fond, la chambre de ta grand-mère, où une chandelle brûle déjà, en plein jour." },
@@ -83,7 +83,7 @@ module.exports = {
     text: [
       { via: "route", text: "La route finit devant la barrière, sous le noyer. La maison est là, plus basse que dans ta mémoire, le toit chargé de neige, avec une lumière jaune à la fenêtre de la salle et une autre, plus petite, à celle du fond." },
       { via: "route", text: "Un chien sort de la grange en aboyant : gris, lourd, raide des pattes de derrière. Pataud. Il avait un an quand tu es parti{e} ; il en a donc douze, ce qui, pour un chien, est un grand âge. Il s'arrête à trois pas, renifle, aboie encore une fois pour la forme, puis vient te pousser la main du museau, comme si tu étais descendu{e} au village le matin même." },
-      { via: "tard", text: "Il fait nuit quand tu arrives devant la barrière, sous le noyer. La neige tient partout, maintenant. La maison est une masse sombre percée de deux lumières : la grande fenêtre de la salle, et celle du fond, plus petite, où brûle la chandelle de la Longue Nuit." },
+      { via: "tard", text: "Il fait nuit quand tu arrives devant la barrière, sous le noyer. La neige tient partout, maintenant. La maison est une masse sombre percée de deux lumières : la grande fenêtre de la salle, et celle du fond, plus petite, où brûle la chandelle de la Longue Nuit. Tout le reste de la pente est noir, et ces deux lumières ont l'air de veiller chacune pour son compte." },
       { via: "tard", text: "Le chien de la ferme sort de la grange en aboyant, et cette fois il continue : il aboie contre toi, le poil levé, jusqu'à ce que la porte de la maison s'ouvre." },
       { via: "gue", text: "Le chemin du gué finit dans le verger, derrière la grange. Tu passes sous les pommiers que ton grand-père a plantés, la neige jusqu'aux chevilles, et tu arrives par l'arrière, comme autrefois quand tu rentrais trop tard et que tu tenais à rentrer sans bruit." },
       { via: "gue", text: "La porte de l'étable est entrouverte. Une lanterne brûle à l'intérieur. Tu entends une vache qui souffle, le seau qu'on racle, et un autre son, plus bas, qu'il te faut un moment pour reconnaître : quelqu'un pleure, sans bruit, en trayant." },
