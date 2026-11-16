@@ -1,0 +1,37 @@
+// « L'Homme invisible » (The Invisible Man), H. G. Wells, 1897 : un livre à lire, sans choix (lecture: true).
+// Texte : la traduction d'Achille Laurent (La Revue de Paris, 1900-1901, puis Mercure de France), transcrite par
+// Wikisource (domaine public ; transcription reprise d'un export Wikisource de février 2025). Texte gardé tel quel, sauf la
+// typographie ; la note du traducteur sur les fenêtres anglaises est mise entre parenthèses dans sa page.
+// Tout ce qui n'est pas de Wells ou de son traducteur vit dans les tags : gens, lieux, mots, résumés des chapitres.
+// Ce qui se passe dans chaque chapitre, en quelques lignes (Claude), montré par « Où en étais-je ? » une fois le chapitre lu.
+module.exports = {
+  I: { text: "Un jour de neige de février, un étranger arrive à pied à Iping et prend une chambre à l'auberge de Mme Hall. Il est emmitouflé, le visage caché sous des bandages et de grosses lunettes bleues. Il paie d'avance et refuse toute conversation. Mme Hall, en entrant à l'improviste, croit voir sa bouche comme un trou béant." },
+  II: { notice: false, text: "Teddy Henfrey, l'horloger, vient réparer la pendule du petit salon et fait durer le travail pour observer l'étranger, qui finit par le mettre dehors. Sur la route, Henfrey croise M. Hall et sème le doute dans son esprit." },
+  III: { notice: true, text: "Les bagages de l'étranger arrivent : des malles pleines de flacons. Le chien du voiturier Fearenside le mord à la jambe ; M. Hall, montant voir, aperçoit quelque chose d'étrange avant d'être repoussé. L'étranger s'installe et travaille à ses expériences, de mauvaise humeur. Fearenside raconte à qui veut l'entendre que l'homme a les jambes noires." },
+  IV: { text: "Le village fait mille suppositions sur l'étranger : criminel en fuite, anarchiste, homme pie. Le docteur Cuss, curieux, lui rend visite sous prétexte d'une souscription. Il en ressort bouleversé et court raconter au pasteur Bunting ce qu'il a vu : une manche vide qui lui a pincé le nez." },
+  V: { text: "Au petit matin du lundi de la Pentecôte, le pasteur Bunting et sa femme entendent un voleur dans leur bureau. Ils voient l'argent disparaître du tiroir, entendent quelqu'un éternuer, mais ne trouvent personne." },
+  VI: { text: "Le même matin, les Hall trouvent la chambre de l'étranger vide, la porte ouverte et ses vêtements sur le lit. Les meubles s'animent : une chaise se jette sur Mme Hall et les met dehors. Le village parle de sorcellerie." },
+  VII: { text: "L'étranger, qui ne paie plus, se querelle avec Mme Hall. Furieux, il arrache son nez, ses bandages et ses lunettes : il n'y a rien dessous. Le village, en fête, accourt. L'agent Jaffers vient l'arrêter ; l'homme invisible se dévêt et lui échappe dans la mêlée." },
+  VIII: { text: "Gibbins, naturaliste amateur, entend sur les dunes un homme invisible jurer et éternuer, et court au village." },
+  IX: { text: "Un vagabond, Thomas Marvel, essaie des bottes au bord de la route. Une voix l'interpelle, et des cailloux le frappent sans qu'il voie personne. L'homme invisible se fait connaître de lui et l'oblige à devenir son aide." },
+  X: { text: "À Iping, on discute, on doute, on reprend la fête. Marvel arrive au village, fume sa pipe devant l'auberge d'un air faussement dégagé, puis entre dans le petit salon." },
+  XI: { text: "Pendant ce temps, le docteur Cuss et le pasteur Bunting déchiffrent dans le petit salon les carnets de l'étranger. L'homme invisible les surprend, les tient à sa merci et exige ses livres et des vêtements." },
+  XII: { text: "Marvel sort de l'auberge avec les livres et la nappe. M. Huxter le poursuit et se fait renverser. L'homme invisible, fou de rage, brise les vitres d'Iping, coupe le télégraphe et disparaît." },
+  XIII: { text: "Le soir, sur la route de Bramblehurst, Marvel, épuisé et terrifié, essaie de se libérer de son maître invisible, qui le menace et le force à continuer." },
+  XIV: { text: "À Port-Stowe, Marvel, assis devant une auberge, cause avec un marin qui lit dans le journal l'histoire de l'homme invisible. Marvel en dit un peu trop, puis se lève brusquement et s'éloigne, comme tiré par une force invisible." },
+  XV: { text: "Le docteur Kemp, savant de Port-Burdock, travaille dans son belvédère. Il voit un homme courir comme un fou au bas de la colline, et rit de la panique des gens." },
+  XVI: { text: "Marvel se réfugie à l'auberge des Joyeux Joueurs de cricket, en suppliant qu'on le protège. L'homme invisible tente de forcer la porte. On se bat, un policeman est frappé, un cocher américain tire au revolver dans le vide." },
+  XVII: { text: "Le soir, Kemp trouve du sang sur son palier et un pansement sanglant dans sa chambre. Une voix lui parle : l'homme invisible est chez lui, blessé. Il dit son nom, Griffin, un ancien camarade d'études de Kemp à l'université, et lui demande l'abri pour la nuit." },
+  XVIII: { text: "Griffin s'enferme pour dormir. Kemp, seul, lit les journaux, comprend la gravité des événements d'Iping et de Port-Stowe, et prend une décision." },
+  XIX: { notice: true, text: "Le matin, Griffin commence son histoire. Il explique à Kemp comment il a découvert la manière de rendre un corps invisible en changeant la façon dont il réfléchit la lumière, et à quel prix il a obtenu l'argent nécessaire." },
+  XX: { notice: true, text: "Griffin raconte ses expériences dans sa chambre de Londres : un chiffon, puis un chat rendus invisibles. Menacé par son propriétaire, il avale la drogue et vit la nuit terrible où son propre corps disparaît. Il met le feu à la maison et s'en va." },
+  XXI: { text: "Invisible et nu dans les rues de Londres, Griffin découvre les inconvénients de son état : la foule le bouscule, les chiens le flairent, la boue trahit ses pas, et il gèle." },
+  XXII: { notice: true, text: "Griffin passe la nuit caché dans un grand magasin, l'Omnium. Il s'habille et mange, mais s'endort et se réveille trop tard, sous les yeux des employés. Il doit tout abandonner et fuir, nu de nouveau." },
+  XXIII: { text: "Griffin trouve refuge dans la boutique d'un costumier de Drury Lane, où il se procure un déguisement, un faux nez et de l'argent. C'est ainsi qu'il est arrivé à Iping. Kemp écoute, de plus en plus inquiet." },
+  XXIV: { text: "Griffin expose à Kemp son projet : établir sur le pays un règne de terreur, avec l'aide d'un complice. Kemp gagne du temps. Des pas montent l'escalier : Griffin comprend qu'il a été trahi." },
+  XXV: { text: "Kemp explique au colonel Adye, chef de la police de Port-Burdock, comment prendre l'homme invisible : chiens, routes gardées, portes fermées, verre pilé sur les chemins. La chasse commence dans toute la contrée." },
+  XXVI: { text: "Furieux, l'homme invisible erre dans la campagne. Il croise M. Wicksteed, un intendant paisible, et le tue avec une barre de fer près d'une sablière. Le pays tout entier se dresse contre lui." },
+  XXVII: { text: "Griffin envoie à Kemp une lettre qui annonce le règne de la Terreur et sa première exécution : Kemp lui-même. Il assiège la maison, brise les fenêtres, blesse Adye qui tentait de sortir. La police accourt." },
+  XXVIII: { text: "Kemp s'échappe par la fenêtre et court vers la ville, poursuivi par l'homme invisible. Les ouvriers et les habitants de Port-Burdock lui viennent en aide." },
+  EP: { text: "Dans une petite auberge près de Port-Stowe, un aubergiste garde un secret et quelques livres qu'il relit le dimanche." },
+};
