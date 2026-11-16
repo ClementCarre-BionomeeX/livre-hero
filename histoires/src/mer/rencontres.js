@@ -36,7 +36,7 @@ module.exports = {
     title: "La baleine", back: true,
     text: [
       "Un souffle, à tribord. Un jet de vapeur monte de la mer, haut comme le grand mât, et retombe en pluie fine que le vent rabat sur le pont.",
-      "La baleine fait surface à cent brasses du navire. Son dos est long comme la Sterne, gris, couvert de coquillages. Elle souffle encore deux fois, puis elle sonde : sa queue se dresse hors de l'eau, noire et luisante, large comme une vergue, et glisse lentement sous la surface.",
+      "La baleine fait surface à cent brasses du navire. Son dos est long comme la Sterne, gris, couvert de coquillages. Elle souffle encore deux fois, puis elle sonde : sa queue se dresse hors de l'eau, noire et luisante, large comme une vergue, et glisse sous la surface avec la lenteur des choses que rien ne presse.",
       "Le pont reste silencieux un long moment. Puis Guénolé ôte la pipe de sa bouche. « Trente ans de mer, dit-il. J'en ai vu quatre. »",
       { with: "armelle", text: "Armelle regarde encore l'endroit où la baleine a disparu. « Mon mari en a vu une, la semaine où il s'est noyé, dit-elle. Ça ne veut rien dire. Les bêtes vont où elles vont. »" },
     ],
@@ -88,8 +88,8 @@ module.exports = {
     title: "La cloche dans la brume", back: true,
     text: [
       "La brume a tout avalé : la mer, les mâts, le bout du beaupré. Il reste pour seuls bruits le grincement des poulies et l'eau contre la coque.",
-      "Puis une cloche sonne, quelque part à bâbord. Un coup, lent et grave. Un silence. Un autre coup.",
-      "Sur le pont, les hommes se signent. Un vieux gabier murmure qu'on entend parfois sonner, par brume, la cloche des navires perdus. Guénolé le fait taire d'un regard.",
+      "Puis une cloche sonne, quelque part à bâbord. Un coup, lent et grave, qui semble monter de sous l'eau. Un silence, pendant lequel personne ne respire. Un autre coup.",
+      "Sur le pont, les hommes se signent, y compris ceux qui juraient le nom de Dieu une heure plus tôt. Un vieux gabier murmure qu'on entend parfois sonner, par brume, la cloche des navires perdus. Guénolé le fait taire d'un regard.",
       { if: { any: [{ has: "treguer:abord" }, { item: "routier" }] }, text: "« Une bouée à cloche, dit Kerlo à la barre. Les gens de Marbecq en ont mouillé une sur la Pierre Noire. C'est la houle qui la fait sonner. » Il met deux rayons de barre, et la cloche passe lentement sur l'arrière." },
       { if: { not: { any: [{ has: "treguer:abord" }, { item: "routier" }] } }, text: "Kerlo écoute, la tête penchée, et met deux rayons de barre pour s'éloigner du son. La cloche passe lentement sur l'arrière. Les hommes l'écoutent jusqu'à ce qu'elle se perde dans la brume." },
     ],
@@ -97,7 +97,7 @@ module.exports = {
   E_feux: {
     title: "Les feux sur les mâts", back: true,
     text: [
-      "Dans le noir du grain, une lueur bleue s'allume au bout du grand mât, puis une autre au bout de la vergue de misaine. Bientôt, toutes les pointes du gréement portent une petite flamme pâle et froide, qui siffle doucement.",
+      "Dans le noir du grain, une lueur bleue s'allume au bout du grand mât, puis une autre au bout de la vergue de misaine. Bientôt, toutes les pointes du gréement portent une petite flamme pâle et froide, qui siffle doucement ; et le navire entier, dessiné dans la nuit par ces cierges que nulle main n'a allumés, ressemble à sa propre chapelle ardente.",
       "Les hommes lèvent la tête, la pluie dans les yeux. Guénolé ôte son bonnet. « Les feux de Saint-Elme, dit-il. Ça veut dire que le pire du grain est passé. »",
       { with: "gabin", text: "Gabin a la bouche ouverte. « On l'explique dans les livres, dit-il à voix basse. C'est l'orage qui cherche à descendre par les mâts. » Puis, plus bas encore : « C'est beau quand même. »" },
       "Les flammes pâlissent une à une et s'éteignent. Le grain s'en va vers le nord.",

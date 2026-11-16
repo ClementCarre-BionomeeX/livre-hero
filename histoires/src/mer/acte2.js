@@ -5,7 +5,7 @@ module.exports = {
   D_large: {
     act: "II", title: "Le large", place: "pont",
     text: [
-      "La première nuit au large, la Sterne trouve son allure : un balancement long et régulier, qui monte du ventre du navire et que le corps finit par oublier. On allume le fanal de poupe. Les hommes de la bordée de repos descendent au gaillard, ceux du quart s'installent à l'abri du gaillard d'avant, et il reste pour tout bruit celui de l'eau le long de la coque.",
+      "La première nuit au large, la Sterne trouve son allure : un balancement long et régulier, qui monte du ventre du navire et que le corps finit par oublier, comme il oublie son propre pouls. On allume le fanal de poupe ; au-delà de son cercle jaune, la mer cesse d'être une étendue pour devenir une présence, que l'on entend respirer le long de la coque. Les hommes de la bordée de repos descendent au gaillard, ceux du quart s'installent à l'abri du gaillard d'avant, et chacun s'arrange pour mettre une cloison entre la nuit et lui.",
       { with: "gabin", text: "Gabin est resté sur le pont. Il a sorti de sa poche une petite boussole de cuivre et la regarde trembler sur sa paume. « C'était à mon père, dit-il. Il disait qu'une boussole ne ment jamais, que ce sont les hommes qui lisent mal. »" },
       { with: "armelle", text: "Armelle passe, une lanterne à la main, pour sa ronde du soir dans la cale. À chaque membrure, elle frappe la coque du plat de la main et tend l'oreille, comme un médecin qui ausculte une poitrine." },
     ],
@@ -17,7 +17,7 @@ module.exports = {
     act: "II", title: "Les tonneaux", place: "cale",
     text: [
       "Guénolé te secoue dans ta couchette avant le jour. « Viens voir. Viens voir ce qu'ils ont fait. »",
-      "Dans la cale, à la lueur de trois lanternes, l'eau clapote entre les varangues, plus haut qu'elle ne devrait. Sur le rang du bas, quatorze tonneaux sonnent creux. Les hommes de la bordée sont là, en chemise, pieds nus dans l'eau douce perdue, et le silence est complet.",
+      "Dans la cale, à la lueur de trois lanternes, l'eau clapote entre les varangues, plus haut qu'elle ne devrait. Sur le rang du bas, quatorze tonneaux sonnent creux. Les hommes de la bordée sont là, en chemise, pieds nus dans l'eau douce perdue ; et des marins qui contemplent leur soif à venir observent un silence que bien des curés leur envieraient.",
       "Puis une voix le rompt. Un gabier sort de derrière l'établi de la charpentière avec le coffre à outils d'Armelle ouvert dans les bras. « Sa grosse vrille. Elle est plus là. » Toutes les têtes se tournent vers Armelle, qui descend l'échelle à cet instant, sa lanterne à la main.",
       "Le second arrive derrière elle. Il regarde les tonneaux, puis les hommes, puis Armelle, et il dit d'une voix très calme : « Personne ne touche à personne. Kerbrat, tu vas rester dans ta cale jusqu'à ce qu'on y voie clair. Pour ta sécurité. »",
       "Armelle te regarde. Les hommes aussi, et leur regard attend quelque chose de toi.",
@@ -82,7 +82,7 @@ module.exports = {
   S_guet: {
     title: "L'escalier de la dunette", place: "arriere",
     text: [
-      "Tu t'assieds dans le noir, sous l'escalier de la dunette, à l'endroit où la coursive fait un coude. De là, tu tiens sous ton regard la porte du capitaine et le bas des marches. Le navire craque. Au-dessus de toi, sur la dunette, les pas de l'homme de quart vont et viennent, six dans un sens, six dans l'autre.",
+      "Tu t'assieds dans le noir, sous l'escalier de la dunette, à l'endroit où la coursive fait un coude. De là, tu tiens sous ton regard la porte du capitaine et le bas des marches. Le navire craque ; et dans l'obscurité, chacun de ses craquements prend la valeur d'un pas. Au-dessus de toi, sur la dunette, ceux de l'homme de quart vont et viennent, six dans un sens, six dans l'autre, d'une régularité d'horloge qui finit par compter les minutes à ta place.",
       { temps: ["grain", "tempete"], text: "La pluie tambourine sur le pont, au-dessus de ta tête. Elle couvre tous les bruits, les tiens comme ceux des autres." },
       "À huit heures, quelqu'un descend l'escalier, un pot de grès fumant à la main. Une veste bleue, à boutons de corne. Le second s'arrête devant la porte du capitaine, regarde à droite, puis à gauche, et pose le pot sur une marche.",
     ],
@@ -115,7 +115,7 @@ module.exports = {
       "À huit heures moins le quart, tu es dans la cambuse de Rozenn. Tu lui annonces seulement que, désormais, tu monteras toi-même le grog du capitaine, et que le pot passera de ses mains aux tiennes, sans escale. Elle te regarde un moment, puis te tend le pot sans poser de question.",
       "Au pied de l'escalier de la dunette, le second t'attend. Il voit le pot dans tes mains, et quelque chose traverse son visage, très vite. « Tu as pris mon travail ? »",
       "« Le capitaine m'a fait demander », dis-tu. Il s'efface pour te laisser passer, avec une petite révérence. « Prends-en bien soin, alors. »",
-      "Les jours suivants, Daoulas purge le capitaine et le fait boire de l'eau, rien que de l'eau, qu'il tire lui-même du tonneau. Le troisième jour, le vieil homme réclame de la soupe, et le ton sur lequel il la réclame est déjà un bon signe.",
+      "Les jours suivants, Daoulas purge le capitaine et le fait boire de l'eau, rien que de l'eau, qu'il tire lui-même du tonneau. Le troisième jour, le vieil homme réclame de la soupe, déclare que l'eau claire est une boisson de grenouille et menace de débarquer son chirurgien sur le premier caillou venu ; Daoulas en conclut qu'il est sauvé.",
     ],
     fx: { flag: "cap:soigne", quest: "II_capitaine", regard: { morvan: "hostile", coet: "redevable" }, ep: ["histoire", 2000] },
     choices: [{ back: "H_pont" }],
@@ -125,7 +125,7 @@ module.exports = {
   S_cale_nuit: {
     title: "La cale, la nuit", place: "cale",
     text: [
-      "La nuit, la cale devient un autre lieu. Les fanaux sont éteints, sauf un, au pied de l'échelle. Les caisses font des murs noirs. On entend l'eau contre la coque, et les rats, qui ont la nuit pour eux.",
+      "La nuit, la cale devient un autre lieu. Les fanaux sont éteints, sauf un, au pied de l'échelle, dont la flamme éclaire tout juste sa propre vitre. Les caisses dressent des murailles noires, entre lesquelles on avance comme dans les ruelles d'une ville morte ; l'eau frappe la coque à hauteur de ton oreille, à l'épaisseur d'une planche ; et les rats, qui ont la nuit pour eux, vaquent à leurs affaires avec l'aplomb de bourgeois dans leur quartier.",
       { with: "armelle", text: "Armelle a apporté son pied-de-biche, enveloppé dans un chiffon pour qu'il ne sonne pas contre le bois. « Si on nous prend, dit-elle, c'est moi qui ai eu l'idée. Moi, ils me pendront pas, ils ont besoin d'une charpentière. »" },
       { without: "armelle", text: "Sur l'établi d'Armelle, tu prends un pied-de-biche. Il est lourd et froid." },
       "Il faut défaire des cordages, déplacer des caisses en silence, et soulever les couvercles sans faire crier les clous.",
@@ -160,9 +160,9 @@ module.exports = {
   T_tempete: {
     act: "II", title: "La tempête", place: "pont",
     text: [
-      "Depuis l'aube, le ciel a pris une couleur de plomb fondu, et la houle arrive du sud-ouest en collines lentes. À dix heures, le vent tombe d'un coup. Guénolé dit à voix basse : « Ça y est. » Puis il hurle de toutes ses forces : « Tout le monde sur le pont ! »",
-      "Le vent revient d'un bloc, comme un mur. La Sterne se couche, ses vergues effleurent la mer, puis elle se relève en grondant. La pluie arrive à l'horizontale, chargée de sel. Les lames grandissent à vue d'œil ; en une heure, elles dépassent le grand hunier.",
-      { if: { has: "cap:soigne" }, text: "Le capitaine Coët est monté sur le pont, soutenu par Daoulas. Il s'est fait attacher à la rambarde de la dunette, et il donne ses ordres d'une voix éraillée, dont le vent emporte la moitié." },
+      "Depuis l'aube, le ciel a pris une couleur de plomb fondu, et la houle arrive du sud-ouest en collines lentes, huileuses, que nul vent ne pousse encore. À dix heures, le peu de brise qui restait tombe d'un coup ; les voiles pendent, les poulies se taisent, et dans ce calme chacun entend respirer son voisin. Guénolé dit à voix basse : « Ça y est. » Puis il hurle de toutes ses forces : « Tout le monde sur le pont ! »",
+      "Le vent revient d'un bloc, comme un mur. La Sterne se couche, ses vergues effleurent la mer, puis elle se relève en grondant. La pluie arrive à l'horizontale, chargée de sel. Les lames grandissent à vue d'œil ; en une heure, elles dépassent le grand hunier, et le navire descend dans leurs creux comme on descend dans une fosse dont on voit monter les parois.",
+      { if: { has: "cap:soigne" }, text: "Le capitaine Coët est monté sur le pont, soutenu par Daoulas. Il s'est fait attacher à la rambarde de la dunette, et il donne ses ordres d'une voix éraillée, dont le vent emporte la moitié ; l'autre moitié suffit, car elle est faite d'injures que tout le bord connaît par cœur." },
       { if: { not: { has: "cap:soigne" } }, text: "Le capitaine est resté en bas. C'est le second qui commande, accroché à la barre avec Kerlo, et il commande bien : ses ordres tombent juste, au bon moment, d'une voix claire." },
       "On tend des lignes de vie de l'avant à l'arrière. Chacun reçoit sa tâche. On te crie la tienne.",
     ],
@@ -219,7 +219,7 @@ module.exports = {
   T_homme: {
     title: "Un homme à la mer", place: "pont", urgent: 20,
     text: [
-      "Une lame plus haute que les autres monte à bâbord, verte et noire, sous une crête blanche qui fume. Quelqu'un crie. La lame tombe sur le pont de tout son poids, balaie tout de l'avant à l'arrière, et repart par-dessus le bastingage de tribord.",
+      "Une lame plus haute que les autres monte à bâbord, verte et noire, sous une crête blanche qui fume ; elle prend son temps, comme une chose sûre de son fait. Quelqu'un crie. La lame tombe sur le pont de tout son poids, balaie tout de l'avant à l'arrière, et repart par-dessus le bastingage de tribord.",
       { with: "pierrick", text: "Quand l'eau s'est retirée, la place de Pierrick est vide. Tu le vois dans l'écume, à vingt brasses : une petite tête rousse qui monte et descend, et un bras levé." },
       { without: "pierrick", text: "Quand l'eau s'est retirée, un jeune gabier, Loïc, a disparu. Tu le vois dans l'écume, à vingt brasses : une tête qui monte et descend, et un bras levé." },
     ],
@@ -370,7 +370,7 @@ module.exports = {
     text: [
       { if: { is: { terre: "oui" } }, text: "La cloche du bord sonne le rappel. Tu redescends à la plage, et la chaloupe te ramène au navire avec les derniers hommes." },
       "À cinq heures, on vire l'ancre. Deux matelots remontent de la plage les derniers barils pleins et, sur l'ordre du second, les déposent dans la chaloupe au lieu de les descendre dans la cale. Puis on hisse la chaloupe à sa place, entre les mâts, et on la couvre de sa bâche.",
-      "La Sterne sort de l'anse au moment où Soizic allume son feu, là-haut. La brume se referme derrière vous, et le phare devient une tache rouge, puis se perd.",
+      "La Sterne sort de l'anse au moment où Soizic allume son feu, là-haut. La brume se referme derrière vous comme une porte ; le phare devient une tache rouge, puis une rougeur, puis un souvenir.",
     ],
     fx: { set: { escale: null, mer: "brumes" } },
     choices: [{ label: "Rester sur le pont", to: "H_pont" }],
@@ -381,7 +381,7 @@ module.exports = {
     title: "Le quart de nuit", place: "pont", back: true,
     text: [
       "Tu prends le quart avec la bordée de Kerlo, de minuit à quatre heures. Le timonier parle à peine. Ses yeux vont du compas à la voile, et de la voile au compas. Tu tiens la lanterne de l'habitacle, et tu apprends à lire la rose des vents qui tremble dans son bol de cuivre.",
-      { temps: "brume", text: "La brume colle à tout. On sonne la cloche toutes les deux minutes, et on écoute. Une fois, très loin, une autre cloche répond, et Kerlo met un rayon de barre." },
+      { temps: "brume", text: "La brume colle à tout ; elle supprime la proue, puis le grand mât, puis ta propre main au bout de ton bras, et laisse le navire seul avec ses bruits. On sonne la cloche toutes les deux minutes, et on écoute. Une fois, très loin, une autre cloche répond, d'un côté que l'oreille renonce à désigner ; Kerlo met un rayon de barre, à tout hasard, comme on cède le pas à un inconnu dans une rue obscure." },
       { temps: ["calme", "brise"], text: "Le ciel est clair. Kerlo te montre l'Étoile du Nord, au bout de la queue de la Petite Ourse, et la façon de la garder sur l'épaule gauche quand on fait route au sud-ouest." },
       { temps: ["frais", "grain", "tempete"], text: "Le vent fouette la pluie sur la dunette. Kerlo tient la barre à deux mains, les jambes écartées. Chaque lame arrive par le travers avec le bruit d'un mur qui s'effondre." },
       { after: "R_depart", once: true, text: "À minuit, le second monte sur la dunette pour la relève. Il se penche sur le compas, puis dit à Kerlo, à mi-voix : « Sud-sud-ouest, un quart sud. Le courant nous drosse. » Kerlo tourne la roue en silence. Cet après-midi, dans le carré, tu as regardé la carte du capitaine : la route portée au crayon passe un quart plus au nord." },
@@ -396,7 +396,7 @@ module.exports = {
   S_chaloupe: {
     act: "II", title: "La chaloupe", place: "pont",
     text: [
-      "Tu attends que l'homme de quart soit à l'avant pour te glisser sous la bâche de la chaloupe. Il y fait noir comme dans un four, et ça sent le goudron.",
+      "Tu attends que l'homme de quart soit à l'avant pour te glisser sous la bâche de la chaloupe. Il y fait noir comme dans la poche d'un usurier, et ça sent le goudron.",
       { item: "lanterne_sourde", if: { item: "lanterne_sourde" }, text: "Tu entrouvres le volet de ta lanterne sourde. Un trait de lumière, mince comme une lame, se pose sur ce qui se trouve là." },
       "À tâtons, tu dresses l'inventaire : deux barils pleins, bien calés sous les bancs ; un sac de biscuit dans une toile cirée ; une voile roulée, toute neuve ; un compas de route dans sa boîte ; un coffre de mer fermé à clé. Sur le couvercle, des initiales gravées au fer : M. L. H.",
     ],
@@ -425,7 +425,7 @@ module.exports = {
   S_chambre: {
     title: "La chambre du second", place: "arriere",
     text: [
-      "Le second est sur la dunette avec Kerlo. Tu entres dans sa chambre comme on entre chez soi, et tu refermes la porte. C'est une chambre bien tenue : une couchette au carré, un portemanteau, une tablette avec le livre de bord, une rangée de livres, un rasoir et un miroir.",
+      "Le second est sur la dunette avec Kerlo. Tu entres dans sa chambre comme on entre chez soi, et tu refermes la porte. C'est une chambre tenue comme la conscience d'une dévote, où chaque chose est à sa place et où rien ne traîne : une couchette au carré, un portemanteau, une tablette avec le livre de bord, une rangée de livres, un rasoir et un miroir.",
       "Sous la couchette, son second coffre, celui des affaires de tous les jours, s'ouvre sans clé. Sous les chemises pliées, il y a un portefeuille de cuir, et dans le portefeuille, une lettre pliée en quatre, au cachet de cire verte de la maison Corbière.",
     ],
     fx: { item: "lettre_corbiere", clue: "m_lettre", flag: "sait:morvan_corbiere", tie: "morvan_corbiere", ep: ["histoire", 2000] },
