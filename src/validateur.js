@@ -5,13 +5,14 @@
 // quest leaves a tag that a later act or an ending reads (its echo).
 (function (root) {
   var M = typeof module !== "undefined" && module.exports ? require("./moteur.js") : root.Moteur;
+  var B = typeof module !== "undefined" && module.exports ? require("./bibliotheque.js") : root.Bibliotheque;
 
   var COND_KEYS = ["voie", "trouvaille", "trouvailles", "is", "count", "has", "not", "all", "any", "clues", "clue", "mark", "present", "loyal", "met", "gone", "conf", "fear", "relics", "relic",
     "given", "item", "gold", "food", "pv", "clock", "fac", "level", "day", "since", "night", "seen", "arch", "quest", "place", "known", "person", "party",
     "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "via", "regard", "fresh", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed",
     "temps", "saison", "blessure", "cicatrice", "fatigue", "trait", "duel",
     "recit", "doute", "dementi", "silences", "geste", "poids", "angoisse", "attache",
-    "secret", "confie", "garde", "savoir", "lu", "voile", "voiles", "lens", "scrutin", "role", "voix", "fil", "carteJouee"];
+    "secret", "confie", "garde", "savoir", "lu", "voile", "voiles", "lens", "scrutin", "role", "voix", "fil", "carteJouee", "possede"];
   // The siege's conditions (8.0) carry a second key (is, member, hero, losses): they are read by their first key.
   var SIEGE_KEYS = ["scrutin", "role", "voix", "depot", "fil", "voiles", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue", "trait", "duel"];
   var FX_KEYS = ["voie", "regard", "aspect", "qui", "resume", "set", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
@@ -20,7 +21,7 @@
     "stock", "promise", "keep", "break", "forgive", "sway", "sound", "camp", "tie",
     "meteo", "blessure", "soigner", "guerir", "fatigue", "trait", "pratique",
     "recit", "geste", "angoisse", "attache",
-    "secret", "surprend", "confier", "recharge", "devoile", "fil", "elan"];
+    "secret", "surprend", "confier", "recharge", "devoile", "fil", "elan", "pioche", "gagne", "perd", "defausse"];
   var DOM_KEYS = Object.keys(M.DOMAINS);
 
   // Collects every tag a condition reads (for the echo check).
@@ -134,6 +135,8 @@
       if (!ad || typeof ad !== "object" || !Array.isArray(ad.themes) || !ad.themes.length || ad.themes.some(function (t) { return typeof t !== "string" || !t.trim(); }))
         E("« adult » s'écrit { themes: [\"…\", …] } : la liste, non vide, des thèmes que le lecteur doit connaître avant d'ouvrir le livre.");
     }
+    // Clément, 17/11: the genres the library sorts and filters by (src/bibliotheque.js says which exist).
+    var tg = B.checkTags(story); tg.errors.forEach(E); tg.warnings.forEach(W);
     ["companions", "factions", "relics", "mysteries", "clues"].forEach(function (k) { story[k] = story[k] || {}; });
     story.quests = story.quests || []; story.banter = story.banter || [];
     var P = story.passages, acts = {};
@@ -280,6 +283,7 @@
       if (k === "clues" && !story.mysteries[c.clues]) E(where + " : mystère « " + c.clues + " » inconnu.");
       if (k === "clue" && !story.clues[c.clue]) E(where + " : indice « " + c.clue + " » inconnu.");
       if (k === "fil") { if (!(story.fils || {})[c.fil]) E(where + " : fil « " + c.fil + " » inconnu (fils)."); [].concat(c.is || []).forEach(function (x) { if (!M.THREAD_STATES[x] && x !== "aucun") E(where + " : état de fil « " + x + " » inconnu (ouvert, noue, rate, aucun)."); }); }
+      if (k === "possede") [].concat(c.possede).forEach(function (x) { if (!(story.cartes || {})[x]) E(where + " : possede, carte « " + x + " » inconnue (cartes)."); });
       if (k === "carteJouee") [].concat(c.carteJouee).forEach(function (x) { if (!(story.cartes || {})[x]) E(where + " : carte « " + x + " » inconnue (cartes)."); });
       if (k === "savoir") [].concat(c.savoir).forEach(function (x) { if (!(story.savoirs || {})[x]) E(where + " : savoir « " + x + " » inconnu (story.savoirs)."); });
       if (k === "lu" && !story.passages[c.lu]) E(where + " : passage « " + c.lu + " » inconnu (condition lu).");
@@ -345,6 +349,23 @@
       [].concat(fx.clue || []).forEach(function (x) { if (!story.clues[x]) E(where + " : indice « " + x + " » inconnu."); });
       if (fx.fil) Object.keys(fx.fil).forEach(function (k) { if (["ouvre", "noue", "rate"].indexOf(k) < 0) E(where + " : fil, « " + k + " » (attendu : ouvre, noue ou rate)."); else [].concat(fx.fil[k]).forEach(function (x) { if (!(story.fils || {})[x]) E(where + " : fil « " + x + " » inconnu (fils)."); }); });
       if (fx.elan != null && typeof fx.elan !== "number") E(where + " : elan, un nombre.");
+      ["pioche", "defausse"].forEach(function (k) { if (fx[k] != null && !(fx[k] >= 1 && fx[k] === Math.floor(fx[k]))) E(where + " : " + k + ", un entier de 1 ou plus (le nombre de cartes)."); });
+      var CK = function (x, w) { if (!(story.cartes || {})[x]) E(where + " : " + w + ", carte « " + x + " » inconnue (cartes)."); };
+      if (fx.gagne != null) {
+        var G = fx.gagne;
+        if (G && typeof G === "object" && !Array.isArray(G)) { if (G.carte == null) E(where + " : gagne, { carte, dans } demande carte."); [].concat(G.carte || []).forEach(function (x) { CK(x, "gagne"); }); if (G.dans != null && !M.GAIN_PLACES[G.dans]) E(where + " : gagne, dans « " + G.dans + " » (attendu : " + Object.keys(M.GAIN_PLACES).join(", ") + ")."); }
+        else [].concat(G).forEach(function (x) { CK(x, "gagne"); });
+      }
+      if (fx.perd != null) [].concat(fx.perd).forEach(function (L) {
+        if (L && typeof L === "object") {
+          Object.keys(L).forEach(function (k) { if (["carte", "type", "enseigne", "n", "de"].indexOf(k) < 0) E(where + " : perd, « " + k + " » inconnu (carte, type, enseigne, n, de)."); });
+          [].concat(L.carte || []).forEach(function (x) { CK(x, "perd"); });
+          [].concat(L.type || []).forEach(function (x) { if (!M.CARD_TYPES[x]) E(where + " : perd, type « " + x + " » inconnu."); });
+          [].concat(L.enseigne || []).forEach(function (x) { if (!M.SUITS[x]) E(where + " : perd, enseigne « " + x + " » inconnue."); });
+          if (L.de != null && !M.LOSS_FROM[L.de]) E(where + " : perd, de « " + L.de + " » (attendu : main ou jeu).");
+          if (L.n != null && !(L.n >= 1 && L.n === Math.floor(L.n))) E(where + " : perd, n un entier de 1 ou plus.");
+        } else CK(L, "perd");
+      });
       [].concat(fx.learn || []).forEach(function (x) { if (!(story.savoirs || {})[x]) E(where + " : savoir « " + x + " » inconnu (story.savoirs)."); });
       if (fx.voie && !(story.voies || {})[fx.voie]) E(where + " : voie « " + fx.voie + " » inconnue.");
       [].concat(fx.join || [], fx.met || [], fx.leave || []).concat(Object.keys(fx.conf || {}), Object.keys(fx.fear || {}))
@@ -1083,7 +1104,7 @@
         if (c.sys) return { d: Infinity, fixed: null };
         var raw = c;
         cand(live(raw.to), null); if (raw.win) cand(live(raw.win.to), 0.94); if (raw.lose) cand(live(raw.lose.to), 0.02);
-        // 11.1: when both outcomes of a test lead to the target, the nearer one on the map may be the wrong one (a
+        // 11.3: when both outcomes of a test lead to the target, the nearer one on the map may be the wrong one (a
         // switch further on reads what the failure left). One walk in three takes the other outcome.
         if (otherWay && raw.win && raw.lose && out != null && rnd() < 0.34) {
           var dOther = Infinity; [].concat(live(out > 0.5 ? raw.lose.to : raw.win.to)).forEach(function (t) { if (d[t] != null && d[t] < dOther) dOther = d[t]; });
@@ -1160,7 +1181,7 @@
           var budget = 300, near = [], steps = door ? 1000 : 300;
           if (door) from.sort(function (a, b) { return actIdx[P[b].act] - actIdx[P[a].act] || d[a] - d[b]; });
           from.forEach(function (k) { snaps[k].forEach(function (x) { if (door) { s = JSON.parse(x); if (!open(door.shut)) return; } near.push(x); }); });
-          // 11.1: the marks every choice leading to the target asks for (if: has). The kept states that already hold
+          // 11.3: the marks every choice leading to the target asks for (if: has). The kept states that already hold
           // them go first, however far: such a mark is often earned much earlier (a friend made the day before).
           if (otherWay) {
             var need = needOf(target);
@@ -1209,7 +1230,7 @@
       });
       // Last: what is still missing behind a door that shuts (see doorOf) is looked for with that door kept open.
       ids.filter(function (id) { return !seen[id]; }).forEach(function (target) { var door = doorOf(target); if (door.shut.length) seek(target, "plain", door); });
-      // 11.1, last of all: what is still missing is looked for another way (see needOf, and the other outcome of a
+      // 11.3, last of all: what is still missing is looked for another way (see needOf, and the other outcome of a
       // test in score). Kept apart so that the walks above stay what they were.
       otherWay = true;
       ids.filter(function (id) { return !seen[id]; }).forEach(function (target) { if (onlyT0 && target !== onlyT0) return; seek(target, "plain", null); });
@@ -1230,7 +1251,7 @@
     var GHOST = [], GHOST_FROM = {}, ACT_IDS = (story.acts || []).map(function (x) { return x.id; });
     if (story.multi) {
       // A world choice (monde: key) is taken by every player alike: its marks are the player's own, never the ghost's.
-      // 11.1: each mark and each shared state knows the first act where a page can set it (GHOST_FROM): the others
+      // 11.3: each mark and each shared state knows the first act where a page can set it (GHOST_FROM): the others
       // cannot have set it before. Why: on a long story with many rendezvous, a ghost drawing every mark again at
       // each of them ended with all of them set, the contrary ones together, and whole branches were never played.
       Object.keys(story.passages).forEach(function (id) {

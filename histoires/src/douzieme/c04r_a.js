@@ -39,7 +39,7 @@ Object.assign(P, {
     text: [
       "Elles sont dans la rue. On les a sorties une à une et rangées contre le mur, debout, au grand soleil, comme des gens qu'on a fait descendre en chemise : les comtoises à gros ventre, les cartels, les pendules de voyage, et au milieu la grande, celle à poids, que deux gardes ont eu du mal à passer par la porte. Elles marchent toutes. Elles n'ont jamais vu le jour, et elles battent là-dedans du même pas qu'à la chandelle.",
       "Un caporal les prend l'une après l'autre. Il ouvre la caisse, vide ce qu'il y trouve sur une bâche, sonde le socle avec une tringle, retourne le cadran. Il cherche un cahier. Quand il en a fini avec une, il arrête le balancier, du plat de la main, par propreté, comme on ferme une porte derrière soi.",
-      "Le battement baisse. Tu ne saurais dire de combien : on n'entend pas une horloge de moins sur quarante. On entend seulement, au bout d'un moment, que la rue est plus grande qu'elle n'était. Les gens du village regardent faire, sans un mot, le chapeau à la main pour quelques-uns. Tu t'aperçois que tu comptes. Trente et une. Trente.",
+      "Le battement baisse. Tu ne saurais dire de combien : on n'entend pas une horloge de moins sur quarante. On entend seulement, au bout d'un moment, que la rue est plus grande qu'elle n'était. Les gens du village regardent faire en silence, le chapeau à la main pour quelques-uns. Tu t'aperçois que tu comptes. Trente et une. Trente.",
       "Les volets de la maison sont clos. Il y a deux casaques à la porte, et une troisième, à cheval, au coin de la rue : un courrier, botté pour la route, à qui un sergent remet un pli cacheté. « Pour le camp d'Arvoise. En main propre à Monseigneur. » Le courrier part au galop vers le nord, par la route qui contourne la lisière.",
     ],
     choices: [{ back: "K04r_village" }] },
@@ -149,7 +149,7 @@ Object.assign(P, {
   K04r_camp_refus: { act: "II", title: "La lisière, c'est moi qui te l'ai apprise", place: "troisnoyers",
     text: [
       { outcome: "lose", text: "Tu racontes la grange, les lanternes, la vieille fouillée. La Courtepaille t'écoute en regardant ta veste, à la hauteur de l'estomac, où il y a un angle que n'ont pas les estomacs. Elle sourit." },
-      "Elle ne se lève pas. Elle n'appelle personne. Il fait grand jour, le village est à deux cents pas, et elle a toujours su choisir ses heures.",
+      "Elle reste assise. Elle n'appelle personne. Il fait grand jour, le village est à deux cents pas, et elle a toujours su choisir ses heures.",
       "« Tu t'en vas dedans, hein ? Loin. Avec ce que tu portes. » Elle hoche la tête, presque avec affection. « Je t'ai ramassé{e} à dix ans au bord d'un fossé. Je t'ai appris où poser les pieds, combien de souffles vaut une pincée, comment on reconnaît une maison qui vaut la peine. La lisière, c'est moi qui te l'ai apprise. » Elle se penche. « On se reverra dedans, mon petit. Je la connais mieux que toi. »",
     ],
     choices: [{ label: "Tourner le dos, et sentir ses yeux jusqu'au chemin creux", to: "K04r_rouget" }] },
@@ -204,7 +204,7 @@ Object.assign(P, {
     text: [
       "Babolin s'arrête de sangler. « Quatre. Pour un garçon d'écurie qui n'a jamais vu une écurie. » Il te regarde, puis regarde Rouget, qui s'est fait tout petit derrière la roue. « Je l'avais acheté pour lui rendre service. Je te le revends pour la même raison, avec un écu de mieux : c'est ce qu'on appelle une bonne action dans mon commerce. »",
       "Il empoche. « Il est à toi. C'est-à-dire qu'il n'est à personne, ce qui, pour ce que j'en ai vu, lui fera drôle. »",
-      "Rouget ne dit rien. Il regarde les quatre écus disparaître dans le gilet jaune. C'est la troisième fois de sa vie qu'on le paie, et la première que celui qui paie ne l'emporte pas.",
+      "Rouget regarde les quatre écus disparaître dans le gilet jaune. C'est la troisième fois de sa vie qu'on le paie, et la première que celui qui paie ne l'emporte pas.",
     ],
     choices: [{ back: "K04r_babolin" }] },
   K04r_babolin_part: { act: "II", title: "La route du fleuve", place: "troisnoyers",

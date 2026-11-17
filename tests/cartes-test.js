@@ -83,4 +83,58 @@ it("le Courrier de Vèze se construit sans erreur", function () {
   var r = V.validate(story(), { games: 1200 });
   assert.deepStrictEqual(r.errors, []);
 });
+// ---- la vie du deck (9.8)
+function atFirstStop(deck) { var st = story(), s = fresh(st, deck); M.choose(st, s, M.view(st, s).choices[0]); return { st: st, s: s }; }
+it("une carte gagnée arrive dans la main, ou dans la pioche si l'histoire le dit", function () {
+  var g = atFirstStop(), st = g.st, s = g.s, n = s.jeu.main.length, p = s.jeu.pioche.length;
+  M.apply(st, s, { gagne: "mulet" });
+  assert.strictEqual(s.jeu.main.length, n + 1); assert.ok(s.jeu.main.indexOf("mulet") >= 0);
+  M.apply(st, s, { gagne: { carte: "medaille", dans: "pioche" } });
+  assert.strictEqual(s.jeu.pioche.length, p + 1); assert.ok(s.jeu.pioche.indexOf("medaille") >= 0);
+  assert.ok(M.evalCond(st, s, { possede: "medaille" }) && !M.evalCond(st, s, { possede: "sauf_conduit" }));
+});
+it("une carte perdue quitte le jeu : main d'abord, puis défausse et pioche ; par type, au hasard dans la main", function () {
+  var g = atFirstStop(["loups", "loups", "loups", "loups", "loups", "grange", "bourse"]), st = g.st, s = g.s;
+  s.jeu.main = ["loups", "grange"]; s.jeu.defausse = ["bourse"]; s.jeu.pioche = ["loups"];
+  M.apply(st, s, { perd: "bourse" });
+  assert.deepStrictEqual(s.jeu.defausse, []); assert.deepStrictEqual(s.jeu.perdues, ["bourse"]);
+  M.apply(st, s, { perd: { type: "peril", n: 2 } });
+  assert.deepStrictEqual(s.jeu.main, ["grange"]); assert.deepStrictEqual(s.jeu.pioche, []);
+  M.apply(st, s, { perd: { de: "main" } });
+  assert.deepStrictEqual(s.jeu.main, []); assert.strictEqual(s.jeu.perdues.length, 4);
+  M.apply(st, s, { perd: "rival" });                                     // une carte qu'on n'a pas : rien ne se perd
+  assert.strictEqual(s.jeu.perdues.length, 4);
+});
+it("tirer et défausser en cours d'histoire ; la défausse se rebat quand la pioche est vide", function () {
+  var g = atFirstStop(), st = g.st, s = g.s;
+  s.jeu.main = ["loups", "grange"]; s.jeu.pioche = []; s.jeu.defausse = ["bourse", "corbeau"];
+  M.apply(st, s, { defausse: 1 });
+  assert.strictEqual(s.jeu.main.length, 1); assert.strictEqual(s.jeu.defausse.length, 3);
+  M.apply(st, s, { pioche: 2 });
+  assert.strictEqual(s.jeu.main.length, 3); assert.strictEqual(s.jeu.pioche.length + s.jeu.defausse.length, 1);
+});
+it("une fois par halte, on échange une carte de sa main contre celle du dessus de la pioche", function () {
+  var g = atFirstStop(), st = g.st, s = g.s, before = s.jeu.main.length, top = s.jeu.pioche[0], out = s.jeu.main[0];
+  var sw = M.view(st, s).choices.filter(function (c) { return c.sys === "echange"; });
+  assert.ok(sw.length >= 1 && M.view(st, s).hand.echange);
+  M.choose(st, s, sw.filter(function (c) { return c.carte === out; })[0]);
+  assert.strictEqual(s.node, "H1_gue"); assert.strictEqual(s.jeu.main.length, before);
+  assert.strictEqual(s.jeu.main[s.jeu.main.length - 1], top); assert.strictEqual(s.jeu.defausse[s.jeu.defausse.length - 1], out);
+  assert.strictEqual(M.view(st, s).choices.filter(function (c) { return c.sys === "echange"; }).length, 0);
+  assert.ok(!M.view(st, s).hand.echange);
+});
+it("une carte gagnée en route a sa propre scène là où l'histoire l'a prévue", function () {
+  var g = atFirstStop(), st = g.st, s = g.s;
+  s.node = "H3_porte"; s.jeu.haltes = { gue: "loups", col: "loups" }; s.jeu.main = []; s.jeu.vue = null;
+  M.apply(st, s, { gagne: "sauf_conduit" });
+  M.choose(st, s, cardsOf(M.view(st, s)).filter(function (c) { return c.carte === "sauf_conduit"; })[0]);
+  assert.strictEqual(s.node, "C_jeton_porte");
+});
+it("le validateur refuse un gain ou une perte de carte inconnue", function () {
+  var st = story(); st.passages.A_depart.fx = { gagne: "licorne", perd: { type: "dragon" }, pioche: 0 };
+  var r = V.staticCheck(st);
+  assert.ok(r.errors.some(function (e) { return /gagne, carte « licorne »/.test(e); }), r.errors.join("\n"));
+  assert.ok(r.errors.some(function (e) { return /perd, type « dragon »/.test(e); }));
+  assert.ok(r.errors.some(function (e) { return /pioche, un entier/.test(e); }));
+});
 console.log(n + " tests des cartes passés");

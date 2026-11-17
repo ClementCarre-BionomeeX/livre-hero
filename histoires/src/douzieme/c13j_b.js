@@ -39,7 +39,7 @@ Object.assign(P, {
       { first: true, text: "Elle est rose, là-haut, d'un rose de coquille, avec son grand œil qui commence à luire. Au-dessous d'elle, toute une ville se fait belle pour venir se ranger à ses pieds. Tu es seul{e}, dans ces quarante mille, à savoir combien de temps durera la toilette." },
       { first: true, text: "Il te reste la matinée. On monte à huit heures, à portes ouvertes, avec la foule : après cela, les rues du bas seront vides, et ce qui n'y aura pas été dit ne le sera plus." },
       { again: true, text: "Les quais, les draps aux fenêtres, les barbiers en plein vent. La Tour a quitté son rose pour un blanc de craie." },
-      { again: true, with: "perrine", text: "Perrine marche à ton côté, sa hotte au dos. Elle regarde les choses une à une, sans rien dire, comme on fait l'inventaire d'une chambre qu'on quitte." },
+      { again: true, with: "perrine", text: "Perrine marche à ton côté, sa hotte au dos. Elle regarde les choses une à une, comme on fait l'inventaire d'une chambre qu'on quitte." },
     ],
     choices: [
       { label: "La messe de cinq heures, où Monseigneur veut être vu", hide: { seen: "K13j_messe" }, to: "K13j_messe" },
@@ -487,7 +487,7 @@ Object.assign(P, {
       "Ils sortent par rang de taille, le plus grand devant. Ils sont neuf, en tablier vert, les mains gantées de fil. Chacun a sur les oreilles un bandeau de drap gris, noué derrière la nuque, et l'on voit, au bord du drap, luire un peu de cire. Ils marchent sans se parler ; ils ne s'entendraient pas. Le premier porte un niveau d'eau dans son étui. Le deuxième, une lanterne. Les suivants, des coffrets plats, une règle de cuivre, un sablier vide, haut d'une coudée.",
       "Le dernier est le petit Hurel. Il porte le maillet, roulé dans sa serge verte, à deux bras, contre sa poitrine. Il a sa montre neuve. Il regarde droit devant lui, avec une figure de première communion.",
       { after: "j:ansel_travers", text: "En passant devant l'arcade, il te cherche. Il te trouve. Rien ne bouge dans sa figure ; mais le paquet de serge penche, d'un quart, et se redresse." },
-      "Melchior Aubespin vient derrière eux, les mains libres. Il a les trois clefs à sa ceinture, sous l'habit. Lui seul n'a pas de bandeau : il le mettra en bas, au dernier moment, et il tient à entendre jusque-là. Devant le doyen Lunel, il s'incline, de son inclinaison exacte. « Monsieur le doyen, je vous rends une ville à l'heure. » Le doyen, qui n'a pas dormi, ne trouve rien à répondre.",
+      "Melchior Aubespin vient derrière eux, les mains libres. Il a les trois clefs à sa ceinture, sous l'habit. Lui seul n'a pas de bandeau : il le mettra en bas, au dernier moment, et il tient à entendre jusque-là. Devant le doyen Lunel, il s'incline, de son inclinaison exacte. « Monsieur le doyen, je vous rends une ville à l'heure. » Le doyen, qui n'a pas dormi, reste court.",
       "Deux petits hommes de cuivre, hauts comme des enfants, une cloche dans la poitrine, se détachent du mur et le suivent, à trois pas, du même pied.",
       "Au fond de la cour, la poterne de la ruelle des Sonneurs a sa barre baissée, à hauteur de ceinture, pour le public. Les huit grands se courbent. Le petit Hurel passe dessous sans se baisser. On l'entend rire, tout seul, dans son silence de cire.",
       { if: DIXIEME, text: "Monsieur Fourchon ferme la marche. À ta hauteur, il tire sa montre, te la montre, et la rentre. Onze heures. La porte au papillon." },

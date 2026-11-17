@@ -3,6 +3,11 @@
  "title": "Le Douzième Coup",
  "subtitle": "À deux · une ville arrêtée depuis soixante ans, et un cahier qui s'écrit des deux côtés",
  "summary": "Il y a soixante ans, le jour du Grand Midi, la grande horloge de Méridane a sonné onze coups. Le douzième n'est jamais venu. Depuis, la capitale est restée telle qu'elle était à cet instant, avec ses gens, ses oiseaux et l'eau de ses fontaines, et ce silence gagne chaque année un peu de terre. Il arrive ce printemps aux Trois-Noyers. Deux jeunes gens partent à sa rencontre : l'un marchera vers la ville arrêtée ; l'autre passera une porte, et fera la même route soixante ans plus tôt. Un cahier jumeau porte leurs lignes de l'un à l'autre.",
+ "tags": [
+  "fantasy",
+  "aventure",
+  "voyage"
+ ],
  "author": "Claude, pour Clément et ses enfants",
  "age": 10,
  "skin": "parchemin",
@@ -5333,7 +5338,7 @@
    "text": [
     {
      "first": true,
-     "text": "Les quarante horloges de Line sonnent midi ensemble ; de la rue, on croirait qu'une maison entière se racle la gorge. Tu arrives sur le dernier coup. La porte s'ouvre avant que tu l'aies touchée : le capitaine Brassac sort, son carnet à la main. Il vous regarde l'un après l'autre, {autre} et toi, sans un mot, et s'en va vers le puits de son pas égal."
+     "text": "Les quarante horloges de Line sonnent midi ensemble ; de la rue, on croirait qu'une maison entière se racle la gorge. Tu arrives sur le dernier coup. La porte s'ouvre avant que tu l'aies touchée : le capitaine Brassac sort, son carnet à la main. Il vous regarde l'un après l'autre, {autre} et toi, et s'en va vers le puits de son pas égal."
     },
     {
      "first": true,
@@ -6225,7 +6230,7 @@
    },
    "text": [
     "Tu écris ce que la vieille a dit, par le soupirail, la bouche contre le plancher. *IL Y A À LA GUILDE UN NOMMÉ AUBESPIN. REGARDE COMMENT IL ÉCRIT. SON D PENCHE EN ARRIÈRE, COMME UN HOMME QUI RECULE. LA VIEILLE A DEUX LETTRES DE LA MAÎTRISE DES SABLES, À TRENTE-HUIT ANS D'ÉCART, LE PÈRE ET LE FILS. C'EST LA MÊME MAIN.*",
-    "Tu ne sais pas ce que {autre} fera de cela. Tu ne sais pas bien toi-même ce qu'il faut en penser. Tu l'envoies comme on l'a reçu."
+    "Tu ignores ce que {autre} fera de cela. Tu ne sais pas bien toi-même ce qu'il faut en penser. Tu l'envoies comme on l'a reçu."
    ]
   },
   "E_remede": {
@@ -7438,7 +7443,7 @@
      "if": {
       "has": "role:passe"
      },
-     "text": "*Elle tousse.* Tu restes sur ces deux mots plus longtemps que sur les autres. Tu as promis de ne rien dire, et tu ne dis rien ; mais {autre} a des yeux, et les bâtons, par endroits, appuient."
+     "text": "*Elle tousse.* Tu restes sur ces deux mots plus longtemps que sur les autres. Tu as promis de te taire, et tu te tais ; mais {autre} a des yeux, et les bâtons, par endroits, appuient."
     },
     {
      "first": true,
@@ -7506,7 +7511,7 @@
        }
       ]
      },
-     "text": "Tu écris ce que tu as fait de l'écorce. Une ligne. Tu ne t'en excuses pas, et tu ne t'en vantes pas : tu dis le nom du garçon, son âge, et qu'il était assis dans son lit ce matin."
+     "text": "Tu écris ce que tu as fait de l'écorce. Une ligne. Tu laisses de côté l'excuse comme la vanterie : tu dis le nom du garçon, son âge, et qu'il était assis dans son lit ce matin."
     },
     {
      "first": true,
@@ -15524,7 +15529,7 @@
      "if": {
       "has": "role:passe"
      },
-     "text": "{autre} tombe à genoux devant toi, sans un mot. {autre:Il} arrache le sachet de son cou ; le lacet casse. {autre:Il} te prend la main, la retourne, l'ouvre de force, doigt par doigt, et y verse. Tu vois couler les grains. Ils sont gris, fins, et ils sont tièdes : c'est la première chose que tu sens depuis longtemps."
+     "text": "{autre} tombe à genoux devant toi. {autre:Il} arrache le sachet de son cou ; le lacet casse. {autre:Il} te prend la main, la retourne, l'ouvre de force, doigt par doigt, et y verse. Tu vois couler les grains. Ils sont gris, fins, et ils sont tièdes : c'est la première chose que tu sens depuis longtemps."
     },
     {
      "first": true,
@@ -16779,7 +16784,7 @@
    "place": "troisnoyers",
    "text": [
     "Les écus sont froids. Ils tiennent tous les cinq dans ta paume ; tu t'étonnes qu'une chose pareille pèse si peu.",
-    "« La Ferme-Vieille, répète le capitaine en écrivant. Bien. » Il ne sourit pas, il ne te remercie pas ; il fait un trait dans son carnet, en face d'une ligne, et tu comprends que la ligne, c'est toi, et que le trait ne la raye pas encore. « Tu la mèneras comme convenu. Tu ne changeras rien à tes façons. Quand tu verras nos lanternes, tu te coucheras à plat ventre et tu y resteras. »",
+    "« La Ferme-Vieille, répète le capitaine en écrivant. Bien. » Il se dispense de sourire comme de remercier ; il fait un trait dans son carnet, en face d'une ligne, et tu comprends que la ligne, c'est toi, et que le trait ne la raye pas encore. « Tu la mèneras comme convenu. Tu ne changeras rien à tes façons. Quand tu verras nos lanternes, tu te coucheras à plat ventre et tu y resteras. »",
     "Tu t'éloignes. Cinq écus, cela fait dix nuits de sable, dix nuits à la croix des Hautes-Bordes. Tu te le répètes jusqu'à la porte de l'horlogère, où tu t'aperçois que tu as cessé de compter les nuits et que tu comptes les marches."
    ],
    "choices": [
@@ -17298,7 +17303,7 @@
    "text": [
     {
      "after": "goton:cousu",
-     "text": "Tu défais, tu refais. L'aiguille entre et sort au ras de la broderie, à points serrés, et quand tu rouvres les volets la Goton promène son ongle le long de l'ourlet, tout le tour, sans rien dire. Arrivée au bout, elle recommence dans l'autre sens. « Qui t'a appris ? » Elle n'attend pas la réponse. « Peu importe. Tu coudras le mien de linceul, le jour venu, si tu es dans le pays. C'est un compliment. »"
+     "text": "Tu défais, tu refais. L'aiguille entre et sort au ras de la broderie, à points serrés, et quand tu rouvres les volets la Goton promène son ongle le long de l'ourlet, tout le tour, en silence. Arrivée au bout, elle recommence dans l'autre sens. « Qui t'a appris ? » Elle n'attend pas la réponse. « Peu importe. Tu coudras le mien de linceul, le jour venu, si tu es dans le pays. C'est un compliment. »"
     },
     {
      "outcome": "lose",
@@ -18446,7 +18451,7 @@
      "outcome": "lose",
      "text": "À la septième toise, tes jambes cessent d'être à toi. L'herbe te tient par les chevilles ; l'air se met à peser, et une grande douceur te vient, l'envie de t'asseoir là, près de la chèvre, pour reprendre haleine. Quelque chose te mord la taille : un croc à foin, au bout d'une perche. Le père de Pierrot te ramène comme une botte, en jurant, et te laisse tomber de ce côté-ci de la corde, où tu grelottes en plein soleil."
     },
-    "Pierrot ne dit rien. Il regarde sa chèvre, qui mettra l'été à finir sa touffe. Son père le prend par l'épaule et l'emmène vers la charrette ; il se retourne tous les dix pas, jusqu'au coin de la grange."
+    "Pierrot regarde sa chèvre, qui mettra l'été à finir sa touffe. Son père le prend par l'épaule et l'emmène vers la charrette ; il se retourne tous les dix pas, jusqu'au coin de la grange."
    ],
    "choices": [
     {
@@ -21720,7 +21725,7 @@
    "text": [
     "Elles sont dans la rue. On les a sorties une à une et rangées contre le mur, debout, au grand soleil, comme des gens qu'on a fait descendre en chemise : les comtoises à gros ventre, les cartels, les pendules de voyage, et au milieu la grande, celle à poids, que deux gardes ont eu du mal à passer par la porte. Elles marchent toutes. Elles n'ont jamais vu le jour, et elles battent là-dedans du même pas qu'à la chandelle.",
     "Un caporal les prend l'une après l'autre. Il ouvre la caisse, vide ce qu'il y trouve sur une bâche, sonde le socle avec une tringle, retourne le cadran. Il cherche un cahier. Quand il en a fini avec une, il arrête le balancier, du plat de la main, par propreté, comme on ferme une porte derrière soi.",
-    "Le battement baisse. Tu ne saurais dire de combien : on n'entend pas une horloge de moins sur quarante. On entend seulement, au bout d'un moment, que la rue est plus grande qu'elle n'était. Les gens du village regardent faire, sans un mot, le chapeau à la main pour quelques-uns. Tu t'aperçois que tu comptes. Trente et une. Trente.",
+    "Le battement baisse. Tu ne saurais dire de combien : on n'entend pas une horloge de moins sur quarante. On entend seulement, au bout d'un moment, que la rue est plus grande qu'elle n'était. Les gens du village regardent faire en silence, le chapeau à la main pour quelques-uns. Tu t'aperçois que tu comptes. Trente et une. Trente.",
     "Les volets de la maison sont clos. Il y a deux casaques à la porte, et une troisième, à cheval, au coin de la rue : un courrier, botté pour la route, à qui un sergent remet un pli cacheté. « Pour le camp d'Arvoise. En main propre à Monseigneur. » Le courrier part au galop vers le nord, par la route qui contourne la lisière."
    ],
    "choices": [
@@ -22095,7 +22100,7 @@
      "outcome": "lose",
      "text": "Tu racontes la grange, les lanternes, la vieille fouillée. La Courtepaille t'écoute en regardant ta veste, à la hauteur de l'estomac, où il y a un angle que n'ont pas les estomacs. Elle sourit."
     },
-    "Elle ne se lève pas. Elle n'appelle personne. Il fait grand jour, le village est à deux cents pas, et elle a toujours su choisir ses heures.",
+    "Elle reste assise. Elle n'appelle personne. Il fait grand jour, le village est à deux cents pas, et elle a toujours su choisir ses heures.",
     "« Tu t'en vas dedans, hein ? Loin. Avec ce que tu portes. » Elle hoche la tête, presque avec affection. « Je t'ai ramassé{e} à dix ans au bord d'un fossé. Je t'ai appris où poser les pieds, combien de souffles vaut une pincée, comment on reconnaît une maison qui vaut la peine. La lisière, c'est moi qui te l'ai apprise. » Elle se penche. « On se reverra dedans, mon petit. Je la connais mieux que toi. »"
    ],
    "choices": [
@@ -22277,7 +22282,7 @@
    "text": [
     "Babolin s'arrête de sangler. « Quatre. Pour un garçon d'écurie qui n'a jamais vu une écurie. » Il te regarde, puis regarde Rouget, qui s'est fait tout petit derrière la roue. « Je l'avais acheté pour lui rendre service. Je te le revends pour la même raison, avec un écu de mieux : c'est ce qu'on appelle une bonne action dans mon commerce. »",
     "Il empoche. « Il est à toi. C'est-à-dire qu'il n'est à personne, ce qui, pour ce que j'en ai vu, lui fera drôle. »",
-    "Rouget ne dit rien. Il regarde les quatre écus disparaître dans le gilet jaune. C'est la troisième fois de sa vie qu'on le paie, et la première que celui qui paie ne l'emporte pas."
+    "Rouget regarde les quatre écus disparaître dans le gilet jaune. C'est la troisième fois de sa vie qu'on le paie, et la première que celui qui paie ne l'emporte pas."
    ],
    "choices": [
     {
@@ -22516,7 +22521,7 @@
    "text": [
     {
      "after": "r:cache_clocher",
-     "text": "Anicet t'ouvre la petite porte sans un mot et la referme à double tour. Tu montes. La chambre de l'horloge est fraîche, pleine de son gros pas boiteux. Par les abat-son, tu as toute la rue sous toi, comme une chose dessinée."
+     "text": "Anicet t'ouvre la petite porte et la referme à double tour. Tu montes. La chambre de l'horloge est fraîche, pleine de son gros pas boiteux. Par les abat-son, tu as toute la rue sous toi, comme une chose dessinée."
     },
     {
      "after": "r:cache_lubin",
@@ -22541,7 +22546,7 @@
    "title": "Le capitaine mesure",
    "place": "troisnoyers",
    "text": [
-    "Vers trois heures, Brassac revient de la lisière, à cheval, avec six hommes. Il met pied à terre devant la maison, écoute le rapport du caporal, et ne dit rien. Il regarde les horloges. Puis il fait le tour de la maison, à pied, lentement, son carnet ouvert.",
+    "Vers trois heures, Brassac revient de la lisière, à cheval, avec six hommes. Il met pied à terre devant la maison, écoute le rapport du caporal, et regarde les horloges. Puis il fait le tour de la maison, à pied, lentement, son carnet ouvert.",
     "Tu le perds de vue derrière le mur du jardin. Tu sais ce qu'il y a là : un auvent, du charbon, un trou carré. Il y reste longtemps.",
     "Quand il reparaît, il tient entre deux doigts quelque chose de noir, qu'il montre au caporal sans colère : un morceau de mie de pain, pétri de suie. Il s'accroupit, et de la main, à plat, il mesure quelque chose au ras du sol. Deux empans. Il se relève, ôte son gant, écrit.",
     "Tu as laissé dans le charbon, ce matin, une empreinte toute fraîche. Tu le sais à la façon dont il lève les yeux et fait le tour des toits du regard, sans hâte, maison par maison, grenier par grenier. Le regard passe sur toi. Il continue.",
@@ -22866,7 +22871,7 @@
      "text": "Le garde est étendu dans le foin, son casque à côté de lui. Tu lui as pris son sabre et le sable de son sablier ; tu lui laisses le sablier, vide, et tu le traînes jusqu'à la corde, où l'herbe plie encore, pour que ses camarades le retrouvent de ce côté-là du temps. Rouget te regarde faire. « La Courtepaille l'aurait laissé où il est tombé », remarque-t-il. Il n'a pas dit si c'était un reproche."
     },
     "Les six lanternes s'en retournent vers le village avant minuit. La Garde compte son sable à la pincée ; elle ne le brûle pas toute une nuit pour un sac.",
-    "Vous marchez. La lune se lève sur les prés pris, pâle, et sa lumière y tombe comme une poussière. Tu fais passer Rouget entre les étourneaux, de biais, la main sur sa nuque pour lui baisser la tête. Il ne dit rien. Il regarde les oiseaux, un par un, la bouche ouverte.",
+    "Vous marchez. La lune se lève sur les prés pris, pâle, et sa lumière y tombe comme une poussière. Tu fais passer Rouget entre les étourneaux, de biais, la main sur sa nuque pour lui baisser la tête. Il regarde les oiseaux, un par un, la bouche ouverte.",
     {
      "with": "rouget",
      "text": "« Ils savent qu'ils sont arrêtés ? » demande-t-il enfin, tout bas. Tu réponds que non. Qu'ils sont en train de se poser, et qu'ils en auront fini dans cent ans. Il réfléchit. « Alors ils sont contents. Ils vont se poser. C'est le meilleur moment. » C'est une idée que tu n'avais jamais eue, en six ans."
@@ -23804,7 +23809,7 @@
     },
     {
      "outcome": "win",
-     "text": "Tiennot ne dit rien pendant un temps honnête. « Tu as déjà tourné. » Tu jures que non. Il passe le fil sous le pied de l'écuelle et la pose sur la planche, parmi les siennes. « Alors change de métier. Elle sera sèche ce soir ; je la passe au petit four avec mes essais, tu l'auras cuite avant la danse. »"
+     "text": "Tiennot se tait pendant un temps honnête. « Tu as déjà tourné. » Tu jures que non. Il passe le fil sous le pied de l'écuelle et la pose sur la planche, parmi les siennes. « Alors change de métier. Elle sera sèche ce soir ; je la passe au petit four avec mes essais, tu l'auras cuite avant la danse. »"
     },
     {
      "outcome": "lose",
@@ -24534,7 +24539,7 @@
    "text": [
     {
      "after": "j:coupe_verre_donnee",
-     "text": "Ysabeau prend la coupe de verre à deux mains. Elle la lève au jour. Le soleil passe au travers et lui met sur la figure une tache verte, qui tremble. Elle lit les noms. Elle ne dit rien pendant un long moment, et la cour, autour d'elle, se tait de proche en proche, jusqu'au violoneux."
+     "text": "Ysabeau prend la coupe de verre à deux mains. Elle la lève au jour. Le soleil passe au travers et lui met sur la figure une tache verte, qui tremble. Elle lit les noms. Elle reste muette un long moment, et la cour, autour d'elle, se tait de proche en proche, jusqu'au violoneux."
     },
     {
      "after": "j:coupe_verre_donnee",
@@ -24741,7 +24746,7 @@
    "text": [
     {
      "after": "j:dragees_couvert",
-     "text": "Tu fais un pas de côté. Ton dos cache la petite main ; ton air cache le reste. Line lève les yeux, te voit, comprend, et continue avec une ardeur nouvelle. Quand elle s'éclipse, sa poche a la forme d'une poire. Elle te glisse au passage trois dragées dans la main, sans un mot : ta part, calculée au plus juste."
+     "text": "Tu fais un pas de côté. Ton dos cache la petite main ; ton air cache le reste. Line lève les yeux, te voit, comprend, et continue avec une ardeur nouvelle. Quand elle s'éclipse, sa poche a la forme d'une poire. Elle te glisse au passage trois dragées dans la main : ta part, calculée au plus juste."
     },
     {
      "after": "j:dragees_rendues",
@@ -28208,7 +28213,7 @@
     },
     {
      "after": "r:courtepaille_volee",
-     "text": "« Où est-il ? » Tu ne réponds pas : tu n'en sais rien toi-même. Elle te tâte, des aisselles aux chevilles, avec la compétence d'une mère. Rien. Elle jure. « Tu l'as enterré. Tu l'as enterré à une borne, comme la vieille enterre tout. Je les fouillerai toutes. » Elle sort, ses hommes derrière, en emportant tes écus pour le dérangement."
+     "text": "« Où est-il ? » Tu te tais : tu l'ignores toi-même. Elle te tâte, des aisselles aux chevilles, avec la compétence d'une mère. Rien. Elle jure. « Tu l'as enterré. Tu l'as enterré à une borne, comme la vieille enterre tout. Je les fouillerai toutes. » Elle sort, ses hommes derrière, en emportant tes écus pour le dérangement."
     },
     {
      "after": "r:courtepaille_volee",
@@ -29388,7 +29393,7 @@
        "has": "j:sait_cabinet"
       }
      },
-     "text": "Tu ne sais pas au juste ce que tu cherches dans cette maison. Tu sais seulement que le rapport des sondeurs y est passé, il y a huit ans, entre deux portes."
+     "text": "Tu ignores au juste ce que tu cherches dans cette maison. Tu sais seulement que le rapport des sondeurs y est passé, il y a huit ans, entre deux portes."
     },
     {
      "again": true,
@@ -29837,7 +29842,7 @@
     "Maître Baudri a mis son habit de drap, sa chaîne de maître, son chapeau. Il sort de la loge, sa fille au bras. Tu te plantes devant lui.",
     {
      "after": "j:preuve_rapport",
-     "text": "Tu ne dis rien. Tu lui tends les deux feuilles. Il les prend, agacé, y jette les yeux pour s'en débarrasser, et ses yeux restent. Il connaît cette écriture : fine, droite, celle qu'il a au bas de son rapport, dans un cadre, au mur de la loge. *Sable fin et coulant jusqu'à trente pieds.* Il lit jusqu'au bout. Il lit la ligne en travers, *Vu. À refaire. M.*, et il la relit."
+     "text": "Pour toute parole, tu lui tends les deux feuilles. Il les prend, agacé, y jette les yeux pour s'en débarrasser, et ses yeux restent. Il connaît cette écriture : fine, droite, celle qu'il a au bas de son rapport, dans un cadre, au mur de la loge. *Sable fin et coulant jusqu'à trente pieds.* Il lit jusqu'au bout. Il lit la ligne en travers, *Vu. À refaire. M.*, et il la relit."
     },
     {
      "after": "j:preuve_rapport",
@@ -29951,7 +29956,7 @@
     "Sur la berge, les enfants en blanc chantent le *Te Deum*, face à l'eau, par deux, les plus petits devant. La petite au grand cierge chante la bouche ouverte, sans savoir les paroles. Monseigneur bénit le fleuve, le pont, la foule, les passeurs. Les gens sont déçus. Ils sont déçus, vivants, et ils rentreront ce soir chez eux en disant que ce n'était pas la peine de venir de si loin.",
     {
      "with": "perrine",
-     "text": "Perrine est à côté de toi. Elle regarde le pont vide. Elle ne dit rien pendant toute la bénédiction ; puis elle se mouche, bruyamment, dans un coin de son drap rouge. « Il avait raison, dit-elle. Mon père. Huit ans, et il a fallu que ce soit quelqu'un de la route qui vienne le leur dire. » Elle renifle. « Je vais déballer. Ils ont beau être déçus, ils ont des sous. »"
+     "text": "Perrine est à côté de toi. Elle regarde le pont vide. Elle se tait pendant toute la bénédiction ; puis elle se mouche, bruyamment, dans un coin de son drap rouge. « Il avait raison, dit-elle. Mon père. Huit ans, et il a fallu que ce soit quelqu'un de la route qui vienne le leur dire. » Elle renifle. « Je vais déballer. Ils ont beau être déçus, ils ont des sous. »"
     },
     "Personne ne saura jamais combien. Toi seul{e}, sur ce quai, portes un chiffre."
    ],
@@ -30618,7 +30623,7 @@
     {
      "after": "j:vers_baudri",
      "outcome": "win",
-     "text": "Maître Baudri est debout au bord de la fente, et regarde descendre huit ans. Guillemine le tire par le bras, des deux mains ; il ne vient pas. Tu le prends par la taille. À deux, vous l'arrachez de là, à reculons, pendant que la clef de la grande arche tombe à l'endroit où il était. Il se laisse traîner jusqu'à la culée, sans un mot, les yeux ouverts."
+     "text": "Maître Baudri est debout au bord de la fente, et regarde descendre huit ans. Guillemine le tire par le bras, des deux mains ; il ne vient pas. Tu le prends par la taille. À deux, vous l'arrachez de là, à reculons, pendant que la clef de la grande arche tombe à l'endroit où il était. Il se laisse traîner jusqu'à la culée, muet, les yeux ouverts."
     },
     {
      "after": "j:vers_baudri",
@@ -31087,7 +31092,7 @@
     "Gervais lève la tête. Son père aussi.",
     "« Une barrière, dis-tu. Un péage. Quelqu'un qui sache, les jours de crue, s'il faut laisser passer les fardiers ou les arrêter. Quelqu'un qui descende voir les piles, par en dessous, chaque printemps. Un maçon ne plonge pas. »",
     "Aubin Lebac te regarde longuement. « Gardien du pont, dit-il. Avec un bonnet rouge. » Il se tourne vers la loge, là-haut, où brûle une lampe. « J'irai le dire à Baudri. Il nous doit bien d'écouter les passeurs une fois : il vient d'apprendre ce que cela coûte. »",
-    "Gervais ne dit rien. Il a repris sa manivelle. Il l'astique, mais il regarde le pont, et pour la première fois de la journée il le regarde comme une chose qui pourrait être à lui."
+    "Gervais a repris sa manivelle. Il l'astique, mais il regarde le pont, et pour la première fois de la journée il le regarde comme une chose qui pourrait être à lui."
    ],
    "choices": [
     {
@@ -31188,7 +31193,7 @@
      "if": {
       "has": "monde:pont_tombe"
      },
-     "text": "On ne fait pas de soupe. La femme d'Aubin met du pain sur la table et du fromage, et personne n'y touche. Les hommes rentrent tard, un par un, mouillés, et s'assoient sans rien dire. Gervais s'est endormi sur le banc, tout habillé, son bonnet sur les yeux. Il a plongé dix-sept fois."
+     "text": "On ne fait pas de soupe. La femme d'Aubin met du pain sur la table et du fromage, et personne n'y touche. Les hommes rentrent tard, un par un, mouillés, et s'assoient en silence. Gervais s'est endormi sur le banc, tout habillé, son bonnet sur les yeux. Il a plongé dix-sept fois."
     },
     {
      "if": {
@@ -33100,7 +33105,7 @@
      "if": {
       "has": "r:pille_reposoir"
      },
-     "text": "Son regard descend à ta poche, où quatre écus un peu verts ont tinté. Il ne dit rien. Les Veilleurs savent compter, et celui-ci sait en outre choisir ses silences."
+     "text": "Son regard descend à ta poche, où quatre écus un peu verts ont tinté. Il se tait. Les Veilleurs savent compter, et celui-ci sait en outre choisir ses silences."
     }
    ],
    "choices": [
@@ -35319,9 +35324,9 @@
    "ambiance": "champs",
    "text": [
     "Il ne pèse presque rien. C'est ce qui t'effraie : un garçon de sept ans devrait peser son âge. Tu le cales entre tes épaules et le haut de la hotte, ses bras autour de ton cou ; il ne s'éveille pas. Son souffle te vient dans l'oreille, lent, régulier, un souffle de quelqu'un qui est déjà à moitié ailleurs.",
-    "La mère se relève en s'aidant de la borne. Elle s'appelle Mathie ; lui, Colin. Elle marche à côté de toi sans rien dire pendant une demi-lieue, une main sur le pied de son fils, pour s'assurer qu'il est là.",
+    "La mère se relève en s'aidant de la borne. Elle s'appelle Mathie ; lui, Colin. Elle marche à côté de toi, muette, pendant une demi-lieue, une main sur le pied de son fils, pour s'assurer qu'il est là.",
     "« Il rêve, dit-elle tout à coup. Tout le temps. Quand je le réveille, il me raconte. Il dit qu'il est dans une ville où tout le monde s'est arrêté, et qu'il est le seul à marcher. » Elle a un petit rire sans joie. « Où va-t-il chercher cela. »",
-    "Tu ne réponds rien. Tu marches. Colin dort contre ta nuque, et tu sens, par instants, ses doigts gris se serrer sur ton col.",
+    "Pour toute réponse, tu marches. Colin dort contre ta nuque, et tu sens, par instants, ses doigts gris se serrer sur ton col.",
     {
      "with": "perrine",
      "text": "Perrine a pris le baluchon de la mère sans qu'on le lui demande. Elle marche de l'autre côté, la mâchoire dure, et tu l'entends refaire ses comptes tout bas, pour penser à autre chose."
@@ -35832,7 +35837,7 @@
      "if": {
       "has": "monde:line_route"
      },
-     "text": "Line s'est arrêtée au milieu de la route, sa boîte contre le ventre. Elle ne dit rien. Elle a la bouche entrouverte et le regard fixe, et tu comprends que tu assistes à quelque chose : c'est la première fois qu'elle la voit, elle aussi. Elle y pensera soixante ans."
+     "text": "Line s'est arrêtée au milieu de la route, sa boîte contre le ventre. Elle a la bouche entrouverte et le regard fixe, et tu comprends que tu assistes à quelque chose : c'est la première fois qu'elle la voit, elle aussi. Elle y pensera soixante ans."
     },
     "Dans cinq jours, tu seras au pied. Tu ajustes les bretelles de la hotte, et tu descends."
    ],
@@ -36921,7 +36926,7 @@
     },
     {
      "after": "monde:annales_mot",
-     "text": "Tu dictes. *À qui ouvrira ce volume avec un cahier sous le bras : j'ai passé ici le seize de juin, j'allais bien, j'avais mangé une poire. Le Livre est dans la salle du chapitre. Regarde les vis.* Elle écrit tout, jusqu'à la poire, sans un mot. Puis elle souffle sur l'encre. « Je ne veux pas comprendre, dit-elle. À mon âge, c'est un luxe qu'on peut s'offrir. »"
+     "text": "Tu dictes. *À qui ouvrira ce volume avec un cahier sous le bras : j'ai passé ici le seize de juin, j'allais bien, j'avais mangé une poire. Le Livre est dans la salle du chapitre. Regarde les vis.* Elle écrit tout, jusqu'à la poire, en silence. Puis elle souffle sur l'encre. « Je ne veux pas comprendre, dit-elle. À mon âge, c'est un luxe qu'on peut s'offrir. »"
     },
     {
      "after": "j:annales_tu",
@@ -39821,7 +39826,7 @@
     },
     {
      "after": "r:borne_vu",
-     "text": "Il devrait crier. Tu vois ses lèvres s'ouvrir. Puis il regarde par-dessus ton épaule, vers une tente, à l'écart, plus grande que les autres, gardée par deux hommes ; et quelque chose passe sur sa figure, qui n'est pas de la consigne. Il te lâche. « Rebouche », dit-il entre ses dents. « Vite. Et mets-toi un tablier, on te voit de la rivière. » Il reprend son pas. Douze, demi-tour. Il ne te regarde plus. Tu ne sais pas ce que tu lui dois, ni pourquoi."
+     "text": "Il devrait crier. Tu vois ses lèvres s'ouvrir. Puis il regarde par-dessus ton épaule, vers une tente, à l'écart, plus grande que les autres, gardée par deux hommes ; et quelque chose passe sur sa figure, qui n'est pas de la consigne. Il te lâche. « Rebouche », dit-il entre ses dents. « Vite. Et mets-toi un tablier, on te voit de la rivière. » Il reprend son pas. Douze, demi-tour. Il ne te regarde plus. Tu ignores ce que tu lui dois, et pourquoi."
     },
     "À un pied sous le sable frais, ton couteau sonne sur quelque chose. La terre, dessous, est noire, tassée, vieille. Elle n'a pas été remuée depuis soixante ans. Hier, à cette heure, ce trou n'existait pas, et personne n'y avait rien mis.",
     "Tu t'assois contre la borne, du côté de l'ombre, les genoux remontés, comme un marmiton qui vole un moment de repos. Tu grattes le cadran de l'ongle. Tu ouvres le Cahier à l'abri de ton sac."
@@ -40038,7 +40043,7 @@
    "text": [
     "Tu poses ton seau au pied du tambour et tu fais semblant de frotter le cercle de fer. La veste est de gros drap bleu, raide de pluie : il pleuvait, cette nuit-là, et les gouttes sont restées sur ses épaules comme des perles de verre. La poche de poitrine bâille.",
     "La lettre a fait le voyage contre ta peau, depuis les Trois-Noyers, par la grange, la plaine, la maison bleue. Le papier a la couleur du thé. Dame Orable la récrit tous les hivers. Tu la plies une fois de plus et tu la glisses à plat, bien au fond, pour que la pluie de 575 ne la touche pas.",
-    "*Je sais qu'il ne la lira pas. Je veux qu'il l'ait sur lui quand il le pourra.* C'est fait. Il l'a sur lui. Il ne pèse pas moins sur sa barre, il ne crie pas moins fort. Mais il y a désormais, entre sa veste et sa chemise, quelqu'un qui lui dit que la plate est arrivée.",
+    "*Je sais qu'il ne la lira pas. Je veux qu'il l'ait sur lui quand il le pourra.* C'est fait. Il l'a sur lui. Il pèse autant sur sa barre, il crie aussi fort. Mais il y a désormais, entre sa veste et sa chemise, quelqu'un qui lui dit que la plate est arrivée.",
     {
      "with": "rouget",
      "text": "Rouget a regardé faire, appuyé sur son balai. « T'as porté ça cinq jours. Pour le mettre dans une poche. » Il n'y a pas de moquerie dans sa voix. Il range la chose, soigneusement, avec les autres choses que tu fais et qui ne rapportent rien."
@@ -40490,7 +40495,7 @@
     {
      "first": true,
      "after": "r:mahaut_dette",
-     "text": "Mahaut te voit rentrer. Elle ne dit rien. Elle remplit une écuelle, sans lard, et la pose devant toi un peu fort."
+     "text": "Mahaut te voit rentrer. Elle remplit une écuelle, sans lard, et la pose devant toi un peu fort."
     },
     {
      "first": true,
@@ -41397,7 +41402,7 @@
     {
      "after": "r:jehan_suit",
      "with": "rouget",
-     "text": "Rouget ne dit rien pendant un long moment. Puis il s'approche, tâte la chemise de troupe entre deux doigts, et rend son verdict. « Il marche derrière. Et il porte le sac. » Jehan prend le sac."
+     "text": "Rouget se tait un long moment. Puis il s'approche, tâte la chemise de troupe entre deux doigts, et rend son verdict. « Il marche derrière. Et il porte le sac. » Jehan prend le sac."
     },
     {
      "after": "r:jehan_reste",
@@ -42312,7 +42317,7 @@
      "if": {
       "has": "monde:tiphaine_partie"
      },
-     "text": "Tiphaine est montée derrière toi. Elle a vu la clavette avant que tu aies fini de la chercher, et te l'a montrée du doigt, sans un mot, avec une joie qu'elle n'essayait pas de cacher. Vous l'avez enfoncée à deux."
+     "text": "Tiphaine est montée derrière toi. Elle a vu la clavette avant que tu aies fini de la chercher, et te l'a montrée du doigt, avec une joie qu'elle n'essayait pas de cacher. Vous l'avez enfoncée à deux."
     },
     {
      "after": "j:ecluse_reparee",
@@ -43021,7 +43026,7 @@
      "if": {
       "has": "monde:line_route"
      },
-     "text": "Line a suivi l'affaire sans un mot. Dans l'allée, elle te tire par la manche. « Fais voir. » Tu ouvres le couvercle. Elle regarde la lettre gravée, longtemps, le front plissé. « C'est un L. Je le connais, celui-là. C'est le mien. » Elle lève les yeux vers toi. Tu refermes le couvercle. « C'est le nom de l'horlogère qui l'a faite », dis-tu, et c'est la stricte vérité."
+     "text": "Line a suivi l'affaire en silence. Dans l'allée, elle te tire par la manche. « Fais voir. » Tu ouvres le couvercle. Elle regarde la lettre gravée, longtemps, le front plissé. « C'est un L. Je le connais, celui-là. C'est le mien. » Elle lève les yeux vers toi. Tu refermes le couvercle. « C'est le nom de l'horlogère qui l'a faite », dis-tu, et c'est la stricte vérité."
     }
    ],
    "choices": [
@@ -47843,7 +47848,7 @@
     {
      "before": "monde:colin_gueri",
      "after": "monde:ecorce_donnee",
-     "text": "{autre} a porté ton écorce plus loin, et l'a mise dans d'autres mains. Tu ne sais pas encore lesquelles. Tu sais seulement que ce n'étaient pas celles-ci."
+     "text": "{autre} a porté ton écorce plus loin, et l'a mise dans d'autres mains. Tu ignores encore lesquelles. Tu sais seulement que ce n'étaient pas celles-ci."
     }
    ],
    "choices": [
@@ -49605,7 +49610,7 @@
     },
     {
      "after": "monde:tannerie_partage",
-     "text": "Elle va à la porte, et l'ouvre. Les trois sont là, sur le seuil d'en face, sur le parapet, debout dans la rue. Elle ne dit rien. Elle rentre, prend la râpe, prend l'écorce, et la pose sur la table, au milieu. Puis elle va chercher un couteau."
+     "text": "Elle va à la porte, et l'ouvre. Les trois sont là, sur le seuil d'en face, sur le parapet, debout dans la rue. Elle rentre, prend la râpe, prend l'écorce, et la pose sur la table, au milieu. Puis elle va chercher un couteau."
     },
     {
      "after": "monde:tannerie_partage",
@@ -51118,7 +51123,7 @@
        }
       ]
      },
-     "text": "Les deux yeux passent, et reviennent. Ils s'arrêtent sur tes mains, qui tiennent la sangle, plus longtemps que sur ta figure : ce sont elles qu'il a regardées hier, sous le dais, pendant un quart d'heure. Il ne dit rien. Il incline la tête de la moitié de ce qu'il a donné au duc, et il monte en voiture. La portière a un bruit de tabatière qu'on ferme."
+     "text": "Les deux yeux passent, et reviennent. Ils s'arrêtent sur tes mains, qui tiennent la sangle, plus longtemps que sur ta figure : ce sont elles qu'il a regardées hier, sous le dais, pendant un quart d'heure. Il incline la tête de la moitié de ce qu'il a donné au duc, et il monte en voiture. La portière a un bruit de tabatière qu'on ferme."
     },
     {
      "if": {
@@ -52780,7 +52785,7 @@
    "text": [
     "Tu connais le geste. Deux doigts sous la ceinture, à gauche, où les fermiers nouent leur bourse ; on tire le cordon, on ne regarde pas la figure. Le vieil or vaut double chez tous les changeurs du royaume, et il y en a ici de quoi acheter une ferme.",
     "Tu as la main sur une ceinture de cuir. L'homme est grand, rouge, en blouse bleue, le menton levé vers la Tour ; il a un enfant de trois ans sur les épaules, qui lui tient les oreilles. Sa bourse est lourde. Il avait vendu ses oies.",
-    "Derrière toi, à vingt pas, sur un pliant, une vieille en coiffe de pèlerinage a cessé de manger. Elle ne dit rien. Elle regarde ta main."
+    "Derrière toi, à vingt pas, sur un pliant, une vieille en coiffe de pèlerinage a cessé de manger. Elle regarde ta main."
    ],
    "choices": [
     {
@@ -52823,7 +52828,7 @@
     },
     {
      "after": "r:foire_respect",
-     "text": "Tu renoues le cordon. Tu le renoues bien, d'un nœud de marché, à deux tours. La vieille, sur son pliant, te regarde faire jusqu'au bout. Quand tu passes devant elle, elle te tend, sans un mot, la moitié de sa croûte, avec un morceau de lard."
+     "text": "Tu renoues le cordon. Tu le renoues bien, d'un nœud de marché, à deux tours. La vieille, sur son pliant, te regarde faire jusqu'au bout. Quand tu passes devant elle, elle te tend la moitié de sa croûte, avec un morceau de lard."
     },
     {
      "after": "r:foire_respect",
@@ -53388,7 +53393,7 @@
     "Tu restes là. La note de la cloche est partie avec ton pas, et sur le halage il n'y a plus un bruit : un garçon debout, une bête, des peupliers. Au-dessus d'eux, à une lieue, la Tour a l'aiguille sur le douze.",
     {
      "with": "jehan",
-     "text": "Jehan a tout entendu, à dix pas, le chapeau à la main. « À la caserne, on nous disait qu'ils ne sentent rien. Qu'il ne fallait pas y penser. » Il remet son chapeau, de travers. « Il a dit *il sera moins seul*. » Il n'ajoute rien, et marche devant toi jusqu'au pont, pour que tu ne voies pas sa figure.",
+     "text": "Jehan a tout entendu, à dix pas, le chapeau à la main. « À la caserne, on nous disait qu'ils ne sentent rien. Qu'il ne fallait pas y penser. » Il remet son chapeau, de travers. « Il a dit *il sera moins seul*. » Il s'en tient là, et marche devant toi jusqu'au pont, pour te cacher sa figure.",
      "if": {
       "has": "r:girard_vrai"
      }
@@ -55561,7 +55566,7 @@
      },
      "text": "« Marteau. » Il a reconnu la taille. « Josse Marteau, des Monnaies. Il grave le cheval toujours du même pied. Livré quand ? » Tu dis : le douze. « Le douze. » Il repose la cire comme on pose un mort."
     },
-    "Il reste un moment sans rien dire. Dans la cour, un homme de cuivre passe sous la fenêtre ; on voit glisser sa lanterne.",
+    "Il reste un moment silencieux. Dans la cour, un homme de cuivre passe sous la fenêtre ; on voit glisser sa lanterne.",
     "« Je suis un imbécile. » Il le dit avec une sorte de soulagement, en homme qui retrouve enfin une clef. « Je me bats depuis six mois contre une erreur de doctrine. Je cite le Livre. Je fais copier des chapitres. Et pendant ce temps-là un duc achète ma maison, en payant ses dettes, pour qu'elle lui fabrique un trône. Il n'y a aucune doctrine là-dedans. Il y a un marché, et je suis le seul de la colline à ne pas avoir été acheté, parce que personne n'a pensé que je valais le prix. »",
     {
      "after": "j:oui_marche",
@@ -56584,7 +56589,7 @@
     "Douze. L'ombre du style a déjà quitté le chiffre, d'un cheveu. Le cadran solaire n'attend personne.",
     {
      "with": "josquin",
-     "text": "Josquin s'est assis à côté de toi sans rien dire. Au douzième, il a remué les lèvres. « Je les compte depuis que j'ai trois ans, dit-il. On m'a trouvé dans un panier, là, au portail, un matin de Grand Midi. On me l'a raconté si souvent que je crois m'en souvenir. Le sous-maître aussi, trente ans avant moi. Nous sommes deux enfants de la même porte. » Il essuie ses besicles. « Je me demande souvent pourquoi cela n'a pas donné le même homme. »"
+     "text": "Josquin s'est assis à côté de toi en silence. Au douzième, il a remué les lèvres. « Je les compte depuis que j'ai trois ans, dit-il. On m'a trouvé dans un panier, là, au portail, un matin de Grand Midi. On me l'a raconté si souvent que je crois m'en souvenir. Le sous-maître aussi, trente ans avant moi. Nous sommes deux enfants de la même porte. » Il essuie ses besicles. « Je me demande souvent pourquoi cela n'a pas donné le même homme. »"
     },
     "Tu ouvres le Cahier contre le marbre tiède, à l'endroit où l'on a gravé *POUR MÉMOIRE.*"
    ],
@@ -58138,7 +58143,7 @@
     },
     {
      "outcome": "lose",
-     "text": "Le canal s'ouvre sous toi comme une trappe. Tu as de l'eau jusqu'aux aisselles, froide, vivante, qui pue le tan ; elle clapote dans un rond d'une toise, et tout autour elle reste de verre. Tu te hisses au bordage de la gabare, à la force des coudes, en t'écorchant. Le marinier n'a pas cessé de regarder l'endroit où tu n'es plus."
+     "text": "Le canal s'ouvre sous toi comme une trappe. Tu as de l'eau jusqu'aux aisselles, froide, vivante, qui pue le tan ; elle clapote dans un rond d'une toise, et tout autour elle reste de verre. Tu te hisses au bordage de la gabare, à la force des coudes, en t'écorchant. Le marinier regarde toujours l'endroit où tu n'es plus."
     },
     {
      "outcome": "lose",
@@ -58750,7 +58755,7 @@
    "text": [
     {
      "outcome": "win",
-     "text": "Six pas. Tu ne lèves pas la tête : on ne regarde pas ce qu'on veut devancer. Tu sens seulement, sur ta nuque, un déplacement d'air, lent, large, comme une porte de grange qui tourne. Ta main trouve la fiole. Tu es de l'autre côté de la corde avant d'avoir respiré."
+     "text": "Six pas. Tu gardes la tête basse : on ne regarde pas ce qu'on veut devancer. Tu sens seulement, sur ta nuque, un déplacement d'air, lent, large, comme une porte de grange qui tourne. Ta main trouve la fiole. Tu es de l'autre côté de la corde avant d'avoir respiré."
     },
     {
      "outcome": "win",
@@ -60706,7 +60711,7 @@
     "Tu relis la deuxième ligne. La Chronique d'Aurime a une phrase, que tout enfant du royaume sait par cœur : *par la malice de Barnabé Coudrier, dit depuis le Maudit.* Tu tiens la malice. Elle est descendue à onze heures, avec une baguette, contre un homme qui avait un coin de bronze.",
     {
      "with": "jehan",
-     "text": "Jehan a lu par-dessus ton bras. Il a lu jusqu'aux deux lettres du bas. Il ne dit rien. Il fait, lentement, le geste qu'on lui a appris à quatre ans, celui qu'on fait en disant ce nom : il porte la main à sa bouche. Puis il la laisse là, à plat, sur ses lèvres, comme on empêche quelque chose de sortir, et il se met à pleurer sans bruit, tout droit, comme à l'exercice."
+     "text": "Jehan a lu par-dessus ton bras. Il a lu jusqu'aux deux lettres du bas. Il fait, lentement, le geste qu'on lui a appris à quatre ans, celui qu'on fait en disant ce nom : il porte la main à sa bouche. Puis il la laisse là, à plat, sur ses lèvres, comme on empêche quelque chose de sortir, et il se met à pleurer sans bruit, tout droit, comme à l'exercice."
     },
     {
      "with": "jehan",
@@ -61445,7 +61450,7 @@
    "place": "palais",
    "ambiance": "chateau",
    "text": [
-    "Il ne dit rien. Il prend le cornet, le déplie, et verse les copeaux sur le plateau d'une balance à trébuchet. Ses mains ne tremblent pas : il les en empêche. Il pèse. Il écrit le poids. Il divise, à la plume, dans la marge.",
+    "Il prend le cornet, le déplie, et verse les copeaux sur le plateau d'une balance à trébuchet. Ses mains ne tremblent pas : il les en empêche. Il pèse. Il écrit le poids. Il divise, à la plume, dans la marge.",
     "« Deux prises par jour. Vingt et un jours. » Il compte les copeaux par petits tas, du bout d'une spatule. « Il y a de quoi. Tout juste, sans en perdre un grain. Je ferai la décoction moi-même. Je goûterai chaque bol avant elle. » Il lève les yeux. « Vous l'aviez à la Foire. Vous l'avez gardée trois jours sur vous, dans une ville où l'on fouille aux portes, pour me la donner ici, à moi seul. Je n'ai pas d'ami : je n'ai pas eu le temps. Mais je sais ce qu'on doit. »",
     "Il met de l'eau dans la casserole. Il y jette le premier tas. Puis il s'assoit, pour la première fois, sur le bord de son lit de camp, et il te dit le reste, parce qu'il est honnête et que c'est sa maladie.",
     "« Elle a peut-être quinze jours. Je dis *peut-être* : j'en ai vu tenir trois semaines, j'en ai vu partir en six. Il en faut vingt et un. Je vais donc courir contre cela, avec une tisane, et je peux perdre. » Il regarde la casserole. « Je le dirai à la Reine tantôt. Je lui dirai : madame, voici un remède, et voici la course. De l'autre côté, on lui offre une chambre où l'on ne perd jamais, puisqu'on n'y court pas. Un homme honnête n'a rien de mieux à mettre en face, et c'est pourquoi les autres gagnent. »",
@@ -62902,7 +62907,7 @@
    },
    "text": [
     "Tu le dis. Tu commences par elle, parce qu'elle n'écoutera que cela : que demain, à midi, la cloche sonnera onze, et que le douzième ne viendra pas. Que ce ne sera pas une chambre. Que ce sera la ville, la Foire, une lieue de champs, et qu'elle y sera, à sa fenêtre, avec l'enfant. Que cela durera soixante ans. Que tu es né{e} au bord.",
-    "Elle ne t'interrompt pas. Elle ne dit pas que tu es fou{e}. Une femme qui a rempli son oratoire de pendules pour apprendre à arrêter l'heure a perdu le droit de trouver une chose impossible.",
+    "Elle te laisse parler. Elle ne dit pas que tu es fou{e}. Une femme qui a rempli son oratoire de pendules pour apprendre à arrêter l'heure a perdu le droit de trouver une chose impossible.",
     "Quand tu as fini, elle pose une seule question.",
     "« Et elle ? Dans votre pays. Vous l'avez vue ? Elle est comment ? »",
     "Tu dis ce que dit la Chronique, et ce que disent les pèlerins : que la Reine dort debout, dans la Chambre haute, sa fille dans les bras. Que l'enfant a huit ans. Qu'elle les a toujours.",
@@ -67142,7 +67147,7 @@
      "if": {
       "has": "j:seance_dixieme"
      },
-     "text": "Il ne se retourne pas. Sa nuque n'a pas bougé d'une ligne. Mais sa main gauche, sous la table, s'est ouverte toute grande, comme celle d'un homme qui vient de lâcher quelque chose qu'il tenait. « Ceci n'est pas de mon portefeuille », dit-il. « C'est le défaut des portefeuilles », dit le Grand Maître, qui a déjà la main dessus."
+     "text": "Il reste de dos. Sa nuque n'a pas bougé d'une ligne. Mais sa main gauche, sous la table, s'est ouverte toute grande, comme celle d'un homme qui vient de lâcher quelque chose qu'il tenait. « Ceci n'est pas de mon portefeuille », dit-il. « C'est le défaut des portefeuilles », dit le Grand Maître, qui a déjà la main dessus."
     },
     {
      "if": {
@@ -73045,7 +73050,7 @@
    "takes": "night",
    "text": [
     "C'est un morceau large comme la main, roux, roulé, qui a fait neuf jours de route entre deux pages. Il y a de quoi mener un enfant au bout. Un.",
-    "La Guigne le prend, le flaire, le casse. Elle met de l'eau du canal dans une gamelle, la gamelle sur trois chandelles arrachées à la niche, et elle regarde bouillir sans rien dire. Les petits se sont éveillés. Ils font cercle, en silence : sous ce pont, on n'a jamais rien fait cuire pour quelqu'un qui ne pouvait pas payer.",
+    "La Guigne le prend, le flaire, le casse. Elle met de l'eau du canal dans une gamelle, la gamelle sur trois chandelles arrachées à la niche, et elle regarde bouillir. Les petits se sont éveillés. Ils font cercle, en silence : sous ce pont, on n'a jamais rien fait cuire pour quelqu'un qui ne pouvait pas payer.",
     "« Trois semaines, dis-tu. Une cuillerée le matin, à jeun. » Moineau compte sur ses doigts, deux mains et un doigt, et recommence, pour être sûr.",
     "On lui glisse la première entre les dents. La petite fronce le nez. Elle tourne la tête, les yeux fermés, avec une grimace d'une grande précision.",
     "« Elle a fait la tête ! » Moineau en pleure, et il rit en même temps, la morve au nez. « Elle a fait la tête ! Elle avait rien fait depuis l'Ascension ! »",
@@ -73239,7 +73244,7 @@
        "has": "monde:hurel_debout"
       }
      },
-     "text": "Elle t'écoute, de sa croisée, la tête penchée. Quand tu as fini, elle reste un moment sans rien dire. « Mon fils est chez les Jurés. Il a une montre. On ne donne pas une montre à un enfant qu'on mène à mal. » Elle referme un battant. « Allez dormir. Vous avez de la fièvre, ou vous avez bu : à votre âge, c'est la même chose. »"
+     "text": "Elle t'écoute, de sa croisée, la tête penchée. Quand tu as fini, elle reste un moment silencieuse. « Mon fils est chez les Jurés. Il a une montre. On ne donne pas une montre à un enfant qu'on mène à mal. » Elle referme un battant. « Allez dormir. Vous avez de la fièvre, ou vous avez bu : à votre âge, c'est la même chose. »"
     },
     {
      "if": {
@@ -73455,7 +73460,7 @@
     {
      "again": true,
      "with": "perrine",
-     "text": "Perrine marche à ton côté, sa hotte au dos. Elle regarde les choses une à une, sans rien dire, comme on fait l'inventaire d'une chambre qu'on quitte."
+     "text": "Perrine marche à ton côté, sa hotte au dos. Elle regarde les choses une à une, comme on fait l'inventaire d'une chambre qu'on quitte."
     }
    ],
    "choices": [
@@ -75126,7 +75131,7 @@
      "after": "j:ansel_travers",
      "text": "En passant devant l'arcade, il te cherche. Il te trouve. Rien ne bouge dans sa figure ; mais le paquet de serge penche, d'un quart, et se redresse."
     },
-    "Melchior Aubespin vient derrière eux, les mains libres. Il a les trois clefs à sa ceinture, sous l'habit. Lui seul n'a pas de bandeau : il le mettra en bas, au dernier moment, et il tient à entendre jusque-là. Devant le doyen Lunel, il s'incline, de son inclinaison exacte. « Monsieur le doyen, je vous rends une ville à l'heure. » Le doyen, qui n'a pas dormi, ne trouve rien à répondre.",
+    "Melchior Aubespin vient derrière eux, les mains libres. Il a les trois clefs à sa ceinture, sous l'habit. Lui seul n'a pas de bandeau : il le mettra en bas, au dernier moment, et il tient à entendre jusque-là. Devant le doyen Lunel, il s'incline, de son inclinaison exacte. « Monsieur le doyen, je vous rends une ville à l'heure. » Le doyen, qui n'a pas dormi, reste court.",
     "Deux petits hommes de cuivre, hauts comme des enfants, une cloche dans la poitrine, se détachent du mur et le suivent, à trois pas, du même pied.",
     "Au fond de la cour, la poterne de la ruelle des Sonneurs a sa barre baissée, à hauteur de ceinture, pour le public. Les huit grands se courbent. Le petit Hurel passe dessous sans se baisser. On l'entend rire, tout seul, dans son silence de cire.",
     {
@@ -84872,7 +84877,7 @@
        ]
       }
      },
-     "text": "Tu ne sais pas ce qu'il est monté faire. Il a la figure d'un garçon qui en redescend."
+     "text": "Tu ignores ce qu'il est monté faire. Il a la figure d'un garçon qui en redescend."
     },
     "Il faut le contourner, sur une marche large d'un pied. Tu passes sous son bras. Il est tiède, et il sent la cire.",
     {
@@ -85305,7 +85310,7 @@
        }
       ]
      },
-     "text": "Tu lui montres le point bleu. Tu ne dis rien. {autre} le voit, et voit de quel côté de l'arbre il est. « La charrette. Trente pas en dedans. Un gars debout dessus, le fouet en l'air, tourné vers la ville. » {autre:Il} baisse la voix. « Je suis passé{autre:e} à côté. J'ai cru qu'il arrivait. Il revenait, hein ? » Tu dis que oui. Qu'il avait posé la petite, et qu'il revenait chercher son père."
+     "text": "Tu lui montres le point bleu, en silence. {autre} le voit, et voit de quel côté de l'arbre il est. « La charrette. Trente pas en dedans. Un gars debout dessus, le fouet en l'air, tourné vers la ville. » {autre:Il} baisse la voix. « Je suis passé{autre:e} à côté. J'ai cru qu'il arrivait. Il revenait, hein ? » Tu dis que oui. Qu'il avait posé la petite, et qu'il revenait chercher son père."
     },
     {
      "if": {
@@ -85415,7 +85420,7 @@
        }
       ]
      },
-     "text": "{autre} ne dit rien. {autre:Il} regarde un point vert, en bas, très loin, de la grosseur d'un grain de riz. {autre:Il} a la figure de quelqu'un à qui l'on rend une chose qu'il croyait avoir cassée. « Article quatre, dit-{autre:il} enfin. On ne ferme pas boutique tant qu'il reste un client. » Tu n'avais pas compris la phrase, sur le mur. Tu la comprends."
+     "text": "{autre} regarde un point vert, en bas, très loin, de la grosseur d'un grain de riz. {autre:Il} a la figure de quelqu'un à qui l'on rend une chose qu'il croyait avoir cassée. « Article quatre, dit-{autre:il} enfin. On ne ferme pas boutique tant qu'il reste un client. » Tu n'avais pas compris la phrase, sur le mur. Tu la comprends."
     },
     {
      "if": {
@@ -86252,7 +86257,7 @@
    "place": "tour",
    "ambiance": "chateau",
    "text": [
-    "Vous montez les vingt échelons de frêne. {autre} passe la trappe, se redresse, et reste la tête levée, sans un mot, sous douze pieds de bronze.",
+    "Vous montez les vingt échelons de frêne. {autre} passe la trappe, se redresse, et reste la tête levée sous douze pieds de bronze.",
     "Tu attends. Tu sais ce que cela fait, la première fois.",
     "« C'est ça. » {autre:Il} parle bas, comme on fait sous une voûte. « C'est ça qu'ils chantent. Les Veilleurs. Ils ont une note, à l'abbaye, qu'ils se passent depuis toujours, bouche fermée. Je croyais que c'était une prière. C'est elle. » {autre:Il} lève la main vers la lèvre de la cloche, et ne la touche pas. « Ils la gardent juste. Soixante ans sans l'entendre, et ils la gardent juste. »",
     "Tu lui montres le marteau, contre le bronze, et le fil qui en descend. Tu lui montres la place claire, sur la lèvre. Tu dis : onze. Tu dis ce que fait un mur de bruit quand on est dedans.",
@@ -86274,7 +86279,7 @@
      "if": {
       "has": "monde:corde_coupee"
      },
-     "text": "Tu lui montres le moignon, là-haut, hors de portée. {autre:Il} ne dit rien. {autre:Il} regarde le banc, puis la poutre, puis toi ; {autre:il} fait des mesures de glaneur, à l'œil, les lèvres serrées."
+     "text": "Tu lui montres le moignon, là-haut, hors de portée. {autre:Il} regarde le banc, puis la poutre, puis toi ; {autre:il} fait des mesures de glaneur, à l'œil, les lèvres serrées."
     }
    ],
    "choices": [

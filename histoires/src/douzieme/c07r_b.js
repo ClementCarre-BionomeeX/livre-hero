@@ -61,7 +61,7 @@ Object.assign(P, {
     text: [
       "Tu poses ton seau au pied du tambour et tu fais semblant de frotter le cercle de fer. La veste est de gros drap bleu, raide de pluie : il pleuvait, cette nuit-là, et les gouttes sont restées sur ses épaules comme des perles de verre. La poche de poitrine bâille.",
       "La lettre a fait le voyage contre ta peau, depuis les Trois-Noyers, par la grange, la plaine, la maison bleue. Le papier a la couleur du thé. Dame Orable la récrit tous les hivers. Tu la plies une fois de plus et tu la glisses à plat, bien au fond, pour que la pluie de 575 ne la touche pas.",
-      "*Je sais qu'il ne la lira pas. Je veux qu'il l'ait sur lui quand il le pourra.* C'est fait. Il l'a sur lui. Il ne pèse pas moins sur sa barre, il ne crie pas moins fort. Mais il y a désormais, entre sa veste et sa chemise, quelqu'un qui lui dit que la plate est arrivée.",
+      "*Je sais qu'il ne la lira pas. Je veux qu'il l'ait sur lui quand il le pourra.* C'est fait. Il l'a sur lui. Il pèse autant sur sa barre, il crie aussi fort. Mais il y a désormais, entre sa veste et sa chemise, quelqu'un qui lui dit que la plate est arrivée.",
       { with: "rouget", text: "Rouget a regardé faire, appuyé sur son balai. « T'as porté ça cinq jours. Pour le mettre dans une poche. » Il n'y a pas de moquerie dans sa voix. Il range la chose, soigneusement, avec les autres choses que tu fais et qui ne rapportent rien." },
     ],
     choices: [{ back: "K07r_gervais" }] },
@@ -156,7 +156,7 @@ Object.assign(P, {
     text: [
       { first: true, before: "r:entre_cuisines", text: "Tu entres par le quai, ton tablier sur le ventre, comme chez toi. La salle du Bac est pleine de vapeur. Au milieu, une femme énorme, les bras nus, une louche de fer à l'épaule, mène six marmitons de la voix. Elle te voit, compte ses garçons, en trouve un de trop, et décide que c'est une bonne nouvelle. « D'où sors-tu, toi ? De la corvée de quai ? Ils me rendent enfin mes bras ! Aux écuelles. » On l'appelle la grosse Mahaut. Tu es à elle avant d'avoir ouvert la bouche." },
       { first: true, after: "r:mahaut_amie", text: "Mahaut te voit rentrer et te met d'office une écuelle dans les mains, pleine à ras bord, avec du lard. « Mange. Mon neveu ne travaille pas le ventre creux. »" },
-      { first: true, after: "r:mahaut_dette", text: "Mahaut te voit rentrer. Elle ne dit rien. Elle remplit une écuelle, sans lard, et la pose devant toi un peu fort." },
+      { first: true, after: "r:mahaut_dette", text: "Mahaut te voit rentrer. Elle remplit une écuelle, sans lard, et la pose devant toi un peu fort." },
       { first: true, text: "La soupe est une soupe de pois au lard, épaisse à tenir la cuiller debout. C'est la première chose chaude que tu manges depuis la table de Line, et tu sens, en avalant, que tu avais cessé de savoir que tu avais faim." },
       { first: true, with: "rouget", text: "Rouget en est à sa troisième écuelle. Il mange penché, un bras autour, comme on mange dans les bandes. Mahaut le regarde faire avec une espèce d'attendrissement professionnel." },
       { again: true, text: "Les huit marmites, la vapeur, Mahaut et sa louche. On prépare le souper de Monseigneur : il y aura une poularde." },
@@ -379,7 +379,7 @@ Object.assign(P, {
     text: [
       { after: "r:jehan_suit", text: "Il ôte la casaque. Dessous, il a une chemise de troupe, marquée à l'encre d'un numéro. Il plie le drap noir en quatre, au carré, et le pose sur le bûcher, bien d'aplomb, avec le sablier arraché par-dessus : il déserte, mais il rend son fourniment. Il garde le sabre. « Il est à moi. Je l'ai payé sur ma solde. J'ai le reçu. »" },
       { after: "r:jehan_suit", text: "Il va chercher, sous une bâche, deux sabliers de réserve qu'il avait mis de côté ; il les avait donc mis de côté. Il t'en tend un. « Trois pincées chacun. C'est la ration de quatre jours. Je l'ai prise sur la mienne, pas sur celle des autres. » Tu commences à comprendre ce que Line voulait dire, avec son nez." },
-      { after: "r:jehan_suit", with: "rouget", text: "Rouget ne dit rien pendant un long moment. Puis il s'approche, tâte la chemise de troupe entre deux doigts, et rend son verdict. « Il marche derrière. Et il porte le sac. » Jehan prend le sac." },
+      { after: "r:jehan_suit", with: "rouget", text: "Rouget se tait un long moment. Puis il s'approche, tâte la chemise de troupe entre deux doigts, et rend son verdict. « Il marche derrière. Et il porte le sac. » Jehan prend le sac." },
       { after: "r:jehan_reste", text: "Il reçoit cela comme un ordre, et c'est bien ce qui te serre le cœur : il se redresse, il joint les talons. « Bien. » Il regarde le sablier d'or, dans sa main, avec son lambeau de drap. Il ne peut pas le recoudre. « Je dirai que je l'ai accroché à un clou. » Il rempoche la montre. « Je la garderai jusqu'à Méridane. Je serai à la portière. Si elle a besoin de quelque chose en route, il y aura au moins quelqu'un qui sache son nom. »" },
       { after: "r:jehan_reste", text: "Il repart le long du mur, sans lanterne. Tu le regardes reprendre son poste devant la tente noire, très droit. Tu as peut-être eu raison. Tu viens aussi de renvoyer à sa guérite le seul homme de ce camp qui t'ait tendu la main." },
     ],

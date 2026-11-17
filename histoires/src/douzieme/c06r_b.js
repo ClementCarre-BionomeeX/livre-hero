@@ -168,7 +168,7 @@ Object.assign(P, {
       "« Ils sont montés en septembre, avec vingt chariots et le sable de la Maîtrise. Ils ont inventorié. Je les ai suivis de maison en maison, avec mon Rôle : ils comptaient les cuillers, je comptais les gens. À la fin, leur chiffre était plus gros que le mien, et ils sont repartis avec. »",
       "Tu demandes s'ils rendront. Frère Macaire referme son livre sur son doigt. « Ils ont fait un imprimé. Quand on a l'intention de rendre, mon enfant, on écrit à la main. »",
       "« Ceux de ton métier viennent aussi, note bien. Ils prennent moins, et ils s'excusent davantage. J'en ai surpris un, l'hiver dernier, qui remettait un loquet après avoir vidé un tiroir. Je l'ai inscrit quand même. »",
-      { if: { has: "r:pille_reposoir" }, text: "Son regard descend à ta poche, où quatre écus un peu verts ont tinté. Il ne dit rien. Les Veilleurs savent compter, et celui-ci sait en outre choisir ses silences." },
+      { if: { has: "r:pille_reposoir" }, text: "Son regard descend à ta poche, où quatre écus un peu verts ont tinté. Il se tait. Les Veilleurs savent compter, et celui-ci sait en outre choisir ses silences." },
     ],
     choices: [{ back: "K06r_macaire" }] },
   K06r_macaire_conseil: { act: "II", title: "Une maison, une pincée", place: "roquebise", ambiance: "village",

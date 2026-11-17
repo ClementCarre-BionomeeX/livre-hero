@@ -3,6 +3,11 @@
  "title": "Le Courrier de Vèze",
  "subtitle": "Histoire à cartes · trois haltes, un pli scellé",
  "summary": "La margrave d'Orbec te confie un pli scellé pour le conseil de Vèze, qui vote après-demain au soir. Deux jours de route, un gué, un col, une porte. À chaque halte, tu joues une carte de ta main : une rencontre, un obstacle, un détour, une trahison. La route se construit avec ce que tu joues, et elle se rejoue autrement à chaque partie.",
+ "tags": [
+  "aventure",
+  "voyage",
+  "intrigue"
+ ],
  "author": "Claude, pour Clément",
  "age": 12,
  "cover": {
@@ -417,6 +422,30 @@
    "rarete": "commune",
    "elan": 0,
    "texte": "Il t'a offert à boire. Il a payé avec ton nom."
+  },
+  "sauf_conduit": {
+   "titre": "Le Jeton des marchands",
+   "type": "allie",
+   "enseigne": "masque",
+   "rarete": "rare",
+   "elan": 1,
+   "texte": "Un rond de plomb aux armes d'une ville : les gardes connaissent ce signe, et ils détestent l'admettre."
+  },
+  "mulet": {
+   "titre": "Le Mulet de louage",
+   "type": "detour",
+   "enseigne": "racine",
+   "rarete": "peu",
+   "elan": 0,
+   "texte": "Une bête têtue, qui connaît les sentes mieux que son loueur."
+  },
+  "medaille": {
+   "titre": "La Médaille du pèlerin",
+   "type": "presage",
+   "enseigne": "lanterne",
+   "rarete": "peu",
+   "elan": 0,
+   "texte": "Un saint de cuivre usé par les pouces de cent prières."
   },
   "raccourci": {
    "titre": "Le Raccourci du contrebandier",
@@ -1054,15 +1083,25 @@
    },
    "text": [
     "Tu laisses venir les mots, et dans le flot il y en a un qui vaut le détour : sur la route de Vèze, quelqu'un pose des questions sur les courriers d'Orbec, et il paie les réponses en argent blanc.",
-    "Tu sais désormais qu'on te cherche. C'est une mauvaise nouvelle, et un avantage."
-   ],
-   "choices": [
+    "Tu sais désormais qu'on te cherche. C'est une mauvaise nouvelle, et un avantage.",
     {
-     "label": "Reprendre la route",
      "halte": [
       "gue",
       "col"
      ],
+     "text": "Pour te remercier d'avoir écouté si bien, ton bavard te glisse dans la main un rond de plomb aux armes de Vèze. « Le jeton des marchands. Montre-le à la porte, et tu entres sans faire la queue. Je l'ai gagné aux dés ; tu le gagnes à la patience. »"
+    }
+   ],
+   "choices": [
+    {
+     "label": "Empocher le jeton et reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "fx": {
+      "gagne": "sauf_conduit"
+     },
      "to": "@suite"
     },
     {
@@ -1291,6 +1330,10 @@
      "text": "Des chèvres y sont passées ce matin ; elles ont laissé des crottes rondes et la certitude qu'il y a un chemin. Les chèvres sont d'excellentes topographes, et de mauvaises guides."
     },
     {
+     "carte": "mulet",
+     "text": "Le mulet de louage, lui, a déjà choisi : il tourne la tête vers une sente que tu n'avais pas vue, et il tire sur sa longe avec la conviction d'un notaire qui connaît le cadastre."
+    },
+    {
      "carte": "raccourci",
      "text": "Un bout de chiffon rouge noué à une branche marque le départ. Les contrebandiers balisent leurs chemins pour eux-mêmes, et pour personne d'autre."
     }
@@ -1492,6 +1535,9 @@
   },
   "R_refuge_repos": {
    "title": "Une heure de sommeil",
+   "fx": {
+    "pioche": 1
+   },
    "text": [
     "Tu dors d'un sommeil de pierre, sans rêve, et tu te réveilles reposé{e}, avec une paille dans l'oreille et le pli à sa place."
    ],
@@ -1660,8 +1706,11 @@
   },
   "R_tresor_ok": {
    "title": "Cinq sous de mieux",
+   "fx": {
+    "gagne": "medaille"
+   },
    "text": [
-    "Cinq sous d'argent, et une médaille de pèlerin. Le pèlerin aura prié pour rien, et toi, tu as gagné sans prier."
+    "Cinq sous d'argent, et une médaille de pèlerin. Le pèlerin aura prié pour rien, et toi, tu as gagné sans prier. Tu gardes la médaille : un saint de cuivre, usé par les pouces, qui regarde vers la route."
    ],
    "choices": [
     {
@@ -1764,6 +1813,9 @@
   },
   "R_peril_ko": {
    "title": "Des crocs",
+   "fx": {
+    "defausse": 1
+   },
    "text": [
     "Tu t'en sors, avec une morsure au mollet et une manche en lambeaux. Le pli est intact. Ta jambe, beaucoup moins."
    ],
@@ -1806,7 +1858,11 @@
      "halte": "col",
      "text": "Sur le bras de la croix, une corneille plus grosse que les autres se tient immobile au milieu de la querelle générale, et elle te fixe de son œil rond."
     },
-    "On dit dans la marche que ces oiseaux voient le chemin avant les voyageurs. On dit beaucoup de choses dans la marche."
+    "On dit dans la marche que ces oiseaux voient le chemin avant les voyageurs. On dit beaucoup de choses dans la marche.",
+    {
+     "carte": "medaille",
+     "text": "Dans ta poche, la médaille du pèlerin est tiède. Son saint de cuivre regarde du même côté que l'oiseau."
+    }
    ],
    "choices": [
     {
@@ -1884,6 +1940,14 @@
      "text": "Une femme du marché, un panier sous le bras, remarque ta boue, ta fatigue et le cachet qui dépasse de ta veste, et elle fait un signe de tête vers une poterne."
     },
     {
+     "carte": "sauf_conduit",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "text": "Elle voit le jeton de plomb qui dépasse de ta manche, et son visage change : les gens qui portent ce signe paient bien, et ils se souviennent de ceux qui les aident."
+    },
+    {
      "carte": "bergere",
      "halte": [
       "gue",
@@ -1934,15 +1998,25 @@
   "R_allie_ok": {
    "title": "Le bon chemin",
    "text": [
-    "Elle te mène par où elle seule passe, et elle te laisse à l'endroit exact où la route reprend, avec un conseil sur les gens de Vèze que tu n'oublieras pas : « Ils votent comme ils mangent. Avec le plus offrant. »"
-   ],
-   "choices": [
+    "Elle te mène par où elle seule passe, et elle te laisse à l'endroit exact où la route reprend, avec un conseil sur les gens de Vèze que tu n'oublieras pas : « Ils votent comme ils mangent. Avec le plus offrant. »",
     {
-     "label": "Reprendre la route",
      "halte": [
       "gue",
       "col"
      ],
+     "text": "Elle ajoute le nom d'un muletier, plus loin, qui loue ses bêtes aux gens pressés : « Dis-lui que tu viens de ma part. Il te volera moins. »"
+    }
+   ],
+   "choices": [
+    {
+     "label": "Aller chercher le mulet, et reprendre la route",
+     "halte": [
+      "gue",
+      "col"
+     ],
+     "fx": {
+      "gagne": "mulet"
+     },
      "to": "@suite"
     },
     {
@@ -2078,8 +2152,14 @@
   },
   "R_trahison_ko": {
    "title": "Délesté{e}",
+   "fx": {
+    "perd": {
+     "de": "main"
+    }
+   },
    "text": [
-    "Tu te réveilles, ou tu te relèves, la tête lourde et la bourse plus légère. Le pli, lui, est toujours contre ta poitrine. Le voleur cherchait de l'argent. Il a eu de la chance, et toi davantage."
+    "Tu te réveilles, ou tu te relèves, la tête lourde et la bourse plus légère. Le pli, lui, est toujours contre ta poitrine. Le voleur cherchait de l'argent. Il a eu de la chance, et toi davantage.",
+    "Il t'a pris aussi une chose que tu comptais employer plus loin : en tâtant tes poches, tu sens la place vide."
    ],
    "choices": [
     {
@@ -2789,6 +2869,32 @@
       ]
      },
      "to": "C_secret_noue"
+    }
+   ]
+  },
+  "C_jeton_porte": {
+   "title": "Le jeton des marchands",
+   "resout": {
+    "carte": "sauf_conduit",
+    "halte": "porte"
+   },
+   "fx": {
+    "clock": {
+     "retard": -1
+    },
+    "ep": [
+     "perso",
+     200
+    ]
+   },
+   "text": [
+    "Tu sors de la file, tu remontes les charrettes, et tu montres au sergent le rond de plomb aux armes de Vèze. Il le regarde, il te regarde, et il fait la grimace d'un homme qui doit obéir à un morceau de métal.",
+    "« Les marchands par la poterne, » dit-il. La poterne s'ouvre, la file proteste, et tu passes sous le saint de bois avec une heure d'avance sur ta propre journée."
+   ],
+   "choices": [
+    {
+     "label": "Entrer dans Vèze",
+     "to": "@suite"
     }
    ]
   }

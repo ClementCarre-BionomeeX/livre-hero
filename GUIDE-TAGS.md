@@ -103,6 +103,12 @@ La difficulté (Conteur, Aventurier, Héroïque) se choisit à la création ; le
 
 - `adult: { themes: ["Meurtre et violence", "Manipulation psychologique", …] }` (histoire) : la carte de la bibliothèque porte un grand bandeau « Thème adulte ». « Nouvelle partie » (ou « Jouer à plusieurs ») ouvre d'abord un avertissement qui liste ces thèmes, avec « J'ai compris » pour continuer et un gros bouton rouge « Revenir à la bibliothèque ». Le validateur refuse une liste vide.
 
+## Genres et recherche dans la bibliothèque (17/11, 11.2)
+
+- `tags: ["aventure", "mer", …]` (histoire) : les genres du livre. Genres connus (src/bibliotheque.js) : `fantasy`, `aventure`, `voyage`, `enquete`, `intrigue` (intrigue politique), `drame` (drame intime), `huisclos`, `guerre`, `mer`, `sf`, `fantastique`, `historique`, `nature` (nature et animaux), `ecole`. Le validateur refuse autre chose qu'une liste et signale un genre inconnu (il ne servirait pas aux filtres).
+- Le reste se déduit seul, sans tag : jeu, à cartes (`cartes`) ou à lire (`lecture`) ; seul, à deux ou à plusieurs (`multi`) ; longueur (jeu : passages, moins de 100 court, moins de 1 000 moyen ; roman à lire : mots, moins de 40 000 court, moins de 70 000 moyen) ; public (`adult`) ; auteur (`author`, jusqu'au premier « · » ou « , » : « Claude, pour Clément » donne « Claude »).
+- L'accueil : une ligne (recherche, ordre, Filtres). La recherche tolère les fautes, les accents et les mots collés, et cherche dans le titre, l'auteur, les genres (et leurs synonymes : « policier » trouve l'enquête), le sous-titre et le résumé. Les filtres d'une même sorte s'ajoutent, les sortes se croisent ; chaque valeur montre le nombre de livres qu'elle donnerait. Le filtre « Public » reste sur l'appareil (choix des parents). Sans recherche ni filtre, les livres restent sur leurs rayons ; les romans à lire ont le leur.
+
 ## Portraits des gens, brouillard, chemin, musique (13/11)
 
 - `people.<id>.f` : `true` pour une femme, `false` pour un homme. Sans lui, le moteur devine d'après le titre (Mère, Dame, Sire, Frère…) ou le « elle / il » de la description ; un portrait apparaît alors à côté du nom dans l'onglet Gens.
@@ -468,7 +474,7 @@ Le validateur : syntaxe des voiles, lentille déclarée, objet existant, même v
 
 Pièges : un voile sans `#id` dont les mots dits sont courts (« rien ») risque de rencontrer un autre voile ; donner un `#id` dès qu'il a une suite. Les charges se dépensent aussi sur les voiles sans suite : un lecteur prudent les garde.
 
-## États et conditions (17/11, 11.1)
+## États et conditions (17/11, 11.3)
 
 - `has: "clé"` tient aussi dès qu'une page a donné une valeur à la clé (`fx.set: { "clé": "valeur" }`), quelle que soit la valeur. `has: "clé=valeur"` reste la forme précise. Avant, `has: "clé"` sur un état restait faux sans rien dire, et le choix était fermé pour toujours.
 - Validateur, livres à plusieurs : le partenaire fantôme tire chaque marque `monde:` une seule fois par partie, au premier rendez-vous de l'acte où une page peut la poser (avant : à chaque rendez-vous, ce qui finissait par les poser toutes sur un long livre). Une dernière passe de la recherche ciblée part des états qui tiennent déjà les marques demandées par le passage cherché, et essaie l'autre issue d'un test.
@@ -526,3 +532,15 @@ Ce que le moteur fait seul : la pioche mélangée, la défausse rebattue quand l
 Le validateur : cartes, fils, haltes, résolutions et tags qui nomment ce qui existe ; et la promesse : **chaque carte de l'histoire, à chaque halte qui accepte son genre, a une résolution sans condition** (`resout: { type }`, avec ou sans `halte`). Sinon, erreur. Tests : `node tests/cartes-test.js`.
 
 Écrire une résolution : un paragraphe par halte (`halte`), un par carte quand la carte précise ce qui arrive (`carte`), des choix tagués `enseigne` pour la manière de s'en tirer, et une issue sans jet. Un fil se relit par des résolutions `resout: { type: [...], fil }` qui ramènent son personnage et le nouent.
+
+### La vie du deck (17/11, 11.2) : tirer, défausser, gagner, perdre
+
+| Où | Clé | Sens |
+|---|---|---|
+| effet | `pioche: n` | Le lecteur pioche n cartes tout de suite (la défausse est rebattue si la pioche est vide). |
+| effet | `defausse: n` | n cartes de la main, au hasard, partent à la défausse (elles reviendront). |
+| effet | `gagne: "<id>"` · `[ids]` · `{ carte, dans: "main" \| "pioche" \| "defausse" }` | Le lecteur gagne ces cartes (dans sa main par défaut ; mêlées à la pioche avec `dans: "pioche"`). La carte doit exister dans `cartes`. |
+| effet | `perd: "<id>"` · `[ids]` · `{ carte \| type \| enseigne, n, de: "main" \| "jeu" }` | Des cartes quittent la partie pour de bon (« cartes perdues »). Cherchées dans la main, puis la défausse, puis la pioche (`de: "main"` : la main seulement). Sans `carte`, au hasard parmi celles qui conviennent. Une carte que le lecteur n'a pas ne se perd pas. |
+| condition | `{ possede: "<id>" \| [ids] }` | Le lecteur a l'une de ces cartes (main, pioche ou défausse). |
+
+Ce que le moteur fait seul : une fois par halte, le lecteur peut échanger une carte de sa main contre celle du dessus de sa pioche ; la page montre la pioche (sans son ordre), la défausse et les cartes perdues ; l'explication des règles s'affiche la première fois qu'une main apparaît. Une carte gagnée en route est couverte par la promesse du validateur comme les autres : une carte qu'on ne gagne qu'en route s'ajoute à `cartes` sans entrer dans `jeu.deck`. Pour qu'un gain serve, le donner avant une halte qui accepte son genre (tags `halte` sur le choix qui le donne).

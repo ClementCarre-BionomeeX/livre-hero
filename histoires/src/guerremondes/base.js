@@ -8,6 +8,7 @@ module.exports = {
   title: "La Guerre des mondes",
   subtitle: "Un roman à lire · H. G. Wells, 1898",
   summary: "Surrey, au tournant du siècle. Un cylindre tombé du ciel s'enfonce dans la lande de Horsell, près de Woking. Les curieux s'attroupent autour du trou ; le couvercle se met à tourner. Le narrateur, un écrivain qui habite à deux pas, va vivre l'invasion des Marsiens jour après jour, de son jardin jusqu'aux rues désertes de Londres. Le roman de Wells en entier, dans la traduction d'Henry-D. Davray, sans choix : on le lit page après page, avec les gens, les lieux et les mots expliqués d'un appui.",
+  tags: ["sf","guerre"],
   author: "H. G. Wells · traduction d'Henry-D. Davray (1900)",
   lecture: true,
   age: 11,
