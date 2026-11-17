@@ -124,7 +124,7 @@ module.exports = {
         "La Cormorane entre dans la baie à midi, à la sonde, sous huniers seuls, et mouille par six brasses dans une eau verte et lisse comme une eau de citerne, au fond d'une anse cernée de forêt. Pas un oiseau ne chante. L'air est chaud, mouillé, épais, et sent la feuille pourrie et la fleur. Sur un éperon, au-dessus de l'anse, des ruines grises percent la verdure : un clocher sans toit, des murs, une porte.",
         "On appelle l'endroit l'Anse-Morte. Personne ne demande pourquoi.",
       ],
-      choices: [{ label: "Folle-Aiguille", to: "C4", big: true }] },
+      choices: [{ label: "Folle-Aiguille", to: "C4_victime", big: true }] },
   },
   extras: {
     escales: {
