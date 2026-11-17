@@ -21,13 +21,13 @@ module.exports = {
       ],
       choices: [
         { label: "Raconter ta matinée à tous ceux que tu croises, avec la ficelle à la main", fx: { flag: "wx:explique" }, to: "WX_explique" },
-        { label: "Rentrer au Fanal, et laisser ton père répondre pour toi", fx: { flag: "wx:pere" }, to: "WX_pere" },
+        { label: "Aller au Fanal, et laisser ton père répondre pour toi", fx: { flag: "wx:pere" }, to: "WX_pere" },
         { label: "Ne rien dire à personne, et attendre que la vérité arrive toute seule", fx: { flag: "wx:tait" }, to: "WX_tait" },
       ] },
     WX_explique: { act: "I", title: "Le bout de ficelle", place: "route_varnese", ambiance: "village",
       text: [
         "Tu expliques. Tu reviens sur tes pas, tu arrêtes les gens, tu leur montres la ficelle, tu leur racontes la Croix-Rouge, l'ornière, le collet, les lapins. On t'écoute, poliment, en hochant la tête. Puis on sourit. Tu vois, à chaque sourire, que ton explication est devenue une preuve de plus : l'enfant du Fanal se donne bien du mal pour un bout de ficelle. Un vieux te tape sur l'épaule et dit : « Bien joué, petit{e}. »",
-        "Le lendemain, un valet de ferme de Kerlouan rapporte la bourse au meunier Rannou. Il l'a trouvée dans le fossé, à une demi-lieue de la Croix-Rouge, tombée d'une charrette. Les quarante écus sont dedans. Le meunier le récompense. Tu crois que c'est fini. Tu racontes à tout le monde qu'on a retrouvé la bourse. On t'écoute, poliment. Et l'on dit, à mi-voix, que le valet de Kerlouan est un ami du Fanal, et que l'enfant a été bien malin de la faire rapporter par un autre, quand ça a commencé à sentir le roussi.",
+        "Le lendemain, un valet de ferme de Kerlouarn rapporte la bourse au meunier Rannou. Il l'a trouvée dans le fossé, à une demi-lieue de la Croix-Rouge, tombée d'une charrette. Les quarante écus sont dedans. Le meunier le récompense. Tu crois que c'est fini. Tu racontes à tout le monde qu'on a retrouvé la bourse. On t'écoute, poliment. Et l'on dit, à mi-voix, que le valet de Kerlouarn est un ami du Fanal, et que l'enfant a été bien malin de la faire rapporter par un autre, quand ça a commencé à sentir le roussi.",
         "Tu expliques encore. Tu expliques pendant des jours, à tous, au marché, à l'église, sur la grève. Plus tu expliques, plus on sourit. Tu finis par te réveiller la nuit en expliquant, à voix haute, dans ton lit, à des gens qui ne sont pas là. Ton père, un soir, te prend le bout de ficelle des mains, doucement, et le jette au feu. Il dit : « On ne gagne pas ce genre de procès. On le perd moins en se taisant. » Tu le regardes brûler. Il brûle mal, à cause du goudron, en faisant une fumée noire qui sent la corde des pendus.",
       ],
       choices: [{ label: "Reprendre les jours du Fanal", fx: { quest: "WX" }, back: "A1_jours" }] },

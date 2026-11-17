@@ -1,7 +1,7 @@
 // L'Île Folle-Aiguille · side story « L'homme de la lucarne » (owes its question to Hawthorne's Wakefield: can a man
 // come back from an absence he chose for nothing, and does his place wait for him?). Act II, Fargue in Morlenc: buying
 // candles at the widow Jézéquel's shop, Fargue notices, in a garret window across the lane, a man who watches the shop,
-// and recognises him from the wedding portrait behind the counter. Isidore Jézéquel left one morning fourteen years ago
+// and recognises him from the wedding portrait behind the counter. Aristide Jézéquel left one morning fourteen years ago
 // « to see what she would do without him », and never went back. His wife is to remarry next week. Fargue pushes him to
 // knock (vv:frappe), tells the wife himself (vv:dit), or leaves him to his window (vv:tait). Wired in XR_jours.
 module.exports = {
@@ -18,17 +18,40 @@ module.exports = {
     VV_mansarde: { act: "II", title: "L'homme de la lucarne", place: "basse_fosse", ambiance: "ville", second: true,
       text: [
         "La porte de la mansarde n'est pas fermée. L'homme est assis sur un tabouret, à la lucarne, de profil, comme s'il n'avait jamais bougé de là. Une chambre de cinq pas sur trois, un lit étroit, une cuvette, une table, et sur la table, rangés avec un soin de commis, quatorze petits carnets noirs, un par an. Il a les cheveux gris, maintenant, la mèche aussi. Il a gardé le parapluie. Il est debout dans un coin, roulé, sanglé, fermé depuis quatorze ans.",
-        "Il ne nie pas. Il paraît même soulagé qu'on lui pose enfin la question, comme un homme qui attendait à un guichet depuis très longtemps. Isidore Jézéquel. Il était commis aux écritures chez un armateur. Un matin, il a eu une idée, une petite idée, une idée de rien : partir une semaine, sans prévenir, louer une chambre dans la rue d'à côté, et voir ce qu'elle ferait sans lui. S'il lui manquerait. Combien. Une semaine, pas plus. Il avait pris le parapluie à cause du temps.",
+        "Il ne nie pas. Il paraît même soulagé qu'on lui pose enfin la question, comme un homme qui attendait à un guichet depuis très longtemps. Aristide Jézéquel. Il était commis aux écritures chez un armateur. Un matin, il a eu une idée, une petite idée, une idée de rien : partir une semaine, sans prévenir, louer une chambre dans la rue d'à côté, et voir ce qu'elle ferait sans lui. S'il lui manquerait. Combien. Une semaine, pas plus. Il avait pris le parapluie à cause du temps.",
         "Au bout d'une semaine, elle a pleuré. Il en a été très content. Il a attendu une semaine de plus, pour voir si elle pleurerait encore. Puis un mois. Puis il était trop tard pour rentrer sans dire où il avait été, et il ne trouvait pas de phrase qui commence bien. Puis il a cherché la phrase pendant un an. Il travaille comme copiste, à la journée, pour payer la chambre. Il note dans les carnets ce qu'elle fait. Il ouvre le dernier : *Mardi. A ri avec le charretier. A changé le ruban de sa coiffe. Bleu.*",
       ],
       choices: [{ label: "Lui demander ce qu'il compte faire, mardi", to: "VV_mardi" }] },
-    VV_mardi: { act: "II", title: "L'homme de la lucarne", place: "basse_fosse", ambiance: "ville", second: true,
+    VV_mevellec: { act: "II", title: "L'homme de la lucarne", place: "basse_fosse", ambiance: "ville", second: true,
       text: [
-        "Il ne sait pas. Il dit qu'il descendra, peut-être. Qu'il frappera. Qu'il a préparé une phrase, cette fois. Il la récite à Fargue, à mi-voix : « Je suis allé voir ce que tu ferais sans moi. » Il demande si c'est une bonne phrase. Fargue, qui en a entendu de toutes les sortes au bureau d'enrôlement, pense que c'est la pire phrase qu'un homme ait jamais préparée, et qu'elle est exacte, et que c'est pour cela qu'elle est la pire.",
-        "Jézéquel regarde la boutique, en bas. La veuve sort balayer son seuil. Il la suit des yeux avec une tendresse terrible, celle d'un homme qui regarde un tableau qu'il a peint et qui ne lui appartient plus. Il dit qu'il ne l'a jamais quittée, en vérité. Qu'il a été là tous les jours. Qu'il la connaît mieux qu'aucun mari ne connaît sa femme, puisqu'il ne fait que la regarder. Il dit qu'elle ne s'est aperçue de rien, pas une fois, en quatorze ans, et il le dit avec une fierté de joueur.",
-        "Fargue pense à une fenêtre aux géraniums, de l'autre côté de la ville, derrière laquelle une jeune fille coud en toussant. Il pense qu'il va partir dans huit jours, pour un voyage dont il ne sait pas s'il reviendra, pour des raisons qu'il ne peut dire à personne, et qu'il a, lui aussi, cherché une phrase qui commence bien. Il ne l'a pas trouvée non plus. Il se demande combien de temps on peut regarder les siens de loin avant que la place se referme, et si l'on s'en aperçoit, quand elle se referme.",
+        "Mévellec décharge des sacs de sel devant un entrepôt du quai, deux à la fois, un sur chaque épaule, comme on porterait deux enfants. C'est un colosse roux, d'une cinquantaine d'années, au visage rouge et franc, qui s'arrête volontiers pour parler à un inconnu, surtout si l'inconnu paie la chopine. Fargue paie la chopine.",
+        "Il parle de la veuve Jézéquel avec une sorte d'émerveillement. Il dit qu'il l'a demandée trois fois, en six ans, et qu'elle a dit non deux fois, poliment, en disant qu'elle attendait encore. Il dit qu'il ne savait pas quoi. Il dit qu'elle a dit oui la troisième, au printemps, d'un coup, un matin, sans raison, comme on ferme un livre qu'on a fini.",
+        "Il dit que le premier mari était commis aux écritures, un petit homme maigre à parapluie, que tout le quartier trouvait un peu bizarre, et qu'il est mort en mer, à ce qu'on croit, ou dans un fossé, ou ailleurs. Il dit qu'on ne sait pas. Il dit que ça ne le regarde pas. Il dit qu'il ne lui demandera jamais rien sur le premier, parce qu'un homme qui épouse une veuve épouse aussi un cimetière, et qu'on ne va pas fouiller les tombes.",
+        "Il vide sa chopine. Il dit qu'il a déjà repeint la boutique, en vert, et réparé le volet du haut, celui qui battait les nuits de vent depuis quatorze ans. Il dit qu'il a même changé la serrure, parce que l'ancienne fermait mal. Il dit ça en riant, avec son bon rire, et il recharge ses deux sacs, et il s'en va. Fargue reste un moment à penser à la serrure.",
       ],
       choices: [
+        { back: "VV_mardi", label: "Remonter à la mansarde, où Jézéquel attend" }
+      ] },
+    VV_logeuse: { act: "II", title: "L'homme de la lucarne", place: "basse_fosse", ambiance: "ville", second: true,
+      text: [
+        "La logeuse de la maison penchée est une vieille femme en bonnet, assise au rez-de-chaussée, derrière une porte vitrée, avec un chat sur les genoux et un tricot qu'elle ne tricote pas. De sa place, elle voit l'escalier, la ruelle et la vie de tous ses locataires, et elle le fait savoir d'un seul regard, qui pèse Fargue de la tête aux pieds.",
+        "Elle dit que le monsieur du troisième est son meilleur locataire. Quatorze ans sans un retard. Il paie le premier de chaque mois, à neuf heures, en pièces bien comptées, posées en pile sur le rebord de la vitre. Il ne reçoit personne. Il ne fait pas de bruit. Il ne sort jamais, sauf le dimanche, à l'heure de la messe.",
+        "Elle dit qu'elle l'a suivi, un dimanche, la première année, par curiosité. Il va à l'église de la Basse-Fosse, celle où va la boutiquière d'en face. Il ne s'assied pas. Il reste debout derrière le dernier pilier, dans l'ombre, et il regarde le troisième banc, à gauche, pendant toute la messe. Il sort avant la fin, avant tout le monde, et il remonte chez lui par le chemin le plus long.",
+        "Elle dit qu'elle a cru, la première année, que c'était un poète, ou un assassin. Elle dit qu'au bout de quatorze ans elle a compris que c'était plus simple et plus triste que ça : c'est un homme qui va à la messe de quelqu'un d'autre. Elle caresse son chat. Elle demande, pour finir, si le monsieur du troisième va déménager. Elle dit qu'elle aurait du mal à en trouver un comme lui.",
+      ],
+      choices: [
+        { back: "VV_mardi", label: "Remonter à la mansarde" }
+      ] },
+    VV_mardi: { act: "II", title: "L'homme de la lucarne", place: "basse_fosse", ambiance: "ville", second: true,
+      text: [
+        { first: true, text: "Il ne sait pas. Il dit qu'il descendra, peut-être. Qu'il frappera. Qu'il a préparé une phrase, cette fois. Il la récite à Fargue, à mi-voix : « Je suis allé voir ce que tu ferais sans moi. » Il demande si c'est une bonne phrase. Fargue, qui en a entendu de toutes les sortes au bureau d'enrôlement, pense que c'est la pire phrase qu'un homme ait jamais préparée, et qu'elle est exacte, et que c'est pour cela qu'elle est la pire." },
+        { first: true, text: "Jézéquel regarde la boutique, en bas. La veuve sort balayer son seuil. Il la suit des yeux avec une tendresse terrible, celle d'un homme qui regarde un tableau qu'il a peint et qui ne lui appartient plus. Il dit qu'il ne l'a jamais quittée, en vérité. Qu'il a été là tous les jours. Qu'il la connaît mieux qu'aucun mari ne connaît sa femme, puisqu'il ne fait que la regarder. Il dit qu'elle ne s'est aperçue de rien, pas une fois, en quatorze ans, et il le dit avec une fierté de joueur." },
+        { first: true, text: "Fargue pense à une fenêtre aux géraniums, de l'autre côté de la ville, derrière laquelle une jeune fille coud en toussant. Il pense qu'il va partir dans huit jours, pour un voyage dont il ne sait pas s'il reviendra, pour des raisons qu'il ne peut dire à personne, et qu'il a, lui aussi, cherché une phrase qui commence bien. Il ne l'a pas trouvée non plus. Il se demande combien de temps on peut regarder les siens de loin avant que la place se referme, et si l'on s'en aperçoit, quand elle se referme." },
+        { again: true, text: "Jézéquel, à sa lucarne, regarde la veuve balayer son seuil, et attend que Fargue lui dise si sa phrase est bonne." }
+      ],
+      choices: [
+        { label: "Aller trouver le charretier Mévellec, que la veuve doit épouser", to: "VV_mevellec", hide: { seen: "VV_mevellec" } },
+        { label: "Interroger la logeuse de la maison penchée sur son locataire", to: "VV_logeuse", hide: { seen: "VV_logeuse" } },
         { label: "Le prendre par le bras et le faire descendre frapper, ce soir", fx: { flag: "vv:frappe" }, to: "VV_frappe" },
         { label: "Descendre seul, et dire à la veuve qui la regarde d'en face", fx: { flag: "vv:dit" }, to: "VV_dit" },
         { label: "Le laisser à sa lucarne : ce n'est pas son affaire", fx: { flag: "vv:tait" }, to: "VV_tait" },
@@ -59,7 +82,7 @@ module.exports = {
   },
   extras: {
     people: {
-      jezequel: { name: "Isidore Jézéquel", aka: ["l'homme de la lucarne"], qui: "Ancien commis aux écritures de Morlenc, disparu un matin, avec son parapluie, il y a quatorze ans." },
+      jezequel: { name: "Aristide Jézéquel", aka: ["l'homme de la lucarne"], qui: "Ancien commis aux écritures de Morlenc, disparu un matin, avec son parapluie, il y a quatorze ans." },
     },
     quests: [
       { id: "VV", act: "II", kind: "annexe", title: "L'homme de la lucarne", start: "VV_boutique", doit: "wakefield", echo: ["vv:frappe", "vv:dit", "vv:tait"] },

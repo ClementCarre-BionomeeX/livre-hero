@@ -13,14 +13,37 @@ module.exports = {
         "Et depuis le printemps, chaque soir, elle a un compte au Fanal. C'est Quiniou qui l'a ouvert. Tout ce qu'elle boit, il le paie, à la fin du mois, rubis sur l'ongle, et il a dit à ton père, en lui serrant la main des deux siennes : « Qu'elle ne manque de rien, la pauvre vieille. Ce n'est pas tous les jours qu'on peut faire plaisir. Et toi, l'enfant, quand tu lui sers, sers large. Je n'aime pas les petites mesures. »",
       ],
       choices: [{ label: "Lui servir son remède", to: "WL_verre" }] },
-    WL_verre: { act: "I", title: "Le compte de la mère Le Hir", place: "fanal_salle", ambiance: "nuit",
+    WL_zelie: { act: "I", title: "Le compte de la mère Le Hir", place: "fanal_salle", ambiance: "nuit",
       text: [
-        "Elle boit. Au début, au printemps, dit Zélie, elle prenait deux petits verres, le soir, et rentrait à pied, droite comme un cierge. À présent, tu lui en sers six, sept, huit. Sa main tremble quand elle tend le verre. Elle rit trop fort aux histoires du Gabier. Elle a les joues marbrées de petites veines violettes, le nez rouge, le blanc des yeux jaune comme du vieux suif. Elle tousse. Elle oublie sa canne. Un soir, en rentrant, elle est tombée dans le fossé du chemin creux, et le valet des Guéguen l'a ramassée à l'aube, couverte de givre, en train de chanter.",
-        "Quiniou passe, une ou deux fois par semaine, en voisin. Il s'assied à côté d'elle. Il lui demande comment va la santé, avec une sollicitude touchante. Il commande lui-même une autre tournée. Il trinque avec elle, il la fait rire, il lui raconte les foires de Varnèse. Il boit peu. Il la regarde boire, avec ses petits yeux bleus dans sa grosse figure rose, comme un fermier regarde monter le blé.",
-        "Un soir, il reste après qu'elle est partie, et il compte sur ses doigts, à voix basse, devant son verre de cidre, en croyant que personne n'écoute. Tu l'entends dire : « Une rente par trimestre… Le printemps, l'été… Avant les gelées. Au pire, à la Chandeleur. » Puis il voit que tu le regardes, et il te fait un grand sourire, et il te glisse une pièce dans la main, en te disant que tu es un{e} brave enfant, et de bien servir la mère Le Hir.",
-        "Ton père, au comptoir, essuie les chopes. Il a tout entendu. Il ne dit rien. Il te regarde, simplement, comme on regarde quelqu'un à qui l'on va laisser une chose à porter.",
+        "Zélie lave les chopes dans le baquet, derrière le comptoir, les manches retroussées jusqu'aux coudes, et elle répond sans lever les yeux, en frottant plus fort à chaque phrase. Quiniou ? Un brave homme, à ce qu'on dit à Varnèse. Un homme qui va à la messe, qui donne aux quêtes, qui a fait refaire à ses frais la grille du cimetière. Elle dit que c'est un homme qui aime beaucoup les cimetières.",
+        "Elle dit que la ferme de la mère Le Hir est la troisième qu'il achète en viager. La première, c'était celle du vieux Coquil, à Kervennec. Le vieux est tombé dans son escalier, l'hiver suivant, la nuit, en descendant chercher à boire. On l'a trouvé au matin. Il y avait une bouteille vide à côté de lui. Elle dit qu'il ne buvait pas, avant.",
+        "La deuxième, c'est celle de la veuve Hingant, du côté des étangs. La veuve a quatre-vingt-onze ans. Elle ne boit que de l'eau, elle marche deux lieues tous les dimanches pour aller à la messe, elle a enterré deux médecins et un recteur, et elle dit, à qui veut l'entendre, qu'elle compte bien enterrer Quiniou. Zélie dit que Quiniou la regarde, à la sortie de la messe, comme on regarde un mauvais placement.",
+        "Elle pose la chope, s'essuie les mains à son tablier, et te regarde enfin. Elle dit qu'elle n'a rien dit. Elle dit qu'elle répète ce que tout le monde sait, et que tout le monde sait beaucoup de choses, ici, et qu'on les garde au chaud, comme les braises, sans jamais souffler dessus. Puis elle retourne à son baquet.",
       ],
       choices: [
+        { back: "WL_verre", label: "Revenir au comptoir, près de ton père" }
+      ] },
+    WL_nuit: { act: "I", title: "Le compte de la mère Le Hir", place: "hameau", ambiance: "nuit",
+      text: [
+        "Elle a oublié sa canne, comme souvent. Tu la lui apportes, et tu marches à côté d'elle, sur le chemin de la Pointe, une lanterne à la main, sous un ciel sans lune. Elle s'appuie à ton bras. Elle pèse moins qu'un sac de sel. Elle parle tout le long du chemin, d'une voix pâteuse, gaie et décousue, de son mari, de ses vaches, d'un bal d'autrefois, d'un marin qui lui avait offert un ruban.",
+        "La ferme est au bout de la Pointe, basse, longue, accroupie dans le vent, avec son toit de chaume qui descend jusqu'à terre. Elle n'est plus à elle. Elle y vit encore, puisque le viager le veut, dans la grande salle, seule. Elle t'ouvre la porte. Dedans, il fait froid et noir. Le feu est mort. Les deux lits clos, côte à côte, sont fermés. L'horloge, dans sa caisse, ne bat plus.",
+        "Elle allume une chandelle, avec des mains qui tremblent, et elle s'assied sur le banc, son châle sur les épaules. Elle dit qu'elle a vendu pour ne plus être seule dans la ferme, à compter les vaches qu'elle n'avait plus. Elle dit qu'au Fanal il y a du monde, du feu, le Gabier qui raconte, et que le cognac tient chaud pour le chemin. Elle dit qu'elle ne s'est jamais tant amusée de sa vie que depuis le printemps.",
+        "Elle te demande de remonter l'horloge, avant de partir. Elle n'y arrive plus, avec ses mains. Tu ouvres la caisse, tu tires les poids, tu pousses le balancier. L'horloge repart, d'un pas lent de vieille servante. La mère Le Hir sourit, les yeux fermés, en l'écoutant. Tu repars dans la nuit avec ta lanterne. Derrière toi, par la porte ouverte, tu entends encore le tic-tac, et le petit rire de la vieille femme qui parle toute seule.",
+      ],
+      choices: [
+        { back: "WL_verre", label: "Revenir au Fanal par le chemin de la Pointe" }
+      ] },
+    WL_verre: { act: "I", title: "Le compte de la mère Le Hir", place: "fanal_salle", ambiance: "nuit",
+      text: [
+        { first: true, text: "Elle boit. Au début, au printemps, dit Zélie, elle prenait deux petits verres, le soir, et rentrait à pied, droite comme un cierge. À présent, tu lui en sers six, sept, huit. Sa main tremble quand elle tend le verre. Elle rit trop fort aux histoires du Gabier. Elle a les joues marbrées de petites veines violettes, le nez rouge, le blanc des yeux jaune comme du vieux suif. Elle tousse. Elle oublie sa canne. Un soir, en rentrant, elle est tombée dans le fossé du chemin creux, et le valet des Guéguen l'a ramassée à l'aube, couverte de givre, en train de chanter." },
+        { first: true, text: "Quiniou passe, une ou deux fois par semaine, en voisin. Il s'assied à côté d'elle. Il lui demande comment va la santé, avec une sollicitude touchante. Il commande lui-même une autre tournée. Il trinque avec elle, il la fait rire, il lui raconte les foires de Varnèse. Il boit peu. Il la regarde boire, avec ses petits yeux bleus dans sa grosse figure rose, comme un fermier regarde monter le blé." },
+        { first: true, text: "Un soir, il reste après qu'elle est partie, et il compte sur ses doigts, à voix basse, devant son verre de cidre, en croyant que personne n'écoute. Tu l'entends dire : « Une rente par trimestre… Le printemps, l'été… Avant les gelées. Au pire, à la Chandeleur. » Puis il voit que tu le regardes, et il te fait un grand sourire, et il te glisse une pièce dans la main, en te disant que tu es un{e} brave enfant, et de bien servir la mère Le Hir." },
+        { first: true, text: "Ton père, au comptoir, essuie les chopes. Il a tout entendu. Il ne dit rien. Il te regarde, simplement, comme on regarde quelqu'un à qui l'on va laisser une chose à porter." },
+        { again: true, text: "La mère Le Hir rit au bout de son banc, son verre à la main, et Quiniou lui sourit de toute sa grosse figure rose." }
+      ],
+      choices: [
+        { label: "Demander à Zélie ce qu'elle sait de Mathelin Quiniou", to: "WL_zelie", hide: { seen: "WL_zelie" } },
+        { label: "Raccompagner la mère Le Hir jusque chez elle, à la Pointe-aux-Corneilles", to: "WL_nuit", hide: { seen: "WL_nuit" } },
         { label: "Couper d'eau, en cachette, le remède de la mère Le Hir", fx: { flag: "wl:eau" }, to: "WL_eau" },
         { label: "Aller lui dire, à elle, ce que compte Quiniou", fx: { flag: "wl:dit" }, to: "WL_dit" },
         { label: "Garder la pièce, et servir large, comme on te l'a demandé", fx: { flag: "wl:sert" }, to: "WL_sert" },

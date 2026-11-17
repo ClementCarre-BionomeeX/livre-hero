@@ -15,14 +15,37 @@ module.exports = {
         "Fargue l'observe depuis la porte de la cambuse. Il nourrit ce navire. Chaque bouche qui mange, il la connaît, et il sait ce qu'elle laisse dans l'écuelle. Celle-là ne laisse rien, puisqu'elle ne prend rien, et ça le dérange plus qu'il ne saurait dire.",
       ],
       choices: [{ label: "Aller lui porter sa pinte, un soir, et lui demander pourquoi", to: "VZ_pourquoi" }] },
-    VZ_pourquoi: { act: "III", title: "Le jeûneur du calme", place: "sargues", ambiance: "nuit", second: true,
+    VZ_carnet: { act: "III", title: "Le jeûneur du calme", place: "sargues", ambiance: "nuit", second: true,
       text: [
-        "Le neuvième jour, à la nuit, quand les regardeurs sont partis se coucher, Fargue monte sur le gaillard avec la pinte d'eau. Hénaff est recroquevillé dans son demi-baril, très maigre, d'une maigreur nouvelle, celle où l'on voit les dents sous les lèvres et les os sous les tempes. Il boit l'eau à petites gorgées. Il remercie. Fargue s'assied sur l'écoutille et attend, parce qu'il sait attendre, et que les hommes parlent toujours à qui attend.",
-        "Hénaff parle. Il est né l'année de la grande disette, dans une paroisse de l'intérieur. Sa mère lui donnait sa part de pain, et la sienne, en disant qu'elle avait déjà mangé. Elle est morte au printemps. Il avait six ans. Depuis, il dit que chaque bouchée qu'il avale, c'est quelqu'un qui ne l'avale pas. Il le sait, même quand il n'y a personne en face. Il mange quand même, comme tout le monde, parce qu'il faut. Mais là, dans ce calme, où personne n'a besoin de lui, où les voiles pendent, il a trouvé une chose qu'il sait faire mieux que tous les autres. Ne pas prendre.",
-        "Il dit aussi, avec un petit rire, qu'on ne l'a jamais tant regardé. Qu'on lui parle, maintenant. Que le maître voilier lui dit bonjour. Il dit qu'il ira jusqu'au quinzième jour, qu'il en est sûr, et qu'il veut être encore là, ce jour-là, dans son baril, pour que tout le monde voie qu'il a tenu.",
-        "Fargue regarde ses mains, sur le bord du baril. Il connaît ces mains-là. Il les a vues sur Annette, le dernier hiver. Il a, dans la cambuse, un fond de bouillon de lard qu'il garde pour les malades, et une bouteille de vin cuit. Victorine, ce matin, lui a dit sans le regarder que le gabier d'artimon mourrait avant la fin de son pari. Il en reste neuf jours. Les voiles pendent.",
+        "Le carnet de paris est cloué au pied du mât de misaine, par un clou de charpentier, avec un bout de crayon pendu à une ficelle. Quelqu'un a protégé la couverture avec un morceau de toile goudronnée, pour la rosée. On a pris soin de ce carnet comme on ne prend soin de rien d'autre, à bord, depuis que le vent est tombé.",
+        "Fargue le feuillette à la lumière du fanal. Les premières pages sont pleines de rires : une chique qu'il ne tiendra pas trois jours, deux chiques qu'il craquera devant une sardine. Puis les paris montent. Le cinquième jour, on parie du tabac pour une semaine. Le septième, une montre. Gobert a parié, d'une écriture laborieuse, une demi-livre de tabac sur le douzième jour, et il a souligné deux fois. Petit-Jules a parié tout son tabac, avec cette seule mention : « il tiendra ».",
+        "Personne n'a écrit qu'il mourrait. On a parié sur le jour où il mangerait, jamais sur le jour où il ne mangerait plus jamais. Fargue tourne la dernière page écrite. En bas, au crayon, d'une main qui a appuyé fort, quelqu'un a parié une bouteille d'eau-de-vie sur « le seizième jour ». Pas de nom. Le seizième jour, c'est le lendemain du terme qu'Hénaff s'est fixé.",
+        "Fargue regarde longtemps la ligne sans nom. Il pense que sur un navire de quarante hommes, il y en a toujours un qui fait le calcul que les autres n'osent pas faire, et qui le fait au crayon, pour pouvoir l'effacer. Il referme le carnet. Il rabat la toile goudronnée. La rosée commence à perler sur le clou.",
       ],
       choices: [
+        { back: "VZ_pourquoi", label: "Revenir s'asseoir sur l'écoutille, près du baril" }
+      ] },
+    VZ_medecin: { act: "III", title: "Le jeûneur du calme", place: "sargues", ambiance: "nuit", second: true,
+      text: [
+        "La lumière brûle encore sous la porte de Victorine. Elle ouvre en chemise de nuit, un châle sur les épaules, une plume à la main, avec la tête d'une femme qui n'a pas dormi depuis le début du calme, et qui n'en attend plus rien. Elle voit qui c'est. Elle ne demande pas pourquoi. Elle dit : « Hénaff. »",
+        "Elle répond en médecin, sèchement, sans phrases. Le pouls est lent, faible, irrégulier depuis hier. Les gencives commencent à saigner, à cause du calme, autant que du jeûne. Il a perdu le tiers de son poids. Par cette chaleur, sans manger, et avec ce qu'il boit, elle lui donne cinq jours, peut-être six. Elle ne lui donne pas le quinzième. Elle dit que le cœur lâchera avant la tête, comme toujours chez les obstinés.",
+        "Fargue demande si elle peut le forcer. Elle dit que non. Elle dit qu'on peut forcer un enfant, un fou, ou un prisonnier. Elle dit qu'Hénaff n'est rien de tout ça, et que c'est bien le problème. Elle dit qu'elle a passé sa vie à soigner des gens qui voulaient vivre, et qu'elle n'a jamais su quoi faire de ceux qui voulaient autre chose.",
+        "Puis elle le regarde, avec une drôle d'ironie fatiguée. Elle dit : « Vous nourrissez ce navire, Fargue. Moi, je le compte. Chacun son métier. Ce soir, je crois que c'est le vôtre. » Elle referme la porte. Fargue reste une seconde dans la coursive, dans l'odeur de cire et de laudanum, avec le sentiment désagréable qu'on vient de lui confier un homme.",
+      ],
+      choices: [
+        { back: "VZ_pourquoi", label: "Remonter sur le gaillard, près du baril" }
+      ] },
+    VZ_pourquoi: { act: "III", title: "Le jeûneur du calme", place: "sargues", ambiance: "nuit", second: true,
+      text: [
+        { first: true, text: "Le neuvième jour, à la nuit, quand les regardeurs sont partis se coucher, Fargue monte sur le gaillard avec la pinte d'eau. Hénaff est recroquevillé dans son demi-baril, très maigre, d'une maigreur nouvelle, celle où l'on voit les dents sous les lèvres et les os sous les tempes. Il boit l'eau à petites gorgées. Il remercie. Fargue s'assied sur l'écoutille et attend, parce qu'il sait attendre, et que les hommes parlent toujours à qui attend." },
+        { first: true, text: "Hénaff parle. Il est né l'année de la grande disette, dans une paroisse de l'intérieur. Sa mère lui donnait sa part de pain, et la sienne, en disant qu'elle avait déjà mangé. Elle est morte au printemps. Il avait six ans. Depuis, il dit que chaque bouchée qu'il avale, c'est quelqu'un qui ne l'avale pas. Il le sait, même quand il n'y a personne en face. Il mange quand même, comme tout le monde, parce qu'il faut. Mais là, dans ce calme, où personne n'a besoin de lui, où les voiles pendent, il a trouvé une chose qu'il sait faire mieux que tous les autres. Ne pas prendre." },
+        { first: true, text: "Il dit aussi, avec un petit rire, qu'on ne l'a jamais tant regardé. Qu'on lui parle, maintenant. Que le maître voilier lui dit bonjour. Il dit qu'il ira jusqu'au quinzième jour, qu'il en est sûr, et qu'il veut être encore là, ce jour-là, dans son baril, pour que tout le monde voie qu'il a tenu." },
+        { first: true, text: "Fargue regarde ses mains, sur le bord du baril. Il connaît ces mains-là. Il les a vues sur Annette, le dernier hiver. Il a, dans la cambuse, un fond de bouillon de lard qu'il garde pour les malades, et une bouteille de vin cuit. Victorine, ce matin, lui a dit sans le regarder que le gabier d'artimon mourrait avant la fin de son pari. Il en reste neuf jours. Les voiles pendent." },
+        { again: true, text: "Hénaff, dans son demi-baril, boit sa pinte à petites gorgées, et les voiles pendent dans la nuit sans vent." }
+      ],
+      choices: [
+        { label: "Regarder le carnet de paris, cloué au pied du mât de misaine", to: "VZ_carnet", hide: { seen: "VZ_carnet" } },
+        { label: "Aller demander à la médecin combien de jours il lui reste vraiment", to: "VZ_medecin", hide: { seen: "VZ_medecin" } },
         { label: "Mêler du bouillon à sa pinte d'eau, sans rien lui dire", fx: { flag: "vz:ruse" }, to: "VZ_ruse" },
         { label: "Fermer le carnet de paris, et chasser les regardeurs", fx: { flag: "vz:public" }, to: "VZ_public" },
         { label: "Lui porter son écuelle chaque soir, et le laisser choisir", fx: { flag: "vz:laisse" }, to: "VZ_laisse" },

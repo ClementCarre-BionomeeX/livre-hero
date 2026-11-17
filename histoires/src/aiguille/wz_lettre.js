@@ -15,13 +15,36 @@ module.exports = {
         "Le marteau s'arrête, dans l'échoppe. L'enfant pâlit. Il dit, encore plus vite : « Je m'appelle Pierrick. Mets-la à la poste. Il viendra me chercher. » Et il rentre en courant dans l'échoppe, et le marteau reprend, et puis il y a un bruit sec, et un petit cri, et le marteau encore.",
       ],
       choices: [{ label: "Lire la lettre, au coin de la rue", to: "WZ_lettre" }] },
-    WZ_lettre: { act: "II", title: "À grand-père, au village", place: "basse_fosse", ambiance: "ville",
+    WZ_vitre: { act: "II", title: "À grand-père, au village", place: "basse_fosse", ambiance: "ville",
       text: [
-        "*Cher grand-père. Je t'écris une lettre. Je te souhaite la bonne santé. Je n'ai ni père ni mère, il n'y a que toi. Le maître m'a battu hier avec la forme à souliers parce que j'ai laissé brûler la poix. La maîtresse me tire les oreilles jusqu'au sang quand je casse une aiguille, et j'en casse. On me donne du pain le matin et de la soupe le soir et le lard c'est pour eux. Je dors sous l'établi, avec les rats, qui sont plus gentils. Grand-père viens me chercher pour l'amour de Dieu. Je te garderai les vaches. Je te graisserai les bottes. Je ferai tout. Si tu veux pas, prends un bâton et bats-moi, mais viens me chercher. Je t'embrasse. Ton petit-fils Pierrick. Dis bonjour à Charbon.*",
-        "Tu retournes le patron. L'adresse est écrite en grandes lettres, appuyées, au milieu, avec un soin infini : *À grand-père, au village.* Rien d'autre. Pas de nom de village. Pas de nom de grand-père. Tu regardes ces quatre mots longtemps. Au bout de la rue, le marteau tape toujours sur le cuir.",
-        "Tu sais assez de choses sur la poste, depuis que tu lis les lettres des gens de la Pointe, pour savoir ce qui arrive aux lettres qui vont *au village* : on les met dans un sac, au bureau du port, et à la fin de l'année on brûle le sac. Tu sais aussi qu'il y a, à trois lieues de Morlenc, deux cents villages, et dans chacun un vieux, et un chien, et des vaches.",
+        "La vitre de l'échoppe est si sale qu'il faut chercher un coin plus clair, près du montant, où quelqu'un l'a essuyée d'un revers de manche. Dedans, c'est une caverne brune qui sent la colle, le cuir et le chou. Le cordonnier tape sur une semelle, de dos, ses grosses épaules secouées à chaque coup. Sa femme, au fond, épluche des raves.",
+        "Pierrick est assis sur un tabouret si bas que ses genoux lui arrivent au menton, dans un coin, près du pot de poix qui chauffe sur un réchaud. Il coud une tige de botte, avec une alène et du fil poissé, en tirant de toutes ses forces sur chaque point, la langue entre les dents. Ses mains sont noires de poix jusqu'aux poignets. Il a un bleu sur la joue, jaune déjà sur les bords.",
+        "À un moment, il lève la tête, et il te voit, derrière la vitre. Son visage s'allume d'un coup. Il ne dit rien, il ne fait pas de signe : il sourit seulement, très vite, et il baisse les yeux sur sa botte, et il tire plus fort sur son fil, comme si le grand-père était déjà en route, et qu'il fallait finir la botte avant qu'il arrive.",
+        "Le cordonnier se retourne, et voit le sourire, et ne voit pas la vitre. Il lui donne une taloche, sans colère, presque distraitement, comme on chasse une mouche, pour le principe. Pierrick ne crie pas. Il continue de coudre. Tu t'écartes de la vitre. Tu as le patron de soulier plié dans ta poche, et il te paraît soudain très lourd.",
       ],
       choices: [
+        { back: "WZ_lettre", label: "Revenir au coin de la rue, la lettre à la main" }
+      ] },
+    WZ_placeur: { act: "II", title: "À grand-père, au village", place: "basse_fosse", ambiance: "ville",
+      text: [
+        "Sur le quai, à l'abri d'un mur, trois vieilles ramendeuses réparent un filet étalé sur le pavé, assises sur des tabourets, avec leurs navettes de bois qui vont et viennent comme des oiseaux. Tu leur demandes, poliment, d'où viennent les petits apprentis qu'on vend six livres. Elles se regardent. La plus vieille rit, d'un rire sans dents.",
+        "Elle dit qu'ils viennent de l'intérieur. Des landes, des montagnes noires, des paroisses où l'on mange de la bouillie d'avoine à tous les repas et où l'on parle une langue que la ville ne comprend pas. Elle dit qu'un homme passe là-bas, chaque printemps, avec une charrette bâchée, et qu'il ramasse les enfants dont on ne sait que faire. Il les amène en ville. Il les place. Il prend sa part. On l'appelle le Placeur. Elle crache.",
+        "La deuxième dit qu'il loge à l'auberge du Cheval-Blanc, à la porte des Landes, quand il est en ville, et qu'il tient un carnet, avec les noms, les paroisses, et les prix. La troisième dit qu'il ne le montre à personne. La plus vieille dit qu'il le montre à qui le paie, comme tout le reste.",
+        "Puis elle te regarde, par-dessus sa navette, avec ses petits yeux de mouette. Elle dit qu'elle est venue en ville comme ça, elle aussi, il y a soixante ans, dans une charrette bâchée, à sept ans, et qu'elle n'a jamais revu sa paroisse, et qu'elle a oublié son nom. Elle dit que ce n'est pas si grave. Elle dit qu'on s'habitue. Sa navette ne s'est pas arrêtée une seule fois pendant qu'elle parlait.",
+      ],
+      choices: [
+        { back: "WZ_lettre", label: "Revenir au coin de la rue des Tanneurs" }
+      ] },
+    WZ_lettre: { act: "II", title: "À grand-père, au village", place: "basse_fosse", ambiance: "ville",
+      text: [
+        { first: true, text: "*Cher grand-père. Je t'écris une lettre. Je te souhaite la bonne santé. Je n'ai ni père ni mère, il n'y a que toi. Le maître m'a battu hier avec la forme à souliers parce que j'ai laissé brûler la poix. La maîtresse me tire les oreilles jusqu'au sang quand je casse une aiguille, et j'en casse. On me donne du pain le matin et de la soupe le soir et le lard c'est pour eux. Je dors sous l'établi, avec les rats, qui sont plus gentils. Grand-père viens me chercher pour l'amour de Dieu. Je te garderai les vaches. Je te graisserai les bottes. Je ferai tout. Si tu veux pas, prends un bâton et bats-moi, mais viens me chercher. Je t'embrasse. Ton petit-fils Pierrick. Dis bonjour à Charbon.*" },
+        { first: true, text: "Tu retournes le patron. L'adresse est écrite en grandes lettres, appuyées, au milieu, avec un soin infini : *À grand-père, au village.* Rien d'autre. Pas de nom de village. Pas de nom de grand-père. Tu regardes ces quatre mots longtemps. Au bout de la rue, le marteau tape toujours sur le cuir." },
+        { first: true, text: "Tu sais assez de choses sur la poste, depuis que tu lis les lettres des gens de la Pointe, pour savoir ce qui arrive aux lettres qui vont *au village* : on les met dans un sac, au bureau du port, et à la fin de l'année on brûle le sac. Tu sais aussi qu'il y a, à trois lieues de Morlenc, deux cents villages, et dans chacun un vieux, et un chien, et des vaches." },
+        { again: true, text: "Au bout de la rue, le marteau tape toujours sur le cuir, et tu tiens toujours la lettre." }
+      ],
+      choices: [
+        { label: "Regarder, par la vitre de l'échoppe, le petit au travail", to: "WZ_vitre", hide: { seen: "WZ_vitre" } },
+        { label: "Demander aux vieilles du quai d'où viennent les apprentis à six livres", to: "WZ_placeur", hide: { seen: "WZ_placeur" } },
         { label: "La poster quand même, telle qu'elle est", fx: { flag: "wz:poste" }, to: "WZ_poste" },
         { label: "Repasser le soir, et lui demander le nom du village", fx: { flag: "wz:cherche" }, to: "WZ_cherche" },
         { label: "Entrer dans l'échoppe, et parler au cordonnier", fx: { flag: "wz:maitre" }, to: "WZ_maitre" },

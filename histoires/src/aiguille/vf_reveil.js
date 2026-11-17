@@ -14,13 +14,36 @@ module.exports = {
         "Il te dit son nom. Il le dit lentement, comme on remonte un seau d'un puits très profond, et il a l'air ébloui de le retrouver au fond. Mathieu Tréguer. Tonnelier. De Morlenc, rue des Tonneliers, la quatrième maison après la fontaine. Il a une femme, Azilis, qui chante faux. Il a une fille de quatre ans, Gaïd, qui a peur des chats. Il est parti au printemps avec la Compagnie pour faire fortune aux îles, et revenir acheter un atelier à lui. Il te demande quel mois on est. Il te demande si l'on a des nouvelles de Morlenc.",
       ],
       choices: [{ label: "Le regarder, et compter", to: "VF_compte" }] },
-    VF_compte: { act: "IV", title: "Le réveil de Chèvrefeuille", place: "haut_verger", ambiance: "village",
+    VF_mains: { act: "IV", title: "Le réveil de Chèvrefeuille", place: "haut_verger", ambiance: "village",
       text: [
-        "Tu comptes. La Mère Aubépine a parlé de trente ans, de vingt ans pour retrouver les noms. Les Doux parlent la langue de ta grand-mère. La fille qui avait peur des chats a donc trente-quatre ans, des enfants peut-être, et un souvenir de son père qui doit tenir dans le creux de la main. La femme qui chantait faux est morte, ou remariée, ou vieille. La rue des Tonneliers, tu la connais : on l'a percée, il y a dix ans, pour faire passer la grand-rue du port. La fontaine a disparu. La quatrième maison aussi.",
-        "Il attend ta réponse avec une patience tranquille, celle d'un homme qui croit avoir dormi une nuit. Ses lèvres, à force de trente ans d'écorce, ont une couleur brune qui ne partira plus. Ses dents sont usées jusqu'aux gencives. Il passe la langue dessus, et il fronce les sourcils, et une première inquiétude, très petite, passe dans ses yeux, et repart.",
-        "Sur une pierre, à côté de la natte, quelqu'un a laissé, par habitude, ou par bonté, un morceau d'écorce brune, fibreuse, de la taille d'un doigt. Il ne l'a pas encore remarqué. Toi, si.",
+        "Il parle, et pendant qu'il parle, ses mains travaillent. Il ne s'en aperçoit pas. Elles prennent sur la natte une tige de liane, la plient, la tordent, en font un cercle, en serrent les bouts, et le cercle est parfait, rond comme une lune, d'une rondeur qu'on n'obtient qu'avec trente ans de métier. Puis elles en font un autre, un peu plus grand. Puis un troisième.",
+        "Tu regardes autour de toi, et tu vois ce que tu n'avais pas vu en entrant. La maison sans porte est pleine de tonneaux. Petits, grands, des tonnelets, des seaux, des baquets, des cuves, faits de lattes de bois de figuier serrées par des cercles de liane, alignés le long des murs, empilés les uns dans les autres, jusqu'au toit. Il y en a dans tout le village, maintenant que tu y penses : on y garde l'eau, les figues, les graines. Personne, au verger, ne fait de tonneaux, sauf lui.",
+        "Les Doux ne savent pas ce que c'est, un tonnelier. Ils disent seulement que Chèvrefeuille fait des pots ronds, depuis toujours, et qu'il les fait bien, et que c'est ce qu'il fait quand il est content. Ils en ont plus qu'il n'en faut. Il en fait quand même. Il en a fait trente ans, sans savoir pourquoi, en mâchant son écorce, avec des mains qui se souvenaient de la rue des Tonneliers quand sa tête ne s'en souvenait plus.",
+        "Il pose le troisième cercle sur les deux autres. Il les regarde, étonné, comme s'ils étaient tombés du ciel. Il dit, en riant un peu, que c'est drôle, qu'il a dû rêver de l'atelier, pendant la fièvre. Il dit qu'il a hâte d'y retourner. Il dit que son apprenti a dû laisser sécher les douelles de travers, en son absence, et qu'il lui tirera les oreilles.",
       ],
       choices: [
+        { back: "VF_compte", label: "Revenir à sa question" }
+      ] },
+    VF_veilleuse: { act: "IV", title: "Le réveil de Chèvrefeuille", place: "haut_verger", ambiance: "village",
+      text: [
+        "Elle est assise au pied de la natte depuis que tu es entré, sans un mot, une femme des Doux d'une cinquantaine d'années, aux cheveux gris tressés de fleurs, aux mains tachées de jus de figue. Elle a les yeux doux et vagues de tous les gens du verger. Elle regarde le vieil homme avec une tendresse tranquille, comme on regarde un arbre qu'on a vu pousser.",
+        "Tu lui demandes qui elle est. Elle sourit. Elle dit qu'elle s'appelle Mauve. Elle dit qu'elle est la femme de Chèvrefeuille. Elle le dit simplement, comme une chose qui va de soi, comme le ciel est bleu. Elle dit qu'ils dorment ensemble depuis toujours, dans cette maison, et qu'ils ont planté ensemble les figuiers du bas, ceux qui donnent les plus grosses figues, et qu'ils les ont regardés grandir.",
+        "Elle dit qu'il est malade, depuis trois jours, et qu'il dit des mots qu'elle ne comprend pas. Une rue. Une fontaine. Un nom de femme qui n'est pas le sien. Elle dit que ce n'est rien, que c'est la fièvre, et que dès qu'il aura mâché il redeviendra lui-même. Elle dit cela sans inquiétude. Elle tend la main, et elle lui caresse la cheville, par-dessus la couverture de feuilles.",
+        "Le vieil homme, sur sa natte, ne la regarde pas. Il te regarde, toi, qui viens de Morlenc, et il attend des nouvelles de sa femme. Mauve, à ses pieds, continue de lui caresser la cheville, doucement, avec le geste usé de trente ans de nuits. Il ne retire pas sa jambe. Tu ne sais pas s'il sent la main, ou s'il la sent sans savoir de qui elle est.",
+      ],
+      choices: [
+        { back: "VF_compte", label: "Revenir au chevet du vieil homme" }
+      ] },
+    VF_compte: { act: "IV", title: "Le réveil de Chèvrefeuille", place: "haut_verger", ambiance: "village",
+      text: [
+        { first: true, text: "Tu comptes. La Mère Aubépine a parlé de trente ans, de vingt ans pour retrouver les noms. Les Doux parlent la langue de ta grand-mère. La fille qui avait peur des chats a donc trente-quatre ans, des enfants peut-être, et un souvenir de son père qui doit tenir dans le creux de la main. La femme qui chantait faux est morte, ou remariée, ou vieille. La rue des Tonneliers, tu la connais : on l'a percée, il y a dix ans, pour faire passer la grand-rue du port. La fontaine a disparu. La quatrième maison aussi." },
+        { first: true, text: "Il attend ta réponse avec une patience tranquille, celle d'un homme qui croit avoir dormi une nuit. Ses lèvres, à force de trente ans d'écorce, ont une couleur brune qui ne partira plus. Ses dents sont usées jusqu'aux gencives. Il passe la langue dessus, et il fronce les sourcils, et une première inquiétude, très petite, passe dans ses yeux, et repart." },
+        { first: true, text: "Sur une pierre, à côté de la natte, quelqu'un a laissé, par habitude, ou par bonté, un morceau d'écorce brune, fibreuse, de la taille d'un doigt. Il ne l'a pas encore remarqué. Toi, si." },
+        { again: true, text: "Mathieu Tréguer attend ta réponse, adossé à sa natte, et l'écorce est toujours posée sur la pierre." }
+      ],
+      choices: [
+        { label: "Regarder ses mains, qui travaillent toutes seules", to: "VF_mains", hide: { seen: "VF_mains" } },
+        { label: "Parler à la femme des Doux qui veille au pied de sa natte", to: "VF_veilleuse", hide: { seen: "VF_veilleuse" } },
         { label: "Lui dire la vérité, toute, en lui tenant la main", fx: { flag: "vf:verite" }, to: "VF_verite" },
         { label: "Lui dire que ça ne fait que quelques années", fx: { flag: "vf:menti" }, to: "VF_menti" },
         { label: "Attendre qu'il ait mal, et lui tendre l'écorce", fx: { flag: "vf:ecorce" }, to: "VF_ecorce" },

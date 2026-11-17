@@ -14,13 +14,36 @@ module.exports = {
         "Il dit tout cela sans trembler lui-même, avec une précision de rapport de bord. Il a vérifié la carafe à la craie. Il a mis un cheveu sur le bouchon. Le cheveu était à sa place, ce matin, et la carafe vide. Il demande à Victorine si c'est la fièvre, ou l'air du cratère, ou autre chose. Il dit qu'il préfère que ce soit la fièvre. Il dit qu'il a peur pour la première fois de sa vie, et que ce qu'il craint, c'est la nuit prochaine, et toutes celles qui suivront ; la mort lui a toujours paru une affaire raisonnable.",
       ],
       choices: [{ label: "L'ausculter, puis réfléchir", to: "VC_examen" }] },
-    VC_examen: { act: "III", title: "La carafe de Kermarrec", place: "ecueil_rouge", ambiance: "nature",
+    VC_carafe: { act: "III", title: "La carafe de Kermarrec", place: "ecueil_rouge", ambiance: "nature",
       text: [
-        "Elle l'ausculte. Le cœur est lent et régulier, les poumons clairs, la langue nette, l'œil vif, avec des cernes de trois nuits blanches. Le corps d'un homme sain, d'un bout à l'autre, et cette santé insolente l'inquiète davantage qu'une fièvre. Elle lui pose les questions des manuels, sur sa mère, sur ses rêves, sur les coups qu'il a pu recevoir à la tête. Il répond à tout avec patience, et chacune de ses réponses est celle d'un homme sain.",
-        "Pendant qu'il se rhabille, elle regarde par le hublot le récif rouge, poreux, couleur de sang séché, et la fumée blanche qui monte tout droit, sans vent, jusqu'au ciel. Elle pense aux aiguilles des compas, qui tremblent depuis qu'on a mouillé. Elle pense au moine de la maison à la croix, qui perd la vue. Elle pense qu'elle est une femme de science et qu'il existe, dans ce récif, des choses que la science n'a pas encore pesées ; et que ces deux pensées tiennent très mal ensemble, dans une même tête, à une encablure d'un volcan.",
-        "Kermarrec boutonne sa vareuse. Il dit, sans la regarder : « La nuit dernière, juste avant de m'endormir, j'ai entendu qu'on remettait le bouchon. Doucement. Avec soin. Comme moi. »",
+        "Il va la chercher dans sa cabine, au bout de la coursive, et il la rapporte comme on rapporte une pièce à conviction, à deux mains, en la tenant par le fond. Une carafe d'étain, ventrue, au col étroit, fermée d'un bouchon de liège taillé au couteau. Elle est à moitié pleine. Autour du col, il a noué un fil de laine rouge, serré, à la hauteur exacte de l'eau.",
+        "Il explique, avec une précision de quartier-maître. Chaque soir, il remplit la carafe jusqu'au fil. Il la bouche. Il la pose dans le râtelier, au-dessus de sa couchette, là où personne ne passe. Il ne boit pas la nuit : il n'a jamais bu la nuit, il le sait, il en est sûr, il se connaît. Le matin, l'eau est sous le fil. Un doigt. Parfois deux. Jamais plus, comme si quelqu'un avait soif, mais pas trop, et avait des manières.",
+        "Victorine prend la carafe. Elle est tiède, de la tiédeur moite de toutes choses dans ce mouillage sans vent. Elle regarde le liège. Il est sec, au-dessus, et humide, en dessous, sur un bon demi-pouce, ce qui ne prouve rien. Elle pense à l'évaporation, à la chaleur qui monte du récif, au liège poreux. Elle pense qu'un doigt d'eau, en une nuit, par cette chaleur, c'est beaucoup. Elle pense que c'est possible.",
+        "Elle remarque autre chose, en la reposant. Sur l'étain terni du col, juste au-dessus du fil rouge, il y a des marques de doigts. Des traces légères, laissées par une peau humide sur un métal mat. Elle en compte quatre d'un côté, une de l'autre, comme on tient une carafe pour boire. Elle regarde les mains de Kermarrec, posées sur ses genoux. Elle ne lui dit rien des marques. Il pourrait les avoir laissées lui-même, en l'apportant. Elle sait qu'il la tenait par le fond.",
       ],
       choices: [
+        { back: "VC_examen", label: "Lui rendre la carafe" }
+      ] },
+    VC_barre: { act: "III", title: "La carafe de Kermarrec", place: "ecueil_rouge", ambiance: "nature",
+      text: [
+        "Annick Lemerle est au poste de barre, par habitude plus que par nécessité, puisque le navire est à l'ancre, et elle astique les rayons de la roue avec un chiffon gras, du geste lent qu'on a pour flatter un cheval. Elle écoute la question de Victorine sans s'arrêter d'astiquer. Elle dit que oui, elle a remarqué. Tout le monde a remarqué. Kermarrec se retourne.",
+        "Elle dit qu'aux quarts de nuit, depuis qu'on a mouillé sous ce caillou rouge, il se retourne toutes les cinq minutes, d'un coup, comme on se retourne quand quelqu'un vous souffle dans le cou. Il ne dit rien. Il regarde derrière lui, l'espace vide entre la barre et le couronnement, puis il revient à l'habitacle, et il reprend. Elle dit qu'un quartier-maître qui se retourne, à la barre, c'est comme un curé qui se gratte pendant l'élévation : ça ne se fait pas, et ça se voit.",
+        "Victorine lui demande si elle a senti quelque chose, elle. La timonière s'arrête d'astiquer. Elle regarde l'habitacle, où l'aiguille du compas, depuis le mouillage, tremble sans repos sur sa rose, comme une bête inquiète. Elle dit qu'elle ne sent rien. Elle dit qu'elle n'aime pas cette aiguille. Elle dit que ça n'a rien à voir.",
+        "Puis elle reprend son chiffon, et elle dit, du ton qu'on prend pour clore une conversation : « On n'est jamais seul à la barre, docteur. Il y a toujours le navire. Kermarrec, lui, a l'air de trouver qu'on est un de trop. » Elle astique. Le récif fume. L'aiguille tremble. Victorine redescend.",
+      ],
+      choices: [
+        { back: "VC_examen", label: "Redescendre auprès de Kermarrec" }
+      ] },
+    VC_examen: { act: "III", title: "La carafe de Kermarrec", place: "ecueil_rouge", ambiance: "nature",
+      text: [
+        { first: true, text: "Elle l'ausculte. Le cœur est lent et régulier, les poumons clairs, la langue nette, l'œil vif, avec des cernes de trois nuits blanches. Le corps d'un homme sain, d'un bout à l'autre, et cette santé insolente l'inquiète davantage qu'une fièvre. Elle lui pose les questions des manuels, sur sa mère, sur ses rêves, sur les coups qu'il a pu recevoir à la tête. Il répond à tout avec patience, et chacune de ses réponses est celle d'un homme sain." },
+        { first: true, text: "Pendant qu'il se rhabille, elle regarde par le hublot le récif rouge, poreux, couleur de sang séché, et la fumée blanche qui monte tout droit, sans vent, jusqu'au ciel. Elle pense aux aiguilles des compas, qui tremblent depuis qu'on a mouillé. Elle pense au moine de la maison à la croix, qui perd la vue. Elle pense qu'elle est une femme de science et qu'il existe, dans ce récif, des choses que la science n'a pas encore pesées ; et que ces deux pensées tiennent très mal ensemble, dans une même tête, à une encablure d'un volcan." },
+        { first: true, text: "Kermarrec boutonne sa vareuse. Il dit, sans la regarder : « La nuit dernière, juste avant de m'endormir, j'ai entendu qu'on remettait le bouchon. Doucement. Avec soin. Comme moi. »" },
+        { again: true, text: "Kermarrec attend, sa vareuse boutonnée jusqu'au col, et le récif fume derrière le hublot." }
+      ],
+      choices: [
+        { label: "Demander à voir la carafe", to: "VC_carafe", hide: { seen: "VC_carafe" } },
+        { label: "Interroger la timonière sur les nuits de Kermarrec à la barre", to: "VC_barre", hide: { seen: "VC_barre" } },
         { label: "Lui donner du laudanum, pour qu'il dorme d'une traite", fx: { flag: "vc:calme" }, to: "VC_calme" },
         { label: "Veiller elle-même, cette nuit, au pied de sa couchette", fx: { flag: "vc:veille" }, to: "VC_veille" },
         { label: "Lui demander d'écrire tout ce qu'il remarque, chaque matin, dans un cahier", fx: { flag: "vc:ecrit" }, to: "VC_ecrit" },

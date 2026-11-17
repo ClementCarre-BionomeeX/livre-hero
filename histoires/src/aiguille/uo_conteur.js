@@ -10,7 +10,7 @@ module.exports = {
     UO_poteau: { act: "IV", title: "Le conteur du poteau", place: "plage", ambiance: "nuit", second: true,
       fx: { meet: "kerhoas" },
       text: [
-        "On l'a pris au ruisseau, à la tombée du jour, avec deux bidons vides et un couteau de voilier à la ceinture. Gwenaël Kerhoas, maître voilier, soixante ans, une barbe blanche en éventail, des mains couturées de cicatrices d'aiguille, qui a cousu toutes les voiles de la Cormorane et qui est resté fidèle à la capitaine par habitude plus que par conviction. Malandain le fait attacher au poteau des tentes, près du grand feu, et annonce qu'on le pendra à l'aube, à la vergue d'un cocotier, pour que la chapelle le voie.",
+        "On l'a pris au ruisseau, à la tombée du jour, avec deux bidons vides et un couteau de voilier à la ceinture. Gwenaël Kerhoas, aide-voilier, soixante ans, une barbe blanche en éventail, des mains couturées de cicatrices d'aiguille, qui a cousu la moitié des voiles de la Cormorane sous les ordres du vieux Trébaol, et qui est resté fidèle à la capitaine par habitude plus que par conviction. Malandain le fait attacher au poteau des tentes, près du grand feu, et annonce qu'on le pendra à l'aube, à la vergue d'un cocotier, pour que la chapelle le voie.",
         "Le vieux ne proteste pas. Il demande seulement une chique, qu'on lui refuse, puis un peu d'eau, qu'on lui donne. Puis, au moment où le camp s'installe autour du feu avec le rhum, il se met à parler, tout seul, à voix haute, comme on parle en cousant. Il raconte l'histoire d'un pêcheur de Morlenc qui a trouvé dans son filet une bouteille, bouchée de plomb, cachetée d'un sceau qu'il ne connaissait pas. Le camp écoute d'abord par moquerie. Puis on se tait. Puis on se rapproche.",
         "L'histoire est longue, et bonne. Le pêcheur ouvre la bouteille. Il en sort une fumée qui prend la forme d'une femme. La femme lui promet trois choses s'il la remet dans la bouteille. Le pêcheur hésite. Les hommes, autour du feu, retiennent leur souffle. Le vieux s'arrête net, au moment où le pêcheur va répondre. Il regarde le ciel. Il dit que l'aube vient, qu'il est fatigué, et qu'on le pendra bientôt, de toute façon, alors à quoi bon.",
         "Un hurlement de protestation monte autour du feu. On veut la fin. Malandain jure. Boucaut dit qu'on peut bien le pendre demain. Coquerel dit qu'il veut savoir ce qu'a répondu le pêcheur. Malandain, après un long silence, dit que c'est bon, pour un jour. Le vieux sourit dans sa barbe. Fargue, de l'autre côté du feu, l'a vu sourire.",
@@ -77,7 +77,7 @@ module.exports = {
   },
   extras: {
     people: {
-      kerhoas: { name: "Gwenaël Kerhoas", aka: ["le maître voilier", "le conteur"], qui: "Maître voilier de la Cormorane, resté fidèle à la capitaine, conteur intarissable." },
+      kerhoas: { name: "Gwenaël Kerhoas", aka: ["l'aide-voilier", "le conteur"], qui: "Aide-voilier de la Cormorane, resté fidèle à la capitaine, conteur intarissable." },
     },
     quests: [
       { id: "UO", act: "IV", kind: "annexe", title: "Le conteur du poteau", start: "UO_poteau", doit: "milleetunenuits", echo: ["uo:nuits", "uo:libere", "uo:fin"] },

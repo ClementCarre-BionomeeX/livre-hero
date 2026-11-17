@@ -67,7 +67,7 @@ module.exports = {
         "Le baron Clavières t'écoute au mess des officiers du fort, entre le fromage et la liqueur, avec l'impatience aimable d'un homme qu'on dérange pour un mousse. Puis tu dis : « pilote », et « Maraude », et il pose son verre.",
         "Il ne dit rien. Il sort. Une heure plus tard, il revient avec le gouverneur, qui a l'air d'un homme qui vient de vendre un cheval mort au prix d'un cheval vivant. On fait monter un forgeron. On ouvre une porte qui n'avait pas été ouverte depuis la Saint-Martin de l'an passé.",
         "À l'aube, deux soldats amènent sur la grève, sous une couverture, un homme si maigre qu'il flotte dans ses chaînes. Une barbe blanche jusqu'à la ceinture, des cheveux blancs plus longs encore, des ongles comme des griffes, et des yeux qui clignent, qui pleurent, qui ne supportent pas la lumière grise du matin. Il tourne la tête vers la mer et ne la quitte plus.",
-        "« Mon pilote, dit le baron avec douceur. Monsieur Brousse a bien voulu reprendre du service. » Il te tapote la joue. « Bon petit. Tu as l'œil. »",
+        "« Mon pilote, dit le baron avec douceur. Monsieur Brousse a bien voulu reprendre du service. » Il te tapote la joue. « Brave enfant. Tu as l'œil. »",
         "Brousse, entre les deux soldats, te cherche du regard. Il te trouve. Il ne dit rien. Il regarde le baron, ensuite, d'une façon que tu n'oublieras pas.",
       ],
       choices: [{ label: "Remonter à bord avec eux", fx: { recrue: "brousse", flag: ["brousse:baron", "brousse:abord"], quest: "XM" }, to: "XM_m_retour" }] },

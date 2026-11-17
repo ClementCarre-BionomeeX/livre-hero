@@ -35,7 +35,7 @@ module.exports = {
       choices: [
         { label: "Aller porter à Rosemonde le premier bol de soupe, et lui faire place au feu, à côté de toi", fx: { flag: "yo:place" }, to: "YO_place" },
         { label: "Répondre au baron, devant tout le monde", fx: { flag: "yo:defendue" }, to: "YO_baron" },
-        { label: "Retourner à tes fiévreux, et ne rien dire", fx: { quest: "YO", flag: "yo:silence" }, back: "A4w_jours" },
+        { label: "Aller à tes fiévreux, et ne rien dire", fx: { quest: "YO", flag: "yo:silence" }, back: "A4w_jours" },
       ] },
     YO_place: { act: "IV", title: "La canonnière", place: "misericorde", ambiance: "temple",
       text: [

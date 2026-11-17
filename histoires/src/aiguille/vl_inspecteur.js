@@ -13,15 +13,38 @@ module.exports = {
         "Victorine va sur le rempart. Le professeur Gaudrémont est là, à quatre pattes, en redingote, une loupe à la main, en train de gratter un lichen orange sur une pierre de la courtine, en marmonnant des mots latins. Il lui explique avec enthousiasme qu'il a recensé hier, sur ce rocher, onze espèces d'oiseaux de mer, dont il a interrogé les gardiens sur le régime, la mortalité hivernale et la fréquence des recensements. Derrière lui, à dix pas, le gouverneur Lebihan, en grand uniforme, attend, chapeau bas, avec un plateau de chocolat chaud, et n'ose pas l'interrompre.",
       ],
       choices: [{ label: "Prendre le chocolat que le gouverneur offre, et réfléchir", to: "VL_quiproquo" }] },
-    VL_quiproquo: { act: "III", title: "L'inspecteur aux lichens", place: "brisegreve", ambiance: "chateau",
+    VL_rempart: { act: "III", title: "L'inspecteur aux lichens", place: "brisegreve", ambiance: "chateau",
       text: [
-        "Le gouverneur la prend à part, très pâle sous sa poudre. Il sait qu'elle voyage avec *Monsieur l'inspecteur*. Il ne lui demande rien, naturellement. Il voudrait seulement savoir, entre gens d'honneur, si Monsieur l'inspecteur aime le vin, les tabatières, ou autre chose, et s'il a déjà vu les magasins, et s'il a l'intention de voir les magasins, et si, par hasard, il ne serait pas sensible à certaines considérations. Il glisse dans la main de Victorine une tabatière d'argent, pour Monsieur l'inspecteur, de la part d'un admirateur.",
-        "Victorine tient la tabatière. Elle pense aux citrons sur les tabourets. Elle pense que, depuis hier soir, par l'effet d'un lichen, une garnison qui pourrissait mange des fruits. Elle pense qu'il suffirait d'un mot pour que le gouverneur reprenne ses couvertures et revende ses citrons aux navires de passage, et que ce mot est la vérité. Elle pense aussi que le professeur, s'il comprenait, serait capable de mourir de honte, ou d'en rire pendant dix ans, et qu'on ne peut jamais prévoir lequel.",
-        { if: { has: "vg:sain" }, text: "Et elle pense au lieutenant du bastion, et à son rapport cousu de fil rouge, dans sa sacoche, entre les bistouris." },
-        { if: { has: "vg:signe" }, text: "Et elle pense au lieutenant du bastion, et à un certificat qui dort dans la poche intérieure du gouverneur, contre son cœur." },
-        "Le professeur, sur le rempart, vient de découvrir un deuxième lichen. Il pousse un cri de joie. Le gouverneur sursaute et renverse son chocolat.",
+        "Le professeur Gaudrémont est à quatre pattes sur le chemin de ronde, son habit vert relevé sur le dos, une loupe à la main, le nez à un pouce d'une pierre. Derrière lui, à distance respectueuse, deux soldats au garde-à-vous tiennent l'un son parasol, l'autre un plateau d'argent avec une tasse de chocolat qui refroidit. Un caporal, plus loin, prend des notes, sans savoir de quoi.",
+        "Il voit Victorine et se relève d'un bond, rouge de bonheur. Il lui montre la pierre. Une tache grise, à peine plus grande qu'un écu, en forme d'oreille, qu'il appelle par un nom latin de sept syllabes. Il dit qu'on la croyait propre aux montagnes du nord. Il dit qu'elle est ici, sur un rempart marin, à cent pieds au-dessus du sel, ce qui renverse deux traités et un professeur de ses amis, qu'il déteste.",
+        "Puis il baisse la voix, pour lui confier une chose qui l'étonne. Il dit que la garnison de Brisegrève est la plus courtoise qu'il ait rencontrée dans le royaume. On lui porte du chocolat. On lui tient un parasol. On s'écarte quand il passe. Le gouverneur lui-même lui a demandé trois fois, ce matin, s'il avait bien dormi, et s'il voulait voir les magasins. Il dit qu'il a répondu que les magasins ne l'intéressaient pas, et que le gouverneur a eu l'air si soulagé qu'il en a été touché.",
+        "Il conclut, en reprenant sa loupe, que ce fort est un modèle, et qu'il écrira au ministre pour le dire. Il retourne à sa pierre. Les deux soldats se remettent au garde-à-vous. Le caporal note : écrira au ministre. Victorine redescend l'escalier sans rien dire, avec le sentiment très net d'avoir vu un homme marcher les yeux fermés au bord d'un puits, en sifflant, et ne pas tomber.",
       ],
       choices: [
+        { back: "VL_quiproquo", label: "Redescendre, où le gouverneur attend" }
+      ] },
+    VL_cour: { act: "III", title: "L'inspecteur aux lichens", place: "brisegreve", ambiance: "chateau",
+      text: [
+        "Dans la cour du fort, autour du puits, les soldats lavent leur linge, et la cour bourdonne comme une ruche qu'on a cognée. Victorine n'a qu'à rester près du lavoir, sa trousse à la main, pour tout entendre. Personne ne se méfie d'une femme qui attend.",
+        "Monsieur l'inspecteur est envoyé par l'Amirauté, c'est sûr. Non, par le roi en personne : on l'a vu écrire dans un carnet. Il est le fils naturel d'un duc. Il est duc lui-même, et il se déguise en savant pour mieux voir. Il a fait pendre un gouverneur, à l'autre bout de la côte, l'an dernier, pour des fusils vendus. Il a goûté la soupe. Il ne l'a pas goûtée. Il l'a regardée, et c'est pire.",
+        "Un vieux sergent, assis sur la margelle, épluche une orange avec un couteau, très lentement, en faisant une seule spirale, et il la mange quartier par quartier, les yeux fermés. Il dit qu'en vingt-deux ans de service, c'est la première fois qu'il mange un fruit dans ce fort. Il dit qu'il se moque de savoir si l'inspecteur est duc, ou savant, ou fou. Il dit qu'il espère seulement qu'il restera longtemps.",
+        "Plus loin, trois jeunes soldats écrivent ensemble, en s'appliquant, sur une feuille posée sur un tambour, une supplique à Monsieur l'inspecteur, pour lui parler du lieutenant du bastion. Ils comptent la lui glisser ce soir, quand il passera. Ils cherchent comment on s'adresse à un duc. Victorine les regarde chercher. Elle sait que le duc, ce soir, sera couché à huit heures, avec un traité de botanique.",
+      ],
+      choices: [
+        { back: "VL_quiproquo", label: "Revenir auprès du gouverneur" }
+      ] },
+    VL_quiproquo: { act: "III", title: "L'inspecteur aux lichens", place: "brisegreve", ambiance: "chateau",
+      text: [
+        { first: true, text: "Le gouverneur la prend à part, très pâle sous sa poudre. Il sait qu'elle voyage avec *Monsieur l'inspecteur*. Il ne lui demande rien, naturellement. Il voudrait seulement savoir, entre gens d'honneur, si Monsieur l'inspecteur aime le vin, les tabatières, ou autre chose, et s'il a déjà vu les magasins, et s'il a l'intention de voir les magasins, et si, par hasard, il ne serait pas sensible à certaines considérations. Il glisse dans la main de Victorine une tabatière d'argent, pour Monsieur l'inspecteur, de la part d'un admirateur." },
+        { first: true, text: "Victorine tient la tabatière. Elle pense aux citrons sur les tabourets. Elle pense que, depuis hier soir, par l'effet d'un lichen, une garnison qui pourrissait mange des fruits. Elle pense qu'il suffirait d'un mot pour que le gouverneur reprenne ses couvertures et revende ses citrons aux navires de passage, et que ce mot est la vérité. Elle pense aussi que le professeur, s'il comprenait, serait capable de mourir de honte, ou d'en rire pendant dix ans, et qu'on ne peut jamais prévoir lequel." },
+        { first: true, if: { has: "vg:sain" }, text: "Et elle pense au lieutenant du bastion, et à son rapport cousu de fil rouge, dans sa sacoche, entre les bistouris." },
+        { first: true, if: { has: "vg:signe" }, text: "Et elle pense au lieutenant du bastion, et à un certificat qui dort dans la poche intérieure du gouverneur, contre son cœur." },
+        { first: true, text: "Le professeur, sur le rempart, vient de découvrir un deuxième lichen. Il pousse un cri de joie. Le gouverneur sursaute et renverse son chocolat." },
+        { again: true, text: "Le gouverneur attend, très pâle sous sa poudre, et la tabatière pèse dans la main de Victorine." }
+      ],
+      choices: [
+        { label: "Monter sur le rempart, voir où en est Monsieur l'inspecteur", to: "VL_rempart", hide: { seen: "VL_rempart" } },
+        { label: "Écouter ce que dit la cour du fort, de Monsieur l'inspecteur", to: "VL_cour", hide: { seen: "VL_cour" } },
         { label: "Dire au gouverneur, gentiment, que Monsieur Gaudrémont étudie les lichens", fx: { flag: "vl:dit" }, to: "VL_dit" },
         { label: "Rendre la tabatière sans un mot, et laisser le malentendu suivre son cours", fx: { flag: "vl:laisse" }, to: "VL_laisse" },
         { label: "Suggérer au professeur qu'il y a, dans les cachots et les magasins, des lichens très rares", fx: { flag: "vl:joue" }, to: "VL_joue" },
