@@ -82,6 +82,8 @@ module.exports = {
         { if: { not: { has: "correction:mutins" } }, text: "Ils viennent de la forêt, en suivant tes traces. Ils n'ont pas eu besoin de corriger quoi que ce soit : il leur a suffi de suivre l'enfant qui savait." },
         "Ce sont les mutins. Sept, huit. Lagadec, Coquerel, Gabet s'il est du voyage, d'autres. Et devant, côte à côte, Malandain, avec son mousquet, et le maître-coq.",
         { if: { has: "malandain:blesse" }, text: "Malandain a encore au front la marque de la clairière. Il te reconnaît. Il sourit." },
+        { if: { has: "chien:malandain_mordu" }, text: "Il porte le bras gauche en écharpe, dans un chiffon brun de sang séché, et il tient son mousquet de la main droite seule, la crosse calée sous l'aisselle. Il cherche le chien des yeux avant de te chercher, toi." },
+        { if: { has: "chien:epargne_malandain" }, text: "Il ne sait pas qu'une nuit, sur la plage, un chien s'est penché sur sa gorge et a attendu ton avis. Tu le sais, toi. Cela te donne sur lui un avantage que tu ne sais pas encore comment employer." },
         "Lucien Fargue regarde les coffres ouverts, l'argent noirci dans la terre rouge. Il regarde longtemps. Puis il te regarde, toi.",
         { if: { any: [{ has: "fargue:choisit_mousse" }, { has: "fargue:protege_mousse" }] }, text: "« Toi, dit-il doucement. Évidemment, toi. » Il y a dans sa voix une fierté épouvantable." },
         { if: { has: "fargue:choisit_hommes" }, text: "« Toi, dit-il. Malandain t'a cherché{e} dans toute la forêt. » Il ne dit pas qu'il l'a laissé faire. Tu le lis sur son visage." },
