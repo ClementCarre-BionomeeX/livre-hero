@@ -334,6 +334,8 @@
     if ("secret" in c) return secretKnown(s, c.secret);
     if ("confie" in c) return !!s.flags["monde:confie:" + c.confie];
     if ("garde" in c) return secretOwn(s, c.garde) && !s.flags["monde:confie:" + c.garde];
+    // Two players apart (9.6): something lies in a deposit for this hero (or this very thing does).
+    if ("depot" in c) { var dh = depotTakes(story, s, c.depot); return c.item ? dh.indexOf(c.item) >= 0 : dh.length > 0; }
     if ("missed" in c) { var mq = (story.quests || []).filter(function (q) { return q.id === c.missed; })[0]; return !!mq && questMissed(story, s, mq); }
     // count: [conditions], min / max: how many of them hold ("at least three of these").
     if ("count" in c) { var nc = c.count.filter(function (x) { return evalCond(story, s, x); }).length; return nc >= (c.min || 0) && (c.max == null || nc <= c.max); }
@@ -1932,6 +1934,8 @@
   // `eat` is what a day takes: a number, or { value of the state `by`: number } (the ration in force). A negative
   // number makes the stock grow (a gauge that rises). `extra` adds to it while its condition holds.
   function stockIds(story) { return Object.keys(story.stocks || {}); }
+  // 9.6: a reserve may belong to one hero only (`if` on the reserve): the others neither see it nor are told of it.
+  function stockShown(story, s, k) { var D = (story.stocks || {})[k]; return !!D && evalCond(story, s, D.if); }
   function stockNow(story, s, k) { var v = (s.stocks || {})[k]; return v == null ? ((story.stocks || {})[k] || {}).start || 0 : v; }
   function dailyUse(story, s, k) {
     var D = (story.stocks || {})[k] || {}, n = 0, e = D.eat;
@@ -1957,7 +1961,7 @@
       var D = story.stocks[k], before = stockNow(story, s, k), use = dailyUse(story, s, k), after = before - use, rot = 0;
       if (D.spoil && evalCond(story, s, D.spoil.if) && (s.tickDay % (D.spoil.every || 1)) === 0) { rot = Math.ceil(Math.max(0, after) * (D.spoil.share || 0)); after -= rot; }
       setStock(story, s, k, after);
-      var d = s.stocks[k] - before; if (!d && !D.pill) return;
+      var d = s.stocks[k] - before; if ((!d && !D.pill) || !stockShown(story, s, k)) return;
       bits.push(D.name + " " + (d > 0 ? "+" : d < 0 ? "−" : "") + (d ? Math.abs(d) : "=") + " → " + stockLine(story, s, k, s.stocks[k]) + (rot ? " (dont " + rot + " " + unitOf(D, rot) + " gâté" + (rot > 1 ? "s" : "") + ")" : ""));
     });
     if (bits.length) ev(s, "Jour " + s.tickDay + " · " + bits.join(" · "), "world day");
@@ -2753,6 +2757,21 @@
       }
       return { title: "La Chandelle", kind: "jeu", text: text, choices: cs };
     },
+    // A deposit (9.6): what lies there for me, what I could leave; the page one came from waits behind.
+    "@depot": function (story, s) {
+      var w = s.depot, D = depotDef(story, w.id), back = story.passages[w.from] || {}, cs = [], text = [];
+      if (w.mode === "take") {
+        var ks = depotTakes(story, s, w.id);
+        text.push(interp(s, ks.length ? (D.textTake || D.text || "Quelque chose t'attend ici.") : w.last ? "" : (D.empty || "Il n'y a rien.")));
+        ks.forEach(function (k) { cs.push({ sys: "depotTake", depot: w.id, item: k, group: "depot", label: interp(s, D.take || "Prendre") + " : " + depotName(story, D, k) }); });
+      } else {
+        text.push(interp(s, D.textPut || D.text || "Que laisses-tu ici ?"));
+        depotPuts(story, s, w.id).forEach(function (k) { cs.push({ sys: "depotPut", depot: w.id, item: k, group: "depot", label: interp(s, D.put || "Laisser") + " : " + depotName(story, D, k) }); });
+      }
+      if (w.last) text.push(w.last);
+      cs.push({ sys: "depotClose", label: "Revenir : " + cap(interp(s, String(back.backName || back.title || "").replace(/\*/g, ""))) });
+      return { title: interp(s, D.name || "Dépôt"), kind: "depot", text: text.filter(Boolean), choices: cs };
+    },
     // Showing a witness something (7.9): the list of what one holds and has not shown this person yet.
     "@montrer": function (story, s) {
       var w = s.show, P = story.people[w.who] || {}, back = story.passages[w.from] || {};
@@ -2835,6 +2854,90 @@
       return { title: c.title, kind: "combat", text: c.round === 0 ? [c.intro || "Le combat s'engage."] : [], choices: combatChoices(story, s) };
     },
   };
+  // ------------------------------------------------------------------ two players apart (9.6): deposits, chronicles
+  // Deposits (story.depots: { <id>: { name, from, to, flat, ages, gold, rate, goldMax, put, take, labelPut, labelTake,
+  // text, empty } }, passage tag `depot: "<id>"` or { put: [...], take: [...] }). One player leaves a thing of his bag
+  // (or some gold) in a place; the other finds it there once the players have met again (the world flag
+  // monde:depot:<id>:<item>, carried by src/multi.js at the next rendezvous). `from` / `to`: who may leave, who may
+  // take. `flat`: only items marked flat fit (between the pages of a notebook). `ages`: a thing taken has waited (an
+  // item's `aged` is what it has become, `rots` that nothing is left). Why: Clément's children asked for a long story
+  // for two (16/11); in « Le Douzième Coup » one hero lives sixty years before the other and buries things for him.
+  var DEPOT_FLAG = "monde:depot:", DEPOT_TAKEN = "depot-pris:", DEPOT_GOLD = "or:", DEPOT_GOLD_MAX = 5;
+  function depotDef(story, id) { var D = (story.depots || {})[id]; if (!D) throw new Error("dépôt inconnu " + id); return D; }
+  function depotTag(p) { var T = p && p.depot; if (!T) return null; if (typeof T === "string" || Array.isArray(T)) T = { put: T, take: T }; return { put: [].concat(T.put || []), take: [].concat(T.take || []) }; }
+  function depotFits(story, D, it) { var I = (story.items || {})[it]; return !!I && !I.nodepot && (!D.flat || !!I.flat); }
+  // Intent: depotHeld(State, DepotId) -> [Key] = what lies there for this player and is not taken yet
+  function depotHeld(s, id) {
+    var pre = DEPOT_FLAG + id + ":";
+    return Object.keys(s.flags).filter(function (f) { return f.indexOf(pre) === 0 && !s.flags[DEPOT_TAKEN + id + ":" + f.slice(pre.length)]; }).map(function (f) { return f.slice(pre.length); });
+  }
+  function depotGoldN(s, id) { var pre = DEPOT_FLAG + id + ":" + DEPOT_GOLD; return Object.keys(s.flags).filter(function (f) { return f.indexOf(pre) === 0; }).length; }
+  // Intent: depotPuts(Story, State, DepotId) -> [Key] = what this player could leave there now
+  function depotPuts(story, s, id) {
+    var D = depotDef(story, id), out = [], seen = {};
+    if (!evalCond(story, s, D.from)) return out;
+    s.items.forEach(function (it) { if (seen[it] || !depotFits(story, D, it) || s.flags[DEPOT_FLAG + id + ":" + it]) return; seen[it] = 1; out.push(it); });
+    if (D.gold && s.gold >= D.gold && depotGoldN(s, id) < (D.goldMax || DEPOT_GOLD_MAX)) out.push(DEPOT_GOLD + (depotGoldN(s, id) + 1));
+    return out;
+  }
+  function depotTakes(story, s, id) { var D = depotDef(story, id); return evalCond(story, s, D.to) ? depotHeld(s, id) : []; }
+  function depotName(story, D, k) { return k.indexOf(DEPOT_GOLD) === 0 ? money(story, D.gold || 0) : item(story, k).name; }
+  // The page offers one way in for each side that has something to do there; the list opens on a page of its own.
+  function depotChoices(story, s, p) {
+    var T = depotTag(p); if (!T || !story.depots || s.combat) return [];
+    var out = [];
+    T.take.forEach(function (id) { var D = depotDef(story, id); if (!evalCond(story, s, D.to)) return; out.push({ label: interp(s, D.labelTake || "Regarder ce qu'on t'a laissé"), sys: "depotOpen", depot: id, mode: "take", group: "depot" }); });
+    T.put.forEach(function (id) { var D = depotDef(story, id); if (!evalCond(story, s, D.from) || !depotPuts(story, s, id).length) return; out.push({ label: interp(s, D.labelPut || "Laisser quelque chose"), sys: "depotOpen", depot: id, mode: "put", group: "depot" }); });
+    return out;
+  }
+  function depotPut(story, s, id, k) {
+    var D = depotDef(story, id); if (depotPuts(story, s, id).indexOf(k) < 0) throw new Error("dépôt : « " + k + " » ne peut pas être laissé ici");
+    if (k.indexOf(DEPOT_GOLD) === 0) { s.gold -= D.gold; ev(s, "−" + money(story, D.gold) + " · bourse : " + money(story, s.gold)); }
+    else { s.items.splice(s.items.indexOf(k), 1); ev(s, "Tu n'as plus : " + item(story, k).name); }
+    s.flags[DEPOT_FLAG + id + ":" + k] = true;
+    s.depot.last = interp(s, D.putSay || "C'est fait. {autre} le trouvera, si rien ne s'y oppose d'ici là.");
+  }
+  function depotTake(story, s, id, k) {
+    var D = depotDef(story, id); if (depotTakes(story, s, id).indexOf(k) < 0) throw new Error("dépôt : rien de tel ici (" + k + ")");
+    s.flags[DEPOT_TAKEN + id + ":" + k] = true;
+    if (k.indexOf(DEPOT_GOLD) === 0) { var g = Math.round((D.gold || 0) * (D.rate || 1)); s.gold += g; ev(s, "+" + money(story, g) + " · bourse : " + money(story, s.gold), "good"); s.depot.last = interp(s, D.goldSay || ""); return; }
+    var I = item(story, k), got = D.ages ? (I.rots ? null : (I.aged || k)) : k;
+    if (!got) { s.depot.last = interp(s, I.rotSay || "De ceci, il ne reste rien qu'on puisse nommer : " + I.name + "."); return; }
+    apply(story, s, { item: got });
+    s.depot.last = got !== k ? interp(s, I.agedSay || "Le temps a passé dessus : " + I.name + " est devenu " + item(story, got).name + ".") : "";
+  }
+  // Chronicles (story.chroniques: { <id>: { title, tab, for, intro, say, lines: [{ id, head, v: [{ if, text }] }] } }).
+  // A book the hero reads that says something else when the world has changed: each line shows its first variant
+  // whose condition holds (a last one without condition is the line by default; none holding, the line is absent).
+  // The engine keeps what the reader last saw (s.chron) and tells every line that appears or changes, once.
+  function chroniqueLines(story, s, id) {
+    var C = (story.chroniques || {})[id]; if (!C || !evalCond(story, s, C.for)) return null;
+    var out = [];
+    (C.lines || []).forEach(function (L) {
+      var vs = L.v || [{ text: L.text, if: L.if }];
+      for (var i = 0; i < vs.length; i++) if (evalCond(story, s, vs[i].if)) { out.push({ id: L.id, head: L.head ? interp(s, L.head) : "", text: interp(s, vs[i].text), n: i }); return; }
+    });
+    return out;
+  }
+  // Intent: chroniquesOf(Story, State) -> [{ id, title, intro, lines }] = the notebook's tab
+  function chroniquesOf(story, s) {
+    return Object.keys(story.chroniques || {}).map(function (id) { var ls = chroniqueLines(story, s, id), C = story.chroniques[id]; return ls ? { id: id, title: interp(s, C.title || "Chronique"), intro: interp(s, C.intro || ""), lines: ls } : null; }).filter(Boolean);
+  }
+  function chroniqueNews(story, s) {
+    if (!story.chroniques) return;
+    Object.keys(story.chroniques).forEach(function (id) {
+      var ls = chroniqueLines(story, s, id); if (!ls) return;
+      s.chron = s.chron || {};
+      var was = s.chron[id], now = {}, C = story.chroniques[id];
+      ls.forEach(function (l) { now[l.id] = l.n; });
+      // The first reading is silent: the book says what it has always said.
+      if (was) ls.forEach(function (l) {
+        if (was[l.id] === l.n) return;
+        ev(s, interp(s, was[l.id] == null ? (C.sayNew || C.title + " · une ligne de plus") : (C.say || C.title + " ne dit plus la même chose")) + " : " + l.text, "chron");
+      });
+      s.chron[id] = now;
+    });
+  }
   function routeById(story, id) { return (W(story).routes || []).filter(function (x) { return x.id === id; })[0]; }
   // Intent: compute(Story, State) -> View
   // Why: one place that says what the reader sees now (a written passage, the road, the camp, a fight) and every
@@ -2892,6 +2995,7 @@
     // A saved game reopened gets a story freshly read, never prepared by freshState: the engine prepares it here too.
     prepare(story);
     lensNews(story, s);
+    chroniqueNews(story, s);
     var v, p = null;
     if (BUILTIN[s.node]) v = BUILTIN[s.node](story, s);
     else {
@@ -2907,7 +3011,7 @@
         cs = cs.concat([{ to: s.hubLast, label: "Revenir : " + interp(s, hp.title || (W(story).places[hp.place] || {}).name || "…"), auto: "back" }]);
       }
       if (!cs.length) { var back = backChoice(story, s, p); if (back) cs = [back]; }
-      cs = cs.concat(councilChoices(story, s, p), battleChoices(story, s, p), montrerChoices(story, s, p), accuseChoices(story, s, p), repayChoices(story, s, p), shopChoices(story, s, p), tavernChoices(story, s, p), craftChoices(story, s, p), vigilChoices(story, s, p), duelChoices(story, s, p), puzzleChoices(story, s, p), belieChoices(story, s, p), aparteChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p), cardChoices(story, s, p));
+      cs = cs.concat(councilChoices(story, s, p), battleChoices(story, s, p), montrerChoices(story, s, p), accuseChoices(story, s, p), repayChoices(story, s, p), shopChoices(story, s, p), tavernChoices(story, s, p), craftChoices(story, s, p), vigilChoices(story, s, p), duelChoices(story, s, p), puzzleChoices(story, s, p), belieChoices(story, s, p), aparteChoices(story, s, p), depotChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p), cardChoices(story, s, p));
       var sec = [];
       v = { title: interp(s, p.title || ""), kind: p.end ? "end" : "passage", text: textList(story, s, p.text, null, sec), choices: cs, passage: p };
       // The people here at this hour, then the rumour heard on coming in (7.9).
@@ -3588,6 +3692,11 @@
         break;
       }
       case "showNone": { var fr = s.show.from; s.show = null; go(story, s, fr); break; }
+      // Two players apart (9.6): a deposit opened, a thing left or taken, the way back to the page.
+      case "depotOpen": s.depot = { id: c.depot, mode: c.mode, from: s.depot && s.node === "@depot" ? s.depot.from : s.node, last: "" }; s.node = "@depot"; break;
+      case "depotPut": depotPut(story, s, c.depot, c.item); break;
+      case "depotTake": depotTake(story, s, c.depot, c.item); break;
+      case "depotClose": { var df = s.depot.from; s.depot = null; go(story, s, df); break; }
       case "accuse": s.acc = { m: story.passages[s.node].accuse.mystery, from: s.node, step: "qui" }; s.node = "@accuse"; break;
       case "accuseWho": s.acc.qui = c.who; s.acc.step = "mobile"; break;
       case "accuseWhy": s.acc.mobile = c.motive; s.acc.step = "preuve"; break;
@@ -3644,6 +3753,7 @@
     ARCHS: ARCHS, archOf: archOf, usesOf: usesOf, plainOf: plainOf, marksOf: marksOf, TEXT_FX: TEXT_FX, MARK_KINDS: MARK_KINDS, MOODS: MOODS, keywordsOf: keywordsOf, keywordFor: keywordFor, trouve: trouve, moodOf: moodOf, TECHS: TECHS, techsOf: techsOf, partyView: partyView, cpv: cpv, cpvMax: cpvMax, FRONT: FRONT, DOMAINS: DOMAINS, EP: EP, EP_PER_LEVEL: EP_PER_LEVEL, MAX_LEVEL: MAX_LEVEL, DIFFS: DIFFS, LOYAL_AT: LOYAL_AT, SUCCESS: SUCCESS, STEP_HOURS: STEP_HOURS,
     setRng: setRng, setDice: setDice, nudgeOf: nudgeOf, ambianceOf: ambianceOf, AMBIANCES: AMBIANCES, isNightNow: function (s) { var h = s.time % 24; return h >= NIGHT_FROM || h < NIGHT_TO; }, DIFFICULTY: DIFFICULTY, featsOf: featsOf, endingsOf: endingsOf, endingOf: endingOf, fatesOf: fatesOf, fateCount: fateCount, freshState: freshState, level: level, pvMax: pvMax, bonus: bonus, chance: chance, rollTest: rollTest,
     evalCond: evalCond, describeCond: describeCond, textList: textList, view: view, allowed: allowed, target: target,
+    depotTag: depotTag, depotFits: depotFits, depotPuts: depotPuts, depotTakes: depotTakes, chroniquesOf: chroniquesOf, DEPOT_FLAG: DEPOT_FLAG, stockShown: stockShown,
     apply: apply, enter: enter, choose: choose, start: start, present: present, loyal: loyal, clueCount: clueCount,
     PERIODS: PERIODS, periodOf: periodOf, hereNow: hereNow, contradict: contradict, contradictionOf: contradictionOf, faded: faded, regardOk: regardOk, rumorById: rumorById, momentOf: momentOf,
     money: money, prepare: prepare, questsOf: questsOf, questState: questState, questDone: questDone, questRefused: questRefused, questStarted: questStarted, questMissed: questMissed, questScenes: questScenes, remaining: remaining, actOf: actOf, interp: interp, nameOf: nameOf,
