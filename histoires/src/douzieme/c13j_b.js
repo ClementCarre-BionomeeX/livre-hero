@@ -266,7 +266,7 @@ Object.assign(P, {
       { after: "j:line_consigne", text: "« La demie de dix », dit-elle, sans lever le nez. Elle n'a pas besoin qu'on le lui répète." },
     ],
     choices: [
-      { label: "« À la demie de dix heures, tu lâches la main de ton père, et tu cours à la charrette. »", hide: { any: [{ has: "j:line_consigne" }, SORTIS] }, fx: { flag: "j:line_consigne", ep: ["histoire", 500] }, to: "K13j_line_consigne" },
+      { label: "« À la demie de dix heures, tu lâches la main de ton père, et tu cours à la charrette. »", hide: { any: [{ has: "j:line_consigne" }, SORTIS] }, fx: { flag: ["j:line_consigne", "monde:line_court"], ep: ["histoire", 500] }, to: "K13j_line_consigne" },
       { label: "« Est-ce que tu veux savoir si nous nous reverrons ? »", hide: { seen: "K13j_line_reverra" }, fx: { flag: "j:line_promesse", ep: ["perso", 800] }, to: "K13j_line_reverra" },
       { label: "Regarder dans la boîte ce qu'elle veut te montrer", hide: { any: [{ not: { has: "monde:line_dedans" } }, { item: "vis_line" }] }, fx: { item: "vis_line", flag: "monde:vis_line" }, to: "K13j_line_vis" },
       { back: "K13j_noyers_aube" },

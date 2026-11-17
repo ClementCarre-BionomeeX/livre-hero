@@ -896,6 +896,55 @@ Object.assign(P, {
       { label: "Tenir le regard", hide: R, to: "K15_instant", big: true },
       { label: "Tenir le regard", hide: J, to: "K15_instant", big: true },
     ] },
+
+  // ---------- chapter 15 : the gallery behind the great dial, inside the eleventh stroke ----------
+  M15: { act: "V", title: "Derrière le grand cadran", backName: "la galerie", charniere: true, aparte: true,
+    text: [
+      { first: true, if: J, text: "C'est quelqu'un de ton âge, en sabots, une veilleuse au poing, la figure rouge, la bouche ouverte, avec du charbon jusqu'aux coudes et un sachet de cuir qui lui bat la poitrine. Tu l'as vu{autre:e} pour la dernière fois à une table. {autre:Il} avait les mains sous les cuisses, et regardait tout de côté." },
+      { first: true, if: J, text: "{autre} tombe à genoux devant toi, sans un mot. {autre:Il} arrache le sachet de son cou ; le lacet casse. {autre:Il} te prend la main, la retourne, l'ouvre de force, doigt par doigt, et y verse. Tu vois couler les grains. Ils sont gris, fins, et ils sont tièdes : c'est la première chose que tu sens depuis longtemps." },
+      { first: true, if: J, text: "{autre:Il} te referme les doigts dessus, avec les siens, et serre. Ses lèvres remuent. {autre:Il} compte." },
+      { first: true, if: J, text: "D'abord revient un bruit : ton cœur. Il était quelque part, très loin, à battre une fois par psaume ; il rentre, il se presse, il te cogne dans la gorge. Puis le souffle. Tu respires comme on sort de l'eau, à pleine poitrine, en toussant. Le gris se retire de tes mains par les ongles. Tes genoux se rappellent qu'ils plient." },
+      { first: true, if: J, text: "« T'as le nez qui te gratte ? » dit {autre}." },
+      { first: true, if: J, text: "C'est la première chose que tu entends de sa voix. Tu lui en avais donné une autre, d'après les bâtons : plus grosse, plus lente. Celle-ci est rauque, pressée, et elle tremble un peu au bout. Tu ris. Cela te secoue de la tête aux pieds, et tu ne sais plus très bien, à la fin, si c'est encore rire." },
+      { first: true, if: J, text: "Tu dis son nom. Il sort entier." },
+      { first: true, if: J, text: "Vous restez là, assis contre un cadran arrêté, au-dessus de cinq mille bouches rondes. Vous vous êtes écrit neuf jours. Vous ne vous êtes presque jamais parlé. Il faut un moment pour savoir par où l'on commence, quand on a déjà tout dit à quelqu'un sur du papier." },
+      { first: true, if: R, text: "{autre} est assis{autre:e} contre le verre laiteux, les jambes devant {autre:lui}, gris{autre:e} jusqu'aux épaules. Ses yeux sont sur la porte. Ils te voient entrer : ils bougent. Ils mettent le temps d'un Pater à aller de tes sabots à ta figure, et ils y arrivent." },
+      { first: true, if: R, text: "Tu connais ce gris. Tu l'as vu sur les Lents, à la lisière, et tu sais à quelle hauteur il est encore temps : aux épaules, oui. Au cou, on dit des prières." },
+      { first: true, if: R, text: "Tu tombes à genoux. Tu arraches le sachet ; le lacet casse. Sa main est fermée, dure, froide comme un galet ; tu l'ouvres de force, doigt par doigt, et tu verses. Tu ne mesures rien. La moitié, à vue. Tu lui refermes les doigts dessus, avec les tiens, et tu serres." },
+      { first: true, if: R, text: "Tu comptes. Un Pater : le gris hésite, aux ongles. Deux : il recule, comme une marée quitte un pré. {autre} respire, d'un coup, en toussant, avec le bruit de quelqu'un qu'on tire d'une mare." },
+      { first: true, if: R, text: "Tu as préparé une phrase, pendant deux cent vingt marches. Tu l'as perdue. Il t'en vient une autre, bête, que tu as lue dans un trou, à la flamme, il y a un quart d'heure et soixante ans. « T'as le nez qui te gratte ? »" },
+      { first: true, if: R, text: "{autre} rit. Ou pleure : chez les gens qui dégèlent, cela fait le même bruit. Puis {autre:il} dit ton nom. On te l'a crié toute ta vie dans des camps, par-dessus des haies. C'est la première fois que tu l'entends dans la bouche de quelqu'un qui sait l'écrire." },
+      { first: true, if: R, text: "Sa voix te surprend. Tu lui en avais donné une autre, d'après l'écriture penchée : posée, un peu savante. Celle-ci est jeune, enrouée, et elle a l'accent des Trois-Noyers, que tu avais oublié." },
+      { first: true, if: R, text: "Vous restez là, à genoux et assis, contre un cadran arrêté. Tu regardes ton sachet. Il en reste la moitié de ce qui restait. Vous êtes deux dessus, à présent. C'est un compte que tu n'as jamais eu à faire, et tu le trouves léger." },
+      { again: true, if: J, text: "La galerie, le verre tiède, les deux aiguilles jointes. {autre} est là. Tu as dans le poing de quoi avoir ton heure à toi." },
+      { again: true, if: R, text: "La galerie, le verre tiède, les deux aiguilles jointes. {autre} est là, et respire." },
+    ],
+    choices: [
+      { label: "Te relever, avec son épaule", hide: R, fx: { stock: { sable: 3 }, flag: "j:degele", ep: ["perso", 1000] }, to: "K15_galerie", big: true },
+      { label: "L'aider à se relever", hide: J, fx: { stock: { sable: -2 }, flag: "r:partage", ep: ["perso", 1000] }, to: "K15_galerie", big: true },
+    ] },
+
+  // ---------- chapter 15, end : a cane on the stair ----------
+  B15: { act: "V", title: "Onze grains", backName: "la galerie", charniere: true, aparte: true,
+    text: [
+      { first: true, text: "Cela vient de la vis : un bruit de bois sur de la pierre, espacé, patient. Une canne. Elle monte une marche, s'arrête, en monte une autre. Elle met très longtemps." },
+      { first: true, if: J, text: "{autre} s'est tourné{autre:e} vers la porte basse, une main sur ton bras. « C'est lui. Le vieux. Celui de chez moi. » Tu sais de qui il s'agit : tu en as vu deux au fond d'une lunette." },
+      { first: true, if: R, text: "Tu te tournes vers la porte basse, une main sur le bras de {autre}. « C'est lui. Le vieux. Celui de chez moi. » Tu n'as pas besoin d'en dire plus : {autre} en a vu deux, au fond d'une lunette." },
+      { first: true, text: "Il paraît dans la porte. Il est gris de figure, à présent, comme de vêtement ; il a monté cent quarante marches à quatre-vingt-dix ans, et il se tient au chambranle. Il vous regarde tous les deux, l'un après l'autre, longuement, de son œil gris et de son œil brun. Puis il s'assoit sur la dernière marche, sa canne entre les genoux, avec le soin d'un homme qui range un outil." },
+      { first: true, text: "« Onze grains. » Il souffle entre les phrases. « Je lui ai tout dit en onze grains. La lieue. Les soixante ans. La Maîtrise, les cuves, les quarante couverts. Il m'écoutait bien. J'ai toujours bien écouté. Au douzième, il m'a demandé si nous avions gagné. »" },
+      { first: true, text: "Il a un petit rire, sans bruit. « J'ai répondu oui. Il a souri. J'avais ce sourire-là : je l'ai reconnu aux dents. Je l'ai laissé dormir dessus. »" },
+      { first: true, text: "Il lève les yeux vers le grand cadran, les deux aiguilles jointes. « Vous voulez rendre le coup. Il vous faut une main en haut, une main en bas, et que je sois ailleurs. Je suis vieux. Il me reste vingt grains. Je ne monterai pas cet escalier deux fois. » Il tapote la pierre de sa canne. « Je serai donc en bas, au levier, où j'ai mes habitudes. J'y serai quand vous y viendrez. »" },
+      { first: true, text: "« Cette note est à vous deux. C'est dans le chapitre que mon maître me faisait sauter : elle tient tant que celui d'en haut et celui d'en bas n'ont ni rendu le coup, ni refusé de le rendre. Elle tiendra donc le temps qu'il vous plaira. Faites comme tous les gens qui ont une heure devant eux, et plus de temps du tout : allez voir. » Sa main fait le tour de la ville, par-dessus la barre. « Elle est à vous. Elle ne le sera jamais autant. J'ai mis soixante ans à l'avoir comme cela, et vous l'avez pour rien. »" },
+      { first: true, text: "Il se relève, en deux fois. Sur le seuil, il se retourne. « Ne me cherchez pas de bons sentiments. J'en ai eu un tout à l'heure, en bas, devant une figure ; il m'a coûté onze grains, et je n'ai plus les moyens. »" },
+      { first: true, text: "La canne redescend. Une marche, un arrêt, une marche." },
+      { first: true, if: J, text: "{autre} te regarde. « Il attendra. Il sait attendre mieux que personne : il a fait ça toute sa vie. » {autre:Il} soupèse son sachet. « On a de quoi marcher un moment. Pas partout. Faut choisir. »" },
+      { first: true, if: R, text: "Tu soupèses ton sachet. Il attendra : il sait attendre mieux que personne. Vous avez de quoi marcher un moment dans cette ville. Pas partout. Il faudra choisir, et c'est {autre} qui sait où sont les gens." },
+      { again: true, text: "La galerie. Très bas, dans la vis, une canne descend." },
+    ],
+    choices: [
+      { label: "Descendre vers la ville, derrière la canne", hide: R, to: "K16_porte", big: true },
+      { label: "Descendre vers la ville, derrière la canne", hide: J, to: "K16_porte", big: true },
+    ] },
 });
 
 module.exports = { passages: P, extras: {

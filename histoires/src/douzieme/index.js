@@ -9,7 +9,7 @@ var LOTS = ["bornes", "secrets", "c01", "c02a", "c02b", "c03",
   "c08j_a", "c08j_b", "c08j_c", "c08r_a", "c08r_b", "c09j_a", "c09j_b", "c09r_a", "c09r_b",
   "c10j_a", "c10j_b", "c10r_a", "c10r_b", "c11j_a", "c11j_b", "c11r_a", "c11r_b",
   "c12j_a", "c12j_b", "c12r_a", "c12r_b", "c13j_a", "c13j_b", "c13r_a", "c13r_b",
-  "c14j", "c14r", "c15", "c16", "c17", "fins", "interludes"];
+  "c14j", "c14r", "c15j", "c15r", "c15", "c16j", "c16r", "c16", "c17", "fins", "interludes"];
 var DICTS = ["people", "items", "enemies", "clues", "mysteries", "shops", "achievements", "puzzles", "duels", "councils", "motions", "battles", "secrets", "companions"];
 var LISTS = ["banter", "epilogue", "fates", "interludes"];
 LOTS.forEach(function (f) {
