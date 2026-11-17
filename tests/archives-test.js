@@ -13,7 +13,11 @@ function game(id, hero, ended, min) {
   return { profil: "p1", story: "kardan", storyTitle: "Le labyrinthe de Kardan", hero: hero, archLabel: "Guerrier", level: 2, where: "Kardan", ended: ended, updated: T0 + min * 60000, state: "{}", undo: [], log: [] };
 }
 var SEED = {
-  "idx:profils": ["p1"], "profils:p1": { name: "Léa", color: "#a33", created: T0 },
+  "idx:profils": ["p1", "p9"], "profils:p1": { name: "Léa", color: "#a33", created: T0 }, "profils:p9": { name: "Colin", color: "#3a3", created: T0 + 5 },
+  // games for several: one of Léa's, finished; one of the children's, from before 9.5 (names only)
+  "idx:multis": ["m1", "m2"],
+  "multis:m1": { kind: "local", story: "pages", storyTitle: "L'Écu de Vellane", players: ["Léa", "Mamie"], readers: ["p1", null], updated: T0 + 5 * 60000, game: JSON.stringify({ players: [{ id: "j1", name: "Léa", wait: { kind: "fin" } }, { id: "j2", name: "Mamie", wait: { kind: "fin" } }] }) },
+  "multis:m2": { kind: "local", story: "pages", storyTitle: "L'Écu de Vellane", players: ["Colin", "Coliane"], updated: T0 + 6 * 60000, game: JSON.stringify({ players: [{ id: "j1", name: "Colin", wait: null }] }) },
   "idx:parties": ["g1", "g2", "g3"],
   "parties:g1": game("g1", "Ivo", true, 1), "parties:g2": game("g2", "Mara", true, 2), "parties:g3": game("g3", "Tess", false, 3),
   "profil": "p1", "nouveautes-vues": "999",
@@ -76,6 +80,16 @@ var SEED = {
     await pg.waitForTimeout(600); await gamesTab();
     check((await doc("g2")).archived === true, "une sauvegarde importée où la partie a été archivée plus tard l'archive ici");
     check(await lines() === 2, "après l'import, Mara a quitté la liste");
+    // Games for several (Clément, 16/11): only the reader's own, and a finished one goes to the archives too.
+    var mlines = function () { return pg.locator(".multi-games > .save-line").count(); };
+    check(await mlines() === 1, "à plusieurs : seule la partie où Léa joue est montrée, pas celle des enfants");
+    check(/terminée/.test(await pg.locator(".multi-games > .save-line").first().innerText()), "la partie à plusieurs finie est dite terminée");
+    await pg.locator(".multi-games > .save-line").first().getByRole("button", { name: /Archiver/ }).click();
+    await pg.waitForTimeout(300);
+    check(await mlines() === 0, "la partie à plusieurs archivée quitte la liste");
+    var m1 = await pg.evaluate(function () { return JSON.parse(localStorage.getItem("livre-heros:multis:m1")); });
+    check(m1 && m1.archived === true && m1.game, "la partie à plusieurs archivée est enregistrée, avec son jeu");
+    check(await pg.locator(".multi-games .archives-fold").count() === 1, "« Archives (1) » sous les parties à plusieurs");
   } catch (e) { bad.push("le parcours s'est arrêté : " + String(e.message).split("\n")[0]); }
   errors.forEach(function (e) { bad.push("erreur de la page : " + e); });
   await b.close(); server.close();

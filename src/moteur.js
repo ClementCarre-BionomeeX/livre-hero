@@ -275,7 +275,7 @@
   function helpOf(story, s, t) {
     var h = 0;
     (t.help || []).forEach(function (x) { if (tagsOk(story, s, x, s.node) && evalCond(story, s, x.if)) h += x.v || 0; });
-    return h;
+    return h + cardHelp(s, t);
   }
   function rollTest(story, s, t, who) {
     var b = bonus(story, s, t.dom, who), help = helpOf(story, s, t), diff = t.diff || 0, lv = diffOf(s).roll;
@@ -284,7 +284,7 @@
     if (!who && story.practice) practiceUse(story, s, t.dom);
     return { die: r.total, rolls: r.rolls, bonus: b, help: help, diff: diff, total: total, target: SUCCESS, ok: ok,
       line: "d100 ouvert " + (r.rolls.length > 1 ? "(" + r.rolls.join(" ") + ") " : "") + r.total + " + " + DOMAINS[t.dom] + " " + b +
-        (diff ? (diff > 0 ? " + " : " − ") + Math.abs(diff) + (DIFFS[diff] ? " (" + DIFFS[diff] + ")" : "") : "") + (help ? (help > 0 ? " + " : " − ") + Math.abs(help) + " (aide)" : "") + diffTerm(s) +
+        (diff ? (diff > 0 ? " + " : " − ") + Math.abs(diff) + (DIFFS[diff] ? " (" + DIFFS[diff] + ")" : "") : "") + (help ? (help > 0 ? " + " : " − ") + Math.abs(help) + (cardHelp(s, t) ? (help === cardHelp(s, t) ? " (ta carte)" : " (aide et carte)") : " (aide)") : "") + diffTerm(s) +
         " = " + total + " (il faut " + SUCCESS + ")" };
   }
   function chance(story, s, t, who) {
@@ -302,6 +302,9 @@
     if (c === false) return false;
     if (typeof c === "string") return !!s.flags[c];
     if (Array.isArray(c)) return c.every(function (x) { return evalCond(story, s, x); });
+    // Cards (9.7): a thread's state (ouvert by default; noue, rate, aucun), a card played in this game.
+    if ("fil" in c) return [].concat(c.is || "ouvert").indexOf(threadState(s, c.fil)) >= 0;
+    if ("carteJouee" in c) return !!(s.jeu && [].concat(c.carteJouee).some(function (k) { return s.jeu.joue.indexOf(k) >= 0; }));
     // A siege (8.0): a stock and the days it lasts, a promise, a vote, a member's leaning, a battle, the hero's camp.
     if ("stock" in c) return rng(stockNow(story, s, c.stock), c.min, c.max);
     if ("days" in c) { var dl = daysLeft(story, s, c.days); return rng(dl == null ? Infinity : dl, c.min, c.max); }
@@ -643,6 +646,7 @@
     if (t.trouble != null && t.trouble !== false && !dreadTrouble(story, s, t.trouble)) return false;
     if (t.calme != null && t.calme !== false && dreadTrouble(story, s, t.calme)) return false;
     if (t.tendre && s.tendre === "masquer") return false;
+    if (!cardTagsOk(story, s, t)) return false;
     if (t.first && s.seen[node] > 1) return false;
     if (t.again && !(s.seen[node] > 1)) return false;
     return true;
@@ -983,6 +987,9 @@
       if (!(story.attachments || {})[k]) throw new Error("attachement inconnu " + k);
       s.attache = s.attache || {}; s.attache[k] = Math.max(0, Math.min(ATTACH_MAX, attachOf(s, k) + fx.attache[k]));
     });
+    // Cards (9.7): a thread opened, tied or missed by the story itself; élan given or taken.
+    if (fx.fil) { [].concat(fx.fil.ouvre || []).forEach(function (k) { threadOpen(story, s, k); }); [].concat(fx.fil.noue || []).forEach(function (k) { threadTie(story, s, k); }); [].concat(fx.fil.rate || []).forEach(function (k) { threadMiss(story, s, k); }); }
+    if (fx.elan) { var JE = jeuOf(story, s); JE.elan = Math.max(0, Math.min(ELAN_MAX, JE.elan + fx.elan)); ev(s, "Élan " + (fx.elan > 0 ? "+" : "−") + Math.abs(fx.elan) + " (" + JE.elan + ").", "carte"); }
     if (fx.note) ev(s, interp(s, fx.note), fx.noteCls || "");
   }
 
@@ -2913,7 +2920,7 @@
         cs = cs.concat([{ to: s.hubLast, label: "Revenir : " + interp(s, hp.title || (W(story).places[hp.place] || {}).name || "…"), auto: "back" }]);
       }
       if (!cs.length) { var back = backChoice(story, s, p); if (back) cs = [back]; }
-      cs = cs.concat(councilChoices(story, s, p), battleChoices(story, s, p), montrerChoices(story, s, p), accuseChoices(story, s, p), repayChoices(story, s, p), shopChoices(story, s, p), tavernChoices(story, s, p), craftChoices(story, s, p), vigilChoices(story, s, p), duelChoices(story, s, p), puzzleChoices(story, s, p), belieChoices(story, s, p), aparteChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p));
+      cs = cs.concat(councilChoices(story, s, p), battleChoices(story, s, p), montrerChoices(story, s, p), accuseChoices(story, s, p), repayChoices(story, s, p), shopChoices(story, s, p), tavernChoices(story, s, p), craftChoices(story, s, p), vigilChoices(story, s, p), duelChoices(story, s, p), puzzleChoices(story, s, p), belieChoices(story, s, p), aparteChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p), cardChoices(story, s, p));
       var sec = [];
       v = { title: interp(s, p.title || ""), kind: p.end ? "end" : "passage", text: textList(story, s, p.text, null, sec), choices: cs, passage: p };
       // The people here at this hour, then the rumour heard on coming in (7.9).
@@ -2932,6 +2939,7 @@
       if (s.echoNow && s.echoNow.node === s.node && s.echoNow.turn === s.turn) v.text.push("*" + s.echoNow.text + "*");
       if (p.souvenir) v.souvenir = interp(s, p.souvenir === true ? "Souvenir" : p.souvenir);
       if (p.interlude) v.interlude = interludeOf(story, s, p);
+      if (p.halte) { var hv = handView(story, s, p); if (hv) v.hand = hv; }
       if (story.dread) { v.dread = { v: dreadOf(s), max: dreadMax(story), word: dreadWord(story, s) }; if (dreadTrouble(story, s) && !p.souvenir && !p.interlude) v.trouble = true; }
       // A scene that spends the night tells it at its end; one that waits for the evening, at its start.
       if (s.took && s.took.node === s.node && s.took.turn === s.turn) { v.text[s.took.end ? "push" : "unshift"]("*(" + s.took.say + ")*"); if (!s.took.end) sec = sec.map(function (i) { return i + 1; }); }
@@ -3187,6 +3195,7 @@
     return hit;
   }
   function allowed(story, s, p, c) {
+    if (c.sys === "carte") return { ok: !!c.cardOk, why: c.cardWhy || "" };
     if (c.if && !evalCond(story, s, c.if)) return { ok: false, why: c.why || describeCond(story, c.if) };
     if (c.exit && s.toutJouer) {
       var act = (p && p.act) || (s.lastAct);
@@ -3220,8 +3229,172 @@
       return target(story, s, to[to.length - 1].to);
     }
     if (to === "@ret") return s.ret;
+    // Cards (9.7): after a card's scene, the way on from the stop where it was played.
+    if (to === "@suite") { if (!s.jeu || !s.jeu.suite) throw new Error("@suite hors d'une carte jouée"); s.jeu.scene = false; return s.jeu.suite; }
     if (to === "@team") { var tm = (s.teams || {})[s.team] || {}; var st0 = tm.resume || ((story.teams || {})[s.team] || {}).start; if (!st0) throw new Error("@team : aucune équipe à reprendre"); delete tm.resume; return st0; }
     return to;
+  }
+
+  // ------------------------------------------------------------------ cards (9.7)
+  // Intent: a story told by the cards the reader plays. Why: Clément, 16/11 — his brother loves drafting card games:
+  // generic path cards that build the story (the story adapts to the kind of card played), a deck, boosters, play
+  // with others, and a draft. The story declares; the engine does the rest:
+  //   story.cartes  { <id>: { titre, type, enseigne, rarete, elan, texte, ouvre, noue } }   the cards it knows
+  //   story.fils    { <id>: { titre, ouvert, noue } }                                       the threads a card may open
+  //   story.jeu     { main, deck: [ids], elan: { depart, halte } }                           the hand, the deck, the élan
+  //   passage halte: { id, nom, suite, types }   a stop: the reader draws, then plays one card from the hand
+  //   passage resout: { type | carte, halte, enseigne, fil, if }   what a card becomes; the engine takes the most precise
+  //   "@suite"   the way on after a card's scene: the `suite` of the stop where the card was played
+  // A card has a kind of path (what happens), a suit (how), a rarity, a cost in élan, and maybe a hook that opens or
+  // ties a thread. Two cards of one suit in a row give one élan back.
+  var CARD_TYPES = { rencontre: "Rencontre", obstacle: "Obstacle", detour: "Détour", refuge: "Refuge", revelation: "Révélation",
+    tresor: "Trésor", peril: "Péril", presage: "Présage", allie: "Allié", trahison: "Trahison" };
+  var SUITS = { lame: "Lame", masque: "Masque", lanterne: "Lanterne", racine: "Racine" };
+  // In the scene a card opened, its suit helps the rolls of its own manner (Clément's principle: the card decides).
+  var SUIT_DOMAINS = { lame: ["combat"], masque: ["discretion", "social"], lanterne: ["savoir", "magie"], racine: ["nature", "social"] }, SUIT_ROLL = 25;
+  function cardHelp(s, t) { var D = s.jeu && s.jeu.scene && s.jeu.derniere; return D && (SUIT_DOMAINS[D.enseigne] || []).indexOf(t.dom) >= 0 ? SUIT_ROLL : 0; }
+  var SUIT_WORDS = { lame: "la force", masque: "la ruse", lanterne: "le savoir", racine: "les liens" };
+  var RARITIES = { commune: "commune", peu: "peu commune", rare: "rare", legende: "légendaire" };
+  var THREAD_STATES = { ouvert: "ouvert", noue: "noué", rate: "manqué" };
+  var HAND_SIZE = 5, ELAN_START = 1, ELAN_PER_STOP = 1, ELAN_MAX = 5, SUIT_BONUS = 1, PASS_CARD = "@passer";
+  // Resolution: the more a resolution names, the more precise it is.
+  var RES_CARD = 8, RES_STOP = 4, RES_THREAD = 2, RES_SUIT = 1, RES_IF = 1;
+  function cardDef(story, id) { return (story.cartes || {})[id] || null; }
+  function cardRules(story) { var j = story.jeu || {}, e = j.elan || {}; return { main: j.main || HAND_SIZE, depart: e.depart != null ? e.depart : ELAN_START, halte: e.halte != null ? e.halte : ELAN_PER_STOP }; }
+  function shuffled(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(RNG() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  // Intent: jeuOf(Story, State) -> Jeu = the reader's cards, made at the first stop from the deck the app gave
+  // (s.deckChoisi, a draft or a deck built later) or the story's own deck.
+  function jeuOf(story, s) {
+    if (s.jeu) return s.jeu;
+    var deck = (s.deckChoisi && s.deckChoisi.length ? s.deckChoisi : (story.jeu || {}).deck || []).filter(function (id) { return cardDef(story, id); });
+    s.jeu = { pioche: shuffled(deck), main: [], defausse: [], elan: cardRules(story).depart, fils: {}, haltes: {}, joue: [], derniere: null, suite: null };
+    return s.jeu;
+  }
+  function threadState(s, id) { return (s.jeu && s.jeu.fils[id]) || "aucun"; }
+  function threadOpen(story, s, id) {
+    var J = jeuOf(story, s); if (J.fils[id]) return;
+    J.fils[id] = "ouvert"; ev(s, "Un fil s'ouvre : " + interp(s, ((story.fils || {})[id] || {}).titre || id) + ".", "fil");
+  }
+  function threadTie(story, s, id) {
+    var J = jeuOf(story, s); if (J.fils[id] !== "ouvert") return;
+    J.fils[id] = "noue"; ev(s, "Un fil se noue : " + interp(s, ((story.fils || {})[id] || {}).titre || id) + ".", "fil");
+  }
+  function threadMiss(story, s, id) { var J = jeuOf(story, s); if (J.fils[id] === "ouvert") J.fils[id] = "rate"; }
+  // Intent: filsOf(Story, State) -> [{ id, titre, etat, texte }] = the threads of this game, for the notebook
+  function filsOf(story, s) {
+    var J = s.jeu; if (!J) return [];
+    return Object.keys(J.fils).map(function (k) { var F = (story.fils || {})[k] || {}; return { id: k, titre: interp(s, F.titre || k), etat: J.fils[k], texte: interp(s, (J.fils[k] === "noue" ? F.noue : F.ouvert) || "") }; });
+  }
+  function draw(story, s, n) {
+    var J = jeuOf(story, s), got = 0;
+    for (var i = 0; i < n; i++) {
+      if (!J.pioche.length) { if (!J.defausse.length) break; J.pioche = shuffled(J.defausse); J.defausse = []; ev(s, "Tu rebats ta défausse : elle redevient ta pioche.", "carte"); }
+      J.main.push(J.pioche.shift()); got++;
+    }
+    return got;
+  }
+  function stopOf(p) { return p && p.halte ? (p.halte === true ? { id: "halte" } : p.halte) : null; }
+  // Intent: stopEnter(Story, State, PassageId) ! the reader comes to a stop: the hand is filled and the élan grows,
+  // once per stop.
+  function stopEnter(story, s, id) {
+    var H = stopOf(story.passages[id]), J = jeuOf(story, s), R = cardRules(story);
+    if (J.haltes[H.id] !== undefined || J.vue === H.id) return;
+    J.vue = H.id;
+    var n = draw(story, s, Math.max(0, R.main - J.main.length)), was = J.elan;
+    J.elan = Math.min(ELAN_MAX, J.elan + R.halte);
+    if (n || J.elan > was) ev(s, (n ? "Tu pioches " + n + " carte" + (n > 1 ? "s" : "") + ". " : "") + "Élan : " + J.elan + ".", "carte");
+  }
+  // Intent: resolutions(Story) -> [{ id, r }] = the passages that say what a card becomes (read once per story)
+  function resolutions(story) {
+    if (story._resout) return story._resout;
+    var out = Object.keys(story.passages).filter(function (id) { return story.passages[id].resout; }).map(function (id) { return { id: id, r: story.passages[id].resout }; });
+    try { Object.defineProperty(story, "_resout", { value: out, enumerable: false }); } catch (e) { /* frozen */ }
+    return out;
+  }
+  function resMatch(story, s, x, card, cardId, stopId) {
+    var r = x.r;
+    if (r.carte != null && [].concat(r.carte).indexOf(cardId) < 0) return -1;
+    if (r.carte == null && [].concat(r.type || []).indexOf(card.type) < 0) return -1;
+    if (r.halte != null && [].concat(r.halte).indexOf(stopId) < 0) return -1;
+    if (r.enseigne != null && [].concat(r.enseigne).indexOf(card.enseigne) < 0) return -1;
+    if (r.fil != null && ![].concat(r.fil).every(function (f) { return threadState(s, f) === "ouvert"; })) return -1;
+    if (r.if != null && !evalCond(story, s, r.if)) return -1;
+    if (!sceneOk(story, s, story.passages[x.id])) return -1;
+    return (r.carte != null ? RES_CARD : 0) + (r.halte != null ? RES_STOP : 0) + (r.fil != null ? RES_THREAD : 0) + (r.enseigne != null ? RES_SUIT : 0) + (r.if != null ? RES_IF : 0);
+  }
+  // Intent: resolve(Story, State, CardId, StopId) -> PassageId | null = the scene this card opens at this stop: the
+  // most precise resolution that holds; of equals, one this game has not read yet, then one at random.
+  function resolve(story, s, cardId, stopId) {
+    var card = cardDef(story, cardId); if (!card) return null;
+    var best = -1, list = [];
+    resolutions(story).forEach(function (x) { var sc = resMatch(story, s, x, card, cardId, stopId); if (sc > best) { best = sc; list = [x.id]; } else if (sc === best && sc >= 0) list.push(x.id); });
+    if (!list.length) return null;
+    var fresh = list.filter(function (id) { return !s.seen[id]; });
+    return pick(fresh.length ? fresh : list);
+  }
+  // Intent: cardChoices(Story, State, Passage) -> [Choice] = at a stop, one choice per card in the hand (two copies:
+  // one choice, « × 2 »), closed with its reason when the stop refuses its kind or the élan is short.
+  function cardChoices(story, s, p) {
+    var H = stopOf(p); if (!H || !s.jeu) return [];
+    var J = s.jeu;
+    // Back on a stop already played (a way back written by the story): the road goes on.
+    if (J.haltes[H.id] !== undefined) return (p.choices || []).length ? [] : [{ to: H.suite, label: "Reprendre la route" }];
+    var count = {}, order = [];
+    J.main.forEach(function (id) { if (!count[id]) order.push(id); count[id] = (count[id] || 0) + 1; });
+    var cs = order.map(function (id) {
+      var C = cardDef(story, id), why = "";
+      if (H.types && [].concat(H.types).indexOf(C.type) < 0) why = "Pas ici : " + [].concat(H.types).map(function (t) { return CARD_TYPES[t]; }).join(" ou ") + " seulement.";
+      else if ((C.elan || 0) > J.elan) why = "Il te faut " + C.elan + " d'élan (tu en as " + J.elan + ").";
+      else if (!resolve(story, s, id, H.id)) { why = "Cette carte n'a pas de suite ici."; guard(s, "carte « " + id + " » sans résolution à la halte " + H.id); }
+      return { sys: "carte", carte: id, n: count[id], label: interp(s, C.titre), cardOk: !why, cardWhy: why, ui: true };
+    });
+    if (!cs.some(function (c) { return c.cardOk; })) cs.push({ sys: "carte", carte: PASS_CARD, label: "Passer son chemin", cardOk: true, cardWhy: "" });
+    return cs;
+  }
+  // Intent: handView(Story, State, Passage) -> Hand | null = what the page draws at a stop: the cards, the élan, the
+  // piles, the threads.
+  function handView(story, s, p) {
+    var H = stopOf(p); if (!H || !s.jeu) return null;
+    var J = s.jeu;
+    return { halte: H.id, nom: H.nom ? interp(s, H.nom) : "", joue: J.haltes[H.id] !== undefined, elan: J.elan, pioche: J.pioche.length, defausse: J.defausse.length, fils: filsOf(story, s),
+      types: H.types ? [].concat(H.types) : null, derniere: J.derniere ? J.derniere.enseigne : null, premiere: !J.joue.length };
+  }
+  // Intent: cardInfo(Story, CardId) -> { titre, type, typeNom, enseigne, enseigneNom, rarete, elan, texte, accroche }
+  function cardInfo(story, id) {
+    var C = cardDef(story, id) || {}, F = story.fils || {};
+    var hook = C.ouvre ? "Ouvre un fil : " + ((F[C.ouvre] || {}).titre || C.ouvre) : C.noue ? "Noue le fil : " + ((F[C.noue] || {}).titre || C.noue) : "";
+    return { id: id, titre: C.titre || id, type: C.type, typeNom: CARD_TYPES[C.type] || C.type, enseigne: C.enseigne, enseigneNom: SUITS[C.enseigne] || C.enseigne, rarete: C.rarete || "commune", elan: C.elan || 0, texte: C.texte || "", accroche: hook };
+  }
+  // Intent: playCard(Story, State, Choice) ! the card goes to the discard pile, its élan is paid, its scene opens.
+  function playCard(story, s, c) {
+    var p = story.passages[s.node], H = stopOf(p), J = jeuOf(story, s);
+    if (!H) throw new Error("carte jouée hors d'une halte");
+    if (c.carte === PASS_CARD) { J.haltes[H.id] = PASS_CARD; J.derniere = null; J.suite = H.suite; ev(s, "Tu passes ton chemin sans jouer de carte.", "carte"); go(story, s, H.suite); return; }
+    var at = J.main.indexOf(c.carte); if (at < 0) throw new Error("carte absente de la main : " + c.carte);
+    var C = cardDef(story, c.carte), to = resolve(story, s, c.carte, H.id);
+    J.main.splice(at, 1); J.defausse.push(c.carte);
+    J.elan -= C.elan || 0;
+    ev(s, "Tu joues « " + interp(s, C.titre) + " » · " + CARD_TYPES[C.type] + ", " + SUITS[C.enseigne] + ".", "carte");
+    if (J.derniere && J.derniere.enseigne === C.enseigne) { J.elan = Math.min(ELAN_MAX, J.elan + SUIT_BONUS); ev(s, "Deux cartes de " + SUITS[C.enseigne] + " de suite : +" + SUIT_BONUS + " élan (" + J.elan + ").", "carte"); }
+    J.derniere = { carte: c.carte, type: C.type, enseigne: C.enseigne, halte: H.id };
+    J.haltes[H.id] = c.carte; J.joue.push(c.carte); J.suite = H.suite; J.scene = true;
+    // The scene is chosen with the threads as they were: a card that ties a thread opens the scene where it is tied.
+    if (C.noue) threadTie(story, s, C.noue);
+    if (C.ouvre) threadOpen(story, s, C.ouvre);
+    if (!to) { guard(s, "carte « " + c.carte + " » sans résolution à la halte " + H.id + ", on passe à la suite"); go(story, s, H.suite); return; }
+    s.via = "carte"; go(story, s, to);
+  }
+  // Intent: cardTags(State, Tag) -> bool = the card tags of a paragraph or a choice: the card just played (carte, type,
+  // enseigne), the stop it was played at (halte), a thread open (fil) or tied (noue).
+  function cardTagsOk(story, s, t) {
+    var D = s.jeu && s.jeu.derniere;
+    if (t.carte != null && !(D && [].concat(t.carte).indexOf(D.carte) >= 0)) return false;
+    if (t.type != null && !(D && [].concat(t.type).indexOf(D.type) >= 0)) return false;
+    if (t.enseigne != null && !(D && [].concat(t.enseigne).indexOf(D.enseigne) >= 0)) return false;
+    if ((typeof t.halte === "string" || Array.isArray(t.halte)) && !(D && [].concat(t.halte).indexOf(D.halte) >= 0)) return false;
+    if (t.fil != null && ![].concat(t.fil).every(function (f) { return threadState(s, f) === "ouvert"; })) return false;
+    if (t.noue != null && ![].concat(t.noue).every(function (f) { return threadState(s, f) === "noue"; })) return false;
+    return true;
   }
 
   // ------------------------------------------------------------------ moving
@@ -3276,6 +3449,7 @@
     if (tk) { var pst = stopAt(story, s, s.time + tk.hours); s.time = pst != null ? pst : s.time + tk.hours; s.took = { node: id, turn: s.turn, say: tk.say, end: tk.end }; }
     if (first) apply(story, s, p.fx);
     apply(story, s, p.fxEvery);
+    if (p.halte) stopEnter(story, s, id);
     if (p.rumeur) rumorPick(story, s, p, id); else s.rumorNow = null;
     // A closed room (8.3): sleep eases dread; alone, on waking, or after a silence, what the hero did comes back.
     if (p.reveil && story.dread && story.dread.sleep && s.dreadSlept !== day(s)) { s.dreadSlept = day(s); dreadMove(story, s, story.dread.sleep); }
@@ -3424,6 +3598,7 @@
       case "attack": case "shoot": case "tech": case "rank": case "defend": case "use": case "flee": case "talk": combatRound(story, s, c); break;
       case "order": giveOrder(story, s, c); break;
       case "lead": setLead(story, s, c.hero); break;
+      case "carte": playCard(story, s, c); break;
       case "jeu": tavernSit(story, s, c); break;
       case "montrer": s.show = { who: c.who, from: c.from || (s.show && s.node.charAt(0) === "@" ? s.show.from : s.node) }; s.node = "@montrer"; break;
       case "show": {
@@ -3503,6 +3678,7 @@
     secretsOf: secretsOf, secretKnown: secretKnown, secretDef: secretDef, interludeOf: interludeOf, autreForm: autreForm,
     doubt: doubt, accountBy: accountBy, topicSolved: topicSolved, dreadOf: dreadOf, dreadMax: dreadMax, dreadWord: dreadWord, dreadTrouble: dreadTrouble, attachOf: attachOf, ATTACH_MAX: ATTACH_MAX,
     LENS_EFFECTS: LENS_EFFECTS, reveal: reveal, veilsIn: veilsIn, unveil: unveil, veilInfo: veilInfo, veilsOf: veilsOf, veilMark: veilMark, lensHeld: lensHeld, lensLeft: lensLeft, lensDef: lensDef, veilCount: veilCount, VEIL_RE: VEIL_RE,
+    CARD_TYPES: CARD_TYPES, SUITS: SUITS, SUIT_WORDS: SUIT_WORDS, RARITIES: RARITIES, THREAD_STATES: THREAD_STATES, cardInfo: cardInfo, filsOf: filsOf, resolve: resolve, stopOf: stopOf,
     item: item, weapon: weapon, armor: armor, useItem: useItem, day: day, timeLabel: timeLabel, routesFrom: routesFrom, isNight: isNight,
   };
   if (typeof module !== "undefined" && module.exports) module.exports = API; else root.Moteur = API;

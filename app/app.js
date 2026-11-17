@@ -290,8 +290,10 @@
     else if (A.screen === "kids") renderKids();
     else if (A.screen === "spect") renderSpect();
     else if (A.screen === "album") renderAlbum();
+    else if (A.screen === "stats") renderStats();
     if (A.carnet) renderCarnet();
     if (A.modal) renderModal();
+    Array.prototype.forEach.call(document.querySelectorAll(".prose"), Lettrine.place);
     applyPrefs();
     Ambiance.update();
     Music.update();
@@ -338,7 +340,7 @@
     if (!cur || A.open.readers) w.appendChild(renderReaders());
     var tab = A.homeTab || lsGet("homeTab") || "livres";
     if (!HOME_TABS.some(function (t) { return t[0] === tab; })) tab = "livres";
-    var shownGames = A.games.filter(function (g) { return !g.archived; }).length + (A.multis || []).length;
+    var shownGames = A.games.filter(function (g) { return !g.archived; }).length + myMultis().filter(function (m) { return !m.archived; }).length;
     w.appendChild(h("nav", { class: "home-tabs", role: "tablist", "aria-label": "Pages de l'accueil" }, HOME_TABS.map(function (t) {
       return h("button", { class: "home-tab" + (tab === t[0] ? " on" : ""), role: "tab", "aria-selected": tab === t[0] ? "true" : "false", onclick: function () { A.homeTab = t[0]; lsSet("homeTab", t[0]); A.notice = ""; render(); window.scrollTo(0, 0); } },
         t[1], t[0] === "parties" && shownGames ? h("span", { class: "count" }, String(shownGames)) : null);
@@ -447,6 +449,7 @@
         m.multi ? h("button", { class: "btn primary", onclick: function () { adultGate(m, function () { multiSetup(m.id); }); } }, "Jouer à plusieurs")
           : h("button", { class: "btn primary", onclick: function () { if (!A.profile) { needReader(); return; } adultGate(m, function () { newGame(m.id); }); } }, "Nouvelle partie"),
         h("button", { class: "btn ghost sm", "aria-expanded": open ? "true" : "false", onclick: function () { A.open["book:" + m.id] = !open; render(); } }, open ? "Moins" : "En savoir plus"),
+        open && (A.allGames || []).some(function (g) { return g.story === m.id && !g.test && (g.playMs || g.ended); }) ? h("button", { class: "btn sm ghost", onclick: function () { openStats({ tab: "livre", book: m.id }); } }, "📊 Statistiques") : null,
         open && canDownload() ? h("button", { class: "btn sm ghost", onclick: function () { loadStory(m.id).then(function (x) { download(m.id + ".json", JSON.stringify(x, null, 1)); }); } }, "Exporter") : null,
         open && !m.builtin ? (A.confirmDel === "s:" + m.id
           ? h("span", { class: "confirm small" }, "Retirer ?", h("button", { class: "btn sm danger", onclick: function () { removeStory(m); } }, "Oui"), h("button", { class: "btn sm", onclick: function () { A.confirmDel = null; render(); } }, "Non"))
@@ -492,6 +495,7 @@
         catalogueOn() ? renderCatalogue() : null];
     }));
     w.appendChild(homeFold("plus:ecrire", "J'écris mon histoire", "Inventer une histoire à choix pour la famille", function () { return inner(renderKidsShelf()); }));
+    w.appendChild(h("div", { class: "row" }, h("button", { class: "btn", onclick: function () { openStats(); } }, "📊 Statistiques de lecture"), h("span", { class: "small muted" }, "Par lecteur et par livre : temps, allure, séances, frise")));
     if (A.profile) w.appendChild(homeFold("plus:bilan", "Bilan de lecture de " + A.profile.name, "Temps, fins, hauts faits, mots", function () { A.open.bilan = true; return inner(renderBilan(A.profile)); }));
     var fam = renderFamily(), dfs = renderChallenges();
     if (fam || dfs) w.appendChild(homeFold("plus:famille", "La famille", "Tableau, défis et album", function () {
@@ -532,6 +536,7 @@
       h("div", { class: "grow" }, h("b", null, g.hero + " · " + g.storyTitle + (g.test ? " (essai)" : "")), h("div", { class: "small muted" }, (g.archLabel || "") + " niveau " + (g.level || 1) + " · " + (g.where || "") + (g.ended ? " · terminée" : "") + " · " + when(g.updated))),
       h("div", { class: "save-actions" },
         h("button", { class: "btn primary sm", onclick: function () { openGame(g.id); } }, g.ended ? "Relire la fin" : "Reprendre"),
+        g.ended && !g.test ? h("button", { class: "btn sm ghost", title: "Temps de lecture, séances et frise de cette partie", onclick: function () { openStats({ tab: "lecteur", run: g.id }); } }, "📊 Statistiques") : null,
         g.archived ? h("button", { class: "btn sm", onclick: function () { archiveGames([g], false); } }, "Remettre dans la liste")
           : h("button", { class: "btn sm ghost", title: "Ranger cette partie aux archives : elle quitte la liste sans être effacée.", onclick: function () { archiveGames([g], true); } }, "🗄 Archiver"),
         !g.archived && Transfer.available() && !g.test && A.builtins[g.story] ? h("button", { class: "btn sm ghost", title: "Envoyer cette partie vers un autre appareil par codes QR", onclick: function () { Transfer.send(g.id); } }, "📱 Envoyer") : null,
@@ -1200,6 +1205,49 @@
       }).join("");
     }
     return { split: split, mark: mark };
+  })();
+
+  // ------------------------------------------------------------------ the drop cap
+  // Intent: Lettrine.place(prose) ! the drop cap goes on the first letter of the first narrative paragraph: a stage
+  // note (a paragraph between parentheses, or all in italics, such as "(Une heure passe.)") and the "already read"
+  // line are passed over, and an opening parenthesis is never swallowed. An opening quote or dash stays in the frame,
+  // small, before the letter. The letter is wrapped in span.lettrine (the CSS ::first-letter took "(U").
+  // Why: Clément, 16/11: on "(Une heure passe.)" then "Tu prends ta place…", the drop cap must be the T of "Tu".
+  var Lettrine = (function () {
+    var LETTER = /[A-Za-zÀ-ÖØ-öø-ÿŒœÆæ0-9]/, LEAD = /^[\s«»“”"'‘’—–-]*$/;
+    function aside(p) {
+      if (p.classList.contains("reread")) return true;
+      var t = p.textContent.trim(); if (!t || !LETTER.test(t)) return true;
+      if (/^[(\[]/.test(t)) return true;
+      // All in italics: every letter sits inside an em or i.
+      var w = document.createTreeWalker(p, NodeFilter.SHOW_TEXT), n;
+      while ((n = w.nextNode())) if (LETTER.test(n.data) && !(n.parentNode.closest && n.parentNode.closest("em, i"))) return false;
+      return true;
+    }
+    function wrap(p) {
+      var w = document.createTreeWalker(p, NodeFilter.SHOW_TEXT), n, lead = [];
+      while ((n = w.nextNode())) {
+        var m = LETTER.exec(n.data);
+        if (!m) { lead.push(n); continue; }
+        if (!LEAD.test(n.data.slice(0, m.index)) || lead.some(function (x) { return !LEAD.test(x.data); })) return false;
+        var span = document.createElement("span"); span.className = "lettrine";
+        // The opening quote or dash moves into the frame, small; spaces around it are dropped.
+        var before = (lead.map(function (x) { return x.data; }).join("") + n.data.slice(0, m.index)).replace(/\s+/g, " ").trim();
+        lead.forEach(function (x) { x.data = ""; });
+        if (before) span.appendChild(h("span", { class: "lettrine-avant" }, before));
+        span.appendChild(document.createTextNode(m[0]));
+        var rest = n.splitText(m.index); rest.data = rest.data.slice(1);
+        n.data = ""; rest.parentNode.insertBefore(span, rest);
+        return true;
+      }
+      return false;
+    }
+    function place(prose) {
+      if (prose.querySelector(".lettrine")) return;
+      var ps = Array.prototype.filter.call(prose.children, function (x) { return x.tagName === "P"; });
+      for (var i = 0; i < ps.length; i++) if (!aside(ps[i])) { if (wrap(ps[i])) ps[i].classList.add("a-lettrine"); return; }
+    }
+    return { place: place, aside: aside };
   })();
 
   // ------------------------------------------------------------------ the reader's word notebook and word game
@@ -1902,6 +1950,10 @@
     while (JSON.stringify(d).length > DOC_MAX_CHARS && d.log.length > 20) d.log = d.log.slice(Math.ceil(d.log.length / 4));
     while (JSON.stringify(d).length > DOC_MAX_CHARS && (d.marks || []).length) d.marks = d.marks.slice(1);
     d.turns = s.turn || 0;
+    // for the statistics (9.9): how much of the book was seen, and when and how it ended
+    var P = st.passages || {}; d.passN = Object.keys(P).length; d.seenN = Object.keys(s.seen || {}).filter(function (k) { return P[k]; }).length;
+    if (!d.ended) { d.endedAt = null; d.endId = null; d.endTitle = null; }
+    else if (!d.endedAt) { d.endedAt = d.updated; var en = M.endingOf(st, s); if (en) { d.endId = en.id; d.endTitle = en.title || ""; } }
     keepRecords(st, s, v, d);
     saveRecit(G, d);
     liveOut(G);
@@ -1939,20 +1991,21 @@
     if (!c.voted && !c.sys && groupOf(G) && groupOf(G).mode === "vote") { var vv = M.view(G.story, G.s); if (vv.choices.filter(function (x) { return x.ok && !x.restart; }).length > 1) { startVote(G, vv); return; } }
     c.voted = false;
     var before = M.view(G.story, G.s), others = before.choices.filter(function (x) { return x.ok && !x.sys && !x.restart && x !== c && x.label !== c.label; }).length;
-    if (!G.ephemeral && !/^jeu/.test(c.sys || "")) G.doc.wordsRead = (G.doc.wordsRead || 0) + wordsOf(before.text);
+    var words = !G.ephemeral && !/^jeu/.test(c.sys || "") ? wordsOf(before.text) : 0;
     var snap = JSON.stringify(G.s);
     if (!G.s.ironman) { G.undo.push(snap); if (G.undo.length > UNDO_MAX) G.undo.shift(); }
     notePick(G, before, c);
     var queue = (c.diced || []).slice();
     if (c.diced) M.setDice(function () { return queue.length ? queue.shift() : null; });
-    var fight0 = G.s.combat, act0 = G.s.lastAct; actTrack(G, null);   // the exchange's blows stay on it even when the fight ends with this choice
+    var fight0 = G.s.combat, act0 = G.s.lastAct, people0 = Object.keys(G.s.people || {}); actTrack(G, null);   // the exchange's blows stay on it even when the fight ends with this choice
     try { M.choose(G.story, G.s, c); }
     catch (e) { M.setDice(null); if (!G.s.ironman) G.undo.pop(); G.s = JSON.parse(snap); A.notice = "Ce choix a buté sur une erreur de l'histoire : " + e.message; render(); return; }
     M.setDice(null);
     A.notice = ""; A.recap = false; A.rollAnim = true; A.turned = true;
-    var now = Date.now(), dt = Math.min(now - (G.since || now), PLAY_GAP_MS); G.doc.playMs = (G.doc.playMs || 0) + dt; G.since = now;
-    if (dt > 0) { var dk = dayKey(now), days = G.doc.days = G.doc.days || {}; days[dk] = (days[dk] || 0) + dt; }
-    var closed = actTrack(G, act0); if (closed && !A.modal) A.modal = { kind: "chapter", act: closed };
+    var now = Date.now(), dt = Math.min(now - (G.since || now), pageCapMs(words)); G.since = now;
+    tally(G.doc, dt, words, now);
+    var la = act0 && (G.doc.actLog || {})[act0]; if (la) { la.ms = (la.ms || 0) + dt; la.w = (la.w || 0) + words; }
+    var closed = actTrack(G, act0, people0); if (closed && !A.modal) A.modal = { kind: "chapter", act: closed };
     if (!/^jeu/.test(c.sys || "")) logStep(c.label, others);   // a game of dice at the inn is not a page of the story
     G.fate = G.s.ironman && !/^jeu/.test(c.sys || "") ? { snap: snap, label: c.label, sys: c.sys || "", act: act0 || "", turn: G.s.turn } : null;
     persist(); bedtimeAfterChoice(); render();
@@ -1994,6 +2047,7 @@
     if (A.game.multi) { multiUndo(); return; }
     var G = A.game; if (!G.undo.length || G.s.ironman) return;
     stopSpeaking();
+    G.doc.undos = (G.doc.undos || 0) + 1;
     G.s = upgradeState(G.story, JSON.parse(G.undo.pop())); G.s.events = [{ text: "Tu reviens au choix précédent.", cls: "" }];
     if (G.recit && G.recit.pages.length > 1) G.recit.pages.pop();
     persist(); render();
@@ -2107,7 +2161,281 @@
       return h("div", { class: "bw", role: "listitem", title: weekLabel(w.start) + " : " + hours(w.ms) }, h("span", { class: "bw-bar", style: "height:" + Math.round(BILAN_BAR_PX * w.ms / top) + "px" }), h("span", { class: "bw-n" }, m ? String(m) : ""), h("span", { class: "bw-d" }, new Date(w.start).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })));
     })));
     sec.appendChild(h("p", { class: "small muted" }, "Minutes de lecture par semaine. Les mots sont comptés depuis la version du 13 novembre ; l'allure s'affiche après dix minutes de lecture."));
+    sec.appendChild(h("div", { class: "row" }, h("button", { class: "btn sm primary", onclick: function () { openStats({ tab: "lecteur" }); } }, "📊 Statistiques détaillées : par livre, séances, frise")));
     return sec;
+  }
+
+  // ------------------------------------------------------------------ reading statistics (9.9)
+  // Intent: tally(Box, ms, words, now) -> () ! writes box.playMs, wordsRead, pagesRead, days and sessions =
+  // [[start, end, ms, words, pages]] : one sitting goes on while two pages are less than SESSION_GAP_MS apart.
+  // Box is a solo game, or one player's part of a game for several (doc.stats[pid], or the seat of a salle).
+  // pageCapMs(words) = the most a page counts: a long page of a reading book may hold a reader more than 3 minutes,
+  // a phone left open on a short one does not.
+  // Why: Clément, 16/11 : « combien de temps j'ai mis pour lire le monde perdu ? », a figure the page did not have.
+  var SESSION_GAP_MS = 30 * 60000, SESSIONS_KEPT = 400, SLOW_WPM = 40, PAGE_CAP_MAX_MS = 20 * 60000;
+  function pageCapMs(words) { return Math.min(PAGE_CAP_MAX_MS, Math.max(PLAY_GAP_MS, (words || 0) / SLOW_WPM * 60000)); }
+  function tally(box, dt, words, now) {
+    dt = Math.max(0, dt || 0);
+    box.playMs = (box.playMs || 0) + dt;
+    if (words) box.wordsRead = (box.wordsRead || 0) + words;
+    box.pagesRead = (box.pagesRead || 0) + 1;
+    if (dt > 0) { var dk = dayKey(now), days = box.days = box.days || {}; days[dk] = (days[dk] || 0) + dt; }
+    var ss = box.sessions = box.sessions || [], last = ss[ss.length - 1];
+    if (!last || now - last[1] > SESSION_GAP_MS) { last = [now - dt, now, 0, 0, 0]; ss.push(last); if (ss.length > SESSIONS_KEPT) ss.splice(0, ss.length - SESSIONS_KEPT); }
+    last[1] = now; last[2] += dt; last[3] += words || 0; last[4] += 1;
+  }
+  // Intent: multiBox(Multi, PlayerId) -> Box = where this player's reading is counted (salle: this device's seat)
+  function multiBox(X, pid) {
+    if (X.kind === "salle") { if (!X.myStats) { var o = (X.mine && X.mine.stats) || (X.seats[pid] || {}).stats; X.myStats = o ? JSON.parse(JSON.stringify(o)) : {}; } return X.myStats; }
+    var all = X.doc.stats = X.doc.stats || {}; return all[pid] = all[pid] || {};
+  }
+
+  // Intent: statRuns() -> [Run] = every reading of a book by somebody, solo or for several:
+  // { key, kind, profil, name, story, storyTitle, hero, ended, created, endedAt, updated, playMs, wordsRead, pages,
+  //   days, sessions, acts, undos, seenN, passN, endTitle }. Games for several are read from the store when the
+  // screen opens (A.stats.multis, A.stats.salles): the list of the home page keeps only their names.
+  var WORDS_SINCE = new Date(2026, 10, 13).getTime();   // words are counted from the version of 13/11
+  function statRuns() {
+    var out = [], S = A.stats || {};
+    (A.allGames || []).forEach(function (g) {
+      if (g.test || !g.story) return;
+      var r = { key: g.id, gid: g.id, kind: "solo", profil: g.profil, story: g.story, storyTitle: g.storyTitle, hero: g.hero, ended: !!g.ended, created: g.created, updated: g.updated,
+        endedAt: g.endedAt || null, playMs: g.playMs || 0, wordsRead: g.wordsRead || 0, pages: g.turns || g.pagesRead || 0, days: g.days || {}, sessions: g.sessions || null,
+        acts: g.actLog || {}, undos: g.undos || 0, seenN: g.seenN || 0, passN: g.passN || 0, endTitle: g.endTitle || "" };
+      if (r.ended && !r.endTitle) { var p = readerById(g.profil), st = A.builtins[g.story], run = ((recordOf(p, g.story).runs) || []).filter(function (x) { return x.g === g.id; })[0];
+        if (run && run.end && st) { var e = M.endingsOf(st).filter(function (x) { return x.id === run.end; })[0]; if (e) r.endTitle = e.title; } }
+      out.push(r);
+    });
+    var forSeveral = function (m, i, pid, name, s, wait, b) {
+      b = b || {};
+      return { key: m.id + ":" + pid, kind: m.kind, profil: (m.kind === "salle" ? ((m.seats || [])[i] || {}).reader : (m.readers || [])[i]) || null, name: name, story: m.story, storyTitle: m.storyTitle,
+        hero: s ? s.name : "", ended: !!(wait && wait.kind === MU.WAIT.END), created: m.created, updated: m.updated, endedAt: b.endedAt || null, playMs: b.playMs || 0, wordsRead: b.wordsRead || 0,
+        pages: b.pagesRead || (s && s.turn) || 0, days: b.days || {}, sessions: b.sessions || null, acts: {}, undos: 0, seenN: s ? Object.keys(s.seen || {}).length : 0, passN: 0, endTitle: "" };
+    };
+    (S.multis || []).forEach(function (m) {
+      if (m.kind === "salle" || !m.game) return; var g; try { g = JSON.parse(m.game); } catch (e) { return; }
+      (g.players || []).forEach(function (p, i) { out.push(forSeveral(m, i, p.id, p.name, p.s, p.wait, (m.stats || {})[p.id])); });
+    });
+    (S.salles || []).forEach(function (x) {
+      (x.m.seats || []).forEach(function (seat, i) {
+        var sd = x.seats.filter(function (y) { return y.id === seat.id; })[0]; if (!sd) return;
+        var s = null; try { s = sd.s ? JSON.parse(sd.s) : null; } catch (e) { s = null; }
+        out.push(forSeveral(x.m, i, seat.id, seat.name, s, sd.wait, sd.stats));
+      });
+    });
+    out.forEach(function (r) {
+      var P = (A.builtins[r.story] || {}).passages; if (!r.passN && P) r.passN = Object.keys(P).length;
+      if (r.ended && !r.endedAt) r.endedAt = r.sessions && r.sessions.length ? r.sessions[r.sessions.length - 1][1] : r.updated;
+      if (r.sessions) { var sw = 0, sp = 0; r.sessions.forEach(function (x) { sw += x[3]; sp += x[4]; }); r.wordsRead = Math.max(r.wordsRead, sw); r.pages = r.pages || sp; }
+      var dk = Object.keys(r.days).sort(); r.first = dk[0] || null; r.last = dk[dk.length - 1] || null;
+      // the pace, only from what was counted together: the sittings (9.9), or a game begun after 13/11
+      var w = 0, ms = 0;
+      if (r.sessions) r.sessions.forEach(function (x) { if (x[3]) { w += x[3]; ms += x[2]; } });
+      else if (r.wordsRead && (r.created || 0) >= WORDS_SINCE) { w = r.wordsRead; ms = r.playMs; }
+      r.wpm = ms >= WPM_SAMPLE_MS / 2 ? Math.round(w / (ms / 60000)) : 0;
+    });
+    return out;
+  }
+  // Intent: sittingsOf(Run) -> { list: [[start, end, ms, words, pages]], exact: Bool } = the sittings, or one per day
+  // of reading for a game begun before they were counted
+  function sittingsOf(r) {
+    if (r.sessions && r.sessions.length) return { list: r.sessions, exact: true };
+    return { list: Object.keys(r.days).sort().map(function (k) { var q = k.split("-"), t = new Date(+q[0], +q[1] - 1, +q[2], 12).getTime(); return [t, t, r.days[k], 0, 0]; }), exact: false };
+  }
+  function dateOfKey(k) { var q = k.split("-"); return new Date(+q[0], +q[1] - 1, +q[2]); }
+  function dayLabel(t, year) { return new Date(t).toLocaleDateString("fr-FR", year ? { weekday: "short", day: "numeric", month: "short", year: "numeric" } : { weekday: "short", day: "numeric", month: "short" }); }
+  function shortDate(t) { return new Date(t).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" }); }
+  function spanDays(a, b) { return a && b ? Math.round((dateOfKey(b) - dateOfKey(a)) / 86400000) + 1 : 0; }
+  function plural(n, one, many) { return n + " " + (n > 1 ? many || one + "s" : one); }
+  function bookTitle(id, fallback) { return (A.builtinMeta[id] || {}).title || (A.builtins[id] || {}).title || fallback || id; }
+
+  // Intent: habitsOf([Run]) -> { streak, longest, moment, weekday } = the reader's habits across every book
+  var MOMENTS = [[5, "le matin"], [12, "l'après-midi"], [18, "le soir"], [22, "la nuit"]];
+  var WEEKDAYS = ["le dimanche", "le lundi", "le mardi", "le mercredi", "le jeudi", "le vendredi", "le samedi"];
+  function momentOf(t) { var hr = new Date(t).getHours(), m = MOMENTS[MOMENTS.length - 1][1]; MOMENTS.forEach(function (x) { if (hr >= x[0]) m = x[1]; }); return hr < MOMENTS[0][0] ? MOMENTS[MOMENTS.length - 1][1] : m; }
+  function habitsOf(runs) {
+    var days = {}, mom = {}, wd = {}, longest = null;
+    runs.forEach(function (r) {
+      Object.keys(r.days).forEach(function (k) { days[k] = (days[k] || 0) + r.days[k]; var d = dateOfKey(k).getDay(); wd[d] = (wd[d] || 0) + r.days[k]; });
+      (r.sessions || []).forEach(function (x) { var m = momentOf(x[0]); mom[m] = (mom[m] || 0) + x[2]; if (!longest || x[2] > longest[2]) longest = x; });
+    });
+    var keys = Object.keys(days).sort(), streak = 0, run = 0, prev = null;
+    keys.forEach(function (k) { var t = dateOfKey(k).getTime(); run = prev != null && Math.round((t - prev) / 86400000) === 1 ? run + 1 : 1; streak = Math.max(streak, run); prev = t; });
+    var top = function (o) { var best = null; Object.keys(o).forEach(function (k) { if (best == null || o[k] > o[best]) best = k; }); return best; };
+    var w = top(wd);
+    return { streak: streak, longest: longest, moment: top(mom), weekday: w != null ? WEEKDAYS[+w] : null, days: keys.length };
+  }
+
+  // Intent: openStats(focus?) -> () = the statistics screen: « Par lecteur » or « Par livre », a finished reading opened
+  function openStats(o) {
+    o = o || {};
+    A.stats = { tab: o.tab || (A.stats && A.stats.tab) || "lecteur", book: o.book || (A.stats && A.stats.book) || null, open: o.run || null, busy: true, multis: [], salles: [] };
+    A.screen = "stats"; render(); window.scrollTo(0, 0);
+    var salles = (A.multis || []).filter(function (m) { return m.kind === "salle"; });
+    Promise.all([Store.list("multis").catch(function () { return []; }),
+      Promise.all(salles.map(function (m) { return Room.list(sallePath(m.id) + "/joueurs").then(function (seats) { return { m: m, seats: seats || [] }; }).catch(function () { return { m: m, seats: [] }; }); }))])
+      .then(function (r) { if (A.screen !== "stats") return; A.stats.multis = r[0] || []; A.stats.salles = r[1]; A.stats.busy = false; render(); });
+  }
+  var STATS_TABS = [["lecteur", "Par lecteur"], ["livre", "Par livre"]];
+  function renderStats() {
+    var S = A.stats || (A.stats = { tab: "lecteur" });
+    app.appendChild(topBar([h("button", { class: "btn ghost sm", onclick: function () { A.screen = "home"; render(); } }, "← Bibliothèque"), h("span", { class: "brand grow" }, "Statistiques de lecture")]));
+    var w = h("main", { class: "wrap stats" });
+    w.appendChild(h("div", { class: "home-tabs", role: "tablist" }, STATS_TABS.map(function (t) {
+      return h("button", { class: "home-tab" + (S.tab === t[0] ? " on" : ""), role: "tab", "aria-selected": S.tab === t[0] ? "true" : "false", onclick: function () { S.tab = t[0]; render(); } }, t[1]);
+    })));
+    if (S.busy) w.appendChild(h("p", { class: "small muted" }, "Lecture des parties à plusieurs…"));
+    var runs = statRuns();
+    if (S.tab === "livre") renderStatsBook(w, runs); else renderStatsReader(w, runs);
+    app.appendChild(w);
+  }
+  function figList(figs) { return h("dl", { class: "bilan" }, figs.filter(Boolean).map(function (f) { return h("div", null, h("dt", null, f[0]), h("dd", null, f[1])); })); }
+
+  // « Par lecteur »: the reader's habits, then each book finished, with its sheet
+  var MONTHS_SHOWN = 12;
+  function renderStatsReader(w, all) {
+    var p = A.profile;
+    if (!p) { w.appendChild(h("div", { class: "notice" }, "Choisis d'abord un lecteur.")); return; }
+    if (A.profiles.length > 1) w.appendChild(h("div", { class: "row stats-who" }, A.profiles.map(function (x) {
+      return h("button", { class: "btn sm" + (x.id === p.id ? " primary" : " ghost"), onclick: function () { pickProfile(x); } }, avatar(x), " " + x.name);
+    })));
+    var runs = all.filter(function (r) { return r.profil === p.id; }), done = runs.filter(function (r) { return r.ended; }).sort(function (a, b) { return (b.endedAt || 0) - (a.endedAt || 0); });
+    var hb = habitsOf(runs), ms = runs.reduce(function (n, r) { return n + r.playMs; }, 0), usual = readerWpm(p);
+    var sec = h("section", { class: "section" }, h("h2", null, "Les habitudes de " + p.name));
+    if (!runs.length) { sec.appendChild(h("p", { class: "muted" }, "Pas encore de lecture : ouvre un livre, et les chiffres viendront.")); w.appendChild(sec); return; }
+    sec.appendChild(figList([["Livres finis", String(done.length)], ["Temps de lecture", hours(ms)], ["Jours de lecture", String(hb.days)],
+      ["Plus longue série", hb.streak ? plural(hb.streak, "jour") + " de suite" : "·"],
+      ["Plus longue séance", hb.longest ? hours(hb.longest[2]) : "·"], ["Allure habituelle", usual !== WPM_DEFAULT ? Math.round(usual) + " mots/min" : "·"],
+      ["Lit surtout", hb.moment || "·"], ["Jour préféré", hb.weekday || "·"]]));
+    if (hb.longest) sec.appendChild(h("p", { class: "small muted" }, "La plus longue séance : " + dayLabel(hb.longest[0], true) + ", " + plural(hb.longest[4], "page") + "."));
+    w.appendChild(sec);
+    // books finished by month
+    if (done.length) {
+      var months = {}; done.forEach(function (r) { var d = new Date(r.endedAt || r.updated), k = d.getFullYear() * 12 + d.getMonth(); months[k] = (months[k] || 0) + 1; });
+      var ks = Object.keys(months).map(Number), hi = Math.max.apply(null, ks), lo = Math.max(Math.min.apply(null, ks), hi - MONTHS_SHOWN + 1), rows = [], top = 1;
+      for (var k = lo; k <= hi; k++) { rows.push([k, months[k] || 0]); top = Math.max(top, months[k] || 0); }
+      var ms2 = h("section", { class: "section" }, h("h2", null, "Livres finis, mois par mois"));
+      ms2.appendChild(h("div", { class: "stat-bars", role: "list" }, rows.map(function (x) {
+        var label = new Date(Math.floor(x[0] / 12), x[0] % 12, 1).toLocaleDateString("fr-FR", { month: "short", year: "2-digit" });
+        return h("div", { class: "sb", role: "listitem", title: label + " : " + x[1] }, h("span", { class: "sb-n" }, x[1] ? String(x[1]) : ""), h("span", { class: "sb-bar", style: "height:" + Math.round(BILAN_BAR_PX * x[1] / top) + "px" }), h("span", { class: "sb-d" }, label));
+      })));
+      w.appendChild(ms2);
+      // the pace, from book to book
+      var paced = done.filter(function (r) { return r.wpm; }).slice().reverse();
+      if (paced.length) {
+        var pt = Math.max.apply(null, paced.map(function (r) { return r.wpm; }));
+        var ps = h("section", { class: "section" }, h("h2", null, "L'allure, d'un livre à l'autre"));
+        ps.appendChild(h("div", { class: "stat-rows" }, paced.map(function (r) {
+          return h("div", { class: "sr" }, h("span", { class: "sr-l" }, bookTitle(r.story, r.storyTitle)), h("span", { class: "sr-bar" }, h("span", { style: "width:" + Math.round(100 * r.wpm / pt) + "%" })), h("span", { class: "sr-n" }, r.wpm + " mots/min"));
+        })));
+        ps.appendChild(h("p", { class: "small muted" }, "Du plus ancien au plus récent. Les mots sont comptés depuis le 13 novembre."));
+        w.appendChild(ps);
+      }
+    }
+    var ls = h("section", { class: "section" }, h("h2", null, "Livres terminés"));
+    if (!done.length) ls.appendChild(h("p", { class: "muted" }, "Aucun livre fini pour l'instant."));
+    done.forEach(function (r) { ls.appendChild(runCard(r, true)); });
+    w.appendChild(ls);
+    var going = runs.filter(function (r) { return !r.ended && r.playMs; }).sort(function (a, b) { return (b.updated || 0) - (a.updated || 0); });
+    if (going.length) {
+      var gs = h("section", { class: "section" }, h("h2", null, "En cours"));
+      going.forEach(function (r) { gs.appendChild(runCard(r, true)); });
+      w.appendChild(gs);
+    }
+  }
+  function pickProfile(x) { A.profile = x; lsSet("profil", x.id); A.games = (A.allGames || []).filter(function (g) { return g.profil === x.id; }).sort(function (a, b) { return (b.updated || 0) - (a.updated || 0); }); render(); }
+
+  // Intent: runCard(Run, Own) -> Element = one reading, folded: title, time, days; open: its sheet and its timeline.
+  // The ending is named only on the reader's own sheet: another reader's ending would tell where the book goes.
+  function runCard(r, own, byBook) {
+    var S = A.stats, open = S.open === r.key, prof = readerById(r.profil);
+    var name = prof ? prof.name : r.name || "?", who = own || byBook ? "" : name + " · ";
+    var line = who + (r.hero ? r.hero + " · " : "") + hours(r.playMs) + (r.first ? " · " + (r.first === r.last ? dayLabel(dateOfKey(r.first)) : "du " + dayLabel(dateOfKey(r.first)) + " au " + dayLabel(dateOfKey(r.last))) : "");
+    var card = h("div", { class: "run-card" + (open ? " open" : "") },
+      h("button", { class: "fold-head", "aria-expanded": open ? "true" : "false", onclick: function () { S.open = open ? null : r.key; render(); } },
+        h("span", { class: "fold-title" }, (open ? "▾ " : "▸ ") + (byBook ? name + (r.ended ? "" : " (en cours)") : bookTitle(r.story, r.storyTitle)) + (r.kind !== "solo" ? " (à plusieurs)" : "")), h("span", { class: "small muted" }, line)));
+    if (open) card.appendChild(runSheet(r, own));
+    return card;
+  }
+  function runSheet(r, own) {
+    var b = h("div", { class: "stack run-sheet" }), sit = sittingsOf(r), prof = readerById(r.profil), usual = prof ? readerWpm(prof) : 0;
+    var span = spanDays(r.first, r.last), pace = r.wpm ? r.wpm + " mots/min" : "·";
+    if (r.wpm && usual && usual !== WPM_DEFAULT) { var d = Math.round(100 * (r.wpm - usual) / usual); if (Math.abs(d) >= 5) pace += " (" + (d > 0 ? "+" : "") + d + " % sur l'habitude)"; }
+    b.appendChild(figList([[r.ended ? "Lu en" : "Lu jusqu'ici", hours(r.playMs)], ["Séances", sit.exact ? String(sit.list.length) : "·"],
+      ["Étalé sur", span ? plural(span, "jour") + (Object.keys(r.days).length !== span ? " (" + plural(Object.keys(r.days).length, "jour") + " de lecture)" : "") : "·"],
+      ["Mots lus", r.wordsRead ? r.wordsRead.toLocaleString("fr-FR") : "·"], ["Allure", pace], ["Pages", String(r.pages || 0)],
+      r.passN && r.seenN ? ["Livre découvert", Math.min(100, Math.round(100 * r.seenN / r.passN)) + " % (" + r.seenN + " passages sur " + r.passN + ")"] : null,
+      r.kind === "solo" ? ["Retours en arrière", String(r.undos || 0)] : null,
+      own && r.ended && r.endTitle ? ["Fin", r.endTitle] : null]));
+    if (r.ended && r.endedAt) b.appendChild(h("p", { class: "small" }, "Commencé le " + shortDate(r.created || (r.first ? dateOfKey(r.first) : r.endedAt)) + ", fini le " + shortDate(r.endedAt) + "."));
+    // time in each act
+    var st = A.builtins[r.story], order = ((st && st.acts) || []).map(function (a) { return a.id; }), acts = Object.keys(r.acts || {}).filter(function (k) { return r.acts[k].ms; });
+    acts.sort(function (a, c) { return (r.acts[a].t || 0) - (r.acts[c].t || 0) || order.indexOf(a) - order.indexOf(c); });
+    if (acts.length) {
+      var top = Math.max.apply(null, acts.map(function (k) { return r.acts[k].ms; }));
+      b.appendChild(h("h3", null, "Temps par acte"));
+      b.appendChild(h("div", { class: "stat-rows" }, acts.map(function (k) {
+        return h("div", { class: "sr" }, h("span", { class: "sr-l" }, actTitle(st, k)), h("span", { class: "sr-bar" }, h("span", { style: "width:" + Math.round(100 * r.acts[k].ms / top) + "%" })), h("span", { class: "sr-n" }, hours(r.acts[k].ms)));
+      })));
+    }
+    b.appendChild(runTimeline(r, st, own));
+    if (!sit.exact && r.playMs) b.appendChild(h("p", { class: "small muted" }, "Partie commencée avant le détail des séances : seuls le temps de chaque jour et le total sont connus."));
+    return b;
+  }
+  function actTitle(st, id) { var a = ((st && st.acts) || []).filter(function (x) { return x.id === id; })[0]; return a && a.title ? a.title : id; }
+  // Intent: runTimeline(Run, Story, Own) -> Element = the timeline: each day of reading, its sittings, the acts begun
+  // that day and the day of the end, under a strip of the days from the first to the last
+  var STRIP_DAYS_MAX = 120;
+  function runTimeline(r, st, own) {
+    var box = h("div", { class: "timeline" }, h("h3", null, "Frise"));
+    var keys = Object.keys(r.days).sort(); if (!keys.length) { box.appendChild(h("p", { class: "small muted" }, "Pas de jour de lecture enregistré.")); return box; }
+    var span = spanDays(keys[0], keys[keys.length - 1]), top = Math.max.apply(null, keys.map(function (k) { return r.days[k]; }));
+    if (span > 1 && span <= STRIP_DAYS_MAX) {
+      var strip = h("div", { class: "tl-strip", "aria-hidden": "true" }), d0 = dateOfKey(keys[0]);
+      for (var i = 0; i < span; i++) { var dk = dayKey(new Date(d0.getFullYear(), d0.getMonth(), d0.getDate() + i).getTime()), v = r.days[dk] || 0;
+        strip.appendChild(h("span", { class: "tl-day" + (v ? " on" : ""), title: dayLabel(dateOfKey(dk)) + (v ? " : " + hours(v) : ""), style: v ? "height:" + Math.max(4, Math.round(40 * v / top)) + "px" : "" })); }
+      box.appendChild(strip);
+    }
+    var sit = sittingsOf(r), byDay = {};
+    if (sit.exact) sit.list.forEach(function (x) { var k = dayKey(x[0]); (byDay[k] = byDay[k] || []).push(x); });
+    var acts = {}; Object.keys(r.acts || {}).forEach(function (a) { var t = r.acts[a].t; if (t) { var k = dayKey(t); (acts[k] = acts[k] || []).push(actTitle(st, a)); } });
+    var endK = r.ended && r.endedAt ? dayKey(r.endedAt) : null;
+    box.appendChild(h("ol", { class: "tl-list" }, keys.map(function (k) {
+      var ss = byDay[k] || [], bits = [hours(r.days[k])];
+      if (ss.length) bits.push(ss.map(function (x) { var a = new Date(x[0]), z = new Date(x[1]); return a.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" }) + "–" + z.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" }); }).join(", "));
+      return h("li", { class: k === endK ? "end" : "" }, h("b", null, dayLabel(dateOfKey(k))), h("span", { class: "small muted" }, " · " + bits.join(" · ")),
+        (acts[k] || []).map(function (t) { return h("div", { class: "small" }, "▸ Début : " + t); }),
+        k === endK ? h("div", { class: "small" }, "✦ Fin du livre" + (own && r.endTitle ? " : " + r.endTitle : "")) : null);
+    })));
+    return box;
+  }
+
+  // « Par livre »: every reading of a book, by every reader of the house
+  function renderStatsBook(w, all) {
+    var S = A.stats, ids = {}; all.forEach(function (r) { if (r.playMs || r.ended) ids[r.story] = (ids[r.story] || 0) + 1; });
+    var list = Object.keys(ids).sort(function (a, b) { return bookTitle(a).localeCompare(bookTitle(b), "fr"); });
+    if (!list.length) { w.appendChild(h("div", { class: "notice" }, "Aucun livre lu pour l'instant.")); return; }
+    if (!S.book || list.indexOf(S.book) < 0) S.book = list[0];
+    var sel = h("select", { class: "stats-book", "aria-label": "Livre", onchange: function (e) { S.book = e.target.value; S.open = null; render(); } },
+      list.map(function (id) { return h("option", { value: id, selected: id === S.book ? "selected" : null }, bookTitle(id)); }));
+    w.appendChild(h("div", { class: "row" }, h("span", { class: "label" }, "Livre"), sel));
+    var runs = all.filter(function (r) { return r.story === S.book && (r.playMs || r.ended); }), done = runs.filter(function (r) { return r.ended; });
+    var fast = done.filter(function (r) { return r.playMs; }).sort(function (a, b) { return a.playMs - b.playMs; });
+    var avg = fast.length ? fast.reduce(function (n, r) { return n + r.playMs; }, 0) / fast.length : 0;
+    var readers = {}; runs.forEach(function (r) { readers[r.profil || r.name] = 1; });
+    var spans = done.map(function (r) { return spanDays(r.first, r.last); }).filter(Boolean);
+    var sec = h("section", { class: "section" }, h("h2", null, bookTitle(S.book)));
+    var whoOf = function (r) { var p = readerById(r.profil); return p ? p.name : r.name || "?"; };
+    sec.appendChild(figList([["Lectures commencées", String(runs.length)], ["Lectures finies", String(done.length)], ["Lecteurs", String(Object.keys(readers).length)],
+      ["Temps moyen pour le finir", avg ? hours(avg) : "·"], ["Le plus rapide", fast.length ? hours(fast[0].playMs) + " (" + whoOf(fast[0]) + ")" : "·"],
+      ["Étalé en moyenne sur", spans.length ? plural(Math.round(spans.reduce(function (n, x) { return n + x; }, 0) / spans.length), "jour") : "·"]]));
+    var est = A.builtins[S.book] ? storyMinutes(A.builtins[S.book]) : 0;
+    if (est) sec.appendChild(h("p", { class: "small muted" }, "La bibliothèque annonce environ " + minutesLabel(est) + " par partie, à l'allure du lecteur choisi."));
+    w.appendChild(sec);
+    var ls = h("section", { class: "section" }, h("h2", null, "Toutes les lectures"));
+    runs.sort(function (a, b) { return (b.ended - a.ended) || (b.endedAt || b.updated || 0) - (a.endedAt || a.updated || 0); });
+    runs.forEach(function (r) { ls.appendChild(runCard(r, A.profile && r.profil === A.profile.id, true)); });
+    w.appendChild(ls);
   }
 
   // ------------------------------------------------------------------ fate tokens (Sans retour)
@@ -2139,6 +2467,14 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "10.4", items: ["Nouveau grand livre à trois : « Les Trois Clefs d'Aiguemorne », un casse de cape et d'épée dans une cité de serruriers. Trois joueurs, un héros chacun, cinq actes. À chaque acte, on se partage trois postes (la main, l'œil, la voix), chacun vit sa part de son côté, puis on met en commun et l'on vote.", "À trois : le vote entre joueurs (chacun donne sa voix sans voir celle des autres, le livre dépouille au rendez-vous), les postes, et les indices mis en commun."] },
+    { v: "10.3", items: ["« Les Premiers Hommes dans la Lune » de H. G. Wells, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1901. Sans choix, avec les gens, les lieux et les mots d'un toucher. Les cinq grands romans de Wells sont maintenant dans la bibliothèque."] },
+    { v: "10.2", items: ["« L'Île du docteur Moreau » de H. G. Wells, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1896. Sans choix, avec les gens, les lieux et les mots d'un toucher. Le livre est dur, et sa notice le dit."] },
+ { v: "10.1", items: ["« La Machine à explorer le temps » de H. G. Wells, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1895. Sans choix, avec les gens, les lieux et les mots d'un toucher."] },
+    { v: "10.0", items: ["Deux romans de H. G. Wells à lire en entier, dans leurs traductions françaises d'époque : « La Guerre des mondes » (Henry-D. Davray) et « L'Homme invisible » (Achille Laurent). Comme « Le Monde perdu », sans choix, avec les gens, les lieux et les mots d'un toucher, et leur temps de lecture compté dans les statistiques."] },
+    { v: "9.9", items: ["Statistiques de lecture (Plus › 📊) : pour chaque lecteur, ses habitudes, ses livres finis mois par mois et son allure d'un livre à l'autre ; pour chaque livre fini, le temps mis, les séances, les jours, le temps par acte, la part du livre découverte et une frise.", "Vue « Par livre » : le temps de chaque lecteur, le plus rapide et la moyenne. On y arrive aussi par « 📊 Statistiques » sur une partie terminée ou sur la fiche d'un livre.", "Une page longue compte maintenant tout le temps passé à la lire (jusqu'à 20 minutes), au lieu de 3 minutes au plus.", "À plusieurs, chaque joueur a son propre temps de lecture."] },
+    { v: "9.8", items: ["« Mes parties » ne montre plus que les parties à plusieurs où joue le lecteur choisi.", "Les parties à plusieurs s'archivent aussi, une par une ou toutes les terminées d'un coup, et se retrouvent dans leurs « Archives »."] },
+    { v: "9.7", items: ["Nouveau : les histoires à cartes. À chaque halte, tu joues une carte de ta main (une rencontre, un obstacle, un détour, une trahison…) et l'histoire te dit ce qu'elle devient à cet endroit. Les cartes ont une enseigne (Lame, Masque, Lanterne, Racine) qui aide les jets de sa manière, un coût en élan, et certaines ouvrent ou nouent des fils que la fin relit.", "Première histoire à cartes : « Le Courrier de Vèze », trois haltes et un pli scellé, à rejouer avec une autre main."] },
     { v: "9.5", items: ["Héros habituel : chaque lecteur garde un nom et un visage d'une histoire à l'autre. Le premier héros créé le devient (case cochée) ; ensuite, chaque nouvelle histoire commence avec lui, et on peut le changer pour une partie ou pour de bon.", "À plusieurs : « Qui joue » propose la liste des lecteurs enregistrés, chacun avec son héros habituel, ou « Autre joueur… » pour taper un nom."] },
     { v: "9.4", items: ["Accueil rangé en trois onglets. « Bibliothèque » : la partie à reprendre en tête, puis les livres en cartes courtes (« En savoir plus » ouvre le reste). « Mes parties » : les parties et leurs archives. « Plus » : sauvegardes, ajout d'histoires, famille, espace parent, atelier.", "Le lecteur se change d'un toucher sur son nom, en haut ; ⚙ ouvre ses réglages.", "Une partie s'efface depuis les archives : on la range d'abord."] },
     { v: "9.3", items: ["Archives : une partie (surtout finie) se range aux archives d'un bouton, ou toutes les parties terminées d'un coup. Elle quitte la liste sans être effacée ; « Archives », sous la liste, la montre et « Remettre dans la liste » la ramène. Le rangement suit le dossier de sauvegarde partagé sur les autres appareils."] },
@@ -2633,6 +2969,7 @@
     if (G.multi && v.wait) page.appendChild(renderWait(v));
     else {
       if (v.urgent && !G.multi && !G.ephemeral && !folded) page.appendChild(urgentBar(G, v));
+      if (v.hand) page.appendChild(renderHand(st, v));
       page.appendChild(renderChoices(v));
     }
     if (v.kind === "end") page.appendChild(renderEnding(st, s, v));
@@ -2779,15 +3116,19 @@
   // Why: Clément, 13/11.
   function actSnap(st, s) {
     return { met: Object.keys(s.met || {}).filter(function (k) { return s.met[k]; }), feats: Object.keys(s.feats || {}), quests: M.questsOf(st).filter(function (q) { return M.questDone(s, q); }).map(function (q) { return q.id; }),
-      ep: s.ep, time: s.time, places: s.place ? [s.place] : [], people: Object.keys(s.people || {}) };
+      ep: s.ep, time: s.time, places: s.place ? [s.place] : [], people: Object.keys(s.people || {}), t: Date.now(), ms: 0, w: 0 };
   }
   // Called around each choice: opens the act's record, follows the hero from place to place, tells when an act closed.
-  function actTrack(G, before) {
+  // people0: who the reader knew before this choice. A chapter's record starts from it, so that the people its first page
+  // meets count in this chapter (and not in the one before). The book's first chapter starts from nobody.
+  function actTrack(G, before, people0) {
     var s = G.s, st = G.story; if (G.multi || G.ephemeral) return null;
-    var L = G.doc.actLog = G.doc.actLog || {}, now = s.lastAct || "";
-    if (now && !L[now]) L[now] = actSnap(st, s);
+    var L = G.doc.actLog = G.doc.actLog || {}, now = s.lastAct || "", first = !Object.keys(L).length;
+    if (now && !L[now]) { L[now] = actSnap(st, s); if (people0) L[now].people = people0.slice(); else if (first && st.lecture) L[now].people = []; }
     if (now && s.place) { var pl = L[now].places; if (pl[pl.length - 1] !== s.place) pl.push(s.place); }
-    return before && now && before !== now && L[before] ? before : null;
+    var closed = before && now && before !== now && L[before] ? before : null;
+    if (closed && people0) L[closed].peopleEnd = people0.slice();
+    return closed;
   }
   function modalChapter(box, close, m) {
     var G = A.game, st = G.story, s = G.s, act = (st.acts || []).filter(function (x) { return x.id === m.act; })[0] || { title: m.act }, L = G.doc.actLog[m.act];
@@ -2818,7 +3159,7 @@
     // A book to read (9.0): the chapter's summary and the people met in it, no days, experience or level.
     if (st.lecture) {
       if (act.recap) b.appendChild(h("p", { class: "chapter-stats" }, act.recap));
-      var newPeople = Object.keys(s.people || {}).filter(function (k) { return (L.people || []).indexOf(k) < 0 && (st.people || {})[k]; });
+      var newPeople = (L.peopleEnd || Object.keys(s.people || {})).filter(function (k) { return (L.people || []).indexOf(k) < 0 && (st.people || {})[k]; });
       if (newPeople.length) b.appendChild(h("p", { class: "small" }, h("span", { class: "label" }, "Rencontrés "), newPeople.map(function (k) { return st.people[k].name; }).join(", ")));
     } else {
     var hours = s.time - L.time, days = Math.max(1, Math.round(hours / 24)), ep = s.ep - L.ep;
@@ -3014,6 +3355,48 @@
     if (!c) return;
     pick(c);
     A.notice = "⏳ Trop tard : tu n'as pas choisi à temps."; render();
+  }
+  // ------------------------------------------------------------------ the hand (9.7, stories with cards)
+  // Intent: renderHand(Story, View) -> Element = at a stop, the reader's cards: the élan, the piles, the threads, and
+  // one card per kind in the hand (« × 2 » for twins). A card that cannot be played says why. Why: Clément, 16/11 —
+  // stories built from the cards one plays, for his brother who loves drafting.
+  var SUIT_ICONS = {
+    lame: '<path d="M12 2l2 3v10h-4V5z"/><path d="M7 15h10v2H7z"/><path d="M11 17h2v5h-2z"/>',
+    masque: '<path d="M3 8c3-2 15-2 18 0 0 6-3 9-6 9-1.5 0-2-2-3-2s-1.5 2-3 2c-3 0-6-3-6-9z"/><circle cx="8.5" cy="11" r="1.6" fill="var(--paper)"/><circle cx="15.5" cy="11" r="1.6" fill="var(--paper)"/>',
+    lanterne: '<path d="M9 3h6v2H9z"/><path d="M8 6h8l1 11H7z"/><path d="M7 18h10v2H7z"/><circle cx="12" cy="11.5" r="2.4" fill="var(--paper)"/>',
+    racine: '<path d="M11 3h2v9h-2z"/><path d="M12 12c-4 0-6 3-8 8h2c2-4 3-6 6-6s4 2 6 6h2c-2-5-4-8-8-8z"/><path d="M11 12h2v9h-2z"/>',
+  };
+  function suitIcon(k) { return h("span", { class: "suit suit-" + k, "aria-hidden": "true", html: '<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">' + (SUIT_ICONS[k] || "") + "</svg>" }); }
+  function cardFace(st, id, opts) {
+    opts = opts || {};
+    var C = M.cardInfo(st, id), dots = "";
+    for (var i = 0; i < C.elan; i++) dots += "●";
+    return h(opts.button ? "button" : "div", { class: "card card-" + C.enseigne + " rar-" + C.rarete + (opts.off ? " off" : ""), disabled: opts.button && opts.off ? true : null, onclick: opts.onclick || null,
+        "aria-label": C.titre + ", " + C.typeNom + ", " + C.enseigneNom + (C.elan ? ", coûte " + C.elan + " d'élan" : "") + (opts.why ? ". " + opts.why : "") },
+      h("span", { class: "card-top" }, suitIcon(C.enseigne), h("span", { class: "card-type" }, C.typeNom), h("span", { class: "card-elan", title: C.elan ? C.elan + " d'élan" : "Gratuite" }, dots || "○")),
+      h("span", { class: "card-title" }, C.titre),
+      C.texte ? h("span", { class: "card-text" }, C.texte) : null,
+      C.accroche ? h("span", { class: "card-hook" }, C.accroche) : null,
+      h("span", { class: "card-foot" }, C.enseigneNom + " · " + (M.RARITIES[C.rarete] || C.rarete), opts.n > 1 ? h("b", { class: "card-n" }, " × " + opts.n) : null),
+      opts.why ? h("span", { class: "card-why" }, opts.why) : null);
+  }
+  function renderHand(st, v) {
+    var H = v.hand, box = h("section", { class: "hand", "aria-label": "Ta main" });
+    box.appendChild(h("div", { class: "hand-bar" },
+      h("span", { class: "hand-elan", title: "L'élan se gagne à chaque halte ; les cartes fortes en coûtent." }, "Élan ", h("b", null, String(H.elan))),
+      h("span", { class: "muted small" }, "Pioche " + H.pioche + " · Défausse " + H.defausse),
+      H.types ? h("span", { class: "muted small" }, "Ici : " + H.types.map(function (t) { return M.CARD_TYPES[t]; }).join(", ")) : null));
+    if (H.fils.length) box.appendChild(h("ul", { class: "hand-fils" }, H.fils.map(function (f) {
+      return h("li", { class: "fil-" + f.etat }, h("b", null, f.titre), " · " + (f.etat === "noue" ? "noué" : f.etat === "rate" ? "manqué" : "ouvert") + (f.texte ? " — " + f.texte : ""));
+    })));
+    var cards = v.choices.filter(function (c) { return c.sys === "carte" && c.ui; });
+    if (!H.joue && cards.length) {
+      if (H.premiere) box.appendChild(h("p", { class: "notice soft small" }, "Choisis une carte : elle décide de ce qui arrive ici. Ce qu'elle devient dépend de l'endroit, de son enseigne et des fils déjà ouverts."));
+      box.appendChild(h("div", { class: "hand-cards", role: "group", "aria-label": "Les cartes de ta main" }, cards.map(function (c) {
+        return cardFace(st, c.carte, { button: true, off: !c.ok, why: c.ok ? "" : c.why, n: c.n, onclick: function () { pick(c); } });
+      })));
+    }
+    return box;
   }
   var NUMBER_WORDS = ["", "Un", "Deux", "Trois", "Quatre", "Cinq", "Six", "Sept"];
   function renderChoices(v) {
@@ -3224,7 +3607,7 @@
     var st = S.story;
     var g = MU.create(st, S.seats.map(function (p, i) { return { id: p.id, name: p.name, color: p.color, heroes: p.heroes, s: st.heroes ? null : S.states[i] }; }), shared);
     MU.refreshWaits(st, g);
-    var doc = { id: uid(), kind: "local", story: st.id, storyTitle: st.title, storyVersion: st.version || 1, created: Date.now() };
+    var doc = { id: uid(), kind: "local", story: st.id, storyTitle: st.title, storyVersion: st.version || 1, created: Date.now(), readers: S.seats.map(function (p) { return p.reader || null; }) };
     A.multi = { kind: "local", doc: doc, story: st, g: g, cur: g.players[0].id, undo: {}, logs: {}, note: "" };
     g.players.forEach(function (p) { A.multi.undo[p.id] = []; A.multi.logs[p.id] = []; });
     A.create = null; A.msetup = null;
@@ -3251,7 +3634,7 @@
   function enterTurn(pid) {
     var X = A.multi, p = MU.player(X.g, pid);
     if (X.kind === "local") X.cur = pid;
-    A.game = { doc: X.doc, story: X.story, s: p.s, undo: X.kind === "local" ? X.undo[pid] : X.undo, log: X.kind === "local" ? X.logs[pid] : X.log, multi: true, pid: pid };
+    A.game = { doc: X.doc, story: X.story, s: p.s, undo: X.kind === "local" ? X.undo[pid] : X.undo, log: X.kind === "local" ? X.logs[pid] : X.log, multi: true, pid: pid, since: Date.now() };
     A.notice = ""; A.screen = "game"; render(); window.scrollTo(0, 0);
   }
   function statusText(p) {
@@ -3325,9 +3708,13 @@
     var X = A.multi, G = A.game, g = X.g, p = MU.player(g, G.pid);
     stopSpeaking();
     var go = function () {
-      var before = JSON.stringify(p.s);
+      var before = JSON.stringify(p.s), words = 0;
+      try { words = c.sys || c.monde || c.role ? 0 : wordsOf(M.view(X.story, p.s).text); } catch (e) { words = 0; }
       try { MU.choose(X.story, g, p.id, c); }
       catch (e) { p.s = JSON.parse(before); G.s = p.s; MU.refreshWaits(X.story, g); A.notice = "Ce choix a buté sur une erreur de l'histoire : " + e.message; render(); return; }
+      var now = Date.now(), dt = Math.min(now - (G.since || now), pageCapMs(words)), box = multiBox(X, p.id); G.since = now;
+      tally(box, dt, words, now);
+      if (p.wait && p.wait.kind === MU.WAIT.END && !box.endedAt) box.endedAt = now;
       if (c.monde || c.role) { G.undo.length = 0; A.notice = c.monde && !c.decidedBy ? "Choix du monde : tu as tranché pour tout le monde." : ""; }
       else { G.undo.push(before); if (G.undo.length > MULTI_UNDO) G.undo.shift(); A.notice = ""; }
       logStep(); multiPersist(); render();
@@ -3359,9 +3746,10 @@
     Object.keys(X.logs).forEach(function (k) { if (X.logs[k].length > MULTI_LOG) X.logs[k].splice(0, X.logs[k].length - MULTI_LOG); });
     d.game = JSON.stringify(X.g); d.undo = X.undo; d.logs = X.logs; d.cur = X.cur; d.updated = Date.now();
     d.players = X.g.players.map(function (p) { return p.name; });
+    d.ended = multiEnded(X.g); if (d.archived && !d.ended) { d.archived = false; d.archivedAt = d.updated; }
     Object.keys(X.undo).forEach(function (k) { while (JSON.stringify(d).length > DOC_MAX_CHARS && X.undo[k].length) X.undo[k].shift(); });
     Object.keys(X.logs).forEach(function (k) { while (JSON.stringify(d).length > DOC_MAX_CHARS && X.logs[k].length > 10) X.logs[k].splice(0, 10); });
-    var meta = { id: d.id, kind: d.kind, story: d.story, storyTitle: d.storyTitle, players: d.players, updated: d.updated };
+    var meta = { id: d.id, kind: d.kind, story: d.story, storyTitle: d.storyTitle, players: d.players, readers: d.readers, ended: d.ended, archived: d.archived, archivedAt: d.archivedAt, updated: d.updated };
     A.multis = (A.multis || []).filter(function (m) { return m.id !== d.id; }).concat([meta]);
     Store.put("multis", d.id, d).catch(function (e) { A.notice = "La sauvegarde a échoué (" + ((e && e.code) || "erreur") + ") ; la partie continue dans cette page."; });
   }
@@ -3372,21 +3760,71 @@
     if (A.multi && A.multi.unsub) A.multi.unsub.forEach(function (u) { try { u(); } catch (e) { /* already closed */ } });
     A.multi = null; A.game = null; A.carnet = null; A.screen = "home"; refresh().then(render).then(function () { if (Sync.on() && Sync.dirty) Sync.run(true); });
   }
+  // ------------------------------------------------------------------ games for several: whose, finished, archived
+  // Intent: multiEnded(Game) -> Bool = every player has reached an ending
+  function multiEnded(g) { return !!g && (g.players || []).length > 0 && g.players.every(function (p) { return p.wait && p.wait.kind === MU.WAIT.END; }); }
+  // Intent: multiEndedDoc(MultiDoc) -> Bool = the same, read from a saved game (local: its game; the list may hold only `ended`)
+  function multiEndedDoc(m) {
+    if (m.ended != null) return !!m.ended;
+    if (m.kind !== "salle" && m.game) { try { return multiEnded(JSON.parse(m.game)); } catch (e) { return false; } }
+    return false;
+  }
+  // Intent: belongsTo(MultiDoc, Profile) -> Bool = the reader plays in it
+  // Why: Clément, 16/11: on « Papa », the children's game for two was offered. A game made since 9.5 knows its readers;
+  // an older one only its players' names: matched to the readers' names, and shown to all when no name is a reader's.
+  function belongsTo(m, prof) {
+    if (!prof) return true;
+    var readers = (m.readers || (m.seats || []).map(function (x) { return x.reader; })).filter(Boolean);
+    if (readers.length) return readers.indexOf(prof.id) >= 0;
+    var names = (m.kind === "salle" ? (m.seats || []).map(function (x) { return x.name; }) : (m.players || [])).map(function (n) { return String(n || "").trim().toLowerCase(); });
+    var known = (A.profiles || []).map(function (p) { return String(p.name || "").trim().toLowerCase(); });
+    if (!names.some(function (n) { return known.indexOf(n) >= 0; })) return true;
+    return names.indexOf(String(prof.name || "").trim().toLowerCase()) >= 0;
+  }
+  function myMultis() { return (A.multis || []).filter(function (m) { return belongsTo(m, A.profile); }); }
   function renderMultiList() {
-    var sec = h("section", { class: "section" }, h("h2", null, "Parties à plusieurs"));
-    var list = A.multis || [];
-    if (!list.length) sec.appendChild(h("div", { class: "notice" }, "Aucune pour l'instant. Sur un livre, « À plusieurs » en lance une : sur cet appareil, ou dans une salle commune."));
-    list.forEach(function (m) {
-      var names = m.kind === "salle" ? (m.seats || []).map(function (x) { return x.name; }) : (m.players || []);
-      var del = A.confirmDel === "m:" + m.id
-        ? h("span", { class: "confirm small" }, "Effacer ?", h("button", { class: "btn sm danger", onclick: function () { (m.kind === "salle" ? Room.del("salles", m.id) : Store.del("multis", m.id)).then(refresh).then(function () { A.confirmDel = null; render(); }); } }, "Oui"), h("button", { class: "btn sm", onclick: function () { A.confirmDel = null; render(); } }, "Non"))
-        : h("button", { class: "btn sm ghost", onclick: function () { A.confirmDel = "m:" + m.id; render(); } }, "Effacer");
-      sec.appendChild(h("div", { class: "save-line" },
-        h("div", { class: "grow" }, h("b", null, m.storyTitle + " · " + (m.kind === "salle" ? "salle commune" : "sur cet appareil")), h("div", { class: "small muted" }, names.join(", ") + " · " + when(m.updated))),
-        h("button", { class: "btn primary sm", onclick: function () { if (m.kind === "salle") openSalle(m.id); else openLocal(m.id); } }, m.kind === "salle" ? "Entrer" : "Reprendre"), del));
-    });
+    var mine = myMultis(), shown = mine.filter(function (m) { return !m.archived; }), stored = mine.filter(function (m) { return m.archived; });
+    var done = shown.filter(multiEndedDoc);
+    var sec = h("section", { class: "section multi-games" }, h("h2", null, "Parties à plusieurs"));
+    if (!shown.length) sec.appendChild(h("div", { class: "notice" }, stored.length ? "Aucune en cours : les autres sont aux archives." : "Aucune pour l'instant. Sur un livre, « À plusieurs » en lance une : sur cet appareil, ou dans une salle commune."));
+    shown.forEach(function (m) { sec.appendChild(multiLine(m)); });
+    if (done.length >= ARCHIVE_ALL_MIN) sec.appendChild(h("div", { class: "row" }, h("button", { class: "btn sm", onclick: function () { archiveMultis(done, true); } }, "🗄 Archiver les " + done.length + " parties terminées")));
+    if (stored.length) {
+      var open = !!A.open.marchives;
+      sec.appendChild(h("button", { class: "btn ghost fold archives-fold", "aria-expanded": open ? "true" : "false", onclick: function () { A.open.marchives = !open; render(); } }, (open ? "▾ " : "▸ ") + "Archives (" + stored.length + ")"));
+      if (open) sec.appendChild(h("div", { class: "archives" }, stored.slice().sort(function (a, b) { return (b.archivedAt || 0) - (a.archivedAt || 0); }).map(multiLine)));
+    }
     return sec;
   }
+  function multiLine(m) {
+    var names = m.kind === "salle" ? (m.seats || []).map(function (x) { return x.name; }) : (m.players || []), ended = multiEndedDoc(m);
+    var del = A.confirmDel === "m:" + m.id
+      ? h("span", { class: "confirm small" }, "Effacer ?", h("button", { class: "btn sm danger", onclick: function () { (m.kind === "salle" ? Room.del("salles", m.id) : Store.del("multis", m.id)).then(refresh).then(function () { A.confirmDel = null; render(); }); } }, "Oui"), h("button", { class: "btn sm", onclick: function () { A.confirmDel = null; render(); } }, "Non"))
+      : h("button", { class: "btn sm ghost", onclick: function () { A.confirmDel = "m:" + m.id; render(); } }, "Effacer");
+    return h("div", { class: "save-line" + (m.archived ? " archived" : "") },
+      h("div", { class: "grow" }, h("b", null, m.storyTitle + " · " + (m.kind === "salle" ? "salle commune" : "sur cet appareil")), h("div", { class: "small muted" }, names.join(", ") + (ended ? " · terminée" : "") + " · " + when(m.updated))),
+      h("div", { class: "save-actions" },
+        h("button", { class: "btn primary sm", onclick: function () { if (m.kind === "salle") openSalle(m.id); else openLocal(m.id); } }, m.kind === "salle" ? "Entrer" : ended ? "Relire" : "Reprendre"),
+        m.archived ? h("button", { class: "btn sm", onclick: function () { archiveMultis([m], false); } }, "Remettre dans la liste")
+          : h("button", { class: "btn sm ghost", title: "Ranger cette partie aux archives : elle quitte la liste sans être effacée.", onclick: function () { archiveMultis([m], true); } }, "🗄 Archiver"),
+        m.archived ? del : null));
+  }
+  // Intent: archiveMultis([MultiDoc], Bool) -> () ! writes(Store | Room) = the same archive as the games of one reader
+  function archiveMultis(list, on) {
+    var now = Date.now();
+    list.forEach(function (m) { m.archived = on; m.archivedAt = now; });
+    A.notice = on ? (list.length > 1 ? list.length + " parties rangées" : "Partie rangée") + " dans « Archives », sous la liste." : "Partie remise dans la liste.";
+    A.noticeBad = false; render();
+    Promise.all(list.map(function (m) {
+      var get = m.kind === "salle" ? Room.get("salles", m.id) : Store.get("multis", m.id);
+      return get.then(function (d) {
+        if (!d) return null;
+        delete d.id; d.archived = on; d.archivedAt = now;
+        return m.kind === "salle" ? Room.put("salles", m.id, d) : Store.put("multis", m.id, d);
+      });
+    })).catch(function (e) { flash("L'archivage n'a pas pu être enregistré partout (" + ((e && e.code) || "erreur") + ") ; il reste fait dans ce navigateur.", true); });
+  }
+
 
 
   // ------------------------------------------------------------------ shared room on the site (several devices)
@@ -3523,7 +3961,8 @@
   function sallePath(gid) { return "salles/" + gid; }
   function seatDoc(p, log) {
     return { id: p.id, name: p.name, color: p.color || "", heroes: p.heroes || [], s: p.s ? JSON.stringify(p.s) : null, wait: p.wait || null, since: p.since || 0,
-      round: p.round || 0, actOk: p.actOk || 0, owner: p.owner || null, log: log || [], updated: Date.now() };
+      round: p.round || 0, actOk: p.actOk || 0, owner: p.owner || null, log: log || [], updated: Date.now(),
+      stats: (A.multi && A.multi.myStats && p.id === A.multi.me ? A.multi.myStats : p.stats) || null };
   }
   function openSalleNew(S, shared) {
     var st = S.story, gid = uid();
@@ -3567,7 +4006,7 @@
     var players = (d.seats || []).map(function (seat) {
       var sd = X.seats[seat.id] || {};
       var p = { id: seat.id, name: seat.name, color: seat.color, heroes: seat.heroes || [], s: sd.s ? JSON.parse(sd.s) : null, wait: sd.wait || null, since: sd.since || 0,
-        round: sd.round || 0, actOk: sd.actOk || 0, owner: sd.owner || null };
+        round: sd.round || 0, actOk: sd.actOk || 0, owner: sd.owner || null, stats: sd.stats || null };
       if (seat.id === X.me && X.mine && X.mine.s && X.mine.round >= p.round) { p.s = X.mine.s; p.wait = X.mine.wait; p.since = X.mine.since; p.actOk = X.mine.actOk; p.round = X.mine.round; }
       return p;
     });
@@ -3609,7 +4048,7 @@
     app.appendChild(w);
   }
   function takeSeat(pid) {
-    var X = A.multi; X.me = pid; lsSet("salle:" + X.gid, pid);
+    var X = A.multi; X.me = pid; X.myStats = null; lsSet("salle:" + X.gid, pid);
     var sd = X.seats[pid] || {}; X.log = sd.log || []; X.undo.length = 0;
     rebuild();
     if (X.mine && X.mine.s) salleSave(); else if (X.mine) { X.mine.owner = deviceId(); Room.put(sallePath(X.gid) + "/joueurs", pid, seatDoc(X.mine, X.log)).catch(function () {}); }

@@ -76,7 +76,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .avatar { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; color: #fff; font: 600 13px/1 var(--sans); }
 .save-line { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); }
 .save-line b { font: 18px/1.2 var(--title); font-weight: normal; }
-.saved-games .archives-fold { margin-top: 10px; }
+.saved-games .archives-fold, .multi-games .archives-fold { margin-top: 10px; }
 .archives { display: grid; gap: 8px; margin-top: 6px; }
 .save-line.archived { background: transparent; border-style: dashed; }
 .confirm { display: inline-flex; gap: 6px; align-items: center; }
@@ -120,7 +120,10 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .prose p.second { position: relative; }
 .prose p.second::after { content: "✧"; position: absolute; left: -1.1em; top: .1em; font-size: .8em; color: var(--accent); opacity: .55; }
 @media (max-width: 520px) { .prose p.second::after { left: -.85em; } }
-.prose p:first-child::first-letter { font-family: var(--title); font-size: 3.1em; float: left; line-height: .82; padding: 6px 8px 0 0; color: var(--accent); }
+.prose .lettrine { font-style: normal; font-family: var(--title); font-size: 3.1em; float: left; line-height: .82; padding: 6px 8px 0 0; color: var(--accent); }
+/* An opening quote or dash before the drop cap stays in the frame, small (the letter itself is the drop cap). */
+.prose .lettrine-avant { font-size: .4em; vertical-align: top; margin-right: .08em; }
+:root[data-font="lisible"] .prose .lettrine-avant, :root[data-font="grimoire"][data-lettrine="non"] .prose .lettrine-avant { font-size: inherit; vertical-align: baseline; margin: 0; }
 .choices { display: grid; gap: 8px; margin-top: 18px; }
 .group-label { margin-top: 12px; }
 .choice { text-align: left; border: 1px solid var(--line); background: var(--bg); border-radius: 10px; padding: 11px 14px; display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; align-items: center; font: 16px/1.4 var(--serif); }
@@ -268,7 +271,7 @@ textarea.json { font: 12.5px/1.45 var(--mono); width: 100%; }
 :root[data-skin] .page-head h2, :root[data-skin] .hero-head h1, :root[data-skin] .create h1 { font-family: var(--title); }
 :root[data-skin] .choice { background: color-mix(in srgb, var(--paper) 70%, transparent); }
 :root[data-skin] body { background: var(--bg); }
-:root[data-skin="enluminure"] .prose p:first-child::first-letter { color: var(--accent); text-shadow: 1px 1px 0 var(--gold); font-size: 3.4em; }
+:root[data-skin="enluminure"] .prose .lettrine { color: var(--accent); text-shadow: 1px 1px 0 var(--gold); font-size: 3.4em; }
 :root[data-skin="enluminure"] .page-head h2 { color: var(--accent); }
 :root[data-skin="givre"] .page-head h2 { letter-spacing: .01em; }
 :root[data-skin] .vignette { opacity: .9; }
@@ -284,7 +287,7 @@ textarea.json { font: 12.5px/1.45 var(--mono); width: 100%; }
 :root[data-font="lisible"] .prose, :root[data-font="lisible"] .recit p { letter-spacing: .02em; word-spacing: .08em; }
 /* A detached ornate capital and cut words are hard for dyslexic readers: plain first letter, no hyphenation. */
 :root[data-font="lisible"] .prose { hyphens: none; }
-:root[data-font="lisible"] .prose p:first-child::first-letter { font: inherit; float: none; padding: 0; color: inherit; text-shadow: none; }
+:root[data-font="lisible"] .prose .lettrine { font: inherit; float: none; padding: 0; color: inherit; text-shadow: none; }
 /* Grimoire (Clément, 13/11): a medieval book a dyslexic child can read. Grimoire Clair (Atkinson's letters with book serifs)
    dresses the whole page like "lisible", and each passage opens on an illuminated capital: the same clear letter, bold, in a
    gilded frame of scrolls. Turn off with the "Grande lettrine" setting. */
@@ -294,11 +297,11 @@ textarea.json { font: 12.5px/1.45 var(--mono); width: 100%; }
 :root[data-font="grimoire"] body, :root[data-font="grimoire"] button, :root[data-font="grimoire"] input, :root[data-font="grimoire"] select, :root[data-font="grimoire"] textarea { font-family: 'Grimoire Clair', var(--sans); }
 :root[data-font="grimoire"] .prose, :root[data-font="grimoire"] .recit p { letter-spacing: .01em; word-spacing: .06em; hyphens: none; }
 :root[data-font="grimoire"] .brand, :root[data-font="grimoire"] .hero-head h1, :root[data-font="grimoire"] .create h1, :root[data-font="grimoire"] .page-head h2 { font-weight: 700; }
-:root[data-font="grimoire"] .prose p:first-child::first-letter { font-family: 'Grimoire Clair', var(--sans); font-weight: 700; font-style: normal; font-size: 3.6em; line-height: 1; float: left;
+:root[data-font="grimoire"] .prose .lettrine { font-family: 'Grimoire Clair', var(--sans); font-weight: 700; font-style: normal; font-size: 3.6em; line-height: 1; float: left;
   margin: .1em .16em 0 0; padding: .12em .2em .08em; color: var(--lettrine-ink); text-shadow: none;
   background: var(--lettrine-art) center / 100% 100% no-repeat, var(--lettrine-field); border: 2px solid var(--lettrine-gold); border-radius: 2px;
   box-shadow: inset 0 0 0 2px var(--lettrine-field), inset 0 0 0 3px var(--lettrine-line); }
-:root[data-font="grimoire"][data-lettrine="non"] .prose p:first-child::first-letter { font: inherit; float: none; margin: 0; padding: 0; color: inherit; background: none; border: 0; box-shadow: none; }
+:root[data-font="grimoire"][data-lettrine="non"] .prose .lettrine { font: inherit; float: none; margin: 0; padding: 0; color: inherit; background: none; border: 0; box-shadow: none; }
 @media (prefers-color-scheme: dark) { :root[data-font="grimoire"]:not([data-theme="light"]):not([data-skin]) { --lettrine-field: #3a2614; --lettrine-ink: #f0c96a; --lettrine-gold: #e0b45a; --lettrine-line: #a87a2c; } }
 :root[data-font="grimoire"][data-theme="dark"] { --lettrine-field: #3a2614; --lettrine-ink: #f0c96a; --lettrine-gold: #e0b45a; --lettrine-line: #a87a2c; }
 .neural-row { flex-wrap: wrap; gap: 8px 12px; align-items: center; }
@@ -945,3 +948,63 @@ button.pp.pp-face-btn { border-bottom: 0; display: inline-flex; align-items: cen
 .who-row select { flex: 1 1 10em; min-width: 0; }
 .who-row input { flex: 1 1 8em; min-width: 0; }
 .hero-keep { margin-top: -4px; }
+
+/* ---- Stories with cards (9.7): the hand at a stop ---- */
+.hand { margin: 18px 0 8px; display: grid; gap: 10px; }
+.hand-bar { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: baseline; }
+.hand-elan b { font-size: 1.15em; color: var(--accent); }
+.hand-fils { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: 0.92em; }
+.hand-fils li { padding: 4px 10px; border-left: 3px solid var(--mark); background: var(--paper-2); border-radius: 0 6px 6px 0; }
+.hand-fils li.fil-noue { border-left-color: var(--accent); }
+.hand-fils li.fil-rate { opacity: 0.7; }
+.hand-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 8px; }
+.card { --suit: #7a6a55; display: flex; flex-direction: column; gap: 6px; text-align: left; min-height: 150px; padding: 9px 9px 7px;
+  background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-top: 5px solid var(--suit); border-radius: 10px;
+  font: inherit; font-size: 0.9em; line-height: 1.3; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); cursor: pointer; transition: transform 0.12s, box-shadow 0.12s; }
+.card:hover:not(:disabled), .card:focus-visible { transform: translateY(-3px); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.14); }
+.card:disabled, .card.off { cursor: not-allowed; opacity: 0.55; transform: none; }
+.card-lame { --suit: #a3423a; } .card-masque { --suit: #6a4b93; } .card-lanterne { --suit: #b07a12; } .card-racine { --suit: #3e7a46; }
+:root[data-theme="dark"] .card-lame { --suit: #e0837a; } :root[data-theme="dark"] .card-masque { --suit: #b59be0; }
+:root[data-theme="dark"] .card-lanterne { --suit: #e5b754; } :root[data-theme="dark"] .card-racine { --suit: #86c08d; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .card-lame { --suit: #e0837a; } :root:not([data-theme="light"]) .card-masque { --suit: #b59be0; }
+  :root:not([data-theme="light"]) .card-lanterne { --suit: #e5b754; } :root:not([data-theme="light"]) .card-racine { --suit: #86c08d; } }
+.card-top { display: flex; align-items: center; gap: 6px; }
+.card .suit { color: var(--suit); display: inline-flex; }
+.card-type { font-size: 0.78em; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); flex: 1; }
+.card-elan { color: var(--suit); font-size: 0.85em; letter-spacing: 1px; }
+.card-title { font-weight: 700; font-size: 1.05em; }
+.card-text { font-style: italic; color: var(--muted); flex: 1; }
+.card-hook { font-size: 0.85em; color: var(--mark); font-weight: 600; }
+.card-foot { font-size: 0.75em; color: var(--muted); border-top: 1px solid var(--line); padding-top: 4px; }
+.card.rar-rare .card-foot, .card.rar-legende .card-foot { color: var(--gold); font-weight: 600; }
+.card-why { font-size: 0.8em; color: var(--ink); background: var(--paper-2); border-radius: 6px; padding: 3px 6px; }
+@media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover:not(:disabled) { transform: none; } }
+
+/* Statistiques de lecture (9.9) */
+.stats .stats-who { margin-top: 14px; }
+.stats .stats-who .avatar { width: 20px; height: 20px; font-size: 11px; }
+.stats .bilan { grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); }
+.stats .bilan dd { font-size: 17px; overflow-wrap: anywhere; }
+.stat-bars { display: flex; gap: 6px; align-items: flex-end; height: 130px; max-width: 40rem; overflow-x: auto; }
+.sb { display: flex; flex-direction: column; justify-content: flex-end; height: 100%; text-align: center; min-width: 2.4rem; max-width: 4rem; flex: 1 0 2.4rem; }
+.sb-bar { display: block; background: var(--accent); border-radius: 4px 4px 0 0; min-height: 2px; }
+.sb-n { font-size: 11px; font-variant-numeric: tabular-nums; }
+.sb-d { font-size: 10.5px; color: var(--muted); white-space: nowrap; }
+.stat-rows { display: grid; gap: 6px; max-width: 40rem; }
+.sr { display: grid; grid-template-columns: minmax(6rem, 12rem) 1fr auto; gap: 10px; align-items: center; font-size: 14px; }
+.sr-l { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sr-bar { height: 10px; background: var(--line); border-radius: 5px; overflow: hidden; }
+.sr-bar span { display: block; height: 100%; background: var(--accent); border-radius: 5px; }
+.sr-n { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 13px; white-space: nowrap; }
+.run-card { border: 1px solid var(--line); border-radius: 12px; background: var(--paper); margin-top: 10px; }
+.run-card .run-sheet { padding: 0 16px 16px; }
+.run-card h3 { margin: 10px 0 4px; font-size: 15px; }
+.tl-strip { display: flex; align-items: flex-end; gap: 2px; height: 44px; margin: 6px 0 10px; border-bottom: 1px solid var(--line); }
+.tl-day { flex: 1 1 0; min-width: 2px; max-width: 14px; height: 2px; background: var(--line); border-radius: 2px 2px 0 0; }
+.tl-day.on { background: var(--accent); }
+.tl-list { list-style: none; padding: 0 0 0 14px; margin: 0; border-left: 2px solid var(--line); display: grid; gap: 8px; }
+.tl-list li { position: relative; }
+.tl-list li::before { content: ""; position: absolute; left: -20px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+.tl-list li.end::before { background: var(--ink); }
+.stats-book { max-width: 100%; }
+@media (max-width: 520px) { .sr { grid-template-columns: minmax(5rem, 8rem) 1fr auto; font-size: 13px; } }

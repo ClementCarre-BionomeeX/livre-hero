@@ -8,7 +8,7 @@ module.exports = {
     // ───────────────────────────── The hand: the trapdoor ─────────────────────────────
     A5m_q1: { act: "V", title: "Le palier", place: "horloge_close", ambiance: "nuit",
       text: [
-        "Tu repasses le chêne en courant. Maître Crochemore te suit, sa robe relevée à deux mains, du trot d'un homme qui a décidé à soixante-huit ans de courir une fois.",
+        "Tu repasses le chêne en courant. Maître Crochemore te suit, sa robe relevée à deux mains, du trot d'un homme qui a décidé, sur le tard, de courir une fois.",
         "Le palier est tel que tu l'as laissé : la guérite, la table, la lanterne de corne, et dans le plancher ce carré noir par où monte l'échelle de meunier. Dessous, c'est la salle des Poids, avec ses tambours et son balancier. Plus bas encore, la vis, et dans la vis un bruit de ferraille qui grandit.",
         { if: { has: "monde:a5:hilaire" }, text: "Le vieux soldat est debout près du trou, sa trompe pendue au cou, sa hallebarde au poing. Il te salue. « Douze, dit-il, plus les trois messieurs, plus un capitaine. J'ai compté les fers à la résonance. De mon temps, on en envoyait vingt pour une porte ; la ville s'appauvrit. »" },
         { if: { has: "monde:a5:hilaire_lie" }, text: "Dans la guérite, le vieux soldat est assis sur son banc, les poignets liés, son bonnet de travers. Il regarde le trou du plancher avec l'intérêt d'un connaisseur que l'on a privé du spectacle." },
@@ -134,32 +134,23 @@ module.exports = {
         "Le vent te prend à la gorge. Le hourd fait le tour de la Tour à quarante toises du pavé : une galerie de planches portée par des corbeaux de pierre, large de trois pieds, avec un garde-fou que des générations de pigeons ont rendu blanc. Les planches sont luisantes de givre. C'est la dernière nuit de novembre, et il gèle à cette hauteur comme il gèlera en bas dans un mois.",
         "Tu regardes.",
         "Aiguemorne est dessous, tout entière, et pour la première fois de ta vie tu la vois d'où le Juge la regarde. La cour de la citadelle est un puits de torches. La rampe descend en lacets vers la ville haute, puis la ville basse, puis le fleuve, qui est une chose noire et lente où tremblent les fanaux du quai.",
-        { if: { has: "monde:a5:foule" }, text: "Et la rampe est pleine. Ce ne sont plus des torches, de ce côté : ce sont des lanternes, de pauvres lanternes de corne et de papier huilé, des centaines, qui montent des Bas-Fonds en un ruisseau jaune. La ville basse est venue voir.", else: "La rampe est presque noire. Il y a quelques lanternes à la grande porte, une vingtaine, serrées. La ville basse est restée chez elle, les volets clos, à attendre que le Bronze ait parlé pour savoir ce qu'on lui a fait." },
-        "À ta gauche, le hourd mène au cadran. À tes pieds, la ville attend un signe ou n'attend rien.",
+        { if: { has: "monde:a5:foule" }, text: "Et la rampe est pleine. De ce côté, les torches ont cédé la place aux lanternes, de pauvres lanternes de corne et de papier huilé, des centaines, qui montent des Bas-Fonds en un ruisseau jaune. La ville basse est venue voir.", else: "La rampe est presque noire. Il y a quelques lanternes à la grande porte, une vingtaine, serrées. La ville basse est restée chez elle, les volets clos, à attendre que le Bronze ait parlé pour savoir ce qu'on lui a fait." },
+        "À ta gauche, le hourd mène au cadran. À tes pieds, la ville attend.",
       ],
       choices: [
-        { label: "Faire le signal convenu avec la Douairière", if: { has: "monde:a5:douairiere" }, hide: { not: { has: "monde:a5:douairiere" } }, fx: { flag: "a5:q_signal" }, to: "A5o_q_signal", once: true },
-        { label: "Lever ta lanterne vers la ville, à tout hasard", if: { not: { has: "monde:a5:douairiere" } }, hide: { has: "monde:a5:douairiere" }, to: "A5o_q_hasard", once: true },
+        { label: "Faire à la Douairière le signal de la maison", fx: { flag: "a5:q_signal" }, to: "A5o_q_signal", once: true },
         { label: "Regarder ce qui se passe au pied de la Tour", to: "A5o_q_bas", once: true },
         { label: "Aller au cadran", to: "A5o_q_cadran", big: true },
       ] },
 
     A5o_q_signal: { act: "V", title: "Trois éclipses", place: "horloge_close", ambiance: "nuit",
       text: [
-        "Tu ouvres le volet de ta lanterne sourde, tu le fermes. Trois fois, lentement, tourné{e} vers le sud, où il y a sous les toits de la Clef-Tordue une lucarne que tu trouverais les yeux bandés.",
+        "Tu ouvres le volet de ta lanterne sourde, tu le fermes. Trois fois, lentement, tourné{e} vers la grande porte de la citadelle, où tu as laissé il y a une heure une grande vieille en châle noir, droite comme un chandelier, devant deux hallebardes décroisées.",
         "Tu attends. Le vent siffle dans les corbeaux.",
-        "En bas, très loin, dans le noir des Bas-Fonds, une lumière paraît. Elle s'éclipse. Elle revient. Trois fois. Une vieille femme qui a les jambes mortes s'est fait porter à sa lucarne, et elle a répondu de sa main.",
-        { if: { has: "monde:a5:foule" }, text: "Alors il arrive une chose que tu n'avais pas prévue. Sur la rampe, une lanterne se lève à bout de bras. Puis dix. Puis toutes. Le ruisseau jaune s'est arrêté ; il a levé ses lumières vers la Tour, et il les tient là, sans un cri. On leur a dit de garder les yeux ouverts à minuit. Ils les ont ouverts d'avance." },
+        "En bas, au seuil de la rampe, une lumière se lève à bout de bras. Elle s'éclipse derrière un châle. Elle revient. Trois fois. C'est la lanterne des Plombs : même de quarante toises, on voit tourner dedans l'ombre d'une grosse clef à deux pannetons. La Douairière a répondu de sa main, et elle a pris pour cela la plus grosse lanterne de la ville.",
+        { if: { has: "monde:a5:foule" }, text: "Alors il arrive une chose que tu n'avais pas prévue. Sur la rampe, derrière elle, une lanterne se lève. Puis dix. Puis toutes. Le ruisseau jaune s'est arrêté ; il a levé ses lumières vers la Tour, et il les tient là, sans un cri. On leur a dit de garder les yeux ouverts à minuit. Ils les ont ouverts d'avance." },
         { if: { has: "monde:a5:f_compagnons" }, text: "Dans la cour, deux cents torches se haussent ensemble vers le cadran. Les compagnons serruriers tiennent parole avec la ponctualité des gens de métier." },
         "Tu refermes le volet. Tu as les yeux qui piquent, et tu décides que c'est le givre.",
-      ],
-      choices: [{ back: "A5o_q1" }] },
-
-    A5o_q_hasard: { act: "V", title: "Une lanterne", place: "horloge_close", ambiance: "nuit",
-      text: [
-        "Tu lèves ta lanterne à bout de bras, volet ouvert, et tu la balances.",
-        "Rien ne répond. Une lanterne à quarante toises, vue de la ville, c'est une étoile de plus dans un ciel qui en est plein ; et personne, en bas, ne sait qu'il faut regarder.",
-        "Dans la cour, pourtant, une casaque rousse a levé le nez. Tu refermes le volet et tu te colles au mur. On apprend, dans ton emploi, que voir et être vu sont deux métiers, et qu'ils se paient rarement ensemble.",
       ],
       choices: [{ back: "A5o_q1" }] },
 
@@ -240,8 +231,7 @@ module.exports = {
         { again: true, text: "Le guichet. En bas, les torches, les trois Clavaires, le capitaine qui regarde le Syndic et attend un signe." },
       ],
       choices: [
-        { label: "Au Syndic : « Dites à ces messieurs ce que vous m'avez offert, et pour quoi. »", if: { has: "monde:a5:offre" }, hide: { not: { has: "monde:a5:offre" } }, fx: { flag: "a5:q_dit_prix" }, to: "A5v_q_syndic", once: true },
-        { label: "Au Syndic : « Qu'y a-t-il dans ce meuble de chêne, maître ? »", if: { all: [{ has: "monde:a5:cylindre_su" }, { not: { has: "monde:a5:offre" } }] }, hide: { not: { all: [{ has: "monde:a5:cylindre_su" }, { not: { has: "monde:a5:offre" } }] } }, fx: { flag: "a5:q_dit_prix" }, to: "A5v_q_meuble", once: true },
+        { label: "Au Syndic : « Dites à ces messieurs ce que vous m'avez offert, et pour quoi. »", fx: { flag: "a5:q_dit_prix" }, to: "A5v_q_syndic", once: true },
         { label: "Aux casaques rousses : « Priez-les de vous montrer leurs clefs. »", if: { has: "monde:a5:clefs_vues" }, hide: { not: { has: "monde:a5:clefs_vues" } }, fx: { flag: "a5:q_dit_clefs" }, to: "A5v_q_fausses", once: true },
         { label: "Lire, par le guichet, l'article dernier de la charte", if: { has: "monde:a5:charte" }, hide: { not: { has: "monde:a5:charte" } }, fx: { flag: "a5:q_dit_charte" }, to: "A5v_q_charte", once: true },
         { label: "Au Doyen des Morts", to: "A5v_q_doyen", once: true },
@@ -261,17 +251,6 @@ module.exports = {
         "« Trente mille, Quincarnon ? dit-il lentement. Vous m'en avez refusé deux mille en octobre, sur ma terre des Abois, en m'expliquant que les temps étaient durs.",
         "— Ils l'étaient, monsieur le comte. » Le Syndic compte sur ses doigts, par habitude, et s'en aperçoit. « C'était une avance sur la paix publique. J'allais vous en parler. »",
         "« Vous alliez, » dit le Doyen, de sa voix douce. Et il regarde, dans l'angle, le meuble de chêne, comme un homme qui additionne à son tour.",
-      ],
-      choices: [{ back: "A5v_q_hub" }] },
-
-    A5v_q_meuble: { act: "V", title: "Le meuble de chêne", place: "horloge_close", ambiance: "nuit",
-      text: [
-        "Le Syndic lève vers toi sa figure ronde. Il sourit.",
-        "« Un régulateur, mon enfant. Une amélioration de l'horloge, aux frais de la guilde.",
-        "— Avec un cylindre de douze cents lignes, une soupape sur le vent du Juge et une tirette à boule d'ivoire. Votre régulateur parle, maître. Il dira ce soir sept sentences que vous avez dictées, et il les redira dans sept ans, et dans quatorze. Ces messieurs savaient-ils qu'ils montaient entendre votre voix ? »",
-        "Le Doyen a rouvert les yeux. Le comte a ôté son pied de l'établi ; il va au meuble, en fait le tour, pose la main sur le chêne comme on flatte un cheval dont on se méfie.",
-        "« Nous étions convenus d'un mur, Quincarnon, dit-il. Un mur est une vilenie honnête. Ceci est autre chose. »",
-        "« Ceci est la paix publique, monsieur le comte, » répond le Syndic. Il a cessé de sourire, ce qui lui ôte d'un coup dix ans de bonhomie.",
       ],
       choices: [{ back: "A5v_q_hub" }] },
 
@@ -305,7 +284,7 @@ module.exports = {
         { if: { has: "monde:a5:doyen=avec" }, text: "Le Syndic ouvre la bouche. Le Doyen lève un doigt ganté de fil blanc. « Elle m'a écrit quatre lignes, Quincarnon. En quarante-cinq ans, c'est tout ce que l'un de nous a reçu d'elle. Souffrez que je leur donne un quart d'heure. Il y en a un par ligne, à peu près. »" },
         { if: { has: "monde:a5:doyen=contre" }, text: "« Je vous ai écouté{e} cet après-midi, répond-il. Je vous ai dit non. Je vous le redis d'en bas, avec plus de monde. Rendez les clefs, mon enfant. Il y a là-haut une paix de cent cinq ans, et vous allez la casser pour le plaisir d'avoir vu ce qu'il y avait dedans. C'est une curiosité d'enfant de chœur devant un tabernacle. »" },
         { if: { has: "monde:a5:doyen=contre" }, text: "« Il y a une femme dedans, monseigneur. » « Je le sais mieux que vous. Je lui ai écrit. Elle m'a répondu qu'elle n'avait pas besoin de mon pardon et qu'elle me donnait le sien. On ne discute pas avec ces personnes-là : on les garde. »" },
-        { if: { not: { any: [{ has: "monde:a5:doyen=avec" }, { has: "monde:a5:doyen=contre" }] } }, text: "« Vous êtes la Voix que le sort a tirée ce matin, dit-il. On m'a rapporté que vous lisiez bien. Lisez-moi donc ce que vous faites là-haut. » Tu le lui dis en trois phrases. Il écoute, la tête penchée. « Une femme, une porte, trois enfants. J'ai peur que ce ne soit plus simple que tout ce que nous avons bâti autour. Je ne vous aiderai pas. Je ne suis pas pressé de monter non plus. »" },
+        { if: { not: { any: [{ has: "monde:a5:doyen=avec" }, { has: "monde:a5:doyen=contre" }] } }, text: "« Vous êtes la Voix que le sort a tirée ce matin, dit-il. On m'a rapporté que vous lisiez bien. Lisez-moi donc ce que vous faites là-haut. » Tu le lui dis en trois phrases. Il écoute, la tête penchée. « Une femme, une porte, trois enfants. J'ai peur que ce ne soit plus simple que tout ce que nous avons bâti autour. Je vous refuse mon aide. Je vous donne ma lenteur : rien ne me presse de monter. »" },
       ],
       choices: [{ back: "A5v_q_hub" }] },
 

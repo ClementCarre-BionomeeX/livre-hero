@@ -1,0 +1,24 @@
+// « L'Homme invisible » (The Invisible Man), H. G. Wells, 1897 : un livre à lire, sans choix (lecture: true).
+// Texte : la traduction d'Achille Laurent (La Revue de Paris, 1900-1901, puis Mercure de France), transcrite par
+// Wikisource (domaine public ; transcription reprise d'un export Wikisource de février 2025). Texte gardé tel quel, sauf la
+// typographie ; la note du traducteur sur les fenêtres anglaises est mise entre parenthèses dans sa page.
+// Tout ce qui n'est pas de Wells ou de son traducteur vit dans les tags : gens, lieux, mots, résumés des chapitres.
+// Chapitre EP · Épilogue
+module.exports = {
+  EP_1: { act: "EP", title: "L'aubergiste et ses livres", place: "auberge_ep",
+    text: [
+      "Ainsi finit l'expérience, non moins bizarre que criminelle, de l'homme invisible. Si vous voulez en savoir davantage sur son compte, il faut aller à une petite auberge, auprès de Port-Stowe, et parler au patron. Sur l'enseigne, on ne voit que des bottes et un chapeau, avec cette inscription :",
+      "*À l'Homme invisible*",
+      "Le patron est un petit homme, court et gros, avec un nez proéminent de forme cylindrique, des cheveux en baguettes de tambour, la figure rose comme du corail. Buvez généreusement, et il vous racontera généreusement, lui, tout ce qui lui advint après l'affaire, et comment les gens de loi essayèrent de lui « carotter » l'argent trouvé dans ses poches.",
+      "— Quand ils reconnurent qu'ils ne pouvaient pas établir à qui était l'argent, je veux être pendu, répèta-t-il, s'ils n'ont pas voulu me faire passer pour un trouveur de trésor… Voyons, est-ce que j'ai l'air d'un trouveur de trésor ? Puis, un monsieur me donna une guinée, certain soir, pour raconter l'histoire au café-concert de l'Empire…",
+      "Et, si vous éprouvez le besoin d'interrompre brusquement le cours de ses souvenirs, cela vous sera toujours facile : demandez-lui s'il n'était pas question, dans son histoire, de trois manuscrits. Il reconnaît qu'il en était question, en effet ; et il explique, avec des protestations, que tout le monde croit qu'il les a. Mais, bon Dieu ! il ne les a pas. « L'homme invisible les a pris, pour les cacher, au moment où je l'ai quitté, m'enfuyant vers Port-Stowe… C'est M. Kemp qui a mis dans la tête des gens que je les avais. »",
+      "Il tombe alors en méditation, il vous observe furtivement, remue des verres avec impatience et bientôt quitte le comptoir.",
+      "Il est garçon — ses goûts furent toujours en faveur du célibat, — et il n'y a pas de femme dans la maison. Par-dessus, son habit est boutonné, comme il convient ; mais, pour ses dessous intimes (en fait de bretelles, par exemple), il a conservé l'habitude des ficelles. Il dirige son établissement sans esprit d'initiative, mais avec une dignité parfaite. Ses mouvements sont mesurés : c'est un penseur. Il a dans le village une réputation de sagesse et de respectable économie. Pour sa connaissance des routes dans le sud de l'Angleterre, il rendrait des points à Cobbett lui-même.",
+      "Le dimanche matin, tous les dimanches matin, tout le long de l'année, tandis que l'auberge est fermée au monde, et de même tous les soirs, après dix heures, il va dans le salon, avec un verre de gin légèrement coupé d'eau et, l'ayant posé, il ferme à clef la porte, il examine les stores, il regarde sous la table ; puis, une fois assuré d'être seul, il ouvre le buffet, un tiroir de ce buffet, une boîte dans ce tiroir : il en extrait trois volumes reliés en cuir brun, il les place avec gravité au milieu de la table. Les plats sont usés par le temps et tachés de teintes verdâtres ; car, une fois, ils ont séjourné dans un fossé, et quelques pages ont été brouillées par de l'eau sale. Le patron s'assied dans un fauteuil, bourre lentement sa longue pipe de terre, sans perdre des yeux un seul instant ses volumes. Puis, il en met un devant lui et commence à l'étudier, tournant et retournant les feuillets. Il a les sourcils froncés ; il remue les lèvres avec effort.",
+      "— Un x ; un petit ² en l'air, une croix, puis… va te faire fiche !… Ah ! Seigneur ! quel homme c'était pour l'intelligence !",
+      "Bientôt, il lâche le livre, et se renverse en arrière. En clignant des yeux, il regarde à travers la fumée de sa pipe, à l'autre bout de la salle, des choses invisibles pour tout autre que lui.",
+      "— C'est plein de secrets, ça ! dit-il, de secrets merveilleux ! Si jamais j'en connais le fin mot… Seigneur… Oh ! je ne voudrais pas faire ce qu'il a fait. Je voudrais seulement… oui…",
+      "Alors, il tire une bouffée de sa pipe ; il glisse dans un rêve, le rêve éternel et merveilleux de sa vie… Et, quoique le docteur Kemp ait cherché sans relâche de tous côtés, aucun être humain, en dehors de l'aubergiste, ne sait que les livres sont là, contenant le subtil secret de l'invisibilité avec une douzaine d'autres non moins étranges. Personne n'en saura rien jusqu'à sa mort."
+    ] },
+
+};
