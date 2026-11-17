@@ -129,7 +129,7 @@ Object.assign(P, {
     text: [
       "Tu connais le geste. Deux doigts sous la ceinture, à gauche, où les fermiers nouent leur bourse ; on tire le cordon, on ne regarde pas la figure. Le vieil or vaut double chez tous les changeurs du royaume, et il y en a ici de quoi acheter une ferme.",
       "Tu as la main sur une ceinture de cuir. L'homme est grand, rouge, en blouse bleue, le menton levé vers la Tour ; il a un enfant de trois ans sur les épaules, qui lui tient les oreilles. Sa bourse est lourde. Il avait vendu ses oies.",
-      "Derrière toi, à vingt pas, sur un pliant, une vieille en coiffe de pèlerinage a cessé de manger. Elle ne dit rien. Elle regarde ta main.",
+      "Derrière toi, à vingt pas, sur un pliant, une vieille en coiffe de pèlerinage a cessé de manger. Elle regarde ta main.",
     ],
     choices: [
       { label: "Tirer le cordon : les morts n'ont pas d'emplettes à faire", fx: { gold: 12, flag: "r:glane_foire", regard: { ysoline: "mefiant" } }, to: "K09r_glane_fin" },
@@ -140,7 +140,7 @@ Object.assign(P, {
     text: [
       { after: "r:glane_foire", text: "Douze écus à la couronne, chauds comme s'ils sortaient d'une poche, ce qui est le cas. Tu les fais passer dans ta chemise. La vieille s'est levée. Elle vient à toi de son petit pas, et tu attends le cri, le bâton, les Veilleurs." },
       { after: "r:glane_foire", text: "Elle te dépasse. Elle va à l'homme en blouse bleue, lui retend sa ceinture d'un coup sec, comme on rajuste un enfant avant la messe, et lui lisse sa blouse du plat de la main. Puis elle s'en retourne à son pliant et reprend sa croûte, en te regardant mâcher ta honte. C'était son père. Elle était sur ses épaules." },
-      { after: "r:foire_respect", text: "Tu renoues le cordon. Tu le renoues bien, d'un nœud de marché, à deux tours. La vieille, sur son pliant, te regarde faire jusqu'au bout. Quand tu passes devant elle, elle te tend, sans un mot, la moitié de sa croûte, avec un morceau de lard." },
+      { after: "r:foire_respect", text: "Tu renoues le cordon. Tu le renoues bien, d'un nœud de marché, à deux tours. La vieille, sur son pliant, te regarde faire jusqu'au bout. Quand tu passes devant elle, elle te tend la moitié de sa croûte, avec un morceau de lard." },
       { after: "r:foire_respect", text: "« C'est mon père, dit-elle. Je suis là-haut, sur ses épaules. Je lui tiens les oreilles. » Elle rit, d'un rire de trois ans dans une bouche de soixante-trois. « Il les avait grandes. On les lui tirait tous, pour monter. »" },
     ],
     choices: [{ back: "K09r_charrettes" }] },
@@ -278,7 +278,7 @@ Object.assign(P, {
       { after: "r:girard_vrai", text: "« Là-haut. Comme à midi. » Il hoche la tête. Le gris lui prend le bout des doigts ; il le voit, lui, et il se relève, reprend ses guides, se penche en avant de tout son corps. « Alors j'y vais quand même. Il sera moins seul. Hue, la... »" },
       "La bouche reste ouverte sur le nom de la jument. Le fouet refait sa boucle. Tu retires ta main ; la sienne garde la forme de tes doigts un instant, puis celle des guides.",
       "Tu restes là. La note de la cloche est partie avec ton pas, et sur le halage il n'y a plus un bruit : un garçon debout, une bête, des peupliers. Au-dessus d'eux, à une lieue, la Tour a l'aiguille sur le douze.",
-      { with: "jehan", text: "Jehan a tout entendu, à dix pas, le chapeau à la main. « À la caserne, on nous disait qu'ils ne sentent rien. Qu'il ne fallait pas y penser. » Il remet son chapeau, de travers. « Il a dit *il sera moins seul*. » Il n'ajoute rien, et marche devant toi jusqu'au pont, pour que tu ne voies pas sa figure.", if: { has: "r:girard_vrai" } },
+      { with: "jehan", text: "Jehan a tout entendu, à dix pas, le chapeau à la main. « À la caserne, on nous disait qu'ils ne sentent rien. Qu'il ne fallait pas y penser. » Il remet son chapeau, de travers. « Il a dit *il sera moins seul*. » Il s'en tient là, et marche devant toi jusqu'au pont, pour te cacher sa figure.", if: { has: "r:girard_vrai" } },
     ],
     choices: [{ label: "Reprendre le halage, vers le bassin", to: "K09r_bassin", big: true }] },
 

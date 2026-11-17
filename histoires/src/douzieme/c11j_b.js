@@ -135,7 +135,7 @@ Object.assign(P, {
   K11j_reine_verite: { act: "III", title: "Elle est comment ?", place: "palais", ambiance: "chateau", fx: { flag: "j:reine_sait_601", ep: ["perso", 800] },
     text: [
       "Tu le dis. Tu commences par elle, parce qu'elle n'écoutera que cela : que demain, à midi, la cloche sonnera onze, et que le douzième ne viendra pas. Que ce ne sera pas une chambre. Que ce sera la ville, la Foire, une lieue de champs, et qu'elle y sera, à sa fenêtre, avec l'enfant. Que cela durera soixante ans. Que tu es né{e} au bord.",
-      "Elle ne t'interrompt pas. Elle ne dit pas que tu es fou{e}. Une femme qui a rempli son oratoire de pendules pour apprendre à arrêter l'heure a perdu le droit de trouver une chose impossible.",
+      "Elle te laisse parler. Elle ne dit pas que tu es fou{e}. Une femme qui a rempli son oratoire de pendules pour apprendre à arrêter l'heure a perdu le droit de trouver une chose impossible.",
       "Quand tu as fini, elle pose une seule question.",
       "« Et elle ? Dans votre pays. Vous l'avez vue ? Elle est comment ? »",
       "Tu dis ce que dit la Chronique, et ce que disent les pèlerins : que la Reine dort debout, dans la Chambre haute, sa fille dans les bras. Que l'enfant a huit ans. Qu'elle les a toujours.",
