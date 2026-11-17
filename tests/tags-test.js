@@ -98,7 +98,7 @@ var st4 = { id: "t4", title: "T4", start: "A", acts: [{ id: "I", title: "I", lev
   } };
 var u4 = M.freshState(st4); u4.name = "A"; u4.arch = "voleur"; M.start(st4, u4);
 assert(M.view(st4, u4).choices.some(function (c) { return c.label === "Le prendre avec toi" && c.ok !== false; }), "un choix qui fait rejoindre ouvre la scène avec ce compagnon");
-// 10.4: `has: "key"` holds as soon as a page has given the key a value (fx.set), whatever the value.
+// 11.1: `has: "key"` holds as soon as a page has given the key a value (fx.set), whatever the value.
 var st5 = { id: "t5", title: "T5", start: "A", acts: [{ id: "I", title: "I", levels: [1, 3], start: "A" }],
   passages: {
     A: { act: "I", title: "A", text: ["a"], choices: [{ label: "Prendre", fx: { set: { invite: "jacquot" } }, to: "B" }, { label: "Passer", to: "B" }] },

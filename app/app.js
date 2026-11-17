@@ -1211,7 +1211,8 @@
   // Intent: Lettrine.place(prose) ! the drop cap goes on the first letter of the first narrative paragraph: a stage
   // note (a paragraph between parentheses, or all in italics, such as "(Une heure passe.)") and the "already read"
   // line are passed over, and an opening parenthesis is never swallowed. An opening quote or dash stays in the frame,
-  // small, before the letter. The letter is wrapped in span.lettrine (the CSS ::first-letter took "(U").
+  // small, before the letter. The letter is wrapped in span.lettrine (the CSS ::first-letter took "(U"); a one-letter
+  // abbreviation keeps its period with it ("M." of "M. Utterson", Stevenson 17/11: ". Utterson" opened the line).
   // Why: Clément, 16/11: on "(Une heure passe.)" then "Tu prends ta place…", the drop cap must be the T of "Tu".
   var Lettrine = (function () {
     var LETTER = /[A-Za-zÀ-ÖØ-öø-ÿŒœÆæ0-9]/, LEAD = /^[\s«»“”"'‘’—–-]*$/;
@@ -1235,8 +1236,10 @@
         var before = (lead.map(function (x) { return x.data; }).join("") + n.data.slice(0, m.index)).replace(/\s+/g, " ").trim();
         lead.forEach(function (x) { x.data = ""; });
         if (before) span.appendChild(h("span", { class: "lettrine-avant" }, before));
-        span.appendChild(document.createTextNode(m[0]));
-        var rest = n.splitText(m.index); rest.data = rest.data.slice(1);
+        // An abbreviation of one letter ("M. Utterson", "J. Hetzel") keeps its period beside the big letter.
+        var abbr = n.data.charAt(m.index + 1) === "." && !LETTER.test(n.data.charAt(m.index + 2) || "") ? "." : "";
+        span.appendChild(document.createTextNode(m[0] + abbr));
+        var rest = n.splitText(m.index); rest.data = rest.data.slice(1 + abbr.length);
         n.data = ""; rest.parentNode.insertBefore(span, rest);
         return true;
       }
@@ -2467,7 +2470,14 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
-    { v: "10.4", items: ["Nouveau grand livre à trois : « Les Trois Clefs d'Aiguemorne », un casse de cape et d'épée dans une cité de serruriers. Trois joueurs, un héros chacun, cinq actes. À chaque acte, on se partage trois postes (la main, l'œil, la voix), chacun vit sa part de son côté, puis on met en commun et l'on vote.", "À trois : le vote entre joueurs (chacun donne sa voix sans voir celle des autres, le livre dépouille au rendez-vous), les postes, et les indices mis en commun."] },
+    { v: "11.1", items: ["Nouveau grand livre à trois : « Les Trois Clefs d'Aiguemorne », un casse de cape et d'épée dans une cité de serruriers. Trois joueurs, un héros chacun, cinq actes. À chaque acte, on se partage trois postes (la main, l'œil, la voix), chacun vit sa part de son côté, puis on met en commun et l'on vote.", "À trois : le vote entre joueurs (chacun donne sa voix sans voir celle des autres, le livre dépouille au rendez-vous), les postes, et les indices mis en commun."] },
+    { v: "11.0", items: ["« Le Douzième Coup », un grand livre à lire à deux, chacun sur son écran : plus de deux mille passages. Une ville s'est arrêtée au onzième coup de midi, il y a soixante ans. L'un des deux lecteurs part de la veille, l'autre du soixantième anniversaire. Ils s'écrivent par deux Cahiers jumeaux, aux bornes de la route, et ce que l'un met en terre, l'autre peut le retrouver vieilli de soixante ans.", "Pour ce livre : des dépôts aux bornes, qui passent d'une époque à l'autre, et deux chroniques dont les lignes changent selon ce que les lecteurs ont fait (onglet « Chronique »)."] },
+    { v: "10.9", items: ["« L'Île au trésor » de R. L. Stevenson, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1883. Une auberge sur la côte, un vieux marin et son coffre, une carte, une goélette, et un cuisinier à une jambe avec un perroquet sur l'épaule. Avec les gens, les lieux et les mots d'un toucher."] },
+    { v: "10.8", items: ["« Le Maître de Ballantrae » de R. L. Stevenson, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1889. Deux frères Durie, l'un parti avec le prince Charlie, l'autre resté au domaine, et un intendant qui raconte tout, de l'Écosse jusqu'aux forêts de l'Amérique. Avec les gens, les lieux et les mots d'un toucher."] },
+    { v: "10.7", items: ["« Enlevé ! » de R. L. Stevenson, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1886. Écosse, 1751 : un garçon trahi par son oncle, un brick, un rebelle des Highlands et une longue fuite dans la bruyère. Avec les gens, les lieux et les mots d'un toucher."] },
+    { v: "10.6", items: ["« La Flèche noire » de R. L. Stevenson, à lire en entier, dans la traduction de P.-G. La Chesnais (1901). La guerre des Deux-Roses, des proscrits dans la forêt de Tunstall, un tuteur à démasquer. Avec les gens, les lieux et les mots d'un toucher."] },
+    { v: "10.5", items: ["« Croc-Blanc » de Jack London, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1906 (la traduction française de 1923 est abrégée). Sans choix, avec les gens, les lieux et les mots d'un toucher, et une notice sur ce que le livre doit à son époque."] },
+    { v: "10.4", items: ["« L'Étrange Cas du Dr Jekyll et de Mr Hyde » de R. L. Stevenson, à lire en entier, dans la traduction de Théo Varlet. Sans choix, avec les gens, les lieux et les mots d'un toucher. Le premier des romans de Stevenson dans la bibliothèque."] },
     { v: "10.3", items: ["« Les Premiers Hommes dans la Lune » de H. G. Wells, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1901. Sans choix, avec les gens, les lieux et les mots d'un toucher. Les cinq grands romans de Wells sont maintenant dans la bibliothèque."] },
     { v: "10.2", items: ["« L'Île du docteur Moreau » de H. G. Wells, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1896. Sans choix, avec les gens, les lieux et les mots d'un toucher. Le livre est dur, et sa notice le dit."] },
  { v: "10.1", items: ["« La Machine à explorer le temps » de H. G. Wells, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1895. Sans choix, avec les gens, les lieux et les mots d'un toucher."] },
@@ -4523,24 +4533,24 @@
   })();
 
   // ------------------------------------------------------------------ the notebook
-  var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["notes", "Notes"], ["soupcons", "Soupçons"], ["tableau", "Tableau d'enquête"], ["documents", "Documents"], ["reconst", "Reconstitution"], ["ville", "La ville"], ["conseil", "Conseil"], ["dettes", "Dettes et promesses"], ["liens", "Qui est avec qui"], ["versions", "Versions"], ["secrets", "Secrets"], ["voiles", "Sous les mots"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["frise", "Frise"], ["marques", "Marque-pages"], ["exploits", "Hauts faits"], ["codex", "Bestiaire et atlas"], ["mots", "Mots"], ["journal", "Journal"], ["coulisses", "Coulisses"], ["intrigue", "L'intrigue"]];
+  var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["notes", "Notes"], ["soupcons", "Soupçons"], ["tableau", "Tableau d'enquête"], ["documents", "Documents"], ["reconst", "Reconstitution"], ["ville", "La ville"], ["conseil", "Conseil"], ["dettes", "Dettes et promesses"], ["liens", "Qui est avec qui"], ["versions", "Versions"], ["secrets", "Secrets"], ["chronique", "Chronique"], ["voiles", "Sous les mots"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["frise", "Frise"], ["marques", "Marque-pages"], ["exploits", "Hauts faits"], ["codex", "Bestiaire et atlas"], ["mots", "Mots"], ["journal", "Journal"], ["coulisses", "Coulisses"], ["intrigue", "L'intrigue"]];
   // Documents and Reconstitution only show in a story that has them (7.9).
   function tabsOf(st) {
     var docs = Object.keys(st.items || {}).some(function (k) { return st.items[k].kind === "document" && st.items[k].text; });
     var plan = Object.keys(st.mysteries || {}).some(function (k) { return st.mysteries[k].plan; });
     // A siege (8.0): the city's stocks, the council, debts and promises, who is with whom, when the story has them.
-    var has = { ville: !!(st.stocks || st.march), conseil: !!st.councils, dettes: !!st.promises, liens: !!st.ties, versions: !!st.accounts, secrets: !!st.secrets };
+    var has = { ville: !!(st.stocks || st.march), conseil: !!st.councils, dettes: !!st.promises, liens: !!st.ties, versions: !!st.accounts, secrets: !!st.secrets, chronique: !!st.chroniques };
     // 8.5 (Clément, 15/11): a tab shows only when the story has something to put in it.
     var n = function (o) { return Object.keys(o || {}).length; }, places = n((st.world || {}).places);
     has.quetes = n(st.quests) > 0; has.indices = n(st.clues) > 0; has.soupcons = has.tableau = n(st.mysteries) > 0;
     has.intrigue = n(st.savoirs) > 0 || n(st.leads) > 0; has.compagnons = n(st.companions) > 0; has.gens = n(st.people) > 0; has.carte = places > 1; has.codex = n(st.enemies) > 0 || places > 1;
     has.voiles = !!st.lenses;
     return TABS.filter(function (t) { return (t[0] !== "documents" || docs) && (t[0] !== "reconst" || plan) && (has[t[0]] == null || has[t[0]]); })
-      .map(function (t) { return t[0] === "ville" && st.stocksTab ? [t[0], st.stocksTab] : t; });
+      .map(function (t) { return t[0] === "ville" && st.stocksTab ? [t[0], st.stocksTab] : t[0] === "chronique" && st.chroniquesTab ? [t[0], st.chroniquesTab] : t; });
   }
   // The notebook's tabs in four groups (8.5): past nine tabs, the group is chosen first, then the tab.
   var TAB_GROUPS = [["toi", "Toi", ["heros", "sac", "quetes", "compagnons", "secrets"]], ["enquete", "L'enquête", ["indices", "soupcons", "tableau", "documents", "voiles", "reconst", "versions"]],
-    ["monde", "Le monde", ["gens", "carte", "ville", "conseil", "dettes", "liens", "codex", "mots"]], ["livre", "Le livre", ["intrigue", "journal", "frise", "marques", "notes", "exploits", "coulisses"]]];
+    ["monde", "Le monde", ["chronique", "gens", "carte", "ville", "conseil", "dettes", "liens", "codex", "mots"]], ["livre", "Le livre", ["intrigue", "journal", "frise", "marques", "notes", "exploits", "coulisses"]]];
   var TABS_FLAT = 9;
   function tabGroupOf(tab) { return (TAB_GROUPS.filter(function (g) { return g[2].indexOf(tab) >= 0; })[0] || TAB_GROUPS[0])[0]; }
   function renderCarnet() {
@@ -4575,7 +4585,7 @@
     var fill = function () {
       body.textContent = "";
       if ((A.carnetQ || "").trim().length >= SEARCH_MIN) { searchCarnet(body, G.story, G.s, A.carnetQ.trim()); return; }
-      ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, notes: tabNotes, soupcons: tabSuspects, tableau: tabBoard, documents: tabDocs, reconst: tabRecon, ville: tabCity, conseil: tabCouncil, dettes: tabDebts, liens: tabTies, versions: tabVersions, secrets: tabSecrets, voiles: tabVeils, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, frise: tabFrise, marques: tabMarks, exploits: tabFeats, codex: tabCodex, mots: tabWords, journal: tabLog, coulisses: tabBackstage, intrigue: tabPlot })[A.carnetTab](body, G.story, G.s);
+      ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, notes: tabNotes, soupcons: tabSuspects, tableau: tabBoard, documents: tabDocs, reconst: tabRecon, ville: tabCity, conseil: tabCouncil, dettes: tabDebts, liens: tabTies, versions: tabVersions, secrets: tabSecrets, chronique: tabChronique, voiles: tabVeils, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, frise: tabFrise, marques: tabMarks, exploits: tabFeats, codex: tabCodex, mots: tabWords, journal: tabLog, coulisses: tabBackstage, intrigue: tabPlot })[A.carnetTab](body, G.story, G.s);
     };
     fill();
     q.addEventListener("input", function () { A.carnetQ = q.value; fill(); });
@@ -5151,7 +5161,7 @@
   // ------------------------------------------------------------------ a siege (8.0)
   // The pills of the stocks a story marks `pill: true` (« Blé 612 · 14 j »).
   function stockPills(st, s) {
-    return Object.keys(st.stocks || {}).filter(function (k) { return st.stocks[k].pill; }).map(function (k) {
+    return Object.keys(st.stocks || {}).filter(function (k) { return st.stocks[k].pill && M.stockShown(st, s, k); }).map(function (k) {
       var D = st.stocks[k], v = M.stockNow(st, s, k), dl = M.daysLeft(st, s, k);
       return h("span", { class: "pill stock" + (dl != null && dl <= 3 ? " low" : ""), title: D.name + " : " + v + (D.unit ? " " + (v > 1 ? D.plural || D.unit : D.unit) : "") + (dl != null ? ", environ " + dl + " jour" + (dl > 1 ? "s" : "") + " au train d'aujourd'hui" : "") }, (D.short || D.name) + " " + v + (dl != null ? " · " + dl + " j" : ""));
     });
@@ -5163,7 +5173,7 @@
     return left <= 0 ? "échéance passée (" + when + ")" : (d >= 2 ? "dans " + d + " jours" : d === 1 ? "demain ou presque" : "dans " + left + " h") + " · " + when;
   }
   function tabCity(b, st, s) {
-    var ids = Object.keys(st.stocks || {});
+    var ids = Object.keys(st.stocks || {}).filter(function (k) { return M.stockShown(st, s, k); });
     if (ids.length) b.appendChild(h("div", { class: "label" }, st.stocksLabel || "Les réserves de la ville"));
     ids.forEach(function (k) {
       var D = st.stocks[k], v = M.stockNow(st, s, k), use = M.dailyUse(st, s, k), dl = M.daysLeft(st, s, k), max = D.max != null ? D.max : Math.max(D.start || 1, v);
@@ -5299,6 +5309,17 @@
         b.appendChild(h("div", { class: "itemrow" }, h("b", null, x.title), g[0] === "own" ? h("span", { class: "small muted" }, x.told ? "dit à " + M.interp(s, "{autre}") : "gardé") : null,
           h("div", { class: "desc", html: md(x.text) })));
       });
+    });
+  }
+  // Two players apart (9.6): the books that say something else when the world has changed, as they read now.
+  function tabChronique(b, st, s) {
+    var list = M.chroniquesOf(st, s);
+    if (!list.length) { b.appendChild(h("div", { class: "notice" }, "Rien encore.")); return; }
+    list.forEach(function (C) {
+      b.appendChild(h("div", { class: "label" }, C.title));
+      if (C.intro) b.appendChild(h("p", { class: "small muted", html: md(C.intro) }));
+      if (!C.lines.length) b.appendChild(h("div", { class: "notice" }, "Aucune ligne encore."));
+      C.lines.forEach(function (l) { b.appendChild(h("div", { class: "itemrow" }, l.head ? h("b", null, l.head) : null, h("div", { class: "desc", html: md(l.text) }))); });
     });
   }
   // Hidden words (9.1): the lenses in hand (and their charges), then every veil lifted, in the order found: where,

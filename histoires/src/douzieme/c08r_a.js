@@ -1,0 +1,358 @@
+// Le Douzième Coup · chapter 8, the one who stays, first half (act III, 17 June 601, four days before the sixtieth
+// Grand Midi). Five leagues from the quay of Arvoise to the abbey of Sainte-Aure. The bridge is chained until the
+// Oath: the crossing is at the Sablières, on the flood of 575, which bears whoever keeps walking (`r:guide_gue`,
+// `r:pas_de_quatre`, `r:vu_trous`, `r:gue_passe` | `r:gue_bu`) ; a barge of the registry held in mid-river
+// (`r:sait_refus_555`). The right bank: the Closed Lands, sealed house by house by the Regency between 555 and 575
+// (`r:glane_close` | `r:close_respect`), the pilgrims' road and its held flames (`r:lampe_lison`), a hillside where
+// one reads the pace of the Dormante row by row (`r:mesure_vignes`), Saint-Gnomon-des-Vignes under sequestration,
+// a rear patrol of the Guard (`r:patrouille_battue` | `r:patrouille_evitee` | `r:patrouille_vu`), the convoy of the
+// Master of Sands on the road (`r:devance_convoi`), and the valley of the abbey, where the note leaks out (M08).
+var P = {};
+var AMIE = { any: [{ has: "r:courtepaille_marche" }, { has: "r:courtepaille_quitte" }] };
+var FACHEE = { any: [{ has: "r:courtepaille_ennemie" }, { has: "r:courtepaille_volee" }, { has: "r:courtepaille_battue" }, { has: "r:courtepaille_dupe" }] };
+var RETARD = { has: "r:convoi_retarde" };
+
+Object.assign(P, {
+  K08r_route: { act: "III", title: "Le fleuve debout", place: "arvoise", ambiance: "eau", takes: "morning", fx: { stock: { sable: -1 } },
+    text: [
+      "Le pont est derrière toi, avec sa chaîne retombée. Tu remontes la berge vers l'amont, par le chemin de halage, une demi-lieue durant, et pendant toute cette demi-lieue tu as à main droite une chose que l'œil refuse.",
+      "La Thiorne de 575 a été prise au plus fort de sa crue, une nuit de pluie. Elle se tient plus haute que le chemin. On longe un mur d'eau brune, bombé, luisant, haut d'une toise par endroits, où sont arrêtés des troncs entiers, une barrique, un toit de chaume avec sa cheminée, un bœuf dont on voit les quatre sabots en l'air. Rien de tout cela ne tombe sur toi. La pluie de cette nuit-là est restée dans l'air, par-dessus, en fils gris, et l'on marche à travers en sentant sur la figure des gouttes qui ne mouillent pas.",
+      "Tu as grandi au bord de la Dormante. Tu sais qu'une eau prise porte celui qui la traverse d'un bon pas, et qu'elle se réveille sous celui qui s'attarde, dans le rond de temps qu'il promène avec son sable. Tous les glaneurs le savent. On le leur apprend avec les noms de ceux qui se sont attardés.",
+      { with: "rouget", text: "Rouget marche du côté des champs, le plus loin possible du mur brun. Il n'a pas dit trois mots depuis le quai, ce qui chez lui est un événement. « Je sais pas nager, lâche-t-il enfin. Je te le dis maintenant, pour pas te le dire au milieu. »" },
+      { with: "jehan", text: "Jehan regarde le fleuve comme un soldat regarde un terrain. « La Garde passe le pont. Les glaneurs passent les Sablières. On nous y menait en patrouille, au petit jour, pour les attendre de l'autre côté. » Il se reprend. « On *les* y menait. Je n'ai pas encore l'habitude. »" },
+    ],
+    choices: [{ label: "Suivre le halage jusqu'aux Sablières", to: "K08r_sablieres", big: true }] },
+
+  K08r_sablieres: { act: "III", title: "Les Sablières", backName: "les Sablières", place: "arvoise", ambiance: "eau",
+    text: [
+      { first: true, text: "Ici la vallée s'ouvre. Pendant deux siècles, on a tiré du lit de la Thiorne le sable des verriers de Roquebise, et la rivière en a gardé une plaine de fosses et de bancs, large d'un quart de lieue, où la crue s'est étalée au lieu de monter. L'eau prise y est presque plate. Elle fait de longues rides brunes, hautes comme le genou, l'une derrière l'autre, jusqu'à une ligne de saules gris qui est l'autre rive." },
+      { first: true, text: "Une grue de bois est restée debout sur la berge, sa flèche au-dessus de l'eau, un godet pendu au bout de la chaîne. Au pied, deux dragues échouées dans la crue jusqu'au plat-bord. Et, partant de la berge, une file de perches plantées dans les rides, avec un chiffon noué à chacune, qui s'en va tout droit vers les saules : la passe des glaneurs." },
+      { first: true, text: "La cabine de la grue fume. Quelqu'un y loge." },
+      { first: true, text: "À vingt pas de la file des perches, à main gauche, la surface brune a des trous. Tu en comptes trois, ronds, larges comme des puits. On les voit mal d'ici." },
+      { again: true, text: "La plaine d'eau brune, les perches à chiffons, la grue qui fume. Les saules de l'autre rive sont à un quart de lieue." },
+    ],
+    choices: [
+      { label: "La cabine de la grue", to: "K08r_bernache" },
+      { label: "Les trous, à gauche de la passe", hide: { seen: "K08r_trous" }, to: "K08r_trous" },
+      { label: "Demander à Jehan comment la Garde enseigne les gués", hide: { any: [{ not: { present: "jehan" } }, { seen: "K08r_jehan_gue" }] }, to: "K08r_jehan_gue" },
+      { label: "Rouget, assis sur une drague, qui ôte ses souliers et les remet", hide: { any: [{ not: { present: "rouget" } }, { seen: "K08r_rouget_gue" }] }, to: "K08r_rouget_gue" },
+      { label: "Entrer sur l'eau", to: "K08r_traversee", big: true },
+    ] },
+  K08r_bernache: { act: "III", title: "La Bernache", backName: "la Bernache", place: "arvoise", ambiance: "eau", fx: { meet: "bernache" },
+    text: [
+      { first: true, text: "On monte à la cabine par une échelle de meunier. Dedans, un poêle fait d'un bidon, une paillasse, des perches neuves en botte, et une femme assise sur un rouleau de corde, qui écorce une branche de saule avec un couteau de sabotier. Elle a soixante ans, une figure tannée, plate, des yeux très écartés, et les pieds nus, larges, aux orteils en éventail, de quelqu'un qui a marché trente ans sur une chose qui n'est ni la terre ni l'eau." },
+      { first: true, text: "« On m'appelle la Bernache. Je tiens la passe. C'est moi qui plante les perches, et c'est moi qui les déplace quand un imbécile a fait un trou à côté. » Elle te détaille, du sablier à ta ceinture jusqu'à tes semelles. « Roquebise. Tu marches comme ceux de la butte, sur les talons, à cause des tessons. Sur mon eau, ça ne pardonne pas. Sur mon eau, on marche sur le devant. »" },
+      { first: true, if: AMIE, text: "Elle hoche le menton. « La Courtepaille a fait passer le mot, le long de la lisière : un{e} de Roquebise, qui va loin dedans, et qui est en règle avec elle. Tu passes sur sa parole. Elle me paiera en chandelles, comme toujours, et en retard, comme toujours. »" },
+      { first: true, if: { all: [FACHEE, { not: AMIE }] }, text: "Elle hoche le menton, sans amitié. « La Courtepaille a fait passer le mot, le long de la lisière. Ton signalement, et ce qu'elle pense de toi. Je ne te noierai pas : je tiens une passe, pas un tribunal. Mais tu paies double, et tu paies d'avance. »" },
+      { first: true, if: { not: { any: [AMIE, FACHEE] } }, text: "« Je mène pour une pincée par tête, ou pour ce qui vaut une pincée. Je ne mène pas à crédit : mes débiteurs ont une façon de se noyer avant l'échéance. »" },
+      { again: true, text: "La Bernache écorce son saule. Une perche neuve s'allonge sur ses genoux, blanche et mouillée." },
+      { again: true, after: "r:guide_gue", text: "« Quand tu voudras, dit-elle sans lever les yeux. Je passe devant. Tu mets le pied où j'ai mis le mien. »" },
+    ],
+    choices: [
+      { label: "« Menez-nous, sur la parole de la Courtepaille. »", hide: { any: [{ not: AMIE }, { has: "r:guide_gue" }] }, fx: { flag: "r:guide_gue" }, to: "K08r_bernache_parole" },
+      { label: "« Menez-nous. Voici une pincée. »", hide: { any: [AMIE, FACHEE, { has: "r:guide_gue" }] }, if: { stock: "sable", min: 3 }, why: "Il te faut garder du sable pour passer.", fx: { stock: { sable: -1 }, flag: "r:guide_gue" }, to: "K08r_bernache_parole" },
+      { label: "« Menez-nous. Voici deux pincées, d'avance. »", hide: { any: [AMIE, { not: FACHEE }, { has: "r:guide_gue" }] }, if: { stock: "sable", min: 4 }, why: "Il te faut garder du sable pour passer.", fx: { stock: { sable: -2 }, flag: "r:guide_gue" }, to: "K08r_bernache_parole" },
+      { label: "Lui demander ce qu'elle a vu passer, ce matin, sur le pont", hide: { seen: "K08r_bernache_pont" }, to: "K08r_bernache_pont" },
+      { label: "Voir ce qu'elle troque", to: "K08r_bernache_troc" },
+      { back: "K08r_sablieres" },
+    ] },
+  K08r_bernache_parole: { act: "III", title: "Sur le devant du pied", place: "arvoise", ambiance: "eau",
+    text: [
+      "La Bernache plante son couteau dans le plancher. « Écoute, parce que je ne le dis qu'une fois, et que là-bas on n'entend rien. »",
+      "« L'eau te porte tant que tu la quittes. Un pied se pose, l'autre est déjà parti. Tu ne cours pas : celui qui court glisse, tombe, et celui qui tombe est arrêté. Tu ne t'arrêtes pour rien. Ni pour ton soulier, ni pour ton camarade, ni pour ce que tu verras au milieu, et tu verras quelque chose. Si tu sens du mou sous la semelle, c'est qu'elle se réveille : tu allonges. Si tu sens du froid à la cheville, tu allonges encore, et tu pries. »",
+      "« Les perches sont à douze pas l'une de l'autre. Tu comptes douze, tu touches le chiffon, tu repars. Tant que tu comptes, tu ne penses pas. C'est penser qui noie. »",
+      "Elle se lève, prend une perche neuve, la soupèse. « Je vais jusqu'aux saules et je reviens avant que ma soupe ait bouilli. Ça fait trente ans. Je n'y ai laissé personne qui m'ait écoutée. »",
+    ],
+    choices: [{ back: "K08r_bernache" }] },
+  K08r_bernache_pont: { act: "III", title: "Vu de la grue", place: "arvoise", ambiance: "eau",
+    text: [
+      "« De ma flèche, je vois le pont comme je te vois. » Elle crache une écorce. « Ils ont levé la chaîne à la diane. Douze fardiers, bâchés, six bœufs à chacun. Une voiture fermée, grise, avec des gardes aux portières. Deux cents hommes à pied. »",
+      { if: RETARD, text: "« Le dernier fardier a perdu une roue au milieu. Je l'ai entendu d'ici. Ils y sont encore, à cette heure, avec des crics, à jurer ; et la voiture grise attend derrière, entre deux parapets, sans pouvoir avancer ni reculer. » Elle a un petit rire plat. « Une clavette. Ça casse rarement toute seule, une clavette. Tu as une demi-journée sur eux, si tu ne la gâches pas chez moi. »" },
+      { if: { not: RETARD }, text: "« Ils ont passé rondement. À cette heure, ils ont une lieue et demie d'avance sur toi, par la chaussée, au pas des bœufs. Tu les rattraperas avant les vignes, que tu le veuilles ou non : six bœufs vont moins vite qu'une paire de jambes. Arrange-toi pour les rattraper de loin. »" },
+      "« Il y a autre chose. Hier soir, par la rive droite, j'ai vu des lanternes sur la route de Sainte-Aure. Des blanches, à verre dépoli, beaucoup. Les Veilleurs balaient leur chemin. Ils ne balaient qu'une fois l'an, quand la Régente monte prêter son Serment et couche chez eux. » Elle reprend son saule. « Tu vas tomber dans du beau monde. »",
+    ],
+    choices: [{ back: "K08r_bernache" }] },
+  K08r_bernache_troc: { act: "III", title: "Ce que la passe rapporte", backName: "le troc de la Bernache", place: "arvoise", ambiance: "eau", shop: "iii_bernache",
+    text: [
+      { first: true, text: "Elle tire de sous sa paillasse une caisse de marin. « Ce que les gens me laissent en paiement, et ce que les autres n'ont pas eu le temps de remporter. Je prends l'écu au sablier. Le vieil or, je le prends double. »" },
+      { first: true, text: "Dans un coin de la caisse, une douzaine de petites lampes de terre, grosses comme le poing, avec leur mèche. « Des veilleuses. Les pèlerins m'en achètent pour la route de l'abbaye. Tu comprendras en la voyant. »" },
+      { again: true, text: "La caisse de marin, ouverte sur le plancher." },
+    ],
+    choices: [{ back: "K08r_bernache" }] },
+  K08r_trous: { act: "III", title: "Trois puits dans une rivière", place: "arvoise", ambiance: "eau", fx: { flag: "r:vu_trous" },
+    text: [
+      "Tu t'avances sur la berge jusqu'à les avoir sous toi.",
+      "Ce sont des puits. La crue, autour, est plate et brune ; et dans cette surface il y a un trou rond, large de deux bras, profond d'une toise, aux parois lisses, comme si l'on avait enfoncé là un tonneau et qu'on l'eût retiré. Le bord du trou se relève en couronne : une collerette d'eau, hérissée de gouttes grosses comme des noix, arrêtées en l'air à hauteur de ta ceinture.",
+      "Au fond du premier, il y a un homme. Il est debout, les bras levés, la tête renversée, la bouche grande ouverte vers le rond de ciel. L'eau lui vient à la poitrine. Elle a la forme exacte de ses mouvements : on voit, autour de lui, les creux que ses bras ont battus. À sa ceinture pend un sablier de corne. Il est vide.",
+      "Tu comprends, à regarder, comment cela s'est fait. Il s'est arrêté. L'eau s'est réveillée dans son rond de temps, et seulement là ; il a traversé la surface comme on traverse une glace mince, et il s'est débattu dans un puits de rivière vivante, entre des murs de rivière morte, aussi longtemps que son sable a coulé. Puis le sable a fini, et tout s'est refermé sur l'instant où il criait.",
+      "Le deuxième puits est plus étroit. Celle qui est au fond a une hotte sur le dos, pleine. La perche la plus proche est à quatre pas de sa main.",
+      "Tu ne regardes pas le troisième.",
+    ],
+    choices: [{ back: "K08r_sablieres" }] },
+  K08r_jehan_gue: { act: "III", title: "Le pas de quatre", place: "arvoise", ambiance: "eau", fx: { flag: "r:pas_de_quatre" },
+    text: [
+      { with: "jehan", text: "Jehan joint les talons pour répondre, s'en aperçoit, les écarte." },
+      { with: "jehan", text: "« Le règlement dit : *pas de quatre*. On ne passe jamais seul, et jamais à la file. On passe à quatre de front, à un bras l'un de l'autre, en se tenant par une corde lâche. Le sergent compte tout haut. Quatre temps : gauche, droite, gauche, droite, et sur le quatre tout le monde a changé de ride. Si un homme mollit, les trois autres ne s'arrêtent pas ; ils le traînent. Il se relève en marchant ou il fait la passe sur le ventre. » Il réfléchit. « On en a traîné un jusqu'aux saules, en mars. Il s'est plaint du procédé. Il était vivant pour s'en plaindre. »" },
+      { with: "rouget", text: "Rouget a écouté, la tête basse. « Une corde, dit-il. Lâche. Et on me traîne. » Il relève le nez. « Ça me va. C'est la première chose de la Garde qui me va. »" },
+      "Tu regardes la corde que tu as, et le nombre que vous êtes. Le compte, au moins, tu peux le prendre : quatre temps, et l'on change de ride sur le dernier.",
+    ],
+    choices: [{ back: "K08r_sablieres" }] },
+  K08r_rouget_gue: { act: "III", title: "Un qui ne sait pas nager", place: "arvoise", ambiance: "eau", fx: { conf: { rouget: 1 } },
+    text: [
+      "Rouget a ôté ses souliers. Il les a remis. Il les ôte de nouveau, et les noue par les lacets autour de son cou.",
+      "« Chez nous, les petits, on leur fait passer le Rupt pris, pour rire, quand ils ont six ans. Le Rupt a deux toises de large. Moi, on m'a fait passer, et je me suis arrêté au milieu pour regarder un poisson. » Il montre son mollet, où il y a une vieille marque blanche, en anneau. « Ça m'a pris là. Froid comme un collet. La Courtepaille m'a sorti par les cheveux. Depuis, elle m'appelle pas autrement que *le poisson*, quand elle veut que j'obéisse. »",
+      "Il regarde le quart de lieue d'eau brune. « Tu me parles, pendant. N'importe quoi. Des bêtises. Si tu me parles, je regarde pas mes pieds. »",
+      "Tu promets des bêtises. Il a l'air soulagé : il sait que tu en as.",
+    ],
+    choices: [{ back: "K08r_sablieres" }] },
+
+  K08r_traversee: { act: "III", title: "Un quart de lieue sur la crue", place: "arvoise", ambiance: "eau",
+    text: [
+      "Le premier pas est le pire, parce qu'on le fait en regardant. Tu poses le pied sur une ride brune, luisante, où un brin de paille est arrêté en travers ; et la ride te reçoit. Elle a le grain d'une pierre mouillée et la tiédeur d'une bête. Elle ne cède pas. Tu sens seulement, sous la semelle, quelque chose qui commence à réfléchir.",
+      "Tu repars avant qu'elle ait fini.",
+      { after: "r:guide_gue", text: "La Bernache va devant, sa perche sur l'épaule, de son grand pas plat, sans se retourner. Ses pieds nus font sur l'eau un bruit de mains qu'on frappe doucement. Tu mets les tiens où elle a mis les siens." },
+      { before: "r:guide_gue", text: "Personne ne va devant. Il y a les perches, de douze pas en douze pas, et les chiffons, dont plusieurs sont très vieux." },
+      "La berge s'éloigne. La pluie de 575 pend autour de toi en fils gris. Un tronc est pris dans la ride voisine, avec toutes ses racines ; tu le contournes sans ralentir. Douze pas, un chiffon. Douze pas, un chiffon. Derrière toi, là où tu as marché, tu sais sans le voir que l'eau garde un instant la forme de tes semelles, puis l'oublie.",
+    ],
+    choices: [
+      { label: "Compter, et ne penser à rien", test: { dom: "nature", diff: 5, label: "Passer l'eau prise", help: [{ if: { has: "r:guide_gue" }, v: 20 }, { if: { has: "r:pas_de_quatre" }, v: 10 }, { if: { has: "r:vu_trous" }, v: 5 }, { if: { voie: "coureur" }, v: 10 }, { if: { voie: "heurier" }, v: 10 }] },
+        win: { fx: { flag: "r:gue_passe", ep: ["seance", 600] }, to: "K08r_milieu" }, lose: { fx: { flag: "r:gue_bu", stock: { sable: -1 }, pv: -2 }, to: "K08r_milieu" } },
+    ] },
+  K08r_milieu: { act: "III", title: "Ce qu'on voit au milieu", place: "arvoise", ambiance: "eau",
+    text: [
+      { outcome: "win", text: "Tu comptes. Gauche, droite, gauche, droite ; sur le quatre, une ride de moins. Tes jambes prennent la cadence toutes seules, et ta tête, qui n'a plus d'emploi, se tait. Vingt perches. Trente." },
+      { outcome: "lose", text: "À la vingtième perche, ton pied gauche glisse sur une branche prise, tu te rattrapes, et pour te rattraper tu restes un temps de trop sur le droit. La ride mollit. C'est une sensation qu'on n'oublie pas : la pierre devient de la boue, puis de l'eau, d'un seul coup, froide, autour de la cheville, avec le poids de toute une rivière qui se souvient de couler. Tu t'arraches. Tu y laisses la peau du talon et le souffle d'une pincée, que ton sablier a rendue d'un seul trait." },
+      { outcome: "lose", with: "rouget", text: "Une main t'a pris{e} par le col, et tire, de toutes ses forces de quatorze ans. Rouget ne s'est pas arrêté. Il t'a traîné{e} quatre pas en marchant, les yeux fermés, en jurant tout bas, sans reprendre haleine." },
+      "Au milieu de la passe, les perches font un coude. Elles contournent quelque chose.",
+      "C'est un bateau. Une gabare de rivière, pontée, large, qui descendait la crue en travers quand la crue s'est arrêtée ; elle est couchée sur une ride plus haute que les autres, la proue en l'air, et sa coque déborde sur la file des perches comme un mur. On passe à trois pas de son bordage. Elle porte, peint en blanc sur le noir du goudron : *GREFFE DES TERRES CLOSES. SERVICE DE LA RÉGENCE.*",
+      "Sur le pont, il y a des gens. Un homme à la barre, arc-bouté. Un autre, en robe de commis, à genoux sur un coffre, qu'il tient à deux bras. Une lanterne, pendue au mât, dont la flamme penche et ne tremble pas.",
+      "*Ni pour ce que tu verras au milieu.* Le bois d'un bateau est du bois. On s'y tient debout, on s'y arrête, on y souffle : c'est la seule chose solide à un quart de lieue à la ronde. La Bernache y a planté une perche, contre l'échelle de coupée, avec un chiffon rouge.",
+    ],
+    choices: [
+      { label: "Monter à bord, le temps de reprendre haleine", to: "K08r_barge" },
+      { label: "Passer au large, sans perdre le compte", to: "K08r_rive", big: true },
+    ] },
+  K08r_barge: { act: "III", title: "Le Greffe des Terres Closes", backName: "le pont de la gabare", place: "arvoise", ambiance: "eau",
+    text: [
+      { first: true, text: "Le pont est de travers, et ferme. Tu t'y assois, le dos au mât, et tu regardes tes genoux trembler tout leur soûl : ils ont attendu d'avoir du bois sous eux pour le faire." },
+      { first: true, text: "L'homme de barre a la figure tournée vers l'amont, d'où venait l'eau. Il la voit arriver depuis vingt-six ans. Le commis ne regarde rien ; il a fermé les yeux et couché la joue sur son coffre, qui est de chêne, ferré, avec trois serrures et les armes de la Régence. Il y a des gens qui se noient en tenant leur enfant, et d'autres en tenant leurs écritures." },
+      { first: true, with: "jehan", text: "Jehan lit l'inscription du bordage. « Le Greffe. Ils fermaient les maisons, devant la lisière, et ils emportaient les inventaires à Port-Régent. On nous a lu cela à l'instruction. On nous disait que c'était pour rendre. » Il regarde le coffre. « Il y en avait un par canton. Celui-ci n'est jamais arrivé. »" },
+      { again: true, text: "Le pont en pente de la gabare, l'homme de barre, le commis couché sur son coffre. La lanterne penche." },
+    ],
+    choices: [
+      { label: "Ouvrir le coffre du commis", hide: { seen: "K08r_barge_coffre" }, test: { dom: "discretion", diff: 5, label: "Trois serrures", help: [{ if: { voie: "leste" }, v: 15 }, { if: { voie: "rouage" }, v: 10 }, { if: { present: "rouget" }, v: 10 }] },
+        win: { fx: { flag: "r:sait_refus_555", ep: ["histoire", 400] }, to: "K08r_barge_coffre" }, lose: { to: "K08r_barge_coffre" } },
+      { label: "Redescendre sur l'eau, et finir la passe", to: "K08r_rive", big: true },
+    ] },
+  K08r_barge_coffre: { act: "III", title: "Canton de Sainte-Aure", place: "arvoise", ambiance: "eau",
+    text: [
+      { outcome: "lose", text: "Trois serrures de la Régence, et les bras d'un homme par-dessus, qui ont eu vingt-six ans pour prendre la forme du couvercle. Tu y casses une lame. Le commis garde ses écritures. Il y a mis plus de constance que tu n'y mets d'adresse." },
+      { outcome: "win", text: "Les deux premières serrures cèdent. La troisième est sous le coude du commis ; il faut lui soulever le bras, qui pèse le poids d'une statue, et travailler dessous. Le couvercle vient d'un doigt. Tu tires la première liasse qui se présente." },
+      { outcome: "win", text: "*Canton de Sainte-Aure-des-Heures. État des clôtures, de l'an 553 à l'an 556.* Des colonnes : le nom de la maison, le jour où l'on a muré la porte, le numéro du plomb, le montant de l'inventaire. Quarante fermes. Deux moulins. Tout est clos, plombé, chiffré. À la dernière ligne, l'écriture change." },
+      { outcome: "win", text: "*Abbaye des Heurières. N'a pu être close. Madame l'abbesse, requise par trois fois de faire sortir sa communauté devant la lisière, a répondu que l'office ne s'interrompt pas pour un déménagement ; que la maison chante depuis quatre cents ans sans reprendre haleine ; et qu'elle aimait mieux être prise au milieu d'un verset que de le laisser sans fin. Les soixante religieuses, consultées une à une par nous, hors de sa présence, ont dit de même. Procès-verbal de refus. Les biens n'ont pu être inventoriés, les sœurs étant dessus.*" },
+      { outcome: "win", text: "Le greffier a ajouté, plus bas, d'une encre plus pâle, une phrase qui n'est pas du style des greffes. *Elles chantaient quand je suis sorti. Je me suis retourné à la borne. Je les entendais encore.*" },
+      { outcome: "win", text: "Tu remets la liasse. On t'a toujours dit que le chœur de Sainte-Aure avait été pris en chantant, et tu avais cru à une surprise. Elles avaient vu venir la chose trois ans durant. Elles ont voté." },
+    ],
+    choices: [{ back: "K08r_barge" }] },
+
+  K08r_rive: { act: "III", title: "Les saules gris", place: "arvoise", ambiance: "eau", fx: { stock: { sable: -1 } },
+    text: [
+      "La seconde moitié est plus longue que la première, comme toutes les secondes moitiés. Les saules grandissent sans approcher. Puis, tout d'un coup, ils sont là, et la dernière ride vient mourir contre un talus d'herbe où tu tombes à genoux, les mains dans de la terre, de la vraie, qui ne pense à rien.",
+      { after: "r:guide_gue", text: "La Bernache n'est pas montée sur la berge. Elle a touché le premier saule du bout de sa perche, comme on touche un but, et elle a tourné sans s'arrêter. « Tu marches sur le devant, à présent, dit-elle par-dessus l'épaule. Ça te restera. » Elle s'en va sur l'eau, de son pas plat, vers sa soupe." },
+      { with: "rouget", text: "Rouget est couché sur le dos dans l'herbe, les bras en croix, ses souliers autour du cou. Il rit, sans bruit, de tout le ventre. « Tu m'as dit que les vaches avaient cinq pattes. Au milieu. Tu me l'as juré. » Tu ne t'en souviens pas. Il s'en souviendra toute sa vie." },
+      { with: "jehan", text: "Jehan s'est assis pour vider ses bottes, où il n'y a pas d'eau. Il les vide quand même, l'une après l'autre, comme on le lui a appris." },
+      "Derrière les saules, des toits. C'est Arvoise de la rive droite, la moitié de la ville que la crue a séparée de l'autre : une rue qui monte, un clocher dont le cadran marque trois heures un quart. Au-delà, la chaussée de Méridane reprend, entre deux rangs d'ormes, et s'enfonce dans un pays d'un gris plus serré, plus ancien, où l'on est entré vingt ans plus tôt.",
+    ],
+    choices: [
+      { label: "Le clocher de la rive droite, où il y a quelqu'un à la corde", hide: { seen: "K08r_tocsin" }, to: "K08r_tocsin" },
+      { label: "Prendre la chaussée", to: "K08r_closes", big: true },
+    ] },
+  K08r_tocsin: { act: "III", title: "Trois heures un quart", place: "arvoise", ambiance: "village",
+    text: [
+      "La porte du clocher est ouverte. En bas, sous la voûte, un sacristain en chemise de nuit, pieds nus sur la dalle, est pendu des deux mains à la corde de la grosse cloche. Il a les genoux pliés, les talons décollés du sol : la corde, en remontant, l'enlevait. Il sonnait le tocsin.",
+      "Tu lèves la tête. Trente pieds plus haut, par la trappe, on voit le ventre de la cloche, penchée à bout de volée, la gueule vers toi, et le battant, détaché du bronze, à deux doigts de frapper. Il n'a pas frappé. Ce coup-là est resté en l'air avec la pluie.",
+      "Par la rue, aux fenêtres, il y a des gens en bonnet, des chandelles, des figures tournées vers le fleuve. Une femme est sur son seuil, un paquet sous chaque bras. Ils l'ont entendu sonner. Ils se levaient.",
+      { after: "monde:lu:interdit", text: "*Tout ce qui a ouï le premier.* Tu regardes le battant suspendu. Il y a dans ce pays, d'un bout à l'autre, des cloches à qui il manque un coup. Celle-ci est une petite cloche de paroisse, pour qui personne ne viendra ; et l'homme en chemise attend le même bruit que toute une ville." },
+    ],
+    choices: [{ back: "K08r_rive" }] },
+
+  K08r_closes: { act: "III", title: "Les Terres Closes", backName: "la chaussée des Terres Closes", place: "abbaye", ambiance: "champs",
+    text: [
+      { first: true, text: "La chaussée monte doucement entre des ormes. Le pays qu'elle traverse a été pris à pas lents, un quart de lieue par an, de 555 à 575, et l'on avait eu le temps d'y mettre de l'ordre. La Régence y a mis de l'ordre." },
+      { first: true, text: "Toutes les maisons sont murées. La porte, les fenêtres, le soupirail, la lucarne du grenier : bouchés à la brique, proprement, au mortier, et sur la brique de la porte une plaque de fonte, la même partout. *Close l'an tant. Inventaire au Greffe de Port-Régent, numéro tant. Défense d'ouvrir, sous peine des galères.* Dessous, un plomb gros comme une prune, aux armes de la reine endormie." },
+      { first: true, text: "On marche une lieue entre des fermes sans yeux. Les gens d'ici sont partis vivants, avec un reçu. Ils ont attendu vingt ans, puis quarante, dans des faubourgs, que le Greffe leur rende ce que le Greffe avait compté ; et leurs petits-enfants ont encore le reçu, dans une boîte, avec les médailles." },
+      { first: true, text: "La moitié des plombs ont sauté. Ceux de ton métier sont passés par là avant ta naissance." },
+      { again: true, text: "La chaussée, ses ormes, ses fermes murées. Vers le levant, la route monte dans les vignes." },
+    ],
+    choices: [
+      { label: "Une ferme dont le plomb est entier", hide: { seen: "K08r_scelle" }, to: "K08r_scelle" },
+      { label: "Une petite flamme, au bord de la route, sur un piquet", to: "K08r_lampes" },
+      { label: "Un homme en mante bleue, assis sur une borne, qui taille une mèche", hide: { seen: "K08r_pelerin" }, to: "K08r_pelerin" },
+      { label: "Monter vers les vignes", to: "K08r_coteau", big: true },
+    ] },
+  K08r_scelle: { act: "III", title: "Close l'an 568", place: "abbaye", ambiance: "champs",
+    text: [
+      "C'est une ferme à cour carrée, un peu à l'écart, que les glaneurs ont manquée ou respectée. *Close l'an 568. Numéro 2 114.* La brique de la porte est entière. Le plomb est entier, vert-de-grisé, avec son bout de ficelle.",
+      "Tu connais ces maisons-là par ce qu'on en raconte au camp. Les gens du Greffe muraient vite, et inventoriaient plus vite encore : l'argenterie, le linge, le bétail. Ils laissaient ce qui ne se compte pas. On dit qu'une maison close garde, derrière sa brique, tout ce qu'une famille possédait de sans valeur, et que c'est le meilleur de la glane, pour qui sait à qui le revendre.",
+      "Une brique, au bas de la porte, a du jeu. Il suffirait de quatre pour passer les épaules.",
+      { with: "rouget", text: "Rouget a déjà le doigt sur la brique qui bouge. Il te regarde. Il attend que ce soit toi qui le dises." },
+      { with: "jehan", text: "Jehan s'est arrêté à la plaque. « Sous peine des galères », lit-il. Puis, plus bas : « Je les envoyais aux galères, il y a trois jours. Je ne dis rien. Je regarde de quel côté je suis. »" },
+    ],
+    choices: [
+      { label: "Ôter quatre briques", test: { dom: "discretion", diff: 0, label: "Entrer sans rien casser", help: [{ if: { voie: "leste" }, v: 15 }, { if: { present: "rouget" }, v: 10 }] },
+        win: { fx: { flag: "r:glane_close", gold: 3, ep: ["seance", 300] }, to: "K08r_scelle_fin" }, lose: { fx: { flag: "r:glane_close", pv: -1 }, to: "K08r_scelle_fin" } },
+      { label: "Laisser le plomb où il est", fx: { flag: "r:close_respect" }, to: "K08r_scelle_fin" },
+    ] },
+  K08r_scelle_fin: { act: "III", title: "Ce qui ne se compte pas", place: "abbaye", ambiance: "champs",
+    text: [
+      { outcome: "win", text: "Les briques viennent une à une, et tu les ranges, pour les remettre. Dedans, il fait noir, sec, et cela sent le blé de trente-trois ans. La salle est vide de ce que le Greffe a compté : la place de l'horloge sur le mur, plus claire ; quatre trous dans le plancher, où était le coffre. Il reste une table. Sur la table, quelqu'un a laissé, en partant, trois écus au sablier, alignés, et un papier dessous." },
+      { outcome: "win", text: "*Pour celui qui ouvrira. Nous savons qu'on ouvrira. Prenez l'argent et laissez le berceau, qui est au grenier : il a servi à cinq, il servira encore. Famille Hurtaud.* Tu prends l'argent. Tu montes au grenier. Le berceau y est, sous un drap, avec un hochet dedans. Tu redescends, tu ressors, et tu remets tes quatre briques, d'aplomb, avec plus de soin que tu n'en as mis à les ôter." },
+      { outcome: "lose", text: "La deuxième brique entraîne les six du dessus, qui te tombent sur le poignet. Tu passes quand même. Dedans : la place plus claire d'une horloge, les quatre trous d'un coffre, une table. Sur la table, trois écus alignés et un papier que tu lis en suçant tes jointures. *Pour celui qui ouvrira. Prenez l'argent et laissez le berceau, qui est au grenier. Famille Hurtaud.* Tu laisses le berceau. Tu laisses aussi l'argent : on ne se fait pas payer pour avoir défoncé une porte." },
+      { after: "r:close_respect", text: "Tu repousses la brique du bout du pied, jusqu'à ce qu'elle ne bouge plus. Il y a derrière ce mur ce qu'une famille n'a pas pu emporter et qu'un commis n'a pas su chiffrer. Tu en as assez dans ton sac qui vient de chez les autres." },
+      { after: "r:close_respect", with: "rouget", text: "Rouget retire son doigt. Il ne discute pas. Il crache seulement, de côté, pour marquer que c'était une belle brique." },
+      { after: "r:close_respect", with: "jehan", text: "Jehan a remis son chapeau. Il a l'air de quelqu'un qui vient de trouver de quel côté il est, et que cela repose." },
+    ],
+    choices: [{ back: "K08r_closes" }] },
+  K08r_pelerin: { act: "III", title: "Un nom à dire", place: "abbaye", ambiance: "champs",
+    text: [
+      "Il a quarante ans, une barbe carrée, la mante bleue des Veilleurs, et à la ceinture un sablier de corne où le grain passe un à un. Il taille une mèche de coton avec des ciseaux de brodeuse. Il te regarde venir sans surprise : sur cette route, tout ce qui bouge est un pèlerin ou un voleur, et il a l'habitude des deux.",
+      "« Frère Thècle, lampier de Sainte-Aure. J'entretiens la route. » Il montre du menton les piquets, devant, de cent toises en cent toises. « Tu vas à l'abbaye. Tout le monde y va, sur cette chaussée ; elle ne mène plus ailleurs. Je te dis donc l'usage, pour que la portière n'ait pas à te le dire, elle qui a mauvais caractère. »",
+      "« On n'entre pas chez nous sans un nom. Celui d'un dormant : le tien, ta mère, ta sœur, qui tu voudras, pourvu qu'il soit vrai et qu'il soit pris. La portière le demande. Elle l'écrit au Rôle. Ceux qui viennent pour ramasser n'ont jamais de nom prêt ; ils cherchent, et pendant qu'ils cherchent, elle ferme. »",
+      { after: "r:macaire_pincee", text: "Tu dis que tu as vu frère Macaire, à Roquebise, et qu'il t'a donné sa pincée du lendemain. Frère Thècle pose ses ciseaux. « Macaire. Il ferme encore des portes ? » Il rit dans sa barbe. « Alors tu es au Rôle, et tu n'auras qu'à dire la page. »" },
+      "« Autre chose. Ce soir, la maison reçoit. La Régente monte à Méridane pour son Serment, et elle couche chez nous, comme sa mère, et comme son grand-père. On a balayé l'allée. Il y aura des gardes à elle, en blanc, et sans doute des gardes à l'autre, en noir, qui se regarderont de travers par-dessus nos lampes. Tiens-toi du côté des lampes. »",
+    ],
+    choices: [{ back: "K08r_closes" }] },
+  K08r_lampes: { act: "III", title: "La route des veilleuses", backName: "les veilleuses", place: "abbaye", ambiance: "champs",
+    text: [
+      { first: true, text: "C'est une lampe de terre, grosse comme le poing, posée dans une niche de planches, sur un piquet. Elle brûle. La flamme est droite, pointue, d'un jaune très pur, et elle ne bouge pas plus qu'une flamme peinte." },
+      { first: true, text: "Tu approches la main. Elle éclaire, et elle a cessé de chauffer. Quelqu'un est venu ici avec du sable à la ceinture, a battu le briquet, a regardé prendre la mèche, et s'en est allé ; et la flamme, sortie de son rond de temps, est restée telle qu'il l'avait laissée. Il n'y a plus d'huile à brûler là-dedans. Il y a une lumière, pour toujours, à la hauteur d'un visage." },
+      { first: true, text: "Au piquet, un ruban, et sur le ruban un nom à l'encre : *Perrette Hurtaud, prise l'an 568, dans sa trentième année.* Tu lèves les yeux. Il y a un piquet à cent toises. Un autre plus loin. Puis ils se rapprochent ; puis ils se touchent ; et la chaussée, devant toi, jusqu'au haut de la côte, est bordée de deux fils de petites flammes immobiles, par centaines, en plein jour." },
+      { again: true, before: "r:lampe_lison", text: "Les veilleuses, de piquet en piquet, chacune avec son ruban et son nom. Pas une ne tremble." },
+      { again: true, after: "r:lampe_lison", text: "Les veilleuses, de piquet en piquet. Tu sais laquelle est la tienne, à présent : la dernière avant l'orme fourchu." },
+    ],
+    choices: [
+      { label: "En allumer une, et y nouer un nom", hide: { has: "r:lampe_lison" }, if: { all: [{ item: "veilleuse" }, { stock: "sable", min: 3 }] }, why: "Il te faut une veilleuse de terre, et du sable de reste.", fx: { drop: "veilleuse", flag: "r:lampe_lison", ep: ["perso", 500] }, to: "K08r_lampe_lison" },
+      { back: "K08r_closes" },
+    ] },
+  K08r_lampe_lison: { act: "III", title: "Lison, prise l'an 595", place: "abbaye", ambiance: "champs",
+    text: [
+      "Il y a un piquet nu, le dernier avant un orme fourchu. Quelqu'un l'a planté d'avance : les Veilleurs savent qu'il viendra toujours quelqu'un.",
+      "Tu poses la lampe de terre dans la niche. Tu bats le briquet. La mèche prend mal, fume, puis donne une petite flamme bleue, qui jaunit et s'allonge. Tu la regardes faire. Tant que tu es là, elle vit : elle penche quand tu respires, elle boit son huile.",
+      "Tu n'as pas de ruban. Tu déchires une bande au bas de ta chemise et tu écris dessus avec le bout brûlé d'une allumette, en bâtons, comme dans le Cahier. *LISON. PRISE L'AN 595. CINQ ANS.* Tu fais le nœud.",
+      { with: "rouget", text: "Rouget s'est découvert, ce qu'il ne fait pour personne. Il sait qui est Lison. Il ne dit rien de malin." },
+      "Puis tu recules. Un pas, deux, trois. Au quatrième, la flamme cesse de pencher. Elle se tient droite, pointue, jaune, et elle est exactement comme les autres.",
+      "Tu la laisses derrière toi. Dans une maison de Roquebise, à quinze lieues, il y a une petite fille de cinq ans ; et il y a maintenant, sur la route de Sainte-Aure, une lumière à son nom, qui durera ce qu'elle durera.",
+    ],
+    choices: [{ back: "K08r_closes" }] },
+
+  K08r_coteau: { act: "III", title: "De la taille à la vendange", place: "abbaye", ambiance: "champs", fx: { stock: { sable: -1 } },
+    text: [
+      "La chaussée entre dans les vignes, et les vignes disent tout.",
+      "C'est un coteau exposé au midi, planté par rangs, du bas jusqu'à la crête. La lisière l'a monté à son pas d'alors, de bas en haut, en y mettant les trois quarts d'une année ; et chaque rang a été pris à son jour. Au pied de la côte, les ceps sont nus, noirs, taillés court, avec les sarments coupés en tas dans les allées : c'était la Chandeleur. Cent pas plus haut, ils pleurent, une goutte de sève arrêtée au bout de chaque bois. Plus haut, les bourgeons, gros comme l'ongle. Plus haut, la feuille. Puis la fleur, qu'on ne voit pas et qu'on respire, en marchant, par bouffées.",
+      "À mi-côte, le raisin est vert, dur, gros comme des pois. Il grossit de rang en rang. Il tourne. Sous la crête, il est mûr, noir, lourd, et il y a entre deux rangs une hotte posée, à demi pleine, et un sécateur planté dans un piquet. On a vendangé ici jusqu'au dernier jour, à dix toises devant la lisière.",
+      "Une année de vigne, de la taille à la vendange, étagée sur une seule colline, sous le même soleil gris. Tu la montes en un quart d'heure.",
+      { after: "r:sait_acceleration", text: "Tu fais le compte que Line faisait. Un sixième de lieue, du pied à la crête, en huit mois : un quart de lieue par an. À ce pas-là, la Dormante aurait touché les Trois-Noyers dans quatorze ans. Elle y est depuis ce printemps. Tu as vu hier, de l'autre côté du fleuve, le pays rayé à grandes bandes d'une demi-lieue, un été, un hiver. Ici, une saison tient dans cent pas." },
+      { before: "r:sait_acceleration", text: "Un sixième de lieue en huit mois : un quart de lieue par an. Tu te rappelles le pays d'hier, de l'autre côté du fleuve, rayé à grandes bandes d'une demi-lieue, un été, un hiver. Ici, une saison tient dans cent pas. Quelque chose a pressé le pas, entre ce coteau et chez toi." },
+      "Au sommet de la côte, un clocher trapu sort des ceps, avec un cadran d'un bleu passé.",
+    ],
+    choices: [
+      { label: "Compter les pas, du premier cep nu à la hotte, et l'écrire", hide: { has: "r:mesure_vignes" }, fx: { flag: "r:mesure_vignes", ep: ["histoire", 300] }, to: "K08r_coteau_compte" },
+      { label: "Monter au village", to: "K08r_village", big: true },
+    ] },
+  K08r_coteau_compte: { act: "III", title: "Six cents pas, huit mois", place: "abbaye", ambiance: "champs",
+    text: [
+      "Tu comptes en remontant, à voix basse, comme on compte des moutons. Six cents pas du premier cep taillé à la hotte du vendangeur.",
+      "Tu t'assois sur un mur de pierres sèches et tu écris cela dans la marge de la Chronique, sous les chiffres de Line, de ton écriture en bâtons. *SAINT-GNOMON, AN 563. 600 PAS, DE LA CHANDELEUR À LA SAINT-MICHEL.* Elle a des relevés pour la lisière d'aujourd'hui, pris à la corde, tous les mois, pendant quarante ans. Il lui manquait ceux d'avant : elle n'a jamais pu venir jusqu'ici.",
+      "Tu regardes les deux colonnes côte à côte. Celle du coteau est une droite. La sienne commence droite, puis elle plie, puis elle monte, de plus en plus raide, comme le bord d'un bol.",
+      "Tu as vu de l'eau faire cela, ce matin, autour d'un homme au fond d'un trou. Une chose qu'on retient longtemps finit par venir toute à la fois.",
+    ],
+    choices: [{ back: "K08r_coteau" }] },
+
+  K08r_village: { act: "III", title: "Saint-Gnomon-des-Vignes, sous séquestre", backName: "la place de Saint-Gnomon", place: "abbaye", ambiance: "village",
+    text: [
+      { first: true, text: "Vingt maisons à escalier dehors, des caves au ras du sol, une église. Tout est muré, plombé, numéroté, jusqu'au soupirail des caves. Sur la place, le Greffe a planté un poteau avec un écriteau de fonte, plus grand que les autres." },
+      { first: true, text: "*Les vignes, pressoirs et caves de cette paroisse, appartenant pour les deux tiers à maître Hippolyte Rouet, Horloger-Juré, pris à Méridane l'an 541, sont placés sous séquestre et affermés au profit du Trésor, jusqu'au réveil dudit propriétaire.* On a donc vendangé ici, vingt-deux automnes de suite, le vin d'un homme arrêté à neuf lieues de là devant son dîner, et l'on a mis le produit de côté pour lui, dit l'écriteau. Tu aimerais voir le registre." },
+      { first: true, text: "Le clocher porte un cadran bleu, à chiffres d'or, que soixante ans de soleil ont passé au gris d'ardoise. Les aiguilles sont arrêtées sur sept heures moins un quart. C'est l'heure où la lisière a touché l'église, un soir ou un matin de l'an 563." },
+      { again: true, text: "La place de Saint-Gnomon, murée, plombée. Le cadran bleu marque sept heures moins un quart." },
+    ],
+    choices: [
+      { label: "Le cabaret de la Grappe, dont la porte n'a plus ses briques", hide: { seen: "K08r_patrouille_fin" }, to: "K08r_grappe" },
+      { label: "Le haut du village, d'où l'on voit la route", to: "K08r_convoi", big: true },
+    ] },
+  K08r_grappe: { act: "III", title: "À la Grappe", place: "abbaye", ambiance: "village",
+    text: [
+      "L'enseigne pend encore : une grappe de fer, noire. Les briques de la porte sont en tas sur le seuil, et la poussière du tas est fraîche. On est entré là ce matin.",
+      "Tu écoutes. Dans un pays pris, on entend de loin ce qui vit : il n'y a rien pour couvrir. Deux voix, dans la salle. Un bruit de verre contre du verre. Quelqu'un rit.",
+      "Par la fente d'un volet, tu vois deux casaques noires, au sablier d'or, attablées devant six bouteilles que le Greffe a oubliées ou que le fermier du séquestre gardait pour lui. Leurs sabres sont sur la table. L'arrière-garde du convoi a trouvé une cave, et a décidé que les fardiers n'avaient pas besoin d'elle avant midi.",
+      { with: "jehan", text: "Jehan a regardé par la fente après toi. Il recule, très pâle. « Gaucher et le Bègue. Ma chambrée. » Il a la main sur la poignée de son sabre, et il ne sait pas ce qu'elle y fait. « S'ils me voient sans casaque, ils sauront. S'ils savent, ils le diront au brigadier ce soir. »" },
+    ],
+    choices: [
+      { label: "Entrer, et leur tomber dessus pendant qu'ils ont le verre en main", fight: { title: "La Grappe", enemies: [{ id: "garde_sable", n: 2 }], terrain: "interieur",
+        win: { fx: { flag: "r:patrouille_battue", stock: { sable: 2 }, ep: ["seance", 700] }, to: "K08r_patrouille_fin" }, lose: { fx: { pv: 3, flag: "r:patrouille_vu" }, to: "K08r_patrouille_fin" } } },
+      { label: "Passer derrière le cabaret, par les caves", test: { dom: "discretion", diff: 5, label: "Passer sous deux gardes", help: [{ if: { voie: "leste" }, v: 15 }, { if: { present: "rouget" }, v: 5 }] },
+        win: { fx: { flag: "r:patrouille_evitee" }, to: "K08r_patrouille_fin" }, lose: { fx: { flag: "r:patrouille_vu", stock: { sable: -1 } }, to: "K08r_patrouille_fin" } },
+      { back: "K08r_village" },
+    ] },
+  K08r_patrouille_fin: { act: "III", title: "L'arrière-garde", place: "abbaye", ambiance: "village",
+    text: [
+      { after: "r:patrouille_battue", text: "Un homme qui a bu trois bouteilles se bat avec conviction et sans adresse. Le premier va s'asseoir contre le comptoir, le souffle coupé ; le second lâche son sabre pour se tenir le nez. Tu leur prends leurs sabliers de réserve, que tu vides dans le tien, et tu leur laisses celui qu'ils ont à la ceinture : on ne condamne pas un homme à être pris pour avoir bu sur sa faction." },
+      { after: "r:patrouille_battue", with: "jehan", text: "Jehan est resté sur le seuil, la figure dans l'ombre. Le Bègue l'a regardé quand même, par-dessus sa main en sang. Il a ouvert la bouche. Il lui a fallu longtemps. « C-Coudray. » Jehan a soutenu son regard. « Coudrier », a-t-il dit. Puis il est sorti." },
+      { after: "r:patrouille_evitee", text: "Les caves de Saint-Gnomon communiquent, de maison en maison, par des boyaux où les vignerons roulaient leurs fûts. Tu passes sous le cabaret, à quatre pattes, entre des tonneaux vides. Au-dessus de ta tête, par le plancher, les deux voix chantent une chanson de troupe dont tu connais l'air, et dont les paroles ont été faites contre les glaneurs." },
+      { after: "r:patrouille_vu", before: ["r:patrouille_battue", "r:patrouille_evitee"], text: "Ils t'ont vu{e}. Tu sors du village par le haut, en courant, avec derrière toi des bottes, des jurons, et un coup de sifflet qui porte loin dans ce pays sans bruit. Ils sont trop ivres pour te suivre dans les vignes. Ils ne le sont pas assez pour avoir oublié ta figure ce soir, au rapport." },
+    ],
+    choices: [{ label: "Gagner le haut du village", to: "K08r_convoi", big: true }] },
+
+  K08r_convoi: { act: "III", title: "Douze cuves sur une route", place: "abbaye", ambiance: "champs",
+    text: [
+      "Du calvaire, au-dessus des dernières maisons, on voit trois lieues de chaussée : elle descend dans un fond, remonte, et disparaît derrière un bois de tilleuls d'où dépasse un clocher sans horloge.",
+      { if: RETARD, text: "La route est vide jusqu'aux tilleuls. Tu te retournes. Derrière toi, très loin, du côté du fleuve, il y a une poussière qui ne retombe pas, pendue au-dessus des ormes, là où elle s'est levée : le convoi a fini par passer son pont. Il est à deux lieues en arrière. Tu seras à Sainte-Aure avant lui, et de beaucoup." },
+      { if: { not: RETARD }, text: "Le convoi est dans le fond. Douze fardiers, à la file, chacun sous sa bâche grise, bombée, haute comme une meule ; les bœufs par six ; les casaques noires en deux haies. En queue, une berline, petite et grise, les stores baissés. Tout cela avance au pas, sans un bruit qui monte jusqu'à toi, dans une poussière que ses propres roues soulèvent et qui reste en l'air derrière lui, immobile, comme une traîne." },
+      { if: { not: RETARD }, text: "Line est dans la voiture grise. À cette distance, la berline a la taille d'un grain de plomb." },
+      { if: { all: [{ not: RETARD }, { has: "r:jehan_reste" }] }, text: "Un point noir marche contre la portière, du côté gauche." },
+      { if: { not: RETARD }, text: "La chaussée est à eux. Pour arriver à l'abbaye, il faut les passer, ou les suivre." },
+    ],
+    choices: [
+      { label: "Descendre par la chaussée, puisqu'elle est libre", hide: { not: RETARD }, fx: { flag: "r:devance_convoi" }, to: "K08r_vallon", big: true },
+      { label: "Les doubler par les vignes, à couvert des murets", hide: RETARD, test: { dom: "discretion", diff: 5, label: "Doubler un convoi", help: [{ if: { voie: "coureur" }, v: 15 }, { if: { voie: "leste" }, v: 10 }, { if: { present: "jehan" }, v: 10 }, { if: { has: "r:patrouille_vu" }, v: -10 }] },
+        win: { fx: { flag: "r:devance_convoi", ep: ["seance", 500] }, to: "K08r_vallon" }, lose: { fx: { stock: { sable: -1 } }, to: "K08r_vallon" } },
+      { label: "Les suivre de loin, dans leur poussière", hide: RETARD, to: "K08r_vallon" },
+    ] },
+  K08r_vallon: { act: "III", title: "Le vallon de Sainte-Aure", place: "abbaye", ambiance: "temple",
+    text: [
+      { outcome: "win", text: "Les murets de vigne font des chemins creux, à hauteur d'épaule. Tu cours plié{e} en deux, une demi-lieue, à cent toises de la route, en comptant les fardiers par les brèches : douze, onze, dix. À la tête du convoi, un officier à cheval regarde du mauvais côté. Tu reprends la chaussée devant lui, derrière un tournant, et tu allonges." },
+      { outcome: "lose", text: "Les murets sont plus bas que tu ne croyais. À la hauteur du sixième fardier, un garde tourne la tête, lève le bras, crie. Tu te jettes à plat ventre entre deux rangs, sous les grappes de l'an 559, et tu restes là, le nez dans la terre, pendant que le convoi tout entier te passe devant, roue après roue, avec une lenteur de procession. Ton sablier coule. Tu arrives derrière eux." },
+      { before: "r:devance_convoi", text: "Quand tu atteins le haut de la dernière côte, les fardiers sont rangés au bord de la chaussée, à l'entrée du vallon, dételés, et les casaques noires montent leurs faisceaux dans un pré. Le Maître des Sables fait halte à Sainte-Aure." },
+      "Le vallon s'ouvre d'un coup, sous toi. Il est plein de lumières.",
+      "On t'avait dit des lampes. Il y en a des milliers. Elles couvrent les deux pentes, par rangs, par terrasses, sur des piquets, dans des niches, à même les murets : un pré entier de petites flammes droites, jaunes, qui ne tremblent pas, chacune avec son ruban. Quarante ans de pèlerins. Au milieu, dans le fond, il y a des toits d'ardoise, un cloître, un clocher qui n'a pas de cadran, et une allée de tilleuls qui descend de la route.",
+      "Tu descends. Tu t'attendais au silence. Il y a autre chose.",
+    ],
+    choices: [{ label: "Prendre l'allée des tilleuls", to: "K08r_tilleuls", big: true }] },
+  K08r_tilleuls: { act: "III", title: "La note", place: "abbaye", ambiance: "temple",
+    text: [
+      "Vingt-quatre tilleuls, douze de chaque côté. Les Veilleurs ont balayé entre eux, ce matin, et le gravier garde les raies du balai.",
+      "Tu l'entends au troisième arbre. C'est très faible : un son, un seul, tenu, comme celui d'un verre dont on frotte le bord. Tu t'arrêtes pour mieux écouter.",
+      "Il n'y a plus rien.",
+      "Tu repars. Le son revient. Il est fait de plusieurs voix, des voix de femmes, sur un accord grave et large, et il monte un peu quand tu presses le pas, et il descend quand tu ralentis. Tu t'arrêtes de nouveau. Le silence tombe, entier, comme une porte.",
+      "Tu as compris avant la fin de l'allée, parce que tu as passé une rivière ce matin. Elles chantaient quand elles ont été prises, et l'air de ce vallon a été pris avec leur voix dedans. La note est là, partout, arrêtée comme la crue. Elle attend. Il faut marcher dedans : c'est toi qui passes à travers elle, avec ton rond de temps, et qui la fais sonner au passage, comme un doigt sur une corde.",
+      { with: "rouget", text: "Rouget a fait l'expérience trois fois, en avant, en arrière, les yeux ronds. Puis il s'est mis à courir, pour voir ; et tu l'as entendu, toi, pousser un petit cri au bout de l'allée. « Ça monte ! Quand tu cours, elles montent ! »" },
+      { with: "jehan", text: "Jehan marche au pas, sans s'arrêter, la tête un peu penchée. « On nous disait que c'était une superstition de glaneurs. Qu'on n'entendait rien. » Il fait encore dix pas. « Ils n'y sont jamais venus à pied. Ils y viennent en voiture. »" },
+      "Au bout de l'allée, sous le dernier tilleul, une petite sainte de pierre, usée jusqu'à n'avoir plus de visage, porte un cadran sur la poitrine. On a posé à ses pieds des centaines de choses : des rubans, des souliers d'enfant, des clefs.",
+    ],
+    choices: [{ label: "S'agenouiller au pied de la sainte, du côté où elle fait de l'ombre à midi", fx: { stock: { sable: 2 } }, to: "M08", big: true }] },
+});
+
+module.exports = {
+  passages: P,
+  extras: {
+    people: {
+      bernache: { name: "La Bernache", f: true, aka: ["la Bernache"], face: { age: "mur", skin: "hale", hair: "gris", coif: "foulard", eyes: "ronds", iris: "gris", nose: "large", lips: "fines", shape: "carre" },
+        aspect: { allure: "soixante ans, une figure plate et tannée", habits: "pieds nus, larges, les orteils en éventail", signe: "écorce des perches de saule" }, qui: "Elle tient la passe des Sablières.", desc: "Glaneuse. Elle tient la passe des Sablières depuis trente ans : elle plante les perches, mène pour une pincée, et n'a perdu personne qui l'ait écoutée." },
+    },
+    items: {
+      veilleuse: { name: "Veilleuse de terre", kind: "divers", price: 1, desc: "Une petite lampe de terre, grosse comme le poing, avec sa mèche et son huile. Les pèlerins en allument sur la route de Sainte-Aure, au nom d'un dormant." },
+    },
+    shops: {
+      iii_bernache: { name: "La caisse de la Bernache", sells: [{ item: "veilleuse", price: 1 }, { item: "corde", price: 2 }, { item: "pain", price: 1 }, { item: "onguent", price: 3 }, { item: "fiole_sable", price: 12 }] },
+    },
+  },
+};

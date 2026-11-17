@@ -18,6 +18,8 @@ var CASES = [
   { name: "passage ordinaire", html: ["Tu entres.", "Puis tu sors."], p: 0, letter: "T", lead: "" },
   { name: "réplique entre guillemets", html: ["« Viens ici », dit Colin."], p: 0, letter: "V", lead: "«" },
   { name: "tiret de dialogue", html: ["— Assieds-toi."], p: 0, letter: "A", lead: "—" },
+  { name: "abréviation d'une lettre", html: ["M. Utterson le notaire était un homme d'une mine renfrognée."], p: 0, letter: "M.", lead: "" },
+  { name: "initiale suivie d'un mot", html: ["L'étranger arriva en février."], p: 0, letter: "L", lead: "" },
   { name: "début en gras", html: ["<strong>Silence.</strong> Puis un cri."], p: 0, letter: "S", lead: "" },
   { name: "rien que des didascalies", html: ["<em>(Une heure passe.)</em>"], p: -1 },
   { name: "page déjà lue", html: ["<span>Tu connais déjà cette page.</span>"], reread: true, p: -1 },

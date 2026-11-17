@@ -1,0 +1,53 @@
+// « L'Île au trésor » (Treasure Island), R. L. Stevenson, 1883 : un livre à lire, sans choix (lecture: true).
+// Texte : traduction nouvelle par Claude, faite pour cette bibliothèque à partir du texte anglais (Project Gutenberg
+// n° 120, domaine public). La dédicace et le poème « À l'acheteur qui hésite » ouvrent le livre ; la note de Stevenson
+// au chapitre 21 est remise à son appel, entre parenthèses. Les titres des chapitres sont ceux de Stevenson, traduits ;
+// les six parties du roman sont rappelées dans les résumés. Tout ce qui n'est pas de Stevenson vit dans les tags.
+// Chapitre C16 · Chapitre 16 · Récit continué par le docteur : comment le navire fut abandonné
+module.exports = {
+  C16_1: { act: "C16", title: "Le docteur va à terre", place: "mouillage",
+    text: [
+      "Il était environ une heure et demie (trois coups, en langage de marin) quand les deux canots quittèrent l'*Hispaniola* pour la terre. Le capitaine, le squire et moi discutions de la situation dans la cabine. S'il y avait eu un souffle de vent, nous serions tombés sur les six mutins restés à bord avec nous, nous aurions filé notre câble, et en route pour le large. Mais le vent manquait ; et pour achever notre impuissance, Hunter descendit nous apprendre que Jim Hawkins s'était glissé dans un canot et était parti à terre avec les autres.",
+      "Il ne nous vint pas à l'idée de douter de Jim Hawkins ; mais nous fûmes alarmés pour sa sûreté. Avec les hommes dans l'humeur où ils étaient, il semblait qu'il y eût une chance sur deux de revoir le garçon. Nous courûmes sur le pont. La poix bouillonnait dans les coutures ; l'odeur répugnante de l'endroit me soulevait le cœur ; si jamais homme a senti la fièvre et la dysenterie, ce fut dans cet abominable mouillage. Les six coquins étaient assis à grogner sous une voile, sur le gaillard d'avant ; à terre, nous voyions les youyous amarrés, et un homme assis dans chacun, tout près de l'endroit où la rivière se jette. L'un d'eux sifflait « Lillibullero ».",
+      "L'attente était pénible, et il fut décidé que Hunter et moi irions à terre avec la yole, aux nouvelles.",
+      "Les youyous avaient appuyé sur leur droite ; mais Hunter et moi nagâmes tout droit, dans la direction de la palissade marquée sur la carte. Les deux hommes qui gardaient leurs canots parurent s'agiter à notre apparition ; « Lillibullero » s'arrêta net, et je pus voir la paire discuter de ce qu'ils devaient faire. S'ils étaient allés prévenir Silver, tout aurait pu tourner autrement ; mais ils avaient leurs ordres, je suppose, et décidèrent de rester tranquillement assis où ils étaient et de reprendre « Lillibullero ».",
+      "Il y avait une légère courbe dans la côte, et je gouvernai de façon à la mettre entre eux et nous ; si bien qu'avant même d'aborder, nous avions perdu de vue les youyous. Je sautai à terre et avançai aussi près de la course que je l'osai, un grand mouchoir de soie sous mon chapeau pour la fraîcheur, et une paire de pistolets amorcés pour la sûreté.",
+      "Je n'avais pas fait cent yards que j'arrivai à la palissade.",
+      "Voici comment c'était : une source d'eau claire jaillissait presque au sommet d'un tertre. Eh bien, sur le tertre, et enfermant la source, on avait planté une solide maison de rondins, capable de contenir une quarantaine de personnes au besoin, et percée de meurtrières pour la mousqueterie de chaque côté. Tout autour, on avait dégagé un large espace ; et l'ouvrage était complété par une palissade de six pieds de haut, sans porte ni ouverture, trop solide pour être abattue sans temps ni peine, et trop ajourée pour abriter des assiégeants. Les gens de la maison de rondins les tenaient de toutes les manières ; ils restaient tranquillement à l'abri et tiraient les autres comme des perdrix. Il ne leur fallait qu'une bonne garde et des vivres ; car, à moins d'une surprise complète, ils auraient pu tenir la place contre un régiment.",
+      "Ce qui me plut particulièrement, ce fut la source. Car, si nous étions assez bien installés dans la cabine de l'*Hispaniola*, avec quantité d'armes et de munitions, de quoi manger et d'excellents vins, il y avait une chose qu'on avait négligée : nous n'avions pas d'eau. J'y réfléchissais quand retentit à travers l'île le cri d'un homme sur le point de mourir. La mort violente ne m'était pas nouvelle (j'ai servi Son Altesse Royale le duc de Cumberland, et j'ai été blessé moi-même à Fontenoy) ; mais je sais que mon pouls fit un bond et un raté. « Jim Hawkins est perdu », fut ma première pensée.",
+      "C'est quelque chose que d'avoir été un vieux soldat, mais plus encore d'avoir été médecin. Il n'y a pas de temps à perdre en tergiversations dans notre métier. Aussi pris-je ma résolution sur-le-champ, et, sans perdre de temps, je retournai au rivage et sautai dans la yole.",
+      "Par bonheur, Hunter avait un bon coup d'aviron. Nous fîmes voler l'eau, et le canot fut bientôt le long du bord et moi à bord de la goélette."
+    ] },
+
+  C16_2: { act: "C16", title: "L'abandon du navire", place: "hispaniola", fx: { meet: ["gray"] },
+    text: [
+      "Je les trouvai tous ébranlés, comme c'était naturel. Le squire était assis, blanc comme un linge, songeant au mal où il nous avait menés, la bonne âme ! Et l'un des six hommes du gaillard d'avant ne valait guère mieux.",
+      "— Voilà un homme, dit le capitaine Smollett avec un signe de tête de son côté, qui est nouveau à ce métier. Il a bien failli s'évanouir, docteur, quand il a entendu le cri. Encore un coup de barre, et cet homme-là nous rejoindrait.",
+      "J'exposai mon plan au capitaine, et à nous deux nous en réglâmes les détails d'exécution.",
+      "Nous postâmes le vieux Redruth dans la coursive entre la cabine et le gaillard d'avant, avec trois ou quatre mousquets chargés et un matelas pour se protéger. Hunter amena le canot sous le sabord de poupe, et Joyce et moi nous mîmes à le charger de boîtes de poudre, de mousquets, de sacs de biscuits, de barils de porc, d'un tonnelet de cognac et de mon inestimable coffre à médicaments.",
+      "Pendant ce temps, le squire et le capitaine restaient sur le pont, et ce dernier héla le patron de chaloupe, qui était le principal personnage à bord.",
+      "— Monsieur Hands, dit-il, nous sommes deux ici avec chacun une paire de pistolets. Si l'un de vous six fait un signal de quelque espèce que ce soit, cet homme est mort.",
+      "Ils furent fort décontenancés ; et après une courte consultation, ils dégringolèrent tous par l'échelle de l'avant, pensant sans doute nous prendre à revers. Mais quand ils virent Redruth qui les attendait dans la coursive à claire-voie, ils virèrent de bord aussitôt, et une tête resurgit sur le pont.",
+      "— En bas, chien ! s'écrie le capitaine.",
+      "Et la tête redisparut ; et nous n'entendîmes plus parler, pour le moment, de ces six matelots fort peu vaillants.",
+      "À ce moment, en jetant les choses dedans comme elles venaient, nous avions chargé la yole autant que nous l'osions. Joyce et moi sortîmes par le sabord de poupe, et nous regagnâmes le rivage aussi vite que les avirons purent nous mener.",
+      "Ce second voyage éveilla pour de bon les guetteurs du rivage. « Lillibullero » fut de nouveau abandonné ; et juste avant que nous les perdions de vue derrière la petite pointe, l'un d'eux sauta à terre et disparut. J'eus à moitié envie de changer mon plan et de détruire leurs canots ; mais je craignis que Silver et les autres ne fussent tout près, et que tout ne fût bel et bien perdu à vouloir trop entreprendre.",
+      "Nous eûmes bientôt touché terre au même endroit qu'avant, et nous nous mîmes à approvisionner le fortin. Nous fîmes tous trois le premier voyage, lourdement chargés, et jetâmes nos provisions par-dessus la palissade. Puis, laissant Joyce pour les garder (un seul homme, à vrai dire, mais avec une demi-douzaine de mousquets), Hunter et moi retournâmes à la yole et nous chargeâmes de nouveau. Nous continuâmes ainsi sans prendre haleine, jusqu'à ce que toute la cargaison fût casée ; alors les deux domestiques prirent position dans le fortin, et moi, de toutes mes forces, je godillai jusqu'à l'*Hispaniola*.",
+      "Que nous ayons risqué un second chargement paraît plus audacieux que ce ne l'était réellement. Ils avaient l'avantage du nombre, bien sûr ; mais nous avions l'avantage des armes. Pas un des hommes à terre n'avait de mousquet ; et avant qu'ils pussent arriver à portée de pistolet, nous nous flattions d'être capables d'en régler au moins une demi-douzaine.",
+      "Le squire m'attendait à la fenêtre de poupe, toute sa faiblesse dissipée. Il attrapa la bosse et l'amarra, et nous nous mîmes à charger le canot comme s'il y allait de notre vie. Porc, poudre et biscuit, telle fut la cargaison, avec seulement un mousquet et un coutelas chacun pour le squire, pour moi, pour Redruth et pour le capitaine. Le reste des armes et de la poudre, nous le jetâmes par-dessus bord par deux brasses et demie d'eau, si bien que nous pouvions voir l'acier brillant luire loin au-dessous de nous au soleil, sur le fond de sable propre.",
+      "À ce moment la marée commençait à descendre, et le navire évitait sur son ancre. On entendait de faibles appels du côté des deux youyous ; et si cela nous rassura pour Joyce et Hunter, qui étaient bien à l'est, cela avertit notre groupe qu'il était temps de partir.",
+      "Redruth quitta son poste dans la coursive et sauta dans le canot, que nous amenâmes alors sous la voûte du navire, pour être plus commode au capitaine Smollett.",
+      "— Maintenant, les gars, dit-il, vous m'entendez ?",
+      "Pas de réponse du gaillard d'avant.",
+      "— C'est à toi, Abraham Gray, c'est à toi que je parle.",
+      "Toujours pas de réponse.",
+      "— Gray, reprit M. Smollett un peu plus fort, je quitte ce navire, et je t'ordonne de suivre ton capitaine. Je sais que tu es un brave homme au fond, et j'ose dire que pas un de vous tous n'est aussi mauvais qu'il en a l'air. J'ai ma montre ici à la main ; je te donne trente secondes pour me rejoindre.",
+      "Il y eut un silence.",
+      "— Allons, mon brave, continua le capitaine, ne reste pas si longtemps vent debout. Je risque ma vie et celle de ces bons messieurs à chaque seconde.",
+      "Il y eut une bagarre soudaine, un bruit de coups, et Abraham Gray jaillit, une estafilade au couteau sur le côté de la joue, et accourut vers le capitaine comme un chien au sifflet.",
+      "— Je suis avec vous, monsieur, dit-il.",
+      "Et l'instant d'après, lui et le capitaine avaient sauté dans le canot, et nous avions poussé au large et nagé.",
+      "Nous étions bien hors du navire, mais pas encore à terre dans notre palissade."
+    ] },
+
+};

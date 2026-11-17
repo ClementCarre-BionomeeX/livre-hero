@@ -13,7 +13,7 @@
     "recit", "doute", "dementi", "silences", "geste", "poids", "angoisse", "attache",
     "secret", "confie", "garde", "savoir", "lu", "voile", "voiles", "lens", "scrutin", "role", "voix", "fil", "carteJouee"];
   // The siege's conditions (8.0) carry a second key (is, member, hero, losses): they are read by their first key.
-  var SIEGE_KEYS = ["scrutin", "role", "voix", "fil", "voiles", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue", "trait", "duel"];
+  var SIEGE_KEYS = ["scrutin", "role", "voix", "depot", "fil", "voiles", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue", "trait", "duel"];
   var FX_KEYS = ["voie", "regard", "aspect", "qui", "resume", "set", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
     "give", "relicLose", "item", "drop", "gold", "food", "pv", "rest", "time", "until", "stamp", "reveal", "meet", "clock", "quest", "questSeen", "note", "noteCls",
     "assign", "team", "regroup", "away", "lead", "leadQuiet", "learn", "souv", "souvBack", "catchupAll", "awayUnless",
@@ -276,6 +276,7 @@
       if (k === "count") c.count.forEach(function (x) { checkCond(x, where); });
       // Why: { gold: 10 } reads as "always true" in the engine (it expects { min, max }); say so instead of letting it pass.
       if (["gold", "food", "pv"].indexOf(k) >= 0 && (c[k] === null || typeof c[k] !== "object")) E(where + " : la condition « " + k + " » s'écrit { min: …, max: … }.");
+      if (k === "depot" && !(story.depots || {})[c.depot]) E(where + " : dépôt « " + c.depot + " » inconnu (story.depots).");
       if (k === "clues" && !story.mysteries[c.clues]) E(where + " : mystère « " + c.clues + " » inconnu.");
       if (k === "clue" && !story.clues[c.clue]) E(where + " : indice « " + c.clue + " » inconnu.");
       if (k === "fil") { if (!(story.fils || {})[c.fil]) E(where + " : fil « " + c.fil + " » inconnu (fils)."); [].concat(c.is || []).forEach(function (x) { if (!M.THREAD_STATES[x] && x !== "aucun") E(where + " : état de fil « " + x + " » inconnu (ouvert, noue, rate, aucun)."); }); }
@@ -718,6 +719,38 @@
       }
       checkCond(S.if, w);
     });
+    // Two players apart (9.6): deposits one hero leaves for the other, chronicles that change with the world.
+    Object.keys(story.depots || {}).forEach(function (k) {
+      var D = story.depots[k], w = "Dépôt « " + k + " »";
+      if (!D.name) E(w + " : il faut un nom (name).");
+      if (D.from == null || D.to == null) E(w + " : il faut dire qui dépose (from) et qui prend (to).");
+      checkCond(D.from, w); checkCond(D.to, w);
+      if (D.gold != null && !(D.gold > 0)) E(w + " : gold est la somme laissée à chaque fois, un nombre positif.");
+      if (D.flat && !Object.keys(story.items || {}).some(function (i) { return story.items[i].flat; })) W(w + " : dépôt plat, mais aucun objet n'est marqué flat.");
+      if (!Object.keys(P).some(function (id) { var T = M.depotTag(P[id]); return T && T.put.indexOf(k) >= 0; })) E(w + " : aucun passage où déposer (depot: { put }).");
+      if (!Object.keys(P).some(function (id) { var T = M.depotTag(P[id]); return T && T.take.indexOf(k) >= 0; })) E(w + " : aucun passage où prendre (depot: { take }).");
+    });
+    Object.keys(P).forEach(function (id) {
+      var T = M.depotTag(P[id]); if (!T) return;
+      T.put.concat(T.take).forEach(function (k) { if (!(story.depots || {})[k]) E("§ " + id + " : dépôt « " + k + " » inconnu (story.depots)."); });
+    });
+    Object.keys(story.items || {}).forEach(function (k) { var I = story.items[k]; if (I.aged != null && !story.items[I.aged]) E("Objet « " + k + " » : aged, objet « " + I.aged + " » inconnu."); });
+    Object.keys(story.chroniques || {}).forEach(function (k) {
+      var C = story.chroniques[k], w = "Chronique « " + k + " »", ids = {};
+      if (!C.title) E(w + " : il faut un titre.");
+      checkCond(C.for, w);
+      if (!(C.lines || []).length) E(w + " : aucune ligne.");
+      (C.lines || []).forEach(function (L, i) {
+        var wl = w + ", ligne " + (L.id || i + 1);
+        if (!L.id) E(wl + " : il faut un id."); else if (ids[L.id]) E(wl + " : id en double."); ids[L.id] = 1;
+        var vs = L.v || [{ text: L.text, if: L.if }];
+        vs.forEach(function (v, j) {
+          if (!v.text) E(wl + " : variante " + (j + 1) + " sans texte.");
+          checkCond(v.if, wl);
+          if (v.if == null && j < vs.length - 1) E(wl + " : une variante sans condition cache les suivantes.");
+        });
+      });
+    });
     (story.interludes || []).forEach(function (x, i) {
       var w = "Interlude " + (i + 1);
       if (!P[x.to]) { E(w + " : passage « " + x.to + " » inconnu."); return; }
@@ -1050,7 +1083,7 @@
         if (c.sys) return { d: Infinity, fixed: null };
         var raw = c;
         cand(live(raw.to), null); if (raw.win) cand(live(raw.win.to), 0.94); if (raw.lose) cand(live(raw.lose.to), 0.02);
-        // 10.4: when both outcomes of a test lead to the target, the nearer one on the map may be the wrong one (a
+        // 11.1: when both outcomes of a test lead to the target, the nearer one on the map may be the wrong one (a
         // switch further on reads what the failure left). One walk in three takes the other outcome.
         if (otherWay && raw.win && raw.lose && out != null && rnd() < 0.34) {
           var dOther = Infinity; [].concat(live(out > 0.5 ? raw.lose.to : raw.win.to)).forEach(function (t) { if (d[t] != null && d[t] < dOther) dOther = d[t]; });
@@ -1127,7 +1160,7 @@
           var budget = 300, near = [], steps = door ? 1000 : 300;
           if (door) from.sort(function (a, b) { return actIdx[P[b].act] - actIdx[P[a].act] || d[a] - d[b]; });
           from.forEach(function (k) { snaps[k].forEach(function (x) { if (door) { s = JSON.parse(x); if (!open(door.shut)) return; } near.push(x); }); });
-          // 10.4: the marks every choice leading to the target asks for (if: has). The kept states that already hold
+          // 11.1: the marks every choice leading to the target asks for (if: has). The kept states that already hold
           // them go first, however far: such a mark is often earned much earlier (a friend made the day before).
           if (otherWay) {
             var need = needOf(target);
@@ -1176,7 +1209,7 @@
       });
       // Last: what is still missing behind a door that shuts (see doorOf) is looked for with that door kept open.
       ids.filter(function (id) { return !seen[id]; }).forEach(function (target) { var door = doorOf(target); if (door.shut.length) seek(target, "plain", door); });
-      // 10.4, last of all: what is still missing is looked for another way (see needOf, and the other outcome of a
+      // 11.1, last of all: what is still missing is looked for another way (see needOf, and the other outcome of a
       // test in score). Kept apart so that the walks above stay what they were.
       otherWay = true;
       ids.filter(function (id) { return !seen[id]; }).forEach(function (target) { if (onlyT0 && target !== onlyT0) return; seek(target, "plain", null); });
@@ -1197,7 +1230,7 @@
     var GHOST = [], GHOST_FROM = {}, ACT_IDS = (story.acts || []).map(function (x) { return x.id; });
     if (story.multi) {
       // A world choice (monde: key) is taken by every player alike: its marks are the player's own, never the ghost's.
-      // 10.4: each mark and each shared state knows the first act where a page can set it (GHOST_FROM): the others
+      // 11.1: each mark and each shared state knows the first act where a page can set it (GHOST_FROM): the others
       // cannot have set it before. Why: on a long story with many rendezvous, a ghost drawing every mark again at
       // each of them ended with all of them set, the contrary ones together, and whole branches were never played.
       Object.keys(story.passages).forEach(function (id) {
@@ -1231,12 +1264,22 @@
       var now = (story.acts || []).map(function (a) { return a.id; }).indexOf(s.lastAct);
       Object.keys(CLUE_ACT).forEach(function (k) { if (!s.clues[k] && !story.clues[k].prive && CLUE_ACT[k] >= 0 && CLUE_ACT[k] < now + (P[s.node].charniere ? 1 : 0) && rnd() < 0.2) s.clues[k] = true; });
     }
+    // 9.6: the ghost partner leaves things too: at a rendezvous, one deposit in three receives one thing that fits it.
+    function ghostDepots(s, rnd) {
+      Object.keys(story.depots || {}).forEach(function (k) {
+        if (rnd() > 0.34) return;
+        var D = story.depots[k], fit = Object.keys(story.items || {}).filter(function (i) { return M.depotFits(story, D, i); });
+        if (D.gold) fit.push("or:1");
+        if (fit.length) s.flags[M.DEPOT_FLAG + k + ":" + fit[Math.floor(rnd() * fit.length)]] = true;
+      });
+    }
     function ghost(s, rnd, at) {
       if (story.multi && P[s.node]) { var pg = P[s.node], kg = pg.charniere ? "c:" + s.node : "a:" + s.lastAct; s._ghostT = s._ghostT || {}; if (!s._ghostT[kg] && (pg.charniere || at !== s.lastAct)) { s._ghostT[kg] = 1; ghostTable(s, rnd); } }
-      if (!GHOST.length || !P[s.node]) return;
+      if ((!GHOST.length && !story.depots) || !P[s.node]) return;
       var p = P[s.node], key = p.charniere ? "c:" + s.node : "a:" + s.lastAct;
       s._ghost = s._ghost || {}; if (s._ghost[key] || (!p.charniere && at === s.lastAct)) return;
       s._ghost[key] = 1;
+      if (story.depots) ghostDepots(s, rnd);
       // One draw for each mark in a game, at the first rendezvous from the act where a page can set it.
       var nowG = ACT_IDS.indexOf(s.lastAct); s._ghostF = s._ghostF || {};
       GHOST.forEach(function (f) {
