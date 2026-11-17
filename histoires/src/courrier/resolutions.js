@@ -29,8 +29,12 @@ module.exports = {
     text: [
       "Tu laisses venir les mots, et dans le flot il y en a un qui vaut le détour : sur la route de Vèze, quelqu'un pose des questions sur les courriers d'Orbec, et il paie les réponses en argent blanc.",
       "Tu sais désormais qu'on te cherche. C'est une mauvaise nouvelle, et un avantage.",
+      { halte: ["gue", "col"], text: "Pour te remercier d'avoir écouté si bien, ton bavard te glisse dans la main un rond de plomb aux armes de Vèze. « Le jeton des marchands. Montre-le à la porte, et tu entres sans faire la queue. Je l'ai gagné aux dés ; tu le gagnes à la patience. »" },
     ],
-    choices: ROUTE },
+    choices: [
+      { label: "Empocher le jeton et reprendre la route", halte: ["gue", "col"], fx: { gagne: "sauf_conduit" }, to: "@suite" },
+      { label: "Passer la porte de Vèze", halte: "porte", to: "@suite" },
+    ] },
   R_rencontre_ko: { title: "Une heure perdue",
     text: [
       "La conversation tourne comme une meule, et elle te broie une heure entière. Quand tu t'en dégages, tu as appris le prix du seigle dans trois vallées, et ton interlocuteur a appris ton nom, ta route et l'heure de ton départ.",
@@ -72,6 +76,7 @@ module.exports = {
       { halte: "col", text: "La route du col fait un long lacet sur la gauche. À droite, droit dans la pente, un sentier part entre deux rochers, à peine marqué." },
       { halte: "porte", text: "La file avance au pas. Le long du rempart, une ruelle de tanneurs longe le fossé et finit, d'après l'odeur, quelque part où l'on travaille sans demander de laissez-passer." },
       { carte: "sentier_chevres", text: "Des chèvres y sont passées ce matin ; elles ont laissé des crottes rondes et la certitude qu'il y a un chemin. Les chèvres sont d'excellentes topographes, et de mauvaises guides." },
+      { carte: "mulet", text: "Le mulet de louage, lui, a déjà choisi : il tourne la tête vers une sente que tu n'avais pas vue, et il tire sur sa longe avec la conviction d'un notaire qui connaît le cadastre." },
       { carte: "raccourci", text: "Un bout de chiffon rouge noué à une branche marque le départ. Les contrebandiers balisent leurs chemins pour eux-mêmes, et pour personne d'autre." },
     ],
     choices: [
@@ -101,7 +106,7 @@ module.exports = {
       { label: "Dormir dans le foin, la main sur le pli", enseigne: "racine", fx: { pv: 4, elan: 1 }, to: "R_refuge_repos" },
       { label: "Faire semblant de dormir, et écouter la salle", enseigne: ["lanterne", "masque", "lame"], test: test("savoir", "Savoir"), win: { fx: { ep: ["perso", 250], elan: 1 }, to: "R_refuge_ok" }, lose: { fx: { pv: 2 }, to: "R_refuge_repos" } },
     ] },
-  R_refuge_repos: { title: "Une heure de sommeil",
+  R_refuge_repos: { title: "Une heure de sommeil", fx: { pioche: 1 },
     text: ["Tu dors d'un sommeil de pierre, sans rêve, et tu te réveilles reposé{e}, avec une paille dans l'oreille et le pli à sa place."],
     choices: ROUTE_SEULE },
   R_refuge_ok: { title: "Ce qu'on dit à la veillée",
@@ -137,8 +142,8 @@ module.exports = {
       { label: "La prendre sans que personne te voie", enseigne: ["masque", "lame", "lanterne", "racine"], test: test("discretion", "Discrétion"), win: { fx: { gold: 5, ep: ["perso", 150] }, to: "R_tresor_ok" }, lose: { fx: { gold: 2, clock: { retard: 1 } }, to: "R_tresor_ko" } },
       { label: "La laisser où elle est", to: "R_tresor_laisse" },
     ] },
-  R_tresor_ok: { title: "Cinq sous de mieux",
-    text: ["Cinq sous d'argent, et une médaille de pèlerin. Le pèlerin aura prié pour rien, et toi, tu as gagné sans prier."],
+  R_tresor_ok: { title: "Cinq sous de mieux", fx: { gagne: "medaille" },
+    text: ["Cinq sous d'argent, et une médaille de pèlerin. Le pèlerin aura prié pour rien, et toi, tu as gagné sans prier. Tu gardes la médaille : un saint de cuivre, usé par les pouces, qui regarde vers la route."],
     choices: ROUTE_SEULE },
   R_tresor_ko: { title: "Un témoin",
     text: ["Tu as la bourse en main quand un berger surgit du brouillard et crie au voleur. Tu lui en laisses la moitié pour qu'il se taise, et tu perds une heure à le convaincre de garder l'autre moitié du secret."],
@@ -162,7 +167,7 @@ module.exports = {
   R_peril_ok: { title: "La meute recule",
     text: ["La meute hésite, recule, et se fond dans le gris. Tu restes un long moment immobile, le cœur battant à grands coups, à compter les ombres. Elles ne reviennent pas."],
     choices: ROUTE_SEULE },
-  R_peril_ko: { title: "Des crocs",
+  R_peril_ko: { title: "Des crocs", fx: { defausse: 1 },
     text: ["Tu t'en sors, avec une morsure au mollet et une manche en lambeaux. Le pli est intact. Ta jambe, beaucoup moins."],
     choices: ROUTE_SEULE },
   R_peril_fuite: { title: "La fuite", fx: { clock: { retard: 1 }, pv: -1 },
@@ -175,6 +180,7 @@ module.exports = {
       { halte: "gue", text: "Sur la borne du gué, un corbeau s'est posé. Il te regarde arriver, la tête penchée, puis il regarde l'eau, puis encore toi, et il croasse une seule fois." },
       { halte: "col", text: "Sur le bras de la croix, une corneille plus grosse que les autres se tient immobile au milieu de la querelle générale, et elle te fixe de son œil rond." },
       "On dit dans la marche que ces oiseaux voient le chemin avant les voyageurs. On dit beaucoup de choses dans la marche.",
+      { carte: "medaille", text: "Dans ta poche, la médaille du pèlerin est tiède. Son saint de cuivre regarde du même côté que l'oiseau." },
     ],
     choices: [
       { label: "Lire le signe", enseigne: ["lanterne", "masque", "lame", "racine"], test: test("savoir", "Savoir"), win: { fx: { ep: ["perso", 200], elan: 2 }, to: "R_presage_ok" }, lose: { to: "R_presage_ko" } },
@@ -193,6 +199,7 @@ module.exports = {
       { halte: "gue", text: "Une femme descend vers le gué avec un troupeau de chèvres, et elle te regarde hésiter devant l'eau avec l'indulgence qu'on réserve aux citadins." },
       { halte: "col", text: "Une bergère remonte vers le col avec ses bêtes, enveloppée dans une cape de feutre raide comme une guérite, un bâton ferré à la main." },
       { halte: "porte", text: "Une femme du marché, un panier sous le bras, remarque ta boue, ta fatigue et le cachet qui dépasse de ta veste, et elle fait un signe de tête vers une poterne." },
+      { carte: "sauf_conduit", halte: ["gue", "col"], text: "Elle voit le jeton de plomb qui dépasse de ta manche, et son visage change : les gens qui portent ce signe paient bien, et ils se souviennent de ceux qui les aident." },
       { carte: "bergere", halte: ["gue", "col"], text: "Elle connaît chaque pierre de cette montagne, dit-elle, et le prix de chacune. Le prix, ce soir, c'est que tu portes une chèvre boiteuse jusqu'au prochain enclos." },
     ],
     choices: [
@@ -200,8 +207,14 @@ module.exports = {
       { label: "La remercier, et continuer seul{e}", to: "R_allie_seul" },
     ] },
   R_allie_ok: { title: "Le bon chemin",
-    text: ["Elle te mène par où elle seule passe, et elle te laisse à l'endroit exact où la route reprend, avec un conseil sur les gens de Vèze que tu n'oublieras pas : « Ils votent comme ils mangent. Avec le plus offrant. »"],
-    choices: ROUTE },
+    text: [
+      "Elle te mène par où elle seule passe, et elle te laisse à l'endroit exact où la route reprend, avec un conseil sur les gens de Vèze que tu n'oublieras pas : « Ils votent comme ils mangent. Avec le plus offrant. »",
+      { halte: ["gue", "col"], text: "Elle ajoute le nom d'un muletier, plus loin, qui loue ses bêtes aux gens pressés : « Dis-lui que tu viens de ma part. Il te volera moins. »" },
+    ],
+    choices: [
+      { label: "Aller chercher le mulet, et reprendre la route", halte: ["gue", "col"], fx: { gagne: "mulet" }, to: "@suite" },
+      { label: "Passer la porte de Vèze", halte: "porte", to: "@suite" },
+    ] },
   R_allie_ko: { title: "Une chèvre de trop",
     text: ["La chèvre boiteuse pèse le poids d'un remords, et elle bêle sans interruption. L'aide promise arrive, mais au bout d'une heure de détour."],
     choices: ROUTE },
@@ -224,7 +237,7 @@ module.exports = {
   R_trahison_ok: { title: "Démasqué",
     text: ["Tu vois venir le piège à temps : un compère attendait un peu plus loin, pour la bourse ou pour le pli. Tu changes de côté, de rythme et de chemin. Les deux compères restent avec leur plan sur les bras."],
     choices: ROUTE },
-  R_trahison_ko: { title: "Délesté{e}",
-    text: ["Tu te réveilles, ou tu te relèves, la tête lourde et la bourse plus légère. Le pli, lui, est toujours contre ta poitrine. Le voleur cherchait de l'argent. Il a eu de la chance, et toi davantage."],
+  R_trahison_ko: { title: "Délesté{e}", fx: { perd: { de: "main" } },
+    text: ["Tu te réveilles, ou tu te relèves, la tête lourde et la bourse plus légère. Le pli, lui, est toujours contre ta poitrine. Le voleur cherchait de l'argent. Il a eu de la chance, et toi davantage.", "Il t'a pris aussi une chose que tu comptais employer plus loin : en tâtant tes poches, tu sens la place vide."],
     choices: ROUTE },
 };
