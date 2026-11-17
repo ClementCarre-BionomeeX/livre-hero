@@ -219,11 +219,16 @@ module.exports = {
       ],
       choices: [
         { label: "Descendre à terre avec la corvée d'eau", to: "XP_m_debut", hide: { seen: "XP_m_debut" } },
+        { label: "Chercher de l'eau avec la corvée, au bord du récif", to: "XQ_m_eau", hide: { seen: "XQ_m_eau" }, if: { seen: "XP_m_debut" }, why: "La chaloupe n'a pas encore touché la roche." },
+        { label: "Descendre aux mares, à marée basse", to: "XQ_m_mares", hide: { seen: "XQ_m_mares" }, if: { seen: "XP_m_debut" }, why: "La chaloupe n'a pas encore touché la roche." },
+        { label: "Suivre une traînée noire jusqu'à la mer", to: "XQ_m_trainees", hide: { seen: "XQ_m_trainees" }, if: { seen: "XP_m_debut" }, why: "La chaloupe n'a pas encore touché la roche." },
+        { label: "Passer la nuit sur le bord du cratère", to: "XQ_m_nuit", hide: { seen: "XQ_m_nuit" }, if: { seen: "XP_m_debut" }, why: "La chaloupe n'a pas encore touché la roche." },
       ] },
     A3n_apres_ecueil: { act: "III", title: "La marmite", place: "sargues", ambiance: "mer",
       text: [
         "L'Écueil s'enfonce derrière la poupe, avec sa fumée. La brise retombe, le soir même. Les herbes jaunes se referment autour de la coque.",
         "Les compas, eux, ont cessé de trembler.",
+        { if: { has: "ecueil:eau" }, text: "Dans la cale, six barils d'une eau froide qui ne sent pas le clou. Le soir, à la distribution, Lagadec te sert le premier, sans rien dire, et te laisse boire deux fois." },
       ],
       choices: [{ back: "A3n_jours" }] },
 

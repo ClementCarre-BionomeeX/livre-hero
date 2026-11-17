@@ -93,6 +93,7 @@ module.exports = {
     XP_m_fin: { act: "III", title: "L'Écueil-Rouge", place: "ecueil_rouge", ambiance: "nature",
       text: [
         { if: { item: "table_calixte" }, text: "Tu caches le cahier sous ta vareuse, contre le parchemin. Il pèse lourd. Tu ne sais pas encore à quoi il servira. Tu sais seulement que quelqu'un a passé six ans à l'écrire, et que ce quelqu'un te l'a donné." },
+        { if: { has: "ecueil:barque" }, text: "Avant de partir, tu dis au moine, à voix basse, que tu as vu la barque à l'œil bleu, dans la grotte, et le chapelet de buis. Il reste immobile un long moment. « Il dort sur le côté ? demande-t-il enfin. Les genoux repliés ? » Tu dis oui. « C'est ainsi qu'il dormait, dit Frère Calixte. Il avait toujours froid. » Il ne dit rien d'autre." },
         "Le professeur Gaudrémont, qui a passé la journée à quatre pattes dans la cendre à ramasser des cailloux noirs, remonte dans la chaloupe les poches pleines, la robe de chambre brûlée par endroits, rayonnant. « Du fer céleste ! hurle-t-il. Du fer tombé des étoiles ! L'Académie en mourra de jalousie ! »",
       ],
       choices: [{ back: "A3n_ecueil" }] },

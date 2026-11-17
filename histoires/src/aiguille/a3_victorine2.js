@@ -167,11 +167,15 @@ module.exports = {
       ],
       choices: [
         { label: "Descendre voir le moine qui devient aveugle", to: "XP_v_debut", hide: { seen: "XP_v_debut" } },
+        { label: "Gratter la croûte blanche autour du cratère", to: "XQ_v_sel", hide: { seen: "XQ_v_sel" }, if: { seen: "XP_v_debut" }, why: "Elle n'est pas encore descendue à terre." },
+        { label: "Faire le tour de la maison du moine", to: "XQ_v_tombe", hide: { seen: "XQ_v_tombe" }, if: { seen: "XP_v_debut" }, why: "Elle n'est pas encore descendue à terre." },
+        { label: "Rester à bord, l'après-midi, près de la capitaine", to: "XQ_v_compas", hide: { seen: "XQ_v_compas" } },
       ] },
     A3w_apres_ecueil: { act: "III", title: "La marmite", place: "sargues", ambiance: "mer",
       text: [
         "L'Écueil s'enfonce derrière la poupe avec sa fumée. La brise retombe le soir même, et les herbes jaunes se referment autour de la coque.",
         "Les compas, eux, ont cessé de trembler.",
+        { if: { has: "ecueil:ribaud_compas" }, text: "La capitaine en note la dernière position, avec l'heure, dans son carnet. Victorine la voit, le soir, à la lanterne, recopier ses chiffres, encore et encore, comme on vérifie un pouls qui vous inquiète." },
       ],
       choices: [{ back: "A3w_jours" }] },
     A3w_ilot: { act: "III", title: "L'îlot", place: "ilot", escale: "ilot", hub: true, noLead: true, backName: "l'îlot", ambiance: "nature",
