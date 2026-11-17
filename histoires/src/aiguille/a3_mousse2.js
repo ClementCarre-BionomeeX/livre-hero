@@ -1,0 +1,242 @@
+// L'Île Folle-Aiguille · act III, chapter III.2 followed by the child of the Fanal: the Sargasso calms (« la marmite »).
+// Heat, rationed water, a bath above a drowned ship, the pilot at the rail, the dog and the cook; the stovepipe of the
+// galley through the sail locker, where the child overhears the plot (complot:entendu). Two ports of call: the Red Reef
+// (xp_pierre.js) and the Shaper's islet (xf_faconneur.js).
+var JOURS = [{ seen: "A3n_baignade" }, { seen: "A3n_tuyau" }, { seen: "A3n_brousse" }, { seen: "A3n_eau" }, { seen: "A3n_chien" }, { seen: "A3n_fenouillet" }, { seen: "XK_dechiffre" }];
+module.exports = {
+  passages: {
+    A3n_debut: { act: "III", title: "La marmite", place: "sargues", ambiance: "mer",
+      text: [
+        "Le vent meurt le troisième jour au sud de Brisegrève, au milieu d'un après-midi, sans un soupir. Les voiles pendent. Le navire s'arrête. Le silence tombe sur le pont comme une couverture, et l'on entend pour la première fois des choses qu'on n'entendait plus : une poulie qui grince, un homme qui tousse à l'avant, l'eau qui clapote contre la coque, une poule.",
+        "Puis la chaleur vient. Elle monte de la mer immobile, elle descend du ciel blanc, elle sort du bois du pont, qui fume ; le brai fond entre les planches et colle aux pieds nus, la poix coule des coutures en larmes noires, le fer des canons brûle la main. On dort sur le pont, la nuit, parce que l'entrepont est un four. On ne dort pas.",
+        "Gobert fait tendre des tauds de toile au-dessus du gaillard. La capitaine fait mettre l'eau douce sous clef. Une pinte par homme et par jour.",
+        { with: "chien", text: "Le chien halète à l'ombre de la chaloupe, la langue pendante, et te regarde avec reproche, comme si c'était toi qui avais éteint le vent." },
+      ],
+      choices: [{ label: "Attendre le vent", to: "A3n_jours" }] },
+
+    A3n_jours: { act: "III", title: "La marmite", place: "sargues", hub: true, noLead: true, backName: "la marmite", ambiance: "mer",
+      text: [
+        { first: true, text: "Les jours se ressemblent tant qu'on les perd. Le matin, une brume blanche sur les herbes jaunes ; à midi, un soleil qui pèse sur les nuques comme une main ; le soir, un ciel couleur de cuivre qui s'éteint d'un coup, et les étoiles, énormes, qui descendent jusqu'à toucher l'eau. Le navire avance d'une demi-lieue par jour, quand il avance. Les hommes deviennent silencieux, puis mauvais." },
+        { again: true, text: "Un jour de plus dans la marmite. Pas un souffle." },
+      ],
+      choices: [
+        { label: "Te baigner, quand la capitaine le permet", to: "A3n_baignade", hide: { seen: "A3n_baignade" } },
+        { label: "Curer le tuyau du fourneau, dans la soute aux voiles", to: "A3n_tuyau", hide: { seen: "A3n_tuyau" }, if: { count: JOURS, min: 1 }, why: "Gobert ne t'a encore rien demandé." },
+        { label: "Aller trouver le pilote, à la lisse", to: "A3n_brousse", hide: { any: [{ seen: "A3n_brousse" }, { not: { has: "brousse:abord" } }] } },
+        { label: "Assister à la distribution de l'eau", to: "A3n_eau", hide: { seen: "A3n_eau" } },
+        { label: "Mener le chien à la cambuse", to: "A3n_chien", hide: { any: [{ seen: "A3n_chien" }, { not: { present: "chien" } }] } },
+        { label: "Descendre voir le passager invisible, qui se réchauffe enfin", to: "A3n_fenouillet", hide: { any: [{ seen: "A3n_fenouillet" }, { not: { has: "xi:protege" } }] } },
+        { label: "Déchiffrer la page de signes", to: "XK_dechiffre", hide: { any: [{ not: { has: "xk:copie" } }, { has: "enigme:xk_chiffre" }] } },
+        { label: "L'Écueil-Rouge en vue", to: "A3n_ecueil", big: true, hide: { seen: "A3n_ecueil" }, if: { count: JOURS, min: 2 }, why: "Le navire n'a pas encore assez avancé." },
+        { label: "L'îlot en vue", to: "A3n_ilot", big: true, if: { all: [{ seen: "A3n_ecueil" }, { count: JOURS, min: 4 }] }, why: "L'îlot est encore loin dans les herbes." },
+      ] },
+
+    A3n_baignade: { act: "III", title: "Le bain", place: "sargues", ambiance: "eau",
+      text: [
+        "Le cinquième jour, la capitaine permet le bain, une heure, à tribord, à condition qu'un homme reste en vigie avec un fusil pour les requins. On jette une voile à la mer, tendue entre deux espars, pour faire un bassin, et l'équipage entier saute par-dessus bord en hurlant de joie, comme des enfants à la sortie de l'école.",
+        "L'eau est tiède comme un bouillon. Elle est d'un bleu si profond, sous la voile, qu'il en devient noir. Tu plonges. Tu ouvres les yeux.",
+        "Sous les herbes jaunes, la lumière tombe en colonnes obliques qui descendent très loin, jusqu'à se perdre. Des poissons minuscules, transparents, tournent autour de toi. Et en bas, à vingt brasses peut-être, dans le bleu qui devient noir, il y a quelque chose de grand et de pâle qui ne bouge pas.",
+        "Un mât. Un mât debout, sous l'eau, avec ses vergues, ses haubans pendants, couverts d'herbes qui ondulent comme des cheveux. Plus bas, une coque. Un navire entier, qui se tient droit au fond de la mer, comme s'il naviguait encore, très lentement, dans une autre mer.",
+        "À la proue, une figure de bois te regarde. Une femme, les bras croisés sur la poitrine, le visage mangé par les coquillages.",
+      ],
+      choices: [{ label: "Descendre plus près", test: { dom: "nature", diff: 10, label: "Plonger sous les herbes" }, win: { to: "A3n_epave" }, lose: { to: "A3n_herbes" } }] },
+    A3n_epave: { act: "III", title: "Le navire du fond", place: "sargues", ambiance: "eau",
+      text: [
+        "Tu descends, une brasse, deux, cinq, jusqu'à ce que tes oreilles craquent et que ta poitrine te brûle. La figure de proue grandit. Sous les coquillages, sur un ruban de bois sculpté qui lui ceint la tête, on lit encore des lettres dorées : *SAINT-FIA…* Le reste est mangé.",
+        "Tu remontes à la surface comme un bouchon, les poumons en feu. Le soleil te frappe au visage. Personne n'a rien vu. Gobert, depuis le pont, te crie de remonter, que l'heure est passée, et que les requins ont faim à l'heure.",
+        "Le soir, tu racontes ce que tu as vu au professeur, qui n'en croit pas un mot, puis à Brousse, s'il est là, ou à Gobert, qui crache dans l'eau. « Les Sargues sont pleines de navires, dit le bosco. Ils entrent, le vent tombe, ils attendent. Ils attendent encore. »",
+      ],
+      choices: [{ label: "Remonter à bord", fx: { flag: "epave:saint_fiacre" }, to: "A3n_baignade_fin" }] },
+    A3n_herbes: { act: "III", title: "Les herbes", place: "sargues", ambiance: "eau",
+      text: [
+        "Tu descends. Les herbes se referment au-dessus de toi. Quand tu veux remonter, elles te tiennent : elles s'enroulent à tes chevilles, à tes poignets, douces, élastiques, obstinées, comme des mains. Tu tires. Elles tirent. Tu n'as plus d'air.",
+        "Une main, une vraie, te saisit par les cheveux et te tire vers le haut. C'est Marjolaine, la gabière, qui a plongé avec un couteau entre les dents. Elle tranche les herbes en trois coups, te remonte, te jette sur la voile comme un poisson, et crache son couteau.",
+        "« Les herbes, dit-elle en reprenant son souffle. On ne plonge jamais sous les herbes. Elles gardent ce qu'elles prennent. » Elle te regarde. « Qu'est-ce que tu regardais, en bas ? »",
+        "Tu ne sais pas le dire. Une femme de bois, les bras croisés, qui te regardait.",
+      ],
+      choices: [{ label: "Remonter à bord", fx: { regard: { marjolaine: "cordial" }, penche: { marjolaine: 1 } }, to: "A3n_baignade_fin" }] },
+    A3n_baignade_fin: { act: "III", title: "Le bain", place: "sargues", ambiance: "mer",
+      text: [
+        "Sur le pont, tu sèches en une minute. Le soleil boit l'eau sur ta peau et y laisse le sel, en croûte blanche. La voile du bain remonte, ruisselante. Le navire reste où il est, sur les herbes, au-dessus de l'autre navire, qui reste où il est aussi.",
+      ],
+      choices: [{ back: "A3n_jours" }] },
+
+    A3n_tuyau: { act: "III", title: "La soute aux voiles", place: "cormorane", ambiance: "nuit",
+      text: [
+        "« Le tuyau du fourneau tire mal, dit Gobert. Il est plein de suie. Il traverse la soute aux voiles, et si la suie prend feu là-dedans, on cuira tous ensemble, et le cuisinier n'aura plus personne à nourrir. Tu es le plus petit. Tu y vas. »",
+        "La soute aux voiles est un réduit sous le gaillard d'avant, derrière la cambuse, où l'on range la toile de rechange en rouleaux énormes, empilés jusqu'au plafond. On y entre par une trappe. Il y fait noir et chaud comme dans un ventre. Le tuyau du fourneau la traverse de bas en haut, gros comme une cuisse, brûlant, entouré d'une gaine de tôle. Tu te glisses entre deux rouleaux de toile, avec une brosse, un seau et un bout de chandelle, et tu commences à gratter.",
+        "Au bout d'une heure, tu es noir{e} de suie jusqu'aux yeux. La chandelle s'éteint. Tu restes dans le noir, à reprendre ton souffle, entre les rouleaux de toile, collé{e} au tuyau tiède.",
+        "Et par le tuyau, comme par un cornet, tu entends des voix. Celles de la cambuse, de l'autre côté de la cloison, à trois pieds de toi.",
+      ],
+      choices: [{ label: "Ne plus bouger, et écouter", test: { dom: "discretion", diff: 0, label: "Dans la soute aux voiles" },
+        win: { fx: { flag: ["complot:entendu", "complot:dagrel"] }, to: "A3n_voix" },
+        lose: { fx: { flag: ["complot:entendu", "fargue:soupcon_soute"] }, to: "A3n_voix" } }] },
+    A3n_voix: { act: "III", title: "Les voix", place: "cormorane", ambiance: "nuit",
+      text: [
+        { if: { not: { has: "fargue:epargne_jules" } }, text: "« … tu es un brave petit, Jules, dit la voix de Fargue, douce, chaude, très proche, comme s'il te parlait à toi. Je ne te demande rien. Je te dis seulement comment ça va se passer, pour que tu choisisses ton bord quand il faudra, en connaissance. C'est tout ce qu'un honnête homme peut faire pour un autre : lui dire les choses avant. »" },
+        { if: { has: "fargue:epargne_jules" }, text: "« … le petit, on le laisse en dehors, dit la voix de Fargue, douce, très proche. Il rentrera chez sa mère avec sa paie. Toi, Isidore, tu es déjà dedans jusqu'au cou depuis vingt ans ; ce n'est pas pareil. »" },
+        { if: { all: [{ not: { has: "fargue:epargne_jules" } }, { has: "jules:sauve_fargue" }] }, text: "« Je vous dois la vie, monsieur Fargue, dit la voix de Petit-Jules, toute tremblante. Je ferai ce que vous direz. »" },
+        { if: { all: [{ not: { has: "fargue:epargne_jules" } }, { has: "jules:sauve_mousse" }] }, text: "« Et le mousse ? dit la voix de Petit-Jules, toute tremblante. Le mousse, c'est mon ami. Il m'a rattrapé sur la vergue. » Un silence. « Le mousse aussi, on le gardera, dit Fargue, plus bas. Je m'en occupe. Ne t'en fais pas pour le mousse. »" },
+        "« On laisse les bourgeois trouver l'île, reprend Fargue. On les laisse creuser. On les aide, même : on porte les pelles, on fait la soupe, on chante. Ils trouvent l'argent. Ils le font porter à bord. Et quand l'argent est dans la cale, et pas avant, on change de capitaine. Pas une goutte de sang de plus qu'il n'en faut. Je déteste le sang. Ça tache, et ça se paie toujours, un jour ou l'autre. »",
+        { if: { has: "complot:dagrel" }, text: "« Et s'il est encore là-bas ? dit une autre voix, nasillarde : Lagadec. Le Vieux ? Dagrel ? » Fargue rit. « Jéricho Dagrel est mort, Isidore. Mort et mangé par les crabes depuis vingt ans. Nous l'y avons laissé nous-mêmes, avec un pistolet et une balle. Il a eu le temps de faire le bon choix. »" },
+        "« Et le baron ? »",
+        "« Le baron paiera deux fois, dit Fargue. Une fois l'argent, une fois le livre. Il ne sait pas encore qu'il y a deux choses à payer. Il ne sait pas encore que c'est moi qui les vends. »",
+        { if: { has: "fargue:soupcon_soute" }, text: "Ton coude heurte la gaine de tôle. Un petit bruit, rien, un tintement. De l'autre côté, les voix se taisent net. « Qu'est-ce que c'est ? — Un rat, dit Fargue, après un temps. Il y a des rats dans la soute aux voiles. Il faudra que je m'en occupe. » Tu ne respires plus. Personne ne vient. Les voix reprennent, sur la soupe, sur le vent." },
+      ],
+      choices: [{ label: "Attendre qu'ils partent, et sortir", to: "A3n_tuyau_sortie" }] },
+    A3n_tuyau_sortie: { act: "III", title: "La soute aux voiles", place: "cormorane", ambiance: "nuit",
+      text: [
+        "Tu attends une heure, dans le noir et la suie, que la cambuse se vide. Puis tu ressors par la trappe, sur le pont, dans la nuit. Les étoiles descendent jusqu'à l'eau. Les hommes dorment sur le pont, partout, sous les tauds, en tas. Un peu plus loin, assis sur un rouleau de cordage, une pipe éteinte entre les dents, le maître-coq regarde la mer.",
+        "Il te voit. Il te sourit. « Tu es noir{e} comme un ramoneur. Gobert t'a envoyé{e} dans le tuyau ? Pauvre petit{e}. Va te laver à la baille. »",
+        { if: { has: "fargue:soupcon_soute" }, text: "Il te regarde partir. Tu sens son regard entre tes épaules jusqu'à l'avant, comme une main posée là, très légère." },
+        "Tu as les jambes en coton. Tu as froid, par cette nuit de four. Tu sais maintenant ce qu'il y a dans le cœur de ce navire.",
+      ],
+      choices: [
+        { label: "Aller réveiller la capitaine, tout de suite", fx: { flag: "complot:capitaine", regard: { ribaud: "allie" } }, to: "A3n_dire" },
+        { label: "Aller trouver la médecin, d'abord", fx: { flag: "complot:victorine" }, to: "A3n_dire_v" },
+        { label: "Ne rien dire encore, et regarder", fx: { flag: "complot:tu" }, to: "A3n_taire" },
+      ] },
+    A3n_dire: { act: "III", title: "La capitaine", place: "cormorane", ambiance: "nuit",
+      fx: { meet: "ribaud" },
+      text: [
+        "La capitaine Ribaud dort tout habillée dans sa cabine, la porte ouverte, à cause de la chaleur. Elle s'éveille au premier mot, comme les marins, et t'écoute assise sur sa couchette, sans allumer, sans t'interrompre. Quand tu as fini, elle reste longtemps silencieuse dans le noir.",
+        "« Je le savais, dit-elle enfin. Je ne le savais pas, mais je le savais. » Elle se lève. « Écoute-moi bien. Tu ne diras rien à personne d'autre. Tu ne changeras rien. Tu feras ta soupe, tes quarts, tes nœuds. Tu riras quand il chantera. Si tu ne ris pas, il saura. » Elle pose la main sur ton épaule. « Je ne peux rien faire en pleine mer, à quatre mille lieues de toute justice, avec la moitié de l'équipage qui dort à côté de ces gens-là. Nous attendrons. Nous compterons. Et toi, tu m'as rendu le plus grand service qu'on puisse rendre à un capitaine : tu m'as donné du temps. »",
+      ],
+      choices: [{ label: "Retourner dormir, si tu peux", to: "A3n_tuyau_fin" }] },
+    A3n_dire_v: { act: "III", title: "La médecin", place: "cormorane", ambiance: "nuit",
+      text: [
+        "Victorine ne dort pas. Elle lit à l'infirmerie, sous la lanterne, un traité de botanique qu'elle a emprunté au professeur et qu'elle trouve mal écrit. Elle t'écoute en te regardant par-dessus ses lunettes, sans bouger.",
+        "« Merci, dit-elle quand tu as fini. Tu as bien fait de venir à moi. Tu feras mieux encore d'aller ensuite à la capitaine, et je viendrai avec toi, pour qu'elle te croie. » Elle ferme son livre. « Et après, tu oublieras que tu as entendu quoi que ce soit. Tu sauras faire ça ? C'est la chose la plus difficile du monde : savoir quelque chose et ne pas le montrer. Moi, j'ai mis des années. »",
+        "Elle t'accompagne chez la capitaine, qui écoute, dans le noir, et dit seulement : « Nous attendrons. Nous compterons. »",
+      ],
+      choices: [{ label: "Retourner dormir, si tu peux", fx: { flag: "complot:capitaine" }, to: "A3n_tuyau_fin" }] },
+    A3n_taire: { act: "III", title: "Le secret", place: "cormorane", ambiance: "nuit",
+      text: [
+        "Tu ne dis rien. Tu vas te laver à la baille, tu te couches sur le pont entre Petit-Jules et un rouleau de cordage, et tu regardes les étoiles jusqu'au matin.",
+        "Tu penses à la cambuse, au lard dans ta soupe, à la main aux trois doigts sur ton épaule, à la berceuse. Tu penses à ce que Fargue a dit : pas une goutte de sang de plus qu'il n'en faut. Tu penses à Larrouy, qui avait peur d'un homme qui chante.",
+        "Le matin, tu ris quand Fargue chante. Tu ris très bien. C'est la chose la plus difficile que tu aies jamais faite.",
+      ],
+      choices: [{ label: "Reprendre ta place", to: "A3n_tuyau_fin" }] },
+    A3n_tuyau_fin: { act: "III", title: "La soute aux voiles", place: "cormorane", ambiance: "mer",
+      text: [
+        "Le lendemain, le tuyau tire mieux. Gobert te félicite d'une bourrade. Fargue t'offre une galette au miel pour te remercier, « de la part du fourneau ». Tu la manges. Elle est très bonne.",
+      ],
+      choices: [{ back: "A3n_jours" }] },
+
+    A3n_brousse: { act: "III", title: "Le pilote", place: "sargues", ambiance: "mer",
+      fx: { meet: "brousse" },
+      text: [
+        "Nathanaël Brousse passe ses journées à la lisse de bâbord, à l'ombre de la grand-voile qui pend, à regarder les herbes. Il a repris du poids, un peu. On lui a coupé la barbe et les cheveux ; il a gardé les ongles, longs, jaunes, dont il se sert comme d'outils. Il ne parle à personne, sauf au vent.",
+        { if: { has: "brousse:evade" }, text: "Quand tu t'accoudes à côté de lui, il ne tourne pas la tête, mais il pose sa main sèche sur la tienne, une seconde, comme on touche un porte-bonheur." },
+        { if: { has: "brousse:baron" }, text: "Quand tu t'accoudes à côté de lui, il te regarde longtemps, sans amitié et sans haine. « Le petit qui a l'œil, dit-il. Tu m'as vendu au fils Clavières. Tu ne savais pas. Personne ne sait jamais rien, à ton âge. »" },
+        { if: { has: "brousse:libere" }, text: "Quand tu t'accoudes à côté de lui, il hoche la tête. « La médecin m'a racheté avec l'argent du baron. C'est une femme qui a de l'esprit. » Il sourit, pour la première fois." },
+        "« Les Sargues, dit-il. Je les ai traversées six fois. La dernière, nous étions vingt-neuf à bord d'un navire fait pour quatre-vingts, et nous avions de l'argent dans la cale à en couler. » Il regarde les herbes. « L'argent ne flotte pas. C'est sa seule qualité. »",
+        "Il se tait. À l'avant, dans la cambuse, quelqu'un chante. Une chanson à virer le cabestan, de cette voix de baryton chaude et juste que tout le navire connaît.",
+        "Le pilote se raidit. Ses ongles s'enfoncent dans le bois de la lisse.",
+      ],
+      choices: [{ label: "« Qu'avez-vous ? »", to: "A3n_brousse_voix" }] },
+    A3n_brousse_voix: { act: "III", title: "Le pilote", place: "sargues", ambiance: "mer",
+      text: [
+        "Il ne répond pas tout de suite. Il écoute la chanson jusqu'au bout, les yeux fermés, comme on écoute un orage pour savoir où tombe la foudre.",
+        "« Je connais cette voix, dit-il enfin, très bas. Je l'ai entendue chanter cette chanson-là, cette chanson précisément, une nuit, sur un pont, pendant qu'on… » Il s'arrête. Il ouvre les yeux. « Qui chante ?",
+        "— Le maître-coq. Monsieur Fargue. »",
+        "Brousse répète le nom, sans le reconnaître. Puis il dit, plus bas encore : « Ce n'était pas son nom, à l'époque. À l'époque, on l'appelait autrement. » Il te regarde. Il hésite. Il a passé dix-neuf ans à apprendre ce qu'un mot de trop peut coûter. « Garde-toi de lui, enfant. C'est tout ce que je te dirai. Et ne lui dis pas que je l'ai reconnu. Il me tuerait avant Lannoz. »",
+      ],
+      choices: [{ label: "Promettre de te taire", fx: { flag: "brousse:reconnait" }, to: "A3n_brousse_fin" }] },
+    A3n_brousse_fin: { act: "III", title: "Le pilote", place: "sargues", ambiance: "mer",
+      text: [
+        "Le pilote se retourne vers les herbes. Il ne parle plus. Mais le soir, au souper, quand Fargue passe avec sa marmite le long des plats de huit, Brousse garde la tête baissée sur son écuelle, et il mange de la main gauche, la droite cachée sous la table, crispée sur le manche de son couteau.",
+      ],
+      choices: [{ back: "A3n_jours" }] },
+
+    A3n_eau: { act: "III", title: "La pinte d'eau", place: "sargues", ambiance: "mer",
+      text: [
+        "Chaque matin, à huit heures, Maître Gobert ouvre le cadenas de la cuve d'eau douce, sur le pont, à côté du grand mât, et verse à chaque homme sa pinte, mesurée dans un gobelet d'étain, sous l'œil de la capitaine. L'eau a un goût de bois, de fer et de vieille barrique. Personne ne la boit d'un coup. On la boit à petites gorgées, toute la journée, comme on fume une pipe.",
+        "Le neuvième jour, Ulric Malandain tend son gobelet une deuxième fois.",
+        "« Tu as eu ta part, dit Gobert.",
+        "— J'ai soif.",
+        "— Tout le monde a soif. »",
+        "Malandain pose son gobelet sur la cuve, très doucement. Il est énorme. Il fait une tête de plus que Gobert et le double de son poids. Il regarde le bosco, sans colère, avec une sorte de curiosité, comme on regarde une porte qu'on va enfoncer. Autour d'eux, le pont se tait. Les hommes regardent. Gobert ne recule pas. Il pose la main sur son cabillot.",
+        "Alors une voix chante, à l'avant. Fargue sort de la cambuse en s'essuyant les mains à son tablier, traverse le pont, se plante entre les deux hommes, et tend à Malandain sa propre pinte, pleine.",
+        "« Tiens, Ulric. Je ne bois que du vin, de toute façon. » Il rit. Malandain le regarde, prend le gobelet, boit d'un trait, le rend, et retourne à l'avant sans un mot. Fargue tape sur l'épaule de Gobert. « Un bon bosco, ça ne cède jamais. Un bon cuisinier, ça cède toujours. C'est pour ça qu'on fait la paire. »",
+        "Le pont se remet à respirer. Les hommes se dispersent. Mais tu as vu qui Malandain a écouté, et ce n'est pas le bosco.",
+      ],
+      choices: [{ label: "Regarder qui a vu ce que tu as vu", fx: { devine: ["malandain", "gobert"], penche: { tarlet: -1, rivoal: -1 } }, to: "A3n_eau_fin" }] },
+    A3n_eau_fin: { act: "III", title: "La pinte d'eau", place: "sargues", ambiance: "mer",
+      text: [
+        "Gobert, lui, a vu. Il range son gobelet d'étain avec des gestes lents, referme le cadenas de la cuve, et va trouver la capitaine. Tarlet et Rivoal, eux, ont vu aussi, et ils ont vu autre chose : que le cuisinier a donné son eau à un homme qui avait soif. Le soir, ils boivent leur pinte assis à côté de la cambuse.",
+      ],
+      choices: [{ back: "A3n_jours" }] },
+
+    A3n_chien: { act: "III", title: "Le chien et le cuisinier", place: "cormorane", ambiance: "mer",
+      text: [
+        "Le chien n'a jamais voulu entrer dans la cambuse. Il s'arrête sur le seuil, le poil hérissé, les babines retroussées sur ses crocs, et il gronde, d'un grondement si bas qu'on le sent dans les planches.",
+        "Fargue le regarde par-dessus sa marmite, sans peur, avec intérêt. « Il sent le sang, dit-il. Le sang de cuisine. Le lapin, le poulet, le cochon. Tous les chiens qui ont été battus détestent les cuisiniers ; c'est la dernière odeur qu'ils sentent avant le coup de bâton. » Il prend un os à moelle dans un seau, s'accroupit, le tend au chien. « Allons. Je ne t'ai jamais rien fait, moi. »",
+        "Le chien regarde l'os. Il regarde la main qui le tient : la main gauche, celle aux trois doigts.",
+      ],
+      choices: [
+        { label: "Le retenir par le collier", to: "A3n_chien_retenu" },
+        { label: "Le laisser faire", fx: { flag: "chien:mord_fargue" }, to: "A3n_chien_mord" },
+      ] },
+    A3n_chien_retenu: { act: "III", title: "Le chien et le cuisinier", place: "cormorane", ambiance: "mer",
+      text: [
+        "Tu le retiens. Il tire sur le collier de tout son poids, une seconde, puis se calme. Fargue pose l'os sur le seuil et se relève, en riant. « Un jour, dit-il. Un jour, il le prendra. Les chiens, c'est comme les hommes : on finit toujours par manger dans la main de quelqu'un. » Le chien ne prend pas l'os. Il le laisse sur le seuil jusqu'au soir, sans le regarder, et un rat l'emporte dans la nuit.",
+      ],
+      choices: [{ back: "A3n_jours" }] },
+    A3n_chien_mord: { act: "III", title: "Le chien et le cuisinier", place: "cormorane", ambiance: "mer",
+      text: [
+        "Tu le lâches. Il ne prend pas l'os. Il prend la main.",
+        "Ça dure une seconde. Les crocs se referment sur le poignet gauche de Fargue, se desserrent aussitôt, et le chien recule contre tes jambes, les oreilles couchées, en grondant. Fargue n'a pas crié. Il regarde son poignet, où quatre trous rouges perlent, bien ronds, sous la manche.",
+        "Puis il te regarde, toi. Pour la première fois, ses yeux ne rient pas du tout. Ils sont froids, gris, attentifs, comme ceux d'un homme qui fait un calcul.",
+        "Puis il sourit, et tout est comme avant. « Pas méchant, dit-il en enroulant son mouchoir autour du poignet. Il a raison de se méfier. Il ne me connaît pas. » Il retourne à sa marmite. « Tiens-le loin de ma cuisine, veux-tu ? Je ne voudrais pas avoir à le mettre dans un ragoût. »",
+        "Il rit. Personne ne rit avec lui.",
+      ],
+      choices: [{ back: "A3n_jours" }] },
+
+    A3n_fenouillet: { act: "III", title: "Le passager", place: "cormorane", ambiance: "mer",
+      fx: { meet: "fenouillet" },
+      text: [
+        "Dans la soute aux voiles, à côté du tuyau, la couverture de laine est roulée en boule et ne bouge plus. Fenouillet n'en a plus besoin. Il fait si chaud, pour la première fois depuis des mois, qu'il a cessé de claquer des dents, et il parle d'une voix lente, heureuse, d'homme qui sort du bain.",
+        "« La chaleur, mon petit, dit-il. La vraie. Elle ne me traverse plus : elle me tient. Je me sens exister. » Il soupire. « Je passe mes nuits sur le pont, couché sur les planches chaudes, au milieu des dormeurs. Personne ne me marche dessus ; ils dorment en tas, je dors entre les tas. Et j'écoute. »",
+        { if: { has: "xi:complice" }, text: "Il rit, de son petit rire aigu. « Nous allons bien nous amuser, sur cette île. »" },
+        { if: { has: "xi:menace" }, text: "Sa voix se fait plus froide. « Je te dois quelque chose, il paraît. Je paie toujours mes dettes. Ensuite, nous serons quittes. »" },
+        "« Écoute ce que j'ai entendu, cette nuit, entre deux tas de dormeurs, près de la cambuse. Le gros canonnier a demandé quand. Le cuisinier a répondu : quand l'argent sera dans la cale. Le maigre aux yeux pâles a demandé combien ils étaient. Le cuisinier a compté sur ses doigts, sur ses trois doigts, et il a dit : assez, si les hésitants penchent du bon côté au bon moment. Il a dit qu'il s'en occupait. » La voix se tait. « Voilà. C'est ce que j'avais à te donner. Je m'en fiche, moi. Je n'ai pas de bord. L'air n'a pas de bord. »",
+      ],
+      choices: [{ label: "Le remercier", fx: { flag: "complot:fenouillet" }, to: "A3n_fenouillet_fin" }] },
+    A3n_fenouillet_fin: { act: "III", title: "Le passager", place: "cormorane", ambiance: "mer",
+      text: [
+        "Quand tu ressors de la soute, la couverture de laine a disparu. Elle est sur le pont, au soleil, étendue sur un rouleau de cordage, et elle sèche. Personne ne la réclame.",
+      ],
+      choices: [{ back: "A3n_jours" }] },
+
+    A3n_ecueil: { act: "III", title: "L'Écueil-Rouge", place: "ecueil_rouge", escale: "ecueil", hub: true, noLead: true, backName: "l'Écueil-Rouge", ambiance: "nature",
+      text: [
+        { first: true, text: "Un matin, une brise légère se lève, juste assez pour pousser le navire, et vers midi, la vigie signale, droit devant, une fumée. Une fumée mince, blanche, verticale, qui monte de la mer jusqu'au ciel comme un fil qu'on aurait tendu entre les deux pour les recoudre." },
+        { first: true, text: "Sous la fumée, l'Écueil-Rouge sort des herbes : un récif de pierre rougeâtre, poreuse, déchiquetée, couleur de sang séché, d'un quart de lieue de tour, sans un arbre, sans une herbe, sans un oiseau. Au centre, un cratère, d'où sort la fumée. Le long du bord, la pierre rouge est striée de traînées noires, vitrifiées, comme si quelque chose de brûlant avait coulé dessus et refroidi d'un coup. Et sur le flanc du cratère, une petite maison de pierres sèches, avec une porte de bois et une croix au-dessus de la porte." },
+        { first: true, text: "La capitaine fait mouiller à une encablure. Il y a peut-être de l'eau dans la roche ; on enverra une corvée. Le professeur Gaudrémont réclame à grands cris la chaloupe pour lui seul." },
+        { first: true, text: "À bord, les deux compas ont commencé à trembler. Un peu. Comme un chien qui sent l'orage." },
+        { again: true, text: "La roche rouge, la fumée blanche, la maison à la croix." },
+      ],
+      choices: [
+        { label: "Descendre à terre avec la corvée d'eau", to: "XP_m_debut", hide: { seen: "XP_m_debut" } },
+      ] },
+    A3n_apres_ecueil: { act: "III", title: "La marmite", place: "sargues", ambiance: "mer",
+      text: [
+        "L'Écueil s'enfonce derrière la poupe, avec sa fumée. La brise retombe, le soir même. Les herbes jaunes se referment autour de la coque.",
+        "Les compas, eux, ont cessé de trembler.",
+      ],
+      choices: [{ back: "A3n_jours" }] },
+
+    A3n_ilot: { act: "III", title: "L'îlot", place: "ilot", escale: "ilot", hub: true, noLead: true, backName: "l'îlot", ambiance: "nature",
+      text: [
+        { first: true, text: "L'îlot paraît à l'aube, une colline ronde, verte, boisée jusqu'à la mer, si fraîche au milieu des herbes jaunes et de l'eau morte qu'on la croirait peinte. Une plage de sable blanc. Des palmiers penchés. Une source, dit la carte de la capitaine, au fond d'une petite crique. Et au-dessus de la crique, à mi-pente, à demi cachée par les arbres, une grande maison blanche à toit de tuiles, avec une véranda, des volets verts et un jardin." },
+        { first: true, text: "Personne ne vient au rivage. La maison est silencieuse. Puis, au moment où l'on mouille, un cri monte de la forêt. Un cri aigu, long, qui pourrait être celui d'un oiseau, ou d'une bête, ou d'un enfant, et qui s'arrête net." },
+        { first: true, text: "Gobert se signe. La capitaine fait armer la chaloupe. Il faut de l'eau ; on prendra de l'eau." },
+        { again: true, text: "La crique, les palmiers, la maison blanche, le silence." },
+      ],
+      choices: [
+        { label: "Débarquer avec la corvée d'eau", to: "XF_m_debut", hide: { seen: "XF_m_debut" } },
+      ] },
+  },
+  extras: {},
+};

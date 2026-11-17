@@ -58,8 +58,13 @@ module.exports = {
     ] },
     // The doctor not followed: the captain finds the pistol herself; at least a doubt reaches the stern.
     C3b_fin_v: { act: "III", title: "La mer des Sargues", branch: [
-      { if: played("III.2", "victorine"), to: "C3b_fin_x" },
-      { fx: { flag: ["v3b:defaut", "complot:soupcon"] }, to: "C3b_fin_x" },
+      { if: played("III.2", "victorine"), to: "C3b_fin_j" },
+      { fx: { flag: ["v3b:defaut", "complot:soupcon"] }, to: "C3b_fin_j" },
+    ] },
+    // The surgeon, if the doctor never settled his case: Monsieur Gris wins, quietly.
+    C3b_fin_j: { act: "III", title: "La mer des Sargues", branch: [
+      { if: { all: [{ has: "vauclair:engage" }, { not: { any: [{ has: "vauclair:sauve" }, { has: "vauclair:livre" }, { has: "vauclair:gris" }] } }] }, fx: { flag: ["vauclair:gris", "vauclair:defaut"], penche: { vauclair: -3 } }, to: "C3b_fin_x" },
+      { to: "C3b_fin_x" },
     ] },
     // The invisible passenger, if nobody settled his fate, is caught by the crew in the flour.
     C3b_fin_x: { act: "III", title: "La mer des Sargues", branch: [
