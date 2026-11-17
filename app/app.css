@@ -1036,3 +1036,213 @@ button.pp.pp-face-btn { border-bottom: 0; display: inline-flex; align-items: cen
 .hand-cards.small-cards { grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); }
 .hand-cards.small-cards .card { min-height: 0; cursor: default; }
 .hand-cards.small-cards .card:hover { transform: none; box-shadow: none; }
+
+/* ---------------------------------------------------------------------------------------------------------------
+   The notebook (11.5, Clément 17/11: « plus organique, moins technique »). Pref style = carnet (default) | classique.
+   The page is a sheet of paper with trembling edges and grain; choices are pencilled lines that get ringed by hand;
+   counters are a running head; tools are a line of words. The skins (parchemin, givre, sable, enluminure) are its
+   papers. Phase 1: the reading screen only (data-screen="game"). Filters: #carnet-bord, #carnet-trait, #carnet-lavis
+   (app.js, Notebook.defs). */
+:root[data-style="carnet"] {
+  --hand: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+  --red-ink: var(--bad);
+  --pencil: color-mix(in srgb, var(--ink) 80%, var(--paper));
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32 0 0 0 0 .25 0 0 0 0 .16 0 0 0 .10 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  --mottle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.008' numOctaves='3' seed='5' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .33 0 0 0 0 .15 0 0 0 .16 -.03'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E");
+  --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='6' viewBox='0 0 60 6'%3E%3Cpath d='M0 3.4 C8 1.6 15 4.6 24 3 S41 1.8 49 3.6 S57 3.4 60 3.2' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E");
+  --bracket: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='100' viewBox='0 0 10 100' preserveAspectRatio='none'%3E%3Cpath d='M8 1 C3 4 4 20 5 34 C6 44 3 48 1.5 50 C3 52 6 56 5 66 C4 80 3 96 8 99' fill='none' stroke='black' stroke-width='1.3' vector-effect='non-scaling-stroke' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+/* The notebook's own paper, when no skin is chosen: cream paper on a cloth cover by day, blue-night paper by night. */
+:root[data-style="carnet"]:not([data-skin]) {
+  --bg: #d8cfb9; --paper: #f5eedc; --paper-2: #ece2c9; --ink: #2a241d; --muted: #564b3b; --line: #cdbf9f;
+  --accent: #2b5d6b; --accent-ink: #fbf6ea; --accent-soft: #dfe7e0; --gold: #8a5d10; --bad: #9b2d1f; --good: #3c6b3a;
+}
+@media (prefers-color-scheme: dark) { :root[data-style="carnet"]:not([data-skin]):not([data-theme="light"]):not([data-theme="sepia"]) {
+  --bg: #0f141b; --paper: #1b2330; --paper-2: #222c3a; --ink: #e8e1cf; --muted: #a9a390; --line: #36414f;
+  --accent: #9cc7d6; --accent-ink: #0f141b; --accent-soft: #23384a; --gold: #d8ad4d; --bad: #e8957e; --good: #8fc487; } }
+:root[data-style="carnet"]:not([data-skin])[data-theme="dark"] {
+  --bg: #0f141b; --paper: #1b2330; --paper-2: #222c3a; --ink: #e8e1cf; --muted: #a9a390; --line: #36414f;
+  --accent: #9cc7d6; --accent-ink: #0f141b; --accent-soft: #23384a; --gold: #d8ad4d; --bad: #e8957e; --good: #8fc487; }
+
+/* the whole reading screen speaks one family of letters (Q4: sans only in the workshop) */
+:root[data-style="carnet"][data-screen="game"] { --sans: var(--serif); }
+:root[data-style="carnet"][data-screen="game"] body { background: var(--mottle), var(--bg); }
+
+/* running head: the counters are words, the buttons are words */
+:root[data-style="carnet"][data-screen="game"] .top { background: var(--bg); border-bottom: 0; }
+:root[data-style="carnet"][data-screen="game"] .top .pill { background: none; border: 0; padding: 2px 3px; font: italic 15px/1.2 var(--serif); color: inherit; opacity: .9; }
+:root[data-style="carnet"][data-screen="game"] .top .pill.gold.gold.gold { color: inherit; opacity: 1; font-weight: 600; }
+:root[data-style="carnet"][data-screen="game"] .top .bar { background: none; height: 4px; border-radius: 0; overflow: visible; position: relative; }
+:root[data-style="carnet"][data-screen="game"] .top .bar::before { content: ""; position: absolute; inset: 1px 0; background: currentColor; opacity: .18; }
+:root[data-style="carnet"][data-screen="game"] .top .bar > i { position: relative; height: 3px; margin-top: .5px; background: var(--red-ink); filter: url(#carnet-trait); }
+:root[data-style="carnet"][data-screen="game"] .top .btn,
+:root[data-style="carnet"][data-screen="game"] .tools .btn { background: none; border: 0; border-radius: 0; box-shadow: none; padding: 6px 6px; font: italic 15px/1.2 var(--serif); color: inherit; }
+:root[data-style="carnet"][data-screen="game"] .top .btn.primary { color: inherit; font-weight: 600; background: none; position: relative; }
+:root[data-style="carnet"][data-screen="game"] .top .btn.primary::after { content: ""; position: absolute; left: 6px; right: 6px; bottom: 1px; height: 6px; background: var(--red-ink); -webkit-mask: var(--wave) repeat-x left center / 40px 6px; mask: var(--wave) repeat-x left center / 40px 6px; }
+:root[data-style="carnet"][data-screen="game"] .tools { gap: 2px 12px; margin-top: 18px; color: var(--muted); }
+:root[data-style="carnet"][data-screen="game"] .tools .btn:hover:not(:disabled),
+:root[data-style="carnet"][data-screen="game"] .top .btn:hover:not(:disabled) { color: var(--ink); text-decoration: underline; text-decoration-style: wavy; text-decoration-thickness: 1px; text-underline-offset: 4px; text-decoration-color: var(--red-ink); }
+:root[data-style="carnet"][data-screen="game"] .tools .btn:disabled { opacity: .45; }
+:root[data-style="carnet"][data-screen="game"] .tools .btn[aria-pressed="true"] { color: var(--ink); font-weight: 600; }
+
+/* the act ruler: strokes of ink */
+:root[data-style="carnet"][data-screen="game"] .acts span { height: 2px; border-radius: 0; background: var(--ink); opacity: .2; filter: url(#carnet-trait); }
+:root[data-style="carnet"][data-screen="game"] .acts span.done { background: var(--ink); opacity: .5; }
+:root[data-style="carnet"][data-screen="game"] .acts span.on { background: var(--red-ink); opacity: 1; height: 3px; }
+
+/* the sheet: grain and paper under the text, edges that tremble, a ribbon for the bookmark */
+:root[data-style="carnet"][data-screen="game"] .page { position: relative; isolation: isolate; background: none; border: 0; border-radius: 0; box-shadow: none; margin-top: 18px; }
+:root[data-style="carnet"][data-screen="game"] .page::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: var(--grain), var(--page-bg, none), var(--paper); filter: url(#carnet-bord);
+  box-shadow: var(--page-edge, 0 0 0 transparent), 1px 2px 0 rgb(40 28 12 / .10), 0 12px 28px rgb(40 28 12 / .16); }
+:root[data-style="carnet"][data-screen="game"] .page::after { content: ""; position: absolute; top: -6px; right: clamp(22px, 6vw, 56px); width: 15px; height: 66px; z-index: 1; pointer-events: none;
+  background: var(--red-ink); clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 84%, 0 100%); box-shadow: inset -3px 0 0 rgb(0 0 0 / .12); }
+:root[data-style="carnet"][data-screen="game"] .vignette { border-radius: 0; filter: url(#carnet-lavis); opacity: .82;
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 98%); mask-image: linear-gradient(to bottom, #000 55%, transparent 98%); }
+:root[data-style="carnet"][data-screen="game"] .page-head h2 { letter-spacing: .005em; }
+:root[data-style="carnet"][data-screen="game"] .where { font-style: italic; font-size: 14px; }
+:root[data-style="carnet"][data-screen="game"] .para-num { color: var(--red-ink); font-style: italic; margin-right: 26px; }
+
+/* what happened: a note in the margin, held by a hand-drawn bracket, no box */
+:root[data-style="carnet"][data-screen="game"] .events { position: relative; background: none; border: 0; border-radius: 0; padding: 2px 0 2px 22px; font: italic 15.5px/1.45 var(--serif); }
+:root[data-style="carnet"][data-screen="game"] .events::before { content: ""; position: absolute; left: 4px; top: 0; bottom: 0; width: 10px; background: var(--red-ink); opacity: .75;
+  -webkit-mask: var(--bracket) no-repeat center / 100% 100%; mask: var(--bracket) no-repeat center / 100% 100%; }
+:root[data-style="carnet"][data-screen="game"] .events.after .ev.item,
+:root[data-style="carnet"][data-screen="game"] .events.after .ev.map,
+:root[data-style="carnet"][data-screen="game"] .events.after .ev.people { color: var(--red-ink); }
+:root[data-style="carnet"][data-screen="game"] .ev.roll { font: italic 14px var(--serif); }
+:root[data-style="carnet"][data-screen="game"] .ev .btn { background: none; border: 0; font: italic 600 14px var(--serif); color: var(--accent); text-decoration: underline; text-underline-offset: 3px; padding: 0 4px; }
+:root[data-style="carnet"][data-screen="game"] .page .notice { background: none; border: 0; border-left: 0; padding: 0 0 0 22px; position: relative; font-style: italic; }
+
+/* the choices: lines in pencil; a wave under the one the finger is on; a ring drawn by hand on the one chosen */
+:root[data-style="carnet"][data-screen="game"] .choices { gap: 4px; margin-top: 22px; }
+:root[data-style="carnet"][data-screen="game"] .choice { position: relative; border: 0; background: none; border-radius: 0; box-shadow: none; padding: 7px 8px 9px 30px; min-height: 44px;
+  font: 500 calc(var(--read-size, 18px) * 1.3)/1.12 var(--hand); color: var(--pencil); }
+:root[data-style="carnet"][data-screen="game"] .choice::before { content: "☞"; position: absolute; left: 4px; top: 9px; font: 16px/1 var(--serif); color: var(--red-ink); opacity: .85; }
+:root[data-style="carnet"][data-screen="game"] .choice::after { content: ""; position: absolute; left: 30px; right: 8px; bottom: 3px; height: 6px; background: var(--red-ink); opacity: 0; transition: opacity .2s;
+  -webkit-mask: var(--wave) repeat-x left center / 60px 6px; mask: var(--wave) repeat-x left center / 60px 6px; }
+:root[data-style="carnet"][data-screen="game"] .choice:hover:not(:disabled), :root[data-style="carnet"][data-screen="game"] .choice:focus-visible { background: none; color: var(--ink); }
+:root[data-style="carnet"][data-screen="game"] .choice:hover:not(:disabled)::after, :root[data-style="carnet"][data-screen="game"] .choice:focus-visible::after { opacity: .7; }
+:root[data-style="carnet"][data-screen="game"] .choice.picked { color: var(--ink); }
+:root[data-style="carnet"][data-screen="game"] .choice.picked::after { opacity: 0; }
+:root[data-style="carnet"][data-screen="game"] .choice.big { border: 0; font-weight: 700; }
+:root[data-style="carnet"][data-screen="game"] .choice.big::before { content: "☞"; font-weight: 700; opacity: 1; }
+:root[data-style="carnet"][data-screen="game"] .choice.sys { font: italic 16px/1.3 var(--serif); color: var(--muted); }
+:root[data-style="carnet"][data-screen="game"] .choice.sys::before { content: "~"; top: 8px; }
+:root[data-style="carnet"][data-screen="game"] .choice:disabled { opacity: .5; }
+:root[data-style="carnet"][data-screen="game"] .choice:disabled::before { content: "·"; }
+:root[data-style="carnet"][data-screen="game"] .choice .meta, :root[data-style="carnet"][data-screen="game"] .choice .goes, :root[data-style="carnet"][data-screen="game"] .choice .note { font: italic 13px/1.2 var(--serif); }
+:root[data-style="carnet"][data-screen="game"] .choice .why { font: italic 13.5px/1.35 var(--serif); }
+:root[data-style="carnet"][data-screen="game"] .group-label { font: italic 600 14px var(--serif); letter-spacing: 0; text-transform: none; color: var(--muted); margin-top: 8px; }
+:root[data-style="carnet"][data-hand="non"][data-screen="game"] .choice { font: italic calc(var(--read-size, 18px) * .95)/1.35 var(--read-font, var(--serif)); color: var(--ink); }
+.carnet-cercle { position: absolute; inset: -3px -2px; width: calc(100% + 4px); height: calc(100% + 6px); overflow: visible; pointer-events: none; }
+.carnet-cercle path { fill: none; stroke: var(--red-ink, var(--bad)); stroke-width: 1.8; stroke-linecap: round; filter: url(#carnet-trait); }
+
+/* a new page is written: line by line, left to right, in wet ink (blue-black, a little bled into the paper), which
+   then dries to the page's own ink. The writing itself is driven by Notebook.write (app.js) with a mask per paragraph;
+   a tap on the page finishes it at once. */
+:root[data-style="carnet"] { --ink-wet: color-mix(in srgb, var(--ink) 40%, #0c1a4d); }
+@media (prefers-color-scheme: dark) { :root[data-style="carnet"]:not([data-theme="light"]):not([data-theme="sepia"]) { --ink-wet: color-mix(in srgb, var(--ink) 50%, #c4dcff); } }
+:root[data-style="carnet"][data-theme="dark"], :root[data-style="carnet"][data-theme="soir"] { --ink-wet: color-mix(in srgb, var(--ink) 50%, #c4dcff); }
+:root[data-style="carnet"] .page.ink-in .prose p { transition: color 2.2s ease-out, text-shadow 2.2s ease-out; }
+:root[data-style="carnet"] .page.ink-in .prose p.ink-wet { color: var(--ink-wet); text-shadow: 0 0 .6px var(--ink-wet), 0 0 3px color-mix(in srgb, var(--ink-wet) 30%, transparent); transition: none; }
+:root[data-style="carnet"] .page.ink-in .prose p.ink-wait { visibility: hidden; }
+:root[data-style="carnet"] .page.ink-in .choices.ink-wait { opacity: 0; pointer-events: none; }
+:root[data-style="carnet"] .page.ink-in .choices { transition: opacity .5s ease-out; }
+/* with a skin, the red ink is the skin's own ink (parchemin and enluminure red, sable brown, givre blue) */
+:root[data-style="carnet"][data-skin] { --red-ink: var(--accent); }
+:root[data-style="carnet"][data-screen="game"] .page::after { z-index: 3; }
+/* the act's engraving: drawn by hand, its frame trembles; the double rule under it goes */
+:root[data-style="carnet"][data-screen="game"] .gravure { border-bottom: 0; }
+:root[data-style="carnet"][data-screen="game"] .gravure-art { filter: url(#carnet-trait); outline-offset: 4px; }
+:root[data-style="carnet"][data-screen="game"] .gravure figcaption { font: italic 15px/1.2 var(--title); letter-spacing: .02em; text-transform: none; }
+:root[data-style="carnet"][data-screen="game"] .choice.picked:disabled { opacity: 1; }
+
+/* ---------------------------------------------------------------------------------------------------------------
+   The notebook, phase 2 (11.7, Clément 17/11: « la suite ! »): the whole book but the workshop (editor, trial reading),
+   which stays a tool. Buttons become words, a chosen option is ringed by hand, sheets of paper replace cards, fields
+   are lines to write on, the hero's notebook and the windows are pages. */
+:root[data-style="carnet"] {
+  --ring: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40' preserveAspectRatio='none'%3E%3Cpath d='M9 27 C3 12 38 3 70 4 C96 6 99 30 76 35 C52 40 11 39 5 25 C3 16 19 8 35 7' fill='none' stroke='black' stroke-width='1.5' vector-effect='non-scaling-stroke' stroke-linecap='round'/%3E%3C/svg%3E");
+  --rule-line: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='4' viewBox='0 0 120 4'%3E%3Cpath d='M0 2.2 C20 1.4 40 2.8 60 2 S100 1.5 120 2.3' fill='none' stroke='black' stroke-width='1' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) body { background: var(--mottle), var(--bg); }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) { --sans: var(--serif); }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .label, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .group-label { font: italic 600 14px/1.2 var(--serif); letter-spacing: 0; text-transform: none; color: var(--muted); }
+
+/* buttons: words; the primary one is a patch of ink with a trembling edge */
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .btn { position: relative; border: 0; background: none; border-radius: 0; box-shadow: none; font: italic 15.5px/1.2 var(--serif); color: var(--ink); padding: 7px 8px; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .btn:hover:not(:disabled) { text-decoration: underline wavy var(--red-ink) 1px; text-underline-offset: 4px; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .btn.primary { color: var(--accent-ink); background: var(--accent); font-style: normal; font-weight: 600; padding: 9px 16px;
+  clip-path: polygon(1% 8%, 22% 1%, 48% 5%, 77% 0, 99% 4%, 100% 47%, 98% 94%, 70% 100%, 41% 95%, 15% 100%, 0 93%, 2% 50%); }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .btn.primary:hover:not(:disabled) { text-decoration: none; background: color-mix(in srgb, var(--accent) 85%, var(--ink)); }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .btn:disabled { opacity: .45; }
+/* a chosen option (segments, chips, answers, tabs of the notebook): ringed in red ink */
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .btn.on, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .seg .btn.on, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .chip.on, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .answer.on, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .arch.on { background: none; border-color: transparent; color: var(--ink); font-weight: 600; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .btn.on::after, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .chip.on::after, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .answer.on::after { content: ""; position: absolute; inset: -5px -10px; background: var(--red-ink); pointer-events: none;
+  -webkit-mask: var(--ring) no-repeat center / 100% 100%; mask: var(--ring) no-repeat center / 100% 100%; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .seg { gap: 4px 10px; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .chip, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .library .chip, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .tab-groups .chip { position: relative; border: 0; background: none; border-radius: 0; color: var(--ink); font: italic 15px/1.2 var(--serif); padding: 4px 10px; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .library .chip.on, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .tab-groups .chip.on { background: none; color: var(--ink); font-weight: 600; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .pill { background: none; border: 0; border-radius: 0; font: italic 14px/1.2 var(--serif); padding: 2px 4px; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .count, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .home-tab .count, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .lib-filter-btn .count { background: none; font: italic 600 13px/1 var(--serif); color: inherit; padding: 0 0 0 2px; }
+
+/* tabs: words, the open one underlined by hand */
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .home-tabs, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .tabs { border-bottom: 0; background-image: none; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .home-tabs { background: var(--bg); }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .home-tab, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .tab { position: relative; border-bottom: 0; font: italic 16px/1 var(--serif); color: var(--muted); }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .home-tab.on, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .tab.on { color: var(--ink); font-weight: 600; border-bottom: 0; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .home-tab.on::after, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .tab.on::after { content: ""; position: absolute; left: 10px; right: 10px; bottom: 2px; height: 6px; background: var(--red-ink);
+  -webkit-mask: var(--wave) repeat-x left center / 60px 6px; mask: var(--wave) repeat-x left center / 60px 6px; }
+
+/* fields: a line to write on */
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) input[type="text"], :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) input[type="search"], :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) input:not([type]), :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) textarea, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) select { border: 0; border-radius: 0; background: transparent; padding-left: 4px;
+  background-image: linear-gradient(var(--line), var(--line)); background-size: 100% 1.5px; background-position: 0 100%; background-repeat: no-repeat; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .lib-search input { padding-left: 32px; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) input[aria-label="Nom du héros"], :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) input[aria-label="Nom du nouveau lecteur"] { font: 600 24px/1.1 var(--hand); color: var(--ink); }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) input:focus-visible, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) textarea:focus-visible, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) select:focus-visible { outline: 0; background-image: linear-gradient(var(--red-ink), var(--red-ink)); background-size: 100% 2px; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) select { background-color: transparent; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .toggle input { accent-color: var(--red-ink); }
+
+/* sheets of paper instead of cards: the book cards, the games, the hero's ways, the answers */
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .card, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .save-line, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .arch, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .lib-panel, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .board-line, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .itemrow, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .foe, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .codex-card, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .ed-form { position: relative; isolation: isolate; border: 0; border-radius: 0; box-shadow: none; background: none; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .card::before, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .save-line::before, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .arch::before, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .lib-panel::before, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .board-line::before, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .itemrow::before, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .foe::before, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .codex-card::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: var(--grain), var(--page-bg, none), var(--paper); filter: url(#carnet-bord-fin); box-shadow: 1px 2px 0 rgb(40 28 12 / .08), 0 6px 16px rgb(40 28 12 / .10); }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .card:nth-child(3n+1) { transform: rotate(-.35deg); }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .card:nth-child(3n+2) { transform: rotate(.3deg); }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .card { border-top: 0; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .arch { background: none; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .arch.on::before { background: var(--grain), var(--paper); }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .answer { position: relative; border: 0; background: none; border-radius: 0; padding: 8px 10px 8px 28px; font: italic 16px/1.4 var(--serif); }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .answer::before { content: "☞"; position: absolute; left: 4px; top: 9px; font: normal 15px/1 var(--serif); color: var(--red-ink); opacity: .8; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .notice { position: relative; background: none; border: 0; border-radius: 0; padding: 2px 0 2px 22px; font-style: italic; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .notice::before { content: ""; position: absolute; left: 4px; top: 0; bottom: 0; width: 10px; background: var(--red-ink); opacity: .7;
+  -webkit-mask: var(--bracket) no-repeat center / 100% 100%; mask: var(--bracket) no-repeat center / 100% 100%; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .profile { border: 0; background: none; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .avatar { filter: url(#carnet-bord-fin); }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .doc { background: none; border-radius: 0; font-family: var(--hand); font-size: 20px; line-height: 1.3; color: var(--pencil); border-left: 0; }
+
+/* bars (life, fatigue, domains): a stroke of ink on a pencil line */
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .bar { background: none; border-radius: 0; overflow: visible; position: relative; height: 5px; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .bar::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: currentColor; opacity: .25; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .bar > i { position: relative; height: 3px; margin-top: 1px; filter: url(#carnet-trait); }
+
+/* the hero's notebook and the windows: a page of the notebook, its edge trembling, its tabs words */
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .drawer, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .modal { background: none; isolation: isolate; border: 0; border-radius: 0; box-shadow: none; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .drawer::before, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .modal::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--grain), var(--page-bg, none), var(--paper);
+  filter: url(#carnet-bord); box-shadow: -6px 0 24px rgb(30 20 10 / .25); }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .drawer-head, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .modal .drawer-head { border-bottom: 0; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .drawer-head::after { content: ""; position: absolute; left: 16px; right: 16px; bottom: 0; height: 4px; background: var(--line);
+  -webkit-mask: var(--rule-line) repeat-x left center / 120px 4px; mask: var(--rule-line) repeat-x left center / 120px 4px; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .drawer-head { position: relative; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .drawer-bg { background: rgb(30 22 12 / .35); }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .tabs { position: relative; }
+
+/* maps, plans and the road: drawn by hand */
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .map svg, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .plan svg, :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .route svg { filter: url(#carnet-trait); border: 0; border-radius: 0; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) pre.report { background: none; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .arch.on::after { content: "✓"; position: absolute; top: 4px; right: 10px; font: 700 30px/1 var(--hand); color: var(--red-ink); }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .top { border-bottom: 0; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .seg .btn { padding-left: 10px; padding-right: 10px; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .top .btn { color: inherit; }
+:root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"])[data-screen="game"] .top .btn.primary { background: none; clip-path: none; color: inherit; padding: 6px 6px; }
