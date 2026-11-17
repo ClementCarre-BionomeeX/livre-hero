@@ -482,3 +482,26 @@ Pour « Le Douzième Coup » (les enfants de Clément, 16/11 : un grand scénari
 | `story.stocks.<id>` | `if` | La réserve n'appartient qu'au héros qui remplit la condition : les autres ne la voient pas. |
 
 Ce qu'un joueur dépose porte la marque `monde:depot:<id>:<objet>` : l'autre ne le trouve qu'après le rendez-vous suivant. Le moteur retient ce que le lecteur a lu de chaque chronique et annonce, une seule fois, chaque ligne qui paraît ou qui change (« La Chronique ne dit plus la même chose : … ») ; la première lecture est muette. Le fantôme du validateur dépose lui aussi, au hasard. Exemple minimal : `tests/depots-test.js`.
+
+## Histoires à cartes (16/11, 9.7) : haltes, main, résolutions, fils
+
+Chantier « cartes et draft » (Clément, 16/11, pour son frère amateur de draft), phase 1 : les cartes en solo. Le lecteur tient une main de cartes ; à chaque halte, il en joue une. La carte dit quel genre de chose arrive ; l'histoire dit ce qu'elle devient à cet endroit. Exemple en place : « Le Courrier de Vèze » (`histoires/src/courrier/`). Jeu de base partagé : `histoires/jeux/base.js`.
+
+| Où | Clé | Sens |
+|---|---|---|
+| histoire | `cartes: { <id>: { titre, type, enseigne, rarete, elan, texte, ouvre, noue } }` | Les cartes. `type` : rencontre, obstacle, detour, refuge, revelation, tresor, peril, presage, allie, trahison. `enseigne` : lame (la force), masque (la ruse), lanterne (le savoir), racine (les liens). `rarete` : commune, peu, rare, legende. `elan` : 0 à 3. `ouvre` / `noue` : un fil. |
+| histoire | `fils: { <id>: { titre, ouvert, noue } }` | Les fils qu'une carte ou une scène ouvre et noue ; les phrases s'affichent sous la main. |
+| histoire | `jeu: { main, deck: [ids], elan: { depart, halte } }` | Taille de la main (5), le deck (une carte peut y être plusieurs fois), l'élan de départ et celui gagné à chaque halte. L'appli pourra donner un autre deck (`s.deckChoisi`, draft ou deck construit). |
+| passage | `halte: { id, nom, suite, types }` | Une halte : le lecteur pioche jusqu'à sa main pleine, gagne de l'élan, et chaque carte devient un choix. `suite` : où l'on va après la scène de la carte. `types` : les genres acceptés ici (les autres cartes sont grisées, « Pas ici »). |
+| passage | `resout: { type \| carte, halte, enseigne, fil, if }` | Une résolution. Le moteur prend la plus précise qui tient (carte 8, halte 4, fil ouvert 2, enseigne 1, condition 1) ; à égalité, une page pas encore lue, puis au hasard. |
+| choix | `to: "@suite"` | La suite de la halte où la carte a été jouée. |
+| paragraphe, choix | `carte`, `type`, `enseigne`, `halte` | La carte qui vient d'être jouée, son genre, son enseigne, la halte où elle l'a été. |
+| paragraphe, choix | `fil: "<id>"` / `noue: "<id>"` | Ce fil est ouvert / noué. |
+| condition | `{ fil: "<id>", is: "ouvert" \| "noue" \| "rate" \| "aucun" }` · `{ carteJouee: "<id>" }` | L'état d'un fil (ouvert par défaut) ; une carte jouée dans la partie. |
+| effet | `fil: { ouvre, noue, rate }` · `elan: n` | La scène ouvre, noue ou rate un fil ; donne ou retire de l'élan. |
+
+Ce que le moteur fait seul : la pioche mélangée, la défausse rebattue quand la pioche est vide, l'élan payé, deux cartes identiques en un seul choix (« × 2 »), +1 élan pour deux cartes de la même enseigne à la suite, +25 aux jets de la manière de l'enseigne dans la scène ouverte par la carte (lame : combat ; masque : discrétion, social ; lanterne : savoir, magie ; racine : nature, social), « Passer son chemin » quand aucune carte n'est jouable, le fil ouvert ou noué par la carte elle-même (la scène est choisie avec les fils d'avant). Une carte qui noue un fil fermé se joue comme une carte ordinaire de son genre.
+
+Le validateur : cartes, fils, haltes, résolutions et tags qui nomment ce qui existe ; et la promesse : **chaque carte de l'histoire, à chaque halte qui accepte son genre, a une résolution sans condition** (`resout: { type }`, avec ou sans `halte`). Sinon, erreur. Tests : `node tests/cartes-test.js`.
+
+Écrire une résolution : un paragraphe par halte (`halte`), un par carte quand la carte précise ce qui arrive (`carte`), des choix tagués `enseigne` pour la manière de s'en tirer, et une issue sans jet. Un fil se relit par des résolutions `resout: { type: [...], fil }` qui ramènent son personnage et le nouent.

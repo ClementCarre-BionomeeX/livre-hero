@@ -11,16 +11,16 @@
     "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "via", "regard", "fresh", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed",
     "temps", "saison", "blessure", "cicatrice", "fatigue", "trait", "duel",
     "recit", "doute", "dementi", "silences", "geste", "poids", "angoisse", "attache",
-    "secret", "confie", "garde", "savoir", "lu", "voile", "voiles", "lens"];
+    "secret", "confie", "garde", "savoir", "lu", "voile", "voiles", "lens", "fil", "carteJouee"];
   // The siege's conditions (8.0) carry a second key (is, member, hero, losses): they are read by their first key.
-  var SIEGE_KEYS = ["depot", "voiles", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue", "trait", "duel"];
+  var SIEGE_KEYS = ["depot", "fil", "voiles", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue", "trait", "duel"];
   var FX_KEYS = ["voie", "regard", "aspect", "qui", "resume", "set", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
     "give", "relicLose", "item", "drop", "gold", "food", "pv", "rest", "time", "until", "stamp", "reveal", "meet", "clock", "quest", "questSeen", "note", "noteCls",
     "assign", "team", "regroup", "away", "lead", "leadQuiet", "learn", "souv", "souvBack", "catchupAll", "awayUnless",
     "stock", "promise", "keep", "break", "forgive", "sway", "sound", "camp", "tie",
     "meteo", "blessure", "soigner", "guerir", "fatigue", "trait", "pratique",
     "recit", "geste", "angoisse", "attache",
-    "secret", "surprend", "confier", "recharge", "devoile"];
+    "secret", "surprend", "confier", "recharge", "devoile", "fil", "elan"];
   var DOM_KEYS = Object.keys(M.DOMAINS);
 
   // Collects every tag a condition reads (for the echo check).
@@ -60,6 +60,67 @@
 
   // Intent: validate(Story) -> Problem*
   var RETURN_VERB = /^(Revenir|Retourner|Redescendre|Remonter|Rentrer|Repartir|Ressortir|Sortir|Regagner|Rejoindre|Reprendre la route)\b/;
+  // Intent: cardCheck(Story, E, W) ! the cards (9.7): every card known, every stop with its way on, every resolution
+  // naming what exists, every paragraph tag naming what exists; and the promise of the engine: a card the reader can
+  // hold, played at a stop that takes its kind, always opens a scene (a resolution without condition covers it).
+  function cardCheck(story, E, W) {
+    var P = story.passages, C = story.cartes || {}, F = story.fils || {}, stops = {}, any = false;
+    Object.keys(C).forEach(function (k) {
+      var c = C[k], w = "Carte « " + k + " »"; any = true;
+      if (!c.titre) E(w + " : sans titre.");
+      if (!M.CARD_TYPES[c.type]) E(w + " : type « " + c.type + " » inconnu (" + Object.keys(M.CARD_TYPES).join(", ") + ").");
+      if (!M.SUITS[c.enseigne]) E(w + " : enseigne « " + c.enseigne + " » inconnue (" + Object.keys(M.SUITS).join(", ") + ").");
+      if (c.rarete != null && !M.RARITIES[c.rarete]) E(w + " : rareté « " + c.rarete + " » inconnue (" + Object.keys(M.RARITIES).join(", ") + ").");
+      if (c.elan != null && !(c.elan >= 0 && c.elan <= 3 && c.elan === Math.floor(c.elan))) E(w + " : elan, un entier de 0 à 3.");
+      [c.ouvre, c.noue].forEach(function (x) { if (x != null && !F[x]) E(w + " : fil « " + x + " » inconnu (fils)."); });
+    });
+    Object.keys(F).forEach(function (k) { if (!F[k].titre) E("Fil « " + k + " » : sans titre."); });
+    var deck = (story.jeu || {}).deck || [];
+    deck.forEach(function (k) { if (!C[k]) E("Jeu : carte « " + k + " » du deck inconnue (cartes)."); });
+    Object.keys(P).forEach(function (id) {
+      var H = M.stopOf(P[id]); if (!H) return; any = true;
+      var w = "§ " + id + " (halte)";
+      if (!H.id) E(w + " : halte sans id.");
+      else if (stops[H.id]) E(w + " : halte « " + H.id + " » déjà déclarée en § " + stops[H.id] + ".");
+      else stops[H.id] = id;
+      if (!H.suite || !P[H.suite]) E(w + " : suite « " + H.suite + " » inconnue (où l'on va après la scène de la carte).");
+      [].concat(H.types || []).forEach(function (t) { if (!M.CARD_TYPES[t]) E(w + " : type « " + t + " » inconnu."); });
+    });
+    if (any && !deck.length) W("Jeu : aucun deck (jeu.deck) ; le lecteur n'aura de cartes que celles que l'appli lui donne.");
+    var res = Object.keys(P).filter(function (id) { return P[id].resout; });
+    res.forEach(function (id) {
+      var r = P[id].resout, w = "§ " + id + " (résolution)";
+      if (r.carte == null && r.type == null) E(w + " : resout demande type ou carte.");
+      [].concat(r.type || []).forEach(function (t) { if (!M.CARD_TYPES[t]) E(w + " : type « " + t + " » inconnu."); });
+      [].concat(r.carte || []).forEach(function (x) { if (!C[x]) E(w + " : carte « " + x + " » inconnue."); });
+      [].concat(r.halte || []).forEach(function (x) { if (!stops[x]) E(w + " : halte « " + x + " » inconnue."); });
+      [].concat(r.enseigne || []).forEach(function (x) { if (!M.SUITS[x]) E(w + " : enseigne « " + x + " » inconnue."); });
+      [].concat(r.fil || []).forEach(function (x) { if (!F[x]) E(w + " : fil « " + x + " » inconnu."); });
+    });
+    // Paragraph and choice tags of the cards.
+    Object.keys(P).forEach(function (id) {
+      var p = P[id];
+      (p.text || []).filter(function (t) { return t && typeof t === "object"; }).concat(p.choices || []).forEach(function (t) {
+        var w = "§ " + id;
+        [].concat(t.carte || []).forEach(function (x) { if (!C[x]) E(w + " : tag carte, « " + x + " » inconnue."); });
+        [].concat(t.type || []).forEach(function (x) { if (!M.CARD_TYPES[x]) E(w + " : tag type, « " + x + " » inconnu."); });
+        [].concat(t.enseigne || []).forEach(function (x) { if (!M.SUITS[x]) E(w + " : tag enseigne, « " + x + " » inconnue."); });
+        [].concat(t.halte || []).forEach(function (x) { if (!stops[x]) E(w + " : tag halte, « " + x + " » inconnue."); });
+        [].concat(t.fil || [], t.noue || []).forEach(function (x) { if (!F[x]) E(w + " : tag fil, « " + x + " » inconnu."); });
+      });
+    });
+    // The promise: each card, at each stop that takes its kind, has a resolution that always holds.
+    var sure = res.filter(function (id) { var r = P[id].resout; return r.if == null && r.fil == null && r.enseigne == null && !["with", "without", "when", "after", "before"].some(function (k) { return P[id][k] != null; }); });
+    Object.keys(stops).forEach(function (h) {
+      var H = M.stopOf(P[stops[h]]);
+      Object.keys(C).forEach(function (k) {
+        var c = C[k];
+        if (H.types && [].concat(H.types).indexOf(c.type) < 0) return;
+        var ok = sure.some(function (id) { var r = P[id].resout; return (r.carte != null ? [].concat(r.carte).indexOf(k) >= 0 : [].concat(r.type).indexOf(c.type) >= 0) && (r.halte == null || [].concat(r.halte).indexOf(h) >= 0); });
+        if (!ok) E("Halte « " + h + " » : la carte « " + k + " » (" + M.CARD_TYPES[c.type] + ") n'y a aucune résolution sans condition ; écrire un passage resout: { type: \"" + c.type + "\" } (avec ou sans halte).");
+      });
+    });
+  }
   function staticCheck(story) {
     var errs = [], warns = [];
     function E(m) { errs.push(m); } function W(m) { warns.push(m); }
@@ -201,7 +262,7 @@
       (f.enemies || []).forEach(function (e) { var id = e.id || e; if (typeof id === "string" && !enemies[id]) E(where + " : ennemi « " + id + " » inconnu."); });
       ["win", "lose"].forEach(function (k) { if (!f[k]) E(where + " : combat sans issue « " + k + " »."); });
       if (f.flee && f.flee.dom && DOM_KEYS.indexOf(f.flee.dom) < 0) E(where + " : fuite, domaine « " + f.flee.dom + " » inconnu.");
-      [f.win, f.lose, f.flee, f.talk && f.talk.win, f.calm].forEach(function (b) { if (!b) return; checkFx(b.fx, where); (Array.isArray(b.to) ? b.to.map(function (x) { return x.to; }) : [b.to]).forEach(function (t) { if (t !== "@ret" && t !== "@route" && t !== "@team" && !P[t]) E(where + " : le combat mène à « " + t + " », qui n'existe pas."); }); });
+      [f.win, f.lose, f.flee, f.talk && f.talk.win, f.calm].forEach(function (b) { if (!b) return; checkFx(b.fx, where); (Array.isArray(b.to) ? b.to.map(function (x) { return x.to; }) : [b.to]).forEach(function (t) { if (t !== "@ret" && t !== "@route" && t !== "@team" && t !== "@suite" && !P[t]) E(where + " : le combat mène à « " + t + " », qui n'existe pas."); }); });
     }
     function checkCond(c, where) {
       if (c == null || typeof c === "boolean" || typeof c === "string") return;
@@ -216,6 +277,8 @@
       if (k === "depot" && !(story.depots || {})[c.depot]) E(where + " : dépôt « " + c.depot + " » inconnu (story.depots).");
       if (k === "clues" && !story.mysteries[c.clues]) E(where + " : mystère « " + c.clues + " » inconnu.");
       if (k === "clue" && !story.clues[c.clue]) E(where + " : indice « " + c.clue + " » inconnu.");
+      if (k === "fil") { if (!(story.fils || {})[c.fil]) E(where + " : fil « " + c.fil + " » inconnu (fils)."); [].concat(c.is || []).forEach(function (x) { if (!M.THREAD_STATES[x] && x !== "aucun") E(where + " : état de fil « " + x + " » inconnu (ouvert, noue, rate, aucun)."); }); }
+      if (k === "carteJouee") [].concat(c.carteJouee).forEach(function (x) { if (!(story.cartes || {})[x]) E(where + " : carte « " + x + " » inconnue (cartes)."); });
       if (k === "savoir") [].concat(c.savoir).forEach(function (x) { if (!(story.savoirs || {})[x]) E(where + " : savoir « " + x + " » inconnu (story.savoirs)."); });
       if (k === "lu" && !story.passages[c.lu]) E(where + " : passage « " + c.lu + " » inconnu (condition lu).");
       if (["present", "loyal", "met", "gone", "conf", "fear"].indexOf(k) >= 0 && !story.companions[c[k]]) E(where + " : compagnon « " + c[k] + " » inconnu.");
@@ -276,6 +339,8 @@
       if (typeof fx !== "object" || Array.isArray(fx)) { E(where + " : effets mal formés."); return; }
       Object.keys(fx).forEach(function (k) { if (FX_KEYS.indexOf(k) < 0) E(where + " : effet inconnu « " + k + " »."); });
       [].concat(fx.clue || []).forEach(function (x) { if (!story.clues[x]) E(where + " : indice « " + x + " » inconnu."); });
+      if (fx.fil) Object.keys(fx.fil).forEach(function (k) { if (["ouvre", "noue", "rate"].indexOf(k) < 0) E(where + " : fil, « " + k + " » (attendu : ouvre, noue ou rate)."); else [].concat(fx.fil[k]).forEach(function (x) { if (!(story.fils || {})[x]) E(where + " : fil « " + x + " » inconnu (fils)."); }); });
+      if (fx.elan != null && typeof fx.elan !== "number") E(where + " : elan, un nombre.");
       [].concat(fx.learn || []).forEach(function (x) { if (!(story.savoirs || {})[x]) E(where + " : savoir « " + x + " » inconnu (story.savoirs)."); });
       if (fx.voie && !(story.voies || {})[fx.voie]) E(where + " : voie « " + fx.voie + " » inconnue.");
       [].concat(fx.join || [], fx.met || [], fx.leave || []).concat(Object.keys(fx.conf || {}), Object.keys(fx.fear || {}))
@@ -418,6 +483,7 @@
       if (P[id].combat) ["win", "lose", "flee", "calm"].forEach(function (o) { var b = P[id].combat[o]; if (b && b.via) viaTags[b.via] = 1; });
     });
     M.endingsOf(story).forEach(function (e) { endIds[e.id] = 1; });
+    cardCheck(story, E, W);
     // At sea (8.1): the sky, the seasons, the wounds, the encounters, the things put together, the vigils, the charts.
     // The world of a book (8.6): pages to read before and during play, and names a touch explains.
     if (story.lore) {
@@ -723,7 +789,7 @@
       if (p.end) { ends++; return; }
       if (p.combat) { checkFight(p.combat, where); eachFx(p, function (fx) { checkFx(fx, where); }); return; }
       // back: true on the passage: the engine adds the way back to the crossroads the reader came from (7.9).
-      if ((!Array.isArray(p.choices) || !p.choices.length) && !p.routes && !p.shop && !p.back && !p.council && !p.battle && !p.duel && !p.puzzle) { E(where + " : aucun choix (seules les fins n'en ont pas)."); return; }
+      if ((!Array.isArray(p.choices) || !p.choices.length) && !p.routes && !p.shop && !p.back && !p.council && !p.battle && !p.duel && !p.puzzle && !p.halte) { E(where + " : aucun choix (seules les fins n'en ont pas)."); return; }
       if (p.place && !places[p.place]) E(where + " : lieu « " + p.place + " » inconnu.");
       if (p.shop && !(story.shops || {})[p.shop]) E(where + " : boutique « " + p.shop + " » inconnue.");
       if (p.urgent != null && !(typeof p.urgent === "number" && p.urgent >= 5 && p.urgent <= 120)) E(where + " : tag urgent, un nombre de secondes entre 5 et 120.");
@@ -741,7 +807,7 @@
           if (!c.win || !c.lose) E(w + " : un jet demande « win » et « lose ».");
         } else if (c.to == null && c.back !== true && !c.travel && !c.fight) E(w + " : pas de destination.");
         if (c.who && !story.companions[c.who]) E(w + " : compagnon « " + c.who + " » inconnu.");
-        targetsOf(c).forEach(function (t) { if (t !== "@ret" && t !== "@route" && t !== "@team" && !P[t]) E(w + " : mène à « " + t + " », qui n'existe pas."); });
+        targetsOf(c).forEach(function (t) { if (t !== "@ret" && t !== "@route" && t !== "@team" && t !== "@suite" && !P[t]) E(w + " : mène à « " + t + " », qui n'existe pas."); });
         if (c.travel && !routes[c.travel]) E(w + " : route « " + c.travel + " » inconnue.");
         if (c.fight) checkFight(c.fight, w);
         if (Array.isArray(c.to) && c.to.length && c.to[c.to.length - 1].if != null) W(w + " : la dernière destination devrait être sans condition.");

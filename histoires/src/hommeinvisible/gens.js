@@ -1,0 +1,26 @@
+// « L'Homme invisible » (The Invisible Man), H. G. Wells, 1897 : un livre à lire, sans choix (lecture: true).
+// Texte : la traduction d'Achille Laurent (La Revue de Paris, 1900-1901, puis Mercure de France), transcrite par
+// Wikisource (domaine public ; transcription reprise d'un export Wikisource de février 2025). Texte gardé tel quel, sauf la
+// typographie ; la note du traducteur sur les fenêtres anglaises est mise entre parenthèses dans sa page.
+// Tout ce qui n'est pas de Wells ou de son traducteur vit dans les tags : gens, lieux, mots, résumés des chapitres.
+// Les gens du livre (syntaxe de « Qui est qui » : aka, qui, aspect, face). Cliquables à partir de leur entrée en scène.
+module.exports = {
+  etranger: { name: "L'homme invisible", aka: ["l'étranger", "l'Étranger", "l'homme invisible", "Griffin"], face: { age: "jeune", hair: "blanc", marks: ["lunettes"] }, qui: "Un étranger arrivé à Iping dans la neige, emmitouflé de la tête aux pieds. Personne n'a vu son visage.", aspect: { allure: "emmitouflé de la tête aux pieds", visage: "bandages, nez rose et luisant", habits: "chapeau mou, gants, grand col", signe: "grosses lunettes bleues" } },
+  mme_hall: { name: "Mme Hall", aka: ["madame Hall", "Mme Hall"], f: true, face: { age: "mur", hair: "chatain", coif: "chignon" }, qui: "L'aubergiste d'Iping. Elle tient la maison et s'occupe de l'étranger.", aspect: { allure: "hôtesse affairée", signe: "toujours un plateau à la main", voix: "polie, puis pincée" } },
+  hall: { name: "M. Hall", aka: ["M. Hall", "Hall"], face: { age: "mur", hair: "brun", coif: "court" }, qui: "Le mari de Mme Hall. Il conduit la carriole de Sidderbridge.", aspect: { allure: "homme de la campagne", voix: "lent à comprendre" } },
+  millie: { name: "Millie", aka: ["Millie"], f: true, face: { age: "jeune", hair: "blond", coif: "chignon" }, qui: "La servante de l'auberge.", aspect: { allure: "jeune servante", signe: "lente à la tâche, dit Mme Hall" } },
+  henfrey: { name: "Teddy Henfrey", aka: ["Teddy Henfrey", "Henfrey"], face: { age: "adulte", hair: "chatain", coif: "court" }, qui: "L'horloger d'Iping, curieux de tout.", aspect: { allure: "petit horloger", signe: "sa boîte à outils" } },
+  fearenside: { name: "Fearenside", aka: ["Fearenside"], face: { age: "adulte", hair: "brun", coif: "court" }, qui: "Le voiturier qui apporte les malles de l'étranger. Son chien mord.", aspect: { allure: "voiturier", signe: "son chien" } },
+  cuss: { name: "Le docteur Cuss", aka: ["Cuss"], face: { age: "adulte", hair: "brun", coif: "court" }, qui: "Le médecin d'Iping, très curieux de l'étranger.", aspect: { allure: "médecin de campagne", signe: "son air de savant" } },
+  bunting: { name: "Le pasteur Bunting", aka: ["M. Bunting", "Bunting"], face: { age: "mur", hair: "gris", coif: "court" }, qui: "Le pasteur d'Iping, ami du docteur Cuss.", aspect: { allure: "pasteur paisible", habits: "robe de chambre", signe: "ses sermons" } },
+  mme_bunting: { name: "Mme Bunting", aka: ["madame Bunting"], f: true, face: { age: "mur", hair: "gris", coif: "chignon" }, qui: "La femme du pasteur.", aspect: { allure: "dame de presbytère" } },
+  huxter: { name: "M. Huxter", aka: ["Huxter"], face: { age: "adulte", hair: "brun", coif: "court" }, qui: "Le boutiquier d'Iping, en face de l'auberge.", aspect: { allure: "boutiquier", signe: "toujours sur le pas de sa porte" } },
+  wadgers: { name: "Sandy Wadgers", aka: ["Wadgers"], face: { age: "adulte", hair: "roux", beard: "barbe" }, qui: "Le forgeron d'Iping.", aspect: { allure: "forgeron", habits: "tablier de cuir" } },
+  jaffers: { name: "Bobby Jaffers", aka: ["Jaffers"], face: { age: "adulte", hair: "brun", coif: "court" }, qui: "L'agent de police du village.", aspect: { allure: "agent de police", habits: "uniforme" } },
+  gibbins: { name: "Gibbins", aka: ["Gibbins"], face: { age: "mur", hair: "gris" }, qui: "Le naturaliste amateur de la paroisse.", aspect: { allure: "naturaliste" } },
+  marvel: { name: "Thomas Marvel", aka: ["M. Marvel", "Marvel", "M. Thomas Marvel"], face: { age: "mur", hair: "noir", beard: "barbe" }, qui: "Un vagabond qui va de route en route.", aspect: { allure: "vagabond", visage: "grosse figure mobile, nez cylindrique", habits: "chapeau de soie râpé, habits sans boutons", signe: "essaie des bottes trop grandes" } },
+  kemp: { name: "Le docteur Kemp", aka: ["Kemp"], face: { age: "adulte", hair: "blond", beard: "moustache" }, qui: "Un savant de Port-Burdock, qui travaille à des recherches de biologie.", aspect: { allure: "grand et mince", visage: "cheveux couleur de chanvre, moustache presque blanche", signe: "travaille dans son belvédère" } },
+  adye: { name: "Le colonel Adye", aka: ["Adye"], face: { age: "mur", hair: "gris", beard: "moustache" }, qui: "Le chef de la police de Port-Burdock.", aspect: { allure: "colonel", habits: "uniforme de la police" } },
+  wicksteed: { name: "M. Wicksteed", aka: ["Wicksteed"], face: { age: "mur", hair: "gris" }, qui: "L'intendant de lord Burdock, un homme paisible.", aspect: { allure: "homme paisible", signe: "rentre chez lui pour déjeuner" } },
+  heelas: { name: "M. Heelas", aka: ["Heelas"], face: { age: "mur", hair: "gris", coif: "degarni" }, qui: "Le plus proche voisin de Kemp, qui ne croit pas à l'homme invisible.", aspect: { allure: "voisin sceptique" } },
+};

@@ -1,0 +1,85 @@
+// « La Flèche noire » (The Black Arrow), R. L. Stevenson, 1888 : un livre à lire, sans choix (lecture: true).
+// Texte : la traduction de P.-G. La Chesnais (Mercure de France, 1901), transcrite par le Project Gutenberg (n° 70065,
+// d'après Gallica ; domaine public). Texte gardé tel quel, sauf la typographie (« À » accentué, les vers en italique)
+// et les deux notes de Stevenson, remises entre parenthèses à la fin du paragraphe qui les appelle.
+// Tout ce qui n'est pas de Stevenson ou de son traducteur vit dans les tags : gens, lieux, mots, résumés des chapitres.
+// Chapitre V5 · Livre V, chapitre 5 · Nuit dans les bois : Alicia Risingham
+module.exports = {
+  V5_1: { act: "V5", title: "La piste dans la neige", place: "foret",
+    text: [
+      "Il était presque certain que Sir Daniel s'était dirigé vers Moat-House ; mais à cause de la neige épaisse, de l'heure tardive et de la nécessité d'éviter les routes et de passer par le bois, il était non moins certain qu'il ne pouvait espérer arriver avant le lendemain.",
+      "Deux voies s'ouvraient à Dick ; soit continuer à suivre la trace du chevalier et, s'il pouvait, tomber sur son camp cette nuit même, ou chercher un autre chemin et tâcher de se placer entre Sir Daniel et son but.",
+      "Chacun de ces plans rencontrait de sérieuses objections, et Dick, qui craignait d'exposer Joanna aux hasards d'une bataille, ne s'était encore décidé pour aucun lorsqu'il atteignit la lisière de la forêt.",
+      "En cet endroit, sir Daniel avait incliné un peu vers la gauche, puis s'était enfoncé tout droit vers une futaie de hauts troncs. La troupe avait été formée sur un front plus étroit pour pouvoir passer entre les arbres, et la trace était piétinée d'autant plus profonde dans la neige. L'œil la suivait sous l'enfilade dépouillée des chênes, droite et étroite ; les arbres la couvraient avec leurs nœuds énormes et la grande forêt élevée de leurs branches ; aucun bruit, ni d'hommes ni de bêtes… pas même un vol de rouge-gorge ; et, sur la plaine de neige, le soleil d'hiver dessinait un réseau d'ombres.",
+      "— Qu'en pensez-vous, demanda Dick à l'un de ses hommes, suivre tout droit où gagner Tunstall ?",
+      "— Sir Richard, répliqua l'homme d'armes, je suivrais leur trace jusqu'où ils se séparent.",
+      "— Vous avez raison, il n'y a pas de doute, répliqua Dick. Mais nous sommes partis très vite parce que le temps nous pressait. Ici il n'y a pas de maisons, ni pour manger ni pour s'abriter, et, demain dès l'aube, nous aurons froid aux doigts et le ventre vide. Qu'en dites-vous, amis ? voulez-vous braver le froid pour le succès de l'expédition ou bien passerons-nous par Holywood pour souper chez notre mère l'Église ? L'affaire étant quelque peu incertaine, je ne forcerai personne, mais, si vous m'en croyez, vous choisirez le premier plan.",
+      "Les hommes répondirent presque d'une voix qu'ils suivraient Sir Richard où il voudrait.",
+      "Et Dick, éperonnant son cheval, se remit en marche.",
+      "La neige dans la piste avait été fort piétinée, et les poursuivants avaient ainsi un grand avantage sur les poursuivis. Ils s'avançaient vraiment d'un trot vif, deux cents sabots frappant alternativement le sourd pavage de neige, le cliquetis des armes, le hennissement des chevaux faisaient retentir d'un bruit guerrier les arches du bois silencieux.",
+      "Maintenant la large piste des poursuivis arrivait sur la grand-route de Holywood ; là elle devenait un moment indistincte ; puis, à l'endroit où elle s'enfonçait de nouveau dans la neige vierge de l'autre côté, Dick fut surpris de la trouver plus étroite et moins piétinée. Évidemment, Sir Daniel, profitant de la route, avait déjà commencé à séparer sa troupe.",
+      "À tout hasard, une chance valant l'autre, Dick continua à poursuivre la ligne droite, et celle-ci, après une heure de chevauchée, conduisit dans les profondeurs de la forêt, où, soudain, elle se dispersa comme une coquille qui éclate, en une douzaine d'autres dans toutes les directions.",
+      "Dick tira sur la bride avec désespoir. La courte journée d'hiver était près de sa fin, le soleil, comme une orange rouge pâle, dépouillé de rayons, nageait bas dans les fourrés sans feuilles. Les ombres étaient longues d'un mille sur la neige, la gelée mordait cruellement les ongles, et l'haleine et la vapeur des chevaux montait en nuages.",
+      "— Eh bien, nous sommes floués, confessa Dick. Dirigeons-nous sur Holywood, quand même. C'est encore plus près de nous que Tunstall : — si j'en juge par la position du soleil.",
+      "Ainsi ils inclinèrent à gauche, tournant le dos au disque rouge, allant vers l'abbaye à travers bois. Mais ce n'était plus comme avant. Ils ne pouvaient plus conserver leur vive allure sur un sentier affermi par le passage de leurs ennemis vers le but auquel ce sentier les conduisait. Il leur fallait maintenant enfoncer d'un pas lourd dans la neige encombrante, s'arrêter constamment pour chercher leur direction, patauger dans des amas de neige. Bientôt le soleil les abandonna ; la lueur à l'ouest s'évanouit ; et, maintenant, ils erraient dans une ombre noire, sous les étoiles glaciales."
+    ] },
+
+  V5_2: { act: "V5", title: "Le feu de camp", place: "foret",
+    text: [
+      "La lune, il est vrai, devait, à ce moment, éclairer le sommet des collines, et ils pourraient reprendre leur marche. Mais, en attendant, toute erreur pouvait les éloigner de leur route. Il n'y avait rien à faire, qu'à camper et attendre.",
+      "On plaça des sentinelles ; un espace fut déblayé de neige, et, après quelques essais, un bon feu flamba au milieu. Les hommes d'armes s'assirent serrés autour de ce foyer, partagèrent les provisions qu'ils avaient, et se passèrent la bouteille ; et Dick ayant réuni le plus fin de cette grossière et maigre nourriture, l'apporta à la nièce de Lord Risingham ; elle était appuyée contre un arbre, séparée de la soldatesque.",
+      "Elle était assise sur une couverture de cheval, enveloppée dans une autre, et regardait droit devant elle cette scène éclairée par le feu. À l'offre de la nourriture, elle tressaillit, comme quelqu'un qui s'éveille d'un rêve, puis refusa en silence.",
+      "— Madame, dit Dick, je vous en supplie, ne me punissez pas si cruellement. En quoi je vous ai offensée, je ne sais ; il est vrai que je vous ai emportée, mais avec une violence amicale ; il est vrai que je vous ai exposée à l'inclémence de la nuit, mais la hâte à laquelle je suis obligé a pour but de sauver une autre, qui n'est pas moins délicate, ni moins dépourvue d'amis que vous ; ainsi, madame, ne vous punissez pas vous-même, mangez, sinon par faim ; du moins pour conserver vos forces.",
+      "— Je ne veux rien prendre des mains qui ont tué mon cousin, répliqua-t-elle.",
+      "— Chère madame, s'écria Dick, je vous jure sur la croix que je ne l'ai pas touché.",
+      "— Jurez-moi qu'il vit encore, répliqua-t-elle.",
+      "— Je ne veux pas jouer avec vous, répondit Dick. La pitié m'ordonne de vous blesser. En mon cœur, je crois qu'il est mort.",
+      "— Et vous voulez que je mange ! cria-t-elle. Oh ! et ils vous appellent « Sir » ! Vous avez gagné vos éperons par le meurtre de mon bon cousin. Et si je n'avais été sotte et traître à la fois, si je ne vous avais sauvé dans la maison de votre ennemi, c'est vous qui seriez mort, et lui — lui qui en valait douze comme vous — serait vivant.",
+      "— J'ai fait de mon mieux, comme a fait votre cousin de l'autre côté, répondit Dick. S'il vivait encore — comme j'atteste le ciel que je le souhaite ! — il me louerait, loin de me blâmer.",
+      "— Sir Daniel me l'a dit, répliqua-t-elle. Il vous a remarqué à la barricade. Contre vous, dit-il, leurs troupes ont échoué ; c'est vous qui avez gagné la bataille. Eh bien, alors, c'est vous qui avez tué mon bon Lord Risingham, aussi bien que si vous l'aviez étranglé de vos mains. Et vous voudriez que je mange avec vous… et vos mains ne sont pas même lavées de vos meurtres ? Mais Sir Daniel a juré votre perte. C'est lui qui me vengera.",
+      "L'infortuné Dick était plongé dans la tristesse. Le vieil Arblaster revint à son esprit, et il poussa un gémissement.",
+      "— Me jugez-vous si coupable ? dit-il ; vous qui m'avez défendue, vous qui êtes l'amie de Joanna ?",
+      "— Que faisiez-vous dans la bataille ? répliqua-t-elle. Vous n'êtes d'aucun parti ; vous n'êtes qu'un garçon, des jambes et un corps, sans gouvernement de l'esprit et sans raison ! Pourquoi vous êtes-vous battu ? Pour l'amour des coups, parbleu !",
+      "— Hé, s'écria Dick, je ne sais pas. Mais tel que va le royaume d'Angleterre, si un pauvre gentilhomme ne se bat pas d'un côté, il faut bien qu'il se batte de l'autre. Il ne peut pas rester seul ; la nature ne le veut pas.",
+      "— Ceux qui n'ont pas de jugement ne devraient pas tirer l'épée, répliqua la jeune femme. Vous qui vous battez au hasard, qu'êtes-vous, sinon un boucher ? La guerre n'est noble que par la cause défendue, et vous l'avez déshonorée.",
+      "— Madame, dit le pauvre Dick, je vois en partie mon erreur. Je me suis trop pressé ; je me suis lancé trop tôt dans l'action. Déjà j'ai volé un bateau — croyant, je le jure, bien faire — et par là j'ai causé la mort de bien des innocents, et le malheur et la ruine d'un pauvre vieux, dont la figure aujourd'hui même m'a frappé comme un coup de poignard. Et ce matin je n'avais pas d'autre but que de me faire valoir et de gagner un renom pour me marier, et voyez ! j'ai causé la mort de votre cher parent qui avait été bon pour moi. Et quoi encore, je ne sais. Car, hélas ! peut-être j'ai mis York sur le trône, et, peut-être c'est le pire parti, et peut-être j'ai fait du mal à l'Angleterre. O madame, je vois ma faute, je ne suis pas fait pour la vie. Pour ma pénitence et pour éviter des maux plus grands, lorsque j'aurai fini cette aventure je me retirerai dans un cloître. Je renoncerai à Joanna et au métier des armes. Je serai moine et prierai pour l'âme de votre bon oncle toute ma vie."
+    ] },
+
+  V5_3: { act: "V5", title: "La colère d'Alicia", place: "foret", fx: { meet: ["alicia"] },
+    text: [
+      "Il sembla à Dick dans l'extrême humiliation de ses remords que la jeune femme avait ri.",
+      "Levant les yeux, il vit qu'elle le regardait à la lumière du feu avec une expression particulière, mais non sans douceur.",
+      "— Madame, s'écria-t-il, pensant que le rire avait été une illusion de son ouïe, mais espérant, au changement de son regard, avoir touché son cœur… Madame, cela ne vous suffira-t-il pas ? J'abandonne tout pour réparer le mal que j'ai fait ; j'assure le ciel à Lord Risingham. Et tout cela le jour même où j'ai gagné mes éperons et où je me suis cru le plus heureux jeune gentilhomme de la terre.",
+      "— Oh ! enfant ! dit-elle… grand enfant !",
+      "Et alors, à la grande surprise de Dick, elle essuya très tendrement les larmes sur ses joues, puis comme cédant à une impulsion soudaine, jeta les deux bras autour de son cou, lui releva la tête et l'embrassa.",
+      "L'ahurissement remplit l'âme simple de Dick.",
+      "— Mais venez, dit-elle, très joyeuse, vous qui êtes capitaine, il faut que vous mangiez. Pourquoi ne soupez-vous pas ?",
+      "— Chère mistress Risingham, répondit Dick. Je voulais d'abord servir ma prisonnière ; mais à vrai dire la pénitence ne me permettra plus de supporter la vue de la nourriture. Je devrais plutôt jeûner, chère madame, et prier.",
+      "— Appelez-moi Alicia, dit-elle, ne sommes-nous pas de vieux amis ? Et maintenant venez, je mangerai avec vous, bouchée par bouchée, à parts égales ; si donc vous ne mangez pas, je ne mangerai pas non plus ; mais, si vous mangez de bon cœur, je dînerai comme un paysan.",
+      "Et tout aussitôt, elle commença ; et Dick qui avait un excellent estomac se mit en devoir de lui tenir compagnie, d'abord avec une grande répugnance, mais, peu à peu, la situation l'entraînant, avec une ardeur d'une conviction croissante ; jusqu'à ce que, à la fin, il oublia même de surveiller son modèle et de bon cœur répara les dépenses de forces de sa laborieuse journée.",
+      "— Chasseur de lions… dit-elle enfin, vous n'admirez pas une fille en pourpoint d'homme ?",
+      "La lune était levée maintenant ; il n'attendait plus que pour le repas des chevaux. Au clair de lune, Richard, toujours pénitent, mais maintenant rassasié, la vit qui le regardait avec un peu de coquetterie.",
+      "— Madame… balbutia-t-il, surpris de cette nouvelle attitude.",
+      "— Non, interrompit-elle, il ne sert à rien de le nier ; Joanna me l'a dit. Mais venez, chevalier, chasseur de lions, regardez-moi… suis-je si vilaine… allons !",
+      "Et ses yeux brillaient.",
+      "— Vous êtes un peu petite, vraiment… commença Dick. Et elle l'interrompit de nouveau, cette fois d'un sonore éclat de rire, qui acheva sa confusion.",
+      "— Petite ! cria-t-elle. Eh bien, maintenant, soyez aussi honnête que brave ; je suis une naine ou un peu mieux ; mais malgré cela… voyons, dites-moi !… malgré cela assez jolie à regarder ; n'est-ce pas ?",
+      "— Oui, madame, extrêmement jolie, dit le chevalier en détresse, faisant de pitoyables efforts pour paraître à l'aise.",
+      "— Et un homme serait très content de m'épouser ? poursuivit-elle.",
+      "— Oh ! madame, très content ! approuva Dick.",
+      "— Appelez-moi Alicia, dit-elle.",
+      "— Alicia ! dit Sir Richard.",
+      "— Eh bien, alors, chasseur de lions, continua-telle, puisque vous avez tué mon cousin, et m'avez laissée sans soutien, vous me devez en honneur une réparation ; ne la devez-vous pas ?",
+      "— Oui, madame, dit Dick. Bien que, sur mon âme, je ne me tiens coupable qu'en partie de la mort de ce brave chevalier.",
+      "— Voulez-vous m'échapper ? s'écria-t-elle.",
+      "— Non pas, madame. Je vous l'ai dit, sur votre ordre je me ferai même moine.",
+      "— Alors, en honneur, vous m'appartenez ? conclut-elle.",
+      "— En honneur, madame, je suppose… commença le jeune homme.",
+      "— Allons ! interrompit-elle, vous êtes trop rusé. En honneur, m'appartenez-vous jusqu'à ce que vous ayez réparé le mal ?",
+      "— En honneur, oui, dit Dick.",
+      "— Écoutez alors, continua-t-elle, vous ne feriez qu'un triste moine, il me semble. Et, puisque je peux disposer de vous à ma volonté, je vais vous prendre pour mon mari. Non, maintenant taisez-vous ! cria-t-elle. Il ne vous servira de rien de parler. Car voyez combien cela est juste, que vous, qui m'avez arrachée de mon foyer, m'en donniez un autre. Et quant à Joanna, elle sera la première, croyez-moi, à approuver ce changement ; car, après tout, comme nous sommes bonnes amies, qu'importe avec laquelle de nous deux vous vous mariiez ? Cela n'a aucune importance.",
+      "— Madame, dit Dick, j'irai dans un cloître, s'il vous plaît me l'ordonner, mais me marier avec qui que ce soit en ce monde, autre que Joanna Sedley, je n'y consentirai ni par violence d'homme ni par caprice de femme. Pardonnez-moi si je dis franchement ma pensée, mais lorsqu'une jeune fille est très hardie, il faut bien qu'un jeune homme soit plus hardi encore.",
+      "— Dick, dit-elle, mon bon garçon, venez et embrassez-moi pour cette parole. Non, ne craignez rien, vous m'embrasserez pour Joanna, et, quand nous nous rencontrerons, je le lui rendrai et dirai que je l'ai volé. Et quant à ce que vous me devez, eh bien, cher nigaud, il me semble que vous n'étiez pas seul dans cette grande bataille ; et même, si York arrive au trône, ce n'est pas vous qui l'y aurez mis. Mais pour bon, tendre et honnête, Dick, vous êtes tout cela. Et si je pouvais en mon cœur envier quelque chose à notre Joanna, ce serait votre amour que je lui envierais."
+    ] },
+
+};
