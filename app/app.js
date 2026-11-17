@@ -2467,6 +2467,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "10.3", items: ["« Les Premiers Hommes dans la Lune » de H. G. Wells, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1901. Sans choix, avec les gens, les lieux et les mots d'un toucher. Les cinq grands romans de Wells sont maintenant dans la bibliothèque."] },
     { v: "10.2", items: ["« L'Île du docteur Moreau » de H. G. Wells, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1896. Sans choix, avec les gens, les lieux et les mots d'un toucher. Le livre est dur, et sa notice le dit."] },
  { v: "10.1", items: ["« La Machine à explorer le temps » de H. G. Wells, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1895. Sans choix, avec les gens, les lieux et les mots d'un toucher."] },
     { v: "10.0", items: ["Deux romans de H. G. Wells à lire en entier, dans leurs traductions françaises d'époque : « La Guerre des mondes » (Henry-D. Davray) et « L'Homme invisible » (Achille Laurent). Comme « Le Monde perdu », sans choix, avec les gens, les lieux et les mots d'un toucher, et leur temps de lecture compté dans les statistiques."] },
