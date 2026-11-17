@@ -188,6 +188,8 @@ module.exports = {
         { label: "Attendre la corvée d'eau sur la plage", to: "XF_v_debut", hide: { seen: "XF_v_debut" } },
         { label: "Descendre au jardin de simples, derrière la maison", to: "XQ_i_jardin", hide: { seen: "XQ_i_jardin" }, if: { seen: "XF_v_debut" }, why: "Personne n'est encore descendu de la maison blanche." },
         { label: "Regarder les tortues monter sur la plage, à la nuit", to: "XQ_i_tortues", hide: { seen: "XQ_i_tortues" } },
+        { label: "Suivre Ombeline jusqu'à la clairière, dans la forêt", to: "XF_v_mere", hide: { seen: "XF_v_mere" }, if: { seen: "XF_v_souper" }, why: "Ombeline ne lui a encore rien demandé." },
+        { label: "Monter une seconde nuit à la salle blanche", to: "XF_v_retour", hide: { any: [{ seen: "XF_v_retour" }, { not: { has: "xf:aide" } }, { has: "halle:mort" }] } },
         { label: "Entrer dans la bibliothèque du Maître", to: "XQ_i_biblio", hide: { seen: "XQ_i_biblio" }, if: { seen: "XF_v_souper" }, why: "Elle n'est pas encore montée à la maison." },
       ] },
   },

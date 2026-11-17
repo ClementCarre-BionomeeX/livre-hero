@@ -1,0 +1,280 @@
+// L'Île Folle-Aiguille · deepening of « L'îlot du Façonneur ». The child goes back to the clearing on the last morning,
+// when the Rule is coming apart, and is asked for a new one (set xf_regle); the Dogue, the grey one with heavy jaws,
+// wants no Rule at all. Sept aboard (sept:suit): the hold, a name of his own (sept:source), the goats of Lannoz where
+// he may stay (sept:lannoz), the hermit of Folle-Aiguille (sept:sauveur). The doctor goes down to the clearing to lance
+// the Mother's seams (xf:mere_soignee, xf:mere_morte), and, if she held the retractor, goes up a second night, when
+// the Master puts the scalpel in her hand (xf:opere, xf:dose, xf:scalpel_rendu). Ombeline aboard: the eighth grave
+// (ombeline:huit), what she asks of the doctor (ombeline:apprentie, ombeline:oublie), and her needle at the chapel
+// (ombeline:greffe, ombeline:retenue).
+module.exports = {
+  passages: {
+    // ---------------------------------------------------------------- the child, the last morning
+    XF_m_clairiere: { act: "III", title: "La Règle défaite", place: "ilot", ambiance: "nature",
+      text: [
+        "Le dernier matin, avant que la chaloupe ne remonte la dernière barrique, tu retournes à la clairière. Personne ne t'en empêche. Personne ne sait que tu y vas, sauf les oiseaux, qui se taisent sur ton passage, branche après branche, comme une rumeur qui te précède.",
+        "La clairière a changé en une nuit. Deux huttes sont à terre, leurs palmes éparpillées. Le cercle de pierres blanches où l'on récitait la Règle a été rompu à coups de pied ; les pierres roulent dans l'herbe. Au milieu, un feu éteint, et autour du feu, des os, rongés, frais, que personne ne cache. La Règle disait : *je laisse le sang aux mouches*. Les mouches, ce matin, n'ont pas eu grand-chose.",
+        { if: { has: "xf:libere" }, text: "Les nouveaux, ceux des cages, sont là, à la lisière, accroupis, tremblants, la peau encore rouge autour des coutures. Ils regardent les anciens comme des enfants regardent des parents qui se disputent, sans comprendre la langue." },
+        { if: { has: "sept:reste" }, text: "Sept est assis sur une pierre renversée, au centre, les mains à plat sur les genoux, très droit. Il essaie de se tenir comme un chef. Il ressemble surtout à un bouc qui attend qu'on le traie." },
+        "La Mère vient vers toi, lourde, lente, dans sa robe de femme déchirée à l'épaule. Ses petits yeux bleus ont pleuré. Elle te prend les deux mains dans ses mains couturées.",
+        "« La Règle s'en va, dit-elle. Le Dogue dit qu'il n'en faut plus. Le Dogue dit qu'on est des bêtes, qu'on a toujours été des bêtes, et que les bêtes n'ont pas de Règle. » Elle serre tes mains. « Mais nous, on veut une Règle. Sans Règle, on ne sait pas quand on doit se tenir debout. Tu viens d'ailleurs. Tu sais. Donne-nous une Règle. Une seule. On la dira le soir. »",
+        "À l'autre bout de la clairière, le grand gris aux mâchoires lourdes, celui qu'elle appelle le Dogue, est couché sur le flanc, au soleil, et ronge un os en te regardant. Il reste couché. Couché, il fait déjà assez peur.",
+      ],
+      choices: [
+        { label: "« Personne ne fait personne. »", fx: { set: { xf_regle: "personne" } }, to: "XF_m_regle_personne" },
+        { label: "« On compte les jours, et on garde les bons. »", fx: { set: { xf_regle: "jours" } }, to: "XF_m_regle_jours" },
+        { label: "« Je ne suis pas le Maître. Votre Règle, c'est à vous de la trouver. »", fx: { set: { xf_regle: "aucune" } }, to: "XF_m_regle_aucune" },
+      ] },
+    XF_m_regle_personne: { act: "III", title: "La Règle défaite", place: "ilot", ambiance: "nature",
+      text: [
+        "La Mère répète les mots, lentement, en les mâchant, comme on goûte un fruit qu'on n'a jamais vu. « Personne… ne fait… personne. »",
+        "Elle se retourne vers la clairière, et le dit, plus fort, de sa voix d'orgue enroué. Les autres répètent, un par un, d'abord en hésitant, puis ensemble, en se balançant, comme autrefois : *Personne ne fait personne. — Personne ne fait personne.* Les nouveaux, à la lisière, remuent les lèvres sans un son.",
+        "Le Dogue a cessé de ronger son os. Il écoute. Puis il se lève, lentement, s'étire, et vient renifler l'air à deux pas de toi.",
+        "« Personne ne fait personne, dit-il d'une voix rauque, qui racle le fond de sa gorge refaite. Alors personne ne me défait. » Il découvre ses dents, toutes, dans ce qui est peut-être un sourire. « Elle me plaît, ta Règle. »",
+        "Il s'en va dans la forêt. Tu ne sais pas si tu viens de sauver la clairière ou de lui ouvrir la porte. La Mère, elle, a l'air de savoir. Elle te caresse la joue, et te dit de partir vite.",
+      ],
+      choices: [{ label: "Descendre à la plage", to: "XF_m_regle_fin" }] },
+    XF_m_regle_jours: { act: "III", title: "La Règle défaite", place: "ilot", ambiance: "nature",
+      text: [
+        "La Mère fronce les sourcils, ou ce qui en tient lieu. « La Règle disait : *je ne compte pas les nuits.* »",
+        "« Elle avait tort, dis-tu. Les nuits, c'est lui qui les comptait pour vous. Comptez-les vous-mêmes. Et gardez les bons jours, à part, comme on garde des coquillages. Quand il y en aura beaucoup, vous saurez que vous êtes vivants. »",
+        "Elle réfléchit longtemps. Puis elle va ramasser une des pierres blanches du cercle rompu, et la pose devant sa hutte. « Un, dit-elle. Aujourd'hui. Aujourd'hui est un bon jour. » Elle regarde la pierre comme on regarde un enfant qui vient de naître.",
+        "Les autres, un par un, vont chercher une pierre, et la posent devant leur hutte. Le maigre aux longs bras en prend deux, puis en repose une, honteux. Le Dogue ne bouge pas. Il regarde les pierres avec un mépris de philosophe.",
+        "Quand tu pars, la Mère est encore accroupie devant sa pierre, et elle lui parle.",
+      ],
+      choices: [{ label: "Descendre à la plage", to: "XF_m_regle_fin" }] },
+    XF_m_regle_aucune: { act: "III", title: "La Règle défaite", place: "ilot", ambiance: "nature",
+      text: [
+        "La Mère te lâche les mains. Elle te regarde avec une déception si nue, si simple, que tu as envie de reprendre tes mots et de lui donner n'importe quoi, une comptine, une prière, la table de multiplication.",
+        "« À nous, répète-t-elle. Nous ne savons pas trouver. Le Maître trouvait. »",
+        "« Le Maître aussi a dû apprendre. Il n'est pas né en sachant. »",
+        "Elle réfléchit. Tu vois la pensée remuer derrière ses petits yeux bleus, lourde, difficile, comme une bête qui se lève dans un enclos trop étroit. Puis elle hoche la tête et se tourne vers les autres. Elle ne récite rien. Elle s'assied au milieu du cercle rompu, et elle attend que quelqu'un parle.",
+        "Le premier qui parle, c'est le Dogue. Tu ne restes pas pour entendre ce qu'il dit.",
+      ],
+      choices: [{ label: "Descendre à la plage", to: "XF_m_regle_fin" }] },
+    XF_m_regle_fin: { act: "III", title: "La plage", place: "ilot", ambiance: "nature",
+      text: [
+        "Sur la plage, Gobert compte les barriques en jurant contre la chaleur, contre les herbes, contre l'îlot et contre toi, qui arrives en retard. Il te met une barrique dans les bras pour t'apprendre à vivre.",
+        "Tu la roules jusqu'à la chaloupe. En te retournant une dernière fois vers la forêt, tu vois, entre deux palmiers, la silhouette massive de la Mère, debout, qui te regarde partir. Elle lève la main. Elle a appris quelque part qu'on fait des signes. Ou bien elle vient de l'inventer.",
+      ],
+      choices: [{ label: "Pousser la chaloupe à l'eau", back: "A3n_ilot" }] },
+
+    // ---------------------------------------------------------------- Sept aboard, on the way to Lannoz
+    XF_s_cale: { act: "III", title: "Sept dans la cale", place: "cormorane", ambiance: "mer",
+      text: [
+        "Sept a fait son nid dans la cale, entre les barriques d'eau et la cloison de la soute aux voiles, sur un lit de toile à voile que Gaudrémont lui a fait porter. Il y passe ses journées accroupi, les genoux contre la poitrine, à écouter l'eau contre la coque. Il dit qu'elle parle. Il ne dit pas ce qu'elle dit.",
+        "L'équipage s'est partagé à son sujet en deux partis, comme une assemblée. Il y a ceux qui le croient envoyé du diable, menés par Lemerle, qui égrène son chapelet chaque fois qu'il passe l'écoutille, et ceux qui le croient porte-bonheur, menés par le cuisinier, qui lui descend en cachette des épluchures de chou et le regarde manger avec attendrissement. Le second parti grossit chaque jour. Le chou est un argument que la théologie n'a jamais su réfuter.",
+        "Gaudrémont, lui, descend deux fois par jour avec un pied à coulisse et un carnet, mesure Sept des cornes aux talons en lui parlant latin, et remonte enchanté. « Le crâne est d'un bouc, dit-il, et la boîte est d'un homme ! Quelle main, mon enfant ! Quelle main criminelle et divine ! »",
+        "Ce matin, Sept a un morceau de charbon à la main, et il trace sur la planche de la cloison, avec une application de copiste, un signe. Toujours le même. Un sept. Il en a tracé des dizaines, en rangées, du plancher jusqu'à la hauteur de ses yeux.",
+        "« Mon nom, dit-il en te voyant. Le Maître l'écrivait. Sur la cage. Sur le registre. » Il touche le signe du bout de son doigt couturé. « Sept. Après Six. Avant Huit. »",
+      ],
+      choices: [
+        { label: "« Tu pourrais en avoir un autre. Un nom à toi. »", fx: { flag: "sept:source" }, to: "XF_s_nom" },
+        { label: "« C'est un beau nom. Garde-le. »", to: "XF_s_garde" },
+      ] },
+    XF_s_nom: { act: "III", title: "Un nom", place: "cormorane", ambiance: "mer",
+      text: [
+        "Il te regarde sans comprendre. Un nom, pour lui, c'est un numéro qu'on reçoit, comme une couture. Il ne savait pas qu'on pouvait en choisir un.",
+        "Tu lui expliques. On peut prendre un nom de quelque chose qu'on aime. Un nom de lieu. Un nom de jour. Il écoute, la tête penchée, en remuant les lèvres, comme on apprend une prière dans une langue étrangère.",
+        "Il réfléchit tout l'après-midi. Le soir, quand tu redescends, il a effacé tous les sept de la cloison avec sa manche, et la manche est noire jusqu'au coude. Il a tracé à la place, très maladroitement, en lettres que Gaudrémont lui a montrées, un mot de six lettres dont le R est à l'envers.",
+        "« Source, dit-il. Là où on s'est vus. L'eau. » Il te regarde, inquiet. « C'est permis ? »",
+        "Tu lui dis que oui. Il s'allonge sur sa toile à voile, les mains croisées sur le ventre, et il s'endort aussitôt, avec la tête d'un homme qui vient d'hériter.",
+      ],
+      choices: [{ label: "Remonter sur le pont", back: "A3o_lannoz" }] },
+    XF_s_garde: { act: "III", title: "Un nom", place: "cormorane", ambiance: "mer",
+      text: [
+        "Il hoche la tête, lentement, et continue de tracer. Un sept. Un autre. Un autre encore.",
+        "« Après Six, répète-t-il. Avant Huit. » Il s'arrête, le charbon levé. « Huit n'est pas venu. Huit, c'était le trou. Derrière la maison. » Il se tourne vers toi avec ses yeux jaunes à la pupille couchée. « Moi, je suis sorti du trou. Alors je garde mon nom. Pour me souvenir que je suis sorti. »",
+        "Tu restes un moment avec lui, à regarder la cloison couverte de chiffres, comme le mur d'une cellule où un prisonnier aurait compté ses jours, à cette différence près que le prisonnier, ici, compte qu'il est vivant.",
+      ],
+      choices: [{ label: "Remonter sur le pont", back: "A3o_lannoz" }] },
+    XF_s_lande: { act: "III", title: "Les chèvres", place: "lannoz", ambiance: "nature",
+      text: [
+        "Tu emmènes Sept sur la lande, à l'aube, avant que le village se réveille, avec un capuchon de toile sur la tête pour cacher ses cornes, qui ne cache rien du tout. Il marche sur la bruyère comme sur un tapis d'église, en levant haut les pieds, et il respire si fort que tu l'entends à dix pas.",
+        "Au creux d'un vallon, derrière un muret de pierres sèches, il y a des chèvres. Une vingtaine, noires et blanches, à longues barbes, qui broutent les ajoncs en plein vent. Et une vieille femme, assise sur le muret, une quenouille à la main, enveloppée d'un châle si raccommodé qu'il n'y reste plus rien du châle d'origine.",
+        "Sept s'arrête. Les chèvres lèvent la tête. Toutes, en même temps. Elles le regardent, longtemps, de leurs yeux jaunes à la pupille couchée. Puis un vieux bouc, à la barbe jusqu'aux genoux, vient vers lui, à pas comptés, et lui renifle la main. Et Sept s'accroupit, et pose son front sur le front du bouc, entre ses cornes, et il reste comme ça, sans bouger, les yeux fermés, pendant que le vent de Lannoz leur passe sur le dos.",
+        "La vieille femme a cessé de filer. Elle te regarde, toi, puis lui. Elle a l'air d'une femme qui a vu beaucoup de choses sur cette lande, et qui en a enterré la plupart.",
+        "« Il a les mains d'un homme, dit-elle. Et la tête d'un des miens. » Elle reprend sa quenouille. « J'ai soixante-dix-huit ans, plus de mari, plus de fils, et des chèvres qui ne m'écoutent plus. Un berger qui leur parle, ça me rendrait service. Il mangera à ma table. Personne ne vient jamais jusqu'ici, sauf le recteur, et le recteur est presque aveugle. »",
+      ],
+      choices: [
+        { label: "Demander à Sept ce qu'il veut", to: "XF_s_choix" },
+      ] },
+    XF_s_choix: { act: "III", title: "Les chèvres", place: "lannoz", ambiance: "nature",
+      text: [
+        "Sept se relève. Il regarde les chèvres, la vieille femme, la lande, la mer en bas avec la Cormorane au mouillage, toute petite. Puis il te regarde, toi.",
+        "« Toi, dit-il. Tu vas où ? »",
+        "Tu lui dis : une île, au sud, où il y a des hommes avec des fusils et un trésor que tout le monde veut, et peut-être la mort au bout. Il écoute avec gravité. Il n'a pas l'air d'avoir peur. Il a l'air de comparer.",
+      ],
+      choices: [
+        { label: "« Reste ici. Ici, personne ne te fera rien. »", fx: { flag: "sept:lannoz", leave: "sept" }, to: "XF_s_reste" },
+        { label: "« Choisis, toi. »", test: { dom: "social", diff: 0, label: "Laisser choisir" }, win: { fx: { flag: "sept:lannoz", leave: "sept" }, to: "XF_s_reste" }, lose: { to: "XF_s_revient" } },
+        { label: "« Viens. J'ai besoin de toi. »", to: "XF_s_revient" },
+      ] },
+    XF_s_reste: { act: "III", title: "Le berger", place: "lannoz", ambiance: "nature",
+      text: [
+        "Il reste. Il te le dit sans un mot, en s'asseyant sur le muret à côté de la vieille femme, les mains sur les genoux, comme quelqu'un qui s'assoit chez lui.",
+        "Tu redescends seul{e} vers le village. À mi-pente, tu te retournes. Il est debout au milieu des chèvres, le capuchon rejeté, les cornes sciées au soleil, et il parle au vieux bouc, à voix basse, avec de grands gestes de ses mains couturées, comme un homme qui raconte un long voyage à un ami qu'il n'a pas vu depuis longtemps.",
+        "Il ne te fait pas signe. Tu sais maintenant qu'il connaît le geste. Il a choisi de ne pas le faire, et c'est mieux ainsi.",
+      ],
+      choices: [{ label: "Descendre au village", back: "A3o_lannoz" }] },
+    XF_s_revient: { act: "III", title: "Les chèvres", place: "lannoz", ambiance: "nature",
+      text: [
+        "Il caresse une dernière fois la tête du vieux bouc, du plat de la main, longuement, comme on dit adieu à un père. Puis il remet son capuchon, et il vient se placer derrière toi, à un pas, comme sur le sentier de l'îlot.",
+        "La vieille femme le regarde partir sans rien dire. Puis elle crache dans la bruyère, pour conjurer quelque chose, ou pour exprimer une opinion. À Lannoz, c'est le même geste.",
+        "Sur le chemin du retour, Sept marche longtemps en silence. Puis il dit, sans se tourner vers toi : « Les chèvres sentent bon. » C'est tout. Mais il le répète trois fois avant le village.",
+      ],
+      choices: [{ label: "Descendre au village", back: "A3o_lannoz" }] },
+
+    // ---------------------------------------------------------------- Sept on Folle-Aiguille
+    XF_s_sauveur: { act: "IV", title: "Deux ermites", place: "cabane", ambiance: "nature",
+      text: [
+        "Sauveur voit Sept pour la première fois un matin, à la vasque, où Sept boit à genoux, le visage dans l'eau, comme on boit quand on n'a jamais eu de verre. Le vieil homme s'arrête, avec son seau, et le pose dans l'herbe, très doucement, comme on pose une arme.",
+        "« Ah, dit-il. Vous aussi. »",
+        "Il s'assied sur un rocher, à quelques pas, et attend que Sept ait fini de boire. Sept relève la tête, l'eau dégoulinant de son duvet blond, et ils se regardent, le vieux naufragé à la barbe de prophète et la bête refaite en homme, avec la même expression exactement : celle de deux êtres qu'on a laissés seuls trop longtemps avec eux-mêmes et qui découvrent que la solitude a une forme, et que c'est la leur.",
+        "« On vous a fait, dit Sauveur. Moi, on m'a défait. Ça revient à peu près au même, à l'arrivée. On se retrouve à boire dans une mare en se demandant ce qu'on est. » Il lui tend sa tasse de bois. « Avec une tasse, c'est plus digne. Je l'ai sculptée moi-même. Elle fuit. »",
+        "Sept prend la tasse. Il la regarde, de tous les côtés, avec un sérieux immense. Puis il boit dedans, et l'eau lui coule sur le menton, par la fente. Sauveur éclate d'un rire énorme, de géant, qui fait s'envoler les perroquets de toute la falaise. Et Sept, pour la première fois depuis que tu le connais, rit aussi : un bêlement bref, étonné, qui lui échappe, et qui le fait rougir jusqu'aux cornes.",
+        "Le soir, ils sont assis tous les deux devant le feu, Sauveur lisant à voix haute, en latin, et Sept écoutant, la tête penchée, sans comprendre un mot, avec un plaisir parfait.",
+      ],
+      choices: [{ label: "Les laisser à leur lecture", fx: { flag: "sept:sauveur" }, back: "A4n_jours" }] },
+
+    // ---------------------------------------------------------------- the doctor and the Mother
+    XF_v_mere: { act: "III", title: "La Mère", place: "ilot", ambiance: "nature",
+      text: [
+        "Ombeline vient la chercher sur la plage, le deuxième jour, sans un mot, avec un regard qui dit à la fois *venez* et *pardonnez-moi*. Elle la mène par la forêt, en évitant la maison, jusqu'à une clairière au creux d'un vallon, où des huttes de palmes entourent un cercle de pierres blanches.",
+        "Dans la plus grande hutte, sur une litière de fougères, une créature énorme est couchée sur le côté. Une truie, peut-être, autrefois. Une femme, aujourd'hui, ou ce qu'on a pu en faire : une robe, des mains, de petits yeux bleus noyés dans la graisse, qui s'ouvrent quand Victorine entre et qui la regardent avec une confiance terrible.",
+        "« La Mère, dit Ombeline. Ses coutures se sont ouvertes, sous le bras, il y a dix jours. Le Maître dit que c'est sans intérêt. Il dit qu'elle est finie depuis longtemps et qu'il n'y a plus rien à apprendre sur elle. »",
+        "Victorine s'agenouille et soulève le bras. L'odeur la frappe au visage, douceâtre, épaisse, une odeur d'hôpital de la Marine en août. La cicatrice ancienne a cédé sur une longueur de main, et sous la peau, le pus a creusé une poche grosse comme un poing, rouge, luisante, chaude comme une brique sortie du four.",
+        "Dehors, à l'entrée de la hutte, une ombre se pose. Un grand gris aux mâchoires lourdes, dont la bouche ne ferme pas sur ses dents, s'est accroupi sur le seuil, et il regarde Victorine travailler avec l'attention d'un chien à la porte d'une cuisine.",
+        "« Le Dogue, souffle Ombeline. N'ayez pas peur. Il ne fait rien, quand on le regarde. »",
+      ],
+      choices: [
+        { label: "Inciser, drainer, laver, et recoudre", test: { dom: "savoir", diff: 1, label: "Une poche profonde" }, win: { fx: { flag: "xf:mere_soignee" }, to: "XF_v_mere_ok" }, lose: { fx: { flag: "xf:mere_morte" }, to: "XF_v_mere_rate" } },
+      ] },
+    XF_v_mere_ok: { act: "III", title: "La Mère", place: "ilot", ambiance: "nature",
+      text: [
+        "Elle incise. Le pus jaillit, épais, et Ombeline, sans qu'on le lui demande, présente une écuelle au bon endroit, à la bonne seconde, avec la sûreté d'une main qui a fait cela mille fois. Victorine draine, lave à l'eau-de-vie, explore du doigt la poche jusqu'au fond, trouve ce qu'elle cherchait : un nœud de soie ancien, mal posé, qui pourrissait là depuis des années comme une écharde. Elle l'arrache. La Mère ne crie pas. Elle serre les dents, des dents de truie, plates et jaunes, et elle regarde le toit de palmes.",
+        "Quand c'est fini, la plaie est propre, drainée par une mèche de charpie, et Victorine se redresse, les mains rouges jusqu'aux poignets.",
+        "La Mère la regarde longtemps. Puis elle prend la main de Victorine dans sa main couturée, et elle examine les doigts, un par un, attentivement, comme on examine un outil précieux.",
+        "« Tu es un Maître aussi, dit-elle. Mais tu ne fais pas. Tu défais ce qui fait mal. » Elle réfléchit. « C'est mieux. »",
+        "Sur le seuil, le Dogue s'est levé. Il s'en va, sans un bruit, et Victorine ne saura jamais s'il est déçu ou soulagé.",
+      ],
+      choices: [{ label: "Descendre à la plage, les mains encore rouges", back: "A3w_ilot" }] },
+    XF_v_mere_rate: { act: "III", title: "La Mère", place: "ilot", ambiance: "nuit",
+      text: [
+        "Elle incise. Le pus jaillit, et derrière le pus, le sang, beaucoup trop de sang, noir, d'un vaisseau que l'abcès avait rongé et qu'elle ne pouvait pas voir. Elle comprime. Ombeline comprime avec elle, de toutes ses forces, les deux mains l'une sur l'autre. Le sang passe entre leurs doigts.",
+        "La Mère ne se plaint pas. Elle regarde Victorine, avec ses petits yeux bleus, très doux, pendant tout le temps que cela dure. À la fin, elle lève un peu la main, comme pour lui toucher la joue, et la main retombe sur la fougère.",
+        "Victorine reste à genoux, les bras rouges jusqu'aux coudes. Elle a perdu des malades à Varnèse, à l'hôpital, en mer. Elle sait que celle-ci était perdue depuis dix jours, depuis le jour où le Maître a dit *sans intérêt*. Elle le sait, et cela ne sert à rien.",
+        "Dehors, la clairière a entendu. Une litanie commence, lente, sur deux notes, sans les mots de la Règle : un chant sans paroles, le premier que les Pupilles aient inventé eux-mêmes. Le Dogue, sur le seuil, ne chante pas. Il regarde Victorine, et ses narines frémissent à l'odeur du sang, et il s'en va avant d'avoir à décider ce qu'il en pense.",
+      ],
+      choices: [{ label: "Laisser Ombeline la veiller, et descendre à la plage", back: "A3w_ilot" }] },
+
+    // ---------------------------------------------------------------- the doctor, the second night
+    XF_v_retour: { act: "III", title: "La seconde nuit", place: "ilot", ambiance: "nuit",
+      text: [
+        "Elle se dit qu'elle monte pour voir comment va la bête de la veille. C'est la vérité. C'est aussi un mensonge, et elle le sait en mettant le pied sur le premier degré de la véranda.",
+        "Évariste Hallé l'attend dans la salle blanche, en tablier, sous la lampe à réflecteur. Il n'a pas l'air surpris. Il a l'air d'un homme qui a parié contre lui-même et qui a gagné.",
+        "La bête de la veille est sur la table, sous le drap. Elle respire. Sa gorge recousue s'est bien tenue. Hallé soulève le drap, et la bête tourne les yeux vers Victorine, et sa gorge se contracte, et il en sort un son : un râle, puis une syllabe, rauque, déchirée, presque humaine. *Ma.*",
+        "« Il manque l'autre moitié, dit Hallé. Les cordes sont trop courtes d'un quart de ligne. Il faut reprendre, ce soir, pendant que la chair est encore souple. » Il prend sur le plateau d'argent un scalpel à lame courte, le plus fin de tous, et le lui tend par le manche, comme on tend une plume à un notaire. « Ma main tremble. La vôtre, non. Vous avez vu hier comment on fait. Vous l'avez compris mieux que moi, je l'ai vu dans vos yeux. »",
+        "Elle prend le scalpel. Il est parfaitement équilibré. Il pèse exactement ce qu'il doit peser.",
+        "Sur la table, la bête la regarde, et répète, d'une voix d'enfant noyé : *Ma.*",
+      ],
+      choices: [
+        { label: "Reprendre les cordes", test: { dom: "savoir", diff: 2, label: "Un quart de ligne" }, win: { fx: { flag: "xf:opere" }, to: "XF_v_opere" }, lose: { fx: { flag: "xf:opere" }, to: "XF_v_opere_rate" } },
+        { label: "Prendre le flacon d'opium sur l'étagère, et finir autrement", fx: { flag: "xf:dose" }, to: "XF_v_dose" },
+        { label: "Reposer le scalpel sur le plateau", fx: { flag: "xf:scalpel_rendu" }, to: "XF_v_scalpel" },
+      ] },
+    XF_v_opere: { act: "III", title: "La seconde nuit", place: "ilot", ambiance: "nuit",
+      text: [
+        "Elle opère. Il se tait et la laisse faire. Il se tient derrière elle, les mains derrière le dos, et elle sent son regard sur sa nuque comme un poids tiède.",
+        "C'est l'opération la plus délicate qu'elle ait jamais faite. Elle l'accomplit en une heure et quart, sans une hésitation, sans un geste inutile, avec une précision qui la terrifie, parce qu'elle vient d'elle. Quand elle noue le dernier fil, la bête dort sous l'opium, et sa gorge refaite se soulève et s'abaisse régulièrement.",
+        "Hallé se penche sur la suture. Il la regarde longtemps, à la loupe. Puis il se redresse, et il a les larmes aux yeux.",
+        "« Parfait, dit-il. Je n'ai jamais rien fait d'aussi propre, même à trente ans. » Il lui prend la main, celle qui tenait le scalpel, et il la baise, comme on baise la main d'une reine. « Vous reviendrez. Pas cette année. Peut-être pas dans dix ans. Mais quand vous aurez assez soigné de marins ingrats, de bourgeois constipés et d'enfants qui meurent quand même, vous vous souviendrez de cette nuit, et vous reviendrez. »",
+        "Elle redescend à la plage avant l'aube. Elle se lave les mains dans la mer, longtemps, avec du sable, jusqu'à ce qu'elles lui fassent mal. Elles restent les plus belles mains qu'elle ait jamais vues.",
+      ],
+      choices: [{ label: "Attendre le jour sur la plage", back: "A3w_ilot" }] },
+    XF_v_opere_rate: { act: "III", title: "La seconde nuit", place: "ilot", ambiance: "nuit",
+      text: [
+        "Elle opère. Au troisième quart d'heure, la chair cède sous la lame d'un rien, d'un cheveu, d'un quart de ligne justement, et un filet de sang monte dans la gorge ouverte, et elle sait, avant même de comprimer, que c'est fini.",
+        "La bête meurt sans se réveiller, sous l'opium, en dix minutes. Hallé regarde mourir son ouvrage avec une tristesse polie, celle d'un joueur d'échecs qui perd une partie intéressante.",
+        "« Une erreur de débutant, dit-il sans reproche. J'en ai fait des centaines. Les six premières sont enterrées derrière la maison. Les suivantes, j'ai cessé de les enterrer. » Il recouvre la bête du drap. « Vous voyez : vous êtes déjà des nôtres. On ne devient des nôtres qu'après le premier mort. »",
+        "Elle repose le scalpel. Elle a envie de le lui planter dans la gorge, et cette envie-là, au moins, lui fait plaisir, parce qu'elle prouve qu'elle n'est pas encore tout à fait des leurs.",
+      ],
+      choices: [{ label: "Descendre à la plage sans dire bonsoir", back: "A3w_ilot" }] },
+    XF_v_dose: { act: "III", title: "La seconde nuit", place: "ilot", ambiance: "nuit",
+      text: [
+        "Le flacon d'opium est sur la deuxième étagère, à gauche, avec une étiquette de la belle écriture du Maître. Elle le prend. Elle en verse dans une cuiller, puis dans une autre, puis une troisième, beaucoup plus que pour dormir, et elle les glisse une par une entre les lèvres de la bête, qui avale, docile, en la regardant.",
+        "Hallé ne fait pas un geste pour l'en empêcher. Il la regarde faire avec un intérêt intense.",
+        "La bête s'endort. Puis sa respiration ralentit, s'espace, s'arrête. La syllabe qu'elle n'a pas finie reste dans la salle blanche, suspendue sous la lampe comme une mouche dans du miel.",
+        "« Intéressant, dit Hallé. Vous avez choisi de défaire ce que j'ai fait, plutôt que de le finir. C'est aussi une opération, voyez-vous. La plus vieille de toutes. » Il prend le flacon, le bouche, le remet à sa place, exactement à sa place. « Vous me tueriez de la même manière, je suppose, si je vous le demandais. Ma main tremble de plus en plus. Un jour, je vous écrirai. »",
+        "Il ne lui écrira jamais. Mais pendant des années, chaque fois qu'un courrier arrivera des îles, elle aura un moment d'arrêt avant de l'ouvrir.",
+      ],
+      choices: [{ label: "Descendre à la plage", back: "A3w_ilot" }] },
+    XF_v_scalpel: { act: "III", title: "La seconde nuit", place: "ilot", ambiance: "nuit",
+      text: [
+        "Elle repose le scalpel sur le plateau d'argent, à sa place exacte, entre la pince et l'écarteur, la lame tournée vers l'intérieur, comme on range un instrument propre.",
+        "« Je suis venue voir comment allait votre malade, dit-elle. Il va bien. Il dit *ma*. C'est un début. Il finira peut-être le mot tout seul, si on le laisse. Les enfants y arrivent. »",
+        "Hallé la regarde, et pour la première fois depuis qu'elle le connaît, ses yeux de marbre se troublent. Il a l'air d'un homme à qui l'on vient de faire une objection qu'il n'avait jamais envisagée et qu'il ne peut pas réfuter tout de suite. Il la réfutera dans une heure, seul, longuement, devant sa lampe. Mais dans l'instant, il n'a rien à dire, et il le sait, et il déteste cela.",
+        "« Bonsoir, Maître », dit Victorine.",
+        "En descendant le sentier, elle entend derrière elle, par la fenêtre ouverte de la salle blanche, la voix rauque de la bête qui répète, inlassablement, sa syllabe, dans le silence de la maison. Elle s'arrête pour écouter si elle trouve la suivante. Elle ne la trouve pas cette nuit-là.",
+      ],
+      choices: [{ label: "Descendre à la plage", back: "A3w_ilot" }] },
+
+    // ---------------------------------------------------------------- Ombeline aboard
+    XF_o_recit: { act: "III", title: "La huitième", place: "cormorane", ambiance: "nuit",
+      text: [
+        "À l'infirmerie, la nuit, quand les malades dorment, Ombeline parle. Pas beaucoup. Une phrase, puis un silence d'un quart d'heure, puis une autre phrase, comme on lâche des pierres dans un puits pour en mesurer la profondeur.",
+        "Elle avait onze ans quand le Maître l'a prise à l'hospice des Enfants-Trouvés de Morlenc, pour servir. Elle a appris à lire dans ses livres d'anatomie, à compter dans son registre, à coudre sur des lapins morts. Elle ne sait pas ce qu'elle est. Elle sait ce qu'elle sait faire, et c'est tout ce qu'on lui a jamais demandé d'être.",
+        "Puis, une nuit, au milieu d'un silence plus long que les autres, elle dit :",
+        "« La huitième tombe, derrière la maison. Celle qui est creusée. Il me l'a fait creuser à moi, le mois dernier. Il m'a dit que c'était pour le prochain qui raterait. Mais il a peint la planchette lui-même. Il ne peint jamais les planchettes. Il me laisse les peindre. » Elle regarde ses mains, posées sur ses genoux, des mains de vingt-cinq ans qui ont fait des choses de cinquante. « Il voulait voir. Il voulait voir ce que je deviendrais quand je n'aurais plus d'utilité. Il était curieux. Il est toujours curieux. »",
+        "Le navire craque. Un malade gémit dans son sommeil. Ombeline se lève, va lui remonter sa couverture, revient s'asseoir.",
+        "« Qu'est-ce que je vais faire, maintenant ? demande-t-elle, sans regarder Victorine. Je ne sais rien faire d'autre. »",
+      ],
+      choices: [
+        { label: "« Apprendre le reste. Je vous l'enseignerai. »", fx: { flag: ["ombeline:huit", "ombeline:apprentie"] }, to: "XF_o_apprentie" },
+        { label: "« Oublier. Tout. Le plus vite possible. »", fx: { flag: ["ombeline:huit", "ombeline:oublie"] }, to: "XF_o_oublie" },
+      ] },
+    XF_o_apprentie: { act: "III", title: "La huitième", place: "cormorane", ambiance: "nuit",
+      text: [
+        "Ombeline la regarde enfin. Ses yeux gris, qui n'osent jamais rien, osent cette fois une question, une seule, et elle met longtemps à la poser.",
+        "« Le reste, c'est quoi ? »",
+        "Victorine réfléchit. Puis elle lui dit : le reste, c'est de demander au malade où il a mal avant de regarder où il a mal. C'est de lui dire ce qu'on va faire avant de le faire. C'est de lui tenir la main pendant qu'on le fait, quand on a une main libre. C'est de savoir s'arrêter. Surtout ça. Savoir s'arrêter.",
+        "Ombeline écoute, comme Sept écoutait la Règle, en remuant les lèvres. Puis elle tire de la poche de son tablier un petit carnet, celui où elle notait pour le Maître les poids, les pouls, les sutures, et elle tourne les pages jusqu'à une page blanche, et elle écrit, de sa petite écriture de femme : *Demander.*",
+      ],
+      choices: [{ label: "Laisser Ombeline à ses notes", back: "A3x_lannoz" }] },
+    XF_o_oublie: { act: "III", title: "La huitième", place: "cormorane", ambiance: "nuit",
+      text: [
+        "Ombeline hoche la tête, lentement, comme une élève qui accepte une consigne qu'elle ne comprend pas.",
+        "« Oublier, répète-t-elle. Oui. » Elle se lève, va à la lanterne, et la baisse, jusqu'à ce que l'infirmerie ne soit plus qu'une pénombre rousse. « Je vais essayer. »",
+        "Le lendemain matin, Victorine la trouve sur le pont, à l'aube, penchée au-dessus de la lisse. Elle tient à la main un petit carnet relié de toile, celui où elle notait pour le Maître les poids, les pouls, les sutures. Elle en arrache les pages une à une et les laisse tomber dans le sillage, où elles flottent un moment, blanches sur l'eau grise, avant de couler. Elle garde la couverture. Elle la regarde, vide, longtemps, puis elle la met dans sa poche.",
+        "Oublier, chez Ombeline, se fait avec méthode, page par page, comme une dissection.",
+      ],
+      choices: [{ label: "La laisser finir", back: "A3x_lannoz" }] },
+    XF_o_chapelle: { act: "IV", title: "L'aiguille d'Ombeline", place: "misericorde", ambiance: "chateau",
+      text: [
+        "Un matin du siège, on apporte à la sacristie un jeune matelot de la Cormorane, Yvon Le Bihan, qui a reçu une balle de mousquet dans la main gauche en ramassant du bois aux broussailles. La balle a emporté deux doigts, l'index et le majeur, et a laissé les trois autres pendre à des lambeaux. Victorine est au clocher, avec la capitaine. C'est Ombeline qui le reçoit.",
+        "Quand Victorine descend, une demi-heure plus tard, elle trouve Ombeline penchée sur la main du garçon, dans la lumière grise de la fenêtre, avec un instrument que Victorine ne lui connaît pas, une aiguille courbe d'une finesse de cil, et du fil de soie qu'elle a tiré de sa propre robe. Le garçon dort, assommé de rhum et d'opium. Sur un linge propre, à côté de lui, les deux doigts arrachés sont posés, lavés, alignés, comme des pièces détachées.",
+        { if: { has: "ombeline:huit" }, text: "Victorine pense, sans le vouloir, à une fosse fraîche derrière une maison blanche, et à une planchette peinte de la main du Maître." },
+        "« Je peux les remettre, dit Ombeline sans lever les yeux. Les tendons sont nets. Le Maître l'a fait sur des singes. Une fois sur trois, ça prend. » Elle lève enfin les yeux. Ils brillent d'une lueur que Victorine n'y a jamais vue, et qu'elle a vue ailleurs : dans d'autres yeux gris, sous une lampe à réflecteur. « Une fois sur trois. Il aurait ses doigts. »",
+      ],
+      choices: [
+        { label: "« Faites. Je vous assiste. »", fx: { flag: "ombeline:greffe" }, to: "XF_o_greffe" },
+        { label: "« Non. On nettoie, on ferme, et il vivra avec trois doigts. »", fx: { flag: "ombeline:retenue" }, to: "XF_o_retenue" },
+      ] },
+    XF_o_greffe: { act: "IV", title: "L'aiguille d'Ombeline", place: "misericorde", ambiance: "chateau",
+      text: [
+        "Elles opèrent à deux, quatre heures, pendant que les balles des mutins claquent de temps en temps contre les murs de la chapelle comme une grêle distraite. Ombeline coud ; Victorine tient, éponge, éclaire, passe les instruments. Les rôles de la salle blanche, inversés. Victorine s'en aperçoit au bout d'une heure, et ne dit rien.",
+        "Le soir, la main d'Yvon Le Bihan est un paquet de charpie d'où sortent cinq bouts de doigts, dont deux d'une couleur qui ne plaît à personne.",
+        "Le cinquième jour, l'index noircit, et il faut le couper. Le majeur reste rose. Il reste rose le sixième jour, le septième, le dixième. Le quinzième jour, Yvon Le Bihan le plie, d'un quart de pouce, en grimaçant, devant toute la sacristie, et Ombeline sort dans la cour de la chapelle et pleure contre le mur, longtemps, pour des raisons qu'elle-même ne démêle pas.",
+        "Victorine la laisse pleurer. Elle regarde ce doigt recousu qui plie, et elle sent en elle deux choses à la fois, l'admiration et la peur, exactement les deux mêmes que dans la salle blanche, et elle commence à comprendre que ces deux choses-là ne la quitteront plus.",
+      ],
+      choices: [{ label: "Retourner à la sacristie", back: "A4w_jours" }] },
+    XF_o_retenue: { act: "IV", title: "L'aiguille d'Ombeline", place: "misericorde", ambiance: "chateau",
+      text: [
+        "Ombeline pose l'aiguille. Elle la pose très lentement, sur le linge, à côté des deux doigts. Pendant une seconde, Victorine croit qu'elle va désobéir, et elle ne sait pas ce qu'elle ferait alors.",
+        "Puis Ombeline reprend la charpie, l'eau-de-vie, le fil ordinaire. Elle nettoie, régularise, ferme, avec une perfection froide, sans un mot. Quand c'est fini, elle enveloppe les deux doigts dans le linge, noue les coins, et sort les enterrer dans la cour de la chapelle, au pied du mur, à genoux, avec une cuiller.",
+        "Le soir, elle revient s'asseoir près de Victorine, à la lueur de la chandelle. « Vous aviez raison, dit-elle. Je crois. Je ne sais pas. » Elle regarde ses mains. « Il aurait eu ses doigts une fois sur trois. Deux fois sur trois, il aurait eu la gangrène. Je n'ai pensé qu'à la fois sur trois. Le Maître ne pensait jamais qu'à celle-là, lui non plus. »",
+        "Yvon Le Bihan vit, avec trois doigts à la main gauche. Il apprend à faire des nœuds autrement. Il dit à qui veut l'entendre que c'est la jolie demoiselle aux cheveux tirés qui l'a sauvé, et Ombeline, chaque fois, rougit et sort de la pièce.",
+      ],
+      choices: [{ label: "Retourner à la sacristie", back: "A4w_jours" }] },
+  },
+  extras: {},
+};

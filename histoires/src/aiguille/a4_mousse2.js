@@ -39,6 +39,7 @@ module.exports = {
         { label: "Te réveiller sans le chien contre toi", to: "XC_i_absent", hide: { any: [{ seen: "XC_i_absent" }, { not: { has: "chien:apprivoise" } }, { not: { present: "chien" } }] }, if: { count: JOURS, min: 1 }, why: "Il dort encore contre toi, la nuit." },
         { label: "Chercher le chien, qui n'est pas rentré de sa tournée", to: "XC_i_filet", hide: { any: [{ seen: "XC_i_filet" }, { not: { has: "chien:meute" } }, { not: { present: "chien" } }] }, if: { count: JOURS, min: 2 }, why: "Il rentre encore chaque soir." },
         { label: "Aller chercher le professeur là-haut, avec les cordes de Sauveur", to: "XT_retour", hide: { not: { has: "xt:gaudremont_haut" } } },
+        { label: "Emmener Sept boire à la vasque", to: "XF_s_sauveur", hide: { any: [{ seen: "XF_s_sauveur" }, { not: { present: "sept" } }] } },
         { label: "Partir rejoindre les tiens", to: "A4n_fin", big: true, if: { count: JOURS, min: 3 }, why: "Tu n'as pas encore assez vu cette île pour la quitter, ou lui." },
       ] },
 

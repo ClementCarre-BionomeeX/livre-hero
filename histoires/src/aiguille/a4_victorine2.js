@@ -32,6 +32,7 @@ module.exports = {
         { label: "Aller trouver le baron, assis seul dans le chœur", to: "A4w_baron", hide: { seen: "A4w_baron" } },
         { label: "Monter au clocher avec la capitaine et Benoît", to: "A4w_capitaine", hide: { seen: "A4w_capitaine" } },
         { label: "Ramasser la flèche plantée dans la porte, à l'aube", to: "XS_debut", hide: { seen: "XS_debut" }, if: { count: JOURS, min: 1 }, why: "Il n'y a pas encore de flèche dans la porte." },
+        { label: "Descendre à la sacristie, où Ombeline reçoit un blessé", to: "XF_o_chapelle", hide: { any: [{ seen: "XF_o_chapelle" }, { not: { has: "ombeline:abord" } }] }, if: { count: JOURS, min: 1 }, why: "Le siège n'a pas encore fait de blessé." },
         { label: "Un drapeau blanc sur le sentier", to: "A4w_parlement", big: true, if: { count: JOURS, min: 2 }, why: "Les mutins ne se sont pas encore montrés." },
       ] },
 

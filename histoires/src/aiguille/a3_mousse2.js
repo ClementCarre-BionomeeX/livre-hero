@@ -241,6 +241,7 @@ module.exports = {
       ],
       choices: [
         { label: "Débarquer avec la corvée d'eau", to: "XF_m_debut", hide: { seen: "XF_m_debut" } },
+        { label: "Aller à la clairière, le dernier matin", to: "XF_m_clairiere", hide: { any: [{ seen: "XF_m_clairiere" }, { not: { seen: "XF_m_village" } }] }, if: { seen: "XF_m_fin" }, why: "Il reste des barriques à remplir avant le dernier matin." },
         { label: "Pêcher dans la crique avec Lagadec", to: "XQ_i_peche", hide: { seen: "XQ_i_peche" }, if: { seen: "XF_m_debut" }, why: "La chaloupe n'a pas encore touché le sable." },
         { label: "Faire le tour du jardin de la maison blanche", to: "XQ_i_cimetiere", hide: { seen: "XQ_i_cimetiere" }, if: { seen: "XF_m_debut" }, why: "La chaloupe n'a pas encore touché le sable." },
         { label: "Monter au sommet de la colline", to: "XQ_i_sommet", hide: { seen: "XQ_i_sommet" }, if: { seen: "XF_m_debut" }, why: "La chaloupe n'a pas encore touché le sable." },
