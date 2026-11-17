@@ -118,8 +118,8 @@ Object.assign(P, {
   K17r_aub_lison: { act: "V", title: "Une rue en pente, la nuit", place: "tour", ambiance: "chateau",
     text: [
       "Il lève un sourcil. Il ne demande pas son nom : il ne l'a jamais su, et il sait qu'il y en a des milliers.",
-      "« Le puits la montre. Il ne la tient pas : elle est dans sa rue, à Roquebise, debout, tournée vers ce qui venait. Je connais la nuit du Bond. J'y ai perdu une verrerie et six lieues de bonne lisière en une heure. » Il se reprend, à ta figure. « Vous y avez perdu davantage. Je vous l'accorde. »",
-      "« Voici son compte, puisque c'est celui-là qui vous occupe. Vous rendez le coup ici, chez votre ami : il n'y a pas eu de Bond. Il n'y a pas eu de rue. Vos parents ont épousé d'autres gens, ou les mêmes, un autre jour ; il leur naît des enfants, et aucun n'est elle. Vous le rendez chez vous : elle achève de se retourner. Elle a cinq ans. Vous en avez seize. Elle cherchera partout un frère ou une sœur de dix ans, et vous serez là, à lui dire que c'est vous. »",
+      "« Le puits la montre. Il ne la tient pas : elle est dans son lit, à Roquebise, la joue sur l'oreiller, au milieu d'un souffle. Je connais la nuit du Bond. J'y ai perdu une verrerie et six lieues de bonne lisière en une heure. » Il se reprend, à ta figure. « Vous y avez perdu davantage. Je vous l'accorde. »",
+      "« Voici son compte, puisque c'est celui-là qui vous occupe. Vous rendez le coup ici, chez votre ami : il n'y a pas eu de Bond. Il n'y a pas eu de rue. Vos parents ont épousé d'autres gens, ou les mêmes, un autre jour ; il leur naît des enfants, et aucun n'est elle. Vous le rendez chez vous : elle achève son souffle, et elle ouvre les yeux. Elle a cinq ans. Vous en avez seize. Elle cherchera partout un frère ou une sœur de dix ans, et vous serez là, à lui dire que c'est vous. »",
       "« Ou vous gardez la note. Elle reste comme elle est : entière, sans une ride, à sa place. Et vous montez la voir le dimanche, avec une pincée. Je ne l'ai jamais fait pour personne. On me dit que c'est doux. »",
       "Tu as les dents serrées. Il le voit. « Je ne vous torture pas. Je compte tout haut. C'est ce que vous faites depuis neuf jours, et vous comptez mieux que moi : vous, vous savez pour qui. »",
     ],
@@ -322,7 +322,7 @@ Object.assign(P, {
   K17r_puits: { act: "V", title: "Ce qui est devant", place: "tour", ambiance: "chateau",
     text: [
       "Tu te mets à genoux au bord. Le gris est à une main sous le pavé. Il luit par en dessous, sans source.",
-      "Chez toi, on y voyait les cercles, rangés par années comme les couches d'un tronc, et presque à la surface une rue en pente, la nuit, où quelqu'un se retournait. Ce puits-ci a soixante ans de moins. Il n'a encore rien pris qu'une ville.",
+      "Chez toi, on y voyait les cercles, rangés par années comme les couches d'un tronc, et presque à la surface une rue en pente, la nuit, et une vitre sous un toit, où quelqu'un dormait. Ce puits-ci a soixante ans de moins. Il n'a encore rien pris qu'une ville.",
       "Il y passe pourtant des formes, très bas. Tu avais refusé de les regarder en arrivant. Tu regardes.",
       "C'est une rue en pente. Des toits de tuiles vernies. Il fait jour. Des gens y marchent, lentement, à leurs affaires : une femme avec deux seaux, un homme qui roule une canne de souffleur sur son épaule, des enfants qui ne sont à personne que tu connaisses. Au bout de la rue, une verrerie fume.",
       "C'est Roquebise. C'est Roquebise comme elle sera si rien ne la prend : une ville où l'on souffle le verre, où ta rue existe, et où tu ne trouves ni ta porte ni ta figure.",
@@ -569,7 +569,7 @@ Object.assign(P, {
   K17r_tard: { act: "V", title: "Le dernier qui a dit la vérité", place: "tour", ambiance: "chateau",
     text: [
       "Tu poses ton grain sur sa main, à côté du cuir. Un grain de chez toi, gris foncé, de ceux qu'on glane.",
-      "« Écoutez-moi, pendant que le sien coule et le mien avec. Je viens de sa marge. » Tu parles vite, en comptant sur tes doigts. Une lieue. Une abbaye. Une ville. Roquebise, en une nuit, où l'on vous soufflait vos cuves. Une petite de cinq ans qui s'est retournée dans une rue.",
+      "« Écoutez-moi, pendant que le sien coule et le mien avec. Je viens de sa marge. » Tu parles vite, en comptant sur tes doigts. Une lieue. Une abbaye. Une ville. Roquebise, en une nuit, où l'on vous soufflait vos cuves. Une petite de cinq ans, prise au milieu d'un souffle, la joue sur l'oreiller.",
       "« Elle ment, dit le vieux. Ou plutôt : elle dit vrai, et cela ne change rien. Tiens. »",
       "Le jeune vous regarde l'un après l'autre. Il a deux grains sur lui, un de chaque monde, et deux voix dans les oreilles. « Vous m'avez dit que nous avions gagné. — Nous avons gagné. — Vous ne m'avez pas dit ce que nous avions gagné. »",
       "Il n'y a pas de réponse. Il y a un vieillard qui cherche, pour la première fois depuis soixante ans, un chiffre à mettre en face d'une enfant de cinq ans, et qui ne le trouve pas assez vite.",
@@ -687,7 +687,7 @@ Object.assign(P, {
       "Tu es debout. Tu as le cuir dans la main. Le levier monte, cran après cran, et il ne pèse rien : tu ne le tires pas, tu l'accompagnes, comme on tient le bras de quelqu'un qui se lève. Le fil se tend. Il cesse d'être flou. Il est net, mince, et il part vers la voûte comme un trait.",
       "Là-haut, quelqu'un tire.",
       "Tu as le temps d'un mot. Si tu le dis, midi sonne chez toi : le vingt et un juin 601. Quarante mille personnes finissent leur cri. Si tu te tais, c'est une autre bouche qui décide, là-haut, ou aucune.",
-      { if: { secret: "r_soeur" }, text: "Tu es venu{e} pour une petite de cinq ans, qui s'est retournée dans une rue. Tu ne l'as dit à personne pendant neuf jours. Elle est dans un seul des deux mots." },
+      { if: { secret: "r_soeur" }, text: "Tu es venu{e} pour une petite de cinq ans, qui dort depuis six ans au milieu d'un souffle. Tu ne l'as dit à personne pendant neuf jours. Elle est dans un seul des deux mots." },
       { if: { has: "r:vu_devant" }, text: "Tu as vu, dans le puits, une rue de Roquebise en plein jour, où l'on souffle le verre, et où tu n'as pas trouvé ta porte." },
       { if: { has: "r:compte_tannerie" }, text: "Tu as fait un compte, devant quatre seuils. Quatre fois dix-neuf. Il sort juste d'un côté, et faux de l'autre." },
       { if: { has: "r:couvert_redit" }, text: "Derrière toi, sur un berceau, un vieillard écoute, son dernier grain sur la main. Il a plaidé pour le silence. Tu sais que si tu te tais, ce ne sera pas pour lui ; et tu sais qu'il ne fera pas la différence." },

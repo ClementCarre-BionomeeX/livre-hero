@@ -587,7 +587,7 @@ Object.assign(P, {
       "Tu t'avances jusqu'où le pavé finit. Il est usé en biseau ; et sur le biseau, le gris fait son bord, rond, épais de deux doigts, comme le bord d'une goutte sur une table cirée.",
       "De près, cela a une profondeur. L'œil y descend sans trouver d'appui, et il y passe des choses, très bas, lentes, comme des carpes sous la glace : un champ de blé où le vent s'est arrêté ; un pont, avec ses charrettes ; une abbaye, la bouche de ses chanteuses ouverte sur la même note. Ce sont les cercles. Tout ce que la Dormante a pris en soixante ans est là-dedans, rangé par années, comme les couches d'un tronc.",
       "Tu cherches. Tu sais ce que tu cherches, et tu te l'étais défendu.",
-      "C'est presque à la surface : une rue en pente, des toits de tuiles vernies, la nuit. Des gens courent. Ils courent tous du même côté, et derrière eux il vient quelque chose qui a la couleur de ce puits et la vitesse d'une marée. Au milieu de la rue, une petite de cinq ans s'est retournée, pour voir.",
+      "C'est presque à la surface : une rue en pente, des toits de tuiles vernies, la nuit. Des gens courent. Ils courent tous du même côté, et derrière eux il vient quelque chose qui a la couleur de ce puits et la vitesse d'une marée. Ils passent devant une porte, la troisième après la fontaine. Sous le toit, derrière une vitre, il y a un lit, et dans ce lit une petite de cinq ans qui dort.",
       "Tu recules. Tes genoux ont le tremblement qu'on a au bord d'un toit. Tu as les dents serrées à en avoir mal aux oreilles.",
       "Elle s'était retournée. Tu l'as toujours su : c'est tout elle.",
     ],

@@ -136,7 +136,7 @@ Object.assign(P, {
     text: [
       "Le puits de 541 n'a pas débordé. Il est à une main sous le pavé, plein, gris, avec ce bombement léger qu'a l'eau dans un verre trop rempli. La barre y entre jusqu'à mi-corps. Autour d'elle, le gris s'est creusé d'un rien, comme une étoffe sous un poids.",
       "Tu te mets à genoux. Sur le biseau du bord, il perle. Ce sont des grains, plus fins que ceux que tu as au cou, d'un gris plus clair, qui sortent de la pierre même, un à un, comme la sueur sort d'un front. Ils n'étaient pas là il y a un instant. Ils sont nés du onzième coup.",
-      "Voilà donc d'où cela vient. Tout ce que tu as glané en dix ans dans les fossés de la lisière, tout ce que la Maîtrise a vendu contre des forêts, tout ce qui tient debout quarante vieillards à joues de cire : c'est la sueur d'une chose qu'on empêche de respirer.",
+      "Voilà donc d'où cela vient. Tout ce que tu as glané en six ans dans les fossés de la lisière, tout ce que la Maîtrise a vendu contre des forêts, tout ce qui tient debout quarante vieillards à joues de cire : c'est la sueur d'une chose qu'on empêche de respirer.",
       "Tu as les mains qu'il faut. Tu passes le pouce le long du biseau, sur tout le tour que tu peux atteindre, et tu fais tomber la récolte dans ton sachet. Elle est tiède. Elle pèse comme pèse le sable frais : à peine, et beaucoup.",
       "Dans le gris, très bas, il passe des formes. Tu ne les regardes pas. Celles-ci sont devant.",
     ],

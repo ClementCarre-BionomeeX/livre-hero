@@ -329,7 +329,7 @@ Object.assign(P, {
       "Au couchant, la place, la ville basse, le bassin, les peupliers. Au nord, des jardins, une orangerie, un mur que tu as longé de nuit dans une odeur de sureau. Au levant, une colline, quatre logis, un cadran solaire : tu y as campé, au milieu de pupitres. Au midi, des toits de couvent, et plus loin une église basse, vieille, dont tu sais le dallage par cœur, avec son étoile de cuivre.",
       "C'est la première ville : le cercle de 541. Tu l'as traversée en deux jours, grain à grain, la peur au ventre. D'ici, elle tient dans huit fenêtres. On en ferait le tour avec le pouce.",
       "Au-delà, il y a ce que la Dormante a mangé depuis, année après année, et qui est ici du blé, des fermes, des gens qui dînent. L'abbaye. Arvoise et son pont. Roquebise sur sa butte. Tu cherches Roquebise. C'est trop loin ; il y a une brume de chaleur. Tu sais seulement de quel côté.",
-      "De ce côté-là, dans cinquante-quatre ans, une petite de cinq ans se retournera au milieu d'une rue.",
+      "De ce côté-là, dans cinquante-quatre ans, une petite de cinq ans s'endormira sous un toit, un soir, en écoutant son père siffler en bas.",
     ],
     choices: [{ back: "K15_haute" }] },
 
