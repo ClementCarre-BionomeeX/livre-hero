@@ -1,0 +1,3697 @@
+{
+ "id": "orsenne",
+ "title": "Une nuit au cabinet Orsenne",
+ "subtitle": "Un cabinet de curiosités, un gardien de nuit, un automate qui écrit",
+ "summary": "Le collectionneur Hippolyte Orsenne est mort il y a un mois. Demain à dix heures, son neveu vend aux enchères tout son cabinet de curiosités : le crocodile pendu au plafond, les monstres en bocaux, les automates, et la Larme de Golconde, le diamant bleu qui sert d'œil à la Sibylle, l'automate qui écrit. On t'a engagé{e} pour garder la maison la dernière nuit. À onze heures, la Sibylle se met à écrire toute seule. Ce livre se lit deux fois.",
+ "tags": [
+  "enigmes",
+  "intrigue",
+  "fantastique"
+ ],
+ "author": "Claude, pour Clément",
+ "age": 12,
+ "skin": "acajou",
+ "cover": {
+  "motif": "cle",
+  "color": "#3b2a1e"
+ },
+ "glossary": {
+  "vasque|vasques": "Grand bassin de pierre peu profond, où coule une fontaine.",
+  "oriel|oriels": "Fenêtre qui avance sur la façade, comme un petit balcon fermé.",
+  "chevrier|chevrière|chevriers": "Celui ou celle qui garde les chèvres.",
+  "boyau|boyaux": "Passage long et étroit.",
+  "toise|toises": "Ancienne mesure de longueur, un peu moins de deux mètres.",
+  "coudée|coudées": "Ancienne mesure de longueur : du coude au bout des doigts.",
+  "lieue|lieues": "Ancienne mesure de distance, environ quatre kilomètres, une heure de marche.",
+  "arnica": "Plante dont on tire un remède contre les coups et les bleus.",
+  "gambison|gambisons": "Veste épaisse et rembourrée, portée seule ou sous une armure.",
+  "broigne|broignes": "Vêtement de cuir renforcé de plaques ou d'anneaux de métal.",
+  "cotte|cottes": "Tunique. La cotte de mailles est faite de petits anneaux de fer entrelacés.",
+  "cuirasse|cuirasses": "Armure qui protège la poitrine et le dos.",
+  "heaume|heaumes": "Grand casque qui couvre toute la tête.",
+  "pourpoint|pourpoints": "Veste ajustée qui couvre le buste.",
+  "tabard|tabards": "Tunique sans manches portée par-dessus l'armure, souvent aux couleurs d'un seigneur.",
+  "hallebarde|hallebardes": "Arme à long manche, terminée par une lame de hache et une pointe.",
+  "piquier|piquiers": "Soldat armé d'une pique, une très longue lance.",
+  "arbalète|arbalètes": "Arc monté sur un manche de bois, qu'on tend avec un mécanisme ; il tire des carreaux.",
+  "baudrier|baudriers": "Bande de cuir portée en travers du corps, qui soutient l'épée.",
+  "ceinturon|ceinturons": "Grosse ceinture qui porte une arme.",
+  "herboristerie|herboristeries": "Boutique où l'on vend des plantes qui soignent.",
+  "apothicairerie": "Boutique de l'apothicaire, qui prépare les remèdes.",
+  "onguent|onguents": "Pommade qui soigne.",
+  "ravine|ravines": "Petit ravin creusé par l'eau.",
+  "rotonde|rotondes": "Salle ou bâtiment de forme ronde.",
+  "coupole|coupoles": "Toit en forme de demi-boule.",
+  "charretière": "Une porte charretière est assez large pour laisser passer une charrette.",
+  "cochère": "Une porte cochère est assez large pour laisser passer une voiture à chevaux.",
+  "caillé": "Le lait caillé est un lait épaissi, un peu aigre.",
+  "écuelle|écuelles": "Bol large et creux.",
+  "jonc|joncs": "Plante à tige droite qui pousse au bord de l'eau.",
+  "muletier|muletiers|muletière": "Celui ou celle qui conduit les mulets.",
+  "chamelier|chameliers": "Celui qui conduit les chameaux.",
+  "caravanier|caravaniers|caravanière": "Celui ou celle qui conduit une caravane de marchands.",
+  "osselets": "Jeu de petits os qu'on lance et qu'on rattrape.",
+  "chaulé|chaulés|chaulée|chaulées": "Blanchi à la chaux.",
+  "chaux": "Poudre blanche tirée du calcaire : on en blanchit les murs, on en fait du mortier.",
+  "margelle|margelles": "Rebord de pierre autour d'un puits.",
+  "rouvre|rouvres": "Une espèce de chêne.",
+  "câprier|câpriers": "Arbuste qui pousse dans les murs ; on mange ses boutons, les câpres.",
+  "auvent|auvents": "Petit toit au-dessus d'une porte, d'une fenêtre ou d'un étal.",
+  "garance": "Plante dont la racine donne une teinture rouge.",
+  "guède": "Plante dont on tire une teinture bleue.",
+  "astrolabe|astrolabes": "Instrument ancien pour mesurer la hauteur des étoiles et s'orienter.",
+  "éboulis": "Amas de pierres tombées d'une pente.",
+  "gourdin|gourdins": "Bâton gros et court qui sert d'arme.",
+  "tisonne|tisonnes|tisonner": "Remuer les braises du feu.",
+  "tonsure|tonsures": "Cercle rasé sur le haut du crâne, que portent certains religieux.",
+  "amadou": "Matière très sèche, tirée d'un champignon, qui prend feu d'une étincelle.",
+  "éperon|éperons": "Avancée pointue d'une montagne, d'un rocher ou d'un mur ; ou pointe de métal au talon du cavalier.",
+  "vélin": "Parchemin très fin, fait de peau de veau.",
+  "feuillet|feuillets": "Feuille d'un cahier ou d'un livre.",
+  "tenture|tentures": "Grand tissu tendu sur un mur ou devant une ouverture.",
+  "écluse|écluses": "Ouvrage qui retient l'eau d'une rivière ou d'un canal, et la laisse passer à volonté.",
+  "fagot|fagots": "Paquet de petit bois attaché.",
+  "contrebas": "En contrebas : plus bas.",
+  "baluchon|baluchons": "Petit paquet d'affaires noué dans un tissu.",
+  "besace|besaces": "Sac qu'on porte à l'épaule.",
+  "cairn|cairns": "Tas de pierres empilées pour marquer un chemin ou un lieu.",
+  "pilotis": "Pieux enfoncés dans le sol ou dans l'eau, sur lesquels on bâtit.",
+  "soupente|soupentes": "Petit réduit sous un escalier ou sous le toit.",
+  "bourg|bourgs": "Gros village où se tient le marché.",
+  "hameau|hameaux": "Tout petit village.",
+  "gibet|gibets": "Potence où l'on pendait les condamnés.",
+  "poulie|poulies": "Roue sur laquelle passe une corde, pour soulever une charge.",
+  "billot|billots": "Gros bloc de bois sur lequel on coupe ou on fend.",
+  "colporteur|colporteurs|colporteuse|colporteuses": "Marchand qui va de village en village, sa marchandise sur le dos.",
+  "fioritures": "Ornements, détails décoratifs.",
+  "collet|collets": "Piège fait d'un nœud coulant.",
+  "visière|visières": "Partie d'un casque qui protège le visage.",
+  "crevasse|crevasses": "Fente profonde dans la roche ou dans la glace.",
+  "milicien|miliciens|milicienne": "Habitant armé chargé de garder un lieu, sans être un vrai soldat.",
+  "enclume|enclumes": "Bloc de fer sur lequel le forgeron frappe le métal.",
+  "chanvre": "Plante dont on fait des cordes et de la toile.",
+  "meule|meules": "Grosse pierre ronde qui écrase le grain ; ou grand tas de foin.",
+  "dédale|dédales": "Labyrinthe, lieu où l'on se perd.",
+  "sauge": "Plante au parfum fort, qui soigne.",
+  "reliquaire|reliquaires": "Coffret précieux qui garde les restes d'un saint.",
+  "portefaix": "Homme dont le métier est de porter les fardeaux.",
+  "greffier|greffiers|greffière|greffières": "Personne chargée d'écrire et de garder les actes officiels.",
+  "scriptorium": "Salle où l'on copie les livres à la main.",
+  "cocagne": "Le pays de cocagne est un pays imaginaire où tout abonde.",
+  "grelot|grelots": "Petite boule de métal creuse qui tinte.",
+  "luthier|luthiers": "Artisan qui fabrique les instruments à cordes.",
+  "crieur|crieurs|crieuse": "Personne qui annonce les nouvelles à voix haute dans les rues.",
+  "relieur|relieurs": "Artisan qui coud et habille les livres.",
+  "ossuaire|ossuaires": "Lieu où l'on rassemble les os des morts.",
+  "almanach|almanachs": "Petit livre qui donne le calendrier, les saisons, des conseils et des prédictions.",
+  "nacre": "Matière brillante aux reflets changeants, à l'intérieur des coquillages.",
+  "écritoire|écritoires": "Petit pupitre ou coffret qui contient de quoi écrire.",
+  "teinturier|teinturiers|teinturière|teinturières": "Artisan qui colore les tissus.",
+  "étal|étals": "Table où le marchand expose sa marchandise.",
+  "alpage|alpages|estive": "Pâturage de montagne où l'on monte les bêtes pour l'été.",
+  "tisserand|tisserands|tisserande": "Artisan qui fabrique les tissus sur un métier.",
+  "moutier": "Ancien mot pour un monastère.",
+  "cloître|cloîtres": "Galerie couverte qui entoure la cour d'un monastère.",
+  "combe|combes": "Petite vallée étroite.",
+  "liard|liards": "Petite pièce de monnaie de très peu de valeur.",
+  "denier|deniers": "Ancienne pièce de monnaie.",
+  "fascines": "Fagots de branches serrées, pour renforcer un talus ou combler un fossé.",
+  "mélèze|mélèzes": "Arbre de montagne, cousin du sapin, qui perd ses aiguilles en hiver.",
+  "surplomb": "Partie qui avance au-dessus du vide.",
+  "complies": "Dernière prière du soir, chez les moines.",
+  "vêpres": "Prière de la fin d'après-midi, chez les moines.",
+  "héraut|hérauts": "Messager officiel qui porte les annonces d'un seigneur.",
+  "ménestrel|ménestrels": "Musicien et chanteur qui va de château en château.",
+  "péage|péager": "Le péage est le droit qu'on paie pour passer un pont ou un chemin.",
+  "chamois": "Chèvre sauvage des montagnes.",
+  "tréteau|tréteaux": "Support à quatre pieds ; on pose une planche dessus pour faire une table.",
+  "muret|murets": "Petit mur bas.",
+  "lavoir|lavoirs": "Bassin public où l'on lave le linge.",
+  "lavandière|lavandières": "Femme qui lave le linge au lavoir ou à la rivière.",
+  "linteau|linteaux": "Pierre ou poutre posée au-dessus d'une porte ou d'une fenêtre.",
+  "tilleul|tilleuls": "Grand arbre aux fleurs parfumées, dont on fait des tisanes.",
+  "rucher|ruchers": "Ensemble de ruches.",
+  "levain": "Pâte qui fait lever le pain.",
+  "fournil": "Pièce où se trouve le four du boulanger.",
+  "pupitre|pupitres": "Petite table inclinée pour lire ou écrire.",
+  "lutrin|lutrins": "Grand pupitre sur pied où l'on pose un gros livre.",
+  "poterne|poternes": "Petite porte discrète dans le mur d'un château.",
+  "stalle|stalles": "Siège de bois dans le chœur d'une église ; ou case d'un cheval à l'écurie.",
+  "étuve|étuves": "Pièce très chaude, pleine de vapeur.",
+  "lauze|lauzes": "Pierre plate qui couvre les toits en montagne.",
+  "roulier|rouliers": "Charretier qui transporte des marchandises sur les routes.",
+  "lampion|lampions": "Petite lanterne de papier.",
+  "clerc|clercs": "Homme d'Église, ou personne instruite qui sait lire et écrire.",
+  "encrier|encriers": "Petit pot qui contient l'encre.",
+  "colimaçon": "Un escalier en colimaçon tourne sur lui-même.",
+  "chambranle|chambranles": "Encadrement d'une porte ou d'une fenêtre.",
+  "beffroi|beffrois": "Tour où l'on sonne la cloche de la ville.",
+  "claie|claies": "Treillage de branches ou d'osier.",
+  "râtelier|râteliers": "Support où l'on range les armes ; ou mangeoire à foin.",
+  "embrasure|embrasures": "Ouverture dans un mur où se loge une porte ou une fenêtre.",
+  "cantinière|cantinières": "Femme qui vend à boire et à manger aux soldats.",
+  "herse|herses": "Grille qui descend pour fermer l'entrée d'un château.",
+  "chapelain|chapelains": "Prêtre au service d'un château ou d'une chapelle.",
+  "quignon|quignons": "Gros morceau de pain.",
+  "raidillon": "Petit chemin en pente raide.",
+  "joute|joutes|jouter": "Combat à cheval, lance contre lance, pour l'honneur.",
+  "écuyer|écuyers": "Jeune homme au service d'un chevalier.",
+  "replat|replats": "Endroit plat sur une pente.",
+  "bivouac|bivouacs": "Campement en plein air pour la nuit.",
+  "copiste|copistes": "Personne qui recopie les livres à la main.",
+  "mâtin|mâtins": "Gros chien de garde.",
+  "mansarde|mansardes": "Chambre sous le toit.",
+  "houlette": "Bâton de berger.",
+  "rouet|rouets": "Roue qui sert à filer la laine.",
+  "falot|falots": "Grosse lanterne.",
+  "naufrageur|naufrageurs": "Pilleur qui attire les bateaux sur les rochers.",
+  "naseaux": "Narines du cheval.",
+  "colombages": "Charpente de bois apparente dans les murs d'une maison, remplie de terre ou de briques.",
+  "angélus": "Cloche qui sonne le matin, à midi et le soir pour la prière.",
+  "chaume": "Paille qui couvre le toit des maisons.",
+  "quenouille|quenouilles": "Bâton autour duquel on enroule la laine à filer.",
+  "plastron|plastrons": "Pièce qui protège ou orne la poitrine.",
+  "batelier|bateliers|batelière": "Personne qui conduit un bateau sur une rivière.",
+  "marinier|mariniers": "Personne qui conduit un bateau sur une rivière ou un canal.",
+  "gentiane|gentianes": "Fleur de montagne, bleue ou jaune.",
+  "paillasse|paillasses": "Matelas rempli de paille.",
+  "sacristain|sacristains": "Homme qui garde l'église et ses objets.",
+  "parvis": "Place devant une église.",
+  "margrave|margraves": "Seigneur qui gouverne une province de frontière.",
+  "charron|charrons": "Artisan qui fabrique les roues et les charrettes.",
+  "pierrier|pierriers": "Machine de guerre qui lance des pierres.",
+  "heurtoir|heurtoirs": "Anneau de métal fixé à une porte, pour frapper.",
+  "complainte|complaintes": "Chanson triste.",
+  "battoir|battoirs": "Palette de bois pour battre le linge au lavoir.",
+  "barrique|barriques": "Tonneau.",
+  "fenaison|fenaisons": "Moment où l'on coupe et fait sécher le foin.",
+  "luth|luths": "Instrument à cordes au ventre bombé.",
+  "rebec|rebecs": "Petit violon ancien.",
+  "rabot|rabots": "Outil pour aplanir le bois.",
+  "rayonnage|rayonnages": "Étagères.",
+  "plioir": "Lame d'os ou de bois pour plier le papier.",
+  "paneterie": "Pièce où l'on garde le pain.",
+  "bouquetin|bouquetins": "Chèvre sauvage des montagnes, aux grandes cornes.",
+  "palefrenier|palefreniers": "Homme qui soigne les chevaux.",
+  "cellérier": "Moine chargé des provisions du monastère.",
+  "aussière|aussières": "Gros cordage d'un bateau.",
+  "coursive|coursives": "Passage étroit à l'intérieur d'un bateau.",
+  "comite": "Officier qui commande les rameurs d'une galère.",
+  "cambuse": "Réserve à provisions d'un bateau.",
+  "sentine": "Fond de la cale d'un bateau, où s'amasse l'eau sale.",
+  "galère|galères": "Navire de guerre à rames.",
+  "tonnelier|tonneliers": "Artisan qui fabrique les tonneaux.",
+  "paraphe|paraphes": "Signature courte, en quelques traits.",
+  "postillon|postillons": "Cavalier qui conduit une voiture de poste.",
+  "soupirail|soupiraux": "Petite ouverture qui donne de l'air et du jour à une cave.",
+  "oratoire|oratoires": "Petite chapelle.",
+  "andain|andains": "Rangée d'herbe coupée, laissée sur le pré pour sécher.",
+  "écheveau|écheveaux": "Fil enroulé en grande boucle.",
+  "besicles": "Anciennes lunettes.",
+  "licol|licols": "Courroie passée à la tête d'un cheval pour le mener.",
+  "ramure|ramures": "Les branches d'un arbre ; ou les bois d'un cerf.",
+  "violoneux": "Joueur de violon de village.",
+  "hauban|haubans": "Cordages qui tiennent le mât d'un bateau.",
+  "alezan|alezane": "Cheval à la robe brun-roux.",
+  "lingère|lingères": "Femme qui s'occupe du linge d'une maison.",
+  "cordier|cordiers": "Artisan qui fabrique les cordes.",
+  "corderie|corderies": "Atelier où l'on fabrique les cordes.",
+  "filin|filins": "Cordage.",
+  "drisse|drisses": "Cordage qui sert à hisser une voile.",
+  "psautier|psautiers": "Livre de psaumes, chants de prière.",
+  "verrier|verriers": "Artisan qui travaille le verre.",
+  "lices": "Terrain clos où se déroulent les tournois.",
+  "prévôt|prévôte|prévôts": "Officier qui rend la justice au nom du seigneur.",
+  "strophe|strophes": "Groupe de vers dans un poème ou une chanson.",
+  "hampe|hampes": "Long manche d'une lance ou d'un drapeau.",
+  "orfèvre|orfèvres": "Artisan qui travaille l'or et l'argent.",
+  "sellier|selliers": "Artisan qui fabrique les selles.",
+  "fondeur|fondeurs": "Artisan qui fond le métal, par exemple pour faire les cloches.",
+  "épissoir": "Outil pointu qui sert à joindre deux cordes en entrelaçant leurs brins.",
+  "épisser|épisse": "Joindre deux cordes en entrelaçant leurs brins.",
+  "parapet|parapets": "Petit mur qui protège du vide, au bord d'un pont ou d'un rempart.",
+  "créneau|créneaux": "Ouverture en haut d'un rempart, entre deux pans de mur.",
+  "bandoulière": "Portée en bandoulière : en travers du corps, d'une épaule à la hanche opposée.",
+  "serpe|serpes": "Outil à lame courbe pour couper les branches.",
+  "salpêtre": "Dépôt blanc qui se forme sur les murs humides.",
+  "lichen|lichens": "Plante sans racines, en croûte ou en touffes, qui pousse sur les pierres et les arbres.",
+  "surlendemain": "Le jour qui suit le lendemain."
+ },
+ "voice": "deuxième personne, présent",
+ "version": 1,
+ "start": "A_arrivee",
+ "twice": {
+  "first": "vitrine",
+  "second": "cabinet",
+  "start2": "S_sablier",
+  "say1": "Première lecture : la garde.",
+  "say2": "Seconde lecture : la même nuit, retournée comme un sablier. Tu te souviens de tout.",
+  "end1": "La première lecture s'achève ici. Rouvre le livre : la nuit recommence à dix heures, et tu en sais plus qu'elle.",
+  "end2": "La seconde lecture s'achève. Le cabinet Orsenne a été gardé deux fois, et la seconde fois, il a été compris."
+ },
+ "intro": [
+  "Vaubrune, rue des Antiquaires, un soir d'octobre. La pluie fait luire les pavés et ruisseler les gargouilles.",
+  "Au numéro 9, derrière une grille noire, une haute maison de pierre grise, flanquée d'une tour ronde, attend son dernier gardien."
+ ],
+ "acts": [
+  {
+   "id": "I",
+   "title": "Acte I · La garde",
+   "question": "Qui vide le cabinet Orsenne, la dernière nuit ?",
+   "levels": [
+    1,
+    1
+   ],
+   "start": "A_arrivee"
+  },
+  {
+   "id": "II",
+   "title": "Acte II · La nuit retournée",
+   "question": "Que vaut une collection, et pour qui ?",
+   "levels": [
+    1,
+    1
+   ],
+   "start": "S_sablier"
+  }
+ ],
+ "voies": {
+  "soldat": {
+   "label": "Ancien soldat",
+   "labelF": "Ancienne soldate",
+   "tip": "Les rondes, les nuits blanches, les coups.",
+   "like": "guerrier",
+   "bonus": {
+    "combat": 35,
+    "nature": 15,
+    "social": 15,
+    "discretion": 15,
+    "savoir": 10,
+    "magie": 0
+   }
+  },
+  "etudiant": {
+   "label": "Étudiant en histoire naturelle",
+   "labelF": "Étudiante en histoire naturelle",
+   "tip": "Les bêtes, les pierres, les livres.",
+   "like": "mage",
+   "bonus": {
+    "savoir": 35,
+    "nature": 25,
+    "social": 15,
+    "discretion": 10,
+    "combat": 5,
+    "magie": 0
+   }
+  },
+  "serrurier": {
+   "label": "Ancien serrurier",
+   "labelF": "Ancienne serrurière",
+   "tip": "Les serrures, les mécanismes, les mains adroites.",
+   "like": "voleur",
+   "bonus": {
+    "discretion": 35,
+    "savoir": 20,
+    "nature": 10,
+    "social": 15,
+    "combat": 10,
+    "magie": 0
+   }
+  }
+ },
+ "past": [
+  {
+   "q": "Pourquoi as-tu accepté cette garde, une nuit, chez un mort ?",
+   "answers": [
+    {
+     "label": "Pour l'argent. Une nuit, deux écus : on ne refuse pas deux écus quand on a vendu son sabre.",
+     "fx": {
+      "voie": "soldat"
+     }
+    },
+    {
+     "label": "Pour voir le cabinet. Tu en rêves depuis l'enfance, et demain il sera dispersé aux quatre vents.",
+     "fx": {
+      "voie": "etudiant"
+     }
+    },
+    {
+     "label": "Parce que Maître Pigache te devait un service, et qu'on t'a dit que les serrures de la maison étaient les plus belles de la ville.",
+     "fx": {
+      "voie": "serrurier"
+     }
+    }
+   ]
+  }
+ ],
+ "lore": {
+  "pages": [
+   {
+    "title": "Le cabinet Orsenne",
+    "text": [
+     "**Hippolyte Orsenne** a passé cinquante ans à remplir sa maison de la rue des Antiquaires avec tout ce que le monde compte de bizarre : bêtes empaillées, monstres en bocaux, coquillages, pierres, automates, horloges, livres. Les savants l'appelaient un collectionneur ; les voisins, un fou ; sa servante, Monsieur.",
+     "On y distingue les **naturalia**, que la nature a faites, les **artificialia**, que la main de l'homme a faites, et les **mirabilia**, qu'on ne sait pas qui a faites.",
+     "La pièce la plus célèbre est la **Sibylle**, une dame automate qui écrit des réponses avec une vraie plume. Son œil gauche est la **Larme de Golconde**, un diamant bleu gros comme une noisette.",
+     "On paie en sous et en écus."
+    ]
+   }
+  ],
+  "names": {
+   "Vaubrune": "La ville où se passe l'histoire.",
+   "Sibylle": "L'automate écrivain du cabinet Orsenne.",
+   "Larme de Golconde": "Le diamant bleu qui sert d'œil à la Sibylle.",
+   "Phénix": "La Compagnie du Phénix, qui assure la Larme de Golconde.",
+   "Mnémosyne": "La déesse grecque de la mémoire, mère des Muses."
+  }
+ },
+ "companions": {},
+ "factions": {},
+ "relics": {},
+ "people": {
+  "hippolyte": {
+   "name": "Hippolyte Orsenne",
+   "aka": [
+    "Orsenne",
+    "Monsieur Orsenne",
+    "le collectionneur",
+    "le vieil Orsenne"
+   ],
+   "qui": "Le collectionneur, mort il y a un mois.",
+   "aspect": {
+    "allure": "vieillard long et maigre, voûté",
+    "habits": "robe de chambre de velours vert",
+    "signe": "des mains tachées, qui ne tremblent pas",
+    "voix": "voix ironique et cassée"
+   },
+   "face": {
+    "age": "ancien",
+    "skin": "clair",
+    "hair": "blanc",
+    "coif": "long",
+    "beard": "barbe",
+    "eyes": "tombants",
+    "iris": "gris",
+    "nose": "busque",
+    "lips": "fines",
+    "shape": "allonge",
+    "marks": []
+   },
+   "desc": "Le maître du cabinet, que tout Vaubrune a enterré le seize octobre."
+  },
+  "aristide": {
+   "name": "Aristide Orsenne",
+   "aka": [
+    "Aristide",
+    "le neveu",
+    "Monsieur Aristide"
+   ],
+   "qui": "Le neveu et héritier.",
+   "aspect": {
+    "allure": "quarante ans, beau, un peu gras",
+    "habits": "gilet de soie, épingle de cravate",
+    "signe": "regarde sa montre sans arrêt",
+    "voix": "aimable, pressée"
+   },
+   "face": {
+    "age": "adulte",
+    "skin": "clair",
+    "hair": "chatain",
+    "coif": "court",
+    "beard": "moustache",
+    "eyes": "ronds",
+    "iris": "brun",
+    "nose": "fin",
+    "lips": "pleines",
+    "shape": "rond",
+    "marks": []
+   },
+   "desc": "Le neveu d'Hippolyte Orsenne, son unique héritier, qui vend tout demain."
+  },
+  "pigache": {
+   "name": "Maître Pigache",
+   "aka": [
+    "Pigache",
+    "le commissaire-priseur"
+   ],
+   "qui": "Le commissaire-priseur qui t'a engagé{e}.",
+   "aspect": {
+    "allure": "petit homme rond",
+    "habits": "redingote tachée de cire",
+    "signe": "un marteau d'ivoire à la ceinture",
+    "voix": "parle en chiffres"
+   },
+   "face": {
+    "age": "mur",
+    "skin": "clair",
+    "hair": "gris",
+    "coif": "degarni",
+    "beard": "barbe",
+    "eyes": "ronds",
+    "iris": "bleu",
+    "nose": "large",
+    "lips": "pleines",
+    "shape": "rond",
+    "marks": []
+   },
+   "desc": "Le commissaire-priseur de Vaubrune, chargé de la vente Orsenne."
+  },
+  "melie": {
+   "name": "Mélie Vasseur",
+   "aka": [
+    "Mélie",
+    "la préparatrice",
+    "Madame Vasseur"
+   ],
+   "f": true,
+   "qui": "L'ancienne préparatrice du cabinet.",
+   "aspect": {
+    "allure": "femme sèche et vive, cinquante ans",
+    "habits": "châle gris, tablier de cuir",
+    "signe": "sent le camphre et l'arsenic",
+    "voix": "brève"
+   },
+   "face": {
+    "age": "mur",
+    "skin": "hale",
+    "hair": "gris",
+    "coif": "chignon",
+    "beard": "sans",
+    "eyes": "amande",
+    "iris": "noir",
+    "nose": "fin",
+    "lips": "fines",
+    "shape": "allonge",
+    "marks": [
+     "cicatrice"
+    ]
+   },
+   "desc": "Celle qui empaillait les bêtes du cabinet depuis trente ans. Le neveu l'a renvoyée le lendemain de l'enterrement."
+  },
+  "gobe": {
+   "name": "Fortuné Gobe",
+   "aka": [
+    "Gobe",
+    "le restaurateur"
+   ],
+   "qui": "Un homme qui travaille la nuit dans la réserve.",
+   "aspect": {
+    "allure": "petit homme pâle aux gestes fins",
+    "habits": "manchettes de lustrine",
+    "signe": "une loupe d'horloger vissée à l'œil",
+    "voix": "chuchote"
+   },
+   "face": {
+    "age": "adulte",
+    "skin": "clair",
+    "hair": "roux",
+    "coif": "court",
+    "beard": "sans",
+    "eyes": "lourds",
+    "iris": "vert",
+    "nose": "retrousse",
+    "lips": "fines",
+    "shape": "ovale",
+    "marks": [
+     "rousseur"
+    ]
+   },
+   "desc": "Un homme aux doigts d'orfèvre qui se dit restaurateur."
+  },
+  "quatremain": {
+   "name": "Monsieur Quatremain",
+   "aka": [
+    "Quatremain",
+    "l'inspecteur du Phénix"
+   ],
+   "qui": "L'inspecteur de la Compagnie du Phénix.",
+   "desc": "L'inspecteur de la Compagnie du Phénix, qui assure la Larme de Golconde pour quatre-vingt mille écus."
+  },
+  "bejot": {
+   "name": "Le commissaire Béjot",
+   "aka": [
+    "Béjot",
+    "le commissaire"
+   ],
+   "qui": "Le commissaire de police du quartier.",
+   "desc": "Le commissaire du quartier des Antiquaires, qui aime les affaires simples."
+  }
+ },
+ "items": {
+  "lanterne": {
+   "name": "La lanterne de garde",
+   "kind": "outil",
+   "keep": true,
+   "desc": "Une lanterne sourde, à volet, qui éclaire où l'on veut et cache où l'on veut."
+  },
+  "trousseau": {
+   "name": "Le trousseau de clefs",
+   "kind": "outil",
+   "keep": true,
+   "desc": "Dix-sept clefs de fer sur un anneau, toutes les portes de la maison, sauf celle de la tour."
+  },
+  "consignes": {
+   "name": "Les consignes de Maître Pigache",
+   "kind": "document",
+   "keep": true,
+   "desc": "Une feuille de la main du commissaire-priseur.",
+   "text": "*Une ronde par heure, de dix heures du soir à six heures du matin.*\n\n*Ne toucher à rien. Chaque lot est numéroté et compté.*\n\n*La tour est fermée : le défunt en a emporté la clef, Dieu sait où.*\n\n*La Sibylle (lot n° 1) ne doit sous aucun prétexte être remontée.*\n\n*— A. Pigache, commissaire-priseur.*"
+  },
+  "page_miroir": {
+   "name": "La page du crocodile",
+   "kind": "document",
+   "keep": true,
+   "desc": "Une page de catalogue trouvée dans la gueule du crocodile, couverte de lettres à l'envers."
+  },
+  "clef_cuivre": {
+   "name": "La clef de cuivre",
+   "kind": "outil",
+   "keep": true,
+   "desc": "Une petite clef de cuivre trouvée dans le socle du sablier."
+  },
+  "note_gobe": {
+   "name": "Le billet de la réserve",
+   "kind": "document",
+   "keep": true,
+   "desc": "Un billet trouvé sur l'établi de la réserve.",
+   "text": "*3 h. 12 · 1 · 18 · 13 · 5. La Sibylle. Ne pas réveiller le gardien s'il dort ; s'il ne dort pas, il dormira. — A.*"
+  },
+  "larme": {
+   "name": "La Larme de Golconde",
+   "kind": "quete",
+   "keep": true,
+   "desc": "Un diamant bleu gros comme une noisette, d'un bleu si profond qu'on croit y voir le fond de la mer."
+  },
+  "police": {
+   "name": "La police du Phénix et la lettre d'Anvers",
+   "kind": "document",
+   "keep": true,
+   "desc": "La police d'assurance de la Larme, quatre-vingt mille écus, et une lettre d'un diamantaire d'Anvers à Aristide Orsenne."
+  }
+ },
+ "clues": {
+  "i_horloge": {
+   "rev": "M",
+   "text": "L'horloge astronomique de la salle des automates est arrêtée à trois heures dix-sept, l'heure de la mort d'Orsenne. Personne n'a osé la remonter."
+  },
+  "i_fairepart": {
+   "rev": "M",
+   "text": "Le faire-part du vestibule : *Hippolyte Orsenne, inhumé le 16 octobre, au cimetière des Recollets. Cercueil fermé, selon sa volonté.*"
+  },
+  "i_plaque": {
+   "rev": "M",
+   "text": "La plaque du sablier : *Sablier de Mnémosyne. Qui me retourne à l'aube retrouve sa nuit.*"
+  },
+  "i_copies": {
+   "rev": "M",
+   "text": "Dans la réserve, des copies : une seconde corne de narval en plâtre peint, un second oiseau mécanique sans mécanisme, et un œil de verre bleu, taillé comme un diamant."
+  },
+  "i_gobe": {
+   "rev": "M",
+   "text": "Un homme pâle, une loupe d'horloger à l'œil, travaille la nuit dans la réserve. Il dit s'appeler Fortuné Gobe, restaurateur."
+  },
+  "i_melie": {
+   "rev": "M",
+   "text": "À deux heures, une femme en châle gris entre par la porte du jardin avec un panier de soupe chaude, pour une seule personne."
+  },
+  "i_pantoufles": {
+   "rev": "M",
+   "text": "Dans la chambre scellée du défunt, la poussière est partout, sauf à l'endroit où étaient ses pantoufles : quelqu'un les a prises après l'enterrement."
+  },
+  "i_pas": {
+   "rev": "M",
+   "text": "Des pas, au-dessus du plafond de la bibliothèque, dans la tour fermée à clef."
+  }
+ },
+ "quests": [],
+ "mysteries": {
+  "M": {
+   "title": "Qui vide le cabinet Orsenne ?",
+   "act": "II",
+   "solved": "orsenne:vivant",
+   "answer": {
+    "person": "hippolyte",
+    "text": "Hippolyte Orsenne, vivant, caché dans la chambre noire de la tour, qui sauve chaque nuit les pièces de sa vie avec l'aide de Mélie Vasseur, pendant que son neveu fait remplacer la Larme de Golconde par une copie pour toucher l'assurance."
+   }
+  }
+ },
+ "puzzles": {
+  "o1": {
+   "kind": "chiffre",
+   "title": "La première réponse de la Sibylle",
+   "text": "Sur la feuille de la Sibylle, d'une écriture penchée, à l'encre violette, encore fraîche :\n\n*Je n'ai pas de dents et je mange les heures ;*\n*je suis plein et je me vide, je suis vide et l'on me retourne ;*\n*mon ventre est un désert qui coule par la taille ;*\n*cherche-moi dans la galerie, entre le crocodile et l'ours.*",
+   "answer": [
+    "sablier",
+    "le sablier",
+    "un sablier"
+   ],
+   "wrongText": "La Sibylle reste immobile, la plume levée, avec son sourire de porcelaine qui a l'air de te trouver lent{e}.",
+   "tryLabel": "Dire le mot",
+   "label": "Lire la feuille de la Sibylle",
+   "leave": "Laisser la feuille",
+   "win": {
+    "to": "A_o1",
+    "fx": {
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "o2": {
+   "kind": "chiffre",
+   "title": "La deuxième réponse de la Sibylle",
+   "text": "Une nouvelle feuille, sous la plume de la Sibylle :\n\n*Je pleure sans chagrin et je mange sans faim ;*\n*le Nil m'a vu naître, un plafond me voit pendre ;*\n*j'ai cent dents et je garde, entre elles, une page*\n*qu'il faut lire à l'envers pour la lire à l'endroit.*",
+   "answer": [
+    "crocodile",
+    "le crocodile",
+    "un crocodile",
+    "caiman",
+    "le caiman"
+   ],
+   "wrongText": "La plume de la Sibylle tremble au-dessus du papier, comme un doigt qui se retient de te corriger.",
+   "tryLabel": "Dire le mot",
+   "label": "Lire la deuxième feuille",
+   "leave": "Laisser la feuille",
+   "win": {
+    "to": "A_o2",
+    "fx": {
+     "item": "page_miroir",
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "o3": {
+   "kind": "molettes",
+   "title": "La porte de la réserve",
+   "text": "La porte de la réserve, en bas de l'escalier de la cave, est bardée de fer et fermée par un cadenas anglais à quatre molettes de laiton, chacune de 0 à 9. Aucune des dix-sept clefs de ton trousseau n'y sert. Sur le linteau, quelqu'un a gravé au couteau : *À l'heure du maître.*",
+   "wheels": [
+    [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9"
+    ],
+    [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9"
+    ],
+    [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9"
+    ],
+    [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9"
+    ]
+   ],
+   "answer": [
+    "0",
+    "3",
+    "1",
+    "7"
+   ],
+   "wrongText": "Le cadenas reste fermé. De l'autre côté de la porte, quelque chose a cessé de bouger.",
+   "tryLabel": "Tirer l'anse",
+   "label": "Tourner les molettes du cadenas",
+   "leave": "Laisser la porte",
+   "win": {
+    "to": "A_reserve",
+    "fx": {
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "o4": {
+   "kind": "chiffre",
+   "title": "La page du crocodile",
+   "carry": true,
+   "text": "Une page de catalogue, arrachée, jaunie, au numéro de lot effacé. Dessus, à l'encre violette, en capitales, une ligne qui ne veut rien dire :\n\n**TROM SAP SIUS EN EJ**\n\nEt en dessous, plus petit : *Pour me lire, demande à ceux qui te ressemblent.*",
+   "answer": [
+    "je ne suis pas mort",
+    "je ne suis pas mort."
+   ],
+   "wrongText": "Tu tournes la page dans tous les sens. Elle te rend tes sens, pas les siens.",
+   "tryLabel": "Écrire ce que dit la ligne",
+   "label": "Déchiffrer la page du crocodile",
+   "win": {
+    "fx": {
+     "ep": [
+      "seance",
+      500
+     ]
+    }
+   }
+  },
+  "o5": {
+   "kind": "chiffre",
+   "title": "La question de la Sibylle",
+   "text": "Cette fois, la Sibylle ne répond pas : elle demande. D'une écriture plus tremblée, comme si la main qui la guide était fatiguée :\n\n*On m'a mis sous la terre il y a un mois ;*\n*on a vendu mes chaises, on a compté mes cuillères ;*\n*et ce soir, j'écris au gardien de ma maison.*\n*Qui suis-je ?*",
+   "answer": [
+    "revenant",
+    "un revenant",
+    "fantome",
+    "un fantome",
+    "le fantome",
+    "spectre",
+    "un spectre",
+    "esprit",
+    "un esprit"
+   ],
+   "alt": [
+    {
+     "id": "vivant",
+     "answer": [
+      "orsenne",
+      "hippolyte orsenne",
+      "hippolyte",
+      "monsieur orsenne",
+      "le collectionneur",
+      "orsenne vivant"
+     ],
+     "if": {
+      "second": true
+     },
+     "to": "S_tube_ouvert",
+     "say": "La Sibylle pose sa plume. Quelque part au-dessus du plafond, un rire cassé."
+    }
+   ],
+   "wrongText": "La Sibylle attend. Sa plume ne bouge pas. Tu as l'impression qu'elle attend quelqu'un de plus intelligent.",
+   "tryLabel": "Répondre",
+   "label": "Répondre à la Sibylle",
+   "leave": "Ne pas répondre",
+   "win": {
+    "to": "A_o5",
+    "fx": {
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "s_note": {
+   "kind": "chiffre",
+   "title": "Le billet de la réserve",
+   "text": "Sur le billet trouvé sur l'établi de Gobe : *3 h. 12 · 1 · 18 · 13 · 5. La Sibylle.* Cinq nombres, aucun au-dessus de vingt-six : un chiffre d'écolier, où chaque nombre est le rang d'une lettre dans l'alphabet.",
+   "answer": [
+    "larme",
+    "la larme",
+    "la larme de golconde"
+   ],
+   "wrongText": "Tu recomptes sur tes doigts, A, B, C. Le mot qui sort boite.",
+   "tryLabel": "Écrire le mot",
+   "label": "Déchiffrer le billet",
+   "leave": "Garder le billet",
+   "win": {
+    "to": "S_note_lue",
+    "fx": {
+     "flag": "note:lue",
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "s_tube": {
+   "kind": "chiffre",
+   "title": "Le tube de la Sibylle",
+   "text": "Dans le dos de la Sibylle, sous la robe de soie, un tube de cuivre monte vers le plafond, terminé par un pavillon de trompette, avec un petit couvercle gravé : *Dis mon nom à la mère des Muses.* Un tube acoustique, comme sur les navires. Il faut y souffler un mot de passe.",
+   "answer": [
+    "mnemosyne",
+    "mnemosine",
+    "mnémosyne"
+   ],
+   "wrongText": "Tu souffles le mot dans le pavillon de cuivre. Il descend, il monte, il se perd. Personne ne répond.",
+   "tryLabel": "Souffler le mot",
+   "label": "Parler dans le tube",
+   "leave": "Laisser le tube",
+   "win": {
+    "to": "S_tube_ouvert",
+    "fx": {
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "s_vie": {
+   "kind": "ordre",
+   "title": "Les quatre pièces",
+   "text": "Orsenne pose devant toi quatre objets sur la table de la chambre noire. « Rangez-les dans l'ordre de ma vie, dit-il. Si vous savez ranger ma vie, vous saurez la porter. »",
+   "pieces": [
+    "Un oiseau mécanique en argent, qui chante quand on le remonte.",
+    "Le sablier de Mnémosyne, en verre de Venise.",
+    "Une dent de narval, longue comme un bras d'enfant.",
+    "Une balle de plomb aplatie, montée sur une épingle."
+   ],
+   "answer": [
+    2,
+    3,
+    0,
+    1
+   ],
+   "wrongText": "Orsenne secoue la tête, sans impatience. « Non. Vous rangez des objets. Rangez des années. »",
+   "tryLabel": "Montrer l'ordre",
+   "label": "Ranger les quatre pièces",
+   "leave": "Laisser les pièces",
+   "win": {
+    "to": "S_vie_rangee",
+    "fx": {
+     "flag": "orsenne:confiance",
+     "ep": [
+      "histoire",
+      400
+     ]
+    }
+   }
+  },
+  "s_coffre": {
+   "kind": "molettes",
+   "title": "Le coffre d'Aristide",
+   "text": "Dans la bibliothèque, derrière les in-folio de Buffon, un petit coffre de voyage en acier, neuf, qui jure au milieu des reliures : le coffre du neveu. Une serrure à quatre molettes, chacune de 0 à 9. Gravé sur le couvercle, de la main du serrurier, le mot que le client a demandé : *Délivrance.*",
+   "wheels": [
+    [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9"
+    ],
+    [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9"
+    ],
+    [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9"
+    ],
+    [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9"
+    ]
+   ],
+   "answer": [
+    "1",
+    "6",
+    "1",
+    "0"
+   ],
+   "wrongText": "Le coffre reste clos. Le neveu a choisi sa délivrance, et ce n'est pas celle-là.",
+   "tryLabel": "Tirer le fermoir",
+   "label": "Tourner les molettes du coffre",
+   "leave": "Laisser le coffre",
+   "win": {
+    "to": "S_coffre_ouvert",
+    "fx": {
+     "item": "police",
+     "flag": "preuve:aristide",
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  }
+ },
+ "achievements": {
+  "sibylle": {
+   "title": "Les réponses de la Sibylle",
+   "desc": "Trouver les trois réponses de la Sibylle dans la première lecture.",
+   "if": {
+    "all": [
+     {
+      "has": "enigme:o1"
+     },
+     {
+      "has": "enigme:o2"
+     },
+     {
+      "has": "enigme:o5"
+     }
+    ]
+   }
+  },
+  "miroir": {
+   "title": "À l'envers",
+   "desc": "Déchiffrer la page du crocodile.",
+   "if": {
+    "has": "enigme:o4"
+   }
+  },
+  "golconde": {
+   "title": "La Larme",
+   "desc": "Avoir la vraie Larme de Golconde en main à six heures.",
+   "if": {
+    "has": "larme:rendue"
+   }
+  }
+ },
+ "endings": {
+  "vitrine": {
+   "title": "Les vitrines vides"
+  },
+  "cabinet": {
+   "title": "Le cabinet Orsenne"
+  }
+ },
+ "world": {
+  "noFood": true,
+  "money": {
+   "units": [
+    {
+     "name": "sou",
+     "plural": "sous",
+     "value": 1,
+     "short": "s."
+    },
+    {
+     "name": "écu",
+     "plural": "écus",
+     "value": 60,
+     "short": "é."
+    }
+   ]
+  },
+  "start": {
+   "place": "loge",
+   "hour": 22,
+   "clock": true,
+   "gold": 6,
+   "food": 0,
+   "items": [
+    "lanterne",
+    "trousseau",
+    "consignes"
+   ],
+   "kits": {}
+  },
+  "places": {
+   "loge": {
+    "ambiance": "chateau",
+    "name": "Le vestibule et la loge",
+    "map": "orsenne",
+    "x": 50,
+    "y": 85,
+    "arrive": "A_loge",
+    "desc": "Le grand vestibule dallé, et la loge vitrée du gardien."
+   },
+   "galerie": {
+    "ambiance": "chateau",
+    "name": "La galerie des naturalia",
+    "map": "orsenne",
+    "x": 30,
+    "y": 70,
+    "arrive": "A_galerie",
+    "desc": "La longue galerie des bêtes, des bocaux et des pierres."
+   },
+   "automates": {
+    "ambiance": "chateau",
+    "name": "La salle des automates",
+    "map": "orsenne",
+    "x": 60,
+    "y": 55,
+    "arrive": "A_automates",
+    "desc": "La salle des artificialia, ses horloges et ses automates."
+   },
+   "miroirs": {
+    "ambiance": "chateau",
+    "name": "La chambre des miroirs",
+    "map": "orsenne",
+    "x": 75,
+    "y": 55,
+    "arrive": "A_miroirs",
+    "desc": "Une pièce octogonale tapissée de miroirs."
+   },
+   "bibliotheque": {
+    "ambiance": "chateau",
+    "name": "La bibliothèque",
+    "map": "orsenne",
+    "x": 45,
+    "y": 35,
+    "arrive": "A_bibliotheque",
+    "desc": "Les livres du collectionneur, sur trois étages de galeries."
+   },
+   "reserve": {
+    "ambiance": "souterrain",
+    "name": "La réserve",
+    "map": "orsenne",
+    "x": 50,
+    "y": 95,
+    "arrive": "A_cave",
+    "desc": "La cave voûtée où l'on range les caisses de la vente."
+   },
+   "jardin": {
+    "ambiance": "champs",
+    "name": "Le jardin",
+    "map": "orsenne",
+    "x": 20,
+    "y": 40,
+    "arrive": "A_jardin",
+    "desc": "Un jardin mouillé, entre de hauts murs."
+   },
+   "tour": {
+    "ambiance": "chateau",
+    "name": "La tour",
+    "map": "orsenne",
+    "x": 55,
+    "y": 10,
+    "arrive": "A_tour_porte",
+    "desc": "La tour ronde, fermée à clef depuis l'enterrement."
+   }
+  },
+  "routes": [],
+  "regions": {},
+  "events": {}
+ },
+ "banter": [],
+ "passages": {
+  "A_arrivee": {
+   "act": "I",
+   "title": "La dernière garde",
+   "place": "loge",
+   "fx": {
+    "meet": [
+     "pigache",
+     "aristide"
+    ],
+    "clue": "i_fairepart"
+   },
+   "text": [
+    {
+     "second": false,
+     "text": "La grille du numéro 9 grince comme une bête qu'on réveille. La maison Orsenne se dresse au fond d'une cour pavée, haute, grise, ruisselante, avec ses fenêtres à meneaux, ses gargouilles qui crachent la pluie, et sa tour ronde, plus haute que le toit, coiffée d'un bonnet d'ardoise et percée tout en haut d'une seule lucarne ronde, aveugle, comme l'œil d'un cyclope crevé."
+    },
+    {
+     "second": true,
+     "text": "La grille grince. La pluie, la cour, les gargouilles, la tour au bonnet d'ardoise. Tu as déjà vu tout cela, il y a une heure, il y a huit heures, il y a une vie. Le sable qui a remonté dans le verre t'a laissé un goût de poussière dans la bouche."
+    },
+    "Dans le vestibule dallé de noir et de blanc, un petit homme rond en redingote tachée de cire t'attend, un marteau d'ivoire passé à la ceinture comme un pistolet. Maître Pigache, commissaire-priseur. À côté de lui, un monsieur de quarante ans, beau, un peu gras, en gilet de soie, qui regarde sa montre : Aristide Orsenne, le neveu, l'héritier, le vendeur.",
+    "« Deux écus pour la nuit, dit Pigache, qui parle en chiffres comme d'autres en vers. Mille deux cent quarante-sept lots. Une ronde par heure. Vente demain à dix heures. Le lot n° 1 est la Sibylle, mise à prix vingt mille écus, à cause de son œil. » Il tapote son marteau. « Ne touchez à rien. Tout est compté. »",
+    "Au mur du vestibule, encadré de noir, le faire-part : *Hippolyte Orsenne, inhumé le 16 octobre, au cimetière des Recollets. Cercueil fermé, selon sa volonté.*",
+    {
+     "second": true,
+     "text": "Tout est dit mot pour mot, geste pour geste, comme au théâtre le soir de la deuxième représentation. Pigache tapote son marteau au même endroit de sa phrase. Aristide regarde sa montre au même instant. Tu as envie de leur souffler leurs répliques."
+    },
+    "Aristide te serre la main avec chaleur, puis te tend une flasque d'argent. « Pour la nuit. Mon oncle avait une cave admirable. Il fait froid dans cette maison, et les morts y ont plus de compagnie que les vivants. »"
+   ],
+   "choices": [
+    {
+     "label": "Prendre la flasque et les remercier",
+     "to": "A_loge"
+    }
+   ]
+  },
+  "A_loge": {
+   "act": "I",
+   "title": "La loge du gardien",
+   "place": "loge",
+   "hub": true,
+   "backName": "la loge",
+   "text": [
+    {
+     "first": true,
+     "text": "Ils sont partis. La grille a grincé, la voiture a roulé, et la maison s'est refermée sur toi comme une main sur une pièce de monnaie. La loge du gardien est une cage vitrée dans un coin du vestibule, avec une chaise, un poêle, une table, un registre, et une sonnette qui ne sonne nulle part. De là, à la lueur de ta lanterne, tu vois le grand escalier qui monte dans le noir, les portes des salles, la porte de la cave, et au fond, une petite porte basse, cloutée, celle de la tour."
+    },
+    {
+     "first": true,
+     "text": "La maison craque. Toutes les vieilles maisons craquent. Celle-ci craque avec une régularité de respiration."
+    },
+    {
+     "again": true,
+     "text": "La loge vitrée, le poêle, le registre ouvert. Autour de toi, la maison respire dans le noir."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Ouvrir le registre de garde",
+     "hide": {
+      "seen": "A_registre"
+     },
+     "to": "A_registre"
+    },
+    {
+     "label": "Visiter la cuisine, sous l'escalier",
+     "hide": {
+      "seen": "A_cuisine"
+     },
+     "to": "A_cuisine"
+    },
+    {
+     "label": "Feuilleter le catalogue de la vente",
+     "hide": {
+      "seen": "A_catalogue"
+     },
+     "to": "A_catalogue"
+    },
+    {
+     "label": "Aller jusqu'à la grille regarder la rue",
+     "hide": {
+      "seen": "A_cour"
+     },
+     "to": "A_cour"
+    },
+    {
+     "label": "Écrire dans le registre tout ce que tu sais",
+     "second": true,
+     "if": {
+      "seen": "A_registre"
+     },
+     "hide": {
+      "seen": "S_registre2"
+     },
+     "to": "S_registre2"
+    },
+    {
+     "label": "Ouvrir à Aristide, qui revient chercher ses gants",
+     "second": true,
+     "hide": {
+      "any": [
+       {
+        "seen": "S_aristide_nuit"
+       },
+       {
+        "seen": "S_melie"
+       },
+       {
+        "seen": "S_trois"
+       }
+      ]
+     },
+     "fx": {
+      "until": 0
+     },
+     "to": "S_aristide_nuit"
+    },
+    {
+     "label": "Boire une gorgée de la flasque d'Aristide",
+     "hide": {
+      "has": "flasque:bue"
+     },
+     "fx": {
+      "flag": "flasque:bue"
+     },
+     "to": "A_flasque"
+    },
+    {
+     "label": "Entrer dans la galerie des naturalia",
+     "to": "A_galerie"
+    },
+    {
+     "label": "Monter à la salle des automates",
+     "to": "A_automates"
+    },
+    {
+     "label": "Pousser la porte de la chambre des miroirs",
+     "to": "A_miroirs"
+    },
+    {
+     "label": "Monter à la bibliothèque",
+     "to": "A_bibliotheque"
+    },
+    {
+     "label": "Descendre à la cave",
+     "to": "A_cave"
+    },
+    {
+     "label": "Passer dans le jardin",
+     "to": "A_jardin"
+    },
+    {
+     "label": "Aller voir la porte de la tour",
+     "to": "A_tour_porte"
+    },
+    {
+     "label": "Faire la ronde de onze heures",
+     "second": false,
+     "hide": {
+      "seen": "A_ronde23"
+     },
+     "fx": {
+      "until": 23
+     },
+     "to": "A_ronde23"
+    },
+    {
+     "label": "Faire la ronde de minuit",
+     "second": false,
+     "if": {
+      "seen": "A_ronde23"
+     },
+     "hide": {
+      "seen": "A_ronde0"
+     },
+     "fx": {
+      "until": 0
+     },
+     "to": "A_ronde0"
+    },
+    {
+     "label": "Faire la ronde d'une heure",
+     "second": false,
+     "if": {
+      "seen": "A_ronde0"
+     },
+     "hide": {
+      "seen": "A_ronde1"
+     },
+     "fx": {
+      "until": 1
+     },
+     "to": "A_ronde1"
+    },
+    {
+     "label": "Faire la ronde de deux heures",
+     "second": false,
+     "if": {
+      "seen": "A_ronde1"
+     },
+     "hide": {
+      "seen": "A_ronde2"
+     },
+     "fx": {
+      "until": 2
+     },
+     "to": "A_ronde2"
+    },
+    {
+     "label": "Faire la ronde de trois heures",
+     "second": false,
+     "if": {
+      "seen": "A_ronde2"
+     },
+     "hide": {
+      "seen": "A_ronde3"
+     },
+     "fx": {
+      "until": 3
+     },
+     "to": "A_ronde3"
+    },
+    {
+     "label": "Faire la ronde de quatre heures",
+     "second": false,
+     "if": {
+      "seen": "A_ronde3"
+     },
+     "hide": {
+      "seen": "A_ronde4"
+     },
+     "fx": {
+      "until": 4
+     },
+     "to": "A_ronde4"
+    },
+    {
+     "label": "Faire la ronde de cinq heures",
+     "second": false,
+     "if": {
+      "seen": "A_ronde4"
+     },
+     "hide": {
+      "seen": "A_ronde5"
+     },
+     "fx": {
+      "until": 5
+     },
+     "to": "A_ronde5"
+    },
+    {
+     "label": "Attendre l'aube dans la loge",
+     "second": false,
+     "if": {
+      "seen": "A_ronde5"
+     },
+     "fx": {
+      "until": 6
+     },
+     "to": "F_vitrine"
+    },
+    {
+     "label": "Guetter à deux heures, derrière les buis du jardin",
+     "second": true,
+     "hide": {
+      "any": [
+       {
+        "seen": "S_melie"
+       },
+       {
+        "seen": "S_trois"
+       }
+      ]
+     },
+     "fx": {
+      "until": 2
+     },
+     "to": "S_melie"
+    },
+    {
+     "label": "Guetter la Sibylle à trois heures, derrière l'horloge",
+     "second": true,
+     "hide": {
+      "seen": "S_trois"
+     },
+     "fx": {
+      "until": 3
+     },
+     "to": "S_trois"
+    },
+    {
+     "label": "Attendre l'aube, la Larme dans ta main",
+     "second": true,
+     "if": {
+      "all": [
+       {
+        "seen": "S_trois"
+       },
+       {
+        "item": "larme"
+       }
+      ]
+     },
+     "fx": {
+      "until": 6,
+      "flag": "larme:rendue"
+     },
+     "to": "F_cabinet"
+    },
+    {
+     "label": "Attendre l'aube dans la loge",
+     "second": true,
+     "if": {
+      "all": [
+       {
+        "seen": "S_trois"
+       },
+       {
+        "not": {
+         "item": "larme"
+        }
+       }
+      ]
+     },
+     "fx": {
+      "until": 6
+     },
+     "to": "F_cabinet"
+    }
+   ]
+  },
+  "A_flasque": {
+   "act": "I",
+   "title": "La flasque",
+   "place": "loge",
+   "text": [
+    "Tu dévisses le bouchon d'argent. Une odeur de prune, de bois brûlé et de quelque chose de plus fade, au fond, comme de la fleur de tilleul. Tu bois une gorgée. C'est fort, c'est doux, c'est chaud. Ça descend dans ta poitrine comme une couverture.",
+    "La cave du vieil Orsenne était admirable, en effet. Tu rebouches la flasque avec un regret de gourmet, et tu la poses sur la table de la loge, à portée de main."
+   ],
+   "choices": [
+    {
+     "back": "A_loge"
+    }
+   ]
+  },
+  "A_galerie": {
+   "act": "I",
+   "title": "La galerie des naturalia",
+   "place": "galerie",
+   "hub": true,
+   "backName": "la galerie",
+   "text": [
+    {
+     "first": true,
+     "text": "La galerie est longue comme une nef, et ta lanterne n'en éclaire qu'une chapelle à la fois. Des deux côtés, des vitrines, et dans les vitrines, tout ce que la nature a fait de travers : des coquillages en forme d'oreilles, des pierres en forme de pains, des coraux en forme de cerveaux, des oiseaux de paradis sans pattes, piqués sur des tiges comme des fleurs. Au plafond, retenu par des chaînes, un crocodile de quinze pieds pend au-dessus de ta tête, le ventre jaune, la gueule entrouverte sur cent dents, et son ombre, quand tu lèves la lanterne, rampe au plafond comme s'il nageait encore."
+    },
+    {
+     "first": true,
+     "text": "Au fond, dressé sur ses pattes de derrière, un ours brun de la taille d'un homme et demi tend vers toi deux bras ouverts, comme un hôte trop affectueux. Et entre l'ours et le crocodile, sur une colonne de marbre, un grand sablier de verre de Venise, plus haut qu'un enfant, dont tout le sable dort dans le bulbe du bas."
+    },
+    {
+     "again": true,
+     "text": "La galerie, ses vitrines, le crocodile au plafond, l'ours aux bras ouverts, et le grand sablier sur sa colonne."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Examiner le grand sablier",
+     "hide": {
+      "seen": "A_sablier"
+     },
+     "to": "A_sablier"
+    },
+    {
+     "label": "Ouvrir le socle du sablier",
+     "if": {
+      "any": [
+       {
+        "has": "enigme:o1"
+       },
+       {
+        "second": true
+       }
+      ]
+     },
+     "hide": {
+      "item": "clef_cuivre"
+     },
+     "fx": {
+      "item": "clef_cuivre"
+     },
+     "to": "A_socle"
+    },
+    {
+     "label": "Regarder la vitrine basse des pierres",
+     "hide": {
+      "seen": "A_pierres"
+     },
+     "to": "A_pierres"
+    },
+    {
+     "label": "Suivre la cordelette noire derrière l'ours",
+     "second": true,
+     "hide": {
+      "seen": "A_ours_corde"
+     },
+     "to": "A_ours_corde"
+    },
+    {
+     "label": "Regarder les bocaux du fond",
+     "hide": {
+      "seen": "A_bocaux"
+     },
+     "to": "A_bocaux"
+    },
+    {
+     "label": "Lever la lanterne vers le crocodile",
+     "hide": {
+      "seen": "A_crocodile"
+     },
+     "to": "A_crocodile"
+    },
+    {
+     "label": "S'approcher de l'ours",
+     "hide": {
+      "seen": "A_ours"
+     },
+     "to": "A_ours"
+    },
+    {
+     "back": "A_loge"
+    }
+   ]
+  },
+  "A_sablier": {
+   "act": "I",
+   "title": "Le sablier de Mnémosyne",
+   "place": "galerie",
+   "fx": {
+    "clue": "i_plaque"
+   },
+   "text": [
+    "Le verre est si fin qu'il semble fait de bulles de savon soufflées l'une dans l'autre. Les deux bulbes sont reliés par une taille de guêpe, et le sable qui dort dans celui du bas a une couleur étrange : gris pâle, presque blanc, avec des reflets de nacre, comme de la cendre d'os broyée très fin.",
+    "Sur la colonne, une plaque de cuivre : *Sablier de Mnémosyne. Venise, 1612. Qui me retourne à l'aube retrouve sa nuit.* Et dessous, à la main, au crayon, d'une écriture de vieillard : *Je l'ai retourné quarante fois. Il n'a jamais rien rendu. — H. O.*",
+    {
+     "second": true,
+     "text": "Tu poses la main sur le verre. Il est tiède. Le sable, dans le bulbe du bas, a la forme exacte d'une nuit, si une nuit pouvait avoir une forme."
+    }
+   ],
+   "choices": [
+    {
+     "back": "A_galerie"
+    }
+   ]
+  },
+  "A_socle": {
+   "act": "I",
+   "title": "Le socle",
+   "place": "galerie",
+   "text": [
+    "Entre le crocodile et l'ours, a écrit la Sibylle. Tu passes les doigts sous la colonne de marbre. Un panneau de bois peint en faux marbre cède sous ta pression avec un déclic, et révèle un tiroir plat, garni de velours vert. Dedans, une petite clef de cuivre, ouvragée, et une étiquette : *Pour ouvrir une dame. Avec respect.*"
+   ],
+   "choices": [
+    {
+     "back": "A_galerie"
+    }
+   ]
+  },
+  "A_bocaux": {
+   "act": "I",
+   "title": "Les bocaux",
+   "place": "galerie",
+   "text": [
+    "Au fond de la galerie, sur quatre étagères qui montent jusqu'au plafond, des centaines de bocaux d'alcool jaune où flottent des choses. Un serpent à deux têtes, enroulé sur lui-même comme une phrase qui hésite. Un agneau à six pattes. Une main de singe, ouverte, la paume tournée vers la vitre. Un fœtus de requin, pâle, avec des yeux énormes et étonnés. Des poissons des abysses, noirs, armés de dents trop longues pour leur bouche et de petites lanternes sur le front.",
+    "Ta lanterne fait bouger les reflets, et les reflets font bouger les choses. Tu sais que c'est la lumière. Tu le sais très bien. Tu baisses quand même la lanterne.",
+    {
+     "if": {
+      "voie": "etudiant"
+     },
+     "text": "Tu reconnais, dans un bocal du bas, le célèbre axolotl d'Orsenne, dont tu as vu la gravure dans ton manuel : une salamandre mexicaine qui ne devient jamais adulte. On dit qu'Orsenne lui parlait. On dit aussi qu'il lui répondait."
+    }
+   ],
+   "choices": [
+    {
+     "back": "A_galerie"
+    }
+   ]
+  },
+  "A_crocodile": {
+   "act": "I",
+   "title": "Le crocodile",
+   "place": "galerie",
+   "text": [
+    "Tu lèves la lanterne. Le crocodile pend dans ses chaînes, à trois mètres au-dessus de toi, et la lumière glisse le long de son ventre écailleux, de sa queue, de ses pattes repliées comme des mains de vieillard, jusqu'à sa gueule. Elle est entrouverte d'un pouce. Entre les dents, quelque chose de pâle dépasse, comme un bout de langue en papier.",
+    "Il est trop haut. Il faudrait une échelle, et une raison."
+   ],
+   "choices": [
+    {
+     "back": "A_galerie"
+    }
+   ]
+  },
+  "A_ours": {
+   "act": "I",
+   "title": "L'ours",
+   "place": "galerie",
+   "text": [
+    "L'ours te domine de deux têtes. Ses yeux de verre brun reflètent ta lanterne en deux petites flammes jumelles. Il sent la poussière, le camphre et l'arsenic, l'odeur de toutes les bêtes empaillées, qui est l'odeur de l'éternité vue par un pharmacien.",
+    "Sur son socle, une étiquette : *Ours des Pyrénées, tué par H. O. en 1771, qui le regrette.* Et en dessous, d'une autre main, sèche et nette : *Préparé par M. Vasseur.*"
+   ],
+   "choices": [
+    {
+     "back": "A_galerie"
+    }
+   ]
+  },
+  "A_automates": {
+   "act": "I",
+   "title": "La salle des automates",
+   "place": "automates",
+   "hub": true,
+   "backName": "la salle des automates",
+   "text": [
+    {
+     "first": true,
+     "text": "La salle des automates est ronde, sous une coupole peinte d'un ciel nocturne où des étoiles dorées s'écaillent. Tout autour, sur des socles, des personnages de cire, d'émail et de laiton attendent, figés au milieu d'un geste : un joueur de tympanon aux baguettes levées, un petit écrivain chinois devant son pupitre, un singe musicien, un magicien qui soulève un gobelet. Au fond, une horloge astronomique haute comme une armoire montre les phases de la lune, les signes du zodiaque et l'heure, avec des aiguilles immobiles."
+    },
+    {
+     "first": true,
+     "text": "Et au centre, sur une estrade tendue de velours rouge, assise à un secrétaire miniature, une dame de porcelaine en robe de soie bleue tient une plume d'oie au-dessus d'une feuille blanche. Son visage est d'une beauté calme, un peu ironique. Son œil droit est de verre noir. Son œil gauche est un diamant bleu, gros comme une noisette, si profond que ta lanterne s'y noie. La Sibylle."
+    },
+    {
+     "again": true,
+     "text": "La salle ronde sous son ciel écaillé, les automates figés, l'horloge arrêtée, et la Sibylle à son secrétaire, la plume levée."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Regarder de près la Sibylle",
+     "hide": {
+      "seen": "A_sibylle"
+     },
+     "to": "A_sibylle"
+    },
+    {
+     "label": "Donner trois tours de clef au joueur de tympanon",
+     "hide": {
+      "seen": "A_tympanon"
+     },
+     "to": "A_tympanon"
+    },
+    {
+     "label": "Soulever les gobelets du magicien",
+     "hide": {
+      "seen": "A_magicien"
+     },
+     "to": "A_magicien"
+    },
+    {
+     "label": "Regarder le singe au violon",
+     "hide": {
+      "seen": "A_singe"
+     },
+     "to": "A_singe"
+    },
+    {
+     "label": "Faire repartir l'horloge astronomique malgré la consigne",
+     "second": true,
+     "if": {
+      "seen": "A_horloge"
+     },
+     "hide": {
+      "seen": "S_horloge_remontee"
+     },
+     "to": "S_horloge_remontee"
+    },
+    {
+     "label": "Examiner l'horloge astronomique",
+     "hide": {
+      "seen": "A_horloge"
+     },
+     "to": "A_horloge"
+    },
+    {
+     "label": "Ouvrir le dos de la Sibylle avec la clef de cuivre",
+     "if": {
+      "item": "clef_cuivre"
+     },
+     "hide": {
+      "seen": "A_dos"
+     },
+     "to": "A_dos"
+    },
+    {
+     "label": "Parler dans le tube, sous le chignon de la Sibylle",
+     "second": true,
+     "if": {
+      "seen": "A_dos"
+     },
+     "hide": {
+      "any": [
+       {
+        "has": "enigme:s_tube"
+       },
+       {
+        "has": "tour:ouverte"
+       }
+      ]
+     },
+     "to": "S_tube"
+    },
+    {
+     "label": "Glisser une question sous la plume de la Sibylle",
+     "second": true,
+     "hide": {
+      "any": [
+       {
+        "has": "enigme:o5"
+       },
+       {
+        "has": "tour:ouverte"
+       }
+      ]
+     },
+     "to": "A_sib5"
+    },
+    {
+     "label": "Monter à la tour",
+     "second": true,
+     "if": {
+      "has": "tour:ouverte"
+     },
+     "to": "S_escalier"
+    },
+    {
+     "back": "A_loge"
+    }
+   ]
+  },
+  "A_sibylle": {
+   "act": "I",
+   "title": "La Sibylle",
+   "place": "automates",
+   "text": [
+    "De près, la Sibylle est plus belle et plus inquiétante. Sa peau de porcelaine a de très fines craquelures, comme une vieille femme qui serait restée jeune par entêtement. Ses doigts articulés tiennent la plume avec une grâce exacte. Sa poitrine, sous la soie, est une cage de laiton où dorment des roues, des cames et des ressorts, et l'on devine, par une fente du corsage, un cylindre gravé de mille petites dents.",
+    "Le diamant de son œil gauche te regarde. Il avale la lanterne, et la rend plus bleue, très loin, au fond, comme une lumière vue du fond d'un puits.",
+    "Sur le socle : *Lot n° 1. La Sibylle, automate écrivain, par Jaquet, de Neuchâtel, 1774. Répond par écrit à trois questions. Œil gauche : la Larme de Golconde, 41 carats.*"
+   ],
+   "choices": [
+    {
+     "back": "A_automates"
+    }
+   ]
+  },
+  "A_horloge": {
+   "act": "I",
+   "title": "L'horloge arrêtée",
+   "place": "automates",
+   "fx": {
+    "clue": "i_horloge"
+   },
+   "text": [
+    "L'horloge astronomique est un meuble de noyer noirci, haut comme une armoire, avec un cadran d'émail bleu où tournent, à l'ordinaire, le soleil, la lune et sept planètes d'argent. Rien ne tourne. Les aiguilles sont arrêtées sur trois heures dix-sept, et la lune, dans sa fenêtre ronde, montre une face pleine et blafarde, comme une figure qui aurait vu quelque chose.",
+    "Une carte est glissée sous la vitre, de la main de Pigache : *Arrêtée à l'heure du décès, le 13 octobre, par respect. Ne pas remonter avant la vente.*"
+   ],
+   "choices": [
+    {
+     "back": "A_automates"
+    }
+   ]
+  },
+  "A_dos": {
+   "act": "I",
+   "title": "Le dos de la Sibylle",
+   "place": "automates",
+   "text": [
+    "La petite clef de cuivre entre dans une serrure cachée sous le chignon de la Sibylle. Tu la tournes, avec respect. Le dos de la dame s'ouvre comme une armoire. Dedans, une forêt de laiton : des roues dentées, des leviers, des cames, et le grand cylindre qui commande la main. Tout cela est immobile. Tout cela est bien huilé.",
+    "Mais ce qui t'arrête, c'est autre chose. Du fond de la mécanique partent trois fines tringles d'acier, neuves, brillantes, qui ne servent à rien dans un automate de 1774. Elles passent par un trou dans l'estrade, descendent sous le plancher, ou montent, tu ne sais plus, et un tube de cuivre les accompagne, terminé à hauteur de la nuque de la Sibylle par un petit pavillon de trompette, fermé d'un couvercle gravé : *Dis mon nom à la mère des Muses.*",
+    {
+     "second": false,
+     "text": "Tu souffles dans le pavillon. Le souffle monte, descend, se perd, et rien ne répond, qu'un très faible écho, comme si la maison avait avalé ta voix."
+    }
+   ],
+   "choices": [
+    {
+     "back": "A_automates"
+    }
+   ]
+  },
+  "A_miroirs": {
+   "act": "I",
+   "title": "La chambre des miroirs",
+   "place": "miroirs",
+   "hub": true,
+   "backName": "la chambre des miroirs",
+   "text": [
+    {
+     "first": true,
+     "text": "La chambre des miroirs est une pièce octogonale, sans fenêtre, entièrement tapissée de glaces de Venise du sol au plafond. Tu entres avec ta lanterne, et tu entres avec toi cent fois. Cent gardiens, cent lanternes, en files qui s'enfoncent et se courbent à l'infini, de plus en plus verts, de plus en plus lointains, comme des noyés qui descendraient en procession vers le fond d'un lac. Tu lèves la main. Cent mains se lèvent, avec un retard d'une fraction de seconde, qui doit être une illusion."
+    },
+    {
+     "again": true,
+     "text": "La chambre des miroirs et ses cent gardiens qui s'enfoncent dans le vert."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Tenir la page du crocodile devant un miroir",
+     "if": {
+      "item": "page_miroir"
+     },
+     "hide": {
+      "has": "enigme:o4"
+     },
+     "to": "A_page"
+    },
+    {
+     "label": "Fixer le reflet le plus lointain",
+     "hide": {
+      "seen": "A_reflet_loin"
+     },
+     "to": "A_reflet_loin"
+    },
+    {
+     "back": "A_loge"
+    }
+   ]
+  },
+  "A_page": {
+   "act": "I",
+   "title": "La page à l'envers",
+   "place": "miroirs",
+   "puzzle": "o4",
+   "text": [
+    "Tu tiens la page devant une glace, face au miroir, et tu lis par-dessus ton épaule ce que le miroir en fait."
+   ],
+   "choices": [
+    {
+     "back": "A_miroirs"
+    }
+   ]
+  },
+  "A_reflet_loin": {
+   "act": "I",
+   "title": "Le reflet le plus lointain",
+   "place": "miroirs",
+   "text": [
+    "Tu fixes la file de reflets, de plus en plus loin, jusqu'à ce que les gardiens deviennent des points de lumière verte. Et là, tout au fond, à la centième ou à la millième glace, il te semble qu'un des reflets ne tient pas de lanterne. Il est plus grand. Plus maigre. Plus voûté. Il porte une robe de chambre.",
+    "Tu clignes des yeux. Il n'y a que toi, cent fois."
+   ],
+   "choices": [
+    {
+     "back": "A_miroirs"
+    }
+   ]
+  },
+  "A_bibliotheque": {
+   "act": "I",
+   "title": "La bibliothèque",
+   "place": "bibliotheque",
+   "hub": true,
+   "backName": "la bibliothèque",
+   "text": [
+    {
+     "first": true,
+     "text": "La bibliothèque occupe toute la hauteur de deux étages, avec deux galeries de fer forgé qui en font le tour et des échelles qui coulissent sur des rails. Des milliers de livres, reliés de veau, de maroquin, de parchemin, dorment en rangs serrés, et leur odeur de colle, de cuir et de poussière sucrée est si dense qu'on la respire comme un brouillard. Le plafond, tout en haut, est un plancher de bois peint : au-dessus, il n'y a plus que la tour."
+    },
+    {
+     "again": true,
+     "text": "La bibliothèque, ses galeries de fer, ses milliers de dos de cuir, et le plafond de bois, sous la tour."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Regarder le portrait au-dessus du bureau",
+     "hide": {
+      "seen": "A_portrait"
+     },
+     "to": "A_portrait"
+    },
+    {
+     "label": "Monter à la galerie haute, vers la porte scellée",
+     "hide": {
+      "seen": "A_chambre_scellee"
+     },
+     "to": "A_chambre_scellee"
+    },
+    {
+     "label": "Écouter le plafond",
+     "hide": {
+      "seen": "A_plafond"
+     },
+     "to": "A_plafond"
+    },
+    {
+     "label": "Regarder le coffre neuf, derrière les Buffon",
+     "hide": {
+      "seen": "A_coffre_vu"
+     },
+     "to": "A_coffre_vu"
+    },
+    {
+     "label": "Tourner les molettes du coffre d'Aristide",
+     "second": true,
+     "hide": {
+      "has": "preuve:aristide"
+     },
+     "to": "S_coffre"
+    },
+    {
+     "back": "A_loge"
+    }
+   ]
+  },
+  "A_plafond": {
+   "act": "I",
+   "title": "Le plafond",
+   "place": "bibliotheque",
+   "fx": {
+    "clue": "i_pas"
+   },
+   "text": [
+    "Tu poses la lanterne et tu tends l'oreille. La pluie sur les ardoises, loin. Le craquement des rayonnages. Et puis, juste au-dessus du plafond peint, à l'aplomb du grand bureau, un pas. Un pas lent, glissé, un pas de pantoufle, qui traverse, s'arrête, revient.",
+    "La tour est fermée. Le défunt en a emporté la clef. Le pas s'arrête au-dessus de ta tête, exactement, comme s'il t'écoutait l'écouter."
+   ],
+   "choices": [
+    {
+     "back": "A_bibliotheque"
+    }
+   ]
+  },
+  "A_coffre_vu": {
+   "act": "I",
+   "title": "Le coffre du neveu",
+   "place": "bibliotheque",
+   "text": [
+    "Derrière les in-folio de l'*Histoire naturelle* de Buffon, quelqu'un a poussé un petit coffre de voyage en acier, neuf, qui jure au milieu des reliures comme un huissier dans une chapelle. Une étiquette de cuir porte les initiales *A. O.* Une serrure à quatre molettes. Sur le couvercle, gravé à la demande du client : *Délivrance.*",
+    "Un coffre neuf, dans une maison où tout sera vendu demain. Le neveu y garde quelque chose qu'il emportera avant les enchères."
+   ],
+   "choices": [
+    {
+     "back": "A_bibliotheque"
+    }
+   ]
+  },
+  "A_cave": {
+   "act": "I",
+   "title": "La cave",
+   "place": "reserve",
+   "hub": true,
+   "backName": "l'escalier de la cave",
+   "text": [
+    {
+     "first": true,
+     "text": "L'escalier de la cave descend en colimaçon dans une odeur de salpêtre et de vin tourné. Les marches sont humides, creusées au milieu par trois siècles de pieds. En bas, un couloir voûté, où ta lanterne fait luire des gouttes au plafond, mène à une porte bardée de fer, fermée par un cadenas anglais à quatre molettes. Sur le linteau, gravé au couteau : *À l'heure du maître.*"
+    },
+    {
+     "again": true,
+     "text": "Le couloir voûté, les gouttes qui luisent, la porte de fer et son cadenas à molettes."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Coller l'oreille à la porte",
+     "hide": {
+      "seen": "A_oreille"
+     },
+     "to": "A_oreille"
+    },
+    {
+     "label": "Tourner les molettes du cadenas",
+     "hide": {
+      "has": "enigme:o3"
+     },
+     "to": "A_cadenas"
+    },
+    {
+     "label": "Entrer dans la réserve",
+     "if": {
+      "has": "enigme:o3"
+     },
+     "to": "A_reserve"
+    },
+    {
+     "back": "A_loge"
+    }
+   ]
+  },
+  "A_oreille": {
+   "act": "I",
+   "title": "Derrière la porte",
+   "place": "reserve",
+   "text": [
+    "Tu colles l'oreille au fer froid. D'abord rien, que ton sang. Puis un bruit très fin, régulier, patient : une lime. Quelqu'un lime quelque chose, de l'autre côté, dans le noir, avec la patience d'un prisonnier qui a vingt ans devant lui. Le bruit s'arrête. Tu retiens ton souffle. Il reprend."
+   ],
+   "choices": [
+    {
+     "back": "A_cave"
+    }
+   ]
+  },
+  "A_cadenas": {
+   "act": "I",
+   "title": "Le cadenas",
+   "place": "reserve",
+   "puzzle": "o3",
+   "text": [
+    "Quatre molettes de laiton, froides et graissées de frais. *À l'heure du maître.*"
+   ],
+   "choices": [
+    {
+     "back": "A_cave"
+    }
+   ]
+  },
+  "A_reserve": {
+   "act": "I",
+   "title": "La réserve",
+   "place": "reserve",
+   "fx": {
+    "meet": [
+     "gobe"
+    ],
+    "clue": [
+     "i_gobe",
+     "i_copies"
+    ]
+   },
+   "text": [
+    {
+     "first": true,
+     "text": "La réserve est une longue cave voûtée, pleine de caisses de la vente, numérotées à la craie, empilées jusqu'aux voûtes. Au fond, sous une lampe à réflecteur, un établi couvert d'outils d'orfèvre, de flacons, de pinceaux, de moules de plâtre. Et devant l'établi, un petit homme pâle, en manchettes de lustrine, une loupe d'horloger vissée à l'œil, qui se retourne d'un bloc en te voyant, une lime à la main, comme un chat surpris dans le garde-manger."
+    },
+    {
+     "first": true,
+     "text": "« Fortuné Gobe, dit-il très vite, à voix basse. Restaurateur. Maître Pigache m'a engagé pour nettoyer les lots avant la vente. Il n'aime pas qu'on le sache : les acheteurs croient que tout est d'origine. » Il essuie sa lime. « Vous ne m'avez pas vu. Je ne vous ai pas vu. C'est la règle de la maison. »"
+    },
+    "Sur l'établi, à côté des outils, des choses que tu reconnais : une seconde corne de narval, en plâtre peint, si bien imitée qu'on en sentirait le froid ; un second oiseau mécanique en argent, sans mécanisme ; et dans un écrin de velours, un œil de verre bleu, taillé à facettes comme un diamant, gros comme une noisette.",
+    {
+     "again": true,
+     "text": "La réserve, les caisses à la craie, l'établi sous sa lampe, et Gobe qui travaille en te tournant le dos."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Lui demander ce qu'il restaure",
+     "hide": {
+      "seen": "A_gobe_parle"
+     },
+     "to": "A_gobe_parle"
+    },
+    {
+     "label": "Regarder de près l'œil de verre bleu",
+     "hide": {
+      "seen": "A_oeil_verre"
+     },
+     "to": "A_oeil_verre"
+    },
+    {
+     "label": "Prendre le billet qui traîne sur l'établi",
+     "second": true,
+     "hide": {
+      "item": "note_gobe"
+     },
+     "fx": {
+      "item": "note_gobe"
+     },
+     "to": "S_billet_gobe"
+    },
+    {
+     "label": "Lui proposer un marché",
+     "second": true,
+     "if": {
+      "has": "note:lue"
+     },
+     "hide": {
+      "any": [
+       {
+        "has": "gobe:temoin"
+       },
+       {
+        "seen": "S_gobe_refus"
+       }
+      ]
+     },
+     "test": {
+      "dom": "social",
+      "diff": 0,
+      "label": "Social"
+     },
+     "win": {
+      "fx": {
+       "flag": "gobe:temoin"
+      },
+      "to": "S_gobe_accord"
+     },
+     "lose": {
+      "to": "S_gobe_refus"
+     }
+    },
+    {
+     "back": "A_cave"
+    }
+   ]
+  },
+  "A_jardin": {
+   "act": "I",
+   "title": "Le jardin",
+   "place": "jardin",
+   "hub": true,
+   "backName": "le jardin",
+   "text": [
+    {
+     "first": true,
+     "text": "Le jardin est une fosse mouillée entre quatre murs trop hauts, où la pluie tombe sans bruit sur des buis trop taillés et des statues trop blanches. Au fond, une petite porte de bois dans le mur donne sur la ruelle. Et au-dessus de tout, collée à la maison, la tour ronde monte dans la nuit, toute vêtue de lierre noir, jusqu'à sa lucarne aveugle."
+    },
+    {
+     "again": true,
+     "text": "Le jardin mouillé, les statues, la porte au fond, et la tour vêtue de lierre."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Regarder la tour depuis le jardin",
+     "hide": {
+      "seen": "A_tour_jardin"
+     },
+     "to": "A_tour_jardin"
+    },
+    {
+     "back": "A_loge"
+    }
+   ]
+  },
+  "A_tour_jardin": {
+   "act": "I",
+   "title": "La tour, vue d'en bas",
+   "place": "jardin",
+   "text": [
+    "Tu lèves la lanterne vers la tour. Le lierre y grimpe en grosses tresses noires, épais comme un bras, jusqu'au sommet. La lucarne ronde, tout en haut, est une lentille, un œil de verre bombé, qui reflète faiblement le ciel bas, et qui pivote, lentement, d'un cran, pendant que tu la regardes.",
+    "Tu baisses la lanterne. Quand tu la relèves, la lentille est immobile."
+   ],
+   "choices": [
+    {
+     "back": "A_jardin"
+    }
+   ]
+  },
+  "A_tour_porte": {
+   "act": "I",
+   "title": "La porte de la tour",
+   "place": "tour",
+   "text": [
+    "Au fond du vestibule, la petite porte basse de la tour, cloutée de fer, fermée à clef. *Le défunt en a emporté la clef, Dieu sait où.* Sous la porte, une ligne de lumière, très faible, jaune, la couleur d'une bougie.",
+    "Tu frappes. La lumière s'éteint."
+   ],
+   "choices": [
+    {
+     "back": "A_loge"
+    }
+   ]
+  },
+  "A_ronde23": {
+   "act": "I",
+   "title": "Onze heures",
+   "place": "automates",
+   "second": false,
+   "text": [
+    "Onze heures. Tu fais ta première ronde, la lanterne basse, le trousseau à la main. Les salles sont telles que tu les as laissées. La galerie. La chambre des miroirs. Et la salle des automates, où quelque chose t'arrête sur le seuil.",
+    "La Sibylle a bougé. Pas beaucoup : sa tête s'est inclinée d'un doigt sur le côté, et sa plume s'est posée sur la feuille. La feuille blanche ne l'est plus. Une écriture penchée, à l'encre violette, couvre le haut de la page, encore humide, brillante sous ta lanterne.",
+    "Tu regardes autour de toi. Les automates sont immobiles. L'horloge est arrêtée. La maison respire."
+   ],
+   "choices": [
+    {
+     "label": "Lire la feuille de la Sibylle",
+     "hide": {
+      "has": "enigme:o1"
+     },
+     "to": "A_sib1"
+    },
+    {
+     "back": "A_automates"
+    }
+   ]
+  },
+  "A_sib1": {
+   "act": "I",
+   "title": "La première feuille",
+   "place": "automates",
+   "second": false,
+   "puzzle": "o1",
+   "text": [
+    "Tu te penches sur la feuille, sans la toucher. *Ne touchez à rien.*"
+   ],
+   "choices": [
+    {
+     "back": "A_automates"
+    }
+   ]
+  },
+  "A_o1": {
+   "act": "I",
+   "title": "Entre le crocodile et l'ours",
+   "place": "automates",
+   "second": false,
+   "text": [
+    "Le sablier. Le grand sablier de verre de Venise, dans la galerie, entre le crocodile et l'ours.",
+    "Tu relèves les yeux vers la Sibylle. Elle a reposé sa plume dans l'encrier. Son visage de porcelaine n'a pas changé. Il te semble pourtant qu'il est content."
+   ],
+   "choices": [
+    {
+     "back": "A_automates"
+    }
+   ]
+  },
+  "A_ronde0": {
+   "act": "I",
+   "title": "Minuit",
+   "place": "galerie",
+   "second": false,
+   "text": [
+    "Minuit. Douze coups sonnent à Saint-Eustache, de l'autre côté de la rue, et ils entrent dans la maison un à un, comme des visiteurs. Tu fais ta ronde.",
+    "Dans la galerie, le crocodile a tourné. Il pendait la tête vers la porte ; il la tourne à présent vers le fond, vers l'ours et le sablier, et ses chaînes oscillent encore très légèrement, comme un pendule qu'on vient de lâcher.",
+    "Et dans la salle des automates, sous la plume de la Sibylle, une nouvelle feuille, couverte d'encre violette."
+   ],
+   "choices": [
+    {
+     "label": "Lire la deuxième feuille",
+     "hide": {
+      "has": "enigme:o2"
+     },
+     "to": "A_sib2"
+    },
+    {
+     "label": "Aller ouvrir à qui sonne à la grille",
+     "hide": {
+      "seen": "A_visiteur"
+     },
+     "to": "A_visiteur"
+    },
+    {
+     "back": "A_galerie"
+    }
+   ]
+  },
+  "A_sib2": {
+   "act": "I",
+   "title": "La deuxième feuille",
+   "place": "automates",
+   "second": false,
+   "puzzle": "o2",
+   "text": [
+    "La feuille sent encore l'encre fraîche, et la plume de la Sibylle est mouillée jusqu'à la barbe."
+   ],
+   "choices": [
+    {
+     "back": "A_automates"
+    }
+   ]
+  },
+  "A_o2": {
+   "act": "I",
+   "title": "La gueule du crocodile",
+   "place": "galerie",
+   "second": false,
+   "text": [
+    "Le crocodile. Tu retournes à la galerie, tu traînes une échelle de bibliothèque jusque sous la bête, tu montes, et tu te retrouves nez à nez avec quinze pieds de cuir verni et cent dents jaunes, dans une odeur de camphre et de Nil desséché.",
+    "Tu glisses deux doigts entre les dents. Une page pliée en deux, jaunie, couverte de capitales violettes. Tu la tires. Au moment où elle sort, la mâchoire du crocodile se referme d'un quart de pouce, avec un petit claquement sec de ressort, et tu manques de tomber de l'échelle.",
+    "Un ressort. Un piège de théâtre. Quelqu'un dans cette maison a le sens de la mise en scène."
+   ],
+   "choices": [
+    {
+     "back": "A_galerie"
+    }
+   ]
+  },
+  "A_ronde1": {
+   "act": "I",
+   "title": "Une heure",
+   "place": "reserve",
+   "second": false,
+   "text": [
+    "Une heure. En descendant l'escalier du vestibule pour ta ronde, tu entends un bruit sous tes pieds. Un choc de bois sur de la pierre, sourd, puis un juron étouffé. Le bruit vient de la cave.",
+    "Tu descends. Le couloir voûté est vide. La porte de fer est fermée, cadenassée. Mais sous la porte, une ligne de lumière jaune, et derrière, le bruit fin, patient, d'une lime."
+   ],
+   "choices": [
+    {
+     "back": "A_cave"
+    }
+   ]
+  },
+  "A_ronde2": {
+   "act": "I",
+   "title": "Deux heures",
+   "place": "jardin",
+   "second": false,
+   "fx": {
+    "clue": "i_melie",
+    "meet": [
+     "melie"
+    ]
+   },
+   "text": [
+    "Deux heures. Tu fais le tour du jardin sous la pluie, la lanterne voilée. La petite porte du fond grince. Tu te plaques contre un buis.",
+    "Une femme entre, en châle gris, un panier au bras, d'où monte une vapeur qui sent le poireau et le lard. Elle traverse le jardin sans lumière, d'un pas sûr, en femme qui le connaît par cœur, et s'arrête au pied de la tour, devant le lierre. Elle lève la tête. Elle siffle, doucement, trois notes.",
+    "Rien. Elle attend. Puis elle se retourne, et ta lanterne mal voilée lui éclaire le visage : une femme sèche, cinquante ans, une cicatrice blanche sur la joue. Elle te voit. Elle ne crie pas. Elle te regarde avec une colère froide.",
+    "« La soupe, dit-elle. Pour le chat. Il y avait un chat, dans cette maison. Le neveu l'a oublié avec le reste. » Elle repart vers la porte du fond avec son panier plein, qui fume pour une seule personne. Elle la referme sans bruit."
+   ],
+   "choices": [
+    {
+     "label": "Ouvrir la petite porte derrière elle",
+     "hide": {
+      "seen": "A_ruelle"
+     },
+     "to": "A_ruelle"
+    },
+    {
+     "back": "A_jardin"
+    }
+   ]
+  },
+  "A_ronde3": {
+   "act": "I",
+   "title": "Trois heures",
+   "place": "galerie",
+   "second": false,
+   "text": [
+    {
+     "if": {
+      "has": "flasque:bue"
+     },
+     "text": "Trois heures moins dix. Tu t'assois une minute dans la loge pour te réchauffer avant ta ronde. La chaleur du poêle, la chaleur de la prune d'Aristide, le bruit de la pluie. Tes paupières pèsent. Tu fermes les yeux une seconde."
+    },
+    {
+     "if": {
+      "has": "flasque:bue"
+     },
+     "text": "Quand tu les rouvres, l'horloge de Saint-Eustache sonne la demie. Trois heures et demie. Tu as dormi quarante minutes d'un sommeil de pierre, sans rêve, avec un goût fade de tilleul dans la bouche. Tu te lèves d'un bond et tu cours faire ta ronde, la tête lourde."
+    },
+    {
+     "if": {
+      "not": {
+       "has": "flasque:bue"
+      }
+     },
+     "text": "Trois heures. Tu montes l'escalier pour ta ronde quand un fracas énorme éclate dans la galerie, un fracas de bois, de verre et de chute, qui fait trembler toute la maison. Tu cours. Dans la galerie, l'ours est tombé de son socle, face contre terre, les bras ouverts sur les dalles, au milieu d'une vitrine pulvérisée. Il a l'air d'un ivrogne qui aurait voulu t'embrasser."
+    },
+    {
+     "if": {
+      "not": {
+       "has": "flasque:bue"
+      }
+     },
+     "text": "Tu passes un quart d'heure à le relever, à balayer le verre, à replacer les coquillages. Le socle est intact. Les vis sont intactes. Rien n'explique la chute, sauf une petite cordelette de soie noire, cassée net, qui pend de la patte de l'ours."
+    },
+    "Le reste de la maison est calme. Dans la salle des automates, la Sibylle est à son secrétaire, la plume levée, son œil bleu ouvert sur la nuit."
+   ],
+   "choices": [
+    {
+     "back": "A_galerie"
+    }
+   ]
+  },
+  "A_ronde4": {
+   "act": "I",
+   "title": "Quatre heures",
+   "place": "automates",
+   "second": false,
+   "text": [
+    "Quatre heures. Dans la salle des automates, une feuille neuve sous la plume de la Sibylle. L'écriture est plus tremblée que les autres, plus lente, comme si la main qui la guide se fatiguait.",
+    "Et au-dessus de ta tête, à travers la coupole peinte, un pas. Le même pas de pantoufle que dans la bibliothèque. Il va, il vient, il s'arrête au-dessus de la Sibylle."
+   ],
+   "choices": [
+    {
+     "label": "Lire la question de la Sibylle",
+     "hide": {
+      "has": "enigme:o5"
+     },
+     "to": "A_sib5"
+    },
+    {
+     "back": "A_automates"
+    }
+   ]
+  },
+  "A_sib5": {
+   "act": "I",
+   "title": "La question",
+   "place": "automates",
+   "puzzle": "o5",
+   "text": [
+    "Tu prends la plume que la Sibylle a laissée sur l'encrier. Elle est tiède."
+   ],
+   "choices": [
+    {
+     "back": "A_automates"
+    }
+   ]
+  },
+  "A_o5": {
+   "act": "I",
+   "title": "Presque",
+   "place": "automates",
+   "text": [
+    "Tu écris ta réponse sous la question, d'une main qui tremble un peu, et tu reposes la plume.",
+    "Pendant un long moment, rien. Puis la main de la Sibylle se soulève, avec un petit bruit de rouages, et vient chercher la plume entre tes doigts. Elle la trempe dans l'encre violette. Elle écrit, sous ta réponse, un seul mot, de son écriture penchée : *Presque.*",
+    "Et la plume se repose. Et au-dessus de la coupole, le pas s'éloigne."
+   ],
+   "choices": [
+    {
+     "back": "A_automates"
+    }
+   ]
+  },
+  "A_ronde5": {
+   "act": "I",
+   "title": "Cinq heures",
+   "place": "tour",
+   "second": false,
+   "text": [
+    "Cinq heures. La pluie a cessé. Le silence, dans la maison, est plus inquiétant que tous les craquements de la nuit. Tu fais ta dernière ronde, salle par salle, et tu finis devant la petite porte de la tour.",
+    "La ligne de lumière, sous la porte, a disparu. Mais sur le seuil, sur la dalle, il y a trois brins de lierre noir, tout frais, mouillés, et une petite flaque, comme les traces de quelqu'un qui serait entré dans la tour par le dehors.",
+    {
+     "if": {
+      "has": "enigme:o4"
+     },
+     "text": "*Je ne suis pas mort.* Tu regardes la porte. Tu poses la main sur le bois. Il est tiède, comme la plume."
+    }
+   ],
+   "choices": [
+    {
+     "back": "A_loge"
+    }
+   ]
+  },
+  "F_vitrine": {
+   "act": "I",
+   "title": "Les vitrines vides",
+   "place": "automates",
+   "end": true,
+   "second": false,
+   "fx": {
+    "flag": "fin:vitrine",
+    "meet": [
+     "quatremain",
+     "bejot"
+    ]
+   },
+   "text": [
+    "À six heures, la grille grince. Ils arrivent tous ensemble, dans le petit jour sale : Maître Pigache, Aristide Orsenne, un monsieur en noir à lorgnon qui porte une serviette de cuir, et un gros homme à écharpe tricolore qui bâille. « Monsieur Quatremain, de la Compagnie du Phénix, présente Pigache. Il vient vérifier le lot n° 1 avant la vente. Et le commissaire Béjot, par précaution. On ne vend pas quatre-vingt mille écus sans un commissaire. »",
+    "Ils montent à la salle des automates. Monsieur Quatremain chausse son lorgnon, se penche sur la Sibylle, sort une petite loupe, une petite lampe, un petit flacon. Il regarde l'œil gauche longtemps. Puis il se redresse, très pâle.",
+    "« Verre, dit-il. Très bon verre. Taillé par un maître. Mais verre. »",
+    "Le silence qui suit a la qualité exacte du silence d'un tribunal. Puis Pigache se met à compter les lots de la salle, à voix haute, en courant d'un socle à l'autre, et trouve qu'il en manque trois : un oiseau mécanique en argent, une dent de narval, une balle de plomb montée sur une épingle, dont personne n'avait jamais compris pourquoi elle était au catalogue.",
+    "Aristide Orsenne se tourne vers toi. Il a l'air navré, sincèrement, d'un homme à qui l'on vient d'apprendre que son chien a mordu un enfant. « Vous aviez toutes les clefs, dit-il doucement. Vous étiez seul{e}. Commissaire, je suis désolé. Faites votre métier. »",
+    {
+     "if": {
+      "clue": "i_gobe"
+     },
+     "text": "Tu parles de Gobe, le restaurateur de la cave. Pigache te regarde avec des yeux ronds. « Quel restaurateur ? Je n'ai engagé personne. » On descend. La réserve est vide, l'établi est propre, et la porte de fer est grande ouverte."
+    },
+    {
+     "if": {
+      "clue": "i_melie"
+     },
+     "text": "Tu parles de la femme au châle gris. « Madame Vasseur ? dit Aristide. Je l'ai renvoyée il y a un mois. Elle me déteste. Elle a pu vous payer. » Le commissaire note, avec la satisfaction d'un homme dont la journée se simplifie."
+    },
+    {
+     "if": {
+      "has": "flasque:bue"
+     },
+     "text": "Tu dis que tu as dormi, à trois heures, d'un sommeil anormal. Aristide prend la flasque sur la table de la loge, la débouche, la sent, et la vide d'un trait devant tout le monde. « De la prune, dit-il. De la meilleure. Vous avez trop bu. » Il ne chancelle pas. Il a dû en boire une autre."
+    },
+    "On te passe les menottes, dans la salle ronde, sous le ciel écaillé, devant les automates figés qui ont tout vu et ne diront rien. La Sibylle te regarde de son œil de verre bleu, et son œil de verre noir, et elle a l'air, pour la première fois, triste.",
+    "En traversant la galerie, entre deux agents, tu passes devant le grand sablier. Tout son sable est en bas. *Qui me retourne à l'aube retrouve sa nuit.* Tu tends la main, d'un geste absurde, désespéré, comme on se raccroche à une branche en tombant. Ta main menottée touche le verre. Il est tiède. Tu le pousses. Le sablier bascule sur son axe, et le sable, au lieu de couler, se met à monter."
+   ]
+  },
+  "S_sablier": {
+   "act": "II",
+   "title": "Le sable qui monte",
+   "place": "galerie",
+   "second": true,
+   "text": [
+    "Le sable monte. Il quitte le bulbe du bas en un mince filet gris, nacré, qui coule vers le haut à travers la taille de verre, avec un chuchotement de soie, comme une phrase qu'on retire. Les agents qui te tiennent les bras ne le voient pas. Personne ne le voit. Monsieur Quatremain essuie son lorgnon. Aristide regarde sa montre. Et les aiguilles de sa montre, que tu vois par-dessus son épaule, tournent à l'envers.",
+    "La galerie se défait autour de toi comme un décor qu'on démonte. La lumière grise du matin recule par les fenêtres. Les bocaux s'éteignent un à un. Le crocodile, au plafond, tourne la tête vers la porte, lentement, à rebours. Tu entends la pluie remonter vers les nuages. Tu entends les voix de la nuit se dire à l'envers, toutes ensemble, en un murmure de foule. Le sable finit de monter.",
+    "Et la grille grince.",
+    "Tu es dans la cour pavée, sous la pluie, devant le numéro 9, rue des Antiquaires. Il est dix heures du soir. Tu as les mains libres, une lanterne, un trousseau de dix-sept clefs, et dans la tête, intacte, une nuit entière qui n'a pas encore eu lieu."
+   ],
+   "choices": [
+    {
+     "label": "Entrer dans le vestibule",
+     "to": "A_arrivee"
+    }
+   ]
+  },
+  "S_tube": {
+   "act": "II",
+   "title": "Le tube",
+   "place": "automates",
+   "second": true,
+   "puzzle": "s_tube",
+   "text": [
+    "Tu approches ta bouche du pavillon de cuivre, dans la nuque de la Sibylle. Il sent le métal froid et, très loin au fond, la fumée de pipe."
+   ],
+   "choices": [
+    {
+     "back": "A_automates"
+    }
+   ]
+  },
+  "S_tube_ouvert": {
+   "act": "II",
+   "title": "La voix dans le tube",
+   "place": "automates",
+   "second": true,
+   "fx": {
+    "flag": "tour:ouverte"
+   },
+   "text": [
+    "Un silence, très long. Puis le tube de cuivre se met à parler, d'une voix lointaine, cassée, ironique, qui descend en spirale et arrive à ton oreille comme du fond d'un puits.",
+    "« Enfin. Il y a un mois que j'attends quelqu'un qui sache lire. Les notaires lisent les chiffres, mon neveu lit les cotes, Pigache lit les étiquettes. Vous, vous avez lu une dame. » Un rire, qui se transforme en toux. « Regardez sa main gauche. »",
+    "La main gauche de la Sibylle, posée sur le secrétaire, fermée depuis 1774, s'ouvre avec un petit bruit de rouages, doigt par doigt, comme une fleur de porcelaine. Dans la paume, une grosse clef de fer, rouillée, longue comme la main : la clef de la tour.",
+    "« Montez, dit le tube. Doucement. L'escalier a deux cents ans et moi soixante-dix-huit, et nous craquons tous les deux. »"
+   ],
+   "choices": [
+    {
+     "label": "Monter à la tour",
+     "to": "S_escalier"
+    }
+   ]
+  },
+  "S_escalier": {
+   "act": "II",
+   "title": "L'escalier de la tour",
+   "place": "tour",
+   "second": true,
+   "text": [
+    "La petite porte cloutée s'ouvre sur un escalier en colimaçon si étroit qu'il faut monter de biais. Les marches de pierre sont couvertes d'un tapis de poussière, et dans la poussière, un sentier de pas, tous les mêmes, des pas de pantoufle, qui montent et descendent depuis un mois. Le lierre a passé par les meurtrières, et ses tiges noires pendent à l'intérieur comme des cheveux.",
+    "Tu montes. Quatre-vingt-dix marches. Au sommet, une trappe ouverte, et une lumière étrange, mouvante, colorée, comme une lanterne magique dans une chapelle."
+   ],
+   "choices": [
+    {
+     "label": "Passer la trappe",
+     "to": "S_chambre_noire"
+    }
+   ]
+  },
+  "S_melie": {
+   "act": "II",
+   "title": "La soupe de deux heures",
+   "place": "jardin",
+   "second": true,
+   "fx": {
+    "meet": [
+     "melie"
+    ]
+   },
+   "text": [
+    "Deux heures. Tu attends derrière le même buis, sous la même pluie. La petite porte du fond grince à l'heure dite. La femme au châle gris entre, avec son panier qui fume, traverse le jardin sans lumière, et s'arrête au pied de la tour. Elle lève la tête. Elle siffle trois notes.",
+    "Cette fois, tu regardes en haut au lieu de la regarder, elle. Tout en haut de la tour, la lentille ronde pivote d'un cran, et à côté d'elle, une petite trappe s'ouvre dans l'ardoise. Une corde descend, avec un crochet. Mélie Vasseur y suspend son panier. La corde remonte. La trappe se ferme."
+   ],
+   "choices": [
+    {
+     "label": "Lui dire que tu sais pour qui est la soupe",
+     "hide": {
+      "seen": "S_melie_sait"
+     },
+     "to": "S_melie_sait"
+    },
+    {
+     "back": "A_jardin"
+    }
+   ]
+  },
+  "S_melie_sait": {
+   "act": "II",
+   "title": "Mélie",
+   "place": "jardin",
+   "second": true,
+   "text": [
+    "Tu sors de derrière le buis. Elle se retourne d'un bloc, la main dans son tablier, où brille quelque chose de court et de pointu, un scalpel de préparatrice. Tu lui dis, doucement, que tu sais qui mange la soupe, et que tu ne diras rien à personne qui ne doive le savoir.",
+    "Elle te regarde longtemps, la pluie ruisselant sur sa cicatrice. « Trente ans, dit-elle enfin. Trente ans que je lui empaille ses bêtes, que je lui cire ses parquets, que je lui supporte ses idées. Il m'a dit, il y a un mois : Mélie, je vais mourir un peu, pour voir. Je lui ai dit qu'il était fou. Il m'a dit que c'était bien possible. »",
+    "Elle écarte le lierre au pied de la tour. Derrière, une petite porte de fer, rongée, invisible du jardin. Elle sort une clef de son corsage. « Montez. Il vous attend sans doute. Il attend tout le monde, et personne ne vient. » Elle ajoute, plus bas : « Méfiez-vous de lui. Il est méchant comme un enfant, et il a toujours raison. C'est épuisant. »"
+   ],
+   "choices": [
+    {
+     "label": "Monter à la tour par la porte du lierre",
+     "fx": {
+      "flag": "tour:ouverte"
+     },
+     "to": "S_escalier"
+    },
+    {
+     "label": "La retenir encore un instant",
+     "hide": {
+      "seen": "S_melie_tour"
+     },
+     "to": "S_melie_tour"
+    },
+    {
+     "back": "A_jardin"
+    }
+   ]
+  },
+  "S_chambre_noire": {
+   "act": "II",
+   "title": "La chambre noire",
+   "place": "tour",
+   "second": true,
+   "hub": true,
+   "backName": "la chambre noire",
+   "fx": {
+    "flag": "orsenne:vivant",
+    "meet": [
+     "hippolyte"
+    ],
+    "ep": [
+     "histoire",
+     500
+    ]
+   },
+   "text": [
+    {
+     "first": true,
+     "text": "La chambre au sommet de la tour est ronde, sans fenêtre, plongée dans le noir, sauf au centre, où une grande table blanche, ronde comme une meule, reçoit d'en haut, par la lentille du toit et un miroir incliné, une image vivante de la ville. Toute la rue des Antiquaires est là, sur la table, en couleurs, minuscule et parfaite : les pavés mouillés qui luisent sous les réverbères, une voiture qui passe sans bruit, un chat qui traverse, un ivrogne qui s'appuie à une borne. Le monde entier, posé sur une nappe, comme un plat servi à un ogre."
+    },
+    {
+     "first": true,
+     "text": "Penché sur la table, en robe de chambre de velours vert, un vieillard long et maigre regarde la ville avec une loupe, en mangeant la soupe de Mélie dans le pot même. Il a une barbe blanche, de longs cheveux blancs, des mains tachées qui ne tremblent pas. Il lève les yeux vers toi, et ses yeux gris, très pâles, ont l'éclat amusé et cruel d'un enfant qui vient de faire tomber un ours sur un gardien."
+    },
+    {
+     "first": true,
+     "text": "« Hippolyte Orsenne, dit-il. Décédé. Asseyez-vous. Il n'y a qu'une chaise : prenez-la, les morts ont de bonnes jambes. »"
+    },
+    {
+     "again": true,
+     "text": "La chambre noire, la ville minuscule sur la table blanche, et le vieil Orsenne penché dessus avec sa loupe."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Lui demander pourquoi il a fait le mort",
+     "hide": {
+      "seen": "S_pourquoi"
+     },
+     "to": "S_pourquoi"
+    },
+    {
+     "label": "Lui demander comment il fait écrire la Sibylle",
+     "hide": {
+      "seen": "S_sibylle_secret"
+     },
+     "to": "S_sibylle_secret"
+    },
+    {
+     "label": "Lui parler de son neveu et de la Larme",
+     "hide": {
+      "seen": "S_neveu"
+     },
+     "to": "S_neveu"
+    },
+    {
+     "label": "Lui parler de la rose blanche, sous le portrait",
+     "if": {
+      "seen": "A_portrait"
+     },
+     "hide": {
+      "seen": "S_pauline"
+     },
+     "to": "S_pauline"
+    },
+    {
+     "label": "Lui raconter qui tu es",
+     "hide": {
+      "seen": "S_gardien"
+     },
+     "to": "S_gardien"
+    },
+    {
+     "label": "Lui demander l'histoire de la Larme",
+     "hide": {
+      "seen": "S_larme_histoire"
+     },
+     "to": "S_larme_histoire"
+    },
+    {
+     "label": "Regarder la ville sur la table blanche",
+     "hide": {
+      "seen": "S_table_ville"
+     },
+     "to": "S_table_ville"
+    },
+    {
+     "label": "Ranger les quatre pièces de sa vie",
+     "if": {
+      "seen": "S_pourquoi"
+     },
+     "hide": {
+      "has": "orsenne:confiance"
+     },
+     "to": "S_pieces"
+    },
+    {
+     "label": "Le convaincre de descendre à six heures, devant tout le monde",
+     "if": {
+      "has": "orsenne:confiance"
+     },
+     "hide": {
+      "any": [
+       {
+        "has": "orsenne:parait"
+       },
+       {
+        "has": "orsenne:part"
+       }
+      ]
+     },
+     "fx": {
+      "flag": "orsenne:parait"
+     },
+     "to": "S_parait"
+    },
+    {
+     "label": "L'aider à partir avant l'aube, avec Mélie et ses quatre pièces",
+     "if": {
+      "has": "orsenne:confiance"
+     },
+     "hide": {
+      "any": [
+       {
+        "has": "orsenne:parait"
+       },
+       {
+        "has": "orsenne:part"
+       }
+      ]
+     },
+     "fx": {
+      "flag": "orsenne:part"
+     },
+     "to": "S_part"
+    },
+    {
+     "back": "A_loge"
+    }
+   ]
+  },
+  "S_pourquoi": {
+   "act": "II",
+   "title": "Pourquoi mourir",
+   "place": "tour",
+   "second": true,
+   "text": [
+    "Orsenne pose sa loupe. « Pourquoi ? Par curiosité. C'est le seul vice que je me sois jamais connu, et il m'a coûté une fortune, une épouse et une réputation. » Il sourit. « J'ai soixante-dix-huit ans. J'ai un cœur qui s'arrête quand il veut et qui repart par politesse. J'ai voulu savoir ce que deviendrait ma collection après moi. Alors j'ai acheté un médecin, un cercueil, et trois sacs de sable de rivière. On les a enterrés le seize octobre, avec beaucoup d'émotion. J'ai regardé le cortège passer sur cette table. J'avais le meilleur point de vue de la ville. »",
+    "« Ce que j'ai vu ? Mon neveu a vendu ma cave le lendemain, ma voiture le surlendemain, Mélie le troisième jour, et il a fait venir Pigache le quatrième. Il ne m'a pas surpris. Personne ne m'a surpris, en un mois. Sauf vous, ce soir. »",
+    "Il fait tourner sa loupe entre ses doigts. « Douze cent quarante-sept lots. Je m'en moque, de presque tous. Ce sont des choses. Il y en a quatre qui sont ma vie. La dent de narval que mon père m'a rapportée de Dieppe, l'été de mes sept ans, quand j'ai vu la mer pour la première fois. La balle de plomb qui m'a manqué de l'épaisseur d'un ongle, à vingt ans, à la guerre, et que j'ai ramassée dans la boue. L'oiseau d'argent qui chante, que j'ai offert à Pauline le jour de nos noces, j'en avais trente. Et le sablier de Mnémosyne, que j'ai acheté le lendemain de sa mort, vingt ans plus tard, parce qu'il promettait de rendre les nuits. » Il hausse les épaules. « Il n'en a jamais rendu aucune. Mais on ne sait jamais. »"
+   ],
+   "choices": [
+    {
+     "back": "S_chambre_noire"
+    }
+   ]
+  },
+  "S_sibylle_secret": {
+   "act": "II",
+   "title": "Les tringles",
+   "place": "tour",
+   "second": true,
+   "text": [
+    "Orsenne soulève un tapis. Dans le plancher, une trappe, et sous la trappe, un puits étroit où descendent trois tringles d'acier et un tube de cuivre. Au bout des tringles, en haut, une manivelle, une pédale, un levier gradué, et un pupitre où est posée une feuille d'exercice couverte d'encre violette.",
+    "« La Sibylle de Jaquet écrit trois réponses, gravées sur son cylindre, toujours les mêmes, des fadaises pour les dames, dit-il. Je l'ai désaccouplée de son cylindre il y a dix ans, et je l'ai raccordée à ma main. J'écris ici ; elle écrit en bas. Il m'a fallu deux ans pour qu'elle copie mon écriture sans trembler. » Il fait jouer le levier. « J'ai les mains d'un horloger et le cœur d'un farceur. Ma femme disait que c'était un mélange explosif. Elle avait raison. Elle avait toujours raison. »",
+    "« Et l'ours ? » demandes-tu. Il a l'air ravi. « Une cordelette de soie, une poulie, et la patience de Mélie. Il fallait bien vous occuper à trois heures. Je voulais voir si vous resteriez à la Sibylle, ou si vous courriez au bruit. Vous avez couru, la première fois. » Il te regarde de côté. « La première fois ? Tiens. Pourquoi ai-je dit ça ? »"
+   ],
+   "choices": [
+    {
+     "back": "S_chambre_noire"
+    }
+   ]
+  },
+  "S_neveu": {
+   "act": "II",
+   "title": "Le neveu",
+   "place": "tour",
+   "second": true,
+   "text": [
+    "Tu lui racontes ce que tu sais : le restaurateur de la cave, les copies, l'œil de verre, la flasque, la substitution de trois heures, l'assurance du Phénix, l'accusation de six heures. Orsenne écoute sans t'interrompre, la loupe immobile, et son visage ne bouge qu'une fois, au mot *Phénix*.",
+    "« Quatre-vingt mille écus, dit-il. Il fait voler la pierre, il fait condamner le gardien, il touche l'assurance, et il vend la Larme à un diamantaire d'Anvers qui la fera retailler en trois pierres que personne ne reconnaîtra. » Il repose la loupe. « C'est intelligent. C'est la première chose intelligente que mon neveu ait faite de sa vie. Je suis presque fier. »",
+    "Puis, plus bas, sans ironie : « La Larme, je m'en moque. C'est un caillou qui a coûté trois vies avant d'arriver chez moi. Mais vous, on vous mettrait en prison pour un caillou. Cela, je ne l'avais pas prévu. Je prévois mal les gens, depuis que je n'en vois plus. »"
+   ],
+   "choices": [
+    {
+     "back": "S_chambre_noire"
+    }
+   ]
+  },
+  "S_pieces": {
+   "act": "II",
+   "title": "Les quatre pièces",
+   "place": "tour",
+   "second": true,
+   "puzzle": "s_vie",
+   "text": [
+    "Orsenne ouvre un coffre au pied de son lit de camp. Dedans, emballées dans de la paille, les pièces qu'on cherchera demain : la dent de narval, l'oiseau d'argent, la balle de plomb. Il y ajoute, en le désignant du menton vers la trappe, *le sablier, en bas, dans la galerie, qu'on ne peut pas monter par l'escalier, hélas, il est trop grand*. Il pose sur la table blanche, sur la rue des Antiquaires minuscule, quatre petites cartes où il a dessiné chaque objet."
+   ],
+   "choices": [
+    {
+     "back": "S_chambre_noire"
+    }
+   ]
+  },
+  "S_vie_rangee": {
+   "act": "II",
+   "title": "Rangée",
+   "place": "tour",
+   "second": true,
+   "text": [
+    "La dent, la balle, l'oiseau, le sablier. La mer, la guerre, Pauline, et l'absence de Pauline. Orsenne regarde les quatre cartes en ligne sur la ville, longtemps, et il hoche la tête.",
+    "« C'est cela, dit-il. Vous rangez mieux que moi. Moi, je les mets toujours dans le même ordre, mais je ne m'en souviens qu'en les touchant. » Il rassemble les cartes. « Bon. Je vous fais confiance. C'est très désagréable, je n'en ai plus l'habitude. Que voulez-vous que je fasse de ma mort ? »"
+   ],
+   "choices": [
+    {
+     "back": "S_chambre_noire"
+    }
+   ]
+  },
+  "S_parait": {
+   "act": "II",
+   "title": "Ressusciter",
+   "place": "tour",
+   "second": true,
+   "text": [
+    "Tu lui dis : descendez. À six heures, quand ils seront tous dans la salle des automates, le neveu, le priseur, l'assureur et le commissaire, descendez l'escalier en robe de chambre, et dites bonjour.",
+    "Orsenne te regarde avec une stupeur qui se change lentement en délice, comme un enfant à qui l'on propose de mettre le feu à l'école. « Ressusciter, dit-il. Devant un commissaire. Devant mon neveu. Devant la Compagnie du Phénix. » Il se frotte les mains, des mains qui ne tremblent pas. « C'est la plus belle idée qu'on m'ait proposée depuis la mort de ma femme. Allez. Je descends à six heures. Je mettrai mes pantoufles brodées. »"
+   ],
+   "choices": [
+    {
+     "back": "S_chambre_noire"
+    }
+   ]
+  },
+  "S_part": {
+   "act": "II",
+   "title": "Partir",
+   "place": "tour",
+   "second": true,
+   "text": [
+    "Tu lui dis : partez. Avec Mélie, avec vos quatre pièces, ce soir, par la porte du lierre. Restez mort. Allez voir la mer.",
+    "Orsenne se tait longtemps. Puis il fait signe que oui. « Mort, dit-il. C'est reposant, à la réflexion. On ne vous demande plus rien. » Vous descendez ensemble, à trois, par l'escalier de la tour, le coffre de paille entre vous, jusqu'à une charrette de maraîcher qui attend dans la ruelle, sous une bâche, avec un cheval qui dort debout.",
+    "Avant de monter, le vieil homme te prend la main. Il y glisse une petite chose ronde et froide : la balle de plomb, sur son épingle. « Elle m'a manqué. Qu'elle vous manque aussi. » Puis il monte à côté de Mélie, et la charrette s'en va sous la pluie, sans lanterne, vers la porte de la mer."
+   ],
+   "choices": [
+    {
+     "back": "A_jardin"
+    }
+   ]
+  },
+  "S_billet_gobe": {
+   "act": "II",
+   "title": "Le billet de l'établi",
+   "place": "reserve",
+   "second": true,
+   "text": [
+    "Pendant que Gobe te tourne le dos, penché sur l'œil de verre bleu, tu fais glisser un billet plié qui dépasse sous un moule de plâtre. Une écriture élégante, pressée, que tu as vue sur une étiquette de cuir : *A. O.*",
+    "*3 h. 12 · 1 · 18 · 13 · 5. La Sibylle. Ne pas réveiller le gardien s'il dort ; s'il ne dort pas, il dormira. — A.*"
+   ],
+   "choices": [
+    {
+     "label": "Déchiffrer le billet",
+     "hide": {
+      "has": "enigme:s_note"
+     },
+     "to": "S_note"
+    },
+    {
+     "back": "A_reserve"
+    }
+   ]
+  },
+  "S_note": {
+   "act": "II",
+   "title": "Les cinq nombres",
+   "place": "reserve",
+   "second": true,
+   "puzzle": "s_note",
+   "text": [
+    "Tu comptes sur tes doigts, à la lueur de la lampe de Gobe."
+   ],
+   "choices": [
+    {
+     "back": "A_reserve"
+    }
+   ]
+  },
+  "S_note_lue": {
+   "act": "II",
+   "title": "Larme",
+   "place": "reserve",
+   "second": true,
+   "text": [
+    "*Larme.* À trois heures, la Larme. La Sibylle. *Ne pas réveiller le gardien s'il dort ; s'il ne dort pas, il dormira.* La flasque de prune, sur la table de ta loge, avec son goût fade de tilleul au fond. Et la signature d'Aristide Orsenne, l'héritier, le neveu, qui vole sa propre pierre.",
+    "Gobe s'est retourné. Il a vu le billet dans ta main. Sa lime tremble."
+   ],
+   "choices": [
+    {
+     "back": "A_reserve"
+    }
+   ]
+  },
+  "S_gobe_accord": {
+   "act": "II",
+   "title": "Le marché",
+   "place": "reserve",
+   "second": true,
+   "text": [
+    "Tu lui parles à voix basse, sans le menacer : la police d'assurance, quatre-vingt mille écus, la Compagnie du Phénix, qui a des avocats et la mémoire longue ; le neveu, qui aura besoin d'un coupable si le gardien en réchappe, et qui a sous la main un faussaire de génie dont personne ne connaît le nom.",
+    "Gobe ôte sa loupe. Ses yeux nus sont petits, verts, et très fatigués. « Il me paie trois cents écus, dit-il. J'en dois deux cents. Je fais des copies parce que personne ne veut acheter mes originaux. » Il se mouche. « À trois heures, je ferai l'échange. Et je vous donnerai la vraie, à vous, dans votre main. Et à six heures, je dirai la vérité au monsieur du Phénix, si vous me jurez qu'il me laissera repartir. » Il remet sa loupe. « Je suis lâche, mais je suis honnête dans ma lâcheté. »"
+   ],
+   "choices": [
+    {
+     "back": "A_reserve"
+    }
+   ]
+  },
+  "S_gobe_refus": {
+   "act": "II",
+   "title": "Pas de marché",
+   "place": "reserve",
+   "second": true,
+   "text": [
+    "Gobe t'écoute, la loupe à l'œil, et secoue la tête. « Vous êtes un gardien. Lui, c'est un héritier. Entre un gardien et un héritier, Monsieur, la justice ne choisit jamais longtemps. » Il retourne à son œil de verre. « Allez faire votre ronde. Et ne buvez rien. »"
+   ],
+   "choices": [
+    {
+     "back": "A_reserve"
+    }
+   ]
+  },
+  "S_coffre": {
+   "act": "II",
+   "title": "Le coffre d'Aristide",
+   "place": "bibliotheque",
+   "second": true,
+   "puzzle": "s_coffre",
+   "text": [
+    "Tu écartes les in-folio de Buffon. Le coffre neuf est là, avec son mot gravé. *Délivrance.* Tu penses à ce qui, pour un neveu criblé de dettes, a été une délivrance, et à la date où elle a eu lieu."
+   ],
+   "choices": [
+    {
+     "back": "A_bibliotheque"
+    }
+   ]
+  },
+  "S_coffre_ouvert": {
+   "act": "II",
+   "title": "Les papiers du neveu",
+   "place": "bibliotheque",
+   "second": true,
+   "text": [
+    "Le couvercle se soulève. Dedans, une liasse de billets de banque, un passeport pour la Belgique au nom d'Aristide Orsenne, un billet de diligence pour Anvers, départ demain à midi. Et deux papiers, que tu déplies sous ta lanterne.",
+    "Le premier est la police de la Compagnie du Phénix : *la Larme de Golconde, assurée contre le vol pour quatre-vingt mille écus, au bénéfice de Monsieur Aristide Orsenne, souscrite le 17 octobre.* Le lendemain de l'enterrement.",
+    "Le second est une lettre, en français d'étranger, sur papier à en-tête d'un diamantaire d'Anvers : *Monsieur, je recevrai la pierre que vous savez le 24. Elle sera retaillée en trois dans la semaine. Personne ne la reconnaîtra plus jamais, pas même sa mère.*"
+   ],
+   "choices": [
+    {
+     "back": "A_bibliotheque"
+    }
+   ]
+  },
+  "S_trois": {
+   "act": "II",
+   "title": "Trois heures, derrière l'horloge",
+   "place": "automates",
+   "second": true,
+   "text": [
+    {
+     "if": {
+      "has": "flasque:bue"
+     },
+     "text": "Tu t'installes derrière l'horloge astronomique, dans l'ombre, et tu attends. La prune d'Aristide te chauffe la poitrine. Tes paupières pèsent. Tu luttes. Tu perds. Quand tu rouvres les yeux, l'horloge de Saint-Eustache sonne la demie, et la Sibylle te regarde de deux yeux qui ne sont plus les mêmes."
+    },
+    {
+     "if": {
+      "not": {
+       "has": "flasque:bue"
+      }
+     },
+     "text": "Tu t'installes derrière l'horloge astronomique, dans l'ombre, la lanterne fermée. Trois heures sonnent à Saint-Eustache. Au même instant, dans la galerie, un fracas énorme : l'ours tombe. Tu ne bouges pas. Tu sais ce qui tombe, et pourquoi."
+    },
+    {
+     "if": {
+      "not": {
+       "has": "flasque:bue"
+      }
+     },
+     "text": "Une minute plus tard, la porte de la salle s'entrouvre. Un petit homme pâle entre sans lumière, une loupe vissée à l'œil, un écrin de velours à la main. Fortuné Gobe. Il monte sur l'estrade, sort de sa manche une pince d'orfèvre, et se penche sur le visage de la Sibylle avec la tendresse d'un chirurgien."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Le laisser faire l'échange, comme convenu",
+     "if": {
+      "all": [
+       {
+        "has": "gobe:temoin"
+       },
+       {
+        "not": {
+         "has": "flasque:bue"
+        }
+       }
+      ]
+     },
+     "hide": {
+      "item": "larme"
+     },
+     "fx": {
+      "item": "larme"
+     },
+     "to": "S_trois_accord"
+    },
+    {
+     "label": "Le saisir au poignet",
+     "if": {
+      "all": [
+       {
+        "not": {
+         "has": "gobe:temoin"
+        }
+       },
+       {
+        "not": {
+         "has": "flasque:bue"
+        }
+       }
+      ]
+     },
+     "hide": {
+      "any": [
+       {
+        "item": "larme"
+       },
+       {
+        "has": "gobe:fui"
+       }
+      ]
+     },
+     "test": {
+      "dom": "combat",
+      "diff": 0,
+      "label": "Combat"
+     },
+     "win": {
+      "fx": {
+       "item": "larme",
+       "flag": "gobe:pris"
+      },
+      "to": "S_trois_pris"
+     },
+     "lose": {
+      "fx": {
+       "flag": "gobe:fui"
+      },
+      "to": "S_trois_fui"
+     }
+    },
+    {
+     "label": "Courir à la Sibylle",
+     "if": {
+      "has": "flasque:bue"
+     },
+     "hide": {
+      "has": "gobe:fui"
+     },
+     "fx": {
+      "flag": "gobe:fui"
+     },
+     "to": "S_trois_fui"
+    },
+    {
+     "back": "A_automates"
+    }
+   ]
+  },
+  "S_trois_accord": {
+   "act": "II",
+   "title": "Dans ta main",
+   "place": "automates",
+   "second": true,
+   "text": [
+    "Gobe travaille deux minutes, sans un bruit. Le diamant sort de l'orbite de porcelaine avec un petit soupir de cire. Le verre bleu y entre. Gobe descend de l'estrade, vient à l'horloge sans hésiter, comme s'il avait toujours su que tu étais derrière, et dépose dans ta main la Larme de Golconde.",
+    "Elle est froide, lourde, plus lourde qu'une pierre de cette taille. Tu la regardes à la lueur de ta lanterne entrouverte, et tu comprends ce que voulait dire Orsenne : au fond, très loin, il y a de la lumière bleue, et la lumière bleue a l'air de te regarder avec une indifférence absolue. « Trois vies, chuchote Gobe. On dit qu'elle a coûté trois vies. Moi, je ne veux pas être la quatrième. » Il s'en va."
+   ],
+   "choices": [
+    {
+     "back": "A_automates"
+    }
+   ]
+  },
+  "S_trois_pris": {
+   "act": "II",
+   "title": "La main dans le sac",
+   "place": "automates",
+   "second": true,
+   "text": [
+    "Tu bondis de derrière l'horloge au moment où le diamant sort de l'orbite. Ta main se referme sur le poignet de Gobe comme un étau. Il pousse un petit cri d'oiseau, lâche la pince, et la Larme roule sur le velours de l'estrade, roule, roule, et tu la rattrapes au bord, du bout des doigts.",
+    "Gobe se laisse attacher à la chaise de la loge avec la cordelette de soie de l'ours, sans résister, en pleurant un peu. « C'est lui, répète-t-il. C'est toujours lui. Moi, je copie. »"
+   ],
+   "choices": [
+    {
+     "back": "A_automates"
+    }
+   ]
+  },
+  "S_trois_fui": {
+   "act": "II",
+   "title": "L'œil de verre",
+   "place": "automates",
+   "second": true,
+   "text": [
+    "Trop tard. La Sibylle te regarde d'un œil bleu qui ne t'avale plus : il te renvoie ta lanterne, poliment, comme un œil de verre. Une porte claque en bas, vers le jardin. Des pas qui courent dans l'allée. La petite porte du fond qui grince, puis la ruelle, puis plus rien.",
+    "La Larme de Golconde est partie pour Anvers dans la poche d'un faussaire, et la nuit, cette fois encore, se referme sur toi comme un piège bien huilé."
+   ],
+   "choices": [
+    {
+     "back": "A_automates"
+    }
+   ]
+  },
+  "F_cabinet": {
+   "act": "II",
+   "title": "Le cabinet Orsenne",
+   "place": "automates",
+   "end": true,
+   "second": true,
+   "fx": {
+    "flag": "fin:cabinet",
+    "meet": [
+     "quatremain",
+     "bejot"
+    ]
+   },
+   "text": [
+    "À six heures, la grille grince. Ils arrivent tous ensemble, dans le petit jour sale : Pigache, Aristide, Monsieur Quatremain et son lorgnon, le commissaire Béjot et son écharpe. Tu les attends dans la salle des automates, debout à côté de la Sibylle, comme un huissier de cour.",
+    "Monsieur Quatremain se penche sur l'œil gauche, avec sa loupe, sa lampe, son flacon. Il se redresse, très pâle. « Verre, dit-il. Très bon verre. Mais verre. » Aristide Orsenne se tourne vers toi avec la même tristesse sincère que la première fois. « Vous aviez toutes les clefs. Commissaire, je suis désolé. »",
+    {
+     "if": {
+      "has": "larme:rendue"
+     },
+     "text": "Tu ouvres la main. La Larme de Golconde est dans ta paume, et la lumière grise du matin s'y enfonce, s'y perd, et revient bleue. Monsieur Quatremain la prend avec deux doigts, la regarde à la loupe, et la remet dans l'orbite de la Sibylle. Elle y entre exactement. « Le gardien a la pierre, dit-il lentement. Le gardien a la pierre, et la pierre était remplacée. Monsieur Orsenne, qui a remplacé votre pierre ? »"
+    },
+    {
+     "if": {
+      "has": "gobe:temoin"
+     },
+     "text": "Fortuné Gobe monte de la cave, sa loupe à la main, et raconte tout, d'une voix blanche, sans regarder Aristide : les copies, les trois cents écus, le billet de trois heures, la flasque. Monsieur Quatremain écrit tout, sans un mot, avec une petite plume d'acier."
+    },
+    {
+     "if": {
+      "has": "gobe:pris"
+     },
+     "text": "Tu fais monter Gobe de la loge, attaché à sa chaise. Il pleure, il renifle, et il désigne Aristide d'un menton tremblant avant même qu'on lui pose la question."
+    },
+    {
+     "if": {
+      "has": "gobe:fui"
+     },
+     "text": "Le faussaire est loin, avec la vraie pierre. Il ne reste de lui, dans la cave, qu'un établi propre et une porte de fer ouverte."
+    },
+    {
+     "if": {
+      "has": "preuve:aristide"
+     },
+     "text": "Tu poses sur le secrétaire de la Sibylle la police du Phénix, souscrite le lendemain de l'enterrement, et la lettre du diamantaire d'Anvers. *Personne ne la reconnaîtra plus jamais, pas même sa mère.* Monsieur Quatremain lit, relit, et se tourne vers le commissaire. Le commissaire Béjot soupire comme un homme dont la journée vient de se compliquer, et se tourne vers Aristide Orsenne."
+    },
+    {
+     "if": {
+      "has": "orsenne:parait"
+     },
+     "text": "C'est alors qu'un pas descend l'escalier. Un pas lent, glissé, un pas de pantoufle. Tout le monde se retourne. Sur le seuil de la salle ronde paraît un vieillard long et maigre, en robe de chambre de velours vert et pantoufles brodées d'or, la barbe peignée, qui salue la compagnie d'une inclination de tête. Pigache laisse tomber son marteau. Le commissaire fait un signe de croix. Aristide Orsenne devient de la couleur exacte de la Sibylle. « Bonjour, mon neveu, dit Hippolyte Orsenne. Je vois que tu as pris soin de mes affaires. »"
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "orsenne:parait"
+       },
+       {
+        "has": "larme:rendue"
+       }
+      ]
+     },
+     "text": "« La vente est annulée, dit le vieil homme à Pigache, pour cause de résurrection du propriétaire. Je vous dois une commission. Je vous la paierai avec la plus grande lenteur. » Puis il se tourne vers toi, et devant tout le monde, il te tend la main. « Merci d'avoir gardé ma maison. Vous êtes la première personne en un mois qui ait regardé mes choses comme si elles valaient quelque chose. »"
+    },
+    {
+     "if": {
+      "has": "orsenne:part"
+     },
+     "text": "Dans la galerie, Pigache compte les lots, et trouve qu'il en manque trois : un oiseau d'argent, une dent de narval, une balle de plomb sur une épingle. Il te regarde. Tu ne dis rien. Tu as dans ta poche une balle de plomb, sur une épingle, qui ne t'a pas manqué. Quelque part sur la route de la mer, une charrette de maraîcher roule sous la pluie, avec un mort et une préparatrice qui se disputent sur l'itinéraire."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "not": {
+         "has": "orsenne:vivant"
+        }
+       }
+      ]
+     },
+     "text": "Au-dessus de la coupole peinte, un pas glisse, s'arrête, revient. Personne ne l'entend, sauf toi. L'homme de la tour est resté un plafond au-dessus de toi, cette fois encore. Tu as gardé la maison sans savoir pour qui."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "not": {
+         "has": "larme:rendue"
+        }
+       },
+       {
+        "not": {
+         "has": "preuve:aristide"
+        }
+       },
+       {
+        "not": {
+         "has": "orsenne:parait"
+        }
+       }
+      ]
+     },
+     "text": "Tu as su, cette nuit, ce qui allait arriver, et tu n'as pas pu l'empêcher. On te passe les menottes une seconde fois, dans la même salle, devant les mêmes automates. Mais en traversant la galerie, tu détournes les yeux du sablier. Il a rendu ce qu'il pouvait rendre."
+    },
+    {
+     "if": {
+      "any": [
+       {
+        "has": "larme:rendue"
+       },
+       {
+        "has": "preuve:aristide"
+       },
+       {
+        "has": "orsenne:parait"
+       }
+      ]
+     },
+     "text": "Ce sont les poignets d'Aristide Orsenne qui reçoivent les menottes, dans la salle ronde, sous le ciel peint, devant les automates figés qui ont tout vu. Il ne proteste pas. Il regarde sa montre, une dernière fois, comme pour savoir à quelle heure exactement sa délivrance l'a quitté."
+    },
+    "Tu redescends dans la galerie, seul{e}, dans la lumière du matin. Le grand sablier de Mnémosyne est sur sa colonne, entre le crocodile et l'ours, et tout son sable dort dans le bulbe du bas. Tu poses la main sur le verre. Il est froid, cette fois. Il a rendu une nuit. Il n'en rendra pas d'autre."
+   ]
+  },
+  "A_registre": {
+   "act": "I",
+   "title": "Le registre",
+   "place": "loge",
+   "text": [
+    "Le registre de garde est un gros cahier relié de toile noire, dont les pages, du temps où la maison avait un concierge, portent des colonnes à l'encre brune : l'heure, la ronde, *rien à signaler*. Des centaines de *rien à signaler*, d'une écriture de plus en plus tremblante, sur des années. Puis, le 13 octobre, en travers de la page, d'une autre main : *Monsieur est mort à trois heures dix-sept.* Et plus rien.",
+    {
+     "second": false,
+     "text": "Tu trempes la plume et tu écris la date, l'heure, et ton nom. Ta ligne a l'air bien seule au bas de cette colonne de silences."
+    },
+    {
+     "second": true,
+     "text": "Tu trempes la plume, et tu restes la main en l'air. Il y a une heure, tu as écrit ton nom sur cette ligne. Elle est vierge. Tu écris ton nom une seconde fois, et ton écriture te paraît plus assurée que la première, ce qui est absurde, puisque la première n'a jamais existé."
+    }
+   ],
+   "choices": [
+    {
+     "back": "A_loge"
+    }
+   ]
+  },
+  "A_cuisine": {
+   "act": "I",
+   "title": "La cuisine",
+   "place": "loge",
+   "text": [
+    "La cuisine est au bout d'un couloir de service, sous l'escalier : une grande pièce voûtée, carrelée de rouge, où les casseroles de cuivre pendent en rang comme des cloches muettes. Tout est froid, propre, rangé avec une rigueur de veuve. Le neveu a vendu la cuisinière avec la cave.",
+    "Mais sur le carrelage, près du fourneau éteint, une écuelle de terre est pleine de lait frais. Et sur le rebord de la fenêtre, un gros chat noir, aux yeux jaunes, te regarde entrer avec le mépris tranquille d'un propriétaire.",
+    "Il descend du rebord, vient sentir tes bottes, décide que tu es acceptable, et te suit quand tu sors, la queue en l'air, comme un sergent de ville."
+   ],
+   "choices": [
+    {
+     "back": "A_loge"
+    }
+   ]
+  },
+  "A_pierres": {
+   "act": "I",
+   "title": "Les pierres qui brillent",
+   "place": "galerie",
+   "text": [
+    "Une vitrine basse, tout au bout de la galerie, contient des pierres. Tu baisses ta lanterne pour mieux voir, et tu la refermes par inadvertance. Dans le noir complet, la vitrine s'allume.",
+    "Une à une, les pierres se mettent à luire d'elles-mêmes, d'une lumière froide, sans chaleur, sans source, verte, violette, orangée, comme des braises de l'autre monde. Une pierre de Bologne brille comme un œil de chat. Une fluorine a la couleur d'un noyé. Un morceau de craie de Bretagne luit d'un blanc de lune. Tu restes dans le noir, devant ces lumières mortes qui n'éclairent rien, et tu as pour la première fois de la nuit l'impression d'être regardé{e} par la maison elle-même.",
+    {
+     "if": {
+      "voie": "etudiant"
+     },
+     "text": "Tu as lu, à la faculté, que ces pierres gardent la lumière du jour et la rendent la nuit, peu à peu, comme un souvenir qui s'efface. Ton professeur disait que c'était de la physique. Tu n'en es plus si sûr{e}."
+    }
+   ],
+   "choices": [
+    {
+     "back": "A_galerie"
+    }
+   ]
+  },
+  "A_ours_corde": {
+   "act": "II",
+   "title": "La cordelette de l'ours",
+   "place": "galerie",
+   "second": true,
+   "text": [
+    "Tu te glisses derrière l'ours, ta lanterne entre les dents. Une cordelette de soie noire, fine comme un cheveu, part de sa patte de derrière, court le long du mur dans la moulure, monte vers le plafond, passe dans une poulie de cuivre cachée derrière la chaîne du crocodile, et disparaît dans un trou du plâtre, vers le haut. Vers la tour.",
+    "Tu pourrais la couper. L'ours ne tomberait pas à trois heures. Tu la regardes longtemps, puis tu la laisses. Si l'ours ne tombe pas, quelqu'un, là-haut, saura que la nuit a changé. Mieux vaut que la nuit ait l'air de se répéter."
+   ],
+   "choices": [
+    {
+     "back": "A_galerie"
+    }
+   ]
+  },
+  "A_tympanon": {
+   "act": "I",
+   "title": "Le joueur de tympanon",
+   "place": "automates",
+   "text": [
+    "Le joueur de tympanon est une petite dame de cire en robe de cour, assise devant un instrument à cordes qu'elle frappe avec deux baguettes. Une clef d'acier dépasse de son socle. *Ne toucher à rien.* Tu touches. Tu donnes trois tours de clef.",
+    "La petite dame lève la tête. Ses yeux de verre roulent vers toi. Ses bras se soulèvent, et les baguettes se mettent à frapper les cordes, et une musique s'élève dans la salle ronde, fine, grêle, une gavotte de cour d'il y a cent ans, si gaie et si triste à la fois que les automates autour, dans le noir, semblent écouter.",
+    "La gavotte s'arrête au milieu d'une mesure. La petite dame baisse la tête. Dans le silence revenu, il te semble entendre, très loin au-dessus de la coupole, deux mains qui applaudissent, deux fois, lentement."
+   ],
+   "choices": [
+    {
+     "back": "A_automates"
+    }
+   ]
+  },
+  "A_magicien": {
+   "act": "I",
+   "title": "Le magicien aux gobelets",
+   "place": "automates",
+   "text": [
+    "Le magicien est un petit homme de bois peint, à longue barbe, coiffé d'un bonnet pointu semé d'étoiles, devant une table où sont posés trois gobelets de cuivre. Sa main droite est levée au-dessus du gobelet du milieu, prête à le soulever. On lui a fait faire ce geste dix mille fois devant des dames, et il a gardé l'air de quelqu'un qui en sait plus long qu'il ne veut le dire.",
+    "Tu soulèves le gobelet du milieu. Dessous, rien. Celui de gauche : rien. Celui de droite : un petit papier roulé, où l'on a écrit, d'une écriture penchée, à l'encre violette : *Bien essayé.*"
+   ],
+   "choices": [
+    {
+     "back": "A_automates"
+    }
+   ]
+  },
+  "A_portrait": {
+   "act": "I",
+   "title": "Le portrait de Pauline",
+   "place": "bibliotheque",
+   "text": [
+    "Au-dessus du grand bureau, un portrait de femme dans un ovale doré : jeune, brune, en robe de mousseline, un oiseau d'argent posé sur le doigt comme un vrai. Elle regarde l'oiseau, et pas le peintre, avec une expression d'amusement si vivante qu'on se surprend à chercher des yeux ce qui l'amuse.",
+    "Sur le cadre : *Pauline Orsenne, née Fréval. 1760-1799.* Et sur le bureau, juste en dessous, un vase de cristal où trempe une rose blanche. Fraîche. Coupée d'aujourd'hui.",
+    {
+     "second": false,
+     "text": "Tu regardes la rose. Tu regardes la maison vide autour de toi. Le neveu ne coupe pas de roses pour une tante morte il y a vingt ans."
+    }
+   ],
+   "choices": [
+    {
+     "back": "A_bibliotheque"
+    }
+   ]
+  },
+  "A_chambre_scellee": {
+   "act": "I",
+   "title": "La chambre scellée",
+   "place": "bibliotheque",
+   "fx": {
+    "clue": "i_pantoufles"
+   },
+   "text": [
+    "Au fond de la galerie haute de la bibliothèque, une porte porte deux bandes de papier croisées, cachetées de cire rouge : les scellés du notaire. La chambre du défunt. Par le trou de la serrure, à la lueur de ta lanterne, tu distingues un lit à rideaux, fait au carré, une table de chevet avec un bonnet de nuit plié, un fauteuil, et au pied du fauteuil, la place vide, dans la poussière du tapis, de deux pantoufles qui ne sont plus là.",
+    "La poussière est partout ailleurs : sur le tapis, sur le fauteuil, sur le bonnet. À l'endroit des pantoufles, deux semelles nettes, sans poussière, de la forme d'un pied long et maigre."
+   ],
+   "choices": [
+    {
+     "back": "A_bibliotheque"
+    }
+   ]
+  },
+  "A_visiteur": {
+   "act": "I",
+   "title": "Minuit et demi",
+   "place": "loge",
+   "second": false,
+   "text": [
+    "À minuit et demi, la sonnette de la grille tinte. Tu sors avec ta lanterne. Derrière les barreaux, sous un parapluie, Aristide Orsenne, en habit de soirée, une fleur à la boutonnière, l'haleine parfumée de champagne. « Mes gants, dit-il. Je les ai oubliés dans le vestibule. Le cercle ferme à une heure, et on n'entre pas au cercle sans gants. »",
+    "Il entre, prend ses gants sur la console, où tu ne les avais pas vus, les enfile doigt à doigt. Son regard tombe sur la table de la loge, sur la flasque d'argent.",
+    {
+     "if": {
+      "has": "flasque:bue"
+     },
+     "text": "Il la soupèse en souriant. « Vous y avez goûté. Bien. La nuit sera douce. » Il te tape sur l'épaule et repart sous son parapluie, en sifflant un air de l'Opéra."
+    },
+    {
+     "if": {
+      "not": {
+       "has": "flasque:bue"
+      }
+     },
+     "text": "Il la soupèse. Elle est pleine. Il la repose, et te regarde un peu plus longtemps qu'il ne faudrait. « Vous ne buvez pas ? Vous avez tort. Il fait froid, et les nuits sont longues, chez les morts. » Il repart sous son parapluie. Il ne siffle pas."
+    }
+   ],
+   "choices": [
+    {
+     "back": "A_loge"
+    }
+   ]
+  },
+  "S_pauline": {
+   "act": "II",
+   "title": "Pauline",
+   "place": "tour",
+   "second": true,
+   "text": [
+    "Tu lui parles de la rose blanche, dans la bibliothèque, sous le portrait. Orsenne garde le silence un moment. Il fait tourner sa loupe, et sur la table blanche, la ville minuscule tourne aussi, dans le verre.",
+    "« Mélie me la cueille tous les jours, dit-il enfin. Chez la fleuriste du quai. Je la descends à quatre heures, quand vous êtes ailleurs. » Il pose la loupe. « Vingt ans qu'elle est morte, et je collectionne. Les bêtes, les pierres, les montres, les monstres. Tout ce qui dure, et tout ce qui est bizarre. On dit que les collectionneurs aiment les choses. C'est faux. Nous les aimons parce qu'elles ne meurent pas, et parce qu'elles ne partent pas. Les choses sont fidèles par paresse. »",
+    "« Pauline riait de mes choses, dit-il encore. C'est la seule personne au monde qui en ait ri. Depuis, je les prends au sérieux. C'est une grave erreur. »"
+   ],
+   "choices": [
+    {
+     "back": "S_chambre_noire"
+    }
+   ]
+  },
+  "S_larme_histoire": {
+   "act": "II",
+   "title": "Trois vies",
+   "place": "tour",
+   "second": true,
+   "text": [
+    "« La Larme ? » Orsenne fait une grimace de dégoût. « Un rajah de Golconde l'a fait arracher de l'œil d'une idole, et il en est mort, de la fièvre, dans l'année. Un capitaine anglais l'a volée au rajah, et il en est mort, d'un coup de couteau, à Madras. Un marchand de Lisbonne l'a achetée au capitaine, et il en est mort, du tremblement de terre. » Il hausse les épaules. « Je l'ai achetée au marchand de Lisbonne, ou plutôt à sa veuve, qui était ravie de s'en débarrasser. »",
+    "« Et moi, je ne suis pas mort. J'ai seulement fait semblant. » Il sourit, enchanté. « Peut-être qu'elle s'en est contentée. Les malédictions sont comme les notaires : elles se satisfont des formes. »"
+   ],
+   "choices": [
+    {
+     "back": "S_chambre_noire"
+    }
+   ]
+  },
+  "S_table_ville": {
+   "act": "II",
+   "title": "La ville sur la table",
+   "place": "tour",
+   "second": true,
+   "text": [
+    "Tu te penches sur la table blanche. La rue des Antiquaires y est posée, vivante, en couleurs, avec ses réverbères et ses flaques, si nette qu'on voit les gouttes tomber dans les flaques. Orsenne fait pivoter la lentille du toit avec une manivelle, et la rue glisse, tourne, et c'est la place Saint-Eustache, l'église, le cercle du Commerce avec ses fenêtres allumées.",
+    "Devant le cercle, sous un réverbère, un fiacre attend, lanternes éteintes. Derrière la vitre du fiacre, une silhouette en habit de soirée, avec une fleur blanche à la boutonnière, regarde une montre.",
+    "« Mon neveu, dit Orsenne, sans quitter la table des yeux. Il attend trois heures. Il est arrivé à deux. Il a toujours été en avance pour les mauvaises choses et en retard pour les autres. »"
+   ],
+   "choices": [
+    {
+     "back": "S_chambre_noire"
+    }
+   ]
+  },
+  "S_melie_tour": {
+   "act": "II",
+   "title": "Ce que dit Mélie",
+   "place": "jardin",
+   "second": true,
+   "text": [
+    "Au pied de la tour, avant de partir, Mélie s'arrête et ajuste son châle. « Trente ans, répète-t-elle. Il ne m'a jamais payée à l'heure. Il me payait en bêtes. Un renard pour mon anniversaire. Un hibou pour mes cinquante ans. J'ai la maison pleine de bêtes empaillées par moi et données par lui. » Elle renifle. « Quand il est mort, je me suis dit : enfin, je vais pouvoir m'ennuyer tranquille. Le lendemain, il me demandait de la soupe. »",
+    "Elle part vers la porte du fond. Avant de la refermer, elle dit, sans se retourner : « Il ne m'a jamais dit merci. Pas une fois. Il me le dit par la Sibylle, quelquefois, en latin. Je ne lis pas le latin. Je lui ai jamais dit. »"
+   ],
+   "choices": [
+    {
+     "back": "A_jardin"
+    }
+   ]
+  },
+  "A_catalogue": {
+   "act": "I",
+   "title": "Le catalogue de la vente",
+   "place": "loge",
+   "text": [
+    "Sur la table de la loge, Pigache a laissé un exemplaire du catalogue, imprimé sur beau papier, avec une gravure de la Sibylle en frontispice. *Vente après décès de la collection de feu Monsieur Hippolyte Orsenne. 1 247 lots.* Tu le feuillettes à la lueur de ta lanterne.",
+    "*Lot n° 1 : la Sibylle, automate écrivain, et son œil.* *Lot n° 7 : un crocodile du Nil, quinze pieds.* *Lot n° 88 : un sablier de verre de Venise, dit de Mnémosyne, 1612.* *Lot n° 311 : un oiseau mécanique en argent, chantant.* *Lot n° 312 : une dent de narval.* *Lot n° 313 : une balle de plomb aplatie, montée en épingle. Sans valeur.*",
+    "Quelqu'un a souligné au crayon, très légèrement, les lots 88, 311, 312 et 313. Et en marge du 313, de la même main légère : *Toute la valeur.*"
+   ],
+   "choices": [
+    {
+     "back": "A_loge"
+    }
+   ]
+  },
+  "A_cour": {
+   "act": "I",
+   "title": "La cour et la rue",
+   "place": "loge",
+   "text": [
+    "Tu sors dans la cour pavée et tu vas jusqu'à la grille. La rue des Antiquaires est vide, luisante, avec ses boutiques aux volets clos, ses enseignes de fer qui grincent au vent, et au bout, la place Saint-Eustache, où les fenêtres du cercle du Commerce brillent encore derrière leurs rideaux rouges.",
+    "Un fiacre stationne devant le cercle, lanternes éteintes, le cocher endormi sur son siège sous une toile cirée. Il n'attend personne de visible. Il a l'air d'attendre une heure.",
+    "Tu te retournes vers la maison. Elle te regarde de toutes ses fenêtres noires, et de la lucarne ronde de sa tour, qui ne reflète rien."
+   ],
+   "choices": [
+    {
+     "back": "A_loge"
+    }
+   ]
+  },
+  "A_gobe_parle": {
+   "act": "I",
+   "title": "Ce que restaure Gobe",
+   "place": "reserve",
+   "text": [
+    "Tu demandes à Gobe ce qu'il restaure. Il hésite, puis, comme tous les artisans à qui l'on pose enfin la question, il parle, à voix basse, avec un plaisir coupable.",
+    "« Je rends aux choses ce que le temps leur prend. Une plume à un oiseau, une dent à un crocodile, une couleur à une pierre. » Il prend la corne de narval en plâtre, la fait tourner dans la lumière. « Celle-ci, je l'ai faite en six nuits. Regardez la spirale. Regardez le grain. Regardez l'usure du bout, là où un marin l'a tenue pendant trois ans de mer. Elle est plus vraie que la vraie. La vraie a été mal conservée. »",
+    "Il la repose, avec un soupir. « Mes originaux, personne n'en veut. On dit que je n'ai pas de style. C'est vrai. J'ai tous les styles. C'est pire. »"
+   ],
+   "choices": [
+    {
+     "back": "A_reserve"
+    }
+   ]
+  },
+  "A_oeil_verre": {
+   "act": "I",
+   "title": "L'œil de verre",
+   "place": "reserve",
+   "text": [
+    "Dans son écrin de velours, l'œil de verre bleu est taillé à facettes, en poire, exactement comme la Larme de la Sibylle. À la lueur de la lampe de Gobe, il brille d'un bleu vif, joyeux, franc, un bleu de vitrail. Il renvoie la lumière avec générosité, comme un ami.",
+    "Tu te souviens de la Larme, là-haut, qui avalait la lumière au lieu de la rendre. La copie est parfaite, sauf en cela : elle a l'air honnête.",
+    "« Une étude, dit Gobe en refermant l'écrin. Pour le catalogue. Pigache veut une gravure exacte. » Il ment très mal, et il le sait, et il a l'air de s'en excuser."
+   ],
+   "choices": [
+    {
+     "back": "A_reserve"
+    }
+   ]
+  },
+  "A_singe": {
+   "act": "I",
+   "title": "Le singe musicien",
+   "place": "automates",
+   "text": [
+    "Dans l'ombre, sur un socle bas, un petit singe en habit rouge à galons d'or tient un violon sous le menton. Il a de vrais poils, un vrai museau, de vrais yeux de verre jaunes, et des mains de cuir si fines qu'on y voit des ongles. On l'a fait avec un vrai singe, empaillé, puis rempli de rouages. Mélie, sans doute, pour la peau, et Orsenne pour le reste.",
+    "Il te regarde. Il a l'expression de tous les singes, ce mélange d'intelligence et de chagrin qui fait penser qu'ils ont compris quelque chose sur nous et qu'ils préfèrent se taire. Tu laisses sa clef tranquille. Certaines choses gagnent à garder leur violon muet."
+   ],
+   "choices": [
+    {
+     "back": "A_automates"
+    }
+   ]
+  },
+  "A_ruelle": {
+   "act": "I",
+   "title": "La ruelle",
+   "place": "jardin",
+   "second": false,
+   "text": [
+    "Tu ouvres la petite porte du fond, derrière Mélie. La ruelle est noire, étroite, ruisselante, entre deux murs aveugles. Au bout, tu entends ses pas qui s'éloignent, réguliers, sans hâte. Tu fais trois pas. Quelque chose te frôle l'épaule, dans le noir, en descendant le long du mur de la tour. Tu lèves la lanterne.",
+    "Une corde. Une corde mince, tendue, qui pend du haut de la tour jusqu'à hauteur d'homme, avec un crochet de fer au bout, et qui remonte, doucement, lentement, pendant que tu la regardes, et disparaît dans le noir, au-dessus du lierre.",
+    "Quand tu baisses la lanterne, les pas de Mélie se sont tus."
+   ],
+   "choices": [
+    {
+     "back": "A_jardin"
+    }
+   ]
+  },
+  "S_aristide_nuit": {
+   "act": "II",
+   "title": "Les gants",
+   "place": "loge",
+   "second": true,
+   "text": [
+    "Minuit et demi. La sonnette de la grille tinte. Aristide Orsenne, sous son parapluie, en habit de soirée, la fleur blanche à la boutonnière. « Mes gants, dit-il. Je les ai oubliés dans le vestibule. » Tu sais où ils sont. Tu les lui tends avant qu'il les cherche.",
+    "Il a un petit temps d'arrêt. Puis il les enfile, doigt à doigt, et son regard tombe sur la flasque d'argent, sur la table de la loge.",
+    {
+     "if": {
+      "has": "flasque:bue"
+     },
+     "text": "Il la soupèse. Il sourit. « Vous y avez goûté. Bien. La nuit sera douce. » Tu sais exactement à quel point elle sera douce. Tu lui rends son sourire."
+    },
+    {
+     "if": {
+      "not": {
+       "has": "flasque:bue"
+      }
+     },
+     "text": "Il la soupèse. Pleine. « Vous ne buvez pas ? » Tu prends la flasque, tu la débouches, et tu la lui tends, avec la plus grande politesse. « À la mémoire de votre oncle, Monsieur. » Il regarde la flasque. Il regarde toi. Il la repousse avec un rire léger. « Je sors du cercle. J'ai assez bu pour deux. » Il repart sous son parapluie, sans siffler, et tu sais qu'il pense à toi jusqu'au bout de la rue."
+    }
+   ],
+   "choices": [
+    {
+     "back": "A_loge"
+    }
+   ]
+  },
+  "S_gardien": {
+   "act": "II",
+   "title": "Le gardien",
+   "place": "tour",
+   "second": true,
+   "text": [
+    "« Et vous ? demande Orsenne. Qui êtes-vous, pour garder la maison d'un mort à deux écus la nuit ? »",
+    {
+     "if": {
+      "voie": "soldat"
+     },
+     "text": "Tu lui dis : l'armée, les gardes, les nuits debout devant des portes qui n'avaient rien à garder. Il hoche la tête. « Un soldat. J'en ai été un, deux ans, à vingt ans. On m'a tiré dessus, on m'a manqué, et j'ai compris que tout ce qui dure est un hasard. Depuis, je collectionne les hasards. »"
+    },
+    {
+     "if": {
+      "voie": "etudiant"
+     },
+     "text": "Tu lui dis : la faculté, les manuels, les gravures du cabinet Orsenne dans les livres, l'axolotl, la Sibylle, le crocodile. Il a l'air touché, puis agacé d'être touché. « Un étudiant. Vous êtes venu voir mes choses avant qu'on les disperse. Vous êtes le seul. Prenez garde : c'est comme ça que j'ai commencé. »"
+    },
+    {
+     "if": {
+      "voie": "serrurier"
+     },
+     "text": "Tu lui dis : les serrures, les mécanismes, les doigts patients. Il se penche vers toi, ravi. « Un serrurier ! Alors vous avez vu ce que j'ai fait à la Sibylle. Les tringles. Le tube. Dites-moi franchement : est-ce que c'est propre ? » Tu lui dis que c'est propre. Il rougit comme un écolier."
+    },
+    "« Bon, conclut-il. Vous ferez l'affaire. Vous ferez même mieux que l'affaire, ce qui est rare et fatigant. »"
+   ],
+   "choices": [
+    {
+     "back": "S_chambre_noire"
+    }
+   ]
+  },
+  "S_registre2": {
+   "act": "II",
+   "title": "Ce que tu sais",
+   "place": "loge",
+   "second": true,
+   "text": [
+    "Tu ouvres le registre de garde, et sous ton nom, dans la colonne *Observations*, tu écris tout ce que tu sais, en petites lettres serrées, pour ne pas le perdre si le sable se mettait à remonter encore : *11 h, la Sibylle écrit. Minuit, le crocodile. 1 h, la lime. 2 h, la soupe. 3 h, l'ours tombe, l'œil change. 4 h, « Qui suis-je ? ». 6 h, Quatremain, verre, menottes.*",
+    "Tu relis. On dirait l'emploi du temps d'un fou. C'est l'emploi du temps exact de la nuit qui vient.",
+    "Au bas de la page, tu ajoutes : *Ne pas boire.* Et tu soulignes deux fois."
+   ],
+   "choices": [
+    {
+     "back": "A_loge"
+    }
+   ]
+  },
+  "S_horloge_remontee": {
+   "act": "II",
+   "title": "L'horloge remontée",
+   "place": "automates",
+   "second": true,
+   "text": [
+    "*Ne pas remonter avant la vente.* Tu ouvres la porte vitrée de l'horloge astronomique, tu trouves la clef sur son crochet, et tu la remontes. Douze tours. Le balancier hésite, puis se met à battre, lourd, lent, avec un bruit de cœur de géant. Les sept planètes d'argent frémissent sur le cadran bleu. Tu mets les aiguilles à l'heure.",
+    "Au-dessus de la coupole, quelque chose tombe, comme une cuillère sur un plancher. Un long silence. Puis, par le tube de la Sibylle, très faible, une voix cassée, qui ne s'adresse à personne : « Tiens. Le temps repart. »"
+   ],
+   "choices": [
+    {
+     "back": "A_automates"
+    }
+   ]
+  }
+ }
+}

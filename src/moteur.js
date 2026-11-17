@@ -3978,8 +3978,16 @@
     ev(s, interp(s, r === 2 ? T.say2 || "Seconde lecture. Tu rouvres le livre avec ce que tu sais." : T.say1 || "Première lecture."), "lore");
     return r === 2 && T.start2 ? T.start2 : story.start;
   }
+  // twice.begin2 = { place, hour, gold, items } (12.5): the second reading may open elsewhere and at another hour, with
+  // other pockets (the night before the morning of the first reading); what it leaves out keeps world.start's value.
+  function begin2(story, s) {
+    var B = story.twice && story.twice.begin2; if (!B || readingOf(story, s) !== 2) return;
+    if (B.items) s.items = B.items.slice(); if (B.gold != null) s.gold = B.gold;
+    if (B.hour != null) s.time = +B.hour; if (B.place) s.place = B.place;
+  }
   function start(story, s) {
     s.events = [];
+    begin2(story, s);
     if (s.tickDay == null) s.tickDay = day(s);
     if (story.heroes) { initHeroes(story, s); enter(story, s, startOf(story, s)); return; }
     if (s.pv == null) s.pv = pvMax(s);

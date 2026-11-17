@@ -522,6 +522,12 @@
     if (story.twice) {
       ["first", "second"].forEach(function (k) { var e = story.twice[k]; if (!e || !(endIds[e] || endIds["fin:" + e])) E("twice." + k + " : « " + e + " » n'est pas une fin de l'histoire (fx.flag \"fin:…\" sur un passage end)."); });
       if (story.twice.start2 && !P[story.twice.start2]) E("twice.start2 : passage « " + story.twice.start2 + " » inconnu.");
+      var B2 = story.twice.begin2;
+      if (B2) {
+        (B2.items || []).forEach(function (i) { if (!(story.items || {})[i]) E("twice.begin2.items : objet « " + i + " » inconnu."); });
+        if (B2.place && !(((story.world || {}).places || {})[B2.place])) E("twice.begin2.place : lieu « " + B2.place + " » inconnu.");
+        if (B2.hour != null && !(B2.hour >= 0 && B2.hour < 24)) E("twice.begin2.hour : une heure de 0 à 23.");
+      }
     }
     cardCheck(story, E, W);
     // At sea (8.1): the sky, the seasons, the wounds, the encounters, the things put together, the vigils, the charts.
