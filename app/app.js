@@ -1211,7 +1211,8 @@
   // Intent: Lettrine.place(prose) ! the drop cap goes on the first letter of the first narrative paragraph: a stage
   // note (a paragraph between parentheses, or all in italics, such as "(Une heure passe.)") and the "already read"
   // line are passed over, and an opening parenthesis is never swallowed. An opening quote or dash stays in the frame,
-  // small, before the letter. The letter is wrapped in span.lettrine (the CSS ::first-letter took "(U").
+  // small, before the letter. The letter is wrapped in span.lettrine (the CSS ::first-letter took "(U"); a one-letter
+  // abbreviation keeps its period with it ("M." of "M. Utterson", Stevenson 17/11: ". Utterson" opened the line).
   // Why: Clément, 16/11: on "(Une heure passe.)" then "Tu prends ta place…", the drop cap must be the T of "Tu".
   var Lettrine = (function () {
     var LETTER = /[A-Za-zÀ-ÖØ-öø-ÿŒœÆæ0-9]/, LEAD = /^[\s«»“”"'‘’—–-]*$/;
@@ -1235,8 +1236,10 @@
         var before = (lead.map(function (x) { return x.data; }).join("") + n.data.slice(0, m.index)).replace(/\s+/g, " ").trim();
         lead.forEach(function (x) { x.data = ""; });
         if (before) span.appendChild(h("span", { class: "lettrine-avant" }, before));
-        span.appendChild(document.createTextNode(m[0]));
-        var rest = n.splitText(m.index); rest.data = rest.data.slice(1);
+        // An abbreviation of one letter ("M. Utterson", "J. Hetzel") keeps its period beside the big letter.
+        var abbr = n.data.charAt(m.index + 1) === "." && !LETTER.test(n.data.charAt(m.index + 2) || "") ? "." : "";
+        span.appendChild(document.createTextNode(m[0] + abbr));
+        var rest = n.splitText(m.index); rest.data = rest.data.slice(1 + abbr.length);
         n.data = ""; rest.parentNode.insertBefore(span, rest);
         return true;
       }
@@ -2467,6 +2470,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "10.4", items: ["« L'Étrange Cas du Dr Jekyll et de Mr Hyde » de R. L. Stevenson, à lire en entier, dans la traduction de Théo Varlet. Sans choix, avec les gens, les lieux et les mots d'un toucher. Le premier des romans de Stevenson dans la bibliothèque."] },
     { v: "10.3", items: ["« Les Premiers Hommes dans la Lune » de H. G. Wells, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1901. Sans choix, avec les gens, les lieux et les mots d'un toucher. Les cinq grands romans de Wells sont maintenant dans la bibliothèque."] },
     { v: "10.2", items: ["« L'Île du docteur Moreau » de H. G. Wells, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1896. Sans choix, avec les gens, les lieux et les mots d'un toucher. Le livre est dur, et sa notice le dit."] },
  { v: "10.1", items: ["« La Machine à explorer le temps » de H. G. Wells, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1895. Sans choix, avec les gens, les lieux et les mots d'un toucher."] },
