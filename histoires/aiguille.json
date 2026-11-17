@@ -292,6 +292,62 @@
    "title": "Pêcheur d'Islande",
    "author": "Pierre Loti"
   },
+  "peste": {
+   "title": "Journal de l'année de la peste",
+   "author": "Daniel Defoe"
+  },
+  "fadette": {
+   "title": "La Petite Fadette",
+   "author": "George Sand"
+  },
+  "colomba": {
+   "title": "Colomba",
+   "author": "Prosper Mérimée"
+  },
+  "maitreserviteur": {
+   "title": "Maître et serviteur",
+   "author": "Léon Tolstoï"
+  },
+  "filleducapitaine": {
+   "title": "La Fille du capitaine",
+   "author": "Alexandre Pouchkine"
+  },
+  "eugeniegrandet": {
+   "title": "Eugénie Grandet",
+   "author": "Honoré de Balzac"
+  },
+  "claudegueux": {
+   "title": "Claude Gueux",
+   "author": "Victor Hugo"
+  },
+  "moumou": {
+   "title": "Moumou",
+   "author": "Ivan Tourgueniev"
+  },
+  "juliuscesar": {
+   "title": "Jules César",
+   "author": "William Shakespeare"
+  },
+  "laurette": {
+   "title": "Laurette ou le Cachet rouge",
+   "author": "Alfred de Vigny"
+  },
+  "hommequirit": {
+   "title": "L'Homme qui rit",
+   "author": "Victor Hugo"
+  },
+  "petitfut": {
+   "title": "Le Petit Fût",
+   "author": "Guy de Maupassant"
+  },
+  "lignedombre": {
+   "title": "La Ligne d'ombre",
+   "author": "Joseph Conrad"
+  },
+  "caverne": {
+   "title": "La République (le mythe de la caverne)",
+   "author": "Platon"
+  },
   "ile": {
    "title": "L'Île au trésor",
    "author": "Robert Louis Stevenson"
@@ -935,6 +991,178 @@
  "mysteries": {},
  "clues": {},
  "quests": [
+  {
+   "id": "WB",
+   "act": "I",
+   "kind": "annexe",
+   "title": "La petite-fille de la rebouteuse",
+   "start": "WB_cheville",
+   "doit": "fadette",
+   "echo": [
+    "wb:defend",
+    "wb:secret",
+    "wb:moque"
+   ]
+  },
+  {
+   "id": "WC",
+   "act": "III",
+   "kind": "annexe",
+   "title": "Le louchet",
+   "start": "WC_tifenn",
+   "doit": "colomba",
+   "echo": [
+    "wc:coup",
+    "wc:chute",
+    "wc:doute"
+   ]
+  },
+  {
+   "id": "WD",
+   "act": "III",
+   "kind": "annexe",
+   "title": "La nuit des tourbières",
+   "start": "WD_affaire",
+   "doit": "maitreserviteur",
+   "echo": [
+    "wd:chaleur",
+    "wd:part",
+    "wd:moutons"
+   ]
+  },
+  {
+   "id": "WE",
+   "act": "II",
+   "kind": "annexe",
+   "title": "La vareuse",
+   "start": "WE_porche",
+   "doit": "filleducapitaine",
+   "echo": [
+    "we:vareuse",
+    "we:gobert",
+    "we:passe",
+    "we:garde",
+    "we:capitaine",
+    "we:dit"
+   ]
+  },
+  {
+   "id": "WF",
+   "act": "I",
+   "kind": "annexe",
+   "title": "Les bûches comptées",
+   "start": "WF_appel",
+   "doit": "eugeniegrandet",
+   "echo": [
+    "wf:or",
+    "wf:pere",
+    "wf:offre"
+   ]
+  },
+  {
+   "id": "WG",
+   "act": "II",
+   "kind": "annexe",
+   "title": "Le pain coupé en deux",
+   "start": "WG_four",
+   "doit": "claudegueux",
+   "echo": [
+    "wg:avertit",
+    "wg:soudoie",
+    "wg:tait"
+   ]
+  },
+  {
+   "id": "WH",
+   "act": "IV",
+   "kind": "annexe",
+   "title": "Le chiot du muet",
+   "start": "WH_chiot",
+   "doit": "moumou",
+   "echo": [
+    "wh:plaide",
+    "wh:voix",
+    "wh:emmene"
+   ]
+  },
+  {
+   "id": "WI",
+   "act": "IV",
+   "kind": "annexe",
+   "title": "L'oraison sur le sable",
+   "start": "WI_corps",
+   "doit": "juliuscesar",
+   "echo": [
+    "wi:harangue",
+    "wi:vrai",
+    "wi:louche"
+   ]
+  },
+  {
+   "id": "WJ",
+   "act": "III",
+   "kind": "annexe",
+   "title": "La petite veuve de Brisegrève",
+   "start": "WJ_sergent",
+   "doit": "laurette",
+   "echo": [
+    "wj:verite",
+    "wj:jeu",
+    "wj:aveu"
+   ]
+  },
+  {
+   "id": "WK",
+   "act": "II",
+   "kind": "annexe",
+   "title": "Le Rieur des Îles",
+   "start": "WK_tente",
+   "doit": "hommequirit",
+   "echo": [
+    "wk:medecin",
+    "wk:fuite",
+    "wk:nom"
+   ]
+  },
+  {
+   "id": "WL",
+   "act": "I",
+   "kind": "annexe",
+   "title": "Le compte de la mère Le Hir",
+   "start": "WL_compte",
+   "doit": "petitfut",
+   "echo": [
+    "wl:eau",
+    "wl:dit",
+    "wl:sert"
+   ]
+  },
+  {
+   "id": "WM",
+   "act": "III",
+   "kind": "annexe",
+   "title": "La poudre rouge",
+   "start": "WM_fievre",
+   "doit": "lignedombre",
+   "echo": [
+    "wm:dit",
+    "wm:cache",
+    "wm:baron"
+   ]
+  },
+  {
+   "id": "WN",
+   "act": "IV",
+   "kind": "annexe",
+   "title": "Celui qui est remonté",
+   "start": "WN_riwal",
+   "doit": "caverne",
+   "echo": [
+    "wn:temoigne",
+    "wn:silence",
+    "wn:remonte"
+   ]
+  },
   {
    "id": "ZZ",
    "act": "I",
@@ -1632,6 +1860,19 @@
     "xt:vue",
     "xt:gaudremont_sauve",
     "xt:gaudremont_haut"
+   ]
+  },
+  {
+   "id": "WA",
+   "act": "IV",
+   "kind": "annexe",
+   "title": "La cabane des fiévreux",
+   "start": "WA_flux",
+   "doit": "peste",
+   "echo": [
+    "wa:dehors",
+    "wa:dedans",
+    "wa:avec"
    ]
   },
   {
@@ -2541,6 +2782,75 @@
     "visage": "cheveux gris ras, brûlure à la joue",
     "voix": "habituée aux ordres"
    }
+  },
+  "katell": {
+   "name": "Katell",
+   "aka": [
+    "la Grillonne"
+   ],
+   "f": true,
+   "qui": "Petite-fille de la rebouteuse de la lande, près de la Pointe-aux-Corneilles."
+  },
+  "tifenn": {
+   "name": "Tifenn Drézen",
+   "aka": [
+    "la fille du mort"
+   ],
+   "f": true,
+   "qui": "Fille d'un tourbier de Lannoz trouvé mort au fond d'une tranchée."
+  },
+  "guillerm": {
+   "name": "Ronan Guillerm",
+   "aka": [
+    "l'homme aux yeux pâles",
+    "le gabier qui tousse"
+   ],
+   "qui": "Marin sans navire rencontré sous un porche de la Basse-Fosse, un soir de pluie."
+  },
+  "agathe": {
+   "name": "Agathe Rospabu",
+   "aka": [
+    "la demoiselle de la Grande-Lande"
+   ],
+   "f": true,
+   "qui": "Fille de maître Rospabu, le plus riche fermier de la lande de Varnèse."
+  },
+  "corbic": {
+   "name": "Hervé Corbic",
+   "aka": [
+    "le géant du fournil"
+   ],
+   "qui": "Forçat de la Tour-aux-Rats, à Morlenc, qui pétrit le biscuit de mer."
+  },
+  "goulven": {
+   "name": "Goulven",
+   "aka": [
+    "le muet",
+    "le grand muet"
+   ],
+   "qui": "Proscrit né sourd et muet, le plus fort du camp de Jeanne Brasdefer."
+  },
+  "hede": {
+   "name": "Le sergent Hédé",
+   "aka": [
+    "le vieux sergent"
+   ],
+   "qui": "Vieux sergent de la garnison de Brisegrève, dix-neuf ans sur le roc."
+  },
+  "lehir": {
+   "name": "La mère Le Hir",
+   "aka": [
+    "la vieille au remède"
+   ],
+   "f": true,
+   "qui": "Vieille veuve de la Pointe-aux-Corneilles, qui a vendu sa ferme en viager."
+  },
+  "riwal": {
+   "name": "Riwal",
+   "aka": [
+    "celui qui est remonté"
+   ],
+   "qui": "Jeune fondeur des Puits, resté trois jours à la surface."
   },
   "bleunven": {
    "name": "Bleunven",
@@ -5569,6 +5879,267 @@
   },
   {
    "if": {
+    "has": "wa:dehors"
+   },
+   "text": "Un gabier de Morlenc, rentré de Folle-Aiguille maigre comme un clou, salue poliment, dans la rue, une femme médecin de Varnèse, comme on salue quelqu'un qu'on a connu ailleurs. Il n'a jamais raconté à sa fiancée les douze nuits de la cabane."
+  },
+  {
+   "if": {
+    "has": "wa:dedans"
+   },
+   "text": "Victorine Davrigny tient, dans un carnet à part, le compte des morts de la sacristie de la Miséricorde, et de ceux de la nef. Elle refait l'addition, certains soirs, en changeant les hypothèses. Elle ne trouve jamais le même résultat."
+  },
+  {
+   "if": {
+    "has": "wa:avec"
+   },
+   "text": "Un gabier de Morlenc a épousé une fille nommée Mathurine, et il a un chien nommé Mathurin. Il a voulu appeler sa première fille Victorine. Sa femme a dit non. Il a insisté. Elle s'appelle Victorine."
+  },
+  {
+   "if": {
+    "has": "wb:defend"
+   },
+   "text": "Sur la lande de la Pointe-aux-Corneilles, une rebouteuse aux yeux verts remet les os des bêtes et des gens. On l'appelle Katell, à présent. On va la voir par le chemin de devant. Au pardon de Sainte-Anne, elle s'assied au dernier banc, et garde une place à côté d'elle."
+  },
+  {
+   "if": {
+    "has": "wb:secret"
+   },
+   "text": "Tu sais où nichent les pétrels, sur la falaise de la Pointe. Personne d'autre ne le sait, à part une rebouteuse de la lande que tu allais voir par le chemin de derrière. Tu n'y es jamais allé{e} par devant."
+  },
+  {
+   "if": {
+    "has": "wb:moque"
+   },
+   "text": "Ta cheville gauche ne t'a jamais fait souffrir, de toute ta vie, même dans les pires tempêtes. Quelquefois, l'hiver, il te semble entendre un grillon dans la cheminée. Tu le sais : ce n'est pas la saison."
+  },
+  {
+   "if": {
+    "has": "wc:coup"
+   },
+   "text": "À Lannoz, sur la lande, il y a deux croix de plus que l'année d'avant, à deux cents pas l'une de l'autre, et une jeune femme en coiffe noire qui les fleurit toutes les deux, le même jour, avec les mêmes bruyères. On ne sait pas pourquoi les deux. Elle le sait."
+  },
+  {
+   "if": {
+    "has": "wc:chute"
+   },
+   "text": "À Lannoz, un tourbier roux, doux, qui aime les moutons, a épousé une fille qui ne chante plus à la veillée. Les vieux ont cessé de cracher dans le feu quand il entre. Ils ont mis dix ans."
+  },
+  {
+   "if": {
+    "has": "wc:doute"
+   },
+   "text": "À Lannoz, on jure désormais sur les corps, devant le recteur, plutôt que de prendre le louchet. On appelle cela, dans la langue de l'île, d'un mot qui veut dire à peu près « la manière de l'étrangère »."
+  },
+  {
+   "if": {
+    "has": "wd:chaleur"
+   },
+   "text": "Maître Gobert, retiré à terre, raconte encore, devant le feu, qu'un mousse lui a sauvé la vie une nuit, sur une lande, en se couchant contre lui comme un chien. Il ne dit jamais ton nom. Il dit « mon morveux », et sa voix change."
+  },
+  {
+   "if": {
+    "has": "wd:part"
+   },
+   "text": "Tu as appris, une nuit, sur une lande, qu'on peut faire ce qu'il fallait faire et laisser quelqu'un seul dans le noir, en même temps, avec les mêmes jambes. Tu l'as réappris plusieurs fois, depuis. C'est chaque fois aussi difficile."
+  },
+  {
+   "if": {
+    "has": "wd:moutons"
+   },
+   "text": "Tu ne manges jamais de mouton. On te trouve des manies de vieux marin. Tu laisses dire."
+  },
+  {
+   "if": {
+    "has": "we:passe"
+   },
+   "text": "Il t'arrive, les soirs de pluie, de regarder sous les porches. Tu ne sais pas ce que tu cherches. Un homme aux yeux pâles, peut-être, ou le papier que la pluie avait collé aux pavés, avec un visage dessus."
+  },
+  {
+   "if": {
+    "has": "we:garde"
+   },
+   "text": "Un gabier aux yeux pâles, d'une écriture penchée, régulière, t'envoie une lettre chaque année, d'un port différent, sans signature. Elle dit toujours la même chose : *Toujours vivant. Merci.*"
+  },
+  {
+   "if": {
+    "has": "we:capitaine"
+   },
+   "text": "La capitaine Ribaud a gardé à son bord, jusqu'à sa retraite, un gabier aux yeux pâles qui chantait juste et dont le nom changeait sur chaque rôle d'équipage. Elle disait qu'un mousse le lui avait envoyé, un soir, en guise de cadeau."
+  },
+  {
+   "if": {
+    "has": "we:dit"
+   },
+   "text": "Personne ne sait si Ronan Guillerm a nagé deux milles, cette nuit-là, au large de Brisegrève. Tu as gardé son papier. Tu le relis parfois. Tu n'as jamais décidé si c'était un pardon."
+  },
+  {
+   "if": {
+    "has": "wf:or"
+   },
+   "text": "À la Grande-Lande, maître Rospabu est mort sans avoir reparlé à sa fille. Agathe a hérité de tout, à quarante ans. La première chose qu'elle a faite a été d'allumer un feu dans chaque cheminée de la maison, en plein été, et de les laisser brûler toute une nuit."
+  },
+  {
+   "if": {
+    "has": "wf:pere"
+   },
+   "text": "L'abbé Morisseau raconte volontiers comment il a fait plier, un soir, l'homme le plus riche de la lande, pour une demi-once d'écorce. Victorine, quand elle l'entend, ne le contredit pas. Elle compte, en silence, les trois années de toux."
+  },
+  {
+   "if": {
+    "has": "wf:offre"
+   },
+   "text": "Victorine Davrigny n'a jamais remboursé le premier créancier d'Hector. Agathe Rospabu, à la mort de son père, lui a fait porter un jour par un notaire une petite bourse de cuir, avec vingt-huit pièces, sans un mot. Victorine l'a rendue. Agathe l'a renvoyée. Cela dure encore."
+  },
+  {
+   "if": {
+    "has": "wg:avertit"
+   },
+   "text": "À la Tour-aux-Rats, à Morlenc, le gardien-chef Mauduit est mort dans son lit, très vieux, très riche, et très aimé de ses supérieurs. Le biscuit de mer y est meilleur que jamais. On y met du saindoux, pour les officiers."
+  },
+  {
+   "if": {
+    "has": "wg:soudoie"
+   },
+   "text": "Lucien Fargue n'a jamais su combien de temps avaient duré ses trente livres de paix, à la Tour-aux-Rats. Il ne l'a jamais demandé. C'est le seul argent dont il n'ait jamais voulu connaître le rendement."
+  },
+  {
+   "if": {
+    "has": "wg:tait"
+   },
+   "text": "À la Tour-aux-Rats, les forçats du fournil coupent encore leur pain en deux, le dimanche, et en donnent la moitié au plus maigre. Ils appellent cela « la part du géant ». Les gardiens ont renoncé à l'interdire."
+  },
+  {
+   "if": {
+    "has": "wh:plaide"
+   },
+   "text": "Au camp de la cascade, un homme très grand, sourd et muet, fait parfois, la nuit, un petit bruit aigu, joyeux, avec sa gorge. Les enfants du camp, qui ont appris à pleurer sans bruit, l'imitent en secret, et rient, sans bruit."
+  },
+  {
+   "if": {
+    "has": "wh:voix"
+   },
+   "text": "Victorine Davrigny n'a jamais refait l'opération des cordes. Elle en a décrit la technique, pourtant, dans son traité, en note, sans un mot de commentaire, entre la trachéotomie et l'ablation des amygdales."
+  },
+  {
+   "if": {
+    "has": "wi:harangue"
+   },
+   "text": "Ulric Malandain a gardé toute sa vie, contre Lucien Fargue, la rancune particulière d'un homme brave qu'on a laissé seul au milieu d'un cercle, en lui donnant raison. Il disait que le cuisinier parlait comme on vide un poisson : en remerciant la bête."
+  },
+  {
+   "if": {
+    "has": "wi:vrai"
+   },
+   "text": "Lucien Fargue a dit la vérité, une fois, à quarante hommes à la fois, sur une plage. Il racontait plus tard que ce fut le pire discours de sa vie, et le seul dont il n'ait pas eu honte."
+  },
+  {
+   "if": {
+    "has": "wi:louche"
+   },
+   "text": "Il y a, sur une plage de Folle-Aiguille, sous le sable, un gabier de dix-neuf ans qu'on a enterré l'estomac plein, en chantant sa chanson. On dit que c'est la meilleure manière. Ceux qui y étaient le disent."
+  },
+  {
+   "if": {
+    "has": "wj:verite"
+   },
+   "text": "À l'asile de Morlenc, une femme en robe grise, guérie, dit-on, travaille à la lingerie. Elle refuse les crêpes. Chaque année, à la même date, elle demande un jour de congé, et personne ne sait où elle va."
+  },
+  {
+   "if": {
+    "has": "wj:jeu"
+   },
+   "text": "Sur le roc de Brisegrève, un vieux sergent et une petite veuve attendent encore, chaque midi, devant la porte du fort, l'un debout et l'autre assise. La garnison change tous les trois ans. Chaque nouvelle sentinelle apprend la phrase."
+  },
+  {
+   "if": {
+    "has": "wj:aveu"
+   },
+   "text": "À Brisegrève, au bord du fossé côté mer, quelqu'un a planté une croix de bois, sans nom. Une femme et un vieux sergent la fleurissent ensemble, une fois l'an. Ils ne se parlent pas, ces jours-là. Les autres jours, ils jouent aux cartes."
+  },
+  {
+   "if": {
+    "has": "wk:medecin"
+   },
+   "text": "À la foire du Quai-aux-Harengs, une baraque de toile grise a disparu, l'année d'après, avec son maître et son Rieur. On dit que le gros homme a pris peur d'une femme médecin, et qu'il a revendu le garçon à un cirque, très loin. On dit aussi qu'il l'a laissé partir. On ne sait pas."
+  },
+  {
+   "if": {
+    "has": "wk:fuite"
+   },
+   "text": "Tu as appris, sous une toile grise, que la porte ouverte ne suffit pas, quand on porte sa prison sur sa figure. Tu en as reconnu d'autres, depuis, qui ne portaient rien de visible."
+  },
+  {
+   "if": {
+    "has": "wk:nom"
+   },
+   "text": "Quelque part, dans une foire, un homme au rire fendu jusqu'aux oreilles porte en secret le prénom de ta mère. Tu ne l'as jamais revu. Tu penses à lui, quelquefois, comme à un cousin."
+  },
+  {
+   "if": {
+    "has": "wl:eau"
+   },
+   "text": "La mère Le Hir a vécu jusqu'à quatre-vingt-sept ans, en buvant chaque soir son remède, qu'elle trouvait de plus en plus mauvais. Mathelin Quiniou est mort avant elle, d'une attaque, en comptant sur ses doigts. La ferme est allée à ses héritiers, qui ont dû continuer à payer la rente."
+  },
+  {
+   "if": {
+    "has": "wl:dit"
+   },
+   "text": "On dit à la Pointe que la mère Le Hir a eu le plus bel enterrement du pays, payé par l'homme qui l'avait tuée, et qu'elle l'avait prévu. Tu es la seule personne à savoir qu'on le dit à raison."
+  },
+  {
+   "if": {
+    "has": "wl:sert"
+   },
+   "text": "Tu ne sers jamais d'eau-de-vie à une vieille femme sans regarder qui paie. On trouve ça étrange. Tu ne l'expliques pas."
+  },
+  {
+   "if": {
+    "has": "wm:dit"
+   },
+   "text": "Un apothicaire du Quai des Hollandes a vu, un matin, entrer dans sa boutique une femme médecin en manteau de mer, avec un coffre de bois sec sous le bras. On ne sait pas ce qu'elle lui a dit. Il a vendu sa boutique dans le mois."
+  },
+  {
+   "if": {
+    "has": "wm:cache"
+   },
+   "text": "Victorine Davrigny a gardé un journal de bord médical, en latin, dont une page porte trois mots qu'elle n'a jamais barrés. Elle a appris, depuis, à goûter le fond de chaque coffre. Elle le fait devant le marchand, longuement, en le regardant."
+  },
+  {
+   "if": {
+    "has": "wn:temoigne"
+   },
+   "text": "On dit que les jeunes des Puits remontent à présent, chacun leur tour, pour un jour, puis pour deux, puis pour une saison. Les Mères laissent faire. Elles disent que l'enfant d'en haut a menti comme on dit la vérité, et que c'est pire."
+  },
+  {
+   "if": {
+    "has": "wn:silence"
+   },
+   "text": "Au fond des Puits, au soufflet de la forge, un homme pâle dit tout bas, en pompant, un mot qui ressemble à « mer ». Les enfants qui l'entendent croient que c'est une prière. C'en est peut-être une."
+  },
+  {
+   "if": {
+    "has": "wn:remonte"
+   },
+   "text": "Sur Folle-Aiguille, au bord d'un puits dans les fougères, un homme pâle a construit une cabane face à l'est. Il a appris à faire le feu, à trouver l'eau douce, à nommer les oiseaux. Il ne redescend jamais. Il attend, chaque matin, que le soleil se lève, comme si ce n'était pas sûr."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "wm:baron"
+     },
+     {
+      "not": {
+       "has": "xs:baron_mort"
+      }
+     }
+    ]
+   },
+   "text": "Le baron Clavières a raconté souvent, à la Bourse de Morlenc, comment une femme médecin lui avait arraché, en pleine mer, la moitié de son écorce. Il en riait. Il ne disait jamais qu'il avait dit oui."
+  },
+  {
+   "if": {
     "has": "chien:tue_chef"
    },
    "text": "Dans la clairière de la Sylve, sous les fougères, les os d'une grande chienne bringée blanchissent au soleil. Les chiens de la meute font un détour pour ne pas passer dessus."
@@ -7825,6 +8396,47 @@
      "why": "Le caboteur de Lannoz n'est pas encore passé."
     },
     {
+     "label": "Servir la mère Le Hir, qui a un compte au nom d'un autre",
+     "to": "WL_compte",
+     "hide": {
+      "seen": "WL_compte"
+     },
+     "if": {
+      "count": [
+       {
+        "seen": "A1_j_falaise"
+       },
+       {
+        "seen": "A1_j_veillee"
+       },
+       {
+        "seen": "A1_j_lettre"
+       },
+       {
+        "seen": "A1_j_fouille"
+       },
+       {
+        "seen": "A1_j_greve"
+       },
+       {
+        "seen": "A1_j_chapelle"
+       },
+       {
+        "seen": "A1_j_zelie"
+       }
+      ],
+      "min": 1
+     },
+     "why": "La mère Le Hir n'est pas encore venue écouter le Gabier."
+    },
+    {
+     "label": "Cacher ta cheville tordue, en boitant sur la falaise",
+     "to": "WB_cheville",
+     "hide": {
+      "seen": "WB_cheville"
+     }
+    },
+    {
      "label": "Un après-midi de pluie, quelqu'un frappe",
      "to": "A1_hulotte",
      "big": true,
@@ -8953,6 +9565,1688 @@
      "label": "Le jour se lève sur le dernier jour",
      "to": "A1_coffre",
      "big": true
+    }
+   ]
+  },
+  "WB_cheville": {
+   "act": "I",
+   "title": "La petite-fille de la rebouteuse",
+   "place": "falaise",
+   "ambiance": "nature",
+   "fx": {
+    "meet": "katell"
+   },
+   "text": [
+    "Tu es tombé{e} des rochers de la Pierre-Fendue, en cherchant des œufs de goéland, et ta cheville a fait un bruit de branche. Ça fait trois jours. Tu boites. Tu le caches à ton père, qui a assez d'une jambe raide dans la maison. Tu le caches mal.",
+    "C'est la Grillonne qui le voit. Elle sort de la lande, comme toujours, d'un coup, comme une bête, avec son panier d'herbes, ses cheveux noirs pleins de brindilles, sa robe trop courte, ses pieds nus et bruns, ses yeux verts qui regardent de côté. Elle a quinze ans. Elle s'appelle Katell. Personne, à la Pointe, ne l'appelle Katell. Sa grand-mère est la rebouteuse de la lande, qui remet les os des bêtes et des gens, qui arrête le sang avec des mots, et qu'on va voir la nuit, par le chemin de derrière, pour que le recteur ne le sache pas.",
+    "« Tu boites, dit-elle. Assieds-toi. » Ce n'est pas une question. Tu t'assieds sur une pierre. Elle s'agenouille, prend ton pied dans ses mains, qui sont sèches et chaudes, tâte la cheville, longtemps, les yeux fermés, comme on écoute à une porte. Puis elle tire, d'un coup sec. Tu cries. Quelque chose claque, à l'intérieur, et reprend sa place.",
+    "Elle se relève. Elle te donne une poignée de feuilles de grande consoude, à piler et à mettre dessus, la nuit. « Demain, tu cours. » Elle s'en va. Le lendemain, tu cours."
+   ],
+   "choices": [
+    {
+     "label": "Aller la remercier, sur la lande",
+     "to": "WB_lande"
+    }
+   ]
+  },
+  "WB_lande": {
+   "act": "I",
+   "title": "La petite-fille de la rebouteuse",
+   "place": "falaise",
+   "ambiance": "nature",
+   "text": [
+    "Elle vit avec sa grand-mère dans une maison de terre et de genêt, au milieu de la lande, à une demi-lieue de la Pointe, entourée de ruches en paille et de chats. On dit qu'elle parle aux chats. Tu la trouves en effet en train de parler à un chat, qui l'écoute avec beaucoup d'intérêt.",
+    "Elle ne s'attendait pas à ce qu'on vienne la remercier. Elle ne sait pas quoi faire de toi. Puis elle te montre des choses. Le nid d'une alouette au ras de la bruyère, qu'on ne voit qu'en sachant. Les trous des courlis dans la vase, à marée basse, et comment on prévoit la marée à la couleur des algues. Les herbes : celle qui arrête la fièvre, celle qui fait dormir, celle qui tue, qui sont trois sœurs et qui se ressemblent. Elle sait des choses que personne ne sait, à la Pointe, même pas le père Pochon.",
+    "Elle te montre aussi, sans rien dire, une cicatrice à la tempe, sous les cheveux. Une pierre, l'an dernier, sur le chemin de Sainte-Anne. Les garçons de la Pointe l'attendent au calvaire, chaque dimanche de pardon, depuis qu'elle a sept ans. Ils crient *la Grillonne, la Grillonne, va chanter dans ta cheminée*. Ils lancent des cailloux. Les mères ne disent rien. Le recteur dit que c'est la faute de la grand-mère.",
+    "« Dimanche, c'est le pardon, dit-elle. J'y vais quand même. C'est ma chapelle aussi. » Elle te regarde de ses yeux verts, de côté. « Toi, tu seras avec eux. Ou pas loin. C'est normal. Tu es de la Pointe. »"
+   ],
+   "choices": [
+    {
+     "label": "Le dimanche du pardon",
+     "to": "WB_pardon"
+    }
+   ]
+  },
+  "WB_pardon": {
+   "act": "I",
+   "title": "La petite-fille de la rebouteuse",
+   "place": "chapelle",
+   "ambiance": "village",
+   "text": [
+    "Toute la Pointe monte à Sainte-Anne-des-Grèves, en habits du dimanche, derrière la bannière brodée que portent quatre pêcheurs, en chantant le cantique des noyés. Le vent fait claquer les coiffes. Le recteur marche devant, en chape dorée. Tu marches avec les garçons de ton âge, parce que c'est là qu'on marche, à la procession, quand on a seize ans.",
+    "Au calvaire, ils s'arrêtent. Les poches sont pleines. Katell arrive par le sentier de la lande, seule, pieds nus, dans une robe propre, trop courte, avec un bouquet d'ajoncs à la main. Elle voit les garçons. Elle ralentit. Elle ne s'arrête pas. Le premier cri part : *la Grillonne !* Puis le chœur. Le premier caillou roule à ses pieds.",
+    "Les femmes, sur le parvis, regardent ailleurs. Ton père n'est pas là ; il ne monte jamais au pardon, à cause de sa jambe, dit-il. Le grand Loïc Le Guen, qui mène la bande, te met un caillou dans la main, en riant. « À toi. Elle t'a jeté un sort, à la cheville, tout le monde le sait. Venge-toi. »",
+    "Katell s'est arrêtée, cette fois. Elle te regarde. Elle attend de voir ce que tu vas faire, avec l'air de quelqu'un qui sait déjà."
+   ],
+   "choices": [
+    {
+     "label": "Lâcher le caillou, traverser le chemin, et marcher à côté d'elle",
+     "fx": {
+      "flag": "wb:defend"
+     },
+     "to": "WB_defend"
+    },
+    {
+     "label": "Garder le caillou dans ta main fermée, sans le lancer, sans bouger",
+     "fx": {
+      "flag": "wb:secret"
+     },
+     "to": "WB_secret"
+    },
+    {
+     "label": "Rire avec eux, et lancer le caillou à côté, exprès",
+     "fx": {
+      "flag": "wb:moque"
+     },
+     "to": "WB_moque"
+    }
+   ]
+  },
+  "WB_defend": {
+   "act": "I",
+   "title": "La petite-fille de la rebouteuse",
+   "place": "chapelle",
+   "ambiance": "village",
+   "text": [
+    "Tu lâches le caillou. Il tombe dans la poussière avec un bruit ridicule. Tu traverses le chemin, devant tout le monde, et tu te mets à côté de Katell, et tu marches avec elle vers la chapelle. Tu ne dis rien. Tu n'as rien préparé.",
+    "Il y a un silence. Puis un caillou, un seul, qui te frappe à l'épaule. Puis Loïc Le Guen qui crie que tu es ensorcelé{e}, que la Grillonne t'a eu{e}, qu'on va vous marier au sabbat. Des rires. Mais les autres cailloux ne viennent pas. Les garçons se regardent. C'est une chose de lapider une Grillonne. C'en est une autre de lapider l'enfant du Fanal, l'enfant de Lazare Hersant, qui a une jambe raide et un bras de portefaix.",
+    "Vous entrez ensemble dans la chapelle. Vous vous asseyez ensemble au dernier banc. Toute la messe, tu sens les regards dans ton dos comme des épingles. Katell ne te regarde pas une seule fois. À la sortie, sur le parvis, elle te dit seulement, très vite, sans tourner la tête : « Demain, je te montre où nichent les pétrels. Personne ne sait. » Et elle s'en va par la lande. Le soir, au Fanal, ton père a appris. Il ne dit rien. Il te sert ta soupe, et te donne le plus gros morceau de lard."
+   ],
+   "choices": [
+    {
+     "label": "Descendre de Sainte-Anne",
+     "fx": {
+      "quest": "WB"
+     },
+     "back": "A1_jours"
+    }
+   ]
+  },
+  "WB_secret": {
+   "act": "I",
+   "title": "La petite-fille de la rebouteuse",
+   "place": "chapelle",
+   "ambiance": "village",
+   "text": [
+    "Tu gardes le caillou dans ton poing. Tu le gardes, et tu restes immobile au milieu des garçons, le poing fermé, à regarder tes sabots, pendant que les autres crient et lancent. Katell te regarde une seconde de plus. Puis elle baisse la tête, et elle passe, sous les cailloux, en protégeant son visage avec son bouquet d'ajoncs, et elle entre dans la chapelle.",
+    "Le lendemain, tu montes la voir sur la lande, en cachette, par le chemin de derrière, comme les gens qui vont voir la grand-mère pour un os. Elle te montre où nichent les pétrels. Elle te parle comme avant. Elle ne te parle pas du pardon.",
+    "Tu y retournes souvent, les jours qui suivent. Toujours en cachette. Elle ne te demande jamais rien. Un soir, en te raccompagnant au bord de la lande, là où commencent les champs de la Pointe, elle s'arrête, et elle dit, sans amertume : « C'est bien. C'est déjà beaucoup. Les autres, ils ne viennent même pas par derrière. » Puis elle ajoute, en regardant les toits de la Pointe : « Mais le chemin de derrière, il ne mène qu'à des cachettes. »"
+   ],
+   "choices": [
+    {
+     "label": "Descendre de Sainte-Anne",
+     "fx": {
+      "quest": "WB"
+     },
+     "back": "A1_jours"
+    }
+   ]
+  },
+  "WB_moque": {
+   "act": "I",
+   "title": "La petite-fille de la rebouteuse",
+   "place": "chapelle",
+   "ambiance": "village",
+   "text": [
+    "Tu ris. Tu lances le caillou. Tu le lances à côté, très à côté, exprès, dans le fossé, et tu cries *la Grillonne* avec les autres, plus fort que les autres, pour qu'on t'entende bien. Loïc Le Guen te tape dans le dos. Tu fais partie de la bande. On te laissera tranquille.",
+    "Katell ne regarde pas où tombe ton caillou. Elle te regarde, toi. Une seconde. Puis elle protège son visage avec son bouquet d'ajoncs, et elle passe, et elle entre dans la chapelle.",
+    "Ta cheville ne te fait plus mal du tout, les jours suivants. Tu cours sur les rochers. Tu sautes d'une pierre à l'autre. Et chaque fois que ton pied se pose, solide, sans un craquement, tu sens les mains sèches et chaudes qui ont tiré dessus, d'un coup sec, sans rien te demander. Tu ne retournes pas sur la lande. Tu ne sais pas ce que tu lui dirais. Il te semble, quelquefois, la nuit, quand le vent tourne, entendre un grillon dans la cheminée du Fanal, en plein hiver."
+   ],
+   "choices": [
+    {
+     "label": "Descendre de Sainte-Anne",
+     "fx": {
+      "quest": "WB"
+     },
+     "back": "A1_jours"
+    }
+   ]
+  },
+  "WC_tifenn": {
+   "act": "III",
+   "title": "Le louchet",
+   "place": "lannoz",
+   "ambiance": "nature",
+   "fx": {
+    "meet": "tifenn"
+   },
+   "text": [
+    "Elle attend Victorine au bout de la cale, debout dans la bruine, sans manteau, avec une coiffe noire et un visage si blanc qu'on le croirait poudré à la farine. Elle a vingt-deux ans, peut-être. Elle parle la langue du continent avec l'accent de Lannoz, qui roule les mots comme des galets, et elle la parle mieux que la moitié de l'équipage de la Cormorane.",
+    "« Vous êtes la femme qui soigne. Vous savez les corps. » Elle le pose là comme une pierre sur une tombe, sans la moindre inflexion de prière. « Mon père est couché dans la maison depuis trois jours. On l'a trouvé au fond d'une tranchée de tourbe, la tête ouverte. Les Penhoat disent qu'il est tombé. Moi, je dis qu'on l'a aidé. Venez le regarder, et dites-le devant tout le monde. »",
+    "Victorine demande pourquoi devant tout le monde. La jeune femme la regarde avec une patience de maîtresse d'école devant une enfant lente. « Parce qu'ici, madame, nous avons la mer, le recteur et la coutume, et rien d'autre. Et la coutume dit que si quelqu'un qui sait les corps dit *coup*, mon frère a le droit de prendre le louchet. »"
+   ],
+   "choices": [
+    {
+     "label": "La suivre jusqu'à la maison du mort",
+     "to": "WC_corps"
+    }
+   ]
+  },
+  "WC_corps": {
+   "act": "III",
+   "title": "Le louchet",
+   "place": "lannoz",
+   "ambiance": "nuit",
+   "text": [
+    "La maison des Drézen est la dernière du village, si basse qu'on y entre plié en deux, comme dans un terrier. Il y fait noir, et chaud, et l'air y est épais de fumée de tourbe et de cire. Le mort est couché sur la table, dans sa chemise du dimanche, les mains croisées sur un chapelet de buis. Trois jours de veille ont cerné de bleu les yeux des femmes assises le long des murs, qui chantent à mi-voix, sans s'arrêter, une plainte qui ressemble au bruit du vent dans une cheminée. Elles se taisent quand Victorine entre. Elles la regardent toutes, avec la même fixité, comme les chouettes regardent une lanterne.",
+    "Victorine défait le linge de la tête. La plaie est à l'arrière du crâne, un peu à droite, longue de trois doigts, droite, nette sur un bord, écrasée sur l'autre. L'os a cédé dessous. Dans les lèvres de la plaie, de la tourbe noire, fine, et un minuscule éclat de pierre grise. Elle tâte les mains du mort : des ongles cassés, et de la tourbe dessous, enfoncée loin, comme chez un homme qui a gratté la paroi. Les genoux de son pantalon sont déchirés tous les deux.",
+    "Elle connaît ce genre de plaie. Un louchet, cette bêche étroite à lame de fer que les tourbiers manient comme un sabre, fait ce bord net. Une pierre plate, au fond d'une tranchée, fait le même, quand un homme lourd tombe dessus de six pieds. Elle cherche une deuxième plaie, une ecchymose, une trace de main sur la gorge ou les bras. Elle ne trouve rien. Elle cherche longtemps. Elle sent les yeux de toutes les femmes posés sur sa nuque comme des mains froides.",
+    "Contre le mur, près de la porte, un jeune homme est assis sur un billot, les coudes sur les genoux. Grand, roux, avec des mains de tourbier et un visage d'enfant qu'on a réveillé trop tôt. Il tient sur ses genoux un louchet neuf, dont il a aiguisé la lame jusqu'à la rendre bleue. Il ne regarde ni le mort ni Victorine. Il regarde la lame."
+   ],
+   "choices": [
+    {
+     "label": "Demander à parler à la sœur, seule",
+     "to": "WC_soeur"
+    }
+   ]
+  },
+  "WC_soeur": {
+   "act": "III",
+   "title": "Le louchet",
+   "place": "lannoz",
+   "ambiance": "nuit",
+   "text": [
+    "Dehors, la nuit est tombée. Tifenn marche devant elle sur la lande, entre les flaques qui reflètent un reste de jour couleur d'étain, jusqu'à la tranchée. C'est une coupure droite dans la terre noire, profonde de deux hommes, aux parois lisses comme des murs, avec au fond une eau immobile et, à moitié enfoncée dans la vase, une pierre plate, grise, qui a la couleur de l'éclat trouvé dans la plaie. Victorine la regarde longtemps. Tifenn aussi.",
+    "« Mon père buvait, dit Tifenn, d'une voix égale. Le soir de sa mort, il revenait de chez les Penhoat, où il était allé réclamer la limite de notre coupe, qu'ils ont avancée de dix pas l'an dernier. Il y avait les deux fils Penhoat. On l'a entendu crier, de loin. Puis plus rien. Les Penhoat disent qu'il est parti en jurant, ivre, et qu'il a pris le raccourci de la tranchée, comme un idiot, dans le noir. » Elle sourit. « C'est possible. Mon père était un idiot. Il prenait toujours le raccourci. »",
+    "Elle se tourne vers Victorine. Elle a cessé de sourire. « Gwendal n'a pas envie d'y aller. Il est doux. Il aime les moutons, et une fille de Kerhuel qui chante à la veillée. Mais depuis trois jours, au village, quand il passe, on se tait. Les vieux crachent. Les mères tirent leurs filles par le bras. Si vous dites *chute*, madame, on dira qu'il a eu peur et qu'il a payé l'étrangère pour avoir le droit d'avoir peur. Il vivra ici cinquante ans comme ça. Si vous dites *coup*, il ira, il en tuera un, l'autre le tuera, et dans vingt ans, ma fille, si j'en ai une, attendra une autre étrangère au bout de la cale. » Elle hausse les épaules. « Je vous demande seulement de dire ce que vous savez. »",
+    "Victorine pense à la bruine qui fait ce bruit doux sur la tourbe, et à la façon dont la jeune femme a dit *ce que vous savez*, comme on pose un poids sur l'autre plateau d'une balance pour voir de quel côté elle penche. Elle pense qu'elle sait une chose : elle ne sait pas."
+   ],
+   "choices": [
+    {
+     "label": "Dire devant le village : « C'est un coup. »",
+     "fx": {
+      "flag": "wc:coup"
+     },
+     "to": "WC_coup"
+    },
+    {
+     "label": "Dire devant le village : « Il est tombé. »",
+     "fx": {
+      "flag": "wc:chute"
+     },
+     "to": "WC_chute"
+    },
+    {
+     "label": "Dire devant le village : « Je ne peux pas savoir. »",
+     "fx": {
+      "flag": "wc:doute"
+     },
+     "to": "WC_doute"
+    }
+   ]
+  },
+  "WC_coup": {
+   "act": "III",
+   "title": "Le louchet",
+   "place": "lannoz",
+   "ambiance": "nuit",
+   "text": [
+    "Elle le dit dans la maison, à voix haute, devant le mort, les femmes et le frère. Elle donne ses raisons, honnêtement : le bord net, la tourbe, les ongles. Elle ajoute que la chute peut faire la même chose. Personne n'entend la deuxième phrase. Le premier mot a suffi. Une vieille femme pousse un cri aigu, qui monte, qui ne finit pas, et les autres la suivent, et la plainte reprend, plus haut, plus vite, avec un mot nouveau dedans que Victorine ne comprend pas et qu'elle n'a pas besoin de comprendre.",
+    "Gwendal se lève. Il passe devant elle sans la regarder, le louchet à la main, et il sort dans la nuit. Tifenn ne le retient pas. Elle reste près de la porte, très droite, les bras croisés, le visage aussi blanc qu'au bout de la cale. Elle dit à Victorine, sans tourner la tête : « Merci. » Il y a, dans ce mot, quelque chose que Victorine entendra longtemps, la nuit, à bord, sans réussir à décider si c'était de la gratitude ou une accusation.",
+    "La Cormorane appareille le lendemain à midi. Au moment où l'on vire au cabestan, on entend, très loin sur la lande, des cris d'hommes. Puis plus rien. Victorine regarde l'île s'enfoncer dans la bruine, longue et brune comme un dos de bête couchée, jusqu'à ce qu'il n'en reste qu'une ligne. Elle n'a jamais su lequel des deux."
+   ],
+   "choices": [
+    {
+     "label": "Retourner à bord",
+     "fx": {
+      "quest": "WC"
+     },
+     "back": "A3x_lannoz"
+    }
+   ]
+  },
+  "WC_chute": {
+   "act": "III",
+   "title": "Le louchet",
+   "place": "lannoz",
+   "ambiance": "nuit",
+   "text": [
+    "Elle le dit dans la maison, à voix haute, devant le mort, les femmes et le frère. Elle parle de la pierre plate au fond de la tranchée, de l'éclat gris, des genoux déchirés d'un homme qui a essayé de remonter. Elle ne parle pas du bord net. Elle sait qu'elle ment par omission, et qu'elle le fait proprement, en bonne praticienne, comme on coupe un membre. Les femmes se taisent. Personne ne pleure plus fort ni plus bas.",
+    "Gwendal pose le louchet contre le mur. Il le pose doucement, comme une chose fragile. Ses épaules descendent d'un pouce. Puis il lève les yeux vers Victorine, et elle y voit, mêlés si étroitement qu'on ne saurait les séparer avec une pince, un soulagement immense et une honte de chien battu. Tifenn s'approche de lui et lui pose la main sur la nuque, comme on calme une bête. Elle regarde Victorine par-dessus la tête de son frère. Elle sait. Elle ne dit rien.",
+    "À la veillée, le soir, quand Gwendal entre, les vieux crachent dans le feu. Le lendemain, à la cale, au moment où le canot pousse, la fille de Kerhuel, qui chante à la veillée, descend la grève en courant, s'arrête au bord de l'eau, et regarde Victorine avec une haine si pure qu'elle en paraît presque belle. La médecin pense que la vie d'un garçon doux vaut ce regard-là. Elle n'en est pas tout à fait sûre."
+   ],
+   "choices": [
+    {
+     "label": "Retourner à bord",
+     "fx": {
+      "quest": "WC"
+     },
+     "back": "A3x_lannoz"
+    }
+   ]
+  },
+  "WC_doute": {
+   "act": "III",
+   "title": "Le louchet",
+   "place": "lannoz",
+   "ambiance": "nuit",
+   "text": [
+    "Elle le dit dans la maison, à voix haute, devant le mort, les femmes et le frère. Elle dit ce qu'elle a vu, tout, le bord net et la pierre plate, les ongles et les genoux, l'éclat gris. Elle dit qu'un louchet et une chute font la même plaie, et qu'aucun médecin au monde, ni à Morlenc ni ailleurs, ne pourrait dire lequel des deux, sur ce mort-là. Elle le dit lentement, deux fois, pour que la vieille femme qui traduit n'en perde rien.",
+    "Personne n'est content. La plainte reprend, plus sourde, mécontente, comme une mer qui hésite. Gwendal regarde sa sœur. Tifenn réfléchit longtemps, debout près de la porte, avec ce visage de farine. Puis elle dit quelque chose dans la langue de Lannoz, et la vieille femme traduit : elle demande que les deux fils Penhoat viennent jurer sur le corps, demain, à l'aube, devant le recteur, qu'ils ne l'ont pas touché. « Si l'un des deux ne vient pas, dit Tifenn, nous saurons. Si les deux viennent, Dieu saura, et ce sera son affaire. »",
+    "La Cormorane appareille avant l'aube du serment. Le recteur, qu'elle croise au bord de l'eau au milieu de ses ruches, lui dit que c'est la première fois en quarante ans qu'on demande un serment sur un corps, à Lannoz, plutôt qu'un louchet. Il dit que ça ne prouve rien. Il dit que c'est peut-être comme ça que les choses commencent, les bonnes et les autres."
+   ],
+   "choices": [
+    {
+     "label": "Retourner à bord",
+     "fx": {
+      "quest": "WC"
+     },
+     "back": "A3x_lannoz"
+    }
+   ]
+  },
+  "WD_affaire": {
+   "act": "III",
+   "title": "La nuit des tourbières",
+   "place": "lannoz",
+   "ambiance": "nature",
+   "text": [
+    "Maître Gobert a un commerce. Tout le monde à bord le sait, et la capitaine fait semblant de l'ignorer, parce qu'un bosco sans commerce est un bosco qui s'ennuie, et qu'un bosco qui s'ennuie fait plus de dégâts qu'un boulet. Il achète dans les escales ce que les hommes regretteront en mer, du tabac, du sucre, des aiguilles, de l'eau-de-vie, et il le leur revend, au milieu de l'océan, au prix qu'il veut. Il appelle ça « rendre service ».",
+    "« Les bergers de l'autre versant, dit-il en t'attrapant par le col au bord du ruisseau, font une eau-de-vie de bruyère qui vous retourne un homme comme une crêpe. Ils la vendent quatre sous la cruche. À bord, dans un mois, sous le Tropique, elle en vaudra quinze. Tu portes les cruches. Tu te tais. On est revenus avant la soupe. »",
+    "Tu lui rappelles que la capitaine a interdit qu'on s'éloigne du ruisseau. Il te regarde avec une stupeur sincère, comme on regarde un chien qui se mettrait à citer la Bible. « La capitaine, dit-il, a interdit qu'on se perde. Moi, je ne me perds pas. Quarante-six ans de mer, morveux. J'ai traversé des brumes où tu n'aurais pas retrouvé ta main au bout de ton bras. »"
+   ],
+   "choices": [
+    {
+     "label": "Porter les cruches",
+     "to": "WD_bruine"
+    }
+   ]
+  },
+  "WD_bruine": {
+   "act": "III",
+   "title": "La nuit des tourbières",
+   "place": "lannoz",
+   "ambiance": "nuit",
+   "text": [
+    "Les bergers sont où il a dit. L'eau-de-vie est ce qu'il a dit : elle sent le miel brûlé et la terre, et Gobert en goûte trois fois pour s'assurer de la marchandise. On marchande longtemps. On repart tard, quatre cruches pendues à une corde sur ton épaule, et la bruine se lève derrière vous, sur la lande, comme un drap qu'on secoue. En un quart d'heure, elle a mangé les collines. En une demi-heure, elle a mangé le jour.",
+    "Gobert marche devant, d'un pas sûr, en sifflant. Puis il siffle moins. Puis il s'arrête, et tourne la tête à droite, et à gauche, et renifle le vent comme une bête. Le vent n'a plus d'odeur ; il vient de partout. Les flaques des tourbières luisent autour de vous, toutes pareilles, avec la même herbe trop verte au bord, et le même ciel gris dedans, si bien qu'on croirait marcher au milieu de cent miroirs posés à plat, dont chacun montre le même rien. « Par là », dit Gobert. Il le dit d'une voix que tu ne lui connais pas.",
+    "C'est par là qu'il s'enfonce. L'herbe verte cède sous lui avec un bruit de bouche. En trois secondes, il est dans l'eau noire jusqu'aux cuisses, puis jusqu'à la taille. Il jure. Il se débat, et plus il se débat, plus la tourbe l'avale, avec une patience de bête repue. Tu lâches les cruches. Tu te couches à plat ventre au bord, sur la mousse qui tremble, et tu lui tends la corde.",
+    "Il te faut un temps infini. Tu tires, il tire, la tourbe tire. Il sort enfin, d'un coup, avec un bruit obscène de succion, et il reste couché sur la mousse à côté de toi, noir de vase jusqu'à la poitrine, à haleter comme un phoque échoué. Une seule cruche a survécu. La nuit est tombée."
+   ],
+   "choices": [
+    {
+     "label": "Attendre qu'il reprenne son souffle",
+     "to": "WD_nuit"
+    }
+   ]
+  },
+  "WD_nuit": {
+   "act": "III",
+   "title": "La nuit des tourbières",
+   "place": "lannoz",
+   "ambiance": "nuit",
+   "text": [
+    "Vous trouvez une butte de bruyère un peu plus haute que le reste, à tâtons, et vous vous y asseyez. Le vent se lève. Il souffle de la mer, mouillé, glacé, et il passe à travers les vêtements trempés comme à travers une dentelle. Tu entends, quelque part dans le noir, très loin, une cloche, ou quelque chose qui lui ressemble, une seule note, qui revient, et puis plus. Tu ne sauras jamais si c'était le village, la mer, ou l'idée que tu te faisais d'une cloche.",
+    "Gobert tremble. Il tremble d'abord un peu, puis beaucoup, de tout le corps, à grands frissons qui lui font claquer les dents comme des castagnettes. Il a soixante ans. Il a été dans l'eau noire jusqu'à la taille, et ses habits pèsent sur lui comme une armure de glace. Il ouvre la cruche qui reste, boit, et te la tend. Tu bois. C'est du feu, une minute, et puis le froid revient, plus profond, comme s'il avait profité de la minute pour s'installer.",
+    "« Écoute-moi, morveux, dit-il entre ses dents. Tu as des jambes de seize ans. Tu pars vers le bas, toujours vers le bas, et tu trouveras le ruisseau, et le ruisseau te mènera au village. Moi, je reste là. Je suis trop lourd pour marcher dans le noir sur ces saloperies. Ils viendront me chercher à l'aube. » Il rit, un rire qui ressemble à une toux. « Si je suis encore là. Les vieux bosco, ça ne meurt pas. Ça sèche. »",
+    "Autour de vous, dans le noir, quelque chose bouge. Des souffles, des petits bruits de sabots, une odeur chaude de laine mouillée. Les moutons noirs de Lannoz, qui paissent sans berger sur toute l'île et qui ne se noient jamais."
+   ],
+   "choices": [
+    {
+     "label": "Rester, et te coucher contre lui pour le tenir chaud jusqu'à l'aube",
+     "fx": {
+      "flag": "wd:chaleur",
+      "penche": {
+       "gobert": 1
+      }
+     },
+     "to": "WD_chaleur"
+    },
+    {
+     "label": "Lui obéir, et partir seul{e} vers le bas, chercher le ruisseau",
+     "fx": {
+      "flag": "wd:part"
+     },
+     "to": "WD_part"
+    },
+    {
+     "label": "Le remettre debout, et suivre les moutons, qui savent où la terre tient",
+     "fx": {
+      "flag": "wd:moutons"
+     },
+     "to": "WD_moutons"
+    }
+   ]
+  },
+  "WD_chaleur": {
+   "act": "III",
+   "title": "La nuit des tourbières",
+   "place": "lannoz",
+   "ambiance": "nuit",
+   "text": [
+    "Tu te couches contre lui. Il grogne, il proteste, il t'appelle de tous les noms de sa collection, qui est vaste ; puis il se tait, et tu sens son dos se tasser contre ta poitrine, et ses frissons passer de son corps dans le tien, comme une marée qui monte. Tu ouvres ta vareuse et tu la refermes sur vous deux, autant qu'elle veut bien. Tu serres. Il sent la vase, le tabac et la vieillesse. Il est énorme et il tremble comme un enfant.",
+    "La nuit dure mille ans. Tu dors, peut-être, par moments, et tu rêves du Fanal, de la salle commune, du feu, de ton père qui remet une bûche ; tu te réveilles, et c'est la lande, et le vent, et le dos du vieil homme. Une fois, au milieu de la nuit, il parle. Il dit un nom de femme, deux fois, très doucement. Tu ne le connais pas. Tu ne demandes rien. Une autre fois, il dit, d'une voix tout à fait claire : « Ta mère, morveux. De quoi elle est morte ? » Tu le lui dis. Il ne répond rien, et sa main trouve la tienne, dans le noir, et la serre, une fois, fort, et la lâche.",
+    "À l'aube, la bruine s'est levée. Le village est à un quart de lieue, en contrebas, et vous voyez fumer ses toits. Gobert se lève, raide comme un vieil arbre, et descend devant toi sans un mot, la cruche à la main. À bord, il paie une amende à la capitaine sans discuter et revend l'eau-de-vie à quinze sous, sous le Tropique, comme prévu. Il t'appelle toujours « morveux ». Mais il ne t'envoie plus jamais en haut du grand mât par gros temps, et quand quelqu'un d'autre le fait, il gueule."
+   ],
+   "choices": [
+    {
+     "label": "Redescendre au village, derrière lui",
+     "fx": {
+      "quest": "WD"
+     },
+     "back": "A3o_lannoz"
+    }
+   ]
+  },
+  "WD_part": {
+   "act": "III",
+   "title": "La nuit des tourbières",
+   "place": "lannoz",
+   "ambiance": "nuit",
+   "text": [
+    "Tu pars. Vers le bas, toujours vers le bas, comme il a dit. Tu tâtes le sol du pied avant chaque pas, comme un aveugle avec sa canne. Deux fois, la terre cède, et tu te rejettes en arrière juste à temps, le cœur dans la gorge. Tu tombes. Tu te relèves. Le vent t'arrache les larmes des yeux, et tu ne sais plus si tu pleures. Tu entends l'eau avant de la voir : le ruisseau, qui bavarde dans le noir comme une vieille femme qui ne sait pas qu'il est tard.",
+    "Tu le suis. Tu arrives au village à deux heures du matin, et tu cognes à la première porte, et tu ne sais pas dire en langue de Lannoz ce qui se passe, alors tu cries *Gobert*, et *tourbière*, et tu montres la lande. On comprend. Les hommes partent avec des lanternes et des perches, en riant et en jurant, comme des gens pour qui c'est la troisième fois de l'année.",
+    "On le ramène à l'aube, couché sur une claie, blanc, gris, les lèvres violettes, vivant. Il garde la fièvre deux jours, dans son hamac, et la médecin le soigne en le traitant de vieil imbécile, ce qu'il accepte d'elle comme d'aucun autre. Quand il se lève, il passe près de toi sur le pont et dit, sans s'arrêter : « Tu as bien fait. » Tu sais qu'il a raison, et tu sais aussi que tu l'as laissé seul dans le noir, et ces deux choses te tiennent compagnie longtemps, l'une à droite, l'autre à gauche, comme deux gardiens."
+   ],
+   "choices": [
+    {
+     "label": "Retourner au village",
+     "fx": {
+      "quest": "WD"
+     },
+     "back": "A3o_lannoz"
+    }
+   ]
+  },
+  "WD_moutons": {
+   "act": "III",
+   "title": "La nuit des tourbières",
+   "place": "lannoz",
+   "ambiance": "nuit",
+   "text": [
+    "Tu le mets debout. C'est un travail de cabestan. Il jure, il dit que tu es fou, que les moutons ne savent rien, que ce sont des bêtes, que les bêtes se noient comme les gens. Tu lui réponds que les moutons de Lannoz ne se noient pas, que tout le village le dit, et que c'est pour ça qu'il n'y a pas de berger. Il te regarde dans le noir, sans doute ; tu ne le vois pas. Puis il dit : « Bon. » Et il pose sa grosse main sur ton épaule, de tout son poids.",
+    "Tu suis les souffles, les petits bruits de sabots, l'odeur de laine. Les moutons ne vous attendent pas ; ils vont où ils vont, de leur pas tranquille, de touffe en touffe, en contournant des choses que tu ne vois pas. Là où ils passent, la terre tient. Une fois, Gobert veut couper au plus court ; tu le retiens par la manche. L'eau noire, à droite, fait un petit bruit, comme une bouche qui se referme.",
+    "Les moutons vous mènent, au bout de deux heures, à un enclos de pierres sèches au bord d'un champ, sous le village. Ils s'y couchent, serrés les uns contre les autres, et vous vous couchez avec eux, contre la laine chaude et grasse, comme deux bêtes de plus, et vous dormez jusqu'au jour. Gobert ne raconte jamais cette nuit à personne. Mais il raconte, souvent, au gaillard d'avant, que les moutons sont plus intelligents que les gabiers, et il rit, et il te regarde, et toi seul{e} sais de quoi il rit."
+   ],
+   "choices": [
+    {
+     "label": "Redescendre au village, au jour",
+     "fx": {
+      "quest": "WD"
+     },
+     "back": "A3o_lannoz"
+    }
+   ]
+  },
+  "WE_porche": {
+   "act": "II",
+   "title": "La vareuse",
+   "place": "basse_fosse",
+   "ambiance": "nuit",
+   "fx": {
+    "meet": "guillerm"
+   },
+   "text": [
+    "Il pleut sur la Basse-Fosse comme il ne pleut que là, d'une pluie grasse, tiède, qui sent l'égout et le goudron, et qui coule des toits penchés en cordes si serrées qu'on croirait marcher derrière les barreaux d'une cage. Tu rentres au quai en rasant les murs. Sous le porche d'une chapelle fermée, celle des Cordiers, dont la porte est murée depuis une épidémie que personne ne date, quelqu'un tousse.",
+    "C'est un homme. Il est assis sur la marche, le dos contre les planches, en chemise, sans veste, sans souliers, les bras croisés sur la poitrine. Il a trente ans peut-être, une barbe de huit jours, et des mains de marin, larges, couturées de vieilles brûlures de cordage. Il tousse d'une toux creuse, profonde, qui semble monter d'un puits, et chaque quinte le plie en deux. Il lève les yeux vers toi. Ce sont des yeux très pâles, presque blancs, qui te regardent avec une attention tranquille, sans rien demander, comme un homme qui évalue le temps qu'il fera.",
+    "« Belle soirée, dit-il. Tu connais un navire qui cherche des bras, mousse ? Je sais tout faire, sauf mourir de froid, et ce soir j'apprends. » Il rit. La toux reprend. Tu portes, sur le dos, la vareuse de grosse laine que ton père t'a donnée au départ, la sienne, retaillée, qui sent encore le Fanal quand il pleut."
+   ],
+   "choices": [
+    {
+     "label": "Ôter ta vareuse, et la lui donner",
+     "fx": {
+      "flag": "we:vareuse"
+     },
+     "to": "WE_vareuse"
+    },
+    {
+     "label": "Lui dire que Maître Gobert cherche des bras, et l'y conduire",
+     "fx": {
+      "flag": "we:gobert"
+     },
+     "to": "WE_gobert"
+    },
+    {
+     "label": "Lui souhaiter bonne chance, et passer ton chemin",
+     "fx": {
+      "flag": "we:passe"
+     },
+     "to": "WE_passe"
+    }
+   ]
+  },
+  "WE_vareuse": {
+   "act": "II",
+   "title": "La vareuse",
+   "place": "basse_fosse",
+   "ambiance": "nuit",
+   "text": [
+    "Tu l'ôtes. La pluie te tombe aussitôt sur les épaules comme une main froide. Tu la lui tends. Il la regarde un long moment, sans la prendre, avec ses yeux pâles. « C'est la vareuse d'un homme, dit-il. Retaillée. Quelqu'un t'aime. » Tu dis que c'est ton père. Il hoche la tête, et il la prend, et il la met, lentement, comme on revêt un habit de cérémonie. Elle lui va mal. Elle lui va.",
+    "« Je m'appelle Ronan, dit-il. Ronan Guillerm. Retiens le nom. Pas pour moi. Pour toi : on doit toujours savoir le nom des gens à qui on a donné quelque chose. » Tu rentres au quai en courant sous la pluie, trempé{e} jusqu'aux os, et Petit-Jules te traite d'âne, et tu dors avec la fièvre.",
+    "Le lendemain matin, sur le quai, devant le magasin, il y a la file de ceux qui veulent signer sur la Cormorane. Parmi eux, en vareuse de laine retaillée, rasé de frais, droit comme un mât, un homme aux yeux pâles. Gobert le tâte, lui fait faire un nœud, le regarde tousser, grogne, et le signe. Ronan Guillerm passe devant toi sans un regard, comme s'il ne t'avait jamais vu{e}. Tu comprends, au bout d'un moment, que c'est une politesse."
+   ],
+   "choices": [
+    {
+     "label": "Regagner la Basse-Fosse",
+     "back": "A2m_bf"
+    }
+   ]
+  },
+  "WE_gobert": {
+   "act": "II",
+   "title": "La vareuse",
+   "place": "basse_fosse",
+   "ambiance": "nuit",
+   "text": [
+    "Tu lui dis que tu sers sur la Cormorane, qui arme pour le sud, et que Maître Gobert cherche des bras. Il se lève aussitôt, comme si la toux n'existait plus. Vous traversez la Basse-Fosse sous la pluie, lui en chemise, toi devant, jusqu'à la taverne du quai où Gobert, chaque soir, tient son comptoir de recrutement entre une pinte et une pipe.",
+    "Gobert le regarde de bas en haut, puis de haut en bas, et il dit que c'est un tousseux, un va-nu-pieds, un gibier de potence, et qu'il ne prend pas les noyés. Tu lui dis qu'il a des mains de marin. Gobert te regarde. Il regarde les mains. Il lui fait faire un nœud de bouline, derrière son dos, les yeux fermés, ce qui est un jeu de bosco pour humilier les terriens. L'homme le fait en deux secondes. « Bon, dit Gobert. Mais s'il crève de sa toux, c'est toi qui le jettes à la mer, morveux. »",
+    "L'homme signe d'une croix, puis, se reprenant, d'un nom : Ronan Guillerm. Il écrit bien, d'une écriture penchée, régulière, qui étonne Gobert et te frappe, toi. En sortant, sous la pluie, il te dit, très bas : « Tu as répondu de moi. Personne n'a répondu de moi depuis longtemps. Je ne l'oublierai pas, que ça te plaise ou non. »"
+   ],
+   "choices": [
+    {
+     "label": "Regagner la Basse-Fosse",
+     "back": "A2m_bf"
+    }
+   ]
+  },
+  "WE_passe": {
+   "act": "II",
+   "title": "La vareuse",
+   "place": "basse_fosse",
+   "ambiance": "nuit",
+   "text": [
+    "Tu lui souhaites bonne chance. Il te remercie avec une politesse parfaite, comme un homme qui reçoit des visites, et il tousse, et tu passes. Au coin de la rue, tu te retournes. Il est toujours assis sous le porche, les bras croisés, les yeux pâles ouverts sur la pluie.",
+    "Le lendemain, en passant par la rue des Cordiers pour aller chercher des clous, tu regardes le porche de la chapelle murée. Il est vide. Sur la marche, il y a une flaque, et dans la flaque, une feuille de papier imprimé que la pluie a collée aux pavés, avec un visage dessiné dessus, à l'encre, et des lettres que l'eau a mangées. Tu ne t'arrêtes pas pour la lire. Tu es en retard pour les clous."
+   ],
+   "choices": [
+    {
+     "label": "Regagner la Basse-Fosse",
+     "fx": {
+      "quest": "WE"
+     },
+     "back": "A2m_bf"
+    }
+   ]
+  },
+  "WE_bord": {
+   "act": "III",
+   "title": "La vareuse",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "text": [
+    "Il vient te trouver un soir de quart, au pied du mât de misaine, pendant que les autres chantent à l'avant. Il ne tousse plus. La mer lui a rendu des couleurs, et il est devenu, en trois semaines, l'un des meilleurs gabiers du bord, de ceux qu'on envoie aux empointures dans les coups de vent et qui reviennent en sifflant. ",
+    {
+     "if": {
+      "has": "we:vareuse"
+     },
+     "text": "Il porte sur le bras la vareuse de ton père, lavée, recousue aux coudes, pliée comme un drapeau. « Je te la rends, dit-il. Avec les intérêts. » Dans la poche, il a glissé une pipe de bruyère neuve, qu'il a taillée lui-même pendant les quarts de nuit."
+    },
+    {
+     "if": {
+      "has": "we:gobert"
+     },
+     "text": "Il tient à la main un couteau de gabier, à lame courbe, avec un manche d'os qu'il a sculpté lui-même pendant les quarts de nuit : un mât, une voile, une vague. « Pour la caution, dit-il. Tu as répondu de moi. On paie ses cautions. »"
+    },
+    "Il s'assied à côté de toi, sur le pont, le dos contre le mât, et il regarde la mer noire un long moment. Puis il parle, à voix très basse, sans te regarder. Il s'appelle bien Ronan Guillerm. Il était gabier sur une corvette de l'Amirauté, la Diligente, il y a deux ans. Un officier a fait fouetter un mousse de douze ans jusqu'à ce qu'il en meure, pour une écoute mal tournée. Ronan a frappé l'officier. Une fois. L'officier est tombé dans l'écoutille. Il ne s'est pas relevé.",
+    "« Depuis, il y a mon visage, dessiné, sur un papier, dans tous les ports où flotte le pavillon. Pas très ressemblant. Assez. » Il sourit, de ses yeux pâles. « À Brisegrève, il y a un fort, un gouverneur, et un commis de l'Amirauté qui monte à bord de chaque navire avec le rôle d'équipage. Je ne te demande rien. Je voulais seulement que quelqu'un sache qui dort dans le hamac à côté du tien, au cas où. Tu es la seule personne à bord à qui je dois quelque chose. On ne ment pas aux gens à qui on doit quelque chose. »"
+   ],
+   "choices": [
+    {
+     "label": "« Je n'ai rien entendu. Bonne nuit, Ronan. »",
+     "fx": {
+      "flag": "we:garde"
+     },
+     "to": "WE_garde"
+    },
+    {
+     "label": "« Va le dire à la capitaine. Elle saura quoi faire de toi. »",
+     "fx": {
+      "flag": "we:capitaine"
+     },
+     "to": "WE_capitaine"
+    },
+    {
+     "label": "Aller trouver Gobert, et tout lui dire",
+     "fx": {
+      "flag": "we:dit"
+     },
+     "to": "WE_dit"
+    }
+   ]
+  },
+  "WE_garde": {
+   "act": "III",
+   "title": "La vareuse",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "text": [
+    "Il hoche la tête. Il pose la vareuse sur tes genoux. Il se lève et retourne à l'avant, où l'on chante encore, et il chante avec les autres, d'une voix de baryton très juste qui fait se retourner Lemerle à la barre.",
+    "À Brisegrève, le jour où le commis de l'Amirauté monte à bord avec son registre, ses lunettes et son mauvais caractère, Ronan Guillerm est en haut du grand mât, à l'empointure du grand hunier, en train de réparer une ralingue qui n'en avait pas besoin. Le commis appelle les noms. Gobert répond pour lui, sans lever les yeux : « Guillerm, gabier, au travail. » Le commis ne lève pas les siens. Il a faim. Il a des cors aux pieds. Il ne monte pas aux mâts.",
+    "Tu gardes ce qu'il t'a donné jusqu'à la fin du voyage, et longtemps après. Tu sais, chaque fois que ta main le touche, que tu portes avec toi le silence d'un homme, et que ce silence pèse plus lourd que la chose."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre ton quart",
+     "fx": {
+      "quest": "WE"
+     },
+     "back": "A3m_jours"
+    }
+   ]
+  },
+  "WE_capitaine": {
+   "act": "III",
+   "title": "La vareuse",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "text": [
+    "Il te regarde longtemps. Il dit que c'est une drôle d'idée, d'aller se confesser à une femme qui commande au nom de ceux qui le pendront. Tu lui dis que la capitaine Ribaud ne commande au nom de personne, sur son pont, et qu'elle déteste deux choses, les menteurs et les officiers de l'Amirauté. Il rit. Il se lève. Il va frapper à la porte de la grand-chambre, à minuit, en chemise, comme un homme qui va se rendre.",
+    "Il ressort une heure plus tard. Tu ne sais jamais ce qui s'est dit. Tu sais seulement qu'à Brisegrève, au moment où le commis de l'Amirauté monte à bord avec son registre, la capitaine le reçoit dans la grand-chambre avec une bouteille de vin de Varnèse et une conversation si charmante, si longue, si pleine de questions sur la santé de sa mère, que le commis redescend à la nuit, ivre et ravi, sans avoir ouvert son registre.",
+    "Le lendemain, la capitaine passe près de toi sur le pont. Elle ne s'arrête pas. Elle dit seulement, en regardant la voilure : « Un homme qui frappe un officier pour un mousse, je le garde. Un mousse qui m'envoie ce genre d'homme, je le garde aussi. Ne recommence pas trop souvent. »"
+   ],
+   "choices": [
+    {
+     "label": "Reprendre ton quart",
+     "fx": {
+      "quest": "WE"
+     },
+     "back": "A3m_jours"
+    }
+   ]
+  },
+  "WE_dit": {
+   "act": "III",
+   "title": "La vareuse",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "text": [
+    "Tu vas trouver Gobert dans sa cabine, où il compte ses aiguilles et son tabac à la lueur d'un bout de chandelle. Tu lui dis tout. Il t'écoute sans t'interrompre, en tirant sur sa pipe éteinte. Quand tu as fini, il pose la pipe. « Tu sais ce qu'on fait, sur une corvette, à un gabier qui rapporte ? demande-t-il. Rien. On n'a pas besoin. Les autres s'en chargent. » Il soupire. « Va te coucher. Tu as fait ton devoir. Je déteste qu'on fasse son devoir dans ma cabine. »",
+    "À Brisegrève, la veille de l'arrivée du commis de l'Amirauté, Ronan Guillerm disparaît. Son hamac est vide au quart de quatre heures. La chaloupe est à sa place. On ne trouve rien, pas un bruit, pas une éclaboussure. Quelqu'un dit qu'il a nagé jusqu'à la côte, à deux milles, de nuit. Quelqu'un d'autre dit qu'on ne nage pas deux milles dans ces eaux-là. Gobert ne dit rien du tout.",
+    "Sur ton hamac, il y a un bout de papier plié en quatre, avec une écriture penchée, régulière : *On ne ment pas aux gens à qui on doit quelque chose. Tu ne m'as pas menti non plus. C'est bien. — R. G.*"
+   ],
+   "choices": [
+    {
+     "label": "Reprendre ton quart",
+     "fx": {
+      "quest": "WE"
+     },
+     "back": "A3m_jours"
+    }
+   ]
+  },
+  "WF_appel": {
+   "act": "I",
+   "title": "Les bûches comptées",
+   "place": "varnese_maison",
+   "ambiance": "nuit",
+   "fx": {
+    "meet": "agathe"
+   },
+   "text": [
+    "On gratte à la porte du cabinet. C'est un valet de ferme, un garçon maigre, trempé, qui tient son bonnet à deux mains et n'ose pas entrer, de peur de mouiller le carrelage. Il vient de chez maître Rospabu, à la Grande-Lande. C'est la maîtresse. Elle tousse, elle a la fièvre, elle a mal au côté, elle ne mange plus. Il a couru une lieue. C'est la demoiselle qui l'envoie. Il ajoute, en baissant la voix, que le maître ne le sait pas.",
+    "Victorine connaît maître Rospabu. Tout le pays le connaît. C'est l'homme le plus riche de la lande, et il en a l'air d'un pauvre : une veste de droguet qu'il porte depuis la naissance de sa fille, des sabots qu'il ressemelle lui-même, une voix basse, douce, qui bégaie un peu quand il parle d'argent, ce qui lui arrive chaque fois qu'il parle. On dit qu'il a des terres jusqu'à la mer, des créances sur la moitié des fermes de Varnèse, et des tonneaux d'or dans sa cave. On dit aussi qu'il compte les bûches, le soir, avant de se coucher, et qu'il connaît le nombre exact de grains de sel dans le saloir.",
+    "Elle prend sa sacoche. Monsieur Prosper, sur son crochet, la regarde partir avec l'air entendu d'un squelette qui en a vu d'autres."
+   ],
+   "choices": [
+    {
+     "label": "Courir à la Grande-Lande",
+     "to": "WF_chambre"
+    }
+   ]
+  },
+  "WF_chambre": {
+   "act": "I",
+   "title": "Les bûches comptées",
+   "place": "hameau",
+   "ambiance": "nuit",
+   "text": [
+    "La maison est grande, belle, solide, en granit gris, avec des fenêtres étroites comme des meurtrières, et il y fait plus froid que dehors. Le froid y est chez lui. Il habite les murs, il dort dans les lits, il s'assied à table. Dans la chambre de la malade, la cheminée est éteinte, et le bois est rangé à côté, en pile carrée, parfaite, avec une marque à la craie sur la bûche du dessus.",
+    "Madame Rospabu est une petite femme grise, si mince sous ses couvertures qu'on la cherche des yeux. Elle respire vite, court, en grimaçant à chaque inspiration. Victorine l'ausculte, l'oreille contre son dos : à droite, en bas, le bruit de la soie froissée, et plus bas encore, un silence mat, plein d'eau. Une pleurésie. Pas encore perdue. Il faudrait du feu, nuit et jour, et du bouillon gras, et surtout de l'écorce des fièvres, la poudre rouge des forêts du Couchant, qui coupe la fièvre et qui coûte, chez l'apothicaire de Varnèse, une pièce d'or l'once.",
+    "Maître Rospabu est debout au pied du lit. Il écoute, les mains jointes. Il dit, doucement, en bégayant à peine, que le feu, la nuit, c'est beaucoup de bois, que le bois c'est de l'argent, que l'argent c'est la sueur de toute une vie, et qu'une femme de son âge, Dieu le sait, a vécu sa part. Il dit que l'écorce, il en a entendu parler, que c'est une drogue de charlatans, et que sa mère est morte sans, à quatre-vingts ans. Il dit tout cela avec une tristesse sincère. C'est le plus terrible.",
+    "Il raccompagne Victorine jusqu'à la porte, une chandelle à la main, une seule, qu'il souffle dès qu'elle a passé le seuil."
+   ],
+   "choices": [
+    {
+     "label": "Attendre un instant dans la cour obscure",
+     "to": "WF_agathe"
+    }
+   ]
+  },
+  "WF_agathe": {
+   "act": "I",
+   "title": "Les bûches comptées",
+   "place": "hameau",
+   "ambiance": "nuit",
+   "text": [
+    "Elle sort de l'ombre de la grange, comme un fantôme qui aurait de bonnes manières. Agathe Rospabu a vingt-huit ans. Elle est grande, pâle, belle d'une beauté que personne n'a jamais regardée, parce que tout le pays sait qu'on n'épousera pas la fille Rospabu avant la mort du père, et que le père n'a pas l'intention de mourir. Elle a des mains rouges de fermière et des yeux de religieuse. Elle tient contre elle une bourse de cuir, petite, lourde, qu'elle tend à Victorine dans le noir.",
+    "« Vingt-huit pièces, dit-elle. Une par anniversaire, depuis que je suis née. Il me les donne le matin, devant ma mère, et il me les fait compter devant lui. Le soir, il me demande à les voir. Chaque année, il me demande à les voir. » Elle a un petit rire qui ne ressemble pas du tout à un rire. « Il sait le compte. Il le saura demain. Prenez-les. Achetez l'écorce, et du bois, et faites mettre le bois sur le compte de qui vous voudrez. »",
+    "Victorine pèse la bourse dans sa main. Elle pense à ce que dira le vieil homme, demain matin, quand sa fille ouvrira devant lui une bourse vide. Elle pense aussi, très précisément, à sa propre bourse à elle, dans le tiroir du bureau, sous le portrait retourné d'Hector : quarante écus, mis de côté depuis un an, sou par sou, pour le premier des créanciers de son mari, qui passe à la fin du mois. Il y en aurait assez pour l'écorce. Il y en aurait juste assez."
+   ],
+   "choices": [
+    {
+     "label": "Prendre la bourse d'Agathe",
+     "fx": {
+      "flag": "wf:or"
+     },
+     "to": "WF_or"
+    },
+    {
+     "label": "Rendre la bourse, et aller réveiller le recteur pour faire honte au père",
+     "fx": {
+      "flag": "wf:pere"
+     },
+     "to": "WF_pere"
+    },
+    {
+     "label": "Rendre la bourse, et payer l'écorce avec l'argent des créanciers d'Hector",
+     "fx": {
+      "flag": "wf:offre"
+     },
+     "to": "WF_offre"
+    }
+   ]
+  },
+  "WF_or": {
+   "act": "I",
+   "title": "Les bûches comptées",
+   "place": "hameau",
+   "ambiance": "nuit",
+   "text": [
+    "Elle prend la bourse. Elle réveille l'apothicaire de Varnèse à coups de poing dans ses volets, et il lui vend l'écorce, en bonnet de nuit, avec la mine d'un homme qui fait la charité à des heures indues. À l'aube, le feu brûle dans la chambre de Madame Rospabu, avec du bois acheté au charbonnier, et la malade boit sa première tasse de poudre rouge en grimaçant, parce que c'est amer comme le péché.",
+    "La fièvre tombe le troisième jour. L'eau quittera le poumon plus lentement, mais un matin la malade demande une soupe, et dans une maison pareille, une soupe demandée vaut un miracle. Victorine apprend la suite par la femme du sacristain, qui l'a apprise par le valet. Le matin même où la malade a demandé sa soupe, maître Rospabu a demandé à sa fille de lui montrer sa bourse. Elle a dit qu'elle n'en avait plus. Il ne l'a pas battue. Il n'a pas crié. Il s'est assis. Il est resté assis toute la journée, sur une chaise, dans la cuisine froide, à regarder ses mains, comme un homme qui aurait reçu la nouvelle d'un décès.",
+    "Depuis, dit la femme du sacristain, il ne parle plus à sa fille, et le valet parie qu'il n'en reparlera jamais. Il mange à l'autre bout de la table. Agathe le soigne, le sert, le lave quand il est malade, comme avant, avec ses mains rouges et ses yeux de religieuse. Elle a sauvé sa mère. Elle a perdu son père, qui est vivant, et assis en face d'elle, chaque soir. Elle ne s'en plaint à personne."
+   ],
+   "choices": [
+    {
+     "label": "Regagner Varnèse, à l'aube",
+     "fx": {
+      "quest": "WF"
+     },
+     "back": "A1v_soir"
+    }
+   ]
+  },
+  "WF_pere": {
+   "act": "I",
+   "title": "Les bûches comptées",
+   "place": "hameau",
+   "ambiance": "nuit",
+   "text": [
+    "Elle rend la bourse. Agathe la reprend sans un mot, avec un regard que Victorine ne comprend pas tout de suite : une sorte de soulagement honteux. Puis la médecin fait une lieue dans la nuit, jusqu'au presbytère de Varnèse, et tire l'abbé Morisseau de son lit, et le ramène, en soutane et en sabots, maugréant, à la Grande-Lande, à trois heures du matin.",
+    "Ce qui se passe dans la cuisine froide, entre l'abbé, la médecin et l'homme le plus riche de la lande, Victorine s'en souviendra comme d'une des scènes les plus humiliantes de sa vie, et elle n'est pas sûre de savoir pour qui. L'abbé parle de l'âme, de la charité, du jugement dernier, de l'aiguille et du chameau. Rospabu écoute, les mains jointes, hochant la tête, approuvant tout, bégayant des amen. Puis il demande combien coûte exactement l'once d'écorce, et si l'on ne pourrait pas en prendre une demi-once, et si le feu ne pourrait pas brûler seulement la nuit.",
+    "On obtient une demi-once et le feu la nuit. La malade guérit à moitié : la fièvre tombe, la toux reste, et elle vivra encore trois ans, à tousser, dans une chambre chauffée de six heures du soir à six heures du matin, exactement. Le dimanche suivant, à la sortie de la messe, Agathe salue Victorine d'une inclinaison de tête très polie. Victorine sait qu'elle lui a épargné le regard de son père. Elle se demande parfois si c'était cela qu'Agathe voulait, ou si elle avait choisi de payer, et si personne ne lui a laissé le droit de payer."
+   ],
+   "choices": [
+    {
+     "label": "Regagner Varnèse, à l'aube",
+     "fx": {
+      "quest": "WF"
+     },
+     "back": "A1v_soir"
+    }
+   ]
+  },
+  "WF_offre": {
+   "act": "I",
+   "title": "Les bûches comptées",
+   "place": "hameau",
+   "ambiance": "nuit",
+   "text": [
+    "Elle rend la bourse. Elle dit à Agathe de la garder, et de la montrer à son père demain, et après-demain, et le jour de sa mort. Puis elle refait la lieue jusqu'à Varnèse, ouvre le tiroir sous le portrait retourné d'Hector, prend les quarante écus, et réveille l'apothicaire. Il lui vend l'écorce. Elle achète du bois au charbonnier, qui la livre à l'aube, en jurant contre les médecins qui ne dorment jamais.",
+    "Madame Rospabu guérit, lentement. Maître Rospabu remercie Victorine avec une émotion sincère et un bégaiement redoublé. Il ne lui demande pas combien elle a payé. Il ne le lui rembourse pas. Il lui envoie, le surlendemain, un panier de pommes ridées et une motte de beurre rance, avec ses compliments. Agathe, elle, garde le silence. Elle vient, un soir, frapper à la porte du cabinet, et elle reste une heure, assise près du feu, avec Monsieur Prosper, sans parler. Elle revient le soir suivant. Elle reviendrait toutes les semaines, si on la laissait faire, et si la médecin restait à Varnèse.",
+    "Le premier créancier d'Hector doit passer à la fin du mois. Victorine n'aura rien à lui donner, et il fera dresser un papier par un huissier de Morlenc, puis un autre, qu'elle rangera dans le tiroir, sous le portrait, à la place des écus. Elle le sait. Elle dort mal. Elle ne regrette rien. Ces deux choses vont très bien ensemble, découvre-t-elle, comme le chaud et le froid dans une maison de granit."
+   ],
+   "choices": [
+    {
+     "label": "Regagner Varnèse, à l'aube",
+     "fx": {
+      "quest": "WF"
+     },
+     "back": "A1v_soir"
+    }
+   ]
+  },
+  "WG_four": {
+   "act": "II",
+   "title": "Le pain coupé en deux",
+   "place": "basse_fosse",
+   "ambiance": "ville",
+   "second": true,
+   "fx": {
+    "meet": "corbic"
+   },
+   "text": [
+    "La Tour-aux-Rats est la prison de Morlenc, et elle fait le meilleur biscuit de mer de toute la côte. Les deux choses vont ensemble : un forçat coûte moins qu'un mitron, et un homme qui a faim pétrit avec une ferveur qu'aucun salaire n'achète. Les maîtres-coqs le savent. Ils y viennent tous, avant les longs voyages, par la petite porte du quai, avec une lettre du commissaire et une bourse, et ils repartent avec des sacs de galettes dures comme des ardoises, qui tiennent deux ans en cale et qui ont le goût de la pierre.",
+    "Le fournil est une salle basse, voûtée, sous la tour, où il fait la chaleur de l'enfer et où l'on voit à peine, tant la farine flotte dans l'air. Des hommes nus jusqu'à la ceinture, enchaînés deux par deux à la cheville, enfournent et défournent sous l'œil d'un gardien qui somnole sur une chaise. Au milieu d'eux, il y en a un qui dépasse les autres d'une tête et demie. Un géant, roux, à la barbe pleine de farine, avec des épaules de bœuf de labour et un visage d'une douceur étrange, presque enfantine, celui d'un homme qui n'a jamais compris pourquoi il était si grand.",
+    "Fargue compte ses sacs. Le géant les charge. À chaque sac, il regarde le pain. Il le regarde comme un chien regarde une main. Fargue connaît ce regard. Il l'a vu sur des bordées entières, au quatrième mois d'une campagne, quand le biscuit a des vers et qu'on les mange aussi."
+   ],
+   "choices": [
+    {
+     "label": "Lui tendre la moitié d'une galette, quand le gardien regarde ailleurs",
+     "to": "WG_corbic"
+    }
+   ]
+  },
+  "WG_corbic": {
+   "act": "II",
+   "title": "Le pain coupé en deux",
+   "place": "basse_fosse",
+   "ambiance": "ville",
+   "second": true,
+   "text": [
+    "Le géant prend la galette, la casse sur son genou d'un coup sec, et en mange la moitié en deux bouchées. L'autre moitié, il la glisse sous sa chemise, contre sa peau, avec un soin de mère. Fargue lui demande pour qui. Le géant le regarde un moment, avec ses yeux doux, et il le lui dit, à voix basse, sans se presser, comme on raconte une histoire déjà racontée cent fois à soi-même.",
+    "Il s'appelle Hervé Corbic. Douze ans pour un vol de farine, avec effraction, à vingt ans, l'hiver où sa mère mourait de faim. Il a faim depuis douze ans. Le règlement donne à chaque homme une livre et demie de pain par jour, et une livre et demie de pain, pour un homme de sa taille, c'est ce qu'il faut pour mourir lentement. Il y a deux ans, on l'a enchaîné à un petit, Yves Lostanlen, dix-huit ans, maigre comme un clou, qui mange comme un oiseau. Le premier soir, le petit lui a donné la moitié de sa ration. Il la lui a donnée tous les soirs, pendant deux ans. Corbic, en échange, a appris au petit à lire, sur les sacs de farine, avec une écharde, et l'a protégé des autres, ce qui, à la Tour-aux-Rats, n'est pas une petite affaire.",
+    "« Il y a trois semaines, dit-il, le gardien-chef Mauduit a changé le petit d'aile. Pour rien. Il n'a rien fait. J'ai demandé pourquoi. Mauduit m'a dit : *Parce que.* » Il a un sourire très doux. « Depuis trois semaines, le petit est enchaîné à un homme qui lui prend sa ration. Je le vois maigrir, de l'autre côté de la cour, à la promenade. Et moi, j'ai faim. »"
+   ],
+   "choices": [
+    {
+     "label": "Attendre la suite",
+     "to": "WG_dimanche"
+    }
+   ]
+  },
+  "WG_dimanche": {
+   "act": "II",
+   "title": "Le pain coupé en deux",
+   "place": "basse_fosse",
+   "ambiance": "ville",
+   "second": true,
+   "text": [
+    "« Je l'ai demandé trois fois, poliment, dit Corbic. Mauduit a ri trois fois. Dimanche, à la messe, il passe dans l'allée, entre les bancs, pour compter les têtes. Je serai au bout du banc. J'ai une hachette, celle du petit bois, dans la paille du four. Personne ne la cherche. » Il dit cela sans colère, comme il dirait l'heure de la marée. « Je vous le dis à vous parce que vous êtes un homme qui a eu faim. Ça se voit. Et parce qu'il faut bien que quelqu'un le sache, avant. Après, ce sera trop tard pour comprendre. »",
+    "Fargue repart avec ses sacs, par la petite porte du quai. En traversant la cour, il croise le gardien-chef Mauduit, qui inspecte la promenade, une badine à la main. Un homme petit, rond, propre, bien rasé, avec une bouche minuscule et des yeux d'un bleu très gai. Il salue Fargue avec amabilité, lui demande si le biscuit est à son goût, et lui dit en confidence, en clignant de l'œil, que pour cinq livres de plus par sac, il pourrait faire mettre dans la pâte du saindoux, ce qui la rend moins dure aux dents des officiers.",
+    "Au bout de la cour, de l'autre côté de la grille, un garçon très maigre, enchaîné à un homme trapu, regarde vers le fournil."
+   ],
+   "choices": [
+    {
+     "label": "Prévenir Mauduit, à mi-voix, de ce qui l'attend dimanche",
+     "fx": {
+      "flag": "wg:avertit"
+     },
+     "to": "WG_avertit"
+    },
+    {
+     "label": "Payer Mauduit pour qu'il remette le petit avec le géant",
+     "if": {
+      "gold": {
+       "min": 30
+      }
+     },
+     "fx": {
+      "flag": "wg:soudoie",
+      "gold": -30
+     },
+     "to": "WG_soudoie"
+    },
+    {
+     "label": "Saluer Mauduit, et repartir avec ses sacs, sans rien dire",
+     "fx": {
+      "flag": "wg:tait"
+     },
+     "to": "WG_tait"
+    }
+   ]
+  },
+  "WG_avertit": {
+   "act": "II",
+   "title": "Le pain coupé en deux",
+   "place": "basse_fosse",
+   "ambiance": "ville",
+   "second": true,
+   "text": [
+    "Il le dit à Mauduit, à mi-voix, en lui prenant le bras comme un vieil ami. Les yeux bleus cessent d'être gais. Mauduit le remercie, chaleureusement, et lui offre le saindoux pour rien. Le soir même, on fouille le fournil, on trouve la hachette dans la paille, et Hervé Corbic descend au cachot, sous la tour, là où l'eau du port suinte des murs à marée haute, avec des fers aux mains et aux pieds, et une demi-livre de pain par jour, pour lui apprendre.",
+    "Fargue revient à la Tour-aux-Rats l'avant-veille de l'appareillage, pour le dernier chargement. Il demande des nouvelles du géant. Le gardien du fournil hausse les épaules. Le géant est toujours au cachot. Il ne dit rien. Il ne mange plus. Il rend sa demi-livre de pain intacte, chaque soir, par le guichet. On ne sait pas pourquoi. Le petit, de l'autre côté de la cour, est à l'infirmerie, avec la fièvre.",
+    "Fargue a sauvé la vie d'un homme qui fait mettre du saindoux dans le pain des officiers, et il a condamné deux autres hommes à mourir de faim lentement, chacun de son côté, comme le règlement le prévoit. Il charge ses sacs. Il ne regarde pas vers la grille. Il pense, sans le vouloir, à Annette, qui avait faim aussi, l'hiver où il était en mer, et à qui personne n'a rien demandé."
+   ],
+   "choices": [
+    {
+     "label": "Retourner aux affaires du bord",
+     "fx": {
+      "quest": "WG"
+     },
+     "back": "XR_jours"
+    }
+   ]
+  },
+  "WG_soudoie": {
+   "act": "II",
+   "title": "Le pain coupé en deux",
+   "place": "basse_fosse",
+   "ambiance": "ville",
+   "second": true,
+   "text": [
+    "Il prend Mauduit à part, dans l'ombre du porche, et il lui parle du petit Lostanlen, des ailes de la prison, de la bonne entente entre forçats qui fait de la bonne pâte, et, à la fin, de trente livres, posées dans la main propre du gardien-chef, qui se referme dessus avec la souplesse d'une huître. Mauduit est enchanté. Il dit que c'est une excellente idée, qu'il y pensait justement, qu'il ne comprend pas qui a pu séparer ces deux garçons, et qu'il va faire une enquête.",
+    "Le lendemain, à la promenade, le géant et le petit sont enchaînés ensemble. Le petit mange. Le géant mange la moitié de ce que mange le petit. Fargue les voit de loin, depuis la cour du fournil, assis contre le mur, épaule contre épaule, à partager une galette. Corbic lève la tête et le regarde. Il ne fait aucun signe. Le soir, dans la paille du four, on trouverait, si on cherchait, une hachette qu'il a remise à sa place.",
+    "Fargue sait exactement ce qu'il a acheté. Trente livres de paix, à la Tour-aux-Rats, durent ce que dure la mémoire d'un homme qui aime l'argent : jusqu'au prochain maître-coq. Il le sait, et il est déjà à bord quand l'échéance tombera. C'est le genre d'arrangement qu'il préfère : on fait le bien comme on donne une pièce à un mendiant, en regardant ailleurs, et on s'en va avant de voir ce qu'il en fait."
+   ],
+   "choices": [
+    {
+     "label": "Retourner aux affaires du bord",
+     "fx": {
+      "quest": "WG"
+     },
+     "back": "XR_jours"
+    }
+   ]
+  },
+  "WG_tait": {
+   "act": "II",
+   "title": "Le pain coupé en deux",
+   "place": "basse_fosse",
+   "ambiance": "ville",
+   "second": true,
+   "text": [
+    "Il salue Mauduit, refuse le saindoux, et repart avec ses sacs. Le dimanche, à onze heures, il est sur le quai, à surveiller le chargement des pois secs, quand la cloche de la Tour-aux-Rats se met à sonner, à toute volée, à contretemps, comme une cloche qu'on a lâchée. Les portefaix lèvent la tête. Quelqu'un dit que c'est une évasion. Quelqu'un d'autre, qui a un cousin gardien, revient une heure plus tard en disant que c'est le gardien-chef. À la messe. D'un seul coup, entre les bancs. Que le géant ne s'est pas sauvé, qu'il a posé la hachette sur l'autel, et qu'il s'est assis, et qu'il a attendu.",
+    "On le pend le vendredi, à la Croix-des-Marées, devant une foule qui est venue pour le spectacle et qui rentre déçue, parce qu'il ne dit rien, ne pleure pas, ne se débat pas. Fargue y est. Il ne sait pas pourquoi il y est. Le géant, sur l'échafaud, cherche quelqu'un dans la foule, et le trouve, et lui fait un petit signe de tête, très poli, comme on salue un homme qu'on a croisé une fois.",
+    "En redescendant de la Croix, Fargue passe devant la petite porte de la Tour-aux-Rats. Le nouveau gardien-chef est un grand sec, triste, qui a l'air de ne rien aimer du tout, même l'argent. Fargue se demande si c'est mieux. Il ne trouve pas de réponse. Il trouve seulement qu'il a faim, tout à coup, une faim énorme, une faim de forçat, et il entre dans la première gargote et commande deux soupes, et il les mange toutes les deux."
+   ],
+   "choices": [
+    {
+     "label": "Retourner aux affaires du bord",
+     "fx": {
+      "quest": "WG"
+     },
+     "back": "XR_jours"
+    }
+   ]
+  },
+  "WH_chiot": {
+   "act": "IV",
+   "title": "Le chiot du muet",
+   "place": "sylve",
+   "ambiance": "nature",
+   "fx": {
+    "meet": "goulven"
+   },
+   "text": [
+    "Goulven est le plus grand homme du camp, et le plus doux, et le seul qui n'ait jamais rien dit à personne. Il est né sourd, et muet par voie de conséquence, sur le Saint-Fiacre, au milieu de la traversée, il y a vingt-cinq ans, et il est arrivé sur l'île à l'âge de trois mois dans les bras d'une mère qui est morte la première année. Il porte les charges que deux hommes ne portent pas, il abat les arbres, il remonte les seaux de la cascade, et le soir il s'assied à l'écart, contre la paroi de la grotte, et il regarde le feu, avec un sourire tranquille, comme un homme qui écouterait une musique qu'il est seul à entendre.",
+    "Depuis dix jours, il a un chiot. Une petite chose jaune, aux oreilles trop grandes, à la queue en fouet, qu'il a trouvée dans la forêt sous un arbre abattu, près du cadavre de sa mère, une chienne de la meute sauvage prise dans un collet des mutins. Il l'a nourrie de bouillie mâchée, au bout de ses doigts. Il l'a portée dix jours contre sa poitrine, dans sa chemise. À présent, elle le suit partout, en trottinant, en tombant, en se relevant, et quand il s'arrête, elle s'assied sur son pied.",
+    "Elle aboie. Elle aboie la nuit, à la lune, aux chauves-souris, au vent dans le rideau de la cascade, d'un petit aboiement aigu, joyeux, qui porte loin dans la forêt, beaucoup plus loin qu'on ne croirait. Goulven ne l'entend pas. Tous les autres l'entendent. Et, en bas, sous la forêt, les mutins de Fargue chassent le cochon sauvage depuis trois jours, de plus en plus près."
+   ],
+   "choices": [
+    {
+     "label": "S'asseoir près du feu, où l'on discute à voix basse",
+     "to": "WH_ordre"
+    }
+   ]
+  },
+  "WH_ordre": {
+   "act": "IV",
+   "title": "Le chiot du muet",
+   "place": "sylve",
+   "ambiance": "nuit",
+   "text": [
+    "Jeanne Brasdefer a écouté tout le monde, longtemps, sans rien dire, comme elle fait toujours. Puis elle a tranché. Elle le dit à Victorine sans baisser la voix, puisque celui qu'elle condamne ne l'entendra pas. « Douze ans que nous vivons derrière cette eau sans que personne ne sache où. Douze ans de silence, médecin. Les enfants ici ont appris à pleurer sans bruit avant d'apprendre à parler. Et une chienne de dix jours va nous faire égorger, tous, pour une lune. Demain à l'aube, Goulven la noiera dans la vasque. »",
+    "Elle va vers Goulven. Elle s'accroupit devant lui. Ils ont un langage à eux, de gestes, de mimiques, de doigts posés sur la paume. Victorine regarde Jeanne le lui dire : la main sur la bouche, le doigt vers la forêt, le geste de l'égorgement, puis les deux mains qui plongent dans une eau invisible, et qui tiennent, et qui serrent. Goulven regarde les mains. Il regarde le chiot, qui dort sur son pied. Il regarde Jeanne. Il hoche la tête, une fois, lentement, comme un homme qui comprend une chose qu'il savait.",
+    "Puis il prend le chiot dans ses bras, et il va s'asseoir contre la paroi, à l'écart, et il reste là, sans bouger, à le regarder dormir, avec son sourire tranquille, qui ne change pas. C'est ce sourire que Victorine ne supporte pas."
+   ],
+   "choices": [
+    {
+     "label": "Aller trouver Jeanne, et plaider pour la chienne",
+     "fx": {
+      "flag": "wh:plaide"
+     },
+     "to": "WH_plaide"
+    },
+    {
+     "label": "Proposer de lui couper la voix, d'un coup de scalpel",
+     "fx": {
+      "flag": "wh:voix"
+     },
+     "to": "WH_voix"
+    },
+    {
+     "label": "Dire à Jeanne que tu l'emportes, quand tu redescendras à la chapelle",
+     "fx": {
+      "flag": "wh:emmene"
+     },
+     "to": "WH_emmene"
+    }
+   ]
+  },
+  "WH_plaide": {
+   "act": "IV",
+   "title": "Le chiot du muet",
+   "place": "sylve",
+   "ambiance": "nuit",
+   "text": [
+    "Elle plaide. Elle dit qu'on peut museler une chienne, l'enfermer la nuit, la dresser ; elle dit que Goulven a tout donné au camp depuis vingt-cinq ans, sa force, ses bras, son dos, et qu'on lui doit au moins ça ; elle dit que l'on peut vivre avec un risque. Jeanne l'écoute jusqu'au bout. « Vous avez raison sur tout, médecin, dit-elle. Et moi, je ne peux pas vous écouter. C'est ça, commander. Plaidez auprès de lui, si vous voulez. C'est lui qui a la chienne. »",
+    "Victorine va s'asseoir près de Goulven. Elle n'a pas les gestes. Elle essaie, maladroitement : la main sur son cœur, la main vers le chiot, la tête qu'on secoue, *non*. Il la regarde faire avec une grande bonté, comme on regarde un enfant qui explique la mer à un pêcheur. Puis il lui prend la main, doucement, et la pose sur la tête du chiot, et la retire. Il a décidé. Il l'avait décidé avant qu'elle vienne.",
+    "À l'aube, il descend à la vasque, seul, avec le chiot dans sa chemise. Personne ne le suit. Il remonte une heure plus tard, trempé jusqu'aux épaules. Il reprend ses seaux, ses arbres, ses charges, le jour même, comme avant. Le soir, il s'assied contre la paroi et regarde le feu. Il sourit toujours. Victorine, une nuit, l'entend, ou croit l'entendre, faire un bruit avec sa gorge, un petit bruit aigu, joyeux, très bas, le seul son qu'elle lui connaîtra jamais. Elle ne sait pas s'il sait qu'il le fait."
+   ],
+   "choices": [
+    {
+     "label": "Revenir près du feu",
+     "fx": {
+      "quest": "WH"
+     },
+     "back": "XS_camp"
+    }
+   ]
+  },
+  "WH_voix": {
+   "act": "IV",
+   "title": "Le chiot du muet",
+   "place": "sylve",
+   "ambiance": "nuit",
+   "text": [
+    "Elle l'a vu faire une fois, à la Faculté, sur des chiens de laboratoire que les étudiants faisaient taire pour pouvoir travailler. Deux incisions, au fond de la gorge, dans les cordes. La bête survit. Elle ne crie plus jamais. Victorine se souvient d'avoir trouvé ça monstrueux, à vingt ans. Elle le propose à Jeanne. Jeanne la regarde longtemps, avec une sorte d'horreur respectueuse. Puis elle dit oui.",
+    "Il faut l'expliquer à Goulven. C'est Jeanne qui le fait, avec ses mains : le doigt sur la gorge du chiot, un petit geste de couteau, très petit, puis le chiot qui court, qui vit, qui mange, la bouche ouverte, sans bruit. Goulven regarde longtemps. Puis il touche sa propre gorge, à lui, et il rit, d'un rire sans son, qui lui secoue les épaules. Il tend le chiot à Victorine. Il tient sa tête pendant l'opération, avec des mains d'une délicatesse incroyable, et il lui souffle dans le museau pendant qu'elle coupe.",
+    "La chienne guérit en quatre jours. Elle court, elle saute, elle joue, elle ouvre la gueule à la lune et aux chauves-souris, et il n'en sort rien qu'un souffle. Elle ne semble pas s'en apercevoir. Goulven non plus, évidemment : il ne l'a jamais entendue aboyer. Pour lui, rien n'a changé. Pour tous les autres, au camp, il y a désormais deux bêtes qui ouvrent la bouche sans bruit, au coin du feu, l'une à côté de l'autre, et qui ont l'air heureuses, et personne n'arrive tout à fait à les regarder."
+   ],
+   "choices": [
+    {
+     "label": "Revenir près du feu",
+     "fx": {
+      "quest": "WH"
+     },
+     "back": "XS_camp"
+    }
+   ]
+  },
+  "WH_emmene": {
+   "act": "IV",
+   "title": "Le chiot du muet",
+   "place": "sylve",
+   "ambiance": "nuit",
+   "text": [
+    "Jeanne réfléchit. Elle dit que la chapelle est assiégée, qu'une chienne y aboiera aussi, mais que ce sera contre des gens qui savent déjà où elle est. Elle dit que c'est la première bonne idée qu'elle entend depuis le début de la soirée et qu'elle aurait dû l'avoir. Il reste à le dire à Goulven. C'est Jeanne qui le fait : le chiot dans les bras de la médecin, la médecin qui part, loin, vers la mer, et le chiot qui vit.",
+    "Goulven comprend. Il garde le chiot contre lui toute la nuit, toutes les nuits qui restent, contre sa poitrine, dans sa chemise, et il lui fabrique un collier, avec une lanière de cuir de cochon et un petit os sculpté où il a gravé, au couteau, des signes que personne ne sait lire, peut-être un nom. Il le passe au cou du chiot le dernier matin. Puis il le tend à Victorine, sans hésiter, d'un seul geste, comme on tend un enfant à quelqu'un qui part.",
+    "Au moment où elle s'éloigne sur le sentier, la chienne se met à aboyer, à se débattre, à hurler dans ses bras en regardant en arrière. Victorine se retourne. Goulven est debout à l'entrée de la grotte, dans le rideau de la cascade, immense, trempé, le visage tourné vers elle. Il sourit. Il n'entend rien. Il est le seul, dans toute la forêt, à ne rien entendre, et il sourit."
+   ],
+   "choices": [
+    {
+     "label": "Revenir près du feu, pour les nuits qui restent",
+     "fx": {
+      "quest": "WH"
+     },
+     "back": "XS_camp"
+    }
+   ]
+  },
+  "WI_corps": {
+   "act": "IV",
+   "title": "L'oraison sur le sable",
+   "place": "plage",
+   "ambiance": "nature",
+   "second": true,
+   "text": [
+    "On le rapporte du ruisseau sur une voile pliée, à quatre, comme on porte une table. Jos Le Dantec, dix-neuf ans, gabier, de Morlenc, le plus jeune du camp après Petit-Jules. Il était descendu à l'aube remplir les barriques, en chantant, parce qu'il chantait toujours, et parce que la chapelle ne tirait plus depuis deux jours. Elle a tiré. Une seule balle, de très haut, de très loin, de celles qu'on tire pour voir et qui trouvent.",
+    "On le couche sur le sable, devant les feux. Le soleil se lève sur lui. Il a les yeux ouverts, l'air étonné, la bouche entrouverte au milieu d'une chanson. Le trou est sous la clavicule, petit, net, presque propre. Le sang a coulé dans le dos, dans la voile, et il a séché en dessinant sur la toile une grande tache brune qui a la forme exacte d'une île.",
+    "Les hommes viennent, un par un, de leurs abris, en se frottant les yeux. Ils regardent. Ils ne disent rien. Puis ils regardent vers la chapelle, là-haut, sur l'éperon, où le drapeau de la capitaine pend dans l'air immobile. Puis, tous, ils regardent Fargue. Et Malandain monte sur un tonneau."
+   ],
+   "choices": [
+    {
+     "label": "Écouter Malandain",
+     "to": "WI_malandain"
+    }
+   ]
+  },
+  "WI_malandain": {
+   "act": "IV",
+   "title": "L'oraison sur le sable",
+   "place": "plage",
+   "ambiance": "nature",
+   "second": true,
+   "text": [
+    "Malandain n'est pas un orateur. Il parle comme il aiguise son couteau : par petits coups secs, répétés, sur le même endroit. Il dit que Jos est mort. Il dit que Jos est mort parce qu'on parlemente. Il dit que depuis quatre jours, on parlemente, on monte avec des drapeaux blancs, on fait des sourires, on fait des soupes, et que pendant ce temps-là, la capitaine compte ses balles et nous tire comme des lapins quand nous allons boire. Il dit que Jos avait dix-neuf ans. Il le dit quatre fois.",
+    "Il dit que ce soir, à la nuit, on monte. Tous. Avec les haches, les échelles du canot, les mousquets qu'on a. Il dit que la chapelle n'a plus que vingt hommes debout, qu'on est quarante, et que les morts de la chapelle ne pèseront pas plus lourd que Jos. Il dit qu'il montera le premier. Il dit que ceux qui ne montent pas, il s'en souviendra. Il ne regarde personne en le disant, et chacun se sent regardé.",
+    "Les hommes grondent. C'est un bruit que Fargue connaît, le bruit d'une bordée au sixième mois d'une campagne, quand on a trop bu, trop mal mangé, et qu'on cherche quelqu'un à qui faire payer le temps. Il sait qu'une attaque, ce soir, fera vingt morts au pied du mur, sous les mousquets de la chapelle, et qu'elle échouera. Il sait aussi que s'il dit seulement *non*, Malandain dira *lâche*, et que le mot restera.",
+    "Malandain descend de son tonneau. « À toi, cuisinier, dit-il. Dis-nous comment on fait la soupe avec Jos. »"
+   ],
+   "choices": [
+    {
+     "label": "Monter sur le tonneau, et leur faire un discours qui les retourne",
+     "fx": {
+      "flag": "wi:harangue"
+     },
+     "to": "WI_harangue"
+    },
+    {
+     "label": "Monter sur le tonneau, et leur dire la vérité, toute nue",
+     "fx": {
+      "flag": "wi:vrai"
+     },
+     "to": "WI_vrai"
+    },
+    {
+     "label": "Ne pas monter sur le tonneau, et aller allumer le feu sous la marmite",
+     "fx": {
+      "flag": "wi:louche"
+     },
+     "to": "WI_louche"
+    }
+   ]
+  },
+  "WI_harangue": {
+   "act": "IV",
+   "title": "L'oraison sur le sable",
+   "place": "plage",
+   "ambiance": "nature",
+   "second": true,
+   "text": [
+    "Il monte. Il commence par donner raison à Malandain. Entièrement, chaleureusement, longuement. Malandain a raison : Jos est mort. Malandain a raison : on a trop parlementé. Malandain est un homme brave, le plus brave du camp, chacun le sait, et quand Malandain dit qu'il montera le premier, Fargue le croit. Il le répète : Fargue le croit. Il descend du tonneau, il va au corps, il s'agenouille, il ouvre la chemise de Jos sur le petit trou net, et il le montre, à tous, longtemps, sans un mot. Puis il dit : « Une balle. Une seule. De là-haut. Elle tire juste, la capitaine. »",
+    "Et il compte, à voix haute, devant eux, comme on fait un inventaire : vingt hommes derrière un mur de six pieds, quarante mousquets chargés, une porte de chêne, une capitaine qui tire juste. Il compte les échelles du canot : deux. Il compte les marches de la pente, sous le feu : deux cents. Il ne dit jamais *non*. Il dit : « Malandain montera le premier. Qui monte le deuxième ? » Et il attend. Et il regarde les hommes, un par un, avec une curiosité sincère, presque tendre. Personne ne lève la main. Il dit : « Le troisième, alors ? » Personne.",
+    "À la fin, c'est Gabet qui dit qu'on pourrait peut-être attendre. Puis Boucaut. Puis tous. Fargue, très ému, dit qu'il n'aurait jamais osé le proposer, et que c'est leur décision, et qu'il s'incline. Malandain est debout, seul, au milieu du cercle, le couteau à la main, un homme brave dont tout le monde vient de constater qu'il est seul. Il regarde Fargue. Fargue lui sourit. On enterre Jos à midi. Le soir, Malandain dort à l'écart, et pour la première fois, il aiguise son couteau en regardant le cuisinier."
+   ],
+   "choices": [
+    {
+     "label": "Retourner à la marmite",
+     "fx": {
+      "quest": "WI"
+     },
+     "back": "A4f_jours"
+    }
+   ]
+  },
+  "WI_vrai": {
+   "act": "IV",
+   "title": "L'oraison sur le sable",
+   "place": "plage",
+   "ambiance": "nature",
+   "second": true,
+   "text": [
+    "Il monte. Il dit, sans élever la voix, qu'ils sont des mutins. Que Jos est mort parce qu'il était un mutin, sur une île, sous un fort tenu par des gens qui ont le droit de les pendre. Que si l'on monte ce soir, on sera vingt de plus, couchés sur des voiles, et que la capitaine ne perdra pas cinq hommes. Qu'il le sait parce qu'il a vu, jadis, sous un autre pavillon, monter des hommes à l'assaut de murs plus bas que celui-là, et qu'il a aidé à les enterrer. Qu'il n'a pas de meilleure idée. Qu'il en cherche une. Que c'est tout.",
+    "On l'écoute en silence. Puis quelqu'un, derrière, ricane. Quelqu'un d'autre dit qu'il n'a pas besoin d'un cuisinier pour savoir qu'il est un mutin. La vérité, découvre Fargue, n'a aucun goût dans la bouche des hommes ; ils l'avalent comme de l'eau, sans la sentir, et ils ont encore soif. Malandain ne remonte pas sur son tonneau. Il n'en a pas besoin. Il dit seulement : « Il a peur. » Et le mot fait le tour du cercle, et revient.",
+    "Personne ne monte, ce soir-là. Malandain n'a pas assez d'hommes pour monter seul, et il le sait, et il ne le pardonne à personne. Mais le camp a changé. On obéit encore à Fargue, parce qu'il tient la marmite ; on ne l'écoute plus de la même manière. Il l'a vu dans les yeux de Gabet, qui l'aimait bien. Il pense, en enterrant Jos à midi, sous le sable, qu'il a dit la vérité une fois dans sa vie à quarante hommes à la fois, et que ce ne sera pas une habitude."
+   ],
+   "choices": [
+    {
+     "label": "Retourner à la marmite",
+     "fx": {
+      "quest": "WI"
+     },
+     "back": "A4f_jours"
+    }
+   ]
+  },
+  "WI_louche": {
+   "act": "IV",
+   "title": "L'oraison sur le sable",
+   "place": "plage",
+   "ambiance": "nature",
+   "second": true,
+   "text": [
+    "Il ne monte pas. Il passe devant le tonneau, devant Malandain, devant le corps, sans s'arrêter, et il va à son feu. Il le rallume. Il met de l'eau dans la marmite, et des pois, et le dernier morceau de lard, et des oignons, et un bouquet de cette herbe de l'île qui sent l'anis. Les hommes le regardent faire. Malandain parle encore, plus fort, puis moins fort. Un discours, ça a besoin qu'on lui réponde. Celui-là, personne ne lui répond.",
+    "L'odeur monte. Elle monte doucement, dans l'air du matin, au-dessus des feux, au-dessus du corps, et elle va chercher les hommes un par un, dans le ventre, là où ils sont plus faibles que partout ailleurs. Au bout d'une heure, il y a une file devant la marmite. Fargue sert. Il sert Jos en premier : une écuelle pleine, qu'il pose sur le sable à côté de sa tête, comme on fait chez lui, à Morlenc, pour les veillées. Puis il sert les autres. Puis il sert Malandain, qui prend l'écuelle, et qui mange, parce qu'il a faim lui aussi.",
+    "On enterre Jos à midi, l'estomac plein, et l'on chante pour lui la chanson qu'il chantait en descendant au ruisseau, et quelques-uns pleurent, et personne ne parle plus de monter. Malandain ne lui pardonne pas cette soupe, Fargue le sait. Mais Malandain n'a pas de soupe à offrir, lui, et c'est toute la politique qu'il y a sur cette plage. Le soir, Fargue lave sa marmite au bord de la mer, à genoux dans l'écume, et il pense qu'il commande quarante hommes avec une louche, et qu'il aurait préféré commander un fourneau."
+   ],
+   "choices": [
+    {
+     "label": "Retourner à la marmite",
+     "fx": {
+      "quest": "WI"
+     },
+     "back": "A4f_jours"
+    }
+   ]
+  },
+  "WJ_sergent": {
+   "act": "III",
+   "title": "La petite veuve de Brisegrève",
+   "place": "brisegreve",
+   "ambiance": "mer",
+   "fx": {
+    "meet": "hede"
+   },
+   "text": [
+    "Le sergent l'attend au pied de l'échelle, au moment où le canot touche la roche. C'est un vieil homme sec, droit, avec une moustache blanche taillée au cordeau et un uniforme si souvent brossé qu'on voit la trame au coude. Il se présente : le sergent Hédé, trente et un ans de service, dont dix-neuf sur ce caillou. Il a entendu dire qu'il y avait une femme médecin à bord. Il voudrait qu'elle voie quelqu'un. Il dit *quelqu'un* avec une précaution extrême, comme on porte une tasse trop pleine.",
+    "Il l'emmène à travers le bourg des soldats, par une ruelle qui monte, entre des maisons basses aux toits de pierre plate lestés de rochers contre le vent. À midi précis, au moment où ils arrivent devant la porte du fort, elle sort d'une des maisons. Une femme de trente ans, mince, en robe grise de bonne coupe usée jusqu'à la corde, un chapeau de paille noué sous le menton, des gants de fil. Elle porte un panier couvert d'un linge blanc. Elle marche jusqu'à la porte du fort, d'un pas pressé, joyeux, et elle s'assied sur le banc de pierre, à côté de la sentinelle, et elle attend, son panier sur les genoux, les yeux sur la porte.",
+    "La sentinelle, un jeune soldat, lui dit bonjour, madame, avec un respect affectueux. Elle lui répond, avec un sourire charmant, qu'on va libérer son mari aujourd'hui, que c'est une erreur, que le gouverneur l'a promis, et qu'elle lui a fait des crêpes. Le jeune soldat dit qu'il le sait, madame. Ils ont cette conversation tous les jours, depuis huit ans."
+   ],
+   "choices": [
+    {
+     "label": "Écouter le sergent, à l'écart",
+     "to": "WJ_cachet"
+    }
+   ]
+  },
+  "WJ_cachet": {
+   "act": "III",
+   "title": "La petite veuve de Brisegrève",
+   "place": "brisegreve",
+   "ambiance": "mer",
+   "text": [
+    "Il raconte sans s'asseoir, au garde-à-vous, les yeux sur la mer, comme on fait un rapport. Il y a huit ans, une corvette a débarqué à Brisegrève un prisonnier d'État, un jeune homme de vingt-deux ans, avec sa femme, qui avait obtenu de le suivre. Un garçon de rien, un étudiant, qui avait imprimé une feuille contre un ministre. On les a logés ensemble au fort. Ils étaient gais. Ils jouaient aux cartes avec la garde. Le caporal Hédé leur apportait du lait de chèvre.",
+    "Le capitaine de la corvette avait apporté aussi une enveloppe, scellée de cire rouge, qu'on ne devait ouvrir qu'au fort. Le gouverneur l'a ouverte devant les officiers. L'ordre était de fusiller le prisonnier dans les vingt-quatre heures, sans jugement, et sans témoins. Le gouverneur a désigné le caporal Hédé pour commander le peloton, parce qu'il était le plus ancien, et parce qu'il était là. Hédé a commandé. À l'aube, dans le fossé du fort, côté mer. Elle a entendu la salve depuis la chambre. Elle est descendue en chemise. Elle a vu.",
+    "« Le lendemain, dit le sergent, elle a fait des crêpes, et elle est allée l'attendre à la porte. Depuis, elle attend. Le gouverneur voulait la renvoyer sur le continent, à l'asile de Morlenc. J'ai demandé à la garder. Je paie sa chambre sur ma solde. Je la vois tous les jours. Elle m'appelle *monsieur le caporal*, elle me demande si j'ai des nouvelles, je lui dis que ce sera pour demain. » Il se tourne enfin vers Victorine. « Je voudrais savoir si elle peut guérir, madame. Avant que je meure. Je n'ai personne pour la garder, après. »"
+   ],
+   "choices": [
+    {
+     "label": "Aller s'asseoir sur le banc, à côté d'elle",
+     "to": "WJ_banc"
+    }
+   ]
+  },
+  "WJ_banc": {
+   "act": "III",
+   "title": "La petite veuve de Brisegrève",
+   "place": "brisegreve",
+   "ambiance": "mer",
+   "text": [
+    "Elle s'appelle Mélisande. Elle le dit à Victorine avec une politesse de salon, en lui offrant une crêpe de son panier, froide, parfaite, saupoudrée de sucre. Elle parle de son mari avec une gaieté intarissable : il est très savant, il écrit des choses que les ministres n'aiment pas, mais c'est un malentendu, il sortira aujourd'hui, le gouverneur est un homme charmant. Elle parle sans s'arrêter, d'une voix douce, en regardant la porte. Ses yeux ne quittent jamais la porte.",
+    "Victorine l'écoute. Elle observe. Les mains ne tremblent pas. Le pouls, qu'elle prend en faisant semblant d'admirer un gant, est calme. Le teint est bon. Elle dort, elle mange, elle fait ses crêpes. C'est une folie paisible, organisée, presque confortable, un abri qu'on a bâti au bord du gouffre, pierre à pierre, et où l'on habite sans regarder par la fenêtre. Une seule fois, quand une salve d'exercice claque au loin dans la cour du fort, Mélisande s'interrompt au milieu d'un mot, et pâlit, et ses doigts se crispent sur l'anse du panier. Puis elle reprend la phrase où elle l'avait laissée.",
+    "À la Faculté, on enseignait qu'une vérité brutale, assénée au bon moment, pouvait briser ces abris et rendre l'esprit à lui-même, ou le briser lui aussi. On enseignait aussi le contraire. Victorine n'a jamais su lequel des deux maîtres avait raison. Elle sait seulement que le vieux sergent attend sa réponse, au garde-à-vous, à vingt pas, comme il a attendu l'ordre de tirer."
+   ],
+   "choices": [
+    {
+     "label": "Lui dire, à elle, doucement, que son mari est mort il y a huit ans",
+     "fx": {
+      "flag": "wj:verite"
+     },
+     "to": "WJ_verite"
+    },
+    {
+     "label": "Dire au sergent de continuer le jeu, et de ne jamais rien lui dire",
+     "fx": {
+      "flag": "wj:jeu"
+     },
+     "to": "WJ_jeu"
+    },
+    {
+     "label": "Dire au sergent que c'est à lui de le lui dire, et à personne d'autre",
+     "fx": {
+      "flag": "wj:aveu"
+     },
+     "to": "WJ_aveu"
+    }
+   ]
+  },
+  "WJ_verite": {
+   "act": "III",
+   "title": "La petite veuve de Brisegrève",
+   "place": "brisegreve",
+   "ambiance": "mer",
+   "text": [
+    "Elle le dit. Doucement, simplement, en tenant la main gantée dans la sienne : il est mort, madame. Il y a huit ans. À l'aube, dans le fossé, côté mer. Vous l'avez vu. Mélisande la regarde. Elle a cessé de regarder la porte. Pendant un long moment, il ne se passe rien. Puis son visage change, d'un coup, comme une vitre qui se fend, et Victorine voit passer dans ses yeux, en une seconde, huit ans de deuil, entiers, intacts, qui l'attendaient derrière la porte depuis tout ce temps.",
+    "Elle ne crie pas. Elle se lève. Elle regarde autour d'elle, la sentinelle, le fort, la mer, le vieux sergent à vingt pas, avec l'air de quelqu'un qui s'éveille dans une maison inconnue. Elle regarde le sergent plus longtemps que le reste. Elle dit, d'une voix tout à fait claire, et tout à fait nouvelle : « C'est vous. C'est vous qui avez dit *feu*. » Le sergent ne bouge pas. Elle laisse tomber son panier, et les crêpes roulent sur la roche, et elle rentre chez elle, seule, d'un pas lent.",
+    "Le lendemain, à midi, le banc de pierre reste vide, pour la première fois depuis huit ans. Le sergent dit à Victorine, au moment où le canot pousse, qu'elle a demandé au gouverneur à partir pour le continent par le premier navire, qu'elle a refusé l'argent de sa solde, et qu'elle ne lui adresse plus la parole. Il le dit au garde-à-vous. Il ajoute qu'il ne sait pas si on l'a guérie. Il sait seulement qu'elle est vivante, à présent, et qu'avant, elle ne l'était pas, et que lui, à présent, ne l'est plus beaucoup."
+   ],
+   "choices": [
+    {
+     "label": "Retourner au canot",
+     "fx": {
+      "quest": "WJ"
+     },
+     "back": "A3v_brisegreve"
+    }
+   ]
+  },
+  "WJ_jeu": {
+   "act": "III",
+   "title": "La petite veuve de Brisegrève",
+   "place": "brisegreve",
+   "ambiance": "mer",
+   "text": [
+    "Elle se lève, remercie Mélisande pour la crêpe, et va trouver le sergent. Elle lui dit que la femme est en bonne santé. Qu'elle dort, qu'elle mange, qu'elle sourit. Que sa folie est un toit, qu'elle s'est bâti elle-même, et qu'on ne démolit pas le toit d'une maison pour faire voir le ciel à ceux qui s'y abritent. Qu'il doit continuer. Lui dire, chaque jour, que ce sera pour demain. Qu'il n'existe pas de meilleur remède, dans aucun traité.",
+    "Le sergent la remercie. Il a l'air soulagé, et puis, quand il croit qu'elle ne le regarde plus, il a l'air d'autre chose, que Victorine met un moment à reconnaître : de la déception. Il espérait autre chose. Il espérait, comprend-elle, qu'on lui ordonnerait enfin de dire la vérité, pour n'avoir pas à décider de la dire, comme on lui a ordonné, il y a huit ans, de dire *feu*.",
+    "Le lendemain, à midi, en remontant à bord avec les dernières barriques, elle voit, depuis le canot, la petite silhouette grise sur le banc de pierre, devant la porte, son panier sur les genoux. Et à côté d'elle, au garde-à-vous, le vieux sergent, qui lui parle. On ne les entend pas, d'en bas. On les voit seulement, tous les deux, l'un assis, l'autre debout, tournés vers la même porte fermée, attendant ensemble, chacun la sienne, une libération qui ne viendra pas."
+   ],
+   "choices": [
+    {
+     "label": "Retourner au canot",
+     "fx": {
+      "quest": "WJ"
+     },
+     "back": "A3v_brisegreve"
+    }
+   ]
+  },
+  "WJ_aveu": {
+   "act": "III",
+   "title": "La petite veuve de Brisegrève",
+   "place": "brisegreve",
+   "ambiance": "mer",
+   "text": [
+    "Elle le lui dit, à l'écart, d'une voix basse : elle ne sait pas si la vérité guérira cette femme. Elle sait qu'elle n'a pas le droit de la lui dire, elle, une étrangère, entre deux marées. Si quelqu'un doit la dire, c'est lui. Pas pour la guérir. Pour qu'elle sache à qui elle a affaire, chaque jour, depuis huit ans, quand on lui dit que ce sera pour demain. Le sergent la regarde comme s'il venait de recevoir une balle. Puis il salue, et il s'en va.",
+    "Victorine ne le revoit pas de la journée. Le soir, au moment où elle redescend au canot, elle passe devant la maison de Mélisande. La porte est ouverte. Le vieux sergent est à l'intérieur, assis sur une chaise, très droit, son shako sur les genoux. Mélisande est assise en face de lui. Elle ne parle pas. Elle le regarde. Sur la table, entre eux, il y a le panier, et les crêpes de midi, qu'on n'a pas mangées.",
+    "Le lendemain, à midi, depuis le canot, Victorine voit Mélisande sortir, comme chaque jour, et marcher vers la porte du fort. Mais elle ne s'assied pas sur le banc. Elle passe devant, sans s'arrêter, et elle descend le sentier, côté mer, jusqu'au fossé. Le sergent la suit, à dix pas, la tête nue. Ils restent là tous les deux, au bord du fossé, longtemps, sans se toucher. La capitaine fait lever l'ancre avant que Victorine ait vu la suite. Elle a, du moins, vu ceci : la femme ne regardait plus la porte."
+   ],
+   "choices": [
+    {
+     "label": "Retourner au canot",
+     "fx": {
+      "quest": "WJ"
+     },
+     "back": "A3v_brisegreve"
+    }
+   ]
+  },
+  "WK_tente": {
+   "act": "II",
+   "title": "Le Rieur des Îles",
+   "place": "champ_foire",
+   "ambiance": "ville",
+   "text": [
+    "Tu y retournes un soir, seul{e}, sans Petit-Jules, qui a perdu ses quatre sous et sa bonne humeur. La foire, à la nuit, n'est plus la même bête. Les lanternes de papier font des taches de couleur sur la boue, les flammes des torches tordent les ombres, et les visages des badauds, éclairés d'en bas, ressemblent tous un peu à ceux des gargouilles de la cathédrale de Morlenc, qui rient elles aussi, de très haut, depuis trois cents ans, sans qu'on sache de quoi.",
+    "Derrière la tente de la Femme-Poisson, il y a une baraque plus petite, de toile grise, sans peinture, avec une pancarte écrite à la main : *Le Rieur des Îles. Il rit depuis sa naissance. Il rira jusqu'à sa mort. Un sou.* Un gros homme en gilet de velours, assis sur un tabouret, tient la caisse d'une main et une saucisse de l'autre. Il s'appelle maître Chiquet. Il le dit à tout le monde, comme si c'était une recommandation.",
+    "Tu paies ton sou. À l'intérieur, sur une estrade de planches, éclairé par deux chandelles, un garçon de ton âge est assis sur un tabouret, en habit d'arlequin trop court. Il a les cheveux noirs, des mains fines, de beaux yeux sombres, très tristes. Et une bouche fendue jusqu'aux oreilles, d'une joue à l'autre, en un rire énorme, figé, qui découvre toutes ses dents. On rit, autour de toi. Une femme rit tant qu'elle doit s'asseoir. Lui ne bouge pas. Il regarde le fond de la tente, au-dessus des têtes, et il rit, il rit, il rit, avec des yeux de noyé."
+   ],
+   "choices": [
+    {
+     "label": "Attendre que les autres soient sortis",
+     "to": "WK_seul"
+    }
+   ]
+  },
+  "WK_seul": {
+   "act": "II",
+   "title": "Le Rieur des Îles",
+   "place": "champ_foire",
+   "ambiance": "nuit",
+   "text": [
+    "Tu restes. Les autres sortent. Maître Chiquet passe la tête par la fente de la toile, voit que tu as payé, et retourne à sa saucisse. Le garçon tourne les yeux vers toi. Il a l'habitude qu'on reste, dit-il : il y en a toujours un, chaque soir, qui reste, pour regarder de plus près, ou pour toucher. Il parle mal, avec cette bouche, en mangeant les consonnes, d'une voix douce de fille. Il demande si tu veux toucher. Les gens paient un sou de plus pour toucher.",
+    "Tu dis que non. Tu lui demandes s'il a mal. Il réfléchit, comme si personne ne lui avait jamais posé la question. Il dit que non, plus maintenant ; seulement l'hiver, quand il gèle, les coins de la bouche se fendent et saignent. Il dit qu'il est né comme ça. Maître Chiquet le lui a dit. Maître Chiquet l'a acheté tout petit à des gens qui l'avaient trouvé dans une barque, sur une plage du Couchant. Il n'a jamais su sa mère. Il dit que ce n'est pas grave, parce qu'avec une figure comme ça, une mère, ça ne t'aurait pas gardé.",
+    "Il te regarde, avec ses yeux sombres, au-dessus de son rire. Tu regardes les commissures de sa bouche, à la lueur des chandelles : deux lignes blanches, fines, droites, régulières, comme des coutures. Tu as raccommodé assez de voiles pour connaître une couture. Les choses qui poussent ont des bords qui hésitent. Celles-là ont des bords qui obéissent : quelqu'un les a faites."
+   ],
+   "choices": [
+    {
+     "label": "Lui promettre de revenir demain avec la médecin de la Cormorane",
+     "fx": {
+      "flag": "wk:medecin"
+     },
+     "to": "WK_medecin"
+    },
+    {
+     "label": "Lui proposer de l'aider à s'enfuir, cette nuit",
+     "fx": {
+      "flag": "wk:fuite"
+     },
+     "to": "WK_fuite"
+    },
+    {
+     "label": "Lui demander comment il s'appelle",
+     "fx": {
+      "flag": "wk:nom"
+     },
+     "to": "WK_nom"
+    }
+   ]
+  },
+  "WK_medecin": {
+   "act": "II",
+   "title": "Le Rieur des Îles",
+   "place": "champ_foire",
+   "ambiance": "ville",
+   "text": [
+    "La médecin vient. Tu ne sais pas pourquoi elle dit oui ; elle a l'air d'avoir dix choses à faire et de les faire toutes à la fois. Elle paie deux sous, un pour elle, un pour toi, et elle s'approche de l'estrade, et elle demande au garçon la permission de le regarder. Personne ne lui a jamais demandé la permission. Il la lui donne, étonné. Elle prend son menton entre ses doigts, tourne son visage vers la chandelle, regarde longtemps les commissures, tâte la joue, à l'intérieur, avec le pouce, comme on tâte la doublure d'un habit.",
+    "« On t'a fait ça, dit-elle. Avec un couteau, quand tu avais deux ou trois ans. Proprement. Par quelqu'un qui savait coudre. C'est un métier, dans certains ports, de fabriquer des enfants qui rapportent. » Elle le lui dit sans précaution, d'une voix de médecin, plate, précise, comme on donne un diagnostic. Puis elle ajoute, plus bas : « Je ne peux pas le défaire. Personne ne peut. Mais tu as le droit de savoir d'où ça vient, et que la faute en revient à d'autres. »",
+    "Le garçon reste immobile. Puis ses yeux se remplissent. Il pleure, sans un bruit, avec cette bouche qui continue de rire, et c'est la chose la plus terrible que tu aies vue de ta vie, et tu en verras d'autres. La médecin lui tient la main jusqu'à ce que ça passe. En sortant, elle dit à maître Chiquet deux phrases que tu n'entends pas, et le gros homme pâlit, et lâche sa saucisse. Sur le chemin du quai, elle ne dit rien. Au moment de monter à bord, elle dit seulement : « Merci de m'avoir emmenée. Je déteste cette ville. »"
+   ],
+   "choices": [
+    {
+     "label": "Rentrer à bord, derrière elle",
+     "fx": {
+      "quest": "WK"
+     },
+     "back": "A2m_jours"
+    }
+   ]
+  },
+  "WK_fuite": {
+   "act": "II",
+   "title": "Le Rieur des Îles",
+   "place": "champ_foire",
+   "ambiance": "nuit",
+   "text": [
+    "Tu le lui proposes tout bas : maître Chiquet dort, la nuit, ivre, tu as vu les bouteilles ; la toile se soulève derrière, au ras de la boue ; le port est à deux cents pas ; il y a des navires qui partent chaque marée, et des capitaines qui ne regardent pas les figures des mousses, pourvu qu'ils tirent sur les bouts. Tu en connais un. Tu parles vite. Tu t'enflammes.",
+    "Il t'écoute jusqu'au bout. Puis il secoue la tête, doucement. « Et après ? demande-t-il. Après, je vais où, avec ça ? » Il montre sa bouche. « Ici, on me paie pour que je la montre. Dehors, on me jettera des pierres pour que je la cache. Ici, j'ai une soupe, un lit, et un homme qui me bat seulement quand il a bu. Dehors, j'aurai ma figure. Je l'ai essayé, une fois, à Lannoz. Je suis revenu tout seul, au bout de trois jours, en courant. »",
+    "Il te remercie. Il le dit avec une sincérité qui te fait honte, comme si tu lui avais offert quelque chose d'immense et d'impossible, un château, une couronne. Tu sors. Maître Chiquet, sur son tabouret, te souhaite le bonsoir. Derrière toi, à travers la toile grise, tu entends la voix douce du garçon, qui chante pour lui seul une chanson de marins, très juste, en mangeant toutes les consonnes. Tu apprends, ce soir-là, qu'on peut chanter juste avec une bouche pareille, et beaucoup d'autres choses que tu aurais préféré ignorer."
+   ],
+   "choices": [
+    {
+     "label": "Rentrer à bord, dans la nuit",
+     "fx": {
+      "quest": "WK"
+     },
+     "back": "A2m_jours"
+    }
+   ]
+  },
+  "WK_nom": {
+   "act": "II",
+   "title": "Le Rieur des Îles",
+   "place": "champ_foire",
+   "ambiance": "nuit",
+   "text": [
+    "Il te regarde, surpris. Il dit qu'il s'appelle le Rieur. Tu dis que c'est le nom de la pancarte. Il réfléchit. Maître Chiquet l'appelle « toi », ou « la bête », ou « mon capital », selon l'heure. Les gens qui l'ont vendu l'appelaient, croit-il, d'un mot dans une langue qu'il a oubliée. Il n'a pas de nom. Il le découvre en le disant, devant toi, avec une sorte d'étonnement poli, comme on découvre qu'on a perdu un bouton.",
+    "Tu lui en proposes. Tous ceux que tu connais : ceux des pêcheurs de la Pointe, des matelots de la Cormorane, des saints de Sainte-Anne-des-Grèves. Il les écoute un par un, gravement, en les répétant tout bas, avec sa bouche, pour voir comment ils sonnent. Il en refuse beaucoup. Il hésite sur deux ou trois. Puis tu dis, sans y penser, le prénom de ta mère, au masculin, comme on le disait pour les garçons de son village, et il lève la tête. Il le répète. Il le répète encore. « Celui-là », dit-il.",
+    "Il te fait jurer de ne le dire à personne, surtout pas à maître Chiquet, qui le lui prendrait comme le reste. Il le gardera pour lui, dit-il, dans sa poche, pour les soirs où il ne rira plus pour personne. Tu sors de la baraque. Il fait froid. La foire s'éteint. Tu marches vers le quai, et il te semble qu'il y a, quelque part dans Morlenc, à l'abri sous une toile grise, un garçon qui porte quelque chose de ta mère, et que c'est la première chose d'elle que tu donnes à quelqu'un."
+   ],
+   "choices": [
+    {
+     "label": "Rentrer à bord, avec ton secret",
+     "fx": {
+      "quest": "WK"
+     },
+     "back": "A2m_jours"
+    }
+   ]
+  },
+  "WL_compte": {
+   "act": "I",
+   "title": "Le compte de la mère Le Hir",
+   "place": "fanal_salle",
+   "ambiance": "village",
+   "text": [
+    "Elle arrive chaque soir à la même heure, au moment où le Gabier commence à parler, et elle s'assied à la même place, au bout du banc, près du feu, avec son châle noir, sa coiffe de veuve, sa canne de houx et ses petits yeux vifs de pie qui ne perdent rien. La mère Le Hir a soixante-douze ans. Elle a enterré deux maris et trois fils, et elle a gardé de tout cela une ferme à la sortie de la Pointe, une vache, et un goût pour l'eau-de-vie de cidre qu'elle appelle « mon remède ».",
+    "Depuis le printemps, elle n'a plus de ferme. Elle l'a vendue en viager à Mathelin Quiniou, le marchand de grains de Varnèse, un homme gras, rose, jovial, qui serre toutes les mains avec les deux siennes. Il lui verse une rente, tous les trimestres, jusqu'à sa mort. Après quoi, la ferme est à lui. Tout le monde à la Pointe a trouvé que c'était une bonne affaire pour la vieille ; Quiniou avait l'air d'avoir payé cher. Il avait l'air content quand même.",
+    "Et depuis le printemps, chaque soir, elle a un compte au Fanal. C'est Quiniou qui l'a ouvert. Tout ce qu'elle boit, il le paie, à la fin du mois, rubis sur l'ongle, et il a dit à ton père, en lui serrant la main des deux siennes : « Qu'elle ne manque de rien, la pauvre vieille. Ce n'est pas tous les jours qu'on peut faire plaisir. Et toi, l'enfant, quand tu lui sers, sers large. Je n'aime pas les petites mesures. »"
+   ],
+   "choices": [
+    {
+     "label": "Lui servir son remède",
+     "to": "WL_verre"
+    }
+   ]
+  },
+  "WL_verre": {
+   "act": "I",
+   "title": "Le compte de la mère Le Hir",
+   "place": "fanal_salle",
+   "ambiance": "nuit",
+   "text": [
+    "Elle boit. Au début, au printemps, dit Zélie, elle prenait deux petits verres, le soir, et rentrait à pied, droite comme un cierge. À présent, tu lui en sers six, sept, huit. Sa main tremble quand elle tend le verre. Elle rit trop fort aux histoires du Gabier. Elle a les joues marbrées de petites veines violettes, le nez rouge, le blanc des yeux jaune comme du vieux suif. Elle tousse. Elle oublie sa canne. Un soir, en rentrant, elle est tombée dans le fossé du chemin creux, et le valet des Guéguen l'a ramassée à l'aube, couverte de givre, en train de chanter.",
+    "Quiniou passe, une ou deux fois par semaine, en voisin. Il s'assied à côté d'elle. Il lui demande comment va la santé, avec une sollicitude touchante. Il commande lui-même une autre tournée. Il trinque avec elle, il la fait rire, il lui raconte les foires de Varnèse. Il boit peu. Il la regarde boire, avec ses petits yeux bleus dans sa grosse figure rose, comme un fermier regarde monter le blé.",
+    "Un soir, il reste après qu'elle est partie, et il compte sur ses doigts, à voix basse, devant son verre de cidre, en croyant que personne n'écoute. Tu l'entends dire : « Une rente par trimestre… Le printemps, l'été… Avant les gelées. Au pire, à la Chandeleur. » Puis il voit que tu le regardes, et il te fait un grand sourire, et il te glisse une pièce dans la main, en te disant que tu es un{e} brave enfant, et de bien servir la mère Le Hir.",
+    "Ton père, au comptoir, essuie les chopes. Il a tout entendu. Il ne dit rien. Il te regarde, simplement, comme on regarde quelqu'un à qui l'on va laisser une chose à porter."
+   ],
+   "choices": [
+    {
+     "label": "Couper d'eau, en cachette, le remède de la mère Le Hir",
+     "fx": {
+      "flag": "wl:eau"
+     },
+     "to": "WL_eau"
+    },
+    {
+     "label": "Aller lui dire, à elle, ce que compte Quiniou",
+     "fx": {
+      "flag": "wl:dit"
+     },
+     "to": "WL_dit"
+    },
+    {
+     "label": "Garder la pièce, et servir large, comme on te l'a demandé",
+     "fx": {
+      "flag": "wl:sert"
+     },
+     "to": "WL_sert"
+    }
+   ]
+  },
+  "WL_eau": {
+   "act": "I",
+   "title": "Le compte de la mère Le Hir",
+   "place": "fanal_salle",
+   "ambiance": "village",
+   "text": [
+    "À partir du lendemain, tu coupes. Un tiers d'eau, puis la moitié, puis plus. Tu la verses de la cruche de la cuisine, à l'abri de la porte, en tremblant chaque fois que Zélie passe. La mère Le Hir boit. Elle fait la grimace, le troisième soir, et dit que l'eau-de-vie du Fanal n'est plus ce qu'elle était, que ton père se fait voler par son bouilleur. Elle boit quand même. Elle rentre droite. Ses joues reprennent une couleur de pomme.",
+    "Quiniou paie le prix plein, sans rien remarquer. La semaine suivante, il trouve que la vieille a bonne mine. Il le dit, avec un sourire un peu crispé. Il commande des tournées plus nombreuses. Tu coupes davantage. À la fin, la mère Le Hir boit chaque soir huit verres d'une eau de source légèrement parfumée, qu'elle déclare infecte, et dont elle redemande.",
+    "Un soir, ton père s'approche de la cruche de la cuisine, au moment où tu y remplis le verre. Il te regarde faire. Tu t'arrêtes, pris{e} sur le fait. Il prend la cruche de tes mains, sans un mot, et il finit de remplir le verre lui-même, d'une main sûre, avec exactement la même dose que toi. Puis il te rend le verre, et il retourne à son comptoir. Il ne t'en parlera jamais. Il fera ça, désormais, quand tu ne seras pas là."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre le service, dans la salle commune",
+     "fx": {
+      "quest": "WL"
+     },
+     "back": "A1_jours"
+    }
+   ]
+  },
+  "WL_dit": {
+   "act": "I",
+   "title": "Le compte de la mère Le Hir",
+   "place": "fanal_salle",
+   "ambiance": "nuit",
+   "text": [
+    "Tu la rattrapes sur le chemin creux, à la sortie de la Pointe, une lanterne à la main, et tu marches à côté d'elle, et tu lui dis tout, en bafouillant : Quiniou, la rente, les doigts, les gelées, la Chandeleur. Elle t'écoute en s'appuyant sur sa canne, la tête penchée, avec ses yeux de pie. Quand tu as fini, elle rit. Un vrai rire, aigu, joyeux, qui fait s'envoler une chouette de la haie.",
+    "« Mais je le sais, petit{e} innocent{e}, dit-elle. Je le sais depuis le printemps. Tu crois que je suis bête ? J'ai enterré deux maris. Le premier m'a battue trente ans. Le deuxième m'a ennuyée vingt. Mes trois fils sont au fond de la mer, et la vache me regarde comme si c'était ma faute. » Elle reprend sa marche. « Il me paie l'eau-de-vie jusqu'à ce que j'en crève. Eh bien, j'en ai connu de pires, et c'est la seule qu'on m'ait jamais offerte. Il croit qu'il me vole ma ferme. Moi, je crois qu'il me paie un enterrement de reine. On verra lequel des deux a fait la meilleure affaire. »",
+    "Elle s'arrête devant sa porte. Elle te tapote la joue, de sa main sèche et froide. « C'est gentil, de t'inquiéter. Personne ne s'inquiète plus pour moi depuis longtemps. Ça m'a fait plaisir. Ça ne changera rien. » Le lendemain soir, elle est à sa place, au bout du banc, et elle commande son remède, et elle te fait un clin d'œil. Tu la sers. Tu ne sais plus très bien qui tu sers."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre le service, dans la salle commune",
+     "fx": {
+      "quest": "WL"
+     },
+     "back": "A1_jours"
+    }
+   ]
+  },
+  "WL_sert": {
+   "act": "I",
+   "title": "Le compte de la mère Le Hir",
+   "place": "fanal_salle",
+   "ambiance": "nuit",
+   "text": [
+    "Tu gardes la pièce. Tu sers large. Tu te dis que ce n'est pas ton affaire, qu'elle est grande, qu'elle est vieille, qu'elle aime ça, que Quiniou paie, que ton père encaisse, et que tu n'es que l'enfant du Fanal, qui porte les verres. Tu te le dis souvent, ces soirs-là. On ne se répète pas si souvent une chose qu'on croit.",
+    "La mère Le Hir boit. Elle rit aux histoires du Gabier. Elle chante, un soir, debout sur le banc, une chanson de son jeune temps, d'une voix cassée, et toute la salle reprend le refrain en tapant sur les tables, et c'est la plus belle soirée de l'automne. Elle rentre seule, après minuit, par le chemin creux, sans lanterne, en chantant encore.",
+    "Le valet des Guéguen la trouve à l'aube, dans le fossé, sous le givre. Elle a l'air de dormir, les mains croisées sur sa canne de houx, avec un sourire. Quiniou suit l'enterrement en habit neuf, et il pleure, et il paie les cierges. Le lendemain, il prend possession de la ferme. Le jour d'après, il vient au Fanal régler le compte, rubis sur l'ongle. Il te regarde en payant. Il ne te donne pas de pièce, cette fois. Tu n'en avais pas demandé."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre le service, dans la salle commune",
+     "fx": {
+      "quest": "WL"
+     },
+     "back": "A1_jours"
+    }
+   ]
+  },
+  "WM_fievre": {
+   "act": "III",
+   "title": "La poudre rouge",
+   "place": "sargues",
+   "ambiance": "mer",
+   "text": [
+    "La fièvre arrive au neuvième jour du calme, à heure fixe, comme un créancier. Elle prend un homme à midi, le secoue d'un froid de glace pendant une heure sous le soleil qui cuit le pont, puis le brûle pendant six heures, puis le lâche, trempé, vidé, étonné d'être vivant. Le surlendemain, à midi, elle revient. Une fièvre tierce, de celles qui dorment dans l'eau des marais et des criques. Victorine sait d'où elle vient : les barriques remplies à l'Écueil-Rouge, d'une eau tiède qui dormait au creux de la roche, si claire, si douce, si belle à boire.",
+    "Ils sont six, le premier jour. Onze, le troisième. Dans l'entrepont, sous la chaleur, les hamacs des fiévreux tremblent tous ensemble, à la même heure, avec un bruit de feuilles, et les hommes valides passent devant sans les regarder, en se signant à la dérobée, comme on passe devant une maison où il y a eu un crime.",
+    "Elle a de quoi. C'est ce qui la tient debout. Dans le coffre de bois sec, au fond de l'infirmerie, il y a les quatre livres d'écorce qu'elle a achetées au Quai des Hollandes, rouges et amères, au prix d'un cheval, en marchandant comme une poissonnière, et en se félicitant du cachet de cire de l'apothicaire, qui garantissait la marchandise. Elle ouvre le coffre pour la première fois. Elle prend la cuiller."
+   ],
+   "choices": [
+    {
+     "label": "Préparer la première dose",
+     "to": "WM_brique"
+    }
+   ]
+  },
+  "WM_brique": {
+   "act": "III",
+   "title": "La poudre rouge",
+   "place": "sargues",
+   "ambiance": "nuit",
+   "text": [
+    "La première couche est bonne. Rouge, fine, amère à vous retourner la langue, avec cette odeur de cave et d'écorce mouillée qu'on n'imite pas. Elle en prépare six doses. Puis elle creuse, pour la suite, et la cuiller rencontre une autre couleur. Un rouge plus orange, plus terne. Elle en met sur sa langue. C'est amer, à cause de l'aloès qu'on y a mêlé pour tromper. Sous l'amertume, ça crisse sous la dent. De la brique pilée.",
+    "Elle vide le coffre sur une toile, à la lueur de la lanterne, et elle trie, à la pointe du scalpel, comme on trie des lentilles, pendant trois heures. À la fin, il y a sur la toile un petit tas d'écorce vraie, de quoi soigner peut-être cinq hommes jusqu'au bout, et un grand tas de poussière de brique, qui a coûté le prix d'un cheval. Le cachet de cire est intact sur le couvercle. Il est très beau. Elle le regarde longtemps.",
+    "Elle aurait pu goûter au Quai des Hollandes. Elle a goûté le dessus. Elle était pressée, il y avait dix choses à faire, l'apothicaire avait l'air honnête, il avait une barbe d'apôtre et une fille à marier. Elle pense à tous les traités qu'elle a lus, et à celui qu'on n'écrit pas, où il serait dit que la faute d'un médecin se mesure en hommes. Il y en a onze dans l'entrepont. Il y en aura d'autres demain."
+   ],
+   "choices": [
+    {
+     "label": "Réunir l'équipage, et dire la vérité, toute",
+     "fx": {
+      "flag": "wm:dit"
+     },
+     "to": "WM_dit"
+    },
+    {
+     "label": "Garder l'écorce pour les plus atteints, et donner la brique aux autres, sans rien dire",
+     "fx": {
+      "flag": "wm:cache"
+     },
+     "to": "WM_cache"
+    },
+    {
+     "label": "Monter à la grand-chambre, où le baron garde son propre coffre",
+     "fx": {
+      "flag": "wm:baron"
+     },
+     "to": "WM_baron"
+    }
+   ]
+  },
+  "WM_dit": {
+   "act": "III",
+   "title": "La poudre rouge",
+   "place": "sargues",
+   "ambiance": "mer",
+   "text": [
+    "Elle le dit au pied du grand mât, devant tous ceux qui tiennent debout, avec le coffre ouvert et les deux tas sur la toile. Elle dit l'apothicaire, le cachet, la brique, l'aloès. Elle dit qu'elle n'a pas goûté. Elle dit qu'il y a de quoi soigner cinq hommes, qu'elle choisira les cinq selon la gravité, et qu'elle soignera les autres avec ce qui reste : l'eau, l'ombre, les compresses, et le temps. Elle dit qu'il en mourra peut-être. Elle ne dit pas *pardon*. Ça lui paraît indécent.",
+    "Il y a un silence. Puis Gobert crache par-dessus bord, et il dit, d'une voix que tout le monde entend : « Un apothicaire du Quai des Hollandes. J'aurais pu vous le dire. Ils mettraient de la brique dans l'hostie. » Et quelqu'un rit. Puis un autre. Un rire de marins, sans la moindre gaieté, celui qu'on a dans la tempête quand le mât casse, et qui veut dire : *bon, on y est*. Un gabier valide demande ce qu'il faut faire. Elle le lui dit. Dix hommes se proposent pour éventer les hamacs, la nuit, à tour de rôle.",
+    "Il en meurt deux, dans la semaine, de ceux qui n'ont pas eu l'écorce. On les coud dans leurs hamacs. Elle lit les prières, faute d'aumônier à bord. Les hommes l'écoutent tête nue. Quand elle relève les yeux, personne ne la regarde de travers. Elle aurait préféré, peut-être. On la regarde comme on regarde quelqu'un du bord, quelqu'un qui s'est trompé de cap, qui l'a dit, et qui est resté sur le pont. C'est la première fois qu'elle comprend ce que les marins entendent par *du bord*."
+   ],
+   "choices": [
+    {
+     "label": "Retourner aux hamacs",
+     "fx": {
+      "quest": "WM"
+     },
+     "back": "A3w_jours"
+    }
+   ]
+  },
+  "WM_cache": {
+   "act": "III",
+   "title": "La poudre rouge",
+   "place": "sargues",
+   "ambiance": "nuit",
+   "text": [
+    "Elle range le petit tas d'écorce vraie dans un flacon, à part, sous clef. Elle remet la brique dans le coffre, et le cachet sur le couvercle. Puis elle fait ses tournées, comme avant, avec sa cuiller et son air de médecin. Aux cinq plus atteints, l'écorce. Aux autres, la poudre rouge du coffre, dans un peu de vin, à heure fixe, avec les mêmes mots, la même assurance, la même main sur le front. *Ça va passer. C'est la meilleure écorce du Quai des Hollandes.*",
+    "Il se produit une chose qu'elle a lue dans de vieux traités, et à laquelle elle n'a jamais cru. Trois des hommes à la brique guérissent. Pas plus vite que les fièvres ne guérissent seules ; mais ils guérissent en souriant, en la remerciant, en vantant la poudre aux autres. Deux autres meurent. Elle les coud dans leurs hamacs. Un gabier pleure sur le premier en disant qu'il n'aura pas eu de chance, que la poudre ne prend pas sur tout le monde. Elle approuve. Elle lit la prière.",
+    "Le soir, elle tient son journal de bord médical, comme chaque soir. Elle écrit la vérité, en latin, pour que personne à bord ne puisse la lire. Elle écrit : *Trois guérisons par la foi et la brique. Deux morts par la brique et le silence.* Elle ajoute, en dessous, après un long moment : *ou par la fièvre*. Elle regarde ces trois mots jusqu'à ce que la chandelle soit presque finie, et elle ne les barre pas."
+   ],
+   "choices": [
+    {
+     "label": "Retourner aux hamacs",
+     "fx": {
+      "quest": "WM"
+     },
+     "back": "A3w_jours"
+    }
+   ]
+  },
+  "WM_baron": {
+   "act": "III",
+   "title": "La poudre rouge",
+   "place": "sargues",
+   "ambiance": "nuit",
+   "text": [
+    "Le baron Clavières voyage avec son médecin dans un coffre : une petite malle de cuir repoussé doublée de velours vert, avec des compartiments, des flacons à bouchons d'argent, et une boîte d'écorce qu'il a payée, dit-il, le double de son poids en argent fin, à un herboriste qu'il connaît depuis trente ans et qui ne l'a jamais volé. Il l'écoute raconter l'histoire de la brique avec une jubilation à peine dissimulée. « Le cachet de cire, dit-il. Vous avez cru au cachet de cire. Docteur, docteur. Vous qui doutez de tout. »",
+    "Puis il ouvre la malle. Il pèse la boîte dans sa main. Il dit qu'il en a besoin, lui, qu'il est un homme âgé, sujet aux fièvres, qu'un armateur malade ne vaut rien et qu'un armateur mort vaut moins encore, et qu'onze matelots, c'est beaucoup, mais qu'on en trouve d'autres dans tous les ports. Victorine attend. Elle connaît assez le baron pour savoir qu'il aime qu'on attende. Il soupire, enfin, avec une immense mauvaise grâce. « La moitié. Et vous me direz merci devant la capitaine. Et vous ne raconterez à personne que j'ai un cœur. Ça me ferait du tort à la Bourse. »",
+    "Avec la moitié du baron et le petit tas du coffre, elle soigne tout le monde. Personne ne meurt. Au dîner, devant la capitaine, elle dit merci au baron, comme convenu, et il agite la main, comme on chasse une mouche. Elle n'a jamais su s'il avait fait ça par bonté, par vanité, ou pour le plaisir de la voir lui demander quelque chose. Elle soupçonne que lui non plus. Plus tard, en relisant son journal, elle constate qu'elle a écrit *le baron* pendant trois semaines, et qu'à partir de ce jour-là, elle écrit *Clavières*."
+   ],
+   "choices": [
+    {
+     "label": "Retourner aux hamacs",
+     "fx": {
+      "quest": "WM"
+     },
+     "back": "A3w_jours"
+    }
+   ]
+  },
+  "WN_riwal": {
+   "act": "IV",
+   "title": "Celui qui est remonté",
+   "place": "puits",
+   "ambiance": "nuit",
+   "fx": {
+    "meet": "riwal"
+   },
+   "text": [
+    "Il parle dans la galerie des fondeurs, au milieu d'un cercle de jeunes gens assis par terre, dans la lueur rouge, et sa voix monte et descend comme la roue. C'est un grand garçon pâle, maigre, avec des cheveux blancs de naissance et des yeux immenses, rougis, qui larmoient sans arrêt, comme s'il avait pleuré pendant des jours. Il s'appelle Riwal. Il a dix-huit ans. Il est monté, comme chacun ici, une fois, pour voir. Il devait rester une heure. Il est resté trois jours.",
+    "Il raconte. Il raconte une eau qui n'a pas de bords, qui bouge toute seule, qui crie, qui est salée comme le sang. Il raconte une nuit où le plafond est percé de milliers de trous, par où passe la lumière d'une autre forge, très loin. Il raconte une eau qui tombe du ciel, tiède, sans qu'on sache qui la verse, et des arbres qui bougent sans qu'on les touche, et des bêtes qui volent et qui chantent. Il raconte une lumière qui ne vient d'aucun feu.",
+    "Les jeunes l'écoutent, la bouche ouverte. Les plus vieux, en passant, haussent les épaules, ou font le signe qu'on fait ici contre le mauvais air des veines profondes. Un homme dit, assez fort pour qu'on l'entende, que la lumière lui a cuit la cervelle comme un œuf. Riwal ne l'entend pas. Il te voit, toi, au bord du cercle. Ses yeux rougis s'illuminent. « Toi, dit-il. Tu viens de là-haut. Dis-leur. »"
+   ],
+   "choices": [
+    {
+     "label": "Le suivre devant les Mères, où on l'appelle",
+     "to": "WN_meres"
+    }
+   ]
+  },
+  "WN_meres": {
+   "act": "IV",
+   "title": "Celui qui est remonté",
+   "place": "puits",
+   "ambiance": "nuit",
+   "text": [
+    "Les trois Mères sont assises près du foyer, sur leurs tabourets de fer, avec leurs aiguilles qui sont des clous. On a fait venir Riwal. On t'a fait venir aussi. Hugon se tient derrière, les bras croisés sur son tablier, et ne dit rien ; ici, il ne commande pas. Autour, dans l'ombre des galeries, des dizaines de visages pâles, tournés vers le feu, comme des fleurs qui pousseraient dans une cave.",
+    "La plus vieille parle sans lever les yeux de son tricot. Elle dit que Riwal trouble les jeunes. Qu'il leur fait regarder le plafond de la galerie comme s'il était une prison. Que trois fondeurs ont manqué la coulée hier, parce qu'ils écoutaient ses histoires. Qu'un garçon de douze ans a essayé de monter seul, la nuit, par le puits d'aérage, et qu'on l'a retrouvé coincé dans la cheminée, à moitié étouffé, en pleurant qu'il voulait voir l'eau qui crie. Qu'il faut que ça cesse.",
+    "« Le soleil lui a pris la tête, dit la deuxième. On l'attachera à la roue, avec les autres, jusqu'à ce qu'il oublie. La roue fait oublier. » La troisième ne dit rien. Elle tricote. La plus vieille lève enfin les yeux, et ce sont des yeux blancs, voilés, qui ne voient que le feu. Elle les tourne vers toi. « Toi, tu viens d'en haut. Tu vois clair, à ce qu'on dit, dans leur lumière. Alors dis-nous. Est-ce qu'il ment ? »",
+    "Riwal te regarde, avec ses yeux qui pleurent. Les Mères te regardent. Hugon te regarde. Tu penses que tout ce qu'il a dit est vrai, à peu près, et que la vérité, ici, à cent pieds sous la roche, ressemble trait pour trait à la folie."
+   ],
+   "choices": [
+    {
+     "label": "« Il dit vrai. Tout. La mer, les étoiles, la pluie. Je l'ai vu. »",
+     "fx": {
+      "flag": "wn:temoigne"
+     },
+     "to": "WN_temoigne"
+    },
+    {
+     "label": "Prendre Riwal à part, et lui conseiller de se taire, pour rester des leurs",
+     "fx": {
+      "flag": "wn:silence"
+     },
+     "to": "WN_silence"
+    },
+    {
+     "label": "« Il ne ment pas. Mais il n'est plus d'ici. Laissez-moi le remonter. »",
+     "fx": {
+      "flag": "wn:remonte"
+     },
+     "to": "WN_remonte"
+    }
+   ]
+  },
+  "WN_temoigne": {
+   "act": "IV",
+   "title": "Celui qui est remonté",
+   "place": "puits",
+   "ambiance": "nuit",
+   "text": [
+    "Tu le dis. Tout. Tu dis la mer, et qu'elle est salée, et qu'elle crie, et qu'elle n'a pas de bords qu'on voie. Tu dis les étoiles, et la pluie, et les oiseaux. Tu en rajoutes, même, emporté{e} : la neige, les baleines, les tempêtes. Un murmure monte des galeries, de plus en plus fort, comme une coulée qui déborde. Les jeunes se lèvent. Riwal pleure, mais de joie, cette fois, et il te serre les mains si fort que tu as mal.",
+    "La plus vieille Mère t'écoute jusqu'au bout. Puis elle reprend son tricot. Elle dit, très calmement, que les gens d'en haut ont toujours raconté des choses merveilleuses sur leur monde, et que c'est avec ces choses-là qu'on a fait monter leurs hommes, il y a des années, le jour des clefs, et qu'aucun n'est redescendu. Elle dit que tu as l'air d'un{e} enfant honnête. Elle dit que c'est le plus dangereux. Elle remercie Hugon de t'avoir accueilli{e}, et elle dit que tu repartiras demain.",
+    "On n'attache pas Riwal à la roue. On n'ose plus, après toi ; le murmure des galeries ne s'est pas tout à fait éteint. Mais le lendemain, quand tu remontes, vingt jeunes gens pâles te suivent jusqu'au bas du puits, et regardent la lumière grise tomber de là-haut sur leurs visages, en clignant des yeux, en pleurant, et ne remontent pas. Pas encore. Riwal est devant eux. Il te fait un signe de la main, en bas, dans le rond de lumière. Tu ne sais pas si tu viens de les libérer ou de leur apprendre à être malheureux."
+   ],
+   "choices": [
+    {
+     "label": "Revenir vers la forge",
+     "fx": {
+      "quest": "WN"
+     },
+     "back": "XD_forge"
+    }
+   ]
+  },
+  "WN_silence": {
+   "act": "IV",
+   "title": "Celui qui est remonté",
+   "place": "puits",
+   "ambiance": "nuit",
+   "text": [
+    "Tu demandes aux Mères le temps de lui parler. On te l'accorde. Tu l'emmènes dans une galerie latérale, où l'eau goutte de la voûte avec un bruit d'horloge. Tu lui dis qu'il a raison. Tu lui dis aussi qu'ils l'attacheront à la roue, et que la roue fait oublier, et qu'il vaut mieux se souvenir en silence qu'oublier en criant. Tu lui dis de dire aux Mères qu'il a rêvé. Qu'il a eu la fièvre du soleil. Qu'il regrette.",
+    "Il te regarde longtemps, avec ses yeux rougis. Puis il dit : « Tu as vu tout ça toute ta vie. Tu peux te taire, toi. Tu le revois demain. Moi, je n'ai que les mots. Si je ne les dis plus, je n'aurai plus rien. » Il réfléchit. Il dit qu'il le fera quand même. Pas pour lui. Pour le garçon de douze ans coincé dans la cheminée. Pour que les autres ne montent pas seuls, la nuit, et ne meurent pas étouffés dans la roche en cherchant l'eau qui crie.",
+    "Il retourne devant les Mères. Il dit qu'il a rêvé. Il le dit bien, d'une voix plate, en baissant les yeux. La plus vieille hoche la tête et lui pardonne. Les jeunes se dispersent, déçus. Le soir, en passant devant la forge, tu le vois au soufflet, qui pompe, qui pompe, le visage rouge de la flamme. Il te regarde passer. Il te fait un petit sourire. Et, au moment où tu t'éloignes, tu l'entends dire, très bas, pour lui seul, au rythme du soufflet, un mot qui ressemble à *mer*."
+   ],
+   "choices": [
+    {
+     "label": "Revenir vers la forge",
+     "fx": {
+      "quest": "WN"
+     },
+     "back": "XD_forge"
+    }
+   ]
+  },
+  "WN_remonte": {
+   "act": "IV",
+   "title": "Celui qui est remonté",
+   "place": "puits",
+   "ambiance": "nuit",
+   "text": [
+    "Les Mères se regardent. La troisième, celle qui ne dit jamais rien, pose son tricot pour la première fois. Elle dit, d'une voix enrouée : « Oui. » Les deux autres se taisent. On n'avait jamais entendu la troisième dire oui à quoi que ce soit, à ce que te souffle Hugon, plus tard, à l'oreille, avec une sorte d'effroi.",
+    "Vous montez à l'aube. Riwal emporte un marteau, une couverture, une pierre à feu, et rien d'autre. Personne ne vient lui dire adieu, sauf une fille, une seule, qui le regarde partir depuis l'entrée d'une galerie, sans un geste. Il ne se retourne pas. Dans la cheminée, plus vous montez, plus il respire vite. Au dernier palier, quand la lumière grise tombe sur vous, il s'arrête, et ferme les yeux, et pleure, de douleur, et ouvre les yeux quand même.",
+    "Tu le laisses au bord du puits, dans les fougères, assis, le visage tourné vers l'est, où le soleil se lève. Il ignore comment on fait un feu sans soufflet, où l'on trouve une eau qui ne soit pas salée, et à peu près tout le reste. Il rit. Tu le regardes, en t'éloignant, de plus en plus petit au milieu de la forêt, un homme pâle, à moitié aveugle, qui rit tout seul au soleil comme un nouveau-né. Tu te demandes combien de temps il vivra. Tu te demandes si c'est la bonne question."
+   ],
+   "choices": [
+    {
+     "label": "Redescendre vers la forge",
+     "fx": {
+      "quest": "WN"
+     },
+     "back": "XD_forge"
     }
    ]
   },
@@ -10676,6 +12970,13 @@
      "to": "ZK_appel",
      "hide": {
       "seen": "ZK_appel"
+     }
+    },
+    {
+     "label": "Ouvrir au valet de ferme trempé qui gratte à la porte du cabinet",
+     "to": "WF_appel",
+     "hide": {
+      "seen": "WF_appel"
      }
     },
     {
@@ -12839,6 +15140,17 @@
      "why": "Gobert ne t'emmène pas encore partout."
     },
     {
+     "label": "Aller seul{e} à la foire, un soir, derrière la tente rayée",
+     "to": "WK_tente",
+     "hide": {
+      "seen": "WK_tente"
+     },
+     "if": {
+      "seen": "XG_foire"
+     },
+     "why": "Tu n'es pas encore allé{e} à la foire."
+    },
+    {
      "label": "Le dixième jour",
      "to": "A2m_fin",
      "big": true,
@@ -13430,6 +15742,13 @@
      "to": "ZO_cave",
      "hide": {
       "seen": "ZO_cave"
+     }
+    },
+    {
+     "label": "S'arrêter sous le porche de la chapelle murée, où quelqu'un tousse",
+     "to": "WE_porche",
+     "hide": {
+      "seen": "WE_porche"
      }
     },
     {
@@ -17812,6 +20131,13 @@
      }
     },
     {
+     "label": "Aller chercher le biscuit de mer au fournil de la Tour-aux-Rats",
+     "to": "WG_four",
+     "hide": {
+      "seen": "WG_four"
+     }
+    },
+    {
      "label": "Passer à la Truie-qui-file, où quelqu'un t'attend",
      "to": "A2f_sabran",
      "big": true
@@ -21065,6 +23391,53 @@
       "min": 2
      },
      "why": "La soute garde encore son secret."
+    },
+    {
+     "label": "Aller trouver le gabier aux yeux pâles, qui t'attend au pied du mât de misaine",
+     "to": "WE_bord",
+     "hide": {
+      "any": [
+       {
+        "seen": "WE_bord"
+       },
+       {
+        "not": {
+         "any": [
+          {
+           "has": "we:vareuse"
+          },
+          {
+           "has": "we:gobert"
+          }
+         ]
+        }
+       }
+      ]
+     },
+     "if": {
+      "count": [
+       {
+        "seen": "A3m_quart"
+       },
+       {
+        "seen": "A3m_cambuse"
+       },
+       {
+        "seen": "A3m_mature"
+       },
+       {
+        "seen": "XI_debut"
+       },
+       {
+        "seen": "A3m_gaudremont"
+       },
+       {
+        "seen": "A3m_jules"
+       }
+      ],
+      "min": 1
+     },
+     "why": "Il ne t'a encore rien dit depuis Morlenc."
     },
     {
      "label": "La dixième nuit",
@@ -25006,6 +27379,13 @@
      "to": "XQ_b_aumonier",
      "hide": {
       "seen": "XQ_b_aumonier"
+     }
+    },
+    {
+     "label": "Suivre le vieux sergent qui attend au pied de l'échelle",
+     "to": "WJ_sergent",
+     "hide": {
+      "seen": "WJ_sergent"
      }
     },
     {
@@ -30160,6 +32540,26 @@
      "why": "Le navire n'a pas encore assez avancé."
     },
     {
+     "label": "À midi, onze hamacs qui tremblent ensemble dans l'entrepont",
+     "to": "WM_fievre",
+     "hide": {
+      "any": [
+       {
+        "seen": "WM_fievre"
+       },
+       {
+        "not": {
+         "has": "pharmacie:quinquina"
+        }
+       }
+      ]
+     },
+     "if": {
+      "seen": "A3w_ecueil"
+     },
+     "why": "L'eau du bord est encore saine."
+    },
+    {
      "label": "L'îlot en vue",
      "to": "A3w_ilot",
      "big": true,
@@ -35196,6 +37596,13 @@
      }
     },
     {
+     "label": "Porter les cruches de Maître Gobert, de l'autre côté de la lande",
+     "to": "WD_affaire",
+     "hide": {
+      "seen": "WD_affaire"
+     }
+    },
+    {
      "label": "Aider les tourbiers, à l'est",
      "to": "XQ_l_tourbe",
      "hide": {
@@ -35660,6 +38067,13 @@
      "to": "YV_maison",
      "hide": {
       "seen": "YV_maison"
+     }
+    },
+    {
+     "label": "Suivre la jeune femme en coiffe noire qui attend au bout de la cale",
+     "to": "WC_tifenn",
+     "hide": {
+      "seen": "WC_tifenn"
      }
     },
     {
@@ -42906,6 +45320,13 @@
      }
     },
     {
+     "label": "Écouter le garçon aux cheveux blancs, dans la galerie des fondeurs",
+     "to": "WN_riwal",
+     "hide": {
+      "seen": "WN_riwal"
+     }
+    },
+    {
      "label": "Chercher les chasseurs d'œufs",
      "to": "XD_p_chasseurs",
      "hide": {
@@ -45280,6 +47701,31 @@
      "why": "Le baron n'est pas encore sorti du chœur."
     },
     {
+     "label": "Un gabier recroquevillé derrière le chevet, à l'aube",
+     "to": "WA_flux",
+     "hide": {
+      "seen": "WA_flux"
+     },
+     "if": {
+      "count": [
+       {
+        "seen": "A4w_blesses"
+       },
+       {
+        "seen": "A4w_baron"
+       },
+       {
+        "seen": "A4w_capitaine"
+       },
+       {
+        "seen": "XS_debut"
+       }
+      ],
+      "min": 2
+     },
+     "why": "L'eau de la source est encore propre."
+    },
+    {
      "label": "Un drapeau blanc sur le sentier",
      "to": "A4w_parlement",
      "big": true,
@@ -45757,6 +48203,119 @@
     {
      "label": "Dormir",
      "to": "C4b_fin"
+    }
+   ]
+  },
+  "WA_flux": {
+   "act": "IV",
+   "title": "La cabane des fiévreux",
+   "place": "misericorde",
+   "ambiance": "chateau",
+   "text": [
+    "Le premier, c'est un gabier de Morlenc, un matin, qui se lève trois fois dans la nuit et qu'on trouve à l'aube recroquevillé derrière le chevet, gris, les lèvres sèches, dans une odeur que Victorine reconnaît avant d'avoir vu. Le flux de sang. La dysenterie des camps, des sièges, des navires trop longs. Le soir, ils sont trois. Le surlendemain, cinq.",
+    "Elle sait d'où ça vient : de l'eau de la source, qu'on puise trop près de l'endroit où l'on vide les seaux, faute de place ; des mains qu'on ne lave pas ; des mouches. Elle fait bouillir l'eau. Elle fait creuser une fosse de l'autre côté de la cour. Elle fait laver les mains au vinaigre, et les hommes rient d'elle, puis cessent de rire. Ça ne suffit pas. Dans une nef close, sous le soleil, avec quarante personnes serrées sur la paille, le flux court de paillasse en paillasse comme un feu dans un champ de chaume.",
+    "Le quatrième jour, la capitaine Ribaud la prend à part, sous le porche. Elle a les yeux rouges de trois nuits sans sommeil. « En bas du mur, à vingt pas, il y a la cabane où les colons faisaient sécher le tabac. Un toit, quatre murs, une porte. On y met les malades. On leur descend de l'eau et du bouillon par une corde. Sinon, dans dix jours, je n'ai plus de garnison, et Fargue n'a plus qu'à monter ouvrir la porte. »",
+    "Victorine regarde par la meurtrière. La cabane est là, au pied du mur, dans les cailloux, à découvert. On la voit de la plage. On la voit de la forêt."
+   ],
+   "choices": [
+    {
+     "label": "Répondre à la capitaine",
+     "to": "WA_choix"
+    }
+   ]
+  },
+  "WA_choix": {
+   "act": "IV",
+   "title": "La cabane des fiévreux",
+   "place": "misericorde",
+   "ambiance": "chateau",
+   "text": [
+    "« Ils la verront, dit Victorine. Les mutins. Cinq hommes couchés dans une cabane, sans armes, hors des murs. — Ils les verront, dit la capitaine. Ils les laisseront, j'espère. Personne ne va chercher la dysenterie avec un couteau. Et s'ils y vont… » Elle ne finit pas sa phrase.",
+    "Victorine pense au gabier de Morlenc, qui lui a serré la main ce matin, très fort, quand elle lui a donné à boire, et qui lui a demandé s'il allait mourir. Elle pense aux trente-cinq autres, sur la paille, qui ne sont pas encore malades. Elle pense à ce qu'elle a vu à l'Hôtel-Dieu de Morlenc, pendant la fièvre de l'été, quand on murait les salles. Elle pense que la capitaine a raison, et qu'on ne peut pas faire ça.",
+    "La capitaine attend. Elle ne donnera pas l'ordre sans l'accord de la médecin. Elle le lui a dit : sur les malades, c'est vous qui commandez."
+   ],
+   "choices": [
+    {
+     "label": "« Faites-les descendre. Je descendrai les soigner, de jour, et je remonterai. »",
+     "fx": {
+      "flag": "wa:dehors"
+     },
+     "to": "WA_dehors"
+    },
+    {
+     "label": "« Ils restent. Je les isole dans la sacristie, derrière des draps au vinaigre. »",
+     "fx": {
+      "flag": "wa:dedans"
+     },
+     "to": "WA_dedans"
+    },
+    {
+     "label": "« Je descends avec eux. Jour et nuit. Remontez-moi quand ce sera fini. »",
+     "fx": {
+      "flag": "wa:avec"
+     },
+     "to": "WA_avec"
+    }
+   ]
+  },
+  "WA_dehors": {
+   "act": "IV",
+   "title": "La cabane des fiévreux",
+   "place": "misericorde",
+   "ambiance": "chateau",
+   "text": [
+    "On les descend le soir même, sur des brancards, par la petite porte de la sacristie. Ils ne protestent pas. Le gabier de Morlenc regarde Victorine, en passant, sans un mot, avec des yeux d'enfant qu'on envoie au lit sans souper. Elle lui dit qu'elle descendra demain matin. Il hoche la tête.",
+    "Elle descend chaque matin, par la corde, avec des seaux de bouillon et d'eau bouillie, et elle reste jusqu'à midi, et elle remonte, en se lavant les mains au vinaigre jusqu'aux coudes. Le flux cesse de courir dans la nef. Au bout de huit jours, il n'y a plus de nouveau malade à la chapelle. La capitaine avait raison.",
+    "Dans la cabane, il en meurt deux. Le troisième soir, un mutin vient rôder autour, à la nuit ; Victorine l'apprend le lendemain par le gabier de Morlenc, qui l'a vu se pencher à la porte, renifler, et repartir en courant. On les laisse en paix. Le gabier de Morlenc remonte le douzième jour, guéri, maigre comme un clou. Il ne dit jamais rien à Victorine de ces douze nuits. Quand elle le croise dans la nef, il lui fait un petit salut poli, comme on salue quelqu'un qu'on a connu ailleurs."
+   ],
+   "choices": [
+    {
+     "label": "Retourner à tes blessés",
+     "fx": {
+      "quest": "WA"
+     },
+     "back": "A4w_jours"
+    }
+   ]
+  },
+  "WA_dedans": {
+   "act": "IV",
+   "title": "La cabane des fiévreux",
+   "place": "misericorde",
+   "ambiance": "chateau",
+   "text": [
+    "La capitaine accepte, d'un hochement de tête, sans discuter, et sans cacher qu'elle pense que c'est une erreur. On vide la sacristie. On tend, à l'entrée, deux draps trempés de vinaigre, qu'on mouille toutes les heures. Victorine y couche les cinq. Personne d'autre n'entre. Elle mange seule, à part, dans un coin du chœur, dans une écuelle qu'elle lave elle-même à l'eau bouillante.",
+    "Le flux court encore huit jours. Il en prend trois de plus, dans la nef, malgré les draps, malgré le vinaigre. La sacristie est pleine. Il en meurt deux, puis un troisième. La garnison, un soir, n'a plus que vingt et un hommes debout pour garder les murs, et la capitaine passe la nuit au clocher, un mousquet dans chaque main.",
+    "Puis le flux s'arrête, comme il est venu, sans qu'on sache pourquoi. Les malades guérissent, ceux qui doivent guérir. Le gabier de Morlenc se lève le dixième jour. Il dit à Victorine, en titubant hors de la sacristie, qu'il savait qu'elle ne les mettrait pas dehors. Que tout le monde le savait, dans la sacristie. Que ça les a aidés. Elle ne sait pas s'il dit vrai. Elle compte les trois morts de la nef, qui ne seraient peut-être pas morts. Elle compte les deux de la sacristie, qui seraient peut-être morts dehors aussi. Les comptes ne tombent jamais juste, dans son métier."
+   ],
+   "choices": [
+    {
+     "label": "Retourner à tes blessés",
+     "fx": {
+      "quest": "WA"
+     },
+     "back": "A4w_jours"
+    }
+   ]
+  },
+  "WA_avec": {
+   "act": "IV",
+   "title": "La cabane des fiévreux",
+   "place": "misericorde",
+   "ambiance": "nuit",
+   "text": [
+    "La capitaine la regarde longtemps. Puis elle dit : « Vous êtes la seule médecin de cette île. — Alors faites en sorte qu'on ne me tire pas dessus », dit Victorine. Et elle descend le soir même, derrière les brancards, avec sa sacoche, une lanterne, un baril de vinaigre et deux seaux.",
+    "La cabane sent le tabac, la poussière et bientôt la maladie. Elle y passe dix nuits. Elle dort assise contre le mur, une heure par-ci, une heure par-là. Elle fait boire, elle lave, elle porte les seaux. Elle parle aux malades, la nuit, pour qu'ils sachent qu'elle est là. Le gabier de Morlenc lui raconte toute sa vie, en délirant, deux fois. Elle apprend qu'il a une fiancée qui s'appelle Mathurine et un chien qui s'appelle Mathurin, et qu'il les confond quand il a de la fièvre.",
+    "La quatrième nuit, des pas, dehors. Elle ouvre la porte, la lanterne levée. Ce sont deux hommes de Fargue, avec des couteaux. Ils voient la lanterne, la femme, les cinq hommes couchés dans leur ordure, et ils sentent l'odeur. Ils reculent. L'un d'eux dit, très bas : « C'est la médecin. » L'autre crache par terre et dit que Fargue a donné l'ordre de ne pas la toucher. Ils s'en vont. Le lendemain matin, au pied de la porte de la cabane, il y a une calebasse de lait de coco et trois mangues. Personne ne sait qui les a apportées.",
+    "Il en meurt un, sur les cinq. Elle remonte le onzième jour, avec quatre hommes debout, et elle dort deux jours entiers, dans la sacristie, sans rêver."
+   ],
+   "choices": [
+    {
+     "label": "Retourner à tes blessés",
+     "fx": {
+      "quest": "WA"
+     },
+     "back": "A4w_jours"
     }
    ]
   },
@@ -47028,6 +49587,13 @@
      "why": "Jeanne Brasdefer l'évite. Elle a encore une dette, et elle n'aime pas ça."
     },
     {
+     "label": "Regarder le grand muet nourrir un chiot jaune, au bout de ses doigts",
+     "to": "WH_chiot",
+     "hide": {
+      "seen": "WH_chiot"
+     }
+    },
+    {
      "label": "Dire à Jeanne Brasdefer que l'enfant est hors de danger",
      "to": "XS_marche",
      "big": true,
@@ -48103,6 +50669,28 @@
       "min": 1
      },
      "why": "Le camp n'a pas encore le cœur à rire."
+    },
+    {
+     "label": "À l'aube, un corps qu'on rapporte du ruisseau sur une voile",
+     "to": "WI_corps",
+     "hide": {
+      "seen": "WI_corps"
+     },
+     "if": {
+      "count": [
+       {
+        "seen": "A4f_hommes"
+       },
+       {
+        "seen": "A4f_malandain"
+       },
+       {
+        "seen": "A4f_traces"
+       }
+      ],
+      "min": 1
+     },
+     "why": "La chapelle ne tire pas encore sur le ruisseau."
     },
     {
      "label": "Monter à la chapelle, sous un drapeau blanc",
@@ -56953,6 +59541,13 @@
       "has": "morts:enterres"
      },
      "text": "Dans la cour, il y a la fosse où l'on a enterré les ossements de la nef, le premier jour, avec une croix de deux planches. Quelqu'un y a posé des fleurs du verger. Elle ne sait pas qui. Elle ne demande pas."
+    },
+    {
+     "first": true,
+     "if": {
+      "has": "wh:emmene"
+     },
+     "text": "La chienne jaune du muet dort en travers du seuil, son collier d'os autour du cou. Elle a aboyé chaque nuit du siège, contre des gens qui savaient déjà où l'on était, et la garnison a fini par l'aimer comme on aime une sentinelle qui ne dort jamais. Elle lève la tête quand Victorine passe, et la suit, à deux pas, jusqu'à l'autel."
     },
     {
      "first": true,
