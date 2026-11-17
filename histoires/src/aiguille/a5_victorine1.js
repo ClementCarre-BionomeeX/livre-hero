@@ -1,0 +1,130 @@
+// L'Île Folle-Aiguille · act V, chapter V.1 followed by the doctor: the altar. The council around the map; the
+// correction from the parchment, the monk's table, the pilot, or the professor's compass; the second cross falls on
+// the altar of the Miséricorde itself (autel:ouvert): an empty pit, a broken chalice, and a tunnel dug from below. The
+// privateer's terms (a false copy: victorine:ruse; the true one for half: desinvolte:alliee; a refusal:
+// chevalier:ultimatum). The tunnel, and the people at its other end (tunnel:ouvert, hugon:passage).
+var BARON = { not: { has: "xs:baron_mort" } };
+var CONNU = { has: "correction:connue" };
+module.exports = {
+  passages: {
+    A5v_debut: { act: "V", title: "Le conseil de la carte", place: "misericorde", ambiance: "chateau",
+      text: [
+        "On étale la carte sur l'autel de la Miséricorde, ou sur une planche posée sur deux tonneaux sous les orangers du verger, et l'on s'assied autour, comme autour d'un malade.",
+        "La capitaine Ribaud. Victorine.",
+        { if: BARON, text: "Le baron Clavières, rasé de frais pour la première fois depuis le débarquement, avec sa perruque, ce qui est chez lui une déclaration de guerre." },
+        { if: { not: { has: "benoit:parti" } }, text: "Benoît Quémeneur, debout, appuyé au mur, qui regarde la carte sans la voir." },
+        { if: { marin: "brousse", is: "abord" }, text: "Et Nathanaël Brousse, le vieux pilote de Brisegrève, qui ne s'est pas assis, et qui regarde l'écriture du capitaine Dagrel sur la carte avec une haine si pure qu'elle en devient presque de l'affection." },
+        { if: { has: "xt:gaudremont_sauve" }, text: "Le professeur Gaudrémont, la jambe dans une attelle de prêle, a voulu qu'on le porte jusqu'à la table. Il a sur les genoux, enveloppé dans sa veste, un œuf vert, ou ce qui en est sorti, et il ne cesse de parler." },
+        { if: { has: "xt:gaudremont_haut" }, text: "La place du professeur Gaudrémont est vide. Il est là-haut, sur la Table, la jambe cassée, avec ses notes, depuis trois jours. L'enfant du Fanal a promis de revenir le chercher. On a envoyé deux hommes avec une corde ; ils ne sont pas encore revenus." },
+        "Le baron pose le doigt sur la deuxième croix, celle de l'éperon, et sourit. « La chapelle, dit-il. Nous sommes assis dessus. »",
+      ],
+      choices: [
+        { label: "Appliquer la correction", hide: { not: CONNU }, to: "A5v_calcul" },
+        { label: "Laisser le baron suivre les relèvements tels qu'ils sont écrits", to: "A5v_faux" },
+      ] },
+    A5v_faux: { act: "V", title: "Le relèvement", place: "misericorde", ambiance: "chateau",
+      text: [
+        "Le baron prend lui-même le compas de la capitaine, monte au clocher, vise la Dent-du-Nord, vise la Table, redescend, compte ses pas, et s'arrête au milieu de la cour, au pied du mur d'enceinte, sur la fosse où l'on a enterré les morts de la nef, ou à côté.",
+        "« Ici », dit-il.",
+        "Personne ne bouge. Il regarde autour de lui, et comprend où il se trouve, et pâlit, et se tait.",
+        "« Ce n'est pas là, dit Victorine. Ce ne peut pas être là. Une cache de chapelle, on la met sous l'autel. Votre capitaine Dagrel était un homme d'ordre. Il a mis les vases sacrés là où ils étaient. »",
+        { if: { has: "xt:vue" }, text: "Le professeur Gaudrémont, ou les notes qu'il a laissées, l'a établi sur la Table : l'aiguille se trompe ici d'environ trois quarts vers l'ouest. Victorine refait le calcul à la craie, sur la dalle. La croix tombe sur l'autel." },
+      ],
+      choices: [{ label: "L'autel, donc", to: "A5v_autel" }] },
+    A5v_calcul: { act: "V", title: "La correction", place: "misericorde", ambiance: "chateau",
+      text: [
+        { if: { has: "correction:parchemin" }, text: "Victorine dit la phrase, celle que l'enfant du Fanal a tirée du parchemin, à la cambuse ou ailleurs, signe à signe : tirez trois quarts au couchant, et partez de la pierre qui sonne." },
+        { if: { all: [{ any: [{ has: "correction:calixte" }, { item: "table_calixte" }] }, { not: { has: "correction:parchemin" } }] }, text: "Victorine déplie la table de Frère Calixte, l'astronome de l'Écueil-Rouge : une feuille couverte de chiffres minuscules, d'éclipses et de déclinaisons, où il a noté de combien les aiguilles mentent dans tout le Couchant. Au bas, pour Folle-Aiguille, de sa main tremblante : trois quarts vers l'ouest, plus ou moins selon le lieu." },
+        { if: { all: [{ has: "brousse:secret" }, { not: { any: [{ has: "correction:parchemin" }, { has: "correction:calixte" }] } }] }, text: "Victorine dit la phrase que lui a confiée le numéro neuf, dans son cachot de Brisegrève, en échange d'une promesse : tirez trois quarts au couchant. Elle a tenu la promesse. Elle tient la phrase." },
+        { if: { all: [{ marin: "brousse", is: "abord" }, { not: { any: [{ has: "correction:parchemin" }, { has: "correction:calixte" }, { has: "brousse:secret" }] } }] }, text: "C'est Brousse qui parle. « Trois quarts, dit-il, de sa voix rouillée. Au couchant. C'est moi qui l'ai calculé, pour lui, il y a vingt et un ans, avec ses compas et le soleil. Il m'a fait jurer. Je n'ai plus de serment envers personne. »" },
+        { if: { has: "dagrel:aveu_mousse" }, text: "Et l'enfant du Fanal, s'il est là, ajoute à voix basse ce que lui a dit un vieil homme de la forêt : l'aiguille se trompe toujours de la même façon, au même endroit, avec une fidélité qu'on ne trouve chez aucun être humain." },
+        "Elle reprend les relèvements, un à un, à la craie, sur la dalle. Elle tourne chacun de trois quarts de vent. La première croix tombe à l'ouest, près de la Dent-du-Nord, au pied d'une pierre. La deuxième tombe sur l'autel où elle écrit. La troisième, au nord, au flanc d'une colline, sur une tache que la carte appelle « le puits mort ».",
+        { if: BARON, text: "Le baron la regarde faire avec une expression étrange, entre l'admiration et la peur. « Vous auriez fait un excellent banquier, docteur », dit-il. Elle lui répond qu'elle le sait, et que c'est pour cela qu'elle est devenue médecin." },
+      ],
+      choices: [{ label: "Soulever l'autel", to: "A5v_autel" }] },
+    A5v_autel: { act: "V", title: "L'autel", place: "misericorde", ambiance: "chateau",
+      text: [
+        "Il faut six hommes et deux leviers pour faire glisser la dalle de l'autel. Elle grince, crache de la poussière, et bascule d'un coup dans un fracas qui fait s'envoler tous les oiseaux du chœur, et de l'arbre qui le traverse.",
+        "Dessous, un trou carré, maçonné, profond de deux toises. On y descend une lanterne.",
+        "Il est vide.",
+        "Pas tout à fait. Au fond, dans la poussière, un calice d'argent tordu, écrasé, comme si on avait marché dessus. Des éclats de bois de coffre. Des marques d'outils sur les pierres. Et dans la paroi du nord, un trou, rond, grossier, de la taille d'un homme accroupi, qui s'enfonce dans la roche, vers le bas, vers le nord, et d'où sort un souffle tiède qui sent le soufre.",
+        "Quelqu'un est venu par en dessous. Il y a longtemps. Et il a tout pris, sauf un calice abîmé, qu'il a jugé indigne d'être fondu.",
+        { if: BARON, text: "Le baron regarde le trou. Puis il rit. Un rire aigu, nerveux, incontrôlable, qui le plie en deux sur le bord de la fosse. « Les vases ! dit-il. Ils ont pris les vases ! Les vases ! » Il s'essuie les yeux. « Le livre n'était pas là. Il n'a jamais été là. Il est au troisième. Il est au puits mort. » Il cesse de rire d'un coup, et il a l'air de quelqu'un qui vient de recevoir une bonne nouvelle épouvantable." },
+        { if: { not: BARON }, text: "Benoît, ou la capitaine, descend dans la fosse et remonte le calice. On le pose sur l'autel, à sa place. Personne ne sait pourquoi on fait ça. On le fait." },
+      ],
+      choices: [{ label: "Regarder le tunnel", fx: { flag: "autel:ouvert" }, to: "A5v_message" }] },
+    A5v_message: { act: "V", title: "Le message du brigantin", place: "misericorde", ambiance: "chateau",
+      text: [
+        "C'est à ce moment qu'arrive la chaloupe de la Désinvolte.",
+        { if: { has: "desinvolte:alliee" }, text: "Le Chevalier en descend lui-même, en habit de velours, avec dix hommes armés de pelles, et un gant gris perle à la main droite. Il salue la capitaine comme on salue une reine, et Victorine comme on salue une vieille amie. « Je viens creuser avec vous, dit-il. C'est plus amusant que de creuser contre vous. Ma part, nous en parlerons quand il y aura quelque chose à partager. »" },
+        { if: { all: [{ has: "desinvolte:hostile" }, { has: "chevalier:blesse" }] }, text: "Ce n'est pas le Chevalier qui en descend. C'est Sabran Quéru, le Grêlé, avec une chemise de dentelle trop grande pour lui, qui appartenait à quelqu'un d'autre. « Le capitaine a la fièvre, dit-il. C'est moi qui parle, en attendant. » Il sourit avec sa dent d'or. « La carte, la vraie, et la manière de la lire. Avant demain soir. Sinon, on tire sur la chapelle, et sur tout ce qui flotte. »" },
+        { if: { all: [{ has: "desinvolte:hostile" }, { not: { has: "chevalier:blesse" } }] }, text: "Le Chevalier en descend, en chemise, l'épée au côté, très gai. « On m'a dit que vous aviez trouvé la manière de lire la carte, Madame. Les nouvelles vont vite, sur une petite île. » Il s'assied sur le bord de la fosse de l'autel, et y laisse pendre ses jambes. « Je vous la demande. Gentiment. Demain, je la demanderai avec quatorze canons. C'est moins gentil, mais c'est plus court. »" },
+        { if: { not: { any: [{ has: "desinvolte:alliee" }, { has: "desinvolte:hostile" }] } }, text: "Un officier en descend, et remet à la capitaine une lettre cachetée d'un écu d'or : le Chevalier demande la carte et la manière de la lire, et propose un partage, et menace d'un bombardement, dans le même paragraphe, avec la même élégance." },
+      ],
+      choices: [
+        { label: "Lui donner une copie fausse, corrigée dans le mauvais sens", hide: { has: "desinvolte:alliee" }, test: { dom: "social", diff: 0, label: "Mentir au corsaire" }, win: { fx: { flag: "victorine:ruse" }, to: "A5v_ruse" }, lose: { fx: { flag: "chevalier:ultimatum" }, to: "A5v_ruse_rate" } },
+        { label: "Lui donner la vraie correction, pour la moitié", hide: { has: "desinvolte:alliee" }, fx: { flag: ["desinvolte:alliee", "victorine:pacte_correction"] }, to: "A5v_pacte" },
+        { label: "Refuser", hide: { has: "desinvolte:alliee" }, fx: { flag: "chevalier:ultimatum" }, to: "A5v_refus" },
+        { label: "Accepter ses pelles", hide: { not: { has: "desinvolte:alliee" } }, to: "A5v_pacte" },
+      ] },
+    A5v_ruse: { act: "V", title: "La fausse copie", place: "misericorde", ambiance: "chateau",
+      text: [
+        "Elle recopie les relèvements, de sa main, avec soin, en les tournant de trois quarts vers l'est au lieu de l'ouest. Elle signe. Elle cachette. Elle remet le pli avec un air de défaite qui lui coûte plus que tout le reste.",
+        "Le lendemain, on voit, du clocher, les hommes du brigantin creuser au bord de la mer, à l'est de l'île, dans un marais de palétuviers, jusqu'à la taille, sous les moustiques. Ils creusent trois jours. Ils trouvent des crabes.",
+        { if: { has: "victorine:pacte_chevalier" }, text: "Elle lui avait promis un marché. Elle le lui a livré. Elle n'a jamais précisé que les relèvements seraient justes." },
+      ],
+      choices: [{ label: "Le tunnel", to: "A5v_tunnel" }] },
+    A5v_ruse_rate: { act: "V", title: "La fausse copie", place: "misericorde", ambiance: "chateau",
+      text: [
+        "Elle recopie les relèvements en les tournant de trois quarts vers l'est. Elle remet le pli.",
+        { if: { has: "chevalier:blesse" }, text: "Sabran le lit sur place, devant elle, et le compare à un papier qu'il sort de sa poche, la copie volée à Morlenc. Il relève la tête. « Vers l'est, dit-il. Vous tournez vers l'est. Et le vieux Larrouy, la nuit où il était ivre, au Fanal, disait au couchant. » Il déchire le pli. « Demain soir. »" },
+        { if: { not: { has: "chevalier:blesse" } }, text: "Le Chevalier le lit sur place, devant elle, en souriant. Puis il le lui rend. « Madame, dit-il, vous mentez comme une honnête femme : on le voit de loin. Gardez votre papier. Demain soir, je viendrai chercher le vrai, avec mes canons. »" },
+      ],
+      choices: [{ label: "Le tunnel", to: "A5v_tunnel" }] },
+    A5v_pacte: { act: "V", title: "Les pelles du corsaire", place: "misericorde", ambiance: "chateau",
+      text: [
+        "Le Chevalier écoute la correction, la note dans un carnet de maroquin, et serre la main de Victorine, et celle de la capitaine, qui la lui abandonne comme on abandonne un objet à un douanier.",
+        "« Moitié-moitié, dit-il. Je tiens toujours ma parole quand elle m'arrange, et celle-ci m'arrange énormément. »",
+        "Le soir même, dix hommes du brigantin campent au pied de l'éperon. Les mutins de la plage les regardent, et comptent, et l'on entend, pour la première fois depuis le débarquement, le silence complet sur la plage.",
+      ],
+      choices: [{ label: "Le tunnel", to: "A5v_tunnel" }] },
+    A5v_refus: { act: "V", title: "Le refus", place: "misericorde", ambiance: "chateau",
+      text: [
+        "« Non », dit la capitaine, avant Victorine.",
+        "L'envoyé du brigantin salue, et repart. Le soir, la Désinvolte se déhale de quelques encablures, et présente le travers à l'éperon. On voit les canonniers, à la lunette, ouvrir les sabords un par un, sans se presser, comme on ouvre les volets d'une maison le matin.",
+        "« Demain soir, dit la capitaine. On a jusqu'à demain soir. »",
+      ],
+      choices: [{ label: "Le tunnel", to: "A5v_tunnel" }] },
+    A5v_tunnel: { act: "V", title: "Le tunnel", place: "puits", ambiance: "nuit",
+      text: [
+        "Victorine y descend elle-même, avec Benoît ou un matelot, une lanterne, une corde.",
+        "Le tunnel est étroit, bas, creusé à la pioche dans une roche rouge, friable, étayé de loin en loin par des troncs noircis. Il descend, longtemps, puis remonte, puis redescend, vers le nord. L'air devient chaud. L'odeur de soufre s'épaissit. On entend, très loin, un battement régulier, sourd, comme un cœur sous la terre.",
+        "Au bout d'une heure, une lueur. Des lanternes. Des visages blêmes, aux yeux plissés, qui les regardent venir sans bouger, des marteaux à la main.",
+        { if: { has: "xd:pacte" }, text: "Un homme massif, au tablier de cuir, à la brûlure en forme de main sur la joue, s'avance. « Forge-Noire, dit-il. L'enfant de la mer nous a promis un navire. Vous êtes de son côté ? Alors passez. » Il s'écarte. Derrière lui, la galerie s'ouvre sur une salle immense, éclairée de rouge." },
+        { if: { has: "xd:guerre" }, text: "Un homme massif, au tablier de cuir, à la brûlure en forme de main sur la joue, s'avance, et lève son marteau. « Les gens de la mer, dit-il. Un des vôtres est descendu chez nous, l'autre nuit, et a cassé notre roue, et emmené nos bras. Remontez. Ou ne remontez jamais. »" },
+        { if: { not: { any: [{ has: "xd:pacte" }, { has: "xd:guerre" }] } }, text: "Un homme massif, au tablier de cuir, à la brûlure en forme de main sur la joue, s'avance. « Hugon Forge-Noire, dit-il. Vous êtes passés par notre trou. On l'a creusé il y a dix ans, pour aller chercher sous l'autel ce que le Vieux y avait caché. » Il la regarde, de ses yeux presque blancs. « Vous voulez aller plus loin. Qu'est-ce que vous donnez ? »" },
+      ],
+      choices: [
+        { label: "Passer, avec son accord", hide: { not: { has: "xd:pacte" } }, fx: { flag: "tunnel:ouvert", meet: "hugon" }, to: "A5v_fin" },
+        { label: "« Un passage sur notre navire. Pour vous tous. »", hide: { has: "xd:pacte" }, test: { dom: "social", diff: 0, label: "Convaincre Forge-Noire" }, win: { fx: { flag: ["tunnel:ouvert", "hugon:passage"], meet: "hugon", regard: { hugon: "cordial" } }, to: "A5v_fin" }, lose: { fx: { meet: "hugon", regard: { hugon: "mefiant" } }, to: "A5v_fin" } },
+        { label: "« Soigner ceux d'entre vous qui toussent. »", hide: { has: "xd:pacte" }, test: { dom: "savoir", diff: 0, label: "Les poumons des Fondeurs" }, win: { fx: { flag: ["tunnel:ouvert", "hugon:soins"], meet: "hugon", regard: { hugon: "redevable" } }, to: "A5v_soins" }, lose: { fx: { meet: "hugon" }, to: "A5v_fin" } },
+      ] },
+    A5v_soins: { act: "V", title: "Les poumons", place: "puits", ambiance: "nuit",
+      text: [
+        "Elle les ausculte, un par un, dans la lueur de la forge, l'oreille contre leurs poitrines maigres, comme elle a ausculté les pêcheurs de Varnèse. Ils toussent tous. Les poumons sifflent, crépitent, se taisent par endroits. La poussière de la mine, le soufre, vingt ans sans voir le soleil.",
+        "Elle ne peut pas les guérir. Elle le leur dit. Elle leur dit aussi ce qui les soulagera : l'air, le jour, la mer, le départ. Ils l'écoutent comme on écoute un prêtre.",
+        "Hugon Forge-Noire la raccompagne lui-même jusqu'à l'entrée de la galerie neuve. « Le jour, dit-il. Elle a dit le jour. » Il hoche la tête. « Passe quand tu veux, médecin. Le mur est au fond. »",
+      ],
+      choices: [{ label: "Remonter", to: "A5v_fin" }] },
+    A5v_fin: { act: "V", title: "Le soir", place: "misericorde", ambiance: "nuit",
+      text: [
+        "Elle remonte par le tunnel, et sort par le trou de l'autel, couverte de poussière rouge, dans la nef où brûlent les lanternes.",
+        { if: { has: "tunnel:ouvert" }, text: "Le chemin est ouvert. Demain, on ira au mur." },
+        { if: { not: { has: "tunnel:ouvert" } }, text: "Le chemin est fermé. Il faudra passer par la colline, par le puits mort, à la force des bras." },
+        { if: { has: "chevalier:ultimatum" }, text: "Et demain soir, le brigantin tirera. Ou ne tirera pas. On verra." },
+        { if: BARON, text: "Le baron l'attend au bord de la fosse. « Le livre, dit-il. Demain. » Ce n'est pas une question." },
+      ],
+      choices: [{ label: "La nuit", to: "C5_fin" }] },
+  },
+  extras: {},
+};
