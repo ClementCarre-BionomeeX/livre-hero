@@ -119,7 +119,7 @@ Object.assign(P, {
       "Tu t'assois. Tu prends la loupe. Tu regardes ta paume, dessous : les brûlures du chanvre, rouges, fraîches, qui ne guériront pas ici. Rien ne guérit. Rien ne s'envenime.",
       { if: { secret: "j_rester" }, text: "Tu avais voulu rester. Tu y es, d'une manière que tu n'avais pas imaginée : tu es resté{e} à midi juste, avec la seule personne qui sache d'où tu viens. Ce n'est pas la vie que tu t'étais promise à ce banc. Tu cherches si c'est moins. Tu ne trouves pas." },
       "{autre} s'est assis{autre:e} à l'établi d'à côté, qui n'était à personne. {autre:Il} a pris une lime, et {autre:il} la regarde. « Ça sert à quoi ? » Tu le lui montres. Tu as neuf ans de leçons dans les mains, d'une vieille qui est à l'autre bout de cette note, sur une chaise, et qui attend de savoir.",
-      "Tu penses à elle. Elle a remonté cette horloge soixante ans. Elle ne l'entendra pas partir. Elle n'entendra pas non plus la vague : tu lui as gardé son village. Tu ne sais pas ce qu'elle en dirait. Probablement : *tu as mis le temps, et tu n'as pas fini.*",
+      "Tu penses à elle. Elle a remonté cette horloge soixante ans. Elle sera loin quand elle repartira. La vague aussi lui sera épargnée : tu lui as gardé son village. Tu ignores ce qu'elle en dirait. Probablement : *tu as mis le temps, et tu n'as pas fini.*",
     ],
     choices: [{ back: "Fg_dedans" }] },
 

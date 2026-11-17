@@ -120,7 +120,7 @@ var extras = {
 
     { who: "odeline", label: "La Régente Odeline", list: [
       { id: "o_sans", title: "Odeline, rien à jurer", dens: "defaire", if: F("defaire"),
-        text: "**Odeline** n'a aucune Régence à tenir : la Reine s'est levée de son lit le soir même. Elle naîtra peut-être, dans trente-deux ans, avec le nez de l'oncle, et le loisir d'en faire ce qu'elle voudra." },
+        text: "**Odeline** n'a aucune Régence à tenir : la Reine règne, et signe de sa main. Elle naîtra peut-être, dans trente-deux ans, avec le nez de l'oncle, et le loisir d'en faire ce qu'elle voudra." },
       { id: "o_sceaux", title: "Odeline, la chaîne des sceaux", dens: "reveil", if: ET(F("reveil"), M("v_couronne_rendue")),
         text: "**La Régente Odeline** porte la chaîne des sceaux, que la Reine lui a remise au cou. L'une règne, l'autre gouverne. Elles s'entendent mieux que deux femmes qui se devraient moins." },
       { id: "o_pluie", title: "Odeline, un matin de pluie", dens: "reveil", if: F("reveil"),
