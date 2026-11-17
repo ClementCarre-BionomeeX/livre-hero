@@ -88,6 +88,8 @@ module.exports = {
     huckleberry: { title: "Les Aventures de Huckleberry Finn", author: "Mark Twain" },
     quichotte: { title: "Don Quichotte", author: "Miguel de Cervantès" },
     pecheurislande: { title: "Pêcheur d'Islande", author: "Pierre Loti" },
+    peste: { title: "Journal de l'année de la peste", author: "Daniel Defoe" },
+    fadette: { title: "La Petite Fadette", author: "George Sand" },
     ile: { title: "L'Île au trésor", author: "Robert Louis Stevenson" },
   },
   acts: [

@@ -40,6 +40,7 @@ module.exports = {
         { label: "Une nuit, suivre la lumière qui bouge sous Sainte-Anne", to: "YP_lueur", hide: { seen: "YP_lueur" }, if: { seen: "A1_j_chapelle" }, why: "Tu n'es pas retourné{e} à la chapelle depuis longtemps." },
         { label: "Traverser la lande à la nuit tombante, au retour de Varnèse", to: "ZB_brume", hide: { seen: "ZB_brume" }, if: { count: JOURS, min: 1 }, why: "On ne t'a encore rien envoyé chercher à Varnèse." },
         { label: "Descendre à la cale, où Bleunven raccommode les filets avec une lettre à la main", to: "ZZ_filets", hide: { seen: "ZZ_filets" }, if: { count: JOURS, min: 1 }, why: "Le caboteur de Lannoz n'est pas encore passé." },
+        { label: "Cacher ta cheville tordue, en boitant sur la falaise", to: "WB_cheville", hide: { seen: "WB_cheville" } },
         { label: "Un après-midi de pluie, quelqu'un frappe", to: "A1_hulotte", big: true, if: { count: JOURS, min: 3 }, why: "Les jours se ressemblent encore." },
       ] },
 
