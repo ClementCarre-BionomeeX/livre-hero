@@ -1,0 +1,101 @@
+// « La Flèche noire » (The Black Arrow), R. L. Stevenson, 1888 : un livre à lire, sans choix (lecture: true).
+// Texte : la traduction de P.-G. La Chesnais (Mercure de France, 1901), transcrite par le Project Gutenberg (n° 70065,
+// d'après Gallica ; domaine public). Texte gardé tel quel, sauf la typographie (« À » accentué, les vers en italique)
+// et les deux notes de Stevenson, remises entre parenthèses à la fin du paragraphe qui les appelle.
+// Tout ce qui n'est pas de Stevenson ou de son traducteur vit dans les tags : gens, lieux, mots, résumés des chapitres.
+// Chapitre II1 · Livre II, chapitre 1 · Dick questionne
+module.exports = {
+  II1_1: { act: "II1", title: "Moat-House assiégé par la peur", place: "moathouse",
+    text: [
+      "Moat-House n'était pas loin de la route à travers la forêt. Extérieurement c'était un rectangle compact de pierres rouges, flanqué à chaque coin d'une tour ronde percée de trous pour les archers, et crénelée. Intérieurement elle comprenait une cour étroite. Le fossé large de douze pieds environ était traversé par un seul pont-levis. L'eau lui venait par une tranchée conduisant à un étang dans la forêt et commandée dans toute sa longueur par les créneaux des deux tours du sud. Sauf qu'on avait laissé un ou deux grands arbres touffus à une portée de flèche des murs, la maison était en bonne position de défense.",
+      "Dans la cour Dick trouva une partie de la garnison occupée aux préparatifs de défense et discutant tristement sur les chances d'un siège. Quelques-uns faisaient des flèches, d'autres aiguisaient des épées depuis longtemps hors d'usage, mais même en travaillant ils branlaient la tête.",
+      "Douze des gens de Sir Daniel s'étaient enfuis de la bataille, s'étaient risqués à traverser la forêt et étaient arrivés vivants à Moat-House. Mais sur ces douze, trois avaient été sérieusement blessés, deux à Risingham dans le désordre de la déroute, un par la terreur de Jean Répare-tout en traversant la forêt. Cela mettait la force de la garnison en comptant Hatch, Sir Daniel et le jeune Shelton à un effectif de vingt-deux hommes. Et à tout moment on pouvait espérer en voir arriver d'autres. Le danger, par conséquent, n'était pas dans le manque d'hommes.",
+      "C'était la terreur de la Flèche-Noire qui déprimait les courages. De leurs ennemis déclarés du parti d'York, par ces temps de changements continuels, ils ne se préoccupaient guère. Le monde, comme on disait alors, pouvait changer encore avant qu'il n'arrive du mal. Mais leurs voisins dans la forêt les faisaient trembler. Ce n'était pas Sir Daniel seul qui était en butte à la haine. Les hommes, certains de l'impunité, s'étaient conduits cruellement dans tout le pays. De durs ordres avaient été exécutés durement, et, de la petite bande qui causait, assise dans la cour, il n'y en avait pas un qui ne fût coupable de quelque excès ou cruauté. Et maintenant, par la fortune de la guerre, Sir Daniel était devenu impuissant à protéger ses instruments ; maintenant, résultat de quelques heures de bataille, auxquelles beaucoup d'entre eux n'avaient pas assisté, ils étaient tous devenus de punissables traîtres envers l'État, hors du bouclier de la loi, troupe diminuée dans une pauvre forteresse à peine tenable, exposés de tous côtés au juste ressentiment de leurs victimes. Et les menaces n'avaient pas manqué pour les informer de ce qui les attendait.",
+      "À différents moments du soir et de la nuit, pas moins de sept chevaux sans cavalier étaient venus hennir de terreur à la porte. Deux étaient de la troupe de Selden, cinq appartenaient à des hommes qui étaient allés à la bataille avec Sir Daniel. En dernier lieu, un peu avant le jour, un lancier était venu en chancelant sur le côté du fossé, percé de trois flèches ; comme on le transportait, il rendit l'âme ; mais d'après les paroles qu'il prononça dans son agonie, il devait être le dernier survivant d'une troupe nombreuse.",
+      "Hatch lui-même montrait sous sa peau tannée la pâleur de l'anxiété, et, quand il eut pris Dick à part, et appris le sort de Selden, il tomba sur un banc de pierre et bel et bien pleura. Les autres, d'où ils étaient assis sur des escabeaux ou des pas de portes dans l'angle ensoleillé de la cour, le regardaient avec étonnement et inquiétude, mais pas un n'osa s'informer au sujet de son émotion."
+    ] },
+
+  II1_2: { act: "II1", title: "Le blessé", place: "moathouse", fx: { meet: ["carter"] },
+    text: [
+      "— Eh bien, maître Shelton, dit Hatch enfin… non, mais qu'ai-je dit ? Nous partirons tous. Selden était un homme de savoir faire ; il était pour moi comme un frère. Eh bien ! il est parti le second ; et nous suivrons tous ! Que disaient leurs vers de gredins ?… Une flèche noire dans chaque cœur noir. N'était-ce pas comme cela ? Appleyard, Selden, Smith, le vieil Humphrey partis et ce pauvre John Carter, gît là, criant, pauvre pécheur, après le prêtre.",
+      "Dick écouta. Par une fenêtre basse tout près de l'endroit où ils causaient, des gémissements et des murmures arrivaient à son oreille.",
+      "— Est-il là ? demanda-t-il.",
+      "— Oui, dans la chambre du second portier, répondit Hatch, nous n'avons pu le porter plus loin, corps et âme étaient trop mal en point. À chaque pas que nous faisions, il croyait s'en aller. Mais à présent je pense que c'est l'âme qui souffre. Toujours c'est le prêtre qu'il demande et je ne sais pourquoi. Sir Olivier n'arrive pas. Ce sera une longue confession, mais le pauvre Appleyard et le pauvre Selden n'en ont pas eu.",
+      "Dick se baissa vers la fenêtre et regarda à l'intérieur. La petite cellule était basse et sombre, mais il put voir le soldat blessé couché sur son grabat.",
+      "— Carter, pauvre ami, comment allez-vous ? demanda-t-il.",
+      "— Maître Shelton, répliqua l'homme dans un murmure surexcité, au nom de la chère lumière du ciel, amenez le prêtre. Hélas ! je suis expédié : je suis bien bas, ma blessure est mortelle. Vous ne pouvez plus rien pour moi : ce sera le dernier service. Mais pour ma pauvre âme et comme un loyal gentilhomme, dépêchez-vous, car j'ai cette affaire sur la conscience qui pèsera bien lourd.",
+      "Il gémit, et Dick entendit ses dents claquer de frayeur ou de douleur.",
+      "À ce moment Sir Daniel parut sur le seuil de la salle. Il tenait une lettre à la main.",
+      "— Garçons, dit-il, nous avons eu une secousse, nous avons eu une culbute, pourquoi le nier ? Il vaut mieux remonter bien vite sur sa bête. Ce vieux Henri VI a eu le dessous. Lavons-nous-en les mains. J'ai un bon ami, très haut placé dans le parti du duc, Lord Wensleydale. Eh bien, j'ai écrit une lettre à mon ami, priant Sa Seigneurie et offrant large satisfaction pour le passé et caution raisonnable pour l'avenir. Je ne doute pas qu'il me soit favorable. Prière sans présents est une chanson sans musique : je le gorge de promesses, amis… je ne suis pas avare de promesses. Qu'est-ce qui manque alors ? Hé ! une chose essentielle… pourquoi vous tromper ?… une chose essentielle et difficile : un messager pour porter la lettre. La forêt… vous ne l'ignorez pas… fourmille de nos ennemis. La rapidité est très nécessaire ; mais sans ruse et précaution, elle ne sert à rien. Qui donc parmi vous va me prendre cette lettre, la porter à Lord Wensleydale et me rapporter la réponse ?",
+      "Un homme se leva aussitôt.",
+      "— J'irai, s'il vous plaît, dit-il. J'y risquerai ma peau.",
+      "— Non, Dicky Bowyer, non pas, répliqua le chevalier. Cela ne me convient pas. Vous êtes rusé, c'est vrai, mais pas prompt. Vous avez toujours été un traînard.",
+      "— Alors, Sir Daniel, me voici, dit un autre.",
+      "— Dieu m'en garde ! dit le chevalier. Vous êtes vif, mais pas rusé. Vous tomberiez tête baissée dans le camp de Jean Répare-tout. Je vous remercie tous les deux de votre courage ; mais, vraiment, ce n'est pas possible.",
+      "Alors Hatch s'offrit et fut aussi refusé."
+    ] },
+
+  II1_3: { act: "II1", title: "Le messager Throgmorton", place: "moathouse", fx: { meet: ["throgmorton"] },
+    text: [
+      "— J'ai besoin de vous ici, brave Bennet, vous êtes mon bras droit, répondit le chevalier ; et alors plusieurs s'étant avancés ensemble, Sir Daniel enfin en choisit un et lui donna la lettre.",
+      "— Eh bien ! lui dit-il, nous dépendons tous de votre rapidité et surtout de votre adresse. Rapportez-moi une bonne réponse, et, avant trois semaines, j'aurai purgé ma forêt de tous ces vagabonds qui nous bravent en face. Mais pensez-y, Throgmorton, la chose n'est pas facile. Il faudra sortir furtivement la nuit et aller comme un renard ; et comment vous traverserez la Till, je l'ignore, ni par le pont, ni par le bac.",
+      "— Je sais nager, répondit Throgmorton. Je reviendrai sain et sauf, ne craignez rien.",
+      "— Bien, l'ami, allez à l'office, répondit Sir Daniel. Vous nagerez d'abord dans l'ale brune. Et, sur ces mots, il retourna dans la salle.",
+      "— Sir Daniel parle bien, dit Hatch à part à Dick. Voyez à présent, là où un homme médiocre aurait arrangé les choses, il parle ouvertement à sa compagnie. Ici, il y a un danger, dit-il, et ici, une difficulté ; et il plaisante en le disant. Non, par saint Barbary, c'est un capitaine né ! Pas un homme qui ne soit remonté ! Voyez comme ils se remettent au travail.",
+      "Cet éloge de Sir Daniel donna une idée au jeune homme.",
+      "— Bennet, dit-il, comment mon père est-il mort ?",
+      "— Ne me demandez pas cela, répliqua Hatch. Je n'y ai été pour rien et n'en ai rien su. D'ailleurs, je me tairai quand même, maître Dick, car, voyez-vous, de ses propres affaires un homme peut parler ; mais des on-dit et des cancans, non pas. Demandez à Sir Olivier… oui, ou à Carter, si vous voulez, pas à moi.",
+      "Et Hatch partit faire sa ronde, laissant Dick à ses réflexions.",
+      "— Pourquoi n'a-t-il pas voulu me le dire ? pensait le jeune homme. Et pourquoi a-t-il nommé Carter ? Carter… Non, alors Carter y a mis la main, peut-être.",
+      "Il entra dans la maison, et, suivant un instant un passage dallé et voûté, il arriva à la porte de la cellule où l'homme blessé gisait, gémissant. À son entrée, Carter sursauta violemment.",
+      "— Avez-vous amené le prêtre ? demanda-t-il.",
+      "— Pas encore, répondit Dick. Vous avez un mot à me dire d'abord. Comment mon père, Harry Shelton, a-t-il trouvé la mort ?",
+      "La figure de l'homme s'altéra soudain.",
+      "— Je ne sais pas, répondit-il, bourru.",
+      "— Si, vous le savez, répondit Dick, ne cherchez pas à m'éviter.",
+      "— Je vous dis que je n'en sais rien, répéta Carter.",
+      "— Alors, répondit Dick, vous mourrez sans confession. Ici je suis et ici je resterai. Il ne viendra aucun prêtre près de vous, soyez-en sûr. Car à quoi vous servirait la pénitence si vous n'avez pas l'intention de réparer le mal que vous avez fait ! Et, sans la pénitence, la confession n'est qu'une moquerie.",
+      "— Vous dites ce que vous n'avez pas l'intention de faire, maître Dick, dit Carter, tranquillement. Il est mal de menacer un mourant et, à dire vrai, cela ne vous va pas. Et, pour peu louable que ce soit, ce sera encore plus inutile. Restez si cela vous plaît. Vous condamnerez mon âme… Vous n'apprendrez rien ! C'est mon dernier mot.",
+      "Et le blessé se tourna de l'autre côté.",
+      "En réalité, Dick avait parlé sans réfléchir et il était tout honteux de sa menace. Cependant il fit un nouvel effort.",
+      "— Carter, dit-il, comprenez-moi bien. Je sais que vous n'étiez qu'un instrument dans la main des autres ; un rustre doit obéissance à son seigneur, je ne voudrais pas le charger trop durement. Mais je commence à apprendre de bien des côtés que ce grand devoir pèse sur ma jeunesse et mon ignorance : venger mon père. Je t'en prie donc, mon bon Carter, oublie mes menaces et par pur bon vouloir et en honnête pénitence, dis-moi un mot qui m'aide."
+    ] },
+
+  II1_4: { act: "II1", title: "Ce que Carter ne voulut pas dire", place: "moathouse", fx: { meet: ["ladybrackley"] },
+    text: [
+      "Le blessé garda le silence ; et, quoi que Dick pût dire, il n'en tira pas un mot.",
+      "— Bien, dit Dick, je vais aller chercher le prêtre comme vous le désirez ; car, que vous ayez commis des fautes vis-à-vis de moi ou des miens, je ne veux pas en commettre envers qui que ce soit, encore moins contre un homme à ses derniers moments.",
+      "Le vieux soldat continua à garder le silence et l'immobilité ; même il retenait ses plaintes, et, lorsque Dick se retourna et quitta la chambre, il admira cette rude force d'âme.",
+      "— Et, pourtant, pensait-il, à quoi sert le courage sans l'esprit ? Si ses mains avaient été pures, il aurait parlé, son silence confesse le secret plus haut que les paroles. Oui, de tous côtés, les preuves affluent. Sir Daniel, lui ou ses hommes, ont fait cela.",
+      "Dick s'arrêta dans le couloir, le cœur lourd. À ce moment, au déclin de la fortune de Sir Daniel, quand il était assiégé par les archers de la Flèche-Noire et proscrit par les Yorkistes victorieux, devait-il, lui aussi, se tourner contre l'homme qui l'avait nourri et élevé, qui l'avait, il est vrai, sévèrement puni, mais en même temps avait sans défaillance protégé sa jeunesse ? Cette nécessité, si elle devait se produire, était cruelle.",
+      "— Le ciel fasse qu'il soit innocent, dit-il.",
+      "Des pas résonnèrent sur les dalles, et Sir Olivier, grave, arriva près du jeune homme.",
+      "— On vous demande ardemment, dit Dick.",
+      "— Je suis en chemin, mon bon Richard, dit le prêtre. C'est ce pauvre Carter. Hélas ! pas de guérison à espérer.",
+      "— Et son âme est encore plus malade que son corps, répondit Dick.",
+      "— L'avez-vous vu ? demanda Sir Olivier avec un tressaillement visible.",
+      "— Je le quitte à l'instant, répliqua Dick.",
+      "— Qu'a-t-il dit ? qu'a-t-il dit ? interrompit le prêtre avec une vivacité extraordinaire.",
+      "— Il vous demandait de la façon la plus lamentable, Sir Olivier. Vous feriez bien d'y aller au plus vite, car sa blessure est dangereuse, répliqua le jeune garçon.",
+      "— J'y vais de ce pas, fut la réponse. Oui, nous avons tous nos péchés. Nous devons tous arriver à notre dernier jour, mon bon Richard.",
+      "— Oui, monsieur, et tout serait bien si nous y arrivions honnêtement, répliqua Dick.",
+      "Le prêtre baissa les yeux, et avec une bénédiction marmottée s'éloigna rapidement.",
+      "— Lui aussi ! pensa Dick… lui qui m'a enseigné la piété ! Mais alors quel monde est celui-ci, si tous ceux qui ont pris soin de moi sont coupables de la mort de mon père ! Vengeance ! Hélas ! quel triste sort que le mien si je dois me venger sur mes amis !",
+      "Cette pensée lui rappela Matcham. Il sourit au souvenir de son étrange compagnon et se demanda où il était. Depuis que tous deux étaient arrivés à la porte de Moat-House, le plus jeune garçon avait disparu, et Dick commençait à désirer vivement de causer avec lui.",
+      "Environ une heure après, Sir Olivier ayant dit la messe plus tôt, vite la compagnie se réunit pour dîner dans le hall. C'était une pièce longue, basse, jonchée de rameaux verts, aux murs couverts de tenture représentant des sauvages et des limiers de chasse. Çà et là étaient pendus des épées, des arcs, des boucliers ; un feu flambait dans la grande cheminée ; contre le mur il y avait des bancs recouverts d'étoffes, et au milieu la table bien servie attendait l'arrivée des dîneurs.",
+      "Ni Sir Daniel ni sa femme ne parurent. Sir Olivier était absent ; là non plus, il ne fut pas question de Matcham. Dick commençait à être inquiet, il se rappelait les tristes pressentiments de son compagnon, il se demandait s'il ne lui était rien arrivé de sinistre dans cette maison.",
+      "Après le dîner, il rencontra Goody Hatch, qui se hâtait vers Lady Brackley.",
+      "— Goody, dit-il, où est maître Matcham, je te prie ? Je vous ai vue entrer dans la maison avec lui quand nous sommes arrivés.",
+      "La vieille femme rit à pleine gorge.",
+      "— Ah ? maître Dick, dit-elle, vous avez de fameux yeux, pour sûr, et elle rit de plus belle.",
+      "— Mais où est-il ? insista Dick.",
+      "— Vous ne le reverrez jamais, répliqua-t-elle, jamais, c'est sûr.",
+      "— Si je ne dois plus le revoir, je veux en savoir la raison. Il n'est pas venu ici de son plein gré ; tel que je suis, je suis son meilleur protecteur et je veux le voir bien traité. Il y a trop de mystères ici et je commence à en avoir assez.",
+      "Comme Dick parlait, une lourde main tomba sur son épaule. C'était Bennet Hatch qui s'était approché de lui sans qu'il s'en aperçût. D'un signe rapide le lieutenant renvoya sa femme.",
+      "— Ami Dick, dit-il aussitôt qu'ils furent seuls ; êtes-vous un sauvage lunatique ? Si vous ne laissez pas certaines choses tranquilles, vous serez mieux au fond de la mer qu'ici à Tunstall, à Moat-House. Vous m'avez questionné, vous avez questionné, harcelé Carter ; vous avez effrayé le faquin de prêtre avec des allusions. Soyez plus prudent, fou ; et à présent, quand Sir Daniel vous fera demander, montrez-moi une figure calme, au nom de la prudence. Vous allez être questionné de près. Attention à vos réponses.",
+      "— Hatch, répondit Dick, dans tout ceci je flaire une conscience coupable.",
+      "— Et si vous n'êtes pas plus prudent, on flairera du sang… répliqua Bennet. Je vous avertis. Voici qu'on vient vous chercher.",
+      "En effet, juste à ce moment, un messager traversa la cour pour inviter Dick à se présenter devant Sir Daniel."
+    ] },
+
+};
