@@ -9,6 +9,7 @@ module.exports = {
   summary: "L'Aune monte depuis trois jours. Le bac ne passe plus, et vous voilà plusieurs voyageurs bloqués à Vaudrenne, une ville de moulins coupée en deux par la rivière : la ville haute et ses meuniers, le Bas-Port et ses tanneurs. Cette nuit, quelqu'un devra décider où l'eau ira.",
   author: "Claude, pour Clément",
   tags: ["aventure","intrigue"],
+  added: "2026-11-11",
   skin: "parchemin",
   cover: { motif: "vanne", color: "#2a4a4d" },
   glossary: require("../glossaire.js"), // rare words explained on a tap (Clément, 12/11)

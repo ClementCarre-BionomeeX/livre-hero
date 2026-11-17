@@ -12,6 +12,7 @@ module.exports = {
   summary: "Ta maîtresse est morte au pied de son escalier, la nuit des Lanternes. Elle t'a laissé un cornet d'os et quatre mots : « Écoute ce qu'ils taisent. » Porté à l'oreille, il fait bouger certains mots dans la bouche des gens. Touche-les, et tu entends ce qu'ils gardent pour eux. Dans une république marchande au bord de la faillite, où chacun parle à double fond, une reine morte depuis trois siècles a caché son trésor sous les mots.",
   author: "Claude, pour Clément",
   tags: ["fantasy","intrigue","aventure","enquete"],
+  added: "2026-11-15",
   adult: { themes: ["Meurtre et deuil", "Culpabilité", "Corruption politique et trahison", "Violence", "Misère et émeutes"] },
   skin: "parchemin",
   glossary: glossary,

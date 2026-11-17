@@ -62,7 +62,7 @@
     return { id: st.id, title: st.title, subtitle: st.subtitle || "", summary: st.summary || "", version: st.version || 1,
       acts: (st.acts || []).length, passages: Object.keys(st.passages || {}).length, words: wordCount(st),
       multi: st.multi || null, kid: st.kid || null, adult: st.adult || null, cover: st.cover || null, age: st.age || null, author: st.author || null,
-      lecture: !!st.lecture, cartes: !!st.cartes, tags: Array.isArray(st.tags) ? st.tags.slice() : [] };
+      lecture: !!st.lecture, cartes: !!st.cartes, tags: Array.isArray(st.tags) ? st.tags.slice() : [], added: st.added || null };
   }
   // « R. L. Stevenson · traduction de… » -> « R. L. Stevenson » ; « Claude, pour Clément » -> « Claude »
   function authorName(a) { return a ? String(a).split(/\s+·\s+|,\s+/)[0].trim() : ""; }
@@ -180,16 +180,20 @@
   // Intent: checkTags(Story) -> { errors, warnings } for the validator.
   function checkTags(st) {
     var errors = [], warnings = [];
-    if (st.tags === undefined) return { errors: errors, warnings: warnings };
-    if (!Array.isArray(st.tags) || st.tags.some(function (t) { return typeof t !== "string" || !t.trim(); }))
+    if (st.tags !== undefined && (!Array.isArray(st.tags) || st.tags.some(function (t) { return typeof t !== "string" || !t.trim(); })))
       errors.push("« tags » s'écrit [\"aventure\", \"mer\", …] : la liste des genres du livre.");
-    else st.tags.forEach(function (t) {
+    else (st.tags || []).forEach(function (t) {
       if (!GENRE[t]) warnings.push("Genre « " + t + " » inconnu de la bibliothèque (il ne servira pas aux filtres). Genres connus : " + GENRES.map(function (g) { return g.k; }).join(", ") + ".");
     });
+    // `added`: the day the book came into the library (« Nouveautés », 17/11), written 2026-11-17.
+    if (st.added !== undefined && !(typeof st.added === "string" && /^\d{4}-\d{2}-\d{2}$/.test(st.added) && !isNaN(Date.parse(st.added))))
+      errors.push("« added » s'écrit \"2026-11-17\" : le jour où le livre entre dans la bibliothèque.");
     return { errors: errors, warnings: warnings };
   }
+  // Intent: addedAt(StoryMeta) -> ms | 0 = when the book came into the library (an imported book: the day of import)
+  function addedAt(m) { return m.added ? Date.parse(m.added + "T12:00:00") || 0 : m.imported || 0; }
 
   var API = { GENRES: GENRES, FACETS: FACETS, card: card, facets: facets, label: label, matches: matches, authorName: authorName,
-    fold: fold, distance: distance, search: search, sortKey: sortKey, checkTags: checkTags };
+    fold: fold, distance: distance, search: search, sortKey: sortKey, checkTags: checkTags, addedAt: addedAt };
   if (typeof module !== "undefined" && module.exports) module.exports = API; else root.Bibliotheque = API;
 })(typeof self !== "undefined" ? self : this);

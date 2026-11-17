@@ -8,6 +8,7 @@ module.exports = {
   subtitle: "Une nuit, sept personnes · chaque partie ouvre un autre chemin",
   summary: "Corvèze, ville drapière au pied d'un lac que tient une digue de pierre. Demain à huit heures, le Conseil des Sept Maisons votera qui garde la clé des vannes pour vingt ans. Cette nuit, une courrière emporte un paquet trop lourd pour une lettre. Tu ne suivras d'abord qu'elle, et pas très loin. D'autres attendent leur tour.",
   tags: ["intrigue","enquete"],
+  added: "2026-11-15",
   author: "Claude, pour Clément",
   age: 14,
   adult: { themes: ["Secret d'État et responsabilité d'un désastre", "Dettes, corruption, trahison d'un père", "Fin de vie et laudanum"] },

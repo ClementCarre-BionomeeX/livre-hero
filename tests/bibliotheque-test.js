@@ -17,6 +17,7 @@ stories.forEach(function (st) {
   var r = B.checkTags(st);
   check(!r.errors.length && !r.warnings.length, st.id + " : " + r.errors.concat(r.warnings).join(" ; "));
   check(!!st.author, st.id + " : pas d'auteur");
+  check(/^\d{4}-\d{2}-\d{2}$/.test(st.added || ""), st.id + " : pas de date d'arrivée (added)");
 });
 var GENRES = B.GENRES.map(function (g) { return g.k; });
 GENRES.forEach(function (g) { check(cards.some(function (m) { return B.facets(m).genres.indexOf(g) >= 0; }), "genre « " + g + " » porté par aucun livre"); });
@@ -63,10 +64,12 @@ check(B.sortKey({ title: "Le Monde perdu" }) === "monde perdu" && B.sortKey({ ti
   var url = "http://127.0.0.1:" + server.address().port + "/index.html";
   var T0 = Date.parse("2026-11-15T10:00:00Z");
   var SEED = { "idx:profils": ["p1"], "profils:p1": { name: "Léa", color: "#a33", created: T0 }, profil: "p1", "nouveautes-vues": "999", shelf: "tous",
-    "idx:parties": ["g1"], "parties:g1": { profil: "p1", story: "kardan", storyTitle: "Le labyrinthe de Kardan", hero: "Ivo", level: 2, where: "Kardan", ended: false, updated: T0, state: "{}", undo: [], log: [] } };
+    "idx:parties": ["g1", "g2"], "parties:g1": { profil: "p1", story: "kardan", storyTitle: "Le labyrinthe de Kardan", hero: "Ivo", level: 2, where: "Kardan", ended: false, updated: T0, state: "{}", undo: [], log: [] },
+    "parties:g2": { profil: "p1", story: "jekyll", storyTitle: "L'Étrange Cas du Dr Jekyll et de Mr Hyde", hero: "Léa", level: 1, where: "Londres", ended: true, archived: true, updated: T0 - 1, state: "{}", undo: [], log: [] } };
   var b = await chromium.launch(), errors = [];
   async function open(view) {
     var ctx = await b.newContext(Object.assign({ serviceWorkers: "block", locale: "fr-FR" }, view)), pg = await ctx.newPage();
+    await pg.clock.setFixedTime(new Date("2026-11-17T20:00:00"));   // « Nouveau »: added on the 15th, 16th or 17th
     pg.on("pageerror", function (e) { errors.push(e.message); });
     await pg.addInitScript(function (seed) {
       if (sessionStorage.getItem("seeded")) return; sessionStorage.setItem("seeded", "1");
@@ -123,6 +126,27 @@ check(B.sortKey({ title: "Le Monde perdu" }) === "monde perdu" && B.sortKey({ ti
     await pg.click(".lib-filter-btn");
     await pg.locator(".lib-panel .chip", { hasText: "En cours" }).click();
     check((await titles(pg)).join() === "Le labyrinthe de Kardan", "filtre « En cours » : " + (await titles(pg)).join(" | "));
+    await pg.locator(".lib-panel .chip", { hasText: "En cours" }).click();
+    await pg.locator(".lib-panel button", { hasText: "Fermer les filtres" }).click();
+    // The reader's views: newest first, not started yet, finished ones hidden; kept after a reload
+    await pg.locator(".lib-views .chip", { hasText: "Nouveautés" }).click();
+    var news = await titles(pg), adds = news.map(function (t) { var m = cards.filter(function (c) { return c.title === t; })[0]; return m && m.added; });
+    check(news.length === P.STORIES.length && adds.every(function (d, i) { return !i || d <= adds[i - 1]; }), "Nouveautés : tous les livres du plus récent au plus ancien (" + adds.join(",") + ")");
+    check(await pg.locator(".lib-total", { hasText: "derniers arrivés" }).count() === 1, "Nouveautés : la ligne « les derniers arrivés d'abord »");
+    var fresh = cards.filter(function (m) { return m.added >= "2026-11-15" && m.id !== "kardan" && m.id !== "jekyll"; }).length;
+    check(await pg.locator(".lib-results .new-tag").count() === fresh, "badges « Nouveau » : " + await pg.locator(".lib-results .new-tag").count() + " au lieu de " + fresh);
+    check(await pg.locator(".lib-results .book", { hasText: "Le Douzième Coup" }).locator(".new-tag").count() === 1, "Le Douzième Coup n'a pas son badge");
+    check(await pg.locator(".lib-results .book", { hasText: "Le Douzième Coup" }).locator("text=arrivé le 17 novembre").count() === 1, "la date d'arrivée n'est pas montrée");
+    if (shots) await pg.screenshot({ path: path.join(shots, "5-telephone-nouveautes.png") });
+    await pg.locator(".lib-views .chip", { hasText: "Pas encore commencés" }).click();
+    var fresh2 = await titles(pg);
+    check(fresh2.indexOf("Le labyrinthe de Kardan") < 0 && fresh2.indexOf("L'Étrange Cas du Dr Jekyll et de Mr Hyde") < 0 && fresh2.length === P.STORIES.length - 2, "Pas encore commencés : " + fresh2.length);
+    await pg.locator(".lib-views .chip", { hasText: "Tous" }).click();
+    check((await titles(pg)).indexOf("L'Étrange Cas du Dr Jekyll et de Mr Hyde") >= 0, "Jekyll terminé reste visible par défaut");
+    await pg.locator(".lib-hide input").check();
+    check((await titles(pg)).indexOf("L'Étrange Cas du Dr Jekyll et de Mr Hyde") < 0, "« Masquer les terminés » laisse Jekyll");
+    await pg.reload(); await pg.waitForSelector(".lib-q");
+    check((await titles(pg)).indexOf("L'Étrange Cas du Dr Jekyll et de Mr Hyde") < 0 && await pg.locator(".lib-hide input").isChecked(), "« Masquer les terminés » oublié au rechargement");
     await pg.context().close();
 
     var tab = await open({ viewport: { width: 1024, height: 1366 }, deviceScaleFactor: 2 });

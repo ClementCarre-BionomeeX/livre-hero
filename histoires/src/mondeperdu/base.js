@@ -9,6 +9,7 @@ module.exports = {
   subtitle: "Un roman à lire · Arthur Conan Doyle, 1912",
   summary: "Londres, 1912. Pour plaire à la jeune fille qu'il aime, Ned Malone, jeune reporter, cherche un exploit. Il trouve le professeur Challenger, un savant colérique qui affirme avoir vu, au cœur de l'Amazonie, des animaux disparus depuis des millions d'années. Une expédition part vérifier. Le roman de Conan Doyle, en entier, sans choix : on le lit page après page, avec les gens, les lieux et les mots expliqués d'un appui.",
   tags: ["aventure","sf","nature"],
+  added: "2026-11-15",
   author: "Arthur Conan Doyle · traduction de Claude, pour Clément",
   lecture: true,
   narrator: "malone",

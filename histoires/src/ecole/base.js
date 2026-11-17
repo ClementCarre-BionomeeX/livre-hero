@@ -11,6 +11,7 @@ module.exports = {
   subtitle: "L'école des arts · une année au Collège des Quatre Arts",
   summary: "Le Collège des Quatre Arts de Hautsignes enseigne l'Encre, le Chant, le Verre et la Main à deux cents élèves venus de tout le royaume. Cette année, une place de première année est allée à un enfant de Brèches, un village de bergers où personne n'avait jamais vu un maître des Arts. Cet enfant, c'est toi. La diligence te dépose au pied du collège un matin d'automne, avec une malle, une lettre et dix-huit sous.",
   tags: ["fantasy","ecole"],
+  added: "2026-11-15",
   author: "Claude, pour Clément",
   age: 12,
   skin: "parchemin",

@@ -8,6 +8,7 @@ module.exports = {
   summary: "En plein été, une neige blanche tombe sur Esquarre, et ce qu'elle recouvre, le monde l'oublie. Six personnes que rien ne reliait vont devoir comprendre pourquoi : un enfant de la montagne, une chevalière, un faussaire, un vieux greffier aveugle, une chamane et une chanteuse de cour.",
   author: "Claude, pour Clément",
   tags: ["fantasy","aventure","voyage","intrigue"],
+  added: "2026-11-12",
   skin: "givre",
   cover: { motif: "flocon", color: "#2c3c5a" },
   glossary: require("../glossaire.js"), // rare words explained on a tap (Clément, 12/11)

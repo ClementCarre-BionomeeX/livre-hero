@@ -9,6 +9,7 @@ module.exports = {
   subtitle: "Un roman à lire · R. L. Stevenson, 1883",
   summary: "Sur la côte anglaise, vers 1750, un vieux marin balafré vient loger à l'auberge de l'Amiral-Benbow avec un coffre qu'il ne quitte jamais. Il meurt de peur et d'eau-de-vie, et le jeune Jim Hawkins, le fils de l'aubergiste, trouve dans le coffre la carte d'une île où le pirate Flint a enterré son trésor. Le squire Trelawney arme une goélette à Bristol, le docteur Livesey s'embarque, et Jim part comme mousse, avec un cuisinier à une jambe, aimable et serviable, qui s'appelle Long John Silver. Le roman de Stevenson en entier, dans une traduction nouvelle, sans choix : on le lit page après page, avec les gens, les lieux et les mots expliqués d'un appui.",
   tags: ["aventure","mer"],
+  added: "2026-11-17",
   author: "R. L. Stevenson · traduction de Claude (2026)",
   lecture: true,
   age: 11,

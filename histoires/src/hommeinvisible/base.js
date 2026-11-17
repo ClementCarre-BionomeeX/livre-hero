@@ -9,6 +9,7 @@ module.exports = {
   subtitle: "Un roman à lire · H. G. Wells, 1897",
   summary: "Un jour de neige de février, un étranger emmitouflé de la tête aux pieds, le visage caché sous des bandages et de grosses lunettes, entre à l'auberge d'Iping et demande une chambre et du feu. Il paie d'avance, fuit tout le monde et remplit sa chambre de flacons. Le village s'interroge, puis s'inquiète. Le roman de Wells en entier, dans la traduction d'Achille Laurent, sans choix : on le lit page après page, avec les gens, les lieux et les mots expliqués d'un appui.",
   tags: ["sf","fantastique"],
+  added: "2026-11-16",
   author: "H. G. Wells · traduction d'Achille Laurent (1901)",
   lecture: true,
   age: 11,

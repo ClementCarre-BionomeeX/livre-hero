@@ -774,6 +774,13 @@ ul.vote-res { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap
 .lib-filter-btn .count:empty { display: none; }
 .lib-filter-btn .count { margin-left: 6px; font: 600 11px/1 var(--sans); background: var(--accent-soft); color: var(--ink); border-radius: 99px; padding: 3px 7px; }
 .lib-chosen { margin: 0 0 10px; align-items: center; }
+.lib-views { margin: 0 0 10px; }
+.lib-views .chips { align-items: center; }
+.library .chip.view { font-size: 13px; padding: 3px 11px; }
+.new-dot { display: inline-block; margin-left: 6px; font: 700 11px/1 var(--sans); background: var(--accent); color: var(--accent-ink); border-radius: 99px; padding: 3px 6px; }
+.lib-hide { display: inline-flex; align-items: center; gap: 4px; margin-left: 6px; cursor: pointer; }
+.lib-hide input { width: auto; margin: 0; }
+.new-tag { justify-self: start; font: 700 12px/1 var(--sans); letter-spacing: .06em; text-transform: uppercase; color: var(--accent-ink); background: var(--accent); padding: 5px 9px; border-radius: 6px; }
 .lib-panel { border: 1px solid var(--line); border-radius: 10px; background: var(--paper-2); padding: 10px 12px; margin: 0 0 12px; }
 .lib-group { margin-bottom: 10px; }
 .lib-group .label { margin-bottom: 4px; }

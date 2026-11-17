@@ -8,6 +8,7 @@ module.exports = {
   subtitle: "Une soirée · une ferme, une chandelle, jusqu'à minuit",
   summary: "Onze ans sans remettre les pieds aux Aubiers. Ta grand-mère t'a écrit trois lignes : viens pour la Longue Nuit, je n'en verrai pas d'autre. Ce soir, dans toutes les maisons de la vallée, on met une chandelle à la fenêtre pour les absents, jusqu'à minuit. Ce soir, à la ferme, il y a ta sœur qui ne t'a pas pardonné, un enfant que tu n'as jamais vu, et quelqu'un qui va frapper à la porte.",
   tags: ["drame","huisclos"],
+  added: "2026-11-13",
   author: "Claude, pour Clément",
   age: 10,
   skin: "givre",

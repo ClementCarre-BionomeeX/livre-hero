@@ -10,6 +10,7 @@ module.exports = {
   subtitle: "Enquête en ville · trois jours à Orbeval",
   summary: "Au matin de la Fête des Lanternes, l'éclusier des Tanneurs a trouvé un noyé contre ses portes : Gaspard Ombreuil, l'essayeur-juré de la Monnaie. Avant midi, le guet tenait un coupable, un batelier de dix-neuf ans qui avait la bague du mort dans sa poche. On le jugera dans trois jours, à la cloche du soir. Sa mère n'a personne d'autre que toi.",
   tags: ["enquete","intrigue"],
+  added: "2026-11-14",
   author: "Claude, pour Clément",
   age: 12,
   skin: "parchemin",

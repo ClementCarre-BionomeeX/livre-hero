@@ -415,8 +415,10 @@
     var stories = allStories();
     var lib = h("section", { class: "section library" }, h("h2", null, "Les livres"));
     var chipsBox = h("div", { class: "lib-filters" }), box = h("div", { class: "lib-results" });
-    var refill = function () { fillLibFilters(chipsBox, stories, refill); fillLibrary(box, stories); };
+    var viewsBox = h("div", { class: "lib-views" });
+    var refill = function () { fillLibViews(viewsBox, stories, refill); fillLibFilters(chipsBox, stories, refill); fillLibrary(box, stories); };
     lib.appendChild(libFinder(stories, refill));
+    lib.appendChild(viewsBox);
     lib.appendChild(chipsBox);
     lib.appendChild(box);
     refill();
@@ -449,12 +451,44 @@
     return mine.some(function (g) { return g.ended; }) ? "fini" : mine.some(function (g) { return !g.archived; }) ? "encours" : "neuf";
   }
   function libExtra(m) { return { avancee: A.profile ? progressOf(m) : null }; }
+  // ------------------------------------------------------------------ the reader's views (Clément, 17/11)
+  // Intent: one row under the search, always in sight: « Tous », « Nouveautés » (the books by the day they came, newest
+  // first), « Pas encore commencés », and « Masquer les terminés ». Kept for each reader on the device.
+  // Why: « voir les nouveautés, ceux que je n'ai pas encore démarrés, masquer les déjà terminés ».
+  var LIB_VIEWS = [["tous", "Tous"], ["nouveau", "Nouveautés"], ["neuf", "Pas encore commencés"]];
+  var NEW_DAYS = 3, DAY_MS = 86400000;
+  function libKey(k) { return k + ":" + (A.profile ? A.profile.id : "-"); }
+  function libView() { var v = lsGet(libKey("libVue")); return v === "nouveau" || (v === "neuf" && A.profile) ? v : "tous"; }
+  function libHideDone() { return !!A.profile && lsGet(libKey("libSansFinis")) === true; }
+  // what the view and « Masquer les terminés » leave on the shelves
+  function libInView(m) {
+    if (!A.profile) return true;
+    var p = progressOf(m);
+    return !(libHideDone() && p === "fini") && !(libView() === "neuf" && p !== "neuf");
+  }
+  // Intent: isNewBook(StoryMeta) -> bool = came in the last NEW_DAYS days, and the reader has not started it
+  function isNewBook(m) { var t = Bib.addedAt(m); return !!t && Date.now() - t < NEW_DAYS * DAY_MS && (!A.profile || progressOf(m) === "neuf"); }
+  function fillLibViews(box, stories, refill) {
+    box.textContent = "";
+    var view = libView(), fresh = stories.filter(isNewBook).length, done = A.profile ? stories.filter(function (m) { return progressOf(m) === "fini"; }).length : 0;
+    var set = function (v) { lsSet(libKey("libVue"), v); refill(); };
+    var row = h("div", { class: "chips", role: "group", "aria-label": "Quels livres montrer" }, LIB_VIEWS.filter(function (o) { return o[0] !== "neuf" || A.profile; }).map(function (o) {
+      var on = view === o[0];
+      return h("button", { class: "chip view" + (on ? " on" : ""), "aria-pressed": on ? "true" : "false", onclick: function () { set(o[0]); } },
+        o[1], o[0] === "nouveau" && fresh ? h("span", { class: "new-dot" }, String(fresh)) : null);
+    }));
+    if (A.profile && done) {
+      var hid = libHideDone();
+      row.appendChild(h("label", { class: "lib-hide small" }, h("input", { type: "checkbox", checked: hid, onchange: function (e) { lsSet(libKey("libSansFinis"), !!e.target.checked); refill(); } }), " Masquer les terminés (" + done + ")"));
+    }
+    box.appendChild(row);
+  }
   function libActive(L) { return Object.keys(L.f).filter(function (k) { return L.f[k] && L.f[k].length; }); }
   function libSetPublic(L) { lsSet("libPublic", (L.f["public"] || []).length === 1 ? L.f["public"][0] : "tout"); }
   // the books that pass every filter but the one of `skip` (to count what each chip would give)
   function libKeep(stories, L, skip) {
     var f = {}; Object.keys(L.f).forEach(function (k) { if (k !== skip) f[k] = L.f[k]; });
-    var kept = stories.filter(function (m) { return Bib.matches(m, f, libExtra(m)); });
+    var kept = stories.filter(function (m) { return libInView(m) && Bib.matches(m, f, libExtra(m)); });
     return L.q.trim() ? Bib.search(kept, L.q).map(function (x) { return x.m; }) : kept;
   }
   function libFinder(stories, refill) {
@@ -524,8 +558,13 @@
   function fillLibrary(box, stories) {
     var L = libState(), sort = libSort(), query = L.q.trim();
     box.textContent = "";
-    var keep = stories.filter(function (m) { return Bib.matches(m, L.f, libExtra(m)); });
+    var keep = stories.filter(function (m) { return libInView(m) && Bib.matches(m, L.f, libExtra(m)); });
     var found = query ? Bib.search(keep, query).map(function (x) { return x.m; }) : keep;
+    if (libView() === "nouveau") {
+      // The newest first, by the day each book came; a search or another order asked goes before it.
+      if (!query && sort === "rayons") found = found.slice().sort(function (a, b) { return Bib.addedAt(b) - Bib.addedAt(a) || Bib.sortKey(a).localeCompare(Bib.sortKey(b), "fr"); });
+      sort = sort === "rayons" ? "" : sort;
+    }
     if (!query && sort === "rayons") {
       // The shelves of 9.4, by the size of the book (its passages); the novels to read have their own.
       var size = function (m) { var st = A.builtins[m.id]; return st ? Object.keys(st.passages || {}).length : m.passages || 0; };
@@ -547,21 +586,23 @@
       }[sort];
       if (by) found = found.map(function (m, i) { return { m: m, i: i }; }).sort(function (a, b) { return by(a.m, b.m) || a.i - b.i; }).map(function (x) { return x.m; });
       if (found.length) {
-        box.appendChild(h("p", { class: "small muted lib-total" }, found.length + (found.length > 1 ? " livres" : " livre") + (query && !by ? ", les plus proches d'abord" : "")));
+        box.appendChild(h("p", { class: "small muted lib-total" }, found.length + (found.length > 1 ? " livres" : " livre") + (query && !by ? ", les plus proches d'abord" : !by && libView() === "nouveau" ? ", les derniers arrivés d'abord" : "")));
         box.appendChild(h("div", { class: "cards" }, found.map(bookCard)));
       }
     }
     if (!found.length) box.appendChild(h("div", { class: "notice" }, stories.length ? "Aucun livre ne correspond. " : "La bibliothèque est vide.",
-      stories.length ? h("button", { class: "btn sm", onclick: function () { L.q = ""; L.f = {}; libSetPublic(L); var q = document.getElementById("lib-q"); if (q) q.value = ""; render(); } }, "Tout effacer") : null));
+      stories.length ? h("button", { class: "btn sm", onclick: function () { L.q = ""; L.f = {}; libSetPublic(L); lsSet(libKey("libVue"), "tous"); lsSet(libKey("libSansFinis"), false); var q = document.getElementById("lib-q"); if (q) q.value = ""; render(); } }, "Tout montrer") : null));
   }
   // Intent: bookCard(StoryMeta) -> Element = cover, title, one line of facts, three lines of the summary and the
   // button to play; the rest (whole summary, endings found, export, details) behind « En savoir plus ».
   function bookCard(m) {
     var st = A.builtins[m.id] || null, open = !!A.open["book:" + m.id];
-    var facts = [m.multi ? playersLabel(m.multi) : st ? "environ " + minutesLabel(storyMinutes(st)) + (m.lecture ? " de lecture" : " par partie") : null, m.age ? "dès " + m.age + " ans" : null, m.builtin ? null : "importée"].filter(Boolean);
+    var arrived = libView() === "nouveau" && Bib.addedAt(m) ? (m.builtin ? "arrivé le " : "ajouté le ") + new Date(Bib.addedAt(m)).toLocaleDateString("fr-FR", { day: "numeric", month: "long" }) : null;
+    var facts = [arrived, m.multi ? playersLabel(m.multi) : st ? "environ " + minutesLabel(storyMinutes(st)) + (m.lecture ? " de lecture" : " par partie") : null, m.age ? "dès " + m.age + " ans" : null, m.builtin ? null : "importée"].filter(Boolean);
     return h("article", { class: "card has-cover book" + (m.adult ? " adult" : "") + (open ? " open" : "") },
       cover(m, st),
       m.adult ? h("div", { class: "adult-tag" }, "Thème adulte") : null,
+      isNewBook(m) ? h("div", { class: "new-tag" }, "Nouveau") : null,
       h("h3", null, m.title), m.subtitle ? h("div", { class: "sub" }, m.subtitle) : null,
       facts.length ? h("div", { class: "small muted" }, facts.join(" · ")) : null,
       h("p", { class: "summary" }, m.summary),
@@ -2604,6 +2645,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "11.3", items: ["Sous la recherche des livres : « Nouveautés » range les livres du dernier arrivé au plus ancien, « Pas encore commencés » montre ceux que tu n'as jamais ouverts, et une case masque les livres terminés. Chaque lecteur garde son choix. Les livres arrivés depuis moins de trois jours portent un badge « Nouveau » tant qu'on ne les a pas commencés."] },
     { v: "11.2", items: ["Histoires à cartes : ton jeu vit avec l'histoire. En route, on te donne des cartes nouvelles, on t'en vole, une scène te fait piocher ou défausser. Une fois par halte, tu peux échanger une carte de ta main contre celle du dessus de ta pioche. Touche les compteurs pour voir ta pioche, ta défausse et tes cartes perdues ; le bouton « ? » réexplique les règles, montrées d'office la première fois.", "« Le Courrier de Vèze » s'en sert : trois cartes à gagner en route (le Jeton des marchands, le Mulet de louage, la Médaille du pèlerin), et des voleurs qui se servent dans ta main."] },
     { v: "11.1", items: ["La bibliothèque se cherche : tape un titre, un auteur ou un genre au-dessus des livres, même avec une faute ou sans accent. « Filtres » trie par genre (aventure, enquête, science-fiction…), par nombre de joueurs, par longueur, par auteur, et selon ce que tu as déjà lu ; le menu d'à côté change l'ordre. Les romans à lire ont leur propre rayon."] },
     { v: "11.0", items: ["« Le Douzième Coup », un grand livre à lire à deux, chacun sur son écran : plus de deux mille passages. Une ville s'est arrêtée au onzième coup de midi, il y a soixante ans. L'un des deux lecteurs part de la veille, l'autre du soixantième anniversaire. Ils s'écrivent par deux Cahiers jumeaux, aux bornes de la route, et ce que l'un met en terre, l'autre peut le retrouver vieilli de soixante ans.", "Pour ce livre : des dépôts aux bornes, qui passent d'une époque à l'autre, et deux chroniques dont les lignes changent selon ce que les lecteurs ont fait (onglet « Chronique »)."] },

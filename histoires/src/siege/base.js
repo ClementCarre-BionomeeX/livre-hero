@@ -10,6 +10,7 @@ module.exports = {
   subtitle: "Le siège · seize jours derrière les murs",
   summary: "Sarance est assiégée depuis onze jours. Hier matin, on a trouvé l'intendant des greniers mort au pied de la Tour du Sel. Ce matin, le Conseil de la Herse cherche quelqu'un pour compter le blé d'une ville de neuf mille bouches, quelqu'un qui n'appartienne à aucun clan. Tu es arrivé{e} trois semaines avant que les portes se ferment.",
   tags: ["guerre","intrigue","enquete"],
+  added: "2026-11-14",
   author: "Claude, pour Clément",
   age: 14,
   adult: { themes: ["Guerre et violence", "Faim et maladie", "Choix qui font des victimes", "Trahison et manipulation politique"] },
