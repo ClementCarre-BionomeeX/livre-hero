@@ -4,7 +4,7 @@
 // error, so a later lot cannot overwrite an earlier one by mistake.
 var base = require("./base.js");
 base.passages = base.passages || {};
-var LOTS = ["p_fanal", "a1_fanal", "a1_nuit", "a1_victorine", "a1_depart", "xk_parchemin", "a2_carrefour", "a2_mousse", "a2_victorine", "a2_veille", "a2_fargue", "xc_chien", "xj_chirurgien", "xe_vendu", "xb_freres"];
+var LOTS = ["p_fanal", "a1_fanal", "a1_nuit", "a1_victorine", "a1_depart", "xk_parchemin", "a2_carrefour", "a2_mousse", "a2_victorine", "a2_veille", "a2_fargue", "xc_chien", "xj_chirurgien", "xe_vendu", "xb_freres", "a3_carrefour", "a3_mousse1", "xi_invisible", "xm_prisonnier", "a3_victorine1", "xj_bord", "a3_mousse2", "a3_victorine2", "a3_fargue", "xp_pierre", "xf_faconneur", "a3_lannoz", "xe_lannoz"];
 var DICTS = ["people", "items", "enemies", "clues", "mysteries", "shops", "achievements", "companions", "escales", "puzzles", "battles", "lenses", "veils", "duels", "wounds", "stocks", "promises", "trouvailles", "keywords", "savoirs"];
 var WORLD_DICTS = ["places", "regions", "events"];
 LOTS.forEach(function (f) {

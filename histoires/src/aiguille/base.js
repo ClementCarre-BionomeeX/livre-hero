@@ -225,6 +225,7 @@ module.exports = {
       vauclair: { poste: "aide-chirurgien", penchant: 0 },
       malbosc: { poste: "passager", penchant: 1 },
       florian: { poste: "passager", penchant: 2 },
+      brousse: { poste: "pilote", penchant: 2 },
     },
   },
   items: {

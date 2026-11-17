@@ -1,0 +1,237 @@
+// L'Île Folle-Aiguille · act III, chapter III.1 followed by the doctor: ten days from Morlenc to Brisegrève. The sick bay
+// in the orlop, the baron seasick in his great cabin (the map, the debt, a name he lies about), the captain's table, the
+// patients who show what they hide (a branded wrist, a tattooed arm), the second on the night watch (a grey sail), the
+// professor and his jars, the squall seen from below, then the governor's fortress. The surgeon's story continues in
+// xj_bord.js, the prisoner in xm_prisonnier.js.
+var JOURS = [{ seen: "A3v_baron" }, { seen: "A3v_table" }, { seen: "A3v_infirmerie" }, { seen: "A3v_benoit" }, { seen: "A3v_gaudremont" }, { seen: "XJ_bord" }];
+module.exports = {
+  passages: {
+    A3v_debut: { act: "III", title: "L'infirmerie", place: "cormorane", ambiance: "mer",
+      text: [
+        "On a donné à Victorine, pour infirmerie, un coin du faux-pont, à l'arrière, sous la ligne de flottaison : un espace de dix pieds sur douze, entre deux courbes de chêne, où l'on ne tient debout qu'en baissant la tête, éclairé par une lanterne à bougie qui se balance au bout de sa chaîne et fait danser les ombres comme des noyés. On y entend la mer, de l'autre côté du bordé, à un pouce de l'oreille. Elle chuinte, elle frappe, elle gratte, toute la nuit, comme une bête qui chercherait à entrer.",
+        "Victorine y a fait suspendre deux hamacs pour les malades, clouer une table pour les opérations, ranger ses fioles dans des casiers à bouteilles calés de paille. Elle y a mis aussi une chaise, pour elle. Elle n'a pas eu le temps de s'y asseoir.",
+        "Le premier soir, un matelot vient la chercher de la part du baron. Monsieur le baron est mourant.",
+        "Monsieur le baron a le mal de mer.",
+      ],
+      choices: [{ label: "Monter le voir", to: "A3v_mal" }] },
+    A3v_mal: { act: "III", title: "Le mal de mer", place: "cormorane", ambiance: "mer",
+      fx: { meet: "claviere" },
+      text: [
+        "Le baron Aymeric Clavières, échevin de Morlenc, armateur de onze navires et propriétaire de la créance Davrigny, gît dans sa couchette de la grand-chambre, en chemise de batiste, vert jusqu'aux oreilles, une cuvette d'argent sur le ventre. Il a l'air d'un saint martyr peint par un artiste qui n'aurait jamais vu de martyr, mais beaucoup de banquiers.",
+        "« Docteur, gémit-il. Je meurs. Faites quelque chose. Saignez-moi. Purgez-moi. Achevez-moi, si vous êtes chrétienne. »",
+        "Victorine lui prend le pouls, qui est excellent, regarde sa langue, qui est chargée, et lui fait boire un verre d'eau avec trois gouttes d'essence de menthe.",
+        "« Le mal de mer, monsieur le baron, est la seule maladie qui ne tue personne et dont tout le monde voudrait mourir. Il passe en trois jours. Mangez du biscuit sec. Regardez l'horizon. Et ne regardez pas votre cuvette. »",
+        "Il la regarde, avec une haine d'enfant. Puis il vomit dans la cuvette, avec dignité.",
+      ],
+      choices: [{ label: "Le laisser à son horizon", to: "A3v_jours" }] },
+
+    A3v_jours: { act: "III", title: "Vers Brisegrève", place: "cormorane", hub: true, noLead: true, backName: "l'infirmerie", ambiance: "mer",
+      text: [
+        { first: true, text: "Les jours de mer ont leur maladie à eux, qui n'est écrite dans aucun traité : on y soigne surtout les mains. Mains écrasées par un palan, mains brûlées par un cordage qui file, mains déchirées par la toile gelée, ongles arrachés, doigts tordus. Victorine coud, éclisse, panse, tous les jours, à la lanterne, dans le chuintement de la mer, et apprend les noms de l'équipage par leurs blessures avant de les apprendre par leurs visages." },
+        { again: true, text: "Un jour de plus vers le sud. Une main de plus à coudre." },
+      ],
+      choices: [
+        { label: "Rendre visite au baron, qui va mieux", to: "A3v_baron", hide: { seen: "A3v_baron" } },
+        { label: "Dîner à la table de la capitaine", to: "A3v_table", hide: { seen: "A3v_table" } },
+        { label: "Recevoir les malades de l'avant", to: "A3v_infirmerie", hide: { seen: "A3v_infirmerie" } },
+        { label: "Monter sur la dunette, la nuit, où veille le second", to: "A3v_benoit", hide: { seen: "A3v_benoit" } },
+        { label: "Frapper à la cabine du professeur", to: "A3v_gaudremont", hide: { seen: "A3v_gaudremont" } },
+        { label: "Surveiller son aide-chirurgien, la nuit", to: "XJ_bord", hide: { any: [{ seen: "XJ_bord" }, { not: { has: "vauclair:engage" } }] } },
+        { label: "La dixième nuit", to: "A3v_grain", big: true, if: { count: JOURS, min: 4 }, why: "Brisegrève est encore loin." },
+      ] },
+
+    A3v_baron: { act: "III", title: "La grand-chambre", place: "cormorane", ambiance: "mer",
+      text: [
+        "Au quatrième jour, le baron est guéri, et il a oublié qu'il a été malade, ce qui est le privilège des riches et des convalescents. Il reçoit Victorine dans la grand-chambre, à l'arrière, sous les fenêtres de poupe où la mer recule en écume. La pièce est tendue de cuir de Cordoue, meublée d'un bureau d'acajou, d'un fauteuil, d'une bibliothèque grillagée, d'une cave à liqueurs et d'un coffre de fer cerclé, vissé au plancher, dont la clef pend à sa chaîne de montre.",
+        "Il lui offre un verre de madère. Il lui parle de la mer, qu'il découvre et qu'il trouve « un peu monotone, comme toutes les grandes choses ». Il est charmant. Il est toujours charmant.",
+        { if: { is: { carte: "victorine" } }, text: "Puis il pose son verre. « Docteur, j'ai une faveur à vous demander. La carte. Vous l'avez gardée, à la Garenne, et vous avez eu raison : je n'aurais pas dû vous la prendre. Mais nous sommes en mer. Un navire est une petite ville où tout le monde ouvre les malles des autres. J'aimerais qu'elle dorme ici. » Il montre le coffre. « Avec une seule clef. »" },
+        { if: { is: { carte: "baron" } }, text: "Il pose la main sur le coffre de fer, distraitement, comme on caresse un chien. « Elle dort là. Elle ne craint rien. »" },
+        { if: { all: [{ is: { carte: "baron" } }, { has: "carte:gardee" }] }, text: "« Et sa petite sœur aussi, ajoute-t-il en souriant. La copie de Morlenc. Elles se tiennent compagnie. »" },
+      ],
+      choices: [
+        { label: "Lui confier la carte", if: { is: { carte: "victorine" } }, hide: { not: { is: { carte: "victorine" } } }, fx: { set: { carte: "baron" }, flag: "carte:confiee" }, to: "A3v_baron_q" },
+        { label: "« Elle dort très bien dans ma malle. »", if: { is: { carte: "victorine" } }, hide: { not: { is: { carte: "victorine" } } }, fx: { flag: "carte:refusee", regard: { claviere: "mefiant" } }, to: "A3v_baron_q" },
+        { label: "Lui demander pourquoi il cherche cette île", hide: { is: { carte: "victorine" } }, to: "A3v_baron_q" },
+      ] },
+    A3v_baron_q: { act: "III", title: "La grand-chambre", place: "cormorane", ambiance: "mer",
+      text: [
+        { if: { has: "carte:confiee" }, text: "Il range la carte dans le coffre, tourne la clef, remet la clef à sa chaîne de montre. « Merci, dit-il. Vous m'ôtez un poids. » Il a l'air, en effet, plus léger. Elle se sent plus lourde d'autant." },
+        { if: { has: "carte:refusee" }, text: "Il sourit, très aimablement, et ne dit rien de plus. Il note. Elle le voit noter, quelque part derrière ses yeux, comme le sous-directeur de sa banque notait dans son registre." },
+        "Le madère est bon. La mer recule sous les fenêtres. Victorine décide de profiter de ce que son patient est guéri pour lui poser les questions qu'on ne pose pas aux malades.",
+      ],
+      choices: [
+        { label: "« Qui était Dagrel ? »", to: "A3v_baron_dagrel" },
+        { label: "« Parlons de ma dette, monsieur le baron. »", if: { has: "dette:baron" }, hide: { not: { has: "dette:baron" } }, to: "A3v_baron_dette" },
+      ] },
+    A3v_baron_dagrel: { act: "III", title: "Dagrel", place: "cormorane", ambiance: "mer",
+      text: [
+        "Le baron ne cille pas. Il fait tourner son verre, regarde la couleur du madère à la lumière des fenêtres de poupe, et répond avec la fluidité d'un homme qui a répété devant un miroir.",
+        "« Un pirate. Il y a vingt ans, il a ravagé une colonie, au couchant, et enterré son butin quelque part avant de disparaître. Mon père l'a poursuivi de sa haine toute sa vie ; il avait perdu un navire à cause de lui. Il en parlait souvent, à table. C'est pourquoi j'ai reconnu son nom sur votre carte. » Il sourit. « Une histoire de famille. Une dette d'honneur. Vous savez ce que c'est, les dettes. »",
+        { if: { has: "victorine:dagrel_menti" }, text: "Victorine se souvient de Maître Brindejonc, de sa perruque de travers et de son rire : Hugo Clavières avait le mal de mer en regardant un tableau de marine ; il n'a jamais armé un navire de guerre de sa vie." },
+        { if: { has: "victorine:six" }, text: "Elle se souvient aussi des six convives de l'hôtel Clavières, de leurs questions sur la date du retour, de leurs mains qui tremblaient sur les cuillères." },
+      ],
+      choices: [
+        { label: "« Votre père n'a jamais poursuivi personne, monsieur le baron. »", if: { has: "victorine:dagrel_menti" }, hide: { not: { has: "victorine:dagrel_menti" } }, fx: { flag: "victorine:confronte", regard: { claviere: "mefiant" } }, to: "A3v_baron_confronte" },
+        { label: "« Je comprends. »", fx: { flag: "victorine:silence_baron" }, to: "A3v_baron_fin" },
+      ] },
+    A3v_baron_confronte: { act: "III", title: "Dagrel", place: "cormorane", ambiance: "mer",
+      text: [
+        "Le baron pose son verre. Le sourire reste en place, une seconde de trop, comme un tableau sur un mur dont on a retiré le clou.",
+        "« Vous avez parlé à Brindejonc, dit-il doucement. Ce vieux fou. Il boit, vous savez. Il invente. » Il se lève, va à la fenêtre de poupe, regarde le sillage, les mains dans le dos. « Docteur, je vais vous dire une chose, une seule, parce que je vous estime. Il y a des gens à Morlenc qui ont intérêt à ce que je ne revienne pas de ce voyage. Des gens très honorables. Si je rapporte ce que je vais chercher, ils seront ruinés. Si je ne le rapporte pas, c'est moi qui le serai. » Il se retourne. « Je vous laisse deviner de quel côté se trouve votre créance. »",
+      ],
+      choices: [{ label: "Finir son madère", to: "A3v_baron_fin" }] },
+    A3v_baron_dette: { act: "III", title: "La créance", place: "cormorane", ambiance: "mer",
+      text: [
+        "Le baron rit, de bon cœur, en renversant la tête.",
+        "« Elle court, docteur. Comme nous tous. Elle s'éteindra au retour, je vous l'ai promis, et je tiens mes promesses : c'est ce qui me rend si dangereux. » Il se penche vers elle. « Mais si vous voulez qu'elle s'éteigne plus tôt, aujourd'hui même, il y aurait un moyen. Notre capitaine me déteste. Elle a tort, mais c'est son droit. Elle vous parle, à vous. Je voudrais savoir ce qu'elle dit. Rien de plus. Ce qu'elle pense, ce qu'elle craint, ce qu'elle prépare. »",
+        { if: { has: "victorine:alliee_capitaine" }, text: "Victorine pense à la cabine nue de la capitaine, au bouquet de bruyère dans le pot de grès, à la promesse qu'elle lui a faite à Morlenc. Les deux bouts de ce navire lui ont demandé la même chose, à dix jours d'intervalle. Elle trouve cela presque drôle." },
+      ],
+      choices: [
+        { label: "« Je vous dirai ce que je saurai. »", fx: { flag: "victorine:espionne_baron", regard: { claviere: "cordial" } }, to: "A3v_baron_fin" },
+        { label: "« Je suis médecin, monsieur le baron. Pas votre bonne. »", fx: { regard: { claviere: "mefiant" } }, to: "A3v_baron_fin" },
+      ] },
+    A3v_baron_fin: { act: "III", title: "La grand-chambre", place: "cormorane", ambiance: "mer",
+      text: [
+        "En redescendant l'échelle vers son faux-pont, Victorine croise le maître-coq, qui monte un plateau d'argent couvert d'une cloche : le déjeuner du baron. Il s'efface pour la laisser passer, avec un sourire, et l'odeur d'un civet qui n'a rien à faire sur un navire, et qui y est pourtant.",
+        { if: { has: "fargue:soupcon_medecin" }, text: "« Madame la médecin, dit-il gaiement. Vous avez l'œil pour les poignets, à ce qu'on raconte sur le quai. » Il a laissé Gabet à Morlenc ; il n'en dit pas plus. Il monte. Elle sent son regard dans son dos jusqu'au bas de l'échelle." },
+        { if: { not: { has: "fargue:soupcon_medecin" } }, text: "« Madame la médecin », dit-il, et rien d'autre, et il monte en chantonnant." },
+      ],
+      choices: [{ back: "A3v_jours" }] },
+
+    A3v_table: { act: "III", title: "La table de la capitaine", place: "cormorane", ambiance: "mer",
+      fx: { meet: ["ribaud", "benoit", "gaudremont"] },
+      text: [
+        "La capitaine Ribaud reçoit à sa table, une fois par semaine, ses officiers et ses passagers, selon l'usage, et elle le fait comme on remplit une obligation religieuse dont on a perdu la foi : exactement, sans plaisir, en surveillant l'heure.",
+        "Il y a autour de la table ronde de la chambre du conseil la capitaine, le second Benoît Quémeneur, le baron, le professeur Gaudrémont, et Victorine. On mange un potage de pois, un poulet qui a chanté le matin même, et un pudding au saindoux que Fargue a décoré, par ironie ou par tendresse, d'une petite cormorane en sucre.",
+        "La conversation dure dix minutes. Puis le baron dit qu'il n'existe pas de bêtes inconnues, puisque l'Académie les a toutes nommées, et le professeur Gaudrémont repose sa cuiller.",
+        "« Monsieur le baron, dit-il avec une douceur effroyable, l'Académie a nommé toutes les bêtes qu'elle a vues. Elle n'a vu que celles qu'on lui a apportées. On ne lui a apporté que celles qu'on a su prendre. Et l'on n'a su prendre que les plus bêtes. » Il reprend sa cuiller. « La science de Morlenc est un inventaire des imbéciles. »",
+        "Le baron rit. Il rit très bien. « Et vous, professeur, vous êtes venu chercher les bêtes intelligentes ?",
+        "— Je suis venu chercher les bêtes qui ne se laissent pas prendre, monsieur le baron. Comme vous. »",
+        "Benoît Quémeneur avale de travers. La capitaine regarde l'heure.",
+      ],
+      choices: [{ label: "Sortir sur la dunette avec la capitaine, après le pudding", to: "A3v_table_capitaine" }] },
+    A3v_table_capitaine: { act: "III", title: "La table de la capitaine", place: "cormorane", ambiance: "nuit",
+      text: [
+        "Sur la dunette, la nuit est claire, froide, pleine d'étoiles qui se balancent au-dessus des mâts. La capitaine Ribaud se tient au vent, les mains dans les poches de sa vareuse, et regarde la mer.",
+        { if: { has: "victorine:alliee_capitaine" }, text: "« Vous m'aviez promis de me dire ce que vous entendriez, dit-elle sans tourner la tête. Moi, je vais vous dire ce que je vois. Les quatre hommes que le baron m'a imposés ne se parlent jamais sur le pont, et toujours dans la cale. Le maître-coq, lui, parle à tout le monde, et tout le monde lui répond. Un équipage, docteur, c'est comme un corps : il a un cœur, et ce cœur n'est pas toujours à l'arrière. Ce soir, le cœur de mon navire est dans la cambuse. »" },
+        { if: { not: { has: "victorine:alliee_capitaine" } }, text: "Elle ne dit rien pendant longtemps. Puis : « Belle nuit. » Et elle descend. Victorine comprend qu'elle a manqué, à Morlenc, une porte qui ne se rouvrira pas toute seule." },
+      ],
+      choices: [
+        { label: "« Que voulez-vous que je fasse ? »", if: { has: "victorine:alliee_capitaine" }, hide: { not: { has: "victorine:alliee_capitaine" } }, fx: { devine: ["malandain", "lagadec"] }, to: "A3v_table_fin" },
+        { label: "Rester seule sur la dunette", to: "A3v_table_fin" },
+      ] },
+    A3v_table_fin: { act: "III", title: "La table de la capitaine", place: "cormorane", ambiance: "nuit",
+      text: [
+        { if: { has: "victorine:alliee_capitaine" }, text: "« Regardez-les, dit la capitaine. Vous les soignez ; ils se déshabillent devant vous. Les hommes disent beaucoup de choses avec leur peau. » Elle lui donne les noms : Malandain, le canonnier ; Lagadec, le maigre aux yeux pâles. Puis elle descend, et Victorine reste seule avec les étoiles qui se balancent." },
+        "De la cambuse, à l'avant, monte une chanson, très douce, une berceuse de la côte, chantée à mi-voix par une voix de baryton qui ne force jamais. Les hommes de quart, autour du grand mât, ont cessé de parler pour l'écouter.",
+      ],
+      choices: [{ back: "A3v_jours" }] },
+
+    A3v_infirmerie: { act: "III", title: "Les malades de l'avant", place: "cormorane", ambiance: "mer",
+      text: [
+        "Le matin, ils viennent à l'infirmerie par l'échelle du faux-pont, un par un, en baissant la tête, en tenant leur bonnet, avec une timidité de premiers communiants. Ils ont des furoncles, des dents, des ventres, des chagrins qu'ils appellent des coliques. Victorine les écoute, les palpe, les soigne, et apprend, comme le disent les médecins de campagne, que l'homme est un animal qui ment partout sauf sur une table.",
+        { if: { marin: "gabet" }, text: "Térence Gabet vient au troisième jour, le poignet enveloppé dans un chiffon sale. La vieille marque, sous le chiffon, s'est rouverte : un ulcère rouge, gonflé, autour de la lettre V blanchie. Il la regarde soigner sans rien dire, en souriant de ses belles dents." },
+        { if: { all: [{ marin: "gabet" }, { has: "gabet:marque" }] }, text: "Elle reconnaît le poignet. Elle l'a vu à Morlenc, sur la dunette, sortir de la manche d'un homme qui saluait la capitaine. Elle n'avait rien dit. Il le sait, à la façon dont il la regarde maintenant." },
+        "Le quatrième jour, Isidore Lagadec, le matelot maigre aux yeux pâles, se fait porter à l'infirmerie avec une fièvre de cheval. Il délire à moitié. Victorine lui ôte sa chemise pour l'ausculter.",
+        "Sur l'avant-bras gauche, il porte un tatouage ancien, bleui, à demi effacé : une croix aux bras évasés, posée sur une ancre.",
+      ],
+      choices: [
+        { label: "Lui demander ce que signifie ce dessin", to: "A3v_inf_lagadec" },
+        { label: "Le soigner sans rien demander", to: "A3v_inf_soin" },
+      ] },
+    A3v_inf_lagadec: { act: "III", title: "Le tatouage", place: "cormorane", ambiance: "mer",
+      text: [
+        "Lagadec ouvre ses yeux pâles, sans cils, et la regarde comme on regarde quelqu'un qui vous parle à travers une vitre.",
+        "« C'est une croix, dit-il. Et une ancre. On l'avait tous. Tous ceux de… » Il s'arrête. Il ferme les yeux, très fort, comme pour retenir une chose qui voudrait sortir. Puis il rit, d'un petit rire nasillard. « Une bêtise de jeunesse, Madame. On se fait tatouer n'importe quoi, à vingt ans, dans les ports. Une croix, une ancre, une sirène. Moi, j'ai pris la croix. Ça porte bonheur. »",
+        "Il ne parle plus de la journée. Le soir, quand la fièvre monte, il chante dans son hamac, à mi-voix, une chanson que Victorine ne connaît pas, une chanson à virer le cabestan, avec un refrain où revient un mot qu'elle comprend mal, qui pourrait être « Maraude » ou « maraudeur ».",
+      ],
+      choices: [{ label: "Le veiller", fx: { flag: "lagadec:tatouage" }, to: "A3v_inf_soin" }] },
+    A3v_inf_soin: { act: "III", title: "Les malades de l'avant", place: "cormorane", ambiance: "mer",
+      text: [
+        "La fièvre de Lagadec tombe au matin. Il remercie, poliment, et remonte à l'avant sans se retourner.",
+        "Le soir, à l'heure de la soupe, le maître-coq descend à l'infirmerie avec un bol de bouillon pour « le malade ». Le malade est parti. Fargue pose le bol sur la table, regarde les fioles, le hamac vide, la chemise de Lagadec oubliée sur la chaise. Il sourit à Victorine.",
+        "« Il délire, quand il a la fièvre, dit-il aimablement. Il délire depuis vingt ans. Il ne faut jamais croire ce que dit un homme qui a de la fièvre, Madame. Vous le savez mieux que moi. » Il prend la chemise, la plie avec soin, et l'emporte.",
+      ],
+      choices: [{ back: "A3v_jours" }] },
+
+    A3v_benoit: { act: "III", title: "Le quart du second", place: "cormorane", ambiance: "nuit",
+      fx: { meet: "benoit" },
+      text: [
+        "Benoît Quémeneur prend le quart de minuit à quatre, celui que les officiers laissent d'ordinaire aux plus jeunes, parce qu'il ne dort pas. Victorine, qui ne dort pas non plus, monte le rejoindre sur la dunette avec deux tasses de café. Il en prend une sans un mot. Ils regardent la nuit.",
+        { if: { has: "freres:retenu" }, text: "Au bout d'un moment, il dit, sans la regarder : « Je vous dois ma main droite, Madame. Si je l'avais levée sur lui, au bal, je l'aurais tué. Et il le voulait. Il voulait que je devienne ce qu'il est. » Il boit son café. « Le gant gris, vous l'avez gardé ? »" },
+        { if: { has: "freres:heloise" }, text: "« Ma femme m'a dit que vous l'aviez soignée, au bal, dit-il enfin. Qu'elle vous a parlé. Elle ne parle jamais à personne de… de cela. » Il serre sa tasse. « Merci. »" },
+        { if: { has: "chevalier:connu" }, text: "« Vous lui avez parlé, à mon frère, dit-il au bout d'un moment. Vous êtes la seule qu'il ait regardée, ce soir-là. Méfiez-vous. Quand il regarde quelqu'un, c'est qu'il compte s'en servir. »" },
+        { if: { has: "v2v:defaut" }, text: "Il ne parle pas du bal. Toute la Haute-Ville en a parlé à sa place, la semaine du départ. Victorine sait, comme tout le monde, qu'un frère mort est revenu lui jeter un gant au visage." },
+        "Il lui parle de son frère, comme on parle d'une maladie. Alexis, l'aîné, le beau, celui que tout le monde aimait, sa mère d'abord. Alexis qui jouait, qui se battait, qui empruntait. Alexis qui est parti pour les Indes et qui est mort, et dont on a reçu la montre. Alexis qui ne l'était pas.",
+        "« Il ne me pardonnera jamais d'avoir pris sa place, dit-il. Je ne lui pardonnerai jamais de me l'avoir laissée. »",
+      ],
+      choices: [{ label: "Regarder la mer avec lui", to: "A3v_benoit_voile" }] },
+    A3v_benoit_voile: { act: "III", title: "Le quart du second", place: "cormorane", ambiance: "nuit",
+      text: [
+        "À l'aube, le ciel blanchit au nord-est. Benoît prend la longue-vue, par habitude, et fait le tour de l'horizon.",
+        { if: { has: "sabran:copie" }, text: "Il s'arrête au nord. Il regarde longtemps. Puis il tend la longue-vue à Victorine sans rien dire. Au bout de la lunette, très loin, presque fondue dans la brume grise du matin, il y a une voile. Un brigantin, gris, fin, rapide, qui tient leur route à la même vitesse qu'eux. « Il y a trois jours qu'il est là, dit Benoît. Il ne se rapproche pas. Il ne s'éloigne pas. » Il reprend la longue-vue. « Je connais ce gréement. Je l'ai vu au Quai des Hollandes, l'hiver dernier, quand personne ne savait encore à qui il était. Il s'appelle la Désinvolte. »" },
+        { if: { not: { has: "sabran:copie" } }, text: "L'horizon est vide. Il referme la longue-vue d'un coup sec, satisfait, comme on referme un livre de comptes juste." },
+      ],
+      choices: [{ label: "Redescendre à l'infirmerie", fx: { flag: "victorine:benoit" }, to: "A3v_benoit_fin" }] },
+    A3v_benoit_fin: { act: "III", title: "Le quart du second", place: "cormorane", ambiance: "mer",
+      text: [
+        { if: { has: "sabran:copie" }, text: "Benoît porte la nouvelle à la capitaine. La capitaine fait doubler la vigie et monter deux caronades sur le gaillard. Le baron, mis au courant, dit que la mer est libre et qu'il y a de la place pour tout le monde, et retourne à sa partie d'échecs avec le maître-coq." },
+        "Victorine se couche à l'aube, pour deux heures, dans le hamac des malades. Elle rêve d'un homme qui jette un gant gris sur un parquet, et d'un autre qui ne se baisse pas pour le ramasser.",
+      ],
+      choices: [{ back: "A3v_jours" }] },
+
+    A3v_gaudremont: { act: "III", title: "Le cabinet du professeur", place: "cormorane", ambiance: "mer",
+      fx: { meet: "gaudremont" },
+      text: [
+        "La cabine du professeur Gaudrémont, six pieds sur sept, contient : une couchette, une malle, deux fusils, un télescope, une boîte à herboriser, trois filets, un baril d'alcool, quarante bocaux dont onze occupés, une caisse plate fermée à clef, une perruque sur un champignon de bois, et le professeur, qui occupe tout le reste.",
+        "« Ah ! La médecin ! rugit-il en la voyant. Entrez ! Asseyez-vous sur le baril ! Non, pas sur celui-là, il y a un poulpe ! » Il lui tend un bocal où flotte une chose grise, à huit bras, qui la regarde. « Un *Octopus* commun. Pêché ce matin. Je voudrais votre avis. Vous avez disséqué des hommes ; vous saurez disséquer un poulpe. C'est plus simple : il a trois cœurs, mais il ne ment avec aucun. »",
+        "Ils dissèquent le poulpe sur la couchette, à quatre mains, à la lumière du hublot, en se disputant sur chaque organe. Le professeur a tort sur deux points ; Victorine, sur un. Il le reconnaît avec une joie féroce.",
+        "Puis, en se lavant les mains dans une cuvette, il dit, sans la regarder :",
+        "« On me croit fou. Vous aussi, je suppose. » Il frotte ses grosses mains rouges. « J'ai vu, à quatorze ans, sur une île, des bêtes qui n'existent pas. Un oiseau plus haut qu'un homme. Des lézards comme des veaux. Toute ma vie, on m'a dit que je l'avais rêvé. J'ai fini par écrire des livres sur les coquillages, pour qu'on me laisse tranquille. » Il s'essuie. « Docteur, combien de temps me reste-t-il ? J'ai le cœur qui saute, le soir. »",
+      ],
+      choices: [{ label: "L'ausculter", to: "A3v_gaudremont_coeur" }] },
+    A3v_gaudremont_coeur: { act: "III", title: "Le cabinet du professeur", place: "cormorane", ambiance: "mer",
+      text: [
+        "Victorine pose son stéthoscope de buis sur la poitrine énorme du professeur, qui retient sa respiration avec tant de force qu'il devient violet. Elle écoute. Le cœur bat fort, irrégulier, avec un souffle au milieu, comme une porte qui ne ferme plus tout à fait.",
+        "Elle pourrait mentir. Elle ment souvent aux malades ; c'est un remède comme un autre, et moins cher.",
+      ],
+      choices: [
+        { label: "« Assez de temps pour voir votre oiseau, si vous ne courez pas après. »", fx: { flag: "gaudremont:coeur", regard: { gaudremont: "redevable" } }, to: "A3v_gaudremont_fin" },
+        { label: "« Vous avez un cœur de vingt ans, professeur. »", to: "A3v_gaudremont_fin" },
+      ] },
+    A3v_gaudremont_fin: { act: "III", title: "Le cabinet du professeur", place: "cormorane", ambiance: "mer",
+      text: [
+        { if: { has: "gaudremont:coeur" }, text: "Le professeur la regarde longtemps, de ses petits yeux bleus enfoncés sous les sourcils. Puis il hoche la tête. « Merci. Vous êtes la première personne en quarante ans qui me dit la vérité sans rire. » Il range son poulpe. « Je ne courrai pas. Je marcherai. Très vite. »" },
+        { if: { not: { has: "gaudremont:coeur" } }, text: "Le professeur éclate de rire, et se tape sur la poitrine, si fort que le cœur doit en sauter une fois de plus. « Je le savais ! Les cardiologues de Morlenc sont des ânes ! » Il range son poulpe en chantant." },
+      ],
+      choices: [{ back: "A3v_jours" }] },
+
+    A3v_grain: { act: "III", title: "Le grain", place: "cormorane", ambiance: "nuit",
+      text: [
+        "La dixième nuit, le grain tombe sur la Cormorane d'un seul coup, et dans le faux-pont, sous la ligne de flottaison, Victorine le reçoit comme un coup de bélier contre une porte. Le navire se couche. Les fioles sautent dans leurs casiers, la lanterne se balance à l'horizontale, l'eau entre par les jointures du pont et pleut en gouttes glacées sur la table d'opération. Au-dessus, sur le pont, les hommes crient, les voiles claquent comme des coups de canon, la mer frappe le bordé à un pouce de son oreille, comme si elle voulait entrer et le savait possible.",
+        "Victorine s'accroche à une épontille et attend, en comptant, comme pendant un accouchement. Elle compte jusqu'à mille deux cents. Puis le vent tombe, et la mer, et la peur.",
+        "Une heure plus tard, on lui descend Petit-Jules, le novice, l'épaule démise, blanc comme un linge, qui sourit en claquant des dents. Derrière lui, le maître-coq, trempé de la tête aux pieds, le foulard rouge collé au cou.",
+        "« Il a glissé de la vergue du petit hunier, dit Fargue. Je passais par là. » Il dit cela comme on dit qu'on passait devant une boulangerie.",
+        "Victorine remet l'épaule d'un coup sec. Petit-Jules hurle, puis rit, puis s'endort. Fargue s'assied à côté du hamac, prend la main du garçon dans sa main gauche, celle aux trois doigts, et se met à chanter, tout bas, la berceuse qu'il chantait sur le pont. Il chante jusqu'à l'aube. Victorine le regarde chanter. Elle a vu beaucoup d'hommes tenir la main d'un blessé. Elle a rarement vu un homme le faire aussi bien.",
+        "Au matin, la vigie crie terre. Brisegrève.",
+      ],
+      choices: [{ label: "Monter sur le pont", fx: { flag: "jules:sauve_fargue" }, to: "A3v_brisegreve" }] },
+
+    A3v_brisegreve: { act: "III", title: "Brisegrève", place: "brisegreve", escale: "brisegreve", hub: true, noLead: true, backName: "Brisegrève", ambiance: "mer",
+      text: [
+        { first: true, text: "Brisegrève monte de la mer comme un tombeau qu'on aurait oublié de fermer. Un roc de granit noir, nu, haut de trois cents pieds, ruisselant, et sur son sommet un fort qui en épouse si bien les formes qu'on ne sait pas où finit la roche et où commence la maçonnerie : la même couleur, la même humidité, le même silence. Pas une fenêtre du côté du large. Des meurtrières, très haut. À fleur d'eau, des grilles rouillées d'où suinte un filet noir, comme d'une plaie qui ne se ferme pas. Victorine, qui a vu des hôpitaux, des hospices et des maisons de fous, comprend tout de suite ce qu'est cet endroit." },
+        { first: true, text: "Le gouverneur fait porter à bord, par une chaloupe peinte aux couleurs du roi, une invitation à dîner pour le baron « et la dame médecin dont on lui a parlé ». La Cormorane restera deux jours à faire de l'eau." },
+        { again: true, text: "Le fort, la roche, la chaloupe du roi qui attend au pied de l'échelle." },
+      ],
+      choices: [
+        { label: "Dîner chez le gouverneur", to: "XM_v_diner", hide: { seen: "XM_v_diner" } },
+        { label: "Acheter des citrons à la cantinière du bourg", if: { gold: { min: 40 } }, hide: { any: [{ has: "pharmacie:citron" }, { seen: "A3v_citrons" }] }, fx: { gold: -40, flag: "citrons:victorine" }, to: "A3v_citrons" },
+      ] },
+    A3v_citrons: { act: "III", title: "Le bourg des soldats", place: "brisegreve", ambiance: "village",
+      text: [
+        "La cantinière du bourg vend des citrons verts, petits et durs, à deux livres le sac. Victorine en prend un sac, puis un autre, en marchandant avec une vigueur qui fait l'admiration des soldats. Elle sait ce qui vient après les eaux chaudes, quand le biscuit pourrit et que les gencives saignent. La cantinière le sait aussi. Elle lui donne le second sac au prix du premier.",
+      ],
+      choices: [{ back: "A3v_brisegreve" }] },
+  },
+  extras: {},
+};
