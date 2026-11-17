@@ -10,6 +10,7 @@ BASE = {
   "title": "La Flèche noire",
   "subtitle": "Un roman à lire · R. L. Stevenson, 1888",
   "summary": "Angleterre, au temps de la guerre des Deux-Roses. Dans le hameau de Tunstall, un vieil archer tombe, frappé d'une flèche noire, et l'on trouve clouée sur la porte de l'église une menace en vers contre Sir Daniel Brackley, le seigneur du lieu, et ses hommes. Dick Shelton, le pupille de Sir Daniel, a près de dix-huit ans ; il ne sait pas encore ce qu'on raconte de la mort de son père, ni qui est le garçon effrayé qu'il va aider à fuir à travers les marais. Le roman de Stevenson en entier, dans la traduction de P.-G. La Chesnais, sans choix : on le lit page après page, avec les gens, les lieux et les mots expliqués d'un appui.",
+  "tags": ["historique", "aventure", "guerre"],
   "author": "R. L. Stevenson · traduction de P.-G. La Chesnais (1901)",
   "lecture": True,
   "age": 11,

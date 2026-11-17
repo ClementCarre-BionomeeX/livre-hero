@@ -10,6 +10,7 @@ module.exports = {
   title: "Les Fils de la Marée",
   subtitle: "Trois jours de marée haute, une Doyenne morte, trois vies qui se croisent",
   summary: "Escalombre, la cité aux quarante îles, ouvre ses trois jours de Hautes-Eaux. Cette nuit, la Doyenne Ermesinde Valcor est morte dans son lit. Avant le reflux de la troisième nuit, le Conseil des Lanternes doit élire qui gouvernera la lagune. Un médecin du Temple, un passeur des bas quartiers et la secrétaire de la morte ont chacun une part de ce qui s'est passé. Chaque partie raconte une autre ville.",
+  tags: ["enquete","intrigue","drame"],
   author: "Claude, pour Clément",
   age: 15,
   adult: { themes: ["Empoisonnement et meurtre", "Fin de vie demandée par une mourante", "Violence et émeute", "Manipulation politique, chantage"] },

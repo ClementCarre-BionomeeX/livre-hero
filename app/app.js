@@ -2,7 +2,7 @@
 // Livre-jeu page: the library of stories, player profiles, saved games, character creation, the reading screen and
 // the notebook (carnet). Rules live in Moteur (src/moteur.js); this file only shows the state and saves it.
 (function () {
-  var M = window.Moteur, V = window.Validateur, R = window.Relecture;
+  var M = window.Moteur, V = window.Validateur, R = window.Relecture, Bib = window.Bibliotheque;
   var UNDO_MAX = 25;                       // states kept for "Choix précédent" (each a few KB; a save stays far under 256 KiB)
   var LOG_MAX = 250;                       // journal entries kept in a save
   var PART_CHARS = 180000;                 // an imported story is cut in parts under the 256 KiB document limit
@@ -222,7 +222,7 @@
     }
     return builtinFetches[m.id];
   }
-  function storyMeta(st) { return { id: st.id, title: st.title, subtitle: st.subtitle || "", summary: st.summary || "", version: st.version || 1, acts: (st.acts || []).length, passages: Object.keys(st.passages || {}).length, multi: st.multi || null, kid: st.kid || null, adult: st.adult || null, cover: st.cover || null, age: st.age || null, author: st.author || null }; }
+  function storyMeta(st) { return Bib.card(st); }
   function allStories() {
     var out = Object.keys(A.builtinMeta).map(function (k) { var m = clone(A.builtinMeta[k]); m.builtin = true; return m; });
     A.imported.forEach(function (m) { if (!A.builtinMeta[m.id]) out.push(m); });
@@ -260,9 +260,15 @@
   // Why: render empties #app first, so an error while drawing left a blank page (Clément, 11/11: black screen when
   // resuming an old save).
   function render() {
+    // A field marked data-keep-focus (the library's search) keeps the focus and the caret through a redraw.
+    var act = document.activeElement, keep = act && act.id && act.getAttribute("data-keep-focus") ? { id: act.id, a: act.selectionStart, b: act.selectionEnd } : null;
     app.textContent = "";
     Glossary.close(); if (Dictation.on) Dictation.stop();   // the text box it writes into is redrawn
-    try { renderScreen(); }
+    try {
+      renderScreen();
+      var back = keep && document.getElementById(keep.id);
+      if (back) { back.focus(); try { back.setSelectionRange(keep.a, keep.b); } catch (e) { /* not a text field */ } }
+    }
     catch (e) {
       try { console.error("render: " + (e && e.stack)); } catch (x) { /* no console */ }
       app.textContent = "";
@@ -407,42 +413,160 @@
     var live = renderLiveList(); if (live) w.appendChild(live);
 
     var stories = allStories();
-    var lib = h("section", { class: "section" }, h("h2", null, "Les livres"));
-    var shelf = A.shelf || lsGet("shelf") || "tout";
-    var pick = function (k) { A.shelf = k; lsSet("shelf", k); render(); };
-    lib.appendChild(h("div", { class: "shelf-chips", role: "group", "aria-label": "Quels livres montrer" }, [["tout", "Tous les livres"], ["tous", "Pour tous"], ["adulte", "Thèmes adultes"]].map(function (o) {
-      return h("button", { class: "chip" + (shelf === o[0] ? " on" : ""), "aria-pressed": shelf === o[0] ? "true" : "false", onclick: function () { pick(o[0]); } }, o[1]);
-    })));
-    var mins = function (m) { return A.builtins[m.id] ? storyMinutes(A.builtins[m.id]) : null; }, SHORT_BOOK = 100, LONG_BOOK = 1000;
-    var SHELVES = [["courtes", "Histoires courtes", "Une soirée, d'une traite."], ["romans", "Romans", "Quelques soirées, plusieurs fins."], ["grands", "Grands romans", "Des heures et des heures, en plusieurs actes."], ["plusieurs", "À plusieurs", "Chacun son héros, sur le même appareil ou dans une salle commune."]];
-    // By the size of the book (its passages), not by the reading time of one game.
-    var size = function (m) { var st = A.builtins[m.id]; return st ? Object.keys(st.passages || {}).length : m.passages || 0; };
-    var shelfOf = function (m) { if (m.multi) return "plusieurs"; var n = size(m); return !n ? "romans" : n < SHORT_BOOK ? "courtes" : n < LONG_BOOK ? "romans" : "grands"; };
-    var keep = stories.filter(function (m) { return shelf === "tout" || (shelf === "adulte" ? !!m.adult : !m.adult); });
-    SHELVES.forEach(function (sh) {
-      var mine = keep.filter(function (m) { return shelfOf(m) === sh[0]; }).sort(function (a, b) { return (mins(a) || 0) - (mins(b) || 0); });
-      if (!mine.length) return;
-      lib.appendChild(h("h3", { class: "shelf-h" }, sh[1], h("span", { class: "small muted" }, " · " + sh[2])));
-      var cards = h("div", { class: "cards" });
-      mine.forEach(function (m) { cards.appendChild(bookCard(m)); });
-      lib.appendChild(cards);
-    });
-    if (!keep.length) lib.appendChild(h("div", { class: "notice" }, "Aucun livre sur ce rayon."));
+    var lib = h("section", { class: "section library" }, h("h2", null, "Les livres"));
+    var chipsBox = h("div", { class: "lib-filters" }), box = h("div", { class: "lib-results" });
+    var refill = function () { fillLibFilters(chipsBox, stories, refill); fillLibrary(box, stories); };
+    lib.appendChild(libFinder(stories, refill));
+    lib.appendChild(chipsBox);
+    lib.appendChild(box);
+    refill();
     if (A.builtinsErr) lib.appendChild(h("div", { class: "notice bad" }, BUILTINS_MISSING));
     w.appendChild(lib);
+  }
+  // ------------------------------------------------------------------ finding a book (Clément, 17/11)
+  // Intent: the library's search line (fuzzy: src/bibliotheque.js), its sort and its filters. The filters of one kind
+  // add up (« À deux » or « À plusieurs »); the kinds narrow down (« À deux » and « Enquête »). While nothing is asked,
+  // the books stay on their shelves; a search, a filter or another order shows them in one list.
+  // Why: « la collection demande un peu de tri » ; the home page stays as sober as 9.4 made it: one line, the rest folded.
+  var LIB_SORTS = [["rayons", "Par rayons"], ["titre", "Par titre"], ["court", "Les plus courts d'abord"], ["long", "Les plus longs d'abord"], ["recent", "Lus récemment"], ["age", "Par âge conseillé"], ["auteur", "Par auteur"]];
+  var LIB_PROGRESS = { k: "avancee", label: "", values: [["neuf", "Jamais ouverts"], ["encours", "En cours"], ["fini", "Terminés"]] };
+  var LIB_SHELVES = [["courtes", "Histoires courtes", "Une soirée, d'une traite."], ["romans", "Romans", "Quelques soirées, plusieurs fins."], ["grands", "Grands romans", "Des heures et des heures, en plusieurs actes."], ["plusieurs", "À plusieurs", "Chacun son héros, sur le même appareil ou dans une salle commune."], ["lire", "Romans à lire", "Des classiques, page après page, sans choix."]];
+  var SHORT_BOOK = 100, LONG_BOOK = 1000;
+  function libState() {
+    if (!A.lib) {
+      // « Pour tous » / « Thèmes adultes » was the one filter of 9.4, kept on the device (a parent's choice): it still is.
+      var pub = lsGet("libPublic"), old = lsGet("shelf");
+      if (pub == null && (old === "tous" || old === "adulte")) pub = old;
+      A.lib = { q: "", f: pub === "tous" || pub === "adulte" ? { "public": [pub] } : {}, open: false };
+    }
+    return A.lib;
+  }
+  function libSort() { var k = lsGet("libSort"); return LIB_SORTS.some(function (o) { return o[0] === k; }) ? k : "rayons"; }
+  function libFacets() { var out = Bib.FACETS.slice(); if (A.profile) { var p = clone(LIB_PROGRESS); p.label = "Pour " + A.profile.name; out.push(p); } return out; }
+  // Intent: progressOf(StoryMeta) -> "neuf" | "encours" | "fini", for the reader of the page
+  function progressOf(m) {
+    var mine = (A.games || []).filter(function (g) { return g.story === m.id && !g.test; });
+    return mine.some(function (g) { return g.ended; }) ? "fini" : mine.some(function (g) { return !g.archived; }) ? "encours" : "neuf";
+  }
+  function libExtra(m) { return { avancee: A.profile ? progressOf(m) : null }; }
+  function libActive(L) { return Object.keys(L.f).filter(function (k) { return L.f[k] && L.f[k].length; }); }
+  function libSetPublic(L) { lsSet("libPublic", (L.f["public"] || []).length === 1 ? L.f["public"][0] : "tout"); }
+  // the books that pass every filter but the one of `skip` (to count what each chip would give)
+  function libKeep(stories, L, skip) {
+    var f = {}; Object.keys(L.f).forEach(function (k) { if (k !== skip) f[k] = L.f[k]; });
+    var kept = stories.filter(function (m) { return Bib.matches(m, f, libExtra(m)); });
+    return L.q.trim() ? Bib.search(kept, L.q).map(function (x) { return x.m; }) : kept;
+  }
+  function libFinder(stories, refill) {
+    var L = libState();
+    var q = h("input", { type: "search", id: "lib-q", "data-keep-focus": "1", class: "lib-q", value: L.q, placeholder: "Chercher un titre, un auteur, un genre…", "aria-label": "Chercher un livre", autocomplete: "off", spellcheck: "false", enterkeyhint: "search" });
+    q.addEventListener("input", function () { L.q = q.value; refill(); });
+    q.addEventListener("keydown", function (e) { if (e.key === "Escape" && q.value) { e.preventDefault(); q.value = ""; L.q = ""; refill(); } else if (e.key === "Enter") q.blur(); });
+    var sort = h("select", { class: "lib-sort", "aria-label": "Ordre des livres", onchange: function (e) { lsSet("libSort", e.target.value); refill(); } },
+      LIB_SORTS.map(function (o) { return h("option", { value: o[0], selected: libSort() === o[0] }, o[1]); }));
+    var n = libActive(L).reduce(function (t, k) { return t + L.f[k].length; }, 0);
+    var btn = h("button", { class: "btn sm lib-filter-btn" + (L.open ? " on" : ""), "aria-expanded": L.open ? "true" : "false", onclick: function () { L.open = !L.open; btn.setAttribute("aria-expanded", L.open ? "true" : "false"); btn.classList.toggle("on", L.open); refill(); } },
+      "Filtres", h("span", { class: "count lib-count" }, n ? String(n) : ""));
+    return h("div", { class: "lib-finder" }, h("span", { class: "lib-search" }, h("span", { class: "lib-glass", "aria-hidden": "true" }, "⌕"), q), sort, btn);
+  }
+  // Intent: fillLibFilters(Element, [StoryMeta], refill) -> () = the filters chosen (each one removable), and, when the
+  // panel is open, every value of every kind with the number of books it would show.
+  function fillLibFilters(box, stories, refill) {
+    var L = libState(), active = libActive(L);
+    box.textContent = "";
+    var n = active.reduce(function (t, k) { return t + L.f[k].length; }, 0), badge = document.querySelector(".lib-count");
+    if (badge) badge.textContent = n ? String(n) : "";
+    var toggle = function (k, v) {
+      var cur = L.f[k] || [], i = cur.indexOf(v);
+      L.f[k] = i >= 0 ? cur.filter(function (x) { return x !== v; }) : cur.concat([v]);
+      if (k === "public") libSetPublic(L);
+      refill();
+    };
+    if (!L.open) {
+      if (!active.length) return;
+      var row = h("div", { class: "chips lib-chosen" });
+      active.forEach(function (k) { L.f[k].forEach(function (v) {
+        row.appendChild(h("button", { class: "chip on", title: "Retirer ce filtre", onclick: function () { toggle(k, v); } }, k === "avancee" ? progressLabel(v) : Bib.label(k, v), " ×"));
+      }); });
+      row.appendChild(h("button", { class: "btn ghost sm", onclick: function () { L.f = {}; libSetPublic(L); refill(); } }, "Tout effacer"));
+      box.appendChild(row);
+      return;
+    }
+    var panel = h("div", { class: "lib-panel" });
+    libFacets().forEach(function (F) {
+      var base = libKeep(stories, L, F.k), have = {};
+      base.forEach(function (m) {
+        var f = Bib.facets(m), e = libExtra(m), v = F.k in e ? e[F.k] : f[F.k];
+        (Array.isArray(v) ? v : v == null ? [] : [v]).forEach(function (x) { have[x] = (have[x] || 0) + 1; });
+      });
+      var values = F.values || Object.keys(have).sort(function (a, b) { return a.localeCompare(b, "fr"); }).map(function (a) { return [a, a]; });
+      var chosen = L.f[F.k] || [];
+      var shown = values.filter(function (o) { return have[o[0]] || chosen.indexOf(o[0]) >= 0; });
+      if (!shown.length) return;
+      panel.appendChild(h("div", { class: "lib-group" }, h("div", { class: "label" }, F.label),
+        h("div", { class: "chips", role: "group", "aria-label": F.label }, shown.map(function (o) {
+          var on = chosen.indexOf(o[0]) >= 0;
+          return h("button", { class: "chip" + (on ? " on" : ""), "aria-pressed": on ? "true" : "false", onclick: function () { toggle(F.k, o[0]); } },
+            o[1], h("span", { class: "n" }, " " + (have[o[0]] || 0)));
+        }))));
+    });
+    panel.appendChild(h("div", { class: "row" },
+      active.length ? h("button", { class: "btn ghost sm", onclick: function () { L.f = {}; libSetPublic(L); refill(); } }, "Tout effacer") : null,
+      h("button", { class: "btn sm", onclick: function () { L.open = false; var b = document.querySelector(".lib-filter-btn"); if (b) { b.classList.remove("on"); b.setAttribute("aria-expanded", "false"); } refill(); } }, "Fermer les filtres")));
+    box.appendChild(panel);
+  }
+  function progressLabel(v) { return (LIB_PROGRESS.values.filter(function (o) { return o[0] === v; })[0] || [v, v])[1]; }
+  // Intent: libMinutes(StoryMeta) -> minutes of one game (or of the whole novel to read), a guess from the card while
+  // the text is not read yet.
+  function libMinutes(m) { return A.builtins[m.id] ? storyMinutes(A.builtins[m.id]) : Math.round((m.words || 0) * (m.lecture ? 1 : HALF_BOOK) / WPM_DEFAULT); }
+  function lastRead(m) { return (A.games || []).reduce(function (t, g) { return g.story === m.id && !g.test ? Math.max(t, g.updated || 0) : t; }, 0); }
+  // Intent: fillLibrary(Element, [StoryMeta]) -> () = the shelves, or the books found, in the order asked
+  function fillLibrary(box, stories) {
+    var L = libState(), sort = libSort(), query = L.q.trim();
+    box.textContent = "";
+    var keep = stories.filter(function (m) { return Bib.matches(m, L.f, libExtra(m)); });
+    var found = query ? Bib.search(keep, query).map(function (x) { return x.m; }) : keep;
+    if (!query && sort === "rayons") {
+      // The shelves of 9.4, by the size of the book (its passages); the novels to read have their own.
+      var size = function (m) { var st = A.builtins[m.id]; return st ? Object.keys(st.passages || {}).length : m.passages || 0; };
+      var shelfOf = function (m) { if (m.lecture) return "lire"; if (m.multi) return "plusieurs"; var n = size(m); return !n ? "romans" : n < SHORT_BOOK ? "courtes" : n < LONG_BOOK ? "romans" : "grands"; };
+      LIB_SHELVES.forEach(function (sh) {
+        var mine = found.filter(function (m) { return shelfOf(m) === sh[0]; }).sort(function (a, b) { return libMinutes(a) - libMinutes(b); });
+        if (!mine.length) return;
+        box.appendChild(h("h3", { class: "shelf-h" }, sh[1], h("span", { class: "small muted" }, " · " + sh[2])));
+        box.appendChild(h("div", { class: "cards" }, mine.map(bookCard)));
+      });
+    } else {
+      var by = {
+        titre: function (a, b) { return Bib.sortKey(a).localeCompare(Bib.sortKey(b), "fr"); },
+        court: function (a, b) { return libMinutes(a) - libMinutes(b); },
+        long: function (a, b) { return libMinutes(b) - libMinutes(a); },
+        recent: function (a, b) { return lastRead(b) - lastRead(a); },
+        age: function (a, b) { return (a.age || 0) - (b.age || 0); },
+        auteur: function (a, b) { return Bib.authorName(a.author).localeCompare(Bib.authorName(b.author), "fr"); },
+      }[sort];
+      if (by) found = found.map(function (m, i) { return { m: m, i: i }; }).sort(function (a, b) { return by(a.m, b.m) || a.i - b.i; }).map(function (x) { return x.m; });
+      if (found.length) {
+        box.appendChild(h("p", { class: "small muted lib-total" }, found.length + (found.length > 1 ? " livres" : " livre") + (query && !by ? ", les plus proches d'abord" : "")));
+        box.appendChild(h("div", { class: "cards" }, found.map(bookCard)));
+      }
+    }
+    if (!found.length) box.appendChild(h("div", { class: "notice" }, stories.length ? "Aucun livre ne correspond. " : "La bibliothèque est vide.",
+      stories.length ? h("button", { class: "btn sm", onclick: function () { L.q = ""; L.f = {}; libSetPublic(L); var q = document.getElementById("lib-q"); if (q) q.value = ""; render(); } }, "Tout effacer") : null));
   }
   // Intent: bookCard(StoryMeta) -> Element = cover, title, one line of facts, three lines of the summary and the
   // button to play; the rest (whole summary, endings found, export, details) behind « En savoir plus ».
   function bookCard(m) {
     var st = A.builtins[m.id] || null, open = !!A.open["book:" + m.id];
-    var facts = [m.multi ? playersLabel(m.multi) : st ? "environ " + minutesLabel(storyMinutes(st)) + " par partie" : null, m.age ? "dès " + m.age + " ans" : null, m.builtin ? null : "importée"].filter(Boolean);
+    var facts = [m.multi ? playersLabel(m.multi) : st ? "environ " + minutesLabel(storyMinutes(st)) + (m.lecture ? " de lecture" : " par partie") : null, m.age ? "dès " + m.age + " ans" : null, m.builtin ? null : "importée"].filter(Boolean);
     return h("article", { class: "card has-cover book" + (m.adult ? " adult" : "") + (open ? " open" : "") },
       cover(m, st),
       m.adult ? h("div", { class: "adult-tag" }, "Thème adulte") : null,
       h("h3", null, m.title), m.subtitle ? h("div", { class: "sub" }, m.subtitle) : null,
       facts.length ? h("div", { class: "small muted" }, facts.join(" · ")) : null,
       h("p", { class: "summary" }, m.summary),
-      open ? h("div", { class: "small muted" }, m.acts + " actes · " + m.passages + " passages") : null,
+      open ? h("div", { class: "small muted" }, m.lecture ? m.acts + " chapitres" : m.acts + " actes · " + m.passages + " passages") : null,
+      open ? bookTags(m) : null,
       open && !m.multi ? renderRecords(m) : null,
       h("div", { class: "row" },
         // Clément, 11/11: stories for several players are written for it; the others stay solo.
@@ -455,6 +579,16 @@
           ? h("span", { class: "confirm small" }, "Retirer ?", h("button", { class: "btn sm danger", onclick: function () { removeStory(m); } }, "Oui"), h("button", { class: "btn sm", onclick: function () { A.confirmDel = null; render(); } }, "Non"))
           : h("button", { class: "btn sm ghost", onclick: function () { A.confirmDel = "s:" + m.id; render(); } }, "Retirer")) : null),
       open ? aboutDetails(m) : null);
+  }
+  // Intent: bookTags(StoryMeta) -> Element = the kind of book and its genres; a touch shows the books that share it.
+  function bookTags(m) {
+    var f = Bib.facets(m), tags = [["type", f.type]].concat(f.joueurs ? [["joueurs", f.joueurs]] : [], f.genres.map(function (g) { return ["genres", g]; }), f.auteur ? [["auteur", f.auteur]] : []);
+    return h("div", { class: "chips book-tags" }, tags.map(function (t) {
+      return h("button", { class: "chip", title: "Montrer les livres de ce genre", onclick: function () {
+        var L = libState(); L.q = ""; L.f = { "public": L.f["public"] }; L.f[t[0]] = [t[1]]; A.open["book:" + m.id] = false; render();
+        var top = document.querySelector(".library"); if (top) top.scrollIntoView({ block: "start" });
+      } }, Bib.label(t[0], t[1]));
+    }));
   }
   // the details of « En savoir plus », without its own button (the card has it beside « Nouvelle partie »)
   function aboutDetails(m) { var box = aboutBook(m); box.removeChild(box.firstChild); return box; }
@@ -2470,7 +2604,9 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
-    { v: "11.1", items: ["« L'Île Folle-Aiguille », un grand roman d'aventures en cinq actes : une auberge sur une falaise, un vieux marin et son coffre, un port, une traversée, une île dont les boussoles tournent. Trois personnages à suivre, le troisième après une première fin ; un équipage dont chaque marin penche d'un côté ou de l'autre ; des escales qui portent chacune leur affaire ; et des quêtes nées d'autres livres de la bibliothèque. Huit fins, et le sort de dix personnes."] },
+    { v: "11.3", items: ["« L'Île Folle-Aiguille », un grand roman d'aventures en cinq actes : une auberge sur une falaise, un vieux marin et son coffre, un port, une traversée, une île dont les boussoles tournent. Trois personnages à suivre, le troisième après une première fin ; un équipage dont chaque marin penche d'un côté ou de l'autre ; des escales qui portent chacune leur affaire ; et des quêtes nées d'autres livres de la bibliothèque. Huit fins, et le sort de dix personnes."] },
+    { v: "11.2", items: ["Histoires à cartes : ton jeu vit avec l'histoire. En route, on te donne des cartes nouvelles, on t'en vole, une scène te fait piocher ou défausser. Une fois par halte, tu peux échanger une carte de ta main contre celle du dessus de ta pioche. Touche les compteurs pour voir ta pioche, ta défausse et tes cartes perdues ; le bouton « ? » réexplique les règles, montrées d'office la première fois.", "« Le Courrier de Vèze » s'en sert : trois cartes à gagner en route (le Jeton des marchands, le Mulet de louage, la Médaille du pèlerin), et des voleurs qui se servent dans ta main."] },
+    { v: "11.1", items: ["La bibliothèque se cherche : tape un titre, un auteur ou un genre au-dessus des livres, même avec une faute ou sans accent. « Filtres » trie par genre (aventure, enquête, science-fiction…), par nombre de joueurs, par longueur, par auteur, et selon ce que tu as déjà lu ; le menu d'à côté change l'ordre. Les romans à lire ont leur propre rayon."] },
     { v: "11.0", items: ["« Le Douzième Coup », un grand livre à lire à deux, chacun sur son écran : plus de deux mille passages. Une ville s'est arrêtée au onzième coup de midi, il y a soixante ans. L'un des deux lecteurs part de la veille, l'autre du soixantième anniversaire. Ils s'écrivent par deux Cahiers jumeaux, aux bornes de la route, et ce que l'un met en terre, l'autre peut le retrouver vieilli de soixante ans.", "Pour ce livre : des dépôts aux bornes, qui passent d'une époque à l'autre, et deux chroniques dont les lignes changent selon ce que les lecteurs ont fait (onglet « Chronique »)."] },
     { v: "10.9", items: ["« L'Île au trésor » de R. L. Stevenson, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1883. Une auberge sur la côte, un vieux marin et son coffre, une carte, une goélette, et un cuisinier à une jambe avec un perroquet sur l'épaule. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "10.8", items: ["« Le Maître de Ballantrae » de R. L. Stevenson, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1889. Deux frères Durie, l'un parti avec le prince Charlie, l'autre resté au domaine, et un intendant qui raconte tout, de l'Écosse jusqu'aux forêts de l'Amérique. Avec les gens, les lieux et les mots d'un toucher."] },
@@ -2963,7 +3099,7 @@
     // items, quests, feats) after (Clément, 11/11 then 13/11).
     var kwUsed = {}, evs = s.events || [], evEl = function (list, cls) { return list.length ? h("div", { class: "events " + cls, role: "status" }, list.map(function (e) { var el = h("div", { class: "ev " + (e.cls || "") }, rollBadge(e)); el.insertAdjacentHTML("beforeend", TextFx.auto(st, md(e.text), kwUsed));
       if (e.doc && st.items && st.items[e.doc]) el.appendChild(h("button", { class: "btn ghost sm ev-read", onclick: function () { A.modal = { kind: "doc", id: e.doc }; render(); } }, "Lire"));
-      // A quest's debt to another book (11.1): when that book is in the library, a way to find it there.
+      // A quest's debt to another book (11.3): when that book is in the library, a way to find it there.
       if (e.book && A.builtinMeta && A.builtinMeta[e.book]) el.appendChild(h("button", { class: "btn ghost sm ev-read", onclick: function () { stopSpeaking(); A.open["book:" + e.book] = true; A.screen = "home"; render(); } }, "Le voir dans la bibliothèque"));
       return el; })) : null; };
     if (pref("quietFx")) evs = evs.filter(function (e) { return !e.conseq; });
@@ -3392,23 +3528,61 @@
       h("span", { class: "card-foot" }, C.enseigneNom + " · " + (M.RARITIES[C.rarete] || C.rarete), opts.n > 1 ? h("b", { class: "card-n" }, " × " + opts.n) : null),
       opts.why ? h("span", { class: "card-why" }, opts.why) : null);
   }
+  // The life of the deck (9.8): the piles can be looked at, one card may be traded at each stop, and the rules are
+  // told once, the first time a hand is shown (Clément, 17/11: « l'élan, on en gagne tous les combien ? »).
+  var HAND_HELP = "cartes-aide-vue";
   function renderHand(st, v) {
-    var H = v.hand, box = h("section", { class: "hand", "aria-label": "Ta main" });
+    var H = v.hand, box = h("section", { class: "hand", "aria-label": "Ta main" }), piles = function () { A.modal = { kind: "piles" }; render(); };
+    if (H.premiere && !H.joue && !A.modal && !lsGet(HAND_HELP)) A.modal = { kind: "handHelp" };
     box.appendChild(h("div", { class: "hand-bar" },
-      h("span", { class: "hand-elan", title: "L'élan se gagne à chaque halte ; les cartes fortes en coûtent." }, "Élan ", h("b", null, String(H.elan))),
-      h("span", { class: "muted small" }, "Pioche " + H.pioche + " · Défausse " + H.defausse),
-      H.types ? h("span", { class: "muted small" }, "Ici : " + H.types.map(function (t) { return M.CARD_TYPES[t]; }).join(", ")) : null));
+      h("span", { class: "hand-elan", title: "+1 à chaque halte (jusqu'à 5) ; +1 pour deux cartes de la même enseigne d'affilée ; les cartes fortes en coûtent." }, "Élan ", h("b", null, String(H.elan)), h("span", { class: "muted small" }, " / 5")),
+      h("button", { class: "linkish small", onclick: piles, title: "Voir ta pioche, ta défausse et tes cartes perdues" }, "Pioche " + H.pioche + " · Défausse " + H.defausse + (H.perdues ? " · Perdues " + H.perdues : "")),
+      H.types ? h("span", { class: "muted small" }, "Ici : " + H.types.map(function (t) { return M.CARD_TYPES[t]; }).join(", ")) : null,
+      h("button", { class: "btn ghost sm icon-btn", "aria-label": "Comment jouer les cartes", title: "Comment jouer les cartes", onclick: function () { A.modal = { kind: "handHelp" }; render(); } }, "?")));
     if (H.fils.length) box.appendChild(h("ul", { class: "hand-fils" }, H.fils.map(function (f) {
       return h("li", { class: "fil-" + f.etat }, h("b", null, f.titre), " · " + (f.etat === "noue" ? "noué" : f.etat === "rate" ? "manqué" : "ouvert") + (f.texte ? " — " + f.texte : ""));
     })));
-    var cards = v.choices.filter(function (c) { return c.sys === "carte" && c.ui; });
+    var cards = v.choices.filter(function (c) { return c.sys === "carte" && c.ui; }), swaps = {};
+    v.choices.forEach(function (c) { if (c.sys === "echange") swaps[c.carte] = c; });
+    var swapping = A.swap === H.halte && H.echange;
     if (!H.joue && cards.length) {
-      if (H.premiere) box.appendChild(h("p", { class: "notice soft small" }, "Choisis une carte : elle décide de ce qui arrive ici. Ce qu'elle devient dépend de l'endroit, de son enseigne et des fils déjà ouverts."));
-      box.appendChild(h("div", { class: "hand-cards", role: "group", "aria-label": "Les cartes de ta main" }, cards.map(function (c) {
+      if (swapping) box.appendChild(h("p", { class: "notice soft small", role: "status" }, "Touche la carte dont tu veux te défaire : elle part dans ta défausse, et tu prends celle du dessus de ta pioche."));
+      box.appendChild(h("div", { class: "hand-cards" + (swapping ? " swapping" : ""), role: "group", "aria-label": "Les cartes de ta main" }, cards.map(function (c) {
+        if (swapping) { var sw = swaps[c.carte]; return cardFace(st, c.carte, { button: true, off: !sw, n: c.n, onclick: function () { A.swap = null; if (sw) pick(sw); } }); }
         return cardFace(st, c.carte, { button: true, off: !c.ok, why: c.ok ? "" : c.why, n: c.n, onclick: function () { pick(c); } });
       })));
+      if (H.echange) box.appendChild(h("div", { class: "row hand-actions" }, h("button", { class: "btn sm" + (swapping ? " primary" : ""), onclick: function () { A.swap = swapping ? null : H.halte; render(); } },
+        swapping ? "Garder ma main" : "Échanger une carte (une fois par halte)")));
     }
     return box;
+  }
+  function modalHandHelp(box, close) {
+    var done = function () { lsSet(HAND_HELP, true); close(); };
+    modalHead(box, "Jouer avec des cartes", done);
+    var li = function (b, t) { return h("li", null, h("b", null, b), " " + t); };
+    box.appendChild(h("div", { class: "drawer-body stack" },
+      h("p", null, "À chaque halte, tu joues une carte de ta main. La carte décide du genre de chose qui t'arrive ; l'histoire te dit ce qu'elle devient à cet endroit."),
+      h("ul", { class: "hand-help" },
+        li("La main.", "Cinq cartes. À chaque halte, tu complètes ta main en piochant."),
+        li("L'élan.", "Tu commences avec 1. Tu gagnes 1 à chaque halte, jusqu'à 5. Les cartes fortes coûtent 1 ou 2 points (les ronds en haut à droite) ; les autres sont gratuites. Deux cartes de la même enseigne d'affilée te rendent 1 point. Certaines scènes en donnent aussi."),
+        li("L'enseigne.", "Lame (la force), Masque (la ruse), Lanterne (le savoir), Racine (les liens). Dans la scène qu'elle ouvre, la carte aide les jets de sa manière."),
+        li("Les fils.", "Certaines cartes ouvrent un fil : une personne, une dette, un secret. Une carte du bon genre le ramène plus loin, et le dénouement s'en souvient."),
+        li("Pioche et défausse.", "Une carte jouée va dans ta défausse. Quand la pioche est vide, la défausse est rebattue et redevient ta pioche. Touche les compteurs pour voir ce qu'elles contiennent."),
+        li("Échanger.", "Une fois par halte, tu peux te défaire d'une carte de ta main et prendre celle du dessus de ta pioche."),
+        li("Gagner et perdre.", "En route, l'histoire te donne des cartes nouvelles, ou t'en prend : une carte perdue quitte ta partie pour de bon.")),
+      h("div", { class: "row" }, h("button", { class: "btn primary", onclick: done }, "À la route"))));
+  }
+  function modalPiles(box, close) {
+    var G = A.game, st = G.story, v = M.view(st, G.s), P = (v.hand || {}).piles;
+    modalHead(box, "Ton jeu", close);
+    var b = h("div", { class: "drawer-body stack" });
+    if (!P) b.appendChild(h("p", null, "Pas de cartes ici."));
+    else [["main", "Ta main"], ["pioche", "Ta pioche (dans le désordre : l'ordre reste caché)"], ["defausse", "Ta défausse"], ["perdues", "Tes cartes perdues"]].forEach(function (x) {
+      var ids = P[x[0]]; if (!ids.length && x[0] === "perdues") return;
+      b.appendChild(h("h3", { class: "sub-h" }, x[1] + " · " + ids.length));
+      b.appendChild(ids.length ? h("div", { class: "hand-cards small-cards" }, ids.map(function (id) { return cardFace(st, id); })) : h("p", { class: "muted small" }, "Vide."));
+    });
+    box.appendChild(b);
   }
   var NUMBER_WORDS = ["", "Un", "Deux", "Trois", "Quatre", "Cinq", "Six", "Sept"];
   function renderChoices(v) {
@@ -5229,7 +5403,7 @@
   }
   // Who is with whom: the people met and the camps, on a circle; a line for each tie the hero has found.
   var TIE_COLOURS = { famille: "var(--gold)", allie: "var(--good)", ennemi: "var(--bad)", amour: "var(--mark)", dette: "var(--warn)", sert: "var(--accent)", secret: "var(--ink)", membre: "var(--line)" };
-  // The crew (11.1): who is aboard, who was lost, and of each one only what the hero believes of their leaning.
+  // The crew (11.3): who is aboard, who was lost, and of each one only what the hero believes of their leaning.
   function tabCrew(b, st, s) {
     var all = M.crewView(st, s);
     if (!all.length) { b.appendChild(h("div", { class: "notice" }, "Tu n'as encore embarqué avec personne.")); return; }
@@ -5456,7 +5630,7 @@
     var m = A.modal, close = function () { if (m.kind === "send" || m.kind === "receive") Transfer.stop(); A.modal = null; render(); };
     var box = h("div", { class: "modal", role: "dialog", "aria-modal": "true" });
     var bg = h("div", { class: "drawer-bg", onclick: close });
-    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, shake: modalShake, adult: modalAdult, keys: modalKeys, news: modalNews, group: modalGroup, vote: modalVote, doc: modalDoc, bookNotice: modalBookNotice })[m.kind](box, close, m);
+    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, shake: modalShake, adult: modalAdult, keys: modalKeys, news: modalNews, group: modalGroup, vote: modalVote, doc: modalDoc, bookNotice: modalBookNotice, handHelp: modalHandHelp, piles: modalPiles })[m.kind](box, close, m);
     app.appendChild(bg); app.appendChild(box);
     var f = box.querySelector("[autofocus]"); if (f) setTimeout(function () { f.focus(); }, 0);
   }

@@ -3,6 +3,13 @@
  "title": "Les Cendres de l'Hiver",
  "subtitle": "Cinq actes · six héros · un royaume qui oublie",
  "summary": "En plein été, une neige blanche tombe sur Esquarre, et ce qu'elle recouvre, le monde l'oublie. Six personnes que rien ne reliait vont devoir comprendre pourquoi : un enfant de la montagne, une chevalière, un faussaire, un vieux greffier aveugle, une chamane et une chanteuse de cour.",
+ "author": "Claude, pour Clément",
+ "tags": [
+  "fantasy",
+  "aventure",
+  "voyage",
+  "intrigue"
+ ],
  "skin": "givre",
  "cover": {
   "motif": "flocon",
