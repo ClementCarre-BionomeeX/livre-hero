@@ -33,7 +33,7 @@ module.exports = {
         "Tu romps le cachet. Dans la toile cirée, il y a trois choses : une carte pliée en quatre, une feuille de parchemin, et un petit carnet relié de cuir vert.",
       ],
       choices: [
-        { label: "Déplier la carte", fx: { item: ["carte_aiguille", "parchemin", "carnet_maraude"], gold: 40 }, to: "A1_carte" },
+        { label: "Déplier la carte", fx: { item: ["carte_aiguille", "parchemin", "carnet_maraude"], gold: 600 }, to: "A1_carte" },
       ] },
     A1_carte: { act: "I", title: "La carte", place: "fanal_chambre",
       text: [

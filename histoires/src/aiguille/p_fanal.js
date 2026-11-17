@@ -3,7 +3,7 @@
 module.exports = {
   passages: {
     A1_debut: { act: "I", title: "Le Fanal", place: "fanal_salle", ambiance: "mer",
-      fx: { meet: ["lazare", "zelie"] },
+      fx: { meet: ["lazare", "zelie"], assign: { mousse: "mousse", victorine: "victorine", fargue: "fargue" } },
       text: [
         "Novembre ronge la falaise depuis trois semaines. Le vent vient du large sans reprendre souffle ; il entre sous les ardoises, siffle dans le conduit de la cheminée, fait claquer le volet de la chambre du haut avec la patience d'un créancier. La lande, derrière l'auberge, s'est couchée sous lui comme un chien battu. Devant, il n'y a que la mer : grise à midi, noire à quatre heures, et blanche partout où elle se jette sur les écueils de l'anse.",
         "Le Fanal tient bon. C'est une maison de granit à deux étages, bâtie de travers par un aïeul qui ne croyait pas aux angles droits, avec une lanterne de cuivre au pignon que ton père allume chaque soir à la tombée du jour. Les marins du large la prennent pour un feu de côte et saluent en passant. Les douaniers prétendent qu'elle guide les contrebandiers. Les deux ont raison, ce qui fait de l'auberge un lieu de paix.",

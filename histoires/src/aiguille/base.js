@@ -222,6 +222,9 @@ module.exports = {
       gabet: { poste: "matelot", penchant: -2 },
       pellerin: { poste: "matelot", penchant: 1 },
       rosemonde: { poste: "canonnière", penchant: 2 },
+      vauclair: { poste: "aide-chirurgien", penchant: 0 },
+      malbosc: { poste: "passager", penchant: 1 },
+      florian: { poste: "passager", penchant: 2 },
     },
   },
   items: {
