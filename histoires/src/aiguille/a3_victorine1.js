@@ -46,6 +46,7 @@ module.exports = {
         { label: "Entrer dans la grand-chambre, où la lumière brûle encore à l'aube", to: "YC_aube", hide: { seen: "YC_aube" }, if: { count: JOURS, min: 2 }, why: "Le baron dort encore la nuit." },
         { label: "Caler la malle qui cogne contre la cloison", to: "YH_malle", hide: { seen: "YH_malle" } },
         { label: "Un coup de vent, l'après-midi, et un fracas dans la batterie", to: "YJ_canon", hide: { seen: "YJ_canon" }, if: { count: JOURS, min: 2 }, why: "La mer est encore maniable." },
+        { label: "Monter à la grand-chambre, à deux heures du matin, où le baron se meurt", to: "ZC_dictionnaire", hide: { seen: "ZC_dictionnaire" }, if: { count: JOURS, min: 2 }, why: "Le baron ne s'ennuie pas encore." },
         { label: "La dixième nuit", to: "A3v_grain", big: true, if: { count: JOURS, min: 4 }, why: "Brisegrève est encore loin." },
       ] },
 
@@ -238,6 +239,7 @@ module.exports = {
         { label: "Dîner chez le gouverneur", to: "XM_v_diner", hide: { seen: "XM_v_diner" } },
         { label: "Demander à voir l'infirmerie du fort", to: "XQ_b_infirmerie", hide: { seen: "XQ_b_infirmerie" }, if: { seen: "XM_v_diner" }, why: "Elle n'a pas encore été reçue au fort." },
         { label: "Le canot du fort accoste : on fouille la Cormorane", to: "YA_b_fouille", hide: { any: [{ seen: "YA_b_fouille" }, { not: { has: "ya:marque_vue" } }] } },
+        { label: "Répondre au billet du gouverneur, porté au coucher du soleil", to: "YY_billet", hide: { seen: "YY_billet" }, if: { seen: "XM_v_diner" }, why: "Le gouverneur ne la connaît pas encore." },
         { label: "Entendre la messe du dimanche à la chapelle du fort", to: "XQ_b_aumonier", hide: { seen: "XQ_b_aumonier" } },
         { label: "Acheter des citrons à la cantinière du bourg", if: { gold: { min: 40 } }, hide: { any: [{ has: "pharmacie:citron" }, { seen: "A3v_citrons" }] }, fx: { gold: -40, flag: "citrons:victorine" }, to: "A3v_citrons" },
       ] },

@@ -37,6 +37,8 @@ module.exports = {
         { label: "Aller au lavoir de la Fontaine-Morte, après minuit", to: "XA_lavoir", hide: { seen: "XA_lavoir" }, if: { seen: "A1_j_zelie" }, why: "Zélie ne t'en a encore rien défendu." },
         { label: "Recevoir enfin le brigadier Fouques", to: "XA_fouques", hide: { any: [{ seen: "XA_fouques" }, { not: { has: "fouques:averti" } }] } },
         { label: "Une nuit, la cloche de Sainte-Anne sonne à toute volée", to: "XA_naufrage", hide: { seen: "XA_naufrage" }, if: { count: JOURS, min: 2 }, why: "La mer est encore trop sage." },
+        { label: "Une nuit, suivre la lumière qui bouge sous Sainte-Anne", to: "YP_lueur", hide: { seen: "YP_lueur" }, if: { seen: "A1_j_chapelle" }, why: "Tu n'es pas retourné{e} à la chapelle depuis longtemps." },
+        { label: "Traverser la lande à la nuit tombante, au retour de Varnèse", to: "ZB_brume", hide: { seen: "ZB_brume" }, if: { count: JOURS, min: 1 }, why: "On ne t'a encore rien envoyé chercher à Varnèse." },
         { label: "Un après-midi de pluie, quelqu'un frappe", to: "A1_hulotte", big: true, if: { count: JOURS, min: 3 }, why: "Les jours se ressemblent encore." },
       ] },
 

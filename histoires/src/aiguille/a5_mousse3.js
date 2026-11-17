@@ -5,23 +5,31 @@
 var F = require("./fins_choix.js");
 var DAGREL_VIF = F.DAGREL_VIF;
 var MALANDAIN = { not: { has: "malandain:mort" } };
+var ECRIVAIN = { voie: "ecrivain" };
 var MENACE = { all: [{ any: [{ has: "chevalier:ultimatum" }, { has: "desinvolte:hostile" }] }, { not: { has: "desinvolte:alliee" } }] };
 module.exports = {
   passages: {
-    A5o_debut: { act: "V", title: "Le vent de retour", place: "anse_morte", ambiance: "mer",
+    A5o_debut: { act: "V", title: "Le vent de retour", place: "anse_morte", hub: true, noLead: true, backName: "la plage", ambiance: "mer",
       text: [
-        "Tu te réveilles au chant du rocher. Il chante depuis l'aube, à l'ouest, d'une seule note, longue, grave, que le vent du nord-est fait monter et descendre comme une respiration. On l'entend de partout. On l'entend dans les dents.",
-        "C'est le vent de retour. Les marins le disent en le sentant sur leur joue, avec un respect religieux, comme on dit le nom d'un saint dont on a besoin.",
-        { if: { has: "mousse:libere" }, text: "Tes poignets portent encore la marque de la corde. Tu les frottes sans y penser. Tu le feras longtemps, des années, dans des pièces chaudes, devant des gens qui ne sauront pas pourquoi." },
-        { if: { has: "livre=echevins" }, text: "Le livre est dans la doublure de la trousse de la docteure. Tu l'as vue le coudre, la nuit, à la chandelle, avec un fil de chirurgien, à points serrés, en fumant une pipe qu'elle ne fume jamais." },
-        { if: { has: "livre=baron" }, text: "Le livre est dans les mains du baron. Il ne le pose plus. Il dort avec, dit-on, le bras passé dessus, comme un enfant avec un jouet qu'on veut lui reprendre." },
-        { if: { has: "livre=jeanne" }, text: "Le livre est dans la grotte, derrière la cascade, entre les mains de Jeanne Brasdefer. Elle t'a dit qu'elle viendrait à la plage, ce matin, avec ses huit, si la mer est belle." },
-        { if: { has: "livre=brule" }, text: "Tu as encore, dans les narines, l'odeur de la peau de requin brûlée. Elle te reviendra des années, à la poissonnerie, et tu sortiras sans rien acheter." },
-        { if: { has: "livre=fargue" }, text: "Le livre est dans la chemise du maître-coq, contre sa peau. Il le sent à chaque pas. Il ne le montre à personne." },
-        { if: { has: "livre=dagrel" }, text: "Le livre est retourné à celui qui l'a écrit. Tu ne sais pas où il l'a mis. Tu ne sais pas non plus où est le vieil homme." },
-        { with: "chien", text: "Le chien-loup est assis sur la plage, face à la mer, les oreilles droites, le museau au vent. Il sent quelque chose venir. Il le sent depuis l'aube." },
+        { first: true, text: "Tu te réveilles au chant du rocher. Il chante depuis l'aube, à l'ouest, d'une seule note, longue, grave, que le vent du nord-est fait monter et descendre comme une respiration. On l'entend de partout. On l'entend dans les dents." },
+        { first: true, text: "C'est le vent de retour. Les marins le disent en le sentant sur leur joue, avec un respect religieux, comme on dit le nom d'un saint dont on a besoin." },
+        { first: true, if: { has: "mousse:libere" }, text: "Tes poignets portent encore la marque de la corde. Tu les frottes sans y penser. Tu le feras longtemps, des années, dans des pièces chaudes, devant des gens qui ne sauront pas pourquoi." },
+        { first: true, if: { has: "livre=echevins" }, text: "Le livre est dans la doublure de la trousse de la docteure. Tu l'as vue le coudre, la nuit, à la chandelle, avec un fil de chirurgien, à points serrés, en fumant une pipe qu'elle ne fume jamais." },
+        { first: true, if: { has: "livre=baron" }, text: "Le livre est dans les mains du baron. Il ne le pose plus. Il dort avec, dit-on, le bras passé dessus, comme un enfant avec un jouet qu'on veut lui reprendre." },
+        { first: true, if: { has: "livre=jeanne" }, text: "Le livre est dans la grotte, derrière la cascade, entre les mains de Jeanne Brasdefer. Elle t'a dit qu'elle viendrait à la plage, ce matin, avec ses huit, si la mer est belle." },
+        { first: true, if: { has: "livre=brule" }, text: "Tu as encore, dans les narines, l'odeur de la peau de requin brûlée. Elle te reviendra des années, à la poissonnerie, et tu sortiras sans rien acheter." },
+        { first: true, if: { has: "livre=fargue" }, text: "Le livre est dans la chemise du maître-coq, contre sa peau. Il le sent à chaque pas. Il ne le montre à personne." },
+        { first: true, if: { has: "livre=dagrel" }, text: "Le livre est retourné à celui qui l'a écrit. Tu ne sais pas où il l'a mis. Tu ne sais pas non plus où est le vieil homme." },
+        { first: true, with: "chien", text: "Le chien-loup est assis sur la plage, face à la mer, les oreilles droites, le museau au vent. Il sent quelque chose venir. Il le sent depuis l'aube." },
+        { again: true, text: "Le rocher chante toujours, à l'ouest. Derrière toi, le camp s'affaire, et le vent de retour n'attendra pas indéfiniment." },
       ],
-      choices: [{ label: "Regarder l'anse", to: "A5o_etat" }] },
+      choices: [
+        { label: "Marcher seul{e} jusqu'au bout de la plage", to: "YW_pointe", hide: { seen: "YW_pointe" } },
+        { label: "Aller au-devant de l'enfant qui t'attend au pied d'un cocotier", to: "YW_sureau", hide: { any: [{ seen: "YW_sureau" }, { not: { seen: "XD_debut" } }] } },
+        { label: "Écrire les lettres de ceux qui font la queue devant toi", to: "YW_lettres", hide: { any: [{ seen: "YW_lettres" }, { not: ECRIVAIN }] } },
+        { label: "Aller t'asseoir près de la gabière, au pied d'un cocotier", to: "YZ_plage", hide: { any: [{ seen: "YZ_plage" }, { not: { has: "yz:souffle" } }, { not: { marin: "marjolaine", is: ["loyal", "hesitant"] } }] } },
+        { label: "Regarder l'anse", to: "A5o_etat", big: true },
+      ] },
     A5o_etat: { act: "V", title: "Le vent de retour", branch: [
       { if: { has: "cormorane:sabotee" }, fx: { flag: "navire:perdu" }, to: "A5o_epave" },
       { if: { all: [{ has: "cormorane:mutins" }, { not: { has: "cormorane:reprise" } }] }, to: "A5o_mutins" },

@@ -14,6 +14,7 @@ module.exports = {
         { label: "Monter au cimetière des Hollandes, à la fosse des pauvres", to: "XR_fosse", hide: { seen: "XR_fosse" } },
         { label: "Jouer aux échecs au café des Navigateurs, où le professeur tient table", to: "XR_echecs", hide: { seen: "XR_echecs" } },
         { label: "Passer la première nuit dans la cambuse de la Cormorane", to: "XR_cambuse", hide: { seen: "XR_cambuse" } },
+        { label: "S'arrêter au lit du fond, dans la salle des hommes, sous la chambre de Lisette", to: "YT_salle", hide: { seen: "YT_salle" } },
         { label: "Passer à la Truie-qui-file, où quelqu'un t'attend", to: "A2f_sabran", big: true },
       ] },
 

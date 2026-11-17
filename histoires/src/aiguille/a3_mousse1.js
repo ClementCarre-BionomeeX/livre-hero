@@ -37,6 +37,7 @@ module.exports = {
         { label: "Monter au gaillard d'avant, au quart de minuit, avec le grand Toussaint", to: "YA_m_etoiles", hide: { seen: "YA_m_etoiles" } },
         { label: "Regarder écrire le matelot à lunettes, au pied du grand mât", to: "YG_debut", hide: { seen: "YG_debut" } },
         { label: "Un coup de vent, l'après-midi, et un fracas dans la batterie", to: "YJ_canon", hide: { seen: "YJ_canon" }, if: { count: JOURS, min: 2 }, why: "La mer est encore maniable." },
+        { label: "Lire, derrière la chaloupe, ce que la gabière a répondu", to: "YZ_reponse", hide: { any: [{ seen: "YZ_reponse" }, { not: { has: "yz:plume" } }] } },
         { label: "La dixième nuit", to: "A3m_grain", big: true, if: { count: JOURS, min: 4 }, why: "Brisegrève est encore loin." },
       ] },
 

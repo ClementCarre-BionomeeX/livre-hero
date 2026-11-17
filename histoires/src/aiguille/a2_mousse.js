@@ -43,6 +43,8 @@ module.exports = {
         { label: "Prendre le quart de nuit sur le pont", to: "A2m_quart", hide: { seen: "A2m_quart" }, if: { count: JOURS, min: 2 }, why: "Gobert ne te confie pas encore le quart." },
         { label: "Suivre Petit-Jules à la foire du Quai-aux-Harengs, le dimanche", to: "XG_foire", hide: { seen: "XG_foire" }, if: { count: JOURS, min: 1 }, why: "Le dimanche n'est pas encore venu." },
         { label: "Porter un pli à la capitainerie, un matin de pendaison", to: "XG_pendaison", hide: { seen: "XG_pendaison" }, if: { count: JOURS, min: 2 }, why: "Gobert n'a pas encore de pli à porter." },
+        { label: "Un matin, le quai se tait", to: "YR_quai", hide: { seen: "YR_quai" }, if: { count: JOURS, min: 1 }, why: "Le quai chante encore." },
+        { label: "Suivre Daguenet derrière la chaloupe, où il te fait signe", to: "YZ_demande", hide: { seen: "YZ_demande" }, if: { seen: "A2m_mature" }, why: "Les gabiers ne te connaissent pas encore." },
         { label: "Le dixième jour", to: "A2m_fin", big: true, if: { count: JOURS, min: 3 }, why: "Il reste des jours d'armement." },
       ] },
 
@@ -217,6 +219,7 @@ module.exports = {
         { label: "Descendre vers les fosses aux chiens", to: "XC_debut", hide: { seen: "XC_debut" } },
         { label: "Rentrer tard, par la rue des Cordiers", to: "XG_presse", hide: { seen: "XG_presse" }, if: { seen: "A2m_pellerin" }, why: "Tu ne connais encore personne, à la Basse-Fosse, à qui il pourrait arriver quelque chose." },
         { label: "Courir derrière la main qui vient de te prendre tes trois sous", to: "YE_main", hide: { seen: "YE_main" } },
+        { label: "Aller voir le vieil homme assis en face de la boutique verte", to: "YN_banc", hide: { seen: "YN_banc" } },
         { label: "Chercher la porte bleue des Sœurs, rue des Tanneurs", to: "A2m_soeurs", hide: { seen: "A2m_soeurs" }, if: { item: "lettre_soeurs" }, why: "Tu n'as rien à faire chez des religieuses." },
         { back: "A2m_jours" },
       ] },

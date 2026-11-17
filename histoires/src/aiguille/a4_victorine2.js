@@ -39,6 +39,8 @@ module.exports = {
         { label: "Une pierre tombe dans la cour, du côté du ravin", to: "YA_mur", hide: { any: [{ seen: "YA_mur" }, { not: { has: "ya:tu" } }] }, if: { count: JOURS, min: 1 }, why: "La nuit est encore calme." },
         { label: "Aller voir ce que les pelles ont heurté, au fond du verger", to: "YD_fouille", hide: { any: [{ seen: "YD_fouille" }, { not: { marin: "tarlet", is: ["loyal", "hesitant"] } }] }, if: { count: JOURS, min: 1 }, why: "On n'a pas encore commencé à creuser." },
         { label: "S'asseoir, la nuit, en face du portrait", to: "YH_nuit", hide: { any: [{ seen: "YH_nuit" }, { not: { has: "yh:vu" } }] }, if: { count: JOURS, min: 1 }, why: "Les nuits du siège n'ont pas encore commencé." },
+        { label: "Écouter Rosemonde, le soir où la fièvre entre dans la sacristie", to: "YO_fievre", hide: { any: [{ seen: "YO_fievre" }, { not: { marin: "rosemonde", is: "abord" } }, { has: "evac:pharmacie" }] }, if: { count: JOURS, min: 2 }, why: "La fièvre n'est pas encore entrée." },
+        { label: "Un coup de feu, à trois heures du matin, du clocher", to: "ZD_coup", hide: { seen: "ZD_coup" }, if: { count: JOURS, min: 1 }, why: "Les mutins n'ont pas encore tâté le mur." },
         { label: "Un drapeau blanc sur le sentier", to: "A4w_parlement", big: true, if: { count: JOURS, min: 2 }, why: "Les mutins ne se sont pas encore montrés." },
       ] },
 
