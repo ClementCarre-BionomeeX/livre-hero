@@ -1,0 +1,331 @@
+// L'Île Folle-Aiguille · « Le plateau », second part: the rest of the Table. The camp of a painter left there forty
+// years ago, Toussaint Rivelin, whose last canvas made a boy of twenty into a naturalist (his notebook, item
+// carnet_rivelin; the stair he cut down the western cliff, xt:escalier_su then xt:escalier; his grave,
+// xt:rivelin_enterre). Three young egg-hunters from the Wells, blinded by daylight (xt:chasseurs, xt:cheminee_nord,
+// or xt:chasseurs_abandonnes). The crater of the wings on the northern rim (xt:specimen, xt:puits_vu, item
+// griffe_aile). The wood that glows (item mousse_luisante). The black lake at dawn (xt:cou_vu).
+module.exports = {
+  passages: {
+    // ---------------------------------------------------------------- the painter's camp
+    XT_camp: { act: "IV", title: "Les pierres levées", place: "table", ambiance: "nature",
+      text: [
+        "Le ruisseau sort de la forêt écailleuse par une gorge de mousse, et il mène, en une heure de marche, à une clairière où se tiennent debout des pierres. Six pierres plates, plantées dans le sol en demi-cercle, plus hautes qu'un homme, couvertes de lichen orange.",
+        "Le professeur les regarde, les palpe, les flaire. « Taillées, dit-il. Taillées à l'outil de fer, et maladroitement. Un mur. Quelqu'un a voulu se faire un mur. »",
+        "Derrière les pierres, il y a une hutte. Ou ce qu'il en reste : des blocs de lave empilés à hauteur de poitrine, un toit de prêles effondré, une porte faite d'une planche de navire où l'on lit encore, peintes en lettres blanches que la pluie a presque mangées, quatre lettres d'un nom : … GILAN …",
+        "L'air sent la mousse et le temps. Rien n'a bougé ici depuis très longtemps, sauf la mousse, qui a tout recouvert avec la patience d'une nourrice qui borde un enfant mort.",
+      ],
+      choices: [
+        { label: "Entrer dans la hutte", to: "XT_camp_dedans" },
+        { label: "Regarder les pierres de plus près", to: "XT_camp_murs" },
+      ] },
+    XT_camp_dedans: { act: "IV", title: "La hutte", place: "table", ambiance: "nature",
+      text: [
+        "Il faut écarter le toit tombé, tige par tige. Les prêles sèches se brisent comme du verre.",
+        "Dedans, un hamac de toile à voile, pourri, tendu entre deux poteaux, et dans le hamac, un homme. Ce qu'il en reste. Des os propres, blancs, arrangés dans la position d'un dormeur, la tête sur un ballot de chiffons, les mains croisées sur la poitrine, comme quelqu'un qui aurait eu le temps de se préparer, et le goût de le faire proprement.",
+        "Sur le sol, un pot de terre où sèchent depuis des années des pinceaux aux poils raidis. Une palette de bois, couverte de croûtes de couleurs : de l'ocre, du noir de fumée, un vert de mousse, un bleu qu'on se demande où il a pu trouver. Une boîte de fer-blanc, carrée, rouillée, fermée par une ficelle.",
+        "Le professeur s'est arrêté sur le seuil. Il ôte son chapeau. Il ne dit rien, une seconde fois dans la même journée, ce qui commence à constituer, chez lui, une habitude inquiétante.",
+      ],
+      choices: [
+        { label: "Ouvrir la boîte de fer-blanc", fx: { item: "carnet_rivelin" }, to: "XT_camp_boite" },
+        { label: "Ressortir, et laisser l'homme dormir", back: "XT_haut" },
+      ] },
+    XT_camp_boite: { act: "IV", title: "Le carnet", place: "table", ambiance: "nature",
+      text: [
+        "Dans la boîte, enveloppé dans un morceau de toile cirée, un carnet. Relié de veau, gonflé d'humidité, mais sec à l'intérieur : la toile cirée a fait son travail pendant des années, plus fidèlement que bien des domestiques.",
+        "Sur la première page, d'une écriture ronde, appliquée, d'homme qui a appris à écrire tard et qui en est fier :",
+        "« Toussaint Rivelin, peintre de marine, de Morlenc, rue des Tanneurs. Débarqué de la baleinière la Vigilante le 3 avril, pour faire de l'eau. La Vigilante est partie dans le grain du 5 sans moi. Je n'en veux à personne, la mer est la mer. Je dessinerai ce que je vois, pour qu'on le voie. »",
+        "Le professeur Gaudrémont, par-dessus ton épaule, a cessé de respirer.",
+        "« Rivelin, dit-il enfin, d'une voix que tu ne lui connais pas, une voix de petit garçon. Toussaint Rivelin. »",
+      ],
+      choices: [{ label: "« Vous le connaissiez ? »", to: "XT_camp_salon" }] },
+    XT_camp_salon: { act: "IV", title: "Le Salon de Morlenc", place: "table", ambiance: "nature",
+      text: [
+        "Il s'assied sur un bloc de lave. Il tient son chapeau à deux mains, sur ses genoux, comme un paroissien.",
+        "« J'avais vingt ans, dit-il. J'étais étudiant en droit, à Morlenc, parce que mon père voulait un notaire. Un jour de pluie, pour m'abriter, je suis entré au Salon de l'Académie des Beaux-Arts. Au fond de la dernière salle, mal éclairé, entre une Vénus et un portrait d'évêque, il y avait un petit tableau. Une plage, une falaise, et au-dessus de la falaise, une forêt, et dans la forêt, des bêtes. Des bêtes qui n'existaient pas. Un oiseau qui courait. Un lézard qui marchait debout. »",
+        "« Le cartel disait : Toussaint Rivelin, Souvenir d'une île, envoi posthume. Les critiques en ont ri pendant une semaine. Ils ont écrit que le pauvre homme avait pris de l'opium chez les Chinois. » Il regarde le hamac, dans la hutte. « Je suis resté une heure devant. Le lendemain, j'ai quitté le droit. J'ai fait de la géologie, de la zoologie, des fouilles, des voyages. Toute ma vie. Pour savoir si cet homme avait menti. »",
+        "« Envoi posthume. On l'avait cru mort. Quelqu'un avait rapporté le tableau, et pas l'homme. » Il ferme les yeux. « Il était là. Tout ce temps. Il dessinait. »",
+        "Il se lève, d'un coup, et se mouche bruyamment dans un mouchoir à carreaux grand comme une voile d'étai.",
+        "« Il n'avait pas menti, dit-il, très fort, à la clairière, aux pierres, au ciel. Vous entendez ? Il n'avait pas menti ! »",
+      ],
+      choices: [
+        { label: "Lire les pages du milieu", to: "XT_camp_lire" },
+        { label: "Lire la dernière page", to: "XT_camp_derniere" },
+      ] },
+    XT_camp_lire: { act: "IV", title: "Les pages du milieu", place: "table", ambiance: "nature",
+      text: [
+        "Les pages du milieu sont des dessins. À la mine de plomb, à l'encre de seiche, rehaussés de couleurs qu'il a dû broyer lui-même avec des pierres et des baies. Des coureurs, de face, de profil, en course, au nid. Les lézards des rochers chauds, avec la langue fourchue. La harde du lac noir, avec ses petits. Et d'autres choses, que vous n'avez pas encore vues : une bête à long cou qui sort d'un étang, à l'aube, comme un serpent qui se dresse ; des ailes, de grandes ailes de cuir, au-dessus d'un cratère, au nord.",
+        "Entre les dessins, des lignes d'écriture ronde. « 14 mai. Le grand coureur m'a regardé longtemps. Je crois qu'il me trouve laid. » « 2 juin. La fièvre. Je dessine couché. » « 11 juin. J'ai trouvé comment descendre. Je ne descendrai pas encore. Il y a trop à dessiner. » « 30 juillet. Une baleinière au large. Je lui ai fait des signaux. Elle n'a pas vu, ou elle a vu et elle a eu peur. Je l'aurais eue aussi. »",
+        "Et plus loin, une page entière, une femme. Assise à une fenêtre, de trois quarts, avec un chignon et un ouvrage sur les genoux. Dessinée de mémoire, plusieurs fois reprise, effacée, redessinée, jusqu'à ce que le papier s'use. Dessous : « Madeleine. Je ne me rappelle plus si elle avait les yeux gris ou verts. Gris, je crois. Je les fais gris. »",
+        "Le professeur tourne les pages, très lentement, avec deux doigts, comme on touche une relique. Il a cessé de prendre des notes.",
+      ],
+      choices: [
+        { label: "Lire la dernière page", to: "XT_camp_derniere" },
+        { label: "Refermer le carnet", to: "XT_camp_tombe_q" },
+      ] },
+    XT_camp_derniere: { act: "IV", title: "La dernière page", place: "table", ambiance: "nature",
+      text: [
+        "La dernière page écrite n'a pas de date. L'écriture est plus grande, plus lâche, inclinée, comme si la main avait eu du mal à tenir la ligne.",
+        "« Pour celui qui viendra. Il y a un escalier. Je l'ai taillé moi-même, deux ans, à l'ouest, derrière le rideau de lianes, en face du rocher qui chante, là où la falaise fait un coude. Deux cents marches. Elles sont mauvaises, mais elles tiennent. Je n'ai pas eu le courage de m'en servir. En bas, il n'y avait personne qui m'attendait, et en haut, il y avait tout ça. »",
+        "« Dites à Madeleine que j'ai peint. Qu'on dise à l'Académie ce qu'on voudra. »",
+        "Plus bas, un petit plan, à l'encre, de trois traits : le bord de la falaise, un coude, une croix. Et une flèche vers le rocher percé.",
+      ],
+      choices: [{ label: "Refermer le carnet", fx: { flag: "xt:escalier_su" }, to: "XT_camp_tombe_q" }] },
+    XT_camp_murs: { act: "IV", title: "Les pierres peintes", place: "table", ambiance: "nature",
+      text: [
+        "Sous le lichen orange, quand on le gratte de l'ongle, il y a de la couleur.",
+        "Les pierres levées sont peintes. Toutes les six, sur leur face intérieure, celle qui regarde la hutte. Des fresques, à l'ocre et au noir, délavées, mangées, mais lisibles quand le soleil les prend de biais. Un port. Des quais, des mâts, des maisons hautes à pignons. La cathédrale de Morlenc, avec sa tour inachevée, qu'on reconnaît tout de suite. Une rue en pente. Une fenêtre, et à la fenêtre, une femme.",
+        "Il a peint sa ville. Sur six pierres, au milieu d'une forêt où personne ne passerait jamais, il a peint la ville où il ne rentrerait pas, pour l'avoir autour de lui, le soir, comme on tire les rideaux d'une chambre.",
+        "Le professeur gratte le lichen avec son couteau de poche, très doucement, pour dégager la fenêtre. Il n'y arrive pas tout à fait. Il range son couteau.",
+        "« Il faudra revenir, dit-il. Avec des peintres. Des restaurateurs. Des gens soigneux. Pas des géologues. » Il regarde ses mains. « Les géologues cassent tout. C'est leur métier. »",
+      ],
+      choices: [
+        { label: "Entrer dans la hutte", hide: { seen: "XT_camp_dedans" }, to: "XT_camp_dedans" },
+        { label: "Revenir vers la forêt", back: "XT_haut" },
+      ] },
+    XT_camp_tombe_q: { act: "IV", title: "Le peintre", place: "table", ambiance: "nature",
+      text: [
+        "Le professeur regarde le hamac, la forme blanche dedans, les mains croisées.",
+        "« On ne peut pas le laisser comme ça, dit-il. Ou peut-être que si. Il s'est couché lui-même. Il avait choisi. C'est la seule chose qu'il ait choisie, peut-être, dans toute cette affaire. »",
+      ],
+      choices: [
+        { label: "L'enterrer au pied de la pierre à la fenêtre", fx: { flag: "xt:rivelin_enterre", regard: { gaudremont: "redevable" } }, to: "XT_camp_tombe" },
+        { label: "Le laisser dormir dans son hamac", back: "XT_haut" },
+      ] },
+    XT_camp_tombe: { act: "IV", title: "Le peintre", place: "table", ambiance: "nature",
+      text: [
+        "Vous creusez avec le marteau de géologue et avec les mains, dans la terre noire, sous la mousse, au pied de la pierre où la femme est à sa fenêtre. Ça prend l'après-midi. Le professeur creuse comme il parle, avec une énergie démesurée, et il s'arrête souvent pour souffler, et pour essuyer quelque chose sur ses joues qu'il prétend être de la sueur.",
+        "Vous portez les os dans la toile du hamac. Ils ne pèsent rien. Un peintre, au bout du compte, ça pèse moins que ses tableaux.",
+        "Quand la terre est remise, le professeur se tient debout devant la tombe, son chapeau contre la poitrine, et prononce un discours. Il dure vingt minutes. Il y est question de l'Académie des Beaux-Arts, de l'Académie des Sciences, des critiques du Mercure de Morlenc, nommément, un par un, avec leurs adresses ; de l'opium, de la vérité, du courage qu'il faut pour dessiner ce que personne ne croira ; et à la fin, d'une voix brisée, d'une femme aux yeux gris, ou verts.",
+        "« Je le dirai à Madeleine, conclut-il. Si elle vit. Et si elle ne vit plus, je le dirai à sa tombe. J'ai l'habitude, désormais. »",
+        "Tu plantes sur la tombe un pinceau du pot de terre, à la place d'une croix.",
+      ],
+      choices: [{ label: "Revenir vers la forêt", back: "XT_haut" }] },
+
+    XT_escalier: { act: "IV", title: "Le coude de la falaise", place: "table", ambiance: "nature",
+      text: [
+        "Tu suis le bord de la falaise vers l'ouest, le carnet ouvert à la dernière page, en cherchant le coude. Le vent monte de la mer et te bouscule. En bas, très loin, la Sylve ondule comme une mer verte.",
+        "Le rocher qui chante est en face, sur sa pente nue, au bout de l'île. Le coude doit être là. La falaise est couverte d'un rideau de lianes, épais comme un mur de feuillage, qui pend dans le vide sur cent pieds.",
+      ],
+      choices: [{ label: "Chercher derrière les lianes", test: { dom: "nature", diff: 0, label: "Trouver l'escalier du peintre" }, win: { fx: { flag: "xt:escalier" }, to: "XT_escalier_trouve" }, lose: { to: "XT_escalier_rate" } }] },
+    XT_escalier_trouve: { act: "IV", title: "L'escalier", place: "table", ambiance: "nature",
+      text: [
+        "Derrière les lianes, dans l'ombre verte, la roche est taillée.",
+        "Des marches. Étroites, inégales, creusées au marteau et au burin dans le basalte, qui descendent en zigzag le long de la paroi, avec, du côté du vide, un rebord haut d'une main, comme un garde-fou d'enfant. Elles sont couvertes de mousse et de petites fougères. Elles descendent à perte de vue.",
+        "Tu en descends vingt. Elles tiennent. Elles sont mauvaises, comme il l'a écrit, et elles tiennent. Deux ans de burin, pour un escalier dont il ne s'est jamais servi.",
+        "Tu remontes. Tu sais maintenant qu'il existe un chemin pour descendre de la Table sans la cheminée et sans le pont. Un chemin où l'on peut traîner un homme qui ne marche plus.",
+      ],
+      choices: [{ label: "Revenir vers la forêt", back: "XT_haut" }] },
+    XT_escalier_rate: { act: "IV", title: "Les lianes", place: "table", ambiance: "nature",
+      text: [
+        "Tu écartes les lianes, à un endroit, puis à un autre, puis à un troisième. Derrière, de la roche nue, mouillée, verticale. Le vent te pousse. Une liane cède sous ta main, et tu te rattrapes à une autre, le cœur dans la gorge, avec le vide qui t'appelle par ton nom.",
+        "Rien, ici. Ou bien c'est ici, sous tes yeux, et tes yeux refusent de servir. Le coude, sur le plan, c'est trois traits d'encre. La falaise, elle, a cent coudes.",
+      ],
+      choices: [
+        { label: "Chercher encore, plus au sud", test: { dom: "nature", diff: 1, label: "Le coude de la falaise" }, win: { fx: { flag: "xt:escalier" }, to: "XT_escalier_trouve" }, lose: { back: "XT_haut" } },
+        { label: "Renoncer pour aujourd'hui", back: "XT_haut" },
+      ] },
+
+    // ---------------------------------------------------------------- the egg-hunters
+    XT_chasseurs: { act: "IV", title: "Des voix", place: "table", ambiance: "nature",
+      text: [
+        "Des voix, dans les fougères géantes. Des voix basses, rauques, qui se disputent en chuchotant dans une langue que tu comprends à moitié : c'est ta langue, mais vieillie, ou enfouie, comme une pièce de monnaie qu'on aurait gardée trop longtemps dans la terre.",
+        "Tu écartes une fougère.",
+        "Ils sont trois. Trois jeunes gens, ton âge ou à peu près, maigres, pâles comme des racines, vêtus de cuir brûlé, avec des cordes enroulées autour du torse, des filets, des sacs. Ils ont les yeux bandés. Des bandes de toile noire, nouées derrière la tête, percées de deux fentes minces comme des lames de couteau.",
+        "Deux sont debout. Le troisième est par terre, couché sur le dos, la jambe prise sous un tronc de prêle tombé, gros comme un mât de hune. Il ne crie pas. Il serre les dents si fort qu'on les entend.",
+        "Les deux autres se retournent d'un coup, vers toi, et lèvent des marteaux.",
+      ],
+      choices: [
+        { label: "Lever les mains, et montrer le tronc", to: "XT_ch_paix" },
+        { label: "Reculer dans les fougères", to: "XT_ch_laisse" },
+      ] },
+    XT_ch_paix: { act: "IV", title: "Les chasseurs d'œufs", place: "table", ambiance: "nature",
+      text: [
+        "Tu lèves les mains. Tu montres le tronc, puis le garçon par terre, puis tes propres bras.",
+        "La plus grande des deux, une fille aux cheveux ras, avec une brûlure en étoile sur l'épaule, te regarde à travers les fentes de son bandeau. « De la mer, dit-elle. Tu es de la mer. » Elle constate, elle n'interroge pas.",
+        "« Mâchefer, dit-elle en se frappant la poitrine. Lui, Étincelle. Par terre, c'est Soufflet. Le tronc est tombé ce matin. Trois, pour le lever, c'est trop peu. »",
+        "Elle regarde le ciel, avec une grimace, comme on regarde un ennemi. « Le soleil monte. Bientôt on ne verra plus rien. »",
+        { if: { seen: "XT_debut" }, text: "Derrière toi, la voix du professeur Gaudrémont éclate, pleine d'enthousiasme. « Des êtres humains ! Sur la Table ! Ah, mais ils sont adaptés à l'obscurité, regardez ces bandeaux, c'est admirable ! » Mâchefer lève son marteau. Le professeur s'arrête, et sourit, et ajoute, plus bas : « Pardon. Bonjour. »" },
+      ],
+      choices: [
+        { label: "Soulever le tronc avec eux", test: { dom: "nature", diff: 0, label: "Un mât de prêle" }, win: { to: "XT_ch_leve" }, lose: { to: "XT_ch_rate" } },
+        { label: "Demander au professeur, ancien lutteur de foire", hide: { not: { has: "xt:dette" } }, to: "XT_ch_prof" },
+      ] },
+    XT_ch_prof: { act: "IV", title: "Le lutteur de foire", place: "table", ambiance: "nature",
+      text: [
+        "« Professeur, dis-tu. Vous avez été lutteur de foire. »",
+        "Il te regarde. Il regarde le tronc. Il ôte sa veste, la plie, la pose sur une fougère, retrousse ses manches sur des avant-bras couverts de poils gris et de tatouages délavés que tu n'avais jamais vus : une sirène, une ancre, et un cœur avec un prénom qu'il cache aussitôt de la main.",
+        "« Gamin, dit-il à Étincelle, quand je dirai trois, tu tires ton ami par les épaules. Pas avant. Si tu tires avant, je te mets le tronc sur le pied, et on recommence avec toi. »",
+        "Il se baisse, glisse ses mains sous le tronc, et souffle, une fois, deux fois. À trois, il se relève. Le tronc monte d'un pied. Étincelle tire. Soufflet glisse sur la mousse en hurlant enfin. Le professeur lâche le tronc, qui retombe avec un bruit de tambour, et s'assied dessus, violet, ravi.",
+        "« Gustave l'Ours, dit-il, entre deux souffles. Foire de la Saint-Jean, à Varnèse, 1791. Invaincu sept soirs de suite. Le huitième, j'ai rencontré un marin hollandais. On ne parle pas du huitième. »",
+      ],
+      choices: [{ label: "Regarder la jambe de Soufflet", fx: { regard: { gaudremont: "admiratif" } }, to: "XT_ch_parle" }] },
+    XT_ch_leve: { act: "IV", title: "Le tronc", place: "table", ambiance: "nature",
+      text: [
+        "Vous vous mettez à trois sous le tronc, Mâchefer, Étincelle et toi, les épaules contre l'écorce rugueuse. Il ne bouge pas. Puis il bouge. Un pouce. Deux. Soufflet rampe en arrière sur les coudes, en traînant sa jambe, et quand il est dégagé, vous lâchez tous ensemble, et le tronc retombe en faisant trembler les fougères.",
+        "Mâchefer te regarde. Elle te tend la main, une main noire de suie, dure comme du bois. Tu la prends. Elle serre jusqu'à te faire mal, exprès, pour voir. Tu serres aussi. Elle sourit, d'un sourire bref, avec des dents très blanches.",
+      ],
+      choices: [{ label: "Regarder la jambe de Soufflet", to: "XT_ch_parle" }] },
+    XT_ch_rate: { act: "IV", title: "Le tronc", place: "table", ambiance: "nature",
+      text: [
+        "Vous vous mettez à trois sous le tronc. Il bouge, un pouce, et glisse de côté, et retombe plus bas, sur le genou de Soufflet, avec un bruit sec de branche cassée.",
+        "Soufflet hurle, cette fois. Un cri qui fait s'envoler des fougères une nuée de petits oiseaux gris.",
+        "Il faut une heure, des leviers, des cordes, pour le sortir de là. Quand il est dehors, sa jambe a un angle que tu as appris à reconnaître. Mâchefer ne te regarde plus. Elle te tourne le dos, et parle à Étincelle, très vite, à voix basse, dans la langue enfouie, et tu entends le mot « mer » revenir plusieurs fois, sur le ton qu'on prend pour une injure.",
+        "Ils le portent à deux, dans un filet, et s'en vont vers le nord sans un mot. Au bord de la clairière, Mâchefer se retourne. « Tu as voulu aider, dit-elle. Je le dirai à Hugon. Je dirai aussi le reste. »",
+      ],
+      choices: [{ label: "Revenir vers la forêt", fx: { flag: "xt:chasseurs_mefiants" }, back: "XT_haut" }] },
+    XT_ch_parle: { act: "IV", title: "Les chasseurs d'œufs", place: "table", ambiance: "nature",
+      text: [
+        "La jambe de Soufflet est meurtrie, noire, enflée, et entière. Il se lève, en s'appuyant sur Étincelle, et il rit, d'un rire de gorge, nerveux, très jeune.",
+        "Ils s'asseyent avec toi à l'ombre d'une fougère, là où il fait presque nuit, et ils retirent un instant leurs bandeaux pour s'essuyer les yeux. Ils ont des yeux pâles, presque blancs, avec des pupilles énormes, qui se contractent douloureusement à la moindre lumière.",
+        "« On monte à la saison sèche, dit Étincelle. Par la cheminée du nord, celle qui fume. Pour les œufs. Les œufs des coureurs, c'est ce qu'il y a de meilleur, en bas, on n'a rien de pareil. Un œuf nourrit une famille trois jours. » Il hésite. « Hugon ne sait pas qu'on monte. Hugon dit que la Table est au Vieux. Que le Vieux l'a dit. »",
+        "« Le Vieux dit beaucoup de choses, dit Mâchefer. Le Vieux ne monte jamais. » Elle remet son bandeau. « Toi, tu ne diras rien. »",
+      ],
+      choices: [
+        { label: "« Je ne dirai rien. »", fx: { flag: "xt:chasseurs", item: "sou_forge" }, to: "XT_ch_promesse" },
+        { label: "« Montrez-moi la cheminée du nord. »", fx: { flag: ["xt:chasseurs", "xt:cheminee_nord"] }, to: "XT_ch_cheminee" },
+      ] },
+    XT_ch_promesse: { act: "IV", title: "Les chasseurs d'œufs", place: "table", ambiance: "nature",
+      text: [
+        "Mâchefer hoche la tête. Elle sort de son sac un objet enveloppé de cuir et te le met dans la main : une petite pièce de métal, ronde, percée, frappée d'un marteau sur une face. Un sou de forge.",
+        "« Montre ça, en bas, si tu viens aux Puits, dit-elle. On saura que tu as aidé Soufflet. On aide ceux qui aident. On casse ceux qui cassent. C'est simple, en bas. »",
+        "Ils repartent vers le nord, Soufflet entre les deux, en boitant, et disparaissent dans les fougères. Tu les entends rire encore longtemps.",
+      ],
+      choices: [{ label: "Revenir vers la forêt", back: "XT_haut" }] },
+    XT_ch_cheminee: { act: "IV", title: "La cheminée du nord", place: "table", ambiance: "nature",
+      text: [
+        "Ils te mènent au nord, à travers la forêt, en marchant à l'ombre, de tronc en tronc, comme des chats sous une pluie.",
+        "La cheminée du nord est une fissure dans le rebord de la Table, d'où monte une chaleur sèche et une odeur de soufre. On y a planté, de loin en loin, des pieux de fer, rouges de rouille. « Les nôtres, dit Étincelle, fièrement. Forgés en bas. Montés un par un. Ça a pris dix ans. » La cheminée descend vers les collines rousses, vers les fumées des Puits. Avec une corde et des bras, on y descendrait un homme blessé, couché dans un filet.",
+        "« Si tu veux descendre par là un jour, dit Mâchefer, siffle trois fois au bord. Quelqu'un entendra. Pas tout de suite. Quelqu'un. »",
+      ],
+      choices: [{ label: "Revenir vers la forêt", back: "XT_haut" }] },
+    XT_ch_laisse: { act: "IV", title: "Les fougères", place: "table", ambiance: "nature",
+      text: [
+        "Tu recules dans les fougères, lentement, sans les quitter des yeux. Ils ne te suivent pas. Ils ont un ami sous un tronc, et le soleil qui monte.",
+        "Plus tard dans l'après-midi, en repassant par là, tu trouves la clairière vide. Le tronc est toujours là. Dessous, la mousse est arrachée, noircie, et il y a des traces de sang qui vont vers le nord, et une sandale d'écorce abandonnée, petite, usée.",
+      ],
+      choices: [{ label: "Revenir vers la forêt", fx: { flag: "xt:chasseurs_abandonnes" }, back: "XT_haut" }] },
+
+    // ---------------------------------------------------------------- the crater of the wings
+    XT_cratere: { act: "IV", title: "Le cratère aux ailes", place: "table", ambiance: "nature",
+      text: [
+        "Au nord de la Table, la forêt s'éclaircit, puis cesse. Le sol devient noir, vitreux, crevassé, tiède sous la semelle. Et l'on arrive au bord d'un trou.",
+        "Un cratère. Rond, profond de cent pieds, aux parois de roche noire en gradins, comme un amphithéâtre que des géants auraient creusé pour s'y asseoir et regarder quelque chose au fond. Au fond, une mare d'eau verte qui fume. Et sur les gradins, des nids.",
+        "Ils sont des dizaines, faits de branches et d'os. Et sur les nids, des ailes.",
+        "Des bêtes grises, à la peau de cuir tendue sur des doigts immenses comme une toile sur des baleines de parapluie. Un bec long d'une aune, pointu, plein de petites dents. Une crête osseuse à l'arrière du crâne. Elles sont repliées sur elles-mêmes, comme des parapluies fermés. L'une déploie ses ailes, pour s'étirer : d'un bout à l'autre, la longueur d'une chaloupe. L'odeur monte jusqu'au bord, une odeur de poisson pourri et de guano chaud qui vous prend à la gorge.",
+        "Le professeur s'est couché à plat ventre au bord, la lunette à l'œil, et il pleure. Il pleure et il rit. « Ptéro… dit-il. Non. Point de nom. On nomme ce qu'on tient. Il m'en faudrait un. Un seul. Mort ou vif. »",
+      ],
+      choices: [
+        { label: "Descendre aux nids du bas, pour lui rapporter quelque chose", test: { dom: "discretion", diff: 1, label: "Descendre parmi les ailes" }, win: { fx: { item: "griffe_aile" }, to: "XT_cr_nid" }, lose: { to: "XT_cr_combat" } },
+        { label: "Le laisser dessiner, et regarder vers le nord", fx: { flag: "xt:puits_vu" }, to: "XT_cr_vue" },
+      ] },
+    XT_cr_nid: { act: "IV", title: "Les gradins", place: "table", ambiance: "nature",
+      text: [
+        "Tu descends les gradins comme on descend les marches d'une église pendant la messe, lentement, en retenant ton souffle, en posant le pied là où il n'y a ni os ni fiente. Les bêtes dorment, ou digèrent. L'une ouvre un œil jaune, sans paupière, et le referme.",
+        "Au troisième gradin, dans un nid abandonné, parmi des arêtes de poisson grosses comme des côtes de bœuf, il y a une griffe. Tombée, ou arrachée dans une bataille. Une griffe courbe, noire, longue comme ta main, avec au bout un crochet aigu comme une aiguille de voilier.",
+        "Tu la prends. Tu remontes. Tu la donnes au professeur, qui la tient au soleil, la retourne, la mesure, la flaire, et la serre contre son cœur avec un soupir d'amoureux.",
+        "« Un doigt, dit-il. Un doigt d'aile. Il y a vingt ans, à Lisse, on m'a montré un os pareil, dans la vitrine d'un apothicaire. On disait que c'était une dent de dragon. Les apothicaires ont toujours raison, au fond. Ils ont seulement tort sur le prix. »",
+      ],
+      choices: [{ label: "Regarder vers le nord", fx: { flag: "xt:puits_vu" }, to: "XT_cr_vue" }] },
+    XT_cr_combat: { act: "IV", title: "Les ailes", place: "table", ambiance: "nature",
+      combat: { title: "Le cratère", enemies: [{ id: "aile_table", n: 1 }], terrain: "nature",
+        win: { fx: { flag: "xt:specimen" }, to: "XT_cr_gagne" }, lose: { to: "XT_cr_fuite" },
+        flee: { label: "Remonter les gradins en courant", dom: "nature", diff: 0, to: "XT_cr_fuite" } },
+      text: [
+        "Un caillou roule sous ton pied, rebondit de gradin en gradin, et tombe dans la mare verte avec un bruit de coup de pistolet.",
+        "Le cratère entier se réveille. Des ailes s'ouvrent partout, avec un bruit de voiles qu'on largue. La plus proche s'arrache de son nid, et fond sur toi, le bec ouvert, en poussant un cri de poulie mal graissée.",
+      ] },
+    XT_cr_gagne: { act: "IV", title: "Le spécimen", place: "table", ambiance: "nature",
+      text: [
+        "La bête est retombée sur le gradin, les ailes étalées, immenses, flasques, comme une tente qui s'effondre. Elle ne bouge plus. Les autres tournent au-dessus du cratère en criant, puis se reposent, une à une, sur leurs nids, avec l'indifférence de bourgeois qui retournent à leur dîner après une rixe dans la rue.",
+        "Le professeur descend te rejoindre. Il s'agenouille près de la bête morte. Il ne dit rien pendant longtemps. Puis il pose la main sur l'aile, doucement, et dit : « Pardon. » Et puis, aussitôt, il sort son couteau, et se met au travail.",
+        "Il garde le crâne, une aile entière, roulée, et la griffe. Il porte tout cela sur son dos jusqu'au soir, en chantant faux une chanson de lutteur.",
+      ],
+      choices: [{ label: "Regarder vers le nord", fx: { flag: "xt:puits_vu" }, to: "XT_cr_vue" }] },
+    XT_cr_fuite: { act: "IV", title: "Les ailes", place: "table", ambiance: "nature",
+      text: [
+        "Tu remontes les gradins à quatre pattes, le bec de la bête qui claque derrière toi, si près que tu sens son souffle sur ta nuque, une haleine de marée basse. Le professeur, au bord, lui jette son chapeau. La bête le happe en plein vol, et remonte avec, très satisfaite, et va le déposer dans son nid, comme un trophée.",
+        "Vous fuyez dans la forêt sans vous retourner. Le professeur n'a plus de chapeau. Il ne s'en remettra jamais tout à fait. « C'était un castor, dit-il, des jours plus tard, encore. Un vrai castor, de chez Bourdonnec. On n'en fait plus. »",
+      ],
+      choices: [{ label: "Revenir vers la forêt", back: "XT_haut" }] },
+    XT_cr_vue: { act: "IV", title: "Vers le nord", place: "table", ambiance: "nature",
+      text: [
+        "Du bord nord du cratère, on voit les collines.",
+        "Elles sont rousses, pelées, plissées comme le dos d'un vieux chien, et des fumées montent de partout, droites dans l'air sans vent, blanches, jaunes, grises. Entre les fumées, des trous. Des taches noires au flanc des collines, entourées de murets. L'un d'eux est plus grand que les autres, plus sombre, au flanc d'une colline jaune.",
+        "Et au coucher du soleil, quand la lumière baisse, tu vois sortir des trous des gens. Minuscules, pâles, un par un, qui se tiennent un moment au bord comme des fourmis au bord de leur fourmilière, puis s'éloignent vers les vergers de l'est.",
+        "« Il y a donc une civilisation souterraine sur cette île, dit le professeur, qui regarde aussi, avec la lunette. Et une civilisation des vergers. Et un vieil ermite. Et des bêtes qui n'existent plus. Et un trésor, d'après ce qu'on dit en bas. » Il replie la lunette. « C'est beaucoup, pour une seule île. C'est presque de la gourmandise. »",
+      ],
+      choices: [{ label: "Revenir vers la forêt", back: "XT_haut" }] },
+
+    // ---------------------------------------------------------------- the wood that glows
+    XT_bois: { act: "IV", title: "Le bois sombre", place: "table", ambiance: "nuit",
+      text: [
+        "À l'est de la Table, il y a un bois plus sombre que les autres, où les arbres écailleux poussent si serrés que leurs couronnes se touchent et font un toit. Vous y entrez à la tombée du soir, parce que le professeur a vu, de loin, quelque chose y briller.",
+        "Sous le toit, c'est la nuit. Et dans la nuit, la mousse luit.",
+        "Une lumière bleue, froide, pâle, qui monte du sol comme une brume, qui court le long des troncs, qui dessine chaque racine, chaque feuille morte, chaque pierre. On marche dans un ciel renversé. On voit ses propres mains, bleues, comme celles d'un noyé.",
+        "Et au milieu du bois, dans la lumière bleue, des urnes. Des fleurs, ou des plantes, hautes comme des barriques, en forme de jarres à huile, vertes veinées de pourpre, avec un couvercle à moitié ouvert. Il en monte une odeur sucrée, presque délicieuse, de confiture qui cuit.",
+        "Le professeur s'approche de la plus grande, en reniflant, ravi. « Une Népenthée, dit-il. Gigantesque. Fascinant. Elle digère des insectes. Regardez cette lèvre cireuse. On n'y tient pas debout. » Il se penche pour regarder dedans.",
+        "La lèvre est cireuse. On n'y tient pas debout.",
+      ],
+      choices: [{ label: "Le rattraper", test: { dom: "nature", diff: 0, label: "Avant qu'il soit digéré" }, win: { to: "XT_bois_urne" }, lose: { to: "XT_bois_urne_rate" } }] },
+    XT_bois_urne: { act: "IV", title: "L'urne", place: "table", ambiance: "nuit",
+      text: [
+        "Tu le rattrapes par la ceinture au moment où il bascule. Il a la tête et les épaules dans l'urne, les jambes qui battent dehors, et sa voix monte de l'intérieur, amplifiée, caverneuse, comme celle d'un prédicateur dans un puits : « Il y a un liquide ! Il y a un liquide ! Il pique ! »",
+        "Tu tires. Il sort avec un bruit de bouchon. Sa barbe est blanchie d'un côté, raide comme du crin. Il a perdu un sourcil.",
+        "« Remarquable, dit-il, en s'essuyant le visage avec un mouchoir qui fume légèrement. Une enzyme. Une enzyme digestive d'une puissance prodigieuse. J'en ai senti les effets. » Il passe la main sur sa joue nue. « Je vais écrire un mémoire. Je le signerai de mon demi-sourcil. »",
+        "En repartant, tu remplis une calebasse de mousse lumineuse, arrachée aux troncs. Elle luit encore, dans ta poche, une heure plus tard, à travers la toile.",
+      ],
+      choices: [{ label: "Revenir vers la forêt", fx: { item: "mousse_luisante" }, back: "XT_haut" }] },
+    XT_bois_urne_rate: { act: "IV", title: "L'urne", place: "table", ambiance: "nuit",
+      text: [
+        "Tu arrives trop tard. Il bascule, la tête la première, avec un cri de surprise, et l'urne se referme sur lui à moitié, comme une bouche gourmande.",
+        "Il faut tes deux bras, et ton couteau, pour fendre la plante sur toute sa hauteur. Elle se vide d'un coup, dans un jaillissement de liquide sucré et de cadavres d'insectes, et le professeur roule par terre, dans la mousse lumineuse, en toussant, bleu de la tête aux pieds, la barbe fumante.",
+        "Il reste assis un moment. Puis il dit, très dignement : « Je retire ce que j'ai dit sur la lèvre cireuse. On y tient encore moins debout que je ne pensais. »",
+        "Pendant trois jours, il sent la confiture, et il luit un peu, la nuit.",
+      ],
+      choices: [{ label: "Revenir vers la forêt", fx: { item: "mousse_luisante" }, back: "XT_haut" }] },
+
+    // ---------------------------------------------------------------- the black lake at dawn
+    XT_lac: { act: "IV", title: "L'étang à l'aube", place: "table", ambiance: "nature",
+      text: [
+        "Au sud de la Table, entre deux bancs de roche, il y a un étang long et noir comme une coulée d'encre. Vous y dormez, dans les roseaux, et vous vous réveillez avant l'aube, parce que l'eau fait un bruit.",
+        "L'étang est couvert d'une brume blanche, épaisse, qui roule sur l'eau en écharpes. On n'en voit pas l'autre rive. On entend des choses : un clapotis, un soupir, une respiration énorme, lente, comme celle d'un soufflet de forge qu'on actionnerait au fond de l'eau.",
+        "Le professeur s'est redressé sur un coude, les yeux écarquillés, la lunette déjà en main, inutile dans la brume.",
+        "« Ne bougez pas, chuchote-t-il. Surtout, ne bougez pas. Respirez par le nez. Pensez à quelque chose d'ennuyeux. L'Académie, par exemple. »",
+      ],
+      choices: [
+        { label: "Attendre que la brume se lève", fx: { flag: "xt:cou_vu" }, to: "XT_lac_cou" },
+        { label: "Pêcher dans les roseaux, pour le déjeuner", to: "XT_lac_peche" },
+      ] },
+    XT_lac_cou: { act: "IV", title: "Le cou", place: "table", ambiance: "nature",
+      text: [
+        "La brume se lève avec le soleil, d'un coup, comme un rideau de théâtre.",
+        "Au milieu de l'étang, à cent pas, il y a un cou. Un cou qui sort de l'eau, droit, puis courbé, gris-vert, luisant, long comme un mât de flèche, et au bout, une tête petite, plate, de serpent, avec deux yeux ronds qui regardent le soleil levant. Derrière le cou, sous l'eau, une ombre énorme, ovale, plus grande qu'une chaloupe.",
+        "La tête tourne lentement. Elle vous regarde. Elle vous regarde longtemps, sans peur, sans curiosité, avec la majesté indifférente d'un évêque qui voit passer des enfants de chœur en retard.",
+        "Puis elle replonge, sans un bruit, et l'eau se referme, et les cercles s'élargissent jusqu'aux roseaux, et c'est fini.",
+        "Le professeur ne s'est pas servi de sa lunette. Il ne s'est pas servi de son carnet. Il a regardé, simplement, avec ses yeux. Il dit, beaucoup plus tard, en mangeant : « Je n'ai pas dessiné. Je le regrette. Je ne le regrette pas. Les deux. »",
+        { if: { item: "carnet_rivelin" }, text: "Tu ouvres le carnet du peintre. Le cou est là, à la mine de plomb, à l'aube, dans la brume. Il l'a vu aussi. Il l'a dessiné, lui." },
+      ],
+      choices: [{ label: "Revenir vers la forêt", back: "XT_haut" }] },
+    XT_lac_peche: { act: "IV", title: "La pêche", place: "table", ambiance: "nature",
+      text: [
+        "Tu pêches à la main, couché{e} sur un tronc au-dessus de l'eau noire, comme on pêche les truites dans les ruisseaux du Ponant. Les poissons d'ici sont lents, confiants, idiots. Tu en sors un au bout d'une heure.",
+        "Il est cuirassé. Couvert de plaques d'os qui s'emboîtent comme les tuiles d'un toit, avec une tête carrée, des nageoires comme des petites pattes, et une bouche sans dents qui s'ouvre et se ferme avec un air de reproche.",
+        "Le professeur le contemple, horrifié, ravi. « On ne mange pas ça, dit-il. On le met dans l'alcool, on le rapporte, on le présente à l'Académie, et on le fait graver. » Il hésite. « Après, on le mange. »",
+        "Vous le grillez sur des braises. Il a le goût du homard et de la vase. Le professeur en garde les plaques dans un mouchoir. Pendant que vous mangez, au milieu de l'étang, quelque chose souffle, très fort, et vous ne le voyez pas.",
+      ],
+      choices: [{ label: "Revenir vers la forêt", back: "XT_haut" }] },
+  },
+  extras: {
+    items: {
+      carnet_rivelin: { name: "Le carnet de Toussaint Rivelin", kind: "document", form: "registre", hand: "maladroite", keep: true, price: 0,
+        desc: "Un carnet relié de veau, plein de dessins de bêtes qui n'existent plus, et d'une femme à sa fenêtre.",
+        text: "Toussaint Rivelin, peintre de marine, de Morlenc, rue des Tanneurs.\n\n(Des dizaines de dessins : des coureurs, des lézards, une harde à cornes, un cou qui sort d'un étang, des ailes au-dessus d'un cratère, et une femme à sa fenêtre, plusieurs fois reprise.)\n\n« Madeleine. Je ne me rappelle plus si elle avait les yeux gris ou verts. Gris, je crois. Je les fais gris. »\n\nDernière page : « Pour celui qui viendra. Il y a un escalier. Je l'ai taillé moi-même, deux ans, à l'ouest, derrière le rideau de lianes, en face du rocher qui chante, là où la falaise fait un coude. »" },
+      griffe_aile: { name: "Une griffe d'aile", kind: "divers", keep: true, price: 0, desc: "Une griffe courbe, noire, longue comme la main, ramassée dans un nid du cratère aux ailes." },
+      sou_forge: { name: "Un sou de forge", kind: "divers", keep: true, price: 0, desc: "Une petite pièce de métal ronde et percée, frappée d'un marteau sur une face. Mâchefer te l'a donnée sur la Table : « Montre ça, en bas, si tu viens aux Puits. »" },
+      mousse_luisante: { name: "Une calebasse de mousse qui luit", kind: "divers", keep: true, price: 0, desc: "De la mousse du bois sombre de la Table, qui donne dans le noir une lumière bleue, froide, pendant des heures." },
+    },
+    enemies: {
+      aile_table: { name: "Aile du cratère", pv: 14, att: 30, def: 14, dmg: 4, look: "loup", desc: "Une bête grise aux ailes de cuir longues comme une chaloupe, au bec plein de petites dents." },
+    },
+  },
+};

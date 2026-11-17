@@ -37,6 +37,11 @@ module.exports = {
         { label: "Monter sur la dunette, la nuit, où veille le second", to: "A3v_benoit", hide: { seen: "A3v_benoit" } },
         { label: "Frapper à la cabine du professeur", to: "A3v_gaudremont", hide: { seen: "A3v_gaudremont" } },
         { label: "Surveiller son aide-chirurgien, la nuit", to: "XJ_bord", hide: { any: [{ seen: "XJ_bord" }, { not: { has: "vauclair:engage" } }] } },
+        { label: "Courir au pied du grand mât, où un homme est tombé", to: "XV_chute", hide: { seen: "XV_chute" }, if: { count: JOURS, min: 1 }, why: "Personne n'est encore tombé." },
+        { label: "Frapper à la cabine de la capitaine, qui ne paraît plus au dîner", to: "XV_ribaud", hide: { seen: "XV_ribaud" }, if: { count: JOURS, min: 2 }, why: "La capitaine dîne encore avec ses passagers." },
+        { label: "Monter à la barre, où la timonière gouverne avec une joue enflée", to: "XN_lemerle", hide: { seen: "XN_lemerle" } },
+        { label: "Partager le bouillon du soir avec le maître-coq", to: "XN_fargue", hide: { seen: "XN_fargue" } },
+        { label: "Examiner le vieux gabier qui ne mange plus", to: "XN_guivarch", hide: { seen: "XN_guivarch" }, if: { count: JOURS, min: 1 }, why: "Le vieil homme mange encore sa ration." },
         { label: "La dixième nuit", to: "A3v_grain", big: true, if: { count: JOURS, min: 4 }, why: "Brisegrève est encore loin." },
       ] },
 
@@ -209,6 +214,8 @@ module.exports = {
     A3v_grain: { act: "III", title: "Le grain", place: "cormorane", ambiance: "nuit",
       text: [
         "La dixième nuit, le grain tombe sur la Cormorane d'un seul coup, et dans le faux-pont, sous la ligne de flottaison, Victorine le reçoit comme un coup de bélier contre une porte. Le navire se couche. Les fioles sautent dans leurs casiers, la lanterne se balance à l'horizontale, l'eau entre par les jointures du pont et pleut en gouttes glacées sur la table d'opération. Au-dessus, sur le pont, les hommes crient, les voiles claquent comme des coups de canon, la mer frappe le bordé à un pouce de son oreille, comme si elle voulait entrer et le savait possible.",
+        { if: { has: "lemerle:yeux_secret" }, text: "Là-haut, à la roue, Annick Lemerle gouverne dans le noir absolu, sans étoiles, sans lune, au vent sur sa joue et au bruit de l'eau. Ce soir, personne à bord n'y voit mieux qu'elle." },
+        { if: { has: "lemerle:yeux_dit" }, text: "Là-haut, à la roue, c'est Benoît Quémeneur qui gouverne, et Lemerle, à côté de lui, qui lui dit à l'oreille, d'une voix sèche, quand donner et quand reprendre." },
         "Victorine s'accroche à une épontille et attend, en comptant, comme pendant un accouchement. Elle compte jusqu'à mille deux cents. Puis le vent tombe, et la mer, et la peur.",
         "Une heure plus tard, on lui descend Petit-Jules, le novice, l'épaule démise, blanc comme un linge, qui sourit en claquant des dents. Derrière lui, le maître-coq, trempé de la tête aux pieds, le foulard rouge collé au cou.",
         "« Il a glissé de la vergue du petit hunier, dit Fargue. Je passais par là. » Il dit cela comme on dit qu'on passait devant une boulangerie.",
@@ -225,6 +232,8 @@ module.exports = {
       ],
       choices: [
         { label: "Dîner chez le gouverneur", to: "XM_v_diner", hide: { seen: "XM_v_diner" } },
+        { label: "Demander à voir l'infirmerie du fort", to: "XQ_b_infirmerie", hide: { seen: "XQ_b_infirmerie" }, if: { seen: "XM_v_diner" }, why: "Elle n'a pas encore été reçue au fort." },
+        { label: "Entendre la messe du dimanche à la chapelle du fort", to: "XQ_b_aumonier", hide: { seen: "XQ_b_aumonier" } },
         { label: "Acheter des citrons à la cantinière du bourg", if: { gold: { min: 40 } }, hide: { any: [{ has: "pharmacie:citron" }, { seen: "A3v_citrons" }] }, fx: { gold: -40, flag: "citrons:victorine" }, to: "A3v_citrons" },
       ] },
     A3v_citrons: { act: "III", title: "Le bourg des soldats", place: "brisegreve", ambiance: "village",

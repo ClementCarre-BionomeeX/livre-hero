@@ -55,10 +55,11 @@ module.exports = {
       text: [
         "Elle ouvre la plaie au bistouri, à la lueur du feu, pendant que deux proscrits tiennent l'enfant. Le pus sort, épais, jaune, puant. Elle lave à l'eau bouillie, au vin de palme, à tout ce qu'on lui donne. Elle trouve, tout au fond, un éclat de défense de sanglier, long comme un ongle, noirci, qu'elle extrait à la pince, et qu'elle pose sur une pierre à côté du feu, et que Jeanne Brasdefer regarde comme on regarde un ennemi.",
         "Elle bourre la plaie de charpie, la laisse ouverte. Elle donne à l'enfant de l'écorce de quinquina pilée dans du miel sauvage.",
+        { if: { item: "quinquina_ilot" }, text: "C'est l'écorce rouge du jardin d'Ombeline, sur l'îlot. Il lui en reste une lanière. Elle la pile tout entière." },
         "Vers l'aube, la fièvre tombe. Soazig ouvre les yeux, regarde Victorine, et demande, d'une voix claire : « Tu es qui, toi ? Tu viens de la mer ? » Victorine lui répond que oui, et l'enfant dit, très sérieusement : « Elle est comment, la mer, de l'autre côté ? » et se rendort avant la réponse.",
         "Jeanne Brasdefer n'a pas bougé de la nuit. Elle se lève. Elle va dehors, derrière la cascade. On l'entend, un moment, à travers le bruit de l'eau. Puis elle revient, le visage sec.",
       ],
-      choices: [{ label: "Parler, maintenant", to: "XS_marche" }] },
+      choices: [{ label: "Rester, le temps que l'enfant se remette", to: "XS_camp" }] },
     XS_soin_rate: { act: "IV", title: "Soazig", place: "sylve", ambiance: "nuit",
       text: [
         "Elle ouvre, elle nettoie, elle trouve au fond un éclat de défense de sanglier qu'elle extrait. Mais la jambe, sous le genou, est déjà froide, marbrée, et quand elle appuie, la peau craque sous ses doigts comme du papier : la gangrène a pris.",
@@ -67,7 +68,7 @@ module.exports = {
         "Victorine coupe la jambe de Soazig au-dessous du genou, avec une scie de charpentier du Saint-Fiacre, une hache rougie pour fermer, et quatre hommes qui tiennent. Ça dure le temps d'un Notre Père dit lentement. L'enfant s'évanouit à la deuxième seconde, ce qui est une grâce.",
         "À l'aube, Soazig vit. Elle a une fièvre de cheval. Elle vivra, si Dieu le veut, et si Dieu ne le veut pas, Victorine aura fait ce qu'il fallait. Elle se lave les mains dans la cascade, longtemps, jusqu'à ce que l'eau soit froide sur ses poignets comme des bracelets.",
       ],
-      choices: [{ label: "Parler, maintenant", to: "XS_marche" }] },
+      choices: [{ label: "Rester, le temps que l'enfant se remette", to: "XS_camp" }] },
     XS_marche: { act: "IV", title: "Le marché", place: "sylve", ambiance: "nature",
       text: [
         "Jeanne Brasdefer s'assied en face d'elle, devant le feu éteint. Les autres sont autour, debout, les arcs à la main.",
@@ -77,9 +78,23 @@ module.exports = {
       ],
       choices: [
         { label: "« Je vous offre mieux : un procès à Morlenc, et la potence en place publique. »", test: { dom: "social", diff: 0, label: "Convaincre Jeanne Brasdefer" }, win: { fx: { flag: ["xs:allies", "xs:justice"], regard: { brasdefer: "allie" }, quest: "XS" }, to: "XS_justice" }, lose: { fx: { flag: "xs:guerre", quest: "XS" }, to: "XS_guerre" } },
+        { label: "Poser sur la pierre le pli du Saint-Fiacre, à côté du procès de Guénolé", hide: { not: { all: [{ item: "instructions_fiacre" }, { has: "xs:proces_ecorce" }] } }, fx: { flag: ["xs:allies", "xs:justice"], regard: { brasdefer: "allie" }, quest: "XS" }, to: "XS_preuves" },
         { label: "« Prenez-le. La petite porte, demain, entre minuit et une heure. »", fx: { flag: ["xs:allies", "xs:baron_livre"], regard: { brasdefer: "allie" }, quest: "XS" }, to: "XS_livre" },
         { label: "« Non. Je ne livre personne. Même lui. »", fx: { flag: "xs:guerre", regard: { brasdefer: "rancunier" }, quest: "XS" }, to: "XS_guerre" },
       ] },
+    XS_preuves: { act: "IV", title: "Les pièces", place: "sylve", ambiance: "nature",
+      text: [
+        "Victorine sort le pli de sa trousse, et le pose sur la pierre plate, devant le feu éteint, à côté du fagot d'écorce lié de noir. Elle ne dit rien. Elle regarde Guénolé.",
+        "Guénolé, très pâle, s'avance, dénoue la toile cirée, et lit, à voix haute, de sa voix de commis, sans rien changer, les instructions au capitaine Bréhat. La phrase du milieu. La latitude. Le prix doublé.",
+        "La grotte se tait. On n'entend plus que la cascade.",
+        "Jeanne Brasdefer ne regarde pas le pli. Elle regarde Guénolé, longtemps, et Guénolé soutient son regard, en tremblant de tout son petit corps. « Douze ans, dit-elle enfin, très bas. Tu l'as gardé douze ans. »",
+        "« Tu serais allée le tuer, dit Guénolé. À la nage. Il n'y avait pas de navire. »",
+        "Elle se tourne vers Victorine.",
+        "« Avec ça, dit Victorine, et avec les six noms de son procès, on ne pend pas seulement le baron. On pend la rue entière qui a payé le Saint-Fiacre. À Morlenc, devant tout le monde. Une plume ne fait pas ça. Une flèche non plus. »",
+        "Jeanne Brasdefer se lève. Elle va à la paroi, arrache une plume noire, une seule, la plus récente, et la jette dans les cendres.",
+        "« Celle-là, on ne la plantera plus, dit-elle. Pour les autres, on verra à Morlenc. » Elle tend la main par-dessus le feu. « Si tu mens, je te tue. Si tu réussis, je viens. Avec Guénolé. Il lira, au tribunal. Il lit bien. »",
+      ],
+      choices: [{ label: "Lui serrer la main, et rentrer avant le jour", to: "XS_fin" }] },
     XS_justice: { act: "IV", title: "La justice", place: "sylve", ambiance: "nature",
       text: [
         "« Un procès, répète Jeanne Brasdefer, comme un mot étranger.",
@@ -87,6 +102,7 @@ module.exports = {
         "Un long silence. Les proscrits se regardent. Le vieux Kerjean, qui a soixante-dix ans et plus de dents, se met à rire, très doucement.",
         "« Au premier rang, dit-il. Jeanne. Au premier rang. »",
         "Jeanne Brasdefer tend la main, par-dessus le feu éteint.",
+        { if: { has: "xs:jeanne_dit" }, text: "Elle regarde Victorine, et Victorine comprend que la nuit au bord de l'eau a compté pour quelque chose : elle a eu le temps de s'habituer à l'idée." },
         "« Si tu mens, je te tue. Si tu échoues, je le tue. Si tu réussis, je viens à Morlenc. Ça me fera voir une maison avec un toit. »",
       ],
       choices: [{ label: "Lui serrer la main, et rentrer avant le jour", to: "XS_fin" }] },
@@ -111,6 +127,8 @@ module.exports = {
       text: [
         "Elle rentre à la sacristie au moment où le soleil touche le clocher. Elle range sa trousse. Elle se lave les mains à la source.",
         { if: { has: "xs:soin" }, text: "Dans sa poche, il y a un petit éclat de défense de sanglier, noirci, que Soazig lui a donné en se réveillant, pour qu'elle se souvienne. Victorine n'aura aucun mal à se souvenir." },
+        { if: { has: "xs:camp_vu" }, text: "Avant de dormir, elle dessine pour la capitaine, sur le dos d'une ordonnance, le plan de la plage : les trois feux, la tente, les fusils à gauche, la poudre à droite, la sentinelle qui dort à la deuxième heure. La capitaine le regarde, et le plie, et le range dans son gilet sans un mot." },
+        { if: { has: "xs:arc" }, text: "Elle a un brassard de cuir à l'avant-bras gauche. Benoît le remarque, et lève un sourcil. Elle ne l'enlève pas." },
         { if: { has: "xs:soin_rate" }, text: "Elle a encore sous les ongles, malgré la cascade, malgré la source, une ligne brune, très fine, qui ne part pas." },
       ],
       choices: [{ label: "Retourner au siège", back: "A4w_jours" }] },

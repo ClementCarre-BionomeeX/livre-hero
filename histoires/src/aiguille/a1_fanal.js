@@ -30,6 +30,13 @@ module.exports = {
         { label: "Descendre à la grève, où l'on parle du brick", to: "A1_j_greve", hide: { seen: "A1_j_greve" } },
         { label: "Passer à la chapelle Sainte-Anne", to: "A1_j_chapelle", hide: { seen: "A1_j_chapelle" } },
         { label: "Faire parler Zélie de ton père", to: "A1_j_zelie", hide: { seen: "A1_j_zelie" } },
+        { label: "Relever les casiers avec le père Pochon", to: "XA_casiers", hide: { seen: "XA_casiers" } },
+        { label: "Accompagner Zélie au marché de Varnèse", to: "XA_marche", hide: { seen: "XA_marche" } },
+        { label: "Apprendre les nœuds du Gabier, un jour de pluie", to: "XA_noeuds", hide: { seen: "XA_noeuds" }, if: { count: JOURS, min: 1 }, why: "Il ne pleut pas encore assez pour qu'il s'ennuie." },
+        { label: "Garder la lanterne du pignon, une nuit de fièvre", to: "XA_lanterne", hide: { seen: "XA_lanterne" }, if: { count: JOURS, min: 1 }, why: "Ton père garde encore la lanterne lui-même." },
+        { label: "Aller au lavoir de la Fontaine-Morte, après minuit", to: "XA_lavoir", hide: { seen: "XA_lavoir" }, if: { seen: "A1_j_zelie" }, why: "Zélie ne t'en a encore rien défendu." },
+        { label: "Recevoir enfin le brigadier Fouques", to: "XA_fouques", hide: { any: [{ seen: "XA_fouques" }, { not: { has: "fouques:averti" } }] } },
+        { label: "Une nuit, la cloche de Sainte-Anne sonne à toute volée", to: "XA_naufrage", hide: { seen: "XA_naufrage" }, if: { count: JOURS, min: 2 }, why: "La mer est encore trop sage." },
         { label: "Un après-midi de pluie, quelqu'un frappe", to: "A1_hulotte", big: true, if: { count: JOURS, min: 3 }, why: "Les jours se ressemblent encore." },
       ] },
 
@@ -325,6 +332,7 @@ module.exports = {
     A1_victorine_soin: { act: "I", title: "La médecin", place: "fanal_chambre",
       text: [
         "Elle descend en deux minutes, habillée, sa sacoche de cuir noir à la main. C'est une grande femme sèche d'une quarantaine d'années, en robe grise, avec des lunettes rondes sur un nez busqué et une bouche mince qui a l'air de se retenir de dire quelque chose de drôle. Elle s'appelle Victorine Davrigny. Elle soigne Varnèse, Pointe-aux-Corneilles et la moitié de la côte, et la Faculté de Morlenc ignore toujours qu'elle a suivi ses cours sous le nom de son mari.",
+        { if: { has: "fanal:marche_vu" }, text: "Tu la reconnais. C'est la femme du marché de Varnèse, celle qui s'est agenouillée dans la boue devant l'estrade de l'arracheur de dents. Elle te reconnaît aussi, d'un coup d'œil par-dessus ses lunettes, et ne dit rien." },
         "Au Fanal, on a monté le Gabier dans la chambre de la mer. Elle l'examine à la chandelle, vite et sans un mot. Elle lui soulève les paupières, lui pique la main d'une épingle, écoute sa poitrine dans un petit cornet de buis. Puis elle sort une lancette, retrousse la manche du caban et dit : « Une cuvette. Et toi, tiens-lui le bras. Fort. Il va vouloir me tuer. »",
       ],
       choices: [{ label: "Tenir le bras du Gabier", test: { dom: "savoir", diff: 0, label: "Faire ce qu'elle dit, sans trembler" },

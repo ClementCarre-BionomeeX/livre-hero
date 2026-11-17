@@ -11,16 +11,22 @@ var FONDEURS = { any: [{ has: "xd:pacte" }, { has: "hugon:passage" }, { has: "li
 var ARGENT = { any: [{ has: "lingots:loyaux" }, { all: [{ has: "tresor:couchant" }, { not: { has: "tresor:couchant_mutins" } }] }] };
 module.exports = {
   passages: {
-    A5x_debut: { act: "V", title: "Le dernier matin", place: "misericorde", ambiance: "mer",
+    A5x_debut: { act: "V", title: "Le dernier matin", place: "misericorde", hub: true, noLead: true, backName: "la nef", ambiance: "mer",
       text: [
-        "Elle fait sa dernière tournée dans la nef, à l'aube, comme chaque matin depuis le débarquement : les fiévreux, les blessés, les mourants, un par un, de la porte à l'autel, le pouls, la langue, le pansement. Elle connaît leurs noms. Elle connaît le nom de leurs mères. Elle le regrettera.",
-        { if: { has: "chapelle:soins" }, text: "Ils sont moins nombreux qu'ils auraient dû l'être. Elle a passé deux nuits sans dormir pendant le siège, à recoudre et à cautériser, et deux hommes qui auraient dû mourir marchent ce matin, en s'appuyant sur des cannes de bambou. Elle ne s'en félicite pas. Elle les regarde marcher, simplement, plus longtemps qu'il ne faudrait." },
-        { if: { has: "morts:enterres" }, text: "Dans la cour, il y a la fosse où l'on a enterré les ossements de la nef, le premier jour, avec une croix de deux planches. Quelqu'un y a posé des fleurs du verger. Elle ne sait pas qui. Elle ne demande pas." },
-        { if: { has: "evac:vivres" }, text: "Il reste des vivres, ceux qu'on a sauvés de la Cormorane le jour de l'évacuation : du biscuit, du lard, trois barriques d'eau. Assez pour la traversée, si l'on ne traîne pas, et si l'on ne se dispute pas, ce qui est beaucoup demander à des marins." },
-        { if: { has: "chapelle:demunis" }, text: "Il ne reste presque rien à manger. On a vécu des fruits du Haut-Verger, de poisson, de tortues, et de la charité des Doux. Les hommes ont maigri. Elle aussi. Elle se trouve, dans le reflet de l'eau de la source, une tête de supérieure de couvent." },
-        "Le rocher chante, à l'ouest. Le vent de retour souffle.",
+        { first: true, text: "Elle fait sa dernière tournée dans la nef, à l'aube, comme chaque matin depuis le débarquement : les fiévreux, les blessés, les mourants, un par un, de la porte à l'autel, le pouls, la langue, le pansement. Elle connaît leurs noms. Elle connaît le nom de leurs mères. Elle le regrettera." },
+        { first: true, if: { has: "chapelle:soins" }, text: "Ils sont moins nombreux qu'ils auraient dû l'être. Elle a passé deux nuits sans dormir pendant le siège, à recoudre et à cautériser, et deux hommes qui auraient dû mourir marchent ce matin, en s'appuyant sur des cannes de bambou. Elle ne s'en félicite pas. Elle les regarde marcher, simplement, plus longtemps qu'il ne faudrait." },
+        { first: true, if: { has: "morts:enterres" }, text: "Dans la cour, il y a la fosse où l'on a enterré les ossements de la nef, le premier jour, avec une croix de deux planches. Quelqu'un y a posé des fleurs du verger. Elle ne sait pas qui. Elle ne demande pas." },
+        { first: true, if: { has: "evac:vivres" }, text: "Il reste des vivres, ceux qu'on a sauvés de la Cormorane le jour de l'évacuation : du biscuit, du lard, trois barriques d'eau. Assez pour la traversée, si l'on ne traîne pas, et si l'on ne se dispute pas, ce qui est beaucoup demander à des marins." },
+        { first: true, if: { has: "chapelle:demunis" }, text: "Il ne reste presque rien à manger. On a vécu des fruits du Haut-Verger, de poisson, de tortues, et de la charité des Doux. Les hommes ont maigri. Elle aussi. Elle se trouve, dans le reflet de l'eau de la source, une tête de supérieure de couvent." },
+        { first: true, text: "Le rocher chante, à l'ouest. Le vent de retour souffle." },
+        { again: true, text: "La tournée continue, de la porte à l'autel. Dehors, le rocher chante toujours, et le vent de retour n'attendra pas indéfiniment." },
       ],
-      choices: [{ label: "Descendre à l'anse", to: "A5x_etat" }] },
+      choices: [
+        { label: "S'asseoir au chevet du gabier qui brûle de fièvre", to: "XZ_fievre", hide: { seen: "XZ_fievre" } },
+        { label: "Recevoir la file de ceux qui veulent dicter leur testament", to: "XZ_testaments", hide: { seen: "XZ_testaments" } },
+        { label: "Aller à la porte, où la fille des Doux apporte les fruits", to: "XZ_ecorce", hide: { seen: "XZ_ecorce" } },
+        { label: "Descendre à l'anse", to: "A5x_etat", big: true },
+      ] },
     A5x_etat: { act: "V", title: "Le dernier matin", branch: [
       { if: { has: "cormorane:sabotee" }, fx: { flag: "navire:perdu" }, to: "A5x_epave" },
       { if: { all: [{ has: "cormorane:mutins" }, { not: { has: "cormorane:reprise" } }] }, to: "A5x_mutins" },

@@ -5,7 +5,7 @@
 // black lake. The professor exults, breaks a leg. From the western rim at sunset, the whole island, the Tooth of the
 // North, and beside it a rock pierced through where the wind sings (xt:vue). Outcomes: an egg for the Academy
 // (xt:oeuf), the professor carried down (xt:gaudremont_sauve) or left above with his notes (xt:gaudremont_haut).
-var VU = [{ seen: "XT_oiseaux" }, { seen: "XT_lezards" }, { seen: "XT_bord" }];
+var VU = [{ seen: "XT_oiseaux" }, { seen: "XT_lezards" }, { seen: "XT_bord" }, { seen: "XT_camp" }, { seen: "XT_chasseurs" }, { seen: "XT_cratere" }, { seen: "XT_bois" }, { seen: "XT_lac" }];
 module.exports = {
   passages: {
     XT_debut: { act: "IV", title: "Le professeur", place: "table", ambiance: "nature",
@@ -64,7 +64,13 @@ module.exports = {
         { label: "Suivre les traces géantes dans la mousse", to: "XT_oiseaux", hide: { seen: "XT_oiseaux" } },
         { label: "Aller vers les rochers chauds, au soleil", to: "XT_lezards", hide: { seen: "XT_lezards" } },
         { label: "Marcher vers l'ouest, jusqu'au bord", to: "XT_bord", hide: { seen: "XT_bord" } },
-        { label: "Descendre vers le lac noir, au centre", to: "XT_harde", big: true, hide: { seen: "XT_harde" }, if: { count: VU, min: 2 }, why: "Le professeur veut d'abord tout voir sur le chemin." },
+        { label: "Suivre le ruisseau jusqu'à la clairière des pierres", to: "XT_camp", hide: { seen: "XT_camp" } },
+        { label: "Suivre les voix, dans les fougères", to: "XT_chasseurs", hide: { seen: "XT_chasseurs" }, if: { seen: "XT_oiseaux" }, why: "Aucune voix, pour l'instant. Rien que le silence qui écoute." },
+        { label: "Aller au nord, où la forêt s'éclaircit", to: "XT_cratere", hide: { seen: "XT_cratere" } },
+        { label: "Entrer dans le bois sombre, à l'est, à la tombée du soir", to: "XT_bois", hide: { seen: "XT_bois" } },
+        { label: "Dormir au bord de l'étang du sud", to: "XT_lac", hide: { seen: "XT_lac" } },
+        { label: "Chercher le coude de la falaise, à l'ouest", to: "XT_escalier", hide: { any: [{ seen: "XT_escalier" }, { has: "xt:escalier" }] }, if: { has: "xt:escalier_su" } },
+        { label: "Descendre vers le lac noir, au centre", to: "XT_harde", big: true, hide: { seen: "XT_harde" }, if: { count: VU, min: 3 }, why: "Le professeur veut d'abord tout voir sur le chemin." },
       ] },
     XT_oiseaux: { act: "IV", title: "Les coureurs", place: "table", ambiance: "nature",
       text: [
@@ -160,6 +166,8 @@ module.exports = {
         { if: { has: "xt:dette" }, text: "Il te regarde, et sourit. « Je vous ai dit que je vous rendrais la vie quand j'aurais besoin qu'on me porte. Je retire. Ce serait une mauvaise affaire pour vous. »" },
       ],
       choices: [
+        { label: "Le descendre par l'escalier du peintre", if: { has: "xt:escalier" }, fx: { flag: "xt:gaudremont_sauve", regard: { gaudremont: "redevable" }, quest: "XT" }, to: "XT_porte_escalier" },
+        { label: "Siffler trois fois au bord de la cheminée du nord", if: { has: "xt:cheminee_nord" }, fx: { flag: ["xt:gaudremont_sauve", "xt:puits_dette"], regard: { gaudremont: "redevable" }, quest: "XT" }, to: "XT_porte_chasseurs" },
         { label: "Le porter quand même, jusqu'au pont, sur ton dos", test: { dom: "nature", diff: 0, label: "Deux cent quarante livres" }, win: { fx: { flag: "xt:gaudremont_sauve", regard: { gaudremont: "redevable" }, quest: "XT" }, to: "XT_porte" }, lose: { fx: { flag: "xt:gaudremont_haut", quest: "XT" }, to: "XT_laisse" } },
         { label: "Le laisser, et promettre de revenir avec des hommes", fx: { flag: "xt:gaudremont_haut", regard: { gaudremont: "cordial" }, quest: "XT" }, to: "XT_laisse" },
       ] },
@@ -172,6 +180,36 @@ module.exports = {
         { if: { has: "xt:oeuf" }, text: "Dans la veste du professeur, contre son ventre, l'œuf vert est intact. Quelque chose y frappe, de temps en temps, de l'intérieur." },
       ],
       choices: [{ label: "Le ramener à la hutte", back: "A4n_jours" }] },
+    XT_porte_escalier: { act: "IV", title: "L'escalier du peintre", place: "table", ambiance: "nature",
+      text: [
+        "Au matin, tu le traînes sur un brancard de prêles jusqu'au coude de la falaise, à l'ouest, et tu écartes le rideau de lianes. Le professeur regarde les marches qui plongent dans le vide en zigzag, avec leur garde-fou d'enfant, et il devient gris.",
+        "« Un escalier, dit-il. Un escalier, sur une falaise de neuf cents pieds, taillé par un aquarelliste. » Il ferme les yeux. « Allons. Je suis entre les mains de l'art. C'est plus que n'en peuvent dire la plupart des malades. »",
+        "La descente prend la journée. Tu le fais glisser de marche en marche, sur le dos, assis, une marche à la fois, avec la corde passée autour d'un rocher en guise de frein. Il compte les marches à voix haute. À six cent douze, il cesse de compter, parce qu'il pleure, et il ne dit pas pourquoi. Tu crois savoir. Deux ans de burin, pour un escalier dont son auteur ne s'est jamais servi, et c'est un inconnu, avec une jambe cassée, qui l'étrenne.",
+        "En bas, dans la Sylve, il y a une dernière marche, plus large que les autres. Dessus, gravé maladroitement, un seul mot : « Madeleine ».",
+        "Le vieil homme de la hutte vous trouve à la nuit tombée, au pied de la falaise, guidé par les cris du professeur, qui chante. Il regarde l'escalier, longtemps, la tête renversée. « Toussaint, dit-il seulement. Il me l'avait dit. Je ne l'avais pas cru. »",
+      ],
+      choices: [{ label: "Le ramener à la hutte", back: "A4n_jours" }] },
+    XT_porte_chasseurs: { act: "IV", title: "Les trois sifflets", place: "table", ambiance: "nature",
+      text: [
+        "Au matin, tu le traînes sur un brancard de prêles jusqu'au rebord du nord, où la cheminée fume, et tu siffles trois fois.",
+        "Rien. Le vent, le soufre, les fumées des Puits, très loin en bas. Tu siffles encore. Le professeur, sur son brancard, fait remarquer que le sifflet est un mode de communication sous-estimé par l'Académie, et propose une communication sur le sujet, et tu lui dis de se taire, et il se tait, ce qui est un événement.",
+        "À midi, une tête bandée sort de la fissure. Étincelle. Puis Mâchefer, avec une corde sur l'épaule, et un filet de chanvre noirci. Ils regardent le professeur, puis toi.",
+        "« Gros, dit Mâchefer, en connaisseuse.",
+        "— Deux cent quarante livres, dit le professeur, dont quarante de vanité. Madame, je suis votre obligé. »",
+        "On le descend dans le filet, de pieu en pieu, comme un sac de charbon, dans la chaleur et l'odeur d'œuf pourri. Il ne se plaint pas une fois. En bas, sur une pente rousse, Mâchefer défait le filet, et elle te regarde, longtemps, à travers son bandeau.",
+        "« Ça, en bas, ça se rend, dit-elle. Un jour on viendra te le demander. Tu le rendras. » Ils repartent vers les fumées, sans attendre de réponse. Le professeur, couché sur la pente, les regarde partir, et note quelque chose. Il note tout. Il te dit plus tard ce qu'il a noté : « Dette. »",
+      ],
+      choices: [{ label: "Le ramener à la hutte, par les collines", back: "A4n_jours" }] },
+    XT_retour: { act: "IV", title: "La civière", place: "table", ambiance: "nature",
+      text: [
+        "Sauveur sort de sous son lit deux perches de bambou, une toile de voile pliée en quatre, et trente brasses de corde en fibre de coco, tressée de sa main, sans dire un mot. Il les avait. Il les a toujours eues. Tu te demandes pour qui.",
+        "Vous remontez à deux. Lui devant, toi derrière, par la faille, le pont, la cheminée. Il grimpe comme un homme de trente ans, avec une économie de gestes qui te fait honte, et il ne s'arrête qu'une fois, sur le pont de liane, au milieu, pour regarder en bas le torrent, avec une expression que tu ne lui connais pas.",
+        { if: { has: "xt:escalier" }, text: "Là-haut, le professeur est au bord du lac, maigre, brûlé de soleil, ravi. Il a rempli son carnet et commencé les marges. Vous le descendez par l'escalier du peintre, sur la civière, marche après marche, et Sauveur, à chaque palier, pose la main sur la roche taillée, comme on touche l'épaule d'un ami." },
+        { if: { not: { has: "xt:escalier" } }, text: "Là-haut, le professeur est au bord du lac, maigre, brûlé de soleil, ravi. Il a rempli son carnet et commencé les marges. Vous le descendez par la cheminée, à la corde, sanglé dans la toile comme un ballot de contrebande, et il chante, pour couvrir le bruit de la corde qui frotte sur le rocher, une chanson de corps de garde dont il connaît tous les couplets." },
+        "En bas, il serre la main de Sauveur, longuement, avec les deux mains. « Monsieur, dit-il, je ne sais pas qui vous êtes. »",
+        "« Personne, dit Sauveur. C'est très reposant. Je vous le conseille. »",
+      ],
+      choices: [{ label: "Le ramener à la hutte", fx: { unflag: "xt:gaudremont_haut", flag: "xt:gaudremont_sauve", regard: { gaudremont: "redevable" } }, back: "A4n_jours" }] },
     XT_laisse: { act: "IV", title: "La promesse", place: "table", ambiance: "nature",
       text: [
         "Tu le laisses à l'abri d'un rocher, au bord du lac, avec un tas de fruits, une calebasse d'eau, un feu de fougères et son carnet. Il t'a fait promettre de ne pas te retourner en partant. Tu te retournes. Il écrit déjà, la langue entre les dents, comme un écolier.",

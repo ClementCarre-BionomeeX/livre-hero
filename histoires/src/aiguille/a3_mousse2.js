@@ -27,6 +27,8 @@ module.exports = {
         { label: "Mener le chien à la cambuse", to: "A3n_chien", hide: { any: [{ seen: "A3n_chien" }, { not: { present: "chien" } }] } },
         { label: "Descendre voir le passager invisible, qui se réchauffe enfin", to: "A3n_fenouillet", hide: { any: [{ seen: "A3n_fenouillet" }, { not: { has: "xi:protege" } }] } },
         { label: "Déchiffrer la page de signes", to: "XK_dechiffre", hide: { any: [{ not: { has: "xk:copie" } }, { has: "enigme:xk_chiffre" }] } },
+        { label: "Une nuit sans lune, quelqu'un crie à l'avant", to: "XV_feux", hide: { seen: "XV_feux" }, if: { count: JOURS, min: 1 }, why: "Les nuits sont encore claires." },
+        { label: "Regarder le baleinier encalminé à une encablure", to: "XO_m_debut", hide: { seen: "XO_m_debut" }, if: { count: JOURS, min: 2 }, why: "La brume ne cache encore rien." },
         { label: "L'Écueil-Rouge en vue", to: "A3n_ecueil", big: true, hide: { seen: "A3n_ecueil" }, if: { count: JOURS, min: 2 }, why: "Le navire n'a pas encore assez avancé." },
         { label: "L'îlot en vue", to: "A3n_ilot", big: true, if: { all: [{ seen: "A3n_ecueil" }, { count: JOURS, min: 3 }] }, why: "L'îlot est encore loin dans les herbes." },
       ] },
@@ -219,11 +221,16 @@ module.exports = {
       ],
       choices: [
         { label: "Descendre à terre avec la corvée d'eau", to: "XP_m_debut", hide: { seen: "XP_m_debut" } },
+        { label: "Chercher de l'eau avec la corvée, au bord du récif", to: "XQ_m_eau", hide: { seen: "XQ_m_eau" }, if: { seen: "XP_m_debut" }, why: "La chaloupe n'a pas encore touché la roche." },
+        { label: "Descendre aux mares, à marée basse", to: "XQ_m_mares", hide: { seen: "XQ_m_mares" }, if: { seen: "XP_m_debut" }, why: "La chaloupe n'a pas encore touché la roche." },
+        { label: "Suivre une traînée noire jusqu'à la mer", to: "XQ_m_trainees", hide: { seen: "XQ_m_trainees" }, if: { seen: "XP_m_debut" }, why: "La chaloupe n'a pas encore touché la roche." },
+        { label: "Passer la nuit sur le bord du cratère", to: "XQ_m_nuit", hide: { seen: "XQ_m_nuit" }, if: { seen: "XP_m_debut" }, why: "La chaloupe n'a pas encore touché la roche." },
       ] },
     A3n_apres_ecueil: { act: "III", title: "La marmite", place: "sargues", ambiance: "mer",
       text: [
         "L'Écueil s'enfonce derrière la poupe, avec sa fumée. La brise retombe, le soir même. Les herbes jaunes se referment autour de la coque.",
         "Les compas, eux, ont cessé de trembler.",
+        { if: { has: "ecueil:eau" }, text: "Dans la cale, six barils d'une eau froide qui ne sent pas le clou. Le soir, à la distribution, Lagadec te sert le premier, sans rien dire, et te laisse boire deux fois." },
       ],
       choices: [{ back: "A3n_jours" }] },
 
@@ -236,6 +243,10 @@ module.exports = {
       ],
       choices: [
         { label: "Débarquer avec la corvée d'eau", to: "XF_m_debut", hide: { seen: "XF_m_debut" } },
+        { label: "Aller à la clairière, le dernier matin", to: "XF_m_clairiere", hide: { any: [{ seen: "XF_m_clairiere" }, { not: { seen: "XF_m_village" } }] }, if: { seen: "XF_m_fin" }, why: "Il reste des barriques à remplir avant le dernier matin." },
+        { label: "Pêcher dans la crique avec Lagadec", to: "XQ_i_peche", hide: { seen: "XQ_i_peche" }, if: { seen: "XF_m_debut" }, why: "La chaloupe n'a pas encore touché le sable." },
+        { label: "Faire le tour du jardin de la maison blanche", to: "XQ_i_cimetiere", hide: { seen: "XQ_i_cimetiere" }, if: { seen: "XF_m_debut" }, why: "La chaloupe n'a pas encore touché le sable." },
+        { label: "Monter au sommet de la colline", to: "XQ_i_sommet", hide: { seen: "XQ_i_sommet" }, if: { seen: "XF_m_debut" }, why: "La chaloupe n'a pas encore touché le sable." },
       ] },
   },
   extras: {},

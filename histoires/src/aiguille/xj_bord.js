@@ -31,6 +31,7 @@ module.exports = {
 
     XJ_sevrage: { act: "III", title: "La première nuit", place: "cormorane", ambiance: "nuit",
       text: [
+        { if: { has: "vauclair:testament" }, text: "Elle repense, en faisant clouer la barre, à une feuille cachetée sur une table de la rue des Cordiers, et au mot « Accepté », d'une autre main. Cette fois, elle ne compte pas laisser l'héritier entrer en possession." },
         "Victorine fait clouer une barre en travers de la porte de l'infirmerie, du côté du couloir, et demande à Fréville d'y poser un cadenas dont elle garde la clef. Elle prévient la capitaine, en deux mots. Elle verse le contenu de la fiole brune dans la mer, par le hublot, devant lui.",
         "La première nuit, il ne dort pas. Il transpire, il tremble, il a froid. Il demande de l'eau, puis du laudanum, puis la fiole, puis la mort, poliment, dans cet ordre. Victorine reste assise sur sa chaise, à côté du hamac, une chandelle à la main, et répond non à chaque fois, avec la même voix.",
         "Vers trois heures, il cesse de demander. Il se tourne vers elle, dans le hamac. Son visage a changé. Il sourit.",
@@ -39,14 +40,15 @@ module.exports = {
       choices: [{ label: "Lui répondre", to: "XJ_gris" }] },
     XJ_gris: { act: "III", title: "Monsieur Gris", place: "cormorane", ambiance: "nuit",
       text: [
-        "Il parle toute la nuit. Il parle avec la voix de Vauclair, plus haute, plus aiguë, coupée de rires. Il raconte ce que Vauclair a oublié : un enfant mort sous sa lancette, à l'hôpital de la Marine, la première année, parce qu'il avait trop bu la veille ; une femme qu'il a aimée et qu'il a laissée partir sans un mot ; un père qui le battait, et qu'il a soigné, plus tard, jusqu'à la fin, sans jamais lui dire qu'il le haïssait.",
+        "Il parle toute la nuit. Il parle avec la voix de Vauclair, plus haute, plus aiguë, coupée de rires. Il raconte ce que Vauclair a oublié : un enfant mort sous sa lancette, à l'Hôtel-Dieu, la troisième année, parce qu'il avait trop bu la veille ; une femme qu'il a aimée et qu'il a laissée partir sans un mot ; un père qui le battait, et qu'il a soigné, plus tard, jusqu'à la fin, sans jamais lui dire qu'il le haïssait.",
+        { if: { has: "vauclair:enfant_su" }, text: "L'enfant, Victorine le connaissait déjà : un garçon de six ans, une hernie, le directeur Maupertuis le lui a raconté entre deux portes. Elle découvre seulement qu'il avait un nom, et que Gris le sait." },
         "« C'est moi qui garde tout ça, dit Gris en riant. Lui, il est léger, il est doux, il est bon. Moi, j'ai les poches pleines. Si vous me tuez, docteur, qui portera ses poches ? Il ne tiendra pas une semaine. »",
         "Puis, vers le matin, d'une voix qui change encore, plus basse, presque sérieuse : « Et puis, je vois des choses, la nuit, que lui ne voit pas. Je vais dans la cale. Il y a là des gens qui se parlent, quand le navire dort. Un grand, qui sent la poudre, et un qui chante. » Il rit. « Vous voulez savoir ce qu'ils disent ? Rendez-moi la fiole. »",
       ],
       choices: [
-        { label: "« Non. »", to: "XJ_nuits" },
+        { label: "« Non. »", to: "XJ_n2" },
         { label: "« Dites-le d'abord. Ensuite, nous verrons. »", test: { dom: "social", diff: 10, label: "Marchander avec Gris" },
-          win: { fx: { flag: "complot:gris" }, to: "XJ_gris_dit" }, lose: { to: "XJ_nuits" } },
+          win: { fx: { flag: "complot:gris" }, to: "XJ_gris_dit" }, lose: { to: "XJ_n2" } },
       ] },
     XJ_gris_dit: { act: "III", title: "Monsieur Gris", place: "cormorane", ambiance: "nuit",
       text: [
@@ -55,10 +57,9 @@ module.exports = {
         "Il éclate de rire, puis tend la main. « La fiole, maintenant. »",
         "Victorine ne bouge pas. Elle n'a plus de fiole. Elle l'a jetée à la mer, devant lui, la veille. Gris s'en souvient au même instant, et son visage se tord de rage, et il se jette sur les cordes du hamac en hurlant.",
       ],
-      choices: [{ label: "Tenir bon", to: "XJ_nuits" }] },
+      choices: [{ label: "Tenir bon", to: "XJ_n2" }] },
     XJ_nuits: { act: "III", title: "Les nuits", place: "cormorane", ambiance: "nuit",
       text: [
-        "La deuxième nuit, il hurle. Tout le navire l'entend. Les matelots de quart se signent et Gobert va frapper à la porte barrée pour demander si on égorge un cochon. La troisième nuit, il pleure. La quatrième, il se tait, et c'est pire : il reste couché dans le hamac, les yeux ouverts, à regarder Victorine sans ciller, avec un sourire qui n'appartient à personne.",
         "La cinquième nuit, Victorine s'endort sur sa chaise, une heure, la tête contre une courbe de chêne. Quand elle se réveille, le hamac est vide.",
         "La barre est toujours en travers de la porte. Le cadenas est fermé. Le hublot est ouvert, un hublot large comme deux mains, par où un homme ne peut pas passer, sauf un homme très maigre, qui ne mange plus depuis cinq jours, et qui n'a plus peur de se faire mal.",
       ],
@@ -69,6 +70,7 @@ module.exports = {
         "Victorine se penche par-dessus la lisse. Elle ne lui dit pas de remonter. Elle lui dit son nom. « Émeric. » Elle le répète. « Émeric Vauclair. Docteur en médecine de la Faculté de Morlenc. Aide-chirurgien de la Cormorane. J'ai besoin de vous ce matin : Tarlet a deux côtes enfoncées, et je ne sais pas bander une poitrine aussi bien que vous. »",
         "Il lève la tête. C'est son visage à lui, à nouveau, son visage doux, épuisé, étonné. Il tend la main. Elle la prend.",
         "Il dort deux jours. Quand il se réveille, il a faim. Il mange. Il se lève. Il bande les côtes de Tarlet, et ses mains ne tremblent presque plus. Le soir, à quatre coups, il ne regarde pas le placard.",
+        { if: { has: "vauclair:impasse" }, text: "Un soir, sur le gaillard, elle l'entend apprendre à compter au mousse le plus jeune, jusqu'à dix-sept, sur les doigts et les orteils, et elle pense à une petite fille de l'impasse du Puits-Salé, et à sa trousse." },
         "Il ne parlera jamais de Gris. Victorine non plus. Mais parfois, la nuit, elle l'entend rire dans son sommeil, d'un petit rire aigu, très bref, et elle reste éveillée jusqu'à l'aube.",
       ],
       choices: [{ label: "Reprendre le travail", fx: { flag: "vauclair:sauve", quest: "XJ", penche: { vauclair: 2 }, regard: { vauclair: "redevable" } }, to: "XJ_fin" }] },

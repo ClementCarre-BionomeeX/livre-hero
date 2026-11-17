@@ -171,6 +171,7 @@ module.exports = {
         { if: { has: "ile:vue_mousse" }, text: "Tu repenses au premier soir, quand tu es monté{e} dans l'arbre, et que tu as vu l'île entière sous la lune, ses trois parties, ses fumées, sa forêt. Tu croyais qu'elle était vide. Elle était pleine. On ne voit jamais les gens, d'en haut." },
         { if: { has: "victime:vue" }, text: "Tu repenses au matelot de la plage, le premier jour, couché dans les fougères, que tu as vu mourir, et dont personne n'a dit le nom, après. Tu le dis, toi, tout bas, en regardant la mer." },
         { if: { has: "mousse:amende" }, text: "Tu repenses aussi, sans savoir pourquoi, à l'amende de Brisegrève, aux deux écus que le prévôt t'avait pris pour avoir parlé au numéro neuf. Tu trouves, aujourd'hui, que c'était donné." },
+        { if: { has: "xu:cloche" }, text: "Sur la grève de l'est, au pied de la falaise, une cloche verte et dorée attend sur deux pierres, la bouche en bas. Quelqu'un la frappe, ce matin, d'un galet, une seule fois. Le son roule sur l'île, sur l'anse, sur la mer. Ie sonne pour les vivans." },
         { if: { all: [{ has: "chien:apprivoise" }, { present: "chien" }] }, text: "Le chien-loup te suit partout, sur la plage, à un pas, ni plus près ni plus loin. Il n'a jamais suivi personne comme ça. Les Fondeurs s'écartent de lui. Les enfants du Haut-Verger veulent le toucher, et il les laisse faire, en regardant ailleurs, avec l'air de quelqu'un qui supporte une familiarité par politesse." },
       ],
       choices: [{ label: "Et le vieil homme ?", to: "A5o_vieux_b" }] },

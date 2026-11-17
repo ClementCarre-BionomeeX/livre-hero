@@ -67,7 +67,7 @@ module.exports = {
         "Isidore Lagadec, d'abord, le Hareng, maigre comme un clou, aux yeux sans cils. Ils ont été à bord de la Maraude ensemble, dans la bordée de tribord ; Lagadec ne pose jamais de question, ce qui le rend précieux et inquiétant. Hilaire Boucaut, le voilier, de la même bordée, habile de ses mains et lâche de tout le reste ; il suivra le plus fort, et Fargue entend être le plus fort. Ulric Malandain, canonnier, une montagne de chair et de rancune, qui a tué un homme d'un coup de poing pour une question de place à table. Barthélemy Coquerel, enfin, qui rit de tout, même de ce qui ne fait pas rire, et surtout de ça.",
         "Quatre hommes. Avec Gabet, qu'il garde pour la veille, cinq. Il en faudrait huit, dix, pour tenir un trois-mâts. Les autres, il les trouvera à bord. Un équipage, c'est comme une soupe : il suffit de bien choisir le moment pour y mettre le sel.",
       ],
-      choices: [{ label: "Passer à la Truie-qui-file, où quelqu'un t'attend", to: "A2f_sabran" }] },
+      choices: [{ label: "Les huit jours qui restent", to: "XR_jours" }] },
     A2f_sabran: { act: "II", title: "Le Grêlé", place: "basse_fosse", ambiance: "ville", takes: "evening",
       fx: { meet: "sabran" },
       text: [
