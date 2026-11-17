@@ -2639,6 +2639,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "12.8", items: ["« L'Île Folle-Aiguille » continue de s'étoffer : une trentaine de quêtes de plus, nées d'autres livres, à l'auberge, à Morlenc, aux escales, à bord et sur l'île, pour l'enfant du Fanal, la médecin et le maître-coq."] },
     { v: "12.7", items: ["Cinquième livre à lire deux fois : « Le Cartographe de fièvre ». Élève d'un grand cartographe, tu dérives sur une mer d'encre, et ta main dessine les îles à mesure que la barque avance. Chaque île garde une devinette."] },
     { v: "12.6", items: ["Quatrième livre à lire deux fois : « Une nuit au cabinet Orsenne ». Gardien de nuit d'un cabinet de curiosités la veille de sa vente, entre un crocodile pendu au plafond et une dame automate qui se met à écrire toute seule."] },
     { v: "12.5", items: ["Troisième livre à lire deux fois : « Le Masque de la Mi-Carême ». Un matin de carnaval, sur un banc, un masque cadenassé sur le visage et des devinettes de ta propre main dans les poches.", "Un livre à lire deux fois peut ouvrir sa seconde lecture ailleurs, à une autre heure, avec d'autres poches."] },
