@@ -216,6 +216,7 @@ module.exports = {
         { label: "Entrer à la taverne de la Truie-qui-file, où l'on chante", to: "A2m_pellerin", hide: { seen: "A2m_pellerin" } },
         { label: "Descendre vers les fosses aux chiens", to: "XC_debut", hide: { seen: "XC_debut" } },
         { label: "Rentrer tard, par la rue des Cordiers", to: "XG_presse", hide: { seen: "XG_presse" }, if: { seen: "A2m_pellerin" }, why: "Tu ne connais encore personne, à la Basse-Fosse, à qui il pourrait arriver quelque chose." },
+        { label: "Courir derrière la main qui vient de te prendre tes trois sous", to: "YE_main", hide: { seen: "YE_main" } },
         { label: "Chercher la porte bleue des Sœurs, rue des Tanneurs", to: "A2m_soeurs", hide: { seen: "A2m_soeurs" }, if: { item: "lettre_soeurs" }, why: "Tu n'as rien à faire chez des religieuses." },
         { back: "A2m_jours" },
       ] },

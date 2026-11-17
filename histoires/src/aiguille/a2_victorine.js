@@ -29,6 +29,9 @@ module.exports = {
         { label: "Monter au cimetière des Hollandes, sur la tombe d'Hector", to: "XG_tombe", hide: { seen: "XG_tombe" }, if: { count: JOURS, min: 1 }, why: "Elle n'en a pas encore trouvé le courage." },
         { label: "Ouvrir au garçon qui frappe, à deux heures du matin", to: "XG_couches", hide: { seen: "XG_couches" }, if: { count: JOURS, min: 2 }, why: "Personne ne frappe encore la nuit." },
         { label: "Répondre à la capitaine, qui te fait demander", to: "A2v_capitaine", hide: { seen: "A2v_capitaine" }, if: { count: JOURS, min: 2 }, why: "Personne ne t'a encore fait demander." },
+        { label: "Passer la visite des hommes d'équipage, au magasin du quai", to: "YA_visite", hide: { seen: "YA_visite" } },
+        { label: "Suivre le baron, un soir, au Cercle des Négociants", to: "YC_cercle", hide: { seen: "YC_cercle" }, if: { count: JOURS, min: 2 }, why: "Le baron ne l'a pas encore invitée à sortir." },
+        { label: "Répondre au billet du baron, porté à neuf heures du soir", to: "YI_aile", hide: { seen: "YI_aile" }, if: { seen: "A2v_diner" }, why: "Le baron ne l'a pas encore reçue chez lui." },
         { label: "Le dixième jour", to: "A2v_fin", big: true, if: { count: JOURS, min: 4 }, why: "La liste est encore longue." },
       ] },
 

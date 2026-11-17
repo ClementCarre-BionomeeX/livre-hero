@@ -35,6 +35,10 @@ module.exports = {
         { label: "Descendre à la sacristie, où Ombeline reçoit un blessé", to: "XF_o_chapelle", hide: { any: [{ seen: "XF_o_chapelle" }, { not: { has: "ombeline:abord" } }] }, if: { count: JOURS, min: 1 }, why: "Le siège n'a pas encore fait de blessé." },
         { label: "Frapper du talon la dalle qui sonne creux, sous le chœur", to: "XY_crypte", hide: { seen: "XY_crypte" }, if: { count: JOURS, min: 1 }, why: "Elle n'a pas encore eu le temps de regarder le sol." },
         { label: "Descendre à la source, la nuit, avec deux seaux", to: "XY_source", hide: { seen: "XY_source" } },
+        { label: "Porter de l'eau à Guérec, qui garde la porte", to: "YA_porte", hide: { any: [{ seen: "YA_porte" }, { not: { has: "ya:aveu" } }] } },
+        { label: "Une pierre tombe dans la cour, du côté du ravin", to: "YA_mur", hide: { any: [{ seen: "YA_mur" }, { not: { has: "ya:tu" } }] }, if: { count: JOURS, min: 1 }, why: "La nuit est encore calme." },
+        { label: "Aller voir ce que les pelles ont heurté, au fond du verger", to: "YD_fouille", hide: { any: [{ seen: "YD_fouille" }, { not: { marin: "tarlet", is: ["loyal", "hesitant"] } }] }, if: { count: JOURS, min: 1 }, why: "On n'a pas encore commencé à creuser." },
+        { label: "S'asseoir, la nuit, en face du portrait", to: "YH_nuit", hide: { any: [{ seen: "YH_nuit" }, { not: { has: "yh:vu" } }] }, if: { count: JOURS, min: 1 }, why: "Les nuits du siège n'ont pas encore commencé." },
         { label: "Un drapeau blanc sur le sentier", to: "A4w_parlement", big: true, if: { count: JOURS, min: 2 }, why: "Les mutins ne se sont pas encore montrés." },
       ] },
 

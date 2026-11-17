@@ -32,6 +32,7 @@ module.exports = {
         { label: "Monter un café à la gabière, sur le beaupré", to: "XH_marjolaine", hide: { seen: "XH_marjolaine" } },
         { label: "Servir une soupe à Lagadec, qui boit tard", to: "XH_lagadec", hide: { seen: "XH_lagadec" } },
         { label: "Recevoir la médecin, qui cherche des citrons", to: "XH_choucroute", hide: { seen: "XH_choucroute" }, if: { count: JOURS, min: 2 }, why: "Les gencives ne saignent pas encore." },
+        { label: "Écouter la bordée murmurer contre l'oiseau mort", to: "YB_f_oiseau", hide: { seen: "YB_f_oiseau" } },
         { label: "Le vent revient", to: "A3f_lettre", big: true, if: { count: JOURS, min: 3 }, why: "Le calme dure encore." },
       ] },
 
