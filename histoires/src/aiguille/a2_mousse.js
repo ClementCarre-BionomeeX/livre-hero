@@ -47,6 +47,7 @@ module.exports = {
         { label: "Suivre Daguenet derrière la chaloupe, où il te fait signe", to: "YZ_demande", hide: { seen: "YZ_demande" }, if: { seen: "A2m_mature" }, why: "Les gabiers ne te connaissent pas encore." },
         { label: "Passer devant la roulotte de la veuve Brisquet, au bout du quai de la foire", to: "ZU_veuve", hide: { seen: "ZU_veuve" }, if: { count: JOURS, min: 1 }, why: "La foire n'ouvre que le dimanche." },
         { label: "Aller prendre livraison des drisses à la corderie Ropars, avec Gobert", to: "ZX_corderie", hide: { seen: "ZX_corderie" }, if: { count: JOURS, min: 1 }, why: "Gobert ne t'emmène pas encore partout." },
+        { label: "Aller seul{e} à la foire, un soir, derrière la tente rayée", to: "WK_tente", hide: { seen: "WK_tente" }, if: { seen: "XG_foire" }, why: "Tu n'es pas encore allé{e} à la foire." },
         { label: "Le dixième jour", to: "A2m_fin", big: true, if: { count: JOURS, min: 3 }, why: "Il reste des jours d'armement." },
       ] },
 

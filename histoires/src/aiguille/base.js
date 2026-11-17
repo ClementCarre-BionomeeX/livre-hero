@@ -97,6 +97,12 @@ module.exports = {
     eugeniegrandet: { title: "Eugénie Grandet", author: "Honoré de Balzac" },
     claudegueux: { title: "Claude Gueux", author: "Victor Hugo" },
     moumou: { title: "Moumou", author: "Ivan Tourgueniev" },
+    juliuscesar: { title: "Jules César", author: "William Shakespeare" },
+    laurette: { title: "Laurette ou le Cachet rouge", author: "Alfred de Vigny" },
+    hommequirit: { title: "L'Homme qui rit", author: "Victor Hugo" },
+    petitfut: { title: "Le Petit Fût", author: "Guy de Maupassant" },
+    lignedombre: { title: "La Ligne d'ombre", author: "Joseph Conrad" },
+    caverne: { title: "La République (le mythe de la caverne)", author: "Platon" },
     ile: { title: "L'Île au trésor", author: "Robert Louis Stevenson" },
   },
   acts: [
