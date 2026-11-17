@@ -7,14 +7,39 @@
 // tells Alan and leaves the brothers to choose (ue:frere). Wired in A3v_jours.
 module.exports = {
   passages: {
+    UE_novice: { act: "III", title: "Les taches de Tual Pengam", place: "cormorane", ambiance: "mer",
+      text: [
+        "Il est assis sur la dernière marche de l'échelle, le menton dans les mains, un garçon de quinze ans, blond comme son frère, maigre comme on l'est à cet âge, avec des pieds trop grands et des coudes partout. Il attend. Il se lève quand Victorine passe la tête par la porte, et demande, très vite, si son frère a mal.",
+        "Elle dit que ce n'est qu'une écharde. Il respire. Il se rassied. Il dit que son frère ne se plaint jamais, alors il faut deviner. Il dit qu'il est le meilleur gabier de la grand-vergue, que la capitaine l'a dit elle-même, qu'il peut prendre un ris tout seul par grand vent, et qu'il lui apprend, à lui, Alan, un nœud par jour, depuis Morlenc.",
+        "Il sort de sa poche un bout de ligne, et il fait devant elle un nœud compliqué, très vite, sans regarder, et le défait d'une saccade. Il dit que c'est un nœud de vache, que son frère dit que c'est le plus utile, parce qu'il tient tout et se défait d'un coup. Il dit qu'un jour, il sera aussi bon que Tual. Il dit qu'ils auront un navire à eux, tous les deux, et que leur mère viendra vivre à bord.",
+        "Il regarde vers la porte de l'infirmerie, derrière laquelle son frère remet sa chemise. Il dit, plus bas, que Tual ne veut jamais se baigner avec les autres, même quand il fait chaud, et que les gabiers se moquent, et qu'il les a frappés, deux fois, pour ça. Il est fier de les avoir frappés. Victorine regarde ses mains d'enfant, qui refont le nœud de vache, et le défont, et le refont."
+      ],
+      choices: [
+        { back: "UE_epingle", label: "Retourner dans l'infirmerie" }
+      ] },
+    UE_traite: { act: "III", title: "Les taches de Tual Pengam", place: "cormorane", ambiance: "nuit",
+      text: [
+        "Elle a emporté de Varnèse trois traités de la Faculté, reliés en veau, qu'elle garde dans son coffre sous ses robes, et qu'elle relit le soir comme d'autres relisent les Évangiles. Elle cherche la page. Elle la connaît. Elle la relit quand même, à la lanterne, avec les mains qui tremblent un peu.",
+        "Le premier traité, le plus ancien, dit des choses terribles, en latin, avec des gravures : les doigts qui tombent, les visages de lion, les cliquettes que les malades devaient agiter pour qu'on s'écarte, les messes des morts qu'on disait pour eux de leur vivant, avant de les enfermer. Le deuxième dit à peu près la même chose, en français, avec moins de gravures. Le troisième, le plus récent, écrit par un médecin qui a passé vingt ans dans les colonies des longues routes, dit autre chose.",
+        "Il dit que le mal se prend peu, et lentement. Qu'il a vécu vingt ans au milieu des malades sans le prendre. Que les infirmières des lazarets le prennent rarement, et les maris des malades presque jamais. Il dit que la peur du mal a tué plus de malades que le mal lui-même, par l'abandon, la faim, la honte. Il dit, à la dernière ligne du chapitre, une phrase que quelqu'un, avant Victorine, a soulignée à l'encre, d'un trait ferme : « Le plus contagieux, dans cette maladie, c'est l'horreur. »",
+        "Elle referme le traité. Elle se demande qui a souligné la phrase. Elle a acheté le livre d'occasion, chez un bouquiniste de Varnèse, dans un lot de livres de médecin mort. Elle se dit qu'il y a eu, avant elle, quelqu'un qui a lu cette page à la lanterne, avec des mains qui tremblaient."
+      ],
+      choices: [
+        { back: "UE_epingle", label: "Retourner dans l'infirmerie" }
+      ] },
     UE_epingle: { act: "III", title: "Les taches de Tual Pengam", place: "cormorane", ambiance: "mer",
       fx: { meet: "tual" },
       text: [
-        "Il vient pour une écharde, une vraie, plantée dans la paume, qu'elle retire en deux minutes. Puis il reste assis sur le coffre, la chemise ouverte à cause de la chaleur, et elle voit, en lui bandant la main, la tache sur son avant-bras. Une plaque pâle, ovale, aux bords un peu rosés, large comme une pièce de cinq livres, plus claire que la peau autour, sur un bras tanné par vingt ans de soleil. Elle demande s'il en a d'autres. Il dit que non. Il dit non trop vite.",
-        "Tual Pengam, gabier, trente ans, un grand gaillard blond et calme qu'on dit le meilleur ouvrier de la grand-vergue. Elle lui demande d'ôter sa chemise. Il refuse. Elle insiste, d'une voix de médecin. Il obéit. Dans le dos, trois autres plaques, plus grandes. Elle prend une épingle sur sa pelote. Elle pique la peau saine : il sursaute. Elle pique au milieu de la tache : il ne bouge pas. Elle pique plus fort. Il demande, poliment, quand elle va commencer.",
-        "Elle repose l'épingle. Elle connaît ce signe. Elle l'a lu dans les traités et vu une fois, à l'hospice de la Faculté, chez un vieux marin qu'on gardait dans une chambre à part, au bout d'un couloir où personne ne passait. Elle dit le mot à voix basse. Il le connaissait déjà. Il le sait depuis un an. Il a vu les mêmes taches sur un matelot, dans un port des longues routes, et ce qu'on a fait au matelot : on l'a débarqué sur un îlot, avec une barrique d'eau, et le navire est reparti.",
+        { first: true, text: "Il vient pour une écharde, une vraie, plantée dans la paume, qu'elle retire en deux minutes. Puis il reste assis sur le coffre, la chemise ouverte à cause de la chaleur, et elle voit, en lui bandant la main, la tache sur son avant-bras. Une plaque pâle, ovale, aux bords un peu rosés, large comme une pièce de cinq livres, plus claire que la peau autour, sur un bras tanné par vingt ans de soleil. Elle demande s'il en a d'autres. Il dit que non. Il dit non trop vite." },
+        { first: true, text: "Tual Pengam, gabier, trente ans, un grand gaillard blond et calme qu'on dit le meilleur ouvrier de la grand-vergue. Elle lui demande d'ôter sa chemise. Il refuse. Elle insiste, d'une voix de médecin. Il obéit. Dans le dos, trois autres plaques, plus grandes. Elle prend une épingle sur sa pelote. Elle pique la peau saine : il sursaute. Elle pique au milieu de la tache : il ne bouge pas. Elle pique plus fort. Il demande, poliment, quand elle va commencer." },
+        { first: true, text: "Elle repose l'épingle. Elle connaît ce signe. Elle l'a lu dans les traités et vu une fois, à l'hospice de la Faculté, chez un vieux marin qu'on gardait dans une chambre à part, au bout d'un couloir où personne ne passait. Elle dit le mot à voix basse. Il le connaissait déjà. Il le sait depuis un an. Il a vu les mêmes taches sur un matelot, dans un port des longues routes, et ce qu'on a fait au matelot : on l'a débarqué sur un îlot, avec une barrique d'eau, et le navire est reparti." },
+        { again: true, text: "Tual Pengam, assis sur le coffre, la chemise ouverte, attend qu'elle dise le mot qu'il connaît déjà." }
       ],
-      choices: [{ label: "Lui demander qui sait", to: "UE_alan" }] },
+      choices: [
+        { label: "Regarder le novice qui attend son frère, assis sur l'échelle de l'infirmerie", to: "UE_novice", hide: { seen: "UE_novice" } },
+        { label: "Ouvrir les traités de la Faculté, à la page de ce mal", to: "UE_traite", hide: { seen: "UE_traite" } },
+        { label: "Lui demander qui sait", to: "UE_alan" }
+      ] },
     UE_alan: { act: "III", title: "Les taches de Tual Pengam", place: "cormorane", ambiance: "mer",
       text: [
         "Personne. Personne ne sait. Il se lave seul, la nuit, quand l'avant dort. Il garde sa chemise sous le soleil des tropiques, ce qui fait rire les autres, qui le disent pudique comme une novice. Il a peur pour un seul homme à bord : son frère. Alan. Quinze ans, novice de la grand-vergue, qui dort dans le hamac voisin, qui mange dans son écuelle, qui le suit partout comme un chien, et qui veut devenir aussi bon gabier que lui. Tual l'a fait embarquer. Leur mère le lui a confié sur le quai.",

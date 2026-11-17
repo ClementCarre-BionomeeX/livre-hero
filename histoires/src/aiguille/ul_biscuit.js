@@ -7,13 +7,38 @@
 // everybody (ul:milieu). Wired in A3n_jours.
 module.exports = {
   passages: {
+    UL_kerdiles: { act: "III", title: "La guerre du biscuit", place: "sargues", ambiance: "mer",
+      text: [
+        "Kerdilès est assis sur un canon, à tribord, en train d'affûter son couteau sur une pierre, à petits coups réguliers, en regardant de l'autre côté du pont, où Péron fait semblant de ne pas le voir. C'est un gabier de trente ans, sec, nerveux, avec une moustache qu'il entretient comme un jardin.",
+        "Tu lui demandes pourquoi le côté droit. Il t'explique, avec une patience de maître d'école, la marque du boulanger, le côté plat, la fuite des charançons. Tu lui demandes s'il le croit vraiment. Il s'arrête d'affûter. Il réfléchit. Il dit qu'il ne s'est jamais posé la question avant le huitième jour du calme. Il dit qu'il l'a dit pour rire. Il dit que maintenant, il ne peut plus reculer, parce que toute la bordée de tribord le regarde.",
+        "Puis il dit, en reprenant sa pierre, que de toute façon, l'affaire n'est pas là. Il dit que Péron, à Morlenc, la veille de l'appareillage, a dansé quatre fois avec une fille de la Basse-Fosse, une rousse, au bal du Quai-aux-Harengs, et que c'était la sienne, à lui, Kerdilès, depuis deux ans, et que Péron le savait. Il dit que le biscuit, c'est en attendant.",
+        "Il fait jouer la lame à la lumière. Il dit qu'il aimerait mieux se battre pour la fille que pour les charançons, parce qu'au moins, ce serait propre. Mais qu'on ne peut pas se battre pour une fille qui est restée à Morlenc et qui a dansé avec qui elle voulait. Alors on se bat pour le biscuit. Il dit que c'est plus simple, et que tout le monde peut s'en mêler."
+      ],
+      choices: [
+        { back: "UL_charancons", label: "Retourner au milieu du pont" }
+      ] },
+    UL_peron: { act: "III", title: "La guerre du biscuit", place: "sargues", ambiance: "mer",
+      text: [
+        "Péron boude au pied du mât de misaine, les bras croisés, avec la figure d'un enfant qu'on a privé de dessert. C'est un grand garçon de vingt-cinq ans, de l'intérieur des terres, qui parle avec un accent de paysan que les gens de la côte imitent dans son dos. Il a un œil au beurre noir. Il le porte comme une décoration.",
+        "Tu lui demandes pourquoi le côté gauche. Il dit que chez lui, à la ferme, son grand-père cognait le pain noir à gauche pour en faire tomber les vers, et que son grand-père n'était pas un imbécile. Il dit ça avec une dignité soudaine. Il dit que ceux de tribord le traitent de paysan depuis Morlenc, qu'ils imitent sa façon de dire « la mer », et qu'il en a assez.",
+        "Il dit que la fille du bal, il ne savait pas qu'elle était à Kerdilès. Il dit qu'elle ne le lui a pas dit, et qu'elle riait, et qu'elle dansait bien, et que c'est la première fille de la côte qui ne se moquait pas de son accent. Il dit qu'il a été heureux pendant quatre danses, et qu'il paie depuis trois semaines, et qu'il trouve que c'est cher.",
+        "Il décroise les bras. Il regarde, de l'autre côté du pont, Kerdilès qui affûte son couteau. Il dit, plus bas, que si on lui avait demandé pardon pour l'accent, il aurait demandé pardon pour la fille. Mais personne ne demande jamais pardon le premier, sur un navire. C'est une question de bord."
+      ],
+      choices: [
+        { back: "UL_charancons", label: "Retourner au milieu du pont" }
+      ] },
     UL_charancons: { act: "III", title: "La guerre du biscuit", place: "sargues", ambiance: "mer",
       text: [
-        "Le biscuit de mer, au vingtième jour d'un voyage, est un caillou plat, gris, dur comme une semelle, habité. Les charançons y creusent des galeries, de petits vers blancs y font leur nid, et l'on dit, à bord, que le biscuit marche tout seul dans les soutes. Pour le manger, il faut d'abord le déloger : on le cogne contre la table, et les bêtes tombent. Tout le monde le fait. Personne n'y a jamais réfléchi.",
-        "Jusqu'au huitième jour du calme. Ce jour-là, au repas de midi, Kerdilès, de la bordée de tribord, fait remarquer à haute voix que ceux de bâbord cognent leur biscuit du côté gauche, comme des paysans, alors que tout marin qui se respecte le cogne du côté droit, celui de la marque du boulanger, parce que les charançons fuient vers le côté plat. Il le dit pour rire. Personne ne rit. Péron, de bâbord, répond que les charançons fuient vers le côté bombé, que tout le monde le sait depuis toujours, et que ceux de tribord n'ont jamais su manger proprement.",
-        "Le lendemain, à midi, il y a deux tables. Le surlendemain, on ne se passe plus le sel. Le troisième jour, il y a un œil au beurre noir, une chemise déchirée, et une phrase sur la mère de quelqu'un. Gobert, consulté, dit que le biscuit se cogne comme on veut, et se fait traiter de traître par les deux bords à la fois. Il se retire, outré, dans la soute aux voiles.",
+        { first: true, text: "Le biscuit de mer, au vingtième jour d'un voyage, est un caillou plat, gris, dur comme une semelle, habité. Les charançons y creusent des galeries, de petits vers blancs y font leur nid, et l'on dit, à bord, que le biscuit marche tout seul dans les soutes. Pour le manger, il faut d'abord le déloger : on le cogne contre la table, et les bêtes tombent. Tout le monde le fait. Personne n'y a jamais réfléchi." },
+        { first: true, text: "Jusqu'au huitième jour du calme. Ce jour-là, au repas de midi, Kerdilès, de la bordée de tribord, fait remarquer à haute voix que ceux de bâbord cognent leur biscuit du côté gauche, comme des paysans, alors que tout marin qui se respecte le cogne du côté droit, celui de la marque du boulanger, parce que les charançons fuient vers le côté plat. Il le dit pour rire. Personne ne rit. Péron, de bâbord, répond que les charançons fuient vers le côté bombé, que tout le monde le sait depuis toujours, et que ceux de tribord n'ont jamais su manger proprement." },
+        { first: true, text: "Le lendemain, à midi, il y a deux tables. Le surlendemain, on ne se passe plus le sel. Le troisième jour, il y a un œil au beurre noir, une chemise déchirée, et une phrase sur la mère de quelqu'un. Gobert, consulté, dit que le biscuit se cogne comme on veut, et se fait traiter de traître par les deux bords à la fois. Il se retire, outré, dans la soute aux voiles." },
+        { again: true, text: "Les deux bordées mangent à deux tables, et le biscuit se cogne des deux côtés à la fois, avec un bruit de guerre." }
       ],
-      choices: [{ label: "Écouter les deux bordées, qui te cherchent", to: "UL_juge" }] },
+      choices: [
+        { label: "Aller trouver Kerdilès, de tribord, pendant qu'il fourbit son couteau", to: "UL_kerdiles", hide: { seen: "UL_kerdiles" } },
+        { label: "Aller trouver Péron, de bâbord, qui boude au pied du mât de misaine", to: "UL_peron", hide: { seen: "UL_peron" } },
+        { label: "Écouter les deux bordées, qui te cherchent", to: "UL_juge" }
+      ] },
     UL_juge: { act: "III", title: "La guerre du biscuit", place: "sargues", ambiance: "mer",
       text: [
         "On vient te chercher dans ton hamac. Les deux bordées se sont mises d'accord sur une seule chose : il faut un juge, et le juge ne peut être d'aucun bord. Tu es mousse. Tu dors à l'avant, mais tu manges où on te met. Tu es, disent-ils, le seul homme impartial du navire. Tu fais remarquer que tu as seize ans. On te répond que ça n'a pas d'importance, et que c'est même mieux, parce que les enfants ne mentent pas, ce qui prouve qu'ils ne t'ont jamais vu{e} mentir à Gobert.",

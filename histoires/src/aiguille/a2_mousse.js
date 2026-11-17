@@ -51,6 +51,7 @@ module.exports = {
         { label: "Aller seul{e} à la foire, un soir, derrière la tente rayée", to: "WK_tente", hide: { seen: "WK_tente" }, if: { seen: "XG_foire" }, why: "Tu n'es pas encore allé{e} à la foire." },
         { label: "Pendant ton quart de mouillage, regarder la jeune femme assise au bout du quai", to: "UA_premiere", hide: { seen: "UA_premiere" }, if: { seen: "A2m_quart" }, why: "Gobert ne t'a pas encore confié de quart." },
         { label: "Aller chercher un rouleau de filin au quai, où descend une charrette de condamnées", to: "UG_quai", hide: { seen: "UG_quai" }, if: { count: JOURS, min: 1 }, why: "La Persévérante n'est pas encore à quai." },
+        { label: "Porter les paniers d'une famille endimanchée, un dimanche, sur le bac de Lanvaon", to: "TU_dimanche", hide: { seen: "TU_dimanche" } },
         { label: "Le dixième jour", to: "A2m_fin", big: true, if: { count: JOURS, min: 3 }, why: "Il reste des jours d'armement." },
       ] },
 
@@ -231,6 +232,7 @@ module.exports = {
         { label: "Monter chercher le seau de la mère Pennec, au-dessus de la saline", to: "VM_seau", hide: { seen: "VM_seau" } },
         { label: "Gagner deux sous en portant un panier pour l'écrivain public de la rue des Cordiers", to: "UT_panier", hide: { seen: "UT_panier" } },
         { label: "Écouter le joueur de fifre assis sur une borne, dans une ruelle sans rats", to: "TQ_fifre", hide: { seen: "TQ_fifre" } },
+        { label: "Descendre au bord du marais, où une bande d'enfants poursuit un petit garçon", to: "SE_marais", hide: { seen: "SE_marais" } },
         { label: "Aller voir le vieil homme assis en face de la boutique verte", to: "YN_banc", hide: { seen: "YN_banc" } },
         { label: "Chercher la porte bleue des Sœurs, rue des Tanneurs", to: "A2m_soeurs", hide: { seen: "A2m_soeurs" }, if: { item: "lettre_soeurs" }, why: "Tu n'as rien à faire chez des religieuses." },
         { back: "A2m_jours" },

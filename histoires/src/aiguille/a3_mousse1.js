@@ -42,6 +42,7 @@ module.exports = {
         { label: "Lire, derrière la chaloupe, ce que la gabière a répondu", to: "YZ_reponse", hide: { any: [{ seen: "YZ_reponse" }, { not: { has: "yz:plume" } }] } },
         { label: "Un cri, dans la soute aux voiles, et ton nom hurlé par Gobert", to: "ZX_trouve", hide: { any: [{ seen: "ZX_trouve" }, { not: { has: "zx:cache" } }] }, if: { count: JOURS, min: 2 }, why: "La soute garde encore son secret." },
         { label: "Aller trouver le gabier aux yeux pâles, qui t'attend au pied du mât de misaine", to: "WE_bord", hide: { any: [{ seen: "WE_bord" }, { not: { any: [{ has: "we:vareuse" }, { has: "we:gobert" }] } }] }, if: { count: JOURS, min: 1 }, why: "Il ne t'a encore rien dit depuis Morlenc." },
+        { label: "Regarder le Canif sculpter, le soir, sur le gaillard d'avant", to: "SN_gaillard", hide: { seen: "SN_gaillard" } },
         { label: "La dixième nuit", to: "A3m_grain", big: true, if: { count: JOURS, min: 4 }, why: "Brisegrève est encore loin." },
       ] },
 
@@ -278,6 +279,7 @@ module.exports = {
         { label: "Ramer avec Gobert jusqu'au brick qui vient de mouiller de travers", to: "VK_brick", hide: { seen: "VK_brick" } },
         { label: "Faire le tour de la roche par le sentier des douaniers, pour marcher", to: "VX_traces", hide: { seen: "VX_traces" } },
         { label: "Monter au sémaphore l'huile du caporal, où les soldats ne vont plus", to: "TM_huile", hide: { seen: "TM_huile" } },
+        { label: "Monter au commandant de la garnison le tonnelet de vin de la capitaine", to: "SA_tonneau", hide: { seen: "SA_tonneau" } },
         { label: "Entrer à la cantine du bourg", to: "XQ_b_cantine", hide: { seen: "XQ_b_cantine" } },
         { label: "Le canot du fort accoste : on fouille la Cormorane", to: "YA_b_fouille", hide: { any: [{ seen: "YA_b_fouille" }, { not: { has: "ya:guerec_ami" } }] } },
         { label: "Te glisser à la grotte, la nuit, et frapper contre la roche", to: "XM_m_nuit", hide: { any: [{ not: { seen: "XM_m_gobert" } }, { seen: "XM_m_voix" }] } },

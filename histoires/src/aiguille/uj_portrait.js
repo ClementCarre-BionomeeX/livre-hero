@@ -8,14 +8,39 @@
 // Wired in XR_jours.
 module.exports = {
   passages: {
+    UJ_toiles: { act: "II", title: "Le portrait de Lisette", place: "basse_fosse", ambiance: "ville", second: true,
+      text: [
+        "Pendant que le peintre fouille dans ses pots, Fargue retourne une toile, contre le mur. Puis une autre. Puis toutes. Il y en a une quarantaine, de toutes les tailles, empilées par rangées, couvertes de poussière et de toiles d'araignée, et sur chacune la même chose : un brouillard de couleurs, gratté, repris, épaissi, d'où sort, ici, une main, là, une bouche, là encore, une mèche de cheveux, d'une perfection qui coupe le souffle.",
+        "Une main de vieille femme, posée sur un chapelet, si vraie qu'on voit battre le sang sous la peau. Une bouche d'enfant, entrouverte, sur le point de dire quelque chose. Une épaule nue, avec un grain de beauté. Un œil, encore, un œil d'homme, bleu, triste, dans un coin. Le reste, chaque fois, est perdu sous la brume.",
+        "Au dos de chaque toile, le peintre a écrit, au crayon, un nom et une date. Les plus anciennes ont trente ans. Fargue lit les noms. Des commandes. Une veuve, un armateur, une petite fille, un capitaine. Des gens qui ont payé, qui sont venus chercher leur portrait, qui sont repartis sans, et qui sont morts, pour la plupart, depuis longtemps, en attendant que maître Bescond trouve le ton juste.",
+        "Bescond le surprend. Il ne se fâche pas. Il dit, avec une tendresse effrayante, que ce sont ses enfants. Qu'il les reprendra tous, un jour, quand il aura trouvé. Il dit que la vieille au chapelet, il y est presque, depuis vingt-deux ans. Fargue remet les toiles contre le mur, face cachée, avec précaution, comme on referme des cercueils."
+      ],
+      choices: [
+        { back: "UJ_atelier", label: "Remonter près du chevalet" }
+      ] },
+    UJ_voilerie: { act: "II", title: "Le portrait de Lisette", place: "basse_fosse", ambiance: "ville", second: true,
+      text: [
+        "Au rez-de-chaussée, la voilerie est une longue salle claire, où quatre ouvriers cousent à genoux une grand-voile étendue sur le plancher, avec des paumelles de cuir et des aiguilles longues comme des poignards. Le maître voilier, un gros homme à lunettes, propriétaire de la maison, accueille Fargue en voisin, puisqu'il le voit monter l'échelle depuis trois semaines.",
+        "Il dit qu'il loue le grenier au peintre depuis trente ans. Qu'il ne paie plus son loyer depuis vingt. Qu'il n'a pas le cœur de le mettre dehors. Il dit que maître Bescond a été, dans sa jeunesse, le meilleur portraitiste de Morlenc, qu'on venait de Varnèse pour poser chez lui, qu'il faisait un portrait en quatre séances, et qu'on se reconnaissait dedans mieux que dans un miroir.",
+        "Puis, un jour, il a fait le portrait de sa propre femme, qui était malade. Il n'a pas pu le finir avant qu'elle meure. Il l'a recommencé, après, de mémoire. Il ne l'a jamais fini. Depuis, il ne finit plus rien. Il cherche. Le voilier dit qu'il cherche sa femme dans les visages des autres, et qu'il ne la trouve pas, et qu'il gratte, et qu'il recommence.",
+        "Le voilier enfonce son aiguille dans la grand-voile, la tire, serre le point. Il dit qu'il espère que Fargue n'a pas payé d'avance. Puis il voit la figure de Fargue. Il dit qu'il en était sûr. Il dit, en reprenant son aiguille : « Si j'ai un conseil, prenez ce qu'il y a. Avec lui, demain, il y en aura moins. »"
+      ],
+      choices: [
+        { back: "UJ_atelier", label: "Remonter l'échelle de meunier" }
+      ] },
     UJ_atelier: { act: "II", title: "Le portrait de Lisette", place: "basse_fosse", ambiance: "ville", second: true,
       fx: { meet: "bescond" },
       text: [
-        "L'atelier de maître Bescond est un grenier au-dessus d'une voilerie, où l'on monte par une échelle de meunier. Il y fait un jour gris et magnifique, qui tombe d'une verrière de toit encrassée de fientes de mouettes. Il y a partout des toiles retournées contre les murs, des pots de colle, des os de seiche pour poncer, et une odeur d'huile de lin à vous faire tourner la tête. Le peintre lui-même est un petit homme d'une soixantaine d'années, au crâne chauve et taché, aux doigts couleur de terre brûlée, qui parle tout seul en regardant ses toiles comme on parle à des malades.",
-        "Fargue l'a payé il y a trois semaines. Vingt livres. Le prix d'un portrait honnête, en buste, sur toile de chanvre. Il voulait avoir Lisette avec lui, là où il va, sous une forme qui ne tousse pas. Le peintre l'a fait poser six fois, chez les Sœurs, à la fenêtre aux géraniums, en s'émerveillant à chaque fois de sa peau, qu'il disait transparente, et de la lumière qui la traversait. Fargue a trouvé ce mot de peintre beaucoup trop exact.",
-        "L'appareillage est dans trois jours. Fargue vient chercher la toile. Bescond la retourne, à contrecœur, sur son chevalet.",
+        { first: true, text: "L'atelier de maître Bescond est un grenier au-dessus d'une voilerie, où l'on monte par une échelle de meunier. Il y fait un jour gris et magnifique, qui tombe d'une verrière de toit encrassée de fientes de mouettes. Il y a partout des toiles retournées contre les murs, des pots de colle, des os de seiche pour poncer, et une odeur d'huile de lin à vous faire tourner la tête. Le peintre lui-même est un petit homme d'une soixantaine d'années, au crâne chauve et taché, aux doigts couleur de terre brûlée, qui parle tout seul en regardant ses toiles comme on parle à des malades." },
+        { first: true, text: "Fargue l'a payé il y a trois semaines. Vingt livres. Le prix d'un portrait honnête, en buste, sur toile de chanvre. Il voulait avoir Lisette avec lui, là où il va, sous une forme qui ne tousse pas. Le peintre l'a fait poser six fois, chez les Sœurs, à la fenêtre aux géraniums, en s'émerveillant à chaque fois de sa peau, qu'il disait transparente, et de la lumière qui la traversait. Fargue a trouvé ce mot de peintre beaucoup trop exact." },
+        { first: true, text: "L'appareillage est dans trois jours. Fargue vient chercher la toile. Bescond la retourne, à contrecœur, sur son chevalet." },
+        { again: true, text: "Maître Bescond se tient près de son chevalet, la toile tournée contre lui, et il hésite à la retourner." }
       ],
-      choices: [{ label: "Regarder la toile", to: "UJ_toile" }] },
+      choices: [
+        { label: "Tourner vers toi, une à une, les toiles appuyées contre les murs", to: "UJ_toiles", hide: { seen: "UJ_toiles" } },
+        { label: "Descendre parler au maître voilier du rez-de-chaussée", to: "UJ_voilerie", hide: { seen: "UJ_voilerie" } },
+        { label: "Regarder la toile", to: "UJ_toile" }
+      ] },
     UJ_toile: { act: "II", title: "Le portrait de Lisette", place: "basse_fosse", ambiance: "ville", second: true,
       text: [
         "Il n'y a pas de portrait. Il y a une tempête de couleurs. Des couches et des couches de peinture, grattées, reprises, grattées encore, empilées si épais que la toile en est bombée. Des roses, des gris, des blancs, des verts d'eau, mêlés, brouillés, comme si l'on avait peint une brume par-dessus un visage, puis un autre visage par-dessus la brume, puis effacé le tout. On devine une fenêtre. Peut-être un géranium. Rien d'autre.",

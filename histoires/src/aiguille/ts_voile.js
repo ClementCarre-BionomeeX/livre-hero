@@ -29,14 +29,37 @@ module.exports = {
       choices: [
         { label: "Monter entendre ce que l'équipage en dit", to: "TS_equipage" }
       ] },
-    TS_equipage: { act: "III", title: "Le voile", place: "cormorane", ambiance: "mer",
+    TS_gabier: { act: "III", title: "Le voile", place: "cormorane", ambiance: "mer",
       text: [
-        "Sur le pont, l'équipage s'est divisé en théories, comme une académie. Le voile cache une lèpre, une brûlure, un chancre. Le voile cache un crime : il a vu, à la source, le fantôme de quelqu'un qu'il a tué. Le voile cache un vœu, une pénitence, une femme. Le voile ne cache rien, c'est un vieux qui a perdu la tête au soleil.",
-        "Ce qui frappe Victorine, c'est que chacun propose, pour le voilier, le secret qu'il aurait lui-même. L'homme qui parle de crime a les mains qui tremblent. Celui qui parle de femme baisse les yeux. Un jeune gabier, qui jure que c'est une maladie honteuse, rougit jusqu'aux oreilles et s'en va.",
-        "Le soir, au gaillard, on s'écarte du voilier comme on s'écartait, dans les villages, d'un homme qui avait le mauvais œil. Personne ne lui a rien fait. Personne ne lui parle plus. Il coud. Il coud à la lanterne, tard, l'aiguille qui va et vient avec un petit bruit sec, et ses deux lueurs, derrière la toile noire, qui ne regardent personne et que tout le monde sent sur soi.",
-        "La capitaine fait savoir, au coucher du soleil, qu'elle attend demain matin le certificat de la médecin. Et qu'elle aimerait mieux, entre nous, qu'il n'y ait plus de voile à ce moment-là."
+        "Le jeune gabier s'est réfugié à l'avant, derrière le guindeau, assis sur le pont, les genoux sous le menton. Il a dix-neuf ans, des taches de son, et des oreilles encore rouges. Il voit Victorine venir et fait mine de se lever pour s'enfuir plus loin. Il n'y a plus de plus loin. Il se rassied.",
+        "Elle s'assied à côté de lui, sur un rouleau de cordage, sans rien dire. Au bout d'un long moment, il parle. Il dit qu'il ne pensait pas ce qu'il a dit, sur la maladie honteuse. Il dit qu'il a dit ça parce que c'est la première chose qui lui est venue. Puis il dit, plus bas, que c'est la première chose qui lui est venue parce qu'il a peur de l'avoir, lui, depuis Morlenc, depuis une nuit dans une maison du port, et qu'il n'ose pas venir à l'infirmerie, parce que tout le monde le saurait.",
+        "Victorine lui pose trois questions, à voix basse. Il répond. Elle lui dit qu'il n'a rien. Qu'à ce qu'il décrit, il a eu peur, et la peur a des symptômes, elle aussi, qui ressemblent à ceux de toutes les maladies qu'on redoute. Elle lui dit de passer quand même à l'infirmerie, demain, à l'heure où elle panse les ampoules des mains, avec les autres, pour qu'elle s'en assure sans qu'on le remarque.",
+        "Il la regarde, stupéfait, comme si elle venait de lui ôter quelque chose de la figure. Puis il regarde, à l'arrière, le voilier qui coud sous la lanterne avec son carré de toile noire. Il dit, très lentement : « Alors, lui aussi, c'est peut-être rien. » Victorine dit que c'est possible. Le gabier dit que c'est pire, peut-être, quand c'est rien."
       ],
       choices: [
+        { back: "TS_equipage", label: "Retourner sur le pont, au milieu des théories" }
+      ] },
+    TS_ancien: { act: "III", title: "Le voile", place: "cormorane", ambiance: "mer",
+      text: [
+        "Le plus vieux matelot du bord s'appelle Le Scornet, ou le père Le Scornet, ou le Doyen, selon l'heure et le degré de respect. Il a soixante-cinq ans, un seul œil qui voit, et il a fait vingt ans de mer avec Gwénolé Trébaol, sur quatre navires différents. Il chique. Il crache dans un seau, avec une précision d'artilleur, avant chaque phrase, comme on tire une salve d'honneur.",
+        "Il dit que Trébaol est le meilleur voilier qu'il ait connu, et le plus doux, et le plus ennuyeux. Il dit qu'en vingt ans, il ne lui a jamais vu une colère, une femme, une dette, un ennemi. Il coud, il chique, il dort. Il dit qu'il a toujours eu sur lui un carré de toile noire, plié dans sa poche, et qu'il le sortait parfois, et le regardait, et le rangeait. On croyait que c'était pour les deuils. Les voiliers cousent les morts dans la toile, à bord. Ça leur donne des manies.",
+        "Il crache. Il dit qu'une seule fois, en vingt ans, il l'a vu se mettre la toile sur la figure. Une nuit, au large des Mers chaudes, après qu'un mousse était tombé de la vergue de perroquet et s'était tué sur le pont. Trébaol l'a cousu dans sa toile, toute la nuit, à la lanterne. Au matin, quand on l'a mis à la mer, Trébaol avait la toile noire sur la figure. Il l'a gardée trois jours. Personne n'a rien demandé. Il l'a ôtée le quatrième jour, sans un mot.",
+        "Le père Le Scornet crache une dernière fois. Il dit qu'il n'est mort personne, cette fois-ci. Il dit qu'à son avis, le voilier porte le deuil de quelqu'un qui n'est pas encore mort. Il dit ça sans rire, en regardant la maison blanche, sur la colline de l'îlot, derrière ses volets verts."
+      ],
+      choices: [
+        { back: "TS_equipage", label: "Retourner sur le pont, au milieu des théories" }
+      ] },
+    TS_equipage: { act: "III", title: "Le voile", place: "cormorane", ambiance: "mer",
+      text: [
+        { first: true, text: "Sur le pont, l'équipage s'est divisé en théories, comme une académie. Le voile cache une lèpre, une brûlure, un chancre. Le voile cache un crime : il a vu, à la source, le fantôme de quelqu'un qu'il a tué. Le voile cache un vœu, une pénitence, une femme. Le voile ne cache rien, c'est un vieux qui a perdu la tête au soleil." },
+        { first: true, text: "Ce qui frappe Victorine, c'est que chacun propose, pour le voilier, le secret qu'il aurait lui-même. L'homme qui parle de crime a les mains qui tremblent. Celui qui parle de femme baisse les yeux. Un jeune gabier, qui jure que c'est une maladie honteuse, rougit jusqu'aux oreilles et s'en va." },
+        { first: true, text: "Le soir, au gaillard, on s'écarte du voilier comme on s'écartait, dans les villages, d'un homme qui avait le mauvais œil. Personne ne lui a rien fait. Personne ne lui parle plus. Il coud. Il coud à la lanterne, tard, l'aiguille qui va et vient avec un petit bruit sec, et ses deux lueurs, derrière la toile noire, qui ne regardent personne et que tout le monde sent sur soi." },
+        { first: true, text: "La capitaine fait savoir, au coucher du soleil, qu'elle attend demain matin le certificat de la médecin. Et qu'elle aimerait mieux, entre nous, qu'il n'y ait plus de voile à ce moment-là." },
+        { again: true, text: "Sur le pont, l'équipage échafaude des théories sur le voile noir, et le voilier coud sous la lanterne." }
+      ],
+      choices: [
+        { label: "Suivre le jeune gabier qui a rougi et s'en est allé", to: "TS_gabier", hide: { seen: "TS_gabier" } },
+        { label: "Interroger le plus vieux matelot du bord, qui a navigué vingt ans avec le voilier", to: "TS_ancien", hide: { seen: "TS_ancien" } },
         { label: "Aller s'asseoir près de lui, la nuit, pendant qu'il coud", to: "TS_nuit" }
       ] },
     TS_nuit: { act: "III", title: "Le voile", place: "cormorane", ambiance: "nuit",

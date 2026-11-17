@@ -6,13 +6,38 @@
 // (uk:verite), or lets him serve it as it is and face the table (uk:table). Wired in A3f_jours.
 module.exports = {
   passages: {
+    UK_soute: { act: "III", title: "La soupe du baron", place: "sargues", ambiance: "mer", second: true,
+      text: [
+        "Fargue dit qu'un cuisinier commence par connaître ce qu'il a. Il prend une lanterne et descend, devant le baron, l'échelle raide de la soute aux vivres, sous la ligne de flottaison, là où l'air est épais, chaud, et sent le saloir, le moisi, la cale et quelque chose de plus vivant. Le baron suit, en robe de chambre de soie, en tenant le bas de sa robe comme une dame tient sa traîne.",
+        "Fargue lui montre. Les barils de bœuf salé, où la viande baigne dans une saumure brune, dure comme du bois, qu'il faut dessaler trois jours avant de la cuire. Les sacs de pois secs, que les charançons ont transformés en dentelle. Les barriques de biscuit. Les tonneaux d'eau, dont l'eau est verte. Les rats, qui s'écartent de la lanterne sans se presser, avec l'air de propriétaires dérangés pendant leur sieste.",
+        "Le baron regarde tout, en silence, avec une expression que Fargue ne lui a jamais vue. Il demande si c'est ça que mange l'équipage. Fargue dit oui. Il demande si c'est ça qu'on lui sert, à lui, à la table de la capitaine, sous les plats d'argent. Fargue dit : la même chose, en mieux présentée. Le baron reste un long moment silencieux, la main sur un tonneau.",
+        "Puis il dit, très bas, qu'il comprend maintenant pourquoi le cuisinier est l'homme le plus important d'un navire. Il dit qu'il avait cru que c'était le capitaine. Fargue ne répond rien. Il remonte l'échelle. Le baron remonte derrière lui, et, en haut, il lâche le bas de sa robe de chambre, qui traîne désormais dans la poussière de la cambuse, et il ne la relève plus."
+      ],
+      choices: [
+        { back: "UK_tablier", label: "Remonter à la cambuse" }
+      ] },
+    UK_carnet: { act: "III", title: "La soupe du baron", place: "sargues", ambiance: "mer", second: true,
+      text: [
+        "Le baron a apporté un carnet relié de maroquin rouge, avec un crayon d'argent, et il l'a posé sur le billot, ouvert, pour prendre des notes. Pendant qu'il pleure sur son oignon, en se plaignant de la cruauté des légumes, Fargue jette un œil sur la page. Puis sur la précédente. Puis il tourne les pages, d'un doigt, sans bruit.",
+        "Les premières pages sont des notes de cuisine, d'une écriture élégante et penchée : l'oignon se tient de la main gauche ; le couteau ne se lève pas plus haut que le pouce ; le sel en dernier. Puis, au milieu des recettes, d'autres notes, de la même écriture, sur d'autres sujets. Le cuisinier sourit quand il ment ; c'est-à-dire souvent. Le cuisinier joue aux échecs comme un homme qui a appris en prison. Le cuisinier regarde l'enfant du Fanal comme on regarde une dette.",
+        "Fargue tourne encore une page. Elle est blanche, sauf une ligne, au milieu, soulignée deux fois : Apprendre la cuisine, pour voir de près ce qu'il fait de ses mains.",
+        "Il referme le carnet, doucement, et le remet exactement où il était, à l'angle exact du billot. Le baron renifle, s'essuie les yeux avec un mouchoir de batiste, et demande si l'oignon est bien coupé. Fargue regarde l'oignon, massacré. Il dit qu'il est parfait. Il pense que c'est la première fois qu'il sous-estime un Clavières, et qu'il faudra que ce soit la dernière."
+      ],
+      choices: [
+        { back: "UK_tablier", label: "Revenir au fourneau, près du baron" }
+      ] },
     UK_tablier: { act: "III", title: "La soupe du baron", place: "sargues", ambiance: "mer", second: true,
       text: [
-        "Le cinquième jour du calme, le baron Clavières descend à la cambuse, en robe de chambre de soie, ce qui ne s'est jamais vu. Il regarde le fourneau, les marmites, les couteaux, les oignons pendus, avec l'intérêt d'un voyageur qui visite un pays sauvage. Puis il annonce à Fargue qu'il a décidé d'apprendre la cuisine. Il dit qu'un gentilhomme accompli doit tout savoir, et que ses ancêtres ont su faire la guerre, la chasse et le négoce, mais qu'aucun n'a su faire une soupe, et que c'est une lacune de la famille qu'il entend combler. Il paiera. Bien.",
-        "Fargue le regarde. Il pense à la grand-chambre, aux échecs, au jeu fragile qu'il joue avec cet homme depuis Morlenc. Il pense qu'un baron dans sa cambuse, c'est un baron qu'il a sous la main, et sous les yeux, et qui parlera. Il pense aussi que c'est la chose la plus drôle qui lui soit arrivée depuis vingt ans. Il garde son visage de bois. Il dit que ce sera un honneur. Il lui tend un tablier.",
-        "Le baron noue le tablier par-dessus sa robe de chambre, avec la solennité d'un chevalier qu'on adoube. Il demande par quoi l'on commence. Fargue lui met dans les mains un couteau et un oignon.",
+        { first: true, text: "Le cinquième jour du calme, le baron Clavières descend à la cambuse, en robe de chambre de soie, ce qui ne s'est jamais vu. Il regarde le fourneau, les marmites, les couteaux, les oignons pendus, avec l'intérêt d'un voyageur qui visite un pays sauvage. Puis il annonce à Fargue qu'il a décidé d'apprendre la cuisine. Il dit qu'un gentilhomme accompli doit tout savoir, et que ses ancêtres ont su faire la guerre, la chasse et le négoce, mais qu'aucun n'a su faire une soupe, et que c'est une lacune de la famille qu'il entend combler. Il paiera. Bien." },
+        { first: true, text: "Fargue le regarde. Il pense à la grand-chambre, aux échecs, au jeu fragile qu'il joue avec cet homme depuis Morlenc. Il pense qu'un baron dans sa cambuse, c'est un baron qu'il a sous la main, et sous les yeux, et qui parlera. Il pense aussi que c'est la chose la plus drôle qui lui soit arrivée depuis vingt ans. Il garde son visage de bois. Il dit que ce sera un honneur. Il lui tend un tablier." },
+        { first: true, text: "Le baron noue le tablier par-dessus sa robe de chambre, avec la solennité d'un chevalier qu'on adoube. Il demande par quoi l'on commence. Fargue lui met dans les mains un couteau et un oignon." },
+        { again: true, text: "Le baron Clavières, en tablier par-dessus sa robe de chambre de soie, attend ses ordres avec la solennité d'un chevalier qu'on adoube." }
       ],
-      choices: [{ label: "Lui apprendre à couper un oignon", to: "UK_oignon" }] },
+      choices: [
+        { label: "Descendre d'abord avec lui à la soute aux vivres", to: "UK_soute", hide: { seen: "UK_soute" } },
+        { label: "Jeter un œil, pendant qu'il pleure sur l'oignon, au carnet qu'il a posé sur le billot", to: "UK_carnet", hide: { seen: "UK_carnet" } },
+        { label: "Lui apprendre à couper un oignon", to: "UK_oignon" }
+      ] },
     UK_oignon: { act: "III", title: "La soupe du baron", place: "sargues", ambiance: "mer", second: true,
       text: [
         "Il faut une heure pour l'oignon. Le baron le tient comme un boulet encore chaud, le coupe comme on signe un traité, en pesant chaque geste, et pleure toutes les larmes de son corps, ce qui l'indigne. Il demande s'il n'existe pas des oignons qui ne font pas pleurer. Fargue dit qu'il en existe, mais qu'ils n'ont pas de goût. Le baron dit que c'est exactement comme les gens. Fargue pense que c'est la première chose sensée qu'il ait entendue dans la bouche d'un Clavières.",

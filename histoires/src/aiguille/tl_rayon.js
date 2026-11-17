@@ -29,16 +29,39 @@ module.exports = {
       choices: [
         { label: "Arriver au sommet", to: "TL_premier" }
       ] },
-    TL_premier: { act: "III", title: "Le rayon vert", place: "ilot", ambiance: "nature",
+    TL_baleines: { act: "III", title: "Le rayon vert", place: "ilot", ambiance: "nuit",
       text: [
-        "Au sommet, il pose le tabouret sur le rocher, face à l'ouest, l'ajuste trois fois, s'assied comme un amiral sur sa dunette. Le soleil descend vers la mer des Sargues, énorme, orange, et la mer jaune devient rouge, puis violette, et les chenaux d'eau entre les herbes s'allument comme des rues de ville où l'on allume les réverbères un par un.",
-        "Et puis, juste avant que le soleil touche l'eau, un nuage. Un seul, petit, tout seul dans le ciel, venu d'on ne sait où, qui se place juste devant, comme un huissier à une porte.",
-        "« Moutons, dit le père Cariou. Menteurs. »",
-        "Il ne se lève pas. Il reste assis dans la nuit tombante, la pipe vide aux dents. Puis il raconte, sans que tu demandes, comme on raconte à un mousse parce qu'un mousse, demain, aura oublié.",
-        "Il y a cinquante ans, à Kervellec, il y avait une fille, Anna-Vari. Il lui a demandé de l'attendre, avant sa première campagne aux baleines. Elle a gardé le silence. Il est parti en se disant qu'un silence de fille, c'est un non qui a de l'éducation. Il a fait les baleines, les glaces, les Mers chaudes, et il a laissé passer cinquante ans sans une lettre et sans un retour. Il a appris sa mort l'an dernier, par un pays qu'il a croisé dans une taverne de Morlenc. Elle était restée fille. Elle avait gardé, sur sa cheminée, cinquante ans, un morceau de fanon de baleine qu'il lui avait donné à dix-sept ans, pour rire.",
-        "« Je me suis trompé une fois, dit-il. Une seule. Elle a duré toute la vie. Je voudrais ne plus me tromper, pour le temps qui reste. Demain, on remonte. »"
+        "Le père Cariou rallume sa pipe vide, par habitude, avec un briquet qui ne fait pas d'étincelle. Il dit qu'il a vu des baleines plus grandes que la Cormorane, qui sautaient hors de l'eau, tout entières, et retombaient avec un bruit de maison qui s'écroule. Il dit qu'il en a harponné quarante-deux, et qu'il se rappelle chacune, parce qu'une baleine qui meurt vous regarde, avec un œil gros comme un chapeau, et qu'on n'oublie pas un regard pareil.",
+        "Il dit qu'il a vu, dans les glaces, des nuits qui duraient trois mois, et des aurores qui pendaient du ciel comme des rideaux de théâtre, vertes, roses, violettes, et qui faisaient un bruit, un petit crépitement de soie, que les jeunes juraient ne pas entendre. Lui, il l'entendait. Il dit qu'à l'époque, il avait des yeux de faucon, qu'il voyait le souffle d'une baleine à trois lieues, avant la vigie, et qu'on lui donnait une ration de rhum pour chaque souffle.",
+        "Il se tait un moment. Il dit que le plus beau, dans tout ça, c'était le retour. Le moment où l'on voit, au bout de deux ans, la première ligne grise de la côte. Il dit qu'à chaque retour, il se jurait d'aller à Kervellec, frapper à une porte. Il dit qu'à chaque retour, il trouvait une taverne avant la porte.",
+        "« Quarante-deux baleines, dit-il, et pas une fille. Voilà le compte. » Il tire sur sa pipe vide. Il dit qu'elle a un goût de cendre froide, et que c'est exactement le goût qu'il faut."
       ],
       choices: [
+        { back: "TL_premier", label: "Retourner près du tabouret" }
+      ] },
+    TL_descente: { act: "III", title: "Le rayon vert", place: "ilot", ambiance: "nuit",
+      text: [
+        "La nuit tombe d'un coup, comme toujours dans ces mers. Le sentier de la colline disparaît. Tu prends le tabouret sous un bras, et le père Cariou par l'autre, et vous descendez, à tâtons, entre les rochers et les racines, sous un ciel où les étoiles s'allument par poignées.",
+        "Tu t'attends à le soutenir. C'est lui qui te soutient. Il marche dans le noir avec une sûreté étrange, posant le pied juste avant toi, sur la bonne pierre, évitant la racine que tu ne vois pas, comme s'il connaissait le chemin par cœur. Il le prend pour la première fois. Tu le lui fais remarquer. Il rit. Il dit que la nuit, il voit très bien. Il dit que c'est le jour qui le gêne, depuis quelque temps.",
+        "Au milieu de la pente, il s'arrête. Il te demande si tu vois la lumière de la Cormorane, au mouillage. Tu dis oui, là, en bas, le fanal. Il plisse les yeux, longtemps, dans la direction que tu montres. Il dit : « Ah oui. » Il le dit trop vite. Puis il reprend la descente, en tenant ton bras un peu plus fort qu'avant.",
+        "En bas, sur la plage, il te rend le bras, s'éloigne de trois pas, se retourne. Il dit qu'il sera là demain, à la même heure, avec le tabouret. Il dit que le ciel sera clair. Il le dit avec une certitude de prophète. Tu remarques qu'en le disant, il tourne les yeux vers ta voix, et que le ciel reste derrière lui."
+      ],
+      choices: [
+        { back: "TL_premier", label: "Retourner, en pensée, au sommet de la colline" }
+      ] },
+    TL_premier: { act: "III", title: "Le rayon vert", place: "ilot", ambiance: "nature",
+      text: [
+        { first: true, text: "Au sommet, il pose le tabouret sur le rocher, face à l'ouest, l'ajuste trois fois, s'assied comme un amiral sur sa dunette. Le soleil descend vers la mer des Sargues, énorme, orange, et la mer jaune devient rouge, puis violette, et les chenaux d'eau entre les herbes s'allument comme des rues de ville où l'on allume les réverbères un par un." },
+        { first: true, text: "Et puis, juste avant que le soleil touche l'eau, un nuage. Un seul, petit, tout seul dans le ciel, venu d'on ne sait où, qui se place juste devant, comme un huissier à une porte." },
+        { first: true, text: "« Moutons, dit le père Cariou. Menteurs. »" },
+        { first: true, text: "Il ne se lève pas. Il reste assis dans la nuit tombante, la pipe vide aux dents. Puis il raconte, sans que tu demandes, comme on raconte à un mousse parce qu'un mousse, demain, aura oublié." },
+        { first: true, text: "Il y a cinquante ans, à Kervellec, il y avait une fille, Anna-Vari. Il lui a demandé de l'attendre, avant sa première campagne aux baleines. Elle a gardé le silence. Il est parti en se disant qu'un silence de fille, c'est un non qui a de l'éducation. Il a fait les baleines, les glaces, les Mers chaudes, et il a laissé passer cinquante ans sans une lettre et sans un retour. Il a appris sa mort l'an dernier, par un pays qu'il a croisé dans une taverne de Morlenc. Elle était restée fille. Elle avait gardé, sur sa cheminée, cinquante ans, un morceau de fanon de baleine qu'il lui avait donné à dix-sept ans, pour rire." },
+        { first: true, text: "« Je me suis trompé une fois, dit-il. Une seule. Elle a duré toute la vie. Je voudrais ne plus me tromper, pour le temps qui reste. Demain, on remonte. »" },
+        { again: true, text: "Le père Cariou, sur son tabouret, face à l'ouest, attend que le nuage s'en aille, et il ne s'en va pas." }
+      ],
+      choices: [
+        { label: "Lui demander ce qu'il a vu, aux baleines", to: "TL_baleines", hide: { seen: "TL_baleines" } },
+        { label: "Le guider dans la descente, à la nuit noire", to: "TL_descente", hide: { seen: "TL_descente" } },
         { label: "Le redescendre à la nuit, et remonter le lendemain soir", to: "TL_second" }
       ] },
     TL_second: { act: "III", title: "Le rayon vert", place: "ilot", ambiance: "nature",

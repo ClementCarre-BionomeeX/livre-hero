@@ -250,6 +250,8 @@ module.exports = {
         { label: "Suivre le vieux sergent qui attend au pied de l'échelle", to: "WJ_sergent", hide: { seen: "WJ_sergent" } },
         { label: "Monter à la tour sud, où Madame Lebihan, souffrante, prie la médecin de venir", to: "UM_billet", hide: { seen: "UM_billet" }, if: { seen: "XM_v_diner" }, why: "Personne, au fort, ne lui a encore parlé d'une Madame Lebihan." },
         { label: "Descendre sur la jetée, où quelqu'un tire au pistolet chaque matin", to: "TO_coups", hide: { seen: "TO_coups" } },
+        { label: "Recevoir l'armateur en noir qui demande un certificat pour un homme qu'il n'a pas vu depuis quinze ans", to: "SJ_armateur", hide: { seen: "SJ_armateur" } },
+        { label: "Recevoir la jeune fermière qui attend sur la cale, un bras serré sous son châle", to: "SL_visite", hide: { seen: "SL_visite" } },
         { label: "Acheter des citrons à la cantinière du bourg", if: { gold: { min: 40 } }, hide: { any: [{ has: "pharmacie:citron" }, { seen: "A3v_citrons" }] }, fx: { gold: -40, flag: "citrons:victorine" }, to: "A3v_citrons" },
       ] },
     A3v_citrons: { act: "III", title: "Le bourg des soldats", place: "brisegreve", ambiance: "village",

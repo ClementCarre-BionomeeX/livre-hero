@@ -22,6 +22,7 @@ module.exports = {
         { label: "Monter à l'hôtel Clavières sous la pluie, dans le premier fiacre de la file", to: "VP_pluie", hide: { seen: "VP_pluie" } },
         { label: "Pousser la porte vitrée du bureau des Rôles, où un commis rose attend", to: "VS_bureau", hide: { seen: "VS_bureau" } },
         { label: "Acheter quarante livres de chandelles chez la veuve Jézéquel, au fond d'une ruelle", to: "VV_boutique", hide: { seen: "VV_boutique" } },
+        { label: "Porter un café au lieutenant pâle qui regarde le pharaon sans jamais jouer", to: "TY_pale", hide: { seen: "TY_pale" }, if: { seen: "XR_echecs" }, why: "Fargue n'a pas encore mis les pieds au café des Navigateurs." },
         { label: "Monter l'échelle du grenier, au-dessus de la voilerie, chercher le portrait de Lisette", to: "UJ_atelier", hide: { seen: "UJ_atelier" } },
         { label: "Descendre au quai, où un petit commis attend sous la pluie depuis l'aube", to: "UU_commis", hide: { seen: "UU_commis" }, if: { seen: "XR_echecs" }, why: "Personne, à Morlenc, ne sait encore pour qui Fargue cuisine." },
         { label: "Acheter les épices rue des Cordiers, chez la veuve remariée au perroquet", to: "TJ_epicerie", hide: { seen: "TJ_epicerie" } },

@@ -29,15 +29,38 @@ module.exports = {
       choices: [
         { label: "Aller voir ce vicomte de Lesven, au fort", to: "TO_vicomte" }
       ] },
+    TO_isaure: { act: "III", title: "Le coup gardé", place: "brisegreve", ambiance: "village",
+      text: [
+        "Isaure de Lesven grimpe l'escalier du rempart deux marches à la fois, en relevant ses jupes, et arrive en haut hors d'haleine et ravie. Elle se penche entre deux créneaux, au-dessus du vide, au-dessus de la mer grise qui bat le pied de la roche trois cents pieds plus bas. Victorine la retient par la taille. Isaure rit. Elle dit qu'elle n'a jamais eu peur de rien, que c'est pour cela que son mari l'a épousée.",
+        "Elle parle de lui sans s'arrêter, comme on parle d'un pays qu'on vient de découvrir. Qu'il fait tout bien, sans effort, le cheval, la danse, l'escrime, le dessin, les mathématiques des fortifications. Qu'on l'aime partout. Qu'il n'a pas d'ennemis. Elle dit : « Il prétend qu'il en a eu un, une fois, au régiment, un garçon très sombre qui ne riait jamais, et qu'il a dû se battre avec lui. Il dit qu'il ne se rappelle même plus son nom. Il dit que c'était un duel pour rire. »",
+        "Elle se retourne, adossée au créneau, les cheveux défaits par le vent, et elle regarde le bourg, en bas, la jetée noire qui avance dans la mer. Elle dit qu'il y a un homme, là-bas, qui tire au pistolet tous les matins, et que ça l'a réveillée, et que c'est sinistre, de se réveiller dans un endroit pareil au bruit d'un pistolet. Elle frissonne, puis rit de nouveau.",
+        "Puis, plus bas, la main sur son ventre, elle dit qu'elle n'en a encore parlé qu'à son mari, mais qu'elle est presque sûre, pour l'été. Elle demande à Victorine si on peut le savoir, déjà, à des signes. Victorine lui pose deux questions. Isaure répond. Victorine dit oui, on peut le savoir. Isaure lui saute au cou, sur le rempart, au-dessus de la mer."
+      ],
+      choices: [
+        { back: "TO_vicomte", label: "Retourner dans la cour du fort" }
+      ] },
+    TO_lebihan: { act: "III", title: "Le coup gardé", place: "brisegreve", ambiance: "village",
+      text: [
+        "Le gouverneur Lebihan range ses tabatières dans un coffret de palissandre, une par une, chacune dans son alvéole de velours, et il répond à Victorine sans lever les yeux, avec la placidité d'un homme qui a fait de l'ordre sa seule passion.",
+        "Kermadec ? Un excellent officier. Le meilleur tireur de la garnison, et peut-être de la côte. Il a demandé sa mutation à Brisegrève il y a douze ans, ce que tout le monde fuit, et il y est resté, ce qui s'est vu encore moins. Sobre, sans jeu, sans visites. Il lit, il tire, il fait son service. Il vit sans amis, et s'en porte très bien.",
+        "Le gouverneur referme le coffret. Il dit qu'on l'a proposé trois fois pour une promotion, et qu'il a refusé trois fois, parce qu'une promotion l'aurait obligé à quitter le fort. Il dit qu'il lui a demandé un jour ce qu'il attendait, au bout du monde. Kermadec lui a répondu : « Un ravitailleur, mon gouverneur. » Le gouverneur a cru à une plaisanterie. Il a ri. Il s'en souvient parce que c'est la seule fois.",
+        "Il caresse le coffret. Il dit, en passant, que l'inspecteur des fortifications est arrivé hier par le ravitailleur, justement, et qu'il faudrait les présenter l'un à l'autre, deux officiers de valeur, à dîner. Il demande à Victorine si elle croit que ce serait une bonne idée. Victorine dit qu'elle ne croit pas."
+      ],
+      choices: [
+        { back: "TO_vicomte", label: "Retourner dans la cour du fort" }
+      ] },
     TO_vicomte: { act: "III", title: "Le coup gardé", place: "brisegreve", ambiance: "village",
       fx: { meet: "lesven" },
       text: [
-        "Elle le trouve dans la cour du fort, avec le gouverneur Lebihan, qui lui montre ses tabatières. L'inspecteur des fortifications a trente-quatre ans. Il est toujours beau, un peu épaissi, un peu doré, avec le rire facile d'un homme que la vie n'a jamais contrarié qu'une fois, et qui l'a oublié.",
-        "Sa femme est à son bras. Isaure de Lesven, dix-neuf ans, petite, brune, vive, une figure de chat qui rit de tout, et qui regarde son mari comme on regarde une vitrine de confiseur. Elle a le mal de mer depuis Morlenc. Elle vient demander à la médecin un remède, en riant de sa propre faiblesse.",
-        "Victorine lui donne du gingembre. Elle regarde le vicomte. Il est heureux. Il est heureux d'une façon presque indécente, comme un enfant à une fête. Il parle de sa femme, de son poste, de la maison qu'ils vont acheter au retour, avec un verger, et de l'enfant qu'ils attendent, peut-être, pour l'été. Isaure rougit. Il rit.",
-        "Il a, pour la première fois de sa vie, quelque chose à perdre. Victorine le voit. Elle se dit que le capitaine Kermadec a vu la même chose, hier soir, depuis la jetée, avec ses yeux vides."
+        { first: true, text: "Elle le trouve dans la cour du fort, avec le gouverneur Lebihan, qui lui montre ses tabatières. L'inspecteur des fortifications a trente-quatre ans. Il est toujours beau, un peu épaissi, un peu doré, avec le rire facile d'un homme que la vie n'a jamais contrarié qu'une fois, et qui l'a oublié." },
+        { first: true, text: "Sa femme est à son bras. Isaure de Lesven, dix-neuf ans, petite, brune, vive, une figure de chat qui rit de tout, et qui regarde son mari comme on regarde une vitrine de confiseur. Elle a le mal de mer depuis Morlenc. Elle vient demander à la médecin un remède, en riant de sa propre faiblesse." },
+        { first: true, text: "Victorine lui donne du gingembre. Elle regarde le vicomte. Il est heureux. Il est heureux d'une façon presque indécente, comme un enfant à une fête. Il parle de sa femme, de son poste, de la maison qu'ils vont acheter au retour, avec un verger, et de l'enfant qu'ils attendent, peut-être, pour l'été. Isaure rougit. Il rit." },
+        { first: true, text: "Il a, pour la première fois de sa vie, quelque chose à perdre. Victorine le voit. Elle se dit que le capitaine Kermadec a vu la même chose, hier soir, depuis la jetée, avec ses yeux vides." },
+        { again: true, text: "Le vicomte de Lesven rit dans la cour du fort, sa femme à son bras, heureux comme un enfant à une fête." }
       ],
       choices: [
+        { label: "Accompagner Isaure sur les remparts, qui veut voir la mer d'en haut", to: "TO_isaure", hide: { seen: "TO_isaure" } },
+        { label: "Demander au gouverneur ce qu'il sait du capitaine Kermadec", to: "TO_lebihan", hide: { seen: "TO_lebihan" } },
         { label: "Rentrer à bord, et passer la nuit à réfléchir", to: "TO_nuit" }
       ] },
     TO_nuit: { act: "III", title: "Le coup gardé", place: "cormorane", ambiance: "nuit",
