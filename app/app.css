@@ -1138,15 +1138,17 @@ button.pp.pp-face-btn { border-bottom: 0; display: inline-flex; align-items: cen
 .carnet-cercle { position: absolute; inset: -3px -2px; width: calc(100% + 4px); height: calc(100% + 6px); overflow: visible; pointer-events: none; }
 .carnet-cercle path { fill: none; stroke: var(--red-ink, var(--bad)); stroke-width: 1.8; stroke-linecap: round; filter: url(#carnet-trait); }
 
-/* a new page: the ink arrives dark and soft, then dries */
-@keyframes carnet-encre { from { opacity: 0; filter: blur(2.5px); } 45% { opacity: 1; filter: blur(0); color: color-mix(in srgb, var(--ink) 55%, #000); } to { opacity: 1; filter: none; } }
-:root[data-style="carnet"] .page.ink-in .prose p { animation: carnet-encre 1s ease-out both; }
-:root[data-style="carnet"] .page.ink-in .prose p:nth-child(2) { animation-delay: .14s; }
-:root[data-style="carnet"] .page.ink-in .prose p:nth-child(3) { animation-delay: .28s; }
-:root[data-style="carnet"] .page.ink-in .prose p:nth-child(4) { animation-delay: .42s; }
-:root[data-style="carnet"] .page.ink-in .prose p:nth-child(n+5) { animation-delay: .54s; }
-:root[data-style="carnet"] .page.ink-in .choices { animation: carnet-encre .7s ease-out .45s both; }
-@media (prefers-reduced-motion: reduce) { :root[data-style="carnet"] .page.ink-in .prose p, :root[data-style="carnet"] .page.ink-in .choices { animation: none; } }
+/* a new page is written: line by line, left to right, in wet ink (blue-black, a little bled into the paper), which
+   then dries to the page's own ink. The writing itself is driven by Notebook.write (app.js) with a mask per paragraph;
+   a tap on the page finishes it at once. */
+:root[data-style="carnet"] { --ink-wet: color-mix(in srgb, var(--ink) 40%, #0c1a4d); }
+@media (prefers-color-scheme: dark) { :root[data-style="carnet"]:not([data-theme="light"]):not([data-theme="sepia"]) { --ink-wet: color-mix(in srgb, var(--ink) 50%, #c4dcff); } }
+:root[data-style="carnet"][data-theme="dark"], :root[data-style="carnet"][data-theme="soir"] { --ink-wet: color-mix(in srgb, var(--ink) 50%, #c4dcff); }
+:root[data-style="carnet"] .page.ink-in .prose p { transition: color 2.2s ease-out, text-shadow 2.2s ease-out; }
+:root[data-style="carnet"] .page.ink-in .prose p.ink-wet { color: var(--ink-wet); text-shadow: 0 0 .6px var(--ink-wet), 0 0 3px color-mix(in srgb, var(--ink-wet) 30%, transparent); transition: none; }
+:root[data-style="carnet"] .page.ink-in .prose p.ink-wait { visibility: hidden; }
+:root[data-style="carnet"] .page.ink-in .choices.ink-wait { opacity: 0; pointer-events: none; }
+:root[data-style="carnet"] .page.ink-in .choices { transition: opacity .5s ease-out; }
 /* with a skin, the red ink is the skin's own ink (parchemin and enluminure red, sable brown, givre blue) */
 :root[data-style="carnet"][data-skin] { --red-ink: var(--accent); }
 :root[data-style="carnet"][data-screen="game"] .page::after { z-index: 3; }

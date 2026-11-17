@@ -3124,6 +3124,7 @@
     }
     if (v.kind === "end") page.appendChild(renderEnding(st, s, v));
     w.appendChild(page);
+    if (inkIn) requestAnimationFrame(function () { Notebook.write(page); });
     w.appendChild(h("div", { class: "tools" },
       st.lecture ? h("button", { class: "btn sm", disabled: !G.undo.length, onclick: undo }, "← Page précédente") : null,
       st.lecture ? h("button", { class: "btn sm", "aria-pressed": A.recap ? "true" : "false", onclick: function () { A.recap = !A.recap; render(); } }, "Où en étais-je ?") : null,
@@ -5616,6 +5617,38 @@
         '<filter id="carnet-lavis" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.03" numOctaves="4" seed="11" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G" result="d"/><feGaussianBlur in="d" stdDeviation=".6"/></filter>' +
         '</defs></svg>';
       document.body.appendChild(d);
+    },
+    // Intent: write(Page) = the page's paragraphs written line by line in wet ink, which dries behind the pen; the
+    // choices come once the text is written. A tap on the page writes the rest at once. About 2.5 s for a full page.
+    write: function (page) {
+      var ps = Array.prototype.slice.call(page.querySelectorAll(".prose p")), ch = page.querySelector(".choices");
+      if (!ps.length) return;
+      var plan = ps.map(function (p) { var lh = parseFloat(getComputedStyle(p).lineHeight) || 28; return { p: p, lh: lh, n: Math.max(1, Math.round(p.offsetHeight / lh)) }; });
+      var total = plan.reduce(function (a, x) { return a + x.n; }, 0), per = Math.max(45, Math.min(150, 2600 / total));
+      plan.forEach(function (x) { x.p.classList.add("ink-wait"); });
+      if (ch) ch.classList.add("ink-wait");
+      var i = 0, t0 = 0, done = false;
+      function mask(p, v) { p.style.webkitMaskImage = p.style.maskImage = v ? v.img : ""; p.style.webkitMaskSize = p.style.maskSize = v ? v.size : ""; p.style.webkitMaskPosition = p.style.maskPosition = v ? v.pos : ""; p.style.webkitMaskRepeat = p.style.maskRepeat = v ? "no-repeat" : ""; }
+      function dry(p) { mask(p, null); p.classList.remove("ink-wait"); void p.offsetWidth; p.classList.remove("ink-wet"); }
+      function finish() {
+        if (done) return; done = true;
+        plan.forEach(function (x) { if (x.p.classList.contains("ink-wait") || x.p.classList.contains("ink-wet")) { x.p.classList.remove("ink-wait"); x.p.classList.add("ink-wet"); dry(x.p); } });
+        if (ch) ch.classList.remove("ink-wait");
+        page.removeEventListener("pointerdown", finish);
+      }
+      page.addEventListener("pointerdown", finish);
+      function frame(ts) {
+        if (done || !page.isConnected) return;
+        var x = plan[i]; if (!t0) { t0 = ts; x.p.classList.remove("ink-wait"); x.p.classList.add("ink-wet"); }
+        var t = (ts - t0) / per, k = Math.floor(t), f = t - k;
+        if (k >= x.n) { dry(x.p); i++; t0 = 0; if (i >= plan.length) { finish(); return; } requestAnimationFrame(frame); return; }
+        var top = k * x.lh, pct = Math.round(f * 100);
+        // what is written: the lines above, then the current line up to the pen (a soft edge where the ink is still going down)
+        mask(x.p, { img: "linear-gradient(#000, #000), linear-gradient(to right, #000 " + pct + "%, transparent calc(" + pct + "% + 1.6em))",
+          size: "100% " + top + "px, 100% " + Math.ceil(x.lh + 2) + "px", pos: "0 0, 0 " + Math.max(0, top - 1) + "px" });
+        requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
     },
     circle: function (btn, then) {
       if (!Notebook.on() || REDUCED || !btn || Notebook.busy) { then(); return; }
