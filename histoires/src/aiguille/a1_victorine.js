@@ -1,0 +1,207 @@
+// L'Île Folle-Aiguille · act I, chapter 2: the doctor's night (Victorine Davrigny). The letter from the bank, a birth at
+// the mill, the abbé who eats her supper; at midnight the child of the Fanal knocks with the oilskin packet; the night
+// drive to the baron's hunting lodge; the name the baron says first; the bargain.
+var SOIR = [{ seen: "A1v_lettre" }, { seen: "A1v_moulin" }, { seen: "A1v_souper" }];
+module.exports = {
+  passages: {
+    A1v_soir: { act: "I", title: "La maison de la médecin", place: "varnese_maison", hub: true, noLead: true, backName: "la maison de Varnèse",
+      fx: { meet: "morisseau" },
+      text: [
+        { first: true, text: "Ce soir-là, quelques heures plus tôt, à deux lieues de la falaise, Victorine Davrigny rentre chez elle à la nuit tombée, les jupes crottées jusqu'au genou, sa sacoche à la main, et trouve sur le carrelage de l'entrée, glissée sous la porte, une lettre qu'elle reconnaît avant de l'avoir ramassée. On reconnaît toujours ces lettres-là. Elles ont un papier trop beau." },
+        { first: true, text: "La maison est étroite, haute, froide, et pleine de livres qui n'appartiennent qu'à moitié à leur propriétaire : la Faculté de Morlenc, si elle savait, en réclamerait la moitié. Au rez-de-chaussée, le cabinet, avec la table d'examen, les bocaux, le squelette de Monsieur Prosper qui sert de portemanteau. À l'étage, une chambre, un bureau, et dans le bureau le portrait d'Hector Davrigny, tourné contre le mur depuis trois ans. Victorine le retourne chaque année le jour de sa mort, pour voir si elle lui a pardonné. Elle le remet chaque fois contre le mur." },
+        { again: true, text: "La pendule du cabinet bat la nuit à petits coups secs. Le feu baisse. Monsieur Prosper, sur son crochet, porte le manteau mouillé de sa maîtresse avec une dignité de valet de grande maison." },
+      ],
+      choices: [
+        { label: "Ouvrir la lettre au beau papier", to: "A1v_lettre", hide: { seen: "A1v_lettre" } },
+        { label: "Courir au moulin, où l'on vient frapper pour un accouchement", to: "A1v_moulin", hide: { seen: "A1v_moulin" } },
+        { label: "Recevoir l'abbé Morisseau, qui s'est invité à souper", to: "A1v_souper", hide: { seen: "A1v_souper" } },
+        { label: "Monter enfin te coucher", to: "A1v_minuit", big: true, if: { count: SOIR, min: 2 }, why: "La soirée n'est pas finie ; elle ne l'est jamais." },
+      ] },
+    A1v_lettre: { act: "I", title: "La lettre", place: "varnese_maison",
+      text: [
+        "*Banque Clavières & Cie, Morlenc, Quai des Échevins.*",
+        "*Madame, nous avons l'honneur de vous rappeler que la créance souscrite par feu M. Hector Davrigny, de quatre mille livres, ramenée par vos versements à trois mille quatre cents livres, vient à échéance le premier du mois prochain. À défaut de règlement intégral à cette date, nous aurons le regret de faire procéder à la saisie de vos biens et, le cas échéant, à votre mise sous écrou à la prison de la Prévôté, conformément à la loi. Veuillez agréer, Madame, l'assurance de notre considération distinguée.*",
+        "Victorine lit la lettre deux fois. La seconde fois, elle s'attarde sur « considération distinguée », qui lui paraît la meilleure plaisanterie de l'année. Trois semaines. Trois mille quatre cents livres. Elle gagne, les bonnes années, six cents livres, dont la moitié en poules.",
+        "Hector jouait. Il jouait aux cartes, aux dés, aux chevaux, aux combats de chiens de la Basse-Fosse ; il jouait avec l'argent qu'il avait, puis avec celui qu'il n'avait pas, puis avec la signature de sa femme, qu'il imitait mieux qu'elle. Il est mort d'une fluxion de poitrine, un soir de pluie, en lui demandant pardon avec une sincérité parfaite. Elle le lui a accordé. C'était facile : il ne restait que ça à lui donner.",
+      ],
+      choices: [
+        { label: "Ranger la lettre dans le tiroir aux mauvaises nouvelles", to: "A1v_lettre_fin" },
+        { label: "Retourner le portrait d'Hector, pour lui montrer", to: "A1v_portrait" },
+      ] },
+    A1v_lettre_fin: { act: "I", title: "La lettre", place: "varnese_maison",
+      text: ["Le tiroir aux mauvaises nouvelles ferme mal ; il est trop plein. Victorine appuie dessus du genou, et il cède, comme tout le reste finit par céder chez elle, à la force et à l'habitude."],
+      choices: [{ back: "A1v_soir" }] },
+    A1v_portrait: { act: "I", title: "Hector", place: "varnese_maison",
+      text: [
+        "Hector Davrigny sourit dans son cadre doré, comme il souriait à tout le monde : de ses belles dents, de ses beaux yeux, de toute sa belle personne inutile. Le peintre l'a représenté une main sur un livre qu'il n'a jamais lu.",
+        "« Trois mille quatre cents livres, lui dit Victorine. Tu me coûtes plus cher mort que vivant. Vivant, au moins, tu me faisais rire. »",
+        "Le portrait sourit. Elle le remet contre le mur, doucement, comme on borde un enfant.",
+      ],
+      choices: [{ back: "A1v_soir" }] },
+
+    A1v_moulin: { act: "I", title: "Le moulin", place: "varnese", ambiance: "nuit",
+      text: [
+        "C'est le fils du meunier, un garçon de dix ans en chemise, qui tambourine à la porte. Sa mère est en couches depuis le matin ; la sage-femme de Varnèse a déclaré, vers six heures, qu'elle ne pouvait plus rien et qu'il fallait prier, puis elle est allée prier chez elle.",
+        "Le moulin est au bord de la rivière, à un quart de lieue. La meunière est une forte femme rousse qui a déjà eu cinq enfants et qui, au sixième, a décidé de mourir. Elle le dit à Victorine dès qu'elle entre, entre deux douleurs : « Je meurs. Occupez-vous du petit. »",
+        "« Personne ne meurt chez moi sans ordonnance », dit Victorine en retroussant ses manches. Elle tâte le ventre. L'enfant se présente mal, les épaules en avant, comme un homme qui entre dans une taverne par la mauvaise porte.",
+      ],
+      choices: [{ label: "Le retourner, à mains nues", test: { dom: "savoir", diff: 0, label: "Une version, à l'ancienne" },
+        win: { fx: { ep: ["perso", 80] }, to: "A1v_moulin_fin" }, lose: { to: "A1v_moulin_fin" } }] },
+    A1v_moulin_fin: { act: "I", title: "Le moulin", place: "varnese", ambiance: "nuit",
+      text: [
+        { outcome: "win", text: "Il faut une heure, deux mains, un genou et tout ce qu'elle a appris dans les livres qu'elle n'avait pas le droit d'ouvrir. L'enfant tourne enfin, consent à naître, et naît en hurlant, rouge, furieux, magnifique. La meunière pleure et rit, et annonce qu'elle l'appellera Victor, ce qui est une marque de reconnaissance et une condamnation." },
+        { outcome: "lose", text: "Il faut trois heures, les fers, et une prière que Victorine ne prononce pas mais qu'elle pense très fort. L'enfant naît bleu, se tait, puis crie, enfin, d'un cri de chat mouillé. La meunière perd beaucoup de sang ; elle vivra, si la fièvre ne s'en mêle pas. Victorine reste jusqu'à ce que le saignement cesse, assise sur un sac de farine, les mains rouges jusqu'aux coudes." },
+        "Le meunier la paie en farine, un sac, qu'il porte lui-même jusque chez elle. C'est plus qu'il ne peut donner. C'est moins que ce qu'elle doit. La différence entre les deux, Victorine l'a cessé de la calculer il y a longtemps.",
+      ],
+      choices: [{ back: "A1v_soir" }] },
+
+    A1v_souper: { act: "I", title: "L'abbé", place: "varnese_maison",
+      text: [
+        "L'abbé Morisseau, recteur de Varnèse, s'invite à souper chez Victorine un soir par semaine, par charité. Il a besoin, explique-t-il, de veiller sur une âme seule. Il veille surtout sur sa soupe, qu'il trouve meilleure que celle de sa gouvernante, et sur son vin, qu'il trouve exécrable et boit jusqu'à la dernière goutte pour qu'elle n'ait pas la tentation d'en boire elle-même.",
+        "C'est un petit homme rond, rose, vif, aux mains potelées, curieux de tout comme une pie et gourmand comme deux. Il mange la part de Victorine en lui parlant de la vertu de tempérance. Il connaît toutes les nouvelles du canton, et il les donne, en échange du dessert.",
+        "« Le baron Clavières est arrivé de Morlenc pour la chasse, dit-il, la bouche pleine. À la Garenne, avec des amis. Il a fait une offrande de dix livres pour la toiture. Dix livres ! L'homme le plus riche de Morlenc ! Il y a des aumônes qui sont des insultes, ma fille. Remarquez que je les accepte : ce serait un péché d'orgueil de les refuser. »",
+      ],
+      choices: [
+        { label: "« Que vient chasser un banquier, à la fin de novembre ? »", to: "A1v_souper_baron" },
+        { label: "Lui laisser aussi le dessert, pour avoir la paix", to: "A1v_souper_fin" },
+      ] },
+    A1v_souper_baron: { act: "I", title: "L'abbé", place: "varnese_maison",
+      text: [
+        "« Le lièvre, dit l'abbé. Officiellement. » Il baisse la voix, ravi. « Mais on dit à Morlenc que sa banque a pris l'eau. On dit qu'il a perdu deux navires cette année, et un procès, et l'oreille de deux échevins. Un homme dans cette situation, ma fille, ne chasse pas le lièvre ; il chasse autre chose, et il le chasse loin des regards. »",
+        "Il reprend du pain. « Remarquez, je n'en sais rien. Je répète. Répéter n'est pas médire, c'est informer. Saint Paul était très informé. »",
+      ],
+      choices: [{ label: "Le pousser vers la porte, avec son chapeau", fx: { flag: "victorine:abbe" }, to: "A1v_souper_fin" }] },
+    A1v_souper_fin: { act: "I", title: "L'abbé", place: "varnese_maison",
+      text: ["L'abbé s'en va à dix heures, repu et pieux, en bénissant la maison du seuil, d'une main, tandis que l'autre glisse dans sa poche la dernière pomme du compotier. Victorine ferme la porte et s'adosse au battant. La maison est très calme. Elle a faim."],
+      choices: [{ back: "A1v_soir" }] },
+
+    A1v_minuit: { act: "I", title: "Minuit passé", place: "varnese_maison", ambiance: "nuit", takes: "midnight",
+      text: [
+        "Elle ne dort pas. Elle ne dort jamais avant une heure ; elle lit au lit, un traité d'anatomie italien qu'elle a fait venir de très loin sous une couverture de missel. Vers minuit et demi, on frappe. Pas les trois coups polis des maris inquiets, ni le tambour des enfants envoyés : des coups sourds, irréguliers, de quelqu'un qui n'a plus beaucoup de force et s'en sert quand même.",
+        "Elle ouvre la fenêtre. Sous la lanterne de la porte, l'enfant du Fanal lève vers elle un visage blanc de sel et de peur. Elle reconnaît {joueur} : la nuit du malaise, ces mains qui tenaient le bras du vieux marin.",
+        { if: { has: "nuit:porte" }, text: "Il y a du sang sur sa vareuse, du sang qui n'est pas tout à fait le sien, et une entaille au front qui saigne encore." },
+        { if: { has: "nuit:cave" }, text: "Ses vêtements sont couverts de terre et de toiles d'araignée, comme si l'enfant sortait d'un tombeau, et ses ongles sont noirs de roche." },
+        { if: { has: "nuit:sentier" }, text: "Ses mains sont écorchées jusqu'au sang, ses genoux aussi, comme quelqu'un qui a grimpé une falaise dans le noir." },
+        { if: { has: "nuit:cloche" }, text: "Ses paumes sont brûlées en lignes rouges, comme par une corde qu'on a tenue trop fort." },
+        "Elle descend. Elle ouvre. L'enfant entre, s'appuie au mur, et sort de sous sa vareuse un paquet plat enveloppé de toile cirée.",
+        "« Le Gabier est mort, dit {joueur}. Ils ont attaqué le Fanal. Mon père dit que vous êtes honnête. »",
+      ],
+      choices: [
+        { label: "Soigner d'abord l'enfant", to: "A1v_soigner" },
+        { label: "Prendre le paquet", to: "A1v_carte" },
+      ] },
+    A1v_soigner: { act: "I", title: "Minuit passé", place: "varnese_maison", ambiance: "nuit",
+      text: [
+        "« L'honnêteté attendra, dit Victorine. Assieds-toi. » Elle fait asseoir l'enfant sur la table d'examen, sous le regard vide de Monsieur Prosper, et nettoie, recoud, bande, à la lumière de deux chandelles. Elle travaille vite, sans douceur inutile, avec cette précision qui rassure davantage que les caresses.",
+        "En travaillant, elle écoute. L'enfant raconte tout, dans le désordre : le vieux marin, la rose sans aiguille, le coffre, l'homme au visage grêlé, le père. Victorine ne pose pas de question. Elle note tout, dans un coin de sa tête où elle range les symptômes.",
+        "Puis elle met une couverture sur les épaules de {joueur}, une tasse de lait chaud entre ses mains, et prend le paquet.",
+      ],
+      choices: [{ label: "Ouvrir le paquet", fx: { regard: { claviere: "neutre" } }, to: "A1v_carte" }] },
+    A1v_carte: { act: "I", title: "La carte", place: "varnese_maison", ambiance: "nuit",
+      text: [
+        "Victorine déplie la carte sur la table du cabinet, entre le bocal de sangsues et le crâne qui lui sert de presse-papiers. Elle la regarde longtemps, ses lunettes au bout du nez.",
+        "Une île en croissant. Trois croix rouges. Des relèvements de boussole, des nombres de pas. Deux initiales. *Ne vous fiez qu'à moi.* Elle a vu, dans sa vie, assez d'ordonnances écrites par des fous pour reconnaître la main d'un homme qui se croit seul au monde.",
+        "Elle prend une piastre dans le sac que l'enfant a posé sur la table, la fait tourner entre ses doigts. Une croix pattée, une ancre. Le vieux marin la payait avec ces pièces-là. Un homme qui a ces pièces-là, une carte pareille et un équipage de forbans à ses trousses ne garde pas un souvenir de voyage ; il garde de quoi acheter une ville.",
+        "« Bon, dit-elle. Ceci vaut de l'argent. Et ce qui vaut de l'argent, dans ce pays, finit toujours par appartenir à ceux qui en ont déjà. La seule question est de savoir à quel prix. »",
+        { if: { has: "victorine:abbe" }, text: "Elle repense à l'abbé, à sa bouche pleine, à ses nouvelles. *Le baron Clavières est arrivé pour la chasse. On dit que sa banque a pris l'eau.* Il y a des coïncidences qui ressemblent à des ordonnances." },
+        "Elle regarde l'enfant, qui s'est endormi{joueur:e} sur sa chaise, sa tasse vide entre les mains.",
+      ],
+      choices: [
+        { label: "Atteler la jument, et aller à la Garenne cette nuit même", via: "nuit", to: "A1v_garenne" },
+        { label: "Attendre le jour, et réfléchir", via: "aube", to: "A1v_aube" },
+      ] },
+    A1v_aube: { act: "I", title: "Avant l'aube", place: "varnese_maison", ambiance: "nuit",
+      text: [
+        "Victorine ne dort pas. Elle reste assise dans son cabinet jusqu'au jour, la carte sur les genoux, à réfléchir comme elle réfléchit devant un malade dont elle ne connaît pas le mal : en éliminant.",
+        "Le brigadier des douanes : il prendra la carte, la perdra et réclamera les droits. Le juge de Morlenc : il prendra la carte et la vendra. Les hommes au visage grêlé : ils prendront la carte, et l'enfant avec. Reste celui qui a de l'argent, des navires, et un besoin. Un homme qui a besoin de quelque chose est un homme avec qui l'on peut parler. C'est le premier principe de la médecine et de la banque.",
+        "À l'aube, elle réveille l'enfant d'une main sur l'épaule. « Lève-toi. Nous allons voir un baron. Mets ta vareuse à l'endroit ; les barons sont sensibles à ces choses. »",
+      ],
+      choices: [{ label: "Partir pour la Garenne", to: "A1v_garenne" }] },
+
+    A1v_garenne: { act: "I", title: "La Garenne", place: "garenne", ambiance: "chateau",
+      fx: { meet: "claviere" },
+      text: [
+        { via: "nuit", text: "La Garenne est un pavillon de chasse au milieu des bois, à une lieue de Varnèse, tout en briques roses et en bois de cerf. À deux heures du matin, toutes ses fenêtres sont encore éclairées. On entend de loin les rires, les verres, un violon ivre. Les chiens de la meute hurlent dans le chenil quand la jument de Victorine entre dans la cour ; un laquais en livrée verte, réveillé, la regarde comme une apparition et refuse de déranger Monsieur le baron, jusqu'à ce qu'elle prononce le mot « carte »." },
+        { via: "aube", text: "La Garenne est un pavillon de chasse au milieu des bois, à une lieue de Varnèse, tout en briques roses et en bois de cerf. À sept heures du matin, il cuve son vin : les volets sont clos, la cour pleine de bouteilles, un chien dort sur un fauteuil Louis XIV renversé dans l'herbe. Un laquais en livrée verte, à demi réveillé, refuse de déranger Monsieur le baron, jusqu'à ce que Victorine prononce le mot « carte »." },
+        "On les fait entrer dans un cabinet tapissé de trophées : des têtes de cerf, de sanglier, de loup, et un ours entier, debout dans un coin, qui tient un plateau d'argent. Le baron Aymeric Clavières arrive en robe de chambre de soie verte, les cheveux gris noués d'un ruban, rasé de frais à n'importe quelle heure. C'est un bel homme de cinquante ans, grand, souple, avec un sourire bien appris et des yeux qui ne sourient jamais en même temps.",
+        "« Madame Davrigny, dit-il en lui baisant la main. Je connais votre nom. Ma banque le connaît mieux que moi, je le crains. Et ceci ? » Il regarde l'enfant. « Un ange égaré ? »",
+      ],
+      choices: [{ label: "Poser la carte sur son bureau", to: "A1v_baron_carte" }] },
+    A1v_baron_carte: { act: "I", title: "La Garenne", place: "garenne", ambiance: "chateau",
+      text: [
+        "Le baron se penche sur la carte. Il cesse de sourire.",
+        "Il la regarde longtemps, sans un mot, sans toucher. Puis il tend la main, très lentement, et pose un doigt sur les deux initiales entrelacées, en bas, à droite. Son doigt tremble, à peine.",
+        "« Dagrel », dit-il.",
+        "Il le dit à mi-voix, pour lui-même, comme on dit le nom d'un mort qu'on croyait enterré. Puis il relève la tête, et le sourire est revenu, bien en place, bien appris.",
+        "« Pardonnez-moi. Un vieux nom de pirate, que mon père prononçait pour faire peur à ses enfants. Cette carte est remarquable, Madame. Remarquable. Où l'avez-vous trouvée ? »",
+        "Victorine le regarde. Elle a noté. Elle note toujours. Personne, dans cette pièce, n'a encore prononcé un seul nom.",
+      ],
+      choices: [
+        { label: "Raconter l'histoire du Gabier, sans rien cacher", to: "A1v_baron_offre" },
+        { label: "« Comment savez-vous de qui elle est ? »", fx: { flag: "victorine:question" }, to: "A1v_baron_dagrel" },
+      ] },
+    A1v_baron_dagrel: { act: "I", title: "La Garenne", place: "garenne", ambiance: "chateau",
+      text: [
+        "Le baron sourit plus largement. C'est un sourire de joueur qui a vu qu'on regardait ses cartes et qui les montre, toutes sauf une.",
+        "« Tout Morlenc connaît ce nom, Madame. Jéricho Dagrel a pillé la moitié de la mer du Couchant il y a vingt ans. Mon père armait des navires contre lui. Il a perdu deux bricks et une fortune à le chasser, et il en est mort de chagrin. Les initiales, la forme de cette île, ces croix… un homme élevé dans cette histoire les reconnaît comme on reconnaît une écriture de famille. »",
+        "Il dit tout cela d'une traite, avec aisance, et Victorine pense qu'il le dit trop bien, comme un compliment qu'on a préparé dans l'escalier.",
+      ],
+      choices: [{ label: "Raconter l'histoire du Gabier", to: "A1v_baron_offre" }] },
+    A1v_baron_offre: { act: "I", title: "Le marché", place: "garenne", ambiance: "chateau",
+      text: [
+        "Le baron écoute l'histoire en arpentant le cabinet, les mains dans le dos, entre l'ours et le cerf. Quand elle est finie, il s'arrête devant la fenêtre.",
+        "« Voici ce que je propose, dit-il. J'arme un navire. J'en ai un à Morlenc, la Cormorane, trois-mâts de quatre cents tonneaux, la meilleure capitaine du Ponant, qui me déteste, ce qui est une garantie. Nous partons dans quinze jours. Nous trouvons cette île. Nous rapportons ce qu'il y a dessus, et l'Académie me fera un buste. » Il sourit. « Je plaisante. Je veux surtout l'aventure. On s'ennuie, à Morlenc, quand on a tout. »",
+        "Il se tourne vers l'enfant. « Toi, tu viens. Tu seras mousse. C'est ta carte, d'une certaine manière, et un homme d'honneur ne vole pas les enfants. Pas devant témoins. »",
+        "Puis vers Victorine. « Et vous, Madame, vous viendrez aussi. Il me faut un médecin de bord, et je n'en connais aucun que j'estime. Je rachète votre créance. Toute. Trois mille quatre cents livres, effacées le jour où vous signez votre engagement. Au retour, une part. » Il pose une feuille et une plume sur le bureau. « Vous voyez : je connais aussi le chiffre. Les banquiers ont une mémoire de créancier. »",
+      ],
+      choices: [
+        { label: "Signer, tout de suite", fx: { flag: "victorine:signe", regard: { claviere: "cordial" } }, to: "A1v_signe" },
+        { label: "« Laissez-moi un jour. »", fx: { flag: "victorine:delai", regard: { claviere: "curieux" } }, to: "A1v_delai" },
+      ] },
+    A1v_signe: { act: "I", title: "Le marché", place: "garenne", ambiance: "chateau",
+      text: [
+        "Victorine signe. Sa signature est sèche, droite, sans fioriture, la signature d'une femme qui a vu imiter la sienne trop souvent pour en dessiner une jolie. Le baron sèche l'encre avec du sable d'or et range la feuille dans un portefeuille de maroquin.",
+        "« Vous ne marchandez pas, dit-il. C'est rare. J'aime cela.",
+        "— Je ne marchande jamais avec un homme qui a déjà gagné, dit Victorine. Ça l'humilie, et ça me fatigue. »",
+        "Le baron rit, de bon cœur, et pour la première fois ses yeux rient avec sa bouche. Elle se demande ce que ça lui a coûté.",
+      ],
+      choices: [{ label: "« Et la carte ? »", to: "A1v_garde" }] },
+    A1v_delai: { act: "I", title: "Le marché", place: "garenne", ambiance: "chateau",
+      text: [
+        "« Un jour, dit le baron. Bien sûr. » Il ne cesse pas de sourire. « Vous avez trois semaines, d'après ma banque. Un jour de plus ou de moins… Prenez-le, Madame. Je vous l'offre. »",
+        "Il dit « je vous l'offre » comme on dit « je vous le prête ». Victorine entend la différence ; elle a passé dix ans à entendre ce que les gens taisent sous ce qu'ils disent. Elle signera demain. Ils le savent tous les deux. Mais elle aura pris le jour, et ce jour-là, au moins, aura été à elle.",
+      ],
+      choices: [{ label: "« Et la carte ? »", to: "A1v_garde" }] },
+    A1v_garde: { act: "I", title: "La carte", place: "garenne", ambiance: "chateau",
+      text: [
+        "Le baron pose la main à plat sur la carte, doucement, comme on pose la main sur un chien qui pourrait mordre.",
+        "« Elle sera en sûreté dans mon coffre de Morlenc, dit-il. Vous avez vu ce que des gens sont prêts à faire pour elle. Une carte pareille, dans une maison de médecin, dans une auberge de falaise… Ce serait tenter le diable, et le diable n'a pas besoin qu'on le tente : il est déjà très motivé. »",
+        "L'enfant serre le parchemin blanc et le carnet vert sous sa vareuse ; le baron n'a pas eu un regard pour eux. Il n'a d'yeux que pour l'île.",
+      ],
+      choices: [
+        { label: "Laisser la carte au baron", fx: { set: { carte: "baron" } }, to: "A1v_retour" },
+        { label: "« Elle reste avec moi. Je suis le médecin de bord ; je garde ce qui doit rester en vie. »", fx: { set: { carte: "victorine" } }, to: "A1v_garde_non" },
+      ] },
+    A1v_garde_non: { act: "I", title: "La carte", place: "garenne", ambiance: "chateau",
+      text: [
+        "Le baron la regarde. Pour la première fois de la nuit, on voit quelque chose bouger derrière le sourire : une chose froide et calculatrice qui pèse, mesure, renonce.",
+        "« Comme vous voudrez, dit-il. Vous me ferez une copie, au moins, pour ma capitaine. » Il retire sa main de la carte, lentement. « Vous êtes une femme prudente, Madame. Il faudra me dire un jour ce que vous craignez, et de qui. »",
+        "« Je le saurai bientôt, dit Victorine. C'est le métier : on ne connaît la maladie qu'après les symptômes. »",
+      ],
+      choices: [{ label: "Repartir pour Varnèse", to: "A1v_retour" }] },
+    A1v_retour: { act: "I", title: "Sur la route", place: "route_varnese", ambiance: "route",
+      text: [
+        "Le jour se lève sur la lande. La jument trotte entre les ajoncs couverts de rosée ; chaque toile d'araignée est un collier de perles. L'enfant dort contre l'épaule de Victorine, la tête ballottée, une main serrée sur sa vareuse, sur le parchemin et le carnet qu'on a laissés là parce qu'ils ne valaient rien.",
+        { if: { has: "carte=baron" }, text: "La carte est restée dans le portefeuille de maroquin du baron. Pendant qu'il appelait ses laquais, Victorine l'a recopiée au crayon sur la page de garde de son traité d'anatomie, trait pour trait, chiffre pour chiffre, avec la même main sûre qu'elle met à recopier une ordonnance qu'on lui défend de garder. Elle ne sait pas pourquoi. Elle le saura." },
+        "Victorine pense au baron. Elle pense à son doigt qui tremblait sur deux initiales. Elle pense à trois mille quatre cents livres, effacées d'un trait de plume par un homme qui ne trace jamais un trait de plume sans savoir ce qu'il lui rapportera.",
+        "Elle pense qu'elle vient de se vendre, et qu'elle s'est vendue cher, et qu'elle ne sait pas encore à qui.",
+        "Au bout de la lande, la falaise, et sur la falaise, le Fanal, avec sa lanterne éteinte.",
+      ],
+      choices: [{ label: "Ramener l'enfant au Fanal", fx: { team: "mousse" }, to: "A1_d_retour", big: true }] },
+  },
+  extras: {
+    places: {
+      garenne: { ambiance: "chateau", name: "La Garenne", map: "cote", region: "varnese", x: 22, y: 48, desc: "Le pavillon de chasse du baron Clavières, briques roses et bois de cerf, au milieu des bois." },
+    },
+  },
+};

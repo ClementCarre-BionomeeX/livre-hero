@@ -1,0 +1,46 @@
+// « L'Île Folle-Aiguille ». Merges the story base (base.js) with the writing lots, in the order of LOTS. Each lot exports
+// { passages: {...}, extras: {...} }; extras may add people, items, enemies, clues, mysteries, quests, places, routes,
+// regions, events, shops, companions, escales, puzzles, battles, banter, epilogue, glossary. A key declared twice is an
+// error, so a later lot cannot overwrite an earlier one by mistake.
+var base = require("./base.js");
+base.passages = base.passages || {};
+var LOTS = ["p_fanal", "a1_fanal", "a1_nuit", "a1_victorine", "a1_depart", "xk_parchemin", "a2_carrefour", "a2_mousse", "a2_victorine", "a2_veille", "a2_fargue", "xc_chien", "xj_chirurgien", "xe_vendu", "xb_freres"];
+var DICTS = ["people", "items", "enemies", "clues", "mysteries", "shops", "achievements", "companions", "escales", "puzzles", "battles", "lenses", "veils", "duels", "wounds", "stocks", "promises", "trouvailles", "keywords", "savoirs"];
+var WORLD_DICTS = ["places", "regions", "events"];
+LOTS.forEach(function (f) {
+  var m;
+  try { m = require("./" + f + ".js"); } catch (e) {
+    if (e.code === "MODULE_NOT_FOUND" && e.message.indexOf(f + ".js") >= 0) return;
+    throw e;
+  }
+  var ps = m.passages || {}, ex = m.extras || {};
+  Object.keys(ps).forEach(function (k) {
+    if (base.passages[k]) throw new Error("passage en double : " + k + " (" + f + ")");
+    base.passages[k] = ps[k];
+  });
+  DICTS.forEach(function (d) {
+    Object.keys(ex[d] || {}).forEach(function (k) {
+      base[d] = base[d] || {};
+      if (base[d][k]) throw new Error(d + " en double : " + k + " (" + f + ")");
+      base[d][k] = ex[d][k];
+    });
+  });
+  WORLD_DICTS.forEach(function (d) {
+    Object.keys(ex[d] || {}).forEach(function (k) {
+      if (base.world[d][k]) throw new Error("world." + d + " en double : " + k + " (" + f + ")");
+      base.world[d][k] = ex[d][k];
+    });
+  });
+  (ex.routes || []).forEach(function (r) {
+    if (base.world.routes.some(function (x) { return x.id === r.id; })) throw new Error("route en double : " + r.id + " (" + f + ")");
+    base.world.routes.push(r);
+  });
+  (ex.quests || []).forEach(function (q) {
+    if (base.quests.some(function (x) { return x.id === q.id; })) throw new Error("quête en double : " + q.id + " (" + f + ")");
+    base.quests.push(q);
+  });
+  ["banter", "epilogue", "fates", "dreams", "vigils"].forEach(function (k) { (ex[k] || []).forEach(function (b) { base[k] = base[k] || []; base[k].push(b); }); });
+  Object.keys(ex.glossary || {}).forEach(function (k) { base.glossary[k] = ex.glossary[k]; });
+  Object.keys(ex.lore || {}).forEach(function (k) { base.lore.names[k] = ex.lore[k]; });
+});
+module.exports = base;

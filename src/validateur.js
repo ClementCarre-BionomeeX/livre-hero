@@ -11,16 +11,16 @@
     "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "via", "regard", "fresh", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed",
     "temps", "saison", "blessure", "cicatrice", "fatigue", "trait", "duel",
     "recit", "doute", "dementi", "silences", "geste", "poids", "angoisse", "attache",
-    "secret", "confie", "garde", "savoir", "lu", "voile", "voiles", "lens", "fil", "carteJouee"];
+    "secret", "confie", "garde", "savoir", "lu", "voile", "voiles", "lens", "fil", "carteJouee", "escale", "escaleOuverte", "marin", "equipage"];
   // The siege's conditions (8.0) carry a second key (is, member, hero, losses): they are read by their first key.
-  var SIEGE_KEYS = ["fil", "voiles", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue", "trait", "duel"];
+  var SIEGE_KEYS = ["escale", "marin", "equipage", "fil", "voiles", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue", "trait", "duel"];
   var FX_KEYS = ["voie", "regard", "aspect", "qui", "resume", "set", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
     "give", "relicLose", "item", "drop", "gold", "food", "pv", "rest", "time", "until", "stamp", "reveal", "meet", "clock", "quest", "questSeen", "note", "noteCls",
     "assign", "team", "regroup", "away", "lead", "leadQuiet", "learn", "souv", "souvBack", "catchupAll", "awayUnless",
     "stock", "promise", "keep", "break", "forgive", "sway", "sound", "camp", "tie",
     "meteo", "blessure", "soigner", "guerir", "fatigue", "trait", "pratique",
     "recit", "geste", "angoisse", "attache",
-    "secret", "surprend", "confier", "recharge", "devoile", "fil", "elan"];
+    "secret", "surprend", "confier", "recharge", "devoile", "fil", "elan", "recrue", "debarque", "perte", "penche", "devine"];
   var DOM_KEYS = Object.keys(M.DOMAINS);
 
   // Collects every tag a condition reads (for the echo check).
@@ -32,6 +32,7 @@
     // { is: { key: "value" } } reads the state set by set: { key: "value" }, which also stands as the tag "key=value".
     if (c.is && typeof c.is === "object") Object.keys(c.is).forEach(function (k) { [].concat(c.is[k]).forEach(function (v) { out.push(k + "=" + v); }); });
     if ("quest" in c) out.push("quete:" + c.quest);
+    if ("escale" in c) out.push("escale:" + c.escale, "escale-quittee:" + c.escale);
     if ("not" in c) readTags(c.not, out);
     if ("all" in c) readTags(c.all, out);
     if ("any" in c) readTags(c.any, out);
@@ -305,6 +306,12 @@
       if (k === "battle" && !(story.battles || {})[c.battle]) E(where + " : bataille « " + c.battle + " » inconnue.");
       if (k === "battle" && c.is != null && c.is !== "win" && c.is !== "lose") E(where + " : bataille, « " + c.is + " » (attendu : win ou lose).");
       if (k === "camp" && c.camp != null && c.camp !== "none" && !(story.camps || {})[c.camp]) E(where + " : camp « " + c.camp + " » inconnu.");
+      // Ports of call and the crew (10.9).
+      if ((k === "escale" || k === "escaleOuverte") && !(story.escales || {})[c[k]]) E(where + " : escale « " + c[k] + " » inconnue.");
+      if (k === "escale" && c.is != null && c.is !== "quittee") E(where + " : escale, « " + c.is + " » (attendu : quittee, ou rien pour « au mouillage »).");
+      if (k === "marin" && !(((story.equipage || {}).marins) || {})[c.marin]) E(where + " : marin « " + c.marin + " » inconnu (equipage.marins).");
+      if (k === "marin" && c.is != null) [].concat(c.is).forEach(function (x) { if (["loyal", "hesitant", "complot", "abord", "perdu", "connu"].indexOf(x) < 0) E(where + " : marin, « " + x + " » (attendu : loyal, hesitant, complot, abord, perdu, connu)."); });
+      if (k === "equipage" && ["loyal", "hesitant", "complot", "abord"].indexOf(c.equipage) < 0 && c.equipage !== true) E(where + " : equipage, « " + c.equipage + " » (attendu : loyal, hesitant, complot, abord).");
       // Hidden words (9.1).
       if (k === "voile") [].concat(c.voile).forEach(function (x) { if (!VEILS[x]) E(where + " : voile « " + x + " » inconnu (aucun {{lentille#" + x + "|…|…}} dans le texte)."); });
       if ((k === "voiles" || k === "lens") && c.lens != null) [].concat(c.lens).forEach(function (x) { if (!(story.lenses || {})[x]) E(where + " : lentille « " + x + " » inconnue (lenses)."); });
@@ -376,6 +383,9 @@
       }); });
       if (fx.camp != null && !(story.camps || {})[fx.camp]) E(where + " : camp « " + fx.camp + " » inconnu.");
       [].concat(fx.tie || []).forEach(function (x) { if (!(story.ties || []).some(function (t) { return t.id === x; })) E(where + " : lien « " + x + " » inconnu."); });
+      // The crew (10.9).
+      [].concat(fx.recrue || [], fx.debarque || [], fx.perte || [], fx.devine || [], Object.keys(fx.penche || {})).forEach(function (x) { if (!(((story.equipage || {}).marins) || {})[x]) E(where + " : marin « " + x + " » inconnu (equipage.marins)."); });
+      Object.keys(fx.penche || {}).forEach(function (x) { if (typeof fx.penche[x] !== "number") E(where + " : penche, « " + x + " » attend un nombre."); });
       // At sea (8.1).
       if (fx.meteo != null) checkSea("temps", typeof fx.meteo === "object" ? fx.meteo.is : fx.meteo, where + " (meteo)");
       [].concat(fx.blessure || [], fx.soigner || [], fx.guerir || []).forEach(function (x) { checkSea("blessure", x, where); });
@@ -611,6 +621,22 @@
       if (D.tie != null && D.tie !== "adopte" && D.tie !== "rejete") E(w + " : tie, adopte ou rejete.");
       Object.keys(D.fx || {}).forEach(function (r) { if (r !== "adopte" && r !== "rejete") E(w + " : fx." + r + " (attendu : adopte, rejete)."); checkFx(D.fx[r], w); });
     });
+    // Ports of call, the crew, what a quest owes to another book (10.9).
+    Object.keys(story.escales || {}).forEach(function (k) {
+      var D = story.escales[k], w = "Escale « " + k + " »";
+      if (!D.name) E(w + " : sans nom.");
+      if (D.at != null && !places[D.at]) E(w + " : lieu « " + D.at + " » inconnu.");
+      if (!D.depart || !D.depart.to || !P[D.depart.to]) E(w + " : depart.to manquant ou inconnu.");
+      [].concat(D.quests || []).forEach(function (q) { if (!qids[q]) E(w + " : quête « " + q + " » inconnue."); });
+      if (!Object.keys(P).some(function (id) { return P[id].escale === k; })) E(w + " : aucun passage ne porte escale: « " + k + " ».");
+    });
+    Object.keys(P).forEach(function (id) { if (P[id].escale != null && !(story.escales || {})[P[id].escale]) E("§ " + id + " : escale « " + P[id].escale + " » inconnue."); });
+    Object.keys(((story.equipage || {}).marins) || {}).forEach(function (k) {
+      var D = story.equipage.marins[k], w = "Marin « " + k + " »";
+      if (!people[k]) E(w + " : doit être déclaré dans people (nom, visage, aspect).");
+      if (D.penchant != null && (typeof D.penchant !== "number" || Math.abs(D.penchant) > M.CREW_MAX)) E(w + " : penchant entre -" + M.CREW_MAX + " et " + M.CREW_MAX + ".");
+    });
+    (story.quests || []).forEach(function (q) { if (q.doit != null && !((story.sources || {})[q.doit] || {}).title) E("Quête « " + q.id + " » : doit « " + q.doit + " » sans sources." + q.doit + ".title."); });
     Object.keys(story.camps || {}).forEach(function (k) {
       var D = story.camps[k], w = "Camp « " + k + " »";
       if (!D.name) E(w + " : sans nom.");

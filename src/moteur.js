@@ -124,9 +124,30 @@
         P.choices = [{ label: A ? String(A.title || "Chapitre " + A.id).replace(/\*/g, "") : "Suivant", to: nx, auto: "next" }];
       });
     }
+    // Ports of call (10.9): a quest listed in an escale is missed once the ship has left it.
+    Object.keys(story.escales || {}).forEach(function (eid) {
+      var gone = "escale-quittee:" + eid;
+      [].concat(story.escales[eid].quests || []).forEach(function (qid) {
+        var Q = (story.quests || []).filter(function (x) { return x.id === qid; })[0];
+        if (Q) Q.closes = Q.closes == null ? gone : { any: [Q.closes, gone] };
+      });
+    });
     Object.keys(story.passages).forEach(function (id) {
       // A roll's or a fight's outcome may also say back: "PASSAGE" (a way back after the roll).
       var P0 = story.passages[id], branches = [];
+      // A port of call (10.9): `escale: "<id>"` on the anchorage page. Arriving marks the ship at anchor there; the
+      // engine writes « Lever l'ancre » (story.escales[id].depart), which marks it left and closes its quests. Why:
+      // Clément (17/11, l'île aux pirates) — the story declares its ports, the engine opens and closes them.
+      var E0 = P0.escale && (story.escales || {})[P0.escale];
+      if (E0 && !(P0.choices || []).some(function (c) { return c.escaleDepart; })) {
+        var D0 = E0.depart || {}, at = "escale:" + P0.escale, lv = D0.label || "Lever l'ancre";
+        P0.fx = Object.assign({}, P0.fx || {}); P0.fx.flag = [].concat(P0.fx.flag || [], at);
+        var dc = { label: lv, to: D0.to, big: true, escaleDepart: P0.escale, fx: Object.assign({}, D0.fx || {}),
+          labels: [{ if: { escaleOuverte: P0.escale }, label: lv + " · des affaires resteront en suspens" }] };
+        dc.fx.flag = [].concat(dc.fx.flag || [], "escale-quittee:" + P0.escale);
+        if (D0.if != null) { dc.if = D0.if; dc.why = D0.why || "Pas encore."; }
+        P0.choices = (P0.choices || []).concat([dc]);
+      }
       // Keeping silent (8.3): `silence: { who, to, label, fx }` on a passage where someone waits for an answer becomes a
       // choice of its own, « Te taire », counted by the engine. In a pressing scene, it is what happens when time runs out.
       if (P0.silence && !(P0.choices || []).some(function (c) { return c.silence; })) {
@@ -218,6 +239,10 @@
   function level(s) { return levelOfEp(s.ep); }
   function pvMax(s) { return PV_BASE + ((ARCHS[s.arch] || ARCHS.guerrier).pv) + PV_PER_LEVEL * (level(s) - 1); }
   function heroName(s) { return s.name || "le héros"; }
+  // {joueur}, {joueur:e} (10.9): the reader's own hero seen by another lead (the doctor who opens the door to the child
+  // of the inn). Without heroes, or when the reader's hero leads, the same as {hero} and {e}.
+  function playerNameOf(s) { var id = s.playerId; if (!id || id === s.lead) return heroName(s); return ((s.heroes || {})[id] || {}).name || heroName(s); }
+  function playerFemOf(s) { if (!s.playerId || s.playerId === s.lead) return !!s.fem; return s.playerFem != null ? !!s.playerFem : false; }
   function present(s, c) { return s.met[c] === "party" || (s.lead != null && s.lead === c); }
   function loyal(s, c) { return present(s, c) && (s.conf[c] || 0) >= LOYAL_AT; }
   function day(s) { return 1 + Math.floor(s.time / 24); }
@@ -305,6 +330,11 @@
     // Cards (9.7): a thread's state (ouvert by default; noue, rate, aucun), a card played in this game.
     if ("fil" in c) return [].concat(c.is || "ouvert").indexOf(threadState(s, c.fil)) >= 0;
     if ("carteJouee" in c) return !!(s.jeu && [].concat(c.carteJouee).some(function (k) { return s.jeu.joue.indexOf(k) >= 0; }));
+    // Ports of call and the crew (10.9).
+    if ("escale" in c) return c.is === "quittee" ? !!s.flags["escale-quittee:" + c.escale] : !!s.flags["escale:" + c.escale] && !s.flags["escale-quittee:" + c.escale];
+    if ("escaleOuverte" in c) return escaleOpen(story, s, c.escaleOuverte);
+    if ("marin" in c) return [].concat(c.is || "abord").some(function (w) { return crewIs(story, s, c.marin, w); });
+    if ("equipage" in c) return rng(crewCount(story, s, c.equipage), c.min, c.max);
     // A siege (8.0): a stock and the days it lasts, a promise, a vote, a member's leaning, a battle, the hero's camp.
     if ("stock" in c) return rng(stockNow(story, s, c.stock), c.min, c.max);
     if ("days" in c) { var dl = daysLeft(story, s, c.days); return rng(dl == null ? Infinity : dl, c.min, c.max); }
@@ -582,7 +612,7 @@
   // (s.alliesFem, set by src/multi.js); with several others, the plural; alone, the masculine of « l'autre ».
   var AUTRE = { e: ["", "e", "s"], il: ["il", "elle", "ils"], Il: ["Il", "Elle", "Ils"], le: ["le", "la", "les"], lui: ["lui", "elle", "eux"] };
   function autreForm(s, k) { var f = s.alliesFem || [], n = (s.allies || []).length; var F = AUTRE[k]; return n > 1 ? F[2] : f[0] ? F[1] : F[0]; }
-  function interp(s, t) { return veilPlain(s, String(t)).replace(/\{autre:(e|il|Il|le|lui)\}/g, function (m, k) { return autreForm(s, k); }).replace(/\{autre\}/g, s.allies && s.allies.length ? s.allies.join(" et ") : "l'autre").replace(/\{hero\}/g, heroName(s)).replace(/\{niveau\}/g, String(level(s))).replace(/\{marque\}/g, String(s.mark))
+  function interp(s, t) { return veilPlain(s, String(t)).replace(/\{autre:(e|il|Il|le|lui)\}/g, function (m, k) { return autreForm(s, k); }).replace(/\{autre\}/g, s.allies && s.allies.length ? s.allies.join(" et ") : "l'autre").replace(/\{joueur:e\}/g, playerFemOf(s) ? "e" : "").replace(/\{joueur\}/g, playerNameOf(s)).replace(/\{hero\}/g, heroName(s)).replace(/\{niveau\}/g, String(level(s))).replace(/\{marque\}/g, String(s.mark))
     // {e}: the agreement of the lead hero ("assis{e}"), from the companion's own f: true.
     .replace(/\{e\}/g, s.fem ? "e" : ""); }
   // Intent: read(Story, State, Tagged, PassageId) -> Bool = do the tags a paragraph, a choice or a passage carries hold now
@@ -672,6 +702,49 @@
       }
     });
     return out;
+  }
+
+  // ------------------------------------------------------------------ ports of call and the crew (10.9)
+  // Intent: escaleOpen(Story, State, Escale) -> Bool = a quest of this port is begun and neither done, refused nor missed
+  function escaleOpen(story, s, eid) {
+    var E = (story.escales || {})[eid]; if (!E) throw new Error("escale inconnue " + eid);
+    return [].concat(E.quests || []).some(function (qid) { var Q = (story.quests || []).filter(function (x) { return x.id === qid; })[0]; return Q && questStarted(s, Q) && !questDone(s, Q) && !questRefused(s, Q); });
+  }
+  // The crew (story.equipage.marins: { <person>: { poste, penchant, abord } }): each sailor leans from -3 (won over to
+  // the plot) to +3 (loyal). The hero learns a leaning (fx.devine) as it is at that moment: what he knows may age.
+  var CREW_MAX = 3, CREW_LOYAL = 2, CREW_PLOT = -2, CREW_WORDS = { loyal: "fidèle", hesitant: "hésitant", complot: "gagné au complot" };
+  function crewDef(story, id) { var D = ((story.equipage || {}).marins || {})[id]; if (!D) throw new Error("marin inconnu " + id); return D; }
+  function crewOf(story, s, id) {
+    var D = crewDef(story, id); s.crew = s.crew || {};
+    if (!s.crew[id]) s.crew[id] = { p: D.penchant || 0, abord: !!D.abord, perdu: false, vu: null };
+    return s.crew[id];
+  }
+  function crewLean(p) { return p >= CREW_LOYAL ? "loyal" : p <= CREW_PLOT ? "complot" : "hesitant"; }
+  // Intent: crewIs(Story, State, Sailor, Word) -> Bool ! words: loyal, hesitant, complot (the truth), abord, perdu, connu
+  function crewIs(story, s, id, w) {
+    var C = crewOf(story, s, id);
+    if (w === "abord") return C.abord && !C.perdu;
+    if (w === "perdu") return C.perdu;
+    if (w === "connu") return !!C.vu;
+    return C.abord && !C.perdu && crewLean(C.p) === w;
+  }
+  function crewName(story, id) { return (personOf(story, id) || {}).name || id; }
+  function crewIds(story) { return Object.keys((story.equipage || {}).marins || {}); }
+  function crewCount(story, s, w) { return crewIds(story).filter(function (id) { return crewIs(story, s, id, w === true ? "abord" : w); }).length; }
+  // Intent: crewView(Story, State) -> [{ id, name, poste, abord, perdu, vu, word }] = what the notebook shows: the sailors
+  // who have been aboard, and of each one only the leaning the hero has guessed (as it was then).
+  function crewView(story, s) {
+    return crewIds(story).map(function (id) {
+      var D = crewDef(story, id), C = crewOf(story, s, id);
+      return { id: id, name: crewName(story, id), poste: D.poste || "", abord: C.abord && !C.perdu, perdu: C.perdu, been: C.abord || C.perdu || !!C.left, vu: C.vu, word: C.vu ? CREW_WORDS[C.vu] : null };
+    }).filter(function (x) { return x.been; });
+  }
+  function crewFx(story, s, fx) {
+    [].concat(fx.recrue || []).forEach(function (id) { var C = crewOf(story, s, id); if (C.abord && !C.perdu) return; C.abord = true; C.perdu = false; ev(s, interp(s, crewName(story, id)) + " embarque" + (crewDef(story, id).poste ? " (" + crewDef(story, id).poste + ")" : "") + ".", "crew"); });
+    [].concat(fx.debarque || []).forEach(function (id) { var C = crewOf(story, s, id); if (!C.abord) return; C.abord = false; C.left = true; ev(s, interp(s, crewName(story, id)) + " quitte le bord.", "crew"); });
+    [].concat(fx.perte || []).forEach(function (id) { var C = crewOf(story, s, id); if (C.perdu) return; C.perdu = true; C.abord = false; ev(s, "L'équipage a perdu " + interp(s, crewName(story, id)) + ".", "crew bad"); });
+    if (fx.penche) Object.keys(fx.penche).forEach(function (id) { var C = crewOf(story, s, id); C.p = Math.max(-CREW_MAX, Math.min(CREW_MAX, C.p + fx.penche[id])); });
+    [].concat(fx.devine || []).forEach(function (id) { var C = crewOf(story, s, id), w = crewLean(C.p); if (C.vu === w) return; C.vu = w; ev(s, interp(s, crewName(story, id)) + " : tu le crois " + CREW_WORDS[w] + ".", "crew", { conseq: 1 }); });
   }
 
   // ------------------------------------------------------------------ quests
@@ -889,8 +962,14 @@
     if (fx.clock) for (k in fx.clock) s.clock[k] = (s.clock[k] || 0) + fx.clock[k];
     [].concat(fx.quest || []).forEach(function (q) {
       if (!(story.quests || []).some(function (x) { return x.id === q; })) throw new Error("quête inconnue " + q);
-      if (!s.flags["quete:" + q]) { s.flags["quete:" + q] = true; ev(s, "Quête accomplie : " + questTitle(story, q), "quest"); }
+      if (!s.flags["quete:" + q]) {
+        s.flags["quete:" + q] = true; ev(s, "Quête accomplie : " + questTitle(story, q), "quest");
+        // What this quest owes to another book (10.9): told once it is done, never before, so nothing is given away.
+        var QD = (story.quests || []).filter(function (x) { return x.id === q; })[0], SRC = QD && QD.doit && (story.sources || {})[QD.doit];
+        if (SRC) ev(s, "Cette histoire doit quelque chose à *" + SRC.title + "*" + (SRC.author ? ", de " + SRC.author : "") + ".", "doit", { book: QD.doit });
+      }
     });
+    crewFx(story, s, fx);
     [].concat(fx.questSeen || []).forEach(function (q) { if (!s.flags["quete-vue:" + q]) { s.flags["quete-vue:" + q] = true; ev(s, "Nouvelle quête : " + questTitle(story, q), "quest"); } });
     if (fx.assign) for (k in fx.assign) { if (!story.companions[k]) throw new Error("compagnon inconnu " + k); s.assign = s.assign || {}; s.assign[k] = fx.assign[k]; }
     // "resume" alone bookmarks where the current team will pick up when the reader next leaves it (chapter end, crossroads)
@@ -993,6 +1072,9 @@
   // hero who walks with the lead takes over the shared purse and provisions, and the day does not move.
   var SHEET_KEYS = ["name", "arch", "ep", "items", "fatigue", "arrows"], APART_KEYS = ["time", "place", "gold", "food"];
   function isHero(story, id) { return !!(story.heroes && story.heroes[id]); }
+  // The reader's own hero (`player`) speaks in the gender the reader chose (s.playerFem, 10.9); the others in their own.
+  // Why: « L'Île Folle-Aiguille » lets the reader be the inn's son or daughter, and hands the book to the doctor and back.
+  function heroFem(story, s, id) { return ((story.heroes || {})[id] || {}).player && s.playerFem != null ? !!s.playerFem : !!((story.companions || {})[id] || {}).f; }
   function heroIds(story) { return Object.keys(story.heroes || {}); }
   function heroSheet(s, id) {
     if (id === s.lead) return { name: s.name, arch: s.arch, ep: s.ep, items: s.items, fatigue: s.fatigue, arrows: s.arrows, pv: s.pv };
@@ -1009,13 +1091,13 @@
     var lead = story.leadStart || heroIds(story)[0];
     heroIds(story).forEach(function (id) {
       var H = story.heroes[id], kit, arrows = 0;
-      if (H.player) { if (!s.arch) s.arch = H.arch || "guerrier"; if (!s.name) s.name = H.name || nameOf(story, id); }
+      if (H.player) { s.playerId = id; if (!s.arch) s.arch = H.arch || "guerrier"; if (!s.name) s.name = H.name || nameOf(story, id); }
       var arch = H.player ? s.arch : H.arch, items = (H.items || []).slice().concat(kit = kitOf(story, arch));
       kit.forEach(function (k) { if (item(story, k).ammo) arrows += BOW_ARROWS; });
       var sheet = { name: H.player ? s.name : (H.name || nameOf(story, id)), arch: arch, ep: Math.max(EP_PER_LEVEL * (H.level || lv), H.player ? s.ep : 0), items: items, fatigue: 0, arrows: arrows,
         time: H.time != null ? H.time : START_HOUR, place: H.place || null, gold: H.gold || 0, food: H.food || 0 };
       if (id === lead) {
-        s.lead = id; s.fem = !!((story.companions || {})[id] || {}).f; s.name = sheet.name; s.arch = sheet.arch; s.ep = sheet.ep; s.items = s.items.concat(items); s.fatigue = 0; s.arrows = (s.arrows || 0) + arrows;
+        s.lead = id; s.fem = heroFem(story, s, id); s.name = sheet.name; s.arch = sheet.arch; s.ep = sheet.ep; s.items = s.items.concat(items); s.fatigue = 0; s.arrows = (s.arrows || 0) + arrows;
         s.gold += sheet.gold; s.food += sheet.food; if (H.place) s.place = H.place; if (H.time != null) s.time = H.time;
         s.pv = pvMax(s); s.met[id] = "party"; if (s.conf[id] == null) s.conf[id] = CONF_START_PARTY; if (s.fear[id] == null) s.fear[id] = 0;
       } else { s.heroes[id] = sheet; s.cpv[id] = cpvMax(story, s, id); }
@@ -1025,7 +1107,7 @@
   function setLead(story, s, id, quiet) {
     if (!isHero(story, id)) throw new Error("héros inconnu " + id);
     if (id === s.lead) return;
-    s.fem = !!((story.companions || {})[id] || {}).f;
+    s.fem = heroFem(story, s, id);
     var old = s.lead, together = present(s, id);
     if (old != null) { var o = {}; SHEET_KEYS.concat(APART_KEYS).forEach(function (k) { o[k] = s[k]; }); if (together) { o.gold = 0; o.food = 0; } s.heroes[old] = o; s.cpv = s.cpv || {}; s.cpv[old] = Math.max(1, s.pv); }
     var n = s.heroes[id];
@@ -3657,6 +3739,7 @@
     doubt: doubt, accountBy: accountBy, topicSolved: topicSolved, dreadOf: dreadOf, dreadMax: dreadMax, dreadWord: dreadWord, dreadTrouble: dreadTrouble, attachOf: attachOf, ATTACH_MAX: ATTACH_MAX,
     LENS_EFFECTS: LENS_EFFECTS, reveal: reveal, veilsIn: veilsIn, unveil: unveil, veilInfo: veilInfo, veilsOf: veilsOf, veilMark: veilMark, lensHeld: lensHeld, lensLeft: lensLeft, lensDef: lensDef, veilCount: veilCount, VEIL_RE: VEIL_RE,
     CARD_TYPES: CARD_TYPES, SUITS: SUITS, SUIT_WORDS: SUIT_WORDS, RARITIES: RARITIES, THREAD_STATES: THREAD_STATES, cardInfo: cardInfo, filsOf: filsOf, resolve: resolve, stopOf: stopOf,
+    escaleOpen: escaleOpen, crewView: crewView, crewIs: crewIs, crewCount: crewCount, crewLean: crewLean, CREW_WORDS: CREW_WORDS, CREW_MAX: CREW_MAX,
     item: item, weapon: weapon, armor: armor, useItem: useItem, day: day, timeLabel: timeLabel, routesFrom: routesFrom, isNight: isNight,
   };
   if (typeof module !== "undefined" && module.exports) module.exports = API; else root.Moteur = API;
