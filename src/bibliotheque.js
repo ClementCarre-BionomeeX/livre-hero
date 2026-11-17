@@ -137,22 +137,23 @@
   function fieldsOf(m) {
     var key = m.id + "|" + (m.version || 1) + "|" + m.title;
     if (cache[key]) return cache[key];
-    var f = facets(m), kinds = [];
-    f.genres.forEach(function (g) { kinds.push(GENRE[g].label, GENRE[g].also); });
-    ["type", "joueurs", "longueur", "public"].forEach(function (k) { if (f[k]) { kinds.push(label(k, f[k])); if (FACET_WORDS[k + ":" + f[k]]) kinds.push(FACET_WORDS[k + ":" + f[k]]); } });
+    var f = facets(m), kinds = [], labels = [];
+    f.genres.forEach(function (g) { kinds.push(GENRE[g].label, GENRE[g].also); labels.push(fold(GENRE[g].label)); });
+    ["type", "joueurs", "longueur", "public"].forEach(function (k) { if (f[k]) { kinds.push(label(k, f[k])); labels.push(fold(label(k, f[k]))); if (FACET_WORDS[k + ":" + f[k]]) kinds.push(FACET_WORDS[k + ":" + f[k]]); } });
     // Each field: its words, and two words run together (« huisclos », « conandoyle »), found whole or by their start.
     var words = function (s) {
       var w = fold(s).split(" ").filter(Boolean), pairs = [];
       for (var i = 0; i + 1 < w.length; i++) pairs.push(w[i] + w[i + 1]);
       return { w: w, pairs: pairs };
     };
-    return (cache[key] = { title: words(m.title), author: words(m.author), kinds: words(kinds.join(" ")), subtitle: words(m.subtitle), summary: words(m.summary) });
+    return (cache[key] = { title: words(m.title), author: words(m.author), kinds: words(kinds.join(" ")), subtitle: words(m.subtitle), summary: words(m.summary), labels: labels });
   }
   function terms(query) {
     var all = fold(query).split(" ").filter(Boolean), kept = all.filter(function (t) { return !STOP[t]; });
     return kept.length ? kept : all;
   }
-  function score(m, ts) {
+  // A query that is a facet's whole name (« à deux », « à lire deux fois ») ranks the books of that facet first.
+  function score(m, ts, whole) {
     var F = fieldsOf(m), total = 0;
     for (var i = 0; i < ts.length; i++) {
       var best = 0;
@@ -166,12 +167,14 @@
       total += best;
     }
     if (ts.length > 1 && fold(m.title).indexOf(ts.join(" ")) >= 0) total += WEIGHTS.title;   // the words in the title, in order
+    if (whole && F.labels.indexOf(whole) >= 0) total += WEIGHTS.kinds;
     return total;
   }
   function search(list, query) {
     var ts = terms(query);
     if (!ts.length) return list.map(function (m) { return { m: m, score: 0 }; });
-    return list.map(function (m) { return { m: m, score: score(m, ts) }; }).filter(function (x) { return x.score > 0; })
+    var whole = fold(query).trim();
+    return list.map(function (m) { return { m: m, score: score(m, ts, whole) }; }).filter(function (x) { return x.score > 0; })
       .sort(function (a, b) { return b.score - a.score || sortKey(a.m).localeCompare(sortKey(b.m), "fr"); });
   }
   // Intent: sortKey(StoryMeta) -> text = the title as a shelf orders it: « Le Monde perdu » under M.
