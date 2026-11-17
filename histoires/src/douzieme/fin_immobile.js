@@ -195,7 +195,7 @@ Object.assign(P, {
     text: [
       "Tu vas aux Trois-Noyers. Quatre jours, par des cercles que tu avais traversés dans l'autre année, puis par un pays tout neuf dans le gris : la vague y est passée le matin même où l'on finissait de charger les matelas.",
       "Le village est sur la route, arrêté en file. Des charrettes, des cages à poules, un sergent qui recensait. Le père Lubin est sur son seuil : il avait refusé de partir. Il a eu raison. Il est le seul à être resté chez lui.",
-      "L'atelier. La table, l'établi sous la fenêtre, les outils par taille. Ta paillasse, sous l'escalier, avec ton creux. Sur la table, une bobine de fil rouge, et une aiguille piquée dedans.",
+      "L'atelier. La table, l'établi sous la fenêtre, les outils par taille. Ta paillasse, sous l'escalier, avec ton creux. Sur la table, une bobine de fil gris, et une aiguille piquée dedans.",
       "L'horloge de la cuisine est arrêtée, le balancier à bout de course, à gauche. Tu l'ouvres, par métier. Rien n'est cassé. Elle marcherait. Tu pousses le balancier du doigt : il va où tu le mènes, et il y reste. Il n'y a plus rien dans le monde pour le ramener.",
       "Tu es horloger. C'est tout ce que tu sais faire, et tu viens d'accepter une place à une table où ce métier n'a plus d'objet. Tu ranges tes brucelles. Tu les ranges à leur place, par taille, comme on te l'a appris.",
       { if: { has: "j:i_line_eveil" }, text: "Tu as dans ta poche une paire de lunettes pliées. Tu les poses sur l'établi, à l'endroit où elle les cherchait toujours. *Si un jour tu trouves comment défaire.* Tu regardes autour de toi. Il y a là quarante ans de cahiers, de calculs, de bornes grattées. Tu as mille ans. Tu t'assois à sa place. Tu ouvres le premier cahier." },

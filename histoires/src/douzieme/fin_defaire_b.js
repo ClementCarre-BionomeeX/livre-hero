@@ -409,7 +409,7 @@ Object.assign(P, {
       "Le soir, vous vous asseyez tous les deux sur la margelle du puits de la cour. D'ici, on voit la plaine jusqu'au bout. Il n'y a pas de lisière. Il n'y a jamais eu de lisière : il y a des blés coupés, une route, et très loin, quand le temps est clair, une pointe qui est la Tour.",
       { if: R, text: "Tu as cessé de dire *chez moi.* Tu dis *là-bas*, en montrant la butte de Roquebise, où une petite de neuf mois apprend à se tenir assise. Tu iras tous les mois. On te connaît, rue des Potiers. On t'appelle par ton nom. On dit que tu es de la famille, de loin, et l'on ne sait pas si bien dire." },
       { if: J, text: "{autre} a cessé de dire *chez moi.* {autre:Il} dit *là-bas*, en montrant la butte de Roquebise. {autre:Il} y va tous les mois, avec son panier de verre. {autre:Il} en revient avec une figure que tu as appris à ne pas questionner, et une chanson de plus." },
-      "Vous avez deux Cahiers, cousus de fil rouge, par une vieille femme qui n'aura pas vécu. Vous n'en avez plus besoin : vous êtes à portée de voix. Line les a trouvés. Elle en a défait un, page à page, pour voir comment c'était fait, et elle l'a recousu. Elle dit que c'est mal fait, et qu'elle ferait mieux.",
+      "Vous avez deux Cahiers, cousus de fil gris, par une vieille femme qui n'aura pas vécu. Vous n'en avez plus besoin : vous êtes à portée de voix. Line les a trouvés. Elle en a défait un, page à page, pour voir comment c'était fait, et elle l'a recousu. Elle dit que c'est mal fait, et qu'elle ferait mieux.",
       "Elle le fera. Elle a soixante ans pour cela, et personne à attendre.",
     ] },
 
@@ -462,7 +462,7 @@ Object.assign(P, {
       { if: J, text: "Puis il vient, lettre à lettre, en bâtons : *J'AI ENTENDU. D'ICI. DOUZE LIEUES. LE VENT PORTAIT.* Et dessous : *ELLE DIT MON NOM. ELLE LE DIT MAL. JE REVIENS AUX VENDANGES VOIR TA TÊTE.*" },
       { if: R, text: "Il vient, de son écriture penchée, pressée, que tu lirais entre mille : *Douze. Elle a sonné juste. Le puits va bien. Tu manques à la margelle.*" },
       { if: R, text: "Tu prends la mine. Tu écris, en bâtons, lentement : *J'AI ENTENDU. D'ICI. DOUZE LIEUES. LE VENT PORTAIT.* Tu regardes la petite, sur ton pied. Tu ajoutes : *ELLE DIT MON NOM. ELLE LE DIT MAL. JE REVIENS AUX VENDANGES VOIR TA TÊTE.*" },
-      "Vous refermez les Cahiers, chacun de son côté, sans savoir que l'autre le fait au même instant. Le fil rouge tient. Il a été cousu pour durer soixante ans. On ne lui en demandera pas tant : aux vendanges, vous serez à portée de voix.",
+      "Vous refermez les Cahiers, chacun de son côté, sans savoir que l'autre le fait au même instant. Le fil gris tient. Il a été cousu pour durer soixante ans. On ne lui en demandera pas tant : aux vendanges, vous serez à portée de voix.",
     ] },
 });
 

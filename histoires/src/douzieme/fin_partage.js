@@ -145,7 +145,7 @@ Object.assign(P, {
     text: [
       "Tu remontes par la porte de fer. La ruelle est dans l'ombre de la Tour. Il y passe des gens, à présent : une porteuse d'eau, deux clercs, un chat qui a fini de se lécher la patte.",
       "La borne est à dix pas du vantail. C'est une borne-cadran comme les autres, basse, usée, avec son style de bronze et ses heures gravées ; la dernière de la Méridienne, celle d'où l'on voit la Tour en levant le menton. Le style fait une ombre courte. Elle bouge.",
-      "Tu t'assois dessus. Tu sors le Cahier de ta chemise. La toile est tachée de sueur, de sciure, de cire. Le fil rouge tient.",
+      "Tu t'assois dessus. Tu sors le Cahier de ta chemise. La toile est tachée de sueur, de sciure, de cire. Le fil gris tient.",
       "Tu as peur de l'ouvrir. Tu as tiré une cloche de douze pieds ce matin, et tu as peur d'un cahier. Si la page est blanche, tu sauras qu'il n'y a personne ; et tu auras soixante ans pour le savoir.",
       "Tu l'ouvres. Tu mouilles la mine sur ta langue. Tu écris, en penché, sous la dernière ligne de ce matin :",
       "*J'y suis. 541. La ville dîne. Tu es où ?*",

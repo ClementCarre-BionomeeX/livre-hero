@@ -673,7 +673,7 @@ Object.assign(P, {
 
   K14r_faux_cahier: { act: "IV", title: "Jusqu'au bout", place: "tour", ambiance: "chateau",
     text: [
-      "C'est la même toile cirée, le même fil rouge au dos, la même tranche jaspée. Elle a dû y passer ses nuits de prisonnière. Les premières pages sont pleines : des bâtons, d'une main qui imite la tienne à s'y tromper, et dessous une écriture penchée, qui répond. Des bornes, des dates, des lieux. Tout y est vraisemblable, et faux d'une heure ou d'une lieue : de quoi faire courir un homme soigneux derrière deux enfants, neuf jours durant, avec toujours un village de retard.",
+      "C'est la même toile cirée, le même fil gris au dos, la même tranche jaspée. Elle a dû y passer ses nuits de prisonnière. Les premières pages sont pleines : des bâtons, d'une main qui imite la tienne à s'y tromper, et dessous une écriture penchée, qui répond. Des bornes, des dates, des lieux. Tout y est vraisemblable, et faux d'une heure ou d'une lieue : de quoi faire courir un homme soigneux derrière deux enfants, neuf jours durant, avec toujours un village de retard.",
       "La dernière page est de sa main à elle, sans déguisement, en belle ronde d'horlogère.",
       "*Melchior. Si tu lis ceci, tu es venu me le prendre sur les genoux, à midi moins le quart, devant tout le monde, comme je l'avais réglé. Pendant que tu lis, tu es ailleurs qu'en bas. Tu as toujours lu jusqu'au bout : c'est ta seule politesse. Line.*",
       "« Elle a une jolie main, dit-il. Je l'ai lue jusqu'au bout, en effet. On a ses habitudes. » Il regarde sa canne. « Je l'ai connue haute comme cela, qui courait une foire avec une boîte de fer. J'aurais dû lui acheter sa boîte. »",
