@@ -2470,6 +2470,8 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "10.7", items: ["« Enlevé ! » de R. L. Stevenson, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1886. Écosse, 1751 : un garçon trahi par son oncle, un brick, un rebelle des Highlands et une longue fuite dans la bruyère. Avec les gens, les lieux et les mots d'un toucher."] },
+    { v: "10.6", items: ["« La Flèche noire » de R. L. Stevenson, à lire en entier, dans la traduction de P.-G. La Chesnais (1901). La guerre des Deux-Roses, des proscrits dans la forêt de Tunstall, un tuteur à démasquer. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "10.5", items: ["« Croc-Blanc » de Jack London, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1906 (la traduction française de 1923 est abrégée). Sans choix, avec les gens, les lieux et les mots d'un toucher, et une notice sur ce que le livre doit à son époque."] },
     { v: "10.4", items: ["« L'Étrange Cas du Dr Jekyll et de Mr Hyde » de R. L. Stevenson, à lire en entier, dans la traduction de Théo Varlet. Sans choix, avec les gens, les lieux et les mots d'un toucher. Le premier des romans de Stevenson dans la bibliothèque."] },
     { v: "10.3", items: ["« Les Premiers Hommes dans la Lune » de H. G. Wells, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1901. Sans choix, avec les gens, les lieux et les mots d'un toucher. Les cinq grands romans de Wells sont maintenant dans la bibliothèque."] },
