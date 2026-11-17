@@ -433,6 +433,7 @@ var E_ECRIRE = [
   { label: "Écrire à {autre} ce que portait l'enfant de cuivre", hide: { any: [J, { not: { has: "r:lettre_coudrier" } }, { has: "monde:su:carillon" }] }, to: "E_carillon" },
   { label: "Écrire à {autre} lequel doit être en haut, et lequel en bas", hide: { any: [J, { not: { has: "r:sait_lesquelles" } }, { has: "monde:su:lesquelles" }] }, to: "E_lesquelles" },
   { label: "Écrire à {autre} ce que le portier a vu, la veille et le matin", hide: { any: [J, { not: { has: "r:sait_arret" } }, { has: "monde:su:arret" }] }, to: "E_arret" },
+  { label: "Écrire à {autre} ce qu'on voit par la lunette de sa Reine", hide: { any: [J, { not: { has: "r:vu_echelons" } }, { has: "monde:su:echelons" }] }, to: "E_echelons" },
   { label: "Écrire à {autre} ce qu'il y avait sous le neuvième oreiller", hide: { any: [J, { not: { has: "r:lu_ansel" } }, { has: "monde:su:ansel" }] }, to: "E_ansel" },
   { label: "Écrire à {autre} qui se tient sur le chemin du canal", hide: { any: [J, { not: { seen: "K09r_girard" } }, { has: "monde:su:girard" }] }, to: "E_girard" },
   { label: "Écrire à {autre} de quelle couleur sont les yeux du Maître des Sables", hide: { any: [J, { not: { has: "r:vu_vairons" } }, { has: "monde:su:vairons" }] }, to: "E_vairons" },
@@ -672,6 +673,78 @@ Object.assign(P, {
       { label: "Fermer le Cahier : ils votent", hide: R, to: "K12j_route", big: true },
       { label: "Fermer le Cahier : demain, la Régente", hide: J, to: "K12r_route", big: true },
     ]) },
+
+  // ---------- chapter 12 : the sundial of the Jurés at dusk (541) and the dial of the tortoises (601) ----------
+  M12: { act: "IV", title: "Le soir, des deux façons", backName: "la borne", charniere: true, aparte: true, depot: { put: ["cahier"], take: ["borne_palais", "cahier"] },
+    text: [
+      { first: true, if: J, text: "Les bâtons de ce soir sont pleins de terre : {autre} a écrit les mains sales. *JE SUIS DANS LE JARDIN DE TA REINE. LE CADRAN AUX TORTUES. LE THYM Y EST ENCORE. LA JARDINIÈRE A REPIQUÉ TROIS PIEDS SUR TON TROU. ILS ONT SOIXANTE ANS ET LA TAILLE DE MON DOIGT.*" },
+      { first: true, if: J, text: "*J'AI CREUSÉ DESSOUS. CE QUE TU Y AS MIS, JE L'AI.*" },
+      { first: true, if: J, text: "*SUR LA PLACE ILS SONT CINQ MILLE, DE DOS. JE LES LAISSE POUR DEMAIN. AU PIED DE LA TOUR QUATRE HOMMES TIENNENT UN DAIS ROUGE EN L'AIR. DESSOUS IL Y A LA PLACE D'UNE FEMME ET D'UNE CHAISE D'ENFANT. PERSONNE.*" },
+      { first: true, if: J, text: "*LA RÉGENTE EST ENTRÉE. ICI IL EST MIDI POUR TOUJOURS. ALORS ILS FERMENT LES VOLETS ET ILS ALLUMENT DES CIERGES POUR AVOIR UN SOIR. TROIS CENTS CHEVAUX, UN SABLIER AU FRONT DE CHACUN.*" },
+      { first: true, if: J, text: "*LUI, IL L'ATTENDAIT À LA GRILLE. IL LUI A TENU L'ÉTRIER. IL AVAIT CHANGÉ DE JABOT.*" },
+      { first: true, if: J, text: "Tu lis cela au pied du cadran solaire des Jurés, le dos contre le marbre tiède. Demain, à onze heures, une femme en noir marchera sous ce velours, à côté d'une chaise aux rideaux ouverts. {autre} vient de te dire où le velours s'arrête." },
+      { first: true, if: { all: [J, { has: "j:vote_rejete" }] }, text: "Tu écris la séance. Tu écris que sept hommes ont dit non, et que cela s'est joué à une main. Tu écris ce qui a suivi : un papier du douze juin, une petite cire verte, et un homme qui avait fini son verre d'eau." },
+      { first: true, if: { all: [J, { has: "j:vote_adopte" }] }, text: "Tu écris la séance. Tu écris que sept hommes ont permis la chose, et qu'on a sonné la cloche maigre. Tu écris qu'il avait de toute façon dans son habit un papier du douze juin, à petite cire verte, et que l'une des deux permissions lui suffisait." },
+      { first: true, if: J, text: "Tu écris le fauteuil. {autre} l'a vu par terre avant toi, et te l'avait dit. Tu l'as regardé tomber quand même, et tu sais à présent le bruit qu'il a fait." },
+      { first: true, if: J, text: "Tu écris la phrase du vieil homme, mot pour mot : *demain, à midi, quand vous poserez la main sur ce levier, la mienne sera dessus.*" },
+      { first: true, if: R, text: "L'écriture penchée est serrée, ce soir, et sans une rature : on a écrit d'un trait, en sortant d'une salle. *C'est fait. Sept hommes, portes closes, une Tour de laiton au milieu de la salle, dont la petite barre monte et descend.*" },
+      { first: true, if: { all: [R, { has: "monde:vote_interdit" }] }, text: "*Ils ont dit non. Ils ont refusé la chambre, à une main près. J'ai respiré. Puis il a tiré de son habit un papier de la Reine, du douze juin, avec une petite cire verte : une commission pour la Chambre haute. Il a dit qu'il se passerait de la permission. Il avait fini son verre d'eau.*" },
+      { first: true, if: { all: [R, { not: { has: "monde:vote_interdit" } }] }, text: "*Ils ont dit oui. On a sonné leur cloche maigre. Il avait de toute façon dans son habit un papier de la Reine, du douze juin, avec une petite cire verte : une commission pour la Chambre haute. Il a dit que l'une des deux lui suffisait.*" },
+      { first: true, if: R, text: "*Le Grand Maître s'est levé d'un coup. Son fauteuil est parti en arrière, et il est tombé sur le dos. Personne ne l'a ramassé. Tu l'avais vu par terre avant moi : je l'ai regardé tomber quand même.*" },
+      { first: true, if: R, text: "*Il a dit : demain, à midi, quand vous poserez la main sur ce levier, la mienne sera dessus. L'autre a salué le fauteuil, et il est sorti avec sa rose.*" },
+      { first: true, if: { all: [R, { has: "monde:reine_renonce" }] }, text: "*Et la Reine a changé d'avis cet après-midi. Il tient un papier du douze pour une chose dont elle ne veut plus le vingt. Il le saura ce soir. Je doute qu'il rende le papier.*" },
+      { first: true, if: R, text: "Tu lis cela à genoux dans un thym qui sent encore, pourvu qu'on le remue. Le fauteuil est à trois cents pas, de l'autre côté du sable, les pieds en l'air : tu sais à présent quelle voix l'a renversé." },
+      { first: true, if: { all: [R, { has: "monde:vote_interdit" }] }, text: "Ils avaient dit non. Ton pays n'en a rien su : il lui fallait un seul coupable, et derrière lui une Guilde qui se taise." },
+      { first: true, if: R, text: "Tu écris à ton tour, en bâtons, les ongles noirs de terre. La foule de dos. Le dais. Les volets qu'on ferme pour avoir un soir." },
+      { again: true, if: J, text: "Le cadran solaire des Jurés. Le soir monte de la ville." },
+      { again: true, if: R, text: "Le cadran aux tortues, le thym retourné. Derrière les tilleuls, l'Orangerie a fermé son dernier volet." },
+    ],
+    choices: E_ECRIRE.concat([
+      { label: "Fermer le Cahier : la brune tombe sur la cour", hide: R, to: "K12j_tantot", big: true },
+      { label: "Fermer le Cahier, et entrer chez les deux reines", hide: J, to: "K12r_tantot", big: true },
+    ]) },
+
+  E_echelons: { title: "La face que la place ne voit pas", back: true, fx: { flag: "monde:su:echelons" },
+    text: [
+      "*J'AI MIS L'ŒIL À LA LUNETTE DE TA REINE. ELLE EST DANS SON ORATOIRE, SUR UN PIED DE CUIVRE, BRAQUÉE SUR LA TOUR.*",
+      "*DE CHEZ ELLE ON VOIT LA FACE DU MIDI. LA PLACE NE LA VOIT PAS. IL Y A DES ÉCHELONS DE FER DANS LA PIERRE. ILS PARTENT DE LA GALERIE DU GRAND CADRAN. ILS PASSENT CONTRE LA FENÊTRE DE LA CHAMBRE HAUTE. ILS MONTENT AUX ABAT-SONS DE LA CLOCHE. C'EST LE CHEMIN DES COUVREURS.*",
+      "*J'EN AI COMPTÉ VINGT-DEUX. LE SEPTIÈME MANQUE.*",
+      "*LA PORTE D'EN HAUT SE FERME EN DEDANS. LES ÉCHELONS SONT DEHORS. SI ON TE FERME LA PORTE IL RESTE LE MUR.*",
+      "*ELLE EST LÀ-HAUT. JE L'AI VUE. DERRIÈRE LA VITRE, EN NOIR, À UN PAS DE LA CROISÉE, LE BRAS LEVÉ VERS LA POIGNÉE. ELLE ALLAIT OUVRIR.*",
+      "Tu regardes ce que tu viens d'envoyer : un mur de vingt toises, vingt-deux barreaux, dont un manque. Tu ajoutes : *REGARDE OÙ TU METS LES MAINS.* C'est tout ce qu'on peut faire, à soixante ans de distance, pour tenir quelqu'un.",
+    ] },
+
+  B12: { act: "IV", title: "Minuit", backName: "la borne", charniere: true, aparte: true, depot: { put: ["cahier"], take: ["cahier"] },
+    text: [
+      { first: true, if: J, text: "Les bâtons sont pâles, ce soir : {autre} a écrit à la lune. *MINUIT. JE SUIS DANS UNE VIEILLE ÉGLISE DU BAS, SUR UNE ÉTOILE DE CUIVRE. ICI MIDI QUOI QU'ON SONNE.*" },
+      { first: true, if: J, text: "*IL A PRIS LE PALAIS CETTE NUIT SANS TIRER UN SABRE. IL A DONNÉ AUX GARDES BLANCS DU SABLE MORT. À MINUIT ILS SE SONT ARRÊTÉS DEBOUT, DEUX CENTS. LES NOIRS SONT ENTRÉS AU PAS, DES CHIFFONS SOUS LES TALONS.*" },
+      { first: true, if: { all: [J, { has: "monde:regente_libre" }] }, text: "*LA RÉGENTE EST AVEC MOI. ELLE A PASSÉ PAR TON SUREAU. ELLE A UNE GRAPPE DANS LES CHEVEUX ET ELLE LA GARDE.*" },
+      { first: true, if: { all: [J, { has: "monde:regente_dedans" }, { not: { has: "monde:regente_libre" } }] }, text: "*LA RÉGENTE EST RESTÉE DEDANS. ELLE SAIT TOUT. ELLE FAIT CELLE QUI DORT. DEMAIN ELLE JURERA LENTEMENT POUR ME DONNER DU TEMPS.*" },
+      { first: true, if: { all: [J, { has: "monde:regente_tenue" }, { not: { has: "monde:regente_libre" } }, { not: { has: "monde:regente_dedans" } }] }, text: "*IL TIENT LA RÉGENTE. DEUX NOIRS COUCHENT À SA PORTE. ELLE A COMPRIS UN SOIR TROP TARD.*" },
+      { first: true, if: { all: [J, { has: "monde:lettres_produites" }] }, text: "*TON VÉLIN EST LU. ELLE A REGARDÉ LA CIRE LONGTEMPS. ELLE A DIT : JE NE SUIS DONC RIEN. C'EST REPOSANT.*" },
+      { first: true, if: { all: [J, { has: "monde:ordonnance_garde" }] }, text: "*LE CONSEIL DE TA REINE A SIGNÉ CETTE NUIT. DEUX MAINS SUR TROIS. IL ÔTE L'ESCALIER AUX NOIRS. C'EST UN PAPIER. DEMAIN ON VERRA CE QUE PÈSE UN PAPIER.*" },
+      { first: true, if: { all: [J, { has: "monde:decoction" }] }, text: "*J'AI ÉVEILLÉ TON MÉDECIN. LA PETITE EN AVAIT BU DEUX PRISES. IL M'A DONNÉ LES DIX-NEUF AUTRES DANS UN FLACON. JE L'AI SUR MOI.*" },
+      { first: true, if: { all: [J, { has: "monde:pendule_aelis" }] }, text: "*DANS SA CHAMBRE J'AI DÉNOUÉ LE RUBAN DE LA PENDULE.*" },
+      { first: true, if: J, text: "*DEMAIN. TOI EN HAUT, MOI EN BAS. JE N'ÉCRIRAI PLUS AVANT. TIENS-TOI DEBOUT : JE TE CHERCHERAI DEBOUT.*" },
+      { first: true, if: J, text: "Tu lis cela sur les trois marches de la Petite. La lune fait au cadran une ombre pâle, qui ne dit rien de vrai. Là-haut, l'œil jaune de la Tour marque minuit moins un demi-quart, pour une ville qui dort couchée." },
+      { first: true, if: J, text: "Tu écris à ton tour. Quatre rubans verts, une poterne, un papier où il y avait plus de cire que d'écriture. Une voiture sans lanternes, les sabots des chevaux dans des sacs. Tu écris que tu sais de quel côté elle est descendue, et que tu as jusqu'à l'aube." },
+      { first: true, if: { all: [J, { has: "j:sait_quarantieme" }] }, text: "Ta plume s'arrête au-dessus de la page. Tu as dans la tête une phrase de quatre cents ans, qu'on dit une fois, la porte fermée. Elle concerne aussi la main qui écrit en bâtons. Tu regardes longtemps le blanc qui reste au bas de la feuille." },
+      { first: true, if: R, text: "L'écriture penchée est toute petite, ce soir, comme pour tenir dans le noir. *Ils l'ont pris. Quatre rubans verts, à la brune, par la poterne, sur un papier qui avait plus de cire que d'écriture. Il a marché au milieu d'eux, plus grand d'une tête, les mains dans ses manches, comme on va voir un malade.*" },
+      { first: true, if: R, text: "*Une voiture attendait au tournant, sans lanternes, les sabots des chevaux emmaillotés de sacs. Elle est descendue vers le bas de la ville. Je sais de quel côté. J'ai jusqu'à l'aube.*" },
+      { first: true, if: { all: [R, { has: "monde:coudrier_sait" }] }, text: "*Avant, je lui ai dit d'où je viens, et de quand. Et toi. Il m'a écouté comme il lit, sans rien passer. Il a dit : donc je descends demain, et je n'y arrive pas. Il descendra quand même.*" },
+      { first: true, if: { all: [R, { has: "monde:ansel_travers" }] }, text: "*J'ai parlé au petit des neuf, avec les mains, sur une pierre. Demain, quand il frappera le coin, il le frappera d'un quart de travers. Le bronze portera sur une arête. Il tiendra, mais mal. Souviens-t'en quand tu seras devant.*" },
+      { first: true, if: { all: [R, { has: "monde:hurel_debout" }] }, text: "*J'ai parlé au petit des neuf. Il a couru chez sa mère par la poterne des communs. Elle le croit toujours. Demain, rue de la Poulie, à l'enseigne du Dé, il y aura une veuve avec de la cire dans les oreilles.*" },
+      { first: true, if: { all: [R, { has: "monde:aymon_sourds" }] }, text: "*Aymon a vidé la boutique d'un cirier sur le compte de son oncle. Il fait deux rues du bas quartier, porte après porte, deux noisettes par tête.*" },
+      { first: true, if: R, text: "*Je suis sur le quai, au cadran qu'ils appellent la Petite. Les boulangers cuisent pour la fête. Là-haut la Tour a un œil jaune. Demain je serai dessous.*" },
+      { first: true, if: R, text: "Tu lis cela sur une étoile de cuivre, à la lune. Le quai est à trois cents pas de cette église ; ses boulangers ont la pelle dans le four depuis soixante ans, et leur pain attend." },
+      { first: true, if: R, text: "Tu écris à ton tour, en bâtons pâles. Les papillotes. Les deux cents debout. La grille graissée. Tu écris que l'escalier est noir, à présent, d'un bout à l'autre, et que tu connais sous cette église un chemin qui s'en passe." },
+      { again: true, if: J, text: "La Petite, sur son pilier, entre les gabares. La Tour dit minuit." },
+      { again: true, if: R, text: "L'étoile de cuivre, la règle de laiton, la pièce de lune. Trois cents Veilleurs dorment sur la paille." },
+    ],
+    choices: E_ECRIRE.concat([
+      { label: "Fermer le Cahier : la nuit est courte", hide: R, to: "K13j_route", big: true },
+      { label: "Fermer le Cahier, et dormir trois heures sur la paille", hide: J, to: "K13r_route", big: true },
+    ]) },
 });
 
 module.exports = { passages: P, extras: {
@@ -724,6 +797,8 @@ module.exports = { passages: P, extras: {
       { if: { has: "monde:su:arret" }, text: "*Après la séance, quatre rubans verts emmènent le Grand Maître par la poterne. Le 21, à la pointe du jour, il est de retour chez lui, sans chaîne, de la toile d'araignée plein le dos. Quelqu'un l'a sorti dans la nuit.*" }] },
     { id: "ansel", head: "Le neuvième oreiller", v: [
       { if: { has: "monde:su:ansel" }, text: "*Ansel, treize ans, le plus petit des neuf. C'est lui qui porte le maillet et passe sous la barre. Il a vu l'eau debout à l'essai, il a eu peur, et il a écrit à sa mère, la veuve Hurel, rue de la Poulie, à l'enseigne du Dé.*" }] },
+    { id: "echelons", head: "La face du midi", v: [
+      { if: { has: "monde:su:echelons" }, text: "*De l'oratoire de la Reine, on voit la face de la Tour que la place ne voit pas. Des échelons de fer y montent de la galerie du grand cadran aux abat-sons de la cloche, en passant contre la fenêtre de la Chambre haute. Vingt-deux. Le septième manque.*" }] },
     { id: "pont", head: "Arvoise, dans la Chronique", v: [
       { if: { has: "monde:su:pont" }, text: "*Six jours avant le Grand Midi, le Pont-Neuf d'Arvoise est tombé dans la Thiorne à l'heure de sa bénédiction. Quarante morts. Le maître qui l'a bâti s'appelait Baudri, il est mort avec. Tu y seras.*" }] },
   ],
@@ -732,6 +807,9 @@ module.exports = { passages: P, extras: {
       { if: { seen: "K05r_chronique" }, text: "« On vit ce jour-là dans la Tour des Heures un inconnu, jeune, que nul ne put nommer, et que plusieurs témoins tinrent pour le complice du Maudit. Il fut mis à mort par les gardes sur les marches de la Tour, au onzième coup. »" }] },
     { id: "grandmidi", head: "An 541 · Le Grand Midi", v: [
       { text: "« Le jour du Grand Midi, par la malice de Barnabé Coudrier, Grand Maître des Horlogers-Jurés, dit depuis le Maudit, la ville de Méridane fut ravie au temps avec la Reine, Madame Aélis sa fille, et quarante mille âmes. »" }] },
+    { id: "seance", head: "An 541 · La séance du vingt juin", v: [
+      { if: { has: "monde:vote_interdit" }, text: "« La veille du Grand Midi, les Jurés assemblés refusèrent par leurs voix la chambre que la Reine demandait pour Madame Aélis. D'où l'on voit que le Maudit, qui les présidait, sut tourner contre sa souveraine jusqu'à sa propre compagnie. »" },
+      { text: "« La veille du Grand Midi, les Jurés assemblés accordèrent par leurs voix la chambre que la Reine demandait pour Madame Aélis. Le Maudit, qui les présidait, s'y opposa seul, renversa son siège, et jura devant tous qu'il mettrait la main au levier. Il tint parole. »" }] },
     { id: "regence", head: "An 541 · La Régence", v: [
       { text: "« Monseigneur Oderic, duc de Hautgué, que la Providence avait conduit ce matin-là à la chasse hors des murs, recueillit le royaume et le gouverna au nom de la Reine endormie. »" }] },
     { id: "livre", head: "An 541 · Sainte-Aure", v: [
