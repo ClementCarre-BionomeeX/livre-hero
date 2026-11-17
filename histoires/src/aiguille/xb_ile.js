@@ -61,6 +61,7 @@ module.exports = {
       text: [
         "On la ramène à terre à la nuit tombante. Elle remonte vers les siens avec le goût du Madère dans la bouche, et un message dans la poitrine qui pèse plus lourd que tout le dîner.",
         "Benoît l'attend. Il n'a pas dormi depuis l'arrivée du brigantin. Il ne lui demande pas ce qu'a dit son frère. Il le sait. Il demande seulement : « Quand ? »",
+        { if: { has: "lannoz:benoit" }, text: "Victorine pense au Pré-aux-Mouettes, au calvaire, à deux bâtons qui attendent depuis vingt-cinq ans. Le dimanche est arrivé. Benoît ne va pas à la messe, cette fois." },
         { if: { has: "freres:montre_montree" }, text: "Il a, dans la poche de son gilet, une montre d'or qu'il ne remonte pas. Héloïse la lui a donnée au départ. Il la touche, de temps en temps, du bout des doigts, comme on touche une plaie pour savoir si elle fait encore mal." },
         { if: { has: "freres:montre_jetee" }, text: "Victorine pense à une montre d'or au fond d'un canal de Morlenc, arrêtée depuis longtemps, et à ce que Benoît n'a jamais su. Elle ne le lui dira pas ce soir." },
         { if: { has: "freres:montre_tue" }, text: "Victorine pense à une inscription sous un couvercle, à Morlenc, dans un tiroir fermé à clef, qu'elle a refermé sans rien dire. Elle se demande si elle a eu raison. Elle se le demande depuis des semaines." },

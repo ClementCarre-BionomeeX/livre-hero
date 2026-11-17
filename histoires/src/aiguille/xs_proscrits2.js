@@ -130,6 +130,7 @@ module.exports = {
         "« Si le livre est trouvé, le capitaine le prendra en sa garde personnelle et ne le confiera à aucun passager. Il veillera à ce que les passagers employés à la recherche, qui auraient pu en connaître le contenu, ne regagnent pas le Ponant. Le capitaine choisira les moyens. On lui laisse, à cet effet, toute latitude. Le prix convenu sera doublé. »",
         "Victorine relit la phrase du milieu. Puis encore.",
         "Le baron a dit, à la chapelle, que Bréhat avait des ordres de ne laisser personne. Il a dit vrai, mot pour mot, et il a menti par la phrase entière. Le Saint-Fiacre n'a pas abandonné quatorze personnes dans une tempête, par lâcheté. Il les a abandonnées sur ordre, et la tempête lui a fourni l'excuse.",
+        { if: { has: "lannoz:brehat" }, text: "Elle pense à une page délavée, dans une enveloppe, entre deux pages d'un registre de noyés, chez un recteur de Lannoz, au milieu de ses ruches. Quatorze à terre. Ordre exécuté. Elle avait la réponse. Elle tient maintenant la question." },
         "Guénolé reprend ses lunettes, les essuie, les remet. « Vous comprenez pourquoi je ne l'ai pas montré à Jeanne, dit-il. Il faut que quelqu'un d'autre le porte. Quelqu'un qui saura où. »",
       ],
       choices: [{ label: "Glisser le pli dans sa trousse", back: "XS_camp" }] },

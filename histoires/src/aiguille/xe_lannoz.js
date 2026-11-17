@@ -13,6 +13,7 @@ module.exports = {
         "Derrière le repli, il y a un garçon couché sur le ventre au bord de l'eau, qui boit comme un chien, à grandes lampées. Il est maigre, sale, blond, en lambeaux de manteau à collet, les bottes crevées. Au-dessus de lui, debout, les jambes écartées, une épée nue à la main, un homme trapu te regarde venir.",
         "Il a une poitrine de tonneau, des épaules de lutteur, un habit de soie bleue qui a dû être magnifique et qui n'est plus qu'une collection de trous, une moustache noire relevée en crocs de part et d'autre d'un nez busqué, une balafre au front, et une épée si longue qu'il doit lever le coude pour la tenir à l'horizontale. Il la pointe sur ta gorge.",
         "« Halte-là ! tonne-t-il. Un pas de plus et je t'embroche, quels que soient ton âge, ton sexe et ta religion ! Je suis Aimery Malbosc, dit le Sanglier, gentilhomme du Val-d'Orgues, proscrit par trois parlements et regretté par quatorze femmes ! Ami ou mouton ? »",
+        { if: { has: "lannoz:battue" }, text: "Tu sais déjà ce qu'ils fuient. Tu l'as vu du haut du cairn : une ligne d'hommes, des bâtons, deux grands chiens jaunes, et une vareuse rouge en tête. Ils sont à l'ouest, et ils viennent par ici." },
         { if: { has: "florian:nom" }, text: "Le garçon a levé la tête. Ses yeux bleus étonnés. Tu le reconnais. Tu as répété son nom à voix basse, une nuit de pluie, en remontant le Quai des Hollandes, pour ne pas l'oublier." },
       ],
       choices: [
