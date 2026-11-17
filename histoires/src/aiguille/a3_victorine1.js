@@ -225,6 +225,8 @@ module.exports = {
       ],
       choices: [
         { label: "Dîner chez le gouverneur", to: "XM_v_diner", hide: { seen: "XM_v_diner" } },
+        { label: "Demander à voir l'infirmerie du fort", to: "XQ_b_infirmerie", hide: { seen: "XQ_b_infirmerie" }, if: { seen: "XM_v_diner" }, why: "Elle n'a pas encore été reçue au fort." },
+        { label: "Entendre la messe du dimanche à la chapelle du fort", to: "XQ_b_aumonier", hide: { seen: "XQ_b_aumonier" } },
         { label: "Acheter des citrons à la cantinière du bourg", if: { gold: { min: 40 } }, hide: { any: [{ has: "pharmacie:citron" }, { seen: "A3v_citrons" }] }, fx: { gold: -40, flag: "citrons:victorine" }, to: "A3v_citrons" },
       ] },
     A3v_citrons: { act: "III", title: "Le bourg des soldats", place: "brisegreve", ambiance: "village",

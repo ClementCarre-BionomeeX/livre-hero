@@ -258,6 +258,9 @@ module.exports = {
       choices: [
         { label: "Aller à l'aiguade avec Maître Gobert", to: "A3m_aiguade", hide: { seen: "A3m_aiguade" } },
         { label: "Courir le bourg des soldats", to: "A3m_bourg", hide: { seen: "A3m_bourg" } },
+        { label: "Monter l'escalier des forçats", to: "XQ_b_escalier", hide: { seen: "XQ_b_escalier" } },
+        { label: "Aller voir les enfants qui pêchent sous le fort", to: "XQ_b_bouteilles", hide: { seen: "XQ_b_bouteilles" } },
+        { label: "Entrer à la cantine du bourg", to: "XQ_b_cantine", hide: { seen: "XQ_b_cantine" } },
         { label: "Te glisser à la grotte, la nuit, et frapper contre la roche", to: "XM_m_nuit", hide: { any: [{ not: { seen: "XM_m_gobert" } }, { seen: "XM_m_voix" }] } },
       ] },
     A3m_aiguade: { act: "III", title: "L'aiguade", place: "brisegreve", ambiance: "nature",
