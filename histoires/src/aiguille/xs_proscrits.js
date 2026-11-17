@@ -1,0 +1,123 @@
+// L'Île Folle-Aiguille · side story « Les proscrits de la Sylve » (owes its question to The Black Arrow: what does
+// justice look like to those whom the law left on a beach?). An arrow in the chapel door: « Give us Clavières. The
+// others will live. » The doctor goes out at night, is taken blindfold to the cave behind the waterfall where the nine
+// left by the Saint-Fiacre live, and finds there what she knows how to deal with: a sick child, born on the island.
+// Then Jeanne Brasdefer's bargain. Outcomes: a promise of a trial, and archers for the chapel (xs:allies,
+// xs:justice); the baron handed over (xs:allies, xs:baron_mort); or a refusal (xs:guerre).
+module.exports = {
+  passages: {
+    XS_debut: { act: "IV", title: "La flèche", place: "misericorde", ambiance: "chateau",
+      text: [
+        "Elle est plantée dans le chêne de la porte, à hauteur d'homme, si profond que la sentinelle a dû la scier pour l'extraire. Une flèche longue, droite, empennée de noir. Autour de la hampe, nouée par un brin d'herbe, une lanière d'écorce où l'on a écrit au charbon, en capitales maladroites :",
+        "LIVREZ CLAVIÈRES. LES AUTRES VIVRONT. J. B.",
+        "La capitaine la lit, la tend à Benoît, qui la lit, la tend à Victorine. Personne ne la montre au baron.",
+        "« Les proscrits, dit Benoît. Ceux du Saint-Fiacre. On en parlait à Morlenc, il y a douze ans, à voix basse. Clavières avait affrété un navire pour les îles, et le navire était revenu sans quatorze passagers, avec un capitaine qui buvait. Puis le navire était reparti, et n'était jamais revenu. »",
+        "« On ne livre personne, dit la capitaine. Même celui-là. »",
+        "Victorine retourne la lanière d'écorce. Au dos, plus petit, d'une autre main, plus fine, on a ajouté : « On a une malade. »",
+      ],
+      choices: [
+        { label: "« Je vais leur parler. Cette nuit. Seule. »", to: "XS_sortie" },
+        { label: "Montrer la flèche au baron, d'abord", to: "XS_baron" },
+      ] },
+    XS_baron: { act: "IV", title: "Le baron", place: "misericorde", ambiance: "chateau",
+      text: [
+        "Il la lit. Il ne pâlit pas. Il sourit, même, un peu, comme on sourit d'un créancier qui se présente le jour prévu.",
+        "« Le Saint-Fiacre, dit-il. Mon premier essai. Le capitaine Bréhat avait des ordres. Ne laisser personne sur l'île s'il y avait du danger. Il a laissé quatorze personnes et rapporté un rapport. » Il plie la lanière en quatre, très soigneusement. « Je l'ai fait repartir pour qu'il aille les rechercher. Il n'est jamais revenu. J'ai payé les familles. Les familles ont accepté. Tout le monde accepte, docteur. C'est la grande découverte de ma vie. »",
+        "Il lui rend la lanière.",
+        "« Allez-y, si vous voulez. Vous en avez envie, je le vois. Dites à cette femme que je ne m'excuserai pas. Ce serait une insulte de plus. »",
+      ],
+      choices: [{ label: "Attendre la nuit", fx: { flag: "xs:baron_sait" }, to: "XS_sortie" }] },
+    XS_sortie: { act: "IV", title: "La nuit", place: "sylve", ambiance: "nuit",
+      text: [
+        "La capitaine refuse. Puis elle se tait. Puis elle dit, sans regarder Victorine : « La petite porte du chevet n'est pas gardée entre minuit et une heure. Je n'en sais rien. »",
+        "À minuit, Victorine sort par la petite porte, avec sa trousse et une lanterne sourde, et descend dans la forêt.",
+        "Elle n'a pas fait cent pas sous les arbres qu'une main se pose sur sa bouche, très doucement, et qu'une voix basse, avec l'accent du Ponant, lui dit à l'oreille : « Pas un bruit, docteur. On t'attendait. » Puis un bandeau de toile sur ses yeux, qui sent la fumée.",
+        "On la fait marcher longtemps. Des racines, des pierres, de l'eau jusqu'aux genoux, puis un bruit énorme, qui grandit, qui l'enveloppe, qui lui mouille le visage : une cascade. On passe derrière. Un froid de cave. Une odeur de feu de bois, de poisson fumé, de peau.",
+        "On lui ôte le bandeau.",
+      ],
+      choices: [{ label: "Regarder", to: "XS_grotte" }] },
+    XS_grotte: { act: "IV", title: "La grotte aux plumes", place: "sylve", ambiance: "nuit",
+      fx: { meet: "brasdefer" },
+      text: [
+        "Une grotte, derrière le rideau d'eau de la cascade, éclairée par un feu au milieu et par la lune qui passe à travers l'eau, en tremblant, et dessine sur les parois des reflets d'argent qui bougent sans cesse. Des paillasses de feuilles, des filets, des arcs pendus à des chevilles. Et aux parois, partout, des plumes noires, piquées dans les fentes de la roche, des centaines, comme les ex-voto d'une chapelle de marins.",
+        "Ils sont neuf. Huit adultes maigres, brûlés, vêtus de toile à voile et de peau, aux visages de gens qui ont cessé d'attendre depuis longtemps et qui n'ont pas cessé d'en vouloir. Et une enfant.",
+        "Jeanne Brasdefer est debout devant le feu. Une femme sèche, nouée, aux tresses grises, avec une balafre qui lui tire la paupière. Elle regarde Victorine des pieds à la tête.",
+        { if: { has: "xs:ponant" }, text: "« Un enfant du Fanal est passé chez nous, dit-elle. Pointe-aux-Corneilles. Il m'a fait du bien, ce nom-là. Tu es de Varnèse, toi ? Le médecin de Varnèse ? »" },
+        { if: { has: "xs:sait_fiacre" }, text: "« On sait, pour le Saint-Fiacre, ajoute-t-elle. Au fond de la mer, depuis douze ans. Un enfant de chez vous nous l'a dit. On a fait une fête. Une fête bien triste. »" },
+        { if: { not: { any: [{ has: "xs:ponant" }, { has: "xs:sait_fiacre" }] } }, text: "« Tu es médecin, dit-elle. On l'a vu. On t'a vue recoudre, dans la yole, sous les balles. Il y a des gens qui savent faire ça, et d'autres qui savent seulement tirer. On a besoin des premiers. »" },
+        "Elle s'écarte. Derrière elle, sur une paillasse, près du feu, il y a une petite fille de onze ou douze ans, brûlante, qui délire à voix basse. Sa jambe droite est enveloppée de feuilles, et sous les feuilles, quand Victorine s'agenouille et les écarte, il y a une plaie violette, gonflée, qui sent la viande.",
+        "« Ma fille, dit Jeanne Brasdefer. Soazig. Née ici. Elle n'a jamais vu une maison avec un toit. Un sanglier, il y a six jours. »",
+      ],
+      choices: [
+        { label: "Ouvrir, nettoyer, et prier", test: { dom: "savoir", diff: 0, label: "La plaie de Soazig" }, win: { fx: { flag: "xs:soin", regard: { brasdefer: "allie" } }, to: "XS_soin" }, lose: { fx: { flag: "xs:soin_rate", regard: { brasdefer: "redevable" } }, to: "XS_soin_rate" } },
+      ] },
+    XS_soin: { act: "IV", title: "Soazig", place: "sylve", ambiance: "nuit",
+      text: [
+        "Elle ouvre la plaie au bistouri, à la lueur du feu, pendant que deux proscrits tiennent l'enfant. Le pus sort, épais, jaune, puant. Elle lave à l'eau bouillie, au vin de palme, à tout ce qu'on lui donne. Elle trouve, tout au fond, un éclat de défense de sanglier, long comme un ongle, noirci, qu'elle extrait à la pince, et qu'elle pose sur une pierre à côté du feu, et que Jeanne Brasdefer regarde comme on regarde un ennemi.",
+        "Elle bourre la plaie de charpie, la laisse ouverte. Elle donne à l'enfant de l'écorce de quinquina pilée dans du miel sauvage.",
+        "Vers l'aube, la fièvre tombe. Soazig ouvre les yeux, regarde Victorine, et demande, d'une voix claire : « Tu es qui, toi ? Tu viens de la mer ? » Victorine lui répond que oui, et l'enfant dit, très sérieusement : « Elle est comment, la mer, de l'autre côté ? » et se rendort avant la réponse.",
+        "Jeanne Brasdefer n'a pas bougé de la nuit. Elle se lève. Elle va dehors, derrière la cascade. On l'entend, un moment, à travers le bruit de l'eau. Puis elle revient, le visage sec.",
+      ],
+      choices: [{ label: "Parler, maintenant", to: "XS_marche" }] },
+    XS_soin_rate: { act: "IV", title: "Soazig", place: "sylve", ambiance: "nuit",
+      text: [
+        "Elle ouvre, elle nettoie, elle trouve au fond un éclat de défense de sanglier qu'elle extrait. Mais la jambe, sous le genou, est déjà froide, marbrée, et quand elle appuie, la peau craque sous ses doigts comme du papier : la gangrène a pris.",
+        "« Il faut couper, dit-elle. Maintenant. Ou elle meurt avant demain soir. »",
+        "Jeanne Brasdefer la regarde. Elle ne dit rien. Puis elle va chercher une hache, et la pose dans le feu, pour la lame.",
+        "Victorine coupe la jambe de Soazig au-dessous du genou, avec une scie de charpentier du Saint-Fiacre, une hache rougie pour fermer, et quatre hommes qui tiennent. Ça dure le temps d'un Notre Père dit lentement. L'enfant s'évanouit à la deuxième seconde, ce qui est une grâce.",
+        "À l'aube, Soazig vit. Elle a une fièvre de cheval. Elle vivra, si Dieu le veut, et si Dieu ne le veut pas, Victorine aura fait ce qu'il fallait. Elle se lave les mains dans la cascade, longtemps, jusqu'à ce que l'eau soit froide sur ses poignets comme des bracelets.",
+      ],
+      choices: [{ label: "Parler, maintenant", to: "XS_marche" }] },
+    XS_marche: { act: "IV", title: "Le marché", place: "sylve", ambiance: "nature",
+      text: [
+        "Jeanne Brasdefer s'assied en face d'elle, devant le feu éteint. Les autres sont autour, debout, les arcs à la main.",
+        "« Écoute, dit-elle. Je te dois quelque chose. Je n'aime pas ça. Je vais te le rendre en te disant les choses en face. Clavières nous a mis ici. Douze ans. Cinq des nôtres sont morts de fièvre, de faim, de chagrin, et un dans la mâchoire d'un lézard, là-haut, sur la Table, où il était allé chercher des œufs. Chaque soir, on a juré. Chaque soir. » Elle désigne les plumes noires sur les parois. « Chacune, c'est un soir. On ne les a pas comptées. Il n'y a plus de place. »",
+        "« Livre-le. Tu ouvres la petite porte, une nuit. On entre. On le prend. On ne touche à personne d'autre. Après, on vous aidera contre le cuisinier : on a des flèches, on a des yeux, on connaît chaque arbre. Sans nous, vous mourrez dans cette chapelle. Avec nous, vous vivrez. Contre une seule vie, qui ne vaut rien. »",
+        { if: { any: [{ has: "victorine:livre_compris" }, { has: "victorine:verite_baron" }] }, text: "Victorine pense au livre. Au livre de bord de la Maraude, avec les noms des sept familles, et les sommes, et les dates. Elle pense à ce qu'il ferait, ouvert devant un tribunal de Morlenc. Elle pense que c'est la seule arme, sur cette île, qui tue plus loin qu'une flèche." },
+      ],
+      choices: [
+        { label: "« Je vous offre mieux : un procès à Morlenc, et la potence en place publique. »", test: { dom: "social", diff: 0, label: "Convaincre Jeanne Brasdefer" }, win: { fx: { flag: ["xs:allies", "xs:justice"], regard: { brasdefer: "allie" }, quest: "XS" }, to: "XS_justice" }, lose: { fx: { flag: "xs:guerre", quest: "XS" }, to: "XS_guerre" } },
+        { label: "« Prenez-le. La petite porte, demain, entre minuit et une heure. »", fx: { flag: ["xs:allies", "xs:baron_livre"], regard: { brasdefer: "allie" }, quest: "XS" }, to: "XS_livre" },
+        { label: "« Non. Je ne livre personne. Même lui. »", fx: { flag: "xs:guerre", regard: { brasdefer: "rancunier" }, quest: "XS" }, to: "XS_guerre" },
+      ] },
+    XS_justice: { act: "IV", title: "La justice", place: "sylve", ambiance: "nature",
+      text: [
+        "« Un procès, répète Jeanne Brasdefer, comme un mot étranger.",
+        "— Un procès. Lui et six autres. Les noms des sept familles sont dans un livre, quelque part sur cette île. Si on le trouve, et si vous me laissez faire, on le portera à Morlenc. On ne le tuera pas dans un coin de forêt où personne ne saura jamais rien. On le pendra devant tout Morlenc, avec ses amis, et l'on dira pourquoi, à voix haute, sur la Croix-des-Marées, le premier vendredi du mois. Vous serez là, si vous voulez. Au premier rang. »",
+        "Un long silence. Les proscrits se regardent. Le vieux Kerjean, qui a soixante-dix ans et plus de dents, se met à rire, très doucement.",
+        "« Au premier rang, dit-il. Jeanne. Au premier rang. »",
+        "Jeanne Brasdefer tend la main, par-dessus le feu éteint.",
+        "« Si tu mens, je te tue. Si tu échoues, je le tue. Si tu réussis, je viens à Morlenc. Ça me fera voir une maison avec un toit. »",
+      ],
+      choices: [{ label: "Lui serrer la main, et rentrer avant le jour", to: "XS_fin" }] },
+    XS_livre: { act: "IV", title: "La petite porte", place: "misericorde", ambiance: "nuit",
+      text: [
+        "Elle rentre avant le jour. Elle ne dit rien à personne.",
+        "La nuit suivante, entre minuit et une heure, elle ne dort pas. Elle est dans la sacristie, assise sur sa paillasse, les mains sur les genoux. Elle n'entend rien. C'est cela qui est terrible : elle n'entend rien du tout.",
+        "Au matin, le baron Clavières n'est pas dans le chœur. On le cherche partout. On le trouve à cent pas de la petite porte, dans la forêt, couché sur le dos dans les fougères, les yeux ouverts, l'air surpris, avec une flèche dans la poitrine. Une seule. Empennée de noir.",
+        { if: { has: "evac:coffre" }, text: "Son coffre est resté dans le chœur, à côté de la marche de l'autel. Personne n'y a touché." },
+        "La capitaine regarde le corps, longtemps. Puis elle regarde la petite porte. Puis Victorine. Elle ne dit rien. Elle ne dira jamais rien, et c'est sa manière à elle de condamner.",
+        "On l'enterre dans la cour, à côté des morts de la Miséricorde, faute de mieux, ou par une justice que personne ne nomme.",
+      ],
+      choices: [{ label: "Retourner à la sacristie", fx: { flag: "xs:baron_mort", regard: { ribaud: "distant" } }, to: "XS_fin" }] },
+    XS_guerre: { act: "IV", title: "Non", place: "sylve", ambiance: "nature",
+      text: [
+        "Jeanne Brasdefer se lève.",
+        "« Tu as soigné ma fille, dit-elle. Je ne te tuerai pas. Je ne t'aiderai pas non plus. On tirera sur qui sortira de la chapelle, et sur qui montera de la plage. Les gens de Clavières, d'un côté ou de l'autre, c'est la même chose. » Elle remet le bandeau sur les yeux de Victorine, elle-même, avec des gestes presque doux. « Rentre chez toi. Si on se revoit, ce sera mauvais pour l'une de nous deux. »",
+        "On la ramène à la petite porte avant l'aube. Les jours suivants, une flèche à plume noire tue un mutin sur la plage, et une autre blesse un fidèle au mur. On ne voit jamais les tireurs.",
+      ],
+      choices: [{ label: "Rentrer", to: "XS_fin" }] },
+    XS_fin: { act: "IV", title: "L'aube", place: "misericorde", ambiance: "chateau",
+      text: [
+        "Elle rentre à la sacristie au moment où le soleil touche le clocher. Elle range sa trousse. Elle se lave les mains à la source.",
+        { if: { has: "xs:soin" }, text: "Dans sa poche, il y a un petit éclat de défense de sanglier, noirci, que Soazig lui a donné en se réveillant, pour qu'elle se souvienne. Victorine n'aura aucun mal à se souvenir." },
+        { if: { has: "xs:soin_rate" }, text: "Elle a encore sous les ongles, malgré la cascade, malgré la source, une ligne brune, très fine, qui ne part pas." },
+      ],
+      choices: [{ label: "Retourner au siège", back: "A4w_jours" }] },
+  },
+  extras: {
+    quests: [
+      { id: "XS", act: "IV", kind: "annexe", title: "Les proscrits de la Sylve", start: "XS_debut", doit: "fleche", echo: ["xs:allies", "xs:baron_mort", "xs:guerre"] },
+    ],
+  },
+};

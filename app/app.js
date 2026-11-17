@@ -1820,7 +1820,7 @@
     }))));
     else w.appendChild(h("div", { class: "stack" }, h("span", { class: "label" }, "Ton nom"), nameIn));
     // How the text speaks of the hero (Clément, 13/11, Malvoran): the engine fills {e} from s.fem ("assis{e}").
-    if (!st.heroes && !cast) {
+    if ((!st.heroes || playerHero(st)) && !cast) {
       var gd = h("div", { class: "row" });
       [[false, "Au masculin (« tu es assis »)"], [true, "Au féminin (« tu es assise »)"]].forEach(function (g) {
         gd.appendChild(h("button", { type: "button", class: "btn sm" + (!!C.fem === g[0] ? " primary" : " ghost"), "aria-pressed": !!C.fem === g[0] ? "true" : "false", onclick: function () { C.fem = g[0]; render(); } }, g[1]));
@@ -2004,7 +2004,7 @@
   // Intent: build(Creation) -> State = the new hero, his past answers applied, the story started
   function buildState(C) {
     var st = C.story, s = M.freshState(st, { toutJouer: C.toutJouer, difficulty: C.difficulty, ironman: !C.multi && !!C.ironman });
-    s.name = C.name.trim(); s.arch = C.arch || s.arch; if (C.face) s.face = C.face; if (!st.heroes) s.fem = !!C.fem;
+    s.name = C.name.trim(); s.arch = C.arch || s.arch; if (C.face) s.face = C.face; if (!st.heroes) s.fem = !!C.fem; else if (playerHero(st)) s.playerFem = !!C.fem;
     // Second reading (tag second): the endings this reader has already reached in this story, known from the start.
     if (!C.multi && A.profile) { var known = recordOf(A.profile, st.id).endings || {}; if (Object.keys(known).length) { s.second = {}; Object.keys(known).forEach(function (k) { s.second[k] = 1; }); } }
     // Paths that unveil (8.9): what this reader learned in earlier games (lore), and the pages already read there (lu,
@@ -2604,6 +2604,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "11.4", items: ["« L'Île Folle-Aiguille », un grand roman d'aventures en cinq actes : une auberge sur une falaise, un vieux marin et son coffre, un port, une traversée, une île dont les boussoles tournent. Trois personnages à suivre, le troisième après une première fin ; un équipage dont chaque marin penche d'un côté ou de l'autre ; des escales qui portent chacune leur affaire ; et des quêtes nées d'autres livres de la bibliothèque. Huit fins, et le sort de dix personnes."] },
     { v: "11.3", items: ["Nouveau grand livre à trois : « Les Trois Clefs d'Aiguemorne », un casse de cape et d'épée dans une cité de serruriers. Trois joueurs, un héros chacun, cinq actes. À chaque acte, on se partage trois postes (la main, l'œil, la voix), chacun vit sa part de son côté, puis on met en commun et l'on vote.", "À trois : le vote entre joueurs (chacun donne sa voix sans voir celle des autres, le livre dépouille au rendez-vous), les postes, et les indices mis en commun."] },
     { v: "11.2", items: ["Histoires à cartes : ton jeu vit avec l'histoire. En route, on te donne des cartes nouvelles, on t'en vole, une scène te fait piocher ou défausser. Une fois par halte, tu peux échanger une carte de ta main contre celle du dessus de ta pioche. Touche les compteurs pour voir ta pioche, ta défausse et tes cartes perdues ; le bouton « ? » réexplique les règles, montrées d'office la première fois.", "« Le Courrier de Vèze » s'en sert : trois cartes à gagner en route (le Jeton des marchands, le Mulet de louage, la Médaille du pèlerin), et des voleurs qui se servent dans ta main."] },
     { v: "11.1", items: ["La bibliothèque se cherche : tape un titre, un auteur ou un genre au-dessus des livres, même avec une faute ou sans accent. « Filtres » trie par genre (aventure, enquête, science-fiction…), par nombre de joueurs, par longueur, par auteur, et selon ce que tu as déjà lu ; le menu d'à côté change l'ordre. Les romans à lire ont leur propre rayon."] },
@@ -3099,6 +3100,8 @@
     // items, quests, feats) after (Clément, 11/11 then 13/11).
     var kwUsed = {}, evs = s.events || [], evEl = function (list, cls) { return list.length ? h("div", { class: "events " + cls, role: "status" }, list.map(function (e) { var el = h("div", { class: "ev " + (e.cls || "") }, rollBadge(e)); el.insertAdjacentHTML("beforeend", TextFx.auto(st, md(e.text), kwUsed));
       if (e.doc && st.items && st.items[e.doc]) el.appendChild(h("button", { class: "btn ghost sm ev-read", onclick: function () { A.modal = { kind: "doc", id: e.doc }; render(); } }, "Lire"));
+      // A quest's debt to another book (11.4): when that book is in the library, a way to find it there.
+      if (e.book && A.builtinMeta && A.builtinMeta[e.book]) el.appendChild(h("button", { class: "btn ghost sm ev-read", onclick: function () { stopSpeaking(); A.open["book:" + e.book] = true; A.screen = "home"; render(); } }, "Le voir dans la bibliothèque"));
       return el; })) : null; };
     if (pref("quietFx")) evs = evs.filter(function (e) { return !e.conseq; });
     var leadIn = evs.filter(evLeadsIn), after = evs.filter(function (e) { return !evLeadsIn(e); });
@@ -4707,24 +4710,24 @@
   })();
 
   // ------------------------------------------------------------------ the notebook
-  var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["notes", "Notes"], ["soupcons", "Soupçons"], ["tableau", "Tableau d'enquête"], ["documents", "Documents"], ["reconst", "Reconstitution"], ["ville", "La ville"], ["conseil", "Conseil"], ["dettes", "Dettes et promesses"], ["liens", "Qui est avec qui"], ["versions", "Versions"], ["secrets", "Secrets"], ["chronique", "Chronique"], ["voiles", "Sous les mots"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["frise", "Frise"], ["marques", "Marque-pages"], ["exploits", "Hauts faits"], ["codex", "Bestiaire et atlas"], ["mots", "Mots"], ["journal", "Journal"], ["coulisses", "Coulisses"], ["intrigue", "L'intrigue"]];
+  var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["notes", "Notes"], ["soupcons", "Soupçons"], ["tableau", "Tableau d'enquête"], ["documents", "Documents"], ["reconst", "Reconstitution"], ["ville", "La ville"], ["conseil", "Conseil"], ["dettes", "Dettes et promesses"], ["liens", "Qui est avec qui"], ["equipage", "L'équipage"], ["versions", "Versions"], ["secrets", "Secrets"], ["chronique", "Chronique"], ["voiles", "Sous les mots"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["frise", "Frise"], ["marques", "Marque-pages"], ["exploits", "Hauts faits"], ["codex", "Bestiaire et atlas"], ["mots", "Mots"], ["journal", "Journal"], ["coulisses", "Coulisses"], ["intrigue", "L'intrigue"]];
   // Documents and Reconstitution only show in a story that has them (7.9).
   function tabsOf(st) {
     var docs = Object.keys(st.items || {}).some(function (k) { return st.items[k].kind === "document" && st.items[k].text; });
     var plan = Object.keys(st.mysteries || {}).some(function (k) { return st.mysteries[k].plan; });
     // A siege (8.0): the city's stocks, the council, debts and promises, who is with whom, when the story has them.
-    var has = { ville: !!(st.stocks || st.march), conseil: !!st.councils, dettes: !!st.promises, liens: !!st.ties, versions: !!st.accounts, secrets: !!st.secrets, chronique: !!st.chroniques };
+    var has = { ville: !!(st.stocks || st.march), conseil: !!st.councils, dettes: !!st.promises, liens: !!st.ties, versions: !!st.accounts, secrets: !!st.secrets, chronique: !!st.chroniques, equipage: !!st.equipage };
     // 8.5 (Clément, 15/11): a tab shows only when the story has something to put in it.
     var n = function (o) { return Object.keys(o || {}).length; }, places = n((st.world || {}).places);
     has.quetes = n(st.quests) > 0; has.indices = n(st.clues) > 0; has.soupcons = has.tableau = n(st.mysteries) > 0;
     has.intrigue = n(st.savoirs) > 0 || n(st.leads) > 0; has.compagnons = n(st.companions) > 0; has.gens = n(st.people) > 0; has.carte = places > 1; has.codex = n(st.enemies) > 0 || places > 1;
     has.voiles = !!st.lenses;
     return TABS.filter(function (t) { return (t[0] !== "documents" || docs) && (t[0] !== "reconst" || plan) && (has[t[0]] == null || has[t[0]]); })
-      .map(function (t) { return t[0] === "ville" && st.stocksTab ? [t[0], st.stocksTab] : t[0] === "chronique" && st.chroniquesTab ? [t[0], st.chroniquesTab] : t; });
+      .map(function (t) { return t[0] === "ville" && st.stocksTab ? [t[0], st.stocksTab] : t[0] === "chronique" && st.chroniquesTab ? [t[0], st.chroniquesTab] : t[0] === "equipage" && st.equipage && st.equipage.title ? [t[0], st.equipage.title] : t; });
   }
   // The notebook's tabs in four groups (8.5): past nine tabs, the group is chosen first, then the tab.
   var TAB_GROUPS = [["toi", "Toi", ["heros", "sac", "quetes", "compagnons", "secrets"]], ["enquete", "L'enquête", ["indices", "soupcons", "tableau", "documents", "voiles", "reconst", "versions"]],
-    ["monde", "Le monde", ["chronique", "gens", "carte", "ville", "conseil", "dettes", "liens", "codex", "mots"]], ["livre", "Le livre", ["intrigue", "journal", "frise", "marques", "notes", "exploits", "coulisses"]]];
+    ["monde", "Le monde", ["chronique", "gens", "carte", "ville", "equipage", "conseil", "dettes", "liens", "codex", "mots"]], ["livre", "Le livre", ["intrigue", "journal", "frise", "marques", "notes", "exploits", "coulisses"]]];
   var TABS_FLAT = 9;
   function tabGroupOf(tab) { return (TAB_GROUPS.filter(function (g) { return g[2].indexOf(tab) >= 0; })[0] || TAB_GROUPS[0])[0]; }
   function renderCarnet() {
@@ -4759,7 +4762,7 @@
     var fill = function () {
       body.textContent = "";
       if ((A.carnetQ || "").trim().length >= SEARCH_MIN) { searchCarnet(body, G.story, G.s, A.carnetQ.trim()); return; }
-      ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, notes: tabNotes, soupcons: tabSuspects, tableau: tabBoard, documents: tabDocs, reconst: tabRecon, ville: tabCity, conseil: tabCouncil, dettes: tabDebts, liens: tabTies, versions: tabVersions, secrets: tabSecrets, chronique: tabChronique, voiles: tabVeils, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, frise: tabFrise, marques: tabMarks, exploits: tabFeats, codex: tabCodex, mots: tabWords, journal: tabLog, coulisses: tabBackstage, intrigue: tabPlot })[A.carnetTab](body, G.story, G.s);
+      ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, notes: tabNotes, soupcons: tabSuspects, tableau: tabBoard, documents: tabDocs, reconst: tabRecon, ville: tabCity, conseil: tabCouncil, dettes: tabDebts, liens: tabTies, equipage: tabCrew, versions: tabVersions, secrets: tabSecrets, chronique: tabChronique, voiles: tabVeils, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, frise: tabFrise, marques: tabMarks, exploits: tabFeats, codex: tabCodex, mots: tabWords, journal: tabLog, coulisses: tabBackstage, intrigue: tabPlot })[A.carnetTab](body, G.story, G.s);
     };
     fill();
     q.addEventListener("input", function () { A.carnetQ = q.value; fill(); });
@@ -5402,6 +5405,19 @@
   }
   // Who is with whom: the people met and the camps, on a circle; a line for each tie the hero has found.
   var TIE_COLOURS = { famille: "var(--gold)", allie: "var(--good)", ennemi: "var(--bad)", amour: "var(--mark)", dette: "var(--warn)", sert: "var(--accent)", secret: "var(--ink)", membre: "var(--line)" };
+  // The crew (11.4): who is aboard, who was lost, and of each one only what the hero believes of their leaning.
+  function tabCrew(b, st, s) {
+    var all = M.crewView(st, s);
+    if (!all.length) { b.appendChild(h("div", { class: "notice" }, "Tu n'as encore embarqué avec personne.")); return; }
+    var row = function (x) {
+      return h("div", { class: "quest crew-row" + (x.perdu ? " lost" : "") }, h("span", { html: personFace(st, x.id, 28) }),
+        h("span", null, h("b", null, x.name), x.poste ? h("span", { class: "small muted" }, " · " + x.poste) : null),
+        h("span", { class: "state small" + (x.vu ? " crew-" + x.vu : "") }, x.perdu ? "perdu" + (((st.people || {})[x.id] || {}).f ? "e" : "") : x.word ? "tu le crois " + x.word : "tu ne sais pas où il penche"));
+    };
+    var groups = [["À bord", all.filter(function (x) { return x.abord; })], ["Restés à terre", all.filter(function (x) { return !x.abord && !x.perdu; })], ["Perdus", all.filter(function (x) { return x.perdu; })]];
+    groups.forEach(function (g) { if (!g[1].length) return; b.appendChild(h("div", { class: "label" }, g[0] + " (" + g[1].length + ")")); g[1].forEach(function (x) { b.appendChild(row(x)); }); });
+    b.appendChild(h("div", { class: "small muted" }, "Ce que tu crois d'un marin date du jour où tu l'as deviné : les gens changent."));
+  }
   function tabTies(b, st, s) {
     var ties = M.tiesKnown(st, s).slice();
     Object.keys(s.people || {}).forEach(function (k) { var pe = (st.people || {})[k] || {}; if (pe.camp && (st.camps || {})[pe.camp]) ties.push({ id: "m:" + k, a: k, b: pe.camp, kind: "membre", label: pe.name + " · " + st.camps[pe.camp].name }); });

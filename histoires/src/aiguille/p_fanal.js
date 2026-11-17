@@ -1,0 +1,283 @@
+// L'Île Folle-Aiguille · prologue, act I chapter 1 (the child of the inn): the evening of the storm, the old sailor who
+// climbs the cliff with his chest, the room facing the sea, the first night.
+module.exports = {
+  passages: {
+    A1_debut: { act: "I", title: "Le Fanal", place: "fanal_salle", ambiance: "mer",
+      fx: { meet: ["lazare", "zelie"], assign: { mousse: "mousse", victorine: "victorine", fargue: "fargue" } },
+      text: [
+        "Novembre ronge la falaise depuis trois semaines. Le vent vient du large sans reprendre souffle ; il entre sous les ardoises, siffle dans le conduit de la cheminée, fait claquer le volet de la chambre du haut avec la patience d'un créancier. La lande, derrière l'auberge, s'est couchée sous lui comme un chien battu. Devant, il n'y a que la mer : grise à midi, noire à quatre heures, et blanche partout où elle se jette sur les écueils de l'anse.",
+        "Le Fanal tient bon. C'est une maison de granit à deux étages, bâtie de travers par un aïeul qui ne croyait pas aux angles droits, avec une lanterne de cuivre au pignon que ton père allume chaque soir à la tombée du jour. Les marins du large la prennent pour un feu de côte et saluent en passant. Les douaniers prétendent qu'elle guide les contrebandiers. Les deux ont raison, ce qui fait de l'auberge un lieu de paix.",
+        "Tu as seize ans, des mains qui sentent la corde et la saumure, et ce soir, comme tous les soirs, tu as rentré le bois, rincé les chopes, et poussé la vache dans l'appentis. Lazare Hersant, ton père, boite entre les tables avec le pas lourd qu'il traîne depuis avant ta naissance. Zélie, la vieille servante, chante faux dans la cuisine une complainte où il est question d'une noyée, de ses sabots et de ses regrets.",
+        { if: { is: { mere: "chale" } }, text: "Le châle bleu de ta mère pend au clou, près de la porte de la cuisine. Zélie le décroche les soirs de grand froid pour te le jeter sur les épaules sans un mot." },
+        { if: { is: { mere: "medaille" } }, text: "Sous ta chemise, la médaille de sainte Anne a pris la chaleur de ta peau. Ta mère la portait pour les noyés. Tu la portes par habitude, et peut-être, les soirs comme celui-ci, un peu pour eux." },
+        { if: { is: { mere: "livre" } }, text: "Sur l'étagère, derrière le comptoir, le livre de gravures de ta mère attend entre deux pots de grès : quarante navires dessinés à l'eau-forte, et sous chacun un nom, de sa main ronde." },
+      ],
+      choices: [{ label: "Entrer dans la soirée", to: "A1_salle", big: true }] },
+
+    A1_salle: { act: "I", title: "La salle commune", place: "fanal_salle", hub: true, backName: "la salle commune",
+      fx: { meet: ["pochon", "annaig"] },
+      text: [
+        { first: true, text: "La salle commune est basse, enfumée et chaude. Trois tables sur cinq sont occupées, ce qui, un soir de novembre, tient du miracle. Le père Pochon, doyen des pêcheurs, fume sa pipe au coin du feu comme s'il couvait un œuf. Annaïg Tréhou, veuve de pêcheur et sardinière, raconte à deux matelots d'une goélette réfugiée dans l'anse que le dernier naufrage de la côte a rapporté au hameau trois tonneaux de vin d'Espagne et un piano. Personne n'a su jouer du piano ; on en a fait des bancs." },
+        { again: true, text: "La salle commune garde sa chaleur et son tabac. Dehors, le vent forcit d'heure en heure ; les vitres tremblent dans leurs plombs, et chaque rafale fait vaciller la flamme des chandelles au même instant, comme si la maison entière retenait son souffle." },
+        "Ton père essuie les chopes derrière le comptoir. Par la porte entrebâillée de la cuisine sortent une odeur de soupe aux choux et la voix de Zélie, qui a changé de complainte : la noyée s'est remariée.",
+      ],
+      choices: [
+        { label: "Aller trouver ton père au comptoir", to: "A1_s_lazare", hide: { seen: "A1_s_lazare" } },
+        { label: "T'asseoir près du père Pochon et d'Annaïg", to: "A1_s_pecheurs", hide: { seen: "A1_s_pecheurs" } },
+        { label: "Passer à la cuisine", to: "A1_s_cuisine", hide: { seen: "A1_s_cuisine" } },
+        { label: "Monter voir la lanterne du pignon, qui fume", to: "A1_s_lanterne", big: true },
+        { label: "Laisser la soirée finir", to: "A1_coup", if: { count: [{ seen: "A1_s_lazare" }, { seen: "A1_s_pecheurs" }, { seen: "A1_s_cuisine" }], min: 2 }, why: "La soirée commence à peine." },
+      ] },
+
+    A1_s_lazare: { act: "I", title: "Au comptoir", place: "fanal_salle",
+      text: [
+        "Ton père te tend un torchon sans te regarder, ce qui, chez lui, vaut une invitation. Lazare Hersant parle peu ; il compte ses mots comme d'autres comptent leurs sous, en homme qui a connu des années où ils manquaient. Il a la barbe noire, les épaules d'un portefaix et une jambe gauche qui ne plie qu'à moitié. Les gens du hameau disent qu'il est tombé d'un mât quand il était jeune. Lui ne dit rien, ce qui laisse aux gens du hameau le plaisir de le dire à sa place.",
+        "« Ma jambe me travaille, dit-il. Il va venir quelque chose avec ce vent. »",
+        "Il dit cela à chaque tempête, et la tempête vient chaque fois, ce qui lui a fait au hameau une réputation de prophète à peu de frais.",
+      ],
+      choices: [
+        { label: "« Pourquoi tu ne vas jamais en mer, toi ? »", to: "A1_s_lazare_mer" },
+        { label: "Lui parler de ta mère", to: "A1_s_lazare_mere" },
+        { label: "Essuyer les chopes avec lui, sans rien dire", fx: { regard: { lazare: "cordial" } }, to: "A1_s_lazare_fin" },
+      ] },
+    A1_s_lazare_mer: { act: "I", title: "Au comptoir", place: "fanal_salle",
+      text: [
+        "Ton père repose la chope qu'il essuyait. Il la regarde comme s'il y avait quelque chose au fond.",
+        "« La mer, dit-il enfin, je la vois tous les jours par la fenêtre. Ça me suffit. On n'a pas besoin de coucher avec une femme pour savoir qu'elle a mauvais caractère. »",
+        "C'est la plus longue phrase qu'il ait dite depuis la Toussaint. Il en paraît lui-même surpris, car il retourne à ses chopes avec l'application d'un homme qui vient de laisser tomber quelque chose et espère qu'on n'a rien vu.",
+      ],
+      choices: [{ label: "Le laisser à ses chopes", to: "A1_s_lazare_fin" }] },
+    A1_s_lazare_mere: { act: "I", title: "Au comptoir", place: "fanal_salle",
+      text: [
+        "« Elle aimait les soirs de tempête, dit ton père. Elle disait que c'étaient les seuls où les clients restaient. »",
+        { if: { is: { mere: "livre" } }, text: "Il jette un regard vers le livre de gravures, sur l'étagère. « Elle a dessiné tous les navires qui sont passés devant chez nous en douze ans. Il y en a un qu'elle n'a jamais voulu dessiner. Elle disait qu'il portait malheur. » Il ne dit pas lequel, et tu sais à son menton qu'il n'en dira pas davantage." },
+        { if: { is: { mere: "medaille" } }, text: "Il désigne du menton ta chemise, à l'endroit où pend la médaille. « Elle la tenait de sa mère, qui l'avait d'une noyée. Ça fait beaucoup de noyés pour une médaille. Garde-la quand même. »" },
+        { if: { is: { mere: "chale" } }, text: "Il regarde le châle bleu au clou. « Zélie l'a recousu encore. À ce train-là, dans dix ans, il n'y aura plus que du fil de Zélie. » Il sourit presque. Chez lui, c'est un événement." },
+        "Puis il pose sa grande main sur ta nuque, une seconde, comme on vérifie qu'une amarre tient, et retourne à ses chopes.",
+      ],
+      choices: [{ label: "Le laisser à ses chopes", fx: { regard: { lazare: "cordial" } }, to: "A1_s_lazare_fin" }] },
+    A1_s_lazare_fin: { act: "I", title: "Au comptoir", place: "fanal_salle",
+      text: ["La pendule de la salle sonne sept heures avec un quart d'heure d'avance, comme toujours. Ton père la regarde de travers, sans la remettre à l'heure : c'était celle de ta mère, et elle avançait déjà de son vivant."],
+      choices: [{ back: "A1_salle" }] },
+
+    A1_s_pecheurs: { act: "I", title: "Au coin du feu", place: "fanal_salle",
+      text: [
+        "Le père Pochon retire sa pipe pour te faire place, ce qui est une marque d'estime : il ne la retire pas pour le recteur. Annaïg pousse vers toi un fond de cidre.",
+        "« Il y a un brick au large, dit-elle. Trois jours qu'il tire des bords devant la pointe sans entrer nulle part. Pas de pavillon. Fouques dit que c'est de la contrebande. Fouques dit ça de tout ce qui flotte, même des canards.",
+        "— Un navire qui ne veut pas de port, dit le père Pochon, c'est qu'il attend quelqu'un, ou qu'il attend que quelqu'un s'en aille. »",
+        "Il remet sa pipe entre ses dents, satisfait d'une sentence qui pourra servir quelle que soit la suite.",
+      ],
+      choices: [
+        { label: "« Il ressemble à quoi, ce brick ? »", to: "A1_s_brick" },
+        { label: "Proposer à Annaïg d'écrire la lettre dont elle parlait l'autre jour", to: "A1_s_annaig", if: { voie: "ecrivain" }, why: "C'est l'affaire de l'écrivain du hameau." },
+        { label: "Demander au père Pochon une histoire de naufrage", to: "A1_s_pochon" },
+      ] },
+    A1_s_brick: { act: "I", title: "Au coin du feu", place: "fanal_salle",
+      text: [
+        "« Noir, dit Annaïg. Deux mâts, une coque basse, de la toile neuve. Une coque de course, pas une coque de commerce : ça ne porte rien, ça va vite.",
+        "— Ça cherche, dit le père Pochon. »",
+        "Les deux matelots de la goélette échangent un regard et s'intéressent soudain beaucoup à leur soupe. Ce sont des gens de mer : ils savent qu'il y a des questions qu'on ne pose pas à voix haute dans une auberge, de peur qu'elles reviennent avec une réponse.",
+      ],
+      choices: [{ back: "A1_salle" }] },
+    A1_s_pochon: { act: "I", title: "Au coin du feu", place: "fanal_salle",
+      text: [
+        "Le père Pochon raconte le naufrage de la Belle-Aude, il y a quarante ans, qu'il a vu de ses yeux depuis la grève, quand il avait ton âge. Il le raconte bien, parce qu'il le raconte souvent : la nuit, le feu sur la falaise, les cris qui portaient jusqu'au hameau, et au matin, sur les galets, des oranges. Des centaines d'oranges, roulées par la vague, que les enfants ramassaient en pleurant, parce qu'on leur avait dit de pleurer pour les noyés et qu'ils n'avaient jamais vu d'oranges.",
+        "« J'en ai mangé six, dit-il. Je pleurais, et j'en ai mangé six. On est comme ça, nous autres. »",
+        "Il tire sur sa pipe. Le vent répond à sa place.",
+      ],
+      choices: [{ back: "A1_salle" }] },
+    A1_s_annaig: { act: "I", title: "La lettre d'Annaïg", place: "fanal_salle",
+      text: [
+        "Annaïg te suit à la table du fond, où tu gardes un encrier, trois plumes et une main de papier que ton père te laisse prendre sur l'argent des chambres. Elle dicte vite, comme elle parle, puis s'arrête net au milieu d'une phrase.",
+        "La lettre est pour son homme, Guénolé Tréhou, parti il y a quatre ans sur un terre-neuvier qui n'est jamais revenu. Elle lui écrit chaque hiver. Elle lui raconte le prix de la sardine, la toux du petit, la vache des voisins. Elle ne lui demande jamais où il est.",
+        "« Tu mets que je vais bien, dit-elle. Tu mets que je l'attends. Tu mets ça en beau. »",
+      ],
+      choices: [
+        { label: "Écrire en beau, comme elle le demande", test: { dom: "savoir", diff: 0, label: "Trouver les mots" },
+          win: { fx: { gold: 4, regard: { annaig: "redevable" }, ep: ["perso", 60] }, to: "A1_s_annaig_bien" },
+          lose: { fx: { gold: 2, regard: { annaig: "cordial" } }, to: "A1_s_annaig_bien" } },
+        { label: "Lui demander où elle envoie ces lettres", to: "A1_s_annaig_ou" },
+      ] },
+    A1_s_annaig_bien: { act: "I", title: "La lettre d'Annaïg", place: "fanal_salle",
+      text: [
+        { outcome: "win", text: "Tu trouves les mots, et ils sont beaux sans être menteurs ; c'est le plus difficile. Annaïg se fait relire la lettre deux fois, la plie en quatre, la glisse dans son corsage et te paie en sous de cuivre qu'elle compte avec soin. Puis elle t'embrasse sur le front, ce qu'elle n'a jamais fait, et retourne raconter le piano aux matelots d'une voix un peu trop haute." },
+        { outcome: "lose", text: "Tu fais de ton mieux, et ton mieux ce soir sent l'encre et l'effort. Annaïg se fait relire la lettre, hoche la tête, la plie et te paie sans discuter. « C'est bien, dit-elle. Il comprendra. » Elle a l'air de croire, plus que toi, qu'il y a quelqu'un pour comprendre." },
+      ],
+      choices: [{ back: "A1_salle" }] },
+    A1_s_annaig_ou: { act: "I", title: "La lettre d'Annaïg", place: "fanal_salle",
+      text: [
+        "Annaïg hausse les épaules. « Je les donne au facteur de Varnèse, qui les donne au bureau de Morlenc, qui les donne à la Compagnie des Bancs. La Compagnie, elle, les garde, je suppose. Ça leur fait de la lecture. »",
+        "Elle rit. Puis elle te regarde, et cesse de rire.",
+        "« Écris, dit-elle. Ce n'est pas à toi de savoir s'il y a quelqu'un au bout. »",
+      ],
+      choices: [{ label: "Écrire la lettre", test: { dom: "savoir", diff: 0, label: "Trouver les mots" },
+        win: { fx: { gold: 4, regard: { annaig: "redevable" }, ep: ["perso", 60] }, to: "A1_s_annaig_bien" },
+        lose: { fx: { gold: 2, regard: { annaig: "cordial" } }, to: "A1_s_annaig_bien" } }] },
+
+    A1_s_cuisine: { act: "I", title: "La cuisine", place: "fanal_cuisine",
+      text: [
+        "La cuisine du Fanal est le seul endroit de la maison où le vent n'entre pas : Zélie le lui a interdit. Elle règne là depuis quarante ans entre un potager de fonte, trois chats, une rangée de jambons et une collection de proverbes qu'elle applique à tout, dans un ordre qui ne doit rien au sens.",
+        "« La lanterne fume vert, dit-elle en touillant la soupe. J'ai vu par la lucarne. Quand la lanterne fume vert, il vient un étranger. »",
+        "La lanterne fume vert parce que ton père a acheté de l'huile de baleine à bas prix à un colporteur borgne. Tu le sais. Zélie le sait aussi. Elle préfère les présages ; ils se paient moins cher que l'huile.",
+      ],
+      choices: [
+        { label: "Voler une crêpe sur la pile", test: { dom: "discretion", diff: 0, label: "Sous le nez de Zélie" },
+          win: { to: "A1_s_crepe" }, lose: { to: "A1_s_crepe" } },
+        { label: "« Et quand il vient, l'étranger, on fait quoi ? »", to: "A1_s_presage" },
+      ] },
+    A1_s_crepe: { act: "I", title: "La cuisine", place: "fanal_cuisine",
+      text: [
+        { outcome: "win", text: "La crêpe passe de la pile à ta poche avec une discrétion que les douaniers du Ponant t'envieraient. Zélie ne tourne pas la tête. « Prends-en deux, dit-elle à la soupe. Une pour toi, une pour le chat que tu vas accuser. »" },
+        { outcome: "lose", text: "La cuillère de bois t'atteint aux doigts avant que la crêpe ait quitté la pile. Zélie n'a pas tourné la tête ; elle a des yeux dans la nuque depuis le déluge, à l’en croire, et dans le dos depuis que tu marches. Puis elle te tend la crêpe, la plus grande. « Pour la peine, dit-elle. La tienne, pas la mienne. »" },
+      ],
+      choices: [{ back: "A1_salle" }] },
+    A1_s_presage: { act: "I", title: "La cuisine", place: "fanal_cuisine",
+      text: [
+        "« On le nourrit, dit Zélie. On lui donne une chambre. On lui prend son argent. Et on met du sel sur le seuil, pour qu'il emporte en partant ce qu'il a apporté en venant. »",
+        "Elle goûte la soupe, fait la grimace, y jette une poignée de sel, et ajoute, comme si c'était la même chose :",
+        "« Un homme qui arrive par gros temps, il repart dans une boîte. »",
+      ],
+      choices: [{ back: "A1_salle" }] },
+
+    A1_s_lanterne: { act: "I", title: "Le pignon", place: "fanal_salle", ambiance: "mer",
+      text: [
+        "L'échelle du grenier débouche sur une trappe, la trappe sur le pignon, et le pignon sur la nuit. Le vent te saisit dès que tu passes la tête ; il te cherche la bouche et les yeux avec une insistance de chien. La lanterne de cuivre, au bout de sa potence, se balance en grinçant. Sa mèche fume, verte et jaune, et la lumière qu'elle jette sur l'ardoise mouillée a la couleur des choses qu'on trouve au fond des puits.",
+        "Tu mouches la mèche. La flamme se redresse. Et c'est alors, en relevant les yeux, que tu le vois.",
+        "Un homme monte le sentier des douaniers, sur la falaise, à cent pas de l'auberge. Il porte sur l'épaule une caisse ou un coffre, si lourd qu'il s'arrête tous les dix pas. À chaque arrêt, il se retourne vers la mer ; il regarde le noir un long moment, le noir où il n'y a rien à voir que l'écume des écueils ; puis il reprend sa charge et monte encore. Il ne regarde jamais l'auberge. Il sait où elle est.",
+        "Quand il arrive dans le cercle de la lanterne, il lève enfin la tête vers toi. La pluie lui coule dans les yeux. Il sourit.",
+      ],
+      choices: [{ label: "Descendre lui ouvrir", via: "lanterne", to: "A1_arrivee", big: true }] },
+    A1_coup: { act: "I", title: "Trois coups", place: "fanal_salle",
+      text: [
+        "Vers huit heures, la salle se vide d'un coup de vent : les matelots de la goélette regagnent leur bord, Annaïg ses enfants, le père Pochon son lit. Il ne reste que toi, ton père, Zélie qui gratte la marmite, et la pluie qui s'acharne sur les vitres.",
+        "Trois coups ébranlent la porte, frappés avec quelque chose de lourd, de dur et d'impatient : un poing n'a pas cette voix. Ton père lève la tête. Il reste ainsi, le torchon à la main, une seconde de plus qu'il ne faudrait.",
+        "« Ouvre », dit-il.",
+      ],
+      choices: [{ label: "Ouvrir la porte", via: "porte", to: "A1_arrivee", big: true }] },
+
+    A1_arrivee: { act: "I", title: "L'étranger", place: "fanal_salle", ambiance: "mer",
+      fx: { meet: "larrouy" },
+      text: [
+        "Il entre avec la tempête. Le vent fait le tour de la salle, souffle deux chandelles, renverse une chope, et ressort en claquant la porte derrière lui comme un domestique mal élevé. L'homme reste sur le seuil, ruisselant, son coffre contre la jambe.",
+        "C'est un vieux marin, grand et voûté, avec des bras de singe et des mains qui pendent jusqu'aux genoux. Ses cheveux gris sont tressés à la mode d'il y a trente ans ; un anneau d'or brille à son oreille ; une balafre blanche lui fend le visage du sourcil à la mâchoire, si nette qu'on dirait un trait de craie sur une ardoise. Il porte un caban bleu qui a dû appartenir à un officier, au temps où cet officier avait encore un caban.",
+        { via: "lanterne", text: "Il te regarde descendre la dernière marche de l'escalier. « C'est toi, la lumière là-haut ? dit-il. Bon. Une maison qui garde sa lanterne allumée par ce temps, c'est une maison qui a quelque chose à vendre ou quelque chose à cacher. Les deux me vont. »" },
+        { via: "porte", text: "Il te regarde, toi qui tiens encore la porte. « Bon, dit-il. Une maison qui ouvre à cette heure-ci, c'est une maison qui a besoin d'argent. Ça tombe bien : j'en ai. »" },
+        "Il traverse la salle, jette sur le comptoir une poignée de pièces qui sonnent comme une cloche fêlée, et dit à ton père : « Du rhum. Et la chambre qui voit la mer. »",
+        "Ton père regarde les pièces. Puis il regarde l'homme. Il le regarde une seconde de trop ; puis il se retourne vers les bouteilles, et quand il pose le verre sur le comptoir, sa main est parfaitement calme.",
+      ],
+      choices: [
+        { label: "Porter son coffre jusqu'à l'escalier", to: "A1_porter" },
+        { label: "Ramasser une des pièces, qui a roulé sous la table", to: "A1_piastre" },
+        { label: "Lui servir le rhum toi-même", to: "A1_rhum" },
+      ] },
+    A1_porter: { act: "I", title: "Le coffre", place: "fanal_salle",
+      text: [
+        "Le coffre pèse le poids d'un homme. C'est un coffre de marin en chêne noirci, cerclé de fer, avec deux poignées de corde tressée et, brûlées au fer rouge sur le couvercle, deux lettres : I. L. La serrure est une plaque de laiton en forme d'étoile à seize branches, une rose des vents, dont le trou de la clef occupe le centre.",
+        "Tu le traînes jusqu'au pied de l'escalier. L'homme te regarde faire sans t'aider, son verre à la main ; il regarde surtout le coffre, et ta main sur le coffre, avec l'attention d'un chien qui a vu quelqu'un s'approcher de son os.",
+        "« Doucement, dit-il. Il y a là-dedans tout ce qui me reste. Et ce qui me reste a mauvais caractère. »",
+      ],
+      choices: [{ label: "Le monter à la chambre de la mer", to: "A1_chambre" }] },
+    A1_piastre: { act: "I", title: "La pièce", place: "fanal_salle",
+      text: [
+        "La pièce a roulé jusque sous la table du père Pochon. Tu la ramasses. Elle est lourde, épaisse, d'un argent mat qui a passé dans beaucoup de poches. D'un côté, une croix aux bras évasés ; de l'autre, une ancre ; et tout autour, en lettres usées, une devise que tu déchiffres à la lueur du feu : *MISERICORDIA · SVPER · AQVAS*. La miséricorde au-dessus des eaux.",
+        "Elle vient d'un pays inconnu au comptoir du Fanal, où pourtant tu as vu passer la monnaie de toutes les mers : sous et livres du Ponant, florins de Morlenc, et jusqu'à des liards percés que les pêcheurs portent au cou.",
+      ],
+      choices: [
+        { label: "La rendre à l'étranger", fx: { regard: { larrouy: "cordial" }, flag: "piastre:rendue" }, to: "A1_piastre_rendue" },
+        { label: "La glisser dans ta poche", fx: { item: "piastre", flag: "piastre:gardee" }, to: "A1_piastre_gardee" },
+      ] },
+    A1_piastre_rendue: { act: "I", title: "La pièce", place: "fanal_salle",
+      text: [
+        "L'homme prend la pièce entre deux doigts, la regarde, la regarde encore, puis te la remet dans la paume et te referme les doigts dessus. Sa main est froide et sèche comme un bout de bois flotté.",
+        "« Garde-la, dit-il. Une honnête personne dans une auberge de falaise, ça vaut bien une piastre. Ça vaut même plus, mais je n'ai pas la monnaie. »",
+        "Il rit. C'est un rire soudain, énorme, qui ne monte pas jusqu'à ses yeux.",
+      ],
+      choices: [{ label: "Monter son coffre à la chambre de la mer", fx: { item: "piastre" }, to: "A1_chambre" }] },
+    A1_piastre_gardee: { act: "I", title: "La pièce", place: "fanal_salle",
+      text: [
+        "La piastre disparaît dans ta poche. Personne n'a rien vu, sauf l'étranger, qui a tout vu. Il ne dit rien. Il lève simplement son verre dans ta direction, d'un geste lent, comme on salue un confrère.",
+      ],
+      choices: [{ label: "Monter son coffre à la chambre de la mer", to: "A1_chambre" }] },
+    A1_rhum: { act: "I", title: "Le rhum", place: "fanal_salle",
+      text: [
+        "Tu prends la bouteille des mains de ton père, qui la lâche sans résistance. L'homme boit le premier verre d'un trait, le deuxième en deux gorgées, et le troisième en le regardant, comme on regarde une femme qu'on a déjà épousée.",
+        "« Toi, dit-il, tu sers bien. Tu ne remplis pas trop, tu ne remplis pas trop peu. Il y a des capitaines qui n'ont jamais compris ça. »",
+        "Zélie, sur le pas de la cuisine, se signe trois fois. Il la voit, et se signe à son tour, avec une gravité parfaite, en commençant par la gauche.",
+      ],
+      choices: [{ label: "Monter son coffre à la chambre de la mer", fx: { regard: { larrouy: "cordial" } }, to: "A1_chambre" }] },
+
+    A1_chambre: { act: "I", title: "La chambre de la mer", place: "fanal_chambre", ambiance: "mer",
+      text: [
+        "La chambre de la mer occupe le pignon, sous le toit. Elle a un lit clos, une table, une chaise et une fenêtre à petits carreaux qui donne sur le large, ce qui, par ce temps, revient à donner sur le chaos. L'homme ouvre la fenêtre en grand. La pluie entre. Il s'en moque. Il reste là, les deux mains sur l'appui, à regarder le noir, comme sur la falaise.",
+        "« Je m'appelle Larrouy, dit-il sans se retourner. Ignace Larrouy. Sur les navires où j'étais, on m'appelait le Gabier, parce que je montais plus haut que les autres et que je redescendais plus vite. » Il ferme enfin la fenêtre. « Toi, je vais t'appeler Fanal. Tu as une tête à porter de la lumière. »",
+        "Il s'assied sur son coffre, sort de sa poche une piastre, la fait tourner sur le dessus de la table, et la regarde tourner.",
+        "« Écoute-moi bien, Fanal. Une piastre comme celle-là, chaque dimanche, si tu me rends un service. Il viendra peut-être, un jour, sur la route ou par la mer, un homme qui chante. Tu me préviens. Tu montes, tu frappes deux coups, tu dis : il y a quelqu'un pour le Gabier. C'est tout. »",
+        "La piastre finit de tourner. Elle tombe sur l'ancre.",
+      ],
+      choices: [
+        { label: "« Marché conclu. »", fx: { flag: "guet:accepte", gold: 20, regard: { larrouy: "cordial" } }, to: "A1_chambre_marche" },
+        { label: "« Qui est-ce, cet homme ? »", to: "A1_chambre_qui" },
+        { label: "« Je préviendrai. Gardez votre argent. »", fx: { flag: "guet:gratuit", regard: { larrouy: "admiratif" } }, to: "A1_chambre_marche" },
+      ] },
+    A1_chambre_qui: { act: "I", title: "La chambre de la mer", place: "fanal_chambre",
+      text: [
+        "Larrouy rit, de son rire énorme et sans yeux.",
+        "« Qui est-ce ? Un homme qui a eu le temps d'apprendre à chanter, Fanal. Méfie-toi des gens qui ont eu le temps. C'est qu'ils ont laissé faire les autres. » Il ramasse la piastre, te la met dans la main. « Alors ? »",
+      ],
+      choices: [
+        { label: "« Marché conclu. »", fx: { flag: "guet:accepte", gold: 20, regard: { larrouy: "cordial" } }, to: "A1_chambre_marche" },
+        { label: "« Je préviendrai. Gardez votre argent. »", fx: { flag: "guet:gratuit", regard: { larrouy: "admiratif" } }, to: "A1_chambre_marche" },
+      ] },
+    A1_chambre_marche: { act: "I", title: "La chambre de la mer", place: "fanal_chambre",
+      text: [
+        { if: { has: "guet:accepte" }, text: "Larrouy hoche la tête, comme un capitaine à qui l'on a répété un ordre correctement. « Bon. Tu es d'une maison où l'on sait compter. »" },
+        { if: { has: "guet:gratuit" }, text: "Larrouy te regarde longtemps. « Tu es d'une drôle de maison, dit-il enfin. Il y a des gens qui m'ont trahi pour moins que ce que je t'offre, et toi tu le refuses. » Il remet la piastre dans sa poche. « Fais attention, Fanal. La bonté, c'est un luxe ; ça finit toujours par se payer. »" },
+        "Il te congédie d'un geste. Quand tu refermes la porte, il a déjà débouché la bouteille que tu ne l'as pas vu monter.",
+      ],
+      choices: [{ label: "Aller te coucher", to: "A1_nuit", big: true }] },
+
+    A1_nuit: { act: "I", title: "La première nuit", place: "fanal_salle", takes: "night", ambiance: "nuit",
+      text: [
+        "Ta chambre est un réduit sous la pente du toit, au-dessus de la cuisine, où la chaleur du potager monte par les fentes du plancher en même temps que l'odeur des choux. La pluie bat l'ardoise à une main de ton visage. D'ordinaire, ce bruit t'endort. Cette nuit, il y en a un autre.",
+        "Au-dessus du couloir, dans la chambre de la mer, le Gabier marche. Six pas vers la fenêtre ; une pause ; six pas vers la porte. Le plancher gémit à chaque pas sur la même lame, et cette plainte régulière, que la pluie ne couvre jamais tout à fait, finit par devenir la seule chose au monde : l'esprit, quand il ne dort pas, s'attache au premier bruit venu et le compte, comme un prisonnier compte les barreaux.",
+        "Vers minuit, un autre bruit s'y mêle. En bas, une porte. Le pas de ton père, reconnaissable entre mille, avec sa jambe qui traîne. Il descend à la cave. À cette heure-ci, il n'a rien à faire à la cave.",
+      ],
+      choices: [
+        { label: "Suivre ton père, pieds nus, jusqu'à la cave", test: { dom: "discretion", diff: 0, label: "Sans faire grincer l'escalier" }, win: { to: "A1_cave" }, lose: { to: "A1_cave_pris" } },
+        { label: "Aller écouter à la porte du Gabier", to: "A1_porte" },
+        { label: "Rabattre la couverture et dormir", to: "A1_sommeil" },
+      ] },
+    A1_cave: { act: "I", title: "La cave", place: "fanal_cuisine", ambiance: "souterrain",
+      text: [
+        "La cave du Fanal sent le cidre, la terre et la pomme gâtée. Ton père y a posé sa chandelle sur un tonneau. Il est assis sur un autre, le dos tourné vers l'escalier où tu te tiens accroupi{e} dans l'ombre. Devant lui, il a tiré de derrière les barriques une caisse que tu n'as jamais vue : une petite caisse de bois peinte en noir, avec une poignée de corde.",
+        "Il l'a ouverte. Il en a sorti un couteau. Un couteau de marin à lame large, rouillé jusqu'au manche, qu'il tient sur ses genoux à deux mains, comme on tient quelque chose de fragile ou de brûlant. Il ne fait rien d'autre. Il le regarde. La chandelle baisse.",
+        "Au bout d'un long moment, il remet le couteau dans la caisse, la caisse derrière les barriques, et se frotte le visage de ses deux mains, longtemps, comme un homme qui se lave sans eau.",
+      ],
+      choices: [{ label: "Remonter avant lui", fx: { flag: "lazare:couteau_vu" }, to: "A1_matin" }] },
+    A1_cave_pris: { act: "I", title: "La cave", place: "fanal_cuisine",
+      text: [
+        "La troisième marche grince. Elle grince depuis que tu es né{e}, et tu le savais, et tu as posé le pied dessus quand même.",
+        "En bas, la lueur de la chandelle bouge. Ton père apparaît au pied de l'escalier, la lumière sous le menton, ce qui lui fait une tête de noyé.",
+        "« Va dormir », dit-il.",
+        "Il parle bas, et la question de ce que tu faisais là reste en lui, quelque part derrière la barbe. C'est le plus inquiétant : ton père a toujours crié pour les petites choses, et gardé son calme pour les grandes.",
+      ],
+      choices: [{ label: "Remonter te coucher", fx: { flag: "lazare:cave_surpris" }, to: "A1_matin" }] },
+    A1_porte: { act: "I", title: "La porte du Gabier", place: "fanal_chambre", ambiance: "nuit",
+      text: [
+        "Tu traverses le couloir sans bruit et colles l'oreille contre le bois. Le Gabier a cessé de marcher. Il parle, et la chambre est vide ; il s'adresse à quelqu'un qui est loin, ou mort, ou les deux.",
+        "« Rends-moi les clefs, Fulbert, dit-il d'une voix pâteuse. Rends-moi les clefs, je te dis. Tu les as données une fois, tu peux bien les rendre. »",
+        "Puis un rire, puis un sanglot qui ressemble au rire, puis le bruit d'une bouteille qui roule sur le plancher jusqu'au mur. Puis plus rien que la pluie.",
+      ],
+      choices: [{ label: "Regagner ton lit", fx: { flag: "larrouy:fulbert" }, to: "A1_matin" }] },
+    A1_sommeil: { act: "I", title: "La première nuit", place: "fanal_salle", ambiance: "nuit",
+      text: [
+        "Tu tires la couverture par-dessus ta tête. Sous la laine, le monde se réduit à ton souffle, à la chaleur du plancher et à ce pas, là-haut, qui continue. Tu t'endors au cent-douzième. Tu rêves d'un homme qui monte une falaise sans fin, un coffre sur l'épaule, et qui se retourne tous les dix pas pour te regarder, toi, dans la nuit.",
+      ],
+      choices: [{ label: "Le matin", to: "A1_matin" }] },
+  },
+  extras: {
+    items: {
+      piastre: { name: "Une piastre d'argent", kind: "divers", keep: true, price: 0, desc: "Une grosse pièce d'argent mat, une croix aux bras évasés d'un côté, une ancre de l'autre, et la devise MISERICORDIA · SVPER · AQVAS." },
+    },
+  },
+};

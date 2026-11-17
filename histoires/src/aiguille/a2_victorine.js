@@ -1,0 +1,219 @@
+// L'Île Folle-Aiguille · act II, chapter II.1 followed by the doctor: ten days in Morlenc. The bank where her debt has
+// changed hands, the ship's pharmacy, the dinner of the aldermen (six families, one name dropped), the old notary who
+// remembers too well, the Academy laughing at a professor, an old gunner with a burnt cheek, the captain who asks her to
+// watch the baron; and, apart, a young surgeon who applies (side story, xj_chirurgien).
+var JOURS = [{ seen: "A2v_banque" }, { seen: "A2v_pharmacie" }, { seen: "A2v_diner" }, { seen: "A2v_brindejonc" }, { seen: "A2v_academie" }, { seen: "A2v_rosemonde" }, { seen: "XJ_debut" }];
+module.exports = {
+  passages: {
+    A2v_debut: { act: "II", title: "Morlenc", place: "quai_hollandes", ambiance: "ville",
+      text: [
+        "Victorine connaît Morlenc. Elle y a vécu six ans, mariée, dans un appartement de la Haute-Ville que les dettes d'Hector ont rétréci d'une pièce par an jusqu'à ce qu'il n'en reste qu'une, puis la rue. Elle y a suivi les cours de la Faculté sous un nom qui n'était pas le sien, assise au dernier rang, une perruque d'homme sur la tête et une redingote d'Hector sur le dos, en priant pour qu'aucun professeur ne lui demande de lever la voix. Elle n'avait plus remis les pieds ici depuis l'enterrement.",
+        "La ville n'a pas changé. Elle sent toujours le fleuve, l'argent et la soupe de poisson. Les mêmes portefaix portent les mêmes ballots ; les mêmes échevins passent dans les mêmes carrosses ; et sur la place de la Prévôté, la même potence attend avec la patience des institutions.",
+        "Le baron l'a logée à l'auberge du Cormoran, sur le quai, avec le reste de l'expédition. Une chambre propre, un lit dur, une fenêtre sur la Cormorane. Sur la table, une enveloppe : une avance de cent livres « pour la pharmacie du bord », et une invitation à dîner, après-demain, à l'hôtel Clavières.",
+      ],
+      choices: [{ label: "Dix jours", fx: { gold: 2000 }, to: "A2v_jours", big: true }] },
+    A2v_jours: { act: "II", title: "Les jours de l'armement", place: "quai_hollandes", hub: true, noLead: true, backName: "le Cormoran", ambiance: "ville",
+      text: [
+        { first: true, text: "Dix jours. Victorine les découpe en tâches, comme elle découpe tout : ce qu'il faut acheter, ce qu'il faut savoir, qui il faut voir. Elle écrit la liste sur la page de garde de son traité d'anatomie, et elle raye à mesure." },
+        { again: true, text: "La liste raccourcit. Par la fenêtre du Cormoran, la Cormorane s'enfonce dans l'eau du quai à mesure qu'on la charge, comme une femme qu'on habille pour un bal et qui ne sait pas encore qu'elle n'en reviendra pas." },
+      ],
+      choices: [
+        { label: "Passer à la Banque Clavières, voir ta dette effacée", to: "A2v_banque", hide: { seen: "A2v_banque" } },
+        { label: "Faire l'inventaire de la pharmacie du bord", to: "A2v_pharmacie", hide: { seen: "A2v_pharmacie" } },
+        { label: "Dîner à l'hôtel Clavières, avec les échevins", to: "A2v_diner", hide: { seen: "A2v_diner" } },
+        { label: "Rendre visite à Maître Brindejonc, le vieux notaire", to: "A2v_brindejonc", hide: { seen: "A2v_brindejonc" } },
+        { label: "Assister à la séance publique de l'Académie", to: "A2v_academie", hide: { seen: "A2v_academie" } },
+        { label: "Soigner les vieux marins de l'hospice de la Marine", to: "A2v_rosemonde", hide: { seen: "A2v_rosemonde" } },
+        { label: "Recevoir le jeune chirurgien qui demande la place d'aide", to: "XJ_debut", hide: { seen: "XJ_debut" } },
+        { label: "Répondre à la capitaine, qui te fait demander", to: "A2v_capitaine", hide: { seen: "A2v_capitaine" }, if: { count: JOURS, min: 2 }, why: "Personne ne t'a encore fait demander." },
+        { label: "Le dixième jour", to: "A2v_fin", big: true, if: { count: JOURS, min: 4 }, why: "La liste est encore longue." },
+      ] },
+
+    A2v_banque: { act: "II", title: "La Banque Clavières", place: "haute_ville", ambiance: "ville",
+      text: [
+        "La Banque Clavières occupe un hôtel de pierre blonde sur le Quai des Échevins, avec une façade à colonnes qui semble avoir été conçue pour impressionner les débiteurs et rassurer les créanciers, et qui fait les deux avec la même indifférence. À l'intérieur, des commis à manchettes de lustrine grattent du papier sous des lustres de cristal. On parle bas, comme dans une église dont Dieu serait l'escompte.",
+        "Un premier commis la reçoit, consulte un registre, puis un second, puis va chercher un sous-directeur, qui consulte un troisième registre avec un sourire navré.",
+        "« La créance Davrigny, Madame ? Elle n'est plus chez nous. Elle a été rachetée, la semaine dernière. » Il tourne la page vers elle. « Par Monsieur le baron, à titre personnel. Il la détient en propre. Elle sera éteinte, je crois, selon les termes d'un engagement que vous avez signé, au retour d'un certain voyage. » Il referme le registre. « D'ici là, elle court. Avec les intérêts. Monsieur le baron est très attaché aux intérêts. »",
+        { if: { has: "victorine:delai" }, text: "Elle se souvient du jour qu'elle a pris à la Garenne, et de la façon dont le baron a dit « je vous l'offre ». Elle comprend maintenant ce qu'il offrait : rien. Il avait déjà racheté la créance la veille." },
+        "Victorine regarde la signature du baron au bas de l'acte de rachat. Une belle signature, ample, généreuse, avec une boucle sur le C. Elle n'a pas été effacée, sa dette : elle a seulement changé de propriétaire.",
+      ],
+      choices: [{ label: "Remercier le sous-directeur de sa franchise", fx: { flag: "dette:baron" }, to: "A2v_banque_fin" }] },
+    A2v_banque_fin: { act: "II", title: "La Banque Clavières", place: "haute_ville",
+      text: ["Sur les marches de la banque, il pleut. Victorine ouvre son parapluie, qui a deux baleines cassées, et descend vers le fleuve en pensant qu'il y a deux sortes de créanciers : ceux qui veulent leur argent, et ceux qui veulent leur débiteur. Les premiers sont des banquiers. Les seconds, elle n'a pas encore trouvé le mot."],
+      choices: [{ back: "A2v_jours" }] },
+
+    A2v_pharmacie: { act: "II", title: "La pharmacie du bord", place: "cormorane",
+      text: [
+        "La pharmacie de la Cormorane est un placard dans la cabine du second, fermé par un cadenas rouillé dont personne n'a la clef. Gobert le fait sauter d'un coup de cabillot. Dedans, Victorine trouve : trois bouteilles d'eau-de-vie vides, une scie d'amputation rouillée, un pot de graisse rance, un traité de médecine de bord de cent ans dont un chapitre recommande la saignée contre le mal de mer, et un bocal de sangsues mortes de vieillesse.",
+        "« Le dernier chirurgien est mort de la fièvre jaune il y a trois ans, explique Gobert. On n'a pas eu le cœur de toucher à ses affaires. On n'a pas eu le cœur d'en racheter non plus. »",
+        "Victorine retrousse ses manches. Avec l'avance du baron, elle court les apothicaires du Quai des Hollandes pendant deux jours, en marchandant comme une poissonnière.",
+      ],
+      choices: [
+        { label: "Acheter du jus de citron en barriques, contre le scorbut", fx: { gold: -400, flag: "pharmacie:citron" }, to: "A2v_pharmacie_fin" },
+        { label: "Acheter de l'écorce du Pérou, contre les fièvres", fx: { gold: -400, flag: "pharmacie:quinquina" }, to: "A2v_pharmacie_fin" },
+        { label: "Partager l'avance entre les deux, et se priver du reste", fx: { gold: -600, flag: ["pharmacie:citron", "pharmacie:quinquina"] }, to: "A2v_pharmacie_fin" },
+      ] },
+    A2v_pharmacie_fin: { act: "II", title: "La pharmacie du bord", place: "cormorane",
+      text: [
+        "Le placard se remplit : charpie, bandes, fil de soie, aiguilles, lancettes neuves, une scie neuve, des bocaux étiquetés de sa main, et, au fond, sous clef, une grande fiole de laudanum dont elle note la contenance au trait de plume sur l'étiquette, par habitude.",
+        { if: { has: "pharmacie:citron" }, text: "Dans la cale, à côté de l'eau douce, six barriques de jus de citron, que Gobert regarde avec la méfiance d'un homme qui n'a jamais bu un jus de fruit de sa vie et compte bien mourir ainsi." },
+        { if: { has: "pharmacie:quinquina" }, text: "Dans un coffre de bois sec, quatre livres d'écorce du Pérou, rouge et amère, qui ont coûté le prix d'un cheval. Victorine les a payées sans ciller. Elle a vu mourir de la fièvre des marins de retour du sud, sur les grabats de l'hospice de Morlenc ; elle a vu ce qu'ils regrettaient de n'avoir pas eu." },
+        "Elle range la clef du placard à son cou, sous sa robe, à côté de son alliance qu'elle porte au bout d'une chaîne depuis que ses doigts ne la supportent plus.",
+      ],
+      choices: [{ back: "A2v_jours" }] },
+
+    A2v_diner: { act: "II", title: "L'hôtel Clavières", place: "haute_ville", ambiance: "chateau", takes: "evening",
+      text: [
+        "L'hôtel Clavières se dresse au sommet de la Haute-Ville, à côté de la Bourse, comme pour la surveiller. Escalier de marbre, tapisseries des Flandres, plafonds peints où des dieux replets distribuent des cornes d'abondance à des marchands reconnaissants. Le baron reçoit douze convives. Victorine est la seule qui n'ait pas d'armoiries ; elle s'en aperçoit au regard que lui jette le maître d'hôtel en prenant son manteau, qui a été teint deux fois.",
+        "Les convives sont les meilleures familles de Morlenc : Monsieur et Madame de Pérignac, qui ont fait fortune dans le sucre et l'ont perdue dans le bon goût ; Monsieur Hautecloque, armateur, dont le nez violet témoigne d'une longue fréquentation de ses propres cargaisons ; les deux frères Varembert, banquiers, qui finissent mutuellement leurs phrases et commencent rarement les leurs ; Monsieur de Saint-Brice, échevin, qui n'a jamais rien dit d'intelligent et n'a jamais perdu un vote ; la veuve Gourdan, qui a enterré trois maris et en porte les bagues ; et le vieux Monsieur Lescalopier, quatre-vingt-sept ans, sourd comme un canon, qui mange avec appétit et ne suit rien.",
+        "On parle de l'expédition à mots couverts. On parle de « cette aventure scientifique ». On parle de l'Académie, de la gloire, de la curiosité, qui est la vertu des grandes âmes. On regarde le baron avec une attention qui n'a rien de scientifique.",
+      ],
+      choices: [
+        { label: "Écouter la table", to: "A2v_diner_table" },
+        { label: "Faire parler le vieux Lescalopier, ton voisin", to: "A2v_diner_lescalopier" },
+      ] },
+    A2v_diner_table: { act: "II", title: "L'hôtel Clavières", place: "haute_ville", ambiance: "chateau",
+      text: [
+        "Victorine écoute. Elle écoute comme elle ausculte, en laissant parler le corps plutôt que la bouche.",
+        "Madame de Pérignac demande au baron, en riant trop fort, s'il compte rapporter « des perroquets ou des perles ». Monsieur Hautecloque s'enquiert, l'air de rien, de la date exacte du retour. Les frères Varembert proposent, à tour de rôle et en terminant chacun la phrase de l'autre, de « s'associer à cette noble entreprise, pour une part modeste, bien entendu, par pur amour de la science ». La veuve Gourdan ne dit rien ; elle regarde le baron en tournant ses bagues, l'une après l'autre, comme un chapelet.",
+        "Le baron sourit à tous. Il refuse l'association, accepte les vœux, élude les dates. Il est parfait. Il est trop parfait. Victorine connaît ce genre de patient : celui qui affirme qu'il dort bien et dont la main tremble sur la cuillère.",
+        "Elle note une chose : ces six personnes-là ont peur. Pas de la mer. Du retour.",
+      ],
+      choices: [{ label: "Prendre congé après le dessert", fx: { flag: "victorine:six" }, to: "A2v_diner_fin" }] },
+    A2v_diner_lescalopier: { act: "II", title: "L'hôtel Clavières", place: "haute_ville", ambiance: "chateau",
+      text: [
+        "Le vieux Lescalopier n'entend rien, mais il voit tout, et il a décidé que la seule femme de la table sans bijoux était la seule qui méritait qu'on lui parle. Il lui parle donc, très fort, de sa goutte, de ses reins, de sa jeunesse, du prix du sucre sous le feu roi, en mangeant sa caille avec les doigts. Victorine lui répond par gestes. Il est enchanté.",
+        "Puis il entend le mot « expédition » au bout de la table, dans un de ces trous du silence qui parviennent même aux sourds. Il lève la tête vers le baron, ravi, et crie de toute sa voix d'homme qui ne s'entend plus :",
+        "« Une expédition ! Comme au temps de votre père, Aymeric ! Comme au temps de la Miséricorde ! Ah, c'était le bon temps ! On a tous bien gagné, cette année-là ! »",
+        "La table se fige. Douze fourchettes s'arrêtent à mi-chemin. La veuve Gourdan cesse de tourner ses bagues. L'un des frères Varembert commence une phrase que l'autre, pour la première fois de sa vie, ne termine pas.",
+        "Le baron sourit. « Monsieur Lescalopier a une mémoire admirable, dit-il. Il confond. Encore un peu de vin, monsieur ? »",
+        "Le vieillard tend son verre, déjà distrait, déjà retourné à sa caille. La conversation reprend, un ton trop haut.",
+      ],
+      choices: [{ label: "Reprendre ta caille, comme si de rien n'était", fx: { flag: ["victorine:misericorde", "victorine:six"] }, to: "A2v_diner_fin" }] },
+    A2v_diner_fin: { act: "II", title: "L'hôtel Clavières", place: "haute_ville", ambiance: "chateau",
+      text: [
+        "En partant, dans le vestibule, le baron raccompagne Victorine lui-même, et lui tend son manteau teint deux fois, comme si c'était de la zibeline.",
+        "« Vous vous êtes ennuyée, dit-il.",
+        "— Je me suis instruite.",
+        "— C'est pire. » Il sourit. « Ces gens sont mes amis, Madame. Mes amis les plus chers. Je les connais depuis l'enfance. Nos pères étaient associés. » Il dit « associés » avec une infime hésitation, comme on enjambe une flaque. « Bonne nuit. Dormez bien. Vous avez une longue traversée devant vous. »",
+      ],
+      choices: [{ back: "A2v_jours" }] },
+
+    A2v_brindejonc: { act: "II", title: "Maître Brindejonc", place: "haute_ville", ambiance: "ville",
+      fx: { meet: "brindejonc" },
+      text: [
+        "Maître Brindejonc était le notaire d'Hector, et, avant Hector, celui de son père, et avant celui-ci de la moitié de la Haute-Ville. Il a quatre-vingts ans, une perruque à trois marteaux qu'il est le dernier à porter, un cabinet au fond d'une cour où la poussière a pris des proportions géologiques, et une langue qui ne s'est jamais tue depuis la régence. Il reçoit Victorine comme une fille prodigue, avec du ratafia et des biscuits qui datent du même règne que la perruque.",
+        "« Ma chère, ma chère, ma chère ! Vous partez avec Clavières ! Toute la ville le sait. On ne parle que de ça au cercle. » Il remplit les verres. « Les Clavières, voyez-vous, ont toujours eu de la chance avec les navires des autres. »",
+        "Il dit cela en souriant, comme un bon mot ; il l'a dit souvent, sans doute. Victorine pose son verre.",
+      ],
+      choices: [
+        { label: "« Que voulez-vous dire, maître ? »", to: "A2v_brindejonc_chance" },
+        { label: "« Le baron dit que son père chassait un pirate nommé Dagrel. »", if: { has: "victorine:question" }, why: "Tu n'as rien de précis à lui demander.", to: "A2v_brindejonc_dagrel" },
+      ] },
+    A2v_brindejonc_chance: { act: "II", title: "Maître Brindejonc", place: "haute_ville",
+      text: [
+        "« Ce que je veux dire ? » Le vieux notaire se penche, ravi d'avoir enfin un auditoire qui ne dort pas. « Je veux dire qu'il y a vingt et un ans, Hugo Clavières, le père, était ruiné. Ruiné, ma chère. J'ai vu ses hypothèques ; j'en ai rédigé trois. Et l'année suivante, il rachetait la moitié du Quai des Hollandes. Lui, et cinq ou six autres de la Haute-Ville, tous ruinés la même année, tous riches l'année d'après. On a parlé d'un héritage aux colonies. On parle toujours d'un héritage aux colonies, dans ces cas-là. » Il rit. « Je n'ai jamais vu le testament. Et j'ai vu tous les testaments de cette ville. »",
+      ],
+      choices: [{ label: "Le remercier pour le ratafia", fx: { flag: "victorine:brindejonc" }, to: "A2v_brindejonc_fin" }] },
+    A2v_brindejonc_dagrel: { act: "II", title: "Maître Brindejonc", place: "haute_ville",
+      text: [
+        "Maître Brindejonc éclate de rire, si fort que sa perruque glisse d'un côté.",
+        "« Hugo Clavières ? Chasser Dagrel ? Ma chère, Hugo ne chassait que ses échéances, et il les rattrapait rarement ! Il n'a jamais armé un navire de guerre de sa vie ; il avait le mal de mer en regardant un tableau de marine. » Il remet sa perruque d'aplomb, puis il cesse de rire. Il regarde son verre. « Dagrel… Je n'avais pas entendu ce nom depuis vingt ans. On disait qu'il avait pillé une colonie de pauvres gens, au couchant. Une colonie qui frappait sa propre monnaie. » Il lève les yeux vers elle. « Pourquoi le baron vous a-t-il parlé de Dagrel, ma chère ? »",
+        "Victorine ne répond pas. Le vieux notaire n'insiste pas. Il remplit les verres, et pour la première fois de la visite, il se tait.",
+      ],
+      choices: [{ label: "Prendre congé", fx: { flag: ["victorine:brindejonc", "victorine:dagrel_menti"] }, to: "A2v_brindejonc_fin" }] },
+    A2v_brindejonc_fin: { act: "II", title: "Maître Brindejonc", place: "haute_ville",
+      text: ["Dans la cour, le vieux notaire la rattrape, essoufflé, sa perruque de travers. « Ma chère, dit-il, faites attention. Les gens qui font fortune d'un coup gardent toujours quelque part le reçu. Et ils n'aiment pas qu'on le cherche. » Il lui tapote la main, et retourne à sa poussière."],
+      choices: [{ back: "A2v_jours" }] },
+
+    A2v_academie: { act: "II", title: "L'Académie", place: "haute_ville", ambiance: "ville",
+      text: [
+        "L'Académie de Morlenc tient sa séance publique sous sa coupole, devant trois cents personnes en perruque qui sont venues pour rire et l'avouent sans fard. Au programme : un mémoire sur la génération spontanée des anguilles, un éloge funèbre, et une communication du professeur Hippolyte Gaudrémont sur « les grands animaux disparus du plateau de Folle-Aiguille, vus par l'auteur en personne ».",
+        "Quand le professeur monte à la tribune, la salle frémit d'aise. Il a soixante ans, une barbe de patriarche taillée en éventail, des sourcils comme deux buissons d'hiver, et des dessins. Il les déroule. Ce sont des oiseaux immenses sans ailes, des lézards de la taille d'un veau, des bêtes cornues. La salle hurle de rire. Un académicien demande si le professeur avait bu. Le professeur répond qu'il avait seize ans, qu'il était mousse, qu'il ne buvait pas encore, mais qu'il compte bien s'y mettre s'il doit continuer à fréquenter l'Académie.",
+        "La séance tourne au pugilat. Un huissier perd sa perruque. Le président agite sa sonnette comme un sacristain dans un incendie.",
+      ],
+      choices: [
+        { label: "Aller trouver le professeur après la séance", to: "A2v_academie_prof" },
+        { label: "Partir avant la fin, avec les autres", to: "A2v_academie_fin" },
+      ] },
+    A2v_academie_prof: { act: "II", title: "L'Académie", place: "haute_ville", ambiance: "ville",
+      fx: { meet: "gaudremont" },
+      text: [
+        "Le professeur Gaudrémont rassemble ses dessins sur le pavé de la cour, où on les a jetés. Il est rouge, essoufflé, superbe. Victorine l'aide à les ramasser.",
+        "« Vous ne riez pas, Madame ? tonne-t-il.",
+        "— Je suis médecin, professeur. J'ai vu des choses plus étranges que vos lézards. J'ai vu un échevin à jeun. »",
+        "Il la regarde, sidéré, puis éclate d'un rire qui fait s'envoler les pigeons de la coupole. « Vous partez avec Clavières, n'est-ce pas ? Pour l'île ? Toute la ville le sait ! Eh bien, Madame, j'en suis ! J'ai payé mon passage ce matin, avec mes dernières économies et la montre de mon père. Je vais là-bas. Je vais monter sur ce plateau. Et je reviendrai avec un de ces oiseaux sous le bras, et je le lâcherai dans cette salle, en pleine séance ! »",
+      ],
+      choices: [{ label: "« J'en serai, professeur. »", fx: { regard: { gaudremont: "allie" } }, to: "A2v_academie_fin" }] },
+    A2v_academie_fin: { act: "II", title: "L'Académie", place: "haute_ville",
+      text: ["En redescendant de la Haute-Ville, Victorine pense que l'Académie a ri d'un homme qui a vu quelque chose. Elle a souvent vu des médecins rire d'un malade qui sentait quelque chose. Les malades avaient souvent raison. Les médecins, presque toujours, gardaient leur place."],
+      choices: [{ back: "A2v_jours" }] },
+
+    A2v_rosemonde: { act: "II", title: "L'hospice de la Marine", place: "basse_fosse", ambiance: "ville",
+      fx: { meet: "rosemonde" },
+      text: [
+        "L'hospice de la Marine est une grande bâtisse lugubre au bord du marais, où la ville range ses vieux marins comme on range de vieux cordages : à l'abri, au sec, et sans s'en servir. Victorine y soignait, au temps d'Hector, gratuitement, pour avoir le droit de pratiquer quelque part. Les sœurs la reconnaissent, et lui mettent une trousse dans les mains avant qu'elle ait enlevé son manteau.",
+        "Dans la dernière salle, une femme est assise sur un lit, très droite, les mains sur les genoux, comme à l'inspection. Elle a cinquante ans, la peau sombre, des cheveux gris coupés ras, et une large brûlure ancienne qui lui couvre la joue gauche et le cou, luisante et plissée. Une brûlure de poudre. Elle a eu, au même endroit, une plaie mal fermée qui suppure.",
+        "« Rosemonde Lhuillier, dit-elle, avant qu'on le lui demande. Chef de pièce à bord de l'Intrépide, vingt-deux ans de service. Réformée pour cause de sexe, quand un amiral nouveau s'est aperçu que j'en avais un. »",
+      ],
+      choices: [{ label: "Nettoyer sa plaie", test: { dom: "savoir", diff: 0, label: "Une plaie de poudre mal soignée" },
+        win: { fx: { regard: { rosemonde: "redevable" } }, to: "A2v_rosemonde_soin" }, lose: { fx: { regard: { rosemonde: "cordial" } }, to: "A2v_rosemonde_soin" } }] },
+    A2v_rosemonde_soin: { act: "II", title: "L'hospice de la Marine", place: "basse_fosse",
+      text: [
+        { outcome: "win", text: "Victorine ouvre, nettoie, cautérise, panse. Rosemonde ne bouge pas, ne gémit pas, regarde le mur. Quand c'est fini, elle tourne la tête vers elle. « Le chirurgien de l'Intrépide, dit-elle, il m'avait fait plus mal pour moins de bien. Il était saoul. Vous, vous êtes à jeun. Ça change tout. »" },
+        { outcome: "lose", text: "La plaie est profonde, sale, et Victorine doit s'y reprendre à trois fois. Rosemonde serre les dents à se les briser. Quand c'est fini, elle dit seulement : « Merci. » Puis, après un moment : « Ça finira par guérir, ou pas. Comme tout. »" },
+        "Elle regarde par la fenêtre, vers le fleuve, vers les mâts. « On dit que vous partez, dit-elle. Sur un trois-mâts, vers le sud. Il vous faut une canonnière ? J'ai deux mains, deux yeux, l'oreille gauche à moitié sourde, et vingt-deux ans à pointer des pièces de dix-huit. Je ne bois pas. Je ne prie pas. Je ne me plains pas. Je ne coûte que la soupe. »",
+      ],
+      choices: [
+        { label: "La recommander à la capitaine Ribaud", fx: { recrue: "rosemonde", devine: "rosemonde" }, to: "A2v_rosemonde_oui" },
+        { label: "« Votre plaie doit guérir d'abord. »", to: "A2v_rosemonde_non" },
+      ] },
+    A2v_rosemonde_oui: { act: "II", title: "Rosemonde", place: "cormorane",
+      text: [
+        "La capitaine Ribaud reçoit Rosemonde Lhuillier sur la dunette, la regarde, regarde la brûlure, regarde les mains. Elle lui fait démonter et remonter une platine de canon les yeux bandés. Rosemonde le fait en moins de temps qu'il n'en faut pour le dire, sans un mot.",
+        "« Tu étais sur l'Intrépide, dit la capitaine. À la bataille de la Pointe-Noire.",
+        "— Oui, capitaine. Pièce numéro sept. Celle qui a démâté le vaisseau amiral d'en face.",
+        "— Je sais. Je commandais le brick qui a ramassé les vôtres, après. » La capitaine se tourne vers Gobert. « Elle est chef de pièce. Malandain sera sous ses ordres. Dis-le-lui doucement ; il est susceptible. »",
+      ],
+      choices: [{ back: "A2v_jours" }] },
+    A2v_rosemonde_non: { act: "II", title: "Rosemonde", place: "basse_fosse",
+      text: ["Rosemonde hoche la tête, sans rancune, et reprend sa position sur le lit, droite, les mains sur les genoux, comme à l'inspection, devant le mur. Quand Victorine se retourne à la porte de la salle, elle n'a pas bougé. Elle attend qu'on la passe en revue. Elle attendra longtemps."],
+      choices: [{ back: "A2v_jours" }] },
+
+    A2v_capitaine: { act: "II", title: "La capitaine", place: "cormorane", ambiance: "mer",
+      text: [
+        "La capitaine Ribaud la reçoit dans sa cabine, à l'arrière, une pièce nue et propre comme un couvent, avec une couchette, une table à cartes, un sextant dans son coffret et un bouquet de bruyère séchée dans un pot de grès.",
+        "« Je n'aime pas ce voyage, dit-elle sans préambule. Je n'aime pas les voyages dont on me cache le but. Je n'aime pas les matelots qu'on m'impose. Je n'aime pas qu'un armateur embarque lui-même ; ils ne le font que quand ils ne font pas confiance à leur capitaine, ou quand ils ont quelque chose à cacher à leur capitaine. Je n'ai rien fait pour mériter la méfiance de celui-ci. » Elle pose les mains à plat sur la table. « Vous dînez chez lui. Vous l'écoutez. Vous êtes médecin : vous savez écouter. Je vous demande de me dire ce que vous entendrez. »",
+      ],
+      choices: [
+        { label: "« Je vous dirai ce que je saurai. »", fx: { flag: "victorine:alliee_capitaine", regard: { ribaud: "allie" } }, to: "A2v_capitaine_oui" },
+        { label: "« Je suis payée par lui, capitaine. Je lui dois au moins mon silence. »", fx: { regard: { ribaud: "distant" } }, to: "A2v_capitaine_non" },
+      ] },
+    A2v_capitaine_oui: { act: "II", title: "La capitaine", place: "cormorane",
+      text: [
+        "La capitaine hoche la tête. Elle ne remercie pas ; ce n'est pas son genre. Elle sort d'un tiroir une bouteille et deux verres, et sert deux doigts d'une eau-de-vie de cidre du Ponant qui sent les pommes et la cave.",
+        { if: { has: "victorine:misericorde" }, text: "Victorine lui parle du dîner, du vieux Lescalopier, du mot qu'il a crié et du silence qui a suivi. La capitaine écoute, sans rien dire. Puis : « La Miséricorde. J'ai entendu ce nom-là dans une taverne de Brisegrève, il y a quinze ans. Un vieux disait que c'était une île où l'on frappait des pièces d'argent, et que des gens de Morlenc y étaient passés, une nuit. Il disait qu'il ne restait que des cendres. Je l'ai cru ivre. »" },
+        "« À notre santé, dit-elle. C'est la seule chose à bord dont j'aie encore la responsabilité. »",
+      ],
+      choices: [{ back: "A2v_jours" }] },
+    A2v_capitaine_non: { act: "II", title: "La capitaine", place: "cormorane",
+      text: ["La capitaine la regarde sans rancune, comme on regarde un temps qui tourne. « C'est honnête, dit-elle. C'est même trop honnête pour ce navire. » Elle se lève. « La porte de ma cabine reste ouverte, médecin. Le jour où vous aurez changé d'avis, vous la trouverez au même endroit. »"],
+      choices: [{ back: "A2v_jours" }] },
+
+    A2v_fin: { act: "II", title: "Le dixième jour", place: "quai_hollandes", ambiance: "ville",
+      text: [
+        "Le dixième jour, Victorine raye la dernière ligne de sa liste. La pharmacie est pleine, ses bagages faits : deux robes grises, un manteau, sa trousse, ses livres, le portrait d'Hector, qu'elle a emporté sans savoir pourquoi, face contre le fond de la malle.",
+        "Le soir, à la fenêtre du Cormoran, elle regarde la Cormorane prête, noire sur le fleuve noir, avec sa cormorane dorée qui tend le cou vers la mer. Elle pense aux six familles du dîner, au rire du vieux notaire, à sa dette qui a changé de main. Elle pense que le monde, vu d'une fenêtre d'auberge, ressemble à un malade qui ment sur ses symptômes, et qu'il faudra l'examiner de près.",
+        "Demain, la veille. Après-demain, la mer.",
+      ],
+      choices: [{ label: "La veille", to: "C2_fin", big: true }] },
+  },
+  extras: {
+    people: {
+      brindejonc: { name: "Maître Brindejonc", aka: ["Brindejonc", "le vieux notaire"], f: false,
+        face: { age: "ancien", skin: "porcelaine", hair: "blanc", coif: "milong", beard: "sans", eyes: "tombants", iris: "bleu", nose: "busque", lips: "fines", shape: "allonge", marks: ["lunettes"] },
+        desc: "Vieux notaire de la Haute-Ville de Morlenc.", qui: "Le notaire d'Hector, quatre-vingts ans, intarissable.",
+        aspect: { allure: "voûté, poudreux, toujours un verre à la main", habits: "perruque à trois marteaux, habit d'un autre siècle", voix: "intarissable" } },
+    },
+  },
+};

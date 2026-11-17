@@ -1,0 +1,248 @@
+// L'Île Folle-Aiguille · side story « L'îlot du Façonneur » (owes its question to The Island of Doctor Moreau: is a form
+// only a habit of the flesh, and who has the right to change it?). Act III, a wooded islet in the Sargasso. Master
+// Évariste Hallé, an anatomist driven out of the Faculty of Morlenc, and his assistant Ombeline cut and sew beasts
+// until they stand, hold, speak. The Wards recite a Rule at dusk. The child meets them at the spring; the doctor is
+// invited to dinner by a colleague who remembers her face. Free the caged ones, help the Master, or leave.
+// Read later: xf:libere (Sept may follow the child), xf:remedes (remedies against scurvy), xf:marin_mort, xf:aide.
+module.exports = {
+  passages: {
+    // ——— The child, at the spring.
+    XF_m_debut: { act: "III", title: "La source", place: "ilot", ambiance: "nature",
+      fx: { meet: "sept" },
+      text: [
+        "La source sort au fond de la crique, entre deux rochers moussus, sous des fougères hautes comme des hommes, et tombe dans une vasque naturelle d'une eau si claire qu'on voit chaque grain de sable au fond. La corvée d'eau remplit les barriques à la chaîne. Il fait frais. Des oiseaux qu'on ne voit pas sifflent dans les arbres. Après les Sargues, on se croirait au paradis.",
+        "Tu montes un peu plus haut, pour remplir ton seau là où l'eau sort de la roche. Et de l'autre côté de la vasque, entre les fougères, quelqu'un te regarde.",
+        "Il est accroupi. Il a la taille d'un homme petit, des épaules étroites, une chemise de toile écrue trop grande, des jambes maigres et fléchies qui finissent dans des souliers de cuir ouverts. Il a des mains d'homme, longues, pâles, couturées de cicatrices fines comme des fils. Son visage est allongé, étroit, couvert d'un duvet blond et ras. Sur son front, deux moignons de corne sciés, lisses, polis. Ses yeux sont jaunes, avec une pupille couchée, en fente horizontale, comme celle des chèvres.",
+        "Il te regarde boire. Il ouvre la bouche. Une voix en sort, douce, chevrotante, qui force chaque mot comme on force une porte gonflée par la pluie.",
+        "« Eau. Bonne eau. » Il se touche la poitrine. « Sept. Moi, Sept. » Il regarde vers la colline, vers la maison blanche. Il baisse la voix. « Toi… pas maison. Pas maison. Maître… fait. »",
+      ],
+      choices: [
+        { label: "Le suivre dans la forêt", to: "XF_m_village" },
+        { label: "Monter quand même à la maison blanche", to: "XF_m_maison" },
+        { label: "Redescendre à la chaloupe et tout raconter", to: "XF_m_fuir" },
+      ] },
+    XF_m_maison: { act: "III", title: "La maison blanche", place: "ilot", ambiance: "nature",
+      fx: { meet: "ombeline" },
+      text: [
+        "Sept recule dans les fougères en secouant la tête, et disparaît. Tu montes seul{e} le sentier de la colline, entre des massifs d'hibiscus taillés au cordeau, jusqu'à la maison blanche. La véranda est déserte. Les volets verts sont clos. Une odeur flotte autour de la maison, que tu mets longtemps à reconnaître sous le parfum des fleurs : l'odeur de l'eau-de-vie camphrée, celle que Victorine met sur les plaies.",
+        "La porte s'ouvre avant que tu frappes. Une jeune femme pâle, en robe grise, les cheveux tirés, te regarde avec épouvante, comme on regarde un enfant qui joue au bord d'un puits.",
+        "« Partez, dit-elle très bas. Le Maître dort. Il travaille la nuit. S'il vous voit, il vous trouvera… intéressant. » Elle jette un regard derrière elle, dans la pénombre du couloir. « Redescendez. Ne remontez jamais. Et cette nuit, n'écoutez pas les chants. »",
+        "Elle referme la porte. Dans les fougères, au bas du sentier, deux yeux jaunes à la pupille couchée t'attendent.",
+      ],
+      choices: [{ label: "Suivre Sept dans la forêt", to: "XF_m_village" }] },
+    XF_m_fuir: { act: "III", title: "La chaloupe", place: "ilot", ambiance: "nature",
+      text: [
+        "Tu redescends vers la chaloupe en courant, ton seau à moitié vide. Gobert t'écoute, regarde les fougères, crache. « Une chèvre qui parle. Bon. Le soleil des Sargues t'a cuit la cervelle. » Il fait quand même presser les rameurs.",
+        "La capitaine, elle, ne rit pas. Elle fait doubler la garde de la corvée d'eau et décide qu'on restera à bord la nuit, tous. Puis elle ajoute qu'il faut encore deux jours de corvée pour remplir les barriques, et qu'on ne repartira pas à sec pour une chèvre.",
+      ],
+      choices: [{ label: "La nuit", to: "XF_m_nuit_bord" }] },
+    XF_m_nuit_bord: { act: "III", title: "La nuit de l'îlot", place: "ilot", ambiance: "nuit",
+      text: [
+        "La nuit, depuis le pont de la Cormorane, l'îlot n'est qu'une masse noire sur l'eau noire. Les oiseaux se sont tus. On n'entend rien.",
+        "Puis, vers minuit, un chant monte de la forêt. Des voix, une douzaine peut-être, qui psalmodient ensemble, en mesure, une litanie lente, sur deux notes, que le vent apporte par lambeaux. On ne comprend pas les mots. On comprend qu'il y a des mots. Les hommes de quart se taisent et écoutent, et Lemerle, à la barre, égrène son chapelet à toute vitesse.",
+        "Puis le chant s'arrête. Et, de la maison blanche, très haut sur la colline, un cri. Long, aigu, interminable. Puis plus rien.",
+        "À l'aube, la corvée d'eau retourne à la source. Simon Tarlet, qui était resté la nuit à garder les barriques sur la plage, avec Rivoal, n'est plus là. Rivoal dormait. Il n'a rien entendu. Sur le sable, il y a des traces de pas qui ne sont ni des pas d'homme ni des pas de bête, et du sang qui mène vers la forêt.",
+        "On le cherche toute la matinée. On ne le trouve pas. À midi, la capitaine fait lever l'ancre, avec la moitié de l'eau.",
+      ],
+      choices: [{ label: "Regarder s'éloigner l'îlot", fx: { perte: "tarlet", flag: "xf:marin_mort" }, to: "XF_m_fin" }] },
+
+    XF_m_village: { act: "III", title: "La clairière", place: "ilot", ambiance: "nature",
+      text: [
+        "Sept marche devant toi dans la forêt, en courbant le dos, en tournant la tête à chaque bruit, avec une démarche saccadée, comme un homme qui se rappellerait sans cesse de ne pas marcher autrement. Il te mène par un sentier que tu ne vois pas jusqu'à une clairière, au creux d'un vallon, où se dressent une douzaine de huttes de branches et de palmes.",
+        "Ils sortent des huttes un par un. Ils sont onze, ou douze. Aucun ne ressemble à un autre. Il y en a un, énorme, à la peau rose et rase, au groin écrasé en nez, qui porte une robe de femme. Il y en a un, très maigre, aux longs bras, au museau pointu, qui se tient à demi caché derrière les autres. Il y en a un, grand, au poil gris et dur, aux mâchoires lourdes, dont la bouche ne ferme pas sur ses dents, qui te regarde fixement et dont les narines frémissent. Tous ont des mains d'homme, couturées. Tous portent des vêtements. Tous se tiennent debout, avec effort.",
+        "Le soleil se couche. L'énorme, celle à la robe de femme, s'avance au milieu de la clairière. Les autres se rangent en cercle autour d'elle, s'agenouillent, et elle commence à réciter, d'une voix d'orgue enroué, et les autres répètent après elle, en se balançant :",
+        "« *Je me tiens debout, car le Maître me tient.* — Je me tiens debout. *Je parle, car le Maître m'a rendu la parole.* — Je parle. *Je mange l'herbe et le fruit, et je laisse le sang aux mouches.* — Je laisse le sang. *Je ne compte pas les nuits.* — Je ne compte pas. *La main qui fait est la main qui défait.* — La main qui défait. »",
+        "Le grand gris aux mâchoires lourdes ne récite pas. Il te regarde. Il te sent.",
+      ],
+      choices: [{ label: "Rester immobile", to: "XF_m_question" }] },
+    XF_m_question: { act: "III", title: "La clairière", place: "ilot", ambiance: "nuit",
+      text: [
+        "Quand la litanie s'achève, l'énorme vient vers toi. Elle se penche. Elle a de petits yeux bleus, très doux, noyés dans la graisse, et elle sent la terre et le lait.",
+        "« Je suis la Mère, dit-elle lentement. Toi, nouvelle ? Le Maître t'a faite ? » Elle te touche le visage, du bout de ses doigts couturés, avec précaution. « Bien faite. Belle peau. Pas de couture. Le Maître devient très habile. » Elle se tourne vers les autres. « Le Maître devient très habile ! »",
+        "Ils murmurent. Le grand gris s'est approché, sans bruit, dans ton dos. Sept se met entre toi et lui.",
+      ],
+      choices: [
+        { label: "« Oui. Le Maître m'a faite. »", fx: { flag: "xf:mensonge" }, to: "XF_m_nuit" },
+        { label: "« Non. Je suis né{e} d'une mère, comme tout le monde. »", to: "XF_m_verite" },
+      ] },
+    XF_m_verite: { act: "III", title: "La clairière", place: "ilot", ambiance: "nuit",
+      text: [
+        "Le silence qui tombe sur la clairière est terrible. La Mère recule. Elle te regarde comme on regarde un blasphème.",
+        "« D'une mère, répète-t-elle. Sans le Maître. » Elle se tourne vers les autres, perdue. « Elle dit qu'elle est née sans le Maître. »",
+        "Un murmure. Puis une voix, celle du maigre aux longs bras, caché derrière les autres : « Alors on peut naître sans lui ? Alors on n'a pas besoin de lui ? »",
+        "Le grand gris aux mâchoires lourdes éclate d'un rire qui ressemble à un aboiement. « Pas besoin de lui ! Pas besoin de la Règle ! Pas besoin de laisser le sang aux mouches ! » Ses yeux brillent. Il fait un pas vers toi.",
+        "Sept te prend la main. « Viens, dit-il. Viens vite. »",
+      ],
+      choices: [{ label: "Le suivre en courant", fx: { flag: "xf:verite" }, to: "XF_m_nuit" }] },
+    XF_m_nuit: { act: "III", title: "Les cages", place: "ilot", ambiance: "nuit",
+      text: [
+        "Sept te fait traverser la forêt en pleine nuit, sans un mot. Il s'arrête à la lisière, au-dessus de la maison blanche. Elle est éteinte, sauf une fenêtre, au rez-de-chaussée, derrière laquelle une lampe brûle d'une lumière très blanche, très crue.",
+        "Derrière la maison, il y a un enclos de pieux, et dans l'enclos, des cages. Une dizaine, en planches et en barreaux de fer. On entend, dedans, des souffles, des gémissements, une voix qui répète un mot, toujours le même, à mi-voix, et qui ne trouve pas le suivant.",
+        "« Les nouveaux, dit Sept tout bas. Pas finis. Le Maître finit, la nuit, dans la salle blanche. » Il touche ses cornes sciées. « Moi, j'étais là. Longtemps. » Il te regarde de ses yeux jaunes à la pupille couchée. « La clef, à la ceinture d'Ombeline. Ombeline dort. Ombeline est bonne. Ombeline pleure. »",
+      ],
+      choices: [
+        { label: "Te glisser dans la maison pour prendre la clef", test: { dom: "discretion", diff: 10, label: "La maison blanche" }, win: { to: "XF_m_cages" }, lose: { to: "XF_m_halle" } },
+        { label: "Redescendre à la plage, et partir", to: "XF_m_partir" },
+      ] },
+    XF_m_cages: { act: "III", title: "Les cages", place: "ilot", ambiance: "nuit",
+      text: [
+        "La porte de la cuisine n'est pas fermée. Ombeline dort sur un lit de camp, tout habillée, une jeune femme pâle aux cheveux tirés, les poings serrés sur sa poitrine, et son visage, même endormi, a l'air de demander pardon. La clef pend à sa ceinture, à un anneau. Tu la détaches en retenant ton souffle. Elle soupire dans son sommeil ; elle ne se réveille pas. Ou elle fait semblant.",
+        "Dehors, tu ouvres les cages une par une. Ce qui en sort, tu ne le regardes pas longtemps. Des formes qui se traînent, qui se dressent, qui retombent, qui sanglotent, qui s'enfuient vers la forêt sans un bruit, en boitant, en rampant, et que la nuit avale. L'une d'elles s'arrête devant toi, une seconde, et te touche la main avec quelque chose qui est presque une main.",
+        "Dans la maison, une lampe s'allume au premier étage. Une fenêtre s'ouvre. Une voix d'homme, belle, grave, sans colère : « Ombeline ? Qu'est-ce que c'est ? »",
+        "Sept te tire par la manche. Vous courez.",
+      ],
+      choices: [{ label: "Courir jusqu'à la plage", fx: { flag: "xf:libere", quest: "XF" }, to: "XF_m_plage" }] },
+    XF_m_halle: { act: "III", title: "Le Maître", place: "ilot", ambiance: "nuit",
+      fx: { meet: "halle" },
+      text: [
+        "Une latte du plancher craque sous ton pied, au milieu du couloir. Une porte s'ouvre. La lumière blanche te tombe dessus.",
+        "Un homme se tient sur le seuil de la salle blanche, en tablier de cuir, les manches retroussées sur des bras maigres et nerveux, un scalpel à la main. Il est grand, très beau, de la beauté des vieux portraits, avec des cheveux blancs rejetés en arrière et un visage de marbre où seuls les yeux vivent, gris, attentifs, sans aucune méchanceté, sans aucune bonté non plus : des yeux qui mesurent. Sa main droite, celle qui tient le scalpel, tremble.",
+        "« Un enfant, dit-il avec intérêt. Du navire. » Il te regarde de la tête aux pieds, comme on regarde une pièce de belle étoffe. « Charmant. Des proportions parfaites. Tu sais que tu es une merveille ? Une machine admirable, dont tu ne sais rien. » Il pose le scalpel. « Je ne te ferai aucun mal. Je n'opère que ce qui ne parle pas encore. Assieds-toi. Ombeline va nous faire du thé. »",
+        "Derrière lui, dans la salle blanche, sur une table de marbre, sous un drap, quelque chose respire.",
+      ],
+      choices: [
+        { label: "T'asseoir, et l'écouter", to: "XF_m_the" },
+        { label: "Fuir par la porte de la cuisine", test: { dom: "nature", diff: 0, label: "Fuir" }, win: { to: "XF_m_partir" }, lose: { to: "XF_m_the" } },
+      ] },
+    XF_m_the: { act: "III", title: "Le thé du Maître", place: "ilot", ambiance: "nuit",
+      fx: { meet: "ombeline" },
+      text: [
+        "Ombeline sert le thé sur la véranda, dans des tasses de porcelaine fine, sans un mot, les yeux baissés. Ses mains tremblent plus que celles du Maître.",
+        "Évariste Hallé parle. Il parle comme on fait un cours, d'une voix magnifique. La forme, dit-il, n'est qu'une habitude de la chair. La chair ne demande qu'à changer ; c'est la paresse qui la retient. Il a été professeur d'anatomie à la Faculté de Morlenc pendant vingt ans ; on l'en a chassé il y a quinze ans pour avoir montré, en leçon publique, un chien qui disait « maman ». « Ils ont eu peur, dit-il. Ils ont toujours peur de ce qu'ils ne savent pas faire. Ici, personne n'a peur. Sauf eux, naturellement. » Il montre la forêt d'un geste. « Mais leur peur est un outil. Elle les tient debout. »",
+        "Il te regarde boire ton thé. « Reviens me voir, quand tu seras grand{e}. J'aurai besoin d'aides. Ma main tremble. Bientôt, elle ne fera plus rien. Et alors, qui finira ce que j'ai commencé ? »",
+        "À l'aube, il te raccompagne lui-même jusqu'à la lisière, courtoisement, comme on raccompagne une visite. Sept n'est nulle part.",
+      ],
+      choices: [{ label: "Redescendre à la plage", fx: { flag: "xf:the" }, to: "XF_m_partir" }] },
+    XF_m_partir: { act: "III", title: "La plage", place: "ilot", ambiance: "nuit",
+      text: [
+        "Tu redescends à la plage, où la chaloupe de garde t'attend. Derrière toi, la forêt se tait.",
+        { if: { not: { has: "xf:the" } }, text: "Sept t'a accompagné{e} jusqu'aux derniers palmiers. Il s'arrête à la limite du sable, comme devant une eau trop profonde. Il te regarde monter dans la chaloupe. Il ne fait pas de signe. Il ne sait peut-être pas qu'on en fait." },
+        "À l'aube, les barriques sont pleines. On lève l'ancre à midi.",
+      ],
+      choices: [{ label: "Regarder s'éloigner l'îlot", fx: { flag: "xf:fui", quest: "XF" }, to: "XF_m_fin" }] },
+    XF_m_plage: { act: "III", title: "La plage", place: "ilot", ambiance: "nuit",
+      text: [
+        "Sur la plage, la chaloupe de garde t'attend, avec deux matelots endormis. Sept s'arrête à la lisière des palmiers, au bord du sable, et ne va pas plus loin. Il regarde la mer, la chaloupe, toi. Il tremble de tout son corps.",
+        "Derrière vous, dans la forêt, des voix se sont levées, des cris, des appels, des rires, des pleurs. Les cages sont vides. La Règle se défait. Quelque part, une porte claque, et un coup de pistolet part, un seul, puis plus rien.",
+        "« Moi, dit Sept. Avec toi ? » Il montre la mer, la Cormorane, la nuit. « Loin ? »",
+      ],
+      choices: [
+        { label: "« Viens. »", fx: { join: "sept", flag: "sept:suit" }, to: "XF_m_sept" },
+        { label: "« Reste. Ils auront besoin de toi, maintenant. »", fx: { flag: "sept:reste" }, to: "XF_m_sept" },
+      ] },
+    XF_m_sept: { act: "III", title: "Sept", place: "ilot", ambiance: "nuit",
+      text: [
+        { if: { has: "sept:suit" }, text: "Il monte dans la chaloupe en tremblant, s'accroupit au fond, entre tes jambes, la tête dans ses mains couturées. Les deux matelots se réveillent, le voient, et l'un d'eux saute à l'eau en hurlant. Il faut une heure, à bord, pour que Gobert accepte de ne pas le jeter par-dessus bord. C'est le professeur Gaudrémont qui le sauve, en déclarant que c'est la plus importante découverte de l'histoire naturelle depuis l'arche de Noé, et qu'il le prend sous sa protection personnelle, et que le premier qui le touche aura affaire à ses deux fusils. Sept dort cette nuit-là dans la cabine du professeur, sous la couchette, à côté des bocaux." },
+        { if: { has: "sept:reste" }, text: "Il hoche la tête, lentement. Il recule, d'un pas, de deux. Puis il se retourne et rentre dans la forêt, en courbant le dos, vers les voix et les cris. Tu ne le revois plus. Le matin, en levant l'ancre, tu crois entendre, au loin, sur la colline, une litanie lente, sur deux notes. Ce n'est plus la même. Tu ne comprends pas les mots, mais tu comprends qu'ils ont changé." },
+      ],
+      choices: [{ label: "Lever l'ancre avec la Cormorane", to: "XF_m_fin" }] },
+    XF_m_fin: { act: "III", title: "L'îlot", place: "ilot", ambiance: "nature",
+      text: [
+        "L'îlot s'efface derrière la poupe, vert et frais au milieu des herbes jaunes, avec sa maison blanche à mi-pente, qui a l'air, de loin, d'une maison où l'on serait heureux.",
+      ],
+      choices: [{ back: "A3n_ilot" }] },
+
+    // ——— The doctor, invited to dinner.
+    XF_v_debut: { act: "III", title: "L'invitation", place: "ilot", ambiance: "nature",
+      fx: { meet: "ombeline", flag: "quete-vue:XF" },
+      text: [
+        "Le premier soir, une jeune femme descend à la plage, pendant que la corvée d'eau roule les barriques. Elle est pâle, vêtue d'une robe grise de gouvernante, les cheveux tirés en chignon serré, et elle tient à la main une lettre cachetée qu'elle remet au bosco sans lever les yeux, puis remonte vers la maison sans attendre de réponse.",
+        "La lettre est pour Victorine. Une écriture d'homme, superbe, à l'ancienne, au long fût.",
+        "*Le docteur Évariste Hallé, ancien professeur d'anatomie de la Faculté de Morlenc, prie Madame la médecin de bord de la Cormorane de lui faire l'honneur de souper ce soir avec lui. On lui a dit qu'elle était médecin. Il se souvient d'un étudiant du dernier rang, à sa dernière leçon, qui avait de très petites mains.*",
+        "Victorine relit la dernière phrase trois fois. Elle se souvient de la dernière leçon d'Évariste Hallé. Tout Morlenc s'en souvient. Elle était au dernier rang, en perruque d'homme, dans la redingote d'Hector. Elle n'avait jamais pensé que quelqu'un la regardait.",
+      ],
+      choices: [{ label: "Monter souper", to: "XF_v_souper" }] },
+    XF_v_souper: { act: "III", title: "Le souper du Maître", place: "ilot", ambiance: "nuit",
+      fx: { meet: "halle" },
+      text: [
+        "Évariste Hallé la reçoit sur la véranda, debout, en habit noir d'une coupe d'il y a vingt ans, avec une courtoisie d'ancien régime. Il est grand, très beau encore, avec des cheveux blancs rejetés en arrière, un visage de marbre et des yeux gris qui mesurent tout. Sa main droite tremble. Il la cache dans sa poche.",
+        "On soupe aux chandelles, sous un ciel d'étoiles énormes, d'un poisson grillé, de fruits qu'elle ne connaît pas et d'un vin blanc de Morlenc que Hallé sert en s'excusant de son âge. Ombeline sert, sans un mot. Des bruits montent parfois de la forêt, des voix, une litanie lente ; Hallé ne les entend pas.",
+        "« Vous vous rappelez ma dernière leçon, dit-il. Le chien. Il a dit « maman », devant trois cents personnes, et deux cents se sont évanouies, et cent ont signé la pétition qui m'a chassé. Vous, vous n'avez rien signé. Vous avez pris des notes. » Il sourit. « Une femme, à la Faculté. Sous le nom de son mari. C'est la chose la plus courageuse que j'aie vue dans cette maison de lâches. Et personne ne le sait. Personne ne le saura. C'est injuste, Madame. »",
+        "Il se penche vers elle. « Ici, ce serait juste. Ici, vous auriez votre nom. Venez voir. »",
+      ],
+      choices: [{ label: "Le suivre dans la salle blanche", to: "XF_v_salle" }] },
+    XF_v_salle: { act: "III", title: "La salle blanche", place: "ilot", ambiance: "nuit",
+      text: [
+        "La salle blanche est blanche. Chaux aux murs, marbre au sol, linge sur les étagères, une lampe à réflecteur qui jette une lumière crue, sans ombre. Des instruments d'argent rangés par taille, des bocaux étiquetés d'une belle écriture, des fils de soie de toutes grosseurs. C'est le plus beau cabinet d'anatomie qu'elle ait jamais vu. Il est plus propre que l'hôpital de la Marine.",
+        "Sur la table de marbre, sous un drap, il y a un corps. Hallé soulève le drap avec délicatesse.",
+        "Victorine a vu des corps ouverts. Elle a vu des noyés, des brûlés, des écrasés, des enfants mort-nés. Elle n'a jamais vu ceci. Une bête qui n'en est plus une, et qui n'est pas autre chose encore. Un chien, peut-être, au début. Les pattes avant ont été ouvertes, allongées, refaites, cousues en doigts. La mâchoire a été raccourcie. La gorge porte une longue incision fraîche, recousue de soie fine, au point le plus parfait qu'elle ait jamais vu. La bête respire, sous l'opium. Ses yeux sont ouverts. Ils la regardent.",
+        "« Le larynx, dit Hallé avec douceur. C'est le plus difficile. Il faut le descendre, le tendre, le refaire. Ma main n'en est plus capable. » Il sort sa main droite de sa poche ; elle tremble comme une feuille. « La vôtre l'est. J'ai besoin de vous ce soir. Tenez seulement l'écarteur. Rien de plus. Et demain, je vous donnerai ce que je donne à mes amis : mes remèdes. J'ai un extrait de cochléaire et d'écorce qui empêche le scorbut mieux que tous les citrons du monde. Vos marins en auront besoin, d'ici l'île où vous allez. »",
+      ],
+      choices: [
+        { label: "Tenir l'écarteur", to: "XF_v_aide" },
+        { label: "Remettre le drap sur la bête, et sortir", to: "XF_v_refus" },
+      ] },
+    XF_v_aide: { act: "III", title: "L'écarteur", place: "ilot", ambiance: "nuit",
+      text: [
+        "Elle tient l'écarteur. Elle le tient deux heures, sans trembler, sous la lumière crue, pendant que la main gauche de Hallé, qui tremble moins, fait des choses qu'elle n'a jamais vues, qu'elle n'oubliera jamais, et qu'elle comprend. C'est cela, le pire : elle comprend tout. Elle voit chaque geste, elle en devine le suivant, elle admire. À un moment, sans qu'il le demande, elle prend la pince qu'il cherchait et la lui tend. Il la prend sans un mot.",
+        "Quand c'est fini, la bête respire encore. Hallé se lave les mains. Il est épuisé, heureux. « Vous voyez, dit-il. Vous voyez ce qu'on pourrait faire. »",
+        "Victorine sort sur la véranda. Elle regarde les étoiles. Elle a envie de vomir, et elle a envie de revenir demain. Les deux envies sont aussi fortes l'une que l'autre, et elle n'en a jamais eu de plus fortes de sa vie.",
+        "À l'aube, Ombeline lui apporte une caisse de fioles brunes, scellées, étiquetées de la belle écriture du Maître : *Extrait antiscorbutique. Une cuiller par homme et par jour.* Elle la lui remet sans lever les yeux. Puis, au moment où Victorine se retourne pour partir, elle lui saisit la manche, et chuchote, très vite : « Emmenez-moi. »",
+      ],
+      choices: [
+        { label: "« Venez. »", fx: { flag: ["xf:aide", "xf:remedes", "ombeline:abord"], quest: "XF" }, to: "XF_v_ombeline" },
+        { label: "« Je ne peux pas. Il a besoin de vous. »", fx: { flag: ["xf:aide", "xf:remedes"], quest: "XF" }, to: "XF_v_fin" },
+      ] },
+    XF_v_refus: { act: "III", title: "La salle blanche", place: "ilot", ambiance: "nuit",
+      text: [
+        "Victorine remet le drap sur la bête, doucement, jusqu'au cou, comme on borde un malade. Les yeux de la bête la suivent jusqu'au bout.",
+        "« Non, dit-elle.",
+        "— Vous avez peur, dit Hallé. Comme eux.",
+        "— J'ai peur, oui. Pas comme eux. Ils avaient peur de ce que vous saviez faire. Moi, j'ai peur de ce que je saurais faire, si je restais. » Elle reprend sa trousse. « Bonsoir, Maître. Le souper était excellent. »",
+        "Il ne la retient pas. Il la regarde partir avec un regret sincère, le regret d'un collectionneur qui voit sortir de la vente le plus bel objet. Dans la cuisine, Ombeline l'attend, une lanterne à la main, pour la raccompagner jusqu'à la plage. Au bout du sentier, sous les palmiers, elle s'arrête.",
+        "« Les cages, dit-elle très bas. Derrière la maison. Ils sont onze là-dedans. Les pas finis. » Elle sort une clef de sa ceinture. « Je n'ose pas. Depuis quatre ans, je n'ose pas. Vous, vous osez tout, je l'ai vu. »",
+      ],
+      choices: [
+        { label: "Prendre la clef", to: "XF_v_cages" },
+        { label: "« Osez vous-même, Ombeline. Venez avec nous. »", fx: { flag: ["xf:fui", "ombeline:abord"], quest: "XF" }, to: "XF_v_ombeline" },
+        { label: "Descendre à la chaloupe sans rien prendre", fx: { flag: "xf:fui", quest: "XF" }, to: "XF_v_fin" },
+      ] },
+    XF_v_cages: { act: "III", title: "Les cages", place: "ilot", ambiance: "nuit",
+      text: [
+        "Les cages sont derrière la maison, dans un enclos de pieux, sous la fenêtre éteinte de la salle blanche. Victorine les ouvre une par une, avec la clef d'Ombeline, en tenant la lanterne basse. Ce qui en sort, elle le regarde, parce qu'elle est médecin et qu'on ne détourne pas les yeux d'un malade. Elle en voit onze. Elle les voit tous.",
+        "Ils s'enfuient vers la forêt, sans un bruit, en boitant, en se traînant. L'un d'eux, un grand, gris, aux mâchoires lourdes, à moitié refait, s'arrête et regarde la maison, longtemps. Puis il y entre, par la porte de la cuisine restée ouverte.",
+        "Victorine court. Elle arrive à la salle blanche trop tard. Évariste Hallé est couché sur le marbre de sa propre table, le tablier ouvert, la gorge ouverte aussi. Il respire encore. Il la voit. Il sourit.",
+        "« La main… qui fait, dit-il. C'est la main… qui défait. » Il rit, d'un rire qui gargouille. « Je leur ai appris ça… moi-même. Ils sont doués. »",
+        "Il meurt sous ses mains, pendant qu'elle essaie de recoudre, au point le plus fin qu'elle connaisse.",
+      ],
+      choices: [{ label: "Fermer ses yeux", fx: { flag: ["xf:libere", "halle:mort", "ombeline:abord"], quest: "XF" }, to: "XF_v_ombeline" }] },
+    XF_v_ombeline: { act: "III", title: "Ombeline", place: "ilot", ambiance: "nuit",
+      text: [
+        "Ombeline descend à la plage avec un baluchon, une lanterne et rien d'autre. Elle monte dans la chaloupe sans se retourner.",
+        { if: { has: "halle:mort" }, text: "Elle a pleuré sur le corps, un quart d'heure, à genoux, en tenant la main qui tremblait. Puis elle s'est relevée, lui a fermé la bouche, a soufflé la lampe à réflecteur, et elle est sortie." },
+        "À bord, la capitaine l'inscrit sur le rôle comme « aide de la médecin, embarquée à l'îlot ». Elle dort à l'infirmerie, dans le hamac des malades, recroquevillée, les poings sur la poitrine. Elle parle peu. Elle sait coudre une plaie mieux que n'importe qui à bord, sauf Victorine. Elle sait aussi des choses sur le corps que Victorine préférerait ne pas savoir qu'on puisse savoir.",
+      ],
+      choices: [{ label: "Lever l'ancre", to: "XF_v_fin" }] },
+    XF_v_fin: { act: "III", title: "L'îlot", place: "ilot", ambiance: "nature",
+      text: [
+        { if: { has: "xf:remedes" }, text: "Dans l'infirmerie, la caisse de fioles brunes est rangée sous le hamac des malades. Victorine ne la regarde pas. Elle sait qu'elle s'en servira." },
+        "L'îlot s'efface derrière la poupe, vert et frais au milieu des herbes jaunes, avec sa maison blanche à mi-pente, qui a l'air, de loin, d'une maison où l'on serait heureux.",
+      ],
+      choices: [{ back: "A3w_ilot" }] },
+  },
+  extras: {
+    people: {
+      sept: { name: "Sept", aka: ["Sept"], f: false,
+        face: { age: "adulte", skin: "beige", hair: "blond", coif: "court", beard: "sans", eyes: "amande", iris: "clair", nose: "large", lips: "fines", shape: "allonge", marks: ["cicatrice"] },
+        desc: "Un Pupille du Façonneur : une bête refaite en homme, autrefois un bouc.", qui: "Le Pupille aux cornes sciées.",
+        aspect: { allure: "voûté, saccadé", visage: "cornes sciées, yeux de chèvre", voix: "chevrotante, chaque mot forcé" } },
+      halle: { name: "Évariste Hallé", aka: ["Hallé", "le Maître"], f: false,
+        face: { age: "ancien", skin: "clair", hair: "blanc", coif: "long", beard: "sans", eyes: "amande", iris: "gris", nose: "fin", lips: "fines", shape: "allonge", marks: [] },
+        desc: "Ancien professeur d'anatomie de Morlenc, chassé de la Faculté.", qui: "Le Façonneur de l'îlot.",
+        aspect: { allure: "grand, beau comme un vieux portrait", visage: "cheveux blancs, yeux qui mesurent", signe: "la main droite qui tremble" } },
+      ombeline: { name: "Ombeline", aka: ["Ombeline"], f: true,
+        face: { age: "jeune", skin: "porcelaine", hair: "chatain", coif: "chignon", beard: "sans", eyes: "tombants", iris: "gris", nose: "fin", lips: "fines", shape: "ovale", marks: [] },
+        desc: "L'assistante du Façonneur.", qui: "L'assistante, qui n'ose pas.",
+        aspect: { allure: "pâle, les poings serrés", habits: "robe grise de gouvernante" } },
+    },
+    companions: {
+      sept: { name: "Sept", aka: ["Sept"], f: false, role: "Un Pupille de l'îlot, autrefois un bouc", wound: "On l'a refait en homme, sans lui demander.", likes: "l'eau douce, le silence, qu'on lui parle lentement", hates: "les tables, les lampes blanches, les couteaux fins", bonus: { combat: 20, magie: 0, discretion: 35, nature: 40, savoir: 0, social: 0 },
+        pv: 9, def: 8, weapon: { name: "cornes sciées", dmg: 3 },
+        qui: "Le Pupille aux cornes sciées, qui te suit.",
+        aspect: { allure: "voûté, saccadé", visage: "cornes sciées, yeux de chèvre" } },
+    },
+    quests: [
+      { id: "XF", act: "III", kind: "annexe", title: "L'îlot du Façonneur", start: "XF_m_debut", doit: "ilemoreau", echo: ["xf:libere", "xf:remedes", "sept:suit", "halle:mort"] },
+    ],
+  },
+};
