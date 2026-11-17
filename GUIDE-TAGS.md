@@ -468,6 +468,21 @@ Le validateur : syntaxe des voiles, lentille déclarée, objet existant, même v
 
 Pièges : un voile sans `#id` dont les mots dits sont courts (« rien ») risque de rencontrer un autre voile ; donner un `#id` dès qu'il a une suite. Les charges se dépensent aussi sur les voiles sans suite : un lecteur prudent les garde.
 
+## À deux, séparés (16/11, 9.6) : dépôts d'un héros à l'autre, chroniques qui changent
+
+Pour « Le Douzième Coup » (les enfants de Clément, 16/11 : un grand scénario à deux). L'un des héros vit soixante ans avant l'autre : il lui enterre des objets, et le livre d'histoire que lit l'autre se réécrit. Le scénario déclare ; le moteur ouvre la liste, fait passer les objets au rendez-vous suivant, les vieillit, et annonce les lignes qui ont changé.
+
+| Où | Clé | Sens |
+|---|---|---|
+| `story.depots` | `{ <id>: { name, from, to, flat, ages, gold, rate, goldMax, put, take, labelPut, labelTake, text, textPut, textTake, empty, putSay } }` | Un endroit où un héros laisse quelque chose pour l'autre. `from` / `to` : les conditions de celui qui dépose et de celui qui prend. `flat` : seuls les objets marqués `flat: true` y tiennent (entre deux pages). `ages` : l'objet a attendu (voir `aged`, `rots`). `gold` : la somme qu'on peut y laisser à chaque fois (`goldMax` fois au plus, 5 sans lui) ; `rate` : ce qu'elle vaut à l'arrivée (2 : le vieil or vaut double). |
+| passage | `depot: "<id>"` ou `{ put: [...], take: [...] }` | Le moteur ajoute « Laisser quelque chose » (libellé `labelPut`) pour qui peut déposer, « Regarder ce qu'on t'a laissé » (`labelTake`) pour qui peut prendre ; la liste s'ouvre sur une page à part, d'où l'on revient. |
+| objet | `nodepot: true` · `flat: true` · `aged: "<objet>"` · `rots: true` · `agedSay`, `rotSay` | Ne se dépose jamais · tient entre deux pages · ce qu'il est devenu après l'attente · il n'en reste rien · la phrase dite alors. |
+| condition | `{ depot: "<id>" }` · `{ depot: "<id>", item: "<objet>" }` | Quelque chose attend ce héros dans ce dépôt · cet objet-là. |
+| `story.chroniques` | `{ <id>: { title, for, intro, say, sayNew, lines: [{ id, head, v: [{ if, text }] }] } }` | Un livre que le héros relit dans son carnet (onglet Chronique, `story.chroniquesTab` pour le renommer). Chaque ligne montre sa première variante dont la condition tient ; la dernière, sans condition, est la ligne par défaut ; sans variante qui tienne, la ligne est absente. `for` : qui le lit. |
+| `story.stocks.<id>` | `if` | La réserve n'appartient qu'au héros qui remplit la condition : les autres ne la voient pas. |
+
+Ce qu'un joueur dépose porte la marque `monde:depot:<id>:<objet>` : l'autre ne le trouve qu'après le rendez-vous suivant. Le moteur retient ce que le lecteur a lu de chaque chronique et annonce, une seule fois, chaque ligne qui paraît ou qui change (« La Chronique ne dit plus la même chose : … ») ; la première lecture est muette. Le fantôme du validateur dépose lui aussi, au hasard. Exemple minimal : `tests/depots-test.js`.
+
 ## Histoires à cartes (16/11, 9.7) : haltes, main, résolutions, fils
 
 Chantier « cartes et draft » (Clément, 16/11, pour son frère amateur de draft), phase 1 : les cartes en solo. Le lecteur tient une main de cartes ; à chaque halte, il en joue une. La carte dit quel genre de chose arrive ; l'histoire dit ce qu'elle devient à cet endroit. Exemple en place : « Le Courrier de Vèze » (`histoires/src/courrier/`). Jeu de base partagé : `histoires/jeux/base.js`.
@@ -491,7 +506,7 @@ Le validateur : cartes, fils, haltes, résolutions et tags qui nomment ce qui ex
 
 Écrire une résolution : un paragraphe par halte (`halte`), un par carte quand la carte précise ce qui arrive (`carte`), des choix tagués `enseigne` pour la manière de s'en tirer, et une issue sans jet. Un fil se relit par des résolutions `resout: { type: [...], fil }` qui ramènent son personnage et le nouent.
 
-## L'île aux pirates (17/11, 10.9) : escales, équipage nommé, ce qu'une quête doit à un autre livre
+## L'île aux pirates (17/11, 11.1) : escales, équipage nommé, ce qu'une quête doit à un autre livre
 
 Pour « L'Île Folle-Aiguille » (Clément, 17/11 : un grand voyage, des escales qui portent chacune une quête, un équipage qui penche d'un côté ou de l'autre, des quêtes nées d'autres livres de la bibliothèque).
 
@@ -508,5 +523,7 @@ Pour « L'Île Folle-Aiguille » (Clément, 17/11 : un grand voyage, des escales
 | condition | `{ equipage: "loyal" \| "hesitant" \| "complot" \| "abord", min, max }` | Combien, parmi ceux qui sont à bord. Pour compter les deux bords au moment d'une mutinerie. |
 | `story.sources` | `{ <id>: { title, author } }` | Les livres dont l'histoire s'inspire. L'id d'un livre de la bibliothèque (`crocblanc`, `mondeperdu`…) donne en plus un lien vers lui. |
 | quête | `doit: "<id de sources>"` | La quête une fois faite, et pas avant, une ligne dit « Cette histoire doit quelque chose à *Titre*, de Auteur. », avec « Le voir dans la bibliothèque » si le livre y est. |
+
+Le héros du lecteur vu par un autre : dans le chapitre d'un autre personnage, `{joueur}` donne le nom que le lecteur a choisi pour son propre héros, et `{joueur:e}` le « e » de l'accord s'il l'a voulu au féminin (« {joueur} est resté{joueur:e} sur la plage »). Les `{e}` d'un tel chapitre suivent le personnage qu'on lit.
 
 Le validateur refuse une escale sans nom, sans départ ou qu'aucun passage ne porte, une quête d'escale inconnue, un marin absent de `people` ou à penchant hors bornes, un marin inconnu dans un effet ou une condition, une quête `doit` sans source titrée. Test : `node tests/escales-test.js`.

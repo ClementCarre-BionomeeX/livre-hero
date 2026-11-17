@@ -13,7 +13,7 @@
     "recit", "doute", "dementi", "silences", "geste", "poids", "angoisse", "attache",
     "secret", "confie", "garde", "savoir", "lu", "voile", "voiles", "lens", "fil", "carteJouee", "escale", "escaleOuverte", "marin", "equipage"];
   // The siege's conditions (8.0) carry a second key (is, member, hero, losses): they are read by their first key.
-  var SIEGE_KEYS = ["escale", "marin", "equipage", "fil", "voiles", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue", "trait", "duel"];
+  var SIEGE_KEYS = ["depot", "escale", "marin", "equipage", "fil", "voiles", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue", "trait", "duel"];
   var FX_KEYS = ["voie", "regard", "aspect", "qui", "resume", "set", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
     "give", "relicLose", "item", "drop", "gold", "food", "pv", "rest", "time", "until", "stamp", "reveal", "meet", "clock", "quest", "questSeen", "note", "noteCls",
     "assign", "team", "regroup", "away", "lead", "leadQuiet", "learn", "souv", "souvBack", "catchupAll", "awayUnless",
@@ -275,6 +275,7 @@
       if (k === "count") c.count.forEach(function (x) { checkCond(x, where); });
       // Why: { gold: 10 } reads as "always true" in the engine (it expects { min, max }); say so instead of letting it pass.
       if (["gold", "food", "pv"].indexOf(k) >= 0 && (c[k] === null || typeof c[k] !== "object")) E(where + " : la condition « " + k + " » s'écrit { min: …, max: … }.");
+      if (k === "depot" && !(story.depots || {})[c.depot]) E(where + " : dépôt « " + c.depot + " » inconnu (story.depots).");
       if (k === "clues" && !story.mysteries[c.clues]) E(where + " : mystère « " + c.clues + " » inconnu.");
       if (k === "clue" && !story.clues[c.clue]) E(where + " : indice « " + c.clue + " » inconnu.");
       if (k === "fil") { if (!(story.fils || {})[c.fil]) E(where + " : fil « " + c.fil + " » inconnu (fils)."); [].concat(c.is || []).forEach(function (x) { if (!M.THREAD_STATES[x] && x !== "aucun") E(where + " : état de fil « " + x + " » inconnu (ouvert, noue, rate, aucun)."); }); }
@@ -306,7 +307,7 @@
       if (k === "battle" && !(story.battles || {})[c.battle]) E(where + " : bataille « " + c.battle + " » inconnue.");
       if (k === "battle" && c.is != null && c.is !== "win" && c.is !== "lose") E(where + " : bataille, « " + c.is + " » (attendu : win ou lose).");
       if (k === "camp" && c.camp != null && c.camp !== "none" && !(story.camps || {})[c.camp]) E(where + " : camp « " + c.camp + " » inconnu.");
-      // Ports of call and the crew (10.9).
+      // Ports of call and the crew (11.1).
       if ((k === "escale" || k === "escaleOuverte") && !(story.escales || {})[c[k]]) E(where + " : escale « " + c[k] + " » inconnue.");
       if (k === "escale" && c.is != null && c.is !== "quittee") E(where + " : escale, « " + c.is + " » (attendu : quittee, ou rien pour « au mouillage »).");
       if (k === "marin" && !(((story.equipage || {}).marins) || {})[c.marin]) E(where + " : marin « " + c.marin + " » inconnu (equipage.marins).");
@@ -383,7 +384,7 @@
       }); });
       if (fx.camp != null && !(story.camps || {})[fx.camp]) E(where + " : camp « " + fx.camp + " » inconnu.");
       [].concat(fx.tie || []).forEach(function (x) { if (!(story.ties || []).some(function (t) { return t.id === x; })) E(where + " : lien « " + x + " » inconnu."); });
-      // The crew (10.9).
+      // The crew (11.1).
       [].concat(fx.recrue || [], fx.debarque || [], fx.perte || [], fx.devine || [], Object.keys(fx.penche || {})).forEach(function (x) { if (!(((story.equipage || {}).marins) || {})[x]) E(where + " : marin « " + x + " » inconnu (equipage.marins)."); });
       Object.keys(fx.penche || {}).forEach(function (x) { if (typeof fx.penche[x] !== "number") E(where + " : penche, « " + x + " » attend un nombre."); });
       // At sea (8.1).
@@ -621,7 +622,7 @@
       if (D.tie != null && D.tie !== "adopte" && D.tie !== "rejete") E(w + " : tie, adopte ou rejete.");
       Object.keys(D.fx || {}).forEach(function (r) { if (r !== "adopte" && r !== "rejete") E(w + " : fx." + r + " (attendu : adopte, rejete)."); checkFx(D.fx[r], w); });
     });
-    // Ports of call, the crew, what a quest owes to another book (10.9).
+    // Ports of call, the crew, what a quest owes to another book (11.1).
     Object.keys(story.escales || {}).forEach(function (k) {
       var D = story.escales[k], w = "Escale « " + k + " »";
       if (!D.name) E(w + " : sans nom.");
@@ -720,6 +721,38 @@
         if (!Object.keys(P).some(function (id) { return P[id].aparte; })) E(w + " : aveu, mais aucun passage aparte: true où le dire.");
       }
       checkCond(S.if, w);
+    });
+    // Two players apart (9.6): deposits one hero leaves for the other, chronicles that change with the world.
+    Object.keys(story.depots || {}).forEach(function (k) {
+      var D = story.depots[k], w = "Dépôt « " + k + " »";
+      if (!D.name) E(w + " : il faut un nom (name).");
+      if (D.from == null || D.to == null) E(w + " : il faut dire qui dépose (from) et qui prend (to).");
+      checkCond(D.from, w); checkCond(D.to, w);
+      if (D.gold != null && !(D.gold > 0)) E(w + " : gold est la somme laissée à chaque fois, un nombre positif.");
+      if (D.flat && !Object.keys(story.items || {}).some(function (i) { return story.items[i].flat; })) W(w + " : dépôt plat, mais aucun objet n'est marqué flat.");
+      if (!Object.keys(P).some(function (id) { var T = M.depotTag(P[id]); return T && T.put.indexOf(k) >= 0; })) E(w + " : aucun passage où déposer (depot: { put }).");
+      if (!Object.keys(P).some(function (id) { var T = M.depotTag(P[id]); return T && T.take.indexOf(k) >= 0; })) E(w + " : aucun passage où prendre (depot: { take }).");
+    });
+    Object.keys(P).forEach(function (id) {
+      var T = M.depotTag(P[id]); if (!T) return;
+      T.put.concat(T.take).forEach(function (k) { if (!(story.depots || {})[k]) E("§ " + id + " : dépôt « " + k + " » inconnu (story.depots)."); });
+    });
+    Object.keys(story.items || {}).forEach(function (k) { var I = story.items[k]; if (I.aged != null && !story.items[I.aged]) E("Objet « " + k + " » : aged, objet « " + I.aged + " » inconnu."); });
+    Object.keys(story.chroniques || {}).forEach(function (k) {
+      var C = story.chroniques[k], w = "Chronique « " + k + " »", ids = {};
+      if (!C.title) E(w + " : il faut un titre.");
+      checkCond(C.for, w);
+      if (!(C.lines || []).length) E(w + " : aucune ligne.");
+      (C.lines || []).forEach(function (L, i) {
+        var wl = w + ", ligne " + (L.id || i + 1);
+        if (!L.id) E(wl + " : il faut un id."); else if (ids[L.id]) E(wl + " : id en double."); ids[L.id] = 1;
+        var vs = L.v || [{ text: L.text, if: L.if }];
+        vs.forEach(function (v, j) {
+          if (!v.text) E(wl + " : variante " + (j + 1) + " sans texte.");
+          checkCond(v.if, wl);
+          if (v.if == null && j < vs.length - 1) E(wl + " : une variante sans condition cache les suivantes.");
+        });
+      });
     });
     (story.interludes || []).forEach(function (x, i) {
       var w = "Interlude " + (i + 1);
@@ -1173,11 +1206,21 @@
       (function scan(o, key) { if (o == null) return; if (typeof o === "string") { if ((key === "flag" || key === "flags") && o.indexOf("monde:") === 0 && GHOST.indexOf(o) < 0) GHOST.push(o); return; } if (Array.isArray(o)) { o.forEach(function (x) { scan(x, key); }); return; } if (typeof o === "object" && !o.monde) Object.keys(o).forEach(function (k) { scan(o[k], k); }); })(story.passages, "");
       Object.keys(story.secrets || {}).forEach(function (k) { if (story.secrets[k].aveu) GHOST.push("monde:confie:" + k); });
     }
+    // 9.6: the ghost partner leaves things too: at a rendezvous, one deposit in three receives one thing that fits it.
+    function ghostDepots(s, rnd) {
+      Object.keys(story.depots || {}).forEach(function (k) {
+        if (rnd() > 0.34) return;
+        var D = story.depots[k], fit = Object.keys(story.items || {}).filter(function (i) { return M.depotFits(story, D, i); });
+        if (D.gold) fit.push("or:1");
+        if (fit.length) s.flags[M.DEPOT_FLAG + k + ":" + fit[Math.floor(rnd() * fit.length)]] = true;
+      });
+    }
     function ghost(s, rnd, at) {
-      if (!GHOST.length || !P[s.node]) return;
+      if ((!GHOST.length && !story.depots) || !P[s.node]) return;
       var p = P[s.node], key = p.charniere ? "c:" + s.node : "a:" + s.lastAct;
       s._ghost = s._ghost || {}; if (s._ghost[key] || (!p.charniere && at === s.lastAct)) return;
       s._ghost[key] = 1;
+      if (story.depots) ghostDepots(s, rnd);
       GHOST.forEach(function (f) { if (f.indexOf("monde:confie:") === 0 && (s.secrets || {})[f.slice(13)]) return; if (!s.flags[f] && rnd() < 0.3) s.flags[f] = true; });
     }
     function play(mode, seed, toutJouer, second) {
