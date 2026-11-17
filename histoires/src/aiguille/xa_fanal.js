@@ -172,7 +172,7 @@ module.exports = {
         "Un après-midi de pluie, le Gabier s'ennuie. Il te fait asseoir en face de lui, devant le feu, avec un bout de filin goudronné de deux brasses, et il t'apprend les nœuds.",
         "Il a des mains énormes, couturées, aux doigts tordus par quarante ans de cordages, et ces mains-là font des choses d'une délicatesse de dentellière. Le nœud plat, pour réunir deux bouts. La demi-clef, pour amarrer vite. Le nœud de chaise, qui ne glisse jamais, qui ne serre jamais, et qui se défait d'un coup de pouce quand on le veut : « Celui-là, il t'a sauvé la vie avant que tu saches son nom. On le passe sous les bras d'un homme à la mer. » La tête d'alouette, le nœud de cabestan, l'œil épissé, qu'il fait en trois secondes, sans regarder, en parlant d'autre chose.",
         "Tu rates tout, d'abord. Il ne s'impatiente pas. Il défait tes nœuds ratés, d'un coup de pouce, et te rend le filin. « Encore. » Au bout de deux heures, tu fais un nœud de chaise les yeux fermés. Il le regarde, le tâte, tire dessus de toutes ses forces. Il tient.",
-        "« Bon, dit-il. Maintenant, tu es bon{ne} à quelque chose. » Il reprend le filin, et fait un dernier nœud, lent, compliqué, avec treize tours, qui forme une boucle coulissante au bout d'une longue spirale. Il le pose sur la table entre vous deux.",
+        "« Bon, dit-il. Maintenant, tu sers à quelque chose. » Il reprend le filin, et fait un dernier nœud, lent, compliqué, avec treize tours, qui forme une boucle coulissante au bout d'une longue spirale. Il le pose sur la table entre vous deux.",
         "« Et celui-là, dit-il. Celui-là, tu ne l'apprends pas. »",
       ],
       choices: [

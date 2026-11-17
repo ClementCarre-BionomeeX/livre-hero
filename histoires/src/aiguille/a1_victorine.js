@@ -15,6 +15,9 @@ module.exports = {
         { label: "Ouvrir la lettre au beau papier", to: "A1v_lettre", hide: { seen: "A1v_lettre" } },
         { label: "Courir au moulin, où l'on vient frapper pour un accouchement", to: "A1v_moulin", hide: { seen: "A1v_moulin" } },
         { label: "Recevoir l'abbé Morisseau, qui s'est invité à souper", to: "A1v_souper", hide: { seen: "A1v_souper" } },
+        { label: "Recevoir la dame voilée qui attend sur le banc du cabinet", to: "XL_voilee", hide: { seen: "XL_voilee" } },
+        { label: "Descendre à la cave préparer la pharmacie de la semaine", to: "XL_cave", hide: { seen: "XL_cave" } },
+        { label: "Ouvrir à celui qui gratte à la fenêtre de derrière", to: "XL_braco", hide: { seen: "XL_braco" } },
         { label: "Monter enfin te coucher", to: "A1v_minuit", big: true, if: { count: SOIR, min: 2 }, why: "La soirée n'est pas finie ; elle ne l'est jamais." },
       ] },
     A1v_lettre: { act: "I", title: "La lettre", place: "varnese_maison",
@@ -152,6 +155,7 @@ module.exports = {
         "Le baron écoute l'histoire en arpentant le cabinet, les mains dans le dos, entre l'ours et le cerf. Quand elle est finie, il s'arrête devant la fenêtre.",
         "« Voici ce que je propose, dit-il. J'arme un navire. J'en ai un à Morlenc, la Cormorane, trois-mâts de quatre cents tonneaux, la meilleure capitaine du Ponant, qui me déteste, ce qui est une garantie. Nous partons dans quinze jours. Nous trouvons cette île. Nous rapportons ce qu'il y a dessus, et l'Académie me fera un buste. » Il sourit. « Je plaisante. Je veux surtout l'aventure. On s'ennuie, à Morlenc, quand on a tout. »",
         "Il se tourne vers l'enfant. « Toi, tu viens. Tu seras mousse. C'est ta carte, d'une certaine manière, et un homme d'honneur ne vole pas les enfants. Pas devant témoins. »",
+        { if: { has: "victorine:cartes=baron" }, text: "Victorine regarde les mains du baron, pendant qu'il parle de l'Académie. Des mains soignées, blanches, très calmes. Le matin, devant les chandelles, elles se regardent elles-mêmes." },
         "Puis vers Victorine. « Et vous, Madame, vous viendrez aussi. Il me faut un médecin de bord, et je n'en connais aucun que j'estime. Je rachète votre créance. Toute. Trois mille quatre cents livres, effacées le jour où vous signez votre engagement. Au retour, une part. » Il pose une feuille et une plume sur le bureau. « Vous voyez : je connais aussi le chiffre. Les banquiers ont une mémoire de créancier. »",
       ],
       choices: [

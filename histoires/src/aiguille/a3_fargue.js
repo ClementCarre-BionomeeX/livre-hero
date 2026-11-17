@@ -27,6 +27,11 @@ module.exports = {
         { label: "Monter jouer aux échecs avec le baron", to: "A3f_echecs", hide: { seen: "A3f_echecs" } },
         { label: "Assister à la distribution de l'eau", to: "A3f_eau", hide: { seen: "A3f_eau" } },
         { label: "Descendre un bouillon à la médecin", to: "A3f_medecin", hide: { seen: "A3f_medecin" } },
+        { label: "Éplucher des oignons, seul, une nuit sans sommeil", to: "XH_nuit", hide: { seen: "XH_nuit" } },
+        { label: "S'asseoir près de Malandain, qui aiguise son couteau", to: "XH_malandain", hide: { seen: "XH_malandain" }, if: { count: JOURS, min: 1 }, why: "Malandain n'a encore rien demandé." },
+        { label: "Monter un café à la gabière, sur le beaupré", to: "XH_marjolaine", hide: { seen: "XH_marjolaine" } },
+        { label: "Servir une soupe à Lagadec, qui boit tard", to: "XH_lagadec", hide: { seen: "XH_lagadec" } },
+        { label: "Recevoir la médecin, qui cherche des citrons", to: "XH_choucroute", hide: { seen: "XH_choucroute" }, if: { count: JOURS, min: 2 }, why: "Les gencives ne saignent pas encore." },
         { label: "Le vent revient", to: "A3f_lettre", big: true, if: { count: JOURS, min: 3 }, why: "Le calme dure encore." },
       ] },
 
@@ -110,6 +115,8 @@ module.exports = {
         "« Échec, dit Fargue.",
         "— Vous êtes un homme étonnant, Fargue. Vous avez lu, vous parlez bien, vous jouez mieux que mon notaire. Que faites-vous dans une cambuse ?",
         "— Je regarde les gens manger, monsieur le baron. C'est là qu'on les connaît. »",
+        { if: { has: "fargue:echecs_gagne" }, text: "Le professeur Gaudrémont, deux cabines plus loin, réclame sa revanche chaque soir depuis Morlenc, et chaque soir Fargue monte jouer avec le baron à sa place. Le professeur appelle cela une trahison de classe, et il a parfaitement raison." },
+        { if: { has: "fargue:echecs_perdu" }, text: "Pendant que le baron réfléchit, Fargue pense à une boîte d'acajou, deux cabines plus loin, et à une seconde aiguille montée sur un cercle gradué, qui sait quand la première ment." },
         "Le baron rit. Il bouge son roi. Fargue regarde l'échiquier, puis le coffre de fer vissé au plancher, puis la clef à la chaîne de montre.",
       ],
       choices: [

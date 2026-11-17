@@ -22,6 +22,7 @@ module.exports = {
         { label: "Le corriger de trois quarts vers le couchant", hide: { not: CONNU }, fx: { flag: "correction:appliquee" }, to: "A5m_route" },
         { label: "Partir de la pierre qui sonne, vue du haut de la Table", hide: { any: [{ not: { has: "pierre:vue" } }, CONNU] }, fx: { flag: "correction:table" }, to: "A5m_route" },
         { label: "Demander au vieil homme", hide: { not: DAGREL }, fx: { flag: "correction:dagrel" }, to: "A5m_dagrel" },
+        { label: "Essayer les relèvements de la croix du nord, tels qu'écrits", hide: { any: [{ seen: "XW_nord" }, { not: { seen: "A5m_faux" } }, CONNU] }, to: "XW_nord" },
         { label: "Renoncer pour aujourd'hui, et attendre le soir", hide: { not: { seen: "A5m_faux" } }, to: "A5m_fin" },
         { label: "Chercher le son de cloche entendu le premier jour", hide: { any: [{ not: { has: "pierre:entendue" } }, CONNU, { has: "pierre:vue" }, { not: { seen: "A5m_faux" } }] }, to: "A5m_son" },
       ] },

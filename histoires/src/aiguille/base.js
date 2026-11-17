@@ -37,6 +37,8 @@ module.exports = {
     fleche: { title: "La Flèche noire", author: "Robert Louis Stevenson" },
     ballantrae: { title: "Le Maître de Ballantrae", author: "Robert Louis Stevenson" },
     scarabee: { title: "Le Scarabée d'or", author: "Edgar Allan Poe" },
+    mobydick: { title: "Moby-Dick", author: "Herman Melville" },
+    travailleurs: { title: "Les Travailleurs de la mer", author: "Victor Hugo" },
     ile: { title: "L'Île au trésor", author: "Robert Louis Stevenson" },
   },
   acts: [

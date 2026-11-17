@@ -16,7 +16,7 @@ module.exports = {
       choices: [
         { label: "T'avancer, et t'asseoir sur la planche en riant", fx: { flag: "bord:bapteme_rit", penche: { gobert: 1 } }, to: "XV_bapteme_rit" },
         { label: "Offrir au Bonhomme un tribut, pour éviter la baille", fx: { flag: "bord:bapteme_paye" }, to: "XV_bapteme_paye" },
-        { label: "Refuser : tu n'es pas païen{ne}, et tu le dis", fx: { flag: "bord:bapteme_refus" }, to: "XV_bapteme_refus" },
+        { label: "Refuser : tu as déjà reçu un baptême, et tu le dis", fx: { flag: "bord:bapteme_refus" }, to: "XV_bapteme_refus" },
       ] },
     XV_bapteme_rit: { act: "III", title: "Le Bonhomme Tropique", place: "mer_couchant", ambiance: "mer",
       text: [
@@ -35,7 +35,7 @@ module.exports = {
       choices: [{ label: "Reprendre le service", back: "A3m_jours" }] },
     XV_bapteme_refus: { act: "III", title: "Le Bonhomme Tropique", place: "mer_couchant", ambiance: "mer",
       text: [
-        "« Je ne suis pas païen{ne}, dis-tu. J'ai été baptisé{e} à Sainte-Anne-des-Grèves, par l'abbé Morisseau, et une fois suffit. »",
+        "« J'ai reçu le baptême à Sainte-Anne-des-Grèves, dis-tu, par l'abbé Morisseau, et une fois suffit. »",
         "Un silence. Puis le Bonhomme Tropique se lève de son trône, lentement, de toute sa hauteur, sa barbe d'étoupe au vent, et pointe son trident sur toi. « L'abbé Morisseau, dit-il d'une voix d'outre-tombe, n'a aucune juridiction sous le Tropique ! Saisissez l'hérétique ! »",
         "Huit mains t'empoignent. On te porte à la baille comme un sac, en chantant un cantique de circonstance que Gaudrémont a composé le matin même. On te plonge quatre fois au lieu d'une, une pour toi et trois pour l'abbé Morisseau. On te barbouille de goudron jusqu'aux oreilles. On te rase deux fois.",
         "Quand on te relâche enfin, ruisselant{e}, le Bonhomme te remet ton brevet avec une mention spéciale : *Hérétique repenti{e}, quatre immersions.* C'est le plus beau brevet de l'équipage. Gobert te le dit lui-même, plus tard, sans sa barbe. « Il en faut un comme toi par voyage, dit-il. Sinon, c'est pas drôle. »",

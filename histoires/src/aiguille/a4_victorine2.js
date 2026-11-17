@@ -98,6 +98,7 @@ module.exports = {
         "On entrouvre la porte. Victorine sort.",
         "Il a l'air fatigué. Il s'est rasé, il a mis une chemise propre, son foulard rouge, mais il a les yeux creusés de quelqu'un qui n'a pas dormi depuis deux nuits. Il la salue, très bas, avec une politesse de maître d'hôtel.",
         "« Docteur. Vous avez bonne mine. Le siège vous va. »",
+        { if: { has: "victorine:doigts" }, text: "« Et votre requin, Fargue ? » dit Victorine. Il regarde sa main gauche, puis elle, et pour la première fois depuis Morlenc il a l'air d'un homme qu'on a pris en faute. « Il se porte bien, docteur. Il a de la méthode. »" },
         "Puis il expose ses conditions, à voix haute, pour qu'on l'entende du mur : la carte, contre la vie de tous. On creusera, on partagera : un tiers aux gens de la chapelle, deux tiers à l'équipage. La Cormorane rentrera à Morlenc avec tout le monde à bord, et l'on dira qu'il y a eu une fièvre, et que les morts sont morts de fièvre. Personne ne sera pendu. Tout le monde sera riche. C'est une proposition honnête, dit-il, la plus honnête qu'on ait jamais faite sur cette île.",
         "Puis il fait un pas vers elle, et baisse la voix.",
       ],
