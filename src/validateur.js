@@ -518,6 +518,11 @@
       if (P[id].combat) ["win", "lose", "flee", "calm"].forEach(function (o) { var b = P[id].combat[o]; if (b && b.via) viaTags[b.via] = 1; });
     });
     M.endingsOf(story).forEach(function (e) { endIds[e.id] = 1; });
+    // 12.0: a book read twice names the ending of each reading, and where the second one starts.
+    if (story.twice) {
+      ["first", "second"].forEach(function (k) { var e = story.twice[k]; if (!e || !(endIds[e] || endIds["fin:" + e])) E("twice." + k + " : « " + e + " » n'est pas une fin de l'histoire (fx.flag \"fin:…\" sur un passage end)."); });
+      if (story.twice.start2 && !P[story.twice.start2]) E("twice.start2 : passage « " + story.twice.start2 + " » inconnu.");
+    }
     cardCheck(story, E, W);
     // At sea (8.1): the sky, the seasons, the wounds, the encounters, the things put together, the vigils, the charts.
     // The world of a book (8.6): pages to read before and during play, and names a touch explains.
@@ -585,7 +590,19 @@
       if (Z.kind === "molettes") { if (!Array.isArray(Z.wheels) || !Array.isArray(Z.answer) || Z.wheels.length !== Z.answer.length) E(w + " : autant de molettes que de symboles dans answer."); else Z.answer.forEach(function (a, i) { if (Z.wheels[i].indexOf(a) < 0) E(w + " : le symbole « " + a + " » manque sur la molette " + (i + 1) + "."); }); }
       if (Z.kind === "ordre") { var n = (Z.pieces || []).length, ok = Array.isArray(Z.answer) && Z.answer.length === n && Z.answer.slice().sort().every(function (x, i) { return x === i; }); if (!ok) E(w + " : answer doit ranger chaque morceau une fois (indices de 0 à " + (n - 1) + ")."); }
       if (Z.kind === "chiffre" && !Z.answer) E(w + " : il faut la réponse (answer).");
-      if (!Z.win || !P[Z.win.to]) E(w + " : issue win sans passage connu."); else checkFx(Z.win.fx, w);
+      // 12.0: a carried puzzle (carry) gives its effects wherever it is solved; it may lead somewhere only from its own
+      // page (win.to), and it has no tries to lose. Its alternative answers (alt) each lead somewhere or give something.
+      if (Z.carry) { if (Z.tries || Z.lose) E(w + " : une énigme gardée en suspens (carry) n'a ni essais comptés (tries) ni issue lose."); if (!Z.win || (Z.win.to && !P[Z.win.to])) E(w + " : issue win vers un passage inconnu."); else checkFx(Z.win.fx, w); }
+      else if (!Z.win || !P[Z.win.to]) E(w + " : issue win sans passage connu."); else checkFx(Z.win.fx, w);
+      (Z.alt || []).forEach(function (a, i) {
+        var wa = w + ", autre réponse " + (a.id || i + 1);
+        if (!a.id || !/^[a-z0-9_]+$/.test(a.id)) E(wa + " : il faut un id (minuscules, chiffres, _).");
+        if (a.answer == null || (Z.kind !== "chiffre" && !Array.isArray(a.answer))) E(wa + " : il faut la réponse (answer), de la même forme que celle de l'énigme.");
+        if (a.to != null && !P[a.to]) E(wa + " : passage « " + a.to + " » inconnu.");
+        if (a.to == null && !a.fx) E(wa + " : elle ne mène nulle part et ne donne rien (to ou fx).");
+        if (a.to != null && Z.carry) W(wa + " : depuis les énigmes en suspens, seul son fx compte ; to ne vaut que sur la page de l'énigme.");
+        checkFx(a.fx, wa); checkCond(a.if, wa);
+      });
       if (Z.lose && Z.lose.to && !P[Z.lose.to]) E(w + " : issue lose vers un passage inconnu.");
       if (Z.force && DOM_KEYS.indexOf(Z.force.dom) < 0) E(w + " : force, domaine « " + Z.force.dom + " » inconnu.");
       (Z.hint || []).forEach(function (h) { checkCond(h.if, w); });
@@ -1086,7 +1103,8 @@
       if (p.veillee) (story.vigils || []).forEach(function (v) { add(v.to); });
       // 8.2: after a duel or a puzzle, and the dreams on waking.
       if (p.duel && (story.duels || {})[p.duel]) { add(story.duels[p.duel].win.to); add(story.duels[p.duel].lose.to); }
-      if (p.puzzle && (story.puzzles || {})[p.puzzle]) { var ZZ = story.puzzles[p.puzzle]; add(ZZ.win.to); if (ZZ.lose && ZZ.lose.to) add(ZZ.lose.to); }
+      if (p.puzzle && (story.puzzles || {})[p.puzzle]) { var ZZ = story.puzzles[p.puzzle]; if (ZZ.win.to) add(ZZ.win.to); if (ZZ.lose && ZZ.lose.to) add(ZZ.lose.to); (ZZ.alt || []).forEach(function (a) { if (a.to) add(a.to); }); }
+      if (story.twice && story.twice.start2 && id === story.start) add(story.twice.start2);
       if (p.reveil) (story.dreams || []).forEach(function (d) { add(d.to); });
       // 8.3: an account put in doubt before the one who gave it (or alone, for one's own), and panic from any page.
       Object.keys(story.accounts || {}).forEach(function (k) { var A = story.accounts[k]; if (A.belie && (A.by === "hero" ? p.seul : [].concat(p.devant || []).indexOf(A.by) >= 0)) add(A.belie); });
@@ -1126,8 +1144,8 @@
         if (c.sys === "vigil") { cand(c.to, null); return { d: best, fixed: null }; }
         if (c.sys === "belie") { cand(((story.accounts || {})[c.account] || {}).belie, null); return { d: best, fixed: null }; }
         if (c.sys === "duel" && P[cur] && P[cur].duel) { var DD = story.duels[P[cur].duel]; cand(DD.win.to, null); cand(DD.lose.to, null); return { d: best, fixed: null }; }
-        if (c.sys === "puzzle" && P[cur] && P[cur].puzzle) { var PZ0 = story.puzzles[P[cur].puzzle]; cand(PZ0.win.to, null); if (PZ0.lose && PZ0.lose.to) cand(PZ0.lose.to, null); return { d: best, fixed: null }; }
-        if (c.sys === "puzzleTry" && P[cur] && P[cur].puzzle) { var PZ = story.puzzles[P[cur].puzzle]; cand(PZ.win.to || cur, 0.94); if (PZ.lose && PZ.lose.to) cand(PZ.lose.to, 0.02); return { d: best, fixed: out }; }
+        if (c.sys === "puzzle" && P[cur] && P[cur].puzzle) { var PZ0 = story.puzzles[P[cur].puzzle]; cand(PZ0.win.to || cur, null); if (PZ0.lose && PZ0.lose.to) cand(PZ0.lose.to, null); (PZ0.alt || []).forEach(function (a) { if (a.to) cand(a.to, null); }); return { d: best, fixed: null }; }
+        if ((c.sys === "puzzleTry" || c.sys === "puzzleRecall") && s.puzzle && !s.puzzle.pocket && P[s.puzzle.from] && P[s.puzzle.from].puzzle) { var PZ = story.puzzles[P[s.puzzle.from].puzzle]; cand(PZ.win.to || s.puzzle.from, 0.94); (PZ.alt || []).forEach(function (a) { if (a.to) cand(a.to, 0.97); }); if (PZ.lose && PZ.lose.to) cand(PZ.lose.to, 0.02); return { d: best, fixed: out }; }
         if (c.sys === "battle" && P[cur] && P[cur].battle) { var BB = story.battles[P[cur].battle]; cand(BB.win.to, null); cand(BB.lose.to, null); return { d: best, fixed: null }; }
         if (c.sys) return { d: Infinity, fixed: null };
         var raw = c;
@@ -1241,7 +1259,7 @@
               if (s._extra && MONEY.test(JSON.stringify(pick.c.if || null))) paid = s._paid = true;
               fixed = pick.sc.fixed; calls = 0;
               if (!pick.c.sys) taken[s.node + " | " + pick.c.label] = 1;
-              try { M.choose(story, s, answered(pick.c, s, rnd, fixed == null ? 0.7 : fixed > 0.5 ? 1 : 0)); } catch (e) { break; }
+              try { M.choose(story, s, answered(pick.c, s, rnd, fixed == null ? 0.7 : fixed > 0.96 ? 0.99 : fixed > 0.5 ? 0.95 : 0)); } catch (e) { break; }
               // Spending into the added money: what follows was paid with savings the games did not have.
               if (s._extra && ((s.gold || 0) < extra.gold || (s.food || 0) < extra.food)) paid = s._paid = true;
             }
@@ -1266,10 +1284,14 @@
     }
     // The games read like a reader: on a puzzle, they type the right answer most of the time, a wrong one otherwise.
     // pr: the chance of typing the right answer (a lost game errs more; a targeted search answers as its target needs).
+    // 12.0: a riddle with two right answers (alt): the reader finds the hidden one about one time in two (always when
+    // the search asks for it, pr above 0.95), while it counts.
     function answered(c, s, rnd, pr) {
       if (c.sys !== "puzzleTry" || !s.puzzle) return c;
       var Z = (story.puzzles || {})[s.puzzle.id] || {}, right = [].concat(Z.answer)[0];
       if (Z.kind === "molettes" || Z.kind === "ordre") right = Z.answer;
+      var alts = (Z.alt || []).filter(function (a) { return M.evalCond(story, s, a.if); });
+      if (alts.length && (pr > 0.95 || rnd() < 0.5)) { var A0 = alts[Math.floor(rnd() * alts.length)]; right = Z.kind === "chiffre" ? [].concat(A0.answer)[0] : A0.answer; }
       var wrong = Z.kind === "molettes" ? (Z.wheels || []).map(function (w) { return w[0]; }) : Z.kind === "ordre" ? (Z.pieces || []).map(function (x, i) { return i; }) : "?";
       return Object.assign({}, c, { answer: rnd() < (pr == null ? 0.7 : pr) ? right : wrong });
     }
@@ -1349,6 +1371,8 @@
       if (second) { s.second = {}; M.endingsOf(story).forEach(function (e) { s.second[e.id] = 1; }); }
       // 8.9: in a second reading, the reader has kept some things learned and read some pages in earlier games.
       if (second) { s.lore = {}; Object.keys(story.savoirs || {}).forEach(function (k) { if (rnd() < 0.75) s.lore[k] = 1; }); s.lu = {}; Object.keys(P).forEach(function (k) { if (rnd() < 0.3) s.lu[k] = 1; }); }
+      // 12.0: a second reader remembers some answers found in the first reading (the plain one of each riddle).
+      if (second && story.puzzles) { s.answers = {}; Object.keys(story.puzzles).forEach(function (k) { if (rnd() < 0.5) s.answers[k] = [story.puzzles[k].answer]; }); }
       // 8.3: one game in four, the reader has masked the tender lines.
       if (seed % 4 === 1) s.tendre = "masquer";
       (story.past || []).forEach(function (q) { var a = q.answers[Math.floor(rnd() * q.answers.length)]; try { M.apply(story, s, a.fx); } catch (e) { errs["Ton passé : " + e.message] = 1; } });
@@ -1371,6 +1395,8 @@
         Object.keys(s.guards || {}).forEach(function (k) { guards[k] = 1; });
         if (v.kind === "end") {
           endings[s.node] = (endings[s.node] || 0) + 1;
+          // 12.0, the guarantee of a book read twice: each reading ends on its own ending.
+          if (story.twice) { var want = story.twice[second ? "second" : "first"], got = (M.endingOf(story, s) || {}).id; if (got && got !== want && got !== "fin:" + want) errs["§ " + s.node + " : la " + (second ? "seconde" : "première") + " lecture finit sur « " + got + " », au lieu de « " + want + " » (twice)."] = 1; }
           var lv = M.level(s); levelAtEnd[lv] = (levelAtEnd[lv] || 0) + 1;
           story.quests.forEach(function (q) { if (M.questDone(s, q)) questDone[q.id] = (questDone[q.id] || 0) + 1; });
           return;

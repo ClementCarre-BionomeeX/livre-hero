@@ -566,3 +566,20 @@ Pour « L'Île Folle-Aiguille » (Clément, 17/11 : un grand voyage, des escales
 Le héros du lecteur vu par un autre : dans le chapitre d'un autre personnage, `{joueur}` donne le nom que le lecteur a choisi pour son propre héros, et `{joueur:e}` le « e » de l'accord s'il l'a voulu au féminin (« {joueur} est resté{joueur:e} sur la plage »). Les `{e}` d'un tel chapitre suivent le personnage qu'on lit.
 
 Le validateur refuse une escale sans nom, sans départ ou qu'aucun passage ne porte, une quête d'escale inconnue, un marin absent de `people` ou à penchant hors bornes, un marin inconnu dans un effet ou une condition, une quête `doit` sans source titrée. Test : `node tests/escales-test.js`.
+
+## À lire deux fois (17/11, 12.0) : deux lectures, énigmes en suspens, deux bonnes réponses, réponses gardées
+
+Demande de Clément (17/11) : des histoires courtes à faire deux fois, différentes la seconde fois ; la première lecture dévoile, la seconde reprend avec ce qu'on a appris ; beaucoup d'énigmes, dont certaines dont la clef n'arrive que plus tard. Deux fins suffisent.
+
+| Où | Clé | Sens |
+|---|---|---|
+| `story` | `twice: { first, second, start2, say1, say2, end1, end2 }` | Livre à lire deux fois. La première lecture finit sur la fin `first` ; dès que le lecteur a trouvé une fin du livre, la partie est la seconde lecture : elle commence sur `start2` (sinon `start`) et finit sur `second`. `say1` / `say2` : la ligne dite au début de chaque lecture ; `end1` / `end2` : la note sous la fin (sinon un texte du moteur). |
+| paragraphe, choix, passage | `second: false` / `second: true` | Ce qui n'appartient qu'à la première, ou qu'à la seconde lecture (tag déjà connu, 7.8). Un paragraphe de seconde lecture porte le ✧ dans la marge ; un choix ouvert par elle aussi, tant qu'il n'a pas été pris. |
+| énigme | `alt: [{ id, answer, to, fx, if, say }]` | D'autres bonnes réponses, qui mènent ailleurs (`to`) ou donnent autre chose (`fx`) : le double sens d'une devinette. `if` : quand elle compte (souvent `{ second: true }`). Trouvée, elle pose `enigme:<id>` et `enigme:<id>:<alt>` ; `say` s'écrit dans le fil. |
+| énigme | `carry: true` | Énigme gardée en suspens : ouverte une fois et laissée, elle reste au carnet. De n'importe quelle page, le choix « Reprendre l'énigme en suspens » la rouvre ; résolue là, elle donne son `win.fx` (ou le `fx` d'une autre réponse) et le lecteur reste sur sa page. Sur sa propre page, `win.to` vaut comme d'habitude. Ni `tries` ni `lose`. |
+| passage | `noPocket: true` | Pas de choix « énigmes en suspens » sur cette page (une scène pressante). |
+| appli | réponses gardées | Les bonnes réponses tapées par un lecteur restent dans son profil ; dans une partie suivante, l'énigme propose « Répondre ce que tu sais déjà : « … » » pour chaque réponse qui compte encore. Rien à écrire dans l'histoire. |
+
+Ce que le moteur garantit : la lecture est dite au début de la partie ; la fin dit quelle lecture elle clôt, et le bouton « Commencer la seconde lecture » remplace « Relire » après la première ; la bibliothèque range ces livres sur leur rayon (« À lire deux fois ») et dit où le lecteur en est. Le validateur joue des premières et des secondes lectures et refuse (ERREUR) une première lecture qui finit ailleurs que sur `first`, ou une seconde ailleurs que sur `second` ; il vérifie les autres réponses (id, forme, cible) et les énigmes en suspens (ni essais ni échec). Les parties d'essai trouvent la réponse cachée d'une devinette une fois sur deux, et en seconde lecture se souviennent d'une réponse sur deux.
+
+Genre à déclarer : `enigmes` (« Énigmes ») pour un livre qui en fait son cœur. Exemple de test : `tests/deuxfois-test.js`.
