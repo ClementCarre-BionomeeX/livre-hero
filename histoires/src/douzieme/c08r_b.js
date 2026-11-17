@@ -232,7 +232,7 @@ Object.assign(P, {
       { after: "monde:colin_gueri", text: "Les Veilleurs lui ont noué un ruban au poignet, comme aux autres. *Colin, jardinier de la maison. Entré à sept ans, mourant, sur le dos d'un passant. Guéri. N'a pas voulu repartir.* Tu regardes ses mains, sur le manche de la bêche. Elles sont larges, brunes, et les ongles en sont roses." },
       { after: "monde:colin_gueri", text: "*Dis-moi que j'ai bien fait, ou ne me dis rien.* Tu aurais voulu que {autre} voie ces ongles-là." },
       { before: "monde:colin_gueri", text: "Contre le mur du potager, à gauche de la porte, les sœurs ont leur cimetière : des croix de bois, toutes pareilles, avec un prénom. Au bout du rang, il y en a une plus petite, qui n'est pas d'une religieuse. *Colin. Sept ans. Juin 541.* Quelqu'un avait planté dessus un rosier, qui a été pris en boutons." },
-      { before: "monde:colin_gueri", after: "monde:ecorce_donnee", text: "{autre} a porté ton écorce plus loin, et l'a mise dans d'autres mains. Tu ne sais pas encore lesquelles. Tu sais seulement que ce n'étaient pas celles-ci." },
+      { before: "monde:colin_gueri", after: "monde:ecorce_donnee", text: "{autre} a porté ton écorce plus loin, et l'a mise dans d'autres mains. Tu ignores encore lesquelles. Tu sais seulement que ce n'étaient pas celles-ci." },
     ],
     choices: [{ back: "K08r_cloitre" }] },
 

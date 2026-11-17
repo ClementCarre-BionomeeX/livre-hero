@@ -223,7 +223,7 @@ Object.assign(P, {
       "C'est un grand garçon blond, en tablier vert, un bandeau gris sur les oreilles. Il redescendait. Le coup l'a trouvé un pied en l'air, la main à la corde qui sert de rampe.",
       { if: { has: "monde:corde_coupee" }, text: "Il a un couteau de sellier à la main, court, large. Il y a trois brins de chanvre sur la lame, blonds. Tu regardes le chanvre. Tu regardes le haut de la vis. Tu ne sais pas encore ce qu'il a coupé, et tu le sais déjà : dans cette Tour, il n'y a qu'une chose en chanvre qui vaille un couteau." },
       { if: { has: "monde:corde_entiere" }, text: "Il a les mains vides. Son couteau, s'il en a un, est au fourreau ou ailleurs. Il a sur la figure l'embarras d'un garçon qu'on a envoyé faire une chose et qui redescend sans l'avoir faite." },
-      { if: { not: { any: [{ has: "monde:corde_coupee" }, { has: "monde:corde_entiere" }] } }, text: "Tu ne sais pas ce qu'il est monté faire. Il a la figure d'un garçon qui en redescend." },
+      { if: { not: { any: [{ has: "monde:corde_coupee" }, { has: "monde:corde_entiere" }] } }, text: "Tu ignores ce qu'il est monté faire. Il a la figure d'un garçon qui en redescend." },
       "Il faut le contourner, sur une marche large d'un pied. Tu passes sous son bras. Il est tiède, et il sent la cire.",
       { after: "r:rosee", text: "Tu pourrais lui poser un grain sur la main. Il s'éveillerait dans son silence, sur une marche, devant quelqu'un en sabots, et il n'entendrait pas ta question. Tu gardes ton grain." },
     ],

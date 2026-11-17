@@ -266,7 +266,7 @@ Object.assign(P, {
   K01r_brassac_pris: { act: "I", title: "Cinq écus au sablier", place: "troisnoyers",
     text: [
       "Les écus sont froids. Ils tiennent tous les cinq dans ta paume ; tu t'étonnes qu'une chose pareille pèse si peu.",
-      "« La Ferme-Vieille, répète le capitaine en écrivant. Bien. » Il ne sourit pas, il ne te remercie pas ; il fait un trait dans son carnet, en face d'une ligne, et tu comprends que la ligne, c'est toi, et que le trait ne la raye pas encore. « Tu la mèneras comme convenu. Tu ne changeras rien à tes façons. Quand tu verras nos lanternes, tu te coucheras à plat ventre et tu y resteras. »",
+      "« La Ferme-Vieille, répète le capitaine en écrivant. Bien. » Il se dispense de sourire comme de remercier ; il fait un trait dans son carnet, en face d'une ligne, et tu comprends que la ligne, c'est toi, et que le trait ne la raye pas encore. « Tu la mèneras comme convenu. Tu ne changeras rien à tes façons. Quand tu verras nos lanternes, tu te coucheras à plat ventre et tu y resteras. »",
       "Tu t'éloignes. Cinq écus, cela fait dix nuits de sable, dix nuits à la croix des Hautes-Bordes. Tu te le répètes jusqu'à la porte de l'horlogère, où tu t'aperçois que tu as cessé de compter les nuits et que tu comptes les marches.",
     ],
     choices: [{ label: "Frapper chez l'horlogère", to: "K01r_porte" }] },

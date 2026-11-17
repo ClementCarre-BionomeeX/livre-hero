@@ -25,7 +25,7 @@ Object.assign(P, {
 Object.assign(P, {
   M02: { act: "I", title: "Midi aux quarante horloges", backName: "l'établi de Line", place: "troisnoyers", charniere: true, aparte: true, takes: "noon",
     text: [
-      { first: true, text: "Les quarante horloges de Line sonnent midi ensemble ; de la rue, on croirait qu'une maison entière se racle la gorge. Tu arrives sur le dernier coup. La porte s'ouvre avant que tu l'aies touchée : le capitaine Brassac sort, son carnet à la main. Il vous regarde l'un après l'autre, {autre} et toi, sans un mot, et s'en va vers le puits de son pas égal." },
+      { first: true, text: "Les quarante horloges de Line sonnent midi ensemble ; de la rue, on croirait qu'une maison entière se racle la gorge. Tu arrives sur le dernier coup. La porte s'ouvre avant que tu l'aies touchée : le capitaine Brassac sort, son carnet à la main. Il vous regarde l'un après l'autre, {autre} et toi, et s'en va vers le puits de son pas égal." },
       { first: true, text: "« Il m'a demandé ce que je comptais faire ce soir, dit Line. J'ai répondu : ma soupe. Il a dit qu'il estimait les personnes qui mangent à heure fixe, et qu'il laisserait deux hommes dans la rue pour veiller sur ma digestion. » Elle repousse la porte du pied. « Deux hommes devant. Il a oublié le derrière de la maison, ou il veut que je le croie. Montrez. »" },
       { first: true, text: "Le fil et la clef sont sur l'établi. Line déroule une brasse de fil et la passe entre ses lèvres, comme font les couturières ; puis elle prend la clef et compte du bout de l'ongle les traits de la tige, jusqu'à douze. Elle ne dit pas merci. Elle dit : « Bien », ce qui chez elle est plus rare." },
       { first: true, if: { all: [{ has: "matin:fil" }, { not: { has: "goton:volee" } }] }, text: "Tu lui transmets le pardon de la Goton, pour les dragées. Line reste l'aiguille en l'air. « J'avais neuf ans. Elle en avait plein son tablier, et c'était la noce de sa sœur. » Elle hausse une épaule. « Soixante ans ! Cette femme a une mémoire de créancier. »" },
@@ -170,7 +170,7 @@ Object.assign(P, {
   E_main: { title: "Un d qui recule", back: true, fx: { flag: "monde:su:main" },
     text: [
       "Tu écris ce que la vieille a dit, par le soupirail, la bouche contre le plancher. *IL Y A À LA GUILDE UN NOMMÉ AUBESPIN. REGARDE COMMENT IL ÉCRIT. SON D PENCHE EN ARRIÈRE, COMME UN HOMME QUI RECULE. LA VIEILLE A DEUX LETTRES DE LA MAÎTRISE DES SABLES, À TRENTE-HUIT ANS D'ÉCART, LE PÈRE ET LE FILS. C'EST LA MÊME MAIN.*",
-      "Tu ne sais pas ce que {autre} fera de cela. Tu ne sais pas bien toi-même ce qu'il faut en penser. Tu l'envoies comme on l'a reçu.",
+      "Tu ignores ce que {autre} fera de cela. Tu ne sais pas bien toi-même ce qu'il faut en penser. Tu l'envoies comme on l'a reçu.",
     ] },
   E_remede: { title: "Trois semaines de tisane", back: true, fx: { flag: "monde:su:remede" },
     text: [
@@ -310,12 +310,12 @@ Object.assign(P, {
   B07: { act: "III", title: "Ce que défend le Livre", backName: "la borne", charniere: true, aparte: true, depot: { put: ["borne_abbaye", "cahier"], take: ["cahier"] },
     text: [
       { first: true, if: J, text: "Les bâtons sont venus dans la nuit. *LE MAÎTRE DES SABLES EST ARRIVÉ HIER, AVEC DOUZE VOITURES BÂCHÉES. IL A PARLÉ À LA VIEILLE. IL L'EMMÈNE À MÉRIDANE CE MATIN, DANS SA VOITURE. ELLE VA. ELLE TOUSSE.*" },
-      { first: true, if: J, text: "*Elle tousse.* Tu restes sur ces deux mots plus longtemps que sur les autres. Tu as promis de ne rien dire, et tu ne dis rien ; mais {autre} a des yeux, et les bâtons, par endroits, appuient." },
+      { first: true, if: J, text: "*Elle tousse.* Tu restes sur ces deux mots plus longtemps que sur les autres. Tu as promis de te taire, et tu te tais ; mais {autre} a des yeux, et les bâtons, par endroits, appuient." },
       { first: true, if: J, text: "*ILS ONT PASSÉ LE PONT. JE PASSE DERRIÈRE EUX, PAR UN GUÉ. CE SOIR JE SUIS OÙ TU ES.*" },
       { first: true, if: { all: [J, { has: "j:sait_douzieme" }] }, text: "Tu écris. Tu commences par le Livre, avant tout le reste, de peur qu'il t'arrive quelque chose avant la fin de la page. Tu recopies le chapitre de l'Interdit, mot pour mot, avec la glose. Tu soulignes deux fois la dernière ligne. *À la portée d'un enfant, s'il atteint la corde.*" },
       { first: true, if: { all: [J, { has: "monde:livre_sauve" }] }, text: "Tu écris la nuit : qu'on est venu pour le Livre, et qu'il est sur son lutrin, avec des vis de fer." },
       { first: true, if: { all: [J, { has: "monde:livre_pris" }, { not: { has: "monde:livre_sauve" } }] }, text: "Tu écris la nuit : la chaîne qui pend, la platine, quatre trous. Tu écris qu'il roule vers Méridane, dans un sac fait à sa mesure. Ta plume accroche." },
-      { first: true, if: { all: [J, { has: "j:ecorce_colin" }] }, text: "Tu écris ce que tu as fait de l'écorce. Une ligne. Tu ne t'en excuses pas, et tu ne t'en vantes pas : tu dis le nom du garçon, son âge, et qu'il était assis dans son lit ce matin." },
+      { first: true, if: { all: [J, { has: "j:ecorce_colin" }] }, text: "Tu écris ce que tu as fait de l'écorce. Une ligne. Tu laisses de côté l'excuse comme la vanterie : tu dis le nom du garçon, son âge, et qu'il était assis dans son lit ce matin." },
       { first: true, if: { all: [J, { has: "j:ecorce_gardee" }] }, text: "Tu écris que l'écorce est toujours entre les pages, de ton côté, et pour qui tu la gardes. Tu écris aussi qu'il y avait un garçon de sept ans, à quatre pas, et tu laisses {autre} en penser ce qu'{autre:il} voudra." },
       { first: true, if: J, text: "Puis tu creuses, au pied de la petite sainte, du côté où elle fait de l'ombre à midi." },
       { first: true, if: R, text: "Le cadran de la quatorzième t'a rendu deux pincées. Tu ouvres le Cahier au pied de la borne, sur le quai vide. L'écriture penchée tient trois pages, et elle commence sans bonjour." },
@@ -901,7 +901,7 @@ Object.assign(P, {
   M15: { act: "V", title: "Derrière le grand cadran", backName: "la galerie", charniere: true, aparte: true,
     text: [
       { first: true, if: J, text: "C'est quelqu'un de ton âge, en sabots, une veilleuse au poing, la figure rouge, la bouche ouverte, avec du charbon jusqu'aux coudes et un sachet de cuir qui lui bat la poitrine. Tu l'as vu{autre:e} pour la dernière fois à une table. {autre:Il} avait les mains sous les cuisses, et regardait tout de côté." },
-      { first: true, if: J, text: "{autre} tombe à genoux devant toi, sans un mot. {autre:Il} arrache le sachet de son cou ; le lacet casse. {autre:Il} te prend la main, la retourne, l'ouvre de force, doigt par doigt, et y verse. Tu vois couler les grains. Ils sont gris, fins, et ils sont tièdes : c'est la première chose que tu sens depuis longtemps." },
+      { first: true, if: J, text: "{autre} tombe à genoux devant toi. {autre:Il} arrache le sachet de son cou ; le lacet casse. {autre:Il} te prend la main, la retourne, l'ouvre de force, doigt par doigt, et y verse. Tu vois couler les grains. Ils sont gris, fins, et ils sont tièdes : c'est la première chose que tu sens depuis longtemps." },
       { first: true, if: J, text: "{autre:Il} te referme les doigts dessus, avec les siens, et serre. Ses lèvres remuent. {autre:Il} compte." },
       { first: true, if: J, text: "D'abord revient un bruit : ton cœur. Il était quelque part, très loin, à battre une fois par psaume ; il rentre, il se presse, il te cogne dans la gorge. Puis le souffle. Tu respires comme on sort de l'eau, à pleine poitrine, en toussant. Le gris se retire de tes mains par les ongles. Tes genoux se rappellent qu'ils plient." },
       { first: true, if: J, text: "« T'as le nez qui te gratte ? » dit {autre}." },

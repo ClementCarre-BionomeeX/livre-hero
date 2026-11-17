@@ -280,7 +280,7 @@ Object.assign(P, {
     text: [
       { first: true, text: "La plus belle maison du quai : trois étages de pierre de Saint-Leu, la même que celle du pont, un pignon à redents, un écusson neuf. L'échevin Malestroit est sur l'estrade, avec ses confrères, à répéter son discours. Toute sa maison est à la fête. On a laissé, pour garder, un clerc à lunettes, assis dans le vestibule, la porte ouverte, qui lit." },
       { first: true, if: { has: "j:sait_cabinet" }, text: "Le cabinet est au premier, sur le quai : on voit par la fenêtre un pupitre à cylindre et le haut d'un fauteuil." },
-      { first: true, if: { not: { has: "j:sait_cabinet" } }, text: "Tu ne sais pas au juste ce que tu cherches dans cette maison. Tu sais seulement que le rapport des sondeurs y est passé, il y a huit ans, entre deux portes." },
+      { first: true, if: { not: { has: "j:sait_cabinet" } }, text: "Tu ignores au juste ce que tu cherches dans cette maison. Tu sais seulement que le rapport des sondeurs y est passé, il y a huit ans, entre deux portes." },
       { again: true, text: "La maison à pignon, ses volets clos, le clerc qui lit dans le vestibule." },
     ],
     choices: [

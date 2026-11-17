@@ -111,7 +111,7 @@ Object.assign(P, {
   K02_chevre_perdue: { act: "I", title: "La même bouchée", place: "troisnoyers",
     text: [
       { outcome: "lose", text: "À la septième toise, tes jambes cessent d'être à toi. L'herbe te tient par les chevilles ; l'air se met à peser, et une grande douceur te vient, l'envie de t'asseoir là, près de la chèvre, pour reprendre haleine. Quelque chose te mord la taille : un croc à foin, au bout d'une perche. Le père de Pierrot te ramène comme une botte, en jurant, et te laisse tomber de ce côté-ci de la corde, où tu grelottes en plein soleil." },
-      "Pierrot ne dit rien. Il regarde sa chèvre, qui mettra l'été à finir sa touffe. Son père le prend par l'épaule et l'emmène vers la charrette ; il se retourne tous les dix pas, jusqu'au coin de la grange.",
+      "Pierrot regarde sa chèvre, qui mettra l'été à finir sa touffe. Son père le prend par l'épaule et l'emmène vers la charrette ; il se retourne tous les dix pas, jusqu'au coin de la grange.",
     ],
     choices: [{ label: "Regagner la rue", back: "K02_place" }] },
 });

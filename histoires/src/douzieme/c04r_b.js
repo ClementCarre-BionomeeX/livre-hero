@@ -19,7 +19,7 @@ Object.assign(P, {
     ] },
   K04r_cache: { act: "II", title: "Un trou jusqu'à la nuit", place: "troisnoyers", takes: 4,
     text: [
-      { after: "r:cache_clocher", text: "Anicet t'ouvre la petite porte sans un mot et la referme à double tour. Tu montes. La chambre de l'horloge est fraîche, pleine de son gros pas boiteux. Par les abat-son, tu as toute la rue sous toi, comme une chose dessinée." },
+      { after: "r:cache_clocher", text: "Anicet t'ouvre la petite porte et la referme à double tour. Tu montes. La chambre de l'horloge est fraîche, pleine de son gros pas boiteux. Par les abat-son, tu as toute la rue sous toi, comme une chose dessinée." },
       { after: "r:cache_lubin", text: "Le père Lubin ne tourne pas la tête. « Derrière le rosier. Il y a un cuvier renversé. » Tu t'y glisses. « Si on me demande, reprend-il au bout d'un moment, sans bouger les lèvres, je dirai que je n'ai rien vu. À mon âge, on me croit : c'est même la seule chose qu'on croie. » Entre les douves du cuvier, tu vois le bas de la rue." },
       { after: "r:cache_auberge", text: "Le Cadran sans Aiguille est ouvert à tous les vents. Tu montes au grenier par l'échelle de meunier, tu la tires derrière toi, et tu te couches sous la lucarne, dans une odeur de pommes de l'an passé. De là, tu vois le puits, la rue, et le dos de l'enseigne, qui se balance." },
       "Les heures de l'après-midi sont les plus longues qu'il y ait pour qui se cache. Tu manges ce que tu as. Tu comptes ton sable. Tu regardes, en bas de la rue, les horloges de la vieille rangées contre le mur, toutes arrêtées maintenant, sauf une.",
@@ -28,7 +28,7 @@ Object.assign(P, {
     choices: [{ label: "Regarder le capitaine revenir", to: "K04r_brassac_cave" }] },
   K04r_brassac_cave: { act: "II", title: "Le capitaine mesure", place: "troisnoyers",
     text: [
-      "Vers trois heures, Brassac revient de la lisière, à cheval, avec six hommes. Il met pied à terre devant la maison, écoute le rapport du caporal, et ne dit rien. Il regarde les horloges. Puis il fait le tour de la maison, à pied, lentement, son carnet ouvert.",
+      "Vers trois heures, Brassac revient de la lisière, à cheval, avec six hommes. Il met pied à terre devant la maison, écoute le rapport du caporal, et regarde les horloges. Puis il fait le tour de la maison, à pied, lentement, son carnet ouvert.",
       "Tu le perds de vue derrière le mur du jardin. Tu sais ce qu'il y a là : un auvent, du charbon, un trou carré. Il y reste longtemps.",
       "Quand il reparaît, il tient entre deux doigts quelque chose de noir, qu'il montre au caporal sans colère : un morceau de mie de pain, pétri de suie. Il s'accroupit, et de la main, à plat, il mesure quelque chose au ras du sol. Deux empans. Il se relève, ôte son gant, écrit.",
       "Tu as laissé dans le charbon, ce matin, une empreinte toute fraîche. Tu le sais à la façon dont il lève les yeux et fait le tour des toits du regard, sans hâte, maison par maison, grenier par grenier. Le regard passe sur toi. Il continue.",
@@ -110,7 +110,7 @@ Object.assign(P, {
     text: [
       { after: "r:garde_assomme", text: "Le garde est étendu dans le foin, son casque à côté de lui. Tu lui as pris son sabre et le sable de son sablier ; tu lui laisses le sablier, vide, et tu le traînes jusqu'à la corde, où l'herbe plie encore, pour que ses camarades le retrouvent de ce côté-là du temps. Rouget te regarde faire. « La Courtepaille l'aurait laissé où il est tombé », remarque-t-il. Il n'a pas dit si c'était un reproche." },
       "Les six lanternes s'en retournent vers le village avant minuit. La Garde compte son sable à la pincée ; elle ne le brûle pas toute une nuit pour un sac.",
-      "Vous marchez. La lune se lève sur les prés pris, pâle, et sa lumière y tombe comme une poussière. Tu fais passer Rouget entre les étourneaux, de biais, la main sur sa nuque pour lui baisser la tête. Il ne dit rien. Il regarde les oiseaux, un par un, la bouche ouverte.",
+      "Vous marchez. La lune se lève sur les prés pris, pâle, et sa lumière y tombe comme une poussière. Tu fais passer Rouget entre les étourneaux, de biais, la main sur sa nuque pour lui baisser la tête. Il regarde les oiseaux, un par un, la bouche ouverte.",
       { with: "rouget", text: "« Ils savent qu'ils sont arrêtés ? » demande-t-il enfin, tout bas. Tu réponds que non. Qu'ils sont en train de se poser, et qu'ils en auront fini dans cent ans. Il réfléchit. « Alors ils sont contents. Ils vont se poser. C'est le meilleur moment. » C'est une idée que tu n'avais jamais eue, en six ans." },
     ],
     choices: [
