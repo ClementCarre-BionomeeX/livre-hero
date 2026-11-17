@@ -93,9 +93,9 @@ Object.assign(P, {
   Fur_roquebise: { act: "V", title: "Cinquante ans avant ta porte", place: "foire", ambiance: "ville",
     text: [
       "Tu t'établis à Roquebise. Tu y es allé{e} tout droit, comme une bête à l'écurie.",
-      "La rue des Potiers. La troisième porte après la fontaine est à des gens qui ne te connaissent pas. Tes parents ne sont pas nés. Tu as pour toi tes deux mains, et un nom qu'il vaut mieux ne pas dire : tu en prends un autre, en changeant deux lettres. Tu as connu des gens qui faisaient cela.",
+      "La rue des Potiers. La troisième porte après la fontaine est en chêne, sans peinture : elle attend son bleu. Le potier s'appelle Tiennot, et il te prend pour quelqu'un de la route. Tes parents sont encore à naître. Tu as pour toi tes deux mains, et un nom qu'il vaut mieux ne pas dire : tu en prends un autre, en changeant deux lettres. Tu as connu des gens qui faisaient cela.",
       "On t'embauche à la verrerie, pour porter. On te garde pour tes doigts. Tu apprends la canne, le pontil. Tu fais du verre bleu, parce que c'est le moins cher, puis parce qu'on t'en demande.",
-      "Tu vieillis. Tu as vingt ans, trente. Tu vois arriver dans la rue, une année de foire, une fille de Sainte-Luce qui vient se marier chez un potier. Elle s'appelle Lison Tiennot. Elle a ton menton. Tu lui vends six gobelets, sans pouvoir rien ajouter, et tu la regardes monter la côte avec. C'est ta grand-mère. Elle a vingt ans de moins que toi.",
+      "Tu vieillis. Tu as vingt ans, trente. Tu vois grandir, à la troisième porte, la fille de Tiennot. Elle avait six mois, dans un panier, l'année où tu es arrivé{e}. Elle s'appelle Lison. Elle a ton menton. À vingt-trois ans, elle épouse un Bordier de la rue Haute, qui vient tourner chez son beau-père. Tu leur vends six gobelets pour la noce, sans pouvoir rien ajouter. C'est ta grand-mère. Tu as seize ans de plus qu'elle, et tu l'as connue vieille, à écosser des pois.",
       "{autre} est aux Trois-Noyers, à une journée. Vous vous voyez aux foires. Vous vous écrivez par des rouliers. Tu apprends le penché, à trente ans passés, d'une veuve de la rue Haute, contre du bois fendu.",
       "Tu sais la date. Tu la sais depuis toujours. La nuit du Bond : le quatorze octobre 595. Tu la portes comme un caillou dans un sabot, cinquante-quatre ans, en marchant dessus.",
     ],
@@ -133,7 +133,7 @@ Object.assign(P, {
     text: [
       "Tu rentres à Roquebise avec de la poussière de trois provinces sur le dos. La verrerie t'a gardé ta place. On y a su l'affaire de l'abbaye par un roulier ; on te regarde autrement, et l'on te paie pareil.",
       "Les années vont. Tu as quarante-sept ans, une canne à toi, un four où l'on te laisse seul{e}. Tu souffles du bleu. Tu siffles en soufflant, entre deux cueillages, sans y penser : deux notes, une haute, une basse. Tu les as toujours eues dans la bouche. Elles te venaient de ton père, qui les sifflait en bas, en tournant ses pots.",
-      "Derrière le mur de la cour, il y a le jardin du potier de la troisième porte. Un garçon de huit ans y garde les oies, avec une baguette, et un sérieux de sergent. C'est le fils de la Tiennot. Il a les oreilles décollées, et l'habitude de s'arrêter net quand un bruit lui plaît.",
+      "Derrière le mur de la cour, il y a le jardin du potier de la troisième porte. Un garçon de huit ans y garde les oies, avec une baguette, et un sérieux de sergent. C'est le petit Bordier, le fils de Lison. Il a les oreilles décollées, et l'habitude de s'arrêter net quand un bruit lui plaît.",
       "Un matin, tu l'entends par-dessus le mur. Deux notes. Une haute, une basse. Il les essaie, il les manque, il les reprend, et à la troisième fois il les tient.",
       "Ta canne s'arrête. La paraison s'affaisse au bout, tiède, perdue. Tu restes là, le fer en l'air, devant un four qui ronfle.",
       "Tu tenais cet air de ton père. Ton père a huit ans, des oies, et il vient de l'apprendre de toi.",
