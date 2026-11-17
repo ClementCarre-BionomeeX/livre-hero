@@ -64,6 +64,7 @@ module.exports = {
       ] },
     C5b_fin: { act: "V", title: "Sous les Puits", branch: [
       { if: played("V.2", "mousse"), to: "C5b_fin_v" },
+      { if: { has: "mousse:otage" }, fx: { flag: ["m5b:defaut", "mousse:libere"] }, to: "C5b_fin_v" },
       { fx: { flag: "m5b:defaut" }, to: "C5b_fin_v" },
     ] },
     C5b_fin_v: { act: "V", title: "Sous les Puits", branch: [
