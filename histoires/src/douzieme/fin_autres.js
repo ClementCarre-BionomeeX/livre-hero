@@ -112,7 +112,48 @@ Object.assign(P, {
       { first: true, text: "« Elles y étaient, chez toi ? — Oui. Toutes. — Et les trente charrettes ? » L'autre réfléchit. « On disait qu'il manquait les livres. Personne savait pourquoi. » Vous regardez descendre la route trente charrettes de gens qui vivront. C'est tout ce que vous avez changé. C'était peut-être déjà compté." },
       { again: true, text: "La colline, en face de l'abbaye grise." },
     ],
-    choices: [{ label: "L'an 575 : Arvoise", fx: { flag: "monde:f_abbaye_sortie" }, to: "Fu_575", big: true }] },
+    choices: [
+      { label: "Le retour, et le cahier de toile", hide: R, fx: { flag: "monde:f_abbaye_sortie" }, to: "Fuj_toile", big: true },
+      { label: "Le retour, et la verrerie", hide: J, fx: { flag: "monde:f_abbaye_sortie" }, to: "Fur_air", big: true },
+    ] },
+
+  Fuj_toile: { act: "V", title: "Un savoir sans père", place: "basse", ambiance: "champs",
+    text: [
+      "Line a vingt-trois ans. Elle t'attend sur le seuil de l'appentis, son cahier ouvert. Elle écrit sous ta dictée : *abbaye, vingt et un juin, à sexte. Le chœur est resté. Trente charrettes.* Elle coche. Elle souligne *trente*, deux fois, d'un trait qui mord la toile.",
+      "« Trente charrettes, c'est trente charrettes, dit-elle. Tu fais la tête de quelqu'un qui n'a rien sauvé. Compte mieux. »",
+      "Puis elle pousse le cahier, et elle pose sur l'établi une aiguille courbe, un écheveau, deux rectangles de toile bise. « À présent, les autres Cahiers. Ceux qui se répondent. Tu en as tenu un pendant neuf jours. Dis-moi comment il était fait. »",
+      "Tu dis ce que tu sais. C'est peu. Vingt-quatre feuillets. Une couture au fil gris, à points serrés, qui tenait du sable dans le pli. Ce qu'on écrivait dans l'un venait dans l'autre, à l'endroit des bornes. Elle note tout. Elle lève le nez.",
+      "« Et qui te l'avait cousu ? — Toi. — Et moi, de qui je le tenais ? » Tu ouvres la bouche. Tu la refermes. Elle le tenait de quelqu'un qui le lui avait décrit sur un établi, un soir de juin, en comptant les feuillets sur ses doigts.",
+      "Elle pose l'aiguille. Line a de l'ordre, et cette généalogie lui déplaît : un savoir sans père ni mère, qui tourne sur lui-même comme un chien après sa queue. Elle le regarde tourner un moment. Puis elle hausse une épaule, et elle enfile le fil gris.",
+      "« Tant pis pour la façon dont cela commence. J'ai quarante-six ans devant moi pour trouver comment cela marche. » Elle pique. « Tu tiendras la toile. Tu as tenu pire. »",
+    ],
+    choices: [{ label: "L'an 572 : la foire de la Saint-Michel", to: "Fu_foire", big: true }] },
+
+  Fur_air: { act: "V", title: "Deux notes, par-dessus un mur", place: "foire", ambiance: "ville",
+    text: [
+      "Tu rentres à Roquebise avec de la poussière de trois provinces sur le dos. La verrerie t'a gardé ta place. On y a su l'affaire de l'abbaye par un roulier ; on te regarde autrement, et l'on te paie pareil.",
+      "Les années vont. Tu as quarante-sept ans, une canne à toi, un four où l'on te laisse seul{e}. Tu souffles du bleu. Tu siffles en soufflant, entre deux cueillages, sans y penser : deux notes, une haute, une basse. Tu les as toujours eues dans la bouche. Elles te venaient de ton père, qui les sifflait en bas, en tournant ses pots.",
+      "Derrière le mur de la cour, il y a le jardin du potier de la troisième porte. Un garçon de huit ans y garde les oies, avec une baguette, et un sérieux de sergent. C'est le fils de la Tiennot. Il a les oreilles décollées, et l'habitude de s'arrêter net quand un bruit lui plaît.",
+      "Un matin, tu l'entends par-dessus le mur. Deux notes. Une haute, une basse. Il les essaie, il les manque, il les reprend, et à la troisième fois il les tient.",
+      "Ta canne s'arrête. La paraison s'affaisse au bout, tiède, perdue. Tu restes là, le fer en l'air, devant un four qui ronfle.",
+      "Tu tenais cet air de ton père. Ton père a huit ans, des oies, et il vient de l'apprendre de toi.",
+      "Le maître verrier te crie que le verre coûte. Tu recueilles. Tu souffles. Tu ne siffles plus de la journée, ce qui ne change rien : de l'autre côté du mur, on siffle pour deux.",
+    ],
+    choices: [{ label: "L'an 572 : la foire de la Saint-Michel", to: "Fu_foire", big: true }] },
+
+  Fu_foire: { act: "V", title: "Par la porte des chansons", backName: "la foire", place: "foire", ambiance: "ville", charniere: true, aparte: true,
+    text: [
+      { first: true, text: "La Saint-Michel, au carrefour des deux routes. Vous avez quarante-sept ans. Vous tenez chacun un bout de la même table, sous l'auvent d'un cabaretier qui vous connaît : l'un vend des montres réglées, l'autre du verre bleu, et vous arrivez la veille pour avoir le coin." },
+      { first: true, text: "On se dit l'année. Elle tient en peu de mots, à vos âges. Une gelée annoncée à temps, trois vergers sauvés. Un bailli qui a fait recopier vos dates, et qui les garde sous clef, par prudence, comme on garde un poison dont on pourrait avoir besoin." },
+      { first: true, text: "Au milieu du champ de foire, un chanteur est monté sur un tonneau. Il a une toile peinte, une baguette, et une complainte en vingt couplets : *Les deux fêlés de l'abbaye.* Vous écoutez, le gobelet à mi-chemin." },
+      { first: true, text: "C'est vous. On vous a donné une bosse à chacun, une charrette de feu, et un âne qui parle latin. Au douzième couplet, vous annoncez la fin du monde à une prieure qui vous bénit. Au quinzième, on vous lapide, ce qui est exact, avec trois ans d'avance. La foule reprend le refrain." },
+      { first: true, if: J, text: "{autre} rit dans son gobelet, sans bruit, des épaules. « L'âne, dit-{autre:il}. J'aurais voulu l'âne. » Puis {autre:il} cesse de rire, d'un coup. « Je la connais, cette complainte. On la chantait au camp, quand j'avais dix ans. J'en savais le refrain avant de savoir lire. »" },
+      { first: true, if: R, text: "Tu ris dans ton gobelet, des épaules. L'âne te plaît. Puis le refrain revient, et tu cesses de rire. Tu le connais. On le chantait au camp, quand tu avais dix ans, autour d'un feu de planches volées. Tu en savais les paroles avant de savoir lire. Tu le dis à {autre}." },
+      { first: true, text: "On entre donc dans la Chronique par la porte des chansons, qui est la moins bien gardée. Vous descendez du banc. Vous allez au tonneau. Pour six sous, le chanteur ajoute un couplet, que vous lui dictez : il y est question d'un pont, d'une troisième arche, et du vingt et un juin de l'an 575." },
+      { first: true, text: "Il trouve la rime mauvaise. Il la chante quand même : on l'a payé. Trois ans plus tard, dans Arvoise, des gens qui n'avaient jamais voulu vous entendre savaient le couplet par cœur." },
+      { again: true, text: "Le champ de foire, à la Saint-Michel. Le tonneau, la toile peinte, le refrain." },
+    ],
+    choices: [{ label: "L'an 575 : Arvoise", to: "Fu_575", big: true }] },
 
   Fu_575: { act: "V", title: "Un pont, et ceux qui restent dessus", backName: "Arvoise", place: "foire", ambiance: "eau", charniere: true,
     text: [
@@ -124,6 +165,44 @@ Object.assign(P, {
       { first: true, text: "Le vingt et un juin, vous êtes sur la rive d'en face. Il y a du monde sur le pont : des gens qui ont attendu le dernier moment, avec des matelas. Le gris vient par l'orient. Il passe sur les halles, sur le quai, sur le pont. Il s'arrête à la troisième arche. Ceux qui avaient passé la troisième arche courent encore. Les autres ont un pied en l'air." },
       { first: true, text: "« J'ai marché sur ce pont, dit l'un de vous. Entre eux. — Je sais. Je les ai vus partir de l'autre bout. » Vous vous taisez. Vous avez cinquante ans, des cheveux gris, et l'habitude de cette phrase : *je sais.*" },
       { again: true, text: "La rive, en face d'Arvoise. Le pont est gris jusqu'à la troisième arche." },
+    ],
+    choices: [
+      { label: "L'an 583 : le roulier du jeudi", hide: R, to: "Fuj_lettre", big: true },
+      { label: "L'an 583 : le roulier du mardi", hide: J, to: "Fur_lettre", big: true },
+    ] },
+
+  Fuj_lettre: { act: "V", title: "Du vrai papier, qui met quatre jours", place: "basse", ambiance: "champs",
+    text: [
+      "Le roulier de Roquebise passe le jeudi. Il te tend le pli par-dessus sa roue, sans descendre, et il réclame ses deux sous d'avance, par principe. C'est toi qui paies les lettres d'{autre}, depuis quarante ans ; {autre:il} paie les tiennes. Vous avez trouvé cela plus sûr que d'affranchir.",
+      "Tu la lis sur le seuil, à bout de bras, parce que tes yeux ont pris de l'âge avant le reste.",
+      "*« J'ai cinquante-huit ans depuis mardi. On m'a fait une tarte. Le fils Bordier a repris la troisième porte ; il tourne mieux que son père, et il siffle en bas. Il s'est marié à la Saint-Jean avec une Lise, de Sainte-Luce, qui a des yeux à voir à travers les murs. Je leur ai soufflé douze gobelets. J'ai essayé de les vendre. Je les ai donnés. On me trouve bien honnête, pour quelqu'un de la verrerie. »*",
+      "*« Il me reste douze ans. J'ai cessé de compter les foires : je compte ça. Dis à ta Line que son fil gris se trouve chez un mercier d'Arvoise, qui a déménagé à temps. Je mets l'adresse au dos. Ta lettre de Pâques a mis neuf jours. Le roulier l'avait bue. »*",
+      "Tu lis deux fois. {autre} écrit le penché comme on marche dans des souliers neufs : droit, et en y pensant. Tu sais ce que c'est que cette Lise, et quel enfant elle aura dans deux ans, rue des Potiers, à la troisième porte. {autre} le sait mieux que toi. {autre:Il} leur a fait des gobelets.",
+      "Tu réponds le soir même. Tu mets longtemps. Il y a des lettres où l'on parle de son genou parce que le reste tient mal sur une page.",
+    ],
+    choices: [{ label: "L'an 591 : une autre foire", to: "Fu_bille", big: true }] },
+
+  Fur_lettre: { act: "V", title: "Le doigt sous la ligne", place: "foire", ambiance: "ville",
+    text: [
+      "Le roulier des Trois-Noyers passe le mardi. Il te jette le pli sur l'étal, entre deux fioles, en réclamant ses deux sous. C'est toi qui paies les lettres d'{autre}, depuis quarante ans ; {autre:il} paie les tiennes. Tu as volé assez de monde pour savoir qu'un port payé d'avance arrive une fois sur deux.",
+      "Tu la lis à la gueule du four, où l'on y voit, lentement, le doigt sous la ligne.",
+      "*« Line a cinquante et un ans, et elle se porte comme un pont. Elle a cousu son neuvième Cahier d'essai. Les huit premiers étaient restés muets : on écrivait dans l'un, l'autre gardait son blanc, et elle les a brûlés un à un, sans un mot, dans le poêle. Le neuvième a rendu une lettre. Une seule. Un A, pâle, de travers, au bout d'une nuit. Elle l'a regardé comme d'autres regardent un enfant qui fait trois pas. Puis elle a déclaré que c'était mal cousu, et elle a tout défait. »*",
+      "*« On me demande pour l'horloge d'une halle, chez les gens d'Arvoise qui ont rebâti plus haut. J'irai. Mon genou gauche m'annonce la pluie : je la sais donc deux fois. Il te reste douze ans. Je compte aussi. Je serai à la foire, au bout de la table. »*",
+      "Tu plies la lettre. Tu la ranges avec les autres, dans la caisse aux cannes : il y en a quarante ans, ficelées par dix. Tu as passé ta jeunesse à prendre dans des maisons où personne n'écrivait plus à personne. Tu es aujourd'hui, de toute la butte, la personne qui reçoit le plus de courrier.",
+      "Un A. Tu penses à une borne, sur une route grise, où un A viendra un jour en penché, et où quelqu'un de seize ans répondra en bâtons. Tu souffles ta paraison. Elle vient ronde.",
+    ],
+    choices: [{ label: "L'an 591 : une autre foire", to: "Fu_bille", big: true }] },
+
+  Fu_bille: { act: "V", title: "Un liard de verre bleu", backName: "l'étal", place: "foire", ambiance: "ville", charniere: true,
+    text: [
+      { first: true, text: "La Saint-Michel encore, dix-neuf foires plus tard. Vous avez soixante-six ans. Le cabaretier est mort ; son gendre vous garde le coin. Il vient moins de monde : la lisière est à trois lieues du carrefour, et l'on achète peu de vaisselle quand on compte déménager." },
+      { first: true, if: R, text: "Tu as ton étal de verre. Des gobelets, des fioles, et, dans une sébile, des billes bleues, que tu fais avec les fonds de pot : un liard pièce. Les enfants les regardent de loin. Vers le soir, une femme s'arrête. Jeune, maigre, un fichu, un petit de cinq ans à califourchon sur la hanche. Elle marchande une écuelle. Elle la trouve chère. Le petit a vu la sébile, et il ne la quitte plus des yeux." },
+      { first: true, if: R, text: "Elle compte ses sous deux fois. Elle repose l'écuelle. Elle prend une bille, une seule, la plus ronde, et elle paie son liard avec la figure de quelqu'un qui fait une folie. Tu glisses l'écuelle dans son panier pendant qu'elle noue sa bourse. Tu fais souvent cela, en fin de foire : c'est ton ancien métier, à l'envers." },
+      { first: true, if: J, text: "Tu règles une montre, à ton bout de table, la loupe à l'œil. À l'étal d'{autre}, une femme marchande : jeune, maigre, un fichu, un petit de cinq ans sur la hanche. Tu lèves la tête sans savoir pourquoi. Elle a une façon de pencher le front pour compter ses sous qui te dérange, comme un mot qu'on a sur la langue. Elle achète une bille de verre. Elle s'en va par la route de Vauxelles." },
+      { first: true, if: J, text: "« Tu la connais ? » demande {autre}. Tu dis non. C'est vrai. Tu reprends ta montre, et tu mets, ce soir-là, deux fois plus longtemps à trouver un pivot faussé." },
+      { first: true, if: R, text: "{autre} a levé le nez de sa montre, et l'a suivie des yeux jusqu'au tournant. Tu demandes : « Tu la connais ? » {autre:Il} dit non. {autre:Il} met, ce soir-là, deux fois plus longtemps à régler une montre qui n'avait rien." },
+      { first: true, text: "On plie les étals à la nuit. On se dit : à l'an prochain. On se le dit depuis cinquante ans, et l'on sait l'un et l'autre qu'il reste peu de foires avant les dates qu'on porte." },
+      { again: true, text: "Le carrefour, à la Saint-Michel. L'étal de verre, la sébile aux billes." },
     ],
     choices: [
       { label: "L'an 592 : la route de Vauxelles", hide: R, to: "Fuj_borne", big: true },
@@ -158,7 +237,20 @@ Object.assign(P, {
       { before: "j:f_mere_retenue", text: "« À moi, donc », dit Line. Elle le charge. Elle ne t'a pas vu{e}. Ou elle t'a vu{e}, et elle a compris ce que tu faisais là, et elle t'a laissé{e} derrière ta haie, par égard. Tu ne le lui demanderas jamais." },
       "Tu sais à présent de qui tu étais. Tu le sais seul{e}. Tu n'en diras rien à {autre} avant la foire d'automne, et encore : en regardant ailleurs.",
     ],
-    choices: [{ label: "L'an 601", fx: { flag: "monde:f_mere_passee" }, to: "Fu_601", big: true }] },
+    choices: [{ label: "Le lendemain, et les jours d'après", fx: { flag: "monde:f_mere_passee" }, to: "Fuj_porte", big: true }] },
+
+  Fuj_porte: { act: "V", title: "Le seuil de l'atelier", place: "basse", ambiance: "champs",
+    text: [
+      "Line t'avait prévenu{e}, dès le printemps, avec sa netteté ordinaire. « Le jour où j'ai un enfant chez moi, vous ne passez plus mon seuil, ni toi ni l'autre. Il aura ta figure à seize ans. Il suffit d'un grand soleil et d'un voisin qui a des yeux. »",
+      { before: "j:f_mere_retenue", text: "Tu la vois rentrer de Vauxelles, le lendemain soir, par le chemin creux. La carriole va au pas. Il y a, sur le siège, à côté d'elle, quelque chose de petit sous une couverture, qui tient une cuiller. Elle passe devant ta haie sans tourner la tête. Elle a soixante ans, les guides hautes, et l'air de quelqu'un qui ramène enfin chez soi une chose commandée depuis longtemps." },
+      { before: "j:f_mere_retenue", text: "Le soir, il y a de la lumière à l'atelier. Tu t'approches jusqu'au puits. Par la fenêtre, on voit une table, une écuelle, et un enfant qui dort dessus, la joue dans le bras. Line lui ôte la cuiller des doigts. Il la reprend en dormant. Elle la lui laisse." },
+      { before: "j:f_mere_retenue", text: "Elle vient à la porte. Elle sait que tu es là : elle a toujours su où tu étais. Elle ne sort pas. Elle pousse le verrou, doucement, pour que tu l'entendes. Tu l'entends. C'est la porte de ta propre enfance qu'on te ferme au nez, et tu trouves cela juste." },
+      { after: "j:f_mere_retenue", text: "Elle est partie pour Vauxelles avant le jour, dans sa carriole, comme tu le lui avais dit trente ans plus tôt. Vous avez dû vous croiser dans la nuit, toi par les champs, elle par la route. Tu pourrais repartir, la rattraper, lui crier que la borne est vide. Tu as soixante-sept ans, et tu découvres que tu es lâche d'une lâcheté toute neuve, que tu ne te connaissais pas." },
+      { after: "j:f_mere_retenue", text: "Elle rentre au bout de trois jours. La carriole va au pas. Le siège, à côté d'elle, est vide ; elle y a posé une couverture pliée, qui n'a pas servi. Elle passe devant ta haie sans tourner la tête. Elle a soixante ans, les guides hautes, et tu ne lui avais jamais vu ce dos-là." },
+      { after: "j:f_mere_retenue", text: "Tu gardes sa défense quand même. Tu ne passes plus son seuil. Il n'y a personne chez elle à protéger de ta figure ; tu t'en protèges toi. Il y a de la lumière à l'atelier, tard, tous les soirs de cet hiver : elle coud." },
+      "Tu loues une chambre au bourg voisin. Tu y règles des montres neuf ans, devant une fenêtre qui donne sur le gris.",
+    ],
+    choices: [{ label: "L'an 601", to: "Fu_601", big: true }] },
 
   Fur_bond: { act: "V", title: "Le quatorze octobre", place: "foire", ambiance: "ville",
     text: [
@@ -187,7 +279,23 @@ Object.assign(P, {
       { before: "r:f_lison_sortie", text: "Tu as couru. Tu es au calvaire, à dix pas du bord, les mains aux genoux. En bas, la rue est grise. Tu sais à présent pourquoi elle s'était retournée. Tu l'avais vue ainsi, à seize ans, dans une pincée : tournée vers la vitre, comme si on l'avait appelée. On l'avait appelée." },
       "Tu redescends par l'autre versant, au matin. Tu n'en diras rien à {autre} avant la foire, et encore : en regardant ailleurs.",
     ],
-    choices: [{ label: "L'an 601", fx: { flag: "monde:f_bond_passe" }, to: "Fu_601", big: true }] },
+    choices: [{ label: "Le dimanche, sur la route de Sainte-Luce", fx: { flag: "monde:f_bond_passe" }, to: "Fur_dimanche", big: true }] },
+
+  Fur_dimanche: { act: "V", title: "Quelqu'un de dix ans", place: "foire", ambiance: "champs",
+    text: [
+      "Le dimanche, tu es au calvaire avant le jour. Tu sais par où l'on vient de Sainte-Luce, et à quelle heure : après la première messe, par le raidillon, en coupant à travers la vigne du Roux, ce qui est défendu.",
+      "Quelqu'un vient par la vigne. Dix ans, des jambes de sauterelle, un baluchon, du foin dans les cheveux. Cela siffle deux notes en marchant, et cela se retourne à chaque bruit, par précaution. Tu avais oublié combien tu étais maigre.",
+      "L'enfant arrive en haut de la côte. La rue des Potiers est en bas. Elle est grise, des fours à la fontaine, avec ses fumées debout.",
+      { after: "r:f_lison_sortie", text: "Tu te lèves. Tu as la petite contre toi, roulée dans sa couverture, qui suce le bec de son oiseau de terre. Tu appelles, par le nom. L'enfant se retourne. Il voit sa rue ; puis il voit sa sœur. Il court. Il te l'arrache presque, et il la serre, à l'étouffer, en te regardant par-dessus elle avec des yeux de bête." },
+      { after: "r:f_lison_sortie", text: "« Et papa ? Et maman ? » Tu dis ce qui est. Tu le dis debout, sans détour, comme tu aurais voulu qu'on te le dise. Il écoute. Il ne pleure pas devant toi : tu savais qu'il attendrait la vigne. « T'es de la verrerie, dit enfin l'enfant. Les billes. » Tu dis oui. « Pourquoi t'étais chez nous, la nuit ? — Je passais. »" },
+      { after: "r:f_lison_sortie", text: "Il ne te croit pas. Il n'insiste pas : il a une sœur sur les bras, et l'oncle à prévenir. Il repart par le raidillon, penché en arrière sous le poids. Lison te regarde, par-dessus son épaule, jusqu'au tournant. Elle agite son sifflet." },
+      { after: "r:f_lison_sortie", text: "Ce que tu as voulu faire toute ta vie, tu viens de le regarder faire par quelqu'un d'autre, qui porte ton nom et qui te prend pour une personne de la rue. Tu t'assois sur la marche du calvaire. Tu as soixante-dix ans. Tu pleures, toi, sans attendre la vigne." },
+      { before: "r:f_lison_sortie", text: "Tu es derrière le calvaire. Tu ne te montres pas. L'enfant voit sa rue. Il lâche le baluchon. Il descend en courant jusqu'au bord, et là il s'arrête, les orteils au ras du gris, parce qu'on lui a appris depuis toujours où l'on s'arrête." },
+      { before: "r:f_lison_sortie", text: "Il crie un nom. Il le crie longtemps. Puis il siffle : deux notes, une haute, une basse, vers une vitre sous un toit. Rien ne vient à la porte. Tu as ces deux notes dans la bouche, toi aussi, depuis l'autre nuit, et tu sais ce qu'elles ont fait." },
+      { before: "r:f_lison_sortie", text: "Il remonte à la nuit. Sur la marche du calvaire, il trouve une miche, un fromage, une couverture pliée, et une bille de verre bleu. Il regarde autour de lui. Il prend tout, vite, avec ces gestes que tu lui connais. Tu t'étais demandé soixante ans qui avait posé cela. Tu avais conclu à une dévote." },
+      { before: "r:f_lison_sortie", text: "Il s'en va vers les fossés, la couverture sur le dos. Tu le laisses aller. Tu sais chacun des hivers qui l'attendent, et tu les lui dois tous." },
+    ],
+    choices: [{ label: "L'an 601", to: "Fu_601", big: true }] },
 
   // ----- 601
   Fu_601: { act: "V", title: "Soixante-seize ans", backName: "la lisière", place: "basse", ambiance: "champs", charniere: true, aparte: true,

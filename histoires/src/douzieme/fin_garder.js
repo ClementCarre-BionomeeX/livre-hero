@@ -154,6 +154,9 @@ Object.assign(P, {
       { label: "Les tréteaux du Mystère", hide: { seen: "Fg_treteaux" }, to: "Fg_treteaux" },
       { label: "Une hotte, au bord de la place", hide: { seen: "Fg_hotte" }, to: "Fg_hotte" },
       { label: "La rue de trois couleurs, en ville basse", hide: { seen: "Fg_tannerie" }, to: "Fg_tannerie" },
+      { label: "Les toits, par l'échelle du couvreur", hide: { seen: "Fg_toits" }, to: "Fg_toits" },
+      { label: "Une cour, et une marelle", hide: { seen: "Fg_marelle" }, to: "Fg_marelle" },
+      { label: "Le cabaret du Compas d'Or", hide: { seen: "Fg_cabaret" }, to: "Fg_cabaret" },
       { label: "La colline des Jurés, et le cabinet du Grand Maître", hide: { seen: "Fg_guilde" }, to: "Fg_guilde" },
       { label: "La Cage, tout en haut, à deux", hide: { seen: "Fg_cloche" }, to: "Fg_cloche" },
       { label: "Éveiller la Reine, pour une pincée", hide: { seen: "Fg_q_reine" }, to: "Fg_q_reine" },
@@ -161,6 +164,40 @@ Object.assign(P, {
       { label: "Éveiller quelqu'un de la foule, au hasard", hide: { seen: "Fg_q_becu" }, to: "Fg_q_becu" },
       { label: "S'asseoir à la fontaine, et décider", to: "Fg_conseil", big: true },
     ] },
+
+  Fg_toits: { act: "V", title: "Sous un chapeau", place: "tour", ambiance: "ville",
+    text: [
+      "On monte sur les toits par l'échelle d'un couvreur, restée contre la maison du cirier. Le couvreur est en haut, à cheval sur le faîte, une ardoise dans une main, le marteau levé dans l'autre. Il aura eu la plus belle place de la ville pour le douzième coup, et il lui tournait le dos.",
+      "Vous vous asseyez à côté de lui, les sabots dans la gouttière. D'ici, on voit tout. Les toits, par milliers, en écailles. Les fumées debout, chacune sur sa cheminée, comme des fils à plomb qu'on aurait tendus vers le haut. La Tour. Le canal, avec une gabare, et le haleur penché.",
+      "Le gris finit net, à une lieue, tout autour : une tache d'huile sur une nappe. Passé le bord, la plaine est blonde, et elle remue. On voit le vent courir dans les blés jusqu'au pied des peupliers, et s'arrêter là, comme un chien à une porte.",
+      { if: R, text: "Tu n'avais jamais vu la Dormante que de son bord, à plat, comme on voit un mur. D'ici, elle est ronde, et petite. Tu la tiendrais sous un chapeau. Chez toi, elle a mangé dix lieues ; elle a mangé ta rue. Tu la regardes, à son premier jour, et tu sais que tant que la note tient elle restera de cette taille. Vous êtes assis sur le couvercle." },
+      { if: J, text: "{autre} regarde le rond, longtemps, le menton sur les genoux. « Elle tient sous un chapeau », dit-{autre:il}. Chez {autre:lui}, elle a mangé dix lieues, et une rue où il y avait une porte. « Tant que ça sonne, elle reste comme ça. » {autre:Il} tape l'ardoise, du talon. « On est assis sur le couvercle. »" },
+      "Le couvreur a un casse-croûte dans sa poche de tablier : on en voit dépasser le linge. Vous le laissez. C'est le seul habitant de Méridane qui ait de quoi déjeuner à son réveil, et il l'aura mérité.",
+    ],
+    choices: [{ back: "Fg_ville" }] },
+
+  Fg_marelle: { act: "V", title: "Du un au ciel", place: "basse", ambiance: "ville",
+    text: [
+      "Dans une cour de la ville basse, entre un puits et un tas de fagots, il y a six enfants et une marelle. Elle est tracée à la craie, du un au ciel, avec des chiffres qui penchent. Une petite est en l'air au-dessus du sept, sur un pied, les bras en ailes, la langue entre les dents. Son palet l'attend au huit. Les cinq autres la regardent tomber, ce qui n'arrive pas.",
+      { if: R, text: "Tu connais le jeu. Lison y trichait, à cinq ans, avec une bonne foi entière : elle posait le second pied, et jurait que c'était le vent. Tu montres à {autre}. On lance, on saute, on ramasse sur une jambe, on revient. {autre} t'écoute avec le sérieux qu'{autre:il} met à un rouage. {autre:Il} n'y avait jamais joué. Tu trouves cela plus triste que tout ce que tu as vu de gris." },
+      { if: J, text: "Tu n'y avais jamais joué. Chez Line, on jouait à remonter des barillets, et l'on perdait souvent. {autre} te montre. On lance, on saute, on ramasse sur une jambe, on revient. Sa petite sœur y trichait, dit-{autre:il}, avec une bonne foi entière : elle posait le second pied, et jurait que c'était le vent." },
+      "Vous jouez. Deux personnes de seize ans, en sabots, qui ont une ville sur les bras et un mot à trouver, sautent à cloche-pied entre des enfants gris, en prenant garde aux traits. Cela coûte du sable. C'est la seule dépense de la journée que vous passez sans la compter.",
+      "L'un de vous arrive au ciel. L'autre conteste, et parle de vent.",
+      "En partant, on laisse un palet sur le neuf : un bouton de corne, arraché à une manche. La petite le trouvera en retombant, si elle retombe jamais, et elle accusera son frère.",
+    ],
+    choices: [{ back: "Fg_ville" }] },
+
+  Fg_cabaret: { act: "V", title: "Trois dés en l'air", place: "tour", ambiance: "ville",
+    text: [
+      "Le cabaret du Compas d'Or a sa porte ouverte et sa salle pleine : on y buvait en attendant midi, pour avoir moins loin à aller. Vingt buveurs, le nez à la fenêtre, la chope à mi-course. La servante porte un plateau de biais. Six gobelets y tiennent encore, par habitude ; le septième a pris les devants, et il est à mi-chemin du carreau, son vin en gerbe au-dessus de lui.",
+      "À la table du fond, on joue. Trois dés sont en l'air au-dessus du drap. Quatre hommes les regardent. Un cinquième regarde les quatre.",
+      { if: R, text: "Tu lis un coup de dés avant qu'il tombe : c'est une science de fossé, la seule que tu aies apprise sans maître. Deux, deux et un. Une misère. Tu lis aussi le cinquième homme. Il a le coude sur la table, la manche large, et dans la manche trois dés de rechange, qui tombent six. Il les changeait pendant que la salle écoutait la cloche." },
+      { if: R, text: "Tu les lui prends. Tu les poses sur le drap, devant lui, bien en vue, à côté de sa mise. C'est la première chose que tu sors d'une poche pour la laisser sur la table. {autre} te regarde faire. « Tu peux sortir les mains, tu vois. »" },
+      { if: J, text: "{autre} regarde les dés en l'air, la tête penchée. « Deux, deux et un. Une misère. » Puis {autre:il} regarde le cinquième homme, lui glisse deux doigts dans la manche, et en tire trois dés, qu'{autre:il} pose sur le drap, bien en vue, à côté de la mise. « Ceux-là tombent six. Il les changeait pendant que les autres écoutaient la cloche. »" },
+      { if: J, text: "C'est la première chose que tu lui vois sortir d'une poche pour la laisser sur la table. Tu le lui dis. {autre:Il} hausse une épaule, et rougit jusqu'aux oreilles." },
+      "Vous tenez là une justice comme les tribunaux en rêvent : l'accusé a ses preuves devant lui, ses juges autour, et l'audience est remise à une date qu'il vous appartient de fixer.",
+    ],
+    choices: [{ back: "Fg_ville" }] },
 
   Fg_oies: { act: "V", title: "Un homme sur une borne", place: "tour", ambiance: "ville",
     text: [
