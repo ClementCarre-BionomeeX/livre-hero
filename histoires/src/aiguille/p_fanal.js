@@ -110,7 +110,9 @@ module.exports = {
         "Elle rit. Puis elle te regarde, et cesse de rire.",
         "« Écris, dit-elle. Ce n'est pas à toi de savoir s'il y a quelqu'un au bout. »",
       ],
-      choices: [{ label: "Écrire la lettre", fx: { gold: 2, regard: { annaig: "cordial" } }, to: "A1_s_annaig_bien" }] },
+      choices: [{ label: "Écrire la lettre", test: { dom: "savoir", diff: 0, label: "Trouver les mots" },
+        win: { fx: { gold: 4, regard: { annaig: "redevable" }, ep: ["perso", 60] }, to: "A1_s_annaig_bien" },
+        lose: { fx: { gold: 2, regard: { annaig: "cordial" } }, to: "A1_s_annaig_bien" } }] },
 
     A1_s_cuisine: { act: "I", title: "La cuisine", place: "fanal_cuisine",
       text: [

@@ -79,9 +79,9 @@ module.exports = {
   past: [
     { q: "Que fais-tu, quand le Fanal n'a pas besoin de toi ?",
       answers: [
-        { label: "Tu pêches aux écueils, à marée basse, avec la vieille barque de ton père. Tu connais chaque roche de l'anse et le nom de chaque vent.", fx: { voie: "pecheur", flag: "passe:pecheur" } },
-        { label: "Tu écris les lettres du hameau. Les pêcheurs te dictent, les veuves aussi, et tu sais déjà ce qu'on dit entre les lignes.", fx: { voie: "ecrivain", flag: "passe:ecrivain", gold: 20 } },
-        { label: "Tu portes des ballots la nuit, pour le compte de gens qui paient bien et parlent peu. Les douaniers te connaissent bien ; tes poches leur ont toujours paru vides.", fx: { voie: "passeur", flag: "passe:passeur" } },
+        { label: "Tu pêches aux écueils, à marée basse, avec la vieille barque de ton père. Tu connais chaque roche de l'anse et le nom de chaque vent.", fx: { voie: "pecheur" } },
+        { label: "Tu écris les lettres du hameau. Les pêcheurs te dictent, les veuves aussi, et tu sais déjà ce qu'on dit entre les lignes.", fx: { voie: "ecrivain", gold: 20 } },
+        { label: "Tu portes des ballots la nuit, pour le compte de gens qui paient bien et parlent peu. Les douaniers te connaissent bien ; tes poches leur ont toujours paru vides.", fx: { voie: "passeur" } },
       ] },
     { q: "Que t'a laissé ta mère, morte il y a six ans ?",
       answers: [

@@ -878,6 +878,8 @@
     Object.keys(story.recipes || {}).forEach(function (k) { [].concat(story.recipes[k].make || []).forEach(function (x) { gotItems[x] = 1; }); });
     var kits = ((story.world || {}).start || {}).kits || {}; Object.keys(kits).forEach(function (a) { [].concat(kits[a]).forEach(function (x) { gotItems[x] = 1; }); });
     Object.keys(story.heroes || {}).forEach(function (h) { [].concat(story.heroes[h].items || []).forEach(function (x) { gotItems[x] = 1; }); });
+    // A voie (a past answer) gives its kit at the start, like an archetype's kit.
+    Object.keys(story.voies || {}).forEach(function (v) { [].concat(story.voies[v].kit || []).forEach(function (x) { gotItems[x] = 1; }); });
     var ENGINE_READS = /^(fin:|quete|calme:)/;
     Object.keys(setFlags).sort().forEach(function (f) {
       if (readStr[f] || ENGINE_READS.test(f)) return;
@@ -1255,7 +1257,8 @@
     M.setRng(null);
     var unreached = ids.filter(function (id) { return !seen[id] && !P[id].branch; });   // a switch passage has no page
     var neverTaken = [];
-    ids.forEach(function (id) { var p = P[id]; (p.choices || []).forEach(function (c) { if (c.restart) return; var k = id + " | " + String(c.label).replace(/\{e\}/g, "").replace(/\{autre:(e|il|Il|le|lui)\}/g, function (m, x) { return M.autreForm({}, x); }).replace(/\{autre\}/g, "l'autre"); if (!taken[k]) neverTaken.push("§ " + id + " : « " + String(c.label).slice(0, 60) + " »" + (allowedCount[k] ? " (possible, jamais pris)" : " (jamais possible)")); }); });
+    ids.forEach(function (id) { var p = P[id]; (p.choices || []).forEach(function (c) { if (c.restart) return; var k = id + " | " + String(c.label).replace(/\{e\}/g, "").replace(/\{autre:(e|il|Il|le|lui)\}/g, function (m, x) { return M.autreForm({}, x); }).replace(/\{autre\}/g, "l'autre"); if (!taken[k] && /\{joueur/.test(k)) { var rx = new RegExp("^" + k.replace(/[.*+?^$()|[\]\\]/g, "\\$&").replace(/\\?\{joueur:e\\?\}/g, "e?").replace(/\\?\{joueur\\?\}/g, ".*") + "$"); Object.keys(taken).some(function (t) { if (rx.test(t)) { k = t; return true; } return false; }); }
+        if (!taken[k]) neverTaken.push("§ " + id + " : « " + String(c.label).slice(0, 60) + " »" + (allowedCount[k] ? " (possible, jamais pris)" : " (jamais possible)")); }); });
     return {
       games: n, passages: ids.length, guards: Object.keys(guards), errors: Object.keys(errs), deadEnds: dead, loops: loops, unreached: unreached, endings: endings,
       neverTaken: neverTaken, questDone: questDone, levelAtEnd: levelAtEnd, richOnly: richOnly,

@@ -160,7 +160,7 @@ module.exports = {
     XI_refus: { act: "III", title: "Le passager", place: "cormorane", ambiance: "nuit",
       text: [
         "La main glacée quitte ton bras. Il y a un long silence.",
-        "« Bien, dit la voix. Bien. Au moins, tu es franc{he}. C'est rare. » Les pas nus s'éloignent dans le noir, très doucement. « Je me débrouillerai. Je me suis toujours débrouillé. »",
+        "« Bien, dit la voix. Bien. Au moins, tu dis ce que tu penses. C'est rare. » Les pas nus s'éloignent dans le noir, très doucement. « Je me débrouillerai. Je me suis toujours débrouillé. »",
         "Les vols continuent. Puis, la neuvième nuit, ils s'arrêtent. Le lendemain, au matin, on trouve la porte du magasin à vin forcée et une bouteille de rhum vide sur le plancher de la soute aux voiles, avec la couverture de laine. Personne n'a rien entendu.",
         "Le soir, à la lisse, tu regardes le sillage. Tu penses à un homme qu'on ne voit pas, ivre, au bord du pont, dans le noir, et à une vague. Tu ne sauras jamais.",
       ],

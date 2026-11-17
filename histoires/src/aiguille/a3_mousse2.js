@@ -28,7 +28,7 @@ module.exports = {
         { label: "Descendre voir le passager invisible, qui se réchauffe enfin", to: "A3n_fenouillet", hide: { any: [{ seen: "A3n_fenouillet" }, { not: { has: "xi:protege" } }] } },
         { label: "Déchiffrer la page de signes", to: "XK_dechiffre", hide: { any: [{ not: { has: "xk:copie" } }, { has: "enigme:xk_chiffre" }] } },
         { label: "L'Écueil-Rouge en vue", to: "A3n_ecueil", big: true, hide: { seen: "A3n_ecueil" }, if: { count: JOURS, min: 2 }, why: "Le navire n'a pas encore assez avancé." },
-        { label: "L'îlot en vue", to: "A3n_ilot", big: true, if: { all: [{ seen: "A3n_ecueil" }, { count: JOURS, min: 4 }] }, why: "L'îlot est encore loin dans les herbes." },
+        { label: "L'îlot en vue", to: "A3n_ilot", big: true, if: { all: [{ seen: "A3n_ecueil" }, { count: JOURS, min: 3 }] }, why: "L'îlot est encore loin dans les herbes." },
       ] },
 
     A3n_baignade: { act: "III", title: "Le bain", place: "sargues", ambiance: "eau",

@@ -19,8 +19,8 @@ module.exports = {
     ] },
     // How many the captain can count on, the night before the landing (the same count as at the council of Lannoz).
     C4_etat: { act: "IV", title: "L'Anse-Morte", branch: [
-      { if: { equipage: "loyal", min: 9 }, fx: { flag: "cormorane:tenue" }, to: "C4" },
-      { if: { equipage: "loyal", min: 6 }, fx: { flag: "cormorane:mutins" }, to: "C4" },
+      { if: { equipage: "loyal", min: 7 }, fx: { flag: "cormorane:tenue" }, to: "C4" },
+      { if: { equipage: "loyal", min: 4 }, fx: { flag: "cormorane:mutins" }, to: "C4" },
       { fx: { flag: ["cormorane:mutins", "chapelle:demunis"] }, to: "C4" },
     ] },
 
