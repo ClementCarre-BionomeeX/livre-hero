@@ -1,0 +1,213 @@
+// L'Île Folle-Aiguille · act V, chapter V.3 followed by the child: the departure. The ship first (blown up, aground,
+// held by the cook's men, or ready), which ends in one of navire:ok / navire:perdu / mutins:navire / mutins:partis;
+// then the privateer's guns, if they still point at the spur (chevalier:paye, desinvolte:apaisee, desinvolte:partie);
+// then the people of the island, the old man, and the last choice of the book (fins_choix.js).
+var F = require("./fins_choix.js");
+var DAGREL_VIF = F.DAGREL_VIF;
+var MALANDAIN = { not: { has: "malandain:mort" } };
+var MENACE = { all: [{ any: [{ has: "chevalier:ultimatum" }, { has: "desinvolte:hostile" }] }, { not: { has: "desinvolte:alliee" } }] };
+module.exports = {
+  passages: {
+    A5o_debut: { act: "V", title: "Le vent de retour", place: "anse_morte", ambiance: "mer",
+      text: [
+        "Tu te réveilles au chant du rocher. Il chante depuis l'aube, à l'ouest, d'une seule note, longue, grave, que le vent du nord-est fait monter et descendre comme une respiration. On l'entend de partout. On l'entend dans les dents.",
+        "C'est le vent de retour. Les marins le disent en le sentant sur leur joue, avec un respect religieux, comme on dit le nom d'un saint dont on a besoin.",
+        { if: { has: "mousse:libere" }, text: "Tes poignets portent encore la marque de la corde. Tu les frottes sans y penser. Tu le feras longtemps, des années, dans des pièces chaudes, devant des gens qui ne sauront pas pourquoi." },
+        { if: { has: "livre=echevins" }, text: "Le livre est dans la doublure de la trousse de la docteure. Tu l'as vue le coudre, la nuit, à la chandelle, avec un fil de chirurgien, à points serrés, en fumant une pipe qu'elle ne fume jamais." },
+        { if: { has: "livre=baron" }, text: "Le livre est dans les mains du baron. Il ne le pose plus. Il dort avec, dit-on, le bras passé dessus, comme un enfant avec un jouet qu'on veut lui reprendre." },
+        { if: { has: "livre=jeanne" }, text: "Le livre est dans la grotte, derrière la cascade, entre les mains de Jeanne Brasdefer. Elle t'a dit qu'elle viendrait à la plage, ce matin, avec ses huit, si la mer est belle." },
+        { if: { has: "livre=brule" }, text: "Tu as encore, dans les narines, l'odeur de la peau de requin brûlée. Elle te reviendra des années, à la poissonnerie, et tu sortiras sans rien acheter." },
+        { if: { has: "livre=fargue" }, text: "Le livre est dans la chemise du maître-coq, contre sa peau. Il le sent à chaque pas. Il ne le montre à personne." },
+        { if: { has: "livre=dagrel" }, text: "Le livre est retourné à celui qui l'a écrit. Tu ne sais pas où il l'a mis. Tu ne sais pas non plus où est le vieil homme." },
+        { with: "chien", text: "Le chien-loup est assis sur la plage, face à la mer, les oreilles droites, le museau au vent. Il sent quelque chose venir. Il le sent depuis l'aube." },
+      ],
+      choices: [{ label: "Regarder l'anse", to: "A5o_etat" }] },
+    A5o_etat: { act: "V", title: "Le vent de retour", branch: [
+      { if: { has: "cormorane:sabotee" }, fx: { flag: "navire:perdu" }, to: "A5o_epave" },
+      { if: { all: [{ has: "cormorane:mutins" }, { not: { has: "cormorane:reprise" } }] }, to: "A5o_mutins" },
+      { if: { has: "cormorane:echouee" }, to: "A5o_echouee" },
+      { fx: { flag: "navire:ok" }, to: "A5o_bord" },
+    ] },
+
+    A5o_bord: { act: "V", title: "La Cormorane", place: "anse_morte", ambiance: "mer",
+      text: [
+        { if: { has: "cormorane:cachee" }, text: "La Cormorane sort de la crique où l'on l'avait touée, cachée sous les palétuviers, avec des branches dans les haubans comme une jeune mariée de village. On l'amène dans l'anse à la remorque des canots, en chantant. Elle a l'air d'avoir passé ces jours-là à se reposer, ce qui est exactement ce qu'elle a fait." },
+        { if: { has: "cormorane:reprise" }, text: "La Cormorane est à l'ancre dans l'anse, à vous, depuis la nuit où tu l'as reprise à la nage, le câble entre les dents. Maître Gobert l'a briquée de la quille à la pomme du grand mât, deux fois, pour en effacer l'odeur des mutins." },
+        { if: { all: [{ not: { has: "cormorane:cachee" } }, { not: { has: "cormorane:reprise" } }] }, text: "La Cormorane est à l'ancre au milieu de l'anse, où elle est restée tout ce temps, gardée par les fidèles, avec ses canons chargés à mitraille et ses sabords ouverts. Elle a l'air, dans la lumière du matin, d'un chien de garde qui attend qu'on lui dise que c'est fini." },
+        "On embarque l'eau, les fruits, les tortues, les blessés. La capitaine Ribaud, sur la dunette, compte les barriques à voix haute, et l'on sent qu'elle compte, en même temps, autre chose.",
+      ],
+      choices: [{ label: "Et maintenant", to: "A5o_menace" }] },
+    A5o_epave: { act: "V", title: "L'épave", place: "anse_morte", ambiance: "mer",
+      text: [
+        "La Cormorane est au fond de l'anse, couchée sur le flanc, dans dix pieds d'eau claire. On voit sa coque noire, trouée, ses mâts brisés, et des poissons qui entrent et sortent par la brèche de la sainte-barbe comme des paroissiens par une porte d'église.",
+        { if: { has: "mousse:feu" }, text: "C'est toi qui as mis le feu aux poudres, cette nuit-là. Tu revois la mèche, la flamme qui court, l'eau noire, l'explosion qui t'a jeté{e} à la mer comme une main. Tu as sauvé la chapelle. Tu as tué le navire. Tu ne sais pas encore si ça s'additionne ou si ça se soustrait." },
+        "Le vent de retour souffle. Il n'y a rien à mettre devant.",
+      ],
+      choices: [{ label: "Et maintenant", to: "A5o_menace" }] },
+
+    A5o_echouee: { act: "V", title: "Le navire échoué", place: "anse_morte", ambiance: "mer",
+      text: [
+        "La Cormorane est échouée sur le banc de sable, à l'entrée de l'anse, gîtée de vingt degrés, comme un ivrogne appuyé à un mur. Il faut la déhaler à la marée haute, avec les ancres mouillées au large et tout le monde sur les cabestans et les canots, ou la laisser là pour les crabes.",
+        "La marée monte à midi. Il n'y en aura pas d'autre aussi haute avant la nouvelle lune.",
+        { if: { any: [{ has: "xd:pacte" }, { has: "hugon:passage" }, { has: "lingots:partage" }, { has: "fargue:promet_fondeurs" }] }, text: "Sur la plage, à l'aube, il y a trente hommes pâles, en tabliers de cuir, qui clignent des yeux sous le soleil comme des hiboux tirés de leur grange. Hugon Forge-Noire est devant. « On nous a promis un navire, dit-il. Alors on vient le chercher. On tire où ? »" },
+      ],
+      choices: [
+        { label: "Mettre les Fondeurs aux aussières", hide: { not: { any: [{ has: "xd:pacte" }, { has: "hugon:passage" }, { has: "lingots:partage" }, { has: "fargue:promet_fondeurs" }] } }, fx: { flag: ["navire:ok", "cormorane:renflouee", "fondeurs:tirent"] }, to: "A5o_renflouee" },
+        { label: "Tout le monde sur le cabestan", test: { dom: "nature", diff: 1, label: "Déséchouer la Cormorane" }, win: { fx: { flag: ["navire:ok", "cormorane:renflouee"] }, to: "A5o_renflouee" }, lose: { fx: { flag: "navire:perdu" }, to: "A5o_echec" } },
+      ] },
+    A5o_renflouee: { act: "V", title: "La marée", place: "anse_morte", ambiance: "mer",
+      text: [
+        "À midi, tout le monde tire. Les matelots aux cabestans, en chantant ; les canots aux avirons ; et sur la plage, à la longue aussière, une chaîne d'hommes et de femmes qui tirent ensemble, en grognant, les pieds dans l'eau.",
+        { if: { has: "fondeurs:tirent" }, text: "Les Fondeurs tirent sans chanter. Ils tirent comme ils forgent, en silence, d'une force sourde, régulière, qui fait trembler l'aussière. Au troisième effort, la Cormorane bouge. Au quatrième, elle se redresse, avec un grand soupir de bois et d'eau, comme un cheval tombé qui se relève." },
+        { if: { not: { has: "fondeurs:tirent" } }, text: "Au dixième effort, elle bouge. Au quinzième, elle glisse, tout d'un coup, et se redresse, avec un grand soupir de bois et d'eau. Les matelots tombent assis dans le sable, et rient, et pleurent, et quelqu'un se met à chanter faux." },
+        "Elle flotte. Elle est à toi, à vous. Le vent de retour gonfle déjà les huniers mal ferlés.",
+      ],
+      choices: [{ label: "Et maintenant", to: "A5o_menace" }] },
+    A5o_echec: { act: "V", title: "La marée", place: "anse_morte", ambiance: "mer",
+      text: [
+        "On tire jusqu'au soir. L'aussière casse deux fois. La deuxième fois, elle coupe en deux la jambe d'un matelot, net, comme un fil de beurre, et le banc de sable boit le sang.",
+        "La marée redescend. La Cormorane se couche un peu plus. On entend craquer ses membrures, de la plage, comme les os d'un vieillard qu'on retourne dans son lit.",
+        "Elle ne reprendra pas la mer. Personne ne le dit. Tout le monde le sait.",
+      ],
+      choices: [{ label: "Et maintenant", to: "A5o_menace" }] },
+
+    A5o_mutins: { act: "V", title: "La Cormorane", place: "anse_morte", ambiance: "mer",
+      text: [
+        "La Cormorane est au milieu de l'anse, à l'ancre, et elle n'est pas à vous. On voit, à bord, les mutins qui embarquent les sacs, les tonneaux d'eau, les caisses, avec la chaloupe qui fait l'aller-retour depuis la plage. Ils partent à la marée du soir, avec le vent de retour.",
+        { if: { any: [{ has: "tresor:couchant_mutins" }, { has: "lingots:mutins" }] }, text: "Ils ont l'argent. Les piastres du rocher qui sonne, ou les lingots des Puits, ou les deux. On voit les sacs passer de main en main, et chaque sac fait plier un homme." },
+        { if: MALANDAIN, text: "Malandain est sur le gaillard, une longue-vue à l'œil, et il regarde la plage. Il te cherche. Il t'a promis quelque chose, et il est de ceux qui tiennent ce genre de promesse." },
+        { if: { all: [{ not: MALANDAIN }, { not: { has: "fargue:retourne" } }] }, text: "Le maître-coq est sur la dunette, à la place du capitaine, les mains derrière le dos. Il regarde la plage. Il te voit. Il lève la main, une fois." },
+        { if: { all: [{ not: MALANDAIN }, { has: "fargue:retourne" }] }, text: "C'est Lagadec qui commande, avec l'œil fermé que lui a laissé la nuit du compte. Il ne sait pas commander. Il le fait quand même, en criant beaucoup. Le maître-coq est à côté de toi, sur la plage, et il regarde partir ses hommes sans un mot." },
+      ],
+      choices: [
+        { label: "Monter à bord avec le maître-coq", hide: { any: [MALANDAIN, { has: "fargue:retourne" }] }, fx: { flag: "mutins:navire" }, to: "A5o_pavillon" },
+        { label: "Demander au maître-coq de les faire revenir", hide: { not: { has: "fargue:retourne" } }, test: { dom: "social", diff: 0, label: "La voix de la Chanson" }, win: { fx: { flag: ["navire:ok", "mutins:abandonnes"] }, to: "A5o_chanson" }, lose: { fx: { flag: "mutins:partis" }, to: "A5o_partis" } },
+        { label: "Nager jusqu'au navire à la nuit, et couper le câble", test: { dom: "nature", diff: 1, label: "La nage et le câble" }, win: { fx: { flag: ["navire:ok", "mutins:abandonnes"] }, to: "A5o_cable" }, lose: { fx: { flag: "mutins:partis" }, to: "A5o_partis" } },
+        { label: "Les laisser partir", fx: { flag: "mutins:partis" }, to: "A5o_partis" },
+      ] },
+    A5o_pavillon: { act: "V", title: "La chaloupe", place: "anse_morte", ambiance: "mer",
+      text: [
+        "Tu marches vers la chaloupe. Personne, sur la plage, ne t'en empêche. Personne n'y croit, peut-être.",
+        "Le maître-coq t'attend en haut de l'échelle de coupée. Il ne te tend pas la main. Il te regarde monter.",
+        "« Tu es sûr{e} ? » dit-il. C'est tout ce qu'il dit.",
+        { with: "chien", text: "Le chien saute dans la chaloupe derrière toi, sans qu'on l'appelle, et s'assied au fond, entre les sacs, avec l'air d'un passager qui a payé sa place." },
+      ],
+      choices: [{ label: "La dernière heure", to: "A5o_vieux_b" }] },
+    A5o_chanson: { act: "V", title: "La Chanson", place: "anse_morte", ambiance: "mer",
+      text: [
+        "Le maître-coq ne prend pas la chaloupe. Il entre dans l'eau, jusqu'à la taille, jusqu'à la poitrine, et il se met à chanter.",
+        "C'est la chanson de la côte. Celle de ton père, celle des verres qu'on essuie. Sa voix passe sur l'eau de l'anse comme un oiseau, sans effort, et arrive au navire, et l'on voit, à bord, les hommes s'arrêter, un par un, avec leurs sacs dans les bras.",
+        "Il chante jusqu'au bout. Puis il crie, de la même voix : « Rendez-le. Gardez l'argent, gardez la chaloupe, gardez la plage, et vos vies. Mais rendez-le. Il n'est pas à nous. Rien n'est à nous. »",
+        "Il faut une heure. Puis la chaloupe revient, avec Lagadec, et les autres, et les sacs. Ils restent sur la plage. Ils resteront sur l'île. On leur laisse des outils, de la poudre, des graines, et la moitié de l'argent qu'ils portent, qui ne leur servira à rien.",
+      ],
+      choices: [{ label: "Et maintenant", to: "A5o_menace" }] },
+    A5o_cable: { act: "V", title: "Le câble", place: "anse_morte", ambiance: "nuit",
+      text: [
+        "Tu nages dans le noir, la lame entre les dents, comme l'autre nuit, et tu retrouves le câble, couvert d'algues, tendu comme une corde de violon.",
+        "Tu coupes. Toron par toron. Le dernier cède avec un claquement sec que tout l'équipage entend.",
+        "La Cormorane dérive. Le vent de retour la pousse, lentement, puis plus vite, vers la plage, vers l'éperon, vers les vôtres qui attendent dans l'eau avec des gaffes et des grappins. Les mutins courent sur le pont, crient, tirent dans le noir. Trop tard.",
+        "À l'aube, le navire est à vous. Les mutins sont sur la plage, désarmés, assis dans le sable, avec ce qui reste de l'argent qu'ils portaient. On les laisse là. On leur laisse des outils, de la poudre, des graines. L'île les gardera.",
+        { if: MALANDAIN, text: "Malandain s'est noyé en essayant de nager jusqu'à la Dent avec un sac de piastres attaché à la ceinture. On a retrouvé son chapeau." },
+      ],
+      choices: [{ label: "Et maintenant", fx: { flag: "malandain:mort" }, to: "A5o_menace" }] },
+    A5o_partis: { act: "V", title: "La marée du soir", place: "anse_morte", ambiance: "mer",
+      text: [
+        "La marée du soir monte. Le vent de retour fraîchit. On entend, de la plage, le cliquetis du cabestan, et la vieille chanson du guindeau.",
+        "La Cormorane lève l'ancre, établit ses huniers, et sort de l'Anse-Morte au plus près, avec le rocher qui chante dans son dos.",
+        "Personne, sur la plage, ne dit rien. On la regarde jusqu'à ce qu'elle soit une tache, puis un point, puis rien.",
+      ],
+      choices: [{ label: "Et maintenant", to: "A5o_menace" }] },
+
+    A5o_menace: { act: "V", title: "La Désinvolte", branch: [
+      { if: { all: [MENACE, { not: { has: "mutins:partis" } }] }, to: "A5o_chevalier" },
+      { to: "A5o_gens" },
+    ] },
+    A5o_chevalier: { act: "V", title: "Les quatorze canons", place: "anse_morte", ambiance: "mer",
+      text: [
+        "La Désinvolte entre dans l'anse à midi, toutes voiles dehors, avec une élégance insolente, et vient mouiller à une encablure de la plage, le travers à l'éperon. On voit les canonniers aux pièces, et les mèches qui fument.",
+        { if: { has: "chevalier:blesse" }, text: "C'est Sabran Quéru qui crie depuis la dunette, avec sa dent d'or et sa chemise de dentelle volée. « Le Chevalier a la fièvre. Moi, j'ai l'appétit. L'argent. Tout. Ou je tire. »" },
+        { if: { not: { has: "chevalier:blesse" } }, text: "Le Chevalier est sur la dunette, en chemise, très gai. Il agite son chapeau. « Bonjour ! crie-t-il. Je viens chercher ce qu'on m'a promis, ou ce qu'on ne m'a pas promis, je ne sais plus. Dans le doute, je prends tout. »" },
+        { if: { has: "victorine:ruse" }, text: "Il a creusé trois jours dans les palétuviers, à cause d'une fausse copie. Il a perdu quatre hommes aux fièvres. Il ne rit pas autant qu'il voudrait le faire croire." },
+        { if: { has: "creuseurs:vus" }, text: "Tu reconnais, parmi ses hommes, ceux que tu as vus creuser dans le vide, l'autre jour, au bord de l'eau. Ils ont l'air de gens à qui l'on doit des excuses, et qui comptent les obtenir au canon." },
+      ],
+      choices: [
+        { label: "Lui donner l'argent", fx: { flag: "chevalier:paye" }, to: "A5o_paye" },
+        { label: "Envoyer Benoît parler à son frère", hide: { has: "benoit:parti" }, test: { dom: "social", diff: 1, label: "Deux frères" }, win: { fx: { flag: "desinvolte:apaisee" }, to: "A5o_freres" }, lose: { fx: { flag: "chevalier:paye" }, to: "A5o_paye" } },
+        { label: "Tenir, sous les boulets, jusqu'à la nuit", test: { dom: "combat", diff: 1, label: "Tenir l'éperon" }, win: { fx: { flag: "desinvolte:partie" }, to: "A5o_tenu" }, lose: { fx: { flag: ["chevalier:paye", "chapelle:bombardee"] }, to: "A5o_paye" } },
+      ] },
+    A5o_paye: { act: "V", title: "Le prix", place: "anse_morte", ambiance: "mer",
+      text: [
+        { if: { has: "chapelle:bombardee" }, text: "Les boulets tombent tout l'après-midi. Le clocher de la Miséricorde s'effondre au troisième, avec la cloche, qui sonne une dernière fois en tombant, un son énorme, faux, qui fait taire les oiseaux de toute l'île. Au soir, on agite un drap blanc." },
+        "Les chaloupes de la Désinvolte font la navette jusqu'à la nuit. Les piastres, les lingots, ce qu'on avait, ce qu'on avait cru avoir. Les hommes du brigantin chargent en chantant. Ils ont de belles voix. Ils ont tout, ce soir.",
+        "On garde la vie, les vivres, et le navire, si l'on en a un. Le corsaire est généreux de ce qui ne l'intéresse pas.",
+      ],
+      choices: [{ label: "Le soir", to: "A5o_gens" }] },
+    A5o_freres: { act: "V", title: "Les deux frères", place: "anse_morte", ambiance: "mer",
+      text: [
+        "Benoît Quémeneur prend un canot, seul, et rame jusqu'à la Désinvolte, lentement, sans se presser, comme il fait tout. On le voit monter à bord. On ne voit plus rien pendant une heure.",
+        { if: { has: "freres:reconcilies" }, text: "Il y a eu le gant, dans la clairière. Le Chevalier l'a ramassé, ce jour-là, au lieu de tirer. Ce qu'on ramasse une fois, on peut le ramasser deux." },
+        { if: { has: "freres:duel_alexis" }, text: "Il y a eu le duel, dans la clairière, et c'est Benoît qui a blessé l'aîné. Il monte à bord du navire d'un homme qui porte encore sa marque. Il faut beaucoup de courage, ou beaucoup de bêtise. Chez Benoît, on n'a jamais su séparer les deux." },
+        "Puis le canot revient, avec Benoît, seul, qui rame toujours aussi lentement.",
+        "« Il part, dit-il. Il ne prend rien. » Il s'assied sur le sable. « Il a dit qu'il en avait assez de cette île, de ces trous, et de moi. Il a dit que notre mère aurait voulu ça. Notre mère est morte quand j'avais deux ans. Il ment. Il ment toujours bien. »",
+        "Le soir, la Désinvolte lève l'ancre, et sort de l'anse, toutes voiles dehors, et salue d'un coup de canon à blanc, et disparaît.",
+      ],
+      choices: [{ label: "Le soir", to: "A5o_gens" }] },
+    A5o_tenu: { act: "V", title: "L'éperon", place: "misericorde", ambiance: "nuit",
+      text: [
+        "Les boulets tombent tout l'après-midi. Ils fracassent les créneaux, éventrent le verger, tuent un mulet, et un homme. Mais l'éperon est haut, les murs sont épais, et un brigantin n'est pas une batterie de siège.",
+        { if: { has: "chapelle:clocher" }, text: "Du clocher, la capitaine dirige le tir des deux pierriers qu'on a hissés là-haut, l'autre semaine, et l'on voit à la lunette un boulet entrer dans un sabord de la Désinvolte, et une pièce se taire." },
+        "À la nuit, le feu cesse. À l'aube, l'anse est vide. Le corsaire est parti chercher fortune ailleurs, là où les gens ne se défendent pas, ce qui est une recherche plus facile et plus rentable.",
+      ],
+      choices: [{ label: "Le matin", to: "A5o_gens" }] },
+
+    A5o_gens: { act: "V", title: "Les gens de l'île", place: "anse_morte", ambiance: "mer",
+      text: [
+        "Les gens de l'île viennent à la plage. Pas tous. Ceux qui veulent voir partir, ou partir.",
+        { if: { any: [{ has: "xd:pacte" }, { has: "hugon:passage" }, { has: "fargue:promet_fondeurs" }] }, text: "Les Fondeurs, d'abord, les yeux plissés, une main en visière, debout dans le soleil qu'ils n'aiment pas. Ils ont des sacs de cuir, des outils, des enfants pâles accrochés à leurs jambes. On leur a promis un navire. Ils viennent voir si les gens de la mer tiennent leurs promesses. Ils en doutent. Ils sont venus quand même." },
+        { if: { has: "xd:aubepine_part" }, text: "Aubépine, du Haut-Verger, qui a décidé de voir le monde, avec son carnet de noms sous le bras, et sa robe blanche déjà sale. Elle tient la main de Bleuet, qui pleure, et qui veut partir, et qui veut rester." },
+        { if: { all: [{ has: "xd:promesse_bleuet" }, { not: { has: "xd:aubepine_part" } }] }, text: "Bleuet, le petit du Haut-Verger, à qui tu as promis de revenir. Il ne pleure pas. Il te regarde. C'est pire." },
+        { if: { has: "xs:allies" }, text: "Jeanne Brasdefer et ses huit, la plume noire au chapeau, l'arc à l'épaule, qui ont fait douze ans d'exil sur cette île et qui ne veulent pas en faire un treizième." },
+        { if: { has: "sauveur:haut_verger" }, text: "Les Doux du Haut-Verger, en robes pâles, qui chantent tout bas une chanson sans paroles, et qui regardent la mer comme on regarde un incendie de loin." },
+        { if: { has: "ile:vue_mousse" }, text: "Tu repenses au premier soir, quand tu es monté{e} dans l'arbre, et que tu as vu l'île entière sous la lune, ses trois parties, ses fumées, sa forêt. Tu croyais qu'elle était vide. Elle était pleine. On ne voit jamais les gens, d'en haut." },
+        { if: { has: "victime:vue" }, text: "Tu repenses au matelot de la plage, le premier jour, couché dans les fougères, que tu as vu mourir, et dont personne n'a dit le nom, après. Tu le dis, toi, tout bas, en regardant la mer." },
+        { if: { has: "mousse:amende" }, text: "Tu repenses aussi, sans savoir pourquoi, à l'amende de Brisegrève, aux deux écus que le prévôt t'avait pris pour avoir parlé au numéro neuf. Tu trouves, aujourd'hui, que c'était donné." },
+        { if: { all: [{ has: "chien:apprivoise" }, { present: "chien" }] }, text: "Le chien-loup te suit partout, sur la plage, à un pas, ni plus près ni plus loin. Il n'a jamais suivi personne comme ça. Les Fondeurs s'écartent de lui. Les enfants du Haut-Verger veulent le toucher, et il les laisse faire, en regardant ailleurs, avec l'air de quelqu'un qui supporte une familiarité par politesse." },
+      ],
+      choices: [{ label: "Et le vieil homme ?", to: "A5o_vieux_b" }] },
+    A5o_vieux_b: { act: "V", title: "Le vieil homme", branch: [
+      { if: DAGREL_VIF, to: "A5o_vieux" },
+      { if: { has: "dagrel:pris" }, to: "A5o_lie" },
+      { to: "A5o_choix" },
+    ] },
+    A5o_vieux: { act: "V", title: "Le vieil homme", place: "anse_morte", ambiance: "mer",
+      text: [
+        "Il arrive par la plage, à pied, au soleil, sans se cacher, pour la première fois depuis vingt et un ans. En sandales d'écorce, la barbe blanche sur la poitrine, un sac de toile à l'épaule. Il marche droit vers l'eau.",
+        { if: { has: "livre=dagrel" }, text: "Il a son livre sous le bras, enveloppé dans sa toile. Il le tient comme un prêtre tient son bréviaire, ou un comptable son registre, ce qui chez lui revient au même." },
+        { if: { has: "fargue:emmene_dagrel" }, text: "Le maître-coq marche à côté de lui. Ils ne se parlent pas. Ils ont l'air de deux vieux qui reviennent du marché." },
+        { if: { has: "dagrel:aide_navire" }, text: "C'est lui qui a nagé avec toi jusqu'au navire, l'autre nuit, comme un phoque, en riant tout bas. Il connaît l'anse mieux que la Cormorane elle-même." },
+        "Il s'arrête devant toi.",
+        "« Je voudrais partir, dit-il. Je ne demande rien d'autre. J'ai demandé beaucoup, autrefois. J'ai pris davantage. Aujourd'hui, je demande une place à fond de cale, entre deux tonneaux. » Il sourit. « Ou une corde à Morlenc. Je n'ai pas de préférence. C'est vous qui choisissez. Je vous l'ai dit : c'est un luxe que je n'ai laissé à personne. »",
+        { if: { has: "dagrel:briquet" }, text: "Il te tend le briquet d'acier, le jumeau de celui de ton père. « Celui-ci, gardez-le, quoi que vous décidiez. Je n'en aurai plus besoin. Il y a des briquets partout, là où je vais. »" },
+      ],
+      choices: [{ label: "Choisir", to: "A5o_choix" }] },
+    A5o_lie: { act: "V", title: "Le vieil homme", place: "anse_morte", ambiance: "mer",
+      text: [
+        "On l'amène à la plage les poignets liés, entre deux matelots, comme on amène un taureau au marché. Il marche droit. Il salue les gens qu'il croise, avec une politesse effrayante.",
+        "Il te voit. Il s'arrête. Les matelots s'arrêtent avec lui, sans savoir pourquoi.",
+        "« Votre baron m'emmène à Morlenc, dit-il. À la Croix-des-Marées. Je voulais justement la revoir. » Il penche la tête. « Mais vous pouvez encore changer d'avis. Vous êtes à l'âge où l'on peut. Moi, je n'ai jamais pu. »",
+      ],
+      choices: [{ label: "Choisir", to: "A5o_choix" }] },
+
+    A5o_choix: { act: "V", title: "Le dernier choix", place: "anse_morte", ambiance: "mer",
+      text: [
+        "Le rocher chante. Le vent de retour souffle. Le soleil descend sur la mer, rouge, énorme, et il y a, sur la plage, tous ceux qui restent, et tous ceux qui partent, et toi au milieu, qui ne sais pas encore de quel côté tu seras.",
+        { if: { has: "navire:ok" }, text: "La Cormorane attend dans l'anse, les huniers largués. On n'attend plus que toi, ou plutôt, on n'attend plus que ta décision, ce qui est différent, et pire." },
+        { if: { has: "navire:perdu" }, text: "Il n'y a pas de navire. Il y a la mer, et l'île, et vous." },
+        { if: { has: "mutins:navire" }, text: "Tu es à bord. La chaloupe est remontée. Le maître-coq est à la barre." },
+        { if: { has: "mutins:partis" }, text: "La Cormorane est partie. Le vent l'a emportée vers le nord-est, avec les mutins et l'argent. Il reste la plage, et ceux qu'on a laissés." },
+        "Tu penses à ton père, au Fanal, qui essuie des verres en boitant, en ce moment même, peut-être, à l'autre bout de la mer. Un quart de part. Blessé à la jambe.",
+      ],
+      choices: F.choix("mousse") },
+  },
+  extras: {},
+};

@@ -544,3 +544,25 @@ Le validateur : cartes, fils, haltes, résolutions et tags qui nomment ce qui ex
 | condition | `{ possede: "<id>" \| [ids] }` | Le lecteur a l'une de ces cartes (main, pioche ou défausse). |
 
 Ce que le moteur fait seul : une fois par halte, le lecteur peut échanger une carte de sa main contre celle du dessus de sa pioche ; la page montre la pioche (sans son ordre), la défausse et les cartes perdues ; l'explication des règles s'affiche la première fois qu'une main apparaît. Une carte gagnée en route est couverte par la promesse du validateur comme les autres : une carte qu'on ne gagne qu'en route s'ajoute à `cartes` sans entrer dans `jeu.deck`. Pour qu'un gain serve, le donner avant une halte qui accepte son genre (tags `halte` sur le choix qui le donne).
+
+## L'île aux pirates (17/11, 11.4) : escales, équipage nommé, ce qu'une quête doit à un autre livre
+
+Pour « L'Île Folle-Aiguille » (Clément, 17/11 : un grand voyage, des escales qui portent chacune une quête, un équipage qui penche d'un côté ou de l'autre, des quêtes nées d'autres livres de la bibliothèque).
+
+| Où | Clé | Sens |
+|---|---|---|
+| `story.escales` | `{ <id>: { name, at, quests, depart: { label, to, fx, if, why } } }` | Les escales. `at` : le lieu du mouillage ; `quests` : les quêtes qu'on ne peut faire que là. |
+| passage | `escale: "<id>"` | La page du mouillage. À la première arrivée, le moteur pose `escale:<id>`. Il ajoute le choix « Lever l'ancre » (`depart.label`, vers `depart.to`), qui pose `escale-quittee:<id>`. Tant qu'une quête de l'escale est commencée et pas finie, le bouton dit « · des affaires resteront en suspens ». Une fois l'escale quittée, ses quêtes sont manquées. |
+| condition | `{ escale: "<id>" }` · `{ escale: "<id>", is: "quittee" }` · `{ escaleOuverte: "<id>" }` | Au mouillage · escale quittée · une affaire de l'escale reste en cours. |
+| `story.equipage` | `{ title, marins: { <personne>: { poste, penchant, abord } } }` | L'équipage nommé. Chaque marin est aussi déclaré dans `people` (nom, visage, aspect). `penchant` : de −3 (gagné au complot) à +3 (fidèle) ; fidèle à 2 et plus, au complot à −2 et moins, hésitant entre les deux. `abord: true` : à bord dès le début. |
+| fx | `recrue`, `debarque`, `perte` : `"<marin>"` ou liste | Il embarque, quitte le bord, est perdu (mort, disparu). Une ligne le dit. |
+| fx | `penche: { <marin>: ±n }` | Son penchant bouge, sans rien dire. |
+| fx | `devine: "<marin>"` ou liste | Le héros devine où il penche, tel qu'il est à ce moment : l'onglet « L'équipage » le montre, et cette croyance vieillit si le marin change ensuite. |
+| condition | `{ marin: "<id>", is: "loyal" \| "hesitant" \| "complot" \| "abord" \| "perdu" \| "connu" }` | Le vrai penchant d'un marin à bord, sa présence, sa perte, ou le fait que le héros l'a deviné. Sans `is` : à bord. |
+| condition | `{ equipage: "loyal" \| "hesitant" \| "complot" \| "abord", min, max }` | Combien, parmi ceux qui sont à bord. Pour compter les deux bords au moment d'une mutinerie. |
+| `story.sources` | `{ <id>: { title, author } }` | Les livres dont l'histoire s'inspire. L'id d'un livre de la bibliothèque (`crocblanc`, `mondeperdu`…) donne en plus un lien vers lui. |
+| quête | `doit: "<id de sources>"` | La quête une fois faite, et pas avant, une ligne dit « Cette histoire doit quelque chose à *Titre*, de Auteur. », avec « Le voir dans la bibliothèque » si le livre y est. |
+
+Le héros du lecteur vu par un autre : dans le chapitre d'un autre personnage, `{joueur}` donne le nom que le lecteur a choisi pour son propre héros, et `{joueur:e}` le « e » de l'accord s'il l'a voulu au féminin (« {joueur} est resté{joueur:e} sur la plage »). Les `{e}` d'un tel chapitre suivent le personnage qu'on lit.
+
+Le validateur refuse une escale sans nom, sans départ ou qu'aucun passage ne porte, une quête d'escale inconnue, un marin absent de `people` ou à penchant hors bornes, un marin inconnu dans un effet ou une condition, une quête `doit` sans source titrée. Test : `node tests/escales-test.js`.

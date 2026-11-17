@@ -112,6 +112,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .where { color: var(--muted); font-size: 13px; margin-top: 4px; }
 .events { display: grid; gap: 4px; margin: 20px 0 8px; padding: 10px 12px; border-left: 3px solid var(--accent); background: var(--paper-2); border-radius: 0 8px 8px 0; font-size: 14px; }
 .ev.good { color: var(--good); } .ev.bad { color: var(--bad); } .ev.clue { color: var(--accent); } .ev.stain { color: var(--mark); }
+.ev.doit { font-style: italic; color: var(--ink); } .ev.crew { color: var(--ink); }
+.crew-row { display: flex; align-items: center; gap: .6em; } .crew-row > span:nth-child(2) { flex: 1; } .crew-row.lost { opacity: .6; } .crew-loyal { color: var(--good); } .crew-complot { color: var(--bad); }
 .ev.item, .ev.map, .ev.people { color: var(--ink); } .ev.quest { color: var(--gold); font-weight: 600; } .ev.level { font-weight: 700; }
 .ev.roll { font-family: var(--mono); font-size: 12.5px; }
 .prose { font: var(--read-size, 18px)/var(--read-lh, 1.72) var(--read-font, var(--serif)); margin-top: 16px; hyphens: auto; }

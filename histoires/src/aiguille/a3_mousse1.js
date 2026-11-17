@@ -1,0 +1,291 @@
+// L'Île Folle-Aiguille · act III, chapter III.1 followed by the child of the Fanal: ten days from Morlenc to Brisegrève.
+// The sea learned the hard way, the helm at night, the cook's galley (where the white parchment may meet the heat of the
+// stove), the tops, the professor and his nets, the novice's whispers, then a squall, then the granite fortress where
+// the ship takes water. The invisible passenger (xi_invisible.js) and the prisoner of the fort (xm_prisonnier.js) open
+// from here.
+var JOURS = [{ seen: "A3m_quart" }, { seen: "A3m_cambuse" }, { seen: "A3m_mature" }, { seen: "XI_debut" }, { seen: "A3m_gaudremont" }, { seen: "A3m_jules" }];
+module.exports = {
+  passages: {
+    A3m_debut: { act: "III", title: "La mer", place: "mer_couchant", ambiance: "mer",
+      text: [
+        "La mer t'apprend d'abord qu'elle n'a rien à voir avec celle qu'on regarde depuis une falaise.",
+        "Celle du Fanal était un paysage : on la voyait monter, descendre, se fâcher, et l'on rentrait se chauffer. Celle-ci est un plancher qui bouge. Elle soulève le navire par l'avant, le laisse retomber, le roule d'un bord sur l'autre, et ton estomac suit chaque mouvement avec une seconde de retard, comme un passager qui a manqué la voiture. Le premier jour, tu vomis par-dessus la lisse sous le vent, comme Gobert te l'a montré, puis par-dessus la lisse au vent, comme il te l'a interdit, et tu reçois ton propre déjeuner dans la figure, sous les applaudissements du gaillard d'avant.",
+        "Le deuxième jour, tu voudrais mourir. Le troisième, tu as faim.",
+        "« Ça y est, dit Gobert en te voyant mordre dans ton biscuit. Le morveux a le pied marin. Il va falloir le nourrir, maintenant. Quelle calamité. »",
+        { with: "chien", text: "Le chien-loup, lui, n'a pas été malade une heure. Il a choisi sa place sous la chaloupe, à l'abri du vent, d'où il voit tout le pont, et il y reste couché, la tête haute, les narines ouvertes au vent du large, comme un chien qui reconnaît une odeur qu'on ne lui a jamais fait sentir." },
+      ],
+      choices: [{ label: "Prendre ta place à bord", to: "A3m_jours" }] },
+
+    A3m_jours: { act: "III", title: "Vers Brisegrève", place: "mer_couchant", hub: true, noLead: true, backName: "le bord", ambiance: "mer",
+      text: [
+        { first: true, text: "Les jours prennent une forme. On te réveille à quatre heures pour le quart du matin, on frotte le pont à la brique et au sable, on lave à grands seaux d'eau de mer, on mange le biscuit et le lard, on tire sur des bouts dont tu apprends les noms un par un, comme on apprend les noms des gens d'un village : la drisse, l'écoute, le bras, la cargue, l'amure. Le soir, sur le gaillard d'avant, les matelots fument, chantent, racontent, et mentent, avec le même sérieux pour les quatre." },
+        { again: true, text: "Un jour de plus vers le sud. Le ciel reste bas, la mer verte, le vent constant." },
+        { with: "chien", text: "Le chien te suit d'un bout à l'autre du pont, à deux pas derrière, comme une ombre qui aurait des dents." },
+      ],
+      choices: [
+        { label: "Prendre le quart de nuit à la barre, avec la timonière", to: "A3m_quart", hide: { seen: "A3m_quart" } },
+        { label: "Descendre à la cambuse", to: "A3m_cambuse", hide: { seen: "A3m_cambuse" } },
+        { label: "Monter dans la mâture avec les gabiers", to: "A3m_mature", hide: { seen: "A3m_mature" } },
+        { label: "Chercher qui vole le biscuit dans l'entrepont", to: "XI_debut", hide: { seen: "XI_debut" } },
+        { label: "Aider le professeur à remonter ses filets", to: "A3m_gaudremont", hide: { seen: "A3m_gaudremont" } },
+        { label: "Écouter Petit-Jules, la nuit, dans les hamacs", to: "A3m_jules", hide: { seen: "A3m_jules" } },
+        { label: "La dixième nuit", to: "A3m_grain", big: true, if: { count: JOURS, min: 4 }, why: "Brisegrève est encore loin." },
+      ] },
+
+    A3m_quart: { act: "III", title: "Le quart de nuit", place: "mer_couchant", ambiance: "nuit",
+      fx: { meet: "lemerle" },
+      text: [
+        "La nuit, en mer, n'a pas de bords. Le ciel et l'eau sont du même noir, et la Cormorane avance au milieu de ce noir comme une lampe qu'on porterait dans une cave sans fin, avec son petit cercle de lumière, le fanal de poupe, l'habitacle, et rien autour. Le vent chante dans les haubans une note basse qui ne change pas. De temps en temps, une crête de vague s'allume d'une lueur verte, froide, qui s'éteint aussitôt, comme si quelqu'un, très loin sous l'eau, frottait une allumette.",
+        "Annick Lemerle tient la barre. Elle la tient comme on tient la main d'un malade : sans force, sans la quitter des yeux, en sentant tout. Elle ne te parle pas pendant la première heure. Pendant la deuxième, elle te fait signe d'approcher et pose tes mains sur les rayons de la roue, à côté des siennes.",
+        "« Sens, dit-elle. Pas avec les mains. Avec le ventre. »",
+        "Tu sens. Sous tes paumes, la roue tire, cède, tire encore ; le navire vit au bout de ce bois comme un cheval au bout d'une bride. La timonière te montre l'habitacle : la boîte de cuivre, la lampe, et dessous, sur la rose des vents, l'aiguille qui tremble à peine, pointée au nord comme un doigt qui accuse.",
+        { if: { has: "larrouy:boussole" }, text: "Tu lis la rose sans effort, les trente-deux aires du vent, sud quart sud-ouest, sud-sud-ouest ; quelqu'un te les a apprises au coin d'un feu, l'hiver dernier. La timonière te regarde de côté, surprise, et ne dit rien." },
+        "Vers la fin du quart, sans quitter l'aiguille des yeux, elle parle encore. Sa voix est très basse.",
+        "« Il y a un pas de trop sur ce navire. »",
+      ],
+      choices: [
+        { label: "« Un pas de trop ? »", to: "A3m_quart_pas" },
+        { label: "Lui demander ce qu'elle pense de ce voyage", fx: { devine: "lemerle" }, to: "A3m_quart_voyage" },
+      ] },
+    A3m_quart_pas: { act: "III", title: "Le quart de nuit", place: "mer_couchant", ambiance: "nuit",
+      text: [
+        "« Je les compte, dit-elle. Je compte toujours. Un navire, la nuit, c'est des pas : le quart qui marche, le bosco qui fait sa ronde, un homme qui va pisser sous le vent. Je les connais tous. Je les reconnais. » Elle ne te regarde pas. « Depuis Morlenc, il y a un pas que je ne reconnais pas. Il marche pieds nus. Il marche entre les autres, quand les autres marchent, pour qu'on ne l'entende pas. Mais moi, je l'entends. »",
+        "Elle se signe, rapidement, de la main gauche, sans lâcher la barre de la droite.",
+        "« Je l'ai dit à Gobert. Gobert m'a dit que j'avais trop de religion. » Elle hausse les épaules. « J'ai juste assez de religion pour avoir peur. »",
+      ],
+      choices: [{ label: "Finir le quart en écoutant les pas", fx: { flag: "xi:lemerle" }, to: "A3m_quart_fin" }] },
+    A3m_quart_voyage: { act: "III", title: "Le quart de nuit", place: "mer_couchant", ambiance: "nuit",
+      text: [
+        "Elle met longtemps à répondre. Une vague passe sous la coque ; la roue tire ; elle la laisse filer d'un rayon, la reprend.",
+        "« La capitaine dit qu'on va chercher de l'eau, des bois rares et du corail. » Elle sourit, pour la première fois, d'un sourire qui n'a rien de gai. « On n'arme pas un trois-mâts pour six mois avec un baron, un médecin et un professeur pour du corail. On va chercher quelque chose qu'on a perdu, ou quelque chose qu'on a volé. Je n'aime pas les deux. »",
+        "Elle regarde l'aiguille. « Et je n'aime pas le cuisinier. Il chante trop juste. Un homme qui chante aussi juste a eu le temps d'apprendre. Où ? » Elle n'attend pas de réponse. « En prison, ou sur un navire où l'on chantait pour ne pas entendre autre chose. »",
+      ],
+      choices: [{ label: "Finir le quart", to: "A3m_quart_fin" }] },
+    A3m_quart_fin: { act: "III", title: "Le quart de nuit", place: "mer_couchant", ambiance: "nuit",
+      text: [
+        "À quatre heures, la cloche pique huit coups. Le quart de relève monte, en bâillant, les yeux gonflés. Tu descends dans l'entrepont, dans le noir chaud qui sent la laine et l'homme, et tu te glisses dans ton hamac.",
+        { if: { has: "xi:lemerle" }, text: "Avant de t'endormir, tu écoutes. Les ronflements, les grincements, l'eau contre la coque, le vent. Puis, entre deux ronflements, quelque chose qui pourrait être un pas. Un seul. Tout près. Puis plus rien." },
+        { if: { not: { has: "xi:lemerle" } }, text: "Tu t'endors avant d'avoir fini de bâiller." },
+      ],
+      choices: [{ back: "A3m_jours" }] },
+
+    A3m_cambuse: { act: "III", title: "La cambuse", place: "cormorane", ambiance: "mer",
+      text: [
+        "En mer, la cambuse devient le cœur du navire. Le fourneau de fonte ronfle jour et nuit, le seul feu à bord, gardé comme une relique ; son tuyau, en montant vers le pont, traverse la soute aux voiles, où il fait si chaud que les gabiers y viennent sécher leurs chemises. Dans le réduit, il fait la chaleur d'un four de boulanger, et il y règne l'odeur d'un festin : on se demande comment un homme fait sentir aussi bon des pois secs et du lard salé.",
+        "Fargue y chante en tournant la soupe, la louche dans la main droite, la main gauche, celle aux trois doigts, posée à plat sur le couvercle de la marmite, comme pour la bénir. Il t'accueille d'un clin d'œil et te met une pomme de terre dans les mains, puis un couteau.",
+        { if: { has: "fargue:soupcon" }, text: "« Tiens, dit-il, l'enfant qui a bon œil pour les hommes. » Il le dit gaiement. « Gabet est resté à quai, à cause de toi. Tu as eu raison, peut-être. Il buvait. » Il goûte sa soupe. « Méfie-toi seulement d'avoir l'œil trop bon. À bord, on n'a pas toujours le temps de fermer les yeux à temps. »" },
+        { if: { has: "fargue:ami" }, text: "Il a une écuelle de soupe pour toi avant les autres, avec un morceau de lard dedans qui ne figure sur aucun règlement." },
+        "Vous épluchez en silence un moment. Puis il demande, sans lever les yeux de sa marmite :",
+        "« Dis-moi, ton père. Il boite de la jambe gauche ? »",
+      ],
+      choices: [
+        { label: "« Comment le savez-vous ? »", to: "A3m_cambuse_pere" },
+        { label: "« Vous le connaissez ? »", to: "A3m_cambuse_pere" },
+      ] },
+    A3m_cambuse_pere: { act: "III", title: "La cambuse", place: "cormorane", ambiance: "mer",
+      text: [
+        "Il rit. « Tous les aubergistes boitent, à force de descendre à la cave. » Il remue la soupe. Puis, plus bas, comme on parle à quelqu'un qui n'est pas là : « J'ai connu un garçon qui boitait. Un brave petit, qui ne pleurait jamais. Il s'appelait comme toi. C'est un nom qu'on trouve souvent, sur la côte. »",
+        "Il ne dit plus rien de ce garçon, et tu sens qu'il n'en dira pas davantage, aujourd'hui ni plus tard. Il te raconte à la place les ports du sud, les marchés où l'on vend des perroquets qui jurent en quatre langues, les femmes de Caracole qui portent leurs dettes en bracelets d'or. Il raconte comme il chante, juste, et tu oublies la chaleur.",
+        "Une lame plus forte que les autres frappe l'étrave. Une gerbe d'eau entre par l'écoutille et t'inonde de la tête aux pieds. Fargue rit, te jette un torchon et te pousse contre le fourneau. « Sèche-toi là. Un mousse enrhumé, c'est un mousse qui tousse dans mes marmites. »",
+        { if: { item: "parchemin" }, text: "Tu te colles contre la fonte brûlante. Ta vareuse fume. Sous la vareuse, contre ta poitrine, le parchemin blanc du coffre a pris l'eau lui aussi ; tu le sens, mou et tiède, qui commence à chauffer." },
+      ],
+      choices: [
+        { label: "Sortir le parchemin pour le faire sécher", if: { item: "parchemin" }, hide: { not: { item: "parchemin" } }, to: "A3m_cambuse_parch" },
+        { label: "Lui parler de Lisette, la jeune fille des Sœurs", if: { has: "lisette:vue" }, hide: { not: { has: "lisette:vue" } }, to: "A3m_cambuse_lisette" },
+        { label: "Finir les pommes de terre", to: "A3m_cambuse_fin" },
+      ] },
+    A3m_cambuse_parch: { act: "III", title: "La chaleur", place: "cormorane", ambiance: "mer",
+      text: [
+        "Tu déplies le parchemin et tu le tiens à deux mains devant la fonte, à une paume du métal, comme on fait sécher une lettre. Il fume un peu. Il se tend. Il sent le citron, plus fort que jamais, une odeur acide et chaude qui monte dans la cambuse par-dessus le lard.",
+        "Et sous tes yeux, lentement, des signes apparaissent.",
+        "Ils sortent de la peau blanche comme des noyés remontent à la surface : d'abord des ombres, puis des traits, puis des lignes entières, d'un brun roux, de plus en plus nettes, qui couvrent le parchemin d'un bord à l'autre. Ce sont des signes que tu n'as jamais vus : des chiffres, des croix, des points, des crochets, des petites étoiles, mêlés sans ordre, sans un mot qu'on puisse lire. Dans un coin, en bas, deux lettres : *J. D.*",
+        "Derrière toi, Fargue s'est arrêté de chanter.",
+      ],
+      choices: [
+        { label: "Replier le parchemin d'un geste, comme si de rien n'était", test: { dom: "discretion", diff: 0, label: "Cacher le parchemin" },
+          win: { fx: { flag: "xk:signes" }, to: "A3m_parch_cache" }, lose: { fx: { flag: ["xk:signes", "fargue:parchemin_vu"] }, to: "A3m_parch_vu" } },
+        { label: "Lui montrer : il sait peut-être ce que c'est", fx: { flag: ["xk:signes", "fargue:parchemin_vu", "fargue:parchemin_montre"] }, to: "A3m_parch_montre" },
+      ] },
+    A3m_parch_cache: { act: "III", title: "La chaleur", place: "cormorane", ambiance: "mer",
+      text: [
+        "Tu replies le parchemin en quatre, d'un geste qui ne tremble pas, et tu le glisses sous ta chemise, contre ta peau, où il brûle encore. Quand tu te retournes, Fargue goûte sa soupe, les yeux mi-clos, l'air d'un homme qui cherche s'il manque du sel.",
+        "« Du thym, dit-il. Il manque du thym. Il manque toujours du thym, en mer. » Il recommence à chanter.",
+        "Tu ne sais pas s'il a vu. Tu ne le sauras pas.",
+      ],
+      choices: [{ label: "Ressortir sur le pont", to: "XK_signes" }] },
+    A3m_parch_vu: { act: "III", title: "La chaleur", place: "cormorane", ambiance: "mer",
+      text: [
+        "Tes doigts sont gourds ; le parchemin s'accroche, se déplie à moitié, et quand tu le replies enfin, il est trop tard. Fargue est derrière toi. Il ne dit rien. Il regarde par-dessus ton épaule, avec une attention très douce, les lignes de signes rouges qui pâlissent déjà à mesure que la peau refroidit.",
+        "« De l'encre de citron, dit-il enfin. Les contrebandiers s'en servent. Les amoureux aussi. » Il te tapote l'épaule. « Range ça, va. Et ne le montre à personne d'autre. À bord, il y a des gens qui savent lire ce qui ne s'écrit pas. »",
+        "Il recommence à chanter. Il ne chante plus tout à fait juste.",
+      ],
+      choices: [{ label: "Ressortir sur le pont", to: "XK_signes" }] },
+    A3m_parch_montre: { act: "III", title: "La chaleur", place: "cormorane", ambiance: "mer",
+      text: [
+        "Tu lui tends le parchemin. Il le prend avec précaution, du bout des trois doigts, et l'approche du fourneau pour mieux voir. Il le regarde longtemps. Son visage ne bouge pas, mais il cesse de respirer, et tu entends, dans le silence de la cambuse, la soupe qui bout.",
+        "« De l'encre de citron, dit-il. Un chiffre. Quelqu'un a écrit ça pour qu'une seule personne puisse le lire. » Il te le rend. Ses doigts sont froids malgré le fourneau. « Ça vient du coffre de ton Gabier ?",
+        "— Oui.",
+        "— Alors garde-le. Garde-le bien. » Il se détourne vers sa marmite. « Si un jour tu trouves comment le lire, viens me le dire. Je suis curieux. Les cuisiniers sont curieux ; c'est le métier qui veut ça. On goûte à tout. »",
+      ],
+      choices: [{ label: "Ressortir sur le pont", to: "XK_signes" }] },
+    A3m_cambuse_lisette: { act: "III", title: "La cambuse", place: "cormorane", ambiance: "mer",
+      text: [
+        "« À Morlenc, j'ai porté une lettre aux Sœurs de la Basse-Fosse. Il y avait une jeune fille. Elle s'appelait Lisette. Elle m'a dit que son père était cuisinier sur les navires, et qu'il chantait. »",
+        "La louche s'arrête. Fargue ne se retourne pas. Tu vois son dos, très large, très immobile, et la main aux trois doigts qui serre le couvercle de la marmite.",
+        "« Comment allait-elle ? »",
+        "Tu le lui dis. Le verre de lait, la toux, le mouchoir qui disparaît dans la manche, le soleil qu'elle voudrait voir. Tu ne lui dis pas ce que Sœur Marthe t'a dit à la porte. Il le sait sans doute ; il ne te le demande pas.",
+        "Quand tu as fini, il reste longtemps sans bouger. Puis il dit, d'une voix enrouée : « Merci », et il se met à chanter, très fort, une chanson à boire, la plus bête qu'il connaisse, et il chante faux, exprès, pour que tu ries. Tu ris. Il ne se retourne pas.",
+      ],
+      choices: [{ label: "Le laisser à sa marmite", fx: { flag: "fargue:lisette_dite" }, to: "A3m_cambuse_fin" }] },
+    A3m_cambuse_fin: { act: "III", title: "La cambuse", place: "cormorane", ambiance: "mer",
+      text: [
+        "Le soir tombe. La cloche pique le souper. Fargue remplit les gamelles des plats de huit, une à une, avec une louche exacte, sans un pois de plus pour l'un que pour l'autre, en appelant chaque homme par son nom et chaque nom par une plaisanterie. Il connaît déjà tout l'équipage. Il connaît chacun mieux que chacun ne se connaît.",
+      ],
+      choices: [{ back: "A3m_jours" }] },
+
+    A3m_mature: { act: "III", title: "La mâture", place: "mer_couchant", ambiance: "mer",
+      fx: { meet: "daguenet" },
+      text: [
+        "Olivier Daguenet monte aux haubans comme d'autres montent un escalier de château, sans se tenir, en sifflant, et t'attend à la hune de misaine avec un sourire de propriétaire. Il est beau, il le sait, et il l'a appris à tout le gaillard d'avant, qui ne le lui pardonne pas.",
+        "« Grimpe, dit-il. Ne regarde pas en bas. Ou plutôt si, regarde : il faut bien que quelqu'un m'admire. »",
+        "À terre, un mât est une chose droite. En mer, c'est un pendule. Plus tu montes, plus il balance, et à la hune, à vingt-cinq pieds au-dessus du pont, chaque roulis te promène au-dessus de la mer, à droite, puis à gauche, avec une lenteur de cauchemar.",
+      ],
+      choices: [{ label: "Monter jusqu'aux barres de perroquet, plus haut encore", test: { dom: "nature", diff: 0, label: "La mâture" },
+        win: { to: "A3m_mature_haut" }, lose: { to: "A3m_mature_peur" } }] },
+    A3m_mature_haut: { act: "III", title: "La mâture", place: "mer_couchant", ambiance: "mer",
+      text: [
+        "Tu montes. Les enfléchures se font plus étroites, le mât plus mince, le vent plus fort. Aux barres de perroquet, à soixante pieds, il n'y a plus de navire sous toi : seulement un pont minuscule, des voiles en ventre de baleine, et la mer, immense, qui se courbe aux bords comme un plat, d'un bout à l'autre du monde.",
+        "Daguenet arrive derrière toi, moins vite, un peu vexé. « Pas mal, dit-il. Pour un débutant. » Puis, parce qu'il est vaniteux mais honnête : « Pas mal du tout. »",
+        { if: { has: "sabran:copie" }, text: "Loin derrière, au nord, presque sur l'horizon, il y a une voile. Une seule, grise, petite comme un ongle. Elle n'était pas là ce matin ; elle sera encore là demain. Daguenet la regarde, plisse les yeux, hausse les épaules. « Un caboteur. Ou un marchand qui a peur de naviguer seul. Il y en a qui suivent les gros comme les mouettes suivent les pêcheurs. »" },
+        { if: { not: { has: "sabran:copie" } }, text: "L'horizon est vide, net, d'un gris sans défaut, tout autour, comme le bord d'une assiette qu'on vient de laver." },
+      ],
+      choices: [{ label: "Redescendre, lentement", fx: { regard: { daguenet: "cordial" }, devine: "daguenet" }, to: "A3m_mature_fin" }] },
+    A3m_mature_peur: { act: "III", title: "La mâture", place: "mer_couchant", ambiance: "mer",
+      text: [
+        "Au-dessus de la hune, ton pied glisse sur une enfléchure mouillée. Pendant une seconde, tu ne tiens plus que par les mains, et la mer passe sous toi, très loin, très lentement, d'un bord à l'autre. Tu ne cries pas. Tu n'as plus d'air pour crier.",
+        "Une main t'attrape par le col. Pas celle de Daguenet : celle de Marjolaine Cotentin, la gabière, qui descendait du perroquet par l'autre bord et t'a vu{e}. Elle te remet sur l'enfléchure comme on remet un chat sur une branche.",
+        "« Trois points, dit-elle. Toujours trois points d'appui. Deux mains un pied, ou deux pieds une main. Le jour où tu n'en as plus que deux, tu en as zéro. » Elle regarde Daguenet, qui fait mine d'arranger son foulard. « Et toi, le joli cœur, tu le laisses monter seul ? »",
+      ],
+      choices: [{ label: "Redescendre derrière elle", fx: { regard: { marjolaine: "cordial" }, penche: { marjolaine: 1 } }, to: "A3m_mature_fin" }] },
+    A3m_mature_fin: { act: "III", title: "La mâture", place: "mer_couchant", ambiance: "mer",
+      text: [
+        "Sur le pont, tes jambes tremblent pendant une heure, et tu ne sais pas si c'est de peur ou de joie. Gobert passe, te regarde, crache dans le vent, et dit seulement : « Encore un qui va vouloir monter tous les jours. Calamité. »",
+      ],
+      choices: [{ back: "A3m_jours" }] },
+
+    A3m_gaudremont: { act: "III", title: "Le professeur", place: "mer_couchant", ambiance: "mer",
+      fx: { meet: "gaudremont" },
+      text: [
+        "Le professeur Gaudrémont a été malade quatre jours, avec la même énergie qu'il met à tout : bruyamment, en accusant la mer, le navire, la capitaine, le baron, l'Académie et la Providence, dans cet ordre. Le cinquième jour, il est remonté sur le pont, vert, titubant, en robe de chambre de velours prune, et il a fait mettre à l'eau un filet de sa fabrication, au bout d'une perche, par la poupe.",
+        "« Le plancton, la crevette, crie-t-il en te voyant. La soupe primitive ! Tout ce qui vit dans la mer est là, dans cette eau qui te paraît vide ! Tire avec moi, et regarde ! »",
+        "Vous remontez le filet ensemble. Dedans : une méduse, de l'eau, un petit crabe furieux, et un poisson argenté aux longues nageoires transparentes, qui se débat. Le professeur le saisit, le lève vers le ciel, ivre de joie.",
+        "« Un poisson volant ! Un *Exocoetus* ! Tu sais ce que ça veut dire ? Qu'on entre dans les eaux chaudes ! Il y a dix jours, à Morlenc, il gelait ! » Il le relâche dans un seau. « Je le dessinerai. Puis je le mangerai. La science a ses rites. »",
+        { if: { has: "gaudremont:dessins" }, text: "Il te reconnaît, tout à coup, et sa voix baisse. « La crevette du quai. Tu as monté ma caisse plate. » Il regarde autour de lui, puis sort de sa robe de chambre une feuille pliée en huit, et te la montre comme on montre une lettre d'amour. C'est un dessin au crayon, ancien, maladroit, fait par un enfant : le bord d'une falaise, des arbres, et au-dessus des arbres, la tête et le cou d'un oiseau. Un oiseau sans ailes, aussi haut que les arbres. « Je l'ai fait à quatorze ans, depuis la hune, à la longue-vue. Ils ont dit que je l'avais rêvé. » Il replie la feuille. « Ils ont dit ça aussi de Copernic. Enfin, de quelqu'un comme lui. »" },
+      ],
+      choices: [
+        { label: "« Vous croyez qu'on verra des bêtes pareilles, là-bas ? »", to: "A3m_gaudremont_fin" },
+        { label: "Lui demander pourquoi il est venu, au vrai", fx: { regard: { gaudremont: "cordial" } }, to: "A3m_gaudremont_vrai" },
+      ] },
+    A3m_gaudremont_vrai: { act: "III", title: "Le professeur", place: "mer_couchant", ambiance: "mer",
+      text: [
+        "Il te regarde, surpris, puis il rit, d'un rire énorme qui fait se retourner le timonier.",
+        "« Au vrai ! La crevette veut le vrai ! » Il s'essuie les yeux. « Au vrai, j'ai soixante ans. J'ai écrit onze livres que personne n'a lus et un douzième que tout le monde a lu, et qui était faux. J'ai une chaire, une perruque, une gouvernante et un chat. Le chat est mort. » Il hausse ses épaules énormes. « Je suis venu parce que, si je ne viens pas, je mourrai dans mon fauteuil en me demandant si j'avais raison. Et ça, la crevette, c'est la seule mort dont un savant ne se remet pas. »",
+      ],
+      choices: [{ label: "L'aider à dessiner le poisson volant", fx: { flag: "gaudremont:ami" }, to: "A3m_gaudremont_fin" }] },
+    A3m_gaudremont_fin: { act: "III", title: "Le professeur", place: "mer_couchant", ambiance: "mer",
+      text: [
+        "« Nous verrons, dit-il. Nous verrons ce qu'il y a à voir. C'est toute la méthode. » Il s'installe sur un rouleau de cordage, sort un carnet, une mine de plomb, et dessine le poisson volant dans son seau, en tirant la langue, avec une délicatesse qu'on ne lui aurait jamais prêtée.",
+      ],
+      choices: [{ back: "A3m_jours" }] },
+
+    A3m_jules: { act: "III", title: "Petit-Jules", place: "cormorane", ambiance: "nuit",
+      fx: { meet: "arnoult" },
+      text: [
+        "Petit-Jules a quinze ans, des boucles blondes, des taches de rousseur, et une admiration pour tout ce qui a plus de quinze ans. Il dort dans le hamac à côté du tien. La nuit, quand les autres ronflent, il parle. Il parle de sa mère, qui vend du poisson à Morlenc, de ses cinq sœurs, du navire qu'il commandera un jour. Puis, toujours, il parle de Fargue.",
+        "« Il a été partout, chuchote-t-il. Aux Îles, aux Indes, au pays des Turcs. Il sait tout faire. Il sait lire en latin. Il a battu le baron aux échecs, deux fois, et la deuxième, il l'a laissé gagner pour qu'il ne se fâche pas. » Le hamac grince. « Il dit qu'à la fin du voyage on sera riches. Pas un peu riches. Riches. »",
+        { if: { has: "fargue:jules" }, text: "Il baisse encore la voix, jusqu'au souffle. « Il dit que le moment venu, il faudra choisir son bord. Que ceux qui seront du bon bord auront une part de gentilhomme. Il m'a dit de ne rien dire. Je te le dis à toi parce que tu es comme moi. » Tu sens, dans le noir, qu'il te sourit." },
+        { if: { has: "fargue:epargne_jules" }, text: "Il soupire. « Il m'a dit que moi, je rentrerai chez ma mère avec ma paie, et qu'il fallait que je l'oublie, lui, en rentrant. C'est drôle. Pourquoi est-ce que je l'oublierais ? »" },
+      ],
+      choices: [
+        { label: "« Riches comment ? On cherche des bois rares et du corail. »", to: "A3m_jules_naif" },
+        { label: "« Méfie-toi des gens qui promettent d'être riches. »", fx: { penche: { arnoult: 1 } }, to: "A3m_jules_mefie" },
+        { label: "Faire semblant de dormir", to: "A3m_jules_fin" },
+      ] },
+    A3m_jules_naif: { act: "III", title: "Petit-Jules", place: "cormorane", ambiance: "nuit",
+      text: [
+        "Petit-Jules pouffe dans son hamac. « Du corail ! Tout le monde sait ce qu'on cherche. Tout l'avant le sait. Ils en parlent quand l'arrière n'écoute pas. » Il chuchote un seul mot, délicieusement, comme on mange une dragée : « Trésor. »",
+        "Puis il s'endort, d'un coup, au milieu d'un rire, comme on s'endort à quinze ans.",
+      ],
+      choices: [{ label: "Rester éveillé{e} un moment", to: "A3m_jules_fin" }] },
+    A3m_jules_mefie: { act: "III", title: "Petit-Jules", place: "cormorane", ambiance: "nuit",
+      text: [
+        "Petit-Jules ne répond pas tout de suite. Puis : « Ma mère dit ça aussi. » Il se tait si longtemps que tu le crois endormi. « Tu crois qu'il ment ? »",
+        "Tu ne sais pas. Tu le lui dis. Il soupire, d'un soupir d'enfant contrarié, et se retourne dans son hamac, qui grince.",
+      ],
+      choices: [{ label: "Rester éveillé{e} un moment", to: "A3m_jules_fin" }] },
+    A3m_jules_fin: { act: "III", title: "Petit-Jules", place: "cormorane", ambiance: "nuit",
+      text: [
+        "L'entrepont respire autour de toi, trente poitrines, trente rêves. Une lanterne sourde se balance au bout de sa chaîne. À l'avant, la porte de la cambuse laisse passer un trait de lumière rouge : le fourneau ne s'éteint jamais, et quelqu'un, derrière, veille avec lui.",
+      ],
+      choices: [{ back: "A3m_jours" }] },
+
+    A3m_grain: { act: "III", title: "Le grain", place: "mer_couchant", ambiance: "nuit",
+      text: [
+        "La dixième nuit, un grain tombe sur la Cormorane, d'un coup, sans prévenir, comme une main qui s'abat sur une table. Le vent passe en une minute d'une brise à un hurlement. La pluie arrive à l'horizontale, si dense qu'on ne voit plus le mât de misaine depuis le grand mât. Le navire se couche sur le flanc, se relève, se couche encore ; l'eau embarque par paquets entiers, glacée, et court sur le pont en emportant tout ce qui n'est pas amarré.",
+        "« Tout le monde en haut ! hurle Gobert. Prenez-moi un ris aux huniers ! Grouillez, tas de limaces, ou on va boire la tasse jusqu'au fond ! »",
+        "Tu montes avec les gabiers. Tu ne sais pas comment ; tu te retrouves sur la vergue du petit hunier, couché{e} sur le bois, les pieds sur le marchepied qui danse, les mains dans la toile qui claque comme un fouet, à côté de Petit-Jules, qui rit de terreur. Sous vous, très loin, le pont n'est plus qu'une lanterne qui se balance dans le noir.",
+        "Une rafale. La vergue tressaute. Petit-Jules glisse.",
+      ],
+      choices: [{ label: "Le rattraper", test: { dom: "nature", diff: 0, label: "Sur la vergue, dans le grain" },
+        win: { fx: { penche: { arnoult: 1 }, regard: { arnoult: "redevable" }, flag: "jules:sauve_mousse" }, to: "A3m_grain_fin" },
+        lose: { fx: { penche: { arnoult: -1 }, flag: "jules:sauve_fargue" }, to: "A3m_grain_fin" } }] },
+    A3m_grain_fin: { act: "III", title: "Le grain", place: "mer_couchant", ambiance: "nuit",
+      text: [
+        { outcome: "win", text: "Ta main se referme sur son poignet. Il pèse un poids de mort au bout de ton bras, au-dessus du vide, pendant une seconde qui n'en finit pas ; puis ses pieds retrouvent le marchepied, ses mains la toile, et il est là, contre toi, collé à la vergue, haletant, trempé, vivant. Il ne dit rien. Il te serre le bras si fort que tu en garderas les marques une semaine." },
+        { outcome: "lose", text: "Tes doigts frôlent sa manche et se referment sur rien. Petit-Jules tombe. Il tombe dans le noir, sans un cri, et tu le perds de vue. Puis, en bas, sous la vergue, dans les haubans, une ombre a jailli de nulle part et l'a cueilli au vol, d'un seul bras, comme on cueille un fruit : un homme large, en foulard rouge, qui le tient serré contre lui, accroché aux enfléchures de l'autre main, celle qui n'a que trois doigts. Fargue redescend avec lui jusqu'au pont, tranquillement, sous la pluie. Petit-Jules lui jette les bras au cou en sanglotant." },
+        "Le grain passe aussi vite qu'il est venu. À l'aube, la mer est grise, longue, fatiguée, et le ciel se déchire à l'est sur une bande d'or pâle. Il manque une cage à poules, deux barriques, un seau, et la moitié du sommeil de l'équipage.",
+        "Et au sud, sur l'horizon, il y a une roche.",
+      ],
+      choices: [{ label: "Brisegrève", to: "A3m_brisegreve", big: true }] },
+
+    A3m_brisegreve: { act: "III", title: "Brisegrève", place: "brisegreve", escale: "brisegreve", hub: true, noLead: true, backName: "Brisegrève", ambiance: "mer",
+      text: [
+        { first: true, text: "Brisegrève sort de la mer comme le poing d'un géant noyé : un bloc de granit noir, sans un arbre, haut de trois cents pieds, battu de tous les côtés par une houle qui s'y brise en geysers blancs. Sur le sommet, le fort. Ses murs suivent la roche si exactement qu'on ne sait pas où finit l'une et où commencent les autres ; ils ont la même couleur, la même humidité, la même absence de pitié. Pas une fenêtre du côté de la mer. Seulement, très haut, des meurtrières, et plus bas, à fleur de vague, des grilles rouillées d'où suinte une eau noire." },
+        { first: true, text: "La Cormorane mouille dans la seule anse de l'île, au pied du fort, près d'un petit bourg de soldats aux maisons basses et d'une source qui sort de la roche, à l'aiguade, où les navires viennent remplir leurs barriques depuis deux siècles. On y restera deux jours. Le baron et la médecin sont montés au fort, à l'invitation du gouverneur." },
+        { again: true, text: "La roche, le fort, l'anse grise. Sur la grève, les barriques à remplir." },
+        { with: "chien", text: "Le chien refuse de quitter la chaloupe. Il regarde le fort, le poil hérissé du cou à la queue, et gronde sans s'arrêter, d'un grondement si bas qu'on le sent dans le bois du banc plus qu'on ne l'entend." },
+      ],
+      choices: [
+        { label: "Aller à l'aiguade avec Maître Gobert", to: "A3m_aiguade", hide: { seen: "A3m_aiguade" } },
+        { label: "Courir le bourg des soldats", to: "A3m_bourg", hide: { seen: "A3m_bourg" } },
+        { label: "Te glisser à la grotte, la nuit, et frapper contre la roche", to: "XM_m_nuit", hide: { any: [{ not: { seen: "XM_m_gobert" } }, { seen: "XM_m_voix" }] } },
+      ] },
+    A3m_aiguade: { act: "III", title: "L'aiguade", place: "brisegreve", ambiance: "nature",
+      text: [
+        "La source de Brisegrève sort de la roche par une fente, au fond d'une petite grotte que la mer remplit à moitié aux grandes marées. On y a creusé un bassin, on y a posé une auge de pierre, et les marins de deux siècles ont gravé leurs noms sur les parois, avec des dates, des cœurs, des croix, des navires, des injures.",
+        "Gobert fait remplir les barriques à la chaîne, du bassin à la chaloupe, en jurant contre la lenteur de l'eau, qui coule au débit d'un robinet de sacristie. Il te laisse au bassin, avec un seau, pendant qu'il va engueuler les rameurs.",
+        "Tu es seul{e} dans la grotte. L'eau coule. La mer respire à l'entrée. Et sous tes pieds, dans la roche, quelque chose frappe.",
+        "Trois coups. Un silence. Trois coups.",
+      ],
+      choices: [{ label: "Coller l'oreille contre la roche", to: "XM_m_coups" }] },
+    A3m_bourg: { act: "III", title: "Le bourg des soldats", place: "brisegreve", ambiance: "village",
+      text: [
+        "Le bourg de Brisegrève compte vingt maisons, une chapelle, deux tavernes et trois cents soldats, ce qui donne une idée de l'humeur générale. Les soldats s'ennuient. Ils s'ennuient avec méthode, depuis des années, en jouant aux dés, en buvant un vin aigre qui vient de très loin et le fait sentir, et en racontant aux matelots de passage les histoires du fort, qu'ils embellissent à chaque navire.",
+        "À la taverne de l'Ancre-Rouillée, un caporal à moustaches jaunes t'offre un verre, parce que tu as une tête à écouter.",
+        "« Il y a là-haut des gens qui n'ont pas vu le jour depuis vingt ans, dit-il en baissant la voix. Des prisonniers d'État. On ne sait pas leurs noms. On leur donne des numéros. Le numéro neuf, par exemple : il est là depuis dix-neuf ans. Un ancien pirate, à ce qu'on dit. Le gouverneur Lebihan lui fait porter une soupe par jour et un sermon par an. » Il vide son verre. « Le numéro neuf, il ne parle plus. Il frappe. La nuit, dans les cachots du bas, on l'entend frapper contre le mur. Les nouveaux croient que c'est un fantôme. Les anciens savent que c'est un fou. »",
+        "Il rit, puis s'arrête. « Le gouverneur, lui, il ne croit qu'à une chose. » Il frotte le pouce contre l'index. « Avec ça, chez nous, même les morts sortent. »",
+      ],
+      choices: [
+        { label: "Acheter des citrons à la cantinière, pour la traversée", if: { gold: { min: 40 } }, fx: { gold: -40, flag: "citrons:mousse" }, to: "A3m_bourg_citrons" },
+        { back: "A3m_brisegreve" },
+      ] },
+    A3m_bourg_citrons: { act: "III", title: "Le bourg des soldats", place: "brisegreve", ambiance: "village",
+      text: [
+        "La cantinière a des citrons, petits, verts, durs comme des balles, venus d'un navire du sud il y a un mois. Elle t'en vend un sac pour deux livres, en te regardant comme on regarde un enfant qui achète des remèdes. « Tu as quelqu'un de malade, à bord ?",
+        "— Pas encore. »",
+        "Elle hoche la tête, lentement, et ajoute deux citrons dans le sac, pour rien.",
+      ],
+      choices: [{ back: "A3m_brisegreve" }] },
+  },
+  extras: {},
+};

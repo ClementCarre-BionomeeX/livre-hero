@@ -1,0 +1,193 @@
+// L'Île Folle-Aiguille · act IV, chapter IV.2 followed by the child: the days with the hermit. His hut, his clock
+// without hands, his coffee of roasted seeds, the piastre he wears at his neck; the story he tells in the third person,
+// like another old sailor once did at the Fanal. What can make him say his name (dagrel:demasque): the father's
+// lighter, melted from a piastre for a lame boy; the name of Fulbert; the coin the child kept. The people of the
+// island (xd_peuples.js), the plateau and the professor (xt_plateau.js). At the end, where the child chooses to be
+// when the privateer comes: with him (mousse:sauveur) or at the chapel (mousse:chapelle).
+var JOURS = [{ seen: "A4n_histoire" }, { seen: "XD_debut" }, { seen: "XT_debut" }, { seen: "A4n_compas" }, { seen: "A4n_suivre" }];
+var DEMASQUE = { has: "dagrel:demasque" };
+module.exports = {
+  passages: {
+    A4n_debut: { act: "IV", title: "Le matin", place: "cabane", ambiance: "nature",
+      text: [
+        "Tu te réveilles dans le hamac avec l'impression d'avoir dormi un an. Une lumière verte et dorée entre par la porte ouverte, et avec elle une odeur que tu ne connais pas : grillée, amère, chaude. Dehors, le vieil homme est accroupi devant un petit feu, et il tourne, dans une poêle de fer à manche cassé, des graines brunes qui crépitent.",
+        "« Du café, dit-il sans se retourner. Ou ce que j'appelle ainsi par nostalgie. Ce sont les graines d'un arbuste qui pousse au pied de la Table. Elles n'ont aucun rapport avec le café, sinon qu'on les grille, qu'on les pile et qu'on boit l'eau noire qui en sort. Au bout de vingt ans, on ne fait plus la différence. C'est la grande leçon de l'exil : tout finit par avoir le goût de ce qu'on regrette. »",
+        "Il te tend une coque de noix pleine d'un liquide brûlant. C'est amer, épais, terreux, et cela te réveille comme une gifle.",
+        "Au grand jour, tu le vois mieux. Il est plus vieux que tu ne croyais, et plus solide. Ses avant-bras, sous les manches de peau, sont noueux comme des cordages, couverts de cicatrices blanches et de tatouages délavés que le soleil a presque effacés. Et à son cou, au bout d'un lacet de cuir, pend une grosse pièce d'argent mat, percée d'un trou, qui brille quand il se penche sur le feu.",
+        { if: { item: "piastre" }, text: "Tu connais cette pièce. Tu en as une dans ta poche, la même : la croix aux bras évasés, l'ancre, la devise. Tu l'as prise au Gabier, au Fanal, il y a une éternité." },
+        { with: "chien", text: "Le chien-loup est couché à trois pas du vieil homme, et le regarde. Il ne gronde pas. Il ne s'approche pas non plus. Il le regarde comme on regarde un autre chien, très vieux, dont on ne sait pas encore s'il mord." },
+      ],
+      choices: [{ label: "Boire le café", to: "A4n_jours" }] },
+
+    A4n_jours: { act: "IV", title: "La hutte sous la Table", place: "cabane", hub: true, noLead: true, backName: "la hutte", ambiance: "nature",
+      text: [
+        { first: true, text: "Les jours, chez Sauveur, ont la forme qu'il leur donne. Il se lève avant l'aube, grille ses graines, se baigne dans la vasque de la cascade, en bas de la Table, avec un grand bruit d'éléphant, lit une heure dans un de ses livres gonflés, toujours à voix haute, toujours en latin, et fait ensuite le tour de ses pièges, de ses arbres et de ses idées, en marmonnant. Il te traite avec une politesse inépuisable, comme un invité de marque qu'on aurait enfermé." },
+        { first: true, text: "Il ne te demande jamais rien sur la chapelle, sur la Cormorane, sur le trésor. C'est ce silence-là, plus que tout le reste, qui te fait comprendre qu'il sait tout." },
+        { again: true, text: "La hutte, la cascade, le café amer. Le vieil homme lit à voix haute, en latin, pour les arbres." },
+      ],
+      choices: [
+        { label: "Lui demander qui sont les gens de cette île", to: "A4n_histoire", hide: { seen: "A4n_histoire" } },
+        { label: "Lui montrer la piastre que tu as dans ta poche", to: "A4n_piastre", hide: { any: [{ seen: "A4n_piastre" }, { not: { item: "piastre" } }, DEMASQUE] } },
+        { label: "Allumer le feu du soir avec le briquet de ton père", to: "A4n_briquet", hide: { any: [{ seen: "A4n_briquet" }, { not: { item: "briquet" } }, DEMASQUE] } },
+        { label: "Lui demander pourquoi les compas tournent", to: "A4n_compas", hide: { seen: "A4n_compas" } },
+        { label: "L'accompagner au Haut-Verger", to: "XD_debut", hide: { seen: "XD_debut" } },
+        { label: "Aller voir qui crie, au pied de la falaise", to: "XT_debut", hide: { seen: "XT_debut" }, if: { count: JOURS, min: 1 }, why: "Personne ne crie encore." },
+        { label: "La nuit, le suivre quand il sort sans lanterne", to: "A4n_suivre", hide: { any: [{ seen: "A4n_suivre" }, { seen: "XD_nuit" }] }, if: { count: JOURS, min: 2 }, why: "Il ne sort pas encore la nuit, ou tu dors trop bien." },
+        { label: "Lui dire un nom que le Gabier criait la nuit, au Fanal", to: "A4n_fulbert", hide: { any: [{ seen: "A4n_fulbert" }, { not: { has: "larrouy:fulbert" } }, DEMASQUE] }, if: { seen: "A4n_histoire" }, why: "Tu ne sais pas encore assez de quoi il parle." },
+        { label: "Partir rejoindre les tiens", to: "A4n_fin", big: true, if: { count: JOURS, min: 3 }, why: "Tu n'as pas encore assez vu cette île pour la quitter, ou lui." },
+      ] },
+
+    A4n_histoire: { act: "IV", title: "Une histoire", place: "cabane", ambiance: "nuit",
+      text: [
+        "Il te répond le soir, devant le feu, en bourrant une pipe de terre avec une herbe qui sent le foin brûlé.",
+        "« Il était une fois, dit-il, une compagnie de braves gens qui voulaient être bons. Ce n'est pas si fréquent. Ils étaient deux cents, à peu près, des artisans, des paysans, des veuves, un pasteur, un médecin, un intendant. Ils avaient vendu tout ce qu'ils avaient pour acheter un navire, et ils étaient partis loin des rois, des évêques et des banques, pour fonder une république de la miséricorde sur une île où personne ne viendrait les chercher. Ils ont trouvé l'île. Ils ont trouvé de l'argent dans les collines, ce qui était une malchance qu'ils n'avaient pas prévue. Ils ont frappé des pièces, pour commercer avec les navires de passage. C'était une erreur. Une pièce, ça voyage. Une pièce, ça raconte d'où elle vient. »",
+        "Il tire sur sa pipe.",
+        "« Un jour, un navire est venu, qui avait entendu parler des pièces. Son capitaine était un homme intelligent. Il savait que les gens bons sont faciles à prendre, parce qu'ils ouvrent la porte. Il a trouvé l'intendant, qui n'était pas si bon que les autres, et l'intendant lui a donné les clefs de la chapelle, où les braves gens se sont réfugiés quand les choses ont mal tourné. Je vous passe le détail. Le détail est toujours le même, dans ces histoires. »",
+        { if: { has: "veillee:colonie" }, text: "Tu as déjà entendu cette histoire. Au Fanal, à la veillée, dans la bouche du Gabier, racontée comme celle-ci, à la troisième personne, comme on porte un fardeau à bout de bras pour qu'il ne vous salisse pas. Ton père avait cassé un pichet pour la faire taire." },
+        "« Et après ? demandes-tu.",
+        "— Après, l'histoire se divise, comme les rivières en arrivant à la mer. Ceux qui ont survécu ont choisi deux façons de vivre avec ce qu'ils avaient vu. Vous les verrez, si vous restez. Et le capitaine… » Il sourit. « Le capitaine a été puni. D'une façon très ingénieuse. Ses propres hommes l'ont laissé ici, seul, avec un pistolet et une balle, et ils sont partis avec son navire. Ils l'ont puni en lui laissant ce qu'il avait voulu : l'île. »",
+        "Il secoue sa pipe contre une pierre.",
+        "« C'est une belle histoire, n'est-ce pas ? Elle a une morale. Je n'ai jamais su laquelle. »",
+      ],
+      choices: [{ label: "Regarder le pistolet rouillé, au-dessus de la porte", fx: { flag: "sauveur:histoire" }, back: "A4n_jours" }] },
+
+    A4n_compas: { act: "IV", title: "L'aiguille", place: "cabane", ambiance: "nature",
+      text: [
+        "Il éclate de rire. « Ah ! La grande question. Les marins de la Cormorane doivent devenir fous. »",
+        "Il te mène dehors, au pied de la falaise, et ramasse une pierre noire, lourde, à la cassure brillante comme du verre, et te la met dans la main. Elle est étrangement lourde pour sa taille. Il sort de sa besace un vieux compas de poche à couvercle de cuivre, l'ouvre, le pose sur un rocher, et approche la pierre. L'aiguille se tord vers elle comme un chien vers sa pâtée.",
+        "« L'île en est pleine, dit-il. Du fer, de la pierre aimantée, des veines entières, sous la Table, sous les collines, partout, mais pas partout pareil. L'aiguille ne ment pas, voyez-vous. On l'accuse de mentir. Elle dit seulement la vérité de l'endroit où elle se trouve, au lieu de la vérité du nord. Comme un homme de l'île, en somme. »",
+        "Il referme le compas.",
+        "« Et ce qui est admirable, c'est qu'au même endroit, elle se trompe toujours de la même façon. Fidèlement. Avec une constance que je n'ai jamais trouvée chez aucun être humain. Si l'on connaît son erreur, on la corrige, et elle redevient la plus honnête des servantes. » Il te regarde, ses yeux gris pâles fixés sur toi. « Je dis cela pour la conversation. »",
+        { if: { has: "correction:parchemin" }, text: "Tu penses au parchemin, à la chaleur du fourneau, aux signes que tu as déchiffrés. Tirez trois quarts au couchant. Tu ne dis rien. Il te regarde ne rien dire, et il sourit." },
+      ],
+      choices: [{ label: "Lui rendre sa pierre", fx: { flag: "sauveur:compas" }, back: "A4n_jours" }] },
+
+    A4n_piastre: { act: "IV", title: "La piastre", place: "cabane", ambiance: "nature",
+      text: [
+        "Tu sors la pièce de ta poche et tu la poses sur le rocher, entre vous deux, au soleil.",
+        "Il la regarde longtemps sans la toucher. Puis il prend la sienne, à son cou, et la pose à côté. Les deux pièces sont identiques, la même croix, la même ancre, la même devise. La sienne est usée, polie, presque lisse ; la tienne est plus nette.",
+        "« Où l'avez-vous eue ? demande-t-il.",
+        "— Un vieux marin. Il est mort à l'auberge de mon père. Ignace Larrouy. »",
+        "Il ferme les yeux. Il reste un moment ainsi, les yeux fermés, le visage tourné vers le soleil, et il a l'air de quelqu'un qui écoute une musique très lointaine.",
+        "« Ignace, dit-il enfin. Le Gabier. Il montait plus vite que les autres, et il buvait plus vite encore. Il est mort, alors. » Il rouvre les yeux. « Dans un lit ? »",
+        "Tu fais oui de la tête.",
+        "« Dans un lit. » Il rit, doucement. « Moi qui lui avais promis la corde. Voyez comme les promesses s'usent. » Il reprend sa pièce, la remet à son cou. Il pousse la tienne vers toi, du bout du doigt. « Gardez-la. Elle vous portera chance. Elle n'en a jamais porté à personne, mais vous serez peut-être l'exception. »",
+        "Il ne dit rien de plus. Il n'en a pas besoin. Un homme qui a promis la corde au Gabier, il y a longtemps, sur un navire.",
+      ],
+      choices: [{ label: "Reprendre ta pièce", fx: { flag: "sauveur:piastre", regard: { dagrel: "curieux" } }, back: "A4n_jours" }] },
+
+    A4n_fulbert: { act: "IV", title: "Fulbert", place: "cabane", ambiance: "nuit",
+      text: [
+        "Tu le dis le soir, devant le feu, sans préparation, parce que tu as peur de ne pas oser si tu prépares.",
+        "« Au Fanal, la nuit, le Gabier parlait tout seul. Il disait : rends-moi les clefs, Fulbert. Tu les as données une fois, tu peux bien les rendre. »",
+        "Le vieil homme était en train de bourrer sa pipe. Il s'arrête. La pipe reste en l'air, entre ses doigts, et l'herbe tombe en pluie fine dans le feu, qui crépite.",
+        "« Fulbert Aymon, dit-il, d'une voix tout à fait neutre, comme on lit un registre. Intendant de la Compagnie de la Miséricorde. Il a livré les clefs de la chapelle contre une part et la promesse d'un passage pour Morlenc. J'ai tenu la première promesse : je lui ai donné sa part. Je l'ai pendu avec, à la porte de la chapelle, avec son sac d'argent attaché aux pieds pour que le nœud se serre mieux. On ne paie pas un traître. On ne le garde pas non plus. On s'en sert, et on le jette. » Il allume sa pipe à un tison, avec soin. « C'est ce que j'ai fait. C'est ce que tout le monde fait. J'ai seulement été plus honnête que les autres dans la façon de jeter. »",
+        "Il te regarde à travers la fumée.",
+        "« Vous savez qui je suis, maintenant. Vous le saviez à moitié. Il faut toujours finir ce qu'on sait, c'est la seule politesse que je réclame. Je m'appelle Jéricho Dagrel. J'ai été capitaine de la Maraude. J'ai pris cette colonie, et j'ai tué une bonne partie de ceux qui l'habitaient, et j'ai enterré leur argent, et mes hommes m'ont laissé ici, et je vis depuis vingt et un ans parmi ceux que j'ai épargnés, qui m'appellent Sauveur. Voilà. » Il tire sur sa pipe. « Vous pouvez avoir peur. Je ne m'en offenserai pas. »",
+      ],
+      choices: [
+        { label: "Avoir peur, et rester", fx: { flag: ["dagrel:demasque", "dagrel:aveu_mousse"], regard: { dagrel: "admiratif" } }, to: "A4n_aveu" },
+        { label: "« Pourquoi me le dire ? »", fx: { flag: ["dagrel:demasque", "dagrel:aveu_mousse"] }, to: "A4n_aveu" },
+      ] },
+    A4n_briquet: { act: "IV", title: "Le briquet", place: "cabane", ambiance: "nuit",
+      text: [
+        "Le soir, il te laisse allumer le feu. Tu sors le briquet de ton père, le petit boîtier de métal blanc, usé par des années de pouce, tu bats l'amadou, et la flamme prend du premier coup, comme toujours.",
+        "Une main se referme sur ton poignet. Une main longue, sèche, très forte.",
+        "Il ne dit rien. Il te prend le briquet, sans brutalité, comme on prend un objet qu'on reconnaît. Il le tourne vers le feu. L'ancre. La croix aux bras évasés. Il passe le pouce dessus, à l'endroit exact où ton père passe le sien.",
+        "« Je l'ai fait moi-même, dit-il. Dans la forge de la chapelle, le lendemain. J'ai fondu une de leurs pièces, et j'ai martelé ce boîtier, et j'ai gravé l'ancre et la croix avec la pointe d'un poignard, mal, vous voyez, la croix est de travers. » Sa voix est parfaitement calme. « Il y avait un mousse sur mon navire. Un petit boiteux du Ponant, de quatorze ans. Il avait pris une balle dans la jambe, pendant l'assaut, une balle d'un des leurs, qui défendaient leur porte. Il avait froid, la nuit, avec la fièvre, et il pleurait. Il disait qu'il voulait rentrer. Je lui ai fait un briquet. Je ne sais pas pourquoi. C'est la seule chose que j'aie faite de mes mains, cette année-là, qui n'ait servi à tuer personne. »",
+        "Il te regarde. Il regarde ton visage, longtemps, trait par trait, comme on lit une lettre.",
+        "« Lazare, dit-il. Lazare Hersant. Il vit ? »",
+        "Tu fais oui de la tête. Tu ne peux pas parler.",
+        "« Il vit. » Il te rend le briquet. Il le referme dans ta main, avec la sienne par-dessus. « Alors je vais vous dire mon nom, parce que vous avez le droit de savoir qui a fait boiter votre père, et qui l'a réchauffé ensuite. Je m'appelle Jéricho Dagrel. J'ai été capitaine de la Maraude. »",
+        { if: { has: "lazare:aveu" }, text: "Tu entends ton père, au Fanal, le matin du départ, dire cinq mots comme on avoue une faute. Là-bas, il y avait des enfants." },
+      ],
+      choices: [
+        { label: "Retirer ta main", fx: { flag: ["dagrel:demasque", "dagrel:aveu_mousse", "dagrel:briquet"] }, to: "A4n_aveu" },
+        { label: "La laisser", fx: { flag: ["dagrel:demasque", "dagrel:aveu_mousse", "dagrel:briquet"], regard: { dagrel: "redevable" } }, to: "A4n_aveu" },
+      ] },
+    A4n_aveu: { act: "IV", title: "Jéricho Dagrel", place: "cabane", ambiance: "nuit",
+      text: [
+        "Le feu baisse. Il remet une branche, et la regarde prendre.",
+        "« Vous voulez savoir pourquoi je vous le dis, dit-il. Parce que je suis vieux, et que j'ai envie qu'on sache, avant que je meure, que je ne suis pas mort. C'est une vanité. J'en ai beaucoup. Et parce que ceux qui sont sur la plage, avec leur cuisinier qui chante, et ceux qui sont dans la chapelle, avec leur baron, sont venus chercher ce que j'ai enterré, et qu'aucun d'eux ne le trouvera sans moi. »",
+        "Il te regarde, avec une sorte de tendresse terrible.",
+        "« Vous avez une carte, n'est-ce pas ? Ou les vôtres l'ont. Avec trois relèvements. Je les ai pris moi-même, au compas, avec cette aiguille-ci, qui tourne. Si vous les suivez tels quels, vous creuserez la mer. » Il rit. « J'avais pensé à tout, sauf à rester. »",
+        { if: { has: "fargue:connu" }, text: "« Le cuisinier, ajoute-t-il, d'un ton léger. Il chante bien ? Il y avait sur mon navire un quartier-maître qui chantait. Lucien. La Chanson, on l'appelait. Il chantait en menant la mutinerie. Il chantait en me laissant sur la plage. Il a toujours eu une très belle voix. »" },
+        "Il se lève, se déplie.",
+        "« Dormez. Demain, si vous voulez, vous irez dire à votre baron que Jéricho Dagrel vit. Ou vous ne direz rien. Je vous laisse choisir. C'est un luxe que je n'ai laissé à personne, à votre âge. »",
+      ],
+      choices: [{ label: "Dormir, si tu peux", back: "A4n_jours" }] },
+
+    A4n_suivre: { act: "IV", title: "La nuit", place: "sylve", ambiance: "nuit",
+      text: [
+        "Tu fais semblant de dormir. Vers minuit, il se lève, sans bruit, sans lanterne, et sort.",
+        "Tu le suis. C'est difficile : il marche dans le noir comme en plein jour, sans un faux pas, sans casser une branche, par des sentiers que tu ne vois pas. Tu te guides au bruit de sa respiration, puis à rien, puis aux mouches à feu qui s'écartent sur son passage.",
+        "Il marche vers le nord. La forêt s'éclaircit. Le sol monte, devient sec, caillouteux. Les arbres font place à des broussailles, puis à des herbes rousses, et tu sors à découvert sous un ciel plein d'étoiles, sur le flanc d'une colline pelée. Devant toi, un trou dans la colline. Un puits de mine, entouré de pierres sèches, d'où monte une chaleur et une odeur de soufre et de métal chaud. Au fond, très loin, une lueur rouge.",
+        "Il s'arrête au bord. Il attend.",
+        "Des lanternes montent du puits. Des hommes, cinq ou six, qui sortent de terre l'un après l'autre par une échelle de fer, et qui se plantent devant lui, en clignant des yeux sous les étoiles comme si les étoiles les blessaient. Ils sont pâles. D'une pâleur de racine, de ventre de poisson. Ils sont vêtus de cuir brûlé. L'un d'eux, le plus grand, porte un tablier de forgeron.",
+        "« Le Vieux, dit-il. Tu es en retard.",
+        "— Je suis toujours en retard, Hugon. C'est ce qui me rend précieux. »",
+        "Ils parlent. Tu n'entends pas tout. Il est question de fer, de fruits, de quelqu'un qu'on a « pris en haut », de quelqu'un qu'on « rendra quand il aura fini ». Puis l'homme au tablier dit, plus fort : « Les gens de la mer. Ils creusent ? » Et le vieil homme répond : « Pas encore. Ils se battent d'abord. C'est l'ordre naturel. »",
+        { with: "chien", text: "Le chien, à côté de toi, dans les herbes, se met à gronder. Il sent les hommes du puits, et il ne les aime pas." },
+      ],
+      choices: [
+        { label: "Repartir avant qu'on te voie", fx: { flag: "puits:vus" }, back: "A4n_jours" },
+        { label: "Te montrer", fx: { flag: "puits:vus" }, to: "A4n_suivre_vu" },
+      ] },
+    A4n_suivre_vu: { act: "IV", title: "Les hommes du puits", place: "puits", ambiance: "nuit",
+      text: [
+        "Tu te lèves dans les herbes. Les lanternes se tournent vers toi, toutes ensemble. Les hommes pâles reculent d'un pas, la main à leurs outils, des pics, des marteaux, et l'un d'eux siffle entre ses dents.",
+        "Le vieil homme ne se retourne même pas.",
+        "« L'enfant dort sous mon toit, Hugon, dit-il. Me suivre jusqu'ici, ça prouve de l'esprit. »",
+        "L'homme au tablier te regarde, de ses yeux plissés, clairs, presque blancs. Il a sur la joue une grande brûlure luisante, ancienne, en forme de main. Il te regarde comme on regarde un outil qu'on voudrait acheter.",
+        "« Les gens de la mer ont des mains, dit-il. Des mains qui n'ont pas peur du jour. » Puis, au vieil homme : « Amène ça en bas, un jour. On verra ce que ça sait faire. »",
+        "Il redescend dans son puits, et les autres avec lui, et les lanternes s'enfoncent dans la terre une à une, comme des étoiles qui tomberaient dans un seau.",
+      ],
+      choices: [{ label: "Rentrer avec le vieil homme", fx: { meet: "hugon", regard: { hugon: "curieux" } }, back: "A4n_jours" }] },
+
+    A4n_fin: { act: "IV", title: "Partir", place: "cabane", ambiance: "nature",
+      text: [
+        "Tu le lui dis le matin, au café. Que tu dois rejoindre les tiens. Qu'on te croit mort{e}, peut-être, à la chapelle.",
+        "Il hoche la tête, comme s'il l'attendait.",
+        { if: DEMASQUE, text: "« Vous allez leur dire, dit-il. C'est bien. Dites-le à la médecin d'abord. Elle a l'air de quelqu'un qui sait quoi faire d'une mauvaise nouvelle. Les barons, on ne sait jamais. Ils ont des façons de prendre les nouvelles qui coûtent cher aux autres. »" },
+        { if: { not: DEMASQUE }, text: "« Allez, dit-il. Vous reviendrez, ou non. Les gens reviennent toujours, ici. L'île a cette manie. »" },
+        "Il te tend une besace de peau pleine de fruits, et un petit sachet de ses graines grillées. « Pour la médecin. Elle aura besoin de ne pas dormir. »",
+        "Au moment où tu passes la porte, il ajoute, sans lever les yeux de sa tasse :",
+        "« Dans quelques jours, il entrera dans l'anse un navire de plus. Un brigantin gris. Je l'ai vu passer au large, hier, à la lunette, qui tirait des bords en attendant le bon vent. Il vient creuser, lui aussi. » Il boit. « Tout le monde vient creuser. »",
+      ],
+      choices: [
+        { label: "Descendre vers la chapelle", fx: { flag: "mousse:chapelle", item: "graines_sauveur" }, to: "A4n_chapelle" },
+        { label: "Rester encore, près de lui", fx: { flag: "mousse:sauveur", item: "graines_sauveur", regard: { dagrel: "cordial" } }, to: "A4n_reste" },
+      ] },
+    A4n_chapelle: { act: "IV", title: "La Miséricorde", place: "misericorde", ambiance: "nature",
+      text: [
+        "Tu descends vers l'éperon par la forêt, en suivant les repères que tu as appris du haut de l'arbre.",
+        { if: { item: "plume_noire" }, text: "Deux fois, tu sens des yeux sur toi, dans les branches. Tu lèves la plume noire au-dessus de ta tête. Les yeux s'en vont." },
+        { if: { has: "chapelle:perdue" }, text: "La chapelle est aux mutins. Leur chemise noire pend au clocher. Tu contournes l'éperon, longtemps, à plat ventre dans les fougères, et tu entends, plus loin, à l'est, les voix des tiens : ils se sont repliés dans les vergers, sous les arbres alignés, avec leurs blessés. Tu cours vers eux." },
+        { if: { not: { has: "chapelle:perdue" } }, text: "Les couleurs de la capitaine flottent au clocher. Une sentinelle te voit sortir des arbres, épaule son mousquet, puis le baisse, et crie ton nom, et la porte s'ouvre." },
+        "On te croyait mort{e}. On te le dit, l'un après l'autre, comme un reproche. La capitaine te regarde de loin, et hoche la tête, et se détourne très vite. Victorine Davrigny te prend par les épaules, te regarde, te palpe, comme on vérifie qu'un vase n'est pas fêlé, et ne dit rien du tout, ce qui chez elle est une effusion.",
+      ],
+      choices: [{ label: "Raconter", to: "A4n_raconte" }] },
+    A4n_raconte: { act: "IV", title: "Le récit", place: "misericorde", ambiance: "chateau",
+      text: [
+        "Tu racontes. La plage, le coup de feu, la forêt, la plume noire, le vieil homme.",
+        { if: DEMASQUE, text: "Tu dis le nom. Jéricho Dagrel. Le baron Clavières, qui écoutait à l'écart, se lève d'un coup, renverse son siège, et reste debout, la main sur le dossier, le visage gris. Victorine le regarde, lui, et pas toi." },
+        { if: { not: DEMASQUE }, text: "Tu décris le vieil homme, sa barbe, son tricorne sans bord, sa politesse, sa pièce au cou. Le baron Clavières, qui écoutait à l'écart, demande, d'une voix trop calme, comment était cette pièce. Tu la décris. Il ne demande plus rien." },
+        { if: { has: "puits:vus" }, text: "Tu parles des hommes pâles qui sortent de terre. Le professeur Gaudrémont, s'il est encore là, ouvre la bouche, puis la referme, et prend une note." },
+        "Victorine prend le sachet de graines grillées que tu lui tends, le renifle, fronce les sourcils, et le met dans sa poche sans un mot.",
+      ],
+      choices: [{ label: "Dormir à la chapelle", to: "C4b_fin" }] },
+    A4n_reste: { act: "IV", title: "Rester", place: "cabane", ambiance: "nature",
+      text: [
+        "Tu restes. Il ne fait pas de commentaire. Il ressert du café.",
+        "Le soir, il t'apprend les échecs, sur son échiquier de pierre, avec ses pièces taillées au couteau. Il joue vite, sans réfléchir, en parlant d'autre chose, et il gagne toujours, et il t'explique ensuite chaque fois, très patiemment, à quel moment exact tu as perdu, qui est toujours bien avant le moment où tu l'as compris.",
+        "« C'est le seul jeu honnête, dit-il. On n'y cache rien. Tout est sur la table. Et pourtant on perd. C'est ce qui le rend si instructif. »",
+        { if: { has: "fargue:connu" }, text: "Tu penses au maître-coq, qui jouait aux échecs avec toi à la cambuse, et qui jouait comme ça, lui aussi. Vite, en parlant d'autre chose. Il avait appris quelque part." },
+      ],
+      choices: [{ label: "Les jours suivants", to: "C4b_fin" }] },
+  },
+  extras: {
+    items: {
+      graines_sauveur: { name: "Un sachet de graines grillées", kind: "divers", keep: true, price: 0, desc: "Le « café » du vieil homme de la Sylve : des graines brunes, amères, qui tiennent éveillé." },
+    },
+  },
+};
