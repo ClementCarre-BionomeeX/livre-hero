@@ -33,7 +33,7 @@ module.exports = {
         { label: "Sous l'orage, courir vers la seule fenêtre allumée de la lande", to: "ZE_orage", hide: { seen: "ZE_orage" }, if: { seen: "A3o_village" }, why: "Tu ne connais pas encore assez la lande pour t'y perdre." },
         { label: "Garder seul{e} la lande, près d'une meule de tourbe", to: "ZT_lande", hide: { seen: "ZT_lande" } },
         { label: "Porter les cruches de Maître Gobert, de l'autre côté de la lande", to: "WD_affaire", hide: { seen: "WD_affaire" } },
-        { label: "Accompagner Lagadec, qui veut acheter du fromage au village", to: "UR_maison", hide: { seen: "UR_maison" }, if: { seen: "A3o_village" }, why: "Tu ne connais encore personne au village." },
+        { label: "Accompagner le vieux Quéméner, qui veut acheter du fromage au village", to: "UR_maison", hide: { seen: "UR_maison" }, if: { seen: "A3o_village" }, why: "Tu ne connais encore personne au village." },
         { label: "Aider les tourbiers, à l'est", to: "XQ_l_tourbe", hide: { seen: "XQ_l_tourbe" } },
         { label: "À minuit, marcher vers la cloche qui sonne à Coat-Du, où il n'y a plus de cloche", to: "TR_cloche", hide: { seen: "TR_cloche" } },
         { label: "Grimper jusqu'au cairn de la colline", to: "XQ_l_cairn", hide: { any: [{ seen: "XQ_l_cairn" }, { seen: "XE_m_debut" }] } },
