@@ -91,6 +91,12 @@ module.exports = {
     pecheurislande: { title: "Pêcheur d'Islande", author: "Pierre Loti" },
     peste: { title: "Journal de l'année de la peste", author: "Daniel Defoe" },
     fadette: { title: "La Petite Fadette", author: "George Sand" },
+    colomba: { title: "Colomba", author: "Prosper Mérimée" },
+    maitreserviteur: { title: "Maître et serviteur", author: "Léon Tolstoï" },
+    filleducapitaine: { title: "La Fille du capitaine", author: "Alexandre Pouchkine" },
+    eugeniegrandet: { title: "Eugénie Grandet", author: "Honoré de Balzac" },
+    claudegueux: { title: "Claude Gueux", author: "Victor Hugo" },
+    moumou: { title: "Moumou", author: "Ivan Tourgueniev" },
     ile: { title: "L'Île au trésor", author: "Robert Louis Stevenson" },
   },
   acts: [

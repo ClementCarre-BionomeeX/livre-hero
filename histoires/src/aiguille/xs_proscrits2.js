@@ -23,6 +23,7 @@ module.exports = {
         { label: "Parler à l'homme à la plume fine, qui écrit sur de l'écorce", to: "XS_c_guenole", hide: { seen: "XS_c_guenole" } },
         { label: "Partir avec les chasseurs, à la nuit", to: "XS_c_chasse", hide: { seen: "XS_c_chasse" }, if: { count: JOURS, min: 2 }, why: "On ne l'emmène pas encore. On ne la connaît pas assez." },
         { label: "Aller trouver Jeanne Brasdefer, seule, au bord de l'eau", to: "XS_c_jeanne", hide: { seen: "XS_c_jeanne" }, if: { count: JOURS, min: 3 }, why: "Jeanne Brasdefer l'évite. Elle a encore une dette, et elle n'aime pas ça." },
+        { label: "Regarder le grand muet nourrir un chiot jaune, au bout de ses doigts", to: "WH_chiot", hide: { seen: "WH_chiot" } },
         { label: "Dire à Jeanne Brasdefer que l'enfant est hors de danger", to: "XS_marche", big: true, if: { count: JOURS, min: 2 }, why: "La fièvre n'est pas encore tombée pour de bon." },
       ] },
 

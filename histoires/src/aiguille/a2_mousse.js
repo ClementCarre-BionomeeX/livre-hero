@@ -222,6 +222,7 @@ module.exports = {
         { label: "Rentrer tard, par la rue des Cordiers", to: "XG_presse", hide: { seen: "XG_presse" }, if: { seen: "A2m_pellerin" }, why: "Tu ne connais encore personne, à la Basse-Fosse, à qui il pourrait arriver quelque chose." },
         { label: "Courir derrière la main qui vient de te prendre tes trois sous", to: "YE_main", hide: { seen: "YE_main" } },
         { label: "Descendre les six marches de la taverne du Pélican", to: "ZO_cave", hide: { seen: "ZO_cave" } },
+        { label: "S'arrêter sous le porche de la chapelle murée, où quelqu'un tousse", to: "WE_porche", hide: { seen: "WE_porche" } },
         { label: "Aller voir le vieil homme assis en face de la boutique verte", to: "YN_banc", hide: { seen: "YN_banc" } },
         { label: "Chercher la porte bleue des Sœurs, rue des Tanneurs", to: "A2m_soeurs", hide: { seen: "A2m_soeurs" }, if: { item: "lettre_soeurs" }, why: "Tu n'as rien à faire chez des religieuses." },
         { back: "A2m_jours" },

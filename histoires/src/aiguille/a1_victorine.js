@@ -19,6 +19,7 @@ module.exports = {
         { label: "Descendre à la cave préparer la pharmacie de la semaine", to: "XL_cave", hide: { seen: "XL_cave" } },
         { label: "Ouvrir à celui qui gratte à la fenêtre de derrière", to: "XL_braco", hide: { seen: "XL_braco" } },
         { label: "Suivre le gendre Ollivier, qui frappe avec le pommeau de sa canne", to: "ZK_appel", hide: { seen: "ZK_appel" } },
+        { label: "Ouvrir au valet de ferme trempé qui gratte à la porte du cabinet", to: "WF_appel", hide: { seen: "WF_appel" } },
         { label: "Monter enfin te coucher", to: "A1v_minuit", big: true, if: { count: SOIR, min: 2 }, why: "La soirée n'est pas finie ; elle ne l'est jamais." },
       ] },
     A1v_lettre: { act: "I", title: "La lettre", place: "varnese_maison",

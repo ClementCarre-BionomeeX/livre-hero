@@ -39,6 +39,7 @@ module.exports = {
         { label: "Un coup de vent, l'après-midi, et un fracas dans la batterie", to: "YJ_canon", hide: { seen: "YJ_canon" }, if: { count: JOURS, min: 2 }, why: "La mer est encore maniable." },
         { label: "Lire, derrière la chaloupe, ce que la gabière a répondu", to: "YZ_reponse", hide: { any: [{ seen: "YZ_reponse" }, { not: { has: "yz:plume" } }] } },
         { label: "Un cri, dans la soute aux voiles, et ton nom hurlé par Gobert", to: "ZX_trouve", hide: { any: [{ seen: "ZX_trouve" }, { not: { has: "zx:cache" } }] }, if: { count: JOURS, min: 2 }, why: "La soute garde encore son secret." },
+        { label: "Aller trouver le gabier aux yeux pâles, qui t'attend au pied du mât de misaine", to: "WE_bord", hide: { any: [{ seen: "WE_bord" }, { not: { any: [{ has: "we:vareuse" }, { has: "we:gobert" }] } }] }, if: { count: JOURS, min: 1 }, why: "Il ne t'a encore rien dit depuis Morlenc." },
         { label: "La dixième nuit", to: "A3m_grain", big: true, if: { count: JOURS, min: 4 }, why: "Brisegrève est encore loin." },
       ] },
 
