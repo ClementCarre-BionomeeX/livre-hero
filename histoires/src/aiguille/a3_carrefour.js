@@ -103,8 +103,13 @@ module.exports = {
       { fx: { flag: "m3c:defaut" }, to: "C3c_fin_v" },
     ] },
     C3c_fin_v: { act: "III", title: "Lannoz", branch: [
-      { if: played("III.3", "victorine"), to: "A3_terre" },
-      { fx: { flag: "v3c:defaut" }, to: "A3_terre" },
+      { if: played("III.3", "victorine"), to: "C3c_fin_s" },
+      { fx: { flag: "v3c:defaut" }, to: "C3c_fin_s" },
+    ] },
+    // Scurvy: whatever was bought, brewed or picked on the way decides how many hands are fit when the ship arrives.
+    C3c_fin_s: { act: "III", title: "Lannoz", branch: [
+      { if: { any: [{ has: "pharmacie:citron" }, { has: "citrons:mousse" }, { has: "citrons:victorine" }, { has: "xf:remedes" }, { has: "scorbut:cochleaire" }] }, to: "A3_terre" },
+      { fx: { flag: "scorbut:grave", penche: { tarlet: -1, rivoal: -1, daguenet: -1 } }, to: "A3_terre" },
     ] },
     A3_terre: { act: "III", title: "Terre", place: "mer_couchant", ambiance: "mer",
       text: [
@@ -112,6 +117,7 @@ module.exports = {
         "Elle est là, au sud-ouest, encore à demi noyée dans la brume du matin, et elle grandit à mesure que le soleil la dégage, comme une chose qu'on sort lentement de l'eau. Une île. Un croissant épais, vert sombre, presque noir, hérissé de forêt jusqu'au bord de la mer. Au milieu, un plateau à falaises droites, coupé net comme une table, qui porte sur son dessus une autre forêt, plus claire, suspendue dans le ciel. Au nord, des collines rousses, trouées. À l'ouest, une dent de roche noire qui pointe vers le ciel.",
         { if: { has: "m3c:defaut" }, text: "{joueur} a vu Lannoz depuis la lisse : une anse grise, un brick jaune, des moutons noirs ; et la nuit du départ, l'enfant a remarqué que le maître-coq ne chantait plus." },
         { if: { has: "v3c:defaut" }, text: "Victorine a passé Lannoz à l'infirmerie, et la dernière nuit à l'arrière, dans la grand-chambre, autour d'une table où l'on a parlé à voix basse jusqu'au matin." },
+        { if: { has: "scorbut:grave" }, text: "Sur le pont, les hommes regardent la terre avec des bouches qui saignent. Le scorbut a pris onze d'entre eux ; quatre ne tiennent plus debout. On les a hissés sur le gaillard d'avant pour qu'ils voient l'île. Ils la regardent comme on regarde une cuisine par une fenêtre." },
         "Alors la timonière pousse un cri bref. Tout le monde se tourne vers la barre. Annick Lemerle a lâché la roue et regarde l'habitacle, la bouche ouverte.",
         "Dans la boîte de cuivre, sous la vitre, l'aiguille du compas tourne. Elle tourne lentement, d'un mouvement régulier, comme une girouette par un vent qui change ; elle s'arrête, frissonne, repart dans l'autre sens. Le second compas, celui de la grand-chambre, fait la même chose. Le baron Clavières, en robe de chambre sur le pont, regarde l'aiguille, puis l'île, et sourit.",
         "« Folle-Aiguille », dit-il.",
