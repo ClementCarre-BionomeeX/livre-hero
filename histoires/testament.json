@@ -1,0 +1,4326 @@
+{
+ "id": "testament",
+ "title": "Le Testament en quatrains",
+ "subtitle": "Une bastide de parfumeurs, une nuit, quatre devinettes",
+ "summary": "Madame Aurore Castellane, la plus grande parfumeuse de Sauvebonne, est morte à soixante-quatorze ans, et elle a écrit son testament en vers. Tu es le clerc de son notaire. Ce soir, à la Bastide aux Iris, tu dois lire ses dernières volontés à un neveu couvert de dettes, une nièce couverte de scapulaires et une demoiselle de compagnie qui ne dit rien, puis passer la nuit avec eux à chercher ce que la morte a caché. Quatre quatrains, une nuit, et c'est toi qui jugeras. Ce livre se lit deux fois.",
+ "tags": [
+  "enigmes",
+  "intrigue",
+  "drame"
+ ],
+ "author": "Claude, pour Clément",
+ "age": 12,
+ "skin": "parchemin",
+ "cover": {
+  "motif": "plume",
+  "color": "#4a3550"
+ },
+ "glossary": {
+  "vasque|vasques": "Grand bassin de pierre peu profond, où coule une fontaine.",
+  "oriel|oriels": "Fenêtre qui avance sur la façade, comme un petit balcon fermé.",
+  "chevrier|chevrière|chevriers": "Celui ou celle qui garde les chèvres.",
+  "boyau|boyaux": "Passage long et étroit.",
+  "toise|toises": "Ancienne mesure de longueur, un peu moins de deux mètres.",
+  "coudée|coudées": "Ancienne mesure de longueur : du coude au bout des doigts.",
+  "lieue|lieues": "Ancienne mesure de distance, environ quatre kilomètres, une heure de marche.",
+  "arnica": "Plante dont on tire un remède contre les coups et les bleus.",
+  "gambison|gambisons": "Veste épaisse et rembourrée, portée seule ou sous une armure.",
+  "broigne|broignes": "Vêtement de cuir renforcé de plaques ou d'anneaux de métal.",
+  "cotte|cottes": "Tunique. La cotte de mailles est faite de petits anneaux de fer entrelacés.",
+  "cuirasse|cuirasses": "Armure qui protège la poitrine et le dos.",
+  "heaume|heaumes": "Grand casque qui couvre toute la tête.",
+  "pourpoint|pourpoints": "Veste ajustée qui couvre le buste.",
+  "tabard|tabards": "Tunique sans manches portée par-dessus l'armure, souvent aux couleurs d'un seigneur.",
+  "hallebarde|hallebardes": "Arme à long manche, terminée par une lame de hache et une pointe.",
+  "piquier|piquiers": "Soldat armé d'une pique, une très longue lance.",
+  "arbalète|arbalètes": "Arc monté sur un manche de bois, qu'on tend avec un mécanisme ; il tire des carreaux.",
+  "baudrier|baudriers": "Bande de cuir portée en travers du corps, qui soutient l'épée.",
+  "ceinturon|ceinturons": "Grosse ceinture qui porte une arme.",
+  "herboristerie|herboristeries": "Boutique où l'on vend des plantes qui soignent.",
+  "apothicairerie": "Boutique de l'apothicaire, qui prépare les remèdes.",
+  "onguent|onguents": "Pommade qui soigne.",
+  "ravine|ravines": "Petit ravin creusé par l'eau.",
+  "rotonde|rotondes": "Salle ou bâtiment de forme ronde.",
+  "coupole|coupoles": "Toit en forme de demi-boule.",
+  "charretière": "Une porte charretière est assez large pour laisser passer une charrette.",
+  "cochère": "Une porte cochère est assez large pour laisser passer une voiture à chevaux.",
+  "caillé": "Le lait caillé est un lait épaissi, un peu aigre.",
+  "écuelle|écuelles": "Bol large et creux.",
+  "jonc|joncs": "Plante à tige droite qui pousse au bord de l'eau.",
+  "muletier|muletiers|muletière": "Celui ou celle qui conduit les mulets.",
+  "chamelier|chameliers": "Celui qui conduit les chameaux.",
+  "caravanier|caravaniers|caravanière": "Celui ou celle qui conduit une caravane de marchands.",
+  "osselets": "Jeu de petits os qu'on lance et qu'on rattrape.",
+  "chaulé|chaulés|chaulée|chaulées": "Blanchi à la chaux.",
+  "chaux": "Poudre blanche tirée du calcaire : on en blanchit les murs, on en fait du mortier.",
+  "margelle|margelles": "Rebord de pierre autour d'un puits.",
+  "rouvre|rouvres": "Une espèce de chêne.",
+  "câprier|câpriers": "Arbuste qui pousse dans les murs ; on mange ses boutons, les câpres.",
+  "auvent|auvents": "Petit toit au-dessus d'une porte, d'une fenêtre ou d'un étal.",
+  "garance": "Plante dont la racine donne une teinture rouge.",
+  "guède": "Plante dont on tire une teinture bleue.",
+  "astrolabe|astrolabes": "Instrument ancien pour mesurer la hauteur des étoiles et s'orienter.",
+  "éboulis": "Amas de pierres tombées d'une pente.",
+  "gourdin|gourdins": "Bâton gros et court qui sert d'arme.",
+  "tisonne|tisonnes|tisonner": "Remuer les braises du feu.",
+  "tonsure|tonsures": "Cercle rasé sur le haut du crâne, que portent certains religieux.",
+  "amadou": "Matière très sèche, tirée d'un champignon, qui prend feu d'une étincelle.",
+  "éperon|éperons": "Avancée pointue d'une montagne, d'un rocher ou d'un mur ; ou pointe de métal au talon du cavalier.",
+  "vélin": "Parchemin très fin, fait de peau de veau.",
+  "feuillet|feuillets": "Feuille d'un cahier ou d'un livre.",
+  "tenture|tentures": "Grand tissu tendu sur un mur ou devant une ouverture.",
+  "écluse|écluses": "Ouvrage qui retient l'eau d'une rivière ou d'un canal, et la laisse passer à volonté.",
+  "fagot|fagots": "Paquet de petit bois attaché.",
+  "contrebas": "En contrebas : plus bas.",
+  "baluchon|baluchons": "Petit paquet d'affaires noué dans un tissu.",
+  "besace|besaces": "Sac qu'on porte à l'épaule.",
+  "cairn|cairns": "Tas de pierres empilées pour marquer un chemin ou un lieu.",
+  "pilotis": "Pieux enfoncés dans le sol ou dans l'eau, sur lesquels on bâtit.",
+  "soupente|soupentes": "Petit réduit sous un escalier ou sous le toit.",
+  "bourg|bourgs": "Gros village où se tient le marché.",
+  "hameau|hameaux": "Tout petit village.",
+  "gibet|gibets": "Potence où l'on pendait les condamnés.",
+  "poulie|poulies": "Roue sur laquelle passe une corde, pour soulever une charge.",
+  "billot|billots": "Gros bloc de bois sur lequel on coupe ou on fend.",
+  "colporteur|colporteurs|colporteuse|colporteuses": "Marchand qui va de village en village, sa marchandise sur le dos.",
+  "fioritures": "Ornements, détails décoratifs.",
+  "collet|collets": "Piège fait d'un nœud coulant.",
+  "visière|visières": "Partie d'un casque qui protège le visage.",
+  "crevasse|crevasses": "Fente profonde dans la roche ou dans la glace.",
+  "milicien|miliciens|milicienne": "Habitant armé chargé de garder un lieu, sans être un vrai soldat.",
+  "enclume|enclumes": "Bloc de fer sur lequel le forgeron frappe le métal.",
+  "chanvre": "Plante dont on fait des cordes et de la toile.",
+  "meule|meules": "Grosse pierre ronde qui écrase le grain ; ou grand tas de foin.",
+  "dédale|dédales": "Labyrinthe, lieu où l'on se perd.",
+  "sauge": "Plante au parfum fort, qui soigne.",
+  "reliquaire|reliquaires": "Coffret précieux qui garde les restes d'un saint.",
+  "portefaix": "Homme dont le métier est de porter les fardeaux.",
+  "greffier|greffiers|greffière|greffières": "Personne chargée d'écrire et de garder les actes officiels.",
+  "scriptorium": "Salle où l'on copie les livres à la main.",
+  "cocagne": "Le pays de cocagne est un pays imaginaire où tout abonde.",
+  "grelot|grelots": "Petite boule de métal creuse qui tinte.",
+  "luthier|luthiers": "Artisan qui fabrique les instruments à cordes.",
+  "crieur|crieurs|crieuse": "Personne qui annonce les nouvelles à voix haute dans les rues.",
+  "relieur|relieurs": "Artisan qui coud et habille les livres.",
+  "ossuaire|ossuaires": "Lieu où l'on rassemble les os des morts.",
+  "almanach|almanachs": "Petit livre qui donne le calendrier, les saisons, des conseils et des prédictions.",
+  "nacre": "Matière brillante aux reflets changeants, à l'intérieur des coquillages.",
+  "écritoire|écritoires": "Petit pupitre ou coffret qui contient de quoi écrire.",
+  "teinturier|teinturiers|teinturière|teinturières": "Artisan qui colore les tissus.",
+  "étal|étals": "Table où le marchand expose sa marchandise.",
+  "alpage|alpages|estive": "Pâturage de montagne où l'on monte les bêtes pour l'été.",
+  "tisserand|tisserands|tisserande": "Artisan qui fabrique les tissus sur un métier.",
+  "moutier": "Ancien mot pour un monastère.",
+  "cloître|cloîtres": "Galerie couverte qui entoure la cour d'un monastère.",
+  "combe|combes": "Petite vallée étroite.",
+  "liard|liards": "Petite pièce de monnaie de très peu de valeur.",
+  "denier|deniers": "Ancienne pièce de monnaie.",
+  "fascines": "Fagots de branches serrées, pour renforcer un talus ou combler un fossé.",
+  "mélèze|mélèzes": "Arbre de montagne, cousin du sapin, qui perd ses aiguilles en hiver.",
+  "surplomb": "Partie qui avance au-dessus du vide.",
+  "complies": "Dernière prière du soir, chez les moines.",
+  "vêpres": "Prière de la fin d'après-midi, chez les moines.",
+  "héraut|hérauts": "Messager officiel qui porte les annonces d'un seigneur.",
+  "ménestrel|ménestrels": "Musicien et chanteur qui va de château en château.",
+  "péage|péager": "Le péage est le droit qu'on paie pour passer un pont ou un chemin.",
+  "chamois": "Chèvre sauvage des montagnes.",
+  "tréteau|tréteaux": "Support à quatre pieds ; on pose une planche dessus pour faire une table.",
+  "muret|murets": "Petit mur bas.",
+  "lavoir|lavoirs": "Bassin public où l'on lave le linge.",
+  "lavandière|lavandières": "Femme qui lave le linge au lavoir ou à la rivière.",
+  "linteau|linteaux": "Pierre ou poutre posée au-dessus d'une porte ou d'une fenêtre.",
+  "tilleul|tilleuls": "Grand arbre aux fleurs parfumées, dont on fait des tisanes.",
+  "rucher|ruchers": "Ensemble de ruches.",
+  "levain": "Pâte qui fait lever le pain.",
+  "fournil": "Pièce où se trouve le four du boulanger.",
+  "pupitre|pupitres": "Petite table inclinée pour lire ou écrire.",
+  "lutrin|lutrins": "Grand pupitre sur pied où l'on pose un gros livre.",
+  "poterne|poternes": "Petite porte discrète dans le mur d'un château.",
+  "stalle|stalles": "Siège de bois dans le chœur d'une église ; ou case d'un cheval à l'écurie.",
+  "étuve|étuves": "Pièce très chaude, pleine de vapeur.",
+  "lauze|lauzes": "Pierre plate qui couvre les toits en montagne.",
+  "roulier|rouliers": "Charretier qui transporte des marchandises sur les routes.",
+  "lampion|lampions": "Petite lanterne de papier.",
+  "clerc|clercs": "Homme d'Église, ou personne instruite qui sait lire et écrire.",
+  "encrier|encriers": "Petit pot qui contient l'encre.",
+  "colimaçon": "Un escalier en colimaçon tourne sur lui-même.",
+  "chambranle|chambranles": "Encadrement d'une porte ou d'une fenêtre.",
+  "beffroi|beffrois": "Tour où l'on sonne la cloche de la ville.",
+  "claie|claies": "Treillage de branches ou d'osier.",
+  "râtelier|râteliers": "Support où l'on range les armes ; ou mangeoire à foin.",
+  "embrasure|embrasures": "Ouverture dans un mur où se loge une porte ou une fenêtre.",
+  "cantinière|cantinières": "Femme qui vend à boire et à manger aux soldats.",
+  "herse|herses": "Grille qui descend pour fermer l'entrée d'un château.",
+  "chapelain|chapelains": "Prêtre au service d'un château ou d'une chapelle.",
+  "quignon|quignons": "Gros morceau de pain.",
+  "raidillon": "Petit chemin en pente raide.",
+  "joute|joutes|jouter": "Combat à cheval, lance contre lance, pour l'honneur.",
+  "écuyer|écuyers": "Jeune homme au service d'un chevalier.",
+  "replat|replats": "Endroit plat sur une pente.",
+  "bivouac|bivouacs": "Campement en plein air pour la nuit.",
+  "copiste|copistes": "Personne qui recopie les livres à la main.",
+  "mâtin|mâtins": "Gros chien de garde.",
+  "mansarde|mansardes": "Chambre sous le toit.",
+  "houlette": "Bâton de berger.",
+  "rouet|rouets": "Roue qui sert à filer la laine.",
+  "falot|falots": "Grosse lanterne.",
+  "naufrageur|naufrageurs": "Pilleur qui attire les bateaux sur les rochers.",
+  "naseaux": "Narines du cheval.",
+  "colombages": "Charpente de bois apparente dans les murs d'une maison, remplie de terre ou de briques.",
+  "angélus": "Cloche qui sonne le matin, à midi et le soir pour la prière.",
+  "chaume": "Paille qui couvre le toit des maisons.",
+  "quenouille|quenouilles": "Bâton autour duquel on enroule la laine à filer.",
+  "plastron|plastrons": "Pièce qui protège ou orne la poitrine.",
+  "batelier|bateliers|batelière": "Personne qui conduit un bateau sur une rivière.",
+  "marinier|mariniers": "Personne qui conduit un bateau sur une rivière ou un canal.",
+  "gentiane|gentianes": "Fleur de montagne, bleue ou jaune.",
+  "paillasse|paillasses": "Matelas rempli de paille.",
+  "sacristain|sacristains": "Homme qui garde l'église et ses objets.",
+  "parvis": "Place devant une église.",
+  "margrave|margraves": "Seigneur qui gouverne une province de frontière.",
+  "charron|charrons": "Artisan qui fabrique les roues et les charrettes.",
+  "pierrier|pierriers": "Machine de guerre qui lance des pierres.",
+  "heurtoir|heurtoirs": "Anneau de métal fixé à une porte, pour frapper.",
+  "complainte|complaintes": "Chanson triste.",
+  "battoir|battoirs": "Palette de bois pour battre le linge au lavoir.",
+  "barrique|barriques": "Tonneau.",
+  "fenaison|fenaisons": "Moment où l'on coupe et fait sécher le foin.",
+  "luth|luths": "Instrument à cordes au ventre bombé.",
+  "rebec|rebecs": "Petit violon ancien.",
+  "rabot|rabots": "Outil pour aplanir le bois.",
+  "rayonnage|rayonnages": "Étagères.",
+  "plioir": "Lame d'os ou de bois pour plier le papier.",
+  "paneterie": "Pièce où l'on garde le pain.",
+  "bouquetin|bouquetins": "Chèvre sauvage des montagnes, aux grandes cornes.",
+  "palefrenier|palefreniers": "Homme qui soigne les chevaux.",
+  "cellérier": "Moine chargé des provisions du monastère.",
+  "aussière|aussières": "Gros cordage d'un bateau.",
+  "coursive|coursives": "Passage étroit à l'intérieur d'un bateau.",
+  "comite": "Officier qui commande les rameurs d'une galère.",
+  "cambuse": "Réserve à provisions d'un bateau.",
+  "sentine": "Fond de la cale d'un bateau, où s'amasse l'eau sale.",
+  "galère|galères": "Navire de guerre à rames.",
+  "tonnelier|tonneliers": "Artisan qui fabrique les tonneaux.",
+  "paraphe|paraphes": "Signature courte, en quelques traits.",
+  "postillon|postillons": "Cavalier qui conduit une voiture de poste.",
+  "soupirail|soupiraux": "Petite ouverture qui donne de l'air et du jour à une cave.",
+  "oratoire|oratoires": "Petite chapelle.",
+  "andain|andains": "Rangée d'herbe coupée, laissée sur le pré pour sécher.",
+  "écheveau|écheveaux": "Fil enroulé en grande boucle.",
+  "besicles": "Anciennes lunettes.",
+  "licol|licols": "Courroie passée à la tête d'un cheval pour le mener.",
+  "ramure|ramures": "Les branches d'un arbre ; ou les bois d'un cerf.",
+  "violoneux": "Joueur de violon de village.",
+  "hauban|haubans": "Cordages qui tiennent le mât d'un bateau.",
+  "alezan|alezane": "Cheval à la robe brun-roux.",
+  "lingère|lingères": "Femme qui s'occupe du linge d'une maison.",
+  "cordier|cordiers": "Artisan qui fabrique les cordes.",
+  "corderie|corderies": "Atelier où l'on fabrique les cordes.",
+  "filin|filins": "Cordage.",
+  "drisse|drisses": "Cordage qui sert à hisser une voile.",
+  "psautier|psautiers": "Livre de psaumes, chants de prière.",
+  "verrier|verriers": "Artisan qui travaille le verre.",
+  "lices": "Terrain clos où se déroulent les tournois.",
+  "prévôt|prévôte|prévôts": "Officier qui rend la justice au nom du seigneur.",
+  "strophe|strophes": "Groupe de vers dans un poème ou une chanson.",
+  "hampe|hampes": "Long manche d'une lance ou d'un drapeau.",
+  "orfèvre|orfèvres": "Artisan qui travaille l'or et l'argent.",
+  "sellier|selliers": "Artisan qui fabrique les selles.",
+  "fondeur|fondeurs": "Artisan qui fond le métal, par exemple pour faire les cloches.",
+  "épissoir": "Outil pointu qui sert à joindre deux cordes en entrelaçant leurs brins.",
+  "épisser|épisse": "Joindre deux cordes en entrelaçant leurs brins.",
+  "parapet|parapets": "Petit mur qui protège du vide, au bord d'un pont ou d'un rempart.",
+  "créneau|créneaux": "Ouverture en haut d'un rempart, entre deux pans de mur.",
+  "bandoulière": "Portée en bandoulière : en travers du corps, d'une épaule à la hanche opposée.",
+  "serpe|serpes": "Outil à lame courbe pour couper les branches.",
+  "salpêtre": "Dépôt blanc qui se forme sur les murs humides.",
+  "lichen|lichens": "Plante sans racines, en croûte ou en touffes, qui pousse sur les pierres et les arbres.",
+  "surlendemain": "Le jour qui suit le lendemain."
+ },
+ "voice": "deuxième personne, présent",
+ "version": 1,
+ "start": "A_voiture",
+ "twice": {
+  "first": "partage",
+  "second": "relecture",
+  "start2": "S_voiture",
+  "say1": "Première lecture.",
+  "say2": "Seconde lecture. Le testament le demandait : on le relit le lendemain soir, à la même heure, mot pour mot. Toi, tu sais déjà ce que la nuit contient.",
+  "end1": "La première lecture s'achève ici. Le testament demande à être relu : rouvre le livre. Les quatrains disent plus d'une chose, et ce que tu as appris cette nuit t'ouvrira des portes restées closes.",
+  "end2": "La seconde lecture s'achève. Le testament a été lu deux fois, comme Madame Castellane l'avait voulu."
+ },
+ "intro": [
+  "Maître Brissac t'a fait appeler à cinq heures, au moment où tu rangeais les plumes. Il avait la jambe sur un tabouret, la goutte dans le pied gauche et le testament de Madame Castellane sur les genoux, dans une chemise de soie lilas qui sentait l'iris à travers tout le cabinet.",
+  "« Vous lirez à ma place, a-t-il dit. Elle l'a prévu. Elle prévoyait tout. » La voiture attendait en bas."
+ ],
+ "acts": [
+  {
+   "id": "I",
+   "title": "Acte I · La lecture",
+   "question": "Que veut Madame Castellane de ses héritiers, et de toi ?",
+   "levels": [
+    1,
+    1
+   ],
+   "start": "A_voiture"
+  },
+  {
+   "id": "II",
+   "title": "Acte II · Les codicilles",
+   "question": "Qui, dans la Bastide, cherche autre chose que l'héritage ?",
+   "levels": [
+    1,
+    1
+   ],
+   "start": "B_nuit"
+  },
+  {
+   "id": "III",
+   "title": "Acte III · L'aube",
+   "question": "À qui reviendra la Bastide aux Iris ?",
+   "levels": [
+    1,
+    1
+   ],
+   "start": "C_chapelle"
+  }
+ ],
+ "voies": {
+  "clerc": {
+   "label": "Clerc de carrière",
+   "labelF": "Clerc de carrière",
+   "tip": "Les actes, les écritures et les signatures.",
+   "like": "mage",
+   "bonus": {
+    "savoir": 35,
+    "social": 20,
+    "discretion": 15,
+    "nature": 10,
+    "magie": 10,
+    "combat": 0
+   }
+  },
+  "soldat": {
+   "label": "Ancien soldat",
+   "labelF": "Ancienne soldate",
+   "tip": "Le guet, la nuit et les menteurs.",
+   "like": "guerrier",
+   "bonus": {
+    "combat": 30,
+    "discretion": 20,
+    "social": 15,
+    "nature": 15,
+    "savoir": 10,
+    "magie": 0
+   }
+  },
+  "nez": {
+   "label": "Ancien apprenti parfumeur",
+   "labelF": "Ancienne apprentie parfumeuse",
+   "tip": "Les odeurs, les essences et les gens.",
+   "like": "rodeur",
+   "bonus": {
+    "nature": 30,
+    "social": 25,
+    "savoir": 20,
+    "discretion": 15,
+    "magie": 10,
+    "combat": 0
+   }
+  }
+ },
+ "past": [
+  {
+   "q": "Avant d'entrer chez Maître Brissac, que faisais-tu ?",
+   "answers": [
+    {
+     "label": "Rien d'autre. Tu es entré{e} à l'étude à quatorze ans pour tailler les plumes, et tu en connais chaque tiroir.",
+     "fx": {
+      "voie": "clerc",
+      "flag": "passe:clerc"
+     }
+    },
+    {
+     "label": "Tu as servi cinq ans dans la garde du Prince, puis une blessure t'a rendu{e} à la vie civile et à l'écriture.",
+     "fx": {
+      "voie": "soldat",
+      "flag": "passe:soldat"
+     }
+    },
+    {
+     "label": "Tu as été deux ans apprenti{e} dans une parfumerie de Sauvebonne, jusqu'au jour où l'on t'a jugé{e} sans nez.",
+     "fx": {
+      "voie": "nez",
+      "flag": "passe:nez"
+     }
+    }
+   ]
+  },
+  {
+   "q": "Qu'as-tu entendu dire de Madame Castellane ?",
+   "answers": [
+    {
+     "label": "Qu'elle était la femme la plus riche de Sauvebonne, et la plus avare de compliments.",
+     "fx": {
+      "flag": "avis:riche"
+     }
+    },
+    {
+     "label": "Qu'elle avait été très belle, et qu'un grand amour lui avait laissé un parfum et pas de mari.",
+     "fx": {
+      "flag": "avis:amour"
+     }
+    },
+    {
+     "label": "Qu'elle aimait les devinettes plus que les gens, et qu'elle s'en servait pour les trier.",
+     "fx": {
+      "flag": "avis:devinettes"
+     }
+    }
+   ]
+  }
+ ],
+ "lore": {
+  "pages": [
+   {
+    "title": "Sauvebonne et la Maison Castellane",
+    "text": [
+     "**Sauvebonne** est une petite ville de parfumeurs, au pied de collines couvertes de lavande, de jasmin et de roses à cent feuilles qu'on cueille avant le soleil. On y distille, on y macère, on y vend, et l'on y parle d'odeurs comme ailleurs on parle de chevaux.",
+     "La **Maison Castellane** est la plus grande parfumerie de la ville. Madame **Aurore Castellane** l'a tenue cinquante ans, d'une main de fer gantée de chevreau. Son parfum le plus célèbre porte son prénom : l'**Aurore**, à l'iris.",
+     "La **Bastide aux Iris**, sa maison, est à une lieue de la ville, au milieu de champs d'iris qu'on arrache tous les trois ans pour faire sécher leurs racines.",
+     "On paie en sous et en livres."
+    ]
+   }
+  ],
+  "names": {
+   "Sauvebonne": "La petite ville des parfumeurs, au pied des collines.",
+   "Bastide aux Iris": "La maison de Madame Castellane, au milieu de ses champs d'iris.",
+   "Maison Castellane": "La parfumerie de Madame Castellane, la plus grande de Sauvebonne.",
+   "Aurore": "Le parfum le plus célèbre de Madame Castellane, et son prénom.",
+   "orgue à parfums": "Le meuble en gradins où un parfumeur range ses flacons d'essences, comme un organiste ses jeux."
+  }
+ },
+ "companions": {},
+ "factions": {},
+ "relics": {},
+ "people": {
+  "aurore": {
+   "name": "Madame Aurore Castellane",
+   "aka": [
+    "Aurore Castellane",
+    "Madame Castellane",
+    "Aurore",
+    "la morte"
+   ],
+   "f": true,
+   "qui": "La parfumeuse dont tu lis le testament. Morte il y a trois jours.",
+   "desc": "La plus grande parfumeuse de Sauvebonne, morte à soixante-quatorze ans. Elle a écrit son testament en quatrains."
+  },
+  "brissac": {
+   "name": "Maître Anatole Brissac",
+   "aka": [
+    "Brissac",
+    "Maître Brissac",
+    "le notaire"
+   ],
+   "qui": "Ton patron, le notaire de Madame Castellane.",
+   "aspect": {
+    "allure": "homme massif, une canne",
+    "visage": "favoris blancs, teint de brique",
+    "signe": "la goutte au pied gauche",
+    "voix": "voix grave et lente"
+   },
+   "face": {
+    "age": "mur",
+    "skin": "clair",
+    "hair": "gris",
+    "coif": "degarni",
+    "beard": "barbe",
+    "eyes": "lourds",
+    "iris": "gris",
+    "nose": "large",
+    "lips": "fines",
+    "shape": "carre",
+    "marks": []
+   },
+   "desc": "Le notaire de Sauvebonne depuis trente ans, ton patron. Il sait les secrets de toutes les familles de la ville et n'en a jamais dit un."
+  },
+  "hector": {
+   "name": "Hector Castellane",
+   "aka": [
+    "Hector",
+    "le neveu"
+   ],
+   "qui": "Le neveu de Madame Castellane.",
+   "aspect": {
+    "allure": "bel homme qui commence à s'empâter",
+    "habits": "gilet de soie, un peu fané",
+    "signe": "fait sauter une pièce entre ses doigts",
+    "voix": "rieuse, charmante"
+   },
+   "face": {
+    "age": "adulte",
+    "skin": "hale",
+    "hair": "chatain",
+    "coif": "boucles",
+    "beard": "moustache",
+    "eyes": "ronds",
+    "iris": "brun",
+    "nose": "fin",
+    "lips": "pleines",
+    "shape": "ovale",
+    "marks": []
+   },
+   "desc": "Le neveu de Madame Castellane. Il a du charme, des dettes et une grande facilité à faire les unes avec l'autre."
+  },
+  "berenice": {
+   "name": "Bérénice Castellane",
+   "aka": [
+    "Bérénice",
+    "la nièce"
+   ],
+   "f": true,
+   "qui": "La nièce de Madame Castellane.",
+   "aspect": {
+    "allure": "maigre, droite comme un cierge",
+    "habits": "robe noire, scapulaire",
+    "signe": "un chapelet qu'elle égrène en parlant",
+    "voix": "voix pointue"
+   },
+   "face": {
+    "age": "adulte",
+    "skin": "clair",
+    "hair": "noir",
+    "coif": "chignon",
+    "beard": "sans",
+    "eyes": "amande",
+    "iris": "noir",
+    "nose": "fin",
+    "lips": "fines",
+    "shape": "allonge",
+    "marks": []
+   },
+   "desc": "La nièce de Madame Castellane. Dévote, instruite, et convaincue que le ciel lui doit une école."
+  },
+  "odile": {
+   "name": "Odile Marchal",
+   "aka": [
+    "Odile",
+    "la demoiselle de compagnie"
+   ],
+   "f": true,
+   "qui": "La demoiselle de compagnie de Madame Castellane.",
+   "aspect": {
+    "allure": "jeune femme silencieuse",
+    "habits": "robe grise, col blanc",
+    "signe": "ferme les yeux pour sentir",
+    "voix": "parle peu, et bas"
+   },
+   "face": {
+    "age": "adulte",
+    "skin": "dore",
+    "hair": "chatain",
+    "coif": "tresses",
+    "beard": "sans",
+    "eyes": "amande",
+    "iris": "vert",
+    "nose": "fin",
+    "lips": "pleines",
+    "shape": "ovale",
+    "marks": [
+     "grain"
+    ]
+   },
+   "desc": "La demoiselle de compagnie de Madame Castellane depuis dix ans. On dit en ville qu'elle a le meilleur nez de Sauvebonne, et qu'elle ne s'en sert que pour sa maîtresse."
+  },
+  "jaume": {
+   "name": "Jaume Marchal",
+   "aka": [
+    "Jaume",
+    "le jardinier"
+   ],
+   "qui": "Le vieux jardinier de la Bastide.",
+   "aspect": {
+    "allure": "vieillard noueux comme un cep",
+    "habits": "tablier de toile, chapeau de paille",
+    "signe": "une serpette à la ceinture",
+    "voix": "accent des collines"
+   },
+   "face": {
+    "age": "ancien",
+    "skin": "cuivre",
+    "hair": "blanc",
+    "coif": "court",
+    "beard": "barbe",
+    "eyes": "tombants",
+    "iris": "brun",
+    "nose": "busque",
+    "lips": "fines",
+    "shape": "carre",
+    "marks": []
+   },
+   "desc": "Le jardinier de la Bastide depuis quarante ans. Il connaît chaque iris par son nom, et les gens par leurs racines."
+  },
+  "fine": {
+   "name": "Fine",
+   "aka": [
+    "la cuisinière"
+   ],
+   "f": true,
+   "qui": "La cuisinière de la Bastide.",
+   "desc": "La cuisinière de la Bastide, ronde, rouge et bavarde, qui a nourri trois générations de Castellane."
+  }
+ },
+ "items": {
+  "testament": {
+   "name": "Le testament de Madame Castellane",
+   "kind": "document",
+   "keep": true,
+   "desc": "Quatre pages de papier vergé, dans une chemise de soie lilas qui sent l'iris. L'écriture est grande, nette, sans une rature.",
+   "text": "*Moi, Aurore Castellane, veuve Ferrier, saine d'esprit et lasse de corps, je laisse mon bien à qui saura le trouver.*\n\n*Mes héritiers passeront la nuit qui suit cette lecture sous mon toit. Quatre codicilles sont cachés dans ma maison. Chacun donne le chemin du suivant ; le premier est ci-dessous. Le dernier dira à qui revient la Bastide aux Iris.*\n\n*Le clerc de Maître Brissac, qui lira ceci, sera seul juge de ce qui sera trouvé.*\n\n*Si le partage se fait avant l'aube, qu'on relise ce testament le lendemain soir, à la même heure, mot pour mot, et que tout recommence.*\n\n*Le premier quatrain :*\n\n*Je viens de toi, et je ne suis pas toi ;*\n*tu m'as donné ton nom, que je ne porte pas ;*\n*on m'a semée loin de la tige,*\n*et je fleuris quand même, au jardin d'un autre.*"
+  },
+  "codicille1": {
+   "name": "Le premier codicille",
+   "kind": "document",
+   "keep": true,
+   "desc": "Un papier plié en quatre, trouvé dans le tiroir aux graines de l'orangerie.",
+   "text": "*Premier codicille. À Jaume, mon jardinier, je laisse la maison du bas et le champ du ruisseau. Il les a assez arrosés.*\n\n*Le deuxième quatrain :*\n\n*J'ai des dents, et je ne mords personne ;*\n*j'ouvre ce que je ne vois jamais ;*\n*on me pend au cou, on me perd dans les poches ;*\n*qui me trouve trouvera ce qu'on a fermé.*"
+  },
+  "codicille2": {
+   "name": "Le deuxième codicille",
+   "kind": "document",
+   "keep": true,
+   "desc": "Un papier roulé dans un étui de fer, trouvé dans le socle de la statue de Flore.",
+   "text": "*Deuxième codicille. À Fine, ma cuisinière, je laisse mes casseroles de cuivre et cent livres. Elle sait déjà quoi en faire.*\n\n*Le troisième quatrain :*\n\n*On me boit sans me boire, on me porte sans poids ;*\n*je m'en vais quand on m'ouvre, et je reste quand on part ;*\n*dans un flacon je dors, sur une peau je vis ;*\n*celle qui m'a fait sera morte, et moi, je serai là.*"
+  },
+  "codicille3": {
+   "name": "Le troisième codicille",
+   "kind": "document",
+   "keep": true,
+   "desc": "Un papier plié dans un flacon de cristal vide, à l'orgue à parfums.",
+   "text": "*Troisième codicille. À Bérénice, ma nièce, je laisse ma bibliothèque. Qu'elle y lise autre chose que des psaumes.*\n\n*Le quatrième quatrain :*\n\n*Je suis à toi, et les autres s'en servent plus que toi ;*\n*on me donne, et jamais on ne me vend ;*\n*on me porte toute sa vie sans en sentir le poids,*\n*et pour finir on me grave dans la pierre.*"
+  },
+  "faux": {
+   "name": "Le quatrième codicille",
+   "kind": "document",
+   "keep": true,
+   "desc": "Un papier glissé sous la plaque de la tombe, dans la chapelle. L'écriture ressemble à celle du testament.",
+   "text": "*Quatrième et dernier codicille. La Bastide aux Iris, la Maison Castellane et le reste de mes biens iront à mon neveu Hector, qui porte mon nom et le portera après moi.*\n\n*Aurore Castellane.*"
+  },
+  "vrai_codicille": {
+   "name": "Le vrai quatrième codicille",
+   "kind": "document",
+   "keep": true,
+   "desc": "Un vieux vergé de Hollande jauni, un coin roussi, arraché au four à pain.",
+   "text": "*Quatrième et dernier codicille. La Bastide aux Iris, la Maison Castellane et le reste de mes biens iront à celle qui porte mon prénom en second, ma fille, Odile. Que Jaume lui dise ce que je n'ai pas su dire.*\n\n*Aurore Castellane.*"
+  },
+  "codicille_brule": {
+   "name": "Un lambeau de codicille",
+   "kind": "document",
+   "keep": true,
+   "desc": "Un morceau de vieux vergé noirci, grand comme une carte à jouer, arraché au four à pain.",
+   "text": "*…celle qui porte mon prénom en second, ma fille, Od…*"
+  },
+  "lettre_odile": {
+   "name": "Une lettre cachetée",
+   "kind": "document",
+   "keep": true,
+   "desc": "Une enveloppe cachetée de cire lilas, trouvée dans le coffret de bois de rose. Sur l'enveloppe : « Pour Odile. Après. »"
+  },
+  "acte_reconnaissance": {
+   "name": "L'acte jamais déposé",
+   "kind": "document",
+   "keep": true,
+   "desc": "Un papier timbré jauni, à l'en-tête de l'étude de Maître Aubanel, trouvé dans une boîte de fer-blanc derrière le cadran solaire.",
+   "text": "*Par-devant nous, a comparu le sieur Anatole Brissac, clerc, lequel a déclaré reconnaître pour sa fille l'enfant baptisée ce jour sous les prénoms d'Odile Aurore.*\n\n*En travers, au crayon : « Pas encore. — A. » Et dessous : « Maintenant, si tu veux. »*"
+  },
+  "journal": {
+   "name": "Le carnet d'Aurore",
+   "kind": "document",
+   "keep": true,
+   "desc": "Un petit carnet de maroquin vert, trouvé dans le secrétaire. Des formules de parfums, page après page.",
+   "text": "*Des formules de parfums, d'une écriture serrée : des noms d'essences, des gouttes, des dates. À la dernière page, une seule ligne, sous le titre « Formule de l'Aurore, la vraie » :*\n\n**13 · 1 · 6 · 9 · 12 · 12 · 5 — 5 · 19 · 20 — 15 · 4 · 9 · 12 · 5**"
+  },
+  "acte_bapteme": {
+   "name": "L'acte de baptême",
+   "kind": "document",
+   "keep": true,
+   "desc": "Une page du registre de la chapelle, recopiée et signée de ta main.",
+   "text": "*L'an mil… le douze mai, a été baptisée en cette chapelle Odile Aurore, née de père et de mère inconnus. Parrain : Jaume Marchal, jardinier. Marraine : Aurore Castellane, veuve Ferrier.*"
+  },
+  "lettres": {
+   "name": "Les lettres signées A.",
+   "kind": "document",
+   "keep": true,
+   "desc": "Quatre lettres d'amour jaunies, nouées d'un ruban lilas, trouvées dans la malle du grenier."
+  },
+  "brouillons": {
+   "name": "Les brouillons du faussaire",
+   "kind": "quete",
+   "keep": true,
+   "desc": "Des feuilles froissées couvertes d'essais d'écriture : « Aurore Castellane », « Aurore Castellane », « Aurore Castellane », de plus en plus ressemblants."
+  }
+ },
+ "clues": {
+  "i_bouquet": {
+   "rev": "M",
+   "text": "Au salon, le portrait d'Aurore jeune : elle tient un bouquet de trois fleurs, de gauche à droite, un brin de jasmin, un iris et une rose."
+  },
+  "i_orgue": {
+   "rev": "M",
+   "text": "Odile, à l'orgue à parfums : « Vingt-six flacons, rangés comme les lettres de l'alphabet. Ambre le premier, Benjoin le deuxième, Cannelle le troisième. Madame disait qu'on écrit un parfum comme on écrit un mot. »"
+  },
+  "i_encre": {
+   "rev": "M",
+   "text": "Odile, le quatrième codicille sous le nez : « L'encre est fraîche. Elle sent encore la noix de galle. »"
+  },
+  "i_filigrane": {
+   "rev": "M",
+   "text": "Le quatrième codicille, levé devant la lampe : dans le papier, le filigrane de la papeterie Roux, une grappe de raisin et une date, celle de cette année."
+  },
+  "i_hector_dettes": {
+   "rev": "M",
+   "text": "Hector, à mi-voix, dans l'escalier : « Trois mille livres au Cercle, avant la fin du mois. Sinon, c'est la prison, ou pire : la province. »"
+  },
+  "i_jaume_odile": {
+   "rev": "M",
+   "text": "Jaume, en parlant d'Odile : « Je l'ai élevée. Je ne l'ai pas faite. Ce n'est pas la même chose, et c'est aussi bien. »"
+  },
+  "i_cire": {
+   "rev": "M",
+   "text": "Dans la chapelle, au pied de la tombe, des gouttes de cire rose, de la cire à cacheter, et une allumette de cuisine."
+  },
+  "i_berenice_nuit": {
+   "rev": "M",
+   "text": "À deux heures, Bérénice dans le bureau, une bougie à la main, qui fouille le tiroir des lettres reçues."
+  }
+ },
+ "quests": [],
+ "mysteries": {
+  "M": {
+   "title": "Qui a écrit le quatrième codicille ?",
+   "act": "III",
+   "solved": "hector:confondu",
+   "answer": {
+    "person": "hector",
+    "text": "Hector Castellane, couvert de dettes, a pris le vrai quatrième codicille dans la chapelle pendant la nuit et l'a remplacé par un faux qui le fait légataire universel, écrit sur un papier de cette année avec une encre fraîche."
+   }
+  }
+ },
+ "puzzles": {
+  "q1": {
+   "kind": "chiffre",
+   "title": "Le premier quatrain",
+   "text": "*Je viens de toi, et je ne suis pas toi ;*\n*tu m'as donné ton nom, que je ne porte pas ;*\n*on m'a semée loin de la tige,*\n*et je fleuris quand même, au jardin d'un autre.*\n\nLes trois héritiers te regardent. C'est toi qui chercheras le premier, et toi qui diras où aller.",
+   "answer": [
+    "graine",
+    "une graine",
+    "la graine",
+    "les graines",
+    "graines",
+    "semence",
+    "la semence",
+    "une semence"
+   ],
+   "alt": [
+    {
+     "id": "fille",
+     "answer": [
+      "fille",
+      "une fille",
+      "sa fille",
+      "ma fille",
+      "la fille",
+      "enfant",
+      "un enfant",
+      "son enfant",
+      "mon enfant",
+      "l'enfant"
+     ],
+     "if": {
+      "second": true
+     },
+     "to": "S_q1_fille",
+     "say": "Le mot reste suspendu dans le salon. Jaume, à la porte, a lâché son chapeau."
+    }
+   ],
+   "wrongText": "Tu dis le mot. Personne ne bouge. Hector bâille avec beaucoup d'élégance.",
+   "tryLabel": "Dire le mot",
+   "label": "Chercher la réponse au premier quatrain",
+   "leave": "Garder le quatrain pour plus tard",
+   "win": {
+    "to": "A_q1_graine",
+    "fx": {
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "q2": {
+   "kind": "chiffre",
+   "title": "Le deuxième quatrain",
+   "text": "*J'ai des dents, et je ne mords personne ;*\n*j'ouvre ce que je ne vois jamais ;*\n*on me pend au cou, on me perd dans les poches ;*\n*qui me trouve trouvera ce qu'on a fermé.*",
+   "answer": [
+    "clef",
+    "cle",
+    "une clef",
+    "une cle",
+    "la clef",
+    "la cle",
+    "les clefs",
+    "clefs",
+    "cles"
+   ],
+   "wrongText": "Tu essaies le mot, et le quatrain le recrache.",
+   "tryLabel": "Dire le mot",
+   "label": "Chercher la réponse au deuxième quatrain",
+   "leave": "Garder le quatrain pour plus tard",
+   "win": {
+    "to": "B_q2_clef",
+    "fx": {
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "q3": {
+   "kind": "chiffre",
+   "title": "Le troisième quatrain",
+   "text": "*On me boit sans me boire, on me porte sans poids ;*\n*je m'en vais quand on m'ouvre, et je reste quand on part ;*\n*dans un flacon je dors, sur une peau je vis ;*\n*celle qui m'a fait sera morte, et moi, je serai là.*",
+   "answer": [
+    "parfum",
+    "un parfum",
+    "le parfum",
+    "les parfums",
+    "parfums",
+    "l'aurore",
+    "aurore"
+   ],
+   "alt": [
+    {
+     "id": "souvenir",
+     "answer": [
+      "souvenir",
+      "un souvenir",
+      "le souvenir",
+      "les souvenirs",
+      "souvenirs",
+      "memoire",
+      "la memoire"
+     ],
+     "if": {
+      "second": true
+     },
+     "to": "S_q3_souvenir",
+     "say": "Odile ouvre les yeux. « Le grenier, dit-elle. Elle montait au grenier, les soirs de mai. »"
+    }
+   ],
+   "wrongText": "Le mot tombe à plat. Bérénice soupire, comme on soupire à l'église quand le prêtre se trompe de page.",
+   "tryLabel": "Dire le mot",
+   "label": "Chercher la réponse au troisième quatrain",
+   "leave": "Garder le quatrain pour plus tard",
+   "win": {
+    "to": "B_q3_parfum",
+    "fx": {
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "q4": {
+   "kind": "chiffre",
+   "title": "Le quatrième quatrain",
+   "text": "*Je suis à toi, et les autres s'en servent plus que toi ;*\n*on me donne, et jamais on ne me vend ;*\n*on me porte toute sa vie sans en sentir le poids,*\n*et pour finir on me grave dans la pierre.*",
+   "answer": [
+    "nom",
+    "le nom",
+    "un nom",
+    "son nom",
+    "mon nom",
+    "ton nom",
+    "nom de famille",
+    "le nom de famille"
+   ],
+   "alt": [
+    {
+     "id": "prenom",
+     "answer": [
+      "prenom",
+      "le prenom",
+      "son prenom",
+      "un prenom",
+      "mon prenom",
+      "ton prenom",
+      "nom de bapteme",
+      "le nom de bapteme"
+     ],
+     "if": {
+      "second": true
+     },
+     "to": "S_q4_prenom",
+     "say": "Un prénom, on le donne au baptême. Le registre de la chapelle est rangé sous l'autel."
+    }
+   ],
+   "wrongText": "Le mot ne tient pas. Hector rit doucement, ce qui est pire qu'un reproche.",
+   "tryLabel": "Dire le mot",
+   "label": "Chercher la réponse au quatrième quatrain",
+   "leave": "Garder le quatrain pour plus tard",
+   "win": {
+    "to": "C_q4_nom",
+    "fx": {
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "q5": {
+   "kind": "chiffre",
+   "title": "Le cinquième quatrain",
+   "text": "*Je ne compte que les heures claires,*\n*et l'on m'a fait une ligne pour les autres ;*\n*la nuit je ne sers à rien, et je le sais ;*\n*mon doigt, tordu, montre ce que j'ai tu.*",
+   "answer": [
+    "cadran",
+    "cadran solaire",
+    "le cadran",
+    "le cadran solaire",
+    "un cadran solaire",
+    "un cadran",
+    "gnomon",
+    "le gnomon"
+   ],
+   "wrongText": "Les lettres brunes pâlissent déjà, à mesure que le papier refroidit. Tu le rapproches de la flamme.",
+   "tryLabel": "Dire le mot",
+   "label": "Chercher la réponse au cinquième quatrain",
+   "leave": "Laisser refroidir le papier",
+   "win": {
+    "to": "S_cadran_cache",
+    "fx": {
+     "ep": [
+      "seance",
+      500
+     ]
+    }
+   }
+  },
+  "p_coffret": {
+   "kind": "chiffre",
+   "title": "Le coffret de bois de rose",
+   "text": "Un petit coffret de bois de rose, grand comme un livre de prières. La serrure est une rangée de cinq lettres de cuivre mobiles. Sur le couvercle, gravé au fer : *Le nom de celle que j'aime le mieux.*",
+   "answer": [
+    "odile"
+   ],
+   "wrongText": "Les lettres de cuivre reprennent leur place, une à une, avec un petit bruit de dents. Le nom que tu as composé n'était pas celui-là.",
+   "tryLabel": "Composer le nom",
+   "label": "Composer un nom sur la serrure du coffret",
+   "leave": "Reposer le coffret",
+   "win": {
+    "to": "B_coffret_ouvert",
+    "fx": {
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "p_secretaire": {
+   "kind": "molettes",
+   "title": "Le secrétaire aux trois fleurs",
+   "text": "Le secrétaire de bois de rose ferme par une serrure à trois roues de porcelaine. Sur chaque roue, peintes à la main, six fleurs : le jasmin, l'iris, la rose, la tubéreuse, la violette, le mimosa.",
+   "wheels": [
+    [
+     "jasmin",
+     "iris",
+     "rose",
+     "tubéreuse",
+     "violette",
+     "mimosa"
+    ],
+    [
+     "jasmin",
+     "iris",
+     "rose",
+     "tubéreuse",
+     "violette",
+     "mimosa"
+    ],
+    [
+     "jasmin",
+     "iris",
+     "rose",
+     "tubéreuse",
+     "violette",
+     "mimosa"
+    ]
+   ],
+   "answer": [
+    "jasmin",
+    "iris",
+    "rose"
+   ],
+   "wrongText": "La serrure reste muette. Les fleurs de porcelaine te regardent avec une indifférence de bouquet.",
+   "tryLabel": "Tirer l'abattant",
+   "label": "Tourner les roues du secrétaire",
+   "leave": "Laisser le secrétaire",
+   "win": {
+    "to": "B_secretaire_ouvert",
+    "fx": {
+     "item": "journal",
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "p_journal": {
+   "kind": "chiffre",
+   "title": "La vraie formule de l'Aurore",
+   "carry": true,
+   "text": "Le carnet de maroquin vert est plein de formules : des noms d'essences, des gouttes, des dates. À la dernière page, sous le titre *Formule de l'Aurore, la vraie*, une ligne de nombres, en trois groupes :\n\n**13 · 1 · 6 · 9 · 12 · 12 · 5 — 5 · 19 · 20 — 15 · 4 · 9 · 12 · 5**",
+   "answer": [
+    "ma fille est odile",
+    "mafilleestodile",
+    "ma fille c'est odile"
+   ],
+   "wrongText": "Ce ne sont pas des gouttes : aucune formule ne demande douze gouttes de la même chose deux fois de suite. Tu refermes le carnet sur ton doigt.",
+   "tryLabel": "Écrire ce que disent les nombres",
+   "label": "Déchiffrer la vraie formule de l'Aurore",
+   "win": {
+    "fx": {
+     "ep": [
+      "seance",
+      500
+     ]
+    }
+   }
+  },
+  "p_greffe": {
+   "kind": "chiffre",
+   "title": "La devinette du jardinier",
+   "text": "Jaume essuie sa serpette sur son tablier, et récite, sans te regarder, comme on récite une chose qu'on a dite souvent à un enfant :\n\n*On me prend sur un arbre et l'on m'ouvre la peau,*\n*on me lie à un autre et je bois de son eau ;*\n*je ne suis pas son fruit, et je donne ses fruits.*\n*Les fleurs sont de ma mère, et les racines de lui.*",
+   "answer": [
+    "greffe",
+    "une greffe",
+    "la greffe",
+    "greffon",
+    "un greffon",
+    "le greffon"
+   ],
+   "wrongText": "Jaume secoue la tête, lentement. « Non. Mais vous êtes du bon côté de l'arbre. »",
+   "tryLabel": "Répondre",
+   "label": "Répondre à la devinette de Jaume",
+   "leave": "Laisser Jaume à ses iris",
+   "win": {
+    "to": "A_jaume_greffe",
+    "fx": {
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "p_lettres": {
+   "kind": "ordre",
+   "title": "Les lettres signées A.",
+   "text": "Quatre lettres nouées d'un ruban lilas, sans date, toutes signées d'une seule initiale : *A.* Elles ont été lues tant de fois que les plis se déchirent. Pour comprendre, il faut les remettre dans l'ordre où elles ont été écrites.",
+   "pieces": [
+    "« Tu me dis que tu attends un enfant, et que tu ne veux pas d'un mari. Je ne sais pas si je dois être blessé ou fier. Je suis les deux. Je t'attendrai au cadran solaire. — A. »",
+    "« Je t'ai vue ce matin dans le champ d'iris, avec ton panier et ton chapeau de paille, et je n'ai plus su compter jusqu'à trois. Toute l'étude m'a cru malade. — A. »",
+    "« Elle a tes yeux, et le nez de ta mère. Jaume la porte sur ses épaules comme un roi porte sa couronne. Je passe devant la maison du bas tous les dimanches, et je ne m'arrête jamais. — A. »",
+    "« Tu as raison : personne ne doit savoir. Je rédigerai l'acte moi-même. Elle s'appellera comme tu voudras, et elle portera ton prénom en second, comme un secret qu'on garde dans la poche. — A. »"
+   ],
+   "answer": [
+    1,
+    0,
+    3,
+    2
+   ],
+   "wrongText": "Les lettres, dans cet ordre, racontent une histoire qui ne tient pas debout : un enfant avant l'amour, un acte avant l'enfant.",
+   "tryLabel": "Les relire dans cet ordre",
+   "label": "Remettre les lettres dans l'ordre",
+   "leave": "Renouer le ruban",
+   "win": {
+    "to": "S_lettres_lues",
+    "fx": {
+     "ep": [
+      "seance",
+      500
+     ]
+    }
+   }
+  }
+ },
+ "achievements": {
+  "quatrains": {
+   "title": "Les quatre quatrains",
+   "desc": "Trouver les quatre réponses du testament.",
+   "if": {
+    "all": [
+     {
+      "has": "enigme:q1"
+     },
+     {
+      "has": "enigme:q2"
+     },
+     {
+      "has": "enigme:q3"
+     },
+     {
+      "has": "enigme:q4"
+     }
+    ]
+   }
+  },
+  "double": {
+   "title": "Double sens",
+   "desc": "Trouver les trois secondes réponses.",
+   "if": {
+    "all": [
+     {
+      "has": "enigme:q1:fille"
+     },
+     {
+      "has": "enigme:q3:souvenir"
+     },
+     {
+      "has": "enigme:q4:prenom"
+     }
+    ]
+   }
+  },
+  "formule": {
+   "title": "La vraie formule",
+   "desc": "Déchiffrer la dernière page du carnet d'Aurore.",
+   "if": {
+    "has": "enigme:p_journal"
+   }
+  },
+  "faussaire": {
+   "title": "Le faussaire",
+   "desc": "Confondre l'auteur du quatrième codicille.",
+   "if": {
+    "has": "hector:confondu"
+   }
+  }
+ },
+ "endings": {
+  "partage": {
+   "title": "Le partage"
+  },
+  "relecture": {
+   "title": "La seconde lecture"
+  }
+ },
+ "world": {
+  "noFood": true,
+  "money": {
+   "units": [
+    {
+     "name": "sou",
+     "plural": "sous",
+     "value": 1,
+     "short": "s."
+    },
+    {
+     "name": "livre",
+     "plural": "livres",
+     "value": 20,
+     "short": "l."
+    }
+   ]
+  },
+  "start": {
+   "place": "route",
+   "hour": 18,
+   "clock": true,
+   "gold": 12,
+   "food": 0,
+   "items": [
+    "testament"
+   ],
+   "kits": {}
+  },
+  "places": {
+   "route": {
+    "ambiance": "champs",
+    "name": "La route de la Bastide",
+    "map": "bastide",
+    "x": 50,
+    "y": 92,
+    "arrive": "A_voiture",
+    "desc": "Une lieue de route blanche entre Sauvebonne et la Bastide, au milieu des champs d'iris."
+   },
+   "salon": {
+    "ambiance": "chateau",
+    "name": "Le salon",
+    "map": "bastide",
+    "x": 50,
+    "y": 50,
+    "arrive": "A_salon",
+    "desc": "Le grand salon de la Bastide, où l'on a lu le testament."
+   },
+   "bureau": {
+    "ambiance": "chateau",
+    "name": "Le bureau d'Aurore",
+    "map": "bastide",
+    "x": 62,
+    "y": 40,
+    "arrive": "B_bureau",
+    "desc": "Le bureau de Madame Castellane, avec son secrétaire et l'orgue à parfums."
+   },
+   "jardin": {
+    "ambiance": "champs",
+    "name": "Le jardin et l'orangerie",
+    "map": "bastide",
+    "x": 30,
+    "y": 60,
+    "arrive": "A_jardin",
+    "desc": "Les allées, la statue de Flore, le cadran solaire, l'orangerie."
+   },
+   "grenier": {
+    "ambiance": "chateau",
+    "name": "Le grenier",
+    "map": "bastide",
+    "x": 50,
+    "y": 20,
+    "arrive": "S_grenier",
+    "desc": "Sous les tuiles, les malles de cinquante ans de vie."
+   },
+   "chapelle": {
+    "ambiance": "temple",
+    "name": "La chapelle",
+    "map": "bastide",
+    "x": 78,
+    "y": 70,
+    "arrive": "C_chapelle",
+    "desc": "La petite chapelle de famille, au bout du jardin, où Madame Castellane repose depuis trois jours."
+   }
+  },
+  "routes": [],
+  "regions": {},
+  "events": {}
+ },
+ "banter": [],
+ "passages": {
+  "A_voiture": {
+   "act": "I",
+   "title": "La route des iris",
+   "place": "route",
+   "second": false,
+   "text": [
+    "La voiture de l'étude sent le cuir mouillé et la pipe de Maître Brissac, qui n'y est pas. Tu y es seul{e}, avec le testament sur les genoux dans sa chemise de soie lilas, et le cocher qui chante faux sur le siège.",
+    "La route sort de Sauvebonne entre deux murets de pierre sèche, puis les murets s'écartent, et les champs commencent. Des iris, à perte de vue : des milliers de lames vertes dressées vers le ciel, et au-dessus, en nappes, les fleurs violettes et grises, si nombreuses qu'elles font une brume à hauteur d'homme. Le soir tombe sur elles. Le violet fonce jusqu'au noir, le gris pâlit jusqu'au blanc, et le vent qui descend des collines les couche toutes du même côté, avec un bruit de soie froissée, comme si un peuple immense saluait le passage d'un corbillard.",
+    "L'odeur entre par la portière. Elle est poudrée, froide, un peu terreuse, l'odeur d'une chambre où quelqu'un a longtemps dormi. On dit à Sauvebonne que la racine d'iris doit sécher trois ans avant de sentir quoi que ce soit. On dit aussi que Madame Castellane avait mis trente ans à devenir aimable, et qu'elle était morte juste avant d'y arriver.",
+    "Au bout de la route, sur une butte, la Bastide aux Iris : une longue maison ocre aux volets lilas, trois cyprès noirs devant, comme trois notaires qui attendent qu'on signe."
+   ],
+   "choices": [
+    {
+     "label": "Ouvrir la chemise lilas et relire le testament en route",
+     "hide": {
+      "seen": "A_voiture_lire"
+     },
+     "to": "A_voiture_lire"
+    },
+    {
+     "label": "Demander au cocher s'il a connu Madame Castellane",
+     "hide": {
+      "seen": "A_cocher"
+     },
+     "to": "A_cocher"
+    },
+    {
+     "label": "Descendre devant la grille",
+     "fx": {
+      "until": 18
+     },
+     "to": "A_grille"
+    }
+   ]
+  },
+  "A_voiture_lire": {
+   "act": "I",
+   "title": "Ce que tu vas lire",
+   "place": "route",
+   "text": [
+    "Tu dénoues le ruban. Quatre pages de papier vergé, une grande écriture nette, sans une rature : une écriture qui n'a jamais hésité de sa vie.",
+    "Tu as copié des centaines de testaments. On y lègue des fermes, des créances, des lits à baldaquin, des rancunes. Celui-ci commence comme les autres, *Moi, Aurore Castellane, veuve Ferrier, saine d'esprit et lasse de corps*, puis il bifurque d'un coup, comme un cheval qui voit un serpent : *je laisse mon bien à qui saura le trouver.*",
+    "Plus bas, ton propre titre : *le clerc de Maître Brissac, qui lira ceci, sera seul juge de ce qui sera trouvé.* Ton nom n'y est pas. Ta fonction y est, ce qui est plus inquiétant.",
+    "Et plus bas encore, des vers. Tu refermes la chemise. Le cocher a cessé de chanter. Il te regarde par-dessus son épaule, avec la mine d'un homme qui transporte une bombe et le sait."
+   ],
+   "choices": [
+    {
+     "label": "Descendre devant la grille",
+     "fx": {
+      "until": 18
+     },
+     "to": "A_grille"
+    }
+   ]
+  },
+  "A_grille": {
+   "act": "I",
+   "title": "La grille",
+   "place": "jardin",
+   "fx": {
+    "meet": [
+     "jaume"
+    ]
+   },
+   "text": [
+    "La grille de fer forgé est ouverte. Un vieil homme la tient, noueux comme un cep de vigne, chapeau de paille à la main malgré le soir, une serpette passée à la ceinture de son tablier. Il te salue d'un mouvement de tête si lent qu'on le dirait taillé dans le même bois que lui.",
+    "« Jaume, dit-il. Le jardinier. On vous attend au salon. Le neveu, la nièce, la petite. » Il réfléchit, et ajoute : « Et la morte. Elle est à la chapelle, au bout du jardin. Mais elle vous attend aussi, d'une certaine façon. Elle attendait toujours tout le monde. »",
+    {
+     "second": true,
+     "text": "Il te regarde un instant de trop, comme hier soir. Il a les yeux rouges. Il n'a pas dormi. Personne, dans cette maison, n'a dormi depuis le partage."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Demander à Jaume comment est morte Madame Castellane",
+     "hide": {
+      "seen": "A_jaume1"
+     },
+     "to": "A_jaume1"
+    },
+    {
+     "label": "Entrer au salon",
+     "to": "A_salon"
+    }
+   ]
+  },
+  "A_jaume1": {
+   "act": "I",
+   "title": "Le jardinier",
+   "place": "jardin",
+   "text": [
+    "« Dans son fauteuil, dit Jaume. Au salon. Avec une fleur d'iris sur les genoux, qu'elle était en train de sentir. Le docteur Vidal a dit : le cœur. Moi, je dis qu'elle avait fini. » Il remet son chapeau. « Quarante ans que je fais pousser ses iris. Elle les sentait tous, un par un, chaque printemps, et elle me disait lequel était raté. Elle se trompait jamais. »",
+    "Il regarde la maison. Une lampe vient de s'allumer derrière les volets lilas du salon.",
+    "« Ils sont là depuis midi, dit-il. Le neveu a déjà compté les cuillers. La nièce a déjà prié trois fois. La petite n'a rien dit. » Il hausse ses épaules maigres. « La petite ne dit jamais rien. C'est comme ça qu'on sait qu'elle pense. »"
+   ],
+   "choices": [
+    {
+     "back": "A_grille"
+    }
+   ]
+  },
+  "A_salon": {
+   "act": "I",
+   "title": "Le salon",
+   "place": "salon",
+   "hub": true,
+   "backName": "le salon",
+   "fx": {
+    "meet": [
+     "hector",
+     "berenice",
+     "odile"
+    ]
+   },
+   "text": [
+    {
+     "first": true,
+     "second": false,
+     "text": "Le salon de la Bastide est une grande pièce basse, aux murs tendus de toile lilas passée, où la lumière des lampes tombe en flaques sur un parquet ciré à se mirer dedans. Tout y sent l'iris : les rideaux, les coussins, les bouquets secs dans les vases de Moustiers, et jusqu'au feu de sarments qui craque dans la cheminée. Au-dessus de la cheminée, un grand portrait de femme jeune, en robe blanche, un bouquet à la main, regarde la pièce avec une expression d'ironie si vivante qu'on cherche malgré soi le fauteuil où elle se serait assise."
+    },
+    {
+     "first": true,
+     "second": false,
+     "text": "Le fauteuil est là, près de la fenêtre. Vide. Personne ne s'y assoit. Une fleur d'iris fanée traîne encore sur le coussin, et personne n'a osé l'enlever."
+    },
+    {
+     "first": true,
+     "second": false,
+     "text": "Trois personnes t'attendent, et elles se sont placées, sans le savoir, comme pour un tableau de genre intitulé *L'Héritage*. Près de la cheminée, un homme de quarante ans en gilet de soie fanée fait sauter une pièce d'argent entre ses doigts. Sur une chaise droite, une femme maigre en noir égrène un chapelet. Debout près de la fenêtre, une jeune femme en robe grise, les mains jointes devant elle, regarde le fauteuil vide."
+    },
+    {
+     "first": true,
+     "second": true,
+     "text": "Le salon lilas, le feu de sarments, le fauteuil vide avec sa fleur fanée. Rien n'a bougé depuis hier, sauf les gens. Hector se tient près de la cheminée, sans sa pièce. Bérénice ne prie pas. Odile est revenue ; elle a gardé son chapeau. Et dans le fauteuil du coin, sa jambe sur un tabouret, Maître Brissac regarde le portrait."
+    },
+    {
+     "again": true,
+     "before": "lu",
+     "text": "Le salon lilas, le feu de sarments, le portrait au-dessus de la cheminée. Hector fait sauter sa pièce, Bérénice égrène son chapelet, Odile regarde le fauteuil vide."
+    },
+    {
+     "after": "lu",
+     "text": "Depuis la lecture, le salon a changé de température. Hector arpente le parquet, les mains dans le dos. Bérénice prie plus vite. Odile n'a pas bougé de sa fenêtre."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Te présenter au neveu, qui joue avec sa pièce",
+     "second": false,
+     "before": "lu",
+     "hide": {
+      "seen": "A_hector1"
+     },
+     "to": "A_hector1"
+    },
+    {
+     "label": "Saluer la nièce en noir",
+     "second": false,
+     "before": "lu",
+     "hide": {
+      "seen": "A_berenice1"
+     },
+     "to": "A_berenice1"
+    },
+    {
+     "label": "T'approcher de la jeune femme à la fenêtre",
+     "second": false,
+     "before": "lu",
+     "hide": {
+      "seen": "A_odile1"
+     },
+     "to": "A_odile1"
+    },
+    {
+     "label": "Regarder le portrait au-dessus de la cheminée",
+     "hide": {
+      "seen": "A_portrait"
+     },
+     "to": "A_portrait"
+    },
+    {
+     "label": "T'approcher du fauteuil vide",
+     "hide": {
+      "seen": "A_fauteuil"
+     },
+     "to": "A_fauteuil"
+    },
+    {
+     "label": "Approcher la dernière page du testament d'une flamme",
+     "second": true,
+     "if": "lu",
+     "hide": {
+      "has": "enigme:q5"
+     },
+     "to": "S_flamme"
+    },
+    {
+     "label": "Ouvrir la chemise lilas et lire le testament",
+     "second": false,
+     "hide": {
+      "has": "lu"
+     },
+     "fx": {
+      "until": 19
+     },
+     "to": "A_lecture"
+    },
+    {
+     "label": "Parler à Maître Brissac, au coin du feu",
+     "second": true,
+     "hide": {
+      "seen": "S_brissac_salon"
+     },
+     "to": "S_brissac_salon"
+    },
+    {
+     "label": "Relire le testament, mot pour mot",
+     "second": true,
+     "hide": {
+      "has": "lu"
+     },
+     "fx": {
+      "until": 19
+     },
+     "to": "S_lecture2"
+    },
+    {
+     "label": "Chercher la réponse au premier quatrain",
+     "if": "lu",
+     "hide": {
+      "has": "enigme:q1"
+     },
+     "to": "A_q1"
+    },
+    {
+     "label": "Écouter ce que Fine murmure à la porte de l'office",
+     "if": "lu",
+     "hide": {
+      "seen": "A_fine1"
+     },
+     "to": "A_fine1"
+    }
+   ]
+  },
+  "A_hector1": {
+   "act": "I",
+   "title": "Hector Castellane",
+   "place": "salon",
+   "text": [
+    "« Le clerc ! » Hector Castellane t'accueille comme un ami qu'il n'aurait jamais vu, ce qui est sa manière de traiter tout le monde. Il a été beau, et il l'est encore à la lueur des lampes, avec un visage qui commence à glisser vers le bas comme une pâtisserie oubliée au soleil. « Brissac ne vient pas ? La goutte, je parie. Cet homme a la goutte chaque fois qu'il y a une famille à affronter. Je l'envie. »",
+    "Il lance sa pièce, la rattrape, la fait disparaître entre ses doigts, la fait réapparaître derrière ton oreille. « Ma tante m'a appris ce tour quand j'avais six ans. C'est la seule chose qu'elle m'ait jamais donnée. Ce soir, j'espère qu'elle se rattrape. »",
+    "Il baisse la voix, comme on baisse la voix pour une plaisanterie. « Entre nous : elle détestait les notaires, les curés et les héritiers. Si son testament est aussi aimable qu'elle, nous allons passer une soirée délicieuse. »"
+   ],
+   "choices": [
+    {
+     "back": "A_salon"
+    }
+   ]
+  },
+  "A_berenice1": {
+   "act": "I",
+   "title": "Bérénice Castellane",
+   "place": "salon",
+   "text": [
+    "Bérénice Castellane lève les yeux de son chapelet le temps exact qu'exige la politesse, et pas une seconde de plus. Elle est maigre, droite comme un cierge, et elle en a la pâleur, la raideur et cette manière de brûler par le haut.",
+    "« Vous lirez lentement, j'espère, dit-elle. Ma tante écrivait vite, et pensait plus vite encore, et pas toujours dans le bon sens. » Un grain glisse entre ses doigts. « Je prie pour elle depuis trois jours. Elle en a besoin. Elle n'a pas mis les pieds à la messe depuis trente ans, sauf pour les enterrements, où elle venait sentir les fleurs. »",
+    "Elle reprend son chapelet. « Si le bon Dieu me donne quelque chose ce soir, ce sera une école. Pour les filles des cueilleuses. Qu'elles apprennent à lire autre chose que des étiquettes. » Elle te regarde enfin. « Vous savez lire, vous. C'est déjà ça. »"
+   ],
+   "choices": [
+    {
+     "back": "A_salon"
+    }
+   ]
+  },
+  "A_odile1": {
+   "act": "I",
+   "title": "Odile Marchal",
+   "place": "salon",
+   "text": [
+    "La jeune femme en gris ne se retourne pas tout de suite. Elle a les yeux fermés. Tu comprends au bout d'un moment qu'elle sent la pièce, comme d'autres l'écouteraient.",
+    "« Elle est encore partout, dit-elle à voix basse. Dans les rideaux. Dans le fauteuil. Elle portait l'Aurore depuis quarante ans, et la maison en est imprégnée jusqu'aux poutres. Dans un mois, ce sera parti. » Elle ouvre les yeux. Ils sont verts, très clairs, avec une paillette d'or dans le gauche. « Odile Marchal. J'étais sa demoiselle de compagnie. Je lui faisais la lecture. Je sentais pour elle, à la fin, quand son nez a commencé à la trahir. »",
+    "Elle désigne d'un mouvement de menton les deux autres. « Eux sont de la famille. Moi, je suis de la maison. Je ne suis là que parce qu'elle l'a demandé. » Elle sourit, à peine. « Elle demandait rarement. »"
+   ],
+   "choices": [
+    {
+     "back": "A_salon"
+    }
+   ]
+  },
+  "A_portrait": {
+   "act": "I",
+   "title": "Le portrait",
+   "place": "salon",
+   "fx": {
+    "clue": "i_bouquet"
+   },
+   "text": [
+    "Aurore Castellane à vingt ans, peinte en pied, en robe blanche, dans un champ d'iris. Le peintre n'était pas un grand peintre, mais il était amoureux, ce qui revient souvent au même. Il a peint la bouche un peu trop rouge, les yeux un peu trop grands, et une ironie au coin des lèvres qui ne doit rien à son talent.",
+    {
+     "if": {
+      "has": "avis:amour"
+     },
+     "text": "Un grand amour, disait-on en ville, lui avait laissé un parfum et pas de mari. À voir ce portrait, tu crois volontiers au parfum."
+    },
+    {
+     "if": {
+      "has": "avis:riche"
+     },
+     "text": "La femme la plus riche de Sauvebonne, disait-on, et la plus avare de compliments. Le peintre, lui, ne l'a pas été."
+    },
+    {
+     "if": {
+      "has": "avis:devinettes"
+     },
+     "text": "Elle aimait les devinettes plus que les gens, disait-on. Elle regarde le spectateur comme on regarde quelqu'un à qui l'on vient d'en poser une."
+    },
+    "Elle tient à la main un petit bouquet de trois fleurs, serrées dans un ruban : de gauche à droite, un brin de jasmin, un iris, une rose. Le peintre les a faites avec un soin d'herboriste, pétale par pétale, alors que la robe est bâclée et les mains à peine dessinées. On dirait que le bouquet comptait plus que la femme."
+   ],
+   "choices": [
+    {
+     "back": "A_salon"
+    }
+   ]
+  },
+  "A_lecture": {
+   "act": "I",
+   "title": "La lecture",
+   "place": "salon",
+   "fx": {
+    "flag": "lu",
+    "ep": [
+     "histoire",
+     300
+    ]
+   },
+   "text": [
+    "Tu te places devant la cheminée, sous le portrait. Hector s'assoit enfin. Bérénice suspend son chapelet. Odile reste debout. À la porte de l'office, une grosse femme en tablier, le visage rouge, se tamponne les yeux avec un torchon : la cuisinière. Derrière elle, Jaume, son chapeau à la main.",
+    "Tu lis. *Moi, Aurore Castellane, veuve Ferrier, saine d'esprit et lasse de corps, je laisse mon bien à qui saura le trouver.*",
+    "Hector cesse de sourire. Bérénice fait un signe de croix, au cas où.",
+    "*Mes héritiers passeront la nuit qui suit cette lecture sous mon toit. Quatre codicilles sont cachés dans ma maison. Chacun donne le chemin du suivant ; le premier est ci-dessous. Le dernier dira à qui revient la Bastide aux Iris. Le clerc de Maître Brissac, qui lira ceci, sera seul juge de ce qui sera trouvé.*",
+    "Trois paires d'yeux se posent sur toi, et tu sens, pour la première fois de ta vie, ce que ressent une pièce d'or sur une table de jeu.",
+    "*Si le partage se fait avant l'aube, qu'on relise ce testament le lendemain soir, à la même heure, mot pour mot, et que tout recommence.*",
+    "« C'est absurde, dit Bérénice. — C'est charmant, dit Hector. — C'est elle », dit Odile, si bas que toi seul{e} l'entends.",
+    "Puis tu lis les vers, et le salon se tait."
+   ],
+   "choices": [
+    {
+     "label": "Lire le premier quatrain",
+     "to": "A_q1"
+    }
+   ]
+  },
+  "A_q1": {
+   "act": "I",
+   "title": "Le premier quatrain",
+   "place": "salon",
+   "puzzle": "q1",
+   "text": [
+    "Tu relis le premier quatrain à voix haute, lentement, comme Bérénice l'a demandé. Les mots tombent dans le silence du salon un à un, comme des graines dans un sillon."
+   ],
+   "choices": [
+    {
+     "back": "A_salon"
+    }
+   ]
+  },
+  "A_q1_graine": {
+   "act": "I",
+   "title": "La graine",
+   "place": "salon",
+   "fx": {
+    "ep": [
+     "perso",
+     200
+    ]
+   },
+   "text": [
+    "« Une graine », dis-tu.",
+    {
+     "second": false,
+     "text": "Hector claque des doigts, comme s'il l'avait trouvé lui-même une seconde trop tard. Bérénice fronce les sourcils, cherche une objection, n'en trouve pas, et en conçoit de l'humeur. Odile regarde vers la fenêtre, vers le jardin noir."
+    },
+    {
+     "second": true,
+     "text": "« Évidemment », dit Hector, qui le savait depuis hier, et qui a l'air de trouver que tu as mis bien longtemps. Bérénice ne dit rien. Odile regarde vers la fenêtre, vers le jardin noir."
+    },
+    "« L'orangerie, dit Jaume depuis la porte. Elle y gardait ses graines d'iris dans un meuble à tiroirs. Une par variété. Elle leur donnait des noms. » Il tourne son chapeau entre ses doigts. « Une seule porte le sien. »",
+    "Hector est déjà debout. « Eh bien, allons cueillir. » Jaume décroche une lanterne. La nuit est tombée sur les iris."
+   ],
+   "choices": [
+    {
+     "label": "Aller au jardin avec la lanterne de Jaume",
+     "fx": {
+      "until": 19
+     },
+     "to": "A_jardin"
+    }
+   ]
+  },
+  "A_fine1": {
+   "act": "I",
+   "title": "La cuisinière",
+   "place": "salon",
+   "fx": {
+    "meet": [
+     "fine"
+    ]
+   },
+   "text": [
+    "Fine t'attrape par la manche à la porte de l'office, et t'attire dans le couloir avec la force tranquille d'une femme qui pétrit le pain depuis quarante ans.",
+    "« Des devinettes, souffle-t-elle. Elle a fait ça. Bien sûr qu'elle a fait ça. Elle en posait au marchand de charbon, au facteur, au curé. Au curé surtout. » Elle s'essuie les yeux. « Elle disait que les gens qui trouvent les devinettes ont l'esprit propre, et que les autres ont les ongles sales. Le neveu, il a les ongles faits. Vous comprenez ce que je veux dire. »",
+    "Elle jette un coup d'œil vers le salon et baisse encore la voix. « Elle m'a dit, la semaine d'avant, en me rendant sa tasse : *Fine, mes vers ont toujours deux fonds, comme mes malles.* J'ai pas compris. J'ai jamais compris ses phrases. Elle les faisait pour plus tard. »"
+   ],
+   "choices": [
+    {
+     "back": "A_salon"
+    }
+   ]
+  },
+  "A_jardin": {
+   "act": "I",
+   "title": "Le jardin, la nuit",
+   "place": "jardin",
+   "hub": true,
+   "backName": "le jardin",
+   "text": [
+    {
+     "first": true,
+     "text": "Le jardin de la Bastide descend en terrasses vers les champs, et la nuit en a fait un pays inconnu. La lanterne de Jaume découpe dans le noir des morceaux de choses : une allée de buis, une fontaine qui bavarde toute seule, un bras de pierre qui tient une corne d'abondance. Au-delà du cercle de lumière, les iris murmurent, des milliers, tout autour de la maison, comme une foule massée au pied d'un échafaud et qui attend qu'on commence."
+    },
+    {
+     "first": true,
+     "text": "Hector marche devant, trop vite. Bérénice suit, son chapelet dans une main, l'ourlet de sa robe dans l'autre. Odile ferme la marche, sans lanterne. Elle n'en a pas besoin : elle connaît le jardin par cœur, à l'odeur."
+    },
+    {
+     "again": true,
+     "text": "Les allées de buis, la fontaine, le grand rond de nuit où murmurent les iris. Au bout du jardin, la chapelle, une lueur de veilleuse à sa fenêtre."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Entrer dans l'orangerie",
+     "hide": {
+      "has": "codicille:1"
+     },
+     "to": "A_orangerie"
+    },
+    {
+     "label": "T'approcher de la statue de Flore",
+     "hide": {
+      "seen": "A_flore"
+     },
+     "to": "A_flore"
+    },
+    {
+     "label": "Lire l'inscription du cadran solaire",
+     "hide": {
+      "seen": "A_cadran"
+     },
+     "to": "A_cadran"
+    },
+    {
+     "label": "Descendre jusqu'à la maison du jardinier",
+     "hide": {
+      "seen": "A_maison_bas"
+     },
+     "to": "A_maison_bas"
+    },
+    {
+     "label": "Pousser jusqu'à la chapelle, au bout de l'allée des cyprès",
+     "hide": {
+      "seen": "A_chapelle_soir"
+     },
+     "to": "A_chapelle_soir"
+    },
+    {
+     "label": "Entrer dans la distillerie, derrière l'orangerie",
+     "hide": {
+      "seen": "A_distillerie"
+     },
+     "to": "A_distillerie"
+    },
+    {
+     "label": "Rentrer à la Bastide avec le premier codicille",
+     "if": "codicille:1",
+     "fx": {
+      "until": 21
+     },
+     "to": "B_souper"
+    }
+   ]
+  },
+  "A_orangerie": {
+   "act": "I",
+   "title": "L'orangerie",
+   "place": "jardin",
+   "text": [
+    "L'orangerie est une longue serre aux vitres embuées, chaude comme une étable, où les orangers en caisse passent l'hiver comme des vieillards en pension. L'air est épais, sucré, avec une pointe d'amertume. La lanterne fait trembler des ombres de feuilles sur le verre, et dehors, de l'autre côté de la buée, le noir colle aux vitres.",
+    "Au fond, contre le mur de pierre, un meuble de chêne à cent petits tiroirs, chacun portant une étiquette écrite à la main : *Belle de Vence. Sultane. Gris de lin. Mademoiselle Fine.* Fine, à la porte, rougit jusqu'au cou.",
+    "Hector ouvre les tiroirs au hasard, deux à la fois, à pleines mains, et répand des graines sur le carrelage comme un semeur ivre. Jaume serre les mâchoires."
+   ],
+   "choices": [
+    {
+     "label": "Chercher le tiroir qui porte le nom de Madame Castellane",
+     "to": "A_tiroir"
+    }
+   ]
+  },
+  "A_tiroir": {
+   "act": "I",
+   "title": "Le tiroir Aurore",
+   "place": "jardin",
+   "fx": {
+    "item": "codicille1",
+    "flag": "codicille:1",
+    "ep": [
+     "histoire",
+     200
+    ]
+   },
+   "text": [
+    "Tu promènes la lanterne le long des étiquettes, une rangée après l'autre. *Mistral. Nuit de Mai. Vieux Jaume.* Tout en haut, à gauche, un tiroir plus petit que les autres, l'étiquette presque effacée : *Aurore.*",
+    "Il est vide de graines. Il contient un papier plié en quatre, cacheté d'une goutte de cire lilas.",
+    "Tu brises le cachet et tu lis à voix haute, parce que c'est ton rôle. *Premier codicille. À Jaume, mon jardinier, je laisse la maison du bas et le champ du ruisseau. Il les a assez arrosés.*",
+    "Jaume ôte son chapeau. Il ne dit rien. Il regarde le tiroir vide, et sa mâchoire travaille.",
+    {
+     "second": false,
+     "text": "Sous le legs, le deuxième quatrain. Hector te prend le papier des mains pour le lire lui-même, le lit, et te le rend avec un sourire. « Une clef, évidemment. Mais laquelle ? Il y a quatre cents clefs dans cette maison. Ma tante en collectionnait. »"
+    },
+    {
+     "second": true,
+     "text": "Sous le legs, le deuxième quatrain, mot pour mot. Hector ne te prend pas le papier, cette fois. Il le connaît. Il regarde Jaume."
+    }
+   ],
+   "choices": [
+    {
+     "back": "A_jardin"
+    }
+   ]
+  },
+  "A_flore": {
+   "act": "I",
+   "title": "La statue de Flore",
+   "place": "jardin",
+   "text": [
+    "Au milieu du rond-point, sur un socle carré, une Flore de pierre grise répand des fleurs de pierre d'une corne d'abondance. Le lichen lui a fait des taches de rousseur, la pluie lui a usé le nez, et un plaisantin du siècle dernier lui a gravé une moustache que personne n'a jamais effacée.",
+    "Autour de son cou, au bout d'un ruban de fer rouillé, pend une grosse clef de fer forgé, longue comme la main. Une clef de décor, sans doute : on en mettait aux statues, autrefois, pour figurer les saisons.",
+    "Odile s'est arrêtée près de toi. « Elle venait ici tous les soirs, dit-elle. Elle tapotait le socle avec sa canne, trois coups, comme on frappe à une porte. Je croyais que c'était une superstition. »"
+   ],
+   "choices": [
+    {
+     "back": "A_jardin"
+    }
+   ]
+  },
+  "A_cadran": {
+   "act": "I",
+   "title": "Le cadran solaire",
+   "place": "jardin",
+   "text": [
+    "Contre le mur de la terrasse, un cadran solaire de marbre, rongé, son style de bronze tordu par un coup de vent ou un coup de colère. La nuit, il ne sert à rien, et il en a l'air conscient, comme un vieux serviteur qu'on garde par habitude.",
+    "Une devise gravée tourne autour du cadran, en lettres usées que la lanterne fait ressortir une à une : *JE NE COMPTE QUE LES HEURES CLAIRES.*",
+    "Dessous, plus petit, d'une autre main, plus récente, au couteau : *et toi, les autres.*",
+    {
+     "second": true,
+     "text": "Cette fois, tu regardes l'écriture du couteau, et non plus ce qu'elle dit. Des lettres rondes, appliquées, un peu raides, que tu as vues mille fois dans les registres de l'étude."
+    }
+   ],
+   "choices": [
+    {
+     "back": "A_jardin"
+    }
+   ]
+  },
+  "A_maison_bas": {
+   "act": "I",
+   "title": "La maison du bas",
+   "place": "jardin",
+   "text": [
+    "En bas du jardin, au bord du champ du ruisseau, une maisonnette basse sous une treille : la maison du jardinier. La porte est ouverte. Dedans, un lit de fer, une table, un fourneau, et au mur, fixée par quatre clous, une petite robe d'enfant en coton blanc brodé, jaunie, si petite qu'elle tiendrait dans les deux mains.",
+    "Jaume t'a suivi{e}. Il voit ton regard sur la robe et ne dit rien d'abord. Puis il tire de sa poche sa serpette, la regarde, et la range.",
+    "« Vous aimez les devinettes, vous aussi, dit-il. Tout le monde ici aime les devinettes, ce soir. Moi, j'en ai qu'une. Je la posais à la petite, quand elle avait cinq ans. »"
+   ],
+   "choices": [
+    {
+     "label": "Écouter la devinette de Jaume",
+     "hide": {
+      "has": "enigme:p_greffe"
+     },
+     "to": "A_jaume_devinette"
+    },
+    {
+     "back": "A_jardin"
+    }
+   ]
+  },
+  "A_jaume_devinette": {
+   "act": "I",
+   "title": "La devinette du jardinier",
+   "place": "jardin",
+   "puzzle": "p_greffe",
+   "text": [
+    "Jaume s'assoit sur le seuil, sa lanterne entre les pieds."
+   ],
+   "choices": [
+    {
+     "back": "A_maison_bas"
+    }
+   ]
+  },
+  "A_jaume_greffe": {
+   "act": "I",
+   "title": "La greffe",
+   "place": "jardin",
+   "fx": {
+    "clue": "i_jaume_odile",
+    "flag": "jaume:confiance"
+   },
+   "text": [
+    "Jaume hoche la tête, lentement, plusieurs fois, comme on approuve un plant qui a pris.",
+    "« La greffe. La petite trouvait toujours. Elle avait cinq ans, elle disait *la greffe* en tapant des mains, et elle voulait que je lui en fasse une sur son doigt. » Il rit, d'un rire de gorge, enroué. « Je l'ai élevée. Je ne l'ai pas faite. Ce n'est pas la même chose, et c'est aussi bien. »",
+    "Il se relève, et ses genoux craquent comme du bois sec. « Elle est arrivée ici un printemps, enveloppée dans un châle qui sentait l'iris, et ma femme l'a prise sur son sein. On ne m'a jamais demandé mon avis. On ne demande pas son avis à un porte-greffe. »"
+   ],
+   "choices": [
+    {
+     "back": "A_maison_bas"
+    }
+   ]
+  },
+  "B_souper": {
+   "act": "II",
+   "title": "Le souper",
+   "place": "salon",
+   "text": [
+    "Fine a mis le couvert dans la salle à manger, sous un lustre de verre de Venise qui tinte quand on marche trop fort. Une soupe au pistou, un gigot aux herbes, un fromage de chèvre roulé dans la sarriette, des figues. Personne n'a faim, et tout le monde mange, parce qu'on mange aux veillées funèbres, et parce que c'est très bon.",
+    "Le fauteuil du bout de table est vide. Fine y a mis le couvert quand même, par habitude, puis l'a retiré en reniflant, puis l'a remis.",
+    "Hector parle pour quatre. Il raconte la Bourse de Marseille, un cheval qui aurait dû gagner, une comtesse qui aurait dû céder. Bérénice coupe sa viande en petits carrés égaux, comme une comptable. Odile ne mange que les figues.",
+    {
+     "second": false,
+     "text": "Au dessert, Hector lève son verre. « À ma tante, qui nous fait chercher son argent comme des enfants cherchent des œufs de Pâques. Que le meilleur gagne. » Il boit. « Ou le plus malin. C'est rarement le même, et c'est toujours moi. »"
+    },
+    {
+     "second": false,
+     "text": "Bérénice repose sa fourchette. « Le plus endetté, plutôt. » Le lustre tinte. Hector sourit, d'un sourire qui ne remonte pas jusqu'aux yeux."
+    },
+    {
+     "second": true,
+     "text": "Ce soir, Hector ne lève pas son verre. Il mange vite, sans parler, en regardant son assiette, et il porte souvent la main gauche à la poche de son gilet, comme on vérifie qu'une montre est toujours là. Maître Brissac, en bout de table, à la place de la morte que personne n'osait prendre, découpe le gigot avec une lenteur de chirurgien."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Quitter la table",
+     "fx": {
+      "until": 22
+     },
+     "to": "B_nuit"
+    }
+   ]
+  },
+  "B_nuit": {
+   "act": "II",
+   "title": "La Bastide, la nuit",
+   "place": "salon",
+   "hub": true,
+   "backName": "le vestibule",
+   "text": [
+    {
+     "first": true,
+     "text": "La maison s'endort mal. Les lampes s'éteignent une à une dans les couloirs, et l'ombre monte les escaliers avant les gens. Quelque part, une horloge fait le compte des heures avec un sérieux de chanoine. On entend des portes, des pas, des tiroirs : trois héritiers qui chacun fouillent la maison en faisant semblant d'aller se coucher."
+    },
+    {
+     "again": true,
+     "before": "deuxh",
+     "text": "Le vestibule obscur, l'escalier, l'horloge qui compte. Des pas, au-dessus, s'arrêtent quand tu t'arrêtes."
+    },
+    {
+     "after": "deuxh",
+     "text": "Après deux heures, la Bastide tient sa respiration. Plus un pas, plus une porte. Seule l'horloge continue, et elle a l'air de compter à rebours."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Chercher la réponse au deuxième quatrain",
+     "if": "codicille:1",
+     "hide": {
+      "has": "enigme:q2"
+     },
+     "to": "B_q2"
+    },
+    {
+     "label": "Chercher la réponse au troisième quatrain",
+     "if": "codicille:2",
+     "hide": {
+      "has": "enigme:q3"
+     },
+     "to": "B_q3"
+    },
+    {
+     "label": "Entrer dans le bureau de Madame Castellane",
+     "to": "B_bureau"
+    },
+    {
+     "label": "Monter l'escalier, d'où viennent des voix",
+     "hide": {
+      "seen": "B_escalier"
+     },
+     "to": "B_escalier"
+    },
+    {
+     "label": "Descendre à la cuisine, où Fine veille",
+     "hide": {
+      "seen": "B_cuisine"
+     },
+     "to": "B_cuisine"
+    },
+    {
+     "label": "Chercher Odile",
+     "hide": {
+      "seen": "B_odile_nuit"
+     },
+     "to": "B_odile_nuit"
+    },
+    {
+     "label": "Entrer dans la bibliothèque",
+     "hide": {
+      "seen": "B_bibliotheque"
+     },
+     "to": "B_bibliotheque"
+    },
+    {
+     "label": "Monter à la chambre de Madame Castellane",
+     "hide": {
+      "seen": "B_coffret_ouvert"
+     },
+     "to": "B_chambre_aurore"
+    },
+    {
+     "label": "Aller vers Hector, qui t'attend au tournant du couloir",
+     "second": false,
+     "if": "codicille:1",
+     "hide": {
+      "seen": "B_hector_offre"
+     },
+     "to": "B_hector_offre"
+    },
+    {
+     "label": "Monter jeter un œil dans la chambre d'Hector",
+     "second": false,
+     "if": "codicille:2",
+     "hide": {
+      "seen": "B_chambre_hector1"
+     },
+     "to": "B_chambre_hector1"
+    },
+    {
+     "label": "Aller à la chapelle, où brille une lumière",
+     "before": "deuxh",
+     "hide": {
+      "seen": "B_chapelle_minuit"
+     },
+     "to": "B_chapelle_minuit"
+    },
+    {
+     "label": "Voir si Fine dort, à la cuisine",
+     "if": {
+      "seen": "B_cuisine"
+     },
+     "hide": {
+      "seen": "B_fine_minuit"
+     },
+     "to": "B_fine_minuit"
+    },
+    {
+     "label": "Parler franchement à Hector",
+     "second": true,
+     "hide": {
+      "any": [
+       {
+        "seen": "S_hector_r2"
+       },
+       {
+        "has": "hector:confondu"
+       }
+      ]
+     },
+     "to": "S_hector_r2"
+    },
+    {
+     "label": "Donner à Odile la lettre du coffret",
+     "second": true,
+     "if": {
+      "item": "lettre_odile"
+     },
+     "to": "S_odile_lettre"
+    },
+    {
+     "label": "Demander à Fine comment était la Rose du Jaume, ce printemps-là",
+     "second": true,
+     "if": {
+      "seen": "B_cuisine"
+     },
+     "hide": {
+      "seen": "S_fine_r2"
+     },
+     "to": "S_fine_r2"
+    },
+    {
+     "label": "Aller voir Maître Brissac au salon",
+     "second": true,
+     "if": "deuxh",
+     "hide": {
+      "seen": "S_brissac_nuit"
+     },
+     "to": "S_brissac_nuit"
+    },
+    {
+     "label": "Veiller dans le vestibule jusqu'à deux heures",
+     "second": false,
+     "if": "codicille:3",
+     "hide": {
+      "has": "deuxh"
+     },
+     "fx": {
+      "until": 2,
+      "flag": "deuxh"
+     },
+     "to": "B_deuxh"
+    },
+    {
+     "label": "Veiller dans le vestibule jusqu'à deux heures",
+     "second": true,
+     "if": "codicille:3",
+     "hide": {
+      "has": "deuxh"
+     },
+     "fx": {
+      "until": 2,
+      "flag": "deuxh"
+     },
+     "to": "S_deuxh"
+    },
+    {
+     "label": "Monter fouiller la chambre d'Hector pendant qu'il fait ses réussites",
+     "second": true,
+     "hide": {
+      "seen": "S_chambre_hector"
+     },
+     "to": "S_chambre_hector"
+    },
+    {
+     "label": "Parler à Bérénice de ses lettres",
+     "second": true,
+     "hide": {
+      "seen": "S_berenice_r2"
+     },
+     "to": "S_berenice_r2"
+    },
+    {
+     "label": "Dire à Odile ce que tu sais d'elle",
+     "second": true,
+     "if": {
+      "any": [
+       {
+        "has": "odile:fille"
+       },
+       {
+        "has": "odile:prenom"
+       },
+       "enigme:p_journal"
+      ]
+     },
+     "hide": {
+      "seen": "S_odile_dire"
+     },
+     "to": "S_odile_dire"
+    },
+    {
+     "label": "Chercher la réponse au quatrième quatrain",
+     "if": {
+      "all": [
+       "codicille:3",
+       "deuxh"
+      ]
+     },
+     "hide": {
+      "has": "enigme:q4"
+     },
+     "to": "B_q4"
+    }
+   ]
+  },
+  "B_q2": {
+   "act": "II",
+   "title": "Le deuxième quatrain",
+   "place": "salon",
+   "puzzle": "q2",
+   "text": [
+    "Tu déplies le premier codicille sous la lampe du vestibule et tu relis le deuxième quatrain, du bout des lèvres. Une clef, oui. Mais Hector a raison : il y en a partout dans cette maison, aux portes, aux armoires, aux pendules, dans les poches des tabliers."
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "B_q2_clef": {
+   "act": "II",
+   "title": "La clef de Flore",
+   "place": "jardin",
+   "text": [
+    "*On me pend au cou.* Tu sors dans le jardin sans lanterne, et la nuit te reçoit comme une eau froide. Les iris murmurent. La fontaine bavarde. Au rond-point, Flore t'attend, sa clef de fer pendue à son cou de pierre.",
+    "Tu la détaches. Le ruban de fer cède avec un grincement de vieille charnière. La clef est lourde, froide, et sa tige est creuse.",
+    "Tu fais le tour du socle. Sur la face qui regarde la maison, entre deux guirlandes de pierre, un trou de serrure que le lichen avait presque bouché. Tu te rappelles trois petits coups de canne, tous les soirs, comme on frappe à une porte."
+   ],
+   "choices": [
+    {
+     "label": "Ouvrir le socle",
+     "to": "B_socle"
+    }
+   ]
+  },
+  "B_socle": {
+   "act": "II",
+   "title": "Le socle",
+   "place": "jardin",
+   "fx": {
+    "item": "codicille2",
+    "flag": "codicille:2",
+    "ep": [
+     "histoire",
+     200
+    ]
+   },
+   "text": [
+    "La clef tourne avec un bruit de dents qu'on serre. Une petite porte de pierre, découpée dans le socle, pivote sur des gonds invisibles. Dedans, au sec, dans une niche grande comme une boîte à chapeau : un étui de fer, et rien d'autre, à part une famille de cloportes qui proteste contre l'intrusion.",
+    "Dans l'étui, un papier roulé. *Deuxième codicille. À Fine, ma cuisinière, je laisse mes casseroles de cuivre et cent livres. Elle sait déjà quoi en faire.*",
+    "Et dessous, le troisième quatrain.",
+    "Une fenêtre s'éclaire, au premier étage de la Bastide. Une silhouette s'y découpe, immobile. Le temps que tu lèves les yeux, la lampe s'éteint."
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "B_q3": {
+   "act": "II",
+   "title": "Le troisième quatrain",
+   "place": "salon",
+   "puzzle": "q3",
+   "text": [
+    "Le troisième quatrain, sous la lampe. *Dans un flacon je dors.* Odile est apparue dans l'encadrement de la porte du salon, sans bruit, comme elle apparaît toujours. Elle écoute."
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "B_q3_parfum": {
+   "act": "II",
+   "title": "Le parfum",
+   "place": "bureau",
+   "text": [
+    "« Un parfum », dis-tu.",
+    "Odile hoche la tête une fois. « L'orgue, dit-elle. Dans le bureau. Elle n'aurait rien caché ailleurs. » Elle prend une bougie sur la console et passe devant toi, et tu la suis dans le couloir, guidé{e} par la flamme et par l'odeur d'iris qui flotte derrière elle comme une traîne."
+   ],
+   "choices": [
+    {
+     "label": "Suivre Odile jusqu'à l'orgue à parfums",
+     "to": "B_orgue"
+    }
+   ]
+  },
+  "B_bureau": {
+   "act": "II",
+   "title": "Le bureau de Madame Castellane",
+   "place": "bureau",
+   "hub": true,
+   "backName": "le bureau",
+   "text": [
+    {
+     "first": true,
+     "text": "Le bureau de Madame Castellane est une pièce ronde, au fond de la maison, tapissée de livres jusqu'au plafond. Il y fait plus froid qu'ailleurs, d'un froid de cave ou de chapelle, et l'odeur est d'une intensité qui serre la gorge : cent essences mêlées, la rose, l'ambre, le cuir, la fleur d'oranger, et sous toutes, l'iris, comme un bourdon d'orgue sous un cantique."
+    },
+    {
+     "first": true,
+     "text": "Contre le mur du fond, l'orgue à parfums : un meuble en gradins, en demi-cercle, où des dizaines de flacons de cristal s'alignent sur des tablettes étagées, comme les tuyaux d'un instrument. Devant la fenêtre, un secrétaire de bois de rose, fermé. Sur l'abattant, une serrure à trois roues de porcelaine peinte."
+    },
+    {
+     "again": true,
+     "text": "Le bureau rond, les livres, l'orgue aux flacons de cristal, le secrétaire de bois de rose. Le froid, et l'odeur."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Examiner l'orgue à parfums",
+     "hide": {
+      "all": [
+       {
+        "seen": "B_orgue"
+       },
+       {
+        "not": "enigme:q3"
+       }
+      ]
+     },
+     "to": "B_orgue"
+    },
+    {
+     "label": "Tourner les roues du secrétaire",
+     "hide": {
+      "has": "enigme:p_secretaire"
+     },
+     "to": "B_secretaire"
+    },
+    {
+     "label": "Demander à Odile ce qu'elle sent, devant l'orgue",
+     "if": {
+      "seen": "B_orgue"
+     },
+     "hide": {
+      "seen": "B_odile_nez"
+     },
+     "to": "B_odile_nez"
+    },
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "B_orgue": {
+   "act": "II",
+   "title": "L'orgue à parfums",
+   "place": "bureau",
+   "fx": {
+    "clue": "i_orgue",
+    "meet": [
+     "odile"
+    ]
+   },
+   "text": [
+    "De près, l'orgue est un monde. Vingt-six grands flacons sur la tablette du bas, bouchés à l'émeri, chacun marqué d'une étiquette d'écriture ronde et d'un chiffre peint en noir : *1, Ambre. 2, Benjoin. 3, Cannelle. 4, Davana. 5, Encens.* Au-dessus, sur les tablettes étagées, des centaines de petites fioles, des absolues, des teintures, rangées selon une loi que toi seul{e} ignores ici.",
+    {
+     "if": {
+      "has": "passe:nez"
+     },
+     "text": "Tu reconnais les flacons, l'un après l'autre, comme on reconnaît de vieux camarades de classe qui vous ont battu : tu les as débouchés cent fois dans ta parfumerie d'apprenti, et ils ne t'ont jamais rien dit."
+    },
+    "Odile passe le doigt sur les bouchons, sans les toucher, comme une pianiste qui caresse les touches avant de jouer. « Vingt-six, dit-elle, rangés comme les lettres de l'alphabet. Ambre le premier, Benjoin le deuxième, Cannelle le troisième, jusqu'au Zeste. Madame disait qu'on écrit un parfum comme on écrit un mot. Qu'il faut connaître ses lettres avant de faire des phrases. »",
+    {
+     "if": "enigme:q3",
+     "text": "Au centre de l'orgue, à la place d'honneur, sur un petit socle d'argent, un flacon à part, plus petit, taillé en goutte : *Aurore.*"
+    }
+   ],
+   "choices": [
+    {
+     "label": "Prendre le flacon Aurore",
+     "if": "enigme:q3",
+     "hide": {
+      "has": "codicille:3"
+     },
+     "to": "B_flacon"
+    },
+    {
+     "back": "B_bureau"
+    }
+   ]
+  },
+  "B_flacon": {
+   "act": "II",
+   "title": "Le flacon Aurore",
+   "place": "bureau",
+   "fx": {
+    "item": "codicille3",
+    "flag": "codicille:3",
+    "ep": [
+     "histoire",
+     200
+    ]
+   },
+   "text": [
+    "Le flacon est vide de parfum. Il en garde la mémoire, si forte qu'en le débouchant tu crois sentir la morte entrer dans la pièce : de l'iris poudré, une violette, un fond de musc tiède comme une peau. Odile ferme les yeux. Une larme passe sous sa paupière, et elle ne l'essuie pas.",
+    "Au fond du flacon, roulé serré, un papier. Tu le fais glisser avec une épingle à cheveux qu'Odile te tend sans un mot.",
+    "*Troisième codicille. À Bérénice, ma nièce, je laisse ma bibliothèque. Qu'elle y lise autre chose que des psaumes.*",
+    "Et dessous, le quatrième quatrain. Le dernier.",
+    {
+     "second": false,
+     "text": "Un froissement de soie, à la porte du bureau. Hector est appuyé au chambranle, un bougeoir à la main. Depuis combien de temps ? Il a lu le quatrain par-dessus ton épaule, tu le vois à ses lèvres qui bougent encore. « Le dernier, dit-il doucement. Comme c'est émouvant. » Il s'en va sans attendre de réponse."
+    },
+    "« Il sera à vous de dire à qui », dit Odile. Elle repose le flacon sur son socle d'argent, exactement à sa place, d'un geste qu'elle a dû faire mille fois."
+   ],
+   "choices": [
+    {
+     "back": "B_bureau"
+    }
+   ]
+  },
+  "B_secretaire": {
+   "act": "II",
+   "title": "Le secrétaire",
+   "place": "bureau",
+   "puzzle": "p_secretaire",
+   "text": [
+    "Tu t'agenouilles devant le secrétaire de bois de rose. Les trois roues de porcelaine tournent sans bruit sous ton pouce, et à chaque cran une fleur peinte remplace une autre, avec la régularité d'une pendule."
+   ],
+   "choices": [
+    {
+     "back": "B_bureau"
+    }
+   ]
+  },
+  "B_secretaire_ouvert": {
+   "act": "II",
+   "title": "Le carnet vert",
+   "place": "bureau",
+   "text": [
+    "L'abattant s'abaisse en douceur. Les casiers sont en ordre parfait : des factures liées par année, des lettres de fournisseurs, des échantillons de cire à cacheter lilas. Rien qui ressemble à un codicille.",
+    "Dans le petit tiroir du milieu, seul, un carnet de maroquin vert, usé aux coins. Des formules, page après page, de cette écriture nette qui ne rature jamais : *Rose de mai, 12 gouttes. Ambre gris, 3. Iris, une heure de patience.* Des dates, des essais, des échecs barrés d'un trait.",
+    "À la dernière page, un titre souligné deux fois : *Formule de l'Aurore, la vraie.* Et dessous, aucune essence, aucune goutte. Une ligne de nombres."
+   ],
+   "choices": [
+    {
+     "label": "Déchiffrer la ligne de nombres",
+     "hide": {
+      "has": "enigme:p_journal"
+     },
+     "to": "B_journal"
+    },
+    {
+     "back": "B_bureau"
+    }
+   ]
+  },
+  "B_journal": {
+   "act": "II",
+   "title": "La vraie formule",
+   "place": "bureau",
+   "puzzle": "p_journal",
+   "text": [
+    "Tu approches le carnet de la bougie. Treize, un, six, neuf, douze, douze, cinq. Aucune formule au monde ne demande douze gouttes de la même chose deux fois de suite."
+   ],
+   "choices": [
+    {
+     "back": "B_secretaire_ouvert"
+    }
+   ]
+  },
+  "B_escalier": {
+   "act": "II",
+   "title": "Des voix dans l'escalier",
+   "place": "salon",
+   "fx": {
+    "clue": "i_hector_dettes"
+   },
+   "text": [
+    "Tu montes trois marches dans le noir, et tu t'arrêtes. Au palier du premier, deux voix, une d'homme, une de femme, assourdies par la tenture.",
+    "« …trois mille livres au Cercle, avant la fin du mois, dit Hector, et il n'a plus rien de rieur. Sinon, c'est la prison. Ou pire : la province. — Tu aurais dû y penser avant de jouer la maison de ta mère, dit Bérénice. — Ma mère est morte, et sa maison aussi. Il me reste celle-ci. »",
+    "Un silence. Puis Bérénice, plus bas : « Je prierai pour toi. — Prie plutôt pour que le clerc sache lire. »",
+    "Une porte se ferme. Tu redescends sur la pointe des pieds, avec l'impression désagréable d'avoir été désigné{e} par ta fonction, une fois de plus."
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "B_cuisine": {
+   "act": "II",
+   "title": "La cuisine",
+   "place": "salon",
+   "text": [
+    "Fine veille dans la cuisine, sur une chaise basse, devant le potager où une marmite de bouillon frissonne pour personne. Elle t'offre un bol sans te demander ton avis, et tu le prends sans lui donner le tien.",
+    "« Trente ans que je suis là, dit-elle, et un peu plus. Je suis entrée l'année où Madame est partie à Gênes. Six mois, elle est restée, chez une cousine, pour sa santé. Elle est revenue maigre comme un clou, et toute pâle, et elle a plus jamais remis de corset. » Fine remue son bouillon. « Ce printemps-là, la femme du Jaume a eu une petite. Enfin, a eu. Elle avait quarante-cinq ans, la pauvre Rose, et elle avait jamais rien eu avant. Un miracle, a dit le curé. Le curé a toujours le mot pour les miracles. »",
+    "Elle te regarde boire, satisfaite. « Moi, je dis rien. Je fais la soupe. »"
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "B_odile_nuit": {
+   "act": "II",
+   "title": "Odile, à la fenêtre",
+   "place": "salon",
+   "text": [
+    "Tu trouves Odile dans le petit salon du premier, assise sur le rebord de la fenêtre ouverte, une couverture sur les épaules. La nuit entre par la fenêtre avec l'odeur des champs, et Odile la respire comme on boit.",
+    "« Je partirai demain, dit-elle sans se retourner. Quoi qu'il arrive. On m'a proposé une place à Grasse, chez un parfumeur qui veut un nez. Je n'aurai plus de maîtresse à qui faire la lecture. » Elle sourit à la nuit. « Ce sera bien. Je crois. »",
+    "Tu lui demandes ce qu'elle espère, ce soir.",
+    "« Rien. Je ne suis pas sur le testament. Je ne suis pas de la famille. » Elle lève une main, la laisse retomber. « Elle m'a appris à sentir. C'est un héritage. Celui-là, personne ne peut me le prendre, même avec un codicille. »"
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "B_bibliotheque": {
+   "act": "II",
+   "title": "La bibliothèque",
+   "place": "salon",
+   "text": [
+    "La bibliothèque de la Bastide est une longue galerie aux fenêtres hautes, où des milliers de livres dorment debout comme des chevaux. Des traités de chimie, des herbiers, des récits de voyage aux Indes, des romans anglais, Rabelais, Montaigne, et une collection complète de l'*Almanach des énigmes* depuis cinquante ans, reliée en veau, annotée au crayon dans les marges.",
+    "Tu en ouvres un au hasard. Dans la marge, à côté d'une devinette, de la main de Madame Castellane : *trop facile, deux sens au moins ou rien.* Dans un autre : *une réponse pour les sots, une pour les autres.*",
+    {
+     "if": "codicille:3",
+     "text": "Bérénice est là, debout devant les rayonnages, son chapelet pendant, immobile, comme une femme qui découvre qu'on lui a légué une forêt. Elle prend un volume, le feuillette, le repose. « Rabelais, dit-elle avec dégoût. Montaigne. » Puis, plus bas : « Elle savait que je les lirais. C'est ça le pire. »"
+    }
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "B_q4": {
+   "act": "II",
+   "title": "Le quatrième quatrain",
+   "place": "salon",
+   "puzzle": "q4",
+   "text": [
+    "Le dernier quatrain, sous la lampe du vestibule. Les lettres dansent un peu. Il est tard, et toute la maison écoute."
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "B_deuxh": {
+   "act": "II",
+   "title": "Deux heures",
+   "place": "salon",
+   "second": false,
+   "text": [
+    "Tu t'assois sur la banquette du vestibule, dans le noir, et tu attends. L'horloge compte. La maison craque, se tasse, soupire comme un vieillard qui cherche une position pour dormir.",
+    "À deux heures moins le quart, un pas dans l'escalier. Une silhouette descend sans lumière, traverse le vestibule à deux pas de toi sans te voir, ouvre la porte du jardin, et sort. Tu reconnais le gilet de soie au froissement qu'il fait.",
+    "À deux heures, une lueur de bougie sous la porte du bureau. Tu entrebâilles : Bérénice, en robe de chambre, fouille le tiroir des lettres reçues du secrétaire de la console, à toute vitesse, en lisant les adresses du bout des lèvres."
+   ],
+   "choices": [
+    {
+     "label": "Suivre la silhouette au jardin",
+     "to": "B_hector_jardin"
+    },
+    {
+     "label": "Entrer dans le bureau et surprendre Bérénice",
+     "to": "B_berenice_nuit"
+    }
+   ]
+  },
+  "B_hector_jardin": {
+   "act": "II",
+   "title": "Le jardin à deux heures",
+   "place": "jardin",
+   "second": false,
+   "text": [
+    "Tu sors dans le jardin. La lune s'est levée, mince, et elle fait des allées de buis des couloirs d'argent. Personne. La fontaine bavarde. Les iris ont l'air de dormir debout.",
+    "Tu fais le tour du rond-point, de l'orangerie, de la terrasse. Rien. Puis une odeur de tabac. Hector est assis sur la margelle du cadran solaire, un cigare à la main, le visage tourné vers les étoiles, l'air d'un poète qui attend une rime.",
+    "« Une nuit trop belle pour dormir, dit-il sans se retourner. Vous aussi, vous cherchez ? » Il tire sur son cigare. « Moi, j'ai renoncé. J'attends que vous trouviez pour moi. C'est plus reposant. »",
+    "Il a de la terre au genou de son pantalon clair. Il voit ton regard, et il épousette sa jambe avec une moue. « Ces allées. On s'y tord les chevilles. »"
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "B_berenice_nuit": {
+   "act": "II",
+   "title": "Bérénice dans le bureau",
+   "place": "bureau",
+   "fx": {
+    "clue": "i_berenice_nuit"
+   },
+   "text": [
+    "Bérénice sursaute si fort que sa bougie s'éteint. Dans le noir, tu l'entends respirer, vite, comme un oiseau dans une main.",
+    "Tu rallumes. Elle tient serré contre sa poitrine un paquet de lettres attachées d'une ficelle. « Ce sont les miennes, dit-elle. Celles que je lui ai écrites. Vingt ans de lettres. Je lui demandais de l'argent pour mes œuvres, et je lui faisais la morale dans la même phrase. Elle ne m'a jamais répondu. » Sa voix se casse. « Je ne voulais pas que le neveu les lise. Je ne voulais pas que vous les lisiez. Je ne voulais pas qu'on sache qu'elle les avait gardées. »",
+    "Elle te regarde, droite, défaite. « Elle les avait gardées. Toutes. Rangées par date. »"
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "C_q4_nom": {
+   "act": "III",
+   "title": "Le nom",
+   "place": "salon",
+   "text": [
+    "« Un nom », dis-tu. *Et pour finir on me grave dans la pierre.*",
+    "Il n'y a dans toute la Bastide qu'un seul nom fraîchement gravé dans la pierre. Il est au bout du jardin, dans la chapelle, sur une dalle que le marbrier de Sauvebonne a finie avant-hier, et sous laquelle Madame Castellane attend depuis trois jours qu'on vienne la déranger."
+   ],
+   "choices": [
+    {
+     "label": "Prendre une lanterne et aller à la chapelle",
+     "fx": {
+      "until": 3
+     },
+     "to": "C_chapelle"
+    }
+   ]
+  },
+  "C_chapelle": {
+   "act": "III",
+   "title": "La chapelle",
+   "place": "chapelle",
+   "hub": true,
+   "backName": "la chapelle",
+   "text": [
+    {
+     "first": true,
+     "text": "La chapelle est une petite nef de pierre blonde, au bout de l'allée des cyprès, si étroite qu'on y tiendrait à vingt en se serrant. Une veilleuse rouge brûle devant l'autel. L'air est froid, immobile, chargé d'encens refroidi, de cire et de lys qui commencent à pourrir dans leurs vases : l'odeur sucrée, un peu écœurante, des fleurs qu'on a oublié de jeter."
+    },
+    {
+     "first": true,
+     "text": "Dans le sol, devant l'autel, une dalle neuve, d'un marbre gris veiné de blanc, encore poudreuse de la poussière du ciseau : *AURORE CASTELLANE, VEUVE FERRIER.* Les lettres sont si fraîches qu'elles ont l'air de saigner un peu de blanc. Au-dessous, les dates. Au-dessous des dates, rien. Elle n'a pas voulu d'épitaphe. Elle avait dû juger qu'aucune ne serait assez spirituelle."
+    },
+    {
+     "first": true,
+     "second": false,
+     "text": "Derrière toi, la porte grince. Hector entre, essoufflé, la chemise ouverte, suivi de Bérénice en robe de chambre et d'Odile, qui porte une bougie. Personne ne dormait. Toute la maison t'a regardé{e} traverser le jardin."
+    },
+    {
+     "first": true,
+     "second": true,
+     "text": "Derrière toi, la porte grince. Bérénice entre, puis Odile avec sa bougie, puis Hector, le dernier, lentement, les mains dans les poches, comme on entre dans une église où l'on a quelque chose à se faire pardonner."
+    },
+    {
+     "again": true,
+     "text": "La nef de pierre blonde, la veilleuse rouge, la dalle neuve devant l'autel. L'odeur des lys qui pourrissent."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Soulever la plaque de bronze sous le nom",
+     "hide": {
+      "has": "codicille:4"
+     },
+     "to": "C_plaque"
+    },
+    {
+     "label": "Examiner le sol autour de la dalle",
+     "hide": {
+      "seen": "C_sol"
+     },
+     "to": "C_sol"
+    },
+    {
+     "label": "Tendre le codicille à Odile, qui sent tout",
+     "if": "codicille:4",
+     "hide": {
+      "seen": "C_odile_encre"
+     },
+     "to": "C_odile_encre"
+    },
+    {
+     "label": "Lever le codicille devant la veilleuse",
+     "if": "codicille:4",
+     "hide": {
+      "seen": "C_filigrane"
+     },
+     "to": "C_filigrane"
+    },
+    {
+     "label": "Parler à Hector, devant la dalle",
+     "if": "codicille:4",
+     "hide": {
+      "seen": "C_hector_chapelle"
+     },
+     "to": "C_hector_chapelle"
+    },
+    {
+     "label": "Sentir toi-même l'encre du codicille",
+     "if": {
+      "all": [
+       "codicille:4",
+       {
+        "has": "nez:appris"
+       }
+      ]
+     },
+     "hide": {
+      "seen": "C_nez_encre"
+     },
+     "to": "C_nez_encre"
+    },
+    {
+     "label": "Quitter la chapelle et attendre l'aube à la Bastide",
+     "if": "codicille:4",
+     "fx": {
+      "until": 4
+     },
+     "to": "C_retour_aube"
+    }
+   ]
+  },
+  "C_plaque": {
+   "act": "III",
+   "title": "Le quatrième codicille",
+   "place": "chapelle",
+   "fx": {
+    "item": "faux",
+    "flag": "codicille:4",
+    "ep": [
+     "histoire",
+     300
+    ]
+   },
+   "text": [
+    "Au pied de la dalle, une petite plaque de bronze, scellée par deux vis à tête plate, porte le chiffre de la Maison Castellane : un A et un C entrelacés dans une couronne d'iris. Les vis tournent sous la lame de ton canif sans résister. Elles ont été desserrées récemment.",
+    {
+     "if": {
+      "has": "chapelle:vue"
+     },
+     "text": "Hier soir, à sept heures, ces têtes de vis étaient prises dans un vernis brun, lisse et brillant comme un ongle. Le vernis est fendu, à présent, et des éclats bruns brillent dans la poussière."
+    },
+    "Sous la plaque, dans un creux de la pierre, un papier plié.",
+    "Tu le déplies à la lumière de la veilleuse. Quatre personnes retiennent leur souffle derrière toi, et tu entends battre au moins un cœur qui n'est pas le tien.",
+    "*Quatrième et dernier codicille. La Bastide aux Iris, la Maison Castellane et le reste de mes biens iront à mon neveu Hector, qui porte mon nom et le portera après moi.* Et la signature : *Aurore Castellane.*",
+    {
+     "second": true,
+     "text": "Les mots sont les mêmes qu'hier, à la virgule près. Hector ne soupire pas, cette fois. Il regarde ailleurs, vers la veilleuse, avec l'air d'un acteur qui joue sa scène pour la deuxième fois devant une salle qui connaît la pièce."
+    },
+    {
+     "second": false,
+     "text": "Hector pousse un long soupir, le soupir d'un homme qui pose une malle très lourde au bout d'un long escalier. Puis il éclate de rire, et le rire sonne mal dans la petite nef, comme un juron. Bérénice a fermé les yeux. Odile n'a pas bougé."
+    },
+    {
+     "second": false,
+     "text": "« *Qui porte mon nom* », répète Hector. Il essuie une larme. « Brave vieille. Brave, brave vieille. Elle m'aimait, au fond. »"
+    }
+   ],
+   "choices": [
+    {
+     "back": "C_chapelle"
+    }
+   ]
+  },
+  "C_sol": {
+   "act": "III",
+   "title": "Le sol de la chapelle",
+   "place": "chapelle",
+   "fx": {
+    "clue": "i_cire"
+   },
+   "text": [
+    "Tu promènes la lanterne au ras des dalles. La poussière du marbrier a gardé des traces : des semelles, beaucoup, et une genouillère, à droite de la dalle neuve, là où quelqu'un s'est agenouillé longtemps.",
+    "Dans les rainures entre les pierres, des gouttes de cire, pas de la cire blanche de cierge : de la cire à cacheter, rose, encore souple sous l'ongle. Et une allumette de cuisine, à tête soufrée, à moitié consumée, jetée sous le banc.",
+    {
+     "if": {
+      "has": "passe:soldat"
+     },
+     "text": "À la garde, on t'a appris à lire un sol comme une page. Celui-ci dit qu'un homme seul est resté longtemps à genoux à droite de la dalle, et qu'il s'est relevé en s'appuyant sur la main gauche."
+    },
+    "Personne ne cachette de lettres dans une chapelle. Et personne ne prie avec une allumette de cuisine."
+   ],
+   "choices": [
+    {
+     "back": "C_chapelle"
+    }
+   ]
+  },
+  "C_odile_encre": {
+   "act": "III",
+   "title": "Le nez d'Odile",
+   "place": "chapelle",
+   "fx": {
+    "clue": "i_encre"
+   },
+   "text": [
+    "Tu tends le papier à Odile. Hector fait un pas, comme pour l'en empêcher, puis s'arrête, et sourit, et croise les bras.",
+    "Odile tient la feuille à deux mains, près de son visage, et ferme les yeux. Elle respire, une fois, longuement. Ses narines frémissent. Un pli se creuse entre ses sourcils.",
+    "« L'encre est fraîche, dit-elle. Elle sent encore la noix de galle et le vitriol. Une encre de trois jours, peut-être moins. » Elle rouvre les yeux. « Madame est morte il y a trois jours. »",
+    "« Et alors ? dit Hector, très doucement. Elle a pu l'écrire sur son lit de mort. Les mourants ont des fantaisies. » Il tend la main. Odile lui rend la feuille sans un mot, mais c'est à toi qu'elle la donne."
+   ],
+   "choices": [
+    {
+     "back": "C_chapelle"
+    }
+   ]
+  },
+  "C_filigrane": {
+   "act": "III",
+   "title": "Le filigrane",
+   "place": "chapelle",
+   "fx": {
+    "clue": "i_filigrane"
+   },
+   "text": [
+    "Tu lèves la feuille devant la veilleuse, comme on fait à l'étude pour vérifier un papier timbré. La lumière rouge traverse le vergé, et le filigrane apparaît dans la pâte, pâle, flottant, comme un poisson sous la glace : une grappe de raisin, le nom de la papeterie Roux, de Sauvebonne, et une date.",
+    "Celle de cette année.",
+    {
+     "if": {
+      "has": "passe:clerc"
+     },
+     "text": "Douze ans d'étude t'ont appris une chose que les faussaires oublient toujours : on imite une main, on n'imite jamais un papier."
+    },
+    "Les trois autres codicilles, tu les as tenus devant la lampe aussi, par habitude de clerc, au fil de la nuit. Leur papier est un vieux vergé de Hollande, sans date, jauni sur les bords. Madame Castellane avait acheté une rame de ce papier-là il y a trente ans, et elle en écrivait tout."
+   ],
+   "choices": [
+    {
+     "back": "C_chapelle"
+    }
+   ]
+  },
+  "C_aube": {
+   "act": "III",
+   "title": "L'aube",
+   "place": "salon",
+   "second": false,
+   "fx": {
+    "meet": [
+     "brissac"
+    ]
+   },
+   "text": [
+    "À six heures moins le quart, la voiture de l'étude remonte l'allée des cyprès dans le petit jour gris. Maître Brissac en descend, appuyé sur sa canne et sur le cocher, le pied gauche emmailloté comme un nouveau-né, et il entre au salon en grimaçant, comme un roi goutteux dans une cour qui ne l'a pas attendu.",
+    "Il s'assoit dans un fauteuil, pas celui de la morte. Il pose la jambe sur un tabouret. Il te regarde. « Eh bien ? »",
+    "Tu poses devant lui les quatre codicilles, dans l'ordre. Il les lit un par un, sans lunettes, en tenant chaque feuille à bout de bras. Les trois premiers le font sourire. Au quatrième, son visage ne bouge pas. Il le lit deux fois. Puis il lève les yeux vers Odile, debout près de la fenêtre, et il la regarde un moment de trop, avec une expression que tu ne lui as jamais vue, et que tu ne sais pas nommer.",
+    "« Le testament fait de vous le juge, dit-il enfin. Jugez. »",
+    {
+     "if": {
+      "has": "hector:trinque"
+     },
+     "text": "Hector, derrière le notaire, te fait un clin d'œil, et tapote la poche de son gilet."
+    },
+    {
+     "if": {
+      "has": "hector:refus"
+     },
+     "text": "Hector, derrière le notaire, regarde le plafond avec une application de premier communiant."
+    },
+    {
+     "if": "enigme:p_journal",
+     "text": "Tu as dans ta poche une ligne de nombres qui dit autre chose que le codicille. Elle ne parle pas d'héritage. Le testament ne parle pas d'elle."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Regarder Maître Brissac parler bas à Odile",
+     "hide": {
+      "seen": "C_brissac_odile"
+     },
+     "to": "C_brissac_odile"
+    },
+    {
+     "label": "Déclarer le quatrième codicille valable",
+     "fx": {
+      "flag": "hector:tout"
+     },
+     "to": "C_valable"
+    },
+    {
+     "label": "Le déclarer faux, et dire pourquoi",
+     "if": {
+      "any": [
+       {
+        "clue": "i_encre"
+       },
+       {
+        "clue": "i_filigrane"
+       },
+       {
+        "clue": "i_cire"
+       },
+       {
+        "has": "hector:papier"
+       }
+      ]
+     },
+     "fx": {
+      "flag": "partage:tiers"
+     },
+     "to": "C_contester"
+    }
+   ]
+  },
+  "C_valable": {
+   "act": "III",
+   "title": "Valable",
+   "place": "salon",
+   "second": false,
+   "text": [
+    "Tu dis que le codicille est valable. Le mot sort de ta bouche avec un goût de papier mâché.",
+    "Hector se lève et te serre la main à deux mains, comme un candidat élu. Bérénice se signe. Odile se détourne vers la fenêtre, où le ciel blanchit au-dessus des collines.",
+    "Maître Brissac ne dit rien. Il tire de sa poche son encrier de voyage, débouche, trempe sa plume, et prépare l'acte de partage d'une main parfaitement immobile."
+   ],
+   "choices": [
+    {
+     "label": "Signer comme témoin",
+     "to": "F_partage"
+    }
+   ]
+  },
+  "C_contester": {
+   "act": "III",
+   "title": "Faux",
+   "place": "salon",
+   "second": false,
+   "text": [
+    "Tu dis que le codicille est faux. Tu dis pourquoi, dans l'ordre, comme on rédige un acte.",
+    {
+     "if": {
+      "clue": "i_filigrane"
+     },
+     "text": "Le papier de cette année, quand les trois autres sont du vieux vergé de Hollande d'une rame achetée il y a trente ans."
+    },
+    {
+     "if": {
+      "clue": "i_encre"
+     },
+     "text": "L'encre fraîche, que Mademoiselle Marchal a sentie dans la chapelle, une encre de trois jours au plus."
+    },
+    {
+     "if": {
+      "has": "hector:papier"
+     },
+     "text": "La rame de papier Roux sur la table d'Hector, l'encrier débouché, et les signatures de sa tante repassées au crayon."
+    },
+    {
+     "if": {
+      "clue": "i_cire"
+     },
+     "text": "La cire rose et l'allumette de cuisine au pied de la dalle, et les vis de la plaque desserrées avant ton arrivée."
+    },
+    "Hector rit. « Un nez et une allumette. Le Collège des notaires sera ravi. » Il se tourne vers Brissac. « Maître, je vous en prie. »",
+    "Brissac tapote longtemps le pommeau de sa canne. « Un soupçon n'est pas une preuve, dit-il, et une preuve n'est pas un faussaire. Mais le juge a parlé. Le quatrième codicille est écarté. » Il soupire. « Sans dernier codicille, la loi reprend ses droits : le bien se partage entre les héritiers du sang, à parts égales. Monsieur Hector et Mademoiselle Bérénice. »",
+    "Odile, à la fenêtre, ne s'est pas retournée. Elle n'est pas du sang. Elle est de la maison."
+   ],
+   "choices": [
+    {
+     "label": "Signer comme témoin",
+     "to": "F_partage"
+    }
+   ]
+  },
+  "F_partage": {
+   "act": "III",
+   "title": "Le partage",
+   "place": "salon",
+   "end": true,
+   "second": false,
+   "fx": {
+    "flag": "fin:partage"
+   },
+   "text": [
+    "L'acte est signé à six heures moins quatre minutes, sur le guéridon du salon, sous le portrait de la jeune femme au bouquet. Hector signe avec un paraphe de mousquetaire. Bérénice signe petit, serré, comme on signe une renonciation. Tu signes comme témoin. Ta plume crache un peu.",
+    {
+     "if": {
+      "has": "hector:tout"
+     },
+     "text": "La Bastide aux Iris, la Maison Castellane, les champs, les alambics, le secret de l'Aurore : tout passe à Hector, sauf la maison du bas, des casseroles de cuivre et une bibliothèque. Il fait déjà le tour du salon en estimant les vases."
+    },
+    {
+     "if": {
+      "has": "partage:tiers"
+     },
+     "text": "La Bastide, la Maison et le reste sont coupés en deux comme une miche : une moitié à Hector, qui fait déjà ses comptes, une moitié à Bérénice, qui fait déjà ses prières. Le juge a eu raison, et la justice n'y gagne presque rien."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "hector:trinque"
+       },
+       {
+        "has": "hector:tout"
+       }
+      ]
+     },
+     "text": "Plus tard, en remontant en voiture, tu trouveras dans la poche de ta redingote une liasse de billets nouée d'un ruban rose, et tu ne sauras jamais à quel moment il l'y a glissée."
+    },
+    "Odile est montée faire sa malle. Quand elle redescend, elle a mis un chapeau gris et des gants gris, et elle tient à la main un tout petit flacon vide, en forme de goutte. Elle le montre à Brissac, comme on montre un billet de passage. Il fait oui de la tête, sans un mot. Elle s'en va à pied par l'allée des cyprès, vers la route de Grasse, et elle ne se retourne pas.",
+    {
+     "if": {
+      "item": "lettre_odile"
+     },
+     "text": "Tu la rattrapes à la grille, et tu lui donnes l'enveloppe du coffret, *Pour Odile. Après.* Elle la regarde, regarde la maison, et la met dans sa poche sans l'ouvrir. « Après », dit-elle. Et elle s'en va."
+    },
+    {
+     "if": "enigme:p_journal",
+     "text": "Tu as le carnet vert dans ta poche. Tu ne le lui donnes pas. Tu n'en as pas le droit : il appartient à la succession, et la succession vient d'être partagée."
+    },
+    {
+     "if": {
+      "has": "jaume:confiance"
+     },
+     "text": "Jaume, à la grille, te glisse dans la main une graine d'iris, une seule, noire et ridée. « Pour la prochaine fois, dit-il. Elle disait qu'il y a toujours une prochaine fois. »"
+    },
+    "Jaume la regarde partir depuis la grille, son chapeau à la main.",
+    "Maître Brissac range les papiers dans la chemise lilas, lentement, avec un soin de sacristain. Puis il s'arrête, la main sur le ruban. Il regarde la fenêtre. Au-dessus des collines, le ciel est rose, mais le soleil n'est pas encore là.",
+    "« Six heures moins deux, dit-il. Le soleil se lève à six heures et une minute, ce matin. J'ai regardé l'almanach avant de partir. » Il se tourne vers toi, et il y a dans ses petits yeux gris une lueur que tu ne lui connaissais pas, une lueur de complice. « *Si le partage se fait avant l'aube.* Le partage s'est fait avant l'aube, mon ami. Elle l'avait prévu. Elle prévoyait tout. »",
+    "Hector se retourne d'un bloc. Le soleil sort des collines. Il touche les champs d'iris, qui s'allument tous ensemble, violets, gris, blancs, des milliers de lames dressées dans la lumière.",
+    "« Demain soir, dit Brissac, à six heures, on relira. Mot pour mot. Et tout recommence. » Il noue le ruban. « Lisez mieux. »"
+   ]
+  },
+  "S_voiture": {
+   "act": "I",
+   "title": "La route des iris, encore",
+   "place": "route",
+   "second": true,
+   "fx": {
+    "meet": [
+     "brissac"
+    ]
+   },
+   "text": [
+    "Le lendemain soir, la même voiture, la même odeur de cuir mouillé, la même route blanche entre les murets. Mais cette fois, Maître Brissac est assis en face de toi, la jambe allongée sur la banquette, le pied gauche emmailloté, et il grimace à chaque ornière avec une application de martyr.",
+    "« La goutte, dit-il, n'a jamais empêché un notaire d'assister à une seconde lecture. Il n'y en a pas eu à Sauvebonne depuis cent ans. Je ne la manquerais pas pour mon pied droit. »",
+    "Les iris défilent derrière la vitre, violets et gris, et tu les reconnais un par un, comme on reconnaît les visages d'une foule qu'on a déjà traversée. Tu as la chemise lilas sur les genoux. Tu sais ce qu'il y a dedans. Tu sais ce qu'il y a sous la dalle de la chapelle. Tu sais qu'une demoiselle en gris est partie ce matin à pied par l'allée des cyprès, et que personne ne l'a retenue.",
+    "« Mademoiselle Marchal sera là, dit Brissac, comme s'il t'avait entendu{e} penser. Je l'ai fait rattraper sur la route de Grasse. *Mot pour mot*, dit le testament. Elle était là hier. Elle sera là ce soir. » Il ferme les yeux. « Et le codicille de Monsieur Hector est retourné sous sa plaque, avec les trois autres à leur place. Jaume s'en est chargé à midi. J'aime les choses faites dans l'ordre. »"
+   ],
+   "choices": [
+    {
+     "label": "Demander à Maître Brissac pourquoi il vous a dit « Lisez mieux »",
+     "hide": {
+      "seen": "S_voiture_brissac"
+     },
+     "to": "S_voiture_brissac"
+    },
+    {
+     "label": "Descendre devant la grille",
+     "fx": {
+      "until": 18
+     },
+     "to": "A_grille"
+    }
+   ]
+  },
+  "S_voiture_brissac": {
+   "act": "I",
+   "title": "Lisez mieux",
+   "place": "route",
+   "second": true,
+   "text": [
+    "Brissac rouvre un œil. « Parce que vous avez lu comme un clerc, dit-il. Un mot, une chose. *Graine*, l'orangerie. *Clef*, la statue. C'est très bien, un clerc. On ne lui demande pas de penser, on lui demande de copier sans faute. » Il rouvre l'autre œil. « Elle, elle n'écrivait jamais un mot qui ne servait qu'une fois. Elle disait que les mots sont comme les essences : un bon parfumeur en tire trois notes, une de tête, une de cœur, une de fond. »",
+    "Il regarde par la vitre. « J'ai rédigé ce testament sous sa dictée. J'ai fait le notaire. J'ai lu, j'ai cacheté, j'ai juré de me taire, et je me tais. » Il se tait, en effet, un long moment. « Lisez la note de cœur, cette fois. »"
+   ],
+   "choices": [
+    {
+     "label": "Descendre devant la grille",
+     "fx": {
+      "until": 18
+     },
+     "to": "A_grille"
+    }
+   ]
+  },
+  "S_lecture2": {
+   "act": "I",
+   "title": "La seconde lecture",
+   "place": "salon",
+   "second": true,
+   "fx": {
+    "flag": "lu",
+    "meet": [
+     "hector",
+     "berenice",
+     "odile",
+     "fine"
+    ],
+    "ep": [
+     "histoire",
+     300
+    ]
+   },
+   "text": [
+    "Tu te places devant la cheminée, sous le portrait, comme hier. Maître Brissac s'est installé dans un fauteuil du coin, sa canne entre les genoux, et il ferme les yeux comme on les ferme au concert.",
+    "Hector est assis cette fois, jambes croisées, sa pièce immobile dans sa main. Il ne sourit pas. Il a le teint d'un homme qui a passé la journée à faire des comptes et qui a trouvé partout le même total. Bérénice ne prie plus : elle le regarde. Odile est revenue. Elle a gardé son chapeau gris et ses gants gris, et sa malle attend dans le vestibule, comme un chien couché devant une porte.",
+    "Tu lis. *Moi, Aurore Castellane, veuve Ferrier.* Les mots sont les mêmes, et ils n'ont plus le même poids. *Je laisse mon bien à qui saura le trouver.* Tu entends sous les mots une autre voix, plus basse, qui dit autre chose.",
+    "*Si le partage se fait avant l'aube, qu'on relise ce testament le lendemain soir, à la même heure, mot pour mot, et que tout recommence.*",
+    "« Tout recommence, dit Hector d'une voix plate. Sauf qu'on connaît les réponses. Alors finissons-en. Graine, clef, parfum, nom. Allons à la chapelle et allons nous coucher. »",
+    "« Le juge cherchera à son rythme », dit Brissac sans ouvrir les yeux."
+   ],
+   "choices": [
+    {
+     "label": "Relire le premier quatrain",
+     "to": "A_q1"
+    }
+   ]
+  },
+  "S_brissac_salon": {
+   "act": "I",
+   "title": "Le notaire au coin du feu",
+   "place": "salon",
+   "second": true,
+   "text": [
+    "Tu t'approches du fauteuil de Maître Brissac. Il a les yeux ouverts, à présent, fixés sur le portrait au-dessus de la cheminée.",
+    "« Le peintre était un mauvais peintre, dit-il. Mais il savait les fleurs. » Il tourne la tête vers toi. « Vous avez vu le bouquet ? Jasmin, iris, rose. Elle disait : le jasmin pour la nuit où on se rencontre, l'iris pour les trois ans qu'il faut attendre, la rose pour le reste. » Il sourit, de travers. « Elle disait beaucoup de choses. Elle disait aussi qu'un notaire n'a pas de cœur, seulement des minutes. »"
+   ],
+   "choices": [
+    {
+     "back": "A_salon"
+    }
+   ]
+  },
+  "S_q1_fille": {
+   "act": "I",
+   "title": "La fille",
+   "place": "salon",
+   "second": true,
+   "fx": {
+    "meet": [
+     "jaume"
+    ]
+   },
+   "text": [
+    "« Une fille », dis-tu.",
+    "*Je viens de toi, et je ne suis pas toi ; tu m'as donné ton nom, que je ne porte pas.*",
+    "Le mot tombe dans le salon comme une pierre dans un puits, et on attend longtemps le bruit de l'eau. Hector fronce les sourcils, sans comprendre. Bérénice porte la main à son scapulaire. Odile a pâli.",
+    "À la porte de l'office, Jaume a lâché son chapeau. Il ne le ramasse pas. Maître Brissac, dans son coin, a fermé les yeux de nouveau, et ses mains se sont crispées sur le pommeau de sa canne."
+   ],
+   "choices": [
+    {
+     "label": "Suivre Jaume, qui sort sans un mot vers le jardin",
+     "to": "S_jaume_aveu"
+    }
+   ]
+  },
+  "S_jaume_aveu": {
+   "act": "I",
+   "title": "Ce que dit le jardinier",
+   "place": "jardin",
+   "second": true,
+   "fx": {
+    "flag": [
+     "odile:fille",
+     "codicille:1"
+    ],
+    "item": "codicille1",
+    "ep": [
+     "perso",
+     300
+    ]
+   },
+   "text": [
+    "Tu rattrapes Jaume au rond-point, devant la Flore. Il s'est arrêté là, dans le noir, les bras ballants, et il parle avant que tu aies rien demandé, comme on vide un seau trop longtemps porté.",
+    "« Elle est revenue de Gênes au printemps, avec un panier. Dans le panier, il y avait une petite, endormie, dans un châle qui sentait l'iris. Elle me l'a mise dans les bras. Elle a dit : *Jaume, c'est une greffe. Je te demande de lui donner tes racines.* Ma Rose pleurait. Elle avait jamais pu en avoir. On a dit au curé que c'était un miracle. »",
+    "Il s'essuie le nez du revers de la main. « Trente et un ans, j'ai tenu ma langue. Elle passait devant ma maison tous les jours. Elle regardait la petite jouer dans le champ du ruisseau. Elle lui a appris à sentir, à lire, à se tenir. Elle l'a prise chez elle, à vingt ans, comme demoiselle de compagnie, pour l'avoir près d'elle sans rien dire. » Il lève vers toi des yeux mouillés. « Elle avait peur. Pas des gens. D'elle. Elle disait qu'elle avait le cœur trop sec pour faire une mère. Elle s'est trompée. Elle se trompait jamais, sauf là. »",
+    "Il fouille dans la poche de son tablier et te tend un papier plié en quatre, cacheté de cire lilas. « Le tiroir aux graines. Je l'ai remis à midi, et je l'ai repris tout à l'heure. Je voulais pas que le neveu y mette encore les pattes. »"
+   ],
+   "choices": [
+    {
+     "back": "A_jardin"
+    }
+   ]
+  },
+  "S_chambre_hector": {
+   "act": "II",
+   "title": "La chambre d'Hector",
+   "place": "salon",
+   "second": true,
+   "text": [
+    "Hector est au salon, à faire des réussites sur le guéridon en surveillant la porte. Tu montes à sa chambre par l'escalier de service, une bougie à la main.",
+    "C'est la chambre d'un homme qui voyage léger et vit lourd : un sac de cuir, trois gilets, une douzaine de cravates, un jeu de cartes, une liasse de reconnaissances de dettes nouées d'un ruban de soie rose comme des lettres d'amour. Dans la cheminée froide, des cendres de papier, beaucoup."
+   ],
+   "choices": [
+    {
+     "label": "Fouiller les cendres de la cheminée",
+     "test": {
+      "dom": "discretion",
+      "diff": 0,
+      "label": "Discrétion"
+     },
+     "win": {
+      "to": "S_brouillons"
+     },
+     "lose": {
+      "to": "S_hector_surprend"
+     }
+    }
+   ]
+  },
+  "S_brouillons": {
+   "act": "II",
+   "title": "Les brouillons",
+   "place": "salon",
+   "second": true,
+   "fx": {
+    "item": "brouillons",
+    "flag": "preuve:brouillons"
+   },
+   "text": [
+    "Tu remues les cendres du bout du tisonnier. La plupart sont réduites en poussière noire. Mais au fond, sous la grille, là où le feu a mal tiré, quelques feuilles froissées en boule ont seulement roussi.",
+    "Tu les déplies sur ton genou. Des essais d'écriture, page après page. *Aurore Castellane. Aurore Castellane. Aurore Castellane.* Les premiers sont maladroits, trop penchés, trop appuyés ; les derniers ressemblent à s'y méprendre à la grande écriture nette du testament. Sur une feuille, une phrase entière, recopiée trois fois : *à mon neveu Hector, qui porte mon nom.*",
+    "Au coin d'une page, le filigrane se devine encore dans le papier roussi : une grappe de raisin.",
+    "Tu replies les brouillons dans ta veste et tu redescends sans bruit. Au salon, Hector retourne un valet de pique, et jure."
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "S_hector_surprend": {
+   "act": "II",
+   "title": "Le neveu à la porte",
+   "place": "salon",
+   "second": true,
+   "fx": {
+    "flag": "hector:mefiant"
+   },
+   "text": [
+    "Tu as à peine touché les cendres qu'une voix aimable dit derrière toi : « On cherche quelque chose ? »",
+    "Hector est appuyé au chambranle, les bras croisés, sa pièce dansant entre ses doigts. Il entre, prend le tisonnier de tes mains avec douceur, et remue lui-même les cendres jusqu'à ce qu'il n'en reste que de la poussière.",
+    "« Des lettres de créanciers, dit-il. On les brûle, ça soulage. Essayez, un jour. » Il te raccompagne à la porte, une main amicale sur ton épaule, et sa main pèse. « Cinq cents livres, murmure-t-il à ton oreille, si le juge lit ce soir comme il a lu hier. Pensez-y. Les clercs vivent longtemps et gagnent peu. »"
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "S_berenice_r2": {
+   "act": "II",
+   "title": "Bérénice et ses lettres",
+   "place": "salon",
+   "second": true,
+   "fx": {
+    "flag": "berenice:temoin",
+    "meet": [
+     "berenice"
+    ]
+   },
+   "text": [
+    "Tu trouves Bérénice dans la bibliothèque, devant Rabelais, et tu lui dis à voix basse que ses lettres sont dans le tiroir de la console du bureau, rangées par date, et que tu ne les liras pas.",
+    "Elle devient très rouge, puis très blanche. « Comment savez-vous… » Elle s'arrête. Elle te regarde comme on regarde un prédicateur qui vient de citer votre confession. Puis elle s'assoit, lentement, sur l'escabeau des rayonnages.",
+    "« Hier, à deux heures moins le quart, dit-elle, j'allais au bureau chercher ces lettres. Par la fenêtre de l'escalier, j'ai vu une lanterne aller à la chapelle, et revenir un quart d'heure après. Celui qui la portait avait un gilet clair. » Elle serre son chapelet. « Je n'ai rien dit. J'avais mes propres raisons de me promener la nuit. » Elle lève le menton. « Ce soir, je n'en ai plus. Si vous avez besoin que je le dise devant Maître Brissac, je le dirai. Sur les Évangiles, s'il le faut, et même sur Montaigne. »"
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "S_odile_dire": {
+   "act": "II",
+   "title": "Ce que tu dis à Odile",
+   "place": "salon",
+   "second": true,
+   "fx": {
+    "flag": "odile:sait"
+   },
+   "text": [
+    "Odile est à sa fenêtre, comme hier, la couverture sur les épaules. Tu t'assois près d'elle sur le rebord, et tu lui dis.",
+    {
+     "if": {
+      "has": "odile:fille"
+     },
+     "text": "Tu lui dis ce que Jaume t'a dit au pied de la Flore : Gênes, le panier, le châle qui sentait l'iris, la greffe."
+    },
+    {
+     "if": "enigme:p_journal",
+     "text": "Tu lui montres la dernière page du carnet vert, et les nombres, et les flacons de l'orgue, et ce qu'ils écrivent quand on les lit dans l'ordre de l'alphabet."
+    },
+    {
+     "if": {
+      "has": "odile:prenom"
+     },
+     "text": "Tu lui montres l'acte de baptême que tu as recopié dans le registre de la chapelle : *Odile Aurore.* Le second prénom qu'on lui a donné et qu'on ne lui a jamais dit."
+    },
+    "Elle t'écoute sans t'interrompre, les yeux fermés, comme elle écoute un parfum. Quand tu as fini, elle reste longtemps immobile. Dehors, les iris murmurent.",
+    "« Elle me faisait sentir ses essais, dit-elle enfin. Tous les soirs. Elle me demandait : *Qu'est-ce que tu sens ?* Et je lui disais. Et elle disait : *Moi aussi.* » Elle rouvre les yeux. Ils sont secs. « Je croyais qu'elle parlait du parfum. »",
+    "Elle se lève, retire son chapeau gris, ses gants gris, et les pose sur le rebord. « Je ne pars pas demain. »"
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "S_q3_souvenir": {
+   "act": "II",
+   "title": "Le souvenir",
+   "place": "bureau",
+   "second": true,
+   "fx": {
+    "meet": [
+     "odile"
+    ]
+   },
+   "text": [
+    "« Un souvenir », dis-tu.",
+    "*Je m'en vais quand on m'ouvre, et je reste quand on part. Celle qui m'a fait sera morte, et moi, je serai là.*",
+    "Odile ouvre les yeux. « Le grenier, dit-elle. Elle montait au grenier, les soirs de mai, toute seule, avec une bougie. Elle redescendait les yeux rouges, et elle disait que c'était la poussière. » Elle prend une bougie sur la console. « Elle m'a toujours défendu d'y monter. Je crois que ce soir, elle ne dirait rien. »"
+   ],
+   "choices": [
+    {
+     "label": "Monter au grenier avec Odile",
+     "to": "S_grenier"
+    }
+   ]
+  },
+  "S_grenier": {
+   "act": "II",
+   "title": "Le grenier",
+   "place": "grenier",
+   "second": true,
+   "text": [
+    "Le grenier court sur toute la longueur de la Bastide, sous les tuiles, bas, poussiéreux, encombré de cinquante ans de vie qu'on n'a pas eu le cœur de jeter : des chaises éventrées, un berceau d'osier, des cartons à chapeau, des alambics hors d'usage, une poupée sans tête qui te regarde quand même. La bougie fait danser des ombres immenses sur les chevrons, et le vent, dehors, souffle entre les tuiles avec un bruit de flûte fêlée.",
+    "Au fond, sous la lucarne, une malle de cuir clouté, fermée d'un simple loquet. Sur le couvercle, une couche de poussière, et dans la poussière, la trace nette de deux mains, toutes récentes : quelqu'un l'a ouverte peu de temps avant de mourir.",
+    "Dedans, enveloppé dans du papier de soie, un châle de cachemire qui sent l'iris si fort que la tête te tourne. Une petite robe de baptême brodée. Une mèche de cheveux châtains, nouée d'un fil lilas. Et un paquet de quatre lettres jaunies, nouées d'un ruban.",
+    "Odile s'est agenouillée devant la malle. Elle a pris le châle, et elle l'a porté à son visage, et elle ne bouge plus."
+   ],
+   "choices": [
+    {
+     "label": "Dénouer le ruban et lire les lettres",
+     "hide": {
+      "has": "enigme:p_lettres"
+     },
+     "to": "S_lettres"
+    },
+    {
+     "label": "Redescendre au bureau prendre le flacon Aurore",
+     "hide": {
+      "has": "codicille:3"
+     },
+     "to": "B_orgue"
+    }
+   ]
+  },
+  "S_lettres": {
+   "act": "II",
+   "title": "Les lettres signées A.",
+   "place": "grenier",
+   "second": true,
+   "puzzle": "p_lettres",
+   "fx": {
+    "item": "lettres"
+   },
+   "text": [
+    "Tu dénoues le ruban. Les lettres sont pliées si souvent qu'elles se déchirent aux plis, et il faut les ouvrir comme on ouvre une fleur séchée, du bout des doigts. Aucune n'est datée. Toutes sont signées de la même initiale."
+   ],
+   "choices": [
+    {
+     "back": "S_grenier"
+    }
+   ]
+  },
+  "S_lettres_lues": {
+   "act": "II",
+   "title": "A.",
+   "place": "grenier",
+   "second": true,
+   "text": [
+    "Dans l'ordre, les lettres racontent une histoire très simple, et très vieille. Un jeune homme qui ne savait plus compter jusqu'à trois. Une jeune femme qui attendait un enfant et ne voulait pas d'un mari. Un acte rédigé en secret, un prénom porté en second, comme un secret dans une poche. Un homme qui passe tous les dimanches devant la maison du bas et ne s'arrête jamais.",
+    "*Je rédigerai l'acte moi-même.* Tu as copié des centaines d'actes. Tu connais cette écriture-là, ronde, appliquée, un peu raide, avec ses *d* qui s'enroulent comme des crosses d'évêque : c'est celle de l'étude, celle des registres d'il y a trente ans, celle de ton patron quand il avait vingt-cinq ans et la goutte nulle part.",
+    "*A.* Anatole.",
+    "Odile a lu par-dessus ton épaule. Elle ne dit rien. Elle replie les lettres une à une, dans l'ordre, et renoue le ruban d'un nœud parfait."
+   ],
+   "choices": [
+    {
+     "back": "S_grenier"
+    }
+   ]
+  },
+  "S_deuxh": {
+   "act": "II",
+   "title": "Deux heures, encore",
+   "place": "salon",
+   "second": true,
+   "text": [
+    "Tu t'assois sur la banquette du vestibule, dans le noir, et tu attends. L'horloge compte. Cette fois, tu sais ce que tu attends.",
+    "À deux heures moins le quart, un pas dans l'escalier. Mais la silhouette ne va pas vers la porte du jardin. Elle traverse le vestibule, ouvre la porte de l'office, et descend vers la cuisine. Elle tient quelque chose de blanc à la main, plié, serré contre le gilet de soie.",
+    {
+     "if": {
+      "has": "hector:mefiant"
+     },
+     "text": "Au bas des marches, il s'arrête, tourne la tête vers la banquette où tu es assis{e}, et reste immobile le temps de trois battements de l'horloge. Puis il repart. Il sait que tu es là. Il y va quand même : il n'a plus le choix."
+    },
+    "La chapelle n'a plus rien à lui donner. Ce soir, il a autre chose à faire disparaître."
+   ],
+   "choices": [
+    {
+     "label": "Le suivre à la cuisine",
+     "to": "S_four"
+    },
+    {
+     "label": "Le laisser faire",
+     "to": "B_nuit"
+    }
+   ]
+  },
+  "S_four": {
+   "act": "II",
+   "title": "Le four à pain",
+   "place": "salon",
+   "second": true,
+   "text": [
+    "La cuisine est noire, à part la braise du potager qui rougeoie sous la cendre. Fine est montée se coucher. Hector s'est accroupi devant la gueule du four à pain, encore tiède de la fournée du soir, et il a ouvert la porte de fonte. Dans la lumière rouge, tu vois son visage : un visage d'enfant qui va faire une bêtise et qui le sait.",
+    "Il déplie le papier blanc, le regarde une dernière fois, et l'approche de la braise."
+   ],
+   "choices": [
+    {
+     "label": "Bondir sur lui",
+     "test": {
+      "dom": "combat",
+      "diff": 0,
+      "label": "Combat"
+     },
+     "win": {
+      "to": "S_four_ok"
+     },
+     "lose": {
+      "to": "S_four_ko"
+     }
+    }
+   ]
+  },
+  "S_four_ok": {
+   "act": "II",
+   "title": "Le vrai codicille",
+   "place": "salon",
+   "second": true,
+   "fx": {
+    "item": "vrai_codicille",
+    "flag": [
+     "hector:confondu",
+     "vrai:codicille"
+    ],
+    "ep": [
+     "histoire",
+     500
+    ]
+   },
+   "text": [
+    "Tu lui saisis le poignet avant que le papier ne touche la braise. Il se débat, sans conviction, comme un homme qui n'a jamais su se battre et qui ne compte pas commencer. Le papier tombe sur le carrelage. Tu le ramasses. Un coin est roussi. Le reste est intact.",
+    "Le vieux vergé de Hollande, jauni sur les bords. La grande écriture nette, sans une rature. *Quatrième et dernier codicille. La Bastide aux Iris, la Maison Castellane et le reste de mes biens iront à celle qui porte mon prénom en second, ma fille, Odile. Que Jaume lui dise ce que je n'ai pas su dire. Aurore Castellane.*",
+    "Hector s'assoit par terre, contre le four, les jambes étendues, et se met à rire doucement, sans joie. « Je l'ai trouvé hier, sous la plaque, en y glissant l'autre. Je n'ai pas eu le cœur de le brûler. Je l'ai gardé dans ma poche toute la journée, contre ma poitrine. Je le relisais. *Ma fille.* » Il secoue la tête. « Ma tante avait une fille, et je l'ai appris en volant. C'est bien ma chance. »"
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "S_four_ko": {
+   "act": "II",
+   "title": "La braise",
+   "place": "salon",
+   "second": true,
+   "fx": {
+    "item": "codicille_brule",
+    "flag": [
+     "hector:confondu",
+     "codicille:brule"
+    ]
+   },
+   "text": [
+    "Tu bondis. Ton pied glisse sur le carrelage gras. Le temps de te rattraper à la table, le papier a touché la braise, et une flamme jaune court le long du bord, gourmande.",
+    "Tu l'arraches du four à pleine main. Tu le bats contre ta cuisse. Il te reste dans les doigts un lambeau noirci, grand comme une carte à jouer, où l'on lit encore, dans le vieux vergé jauni, de la grande écriture nette : *…celle qui porte mon prénom en second, ma fille, Od…*",
+    "Hector te regarde souffler sur tes doigts brûlés. Il ne rit pas. « Ça ne prouve rien, dit-il. Un bout de papier. » Mais il ne le dit pas comme un homme qui y croit."
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "S_q4_prenom": {
+   "act": "III",
+   "title": "Le prénom",
+   "place": "chapelle",
+   "second": true,
+   "text": [
+    "« Un prénom », dis-tu.",
+    "*On me donne, et jamais on ne me vend.* Un nom de famille, on en hérite. Un prénom, on le reçoit, au baptême, devant un prêtre, un parrain et une marraine, et on l'inscrit dans un registre.",
+    "Le registre de la chapelle de la Bastide est rangé sous l'autel, dans un coffre de bois noir que Jaume ouvre tous les ans pour la fête de la Sainte-Aurore."
+   ],
+   "choices": [
+    {
+     "label": "Aller à la chapelle et ouvrir le registre",
+     "fx": {
+      "until": 3
+     },
+     "to": "S_registre"
+    }
+   ]
+  },
+  "S_registre": {
+   "act": "III",
+   "title": "Le registre des baptêmes",
+   "place": "chapelle",
+   "second": true,
+   "fx": {
+    "item": "acte_bapteme",
+    "flag": "odile:prenom",
+    "ep": [
+     "histoire",
+     300
+    ]
+   },
+   "text": [
+    "Sous l'autel, le coffre de bois noir s'ouvre sans clef. Le registre est un gros cahier relié de parchemin, gondolé, où les curés successifs ont inscrit, d'écritures de plus en plus pressées, les baptêmes, les mariages et les morts de la Bastide et des fermes alentour.",
+    "Tu remontes les années à la lueur de la veilleuse. Des Marchal, des Roux, des Castellane. Trente et un ans en arrière, un douze mai :",
+    "*A été baptisée en cette chapelle Odile Aurore, née de père et de mère inconnus. Parrain : Jaume Marchal, jardinier. Marraine : Aurore Castellane, veuve Ferrier.*",
+    "Et en marge, d'une autre encre, d'une écriture ronde et appliquée, avec des *d* qui s'enroulent comme des crosses d'évêque : *acte dressé par A. Brissac, clerc.*",
+    "Tu recopies l'acte mot pour mot sur une page de ton carnet, et tu signes la copie, comme on t'a appris. Tu remets le registre à sa place. La veilleuse rouge tremble devant l'autel, et sur la dalle neuve, le nom de la morte a l'air de sourire."
+   ],
+   "choices": [
+    {
+     "back": "C_chapelle"
+    }
+   ]
+  },
+  "S_aube": {
+   "act": "III",
+   "title": "L'aube, encore",
+   "place": "salon",
+   "second": true,
+   "hub": true,
+   "backName": "le salon",
+   "text": [
+    {
+     "first": true,
+     "text": "À six heures moins le quart, le jour gris monte derrière les collines. Maître Brissac n'a pas dormi. Il est assis dans son fauteuil du coin, la jambe sur le tabouret, la chemise lilas sur les genoux, et il a l'air de n'avoir jamais rien attendu d'autre de sa vie que ce matin-là."
+    },
+    {
+     "first": true,
+     "text": "Ils sont tous là. Hector près de la cheminée, le visage gris. Bérénice sur sa chaise droite. Odile près de la fenêtre, tête nue, sans gants. Jaume et Fine à la porte de l'office. Et au-dessus de la cheminée, la jeune femme au bouquet, avec son ironie au coin des lèvres."
+    },
+    {
+     "again": true,
+     "text": "Le salon dans le petit jour, tous les visages tournés vers toi."
+    },
+    "« Le testament fait de vous le juge, dit Brissac. Montrez ce que vous avez trouvé. Puis jugez. »"
+   ],
+   "choices": [
+    {
+     "label": "Poser sur le guéridon le vrai quatrième codicille",
+     "if": {
+      "has": "vrai:codicille"
+     },
+     "hide": {
+      "seen": "S_aube_vrai"
+     },
+     "to": "S_aube_vrai"
+    },
+    {
+     "label": "Démontrer que le codicille de la chapelle est un faux",
+     "if": {
+      "any": [
+       {
+        "has": "hector:confondu"
+       },
+       {
+        "has": "hector:aveu"
+       },
+       {
+        "has": "preuve:brouillons"
+       },
+       {
+        "has": "berenice:temoin"
+       },
+       {
+        "clue": "i_encre"
+       },
+       {
+        "clue": "i_filigrane"
+       }
+      ]
+     },
+     "hide": {
+      "seen": "S_aube_faux"
+     },
+     "to": "S_aube_faux"
+    },
+    {
+     "label": "Dire qui est Odile Marchal",
+     "if": {
+      "any": [
+       {
+        "has": "odile:fille"
+       },
+       {
+        "has": "odile:prenom"
+       },
+       "enigme:p_journal",
+       {
+        "has": "odile:lettre"
+       },
+       {
+        "has": "fine:temoin"
+       },
+       {
+        "has": "acte:reconnaissance"
+       }
+      ]
+     },
+     "hide": {
+      "seen": "S_aube_fille"
+     },
+     "to": "S_aube_fille"
+    },
+    {
+     "label": "Demander à Maître Brissac qui signait A.",
+     "if": {
+      "any": [
+       "enigme:p_lettres",
+       {
+        "has": "acte:reconnaissance"
+       }
+      ]
+     },
+     "hide": {
+      "seen": "S_aube_brissac"
+     },
+     "to": "S_aube_brissac"
+    },
+    {
+     "label": "Prononcer ton jugement",
+     "fx": {
+      "until": 6
+     },
+     "to": "F_relecture"
+    }
+   ]
+  },
+  "S_aube_vrai": {
+   "act": "III",
+   "title": "Le vrai codicille",
+   "place": "salon",
+   "second": true,
+   "fx": {
+    "flag": "verdict:vrai"
+   },
+   "text": [
+    "Tu poses sur le guéridon la feuille au coin roussi. Brissac la prend, la lève vers la fenêtre, où le jour blanchit. Le vieux vergé de Hollande, sans date. L'écriture nette. Il lit à voix haute, lentement, et sa voix grave tremble au dernier mot. *Ma fille, Odile.*",
+    "Personne ne parle. Hector regarde le tapis. Bérénice a porté la main à sa bouche. Jaume, à la porte, s'est mis à pleurer sans bruit, comme pleurent les vieux arbres quand on les taille."
+   ],
+   "choices": [
+    {
+     "back": "S_aube"
+    }
+   ]
+  },
+  "S_aube_faux": {
+   "act": "III",
+   "title": "Le faux",
+   "place": "salon",
+   "second": true,
+   "fx": {
+    "flag": "faux:ecarte"
+   },
+   "text": [
+    "Tu poses à côté le codicille de la chapelle, et tu dis pourquoi c'est un faux, dans l'ordre, comme on rédige un acte.",
+    {
+     "if": {
+      "clue": "i_filigrane"
+     },
+     "text": "Le papier : un vergé de la papeterie Roux, de cette année, quand Madame Castellane écrivait tout sur une rame de Hollande achetée il y a trente ans."
+    },
+    {
+     "if": {
+      "clue": "i_encre"
+     },
+     "text": "L'encre, qu'Odile a sentie fraîche dans la chapelle."
+    },
+    {
+     "if": {
+      "has": "preuve:brouillons"
+     },
+     "text": "Les brouillons roussis tirés de la cheminée d'Hector, où la signature de la morte s'améliore de page en page, et où une phrase revient trois fois : *à mon neveu Hector, qui porte mon nom.*"
+    },
+    {
+     "if": {
+      "has": "berenice:temoin"
+     },
+     "text": "Bérénice se lève. D'une voix claire, elle dit la lanterne qui allait à la chapelle à deux heures moins le quart, la nuit dernière, et le gilet clair de celui qui la portait."
+    },
+    {
+     "if": {
+      "has": "hector:confondu"
+     },
+     "text": "Le four à pain, à deux heures, et le papier qu'Hector y portait."
+    },
+    {
+     "if": {
+      "has": "codicille:brule"
+     },
+     "text": "Tu poses sur le guéridon le lambeau noirci, et tu le lis : *…celle qui porte mon prénom en second, ma fille, Od…*"
+    },
+    {
+     "if": {
+      "has": "hector:aveu"
+     },
+     "text": "Hector se lève avant que tu aies fini. Il dit ce qu'il a fait, simplement, dans l'ordre, sans une excuse : la papeterie Roux, les brouillons, la plaque, le vrai codicille dans sa poche. Bérénice le regarde comme on regarde un frère qu'on vient de rencontrer."
+    },
+    "Hector écoute jusqu'au bout. Puis il fait sauter sa pièce une dernière fois, la rattrape, et la pose sur le guéridon, à côté des papiers, comme on pose une mise qu'on abandonne. « Je joue mal, dit-il. Je l'ai toujours su. C'est pour ça que je joue. »"
+   ],
+   "choices": [
+    {
+     "back": "S_aube"
+    }
+   ]
+  },
+  "S_aube_fille": {
+   "act": "III",
+   "title": "Odile Aurore",
+   "place": "salon",
+   "second": true,
+   "fx": {
+    "flag": "odile:reconnue"
+   },
+   "text": [
+    "Tu dis qui est Odile Marchal.",
+    {
+     "if": {
+      "has": "odile:fille"
+     },
+     "text": "Tu répètes ce que Jaume t'a dit au pied de la Flore, et Jaume, à la porte, hoche la tête à chaque phrase, comme on approuve un compte juste."
+    },
+    {
+     "if": {
+      "has": "odile:prenom"
+     },
+     "text": "Tu lis la copie de l'acte de baptême : *Odile Aurore. Marraine : Aurore Castellane.*"
+    },
+    {
+     "if": {
+      "has": "fine:temoin"
+     },
+     "text": "Fine, à la porte de l'office, dit d'une voix forte que la Rose du Jaume était maigre comme une trique jusqu'à la Saint-Joseph, et qu'elle avait une petite au sein à Pâques."
+    },
+    {
+     "if": {
+      "has": "odile:lettre"
+     },
+     "text": "Odile sort de son col la lettre du coffret, *Pour Odile. Après*, et la tend à Maître Brissac sans un mot. Il la lit. Il la lui rend."
+    },
+    {
+     "if": "enigme:p_journal",
+     "text": "Tu ouvres le carnet vert à la dernière page, et tu lis la vraie formule de l'Aurore, flacon par flacon, lettre par lettre : *Ma fille est Odile.*"
+    },
+    "Odile ne bouge pas. Elle regarde le portrait au-dessus de la cheminée, la jeune femme au bouquet, et pour la première fois tu vois ce que tu aurais dû voir hier : la même bouche, les mêmes yeux un peu trop grands, et cette ironie au coin des lèvres, qui ne doit rien au talent du peintre."
+   ],
+   "choices": [
+    {
+     "back": "S_aube"
+    }
+   ]
+  },
+  "S_aube_brissac": {
+   "act": "III",
+   "title": "A.",
+   "place": "salon",
+   "second": true,
+   "fx": {
+    "flag": "brissac:pere"
+   },
+   "text": [
+    {
+     "if": "enigme:p_lettres",
+     "text": "Tu poses devant Maître Brissac les quatre lettres nouées d'un ruban lilas."
+    },
+    {
+     "if": {
+      "has": "acte:reconnaissance"
+     },
+     "text": "Tu poses à côté le papier timbré jauni de la boîte de fer-blanc, avec ses deux lignes au crayon : *Pas encore. Maintenant, si tu veux.*"
+    },
+    "Il ne les ouvre pas. Il les connaît. Il pose la main dessus, à plat, comme on pose la main sur un livre saint pour jurer, et il reste ainsi un long moment, les yeux fermés.",
+    "« J'avais vingt-cinq ans, dit-il enfin. J'étais le petit clerc du vieux Maître Aubanel. Elle en avait quarante-trois, une maison, une fortune, et pas la moindre envie d'un mari, encore moins d'un petit clerc. Elle m'a dit : *Anatole, tu feras un très bon notaire, et un père épouvantable. Fais le notaire.* » Il ouvre les yeux, et ils sont pleins d'eau. « J'ai fait le notaire. Trente et un ans. Tous les dimanches, je suis passé devant la maison du bas. »",
+    "Odile a traversé le salon. Elle s'arrête devant le fauteuil. Elle ne dit rien. Elle tend la main, et elle la pose sur la sienne, sur les lettres."
+   ],
+   "choices": [
+    {
+     "back": "S_aube"
+    }
+   ]
+  },
+  "F_relecture": {
+   "act": "III",
+   "title": "La seconde lecture",
+   "place": "salon",
+   "end": true,
+   "second": true,
+   "fx": {
+    "flag": "fin:relecture"
+   },
+   "text": [
+    "Tu juges. Le soleil sort des collines au même instant, et il touche les champs d'iris, qui s'allument tous ensemble, violets, gris, blancs, des milliers de lames dressées dans la lumière.",
+    {
+     "if": {
+      "has": "verdict:vrai"
+     },
+     "text": "Le vrai quatrième codicille est valable. La Bastide aux Iris, la Maison Castellane et le secret de l'Aurore vont à celle qui porte le prénom de la morte en second, sa fille, Odile. Maître Brissac dresse l'acte d'une main qui tremble pour la première fois en trente ans, et il fait trois pâtés, qu'il laisse."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "not": {
+         "has": "verdict:vrai"
+        }
+       },
+       {
+        "has": "faux:ecarte"
+       },
+       {
+        "has": "odile:reconnue"
+       }
+      ]
+     },
+     "text": "Le codicille de la chapelle est écarté, et le vrai ne se lit plus qu'en lambeaux, ou plus du tout. Mais le juge a dit qui est Odile, et Maître Brissac en prend acte : une fille reconnue hérite de sa mère, avant les neveux et les nièces. La Bastide est à elle. Hector et Bérénice gardent ce que les trois premiers codicilles ne leur ont pas pris, c'est-à-dire presque rien, et un peu plus que ce qu'ils méritaient."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "not": {
+         "has": "verdict:vrai"
+        }
+       },
+       {
+        "has": "faux:ecarte"
+       },
+       {
+        "not": {
+         "has": "odile:reconnue"
+        }
+       }
+      ]
+     },
+     "text": "Le codicille de la chapelle est écarté. Sans dernier codicille, la loi reprend ses droits, et le bien se partage entre les héritiers du sang, Hector et Bérénice. Comme hier. Odile remet son chapeau gris."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "not": {
+         "has": "faux:ecarte"
+        }
+       },
+       {
+        "has": "odile:reconnue"
+       }
+      ]
+     },
+     "text": "Le codicille de la chapelle reste debout, faute de preuve. Mais Odile est la fille de la morte, et la loi protège les enfants contre les testaments : la moitié du bien lui revient, quoi qu'écrive un neveu de la main de sa tante. Hector garde l'autre moitié, et la honte, qu'il porte avec élégance."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "not": {
+         "has": "faux:ecarte"
+        }
+       },
+       {
+        "not": {
+         "has": "odile:reconnue"
+        }
+       },
+       {
+        "not": {
+         "has": "verdict:vrai"
+        }
+       }
+      ]
+     },
+     "text": "Faute de preuve, le codicille de la chapelle reste valable, et Hector hérite de tout, comme hier. Tu as lu deux fois, et tu n'as pas mieux lu. Odile remet son chapeau gris."
+    },
+    {
+     "if": {
+      "has": "hector:confondu"
+     },
+     "text": "Hector ne sera pas poursuivi. Odile l'a demandé, d'une voix calme : *Elle aimait les devinettes. Il a seulement donné une mauvaise réponse.* Il part à midi, pour la province, avec ses gilets, ses dettes et sa pièce d'argent, que Bérénice lui a rendue sans un mot. Il fait le tour de la Bastide avant de monter en voiture, et il salue la Flore."
+    },
+    {
+     "if": {
+      "has": "berenice:temoin"
+     },
+     "text": "Bérénice garde la bibliothèque. On la trouvera, cet hiver, à lire Montaigne au coin du feu en levant les yeux au ciel toutes les trois pages. L'école des filles des cueilleuses ouvrira au printemps, dans la maison du bas, avec l'argent d'Odile et les livres de Bérénice. Ce sera, dit-on à Sauvebonne, la seule école du pays où l'on apprend à lire dans Rabelais."
+    },
+    {
+     "if": {
+      "has": "acte:reconnaissance"
+     },
+     "text": "Avant midi, Maître Brissac fait enregistrer à Sauvebonne un acte vieux de trente et un ans, sur un papier timbré qui n'a plus cours. Le receveur proteste. Le notaire paie l'amende sans discuter, et en redemande."
+    },
+    {
+     "if": {
+      "has": "brissac:pere"
+     },
+     "text": "Maître Brissac ne remonte pas en voiture avec toi. Il reste à la Bastide pour déjeuner, et puis pour souper, et puis on lui fait un lit dans la chambre bleue. Il a la goutte, dit-il, il ne peut pas voyager. Odile lui coupe sa viande, et il la laisse faire."
+    },
+    {
+     "if": {
+      "has": "odile:sait"
+     },
+     "text": "Le soir, Odile monte au grenier avec une bougie. Elle redescend les yeux rouges, et elle dit que c'est la poussière. Puis elle va au bureau, s'assoit devant l'orgue à parfums, débouche le flacon numéro un, l'Ambre, et commence à écrire."
+    },
+    "Tu reprends la route de Sauvebonne à pied, au milieu de la matinée, la chemise lilas sous le bras, vide. Le testament reste à la Bastide, à sa place. Le long de la route blanche, les iris ne sont plus une foule. Ce sont des fleurs. On les arrachera dans trois ans, et leurs racines sentiront enfin quelque chose.",
+    "Tu as lu deux fois. C'est le métier, dirait Brissac. Il faut toujours lire deux fois."
+   ]
+  },
+  "A_cocher": {
+   "act": "I",
+   "title": "Le cocher",
+   "place": "route",
+   "second": false,
+   "text": [
+    "Tu baisses la vitre et tu demandes au cocher s'il a connu Madame Castellane.",
+    "« Tout le monde l'a connue, dit-il par-dessus son épaule, et personne. » Il crache dans les iris, avec respect. « Mon père la menait déjà, quand elle était jeune. Il disait qu'elle riait tout le temps, à l'époque, et qu'un été elle a arrêté de rire d'un coup, comme on ferme un robinet. Un chagrin d'amour, qu'on a dit. Un petit clerc de rien du tout, qu'on a dit aussi, à l'étude du vieux Maître Aubanel. » Il fait claquer son fouet au-dessus des chevaux, qui n'en pensent rien. « Mais à Sauvebonne, on dit tant de choses. On a même dit que j'étais honnête. »"
+   ],
+   "choices": [
+    {
+     "label": "Descendre devant la grille",
+     "fx": {
+      "until": 18
+     },
+     "to": "A_grille"
+    }
+   ]
+  },
+  "A_fauteuil": {
+   "act": "I",
+   "title": "Le fauteuil vide",
+   "place": "salon",
+   "text": [
+    "Tu t'approches du fauteuil près de la fenêtre. Un grand fauteuil à oreilles, tendu d'un velours lilas usé jusqu'à la trame aux accoudoirs, là où deux mains se sont posées pendant trente ans. Le coussin garde encore le creux d'un corps maigre, comme la neige garde la trace d'un oiseau.",
+    "La fleur d'iris fanée est restée là où elle est tombée. Personne n'y touche. Dans la maison d'une parfumeuse, on respecte les fleurs mortes comme ailleurs les reliques.",
+    "Sur le guéridon, à portée de main, un livre ouvert, à l'envers, comme on le pose quand on compte le reprendre : l'*Almanach des énigmes* de cette année. Une devinette est cochée au crayon, et en marge, d'une écriture qui tremble déjà un peu : *qu'elle ne parte pas.*"
+   ],
+   "choices": [
+    {
+     "back": "A_salon"
+    }
+   ]
+  },
+  "A_chapelle_soir": {
+   "act": "I",
+   "title": "La chapelle au crépuscule",
+   "place": "chapelle",
+   "fx": {
+    "flag": "chapelle:vue"
+   },
+   "text": [
+    "Au bout de l'allée des cyprès, la chapelle de famille, petite, blonde, avec un clocheton où la cloche ne sonne plus. La porte est ouverte. Dedans, une veilleuse rouge, des lys dans des vases, et devant l'autel, une dalle neuve où l'on a gravé, il y a deux jours, le nom de la morte.",
+    "Tu t'agenouilles un instant, par politesse, plus que par piété. Au pied de la dalle, une petite plaque de bronze porte le chiffre de la Maison, un A et un C entrelacés dans des iris, scellée par deux vis à tête plate. Le marbrier a peint par-dessus les têtes de vis, au vernis brun, pour qu'elles ne rouillent pas. Le vernis est intact, lisse, brillant comme un ongle.",
+    "Il fait froid. Les lys sentent fort. Tu ressors."
+   ],
+   "choices": [
+    {
+     "back": "A_jardin"
+    }
+   ]
+  },
+  "A_distillerie": {
+   "act": "I",
+   "title": "La distillerie",
+   "place": "jardin",
+   "text": [
+    "Derrière l'orangerie, une longue bâtisse basse au toit de tuiles : la distillerie de la Bastide, où Madame Castellane faisait ses essais loin des ouvriers de la ville. Jaume t'ouvre avec une clef de la taille d'un avant-bras.",
+    "Dedans, dans l'odeur froide de cuivre et de cendre, trois alambics dorment côte à côte sur leurs fourneaux éteints, ventrus, coiffés de leurs chapiteaux comme des moines géants à capuchon, et leurs serpentins descendent en spirale dans des cuves d'eau noire. Sur les étagères, des bonbonnes, des entonnoirs, des filtres. Au mur, à la craie, des chiffres, des dates, des noms d'essences, et un mot souligné trois fois : *patience.*",
+    "« L'iris, dit Jaume, c'est la plus lente. On arrache la racine, on la sèche trois ans, on la pile, on la distille, et ce qui sort, c'est une espèce de beurre gris qui sent la violette et la terre. Trois ans pour une cuillerée. Elle disait que c'était la seule fleur qui lui ressemblait. »"
+   ],
+   "choices": [
+    {
+     "back": "A_jardin"
+    }
+   ]
+  },
+  "B_chambre_aurore": {
+   "act": "II",
+   "title": "La chambre d'Aurore",
+   "place": "salon",
+   "text": [
+    "La chambre de Madame Castellane est au bout du couloir du premier, et la porte n'est pas fermée à clef, parce que personne n'aurait osé. Tu entres avec ta bougie, et la chambre te reçoit comme une personne : un grand lit à baldaquin aux rideaux tirés, une table de toilette couverte de flacons, une chaise où pend encore une robe de chambre lilas, et cette odeur d'Aurore, poudrée, tiède, si présente qu'on se surprend à baisser la voix.",
+    "Sur la table de nuit, un missel qu'elle ne lisait pas, un verre d'eau qu'on n'a pas vidé, et un petit coffret de bois de rose, grand comme un livre de prières, fermé par une serrure à lettres. Sur le couvercle, gravé au fer : *Le nom de celle que j'aime le mieux.*",
+    {
+     "second": true,
+     "text": "Hier, tu as tourné ces lettres longtemps, sans savoir. Ce soir, tu sais lequel."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Composer un nom sur la serrure du coffret",
+     "hide": {
+      "has": "enigme:p_coffret"
+     },
+     "to": "B_coffret"
+    },
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "B_coffret": {
+   "act": "II",
+   "title": "Le coffret de bois de rose",
+   "place": "salon",
+   "puzzle": "p_coffret",
+   "text": [
+    "Tu t'assois au bord du lit de la morte, le coffret sur les genoux. Les lettres de cuivre roulent sous ton pouce avec un petit bruit de dents de souris."
+   ],
+   "choices": [
+    {
+     "back": "B_chambre_aurore"
+    }
+   ]
+  },
+  "B_coffret_ouvert": {
+   "act": "II",
+   "title": "La lettre du coffret",
+   "place": "salon",
+   "fx": {
+    "item": "lettre_odile",
+    "ep": [
+     "histoire",
+     300
+    ]
+   },
+   "text": [
+    "Le couvercle se soulève. Dedans, sur un lit de satin lilas, une seule chose : une lettre, cachetée de cire lilas, et sur l'enveloppe, de la grande écriture nette : *Pour Odile. Après.*",
+    "Tu la tiens longtemps à la main. Tu es le juge de ce qui sera trouvé. Tu n'es pas le destinataire de ce qui est écrit.",
+    "Tu la glisses dans ta veste, contre toi, sans la décacheter."
+   ],
+   "choices": [
+    {
+     "back": "B_chambre_aurore"
+    }
+   ]
+  },
+  "B_hector_offre": {
+   "act": "II",
+   "title": "L'offre",
+   "place": "salon",
+   "text": [
+    "Hector t'attend au tournant du couloir, adossé au mur, une bouteille de vin cuit à la main et deux verres dans l'autre, comme un homme qui aurait prévu de te rencontrer par hasard.",
+    "« Trinquons, dit-il. À la justice. » Il te sert sans attendre la réponse. « Je ne vous demanderai rien. Je suis un homme d'honneur, ce qui me coûte très cher. Je vous dis seulement qu'à l'aube, quand vous aurez lu le dernier papier, quel qu'il soit, il y aura dans la poche de votre redingote cinq cents livres. Pour vos peines. Les clercs ont beaucoup de peines, je le sais, j'ai eu des créanciers clercs. »",
+    "Il choque son verre contre le tien. « Vous n'aurez rien à faire. Seulement à lire. Vous lisez si bien. »"
+   ],
+   "choices": [
+    {
+     "label": "Boire son vin, et ne rien promettre",
+     "fx": {
+      "flag": "hector:trinque"
+     },
+     "to": "B_nuit"
+    },
+    {
+     "label": "Poser ton verre plein sur la console",
+     "fx": {
+      "flag": "hector:refus"
+     },
+     "to": "B_hector_refus"
+    }
+   ]
+  },
+  "B_hector_refus": {
+   "act": "II",
+   "title": "Le verre plein",
+   "place": "salon",
+   "text": [
+    "Tu poses ton verre sur la console, plein, sans un mot. Hector le regarde, puis te regarde, et pendant une seconde son beau visage glisse tout à fait, comme une pâtisserie qui s'effondre. Puis il se rattrape, sourit, vide ton verre d'un trait.",
+    "« Vous avez raison, dit-il. Il est trop sucré. » Il s'éloigne dans le couloir en sifflant, et au tournant, sans se retourner, il ajoute : « Les juges incorruptibles finissent toujours mal dans les romans. C'est ce qui les rend si agréables à lire. »"
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "B_chambre_hector1": {
+   "act": "II",
+   "title": "La chambre du neveu",
+   "place": "salon",
+   "second": false,
+   "fx": {
+    "flag": "hector:papier"
+   },
+   "text": [
+    "Hector est au salon, à faire une réussite en buvant le vin cuit de sa tante. Tu montes à sa chambre par l'escalier de service, en te disant que c'est ton rôle, et en sachant très bien que c'est faux.",
+    "Un sac de cuir, trois gilets, une douzaine de cravates, une liasse de reconnaissances de dettes nouée d'un ruban rose comme des lettres d'amour. Sur la table, une rame de papier neuf, à peine entamée, sous sa bande de la papeterie Roux de Sauvebonne. Un encrier de voyage, débouché. Une plume fraîchement taillée.",
+    "Et un paquet de vieilles lettres, d'une grande écriture nette que tu reconnais : des lettres de Madame Castellane à son neveu, toutes de refus, *non, Hector*, *pas un sou, Hector*, *apprends à perdre, Hector*. Sous chaque signature, quelqu'un a repassé les lettres au crayon, très légèrement, comme un écolier qui décalque un modèle.",
+    "Des pas dans l'escalier. Tu remets tout en place et tu sors par l'autre porte."
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "B_chapelle_minuit": {
+   "act": "II",
+   "title": "Bérénice à la chapelle",
+   "place": "chapelle",
+   "text": [
+    "À minuit, la chapelle est éclairée. Bérénice est agenouillée devant la dalle neuve, son chapelet entre les doigts, et elle prie à voix haute, en latin, très vite, comme on court pour attraper une voiture.",
+    "Elle t'entend entrer, ne se retourne pas, finit sa dizaine. Puis elle se relève, époussette ses genoux, et te regarde avec ses yeux secs.",
+    "« Elle sentait Dieu dans les roses, dit-elle. Pas à l'église. Dans les roses, dans le jasmin, dans la fleur d'oranger. Elle disait que le bon Dieu avait mis plus de soin dans un pétale que dans tout le Lévitique. » Elle serre son chapelet. « Je lui ai écrit pendant vingt ans pour la convertir. Elle ne m'a jamais répondu. Je crois qu'elle avait raison de ne pas répondre. Je crois que c'est ça que je ne lui pardonne pas. »"
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "B_odile_nez": {
+   "act": "II",
+   "title": "La leçon d'odeurs",
+   "place": "bureau",
+   "text": [
+    "Tu demandes à Odile ce qu'elle sent, quand elle ferme les yeux devant l'orgue. Elle te regarde, surprise, comme si personne ne lui avait jamais posé la question. Puis elle débouche trois flacons, l'un après l'autre, et te les tend sous le nez.",
+    "« Pas avec le nez, dit-elle. Avec la mémoire. Le nez ne fait que porter. Fermez les yeux. Qu'est-ce que c'est ? »"
+   ],
+   "choices": [
+    {
+     "label": "Fermer les yeux et sentir",
+     "test": {
+      "dom": "nature",
+      "diff": 0,
+      "label": "Nature"
+     },
+     "win": {
+      "fx": {
+       "flag": "nez:appris",
+       "ep": [
+        "perso",
+        200
+       ]
+      },
+      "to": "B_odile_nez_fin"
+     },
+     "lose": {
+      "to": "B_odile_nez_fin"
+     }
+    }
+   ]
+  },
+  "B_odile_nez_fin": {
+   "act": "II",
+   "title": "Ce que tu as senti",
+   "place": "bureau",
+   "text": [
+    {
+     "outcome": "win",
+     "text": "Le premier : une cave, une cannelle, une église un jour de fête. « Benjoin », dis-tu. Le deuxième : une peau au soleil. « Ambre. » Le troisième, tu ne sais pas le nommer, mais tu sais où tu l'as senti : dans l'étude, sur les doigts de Maître Brissac, quand il revient de signer. « De l'encre », dis-tu. Odile sourit, pour la première fois. « De la noix de galle. Vous avez un nez, finalement. On vous a menti. »"
+    },
+    {
+     "outcome": "lose",
+     "text": "Tu sens trois fois la même chose : du parfum. Odile rebouche les flacons sans rien dire, avec une gentillesse qui est pire qu'un reproche. « Ça viendra, dit-elle. Ou pas. Madame disait que la moitié des gens ont un nez pour se moucher, et l'autre moitié pour mentir. »"
+    }
+   ],
+   "choices": [
+    {
+     "back": "B_bureau"
+    }
+   ]
+  },
+  "B_fine_minuit": {
+   "act": "II",
+   "title": "Fine, à une heure",
+   "place": "salon",
+   "text": [
+    "Fine s'est endormie sur sa chaise basse, la tête contre le manteau de la cheminée, la bouche ouverte. La marmite frissonne toujours. Sur la table, sous un torchon, la fournée du soir refroidit : des pompes à l'huile dorées, des fougasses aux olives, de quoi nourrir une compagnie de dragons.",
+    "Le four à pain, dans le mur, est encore tiède. Sa porte de fonte est entrouverte, et dedans la braise couve sous la cendre, rose, comme un œil à demi fermé.",
+    "Fine ronfle. Tu prends une fougasse. Elle est encore chaude. Personne ne t'en voudra : c'est une nuit où chacun prend quelque chose."
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "C_hector_chapelle": {
+   "act": "III",
+   "title": "Hector, devant la dalle",
+   "place": "chapelle",
+   "text": [
+    "Hector s'est approché de la dalle neuve et la regarde, les mains dans les poches, longtemps.",
+    "« Elle m'a appris à faire disparaître une pièce, dit-il à mi-voix. J'avais six ans. Elle m'a dit : *Hector, le secret, c'est que les gens regardent la main qui bouge. Toi, regarde toujours l'autre.* » Il sort la main droite de sa poche. Elle tremble un peu. « Je n'ai jamais su faire que ça. Regarder la mauvaise main. »",
+    {
+     "second": true,
+     "text": "Il te jette un coup d'œil. Il sait que tu sais. Tu le vois à la manière dont il garde la main gauche dans sa poche, serrée sur quelque chose."
+    }
+   ],
+   "choices": [
+    {
+     "back": "C_chapelle"
+    }
+   ]
+  },
+  "C_retour_aube": {
+   "act": "III",
+   "title": "Quatre heures du matin",
+   "place": "jardin",
+   "text": [
+    "Tu reviens de la chapelle par l'allée des cyprès, lentement. Il est quatre heures. Le ciel n'a pas encore commencé à pâlir, mais il a changé de noir : un noir plus mince, plus las, comme une étoffe qu'on a trop lavée. Les iris se taisent. La fontaine aussi, on dirait.",
+    "Odile marche à côté de toi, sa bougie éteinte à la main. Elle ne dit rien pendant un long moment.",
+    "« Quand j'avais cinq ans, dit-elle enfin, une dame venait au bord du champ du ruisseau, le dimanche. Elle me faisait fermer les yeux et elle me mettait une fleur sous le nez. Il fallait dire laquelle. Si je trouvais, j'avais une dragée. » Elle s'arrête devant le cadran solaire. « J'avais toujours la dragée. Je ne sais pas pourquoi je vous dis ça. Il est quatre heures. À quatre heures, on dit des choses. »"
+   ],
+   "choices": [
+    {
+     "label": "Attendre l'aube et le notaire, au salon",
+     "second": false,
+     "fx": {
+      "until": 6
+     },
+     "to": "C_aube"
+    },
+    {
+     "label": "Attendre l'aube, au salon",
+     "second": true,
+     "fx": {
+      "until": 5
+     },
+     "to": "S_aube"
+    }
+   ]
+  },
+  "C_nez_encre": {
+   "act": "III",
+   "title": "L'encre",
+   "place": "chapelle",
+   "fx": {
+    "clue": "i_encre"
+   },
+   "text": [
+    "Tu prends le codicille et tu le portes à ton visage. Tu fermes les yeux, comme Odile te l'a appris : pas avec le nez, avec la mémoire.",
+    "Le papier sent la chapelle, la cire, les lys. Et dessous, aigre, métallique, l'odeur des doigts de Maître Brissac quand il revient de signer : la noix de galle, le vitriol. Une encre qui n'a pas fini de sécher. Une encre de trois jours, au plus.",
+    "Tu rouvres les yeux. Odile te regarde, et elle hoche la tête, une fois."
+   ],
+   "choices": [
+    {
+     "back": "C_chapelle"
+    }
+   ]
+  },
+  "C_brissac_odile": {
+   "act": "III",
+   "title": "Le notaire et la demoiselle",
+   "place": "salon",
+   "second": false,
+   "text": [
+    "Pendant qu'Hector relit son codicille à la fenêtre, Maître Brissac fait signe à Odile d'approcher. Elle vient. Il lui parle bas, si bas que tu n'entends rien, et elle répond par un signe de tête, puis par un autre.",
+    "Au moment où elle s'éloigne, il lui prend la main, une seconde, et la garde dans la sienne. Puis il la lâche, et regarde ses propres doigts, comme si la main d'Odile y avait laissé quelque chose.",
+    "Tu as travaillé six ans chez Maître Brissac. Tu ne l'as jamais vu toucher la main de personne, pas même pour la serrer."
+   ],
+   "choices": [
+    {
+     "back": "C_aube"
+    }
+   ]
+  },
+  "S_flamme": {
+   "act": "I",
+   "title": "La note de fond",
+   "place": "salon",
+   "second": true,
+   "text": [
+    "*Lisez la note de fond.* Tu approches la dernière page du testament de la flamme d'une bougie, comme on fait à l'étude avec les lettres des amants et des conspirateurs, à une distance d'un doigt, sans la brûler.",
+    "Rien d'abord. Le papier tiédit. Puis, dans le blanc sous la signature, des lettres montent lentement, brunes, pâles, comme une écriture qui remonterait du fond d'une eau : quatre vers, d'une encre invisible qui sent, sous la chaleur, le citron et la fleur d'oranger.",
+    "Un cinquième quatrain. Personne ne l'a lu hier. Personne ne l'a cherché."
+   ],
+   "choices": [
+    {
+     "label": "Lire le cinquième quatrain",
+     "hide": {
+      "has": "enigme:q5"
+     },
+     "to": "S_q5"
+    },
+    {
+     "back": "A_salon"
+    }
+   ]
+  },
+  "S_q5": {
+   "act": "I",
+   "title": "Le cinquième quatrain",
+   "place": "salon",
+   "second": true,
+   "puzzle": "q5",
+   "text": [
+    "Tu lis à mi-voix, penché{e} sur la bougie, pendant que les autres regardent ailleurs."
+   ],
+   "choices": [
+    {
+     "back": "S_flamme"
+    }
+   ]
+  },
+  "S_cadran_cache": {
+   "act": "I",
+   "title": "Ce que le cadran a tu",
+   "place": "jardin",
+   "second": true,
+   "fx": {
+    "item": "acte_reconnaissance",
+    "flag": "acte:reconnaissance",
+    "ep": [
+     "histoire",
+     500
+    ]
+   },
+   "text": [
+    "Tu descends au cadran solaire dans la nuit, avec une lanterne. *Mon doigt montre ce que j'ai tu.* Le style de bronze, tordu, ne pointe vers aucune heure. Il pointe vers le bas, vers le socle, vers une pierre du muret un peu plus claire que les autres.",
+    "La pierre bouge sous ta main. Derrière, dans un creux, une boîte de fer-blanc rouillée, de celles où l'on met les pastilles de menthe. Dedans, plié en huit, un papier timbré, jauni, à l'en-tête de l'étude de Maître Aubanel, notaire à Sauvebonne.",
+    "*Par-devant nous, a comparu le sieur Anatole Brissac, clerc, lequel a déclaré reconnaître pour sa fille l'enfant baptisée ce jour sous les prénoms d'Odile Aurore.* Une signature ronde, appliquée, aux *d* en crosses d'évêque. Pas de cachet. Pas d'enregistrement. Un acte écrit, signé, et jamais déposé.",
+    "En travers, au crayon, de la grande écriture nette : *Pas encore. — A.* Et dessous, d'une écriture plus tremblée, plus récente : *Maintenant, si tu veux.*"
+   ],
+   "choices": [
+    {
+     "back": "A_jardin"
+    }
+   ]
+  },
+  "S_hector_r2": {
+   "act": "II",
+   "title": "Hector, franchement",
+   "place": "salon",
+   "second": true,
+   "text": [
+    "Tu t'assois en face d'Hector, au guéridon, au milieu de sa réussite. Il te regarde par-dessus ses cartes, sans sourire.",
+    "Tu lui dis les trois mille livres du Cercle, la fin du mois, la prison ou la province. Tu lui dis que tu sais ce qu'il y a sous la plaque de la chapelle, et qui l'y a mis.",
+    "Il pose ses cartes, une à une, à l'envers. « Vous ne savez rien, dit-il. Vous supposez. C'est très différent, un juge vous le dira. » Il ramasse sa pièce d'argent, la fait courir sur ses phalanges. « Et quand bien même. Qu'est-ce que vous m'offrez ? La vérité ? Je l'ai déjà. Elle ne paie pas mes dettes. »"
+   ],
+   "choices": [
+    {
+     "label": "Lui proposer qu'Odile paie ses dettes, s'il retire son codicille",
+     "if": {
+      "has": "odile:sait"
+     },
+     "to": "S_hector_marche"
+    },
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "S_hector_marche": {
+   "act": "II",
+   "title": "Le marché",
+   "place": "salon",
+   "second": true,
+   "fx": {
+    "flag": "hector:aveu"
+   },
+   "text": [
+    "Tu lui dis qu'Odile sait. Tu lui dis qu'elle a parlé de lui, au premier, à sa fenêtre, d'une voix calme : *Il a trois mille livres de dettes, et il est le seul de la famille qui l'ait fait rire.*",
+    "Hector reste un long moment sans rien dire. La pièce s'est arrêtée sur ses phalanges.",
+    "« Elle a dit ça ? » Il a un rire bref, étranglé. « Je lui ai appris le tour de la pièce, à la petite, quand elle avait sept ans. Ma tante me l'avait appris. Je ne savais pas que je transmettais un héritage. » Il se lève, va à la fenêtre, regarde les iris dans le noir. « À l'aube, je parlerai. Je ne dirai pas que j'ai honte, parce que ce serait faux, et que je mens déjà assez. Je dirai ce que j'ai fait. »"
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "S_odile_lettre": {
+   "act": "II",
+   "title": "Pour Odile. Après.",
+   "place": "salon",
+   "second": true,
+   "fx": {
+    "flag": "odile:lettre",
+    "drop": "lettre_odile"
+   },
+   "text": [
+    "Tu tends à Odile l'enveloppe cachetée de cire lilas. *Pour Odile. Après.* Elle reconnaît l'écriture avant de lire les mots.",
+    "Elle la décachette avec l'ongle, lentement, sans déchirer. Elle lit. Elle ne pleure pas. Elle lit jusqu'au bout, puis elle replie la lettre, et elle te la tend, pour que tu la lises aussi, parce qu'il faut un témoin et que c'est ton métier.",
+    "*Ma fille. Je t'ai regardée trente et un ans sans te le dire, et c'est la seule chose de ma vie que j'ai mal faite. Je n'ai pas su être ta mère : j'ai été ta maîtresse, ton professeur, ton nez. J'espère que c'était un peu la même chose. Tu as les yeux de ton père et le caractère du mien, et l'un comme l'autre t'ont manqué par ma faute. Je te laisse la Bastide, si le clerc sait lire. Je te laisse l'Aurore de toute façon : la vraie formule, tu la connais, c'est toi. — Ta mère.*",
+    "Odile reprend la lettre et la range contre sa poitrine, sous son col blanc. « Le clerc sait lire », dit-elle."
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "S_fine_r2": {
+   "act": "II",
+   "title": "Ce que Fine sait",
+   "place": "salon",
+   "second": true,
+   "fx": {
+    "flag": "fine:temoin"
+   },
+   "text": [
+    "Tu demandes à Fine, à la cuisine, si elle a vu la Rose du Jaume grosse, ce printemps-là, avant le miracle.",
+    "Fine pose sa cuillère. Elle te regarde longtemps, de ses petits yeux noyés dans le rouge de ses joues. « Grosse ? La Rose ? » Elle secoue la tête. « Elle était maigre comme une trique jusqu'à la Saint-Joseph, et à Pâques elle avait une petite au sein. J'ai dit au curé : c'est un miracle qui va vite. Le curé m'a dit de faire la soupe. »",
+    "Elle reprend sa cuillère. « Je l'ai faite trente ans, la soupe. Si le juge me demande, à l'aube, je le dirai, que la Rose était maigre. Je suis bavarde, mais je mens pas. »"
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  },
+  "S_brissac_nuit": {
+   "act": "II",
+   "title": "Le notaire ne dort pas",
+   "place": "salon",
+   "second": true,
+   "text": [
+    "À trois heures, Maître Brissac ne dort pas. Il est dans son fauteuil du coin, au salon, une seule lampe allumée, la jambe sur le tabouret, et il regarde le portrait. Il ne se retourne pas quand tu entres.",
+    "« On a peint ce tableau l'été de ses quarante-trois ans, dit-il. Le peintre l'a rajeunie de vingt ans, parce qu'il était amoureux, ou parce qu'elle l'avait payé, je n'ai jamais su lequel des deux. » Il sourit. « Le bouquet, il l'a copié sur un vrai. On le lui avait offert la veille. Jasmin, iris, rose. Un petit clerc qui ne savait pas compter jusqu'à trois. »",
+    "Il se tait. Il ne te regarde toujours pas. « Allez dormir. Vous jugerez mieux. Moi, je n'ai plus de jugement depuis trente et un ans. Seulement de la mémoire. »"
+   ],
+   "choices": [
+    {
+     "back": "B_nuit"
+    }
+   ]
+  }
+ }
+}
