@@ -34,7 +34,7 @@ var SEED = {
   });
   await new Promise(function (ok) { server.listen(0, "127.0.0.1", ok); });
   var url = "http://127.0.0.1:" + server.address().port + "/index.html";
-  var b = await chromium.launch(), SHOTS = process.env.APERCUS || "", ctx = await b.newContext(Object.assign({ serviceWorkers: "block", locale: "fr-FR", timezoneId: "Europe/Paris" }, SHOTS ? { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 } : {})), pg = await ctx.newPage(), errors = [];
+  var b = await chromium.launch(), SHOTS = process.env.APERCUS || "", ctx = await b.newContext(Object.assign({ serviceWorkers: "block", locale: "fr-FR", timezoneId: "Europe/Paris", reducedMotion: "reduce" }, SHOTS ? { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 } : {})), pg = await ctx.newPage(), errors = [];
   pg.on("pageerror", function (e) { errors.push(e.message); });
   pg.on("console", function (m) { if (/^render:/.test(m.text())) errors.push(m.text().slice(0, 600)); });
   await pg.addInitScript(function (seed) {

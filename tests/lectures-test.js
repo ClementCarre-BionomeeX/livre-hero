@@ -21,7 +21,7 @@ var BOOKS = (IDS.length ? IDS : require("./page.js").STORIES).map(function (id) 
   var url = "http://127.0.0.1:" + server.address().port + "/index.html";
   var b = await chromium.launch(), SHOTS = process.env.APERCUS || "";
   for (var st of BOOKS) {
-    var ctx = await b.newContext(Object.assign({ serviceWorkers: "block", locale: "fr-FR", timezoneId: "Europe/Paris" }, SHOTS ? { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 } : {})), pg = await ctx.newPage(), errors = [];
+    var ctx = await b.newContext(Object.assign({ serviceWorkers: "block", locale: "fr-FR", timezoneId: "Europe/Paris", reducedMotion: "reduce" }, SHOTS ? { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 } : {})), pg = await ctx.newPage(), errors = [];
     pg.on("pageerror", function (e) { errors.push(e.message); });
     pg.on("console", function (m) { if (/^render:/.test(m.text())) errors.push(m.text().slice(0, 600)); });
     await pg.addInitScript(function () { try { if (!localStorage.getItem("livre-heros:profil")) { localStorage.setItem("livre-heros:idx:profils", JSON.stringify(["p1"])); localStorage.setItem("livre-heros:profils:p1", JSON.stringify({ name: "Léa", color: "#a33", created: Date.now(), prefs: { gens: "noms" } })); localStorage.setItem("livre-heros:profil", JSON.stringify("p1")); localStorage.setItem("livre-heros:nouveautes-vues", JSON.stringify("999")); } } catch (e) {} });

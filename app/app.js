@@ -2604,6 +2604,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "11.5", items: ["Le livre devient un carnet : une feuille de papier aux bords irréguliers, une encre qui sèche quand la page arrive, des choix écrits au crayon et entourés à la main quand tu les prends, un signet de tissu, et les compteurs en haut de page comme le titre courant d'un livre. Les habillages (parchemin, givre, sable, enluminure) deviennent les papiers du carnet ; la nuit, il passe sur un papier bleu nuit. Réglages : « Style du livre » revient au style classique, et « Choix écrits au crayon » les remet en italique."] },
     { v: "11.4", items: ["« L'Île Folle-Aiguille », un grand roman d'aventures en cinq actes : une auberge sur une falaise, un vieux marin et son coffre, un port, une traversée, une île dont les boussoles tournent. Trois personnages à suivre, le troisième après une première fin ; un équipage dont chaque marin penche d'un côté ou de l'autre ; des escales qui portent chacune leur affaire ; et des quêtes nées d'autres livres de la bibliothèque. Huit fins, et le sort de dix personnes."] },
     { v: "11.3", items: ["Nouveau grand livre à trois : « Les Trois Clefs d'Aiguemorne », un casse de cape et d'épée dans une cité de serruriers. Trois joueurs, un héros chacun, cinq actes. À chaque acte, on se partage trois postes (la main, l'œil, la voix), chacun vit sa part de son côté, puis on met en commun et l'on vote.", "À trois : le vote entre joueurs (chacun donne sa voix sans voir celle des autres, le livre dépouille au rendez-vous), les postes, et les indices mis en commun."] },
     { v: "11.2", items: ["Histoires à cartes : ton jeu vit avec l'histoire. En route, on te donne des cartes nouvelles, on t'en vole, une scène te fait piocher ou défausser. Une fois par halte, tu peux échanger une carte de ta main contre celle du dessus de ta pioche. Touche les compteurs pour voir ta pioche, ta défausse et tes cartes perdues ; le bouton « ? » réexplique les règles, montrées d'office la première fois.", "« Le Courrier de Vèze » s'en sert : trois cartes à gagner en route (le Jeton des marchands, le Mulet de louage, la Médaille du pèlerin), et des voleurs qui se servent dans ta main."] },
@@ -3070,9 +3071,9 @@
     var acts = st.acts || [], cur = acts.map(function (a) { return a.id; }).indexOf(s.lastAct);
     var actMin = cur >= 0 ? actMinutes(st, acts[cur].id) : 0;
     w.appendChild(h("div", { class: "acts", role: "img", "aria-label": cur >= 0 ? acts[cur].title + ", acte " + (cur + 1) + " sur " + acts.length : "", title: cur >= 0 ? acts[cur].title + (actMin ? " · environ " + minutesLabel(actMin) + " de lecture" : "") : "" }, acts.map(function (a, i) { return h("span", { class: i < cur ? "done" : i === cur ? "on" : "" }); })));
-    var turnIn = A.turned && pref("pageTurn") && !REDUCED; A.turned = false;
+    var inkIn = A.turned && Notebook.on() && !REDUCED, turnIn = A.turned && pref("pageTurn") && !REDUCED; A.turned = false;
     // A remembrance is set apart (8.3); dread past its threshold troubles the page, unless the reader declined it.
-    var page = h("article", { class: "page read" + (turnIn ? " turn-in" : "") + (v.souvenir ? " souvenir" : "") + (v.interlude ? " interlude" : "") + (v.trouble && pref("trouble") && !REDUCED ? " trouble" : "") + (v.mood && pref("trouble") && pref("textFx") !== "aucun" ? " mood-" + v.mood : ""), "aria-labelledby": "page-title" });
+    var page = h("article", { class: "page read" + (turnIn ? " turn-in" : "") + (inkIn ? " ink-in" : "") + (v.souvenir ? " souvenir" : "") + (v.interlude ? " interlude" : "") + (v.trouble && pref("trouble") && !REDUCED ? " trouble" : "") + (v.mood && pref("trouble") && pref("textFx") !== "aucun" ? " mood-" + v.mood : ""), "aria-labelledby": "page-title" });
     if (pref("swipe") && !G.multi) swipeOn(page, v, G);
     var num = v.passage ? paraNum(st, s.node) : null;
     var actFirst = cur >= 0 && acts[cur].start === s.node && !G.multi;
@@ -3606,7 +3607,7 @@
       else if (c.hint) meta = h("span", { class: "meta" }, c.hint);
       else if (c.exit) meta = h("span", { class: "meta" }, "fin de l'acte");
       else if (c.big) meta = h("span", { class: "meta" }, "choix lourd");
-      box.appendChild(h("button", { class: "choice" + (c.sys ? " sys" : "") + (c.big ? " big" : "") + (g === "order" ? " order" : "") + (c.silence ? " silence" : ""), disabled: !c.ok, onclick: function () { pick(c); } },
+      box.appendChild(h("button", { class: "choice" + (c.sys ? " sys" : "") + (c.big ? " big" : "") + (g === "order" ? " order" : "") + (c.silence ? " silence" : ""), disabled: !c.ok, onclick: function (e) { Notebook.circle(e.currentTarget, function () { pick(c); }); } },
         h("span", null, A.kbd && nth <= KEY_CHOICES ? h("kbd", { class: "choice-key", "aria-hidden": "true" }, String(nth % 10)) : null, nd && nd.choices.indexOf(c.label) >= 0 ? h("span", { class: "nudge-star", "aria-label": "piste nouvelle" }, "✦ ") : null, c.unveiled && !trailOld(A.game, v, c) ? h("span", { class: "unveiled", title: "Un chemin qu'une partie précédente a ouvert" }, "✧ ") : null, c.skip ? h("span", { class: "skip-mark", "aria-hidden": "true" }, "» ") : null, c.label, trailOld(A.game, v, c) ? h("span", { class: "trail-old", title: "Tu as déjà pris ce chemin dans une autre partie" }, " · déjà suivie") : null, c.goes && String(c.label || "").toLowerCase().indexOf(String(c.goes).toLowerCase()) < 0 ? h("span", { class: "goes" }, " → " + c.goes) : null, c.note ? h("span", { class: "note" }, " · " + c.note) : null), meta, !c.ok && c.why ? h("span", { class: "why" }, c.why) : null));
     });
     // Paths that unveil (8.9): the ways still closed here are counted, not named.
@@ -5577,7 +5578,7 @@
   // ------------------------------------------------------------------ reading preferences (per reader)
   // Intent: pref(Key) -> Value = the reader's own setting, else the default
   // Why: Clément (12/11): text size, spacing, theme, voice, real dice, sound… follow the reader, not the device.
-  var PREFS = { skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, lore: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6, spread: "auto", pageTurn: true, swipe: false, contrast: false, cvd: false, quietFx: false, dice3d: true, attachements: "discret", trouble: true, textFx: "anime", gens: "aucun", gensRappel: "chaque", gensCarte: true, gensScene: false, gensDefaut: [], gensSuivi: {}, trail: true };
+  var PREFS = { style: "carnet", choiceHand: true, skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, lore: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6, spread: "auto", pageTurn: true, swipe: false, contrast: false, cvd: false, quietFx: false, dice3d: true, attachements: "discret", trouble: true, textFx: "anime", gens: "aucun", gensRappel: "chaque", gensCarte: true, gensScene: false, gensDefaut: [], gensSuivi: {}, trail: true };
   var SIZES = { s: ["Petit", 16], m: ["Normal", 18], l: ["Grand", 21], xl: ["Très grand", 24] };
   var SPACINGS = { serre: ["Serré", 1.5], normal: ["Normal", 1.72], aere: ["Aéré", 2] };
   var THEMES = { auto: "Comme l'appareil", light: "Clair", sepia: "Sépia", dark: "Sombre", soir: "Lumière du soir" };
@@ -5600,6 +5601,39 @@
     else lsSet("prefs", p);
     render();
   }
+  // Intent: Notebook = the notebook style (11.5): on() -> Bool; defs() puts the SVG filters (trembling edges, washes) in
+  // the document once; circle(Button, then) rings the chosen line in pencil before the page turns.
+  // Why: Clément (17/11) found the book too « technical », straight lines and interface; he chose the notebook.
+  var Notebook = {
+    on: function () { return pref("style") !== "classique"; },
+    defs: function () {
+      if (document.getElementById("carnet-defs")) return;
+      var d = document.createElement("div"); d.id = "carnet-defs"; d.setAttribute("aria-hidden", "true");
+      d.style.cssText = "position:absolute;width:0;height:0;overflow:hidden";
+      d.innerHTML = '<svg width="0" height="0"><defs>' +
+        '<filter id="carnet-bord" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>' +
+        '<filter id="carnet-trait" x="-5%" y="-20%" width="110%" height="140%"><feTurbulence type="turbulence" baseFrequency="0.04" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" xChannelSelector="R" yChannelSelector="G"/></filter>' +
+        '<filter id="carnet-lavis" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.03" numOctaves="4" seed="11" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G" result="d"/><feGaussianBlur in="d" stdDeviation=".6"/></filter>' +
+        '</defs></svg>';
+      document.body.appendChild(d);
+    },
+    circle: function (btn, then) {
+      if (!Notebook.on() || REDUCED || !btn || Notebook.busy) { then(); return; }
+      Notebook.busy = true;
+      var box = btn.parentNode; if (box) Array.prototype.forEach.call(box.querySelectorAll(".choice"), function (b) { b.disabled = true; });
+      var w = btn.offsetWidth || 200, hgt = btn.offsetHeight || 40, rx = w / 2 - 4, ry = hgt / 2 - 2, cx = w / 2, cy = hgt / 2;
+      // an ellipse drawn by hand: it starts low on the left, goes round once and runs past its start
+      var dpath = "M" + (cx - rx * 0.92) + " " + (cy + ry * 0.35) + " C" + (cx - rx * 1.05) + " " + (cy - ry * 1.1) + " " + (cx + rx * 0.5) + " " + (cy - ry * 1.25) + " " + (cx + rx * 0.98) + " " + (cy - ry * 0.3) +
+        " C" + (cx + rx * 1.1) + " " + (cy + ry * 0.9) + " " + (cx - rx * 0.4) + " " + (cy + ry * 1.25) + " " + (cx - rx * 1.0) + " " + (cy + ry * 0.2) + " C" + (cx - rx * 1.04) + " " + (cy - ry * 0.4) + " " + (cx - rx * 0.6) + " " + (cy - ry * 0.95) + " " + (cx - rx * 0.2) + " " + (cy - ry * 1.02);
+      var ns = "http://www.w3.org/2000/svg", svg = document.createElementNS(ns, "svg"), path = document.createElementNS(ns, "path");
+      svg.setAttribute("class", "carnet-cercle"); svg.setAttribute("viewBox", "0 0 " + w + " " + hgt); svg.setAttribute("aria-hidden", "true");
+      path.setAttribute("d", dpath); svg.appendChild(path); btn.appendChild(svg); btn.classList.add("picked");
+      var len = 0; try { len = Math.ceil(path.getTotalLength()); } catch (e) { len = 2 * (w + hgt); }
+      path.style.strokeDasharray = len; path.style.strokeDashoffset = len;
+      void svg.getBoundingClientRect(); path.style.transition = "stroke-dashoffset .42s cubic-bezier(.4,.1,.3,1)"; path.style.strokeDashoffset = "0";
+      setTimeout(function () { Notebook.busy = false; then(); }, 460);
+    }
+  };
   function applyPrefs() {
     var r = document.documentElement, th = pref("theme");
     if (th === "auto") r.removeAttribute("data-theme"); else r.setAttribute("data-theme", th);
@@ -5608,6 +5642,12 @@
     // A skin the reader chose shows everywhere, the library included; the story's own skin shows inside its book.
     var sk = pref("skin"); if (sk === "histoire") sk = st && SKINS[st.skin] ? st.skin : "sobre";
     if (sk === "sobre") r.removeAttribute("data-skin"); else r.setAttribute("data-skin", sk);
+    // The notebook (11.5, Clément 17/11: « plus organique »): paper, trembling edges, pencilled choices, ink; the skins
+    // become its papers. « Classique » keeps the earlier look. The screen is named so the notebook can grow screen by screen.
+    r.setAttribute("data-style", pref("style") === "classique" ? "classique" : "carnet");
+    r.setAttribute("data-screen", A.screen || "");
+    if (pref("choiceHand")) r.removeAttribute("data-hand"); else r.setAttribute("data-hand", "non");
+    Notebook.defs();
     r.style.setProperty("--read-size", (SIZES[pref("size")] || SIZES.m)[1] + "px");
     r.style.setProperty("--read-lh", String((SPACINGS[pref("spacing")] || SPACINGS.normal)[1]));
     r.style.setProperty("--read-font", (FONTS[pref("font")] || FONTS.livre)[1]);
@@ -5681,7 +5721,9 @@
     modalHead(box, "Réglages de lecture" + (A.profile ? " · " + A.profile.name : ""), close);
     var b = h("div", { class: "drawer-body" });
     b.appendChild(buildLine());
-    b.appendChild(seg(SKINS, "skin", "Habillage du livre"));
+    b.appendChild(seg({ carnet: "Carnet", classique: "Classique" }, "style", "Style du livre"));
+    if (pref("style") !== "classique") b.appendChild(prefToggle("choiceHand", "Choix écrits au crayon", "Les choix s'écrivent à la main dans le carnet. Sans cela, ils sont en italique, plus faciles à lire pour les longues phrases."));
+    b.appendChild(seg(SKINS, "skin", pref("style") !== "classique" ? "Papier du carnet" : "Habillage du livre"));
     b.appendChild(seg(SIZES, "size", "Taille du texte"));
     b.appendChild(seg(SPACINGS, "spacing", "Interligne"));
     b.appendChild(seg(FONTS, "font", "Police"));
