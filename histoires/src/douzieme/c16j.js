@@ -68,7 +68,7 @@ Object.assign(P, {
       "Ses yeux viennent à toi, tranquilles : elle voyait venir, c'est pour cela qu'elle avait pris le mur.",
       "Elle décroise les bras. Elle porte la main à son bandeau, et tu lui saisis le poignet. Tu fais non. Tu montres l'air, la Tour, ton oreille. La note est partout ; qui l'entend lui appartient. Elle comprend. Elle laisse la cire.",
       "Alors elle regarde ta bouche. Elle a vendu dix ans sur des foires, sous des tambours, à des gens qui marchandaient sans qu'on s'entende : elle lit les prix sur les lèvres depuis qu'elle a des dents. Tu parles lentement. Tu dis que c'est fait. Que tu es dessous, là-haut, sous la cloche ; que quelqu'un t'a donné de quoi marcher entre deux coups ; que cela ne durera pas.",
-      "Elle parle à son tour. Elle parle trop fort, comme les sourds, et sa voix fait sur le quai un bruit de vaisselle. « TU AS L'AIR D'UN NAVET. » Elle te touche la joue, du dos des doigts. « TU ES FROID{E}. C'EST ÇA, ÊTRE DESSOUS ? »",
+      "Elle parle à son tour. Elle parle trop fort, comme les sourds, et sa voix fait sur le quai un bruit de vaisselle. « TU AS L'AIR D'UN NAVET. » Elle te touche la joue, du dos des doigts. « TU AS LA JOUE FROIDE. C'EST ÇA, ÊTRE DESSOUS ? »",
       "Tu dis que c'est mieux qu'il y a une heure. Elle hoche la tête. Elle regarde le quai, par-dessus ton épaule : le crieur, la marchande de harengs, le chien qui boit. « ILS SONT COMBIEN ? — Quarante mille. — ET DES COMME MOI ? » Tu dis : quelques centaines, en bas, dans les maisons. Elle fait le compte, vite. « ALORS J'AI DE L'OUVRAGE. »",
     ],
     choices: [

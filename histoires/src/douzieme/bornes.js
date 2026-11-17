@@ -72,7 +72,7 @@ Object.assign(P, {
 // ======================================================================== act II: the hour-stones of the royal road
 Object.assign(P, {
   B03: { act: "II", title: "La borne de la vingt-troisième lieue", backName: "la borne de la Ferme", place: "ferme", charniere: true, aparte: true, depot: { put: ["cahier"], take: [] },
-    fx: { catchup: 2, catchupWhy: "Une nuit pareille vaut un apprentissage." },
+    fx: { quest: "I_porte", catchup: 2, catchupWhy: "Une nuit pareille vaut un apprentissage." },
     text: [
       { first: true, if: J, text: "La borne est à vingt toises de la ferme, au bord de la route royale : une pierre taillée, haute comme toi, qui porte sur sa face du midi un cadran de bronze et, gravé dessous, le nombre XXIII. Tu l'as vue cette nuit, grise, moussue, de l'autre côté de soixante ans. Ce matin elle est blonde, ses arêtes sont vives, et une alouette est posée dessus, qui chante." },
       { first: true, if: J, text: "Tout chante, d'ailleurs. Tu n'avais jamais entendu un matin entier : les coqs de trois fermes qui se répondent, une cloche loin vers l'est, puis une autre, plus loin, puis une troisième si lointaine qu'on la devine. Chez toi, à l'est, il n'y a rien à entendre. Ici le pays est plein jusqu'au bord, et personne n'y prend garde." },
@@ -135,7 +135,7 @@ Object.assign(P, {
 Object.assign(P, {
   M05: { act: "II", title: "Midi, à quatre lieues l'un de l'autre", backName: "la borne", charniere: true, aparte: true, depot: { put: ["cahier"], take: ["borne_ferme", "cahier"] },
     text: [
-      { first: true, if: J, text: "Les bâtons ont rempli une demi-page. Ils sont plus serrés que la veille : celui qui écrit prend de l'habitude, ou manque de place. *ON M'A CHERCHÉ{autre:E} TOUTE LA NUIT DANS LES PRÉS AVEC DES LANTERNES. JE SUIS PASSÉ{autre:E}. J'AI QUELQU'UN AVEC MOI, UN GAMIN DE LA BANDE, ROUGET. IL PORTE MON SAC. IL MANGE TOUT.*" },
+      { first: true, if: J, text: "Les bâtons ont rempli une demi-page. Ils sont plus serrés que la veille : celui qui écrit prend de l'habitude, ou manque de place. *ON A BATTU LES PRÉS TOUTE LA NUIT AVEC DES LANTERNES POUR ME TROUVER. J'AI PASSÉ QUAND MÊME. J'AI QUELQU'UN AVEC MOI, UN GAMIN DE LA BANDE, ROUGET. IL PORTE MON SAC. IL MANGE TOUT.*" },
       { first: true, if: J, text: "*JE SUIS DANS TA FERME. ELLE EST VIDE DEPUIS MARS. LE CHAT EST TOUJOURS EN L'AIR.*" },
       { first: true, if: { all: [J, { has: "monde:noyer_sauve" }] }, text: "*IL Y A TROIS NOYERS. AVANT-HIER IL Y EN AVAIT DEUX ET UNE SOUCHE. JE LE SAIS, J'Y ÉTAIS. PERSONNE D'AUTRE NE LE SAIT. C'EST TOI QUI AS FAIT ÇA.* Tu relis cette ligne, le dos contre la pierre chaude. Là-haut, on danse. Tu n'avais pas encore compris, tout à fait, que cela marchait." },
       { first: true, if: { all: [J, { not: { has: "monde:noyer_sauve" } }] }, text: "*LA SOUCHE EST LÀ. ELLE A ÉCRIT DESSUS, PETITE : ICI ÉTAIT LE PLUS GROS.* Tu fermes les yeux. Là-haut, on danse." },
@@ -235,8 +235,8 @@ Object.assign(P, {
     ] },
   B06: { act: "II", title: "Ce que dit le livre, ce matin", backName: "la borne", charniere: true, aparte: true, depot: { put: ["borne_arvoise", "cahier"], take: ["cahier"] },
     text: [
-      { first: true, if: J, text: "Les bâtons sont venus pendant la nuit. Ils tiennent une page entière, et ils sont moins droits que d'habitude. *J'AI PASSÉ LA NUIT À ROQUEBISE. TOUT LE BOURG DORT. IL ÉTAIT MINUIT QUAND C'EST ARRIVÉ, IL Y A DES VEILLEUSES AUX FENÊTRES. JE SUIS ENTRÉ{autre:E} CHEZ MOI. LA PORTE EST BLEUE. MON PÈRE EST À SON TOUR, MA MÈRE DORT, MA SŒUR A CINQ ANS.*" },
-      { first: true, if: { all: [J, { has: "monde:lison_parle" }] }, text: "*JE LUI AI DONNÉ UNE PINCÉE. ELLE M'A PARLÉ. ELLE M'A PRIS{autre:E} POUR QUELQU'UN D'AUTRE. ELLE A DIT DIX PHRASES, JE LES AI TOUTES.*" },
+      { first: true, if: J, text: "Les bâtons sont venus pendant la nuit. Ils tiennent une page entière, et ils sont moins droits que d'habitude. *J'AI PASSÉ LA NUIT À ROQUEBISE. TOUT LE BOURG DORT. IL ÉTAIT MINUIT QUAND C'EST ARRIVÉ, IL Y A DES VEILLEUSES AUX FENÊTRES. J'AI POUSSÉ LA PORTE DE CHEZ MOI. ELLE EST BLEUE. MON PÈRE EST À SON TOUR, MA MÈRE DORT, MA SŒUR A CINQ ANS.*" },
+      { first: true, if: { all: [J, { has: "monde:lison_parle" }] }, text: "*JE LUI AI DONNÉ UNE PINCÉE. ELLE M'A PARLÉ. ELLE A CRU PARLER À QUELQU'UN D'AUTRE. ELLE A DIT DIX PHRASES, JE LES AI TOUTES.*" },
       { first: true, if: { all: [J, { not: { has: "monde:lison_parle" } }] }, text: "*JE L'AI LAISSÉE DORMIR. ELLE M'ARRIVE À LA CEINTURE. JE LA CROYAIS PLUS GRANDE.*" },
       { first: true, if: { all: [J, { has: "monde:lison_parle" }, { has: "monde:chanson" }] }, text: "*ELLE CHANTAIT EN SE RENDORMANT. C'EST L'AIR QUE LA VIEILLE CHANTE À SON ÉTABLI. D'OÙ UNE PETITE DE ROQUEBISE TIENT-ELLE L'AIR DE LA VIEILLE ?* Tu lis la question. Tu sais la réponse, et elle tourne en rond comme l'air lui-même." },
       { first: true, if: { all: [J, { has: "monde:su:cuves_boivent" }] }, text: "*J'AI VU TROIS DES CUVES, À LA VERRERIE. UNE ÉTAIT RESTÉE OUVERTE SIX ANS. ELLE EST PLEINE DE SABLE EN DEDANS. CE VERRE LE BOIT TOUT SEUL.*" },
