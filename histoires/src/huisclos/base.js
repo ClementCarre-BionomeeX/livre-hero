@@ -10,6 +10,7 @@ module.exports = {
   title: "Ce que garde la neige",
   subtitle: "Huis clos · trois nuits dans la maison de ta mère",
   summary: "Il y a huit jours, une lettre de ta mère t'est parvenue à Varenne : « Viens avant la neige. Il faut que je te parle. » Tu n'étais pas revenu{e} aux Lisières depuis douze ans. Tu arrives le soir du lendemain de sa mort, avec la première neige. Derrière toi, la route se ferme. Trois nuits de veillée, six personnes, une maison, et ce que chacun a décidé de taire.",
+  tags: ["drame","huisclos"],
   author: "Claude, pour Clément",
   age: 16,
   adult: { themes: ["Deuil et mort d'un enfant", "Fin de vie choisie", "Culpabilité et secrets de famille", "Emprise et argent dans une famille"] },

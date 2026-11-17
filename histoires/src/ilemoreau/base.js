@@ -8,6 +8,7 @@ module.exports = {
   title: "L'Île du docteur Moreau",
   subtitle: "Un roman à lire · H. G. Wells, 1896",
   summary: "1887, dans le Pacifique. Seul rescapé d'un naufrage, Edward Prendick est recueilli par une goélette qui transporte un puma, des chiens, des lapins, un homme nommé Montgomery et un domestique au visage étrange. On le débarque, contre son gré, sur une petite île volcanique où vit, loin de tout, un savant chassé d'Angleterre : le docteur Moreau. Le roman de Wells en entier, dans une traduction nouvelle, sans choix : on le lit page après page, avec les gens, les lieux et les mots expliqués d'un appui.",
+  tags: ["sf","fantastique"],
   author: "H. G. Wells · traduction de Claude (2026)",
   lecture: true,
   age: 14,

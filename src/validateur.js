@@ -5,6 +5,7 @@
 // quest leaves a tag that a later act or an ending reads (its echo).
 (function (root) {
   var M = typeof module !== "undefined" && module.exports ? require("./moteur.js") : root.Moteur;
+  var B = typeof module !== "undefined" && module.exports ? require("./bibliotheque.js") : root.Bibliotheque;
 
   var COND_KEYS = ["voie", "trouvaille", "trouvailles", "is", "count", "has", "not", "all", "any", "clues", "clue", "mark", "present", "loyal", "met", "gone", "conf", "fear", "relics", "relic",
     "given", "item", "gold", "food", "pv", "clock", "fac", "level", "day", "since", "night", "seen", "arch", "quest", "place", "known", "person", "party",
@@ -134,6 +135,8 @@
       if (!ad || typeof ad !== "object" || !Array.isArray(ad.themes) || !ad.themes.length || ad.themes.some(function (t) { return typeof t !== "string" || !t.trim(); }))
         E("« adult » s'écrit { themes: [\"…\", …] } : la liste, non vide, des thèmes que le lecteur doit connaître avant d'ouvrir le livre.");
     }
+    // Clément, 17/11: the genres the library sorts and filters by (src/bibliotheque.js says which exist).
+    var tg = B.checkTags(story); tg.errors.forEach(E); tg.warnings.forEach(W);
     ["companions", "factions", "relics", "mysteries", "clues"].forEach(function (k) { story[k] = story[k] || {}; });
     story.quests = story.quests || []; story.banter = story.banter || [];
     var P = story.passages, acts = {};

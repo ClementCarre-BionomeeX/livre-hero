@@ -103,6 +103,12 @@ La difficulté (Conteur, Aventurier, Héroïque) se choisit à la création ; le
 
 - `adult: { themes: ["Meurtre et violence", "Manipulation psychologique", …] }` (histoire) : la carte de la bibliothèque porte un grand bandeau « Thème adulte ». « Nouvelle partie » (ou « Jouer à plusieurs ») ouvre d'abord un avertissement qui liste ces thèmes, avec « J'ai compris » pour continuer et un gros bouton rouge « Revenir à la bibliothèque ». Le validateur refuse une liste vide.
 
+## Genres et recherche dans la bibliothèque (17/11, 11.2)
+
+- `tags: ["aventure", "mer", …]` (histoire) : les genres du livre. Genres connus (src/bibliotheque.js) : `fantasy`, `aventure`, `voyage`, `enquete`, `intrigue` (intrigue politique), `drame` (drame intime), `huisclos`, `guerre`, `mer`, `sf`, `fantastique`, `historique`, `nature` (nature et animaux), `ecole`. Le validateur refuse autre chose qu'une liste et signale un genre inconnu (il ne servirait pas aux filtres).
+- Le reste se déduit seul, sans tag : jeu, à cartes (`cartes`) ou à lire (`lecture`) ; seul, à deux ou à plusieurs (`multi`) ; longueur (jeu : passages, moins de 100 court, moins de 1 000 moyen ; roman à lire : mots, moins de 40 000 court, moins de 70 000 moyen) ; public (`adult`) ; auteur (`author`, jusqu'au premier « · » ou « , » : « Claude, pour Clément » donne « Claude »).
+- L'accueil : une ligne (recherche, ordre, Filtres). La recherche tolère les fautes, les accents et les mots collés, et cherche dans le titre, l'auteur, les genres (et leurs synonymes : « policier » trouve l'enquête), le sous-titre et le résumé. Les filtres d'une même sorte s'ajoutent, les sortes se croisent ; chaque valeur montre le nombre de livres qu'elle donnerait. Le filtre « Public » reste sur l'appareil (choix des parents). Sans recherche ni filtre, les livres restent sur leurs rayons ; les romans à lire ont le leur.
+
 ## Portraits des gens, brouillard, chemin, musique (13/11)
 
 - `people.<id>.f` : `true` pour une femme, `false` pour un homme. Sans lui, le moteur devine d'après le titre (Mère, Dame, Sire, Frère…) ou le « elle / il » de la description ; un portrait apparaît alors à côté du nom dans l'onglet Gens.
@@ -506,7 +512,7 @@ Le validateur : cartes, fils, haltes, résolutions et tags qui nomment ce qui ex
 
 Écrire une résolution : un paragraphe par halte (`halte`), un par carte quand la carte précise ce qui arrive (`carte`), des choix tagués `enseigne` pour la manière de s'en tirer, et une issue sans jet. Un fil se relit par des résolutions `resout: { type: [...], fil }` qui ramènent son personnage et le nouent.
 
-### La vie du deck (17/11, 11.1) : tirer, défausser, gagner, perdre
+### La vie du deck (17/11, 11.2) : tirer, défausser, gagner, perdre
 
 | Où | Clé | Sens |
 |---|---|---|

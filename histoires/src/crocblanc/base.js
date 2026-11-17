@@ -8,6 +8,7 @@ module.exports = {
   title: "Croc-Blanc",
   subtitle: "Un roman à lire · Jack London, 1906",
   summary: "Le Grand Nord canadien, à la fin du XIXe siècle. Dans une tanière au bord d'un ruisseau naît un louveteau gris, fils d'une louve et d'un vieux loup borgne. Le Wild le forme d'abord, avec sa loi : manger ou être mangé. Puis viennent les hommes, leurs feux, leurs gourdins, et toutes les façons qu'ils ont de faire un animal. Le roman de London en entier, dans une traduction nouvelle, sans choix : on le lit page après page, avec les gens, les lieux et les mots expliqués d'un appui.",
+  tags: ["nature","aventure"],
   author: "Jack London · traduction de Claude (2026)",
   lecture: true,
   age: 12,

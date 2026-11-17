@@ -9,6 +9,8 @@ module.exports = {
   title: "Le Sceau de Malvoran",
   subtitle: "Un prologue et cinq actes · des Trois-Bornes au glacier de la Fenne",
   summary: "Une lettre de ton ancien maître t'envoie au pied d'une crête où des trolls ont pris un château en ruine. Ce qui t'inquiète n'est pas qu'ils l'aient pris : c'est qu'ils n'en sortent plus. Plus bas, dans la vallée de la Sorbe, l'eau des puits commence à noircir. Quatre cents ans plus tôt, cinq héros ont enchaîné un monstre sous le glacier. On t'a toujours raconté qu'ils étaient cinq.",
+  author: "Claude, pour Clément",
+  tags: ["fantasy","aventure","guerre","voyage"],
   adult: { themes: ["Guerre et civils pris entre deux armées", "Deuil, mort d'enfants", "Fanatisme et manipulation", "Corruption politique", "Culpabilité et rachat"] },
   skin: "enluminure",
   glossary: glossary,

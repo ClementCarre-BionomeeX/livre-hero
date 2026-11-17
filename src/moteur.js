@@ -3493,7 +3493,7 @@
     return true;
   }
 
-  // ------------------------------------------------------------------ the life of the deck (9.8)
+  // ------------------------------------------------------------------ the life of the deck (11.2)
   // Intent: the deck lives with the story. Why: Clément, 17/11 — draw, discard, gain and lose cards, before the draft.
   //   fx.pioche: n          the reader draws n cards now (a refuge, a lucky find)
   //   fx.gagne: id | [ids] | { carte, dans: main | pioche | defausse }   a card joins the reader's deck (the hand by default)

@@ -9,6 +9,7 @@ module.exports = {
   title: "La Traversée de la Sterne",
   subtitle: "En mer · onze jours de Port-Aubier à Marbecq",
   summary: "La Sterne, trois-mâts de la maison Corbière, appareille ce soir pour Marbecq, aux Îles Blanches, avec trente hommes d'équipage, un jeune passager et une cale pleine. Il manque à bord un subrécargue, l'homme de l'armateur qui répond de la cargaison et du coffre. Ce matin, Maître Corbière te fait appeler.",
+  tags: ["mer","aventure","voyage"],
   author: "Claude, pour Clément",
   age: 12,
   skin: "parchemin",

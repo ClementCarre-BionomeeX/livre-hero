@@ -7,6 +7,8 @@ module.exports = {
   title: "L'Écu de Vellane",
   subtitle: "À deux · deux pages, un chevalier, une montagne qui dort",
   summary: "Vous êtes les deux pages de Messire Aubert de Vellane, et vous ne vous supportez pas. À la Saint-Michel, il choisira l'un de vous pour écuyer. Ce matin, son cousin Gauvard arrive au château, et sous le Mont-Veille quelque chose de très ancien dort encore.",
+  author: "Claude, pour Clément",
+  tags: ["fantasy","aventure"],
   skin: "enluminure",
   cover: { motif: "ecu", color: "#5b2a2a" },
   glossary: require("../glossaire.js"), // rare words explained on a tap (Clément, 12/11)

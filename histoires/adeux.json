@@ -3,6 +3,11 @@
  "title": "Le Pli de Brumefond",
  "subtitle": "À deux · un pli scellé, un col en hiver, deux voyageurs qui se taisent",
  "summary": "La duchesse de Vérenne a répondu à l'offre de paix des Ligues du lac. Sa réponse doit être lue devant l'Assemblée de Brumefond avant le vote de la nouvelle lune, dans cinq jours, de l'autre côté des Dents de Sorgue. Deux personnes partent avec elle : l'une porte le pli, l'autre connaît la route. Chacune a ses raisons, et les garde pour elle.",
+ "tags": [
+  "aventure",
+  "voyage",
+  "intrigue"
+ ],
  "author": "Claude, pour Clément",
  "age": 12,
  "skin": "parchemin",
