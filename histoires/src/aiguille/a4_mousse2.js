@@ -43,6 +43,7 @@ module.exports = {
         { label: "Aller seul{e} au bois des arbres morts, à l'est", to: "XY_perroquets", hide: { seen: "XY_perroquets" }, if: { count: JOURS, min: 1 }, why: "Le vieil homme ne t'en a encore rien dit." },
         { label: "Écouter le vieil homme parler d'une cloche", to: "XU_debut", hide: { seen: "XU_debut" }, if: { count: JOURS, min: 1 }, why: "Il n'a encore rien dit d'une cloche." },
         { label: "Un matin de pluie, regarder les poteaux de la hutte", to: "YL_poteaux", hide: { seen: "YL_poteaux" }, if: { count: JOURS, min: 1 }, why: "Il fait encore trop beau pour rester dedans." },
+        { label: "Descendre seul{e} remplir les calebasses, un matin où le vieil homme est parti", to: "VO_ravin", hide: { seen: "VO_ravin" }, if: { count: JOURS, min: 1 }, why: "Le vieil homme ne te laisse pas encore seul{e}." },
         { label: "Partir rejoindre les tiens", to: "A4n_fin", big: true, if: { count: JOURS, min: 3 }, why: "Tu n'as pas encore assez vu cette île pour la quitter, ou lui." },
       ] },
 

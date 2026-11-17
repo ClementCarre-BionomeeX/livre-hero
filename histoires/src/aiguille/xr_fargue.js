@@ -19,6 +19,10 @@ module.exports = {
         { label: "Aller chercher le biscuit de mer au fournil de la Tour-aux-Rats", to: "WG_four", hide: { seen: "WG_four" } },
         { label: "Faire certifier le bœuf salé au bureau des vivres de l'Amirauté", to: "WT_commis", hide: { seen: "WT_commis" } },
         { label: "Recevoir le roulier qui attend depuis l'aube devant le bureau d'enrôlement", to: "VH_roulier", hide: { seen: "VH_roulier" } },
+        { label: "Monter à l'hôtel Clavières sous la pluie, dans le premier fiacre de la file", to: "VP_pluie", hide: { seen: "VP_pluie" } },
+        { label: "Pousser la porte vitrée du bureau des Rôles, où un commis rose attend", to: "VS_bureau", hide: { seen: "VS_bureau" } },
+        { label: "Acheter quarante livres de chandelles chez la veuve Jézéquel, au fond d'une ruelle", to: "VV_boutique", hide: { seen: "VV_boutique" } },
+        { label: "Monter l'échelle du grenier, au-dessus de la voilerie, chercher le portrait de Lisette", to: "UJ_atelier", hide: { seen: "UJ_atelier" } },
         { label: "Passer à la Truie-qui-file, où quelqu'un t'attend", to: "A2f_sabran", big: true },
       ] },
 

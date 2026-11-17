@@ -45,6 +45,9 @@ module.exports = {
         { label: "Huit heures : le baron monte sur le mur, en robe de chambre", to: "ZY_premier", hide: { any: [{ seen: "ZY_premier" }, { has: "xs:baron_mort" }] }, if: { count: JOURS, min: 1 }, why: "Le baron n'est pas encore sorti du chœur." },
         { label: "Un gabier recroquevillé derrière le chevet, à l'aube", to: "WA_flux", hide: { seen: "WA_flux" }, if: { count: JOURS, min: 2 }, why: "L'eau de la source est encore propre." },
         { label: "À deux heures du matin, une alerte, et le porche qui saute", to: "WS_poudre", hide: { seen: "WS_poudre" }, if: { count: JOURS, min: 1 }, why: "Le siège n'a pas encore commencé pour de bon." },
+        { label: "À l'aube, deux vieux qui pêchent sur les rochers, au pied de l'éperon", to: "VR_aube", hide: { seen: "VR_aube" }, if: { count: JOURS, min: 1 }, why: "Elle n'a encore rien dit, au feu, de ce qui sauverait ses blessés." },
+        { label: "Un soir, un gabier verse son vin sur la dalle de la crypte", to: "VT_souper", hide: { any: [{ seen: "VT_souper" }, { not: { seen: "XY_crypte" } }] }, if: { count: JOURS, min: 2 }, why: "Personne n'a encore le cœur à rire, au chœur." },
+        { label: "Compter, le soir, les têtes alignées sur le mur, autour d'un fumeur de pipe", to: "UH_mur", hide: { seen: "UH_mur" }, if: { count: JOURS, min: 1 }, why: "Les mutins ne tirent pas encore le soir." },
         { label: "Un drapeau blanc sur le sentier", to: "A4w_parlement", big: true, if: { count: JOURS, min: 2 }, why: "Les mutins ne se sont pas encore montrés." },
       ] },
 

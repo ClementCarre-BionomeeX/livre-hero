@@ -33,6 +33,8 @@ module.exports = {
         { label: "Écouter Malandain, qui parle de l'enfant", to: "A4f_malandain", hide: { seen: "A4f_malandain" } },
         { label: "Partir seul, au crépuscule, sur les traces dans la forêt", to: "A4f_traces", hide: { seen: "A4f_traces" }, if: { count: JOURS, min: 1 }, why: "Il faut d'abord tenir le camp." },
         { label: "Creuser un four dans le sable, et cuisiner pour tous", to: "XY_festin", hide: { seen: "XY_festin" }, if: { count: JOURS, min: 1 }, why: "Il reste encore du rhum pour les tenir." },
+        { label: "Compter l'argent qu'on a tamisé dans le sable, toute la nuit, à la lanterne", to: "UC_ressac", hide: { seen: "UC_ressac" } },
+        { label: "Aller voir le vieux qu'on a attaché au poteau, près du feu", to: "UO_poteau", hide: { seen: "UO_poteau" }, if: { count: JOURS, min: 1 }, why: "Le camp n'a encore pris personne." },
         { label: "Prendre une pelle, et aller au bout de la plage", to: "XY_tombe", hide: { seen: "XY_tombe" } },
         { label: "Fumer seul, la nuit, au bout de la plage", to: "XY_gabet", hide: { any: [{ seen: "XY_gabet" }, { not: { seen: "XY_tombe" } }] } },
         { label: "Écrire à Lisette, au bord du feu, une lettre qu'aucun navire ne portera", to: "YK_lettre", hide: { seen: "YK_lettre" }, if: { count: JOURS, min: 1 }, why: "La première nuit, il ne pense qu'aux hommes." },
