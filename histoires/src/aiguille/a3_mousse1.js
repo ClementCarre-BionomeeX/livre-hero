@@ -30,6 +30,10 @@ module.exports = {
         { label: "Chercher qui vole le biscuit dans l'entrepont", to: "XI_debut", hide: { seen: "XI_debut" } },
         { label: "Aider le professeur à remonter ses filets", to: "A3m_gaudremont", hide: { seen: "A3m_gaudremont" } },
         { label: "Écouter Petit-Jules, la nuit, dans les hamacs", to: "A3m_jules", hide: { seen: "A3m_jules" } },
+        { label: "Le sixième jour, passer le Tropique", to: "XV_bapteme", hide: { seen: "XV_bapteme" }, if: { count: JOURS, min: 2 }, why: "Le Tropique est encore au sud." },
+        { label: "Tenir la chaîne avec Lagadec, pour le requin qui suit", to: "XV_requin", hide: { seen: "XV_requin" } },
+        { label: "Jeter le loch avec Gobert", to: "XV_loch", hide: { seen: "XV_loch" } },
+        { label: "Descendre dans l'entrepont, où l'on joue aux dés", to: "XV_rixe", hide: { seen: "XV_rixe" }, if: { count: JOURS, min: 1 }, why: "Personne ne joue encore aux dés." },
         { label: "La dixième nuit", to: "A3m_grain", big: true, if: { count: JOURS, min: 4 }, why: "Brisegrève est encore loin." },
       ] },
 

@@ -33,6 +33,8 @@ module.exports = {
         { label: "Monter au clocher avec la capitaine et Benoît", to: "A4w_capitaine", hide: { seen: "A4w_capitaine" } },
         { label: "Ramasser la flèche plantée dans la porte, à l'aube", to: "XS_debut", hide: { seen: "XS_debut" }, if: { count: JOURS, min: 1 }, why: "Il n'y a pas encore de flèche dans la porte." },
         { label: "Descendre à la sacristie, où Ombeline reçoit un blessé", to: "XF_o_chapelle", hide: { any: [{ seen: "XF_o_chapelle" }, { not: { has: "ombeline:abord" } }] }, if: { count: JOURS, min: 1 }, why: "Le siège n'a pas encore fait de blessé." },
+        { label: "Frapper du talon la dalle qui sonne creux, sous le chœur", to: "XY_crypte", hide: { seen: "XY_crypte" }, if: { count: JOURS, min: 1 }, why: "Elle n'a pas encore eu le temps de regarder le sol." },
+        { label: "Descendre à la source, la nuit, avec deux seaux", to: "XY_source", hide: { seen: "XY_source" } },
         { label: "Un drapeau blanc sur le sentier", to: "A4w_parlement", big: true, if: { count: JOURS, min: 2 }, why: "Les mutins ne se sont pas encore montrés." },
       ] },
 

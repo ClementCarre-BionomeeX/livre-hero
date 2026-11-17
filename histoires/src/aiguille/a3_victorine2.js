@@ -25,6 +25,7 @@ module.exports = {
         { label: "Parler au pilote", to: "A3w_brousse", hide: { any: [{ seen: "A3w_brousse" }, { not: { has: "brousse:abord" } }] } },
         { label: "Recevoir le maître-coq, qui apporte un bouillon", to: "A3w_fargue", hide: { seen: "A3w_fargue" } },
         { label: "Surveiller son aide-chirurgien, la nuit", to: "XJ_bord", hide: { any: [{ seen: "XJ_bord" }, { not: { has: "vauclair:engage" } }] } },
+        { label: "Examiner le rat mort qu'on apporte de la cambuse", to: "XV_rats", hide: { seen: "XV_rats" }, if: { count: JOURS, min: 1 }, why: "Les rats restent encore dans la cale." },
         { label: "L'Écueil-Rouge en vue", to: "A3w_ecueil", big: true, hide: { seen: "A3w_ecueil" }, if: { count: JOURS, min: 2 }, why: "Le navire n'a pas encore assez avancé." },
         { label: "L'îlot en vue", to: "A3w_ilot", big: true, if: { all: [{ seen: "A3w_ecueil" }, { count: JOURS, min: 4 }] }, why: "L'îlot est encore loin dans les herbes." },
       ] },

@@ -37,6 +37,8 @@ module.exports = {
         { label: "Monter sur la dunette, la nuit, où veille le second", to: "A3v_benoit", hide: { seen: "A3v_benoit" } },
         { label: "Frapper à la cabine du professeur", to: "A3v_gaudremont", hide: { seen: "A3v_gaudremont" } },
         { label: "Surveiller son aide-chirurgien, la nuit", to: "XJ_bord", hide: { any: [{ seen: "XJ_bord" }, { not: { has: "vauclair:engage" } }] } },
+        { label: "Courir au pied du grand mât, où un homme est tombé", to: "XV_chute", hide: { seen: "XV_chute" }, if: { count: JOURS, min: 1 }, why: "Personne n'est encore tombé." },
+        { label: "Frapper à la cabine de la capitaine, qui ne paraît plus au dîner", to: "XV_ribaud", hide: { seen: "XV_ribaud" }, if: { count: JOURS, min: 2 }, why: "La capitaine dîne encore avec ses passagers." },
         { label: "La dixième nuit", to: "A3v_grain", big: true, if: { count: JOURS, min: 4 }, why: "Brisegrève est encore loin." },
       ] },
 

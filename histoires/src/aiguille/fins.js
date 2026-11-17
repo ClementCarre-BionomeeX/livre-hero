@@ -105,6 +105,8 @@ module.exports = {
       { if: { has: "livre=echevins" }, text: "Le livre de la Maraude, cousu dans une trousse de médecin, sort de sa doublure le troisième jour, et confirme chaque mot du vieil homme. C'est le seul témoin qu'il ait jamais trouvé fidèle." },
       { if: { has: "livre=baron" }, text: "Le livre de la Maraude a brûlé dans une cheminée de la Haute-Ville. Il n'en a pas besoin. Il l'a écrit ; il le sait par cœur." },
       "On le pend à la Croix-des-Marées un matin d'avril, devant une foule énorme, qui est venue voir mourir le dernier pirate du Couchant. Il monte à l'échelle sans aide. Il regarde la ville, le port, le théâtre, le quai des Hollandes, les maisons des sept familles. Il dit, assez fort pour qu'on l'entende jusqu'à la cathédrale : « Je voulais justement la revoir. »",
+      { if: { has: "morlenc:pendu" }, text: "{joueur} est là, dans la foule, et a déjà vu tourner un pendu à cette croix, un matin de beau temps, avant le départ. Cette fois encore, {joueur} regarde jusqu'au bout. Ce n'est pas plus simple." },
+      { if: { has: "morlenc:pendu_detourne" }, text: "{joueur} est là, dans la foule, le dos à la potence, et regarde les visages, comme la première fois. Ils ont la même faim. Quelques-uns, cette fois, détournent les yeux aussi." },
       "Puis on le pend, et la foule rentre chez elle, déçue, comme toujours, que ce soit si court.",
       { if: { has: "dagrel:briquet" }, text: "Ce matin-là, {joueur} reste au port, assis{e} sur une borne, à faire tourner dans ses doigts un briquet d'acier, jusqu'à ce que la cloche de la cathédrale sonne la fin." },
     ]),

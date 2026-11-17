@@ -55,8 +55,8 @@ module.exports = {
         "La meute se tait. Toi aussi. Tout le monde attend.",
       ],
       choices: [
-        { label: "Attendre ce qu'il va faire", hide: { not: { count: GESTES, min: 3 } }, fx: { flag: ["chien:epargne", "chien:meute"] }, to: "XC_i_epargne" },
-        { label: "Attendre ce qu'il va faire", hide: { count: GESTES, min: 3 }, fx: { flag: ["chien:tue_chef", "chien:meute"] }, to: "XC_i_tue" },
+        { label: "Attendre ce qu'il va faire", hide: { not: { count: GESTES, min: 4 } }, fx: { flag: ["chien:epargne", "chien:meute"] }, to: "XC_i_epargne" },
+        { label: "Attendre ce qu'il va faire", hide: { count: GESTES, min: 4 }, fx: { flag: ["chien:tue_chef", "chien:meute"] }, to: "XC_i_tue" },
       ] },
     XC_i_epargne: { act: "IV", title: "La gorge offerte", place: "sylve", ambiance: "nature",
       text: [
