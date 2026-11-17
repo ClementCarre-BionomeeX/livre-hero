@@ -172,7 +172,7 @@ module.exports = {
         "La fosse a vingt pieds de profondeur. On l'a creusée dans le roc, maçonnée, puis remplie de terre battue, couche par couche, autour d'une chose qu'on ne voit plus : le moule, enterré debout comme ces guerriers qu'on mettait en terre avec leur cheval. Il n'en dépasse, au centre, qu'une bouche de glaise cuite, large comme un tonneau, noircie par le feu, où viendra se jeter la maîtresse rigole, et autour d'elle quatre trous plus petits, les évents, par où l'air s'enfuira quand le bronze prendra sa place.",
         "C'est tout. Quatre mois d'ouvrage, et il reste un trou dans de la terre. La cloche est là-dessous, à l'état de vide : une absence de cloche, exacte, qui a déjà sa lèvre, ses anses, ses lettres en creux, et qui attend sa matière.",
         "Tu restes plus longtemps que tu ne l'aurais cru. Il y a une espèce de vertige à regarder une chose qui n'existe pas encore et dont la forme est arrêtée.",
-        "Au bord opposé, une échelle descend au fond, où deux compagnons du saintier damment la terre avec des pilons, en cadence, sans un mot.",
+        "Au bord opposé, une échelle descend au fond, où deux compagnons du saintier damment la terre avec des pilons, en cadence, bouche close.",
       ],
       choices: [
         { label: "Descendre l'échelle, pour voir le fond", to: "A2m_fosse_bas",

@@ -379,7 +379,7 @@ module.exports = {
         "L'eau commence à la septième marche. Elle est d'une transparence de verre, sans une ride, sans un insecte, et si froide que tu la sens monter le long de tes os avant d'y avoir mis le pied. Dessous, tu vois les trois dernières marches, puis le sol d'une galerie, blanc, net, qui s'en va en pente douce sous une voûte de plus en plus basse.",
         "À vingt pas, la voûte touche l'eau. Au-delà, tu ne vois plus que ta propre lueur, qui te regarde d'en bas.",
         { if: { has: "a3:m_cubitus" }, text: "Le temps d'un *De profundis*, a dit le vieux, et de le dire vite. Il avait vingt ans, et il l'a fait pour une gageure." },
-        { if: { not: "a3:m_cubitus" }, text: "Tu ne sais pas ce qu'il y a derrière : une salle, un cul-de-sac, ou cent pas de roche. Tu sais seulement que le chant vient de par là, et que l'eau, à la surface, a un frisson très léger, comme si elle respirait de l'autre côté." },
+        { if: { not: "a3:m_cubitus" }, text: "Tu ignores ce qu'il y a derrière : une salle, un cul-de-sac, ou cent pas de roche. Tu sais seulement que le chant vient de par là, et que l'eau, à la surface, a un frisson très léger, comme si elle respirait de l'autre côté." },
         "Tu ôtes ce qui pèse. Tu roules ton papier et ta mine de plomb dans ta toile cirée, serrés, contre ta peau. Ta lumière ne te suivra pas.",
       ],
       choices: [

@@ -139,6 +139,7 @@ module.exports = {
     XF_m_fin: { act: "III", title: "L'îlot", place: "ilot", ambiance: "nature",
       text: [
         "L'îlot s'efface derrière la poupe, vert et frais au milieu des herbes jaunes, avec sa maison blanche à mi-pente, qui a l'air, de loin, d'une maison où l'on serait heureux.",
+        { if: { has: "ilot:huit" }, text: "Tu penses à la fosse fraîche, derrière la maison, avec sa planchette déjà peinte. Huit. Tu ne sauras jamais qui elle attendait. Tu sais seulement que tu ne voulais pas que ce soit Sept." },
       ],
       choices: [{ back: "A3n_ilot" }] },
 
@@ -215,6 +216,8 @@ module.exports = {
       choices: [{ label: "Lever l'ancre", to: "XF_v_fin" }] },
     XF_v_fin: { act: "III", title: "L'îlot", place: "ilot", ambiance: "nature",
       text: [
+        { if: { has: "ilot:tortues" }, text: "Dans la cale, cinq tortues sur le dos battent lentement des nageoires dans le noir, en soupirant. Le cuisinier les regarde avec tendresse, comme un boucher." },
+        { if: { has: "ilot:liste" }, text: "Victorine pense à une liste de cent noms, à la dernière page d'un registre, avec des traits tirés à la règle. Elle se promet de ne jamais en parler à personne. Elle se promet aussi, sans se l'avouer, de vérifier les dates, en rentrant." },
         { if: { has: "xf:remedes" }, text: "Dans l'infirmerie, la caisse de fioles brunes est rangée sous le hamac des malades. Victorine ne la regarde pas. Elle sait qu'elle s'en servira." },
         "L'îlot s'efface derrière la poupe, vert et frais au milieu des herbes jaunes, avec sa maison blanche à mi-pente, qui a l'air, de loin, d'une maison où l'on serait heureux.",
       ],

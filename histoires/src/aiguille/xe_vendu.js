@@ -66,7 +66,10 @@ module.exports = {
         "Le Fructueux reste à quai, tous feux éteints, comme un navire qui dort. Dans sa cale, un garçon dort aussi, d'un autre sommeil. Il se réveillera en mer, avec un papier signé de sa main qu'il n'a jamais écrit, et sept ans de sa vie vendus.",
         { if: { has: "florian:nom" }, text: "Florian d'Escalis. Tu répètes ce nom à voix basse en remontant vers le Cormoran, pour ne pas l'oublier, comme on garde un caillou dans sa poche." },
       ],
-      choices: [{ label: "Rentrer au Cormoran", to: "A2mv_nuit" }] },
+      choices: [
+        { label: "Rentrer au Cormoran", to: "A2mv_nuit" },
+        { label: "Monter à la Haute-Ville, chez les d'Escalis", hide: { not: { has: "florian:nom" } }, to: "XE_o_rue" },
+      ] },
   },
   extras: {
     people: {

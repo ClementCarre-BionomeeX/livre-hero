@@ -47,7 +47,7 @@ module.exports = {
     A4m_croch_maillons: { act: "IV", title: "Trempé à l'huile", place: "tour_horloge", ambiance: "chateau",
       fx: { flag: "monde:a4:scie", ep: ["perso", 800], conf: { crochemore: 10 } },
       text: [
-        "Il prend les maillons sans un mot. Il en serre un dans son étau, tire sa loupe, le raye d'une pointe, écoute le bruit que cela fait.",
+        "Il prend les maillons. Il en serre un dans son étau, tire sa loupe, le raye d'une pointe, écoute le bruit que cela fait.",
         "« Huile. » Il a l'air d'un médecin qui a trouvé la maladie qu'il préférait. « Trempé à l'huile, revenu au gorge-de-pigeon, par un homme qui connaissait son feu. C'est de l'ouvrage d'Aiguemorne. On ne coupe pas cela avec des cisailles ; on le casserait plutôt à froid, d'un coup de masse, sur une enclume, et il faudrait que le comte y prêtât sa tête. »",
         "Il a déjà choisi un ressort. Il le passe à la flamme de sa lanterne, le regarde virer au jaune paille, au brun, au bleu, et le trempe dans sa fiole.",
         "« Trente-cinq passes, à l'huile de pied de bœuf, en tirant et sans pousser. Vous compterez. Le bruit est celui d'un grillon : dans une salle où l'on joue, personne ne l'entend ; dans une chambre où l'on dort, c'est selon le dormeur. » Il essaie la lame sur le second maillon. Elle y entre. Il compte à mi-voix, et à trente-quatre le maillon s'ouvre comme une bouche.",
@@ -85,7 +85,7 @@ module.exports = {
     A4m_cloison_ko: { act: "IV", title: "Du bois qui a travaillé", place: "tour_horloge", ambiance: "chateau",
       text: [
         "Le tourniquet tourne. Les planches, elles, ont gonflé en onze hivers, et tiennent dans leur cadre comme un tiroir de sacristie. Tu pousses de l'épaule ; la sellette recule d'autant, et c'est toi qui t'en vas. Tu t'arc-boutes des pieds contre la muraille d'en face : le bois gémit, cède d'un pouce, et s'arrête sur quelque chose de dur. On a mis un meuble devant.",
-        "Tu t'es ouvert la paume sur un clou. Tu remontes à la force des bras, en laissant sur la corde une marque que Maître Crochemore regarde sans rien dire.",
+        "Tu t'es ouvert la paume sur un clou. Tu remontes à la force des bras, en laissant sur la corde une marque que Maître Crochemore regarde en silence.",
         "« Un pouce », dit-il enfin. « Dans mon métier, un pouce de jeu, c'est une porte. Il faudra seulement que quelqu'un, de l'autre côté, ôte ce qu'il y a devant. »",
       ],
       choices: [{ back: "A4m_jour" }] },

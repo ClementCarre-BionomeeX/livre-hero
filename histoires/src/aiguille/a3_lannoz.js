@@ -23,7 +23,13 @@ module.exports = {
       ],
       choices: [
         { label: "Aller au ruisseau avec la corvée d'eau", to: "XE_m_debut", hide: { seen: "XE_m_debut" } },
+        { label: "Descendre voir Sept, dans la cale", to: "XF_s_cale", hide: { any: [{ seen: "XF_s_cale" }, { not: { present: "sept" } }] } },
+        { label: "Emmener Sept sur la lande, à l'aube", to: "XF_s_lande", hide: { any: [{ seen: "XF_s_lande" }, { not: { present: "sept" } }] } },
         { label: "Descendre au village de pierres sèches", to: "A3o_village", hide: { seen: "A3o_village" } },
+        { label: "Monter vers les moutons noirs, sur la lande", to: "XQ_l_bergere", hide: { seen: "XQ_l_bergere" } },
+        { label: "Aller à la veillée, le soir, au village", to: "XQ_l_veillee", hide: { seen: "XQ_l_veillee" }, if: { seen: "A3o_village" }, why: "Personne au village ne t'a encore dit qu'il y avait une veillée." },
+        { label: "Aider les tourbiers, à l'est", to: "XQ_l_tourbe", hide: { seen: "XQ_l_tourbe" } },
+        { label: "Grimper jusqu'au cairn de la colline", to: "XQ_l_cairn", hide: { any: [{ seen: "XQ_l_cairn" }, { seen: "XE_m_debut" }] } },
         { label: "Déchiffrer la page de signes, à l'abri d'un muret", to: "XK_dechiffre", hide: { any: [{ not: { has: "xk:copie" } }, { has: "enigme:xk_chiffre" }] } },
       ] },
     A3o_village: { act: "III", title: "Le village", place: "lannoz", ambiance: "village",
@@ -99,7 +105,11 @@ module.exports = {
       ],
       choices: [
         { label: "Recevoir le capitaine du brick jaune, qui monte à bord", to: "XE_v_debut", hide: { seen: "XE_v_debut" } },
+        { label: "Veiller avec Ombeline, la nuit, à l'infirmerie", to: "XF_o_recit", hide: { any: [{ seen: "XF_o_recit" }, { not: { has: "ombeline:abord" } }] } },
         { label: "Cueillir sur les falaises l'herbe qui sent la moutarde", to: "A3x_herbe", hide: { seen: "A3x_herbe" } },
+        { label: "Suivre le garçon qui crie « médecin » sur la grève", to: "XQ_l_couches", hide: { seen: "XQ_l_couches" } },
+        { label: "Rendre visite au recteur, au milieu de ses ruches", to: "XQ_l_recteur", hide: { seen: "XQ_l_recteur" } },
+        { label: "Marcher sur la lande avec Benoît Quémeneur", to: "XQ_l_benoit", hide: { any: [{ seen: "XQ_l_benoit" }, { has: "benoit:parti" }] } },
       ] },
     A3x_herbe: { act: "III", title: "L'herbe aux dents", place: "lannoz", ambiance: "nature",
       text: [

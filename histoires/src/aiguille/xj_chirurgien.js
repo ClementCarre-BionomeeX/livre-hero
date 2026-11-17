@@ -33,6 +33,7 @@ module.exports = {
       choices: [
         { label: "L'engager", fx: { recrue: "vauclair", flag: "vauclair:engage", regard: { vauclair: "redevable" } }, to: "XJ_engage" },
         { label: "Lui dire de revenir demain, et le suivre ce soir", to: "XJ_nuit" },
+        { label: "Lui dire de revenir dans deux jours, et se renseigner sur lui", to: "XJ_enquete" },
         { label: "Refuser", refuse: true, to: "XJ_refuse" },
       ] },
     XJ_nuit: { act: "II", title: "La nuit de la Basse-Fosse", place: "basse_fosse", ambiance: "nuit", takes: "night",

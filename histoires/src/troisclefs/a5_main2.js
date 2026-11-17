@@ -59,7 +59,7 @@ module.exports = {
       text: [
         "Tu le lui dis sans phrases, comme on fait un rapport à un ancien : il y a une femme, elle écrit, on veut la remplacer par une mécanique et murer son pain. Trois personnes viendront ce soir avec trois clefs.",
         { if: { has: "monde:a5:cahier" }, text: "Tu poses devant lui le cahier de graissage, ouvert à la dernière page. Il lit lentement, en suivant du doigt. À *on ne laisse pas faire cela à quelqu'un que l'on a soigné si longtemps*, le doigt s'arrête, et il se frotte l'œil avec le dos de la main, rudement, comme on chasse une mouche." },
-        "Il reste longtemps sans rien dire. En bas, le balancier soupire.",
+        "Il reste longtemps silencieux. En bas, le balancier soupire.",
         "« Un soldat, dit-il enfin, ça obéit. On m'a appris ça à seize ans, à coups de plat de sabre, et je l'ai su toute ma vie. Seulement on m'a appris autre chose, plus tard, sur une brèche : la consigne, c'est pour quand l'officier n'est pas là. Quand il n'y a plus d'officier du tout, on regarde ce qu'on gardait, et on se demande pour qui. »",
         "Il se lève. Sa jambe de bois sonne sur le plancher.",
         "« *Ne laisser entrer personne.* Je croyais garder la porte contre les gens du dehors. Je la gardais contre celle du dedans. Vingt ans de faction devant une prison, et personne ne m'avait prévenu que j'étais geôlier. » Il crache, proprement, dans un coin. « Ils me commandent de sonner aux trois quarts. Je sonnerai. Trois coups, comme c'est écrit : vous saurez par là qu'ils sont au pied de la vis, et vous aurez cent quatre-vingts marches pour vous retourner. Avant cela, il peut passer devant ma table qui voudra. Je ferai ma réussite. J'ai remarqué qu'elle m'absorbe beaucoup. »",
@@ -76,7 +76,7 @@ module.exports = {
         "Maître Crochemore est plus près que toi. Il fait une chose dont tu ne l'aurais pas cru capable : il pose deux doigts sur le pavillon de la trompe, doucement, comme on pose la main sur l'épaule d'un homme qui va dire une sottise.",
         "« Mon ami, ne sonnez pas. Vous sonnerez tout à l'heure, quand on vous l'a écrit. Si vous sonnez à midi, vous aurez désobéi quand même, et pour rien. »",
         "Le vieux baisse la trompe. Il est gris.",
-        "Il faut donc l'empêcher autrement, et vous le faites à deux, avec tous les ménagements qu'on peut mettre à ces choses : les mains liées devant, sans serrer, avec la ficelle du Remonteur ; la trompe ôtée, pendue à un clou, hors de sa portée ; sa jambe allongée sur le tabouret, sa chandelle mouchée, ses cartes à sa main. Il se laisse faire sans un mot, la tête droite.",
+        "Il faut donc l'empêcher autrement, et vous le faites à deux, avec tous les ménagements qu'on peut mettre à ces choses : les mains liées devant, sans serrer, avec la ficelle du Remonteur ; la trompe ôtée, pendue à un clou, hors de sa portée ; sa jambe allongée sur le tabouret, sa chandelle mouchée, ses cartes à sa main. Il se laisse faire, la tête droite.",
         "« Vous me rendrez ce service, dit-il seulement quand c'est fini. Vous direz que j'ai résisté. »",
       ],
       fx: { flag: "monde:a5:hilaire_lie" },
@@ -368,7 +368,7 @@ module.exports = {
       text: [
         "Tu refermes les deux portes de chêne ciré. Elles ont un petit loquet de laiton, qui claque.",
         "Le meuble est là, dans son angle, intact, avec ses douze cents lignes, son nom à la quarante et unième, et sa dernière phrase. Il attend minuit moins cinq et une main sur une boule d'ivoire.",
-        "Maître Crochemore ne dit rien. Il te regarde seulement, par-dessus ses verres, un peu plus longtemps qu'il ne faut ; puis il retourne à sa trousse.",
+        "Maître Crochemore te regarde seulement, par-dessus ses verres, un peu plus longtemps qu'il ne faut ; puis il retourne à sa trousse.",
       ],
       choices: [{ back: "A5m_apres" }] },
 

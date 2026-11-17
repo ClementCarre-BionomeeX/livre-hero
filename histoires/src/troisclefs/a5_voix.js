@@ -189,7 +189,7 @@ module.exports = {
 
     A5v_flo_ok: { act: "V", title: "Un capuchon", place: "ville_haute", ambiance: "chateau",
       text: [
-        "Tu ne dis rien. Tu ne baisses pas les yeux non plus. Tu restes où tu es, le rôle dans les bras, avec la patience de quelqu'un qui n'est personne et que toute une ville attend.",
+        "Tu te tais. Tu gardes les yeux levés. Tu restes où tu es, le rôle dans les bras, avec la patience de quelqu'un qui n'est personne et que toute une ville attend.",
         "Maître Florimond est un homme d'usages. Il en a servi toute sa vie ; il sait qu'il y en a de plus forts que lui. Il s'incline, de la nuque seulement, et il s'efface.",
         "« Si la Voix veut bien me suivre. »",
         "Dans le corridor, pourtant, il se retourne à demi. « Je me serai trompé. À mon âge, toutes les figures finissent par en rappeler une autre. » Il n'en pense pas un mot, et il tient à ce que tu le saches.",

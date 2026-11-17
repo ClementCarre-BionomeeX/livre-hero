@@ -64,7 +64,11 @@ module.exports = {
         "L'orchestre reprend. On danse de nouveau, plus vite, plus fort, pour oublier, et l'on parle de l'incident derrière les éventails jusqu'au matin. Benoît Quémeneur emmène sa femme sans saluer personne. Le baron Clavières, qui n'a rien perdu de la scène depuis la galerie, retrouve Victorine près du vestiaire.",
         "« Le Chevalier, dit-il, pâle. Ce garçon est un fléau. Il a une lettre de course de je ne sais quel prince, un navire rapide et trente coupe-jarrets. » Il se tait, puis ajoute, comme pour lui-même : « Et il est à Morlenc la veille de notre départ. Ce n'est jamais un hasard, avec lui. »",
       ],
-      choices: [{ label: "Rentrer au Cormoran", fx: { flag: "freres:soufflet" }, to: "A2vv_nuit" }] },
+      choices: [
+        { label: "Rentrer au Cormoran", fx: { flag: "freres:soufflet" }, to: "A2vv_nuit" },
+        { label: "Sortir derrière le Chevalier, dans la pluie", fx: { flag: "freres:soufflet" }, to: "XB_c_suivre" },
+        { label: "Raccompagner Héloïse chez elle", hide: { not: { has: "freres:heloise" } }, fx: { flag: "freres:soufflet" }, to: "XB_h_voiture" },
+      ] },
   },
   extras: {
     people: {

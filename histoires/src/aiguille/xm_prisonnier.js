@@ -27,6 +27,7 @@ module.exports = {
     XM_m_nuit: { act: "III", title: "La grotte, la nuit", place: "brisegreve", ambiance: "nuit",
       text: [
         "La nuit, tu te glisses hors de la chaloupe de garde et tu remontes la grève jusqu'à la grotte. La lune passe entre deux nuages. Le fort, au-dessus, n'est qu'une masse plus noire que le ciel, piquée de deux lanternes de sentinelles.",
+        { if: { has: "brise:trou" }, text: "Le Trou du Diable, disait la mère Kerboul, en baissant la voix. Un homme coincé, depuis cent ans, qui attend la marée. Tu n'y vas pas, disait-elle. Tu y es." },
         "Dans la grotte, l'eau coule. Tu frappes trois coups contre la roche. Le raclement s'arrête net.",
       ],
       choices: [{ label: "Attendre", to: "XM_m_voix" }] },
@@ -167,6 +168,7 @@ module.exports = {
       text: [
         "On descend. On descend longtemps. Un geôlier ouvre la marche avec une lanterne, sur un escalier taillé dans la roche, dont chaque marche est creusée au milieu par trois siècles de pas. Les murs suintent. L'air devient épais, froid, chargé d'une odeur de cave, de rouille, d'urine et d'autre chose, plus fade, qui est l'odeur des hommes qu'on oublie. À chaque palier, une porte. Derrière chaque porte, un silence qui écoute.",
         "Le numéro neuf est au dernier palier, sous le niveau de la mer. On l'entend avant de le voir : il parle. Il parle seul, d'une voix rapide, haletante, dans le noir.",
+        { if: { has: "brise:aumonier" }, text: "Des chiffres. Des angles. Des longitudes. Victorine reconnaît la prière dont parlait l'aumônier, le dimanche, sur le banc de la chapelle : dix-neuf ans de confessions sans un seul péché." },
         "Le geôlier ouvre. La lanterne éclaire une cellule de huit pieds sur six, une paillasse pourrie, une cruche, un seau, et sur la paillasse, un homme qui pourrait avoir cent ans, avec une barbe blanche qui lui couvre la poitrine, des yeux qui ne supportent pas la lumière, et des ongles longs comme des griffes. Il brûle de fièvre. Il tremble. Il délire.",
         "« … l'aiguille ment, dit-il, très vite. Elle ment, là-bas, elle tourne, il faut tirer, trois quarts, trois quarts au… La Chanson chantait. Pendant qu'on… il chantait. Il chantait juste. Il y avait des enfants derrière l'autel… »",
         "Victorine pose sa trousse. Dans un coin de la cellule, derrière la paillasse, il y a un tas de gravats, frais, soigneusement caché sous une couverture. Elle le voit. Le geôlier, lui, ne voit rien. Il ne regarde jamais rien ; c'est son métier.",

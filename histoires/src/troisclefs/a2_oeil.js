@@ -14,7 +14,7 @@ module.exports = {
         "Tu sors du Soufflet d'Or avant le jour, par la cour, dans tes habits rouges de la veille : c'est le seul passeport qui vaille où tu vas.",
         "Le Crassier commence au bout de la rue de la Mine, là où le pavé cesse. On l'a bâti au pied des terrils, et de la même matière qu'eux. Ce sont des rangées de maisons basses, toutes pareilles, à une porte et une fenêtre, adossées par vingt comme des stalles, que la maison appelle des corons et loue à la semaine. Entre les rangées, une rigole. Au bout de chaque rigole, une pompe, et autour de chaque pompe, à cette heure, des femmes qui attendent leur tour, un seau à chaque main, sans se parler, dans le petit jour gris.",
         "Derrière, les terrils fument. Ils fument toujours : le charbon mêlé aux déblais y brûle lentement, depuis des années, sous la croûte, et par les nuits froides on voit courir sur leurs flancs des lueurs bleues que les enfants prennent pour des âmes. L'air sent le soufre et la soupe aux choux.",
-        "La corne sonne six heures. Tous les corons s'ouvrent à la fois. Il en sort des hommes, des femmes, des enfants, la lampe au côté, qui prennent sans un mot le chemin de la Gueule ; et quand le dernier a tourné le coin, il ne reste dans le Crassier que les vieux, les estropiés, les tout-petits, et toi.",
+        "La corne sonne six heures. Tous les corons s'ouvrent à la fois. Il en sort des hommes, des femmes, des enfants, la lampe au côté, qui prennent en silence le chemin de la Gueule ; et quand le dernier a tourné le coin, il ne reste dans le Crassier que les vieux, les estropiés, les tout-petits, et toi.",
       ],
       choices: [{ label: "Entrer dans le Crassier", to: "A2o_crassier", big: true }] },
 
@@ -141,7 +141,7 @@ module.exports = {
     A2o_trieuses_ok: { act: "II", title: "Le bon caillou à droite", place: "crassier",
       fx: { clue: "s_petit_livre" },
       text: [
-        "Il y a un coup à prendre. Le bon caillou est lourd et rend sous le marteau un son mat ; le mauvais sonne clair et se fend en lames. Au bout d'un quart d'heure, ta main le sait avant toi. Au bout d'une heure, tu as fait un tas honorable, deux ampoules, et ta voisine de gauche, une vieille sans dents, t'a passé sans rien dire un chiffon pour t'entourer le pouce.",
+        "Il y a un coup à prendre. Le bon caillou est lourd et rend sous le marteau un son mat ; le mauvais sonne clair et se fend en lames. Au bout d'un quart d'heure, ta main le sait avant toi. Au bout d'une heure, tu as fait un tas honorable, deux ampoules, et ta voisine de gauche, une vieille sans dents, t'a passé un chiffon pour t'entourer le pouce.",
         "La grande femme revient. Elle regarde ton tas, en retourne trois morceaux du pied.",
         "« C'est trié. » Elle s'accroupit, ce qui la met à ta hauteur. « Je suis Thècle. T'es du dehors, t'as travaillé une heure pour rien, et t'as pas posé une question. Alors c'est que t'en as une grosse. »",
         "« Je voudrais parler à la Grise. »",

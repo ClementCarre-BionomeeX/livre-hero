@@ -38,7 +38,7 @@ module.exports = {
     A1m_linge_ko: { act: "I", title: "Un drap qui éternue", place: "citadelle",
       text: [
         "La lessive de cendre a ceci de particulier qu'elle prend au nez. Tu tiens bon sur la rampe, sur le pont, sous la voûte. C'est dans la cour, à l'arrêt, dans le grand silence d'un cheval qui souffle, que l'éternuement part.",
-        "La lavandière soulève un coin de drap. Elle est large, rouge, et elle te contemple un moment sans rien dire, les poings sur les hanches. « Encore un amoureux. Il en monte un par semaine, pour une fenêtre du troisième. » Elle laisse retomber le drap. « File avant que le guichetier revienne. Et mouche-toi. » Tu files. Elle l'a dit assez haut pour qu'un garde, à trente pas, tourne la tête.",
+        "La lavandière soulève un coin de drap. Elle est large, rouge, et elle te contemple un moment, les poings sur les hanches. « Encore un amoureux. Il en monte un par semaine, pour une fenêtre du troisième. » Elle laisse retomber le drap. « File avant que le guichetier revienne. Et mouche-toi. » Tu files. Elle l'a dit assez haut pour qu'un garde, à trente pas, tourne la tête.",
       ],
       choices: [{ label: "Gagner l'ombre du mur", to: "A1m_cour" }] },
     A1m_lierre: { act: "I", title: "Le lierre du levant", place: "citadelle",

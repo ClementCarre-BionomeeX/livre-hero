@@ -30,6 +30,7 @@ module.exports = {
       text: [
         { first: true, text: "Tu dors dans un hamac à l'avant, entre le novice, Petit-Jules, qui ronfle comme un soufflet de forge, et une barrique de clous. Tu te lèves avant le jour, tu frottes le pont à la pierre, tu portes, tu tires, tu cours. Maître Gobert t'appelle « mousse », « morveux », « bigorneau » ou « ça », selon l'humeur et la marée. Le soir, tes mains brûlent. Le matin, elles brûlent encore." },
         { again: true, text: "Un jour de plus à quai. La Cormorane s'enfonce dans l'eau à mesure qu'on la charge. Petit-Jules t'a appris trois nœuds et deux jurons ; tu lui as appris à lire son nom." },
+        { again: true, if: { has: "morlenc:lutte" }, text: "Petit-Jules raconte encore l'histoire de l'anguille et de l'ours du Tsar à qui veut l'entendre. Le lutteur mesure à présent sept pieds, et l'anguille a mordu." },
         { with: "chien", text: "Le chien-loup dort sous la chaloupe, le museau sur les pattes, un œil ouvert. Les matelots font un détour pour passer loin de lui. Gobert l'appelle « l'autre morveux »." },
       ],
       choices: [
@@ -40,6 +41,8 @@ module.exports = {
         { label: "Aider à monter à bord les caisses du professeur", to: "A2m_gaudremont", hide: { seen: "A2m_gaudremont" } },
         { label: "Porter la lettre d'Annaïg à la Compagnie des Bancs", to: "A2m_bancs", hide: { seen: "A2m_bancs" }, if: { regard: { annaig: "redevable" } }, why: "Personne ne t'a confié de lettre pour la Compagnie." },
         { label: "Prendre le quart de nuit sur le pont", to: "A2m_quart", hide: { seen: "A2m_quart" }, if: { count: JOURS, min: 2 }, why: "Gobert ne te confie pas encore le quart." },
+        { label: "Suivre Petit-Jules à la foire du Quai-aux-Harengs, le dimanche", to: "XG_foire", hide: { seen: "XG_foire" }, if: { count: JOURS, min: 1 }, why: "Le dimanche n'est pas encore venu." },
+        { label: "Porter un pli à la capitainerie, un matin de pendaison", to: "XG_pendaison", hide: { seen: "XG_pendaison" }, if: { count: JOURS, min: 2 }, why: "Gobert n'a pas encore de pli à porter." },
         { label: "Le dixième jour", to: "A2m_fin", big: true, if: { count: JOURS, min: 3 }, why: "Il reste des jours d'armement." },
       ] },
 
@@ -212,6 +215,7 @@ module.exports = {
       choices: [
         { label: "Entrer à la taverne de la Truie-qui-file, où l'on chante", to: "A2m_pellerin", hide: { seen: "A2m_pellerin" } },
         { label: "Descendre vers les fosses aux chiens", to: "XC_debut", hide: { seen: "XC_debut" } },
+        { label: "Rentrer tard, par la rue des Cordiers", to: "XG_presse", hide: { seen: "XG_presse" }, if: { seen: "A2m_pellerin" }, why: "Tu ne connais encore personne, à la Basse-Fosse, à qui il pourrait arriver quelque chose." },
         { label: "Chercher la porte bleue des Sœurs, rue des Tanneurs", to: "A2m_soeurs", hide: { seen: "A2m_soeurs" }, if: { item: "lettre_soeurs" }, why: "Tu n'as rien à faire chez des religieuses." },
         { back: "A2m_jours" },
       ] },
