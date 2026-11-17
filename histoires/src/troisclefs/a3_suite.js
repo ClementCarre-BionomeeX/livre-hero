@@ -352,7 +352,7 @@ module.exports = {
     A3c_cadenas_c: { act: "III", title: "Quatre heures", place: "larron", ambiance: "nuit", charniere: true,
       text: [
         "Quatre heures sonnent à Notre-Dame-des-Cendres. En bas, la chandelle brûle toujours.",
-        "Vous faites vos sacs dans le noir, à tâtons, sans un mot. Maître Crochemore a roulé ses onze limes dans sa trousse et tient ses souliers à la main.",
+        "Vous faites vos sacs dans le noir, à tâtons, en silence. Maître Crochemore a roulé ses onze limes dans sa trousse et tient ses souliers à la main.",
       ],
       choices: [{ label: "Écouter le plancher", to: "A3c_cad_suite", big: true }] },
     A3c_cad_suite: { act: "III", title: "Quatre heures", place: "larron", branch: [

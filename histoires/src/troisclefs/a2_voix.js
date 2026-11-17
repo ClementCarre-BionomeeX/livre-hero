@@ -308,7 +308,7 @@ module.exports = {
         "Un commis des Heures a toujours un tournevis de poche. Tu attends qu'un valet ait passé. Quatre vis de laiton, à tête fendue, que personne n'a touchées depuis neuf ans : elles viennent avec un petit cri.",
         "La plaque *MADAME* te reste dans la main. Dessous, le cartouche d'origine, noirci, où le graveur avait mis le nom entier, avec les dates.",
         "*ODILE*, lis-tu. *Odile-Marie Quincarnon, née Desforges.*",
-        "Tu revisses. Tu remets chaque vis dans son trou, la fente dans le sens où tu l'as trouvée : la Douairière y tenait. Un homme a fait couvrir le nom de sa femme pour être seul à le dire. Tu ne sais pas encore ce que vaut ce que tu viens d'apprendre. Tu sais qu'il l'a caché, et qu'on ne cache, dans cette maison, que ce qui ferme quelque chose.",
+        "Tu revisses. Tu remets chaque vis dans son trou, la fente dans le sens où tu l'as trouvée : la Douairière y tenait. Un homme a fait couvrir le nom de sa femme pour être seul à le dire. Tu ignores encore ce que vaut ce que tu viens d'apprendre. Tu sais qu'il l'a caché, et qu'on ne cache, dans cette maison, que ce qui ferme quelque chose.",
       ],
       choices: [{ back: "A2v_vestibule" }] },
     A2v_cartouche_mal: { act: "II", title: "Un pas dans la galerie", place: "manoir",

@@ -67,7 +67,7 @@ module.exports = {
       text: [
         "Il y a une chose que {qui:a2:oeil} a gardée pour la fin, et qui change la couleur de la chandelle.",
         "C'est Ugolin qui a tué Maître Balancier. Il l'a dit lui-même, ce soir, à Sainte-Barbe. Un seul coup, derrière l'oreille, à huit heures et demie, pendant que le vieil homme réglait une pendule. Le Syndic le lui avait commandé dans sa voiture, en lui montrant un papier où il y avait trois cachets : un marteau, une croix, une hure.",
-        "Vous restez un moment sans rien dire.",
+        "Vous gardez un moment le silence.",
         "Depuis dix jours, vous portez ce mort sur le dos. On vous cherche pour lui sur toutes les routes, on a mis vos trois ombres dans une complainte, et la Douairière dort aux Plombs à cause de lui. Et l'homme qui a frappé couche à trois cents pas d'ici, sur une paillasse, avec son marteau sous le traversin.",
         "Trois cachets. Les trois Clavaires l'ont voulu ensemble. Ceux-là mêmes dont il faut prendre les clefs.",
       ],

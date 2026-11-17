@@ -92,7 +92,7 @@ module.exports = {
       text: [
         "Le cloître de Notre-Dame-des-Cendres donne, au nord, sur le cimetière des Chanoines : un jardin de dalles couchées, où l'on ne met de lumignons qu'à la Toussaint, par devoir, et où personne ne vient les voir brûler.",
         "Tu t'y postes à onze heures, derrière un if. Toute la ville est de l'autre côté de l'église, à faire la queue sur le parvis ; on entend d'ici son piétinement, comme un bruit de mer. De ce côté-ci, il n'y a que toi, quarante chanoines sous leurs dalles, et un mur.",
-        { if: { has: "monde:a3:douce_plan" }, text: "Dans ce mur, la petite porte de fer. Tu sais ce qu'il y a derrière : un enclos, un escalier, un fil de soie noire qui descend. Tu sais qui viendra.", else: "Dans ce mur, il y a une petite porte de fer, que tu n'avais pas remarquée. Tu ne sais pas par où elle viendra. Tu sais seulement que cette porte est la seule de tout l'évêché où il n'y ait ni Suisse ni lumière, et que c'est celle que tu aurais choisie." },
+        { if: { has: "monde:a3:douce_plan" }, text: "Dans ce mur, la petite porte de fer. Tu sais ce qu'il y a derrière : un enclos, un escalier, un fil de soie noire qui descend. Tu sais qui viendra.", else: "Dans ce mur, il y a une petite porte de fer, que tu n'avais pas remarquée. Tu ignores par où elle viendra. Tu sais seulement que cette porte est la seule de tout l'évêché où il n'y ait ni Suisse ni lumière, et que c'est celle que tu aurais choisie." },
         "Il te reste une demi-heure pour décider comment on arrête une femme qui a appris le métier dans la même maison que toi, et qui l'a mieux appris.",
       ],
       choices: [

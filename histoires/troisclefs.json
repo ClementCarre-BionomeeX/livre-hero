@@ -9471,7 +9471,7 @@
    "title": "Le regard du frappeur",
    "place": "ferronniers",
    "text": [
-    "Tu es à deux pas quand le Syndic se penche, et à deux pas encore quand le colosse lève les yeux. Il ne dit rien. Il te regarde, simplement, de ce regard qui cherche où frapper, et sa main descend d'elle-même jusqu'au manche du marteau, où elle se pose comme sur la tête d'un chien.",
+    "Tu es à deux pas quand le Syndic se penche, et à deux pas encore quand le colosse lève les yeux. Il te regarde, simplement, de ce regard qui cherche où frapper, et sa main descend d'elle-même jusqu'au manche du marteau, où elle se pose comme sur la tête d'un chien.",
     "Le Syndic suit ce regard, t'aperçoit, et te sourit de toutes ses dents. « Ugolin n'aime pas la foule. Ne restez pas là, il vous prendrait pour une enclume. » Les jurés rient. Tu ris aussi, et tu t'éloignes avec, entre les épaules, une place très précise qui te démange."
    ],
    "choices": [
@@ -11528,7 +11528,7 @@
    "place": "citadelle",
    "text": [
     "La lessive de cendre a ceci de particulier qu'elle prend au nez. Tu tiens bon sur la rampe, sur le pont, sous la voûte. C'est dans la cour, à l'arrêt, dans le grand silence d'un cheval qui souffle, que l'éternuement part.",
-    "La lavandière soulève un coin de drap. Elle est large, rouge, et elle te contemple un moment sans rien dire, les poings sur les hanches. « Encore un amoureux. Il en monte un par semaine, pour une fenêtre du troisième. » Elle laisse retomber le drap. « File avant que le guichetier revienne. Et mouche-toi. » Tu files. Elle l'a dit assez haut pour qu'un garde, à trente pas, tourne la tête."
+    "La lavandière soulève un coin de drap. Elle est large, rouge, et elle te contemple un moment, les poings sur les hanches. « Encore un amoureux. Il en monte un par semaine, pour une fenêtre du troisième. » Elle laisse retomber le drap. « File avant que le guichetier revienne. Et mouche-toi. » Tu files. Elle l'a dit assez haut pour qu'un garde, à trente pas, tourne la tête."
    ],
    "choices": [
     {
@@ -17061,7 +17061,7 @@
    "place": "heures",
    "text": [
     "Tu poses ta question. Le Syndic te regarde, t'évalue, t'inscrit dans une colonne, et te répond par un prix.",
-    "Il te vend une serrure. Tu n'en voulais pas, tu n'as rien demandé de tel, et pourtant, au bout de cinq minutes, tu sais ce que coûte chez lui un cadenas à secret, pose comprise, et tu as failli donner ton adresse. Le cercle rit. Quand tu parviens à t'en retirer, il est déjà revenu à sa cloche, et tu n'as appris de son voyage que ce que toute la salle en sait : il part ce soir."
+    "Il te vend une serrure. Tu n'as rien demandé de tel, et pourtant, au bout de cinq minutes, tu sais ce que coûte chez lui un cadenas à secret, pose comprise, et tu as failli donner ton adresse. Le cercle rit. Quand tu parviens à t'en retirer, il est déjà revenu à sa cloche, et tu n'as appris de son voyage que ce que toute la salle en sait : il part ce soir."
    ],
    "choices": [
     {
@@ -18241,7 +18241,7 @@
      "if": {
       "seen": "A1v_cabinet_ok"
      },
-     "text": "*C'est réglé ce soir.* La phrase ne t'a pas quitté{e}. Tu ne sais pas ce qu'elle règle. Tu sais seulement que l'homme qui l'a dite vient de passer dans une voiture, bien en vue, devant toute une rue."
+     "text": "*C'est réglé ce soir.* La phrase ne t'a pas quitté{e}. Tu ignores ce qu'elle règle. Tu sais seulement que l'homme qui l'a dite vient de passer dans une voiture, bien en vue, devant toute une rue."
     },
     "Le rendez-vous est à neuf heures, au pied du rempart."
    ],
@@ -19021,7 +19021,7 @@
    "ambiance": "nuit",
    "text": [
     "Tu lèves la tête une fois de trop. C'est pour compter ; mais un porteur qui regarde autour de lui a cessé d'être un porteur, et l'homme trapu, au pied de l'escalier, a justement les yeux sur toi.",
-    "Il ne dit rien. Il te regarde descendre les trois dernières marches, avec cette attention lente qu'on lui connaît, et qui se pose d'abord sur les mains.",
+    "Il te regarde descendre les trois dernières marches, avec cette attention lente qu'on lui connaît, et qui se pose d'abord sur les mains.",
     "Les tiennes tiennent un volet de fenêtre par ses gonds."
    ],
    "choices": [
@@ -19650,7 +19650,7 @@
    "place": "basfonds",
    "ambiance": "nuit",
    "text": [
-    "Vous êtes trois sur le goudron. Personne ne manque. C'est la première chose qu'on vérifie, et on la vérifie des yeux, sans rien dire, parce que la voix tremblerait.",
+    "Vous êtes trois sur le goudron. Personne ne manque. C'est la première chose qu'on vérifie, et on la vérifie des yeux, en silence, parce que la voix tremblerait.",
     {
      "if": {
       "has": "monde:a1:fuite=propre"
@@ -20416,7 +20416,7 @@
    "place": "canal",
    "text": [
     "Le colporteur vous regarde vous éloigner. Puis il regarde sa toile. Puis vous, de nouveau, trois dos sur un chemin de halage, dans cet ordre de taille.",
-    "Il ne dit rien. Un colporteur vit de ce qu'il raconte, et il lui faut du temps pour raconter : il ne courra pas au guet. Mais au prochain village, il chantera un treizième couplet."
+    "Il se tait. Un colporteur vit de ce qu'il raconte, et il lui faut du temps pour raconter : il ne courra pas au guet. Mais au prochain village, il chantera un treizième couplet."
    ],
    "fx": {
     "flag": "a1:signalement"
@@ -21154,7 +21154,7 @@
    "ambiance": "foret",
    "text": [
     "Les mottes sont brûlantes. Tu le savais, et tu y plonges les bras quand même, jusqu'aux coudes, parce qu'il y a là-dessous une petite main qui remue. Tu tires. L'enfant vient. Tu sens seulement après, en le posant, que tes avant-bras ont cuit.",
-    "La femme le prend. L'homme ferme la brèche. Puis il vient à toi, regarde tes bras, et sans rien dire va chercher dans sa hutte un pot de quelque chose de gras, de noir, qui sent le goudron et qui ôte le feu en une minute.",
+    "La femme le prend. L'homme ferme la brèche. Puis il vient à toi, regarde tes bras, et va chercher dans sa hutte un pot de quelque chose de gras, de noir, qui sent le goudron et qui ôte le feu en une minute.",
     "« Je m'appelle Jacquot le Sourd. Tu dis mon nom à n'importe quelle meule du Bois-Noir, et on te fait passer où tu veux, sans que les casaques de cuir le sachent. On connaît des chemins qu'ils ne gardent pas. » Il rebouche son pot. « On ne les a jamais dits à personne. Mais personne n'avait mis les bras là-dedans pour nous. »"
    ],
    "choices": [
@@ -21930,7 +21930,7 @@
    },
    "text": [
     "À six heures, une corne sonne du côté de la montagne, rauque, interminable, et la place se vide de ses commis comme une plage à la marée.",
-    "Alors la Gueule rend son monde. Ils débouchent par la rue de la Mine, sur toute la largeur, sans un mot, et tu comprends pourquoi on les nomme les gueules grises : le minerai est rouge, mais la roche qu'il faut abattre pour l'atteindre est un schiste couleur de cendre, et douze heures de fond leur en font un masque où il n'y a de vivant que le blanc des yeux. Les hommes vont devant, le pic sur l'épaule. Puis les femmes, qui poussent les berlines. Puis les enfants, qui sont les plus nombreux, et qui dorment en marchant.",
+    "Alors la Gueule rend son monde. Ils débouchent par la rue de la Mine, sur toute la largeur, en silence, et tu comprends pourquoi on les nomme les gueules grises : le minerai est rouge, mais la roche qu'il faut abattre pour l'atteindre est un schiste couleur de cendre, et douze heures de fond leur en font un masque où il n'y a de vivant que le blanc des yeux. Les hommes vont devant, le pic sur l'épaule. Puis les femmes, qui poussent les berlines. Puis les enfants, qui sont les plus nombreux, et qui dorment en marchant.",
     "Ils passent devant le marteau doré. Aucun ne lève la tête.",
     "Au même moment, par l'autre bout de la place, monte l'équipe de nuit, lavée, pâle, la lampe éteinte au côté. Les deux colonnes se croisent. Des mains se touchent au passage, un père et un fils, une sœur et une sœur, sans que personne ralentisse : la corne compte les retards.",
     "Au milieu de ceux qui remontent, une femme marche seule, et l'on s'écarte d'un demi-pas pour qu'elle le reste. Elle est grande, sèche, les cheveux tout blancs sous la suie, quoiqu'elle n'ait pas quarante ans. Elle regarde la halle de la fonderie comme un charpentier regarde un arbre.",
@@ -22763,7 +22763,7 @@
     "La fosse a vingt pieds de profondeur. On l'a creusée dans le roc, maçonnée, puis remplie de terre battue, couche par couche, autour d'une chose qu'on ne voit plus : le moule, enterré debout comme ces guerriers qu'on mettait en terre avec leur cheval. Il n'en dépasse, au centre, qu'une bouche de glaise cuite, large comme un tonneau, noircie par le feu, où viendra se jeter la maîtresse rigole, et autour d'elle quatre trous plus petits, les évents, par où l'air s'enfuira quand le bronze prendra sa place.",
     "C'est tout. Quatre mois d'ouvrage, et il reste un trou dans de la terre. La cloche est là-dessous, à l'état de vide : une absence de cloche, exacte, qui a déjà sa lèvre, ses anses, ses lettres en creux, et qui attend sa matière.",
     "Tu restes plus longtemps que tu ne l'aurais cru. Il y a une espèce de vertige à regarder une chose qui n'existe pas encore et dont la forme est arrêtée.",
-    "Au bord opposé, une échelle descend au fond, où deux compagnons du saintier damment la terre avec des pilons, en cadence, sans un mot."
+    "Au bord opposé, une échelle descend au fond, où deux compagnons du saintier damment la terre avec des pilons, en cadence, bouche close."
    ],
    "choices": [
     {
@@ -23983,7 +23983,7 @@
    "ambiance": "nuit",
    "text": [
     "Maître Crochemore se plante devant la niche. Il tire ses trois montres, l'une après l'autre, les aligne sur sa paume, et regarde tour à tour les trois cadrans et celui de la pendule.",
-    "Il ne dit rien pendant une minute entière. Tu commences à le connaître : c'est mauvais signe pour quelqu'un.",
+    "Il se tait une minute entière. Tu commences à le connaître : c'est mauvais signe pour quelqu'un.",
     "« Trois heures onze à la grande. Trois heures onze à la petite. Trois heures onze à la répétition. » Il lève les yeux. « Trois heures moins quatre à ceci. »",
     "« Elle retarde ? »",
     "« Une pendule qui retarde, sachez-le, retarde tous les jours, et au bout d'une semaine elle marque minuit à midi. Celle-ci retarde de quinze minutes, et l'on me dit qu'on se règle sur elle depuis des années. » Il a déjà son tournevis à la main. Il ouvre la grille, la vitre, la platine, avec trois gestes de chirurgien. « Donc on la remet à l'heure chaque matin. Et chaque jour elle reperd son quart. Voyons cela. »",
@@ -24380,7 +24380,7 @@
     "Il y a un silence qui est l'absence de bruit, et il y a celui-ci, qui est une chose. Il a un poids. Il appuie sur les tympans comme l'eau quand on plonge. Ton pas, dans ce silence, ne fait pas d'écho : le son tombe à tes pieds et y reste.",
     "La lampe montre une galerie plus large que celles d'en deçà, et plus belle, boisée à l'ancienne, de chêne équarri. Le feu a passé là. Les étais sont noirs, craquelés en écailles comme un cuir de crocodile, et la roche, au-dessus, est vitrifiée par places. Sur le sol, une cendre fine, grise, unie, que rien n'a marquée depuis dix-neuf ans. Vos pieds y font les premières traces.",
     "Et partout, ce qu'on lâche quand on court. Un pic. Une gourde. Un chapeau de cuir, intact, posé sur la cendre comme sur une table. Une berline renversée, dont le minerai s'est répandu.",
-    "Maître Crochemore ne dit rien. Tu entends, dans son gousset, ses trois montres, qui battent chacune à sa façon, et dont le bruit, ici, a quelque chose d'inconvenant."
+    "Maître Crochemore se tait. Tu entends, dans son gousset, ses trois montres, qui battent chacune à sa façon, et dont le bruit, ici, a quelque chose d'inconvenant."
    ],
    "choices": [
     {
@@ -25224,7 +25224,7 @@
     "Tu sors du Soufflet d'Or avant le jour, par la cour, dans tes habits rouges de la veille : c'est le seul passeport qui vaille où tu vas.",
     "Le Crassier commence au bout de la rue de la Mine, là où le pavé cesse. On l'a bâti au pied des terrils, et de la même matière qu'eux. Ce sont des rangées de maisons basses, toutes pareilles, à une porte et une fenêtre, adossées par vingt comme des stalles, que la maison appelle des corons et loue à la semaine. Entre les rangées, une rigole. Au bout de chaque rigole, une pompe, et autour de chaque pompe, à cette heure, des femmes qui attendent leur tour, un seau à chaque main, sans se parler, dans le petit jour gris.",
     "Derrière, les terrils fument. Ils fument toujours : le charbon mêlé aux déblais y brûle lentement, depuis des années, sous la croûte, et par les nuits froides on voit courir sur leurs flancs des lueurs bleues que les enfants prennent pour des âmes. L'air sent le soufre et la soupe aux choux.",
-    "La corne sonne six heures. Tous les corons s'ouvrent à la fois. Il en sort des hommes, des femmes, des enfants, la lampe au côté, qui prennent sans un mot le chemin de la Gueule ; et quand le dernier a tourné le coin, il ne reste dans le Crassier que les vieux, les estropiés, les tout-petits, et toi."
+    "La corne sonne six heures. Tous les corons s'ouvrent à la fois. Il en sort des hommes, des femmes, des enfants, la lampe au côté, qui prennent en silence le chemin de la Gueule ; et quand le dernier a tourné le coin, il ne reste dans le Crassier que les vieux, les estropiés, les tout-petits, et toi."
    ],
    "choices": [
     {
@@ -25678,7 +25678,7 @@
     "clue": "s_petit_livre"
    },
    "text": [
-    "Il y a un coup à prendre. Le bon caillou est lourd et rend sous le marteau un son mat ; le mauvais sonne clair et se fend en lames. Au bout d'un quart d'heure, ta main le sait avant toi. Au bout d'une heure, tu as fait un tas honorable, deux ampoules, et ta voisine de gauche, une vieille sans dents, t'a passé sans rien dire un chiffon pour t'entourer le pouce.",
+    "Il y a un coup à prendre. Le bon caillou est lourd et rend sous le marteau un son mat ; le mauvais sonne clair et se fend en lames. Au bout d'un quart d'heure, ta main le sait avant toi. Au bout d'une heure, tu as fait un tas honorable, deux ampoules, et ta voisine de gauche, une vieille sans dents, t'a passé un chiffon pour t'entourer le pouce.",
     "La grande femme revient. Elle regarde ton tas, en retourne trois morceaux du pied.",
     "« C'est trié. » Elle s'accroupit, ce qui la met à ta hauteur. « Je suis Thècle. T'es du dehors, t'as travaillé une heure pour rien, et t'as pas posé une question. Alors c'est que t'en as une grosse. »",
     "« Je voudrais parler à la Grise. »",
@@ -27590,7 +27590,7 @@
      "if": {
       "has": "a2:o_invite=jacquot"
      },
-     "text": "Tu montres l'oignon, sans un mot. La main le prend, le flaire, le rend. La planche s'écarte."
+     "text": "Tu montres l'oignon. La main le prend, le flaire, le rend. La planche s'écarte."
     },
     {
      "if": {
@@ -27654,7 +27654,7 @@
     "« …quand il coule. Pas avant, pas après. Ceux de la halle ne peuvent pas lâcher les fours : ils sont à nous pour six minutes, qu'ils le veuillent ou non. Les rousses seront trente à faire la haie… L'équipe de nuit ne remonte pas. Celle du jour ne descend pas. On tient la recette, on tient les pompes… Trois jours sans pomper, et la Gueule a de l'eau jusqu'au Couchant… Il viendra parler. Il viendra, parce que ce qu'il a de plus cher est au fond d'un trou, et que le trou sera à nous. »",
     "Un murmure. Puis une autre voix, d'homme : « Et le Livre ? »",
     "« Le Livre, je m'en charge. »",
-    "Tu te dégages à reculons, en y laissant un peu de peau. Tu sais ce qu'ils feront. Tu ne sais pas ce qu'elle vaut, ni ce qu'elle voudrait de vous : il aurait fallu la voir."
+    "Tu te dégages à reculons, en y laissant un peu de peau. Tu sais ce qu'ils feront. Tu ignores ce qu'elle vaut, et ce qu'elle voudrait de vous : il aurait fallu la voir."
    ],
    "choices": [
     {
@@ -28240,7 +28240,7 @@
    "place": "crassier",
    "ambiance": "nuit",
    "text": [
-    "La porte d'un four à chaux a ceci de bon qu'on n'y passe qu'un à la fois, et courbé. Les deux premiers qui se présentent reçoivent la planche, puis ce que vous avez sous la main. Le garçon cogne comme on abat une taille, sans un mot. Derrière, les lanternes s'embarrassent ; la voix bilieuse crie de faire le tour.",
+    "La porte d'un four à chaux a ceci de bon qu'on n'y passe qu'un à la fois, et courbé. Les deux premiers qui se présentent reçoivent la planche, puis ce que vous avez sous la main. Le garçon cogne comme on abat une taille, en silence. Derrière, les lanternes s'embarrassent ; la voix bilieuse crie de faire le tour.",
     "« Assez ! » C'est Thècle, de la gueule du bas. « Elle est dehors. Lazare ! »",
     "Vous lâchez tout. Vous plongez sous l'arche, à plat ventre, l'un derrière l'autre, la brique vous râpant le dos, et vous sortez dans le creux, du côté où il n'y a pas de lanternes, parce qu'Escarbille, qui est un soldat, a cerné une porte et ignoré un trou.",
     "On court dans le noir, courbés, entre deux terrils. Au bout de trois cents pas, Zénobie s'arrête, la main levée. Elle n'est pas essoufflée.",
@@ -28338,7 +28338,7 @@
      "text": "Zénobie s'est arrêtée. Elle te regarde, dans la lueur rousse du ciel. « C'est toi qui les as amenés. » Elle n'attend pas de réponse. « Tu ne l'as pas voulu. Mais tu l'as fait, et tu es sorti{e} avant lui. »",
      "else": "Zénobie s'est arrêtée. Elle écoute. Elle a ce visage que tu lui as vu devant la lampe, étroit, fermé, patient."
     },
-    "Thècle ne dit rien. Elle regarde la tour. Puis elle se détourne, et se met à marcher vers les corons, très droite.",
+    "Thècle regarde la tour. Puis elle se détourne, et se met à marcher vers les corons, très droite.",
     "« Lazare ne dira rien, dit Zénobie. Mais il est pris, et dans trois jours il faudra aussi que je le sorte de là. » Elle te considère une dernière fois. « Va-t'en. Ne reviens pas au Crassier. »"
    ],
    "fx": {
@@ -29476,7 +29476,7 @@
     "Un commis des Heures a toujours un tournevis de poche. Tu attends qu'un valet ait passé. Quatre vis de laiton, à tête fendue, que personne n'a touchées depuis neuf ans : elles viennent avec un petit cri.",
     "La plaque *MADAME* te reste dans la main. Dessous, le cartouche d'origine, noirci, où le graveur avait mis le nom entier, avec les dates.",
     "*ODILE*, lis-tu. *Odile-Marie Quincarnon, née Desforges.*",
-    "Tu revisses. Tu remets chaque vis dans son trou, la fente dans le sens où tu l'as trouvée : la Douairière y tenait. Un homme a fait couvrir le nom de sa femme pour être seul à le dire. Tu ne sais pas encore ce que vaut ce que tu viens d'apprendre. Tu sais qu'il l'a caché, et qu'on ne cache, dans cette maison, que ce qui ferme quelque chose."
+    "Tu revisses. Tu remets chaque vis dans son trou, la fente dans le sens où tu l'as trouvée : la Douairière y tenait. Un homme a fait couvrir le nom de sa femme pour être seul à le dire. Tu ignores encore ce que vaut ce que tu viens d'apprendre. Tu sais qu'il l'a caché, et qu'on ne cache, dans cette maison, que ce qui ferme quelque chose."
    ],
    "choices": [
     {
@@ -30449,7 +30449,7 @@
     ]
    },
    "text": [
-    "Elle ne dit rien pendant le temps de trois coups de marteau.",
+    "Elle se tait le temps de trois coups de marteau.",
     "Puis elle rit. C'est le rire d'Aiguemorne, bref, qui lui échappe ; seulement ici personne ne se retourne, et elle le laisse aller jusqu'au bout.",
     "« La clef de Fer. La sienne. Celle qu'il ne quitte pas pour dormir. » Elle s'essuie les yeux du coin de son châle. « Pardon. C'est que depuis neuf ans je regarde cet homme tout fermer, tout garder, tout inscrire, et que personne, jamais, ne lui a rien pris. Pas un jeton. Pas une épingle. Je commençais à croire que c'était une loi de la nature. Et il arrive quelqu'un qui me dit, sur ma terrasse, qu'on vient lui prendre ce qu'il a de plus serré. »",
     "Elle redevient sérieuse, d'un coup.",
@@ -31562,7 +31562,7 @@
    "text": [
     "Il y a une chose que {qui:a2:oeil} a gardée pour la fin, et qui change la couleur de la chandelle.",
     "C'est Ugolin qui a tué Maître Balancier. Il l'a dit lui-même, ce soir, à Sainte-Barbe. Un seul coup, derrière l'oreille, à huit heures et demie, pendant que le vieil homme réglait une pendule. Le Syndic le lui avait commandé dans sa voiture, en lui montrant un papier où il y avait trois cachets : un marteau, une croix, une hure.",
-    "Vous restez un moment sans rien dire.",
+    "Vous gardez un moment le silence.",
     "Depuis dix jours, vous portez ce mort sur le dos. On vous cherche pour lui sur toutes les routes, on a mis vos trois ombres dans une complainte, et la Douairière dort aux Plombs à cause de lui. Et l'homme qui a frappé couche à trois cents pas d'ici, sur une paillasse, avec son marteau sous le traversin.",
     "Trois cachets. Les trois Clavaires l'ont voulu ensemble. Ceux-là mêmes dont il faut prendre les clefs."
    ],
@@ -35656,7 +35656,7 @@
    "place": "fonderie",
    "text": [
     "Tu rends le mouchoir. Tu dis, dans le temps qu'il faut pour saluer : « S'il se lève, que le grand reste. »",
-    "Elle ne répond rien. Elle déplie le mouchoir, s'en touche la tempe. Puis, un moment après, d'une voix d'enfant gâtée qui porte à trois fauteuils :",
+    "Pour toute réponse, elle déplie le mouchoir, s'en touche la tempe. Puis, un moment après, d'une voix d'enfant gâtée qui porte à trois fauteuils :",
     "« Père, cette ombrelle me casse le bras. Qu'Ugolin me la tienne. »",
     "« Ugolin ? » Maître Quincarnon rit. « Ma chère, tu demandes une enclume pour porter une plume. Ugolin ! Tiens l'ombrelle de Mademoiselle. Et ne la lâche pas, quoi qu'elle te dise. »",
     "Le colosse fait deux pas. Il prend le manche d'ivoire dans son poing, avec précaution, comme on prend un oiseau, et se plante derrière la chaise blanche. On lui a donné un ordre. Il le tiendra jusqu'à ce qu'on lui en donne un autre, et celui qui en donne vient de dire : quoi qu'elle te dise."
@@ -35768,7 +35768,7 @@
        }
       ]
      },
-     "text": "Tu es redescendu{e} de la plate-forme les mains vides. Le sergent roux, au pied du beffroi, te regardait huiler ; tu as huilé, et rien d'autre. Le président ne dit rien. Il a la mâchoire qui travaille."
+     "text": "Tu es redescendu{e} de la plate-forme les mains vides. Le sergent roux, au pied du beffroi, te regardait huiler ; tu as huilé, et rien d'autre. Le président se tait. Il a la mâchoire qui travaille."
     },
     {
      "if": {
@@ -37500,7 +37500,7 @@
      "if": {
       "has": "monde:a2:folio"
      },
-     "text": "Il y a encore, sortie de la chemise de la main, une grande feuille pliée en quatre, coupée au canif : le folio 412 du Grand Livre. On la lit à trois, sans rien dire."
+     "text": "Il y a encore, sortie de la chemise de la main, une grande feuille pliée en quatre, coupée au canif : le folio 412 du Grand Livre. On la lit à trois, en silence."
     },
     {
      "if": {
@@ -39518,7 +39518,7 @@
     "« Je suis fatigué, Monsieur », dit Ugolin.",
     "Et il s'assied. Là, sur le pavé de scories, au milieu de la place, entre la bascule et la chaise à porteurs, les jambes en tailleur, les mains sur les genoux. Sept pieds d'homme, par terre, comme un enfant qu'on a mis en pénitence et qui s'y trouve bien.",
     "Maître Quincarnon répète son ordre. Une fois, deux fois, d'une voix qui monte. Ugolin n'a pas l'air de l'entendre. Il regarde les baguettes de coudrier, en tas, et remue les lèvres. Tu crois qu'il compte.",
-    "Autour de lui, la place a fait un cercle. Personne ne le touche. Une vieille, toute pliée, sort du rang, vient jusqu'à lui en traînant ses sabots, et s'assied à côté, sans rien dire : sa mère."
+    "Autour de lui, la place a fait un cercle. Personne ne le touche. Une vieille, toute pliée, sort du rang, vient jusqu'à lui en traînant ses sabots, et s'assied à côté, muette : sa mère."
    ],
    "choices": [
     {
@@ -40047,7 +40047,7 @@
     "Maître Crochemore prend le pli. Il le lit debout, au bord du fossé. Tu vois ses favoris blancs trembler.",
     "C'est le conseil des Heures. Vingt-deux signatures. Elles font savoir à leur président que le Remonteur de la Tour, membre de la compagnie depuis quarante ans, a été exposé neuf jours à la chapelle des horlogers ; que son président, à qui revenait l'éloge, était parti pour Ferrières poser une pendule chez un marchand de fer ; que l'éloge a été lu par le trésorier, qui bégaie ; et que la compagnie, réunie en séance, s'interroge.",
     "« Elle s'interroge », répète Maître Crochemore. Il replie la lettre selon ses plis, avec un soin terrible. « Vingt-deux ânes qui s'interrogent. Je cours les routes pour savoir ce qui a tué cet homme, et ils me reprochent d'avoir manqué son enterrement. »",
-    "Il va au troisième fourgon. Il reste devant la bière de chêne clair, tête nue, sa lettre à la main, pendant tout le temps de la halte. Tu ne sais pas ce qu'il lui dit. À la fin, il pose deux doigts sur le couvercle, comme on arrête un balancier.",
+    "Il va au troisième fourgon. Il reste devant la bière de chêne clair, tête nue, sa lettre à la main, pendant tout le temps de la halte. Tu ignores ce qu'il lui dit. À la fin, il pose deux doigts sur le couvercle, comme on arrête un balancier.",
     "« Je le dirai, son éloge. Devant sa tombe, à Ossevaux, et je ne bégaierai pas. Seulement je veux y mettre le nom de celui qui l'a tué ; et il m'en manque encore deux sur trois. »"
    ],
    "choices": [
@@ -40217,7 +40217,7 @@
     "« Mon Anselme. Je le lui porte tous les ans. Il aimait se regarder. » Elle trotte à ton côté, soulagée de son poids, la langue déliée. « Vous n'êtes pas du pays, vous ne savez pas. À Ossevaux, on a peur d'une chose plus que de la mort : c'est qu'elle se soit trompée. Alors on met dans la bière un cordon, que le défunt a dans la main. Le cordon sort par un tuyau, et il tient à une clochette, sur un piquet, au-dessus de la tombe. S'il se réveille, il tire. »",
     "« Et quelqu'un entend ? »",
     "« Il y a les veilleurs. Ils font les allées toute la nuit, avec une lanterne. On les paie au mois. Moi, j'ai payé trois ans de cordon pour Anselme. Après trois ans, on le coupe : on dit qu'il n'y a plus de risque. » Elle rit un peu, sans gaieté. « La première année, je me relevais la nuit pour écouter, de la fenêtre de l'auberge. Je ne sais pas ce que j'aurais préféré. »",
-    "Elle marche un moment sans rien dire.",
+    "Elle marche un moment en silence.",
     "« Il y en a une qui a sonné, il y a deux hivers. Tout le champ l'a entendue. Les veilleurs ont couru, ils ont creusé. C'était une chanoinesse. On dit que Monseigneur est venu en personne, à trois heures du matin, en soutane, qu'il lui a tenu la main pendant qu'on la sortait, et qu'il lui a demandé avec une grande douceur ce qu'elle avait vu. » La vieille baisse la voix. « On dit qu'il a été déçu. »"
    ],
    "choices": [
@@ -41090,7 +41090,7 @@
        }
       ]
      },
-     "text": "Le Suisse a des yeux gris, sans cils. Ils descendent de ta figure à tes mains, et ils y restent. Tu as les doigts de ton métier : longs, propres, sans une ampoule, avec au pouce droit ce cal que laisse le crochet. Il ne dit rien. Il te laisse passer. Mais quand tu te retournes, sous l'arche, il a quitté le mur, et il parle à un autre en te montrant du menton."
+     "text": "Le Suisse a des yeux gris, sans cils. Ils descendent de ta figure à tes mains, et ils y restent. Tu as les doigts de ton métier : longs, propres, sans une ampoule, avec au pouce droit ce cal que laisse le crochet. Il te laisse passer. Mais quand tu te retournes, sous l'arche, il a quitté le mur, et il parle à un autre en te montrant du menton."
     },
     {
      "if": {
@@ -43285,7 +43285,7 @@
      "if": {
       "not": "a3:m_cubitus"
      },
-     "text": "Tu ne sais pas ce qu'il y a derrière : une salle, un cul-de-sac, ou cent pas de roche. Tu sais seulement que le chant vient de par là, et que l'eau, à la surface, a un frisson très léger, comme si elle respirait de l'autre côté."
+     "text": "Tu ignores ce qu'il y a derrière : une salle, un cul-de-sac, ou cent pas de roche. Tu sais seulement que le chant vient de par là, et que l'eau, à la surface, a un frisson très léger, comme si elle respirait de l'autre côté."
     },
     "Tu ôtes ce qui pèse. Tu roules ton papier et ta mine de plomb dans ta toile cirée, serrés, contre ta peau. Ta lumière ne te suivra pas."
    ],
@@ -44497,7 +44497,7 @@
      "if": {
       "has": "monde:a3:formulaire=pris"
      },
-     "text": "Sa main cherche le cahier de vélin, à sa place, sous le flambeau. Elle le trouve, l'ouvre ; et elle reste posée sur la page, à plat, les doigts écartés. Il ne dit rien. Il ne tourne pas la tête. Il regarde longtemps le petit couteau d'argent, près des pommes, puis il le déplace d'un pouce, pour le remettre où il le range, lui."
+     "text": "Sa main cherche le cahier de vélin, à sa place, sous le flambeau. Elle le trouve, l'ouvre ; et elle reste posée sur la page, à plat, les doigts écartés. Il se tait, la tête immobile. Il regarde longtemps le petit couteau d'argent, près des pommes, puis il le déplace d'un pouce, pour le remettre où il le range, lui."
     },
     {
      "if": {
@@ -46399,7 +46399,7 @@
    "place": "larron",
    "text": [
     "Tu as deux doigts sur le papier quand le cavalier se retourne. Il n'a rien entendu. Il a seulement, comme tous ceux du guet, l'habitude de savoir où est sa sacoche.",
-    "Tu retires la main. Tu regardes ailleurs, en personne qui cherchait le bénitier. Il ne dit rien. Il reprend sa sacoche, la boucle, la passe en bandoulière ; puis il te regarde, une bonne fois, de haut en bas, avec cette attention sans colère qu'on apprend au corps de garde, et qui range.",
+    "Tu retires la main. Tu regardes ailleurs, en personne qui cherchait le bénitier. Il reprend sa sacoche, la boucle, la passe en bandoulière ; puis il te regarde, une bonne fois, de haut en bas, avec cette attention sans colère qu'on apprend au corps de garde, et qui range.",
     "Il paie son vin. En sortant, il dit au père Trentain, assez haut : « Vous avez du monde jeune, chez vous. Du nord ? » Et le père Trentain, qui pense à son grand deuil, répond que ce sont des gens venus enterrer un horloger.",
     "« Un horloger, répète le cavalier. Tiens. »"
    ],
@@ -49909,7 +49909,7 @@
       "has": "monde:a3:douce_plan"
      },
      "text": "Dans ce mur, la petite porte de fer. Tu sais ce qu'il y a derrière : un enclos, un escalier, un fil de soie noire qui descend. Tu sais qui viendra.",
-     "else": "Dans ce mur, il y a une petite porte de fer, que tu n'avais pas remarquée. Tu ne sais pas par où elle viendra. Tu sais seulement que cette porte est la seule de tout l'évêché où il n'y ait ni Suisse ni lumière, et que c'est celle que tu aurais choisie."
+     "else": "Dans ce mur, il y a une petite porte de fer, que tu n'avais pas remarquée. Tu ignores par où elle viendra. Tu sais seulement que cette porte est la seule de tout l'évêché où il n'y ait ni Suisse ni lumière, et que c'est celle que tu aurais choisie."
     },
     "Il te reste une demi-heure pour décider comment on arrête une femme qui a appris le métier dans la même maison que toi, et qui l'a mieux appris."
    ],
@@ -58838,7 +58838,7 @@
    "charniere": true,
    "text": [
     "Quatre heures sonnent à Notre-Dame-des-Cendres. En bas, la chandelle brûle toujours.",
-    "Vous faites vos sacs dans le noir, à tâtons, sans un mot. Maître Crochemore a roulé ses onze limes dans sa trousse et tient ses souliers à la main."
+    "Vous faites vos sacs dans le noir, à tâtons, en silence. Maître Crochemore a roulé ses onze limes dans sa trousse et tient ses souliers à la main."
    ],
    "choices": [
     {
@@ -60980,7 +60980,7 @@
     }
    },
    "text": [
-    "Il prend les maillons sans un mot. Il en serre un dans son étau, tire sa loupe, le raye d'une pointe, écoute le bruit que cela fait.",
+    "Il prend les maillons. Il en serre un dans son étau, tire sa loupe, le raye d'une pointe, écoute le bruit que cela fait.",
     "« Huile. » Il a l'air d'un médecin qui a trouvé la maladie qu'il préférait. « Trempé à l'huile, revenu au gorge-de-pigeon, par un homme qui connaissait son feu. C'est de l'ouvrage d'Aiguemorne. On ne coupe pas cela avec des cisailles ; on le casserait plutôt à froid, d'un coup de masse, sur une enclume, et il faudrait que le comte y prêtât sa tête. »",
     "Il a déjà choisi un ressort. Il le passe à la flamme de sa lanterne, le regarde virer au jaune paille, au brun, au bleu, et le trempe dans sa fiole.",
     "« Trente-cinq passes, à l'huile de pied de bœuf, en tirant et sans pousser. Vous compterez. Le bruit est celui d'un grillon : dans une salle où l'on joue, personne ne l'entend ; dans une chambre où l'on dort, c'est selon le dormeur. » Il essaie la lame sur le second maillon. Elle y entre. Il compte à mi-voix, et à trente-quatre le maillon s'ouvre comme une bouche.",
@@ -61124,7 +61124,7 @@
    "ambiance": "chateau",
    "text": [
     "Le tourniquet tourne. Les planches, elles, ont gonflé en onze hivers, et tiennent dans leur cadre comme un tiroir de sacristie. Tu pousses de l'épaule ; la sellette recule d'autant, et c'est toi qui t'en vas. Tu t'arc-boutes des pieds contre la muraille d'en face : le bois gémit, cède d'un pouce, et s'arrête sur quelque chose de dur. On a mis un meuble devant.",
-    "Tu t'es ouvert la paume sur un clou. Tu remontes à la force des bras, en laissant sur la corde une marque que Maître Crochemore regarde sans rien dire.",
+    "Tu t'es ouvert la paume sur un clou. Tu remontes à la force des bras, en laissant sur la corde une marque que Maître Crochemore regarde en silence.",
     "« Un pouce », dit-il enfin. « Dans mon métier, un pouce de jeu, c'est une porte. Il faudra seulement que quelqu'un, de l'autre côté, ôte ce qu'il y a devant. »"
    ],
    "choices": [
@@ -62676,7 +62676,7 @@
      "if": {
       "has": "monde:a4:acte_pris"
      },
-     "text": "« Votre acte ? » Le comte a retrouvé sa voix de cour. « Parlons-en. Il était sur ma table hier. Il n'y est plus ce soir. On entre chez moi comme chez vous, à ce qu'il paraît. » Le Syndic, sans un mot, tire de son étui un second vélin, tout pareil, avec ses deux cachets. Un homme qui compte a toujours le double."
+     "text": "« Votre acte ? » Le comte a retrouvé sa voix de cour. « Parlons-en. Il était sur ma table hier. Il n'y est plus ce soir. On entre chez moi comme chez vous, à ce qu'il paraît. » Le Syndic, pour toute réponse, tire de son étui un second vélin, tout pareil, avec ses deux cachets. Un homme qui compte a toujours le double."
     },
     "Le comte a pris la bague. Il la fait tourner autour de son doigt, comme un jeton.",
     "« Je vous ai dit à Aiguemorne que je signerais pour le cylindre. Votre niais gouvernera : il faut bien que quelqu'un gouverne, et il est poli. Je vous ai dit aussi qu'il y avait dans votre papier une ligne que je ne signerais pas. »",
@@ -63346,7 +63346,7 @@
     "clue": "g4_papier"
    },
    "text": [
-    "Elle s'assied sur le billot, que l'homme aux deux doigts de moins lui a cédé sans un mot. Elle te regarde tenir ton trait.",
+    "Elle s'assied sur le billot, que l'homme aux deux doigts de moins lui a cédé. Elle te regarde tenir ton trait.",
     "« Valet de limier. Elle vous a bien dressés, la vieille : on entre toujours par les bêtes ou par les cuisines. » Elle ôte un gant, ce que tu ne lui avais jamais vu faire, et se frotte les yeux. Elle a la main petite, blanche, avec une brûlure de corde en travers de la paume. « Je vais te dire où j'en suis. Cela ne me coûte rien, et il faut bien que je le dise à quelqu'un qui comprenne le métier. »",
     "« J'ai un client. Tu sais lequel : il a sept tours et une barbe en pointe. Il m'a commandé au printemps deux clefs sur trois. Il lui en faut deux, avec la sienne, pour *proposer*, comme il dit ; pour aller trouver les deux autres avec les trois dans sa main, et leur dicter le nom qu'on mettra sur leur machine. Le sien. Il ne veut pas être Gouverneur à vie : il veut être prince. »",
     "Elle rit sans bruit.",
@@ -63999,7 +63999,7 @@
    "ambiance": "chateau",
    "text": [
     "Tu marches sur la patte du mâtin d'à côté. Il se retourne sur Ramoneau, qui a douze ans et pas de patience ; les deux couples s'emmêlent ; quatre chiens roulent sur le pavé dans un bruit d'enfer, et six valets se jettent dessus avec des fouets et des jurons que l'on n'avait pas encore dits devant un évêque.",
-    "La Brisée arrive en trois enjambées. Il sépare les bêtes à mains nues, par la peau du cou, sans un mot ; et il te regarde, toi, d'un œil qui a parfaitement vu sur quelle patte tu as marché.",
+    "La Brisée arrive en trois enjambées. Il sépare les bêtes à mains nues, par la peau du cou ; et il te regarde, toi, d'un œil qui a parfaitement vu sur quelle patte tu as marché.",
     "Tu es passé{e}, dans la bousculade, de l'autre côté de la ligne, derrière les chevaux. La soutane violette a repris sa marche. Elle bénit ta place vide, et le garçon de chenil qui tient ton chien.",
     "« Tu me diras un jour », grogne le vieux piqueur en te rendant le trait, « pourquoi un valet qui tient si bien un limier le lâche juste quand passe le goupillon. Pas aujourd'hui. J'ai une meute à faire dîner. »",
     "Tu as eu le temps de compter les Suisses : douze, par six paires. Une à la voûte d'entrée, une à la passerelle des chenils. Les autres tournent, et se croisent toutes les dix minutes devant la tour de l'Horloge."
@@ -68127,7 +68127,7 @@
     "Tu ouvres la houppelande. Tu poses sur le drap vert le premier paquet de dix, puis le second, puis les autres, sans te presser, en éventail, comme on abat un jeu. À la vingtième liasse, la table a cessé de rire. À la vingt et unième, quelqu'un a reconnu le B.",
     "« Quarante mille cent dix écus, monsieur le comte. De votre main. »",
     "Il y a, à trois places de là, le petit bruit d'un couteau à fruit posé sur une assiette.",
-    "Le comte ne dit rien. Il prend une feuille, la tourne, la retourne. Il les connaît toutes : un joueur oublie ce qu'il gagne et se rappelle au sou près ce qu'il a signé. Il lève les yeux vers Maître Quincarnon, lentement, avec une attention que personne dans cette salle ne lui avait vue.",
+    "Le comte prend une feuille, la tourne, la retourne. Il les connaît toutes : un joueur oublie ce qu'il gagne et se rappelle au sou près ce qu'il a signé. Il lève les yeux vers Maître Quincarnon, lentement, avec une attention que personne dans cette salle ne lui avait vue.",
     "« Polycarpe. Je devais ceci à quarante personnes. À un marchand de chevaux. À un abbé. À la veuve d'un capitaine. » Il repose la feuille. « Vous les avez donc toutes, puisque vous voilà de la couleur de votre poire. »",
     "« On m'a volé ! » Le Syndic s'est levé, rond, blanc, la serviette au gilet. « Ces papiers ont été pris hier dans mon appartement, sous votre toit, monsieur le comte, par… »",
     "« Par quelqu'un qui les porte. » La voix sonore a retrouvé son rire, et le rire n'a plus rien de gai. « Vous me l'avez assez expliqué, quand je voulais des délais : un billet au porteur est à qui le porte. Son Excellence le porte. Asseyez-vous, mon cher. Vous gênez la lumière. »",
@@ -70448,7 +70448,7 @@
      },
      "text": "Il y a ceci de changé, depuis hier : cet homme dort avec trois clefs au cou. Il faut les rapporter toutes, ou ne pas remonter."
     },
-    "Maître Crochemore te noue la corde aux reins, lui-même, d'un nœud d'horloger, plat, sec, sans un mot. Il te met dans la main l'archet et le maillon fendu.",
+    "Maître Crochemore te noue la corde aux reins, lui-même, d'un nœud d'horloger, plat, sec, en silence. Il te met dans la main l'archet et le maillon fendu.",
     {
      "if": {
       "has": "monde:a4:passage"
@@ -71017,7 +71017,7 @@
     "« Derrière ! Derrière, mes beaux ! Hau, hau ! Ce n'est pas lui ! »",
     "Les jeunes chiens s'arrêtent, le nez levé, offensés. Le vieux limier, lui, a déjà traversé : il est planté sur la voie de gauche, le museau au sol, et il fait ce qu'il n'a pas fait en douze ans. Il donne de la voix. Une fois, un seul cri rauque, comme un homme qui tousse.",
     "Cela suffit. Les vieux chiens se rallient à lui, les jeunes aux vieux. Toute la meute bascule à gauche, vers le ruisseau.",
-    "La Brisée arrive au galop, voit le pied dans la boue, voit le chien, te voit. Il ne dit rien. Il porte deux doigts à son chapeau, en passant, comme on salue un égal, et il sonne le *bien-aller*.",
+    "La Brisée arrive au galop, voit le pied dans la boue, voit le chien, te voit. Il porte deux doigts à son chapeau, en passant, comme on salue un égal, et il sonne le *bien-aller*.",
     "Ramoneau revient s'asseoir contre ta jambe. Il a crié. Il a l'air d'attendre qu'on le pende, et de trouver que cela en valait la peine."
    ],
    "choices": [
@@ -71999,7 +71999,7 @@
       "has": "monde:a4:h_main"
      },
      "text": "Ta corde est où il faut. Tu la saisis, tu amènes ; le corps glisse sous les planches comme une barque à son anneau.",
-     "else": "Tu te mets à l'eau jusqu'aux aisselles, et tu le prends aux épaules. Il pèse deux fois son poids. Vous le hissez à deux, en soufflant, sans un mot."
+     "else": "Tu te mets à l'eau jusqu'aux aisselles, et tu le prends aux épaules. Il pèse deux fois son poids. Vous le hissez à deux, en soufflant."
     },
     "Il est dans ta barque. Il respire. La chaîne est sous tes doigts, mouillée, froide, avec son maillon plus clair.",
     "Tu lèves les yeux vers {qui:a4:oeil}. C'est sa chasse."
@@ -72743,7 +72743,7 @@
     },
     "Monseigneur a fait avancer sa litière. Il se penche sur la claie avec une sollicitude véritable. « Mon fils, vous nous avez fait une belle peur. Avez-vous dit quelque chose, en tombant ? » « J'ai dit *merde*, Monseigneur. » L'évêque tire ses tablettes, et note.",
     "Le Syndic regarde le ruban cramoisi, toujours noué au cou du blessé. Il le regarde longtemps. Puis il remonte dans sa berline.",
-    "Tu ne sais pas encore ce qu'il y a sous ce ruban. Tu le sauras ce soir, sous le balancier."
+    "Tu ignores encore ce qu'il y a sous ce ruban. Tu le sauras ce soir, sous le balancier."
    ],
    "choices": [
     {
@@ -74766,7 +74766,7 @@
    "text": [
     {
      "outcome": "win",
-     "text": "C'est fait. Ce n'est pas glorieux, cela ne se voit pas, personne n'en saura jamais rien : il y aura, à minuit, un trou dans le filet, large comme trois personnes."
+     "text": "C'est fait. C'est un travail obscur, invisible, promis à l'oubli : il y aura, à minuit, un trou dans le filet, large comme trois personnes."
     },
     {
      "outcome": "lose",
@@ -75408,7 +75408,7 @@
      },
      "text": "Il sait. Il sait qui, et depuis quand, et par où. Il a dit que l'on ne toucherait à personne sous son toit jusqu'au 11 ; et il se trouve que l'homme le plus endetté du pays est aussi le seul qui paie ce qu'il a promis."
     },
-    "Maître Crochemore ne dit rien. Il ouvre son sac. Il en tire deux chiffons, les déplie, et pose à côté de la rouge ce qu'il y avait dedans : la noire, à tige carrée, qui sent encore la forge ; la grise, mince, froide, qui a passé cent cinq ans dans une main morte.",
+    "Maître Crochemore ouvre son sac. Il en tire deux chiffons, les déplie, et pose à côté de la rouge ce qu'il y avait dedans : la noire, à tige carrée, qui sent encore la forge ; la grise, mince, froide, qui a passé cent cinq ans dans une main morte.",
     "Trois clefs, côte à côte, sur de la toile à matelas.",
     "« Il les a forgées la même semaine », dit l'horloger. Sa voix est basse. « Mon aïeul. Je le vois au grain. Le même feu, le même marteau, trois recuits. Puis on les a séparées, et elles n'ont plus été réunies que sept nuits par siècle, dans trois mains qui se haïssaient, le temps d'un tour. »",
     "Il avance le doigt. Il ne les touche pas.",
@@ -75417,7 +75417,7 @@
      "if": {
       "has": "monde:a4:vie_due"
      },
-     "text": "{qui:a4:oeil} sèche devant le brasero, sans rien dire. On ne tire pas tous les jours un Connétable d'un étang ; et l'on ne sait pas encore ce que pèse une vie que l'on vous doit et que l'on ne vous a pas payée."
+     "text": "{qui:a4:oeil} sèche devant le brasero, en silence. On ne tire pas tous les jours un Connétable d'un étang ; et l'on ne sait pas encore ce que pèse une vie que l'on vous doit et que l'on ne vous a pas payée."
     },
     {
      "if": {
@@ -77704,7 +77704,7 @@
      },
      "text": "« Et les Gants-Noirs sont rentrés. Ils logent à l'évêché, par la porte de derrière, avec les hallebardes. Depuis quand Sans-Bruit va à la messe, je vous le demande. »"
     },
-    "Il godille un moment sans rien dire.",
+    "Il godille un moment en silence.",
     "« Ici, en bas, on cause. On cause du vieux Balancier, qu'on aimait bien. On cause de la vieille, qu'on aime pas, mais qui est à nous. Et on cause d'une chose que j'ai pas comprise : il paraît que cette année le Bronze va nommer un Gouverneur *pour toujours*. Le père Cubizolle, le chaînetier, dit qu'un juge qui nomme pour toujours, c'est un juge qui a envie de prendre sa retraite. Tout le quai a ri. Ils riaient jaune. »"
    ],
    "choices": [
@@ -78449,7 +78449,7 @@
     "« J'ai signé, le 10. Tout. Le cylindre, le mur. On m'a rendu mes bois pour cela, et mon intendant a cessé de pleurer pendant une demi-journée, ce que personne n'avait vu depuis la mort de ma mère. Je ne suis pas fier de ce marché. Mais c'est le mien, et je n'ai pas coutume de reprendre une mise parce que la carte est laide. »",
     "Il remet l'épée au râtelier, et sonne.",
     "« Je ne vous fais pas arrêter. Vous voici chez moi, sans armes, pour me parler ; cela se respecte, même venant de vous. Ravaudet va vous reconduire par la cuisine. » Il vous salue, du même salut qu'il a fait au mannequin. « Demain soir, je monte le dernier, avec l'épée. Je vous engage à avoir repris l'escalier avant. Je me bats très bien dans les escaliers, et je n'y mets aucune rancune, ce qui est le plus dangereux. »",
-    "Dans la cuisine, l'intendant vous tient la porte. Il ne dit rien. Il vous glisse seulement, au passage, d'une voix mouillée : « Il ne dort plus. Il s'exerce jusqu'à trois heures. On ne s'exerce pas ainsi contre des gens que l'on méprise. »"
+    "Dans la cuisine, l'intendant vous tient la porte. Il vous glisse seulement, au passage, d'une voix mouillée : « Il ne dort plus. Il s'exerce jusqu'à trois heures. On ne s'exerce pas ainsi contre des gens que l'on méprise. »"
    ],
    "choices": [
     {
@@ -78626,7 +78626,7 @@
       "has": "monde:mineurs:allies"
      },
      "text": "Elle te reconnaît sous ton cierge, et elle ne fait pas un geste qui te désigne. « Tiens. Un pèlerin. » Elle te fait place au feu. « On est venus voir le Bronze. Trente, tirés au sort, avec la paie de tout le Crassier pour la route. Il y a une de vos Sept Causes qui est la nôtre : *les jetons de l'Économat sont-ils une monnaie ?* Ça fait onze ans qu'on la pose. Le Syndic a toujours trouvé un greffier pour l'égarer. Cette année, elle y est. Je me demande bien qui l'a remise dans le sac. »",
-     "else": "Elle te reconnaît sous ton cierge. Elle ne dit rien. Trente têtes se tournent, une par une, et le feu de houille leur fait à toutes le même visage."
+     "else": "Elle te reconnaît sous ton cierge. Elle se tait. Trente têtes se tournent, une par une, et le feu de houille leur fait à toutes le même visage."
     },
     {
      "if": {
@@ -79729,7 +79729,7 @@
      },
      "text": "Tu poses devant lui le cahier de graissage, ouvert à la dernière page. Il lit lentement, en suivant du doigt. À *on ne laisse pas faire cela à quelqu'un que l'on a soigné si longtemps*, le doigt s'arrête, et il se frotte l'œil avec le dos de la main, rudement, comme on chasse une mouche."
     },
-    "Il reste longtemps sans rien dire. En bas, le balancier soupire.",
+    "Il reste longtemps silencieux. En bas, le balancier soupire.",
     "« Un soldat, dit-il enfin, ça obéit. On m'a appris ça à seize ans, à coups de plat de sabre, et je l'ai su toute ma vie. Seulement on m'a appris autre chose, plus tard, sur une brèche : la consigne, c'est pour quand l'officier n'est pas là. Quand il n'y a plus d'officier du tout, on regarde ce qu'on gardait, et on se demande pour qui. »",
     "Il se lève. Sa jambe de bois sonne sur le plancher.",
     "« *Ne laisser entrer personne.* Je croyais garder la porte contre les gens du dehors. Je la gardais contre celle du dedans. Vingt ans de faction devant une prison, et personne ne m'avait prévenu que j'étais geôlier. » Il crache, proprement, dans un coin. « Ils me commandent de sonner aux trois quarts. Je sonnerai. Trois coups, comme c'est écrit : vous saurez par là qu'ils sont au pied de la vis, et vous aurez cent quatre-vingts marches pour vous retourner. Avant cela, il peut passer devant ma table qui voudra. Je ferai ma réussite. J'ai remarqué qu'elle m'absorbe beaucoup. »",
@@ -79754,7 +79754,7 @@
     "Maître Crochemore est plus près que toi. Il fait une chose dont tu ne l'aurais pas cru capable : il pose deux doigts sur le pavillon de la trompe, doucement, comme on pose la main sur l'épaule d'un homme qui va dire une sottise.",
     "« Mon ami, ne sonnez pas. Vous sonnerez tout à l'heure, quand on vous l'a écrit. Si vous sonnez à midi, vous aurez désobéi quand même, et pour rien. »",
     "Le vieux baisse la trompe. Il est gris.",
-    "Il faut donc l'empêcher autrement, et vous le faites à deux, avec tous les ménagements qu'on peut mettre à ces choses : les mains liées devant, sans serrer, avec la ficelle du Remonteur ; la trompe ôtée, pendue à un clou, hors de sa portée ; sa jambe allongée sur le tabouret, sa chandelle mouchée, ses cartes à sa main. Il se laisse faire sans un mot, la tête droite.",
+    "Il faut donc l'empêcher autrement, et vous le faites à deux, avec tous les ménagements qu'on peut mettre à ces choses : les mains liées devant, sans serrer, avec la ficelle du Remonteur ; la trompe ôtée, pendue à un clou, hors de sa portée ; sa jambe allongée sur le tabouret, sa chandelle mouchée, ses cartes à sa main. Il se laisse faire, la tête droite.",
     "« Vous me rendrez ce service, dit-il seulement quand c'est fini. Vous direz que j'ai résisté. »"
    ],
    "fx": {
@@ -80606,7 +80606,7 @@
    "text": [
     "Tu refermes les deux portes de chêne ciré. Elles ont un petit loquet de laiton, qui claque.",
     "Le meuble est là, dans son angle, intact, avec ses douze cents lignes, son nom à la quarante et unième, et sa dernière phrase. Il attend minuit moins cinq et une main sur une boule d'ivoire.",
-    "Maître Crochemore ne dit rien. Il te regarde seulement, par-dessus ses verres, un peu plus longtemps qu'il ne faut ; puis il retourne à sa trousse."
+    "Maître Crochemore te regarde seulement, par-dessus ses verres, un peu plus longtemps qu'il ne faut ; puis il retourne à sa trousse."
    ],
    "choices": [
     {
@@ -83542,7 +83542,7 @@
    "place": "ville_haute",
    "ambiance": "chateau",
    "text": [
-    "Tu ne dis rien. Tu ne baisses pas les yeux non plus. Tu restes où tu es, le rôle dans les bras, avec la patience de quelqu'un qui n'est personne et que toute une ville attend.",
+    "Tu te tais. Tu gardes les yeux levés. Tu restes où tu es, le rôle dans les bras, avec la patience de quelqu'un qui n'est personne et que toute une ville attend.",
     "Maître Florimond est un homme d'usages. Il en a servi toute sa vie ; il sait qu'il y en a de plus forts que lui. Il s'incline, de la nuque seulement, et il s'efface.",
     "« Si la Voix veut bien me suivre. »",
     "Dans le corridor, pourtant, il se retourne à demi. « Je me serai trompé. À mon âge, toutes les figures finissent par en rappeler une autre. » Il n'en pense pas un mot, et il tient à ce que tu le saches."
@@ -84390,7 +84390,7 @@
     "« C'est bien dit. On voit que vous lisez pour le Bronze. » Il te rend le rôle. « Mais voyez-vous, on m'a beaucoup proposé de me racheter. Des confesseurs, des femmes, mon intendant. Je me suis toujours méfié : cela commence par un beau geste, et cela finit par une vie rangée. »",
     "Il va au mannequin, décroche le manteau rouge.",
     "« Je monte ce soir avec mes deux collègues, le dernier, l'épée au côté, comme mon père. Je ne vous cherche pas. Si je vous trouve devant la porte, je ferai mon office, très bien, et sans rancune. » Il te salue, du salut qu'on fait sur le pré. « Allez. Vous aurez été la seule personne de cette semaine à me parler de ma mère sans que je lui en veuille. Cela vaut bien que je vous laisse une demi-journée d'avance. »",
-    "Dans la cuisine, Maître Ravaudet te tient la porte, le mouchoir à la main. Il ne dit rien. Il te glisse seulement, d'une voix mouillée : « Il ne dort plus. Il s'exerce jusqu'à trois heures. On ne s'exerce pas ainsi contre des gens que l'on méprise. »"
+    "Dans la cuisine, Maître Ravaudet te tient la porte, le mouchoir à la main. Il te glisse seulement, d'une voix mouillée : « Il ne dort plus. Il s'exerce jusqu'à trois heures. On ne s'exerce pas ainsi contre des gens que l'on méprise. »"
    ],
    "choices": [
     {
@@ -84585,7 +84585,7 @@
    "text": [
     "Les doigts de chevreau accrochent le bord. Le capuchon glisse en arrière, d'un coup, jusqu'aux épaules.",
     "Cela dure une seconde. Tu le rabats à deux mains, en lâchant un bâton du rôle, qui se déroule de trois pieds sur le pavé. Autour de toi, on se précipite, on ramasse, on se signe : une Voix qui laisse tomber le rôle, c'est un présage, et chacun veut l'avoir conjuré.",
-    "Dans cette seconde, il y avait des torches, et ta figure dedans. Tu ne sais pas qui a regardé. Sous le dais violet, il t'a semblé qu'un visage très pâle se tournait, avec un sourire. Au pied de la voûte, un sergent à moustache rousse a froncé le sourcil, comme un homme qui cherche un mot.",
+    "Dans cette seconde, il y avait des torches, et ta figure dedans. Tu ignores qui a regardé. Sous le dais violet, il t'a semblé qu'un visage très pâle se tournait, avec un sourire. Au pied de la voûte, un sergent à moustache rousse a froncé le sourcil, comme un homme qui cherche un mot.",
     "Tu repars, le rôle levé. Tes mains tremblent. Dans la robe, personne ne le voit."
    ],
    "choices": [
@@ -86870,7 +86870,7 @@
      },
      "text": "Le Doyen des Morts a redemandé les clefs, doucement, comme on redemande un livre prêté."
     },
-    "Maître Crochemore a rejoint le seuil. Il ne dit rien. Il tient sa montre ouverte, et il vous montre le cadran : la grande aiguille touche presque la petite.",
+    "Maître Crochemore a rejoint le seuil. Il tient sa montre ouverte, et il vous montre le cadran : la grande aiguille touche presque la petite.",
     "Derrière la grille, la plume s'est arrêtée.",
     "« Vous voilà, dit-elle. Je vous ai exposé quatre voies. Je vous tourne le dos, à présent : je ne veux pas lire sur vos figures. Votez comme on vote chez vous. »",
     "Chez vous, on vote dans un chapeau. Maître Crochemore ôte le sien, sans qu'on le lui demande, et le pose à l'envers sur la dalle, au pied du Juge."

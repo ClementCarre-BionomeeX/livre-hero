@@ -71,7 +71,7 @@ module.exports = {
     A2v_gre_ombrelle: { act: "II", title: "Une ombrelle à tenir", place: "fonderie",
       text: [
         "Tu rends le mouchoir. Tu dis, dans le temps qu'il faut pour saluer : « S'il se lève, que le grand reste. »",
-        "Elle ne répond rien. Elle déplie le mouchoir, s'en touche la tempe. Puis, un moment après, d'une voix d'enfant gâtée qui porte à trois fauteuils :",
+        "Pour toute réponse, elle déplie le mouchoir, s'en touche la tempe. Puis, un moment après, d'une voix d'enfant gâtée qui porte à trois fauteuils :",
         "« Père, cette ombrelle me casse le bras. Qu'Ugolin me la tienne. »",
         "« Ugolin ? » Maître Quincarnon rit. « Ma chère, tu demandes une enclume pour porter une plume. Ugolin ! Tiens l'ombrelle de Mademoiselle. Et ne la lâche pas, quoi qu'elle te dise. »",
         "Le colosse fait deux pas. Il prend le manche d'ivoire dans son poing, avec précaution, comme on prend un oiseau, et se plante derrière la chaise blanche. On lui a donné un ordre. Il le tiendra jusqu'à ce qu'on lui en donne un autre, et celui qui en donne vient de dire : quoi qu'elle te dise.",
@@ -102,7 +102,7 @@ module.exports = {
         { if: { all: [{ role: "a2", is: "oeil" }, { has: "monde:a2:c_oeil" }] }, text: "Tu es dans l'escalier du teneur, à la cinquième marche, dans le noir. Le petit homme sec, debout sur sa chaise, regardait les fours. Il n'a pas tourné la tête." },
         { if: { all: [{ role: "a2", is: "oeil" }, { not: "monde:a2:c_oeil" }] }, text: "Tu es dans l'escalier du teneur, à la cinquième marche, dans le noir, le cœur aux dents. Le petit homme sec a tourné la tête. Il a regardé un moment le trou d'ombre, les sourcils froncés, la plume en l'air ; puis le cri du saintier l'a repris." },
         { if: { all: [{ role: "a2", is: "main" }, { has: "monde:a2:c_main" }] }, text: "Tu es redescendu{e} de la plate-forme. Le brin de soie est dans la main du président, enroulé deux fois à son petit doigt, sous la manchette." },
-        { if: { all: [{ role: "a2", is: "main" }, { not: "monde:a2:c_main" }] }, text: "Tu es redescendu{e} de la plate-forme les mains vides. Le sergent roux, au pied du beffroi, te regardait huiler ; tu as huilé, et rien d'autre. Le président ne dit rien. Il a la mâchoire qui travaille." },
+        { if: { all: [{ role: "a2", is: "main" }, { not: "monde:a2:c_main" }] }, text: "Tu es redescendu{e} de la plate-forme les mains vides. Le sergent roux, au pied du beffroi, te regardait huiler ; tu as huilé, et rien d'autre. Le président se tait. Il a la mâchoire qui travaille." },
         { if: { role: "a2", is: "voix" }, text: "Sur la tribune, trente Parrains se sont penchés ensemble, comme un seul homme regarde dans un puits." },
       ],
       choices: [{ label: "Le bronze sort", to: POSTE("A2m_gre_3", "A2o_gre_3", "A2v_gre_3"), big: true }] },

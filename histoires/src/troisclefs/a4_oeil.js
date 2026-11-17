@@ -90,7 +90,7 @@ module.exports = {
     A4o_douce: { act: "IV", title: "Sans-Bruit, dans les fonds", place: "sylve", ambiance: "foret",
       fx: { flag: "monde:a4:douce_dit", clue: "g4_papier" },
       text: [
-        "Elle s'assied sur le billot, que l'homme aux deux doigts de moins lui a cédé sans un mot. Elle te regarde tenir ton trait.",
+        "Elle s'assied sur le billot, que l'homme aux deux doigts de moins lui a cédé. Elle te regarde tenir ton trait.",
         "« Valet de limier. Elle vous a bien dressés, la vieille : on entre toujours par les bêtes ou par les cuisines. » Elle ôte un gant, ce que tu ne lui avais jamais vu faire, et se frotte les yeux. Elle a la main petite, blanche, avec une brûlure de corde en travers de la paume. « Je vais te dire où j'en suis. Cela ne me coûte rien, et il faut bien que je le dise à quelqu'un qui comprenne le métier. »",
         "« J'ai un client. Tu sais lequel : il a sept tours et une barbe en pointe. Il m'a commandé au printemps deux clefs sur trois. Il lui en faut deux, avec la sienne, pour *proposer*, comme il dit ; pour aller trouver les deux autres avec les trois dans sa main, et leur dicter le nom qu'on mettra sur leur machine. Le sien. Il ne veut pas être Gouverneur à vie : il veut être prince. »",
         "Elle rit sans bruit.",
@@ -269,7 +269,7 @@ module.exports = {
     A4o_benediction_fuite: { act: "IV", title: "Une bagarre de chenil", place: "chenils", ambiance: "chateau",
       text: [
         "Tu marches sur la patte du mâtin d'à côté. Il se retourne sur Ramoneau, qui a douze ans et pas de patience ; les deux couples s'emmêlent ; quatre chiens roulent sur le pavé dans un bruit d'enfer, et six valets se jettent dessus avec des fouets et des jurons que l'on n'avait pas encore dits devant un évêque.",
-        "La Brisée arrive en trois enjambées. Il sépare les bêtes à mains nues, par la peau du cou, sans un mot ; et il te regarde, toi, d'un œil qui a parfaitement vu sur quelle patte tu as marché.",
+        "La Brisée arrive en trois enjambées. Il sépare les bêtes à mains nues, par la peau du cou ; et il te regarde, toi, d'un œil qui a parfaitement vu sur quelle patte tu as marché.",
         "Tu es passé{e}, dans la bousculade, de l'autre côté de la ligne, derrière les chevaux. La soutane violette a repris sa marche. Elle bénit ta place vide, et le garçon de chenil qui tient ton chien.",
         "« Tu me diras un jour », grogne le vieux piqueur en te rendant le trait, « pourquoi un valet qui tient si bien un limier le lâche juste quand passe le goupillon. Pas aujourd'hui. J'ai une meute à faire dîner. »",
         "Tu as eu le temps de compter les Suisses : douze, par six paires. Une à la voûte d'entrée, une à la passerelle des chenils. Les autres tournent, et se croisent toutes les dix minutes devant la tour de l'Horloge.",

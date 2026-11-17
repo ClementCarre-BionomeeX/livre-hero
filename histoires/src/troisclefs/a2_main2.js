@@ -101,7 +101,7 @@ module.exports = {
     A2m_pendule: { act: "II", title: "La pendule de la recette", place: "gueule", ambiance: "nuit",
       text: [
         "Maître Crochemore se plante devant la niche. Il tire ses trois montres, l'une après l'autre, les aligne sur sa paume, et regarde tour à tour les trois cadrans et celui de la pendule.",
-        "Il ne dit rien pendant une minute entière. Tu commences à le connaître : c'est mauvais signe pour quelqu'un.",
+        "Il se tait une minute entière. Tu commences à le connaître : c'est mauvais signe pour quelqu'un.",
         "« Trois heures onze à la grande. Trois heures onze à la petite. Trois heures onze à la répétition. » Il lève les yeux. « Trois heures moins quatre à ceci. »",
         "« Elle retarde ? »",
         "« Une pendule qui retarde, sachez-le, retarde tous les jours, et au bout d'une semaine elle marque minuit à midi. Celle-ci retarde de quinze minutes, et l'on me dit qu'on se règle sur elle depuis des années. » Il a déjà son tournevis à la main. Il ouvre la grille, la vitre, la platine, avec trois gestes de chirurgien. « Donc on la remet à l'heure chaque matin. Et chaque jour elle reperd son quart. Voyons cela. »",
@@ -258,7 +258,7 @@ module.exports = {
         "Il y a un silence qui est l'absence de bruit, et il y a celui-ci, qui est une chose. Il a un poids. Il appuie sur les tympans comme l'eau quand on plonge. Ton pas, dans ce silence, ne fait pas d'écho : le son tombe à tes pieds et y reste.",
         "La lampe montre une galerie plus large que celles d'en deçà, et plus belle, boisée à l'ancienne, de chêne équarri. Le feu a passé là. Les étais sont noirs, craquelés en écailles comme un cuir de crocodile, et la roche, au-dessus, est vitrifiée par places. Sur le sol, une cendre fine, grise, unie, que rien n'a marquée depuis dix-neuf ans. Vos pieds y font les premières traces.",
         "Et partout, ce qu'on lâche quand on court. Un pic. Une gourde. Un chapeau de cuir, intact, posé sur la cendre comme sur une table. Une berline renversée, dont le minerai s'est répandu.",
-        "Maître Crochemore ne dit rien. Tu entends, dans son gousset, ses trois montres, qui battent chacune à sa façon, et dont le bruit, ici, a quelque chose d'inconvenant.",
+        "Maître Crochemore se tait. Tu entends, dans son gousset, ses trois montres, qui battent chacune à sa façon, et dont le bruit, ici, a quelque chose d'inconvenant.",
       ],
       choices: [{ label: "Avancer, dans l'allée du milieu", to: "A2m_air", big: true }] },
 

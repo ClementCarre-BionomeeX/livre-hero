@@ -28,7 +28,7 @@ module.exports = {
         { if: { has: "monde:a5:comte" }, text: "Le comte de Brandelis est au pied de l'échelle, l'épée nue, entre les casaques rousses et vous. Il a tenu une parole. On en parlera dans sa maison." },
         { if: { has: "monde:a5:doyen=avec" }, text: "Le Doyen des Morts s'est assis sur le premier barreau, et il se repose avec une lenteur exemplaire." },
         { if: { has: "monde:a5:doyen=contre" }, text: "Le Doyen des Morts a redemandé les clefs, doucement, comme on redemande un livre prêté." },
-        "Maître Crochemore a rejoint le seuil. Il ne dit rien. Il tient sa montre ouverte, et il vous montre le cadran : la grande aiguille touche presque la petite.",
+        "Maître Crochemore a rejoint le seuil. Il tient sa montre ouverte, et il vous montre le cadran : la grande aiguille touche presque la petite.",
         "Derrière la grille, la plume s'est arrêtée.",
         "« Vous voilà, dit-elle. Je vous ai exposé quatre voies. Je vous tourne le dos, à présent : je ne veux pas lire sur vos figures. Votez comme on vote chez vous. »",
         "Chez vous, on vote dans un chapeau. Maître Crochemore ôte le sien, sans qu'on le lui demande, et le pose à l'envers sur la dalle, au pied du Juge.",
