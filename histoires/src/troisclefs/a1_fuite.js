@@ -176,7 +176,7 @@ module.exports = {
     A1o_f_porte_ko: { act: "I", title: "Les yeux du prévôt", place: "poids", ambiance: "nuit",
       text: [
         "Tu lèves la tête une fois de trop. C'est pour compter ; mais un porteur qui regarde autour de lui a cessé d'être un porteur, et l'homme trapu, au pied de l'escalier, a justement les yeux sur toi.",
-        "Il ne dit rien. Il te regarde descendre les trois dernières marches, avec cette attention lente qu'on lui connaît, et qui se pose d'abord sur les mains.",
+        "Il te regarde descendre les trois dernières marches, avec cette attention lente qu'on lui connaît, et qui se pose d'abord sur les mains.",
         "Les tiennes tiennent un volet de fenêtre par ses gonds.",
       ],
       choices: [{ label: "Avancer quand même", to: "A1c_apres", big: true }] },

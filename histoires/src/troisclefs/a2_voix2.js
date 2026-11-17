@@ -209,7 +209,7 @@ module.exports = {
     A2v_terrasse_vrai: { act: "II", title: "Enfin quelqu'un", place: "manoir",
       fx: { ep: ["perso", 700] },
       text: [
-        "Elle ne dit rien pendant le temps de trois coups de marteau.",
+        "Elle se tait le temps de trois coups de marteau.",
         "Puis elle rit. C'est le rire d'Aiguemorne, bref, qui lui échappe ; seulement ici personne ne se retourne, et elle le laisse aller jusqu'au bout.",
         "« La clef de Fer. La sienne. Celle qu'il ne quitte pas pour dormir. » Elle s'essuie les yeux du coin de son châle. « Pardon. C'est que depuis neuf ans je regarde cet homme tout fermer, tout garder, tout inscrire, et que personne, jamais, ne lui a rien pris. Pas un jeton. Pas une épingle. Je commençais à croire que c'était une loi de la nature. Et il arrive quelqu'un qui me dit, sur ma terrasse, qu'on vient lui prendre ce qu'il a de plus serré. »",
         "Elle redevient sérieuse, d'un coup.",

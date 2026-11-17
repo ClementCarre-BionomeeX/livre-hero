@@ -184,7 +184,7 @@ module.exports = {
       choices: [{ back: "Pv_syndic" }] },
     Pv_ecoute_ko: { act: "P", title: "Le regard du frappeur", place: "ferronniers",
       text: [
-        "Tu es à deux pas quand le Syndic se penche, et à deux pas encore quand le colosse lève les yeux. Il ne dit rien. Il te regarde, simplement, de ce regard qui cherche où frapper, et sa main descend d'elle-même jusqu'au manche du marteau, où elle se pose comme sur la tête d'un chien.",
+        "Tu es à deux pas quand le Syndic se penche, et à deux pas encore quand le colosse lève les yeux. Il te regarde, simplement, de ce regard qui cherche où frapper, et sa main descend d'elle-même jusqu'au manche du marteau, où elle se pose comme sur la tête d'un chien.",
         "Le Syndic suit ce regard, t'aperçoit, et te sourit de toutes ses dents. « Ugolin n'aime pas la foule. Ne restez pas là, il vous prendrait pour une enclume. » Les jurés rient. Tu ris aussi, et tu t'éloignes avec, entre les épaules, une place très précise qui te démange.",
       ],
       choices: [{ back: "Pv_syndic" }] },

@@ -261,7 +261,7 @@ module.exports = {
         "« Je suis fatigué, Monsieur », dit Ugolin.",
         "Et il s'assied. Là, sur le pavé de scories, au milieu de la place, entre la bascule et la chaise à porteurs, les jambes en tailleur, les mains sur les genoux. Sept pieds d'homme, par terre, comme un enfant qu'on a mis en pénitence et qui s'y trouve bien.",
         "Maître Quincarnon répète son ordre. Une fois, deux fois, d'une voix qui monte. Ugolin n'a pas l'air de l'entendre. Il regarde les baguettes de coudrier, en tas, et remue les lèvres. Tu crois qu'il compte.",
-        "Autour de lui, la place a fait un cercle. Personne ne le touche. Une vieille, toute pliée, sort du rang, vient jusqu'à lui en traînant ses sabots, et s'assied à côté, sans rien dire : sa mère.",
+        "Autour de lui, la place a fait un cercle. Personne ne le touche. Une vieille, toute pliée, sort du rang, vient jusqu'à lui en traînant ses sabots, et s'assied à côté, muette : sa mère.",
       ],
       choices: [{ label: "Te retourner vers la bascule", to: "A2c_tenir_fin", big: true }] },
     A2o_ten_parti: { act: "II", title: "Une main sur le Livre", place: "ferrieres",

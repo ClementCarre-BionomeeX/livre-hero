@@ -58,7 +58,7 @@ module.exports = {
     A1v_q_ko: { act: "I", title: "Tant l'once", place: "heures",
       text: [
         "Tu poses ta question. Le Syndic te regarde, t'évalue, t'inscrit dans une colonne, et te répond par un prix.",
-        "Il te vend une serrure. Tu n'en voulais pas, tu n'as rien demandé de tel, et pourtant, au bout de cinq minutes, tu sais ce que coûte chez lui un cadenas à secret, pose comprise, et tu as failli donner ton adresse. Le cercle rit. Quand tu parviens à t'en retirer, il est déjà revenu à sa cloche, et tu n'as appris de son voyage que ce que toute la salle en sait : il part ce soir.",
+        "Il te vend une serrure. Tu n'as rien demandé de tel, et pourtant, au bout de cinq minutes, tu sais ce que coûte chez lui un cadenas à secret, pose comprise, et tu as failli donner ton adresse. Le cercle rit. Quand tu parviens à t'en retirer, il est déjà revenu à sa cloche, et tu n'as appris de son voyage que ce que toute la salle en sait : il part ce soir.",
       ],
       choices: [{ back: "A1v_salon" }] },
 
@@ -313,7 +313,7 @@ module.exports = {
       text: [
         "Le père Balthazar reprend son habit, le retourne, cherche le trou, et te le rend des yeux, déçu de n'avoir rien à retenir sur la caution. Tu redeviens toi dans son arrière-boutique, entre une cuirasse et une robe de noces.",
         "Tu manges un morceau, debout, à un étal. La ville haute allume ses lanternes. À huit heures, de la rue des Ferronniers, tu vois passer le coche du Nord, six chevaux, deux lanternes, deux gardes sur le siège ; derrière la vitre, une seconde, un velours prune, et le profil d'une jeune fille qui regarde de l'autre côté.",
-        { if: { seen: "A1v_cabinet_ok" }, text: "*C'est réglé ce soir.* La phrase ne t'a pas quitté{e}. Tu ne sais pas ce qu'elle règle. Tu sais seulement que l'homme qui l'a dite vient de passer dans une voiture, bien en vue, devant toute une rue." },
+        { if: { seen: "A1v_cabinet_ok" }, text: "*C'est réglé ce soir.* La phrase ne t'a pas quitté{e}. Tu ignores ce qu'elle règle. Tu sais seulement que l'homme qui l'a dite vient de passer dans une voiture, bien en vue, devant toute une rue." },
         "Le rendez-vous est à neuf heures, au pied du rempart.",
       ],
       choices: [{ label: "Monter à l'impasse des Poids", to: "A1c_rdv", big: true }] },

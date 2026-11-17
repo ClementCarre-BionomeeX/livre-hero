@@ -161,7 +161,7 @@ module.exports = {
     A3o_courrier_vu: { act: "III", title: "Un œil de sergent", place: "larron",
       text: [
         "Tu as deux doigts sur le papier quand le cavalier se retourne. Il n'a rien entendu. Il a seulement, comme tous ceux du guet, l'habitude de savoir où est sa sacoche.",
-        "Tu retires la main. Tu regardes ailleurs, en personne qui cherchait le bénitier. Il ne dit rien. Il reprend sa sacoche, la boucle, la passe en bandoulière ; puis il te regarde, une bonne fois, de haut en bas, avec cette attention sans colère qu'on apprend au corps de garde, et qui range.",
+        "Tu retires la main. Tu regardes ailleurs, en personne qui cherchait le bénitier. Il reprend sa sacoche, la boucle, la passe en bandoulière ; puis il te regarde, une bonne fois, de haut en bas, avec cette attention sans colère qu'on apprend au corps de garde, et qui range.",
         "Il paie son vin. En sortant, il dit au père Trentain, assez haut : « Vous avez du monde jeune, chez vous. Du nord ? » Et le père Trentain, qui pense à son grand deuil, répond que ce sont des gens venus enterrer un horloger.",
         "« Un horloger, répète le cavalier. Tiens. »",
       ],

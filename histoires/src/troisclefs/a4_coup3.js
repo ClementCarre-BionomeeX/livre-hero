@@ -394,7 +394,7 @@ module.exports = {
       ] },
     A4o_bal_3: { act: "IV", title: "Onze heures et demie", place: "brandelis", ambiance: "chateau",
       text: [
-        { outcome: "win", text: "C'est fait. Ce n'est pas glorieux, cela ne se voit pas, personne n'en saura jamais rien : il y aura, à minuit, un trou dans le filet, large comme trois personnes." },
+        { outcome: "win", text: "C'est fait. C'est un travail obscur, invisible, promis à l'oubli : il y aura, à minuit, un trou dans le filet, large comme trois personnes." },
         { outcome: "lose", text: "Cela ne prend pas. Le sergent roux te regarde de haut en bas, sans hostilité, comme un mur regarde une balle. La porte reste gardée. À minuit, il faudra passer dessus." },
         "Tu reprends ton flambeau. Tu cherches dans la foule un domino feuille-morte, à bottes rouges, et, derrière un grand cramoisi qui se voûte, un porte-flambeau gris.",
         "Les violons jouent un branle. Il est onze heures et demie à la pendule de la salle, qui retarde.",
