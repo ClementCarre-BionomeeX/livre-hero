@@ -1,0 +1,135 @@
+// « Enlevé ! » (Kidnapped), R. L. Stevenson, 1886 : un livre à lire, sans choix (lecture: true).
+// Texte : traduction nouvelle par Claude, faite pour cette bibliothèque à partir du texte anglais de 1886 (Project
+// Gutenberg n° 421, domaine public). Les quelques notes de Stevenson sur les mots écossais sont fondues dans le texte ;
+// l'écossais des personnages est rendu par le ton plus que par l'orthographe. Les titres des chapitres sont ceux de
+// Stevenson, traduits. Tout ce qui n'est pas de Stevenson vit dans les tags : gens, lieux, mots, résumés des chapitres.
+// Chapitre C26 · Chapitre 26 · Fin de la fuite : nous passons le Forth
+module.exports = {
+  C26_1: { act: "C26", title: "Le chemin du Forth", place: "stirling",
+    text: [
+      "Le mois, comme je l'ai dit, n'était pas encore écoulé, mais on était déjà bien avant dans août, par un beau temps chaud, avec tous les signes d'une moisson précoce et abondante, quand on me déclara en état de faire mon voyage. Notre argent était maintenant tombé si bas qu'il nous fallait penser avant tout à la rapidité ; car si nous n'arrivions pas bientôt chez M. Rankeillor, ou si, une fois arrivés, il ne m'aidait pas, nous mourrions sûrement de faim. De l'avis d'Alan, en outre, la chasse devait maintenant s'être beaucoup ralentie ; et la ligne du Forth, et même le pont de Stirling, qui est le principal passage sur ce fleuve, seraient surveillés sans grand zèle.",
+      "— C'est un principe capital dans les affaires militaires, dit-il, d'aller là où l'on vous attend le moins. Le Forth, voilà notre souci ; tu connais le dicton : « Le Forth met la bride au sauvage Highlander. » Eh bien, si nous cherchons à nous glisser autour de la source de ce fleuve et à descendre par Kippen ou Balfron, c'est justement là qu'ils guetteront pour mettre la main sur nous. Mais si nous fonçons tout droit sur le vieux pont de Stirling, je parie mon épée qu'ils nous laisseront passer sans nous interpeller.",
+      "La première nuit, donc, nous poussâmes jusqu'à la maison d'un Maclaren du Strathyre, un ami de Duncan, où nous dormîmes le vingt et un du mois, et d'où nous repartîmes vers la tombée de la nuit pour faire une autre étape facile. Le vingt-deux, nous restâmes couchés dans un buisson de bruyère sur le flanc de la colline à Uam Var, en vue d'un troupeau de daims : les dix plus heureuses heures de sommeil que j'aie jamais goûtées, sous un beau soleil où l'on respirait, et sur un sol sec comme un os. Cette nuit-là, nous rejoignîmes l'Allan Water et le suivîmes en descendant ; et arrivant au bord des collines, nous vîmes toute la plaine de Stirling à nos pieds, plate comme une crêpe, avec la ville et le château sur une colline au milieu, et la lune qui brillait sur les méandres du Forth.",
+      "— Maintenant, dit Alan, je ne sais pas si cela te fait quelque chose, mais te voici de nouveau dans ton propre pays. Nous avons franchi la ligne des Highlands dans la première heure ; et maintenant, si nous pouvions seulement passer cette eau tortueuse, là-bas, nous pourrions jeter nos bonnets en l'air.",
+      "Dans l'Allan Water, près de l'endroit où il se jette dans le Forth, nous trouvâmes un petit îlot de sable couvert de bardanes, de pétasites et d'autres plantes basses, qui nous couvraient tout juste si nous nous couchions à plat. Ce fut là que nous fîmes notre camp, en pleine vue du château de Stirling, d'où nous entendions battre les tambours quand une partie de la garnison défilait. Des moissonneurs travaillèrent tout le jour dans un champ, d'un côté du fleuve, et nous entendions les pierres aiguiser les faucilles, et les voix et même les paroles des hommes qui causaient. Il fallait rester tapis et garder le silence. Mais le sable du petit îlot était chaud de soleil, les plantes vertes abritaient nos têtes, nous avions à manger et à boire en abondance ; et pour couronner le tout, nous étions en vue du salut.",
+      "Dès que les moissonneurs eurent quitté leur travail et que le crépuscule commença à tomber, nous regagnâmes la rive à gué et nous dirigeâmes vers le pont de Stirling, en suivant les champs et en longeant les clôtures.",
+      "Le pont est tout près, au pied de la colline du château : un vieux pont haut et étroit, avec des pinacles le long du parapet ; et vous pouvez concevoir avec quel intérêt je le regardais, non seulement comme un lieu célèbre dans l'histoire, mais comme les portes mêmes du salut pour Alan et pour moi. La lune n'était pas encore levée quand nous y arrivâmes ; quelques lumières brillaient sur la façade de la forteresse, et plus bas quelques fenêtres éclairées dans la ville ; mais tout était fort tranquille, et il ne semblait y avoir aucune garde au passage."
+    ] },
+
+  C26_2: { act: "C26", title: "La sentinelle du pont", place: "stirling",
+    text: [
+      "J'étais d'avis de traverser tout droit ; mais Alan était plus méfiant.",
+      "— Cela a l'air bien tranquille, dit-il ; mais malgré cela nous allons nous coucher ici, prudemment, derrière un mur, pour nous en assurer.",
+      "Nous restâmes donc couchés environ un quart d'heure, tantôt chuchotant, tantôt immobiles, sans rien entendre au monde que le clapotis de l'eau contre les piles. Enfin passa une vieille femme qui boitait, appuyée sur une béquille ; elle s'arrêta d'abord un peu, tout près de l'endroit où nous étions couchés, et se plaignit d'elle-même et du long chemin qu'elle avait fait ; puis elle se remit en route en gravissant la pente raide du pont. La femme était si petite, et la nuit encore si noire, que nous la perdîmes bientôt de vue ; nous entendions seulement le bruit de ses pas, de sa canne, et d'une toux qui la prenait par accès, s'éloigner lentement.",
+      "— Elle doit être de l'autre côté maintenant, chuchotai-je.",
+      "— Non, dit Alan, ses pas sonnent encore creux sur le pont.",
+      "Et juste à ce moment : « Qui va là ? » cria une voix, et nous entendîmes la crosse d'un mousquet résonner sur les pierres. Je dois supposer que la sentinelle dormait, de sorte que, si nous avions essayé, nous aurions pu passer inaperçus ; mais elle était réveillée maintenant, et la chance perdue.",
+      "— Cela ne va pas, dit Alan. Cela ne va pas du tout, mais pas du tout pour nous, David.",
+      "Et sans un mot de plus, il se mit à s'éloigner en rampant à travers les champs ; et un peu après, étant bien hors de vue, il se remit debout et prit une route qui menait vers l'est. Je ne pouvais concevoir ce qu'il faisait ; et en vérité j'étais si cruellement blessé par la déception que je n'étais guère disposé à être content de rien. Un moment plus tôt, je m'étais vu frappant à la porte de M. Rankeillor pour réclamer mon héritage, comme un héros de ballade ; et voilà que j'étais de nouveau un vagabond traqué, un gueux, du mauvais côté du Forth.",
+      "— Eh bien ? dis-je.",
+      "— Eh bien, dit Alan, que veux-tu ? Ils ne sont pas aussi sots que je le pensais. Nous avons encore le Forth à passer, Davie ; maudites soient les pluies qui l'ont nourri et les pentes qui l'ont guidé !",
+      "— Et pourquoi aller vers l'est ? dis-je.",
+      "— Oh ! juste à tout hasard ! dit-il. Si nous ne pouvons pas passer le fleuve, il faudra voir ce que nous pouvons faire pour l'estuaire.",
+      "— Il y a des gués sur le fleuve, et aucun sur l'estuaire, dis-je.",
+      "— Bien sûr qu'il y a des gués, et un pont par-dessus le marché, dit Alan ; et à quoi servent-ils, quand ils sont gardés ?",
+      "— Bon, dis-je, mais un fleuve, on peut le passer à la nage.",
+      "— Quand on en a l'adresse, répliqua-t-il ; mais je n'ai pas encore entendu dire que toi ou moi soyons bien forts à cet exercice ; et pour ma part, je nage comme une pierre.",
+      "— Je ne suis pas de taille à vous répondre, Alan, dis-je ; mais je vois bien que nous allons de mal en pis. S'il est difficile de passer un fleuve, il va de soi que ce doit être pire de passer un bras de mer.",
+      "— Mais il existe une chose qu'on appelle un bateau, dit Alan, ou je me trompe fort.",
+      "— Oui, et une chose qu'on appelle de l'argent, dis-je. Mais pour nous qui n'avons ni l'un ni l'autre, on aurait aussi bien pu ne jamais les inventer."
+    ] },
+
+  C26_3: { act: "C26", title: "L'auberge de Limekilns", place: "limekilns",
+    text: [
+      "— Tu crois ? dit Alan.",
+      "— Je le crois, dis-je.",
+      "— David, dit-il, tu es un homme de peu d'invention et de moins de foi encore. Mais laisse-moi affûter mon esprit sur la pierre, et si je ne peux ni mendier, ni emprunter, ni même voler un bateau, j'en fabriquerai un !",
+      "— Je vous vois d'ici ! dis-je. Et ce n'est pas tout : si on passe un pont, il ne peut rien raconter ; mais si nous passons l'estuaire, voilà le bateau du mauvais côté ; il faut bien que quelqu'un l'ait amené ; tout le pays sera en émoi…",
+      "— Mon gars ! s'écria Alan, si je fabrique un bateau, je fabriquerai quelqu'un pour le ramener ! Alors ne me rebats plus les oreilles de tes sottises, mais marche (car c'est ce que tu as à faire), et laisse Alan penser pour toi.",
+      "Toute la nuit, donc, nous marchâmes par le côté nord de la plaine, sous la haute ligne des monts Ochil ; et par Alloa, Clackmannan et Culross, que nous évitâmes tous ; et vers dix heures du matin, bien affamés et bien las, nous arrivâmes au petit clachan de Limekilns. C'est un endroit situé tout au bord de l'eau, qui regarde, par-delà la Hope, la ville de Queensferry. La fumée montait de l'un et de l'autre, et d'autres villages et fermes de tous côtés. On moissonnait les champs ; deux navires étaient à l'ancre, et des bateaux allaient et venaient sur la Hope. C'était en tout un spectacle bien agréable pour moi ; et je ne pouvais me rassasier de contempler ces collines vertes, cultivées et confortables, et ces gens affairés, aux champs comme sur la mer.",
+      "Malgré tout cela, il y avait la maison de M. Rankeillor sur la rive sud, où la richesse m'attendait, je n'en doutais pas ; et j'étais là, sur la rive nord, vêtu d'habits bien pauvres et d'une mode étrangère, avec trois shillings d'argent restés de toute ma fortune, ma tête mise à prix, et un proscrit pour seule compagnie.",
+      "— Oh ! Alan, dis-je, quand on y pense ! Là-bas, il y a tout ce que le cœur pourrait désirer qui m'attend ; et les oiseaux passent, et les bateaux passent : tous ceux qui veulent peuvent passer, sauf moi seul ! Ah ! mon ami, c'est à briser le cœur !",
+      "À Limekilns, nous entrâmes dans un petit cabaret, que nous ne reconnûmes pour un débit qu'à la perche au-dessus de la porte, et nous achetâmes du pain et du fromage à une jolie fille qui faisait le service. Nous les emportâmes dans un baluchon, avec l'intention d'aller nous asseoir pour les manger dans un bosquet au bord de la mer, que nous voyions à quelque tiers de mille devant nous. En chemin, je ne cessais de regarder de l'autre côté de l'eau et de soupirer tout seul ; et bien que je n'y prisse pas garde, Alan était tombé dans une rêverie. Enfin il s'arrêta sur le chemin.",
+      "— As-tu fait attention à la fille à qui nous avons acheté ceci ? dit-il en tapotant le pain et le fromage.",
+      "— Bien sûr, dis-je, et c'était une jolie fille.",
+      "— Tu as pensé cela ? s'écria-t-il. Ah ! David, voilà une bonne nouvelle.",
+      "— Au nom de toutes les merveilles, pourquoi donc ? dis-je. À quoi cela peut-il servir ?",
+      "— Eh bien, dit Alan avec un de ses airs drôles, j'avais plutôt l'espoir que cela pourrait peut-être nous procurer ce bateau.",
+      "— Si c'était l'inverse, ce serait plus probable, dis-je.",
+      "— Voilà tout ce que tu sais, vois-tu, dit Alan. Je ne veux pas que la fille tombe amoureuse de toi ; je veux qu'elle ait pitié de toi, David ; et pour cela il n'y a aucun besoin qu'elle te prenne pour une beauté. Voyons un peu."
+    ] },
+
+  C26_4: { act: "C26", title: "La comédie d'Alan", place: "limekilns",
+    text: [
+      "Et il m'examina avec curiosité.",
+      "— Je voudrais que tu sois un tout petit peu plus pâle ; mais à part cela tu feras très bien l'affaire : tu as une belle mine de chien battu, tout en loques et en lambeaux, comme si tu avais volé ton habit à un épouvantail. Allons ; demi-tour, et retour au cabaret pour notre bateau.",
+      "Je le suivis en riant.",
+      "— David Balfour, dit-il, tu es un monsieur très drôle à ta façon, et c'est sans doute pour toi une besogne très drôle. Malgré cela, si tu as quelque affection pour mon cou (sans parler du tien), tu auras peut-être la bonté de prendre cette affaire au sérieux. Je vais jouer un peu la comédie, et le fond de l'affaire est exactement aussi sérieux que la potence pour nous deux. Alors garde-le en tête, s'il te plaît, et conduis-toi en conséquence.",
+      "— Bon, bon, dis-je, comme vous voudrez.",
+      "Comme nous approchions du clachan, il me fit prendre son bras et m'y suspendre comme quelqu'un de presque épuisé de fatigue ; et au moment où il poussa la porte du cabaret, il semblait me porter à moitié. La servante parut surprise (elle avait bien de quoi l'être) de notre prompt retour ; mais Alan n'avait pas de mots à perdre pour lui expliquer quoi que ce soit ; il m'aida à m'asseoir, demanda une timbale d'eau-de-vie qu'il me fit boire à petites gorgées, puis, rompant le pain et le fromage, il m'aida à manger comme une bonne d'enfants ; le tout avec cet air grave, inquiet et affectueux qui aurait pu en imposer à un juge. Il n'était pas étonnant que la servante fût touchée par le tableau que nous présentions, d'un pauvre garçon malade et épuisé, et de son camarade si tendre. Elle s'approcha tout près, et resta appuyée du dos contre la table voisine.",
+      "— Qu'est-ce qu'il a donc ? dit-elle enfin.",
+      "Alan se tourna vers elle, à ma grande surprise, avec une sorte de fureur.",
+      "— Ce qu'il a ? s'écria-t-il. Il a fait plus de centaines de milles à pied qu'il n'a de poils au menton, et il a dormi plus souvent dans la bruyère mouillée que dans des draps secs. Ce qu'il a, dit-elle ! Il a bien assez, je pense ! Ce qu'il a, vraiment !",
+      "Et il continua à grommeler pour lui-même en me faisant manger, comme un homme mécontent.",
+      "— Il est jeune pour des choses pareilles, dit la servante.",
+      "— Bien trop jeune, dit Alan en lui tournant le dos.",
+      "— Il serait mieux à cheval, dit-elle.",
+      "— Et où trouverais-je un cheval pour lui ? s'écria Alan en se retournant vers elle avec la même apparence de fureur. Voudriez-vous que je vole ?",
+      "Je pensai que cette rudesse l'aurait fait partir de dépit, comme en effet elle lui ferma la bouche pour un temps. Mais mon compagnon savait très bien ce qu'il faisait ; et, si naïf qu'il fût sur certaines choses de la vie, il avait un grand fonds de rouerie dans des affaires comme celle-là.",
+      "— Vous n'avez pas besoin de me le dire, dit-elle enfin ; vous êtes des gens de qualité.",
+      "— Eh bien, dit Alan, un peu adouci (malgré lui, je crois) par cette remarque ingénue, et quand nous le serions ? Avez-vous jamais entendu dire que la qualité mettait de l'argent dans les poches des gens ?",
+      "Elle soupira à ces mots, comme si elle était elle-même quelque grande dame déshéritée.",
+      "— Non, dit-elle, c'est bien vrai.",
+      "Pendant tout ce temps, je rongeais mon frein à jouer ce rôle, et je restais là, la langue liée, entre la honte et l'envie de rire ; mais, je ne sais comment, à ce moment je ne pus me retenir plus longtemps, et je dis à Alan de me laisser, que j'allais déjà mieux. La voix me resta dans la gorge, car j'ai toujours détesté prendre part à des mensonges ; mais mon embarras même servit l'intrigue, car la fille mit sans doute ma voix enrouée sur le compte de la maladie et de la fatigue."
+    ] },
+
+  C26_5: { act: "C26", title: "Une fille au bon cœur", place: "limekilns",
+    text: [
+      "— Il n'a pas d'amis ? dit-elle d'une voix mouillée de larmes.",
+      "— Oh ! que si ! s'écria Alan, si seulement nous pouvions arriver jusqu'à eux ! Des amis, et des amis riches, des lits pour se coucher, de quoi manger, des médecins pour le soigner ; et il faut qu'il traîne dans les flaques et dorme dans la bruyère comme un mendiant.",
+      "— Et pourquoi cela ? dit la fille.",
+      "— Ma chère, dit Alan, je ne peux pas le dire en toute sûreté ; mais je vais vous dire ce que je vais faire à la place : je vais vous siffler un petit air.",
+      "Et là-dessus il se pencha assez loin par-dessus la table, et, dans un simple souffle de sifflet, mais avec un sentiment merveilleusement joli, il lui siffla quelques mesures de *Charlie est mon chéri*.",
+      "— Chut, dit-elle ; et elle regarda par-dessus son épaule vers la porte.",
+      "— C'est cela, dit Alan.",
+      "— Et lui si jeune ! s'écria la fille.",
+      "— Il est assez vieux pour…",
+      "Et Alan se frappa de l'index sur la nuque, voulant dire que j'étais assez vieux pour perdre la tête.",
+      "— Ce serait une honte noire, s'écria-t-elle en rougissant très fort.",
+      "— C'est pourtant ce qui arrivera, dit Alan, à moins que nous ne nous en tirions mieux.",
+      "Là-dessus la fille se retourna et s'enfuit en courant de cette partie de la maison, nous laissant seuls ensemble : Alan d'excellente humeur de voir ses plans avancer, et moi dans un amer dépit d'être traité de jacobite et comme un enfant.",
+      "— Alan, m'écriai-je, je ne peux plus supporter cela.",
+      "— Il faudra pourtant que tu le supportes, Davie, dit-il. Car si tu renverses la marmite maintenant, tu pourras peut-être tirer ta propre vie du feu, mais Alan Breck est un homme mort.",
+      "C'était si vrai que je ne pus que gémir ; et mon gémissement même servit les desseins d'Alan, car la fille l'entendit en revenant au vol avec un plat de boudins blancs et une bouteille de bière forte.",
+      "— Pauvre agneau ! dit-elle.",
+      "Et elle n'eut pas plus tôt posé la viande devant nous qu'elle me toucha l'épaule d'une petite tape amicale, comme pour me dire de prendre courage. Puis elle nous dit de manger, et qu'il n'y aurait rien de plus à payer ; car l'auberge était à elle, ou du moins à son père, qui était parti pour la journée à Pittencrieff. Nous n'attendîmes pas une seconde invitation, car le pain et le fromage ne sont qu'un maigre réconfort, et les boudins sentaient excellemment bon ; et pendant que nous étions assis à manger, elle reprit la même place près de la table voisine, à nous regarder, à réfléchir, à froncer les sourcils pour elle-même, et à faire passer le cordon de son tablier dans sa main.",
+      "— Je pense que vous avez la langue un peu longue, dit-elle enfin à Alan.",
+      "— Oui, dit Alan ; mais vois-tu, je connais les gens à qui je parle.",
+      "— Je ne vous trahirais jamais, dit-elle, si c'est ce que vous voulez dire.",
+      "— Non, dit-il, tu n'es pas de cette espèce. Mais je vais te dire ce que tu ferais : tu nous aiderais.",
+      "— Je ne pourrais pas, dit-elle en secouant la tête. Non, je ne pourrais pas.",
+      "— Non, dit-il, mais si tu pouvais ?",
+      "Elle ne lui répondit rien.",
+      "— Écoute, ma fille, dit Alan, il y a des bateaux dans le royaume de Fife, car j'en ai vu deux (pas moins) sur la plage en arrivant par le bout de ton village. Or, si nous pouvions avoir l'usage d'un bateau pour passer à la faveur de la nuit dans le Lothian, et un homme discret et honnête pour ramener ce bateau et tenir sa langue, il y aurait deux âmes de sauvées : la mienne, selon toute probabilité ; la sienne, à coup sûr. Si ce bateau nous manque, il ne nous reste que trois shillings dans ce vaste monde ; et où aller, que faire, et quelle autre place il y a pour nous sinon les chaînes d'un gibet, je te le dis en toute franchise, je n'en sais rien ! Allons-nous rester dans le besoin, ma fille ? Vas-tu rester couchée dans ton lit chaud à penser à nous, quand le vent hurlera dans la cheminée et que la pluie tambourinera sur le toit ? Vas-tu manger ta viande au coin d'un bon feu rouge, en pensant à ce pauvre garçon malade, qui se mord le bout des doigts de froid et de faim sur une lande glacée ? Malade ou bien portant, il faut qu'il marche toujours ; avec la mort qui le tient à la gorge, il faut qu'il se traîne toujours sous la pluie sur les longues routes ; et quand il rendra le dernier soupir sur un tas de pierres froides, il n'y aura pas d'amis près de lui, que moi et Dieu."
+    ] },
+
+  C26_6: { act: "C26", title: "La barque de nuit", place: "limekilns",
+    text: [
+      "À cet appel, je vis que la fille était en grand trouble d'esprit, tentée de nous aider, et pourtant craignant un peu d'aider des malfaiteurs ; et je résolus alors d'intervenir moi-même et d'apaiser ses scrupules avec une part de vérité.",
+      "— Avez-vous jamais entendu parler, dis-je, de M. Rankeillor, de Queensferry ?",
+      "— Rankeillor, l'homme de loi ? dit-elle. Je crois bien !",
+      "— Eh bien, dis-je, c'est à sa porte que je me rends, et vous pouvez juger par là si je suis un malfaiteur ; et je vous dirai plus : bien que je sois en effet, par une affreuse erreur, en quelque danger pour ma vie, le roi George n'a pas de plus fidèle ami que moi dans toute l'Écosse.",
+      "Son visage s'éclaira fort à ces mots, tandis que celui d'Alan s'assombrissait.",
+      "— C'est plus que je n'en demandais, dit-elle. M. Rankeillor est un homme connu.",
+      "Et elle nous dit de finir notre repas, de quitter le clachan le plus tôt possible, et de rester cachés dans le petit bois au bord de la mer.",
+      "— Et vous pouvez avoir confiance en moi, dit-elle ; je trouverai un moyen de vous faire passer.",
+      "Là-dessus nous n'attendîmes pas davantage, mais lui serrâmes la main sur ce marché, expédiâmes les boudins, et repartîmes de Limekilns jusqu'au bois. C'était un petit bosquet d'une vingtaine de sureaux et d'aubépines et de quelques jeunes frênes, pas assez épais pour nous cacher aux passants sur la route ou sur la grève. Il fallut pourtant y rester couchés, en profitant de notre mieux du beau temps chaud et du bon espoir que nous avions maintenant d'une délivrance, et en arrêtant plus en détail ce qui nous restait à faire.",
+      "Nous n'eûmes qu'un seul ennui de toute la journée : un joueur de cornemuse ambulant vint s'asseoir dans le même bois que nous ; un ivrogne au nez rouge et aux yeux chassieux, avec une grosse bouteille de whisky dans sa poche, et une longue histoire des torts que lui avaient faits toutes sortes de gens, depuis le lord président de la Cour de session, qui lui avait refusé justice, jusqu'aux baillis d'Inverkeithing, qui lui en avaient rendu plus qu'il n'en désirait. Il ne pouvait manquer de concevoir quelque soupçon en voyant deux hommes rester cachés toute la journée dans un fourré sans avoir d'affaire à alléguer. Tant qu'il resta là, il nous tint sur des charbons ardents avec ses questions indiscrètes ; et après son départ, comme ce n'était pas un homme bien capable de tenir sa langue, nous fûmes d'autant plus impatients de partir nous-mêmes.",
+      "Le jour s'acheva dans la même clarté ; la nuit tomba calme et claire ; les lumières s'allumèrent dans les maisons et les hameaux, puis, l'une après l'autre, commencèrent à s'éteindre ; mais il était plus de onze heures, et nous étions depuis longtemps étrangement torturés d'inquiétude, quand nous entendîmes grincer des avirons dans les tolets. Là-dessus nous regardâmes, et vîmes la fille elle-même qui venait vers nous en ramant dans un bateau. Elle n'avait confié nos affaires à personne, pas même à son amoureux, si elle en avait un ; mais dès que son père s'était endormi, elle avait quitté la maison par une fenêtre, volé le bateau d'un voisin, et était venue à notre secours toute seule.",
+      "Je ne savais comment exprimer mes remerciements ; mais elle n'était pas moins confuse à l'idée de les entendre ; elle nous supplia de ne pas perdre de temps et de nous taire, disant (fort justement) que le cœur de notre affaire était dans la hâte et le silence ; et ainsi, d'une chose à l'autre, elle nous avait déposés sur la rive du Lothian non loin de Carriden, nous avait serré la main, et était repartie en mer, ramant vers Limekilns, avant qu'un seul mot eût été dit de son service ou de notre gratitude.",
+      "Même après son départ, nous n'avions rien à dire, car en vérité rien n'aurait suffi pour une telle bonté. Seulement Alan resta longtemps sur le rivage à secouer la tête.",
+      "— C'est une bien belle fille, dit-il enfin. David, c'est une bien belle fille.",
+      "Et une heure plus tard environ, comme nous étions couchés dans un trou au bord de la mer et que je m'étais déjà assoupi, il se remit à faire l'éloge de son caractère. Pour ma part, je ne pouvais rien dire ; elle était une créature si simple que mon cœur était frappé à la fois de remords et de crainte : de remords, parce que nous avions spéculé sur son ignorance ; et de crainte, que nous ne l'eussions entraînée de quelque façon dans les dangers de notre situation."
+    ] },
+
+};

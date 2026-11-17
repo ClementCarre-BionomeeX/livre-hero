@@ -1,0 +1,48 @@
+// « Enlevé ! » (Kidnapped), R. L. Stevenson, 1886 : un livre à lire, sans choix (lecture: true).
+// Texte : traduction nouvelle par Claude, faite pour cette bibliothèque à partir du texte anglais de 1886 (Project
+// Gutenberg n° 421, domaine public). Les quelques notes de Stevenson sur les mots écossais sont fondues dans le texte ;
+// l'écossais des personnages est rendu par le ton plus que par l'orthographe. Les titres des chapitres sont ceux de
+// Stevenson, traduits. Tout ce qui n'est pas de Stevenson vit dans les tags : gens, lieux, mots, résumés des chapitres.
+// Les mots et les noms de l'époque, expliqués d'un toucher. Rien de l'intrigue.
+module.exports = {
+  "laird|lairds": "En Écosse, le propriétaire d'un domaine, petit ou grand.",
+  "whig|whigs": "Le parti fidèle au roi George et à la religion presbytérienne ; pour un jacobite, un ennemi.",
+  "jacobite|jacobites": "Les partisans des Stuarts chassés du trône ; ils se sont soulevés en 1745 avec le prince Charles Stuart et ont été vaincus à Culloden.",
+  "Culloden": "La bataille de 1746 où les troupes du roi George ont écrasé les jacobites.",
+  "quarante-cinq": "Le soulèvement jacobite de 1745, mené par le prince Charles Stuart.",
+  "roi George": "George II, roi de Grande-Bretagne depuis 1727, de la maison de Hanovre.",
+  "Highlands": "Les Hautes Terres : le nord et l'ouest montagneux de l'Écosse, pays des clans, où l'on parle gaélique.",
+  "Highlander|Highlanders": "Un homme des Highlands.",
+  "Lowlands|Lowlander": "Les Basses Terres : le sud et l'est de l'Écosse, où l'on parle écossais, autour d'Édimbourg et de Glasgow.",
+  "clan|clans": "Une grande famille des Highlands qui porte un même nom et suit un même chef.",
+  "plaid|plaids": "Une grande pièce d'étoffe de laine, souvent à carreaux, qui sert à la fois de manteau et de couverture.",
+  "tartan": "L'étoffe de laine à carreaux des Highlands ; on l'a interdite après le soulèvement.",
+  "sporran": "La bourse de cuir ou de fourrure que les Highlanders portent sur le devant de la ceinture.",
+  "brogues": "Des chaussures de cuir brut des Highlands.",
+  "drammach": "Un mélange de farine d'avoine et d'eau froide, la nourriture des fugitifs.",
+  "brose": "Une bouillie de farine d'avoine sur laquelle on verse de l'eau ou du bouillon chaud.",
+  "clachan": "Un petit hameau des Highlands.",
+  "kelpie": "Dans les légendes écossaises, un esprit des eaux qui noie les voyageurs.",
+  "pibroch": "Une longue pièce de cornemuse, solennelle, faite de variations sur un thème.",
+  "gaélique": "La langue celtique des Highlands, que les Lowlanders ne comprennent pas.",
+  "habits rouges|habit rouge": "Les soldats du roi George, à cause de leur uniforme rouge.",
+  "tromblon": "Un fusil court à canon évasé, qui tire de la grenaille.",
+  "guinée|guinées": "Une pièce d'or anglaise, qui vaut un peu plus d'une livre.",
+  "shilling|shillings": "Une pièce d'argent, le vingtième d'une livre.",
+  "brick": "Un navire à deux mâts gréés de voiles carrées.",
+  "dunette": "La cabine à l'arrière du navire, où vivent le capitaine et ses officiers.",
+  "gaillard d'avant": "L'avant du navire, où logent les matelots.",
+  "vergue|vergues": "La longue pièce de bois fixée en travers d'un mât, qui porte une voile.",
+  "écoutille|écoutilles": "Une ouverture dans le pont, qui mène dans la cale.",
+  "presbytère": "La maison du pasteur.",
+  "catéchiste|catéchistes": "Un homme chargé d'enseigner la religion dans les campagnes, sans être pasteur.",
+  "fermages": "Le loyer qu'un métayer paie pour la terre qu'il cultive.",
+  "loch": "Un lac, ou un bras de mer qui entre dans les terres.",
+  "lord-avocat": "Le premier magistrat d'Écosse, chargé des poursuites au nom du roi.",
+  "Échiquier": "La cour qui juge les affaires d'argent de la couronne.",
+  "Covenant": "Le nom du brick ; c'est aussi le nom du pacte que les presbytériens écossais avaient juré au siècle précédent.",
+  "covenantaire|covenantaires": "Les presbytériens écossais du siècle précédent, qui avaient juré de défendre leur Église, et qu'on a persécutés.",
+  "Carolines": "Les colonies anglaises de Caroline, en Amérique, où l'on vendait des engagés pour travailler dans les plantations.",
+  "eau-de-vie": "Ici, le whisky, l'alcool de grain des Écossais.",
+  "toise|toises": "Une ancienne mesure, près de deux mètres.",
+};
