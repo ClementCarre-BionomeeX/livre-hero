@@ -534,7 +534,7 @@
         var mine = found.filter(function (m) { return shelfOf(m) === sh[0]; }).sort(function (a, b) { return libMinutes(a) - libMinutes(b); });
         if (!mine.length) return;
         box.appendChild(h("h3", { class: "shelf-h" }, sh[1], h("span", { class: "small muted" }, " · " + sh[2])));
-        box.appendChild(h("div", { class: "cards" }, mine.map(bookCard)));
+        if (Notebook.on()) bookShelf(box, mine); else box.appendChild(h("div", { class: "cards" }, mine.map(bookCard)));
       });
     } else {
       var by = {
@@ -553,6 +553,29 @@
     }
     if (!found.length) box.appendChild(h("div", { class: "notice" }, stories.length ? "Aucun livre ne correspond. " : "La bibliothèque est vide.",
       stories.length ? h("button", { class: "btn sm", onclick: function () { L.q = ""; L.f = {}; libSetPublic(L); var q = document.getElementById("lib-q"); if (q) q.value = ""; render(); } }, "Tout effacer") : null));
+  }
+  // Intent: bookShelf(Element, [StoryMeta]) -> () = the books of one shelf standing side by side, spine out: the cloth
+  // of the cover, a width that grows with the book, the title up the spine. A touch takes the book out: its card opens
+  // under the shelf; a second touch puts it back.
+  // Why: Clément chose the « Carnet » look (17/11); the shelf of the scoping, « dos de livres, couverture qui sort ».
+  var SPINE_MIN = 34, SPINE_GROW = 4.4, SPINE_MAX = 68, SPINE_LEAN_EVERY = 6;
+  function bookShelf(box, books) {
+    var pick = books.filter(function (m) { return m.id === A.shelfPick; })[0];
+    box.appendChild(h("div", { class: "shelf", role: "list" }, books.map(function (m) {
+      var st = A.builtins[m.id] || null, c = (st && st.cover) || m.cover || {}, hs = hash(m.id || m.title);
+      var n = st ? Object.keys(st.passages || {}).length : m.passages || m.acts * 40 || 40, on = pick === m;
+      var w = Math.round(Math.min(SPINE_MAX, SPINE_MIN + Math.log(1 + n) * SPINE_GROW));
+      var lean = hs % SPINE_LEAN_EVERY === 0 && !on ? (hs % 2 ? 3 : -3) : 0;
+      return h("div", { class: "spine-slot", role: "listitem" }, h("button", {
+        class: "spine" + (on ? " on" : "") + (m.adult ? " adult" : ""), type: "button",
+        style: "--cloth:" + (c.color || COVER_CLOTHS[hs % COVER_CLOTHS.length]) + ";--w:" + w + "px;--tall:" + (84 + (hs >> 3) % 17) + "%;--lean:" + lean + "deg",
+        "aria-expanded": on ? "true" : "false", title: m.title,
+        onclick: function () {
+          A.shelfPick = on ? null : m.id; render();
+          var card = document.querySelector(".shelf-pick .card"); if (card && !on) card.scrollIntoView({ block: "nearest", behavior: REDUCED ? "auto" : "smooth" });
+        } }, h("span", { class: "spine-title" }, m.title), m.adult ? h("span", { class: "spine-stamp", "aria-label": "thème adulte" }, "A") : null));
+    })));
+    if (pick) box.appendChild(h("div", { class: "cards shelf-pick" }, bookCard(pick)));
   }
   // Intent: bookCard(StoryMeta) -> Element = cover, title, one line of facts, three lines of the summary and the
   // button to play; the rest (whole summary, endings found, export, details) behind « En savoir plus ».
@@ -2607,6 +2630,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "11.9", items: ["La bibliothèque devient une étagère : les livres sont rangés debout, le dos tourné vers toi, chacun dans la couleur de sa reliure. Touche un dos pour sortir le livre.", "Les paysages en tête de page sont peints à l'aquarelle, avec un croquis à l'encre par-dessus.", "Les dés sont dessinés à l'encre et roulent depuis la marge avant de s'arrêter.", "Un objet trouvé, un haut fait, une quête nouvelle : chacun reçoit son sceau de cire. Les livres aux thèmes adultes portent un tampon rouge."] },
     { v: "11.8", items: ["« L'Île Folle-Aiguille » grandit encore : une quarantaine de nouvelles quêtes nées d'autres livres, à l'auberge, à Morlenc, à bord, aux escales et sur l'île, pour chacun des trois personnages ; certaines se suivent d'un acte à l'autre."] },
     { v: "11.7", items: ["Tout le livre passe au carnet : la bibliothèque, la création du héros, le carnet du héros et les réglages. Les boutons deviennent des mots, l'option choisie est entourée à l'encre, les fiches sont des feuilles de papier aux bords irréguliers, les champs des lignes où écrire, et les barres (vie, domaines) des traits d'encre. L'atelier des histoires reste un outil, dans son style d'avant."] },
     { v: "11.6", items: ["Le livre devient un carnet : une feuille de papier aux bords irréguliers, une encre qui sèche quand la page arrive, des choix écrits au crayon et entourés à la main quand tu les prends, un signet de tissu, et les compteurs en haut de page comme le titre courant d'un livre. Les habillages (parchemin, givre, sable, enluminure) deviennent les papiers du carnet ; la nuit, il passe sur un papier bleu nuit. Réglages : « Style du livre » revient au style classique, et « Choix écrits au crayon » les remet en italique."] },
@@ -2922,6 +2946,11 @@
   // Intent: Dice3D.pair(n) -> Element = two ten-sided dice drawn in 3D on a canvas (tens and units of the d100 roll),
   // tumbling for DICE3D_MS then lying on the result. Plain canvas, no library. Why: Clément, 13/11 (piste 18).
   var DICE3D_MS = 950, DICE3D_PX = 46;
+  // Intent: mixColor("#rrggbb"|"rgb(…)", same, 0..1) -> "rgb(…)" = the second colour laid over the first at that strength
+  function mixColor(a, b, k) {
+    var rgb = function (c) { var m = /^#([0-9a-f]{6})$/i.exec(c.trim()); if (m) { var v = parseInt(m[1], 16); return [v >> 16, (v >> 8) & 255, v & 255]; } m = /(\d+)\D+(\d+)\D+(\d+)/.exec(c); return m ? [+m[1], +m[2], +m[3]] : [128, 128, 128]; };
+    var x = rgb(a), y = rgb(b); return "rgb(" + x.map(function (v, i) { return Math.round(v + (y[i] - v) * k); }).join(",") + ")";
+  }
   var Dice3D = (function () {
     var H = 1, E = 0.105, V = [[0, H, 0], [0, -H, 0]], F = [];
     for (var i = 0; i < 10; i++) { var a = i * Math.PI / 5, y = i % 2 ? -E : E; V.push([Math.cos(a), y, Math.sin(a)]); }
@@ -2945,11 +2974,13 @@
       order.forEach(function (o) {
         var n = ap(R, N[o.k]); if (n[2] <= 0) return;
         cx.beginPath(); o.f.forEach(function (i, j) { if (j) cx.lineTo(P[i][0], P[i][1]); else cx.moveTo(P[i][0], P[i][1]); }); cx.closePath();
-        cx.fillStyle = colors[0]; cx.fill(); cx.fillStyle = "rgba(0,0,0," + (0.45 * (1 - n[2])).toFixed(3) + ")"; cx.fill();
-        cx.strokeStyle = colors[2]; cx.lineWidth = dpr; cx.stroke();
+        cx.fillStyle = colors[0]; cx.fill(); cx.fillStyle = "rgba(0,0,0," + ((colors[3] ? 0.22 : 0.45) * (1 - n[2])).toFixed(3) + ")"; cx.fill();
+        cx.strokeStyle = colors[2]; cx.lineWidth = dpr * (colors[3] ? 1.25 : 1); cx.lineJoin = "round"; cx.stroke();
+        // drawn by hand (the « Carnet » look, 11.9): each edge goes over twice, a little beside itself
+        if (colors[3]) { cx.save(); cx.globalAlpha = 0.45; cx.lineWidth = dpr * 0.8; cx.beginPath(); o.f.forEach(function (i, j) { var q = P[i], dx = ((i * 7 + o.k * 3) % 5 - 2) * dpr * 0.6, dy = ((i * 3 + o.k) % 5 - 2) * dpr * 0.6; if (j) cx.lineTo(q[0] + dx, q[1] + dy); else cx.moveTo(q[0] + dx, q[1] + dy); }); cx.closePath(); cx.stroke(); cx.restore(); }
         if (n[2] > 0.55) {
           var c = o.f.reduce(function (a2, i) { return [a2[0] + P[i][0] / 4, a2[1] + P[i][1] / 4]; }, [0, 0]);
-          cx.fillStyle = colors[1]; cx.font = "600 " + Math.round(W * (label(o.k).length > 1 ? 0.2 : 0.26)) + "px system-ui, sans-serif"; cx.textAlign = "center"; cx.textBaseline = "middle";
+          cx.fillStyle = colors[1]; cx.font = colors[3] ? "700 " + Math.round(W * (label(o.k).length > 1 ? 0.26 : 0.34)) + "px Caveat, cursive" : "600 " + Math.round(W * (label(o.k).length > 1 ? 0.2 : 0.26)) + "px system-ui, sans-serif"; cx.textAlign = "center"; cx.textBaseline = "middle";
           cx.globalAlpha = Math.min(1, (n[2] - 0.55) * 3); cx.fillText(label(o.k), c[0], c[1] + (o.f[0] === 0 ? W * 0.03 : -W * 0.03)); cx.globalAlpha = 1;
         }
       });
@@ -2965,16 +2996,20 @@
         drawDie(cx, mul(Rf, axisRot(ax, (1 - e) * spins * Math.PI * 2)), label, colors, DICE3D_PX);
         if (k < 1 && cv.isConnected !== false) requestAnimationFrame(frame);
       };
-      if (A.rollAnim && !REDUCED) requestAnimationFrame(frame); else drawDie(cx, Rf, label, colors, DICE3D_PX);
+      if (A.rollAnim && !REDUCED) { requestAnimationFrame(frame); if (colors[3]) cv.classList.add("roule"); } else drawDie(cx, Rf, label, colors, DICE3D_PX);
       return cv;
     }
     return {
       pair: function (n) {
         var cs = getComputedStyle(document.documentElement), col = function (v, d) { return (cs.getPropertyValue(v) || "").trim() || d; };
-        var m = ((n % 100) + 100) % 100;
+        var m = ((n % 100) + 100) % 100, ink = col("--ink", "#222"), paper = col("--paper", "#f7f7f1");
+        // in the notebook, two dice drawn in ink on the paper; the tens wear a wash of red ink
+        if (Notebook.on()) return h("span", { class: "dice3d croques", role: "img", "aria-label": "Dés : " + n },
+          one(Math.floor(m / 10), true, [mixColor(paper, col("--red-ink", "#9b2d1f"), 0.22), ink, ink, true]),
+          one(m % 10, false, [paper, ink, ink, true]));
         return h("span", { class: "dice3d", role: "img", "aria-label": "Dés : " + n },
-          one(Math.floor(m / 10), true, [col("--accent", "#2c7464"), col("--accent-ink", "#fff"), col("--ink", "#222")]),
-          one(m % 10, false, [col("--paper", "#f7f7f1"), col("--ink", "#222"), col("--ink", "#222")]));
+          one(Math.floor(m / 10), true, [col("--accent", "#2c7464"), col("--accent-ink", "#fff"), ink]),
+          one(m % 10, false, [paper, ink, ink]));
       },
     };
   })();
@@ -7834,7 +7869,7 @@
     function draw(kind, night, seed, o) {
       o = o || {};
       var r = rnd(seed), svgEl = s("svg", { viewBox: "0 0 600 90", preserveAspectRatio: "xMidYMax slice", class: o.engrave ? "gravure-art" : "vignette", role: "img", "aria-label": (o.engrave ? "Gravure : " : "Vignette : ") + kind });
-      var far = { fill: "var(--vig-far)" }, mid = { fill: "var(--vig-mid)" }, near = { fill: "var(--vig-near)" };
+      var far = { fill: "var(--vig-far)" }, mid = { fill: "var(--vig-mid)" }, near = { fill: "var(--vig-near)" }, roof = { fill: "var(--vig-roof, var(--vig-mid))" };
       if (o.engrave) {
         var pid = "h" + seed, defs = s("defs");
         [["a", 7, 45, 0.6], ["b", 4, -45, 0.8], ["c", 2.6, 45, 1]].forEach(function (x) {
@@ -7851,12 +7886,21 @@
         svgEl.appendChild(s("circle", { cx: 80 + r() * 440, cy: 22, r: 9, fill: o.engrave ? "none" : "var(--vig-sun)", stroke: o.engrave ? "var(--ink)" : "none", class: "sun" }));
         if (!o.engrave && kind !== "souterrain") for (var cl = 0; cl < 2; cl++) svgEl.appendChild(s("ellipse", { cx: r() * 600, cy: 10 + r() * 20, rx: 26 + r() * 20, ry: 4 + r() * 3, fill: "var(--paper)", opacity: ".55", class: "cloud", style: "animation-delay:-" + (r() * 60).toFixed(1) + "s" }));
       }
-      var P = function (d, a) { var o = { d: d }; for (var k in a) o[k] = a[k]; svgEl.appendChild(s("path", o)); };
+      // In the « Carnet » look (11.9) the landscape is a watercolor: each layer a wash that bleeds past its shape, the
+      // same shape sketched over it in a light, trembling ink line.
+      var wash = !o.engrave && Notebook.on();
+      if (wash) { svgEl.setAttribute("class", "vignette lavis"); svgEl.firstChild.setAttribute("filter", "url(#carnet-lavis)"); }
+      var P = function (d, a) {
+        var o = { d: d }; for (var k in a) o[k] = a[k];
+        if (wash && a && a.fill && !a.class) { o.filter = "url(#carnet-lavis)"; o["fill-opacity"] = a.opacity || ".82"; delete o.opacity; }
+        svgEl.appendChild(s("path", o));
+        if (wash && a && a.fill && !a.class && a.fill !== "var(--vig-sky)") svgEl.appendChild(s("path", { d: d, fill: "none", stroke: "var(--ink)", "stroke-width": ".7", "stroke-opacity": ".5", "stroke-linejoin": "round", filter: "url(#carnet-trait)", class: "croquis" }));
+      };
       switch (kind) {
         case "montagne": case "neige": P(peaks(r, 70, 5, 55), far); P(peaks(r, 82, 7, 30), mid); if (kind === "neige") P(peaks(r, 84, 9, 10), { fill: "var(--vig-sky)", opacity: ".5" }); break;
         case "foret": P(ridge(r, 62, 10, 12), far); P(pines(r, 80, 26, 38), mid); P(pines(r, 92, 14, 30), near); break;
-        case "ville": case "chateau": P(ridge(r, 70, 8, 6), far); P(roofs(r, 78, 30), mid); if (kind === "chateau") P("M250 90 V34 h12 v-8 h10 v8 h12 v-8 h10 v8 h12 V90 Z M330 90 V48 h22 V90 Z", near); break;
-        case "village": case "champs": P(ridge(r, 66, 12, 8), far); if (kind === "village") P(roofs(r, 80, 7), mid); P(ridge(r, 86, 4, 20), near); P(pines(r, 82, 5, 20), mid); break;
+        case "ville": case "chateau": P(ridge(r, 70, 8, 6), far); P(roofs(r, 78, 30), o.engrave ? mid : roof); if (kind === "chateau") P("M250 90 V34 h12 v-8 h10 v8 h12 v-8 h10 v8 h12 V90 Z M330 90 V48 h22 V90 Z", near); break;
+        case "village": case "champs": P(ridge(r, 66, 12, 8), far); if (kind === "village") P(roofs(r, 80, 7), o.engrave ? mid : roof); P(ridge(r, 86, 4, 20), near); P(pines(r, 82, 5, 20), mid); break;
         case "souterrain": svgEl.firstChild.setAttribute("fill", "var(--vig-near)"); P("M0 0 H600 V18 Q560 26 520 14 Q470 30 420 12 Q360 34 300 14 Q240 30 180 12 Q120 28 60 14 Q30 22 0 12 Z", mid); P("M0 90 V72 Q100 60 200 74 Q300 82 400 70 Q500 62 600 74 V90 Z", far); break;
         case "eau": case "mer": P(ridge(r, 58, 10, 8), far); svgEl.appendChild(s("rect", { x: 0, y: 64, width: 600, height: 26, fill: "var(--vig-water)" })); for (var j = 0; j < 14; j++) P("M" + (r() * 580) + " " + (70 + r() * 16) + " q6 -3 12 0 q6 3 12 0", { fill: "none", stroke: "var(--vig-sky)", "stroke-width": "1" }); break;
         case "temple": P(ridge(r, 70, 10, 6), far); P("M240 90 V50 L300 26 L360 50 V90 Z M254 90 V54 h8 V90 Z M276 90 V54 h8 V90 Z M316 90 V54 h8 V90 Z M338 90 V54 h8 V90 Z", mid); break;

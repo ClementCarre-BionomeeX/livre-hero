@@ -5,6 +5,7 @@
 // The CI (.github/workflows/captures.yml) takes both versions on the same machine (same fonts), so only the page
 // differs. A page error fails the run; a changed screen is only reported, since most changes are wanted.
 var fs = require("fs"), path = require("path");
+var openBook = require("./ouvrir-livre");
 var { chromium } = require("playwright");
 var SIZES = { telephone: { width: 390, height: 844 }, tablette: { width: 1180, height: 820 } };
 var FIXED_TIME = "2026-11-13T18:00:00";
@@ -33,7 +34,7 @@ async function openAtelier(pg) {
   var b = pg.locator("button.fold, button.fold-head", { hasText: "Atelier" }).first(); if (await b.count()) await b.click();
 }
 async function newGame(pg, start) {
-  await pg.locator("article.card").filter({ hasText: "Kardan" }).first().getByRole("button", { name: /Nouvelle partie/ }).click();
+  await (await openBook(pg, "Kardan")).getByRole("button", { name: /Nouvelle partie/ }).click();
   await pg.fill('input[aria-label="Nom du héros"]', "Ivo"); await pg.locator("button.arch").first().click();
   if (!start) return;
   for (var box of await pg.locator(".past").all()) await box.locator("button.answer").first().click();

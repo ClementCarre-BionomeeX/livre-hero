@@ -4,6 +4,7 @@
 // typing), with captures for a phone and a tablet.
 // Usage: node tests/site.js && node tests/bibliotheque-test.js [--captures <dossier>]
 var fs = require("fs"), path = require("path"), http = require("http");
+var openBook = require("./ouvrir-livre");
 var B = require("../src/bibliotheque.js"), V = require("../src/validateur.js"), P = require("./page.js");
 var HIST = path.join(__dirname, "..", "histoires"), ROOT = path.join(__dirname, "..", "site"), bad = [];
 function check(ok, what) { if (!ok) bad.push(what); }
@@ -75,7 +76,7 @@ check(B.sortKey({ title: "Le Monde perdu" }) === "monde perdu" && B.sortKey({ ti
     await pg.goto(url); await pg.waitForSelector(".lib-q");
     return pg;
   }
-  var titles = function (pg) { return pg.$$eval(".lib-results .book h3", function (x) { return x.map(function (e) { return e.textContent; }); }); };
+  var titles = function (pg) { return pg.$$eval(".lib-results .book h3, .lib-results .spine-title", function (x) { return x.map(function (e) { return e.textContent; }).filter(function (t, i, a) { return a.indexOf(t) === i; }); }); };
   try {
     var pg = await open({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
     // 9.4 kept « Pour tous » on the device: it is now the « Public » filter, still chosen.
@@ -113,7 +114,7 @@ check(B.sortKey({ title: "Le Monde perdu" }) === "monde perdu" && B.sortKey({ ti
     check((await titles(pg))[0] === "Le labyrinthe de Kardan", "« Lus récemment » : Kardan d'abord");
     await pg.selectOption(".lib-sort", "rayons");
     // A book's genres lead to the books that share them
-    var card = pg.locator(".book", { hasText: "Croc-Blanc" });
+    var card = await openBook(pg, "Croc-Blanc");
     await card.getByRole("button", { name: "En savoir plus" }).click();
     await pg.locator(".book", { hasText: "Croc-Blanc" }).locator(".book-tags .chip", { hasText: "Nature et animaux" }).click();
     var nat = await titles(pg);
