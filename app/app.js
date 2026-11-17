@@ -2630,7 +2630,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
-    { v: "11.9", items: ["La bibliothèque devient une étagère : les livres sont rangés debout, le dos tourné vers toi, chacun dans la couleur de sa reliure. Touche un dos pour sortir le livre.", "Les paysages en tête de page sont peints à l'aquarelle, avec un croquis à l'encre par-dessus.", "Les dés sont dessinés à l'encre et roulent depuis la marge avant de s'arrêter.", "Un objet trouvé, un haut fait, une quête nouvelle : chacun reçoit son sceau de cire. Les livres aux thèmes adultes portent un tampon rouge."] },
+    { v: "11.9", items: ["La bibliothèque devient une étagère : les livres sont rangés debout, le dos tourné vers toi, chacun dans la couleur de sa reliure. Touche un dos pour sortir le livre.", "Les paysages en tête de page sont peints à l'aquarelle, avec un croquis à l'encre par-dessus.", "Les dés sont dessinés à l'encre et roulent depuis la marge avant de s'arrêter.", "Un objet trouvé, un haut fait, une quête nouvelle : chacun reçoit son sceau de cire. Les livres aux thèmes adultes portent un tampon rouge.", "Les portraits sont peints à l'aquarelle sur un papier crème, avec un trait d'encre qui tremble. Les ombres prennent un ton plus profond de la même peau."] },
     { v: "11.8", items: ["« L'Île Folle-Aiguille » grandit encore : une quarantaine de nouvelles quêtes nées d'autres livres, à l'auberge, à Morlenc, à bord, aux escales et sur l'île, pour chacun des trois personnages ; certaines se suivent d'un acte à l'autre."] },
     { v: "11.7", items: ["Tout le livre passe au carnet : la bibliothèque, la création du héros, le carnet du héros et les réglages. Les boutons deviennent des mots, l'option choisie est entourée à l'encre, les fiches sont des feuilles de papier aux bords irréguliers, les champs des lignes où écrire, et les barres (vie, domaines) des traits d'encre. L'atelier des histoires reste un outil, dans son style d'avant."] },
     { v: "11.6", items: ["Le livre devient un carnet : une feuille de papier aux bords irréguliers, une encre qui sèche quand la page arrive, des choix écrits au crayon et entourés à la main quand tu les prends, un signet de tissu, et les compteurs en haut de page comme le titre courant d'un livre. Les habillages (parchemin, givre, sable, enluminure) deviennent les papiers du carnet ; la nuit, il passe sur un papier bleu nuit. Réglages : « Style du livre » revient au style classique, et « Choix écrits au crayon » les remet en italique."] },
@@ -4457,6 +4457,7 @@
   // Intent: Heraldry = a portrait for every hero and companion (a bust, the class's mark, colours seeded by the name),
   // and a coat of arms for every faction (field, division, charge, seeded by its id; a story may set its own: blasons).
   // Same name, same face, on every device: everything comes from hash(), nothing is stored.
+  var PORTRAIT_SLIP = "#f3ead3", PORTRAIT_INK_FULL = 110;   // a small portrait gets a lighter line: the features are a few pixels wide
   var PORTRAIT_SKINS = Object.keys(M.FACE.skins).map(function (k) { return M.FACE.skins[k]; });
   var PORTRAIT_HAIRS = Object.keys(M.FACE.hairs).map(function (k) { return M.FACE.hairs[k]; });
   var PORTRAIT_IRIS = Object.keys(M.FACE.irises).map(function (k) { return M.FACE.irises[k]; });
@@ -4560,9 +4561,13 @@
       var brow = lum(F.hair) > 0.6 ? mix(F.hair, "#6b5a45", 0.35) : mix(F.hair, "#1c130d", 0.3), scarf = pick(SCARVES, xs >>> 5), ink = "#2b2015";
       var line = function (d, c, w, extra) { return '<path d="' + d + '" stroke="' + c + '" stroke-width="' + w + '" fill="none" stroke-linecap="round" stroke-linejoin="round"' + (extra || "") + "/>"; };
       var fill = function (d, c, extra) { return '<path d="' + d + '" fill="' + c + '"' + (extra || "") + "/>"; };
-      var p = ['<svg class="portrait" viewBox="0 0 64 64" width="' + sz + '" height="' + sz + '" role="img" aria-hidden="true">',
-        '<circle cx="32" cy="32" r="32" fill="' + F.back + '"/>',
-        '<clipPath id="pc' + x + '"><circle cx="32" cy="32" r="32"/></clipPath><clipPath id="pe' + x + '"><path d="' + EYES[F.eyes in EYES ? F.eyes : "amande"].w + '"/></clipPath><g clip-path="url(#pc' + x + ')">'];
+      // In the « Carnet » look the portrait is a watercolour on a slip of cream paper (the same by night): see the end.
+      var wash = Notebook.on() && !o.flat;
+      var p = ['<svg class="portrait' + (wash ? " lavis" : "") + '" viewBox="0 0 64 64" width="' + sz + '" height="' + sz + '" role="img" aria-hidden="true">',
+        wash ? '<circle cx="32" cy="32" r="32" fill="' + PORTRAIT_SLIP + '"/><circle cx="32" cy="32" r="26" fill="' + F.back + '" opacity=".75" filter="url(#portrait-tache)"/>' : '<circle cx="32" cy="32" r="32" fill="' + F.back + '"/>',
+        '<clipPath id="pc' + x + '"><circle cx="32" cy="32" r="32"/></clipPath><clipPath id="pe' + x + '"><path d="' + EYES[F.eyes in EYES ? F.eyes : "amande"].w + '"/></clipPath>'];
+      var body = p.length;
+      p.push('<g clip-path="url(#pc' + x + ')">');
       // ---- hair behind the head
       if (F.coif === "long") p.push(fill("M17 30 Q16 52 22 56 H42 Q48 52 47 30 Z", F.hair));
       else if (F.coif === "milong") p.push(fill("M17.5 26 Q15 40 20 45.5 H44 Q49 40 46.5 26 Z", F.hair));
@@ -4578,6 +4583,7 @@
       var under = { degarni: null, couronne: null, rase: null, capuche: gear.cloth, foulard: scarf, turban: scarf }, uc = F.coif in under ? under[F.coif] : F.hair;
       if (uc) p.push(fill("M" + (32 - rx - 1.3) + " 28 A" + (rx + 1.3) + " " + (28 - cy + ry + 1.6) + " 0 0 1 " + (32 + rx + 1.3) + " 28 Z", uc));   // no gap between the head and what covers it
       p.push('<ellipse cx="32" cy="' + cy + '" rx="' + rx + '" ry="' + ry + '" fill="' + skin + '"/>');                               // head
+      if (wash) p.push('<ellipse cx="' + (32 + rx * 0.5) + '" cy="' + (cy + 2) + '" rx="' + (rx * 0.58) + '" ry="' + (ry * 0.86) + '" fill="' + mix(skin, "#3a1f12", 0.45) + '" opacity=".28" filter="url(#portrait-tache)"/>'); // the shadow side, in the skin's own deeper hue
       if (F.shape === "carre") p.push(fill("M" + (32 - rx + 0.5) + " " + cy + " L" + (32 - rx + 1.4) + " " + (cy + ry * 0.62) + " Q" + (32 - rx + 3) + " " + (cy + ry) + " 32 " + (cy + ry) + " Q" + (32 + rx - 3) + " " + (cy + ry) + " " + (32 + rx - 1.4) + " " + (cy + ry * 0.62) + " L" + (32 + rx - 0.5) + " " + cy + " Z", skin));
       // ---- the skin itself
       if (F.age === "enfant") p.push('<circle cx="25" cy="33.6" r="2.4" fill="#d8644e" opacity=".2"/><circle cx="39" cy="33.6" r="2.4" fill="#d8644e" opacity=".2"/>');
@@ -4639,7 +4645,13 @@
       if (o.hurt) p.push('<ellipse cx="38.6" cy="' + (31.6 + G.ny) + '" rx="2.6" ry="1.9" fill="#6b3f6b" opacity=".38"/>' + line("M25.6 " + (cy - ry + 7.6) + " l3.2 1.3", "#a3322a", 0.7));
       if (o.hurt > 1) { var t = cy - ry; p.push(fill("M" + (32 - rx - 0.6) + " " + (t + 9.4) + " Q32 " + (t + 4.6) + " " + (32 + rx + 0.6) + " " + (t + 9.4) + " L" + (32 + rx + 0.8) + " " + (t + 5.6) + " Q32 " + (t + 0.6) + " " + (32 - rx - 0.8) + " " + (t + 5.6) + " Z", "#f3ecdc", ' stroke="#cbbf9f" stroke-width=".4"') + '<circle cx="38" cy="' + (t + 5.4) + '" r="1.3" fill="#a3322a" opacity=".75"/>'); }
       if (gear.mark && !o.noMark) p.push('<g transform="translate(51 51)"><circle r="11" fill="#fbf4e2" stroke="#8a6a3a" stroke-width="1.5"/><path d="' + gear.mark + '" transform="scale(.75)" stroke="#5a3f1c" stroke-width="2" fill="' + (o.arch === "mage" ? "#c9a24a" : "none") + '" stroke-linecap="round" stroke-linejoin="round"/></g>');
-      p.push("</g></svg>");
+      p.push("</g>");
+      if (wash) {
+        // the colours drift a little past the line, as watercolour does; the ink line is drawn from the same shapes
+        var drawing = p.slice(body).join("");
+        p.splice(body, p.length - body, '<g transform="translate(.55 .45)" filter="url(#portrait-lavis)" fill-opacity=".92">' + drawing + "</g>", '<g filter="url(#portrait-encre)" opacity="' + (sz >= PORTRAIT_INK_FULL ? ".85" : ".5") + '">' + drawing + "</g>");
+      }
+      p.push("</svg>");
       return p.join("");
     };
     // Intent: arms(seed, spec?) -> { field, other, division, charge, chargeT } ; the rule of tincture: metal on colour.
@@ -5656,6 +5668,14 @@
         '<filter id="carnet-bord" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>' +
         '<filter id="carnet-bord-fin" x="-3%" y="-6%" width="106%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter>' +
         '<filter id="carnet-trait" x="-5%" y="-20%" width="110%" height="140%"><feTurbulence type="turbulence" baseFrequency="0.04" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" xChannelSelector="R" yChannelSelector="G"/></filter>' +
+        // the portraits (11.9, Clément chose « trait tremblé + lavis »): the colours in a wash that bleeds past the shapes,
+        // the ink line found where the colours change, trembling; a darker wash for the shadow side; cream paper under all
+        '<filter id="portrait-lavis" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".09" numOctaves="3" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G" result="d"/><feGaussianBlur in="d" stdDeviation=".28"/></filter>' +
+        '<filter id="portrait-encre" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB"><feFlood flood-color="#fff" result="w"/><feComposite in="SourceGraphic" in2="w" operator="over" result="flat"/><feColorMatrix in="flat" type="luminanceToAlpha" result="L"/>' +
+        '<feConvolveMatrix in="L" order="3" kernelMatrix="-1 -1 -1 -1 8 -1 -1 -1 -1" divisor="1" preserveAlpha="false" result="E1"/><feConvolveMatrix in="L" order="3" kernelMatrix="1 1 1 1 -8 1 1 1 1" divisor="1" preserveAlpha="false" result="E2"/>' +
+        '<feComposite in="E1" in2="E2" operator="arithmetic" k2="1" k3="1" result="E"/><feComponentTransfer in="E" result="T"><feFuncA type="linear" slope="3.5" intercept="-.12"/></feComponentTransfer>' +
+        '<feFlood flood-color="#2a241d" result="c"/><feComposite in="c" in2="T" operator="in" result="lines"/><feTurbulence type="turbulence" baseFrequency=".2" numOctaves="2" seed="5" result="n2"/><feDisplacementMap in="lines" in2="n2" scale="1.6" xChannelSelector="R" yChannelSelector="G"/></filter>' +
+        '<filter id="portrait-tache" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="3" seed="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G" result="d"/><feGaussianBlur in="d" stdDeviation=".9"/></filter>' +
         '<filter id="carnet-lavis" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.03" numOctaves="4" seed="11" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G" result="d"/><feGaussianBlur in="d" stdDeviation=".6"/></filter>' +
         '</defs></svg>';
       document.body.appendChild(d);
