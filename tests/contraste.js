@@ -2,6 +2,7 @@
 // and dark mode, on the library, the hero creation and the first page. Lists each text under 3.8:1 (3:1 for big text).
 // Usage: node tests/contraste.js [page]   (default dist/index.html; exit 1 when a text is too faint)
 const { chromium } = require('playwright');
+var openBook = require("./ouvrir-livre");
 const SKINS = (process.env.SKINS || 'sobre,parchemin,givre,sable,enluminure').split(','), THEMES = ['clair', 'sombre', 'sepia', 'soir'];
 const AUDIT = () => {
   function rgb(s) { const m = s.match(/[\d.]+/g); return m ? m.map(Number) : [0, 0, 0, 0]; }
@@ -30,7 +31,7 @@ let total = 0;
     await pg.evaluate(([sk, th]) => { for (const k of Object.keys(localStorage)) if (/profils:/.test(k)) { const v = JSON.parse(localStorage.getItem(k)); v.prefs = Object.assign(v.prefs || {}, { skin: sk, theme: th }); localStorage.setItem(k, JSON.stringify(v)); } }, [sk, th === 'auto' ? 'auto' : themeMap[th]]);
     await pg.reload(); await pg.waitForSelector('section'); await pg.waitForTimeout(200);
     const out = {}; out.biblio = await pg.evaluate(AUDIT);
-    await pg.locator('article.card').filter({ hasText: 'Kardan' }).first().getByRole('button', { name: /Nouvelle partie/ }).click(); await pg.waitForTimeout(200);
+    await (await openBook(pg, 'Kardan')).getByRole('button', { name: /Nouvelle partie/ }).click(); await pg.waitForTimeout(200);
     out.creation = await pg.evaluate(AUDIT);
     await pg.fill('input[aria-label="Nom du héros"]', 'Ivo'); await pg.locator('button.arch').first().click();
     for (const box of await pg.locator('.past').all()) await box.locator('button.answer').first().click();

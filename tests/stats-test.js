@@ -3,6 +3,7 @@
 // and per book (every reader's time); a page read is counted in the game's sittings.
 // Usage: node tests/site.js && node tests/stats-test.js
 var fs = require("fs"), path = require("path"), http = require("http");
+var openBook = require("./ouvrir-livre");
 var { chromium } = require("playwright");
 var ROOT = path.join(__dirname, "..", "site"), bad = [];
 function check(ok, what) { if (!ok) bad.push(what); }
@@ -44,7 +45,7 @@ var SEED = {
   var shot = async function (name) { if (SHOTS) await pg.screenshot({ path: path.join(SHOTS, name), fullPage: true }); };
   var fig = async function (name) { var d = pg.locator(".bilan div").filter({ has: pg.locator("dt", { hasText: new RegExp("^" + name + "$") }) }).first(); return (await d.count()) ? (await d.locator("dd").innerText()).trim() : null; };
   try {
-    await pg.goto(url); await pg.waitForSelector("article.card");
+    await pg.goto(url); await pg.waitForSelector("article.card, .spine");
     // 1. From « Plus », the reader's statistics.
     await pg.getByRole("tab", { name: "Plus" }).click();
     await pg.getByRole("button", { name: "📊 Statistiques de lecture" }).click();
@@ -83,7 +84,7 @@ var SEED = {
     // 4. A page read is counted: the game keeps its sitting.
     await pg.getByRole("button", { name: "← Bibliothèque" }).click();
     await pg.getByRole("tab", { name: "Bibliothèque" }).click();
-    await pg.locator("article.card").filter({ hasText: "Kardan" }).first().getByRole("button", { name: "Nouvelle partie" }).click();
+    await (await openBook(pg, "Kardan")).getByRole("button", { name: "Nouvelle partie" }).click();
     await pg.fill('input[aria-label="Nom du héros"]', "Zia");
     await pg.locator("button.arch").first().click();
     for (var box of await pg.locator(".past").all()) await box.locator("button.answer").first().click();

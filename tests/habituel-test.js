@@ -3,6 +3,7 @@
 // several lists the registered readers, each coming with their hero.
 // Usage: node tests/site.js && node tests/habituel-test.js
 var fs = require("fs"), path = require("path"), http = require("http");
+var openBook = require("./ouvrir-livre");
 var { chromium } = require("playwright");
 var ROOT = path.join(__dirname, "..", "site"), bad = [];
 function check(ok, what) { if (!ok) bad.push(what); }
@@ -29,9 +30,9 @@ var SEED = {
     Object.keys(seed).forEach(function (k) { localStorage.setItem("livre-heros:" + k, JSON.stringify(seed[k])); });
   }, SEED);
   var prof = function (id) { return pg.evaluate(function (k) { return JSON.parse(localStorage.getItem("livre-heros:profils:" + k)); }, id); };
-  var book = function (title) { return pg.locator("article.card").filter({ hasText: title }).first(); };
+  var book = function (title) { return { getByRole: function (r, o) { return { click: async function () { await (await openBook(pg, title)).getByRole(r, o).click(); } }; } }; };
   try {
-    await pg.goto(url); await pg.waitForSelector("article.card");
+    await pg.goto(url); await pg.waitForSelector("article.card, .spine");
     // 1. A first hero: kept as Léa's habitual one (the box is ticked when she has none).
     await book("Kardan").getByRole("button", { name: "Nouvelle partie" }).click();
     check(await pg.inputValue('input[aria-label="Nom du héros"]') === "", "sans héros habituel, le nom est vide");
@@ -47,7 +48,7 @@ var SEED = {
     check(p1.hero && p1.hero.name === "Ivo" && p1.hero.fem === true && p1.hero.face && p1.hero.face.skin, "le héros habituel de Léa est enregistré avec son visage");
 
     // 2. Another story starts with the same hero, the same face.
-    await pg.goto(url); await pg.waitForSelector("article.card");
+    await pg.goto(url); await pg.waitForSelector("article.card, .spine");
     await book("Kardan").getByRole("button", { name: "Nouvelle partie" }).click();
     check(await pg.inputValue('input[aria-label="Nom du héros"]') === "Ivo", "une nouvelle histoire reprend le nom habituel");
     check(await pg.locator(".hero-keep").filter({ hasText: "héros habituel de Léa" }).count() === 1, "la création dit que c'est le héros habituel");
