@@ -115,6 +115,7 @@ module.exports = {
         { label: "Rendre visite au recteur, au milieu de ses ruches", to: "XQ_l_recteur", hide: { seen: "XQ_l_recteur" } },
         { label: "Suivre le receveur des droits, qui attend au canot, sans chapeau", to: "YV_maison", hide: { seen: "YV_maison" } },
         { label: "Suivre la jeune femme en coiffe noire qui attend au bout de la cale", to: "WC_tifenn", hide: { seen: "WC_tifenn" } },
+        { label: "Monter chez le maître de port, pour une toux d'enfant", to: "VI_enora", hide: { seen: "VI_enora" } },
         { label: "Marcher sur la lande avec Benoît Quémeneur", to: "XQ_l_benoit", hide: { any: [{ seen: "XQ_l_benoit" }, { has: "benoit:parti" }] } },
       ] },
     A3x_herbe: { act: "III", title: "L'herbe aux dents", place: "lannoz", ambiance: "nature",

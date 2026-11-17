@@ -272,6 +272,7 @@ module.exports = {
         { label: "Monter l'escalier des forçats", to: "XQ_b_escalier", hide: { seen: "XQ_b_escalier" } },
         { label: "Aller voir les enfants qui pêchent sous le fort", to: "XQ_b_bouteilles", hide: { seen: "XQ_b_bouteilles" } },
         { label: "Aller voir le vieil homme assis au bout de la jetée, face au fort", to: "ZM_jetee", hide: { seen: "ZM_jetee" } },
+        { label: "Ramer avec Gobert jusqu'au brick qui vient de mouiller de travers", to: "VK_brick", hide: { seen: "VK_brick" } },
         { label: "Entrer à la cantine du bourg", to: "XQ_b_cantine", hide: { seen: "XQ_b_cantine" } },
         { label: "Le canot du fort accoste : on fouille la Cormorane", to: "YA_b_fouille", hide: { any: [{ seen: "YA_b_fouille" }, { not: { has: "ya:guerec_ami" } }] } },
         { label: "Te glisser à la grotte, la nuit, et frapper contre la roche", to: "XM_m_nuit", hide: { any: [{ not: { seen: "XM_m_gobert" } }, { seen: "XM_m_voix" }] } },

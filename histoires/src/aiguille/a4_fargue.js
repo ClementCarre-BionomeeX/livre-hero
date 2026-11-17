@@ -39,6 +39,7 @@ module.exports = {
         { label: "Midi : Boucaut cherche qui a bu son rhum", to: "YQ_coup", hide: { seen: "YQ_coup" }, if: { count: JOURS, min: 1 }, why: "Il reste encore du rhum pour tout le monde." },
         { label: "À la nuit, sortir de la forêt vers un grand rire, autour du feu", to: "ZP_feu", hide: { seen: "ZP_feu" }, if: { count: JOURS, min: 1 }, why: "Le camp n'a pas encore le cœur à rire." },
         { label: "À l'aube, un corps qu'on rapporte du ruisseau sur une voile", to: "WI_corps", hide: { seen: "WI_corps" }, if: { count: JOURS, min: 1 }, why: "La chapelle ne tire pas encore sur le ruisseau." },
+        { label: "Le soir, revenir de la forêt vers un cercle silencieux, autour du grand feu", to: "VD_feu", hide: { any: [{ seen: "VD_feu" }, { not: { has: "vauclair:gris" } }] }, if: { count: JOURS, min: 1 }, why: "Le camp ne doute pas encore." },
         { label: "Monter à la chapelle, sous un drapeau blanc", to: "A4f_parlement", big: true, if: { count: JOURS, min: 2 }, why: "Le moment n'est pas venu." },
       ] },
     A4f_hommes: { act: "IV", title: "Les hommes", place: "plage", ambiance: "nature",

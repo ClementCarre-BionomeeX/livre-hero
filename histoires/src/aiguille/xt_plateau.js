@@ -70,6 +70,7 @@ module.exports = {
         { label: "Entrer dans le bois sombre, à l'est, à la tombée du soir", to: "XT_bois", hide: { seen: "XT_bois" } },
         { label: "Dormir au bord de l'étang du sud", to: "XT_lac", hide: { seen: "XT_lac" } },
         { label: "Chercher le coude de la falaise, à l'ouest", to: "XT_escalier", hide: { any: [{ seen: "XT_escalier" }, { has: "xt:escalier" }] }, if: { has: "xt:escalier_su" } },
+        { label: "Guetter, avec le professeur, l'oiseau gris qui vient boire au coucher du soleil", to: "WU_mare", hide: { seen: "WU_mare" } },
         { label: "Descendre vers le lac noir, au centre", to: "XT_harde", big: true, hide: { seen: "XT_harde" }, if: { count: VU, min: 3 }, why: "Le professeur veut d'abord tout voir sur le chemin." },
       ] },
     XT_oiseaux: { act: "IV", title: "Les coureurs", place: "table", ambiance: "nature",

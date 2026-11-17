@@ -224,6 +224,8 @@ module.exports = {
         { label: "Courir derrière la main qui vient de te prendre tes trois sous", to: "YE_main", hide: { seen: "YE_main" } },
         { label: "Descendre les six marches de la taverne du Pélican", to: "ZO_cave", hide: { seen: "ZO_cave" } },
         { label: "S'arrêter sous le porche de la chapelle murée, où quelqu'un tousse", to: "WE_porche", hide: { seen: "WE_porche" } },
+        { label: "T'arrêter devant l'échoppe du cordonnier, où un enfant te tire par la manche", to: "WZ_garcon", hide: { seen: "WZ_garcon" } },
+        { label: "Monter chercher le seau de la mère Pennec, au-dessus de la saline", to: "VM_seau", hide: { seen: "VM_seau" } },
         { label: "Aller voir le vieil homme assis en face de la boutique verte", to: "YN_banc", hide: { seen: "YN_banc" } },
         { label: "Chercher la porte bleue des Sœurs, rue des Tanneurs", to: "A2m_soeurs", hide: { seen: "A2m_soeurs" }, if: { item: "lettre_soeurs" }, why: "Tu n'as rien à faire chez des religieuses." },
         { back: "A2m_jours" },

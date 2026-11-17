@@ -29,6 +29,7 @@ module.exports = {
         { label: "Entrer dans la sacristie, où la capitaine a ouvert le livre de bord", to: "YA_jugement", hide: { any: [{ seen: "YA_jugement" }, { not: { all: [{ has: "ya:cache" }, { any: [{ has: "ya:aveu" }, { has: "ya:averti" }, { has: "ya:dit_capitaine" }] }] } }] } },
         { label: "Décrocher le portrait d'Hector", to: "YH_matin", hide: { any: [{ seen: "YH_matin" }, { not: { has: "yh:vu" } }] } },
         { label: "Courir au seuil, où la sentinelle vient de crier", to: "ZR_porte", hide: { seen: "ZR_porte" } },
+        { label: "Ouvrir au vieil homme qui monte la pente avec un chiffon blanc", to: "WW_pere", hide: { seen: "WW_pere" } },
         { label: "Descendre à l'anse", to: "A5x_etat", big: true },
       ] },
     A5x_etat: { act: "V", title: "Le dernier matin", branch: [

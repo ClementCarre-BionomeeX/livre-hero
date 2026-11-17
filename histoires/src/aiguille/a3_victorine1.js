@@ -47,6 +47,7 @@ module.exports = {
         { label: "Caler la malle qui cogne contre la cloison", to: "YH_malle", hide: { seen: "YH_malle" } },
         { label: "Un coup de vent, l'après-midi, et un fracas dans la batterie", to: "YJ_canon", hide: { seen: "YJ_canon" }, if: { count: JOURS, min: 2 }, why: "La mer est encore maniable." },
         { label: "Monter à la grand-chambre, à deux heures du matin, où le baron se meurt", to: "ZC_dictionnaire", hide: { seen: "ZC_dictionnaire" }, if: { count: JOURS, min: 2 }, why: "Le baron ne s'ennuie pas encore." },
+        { label: "Recevoir, à minuit, deux messieurs qui veulent un chirurgien pour l'aube", to: "WY_serviette", hide: { any: [{ seen: "WY_serviette" }, { has: "xs:baron_mort" }] }, if: { seen: "A3v_table" }, why: "Elle n'a pas encore dîné à la table de la capitaine." },
         { label: "La dixième nuit", to: "A3v_grain", big: true, if: { count: JOURS, min: 4 }, why: "Brisegrève est encore loin." },
       ] },
 
@@ -241,6 +242,8 @@ module.exports = {
         { label: "Le canot du fort accoste : on fouille la Cormorane", to: "YA_b_fouille", hide: { any: [{ seen: "YA_b_fouille" }, { not: { has: "ya:marque_vue" } }] } },
         { label: "Répondre au billet du gouverneur, porté au coucher du soleil", to: "YY_billet", hide: { seen: "YY_billet" }, if: { seen: "XM_v_diner" }, why: "Le gouverneur ne la connaît pas encore." },
         { label: "Entendre la messe du dimanche à la chapelle du fort", to: "XQ_b_aumonier", hide: { seen: "XQ_b_aumonier" } },
+        { label: "Descendre avec le gouverneur au bastion nord, voir « un cas curieux »", to: "VG_bastion", hide: { seen: "VG_bastion" }, if: { seen: "XM_v_diner" }, why: "Le gouverneur ne la connaît pas encore." },
+        { label: "Le deuxième matin, remonter au fort, où l'on a tout blanchi à la chaux", to: "VL_matin", hide: { seen: "VL_matin" }, if: { seen: "XM_v_diner" }, why: "Le gouverneur ne connaît pas encore les passagers." },
         { label: "Suivre le vieux sergent qui attend au pied de l'échelle", to: "WJ_sergent", hide: { seen: "WJ_sergent" } },
         { label: "Acheter des citrons à la cantinière du bourg", if: { gold: { min: 40 } }, hide: { any: [{ has: "pharmacie:citron" }, { seen: "A3v_citrons" }] }, fx: { gold: -40, flag: "citrons:victorine" }, to: "A3v_citrons" },
       ] },

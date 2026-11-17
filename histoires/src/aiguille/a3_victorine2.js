@@ -180,6 +180,7 @@ module.exports = {
         { label: "Gratter la croûte blanche autour du cratère", to: "XQ_v_sel", hide: { seen: "XQ_v_sel" }, if: { seen: "XP_v_debut" }, why: "Elle n'est pas encore descendue à terre." },
         { label: "Faire le tour de la maison du moine", to: "XQ_v_tombe", hide: { seen: "XQ_v_tombe" }, if: { seen: "XP_v_debut" }, why: "Elle n'est pas encore descendue à terre." },
         { label: "Partir avec la corvée d'eau, dans le canot de Talec", to: "ZI_corvee", hide: { seen: "ZI_corvee" } },
+        { label: "Recevoir le quartier-maître Kermarrec, qui demande s'il devient fou", to: "VC_timonier", hide: { seen: "VC_timonier" } },
         { label: "Rester à bord, l'après-midi, près de la capitaine", to: "XQ_v_compas", hide: { seen: "XQ_v_compas" } },
       ] },
     A3w_apres_ecueil: { act: "III", title: "La marmite", place: "sargues", ambiance: "mer",

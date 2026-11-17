@@ -17,6 +17,8 @@ module.exports = {
         { label: "S'arrêter au lit du fond, dans la salle des hommes, sous la chambre de Lisette", to: "YT_salle", hide: { seen: "YT_salle" } },
         { label: "Monter la rue des Juges, en habit du dimanche, avec un papier plié en quatre", to: "ZJ_rue", hide: { seen: "ZJ_rue" } },
         { label: "Aller chercher le biscuit de mer au fournil de la Tour-aux-Rats", to: "WG_four", hide: { seen: "WG_four" } },
+        { label: "Faire certifier le bœuf salé au bureau des vivres de l'Amirauté", to: "WT_commis", hide: { seen: "WT_commis" } },
+        { label: "Recevoir le roulier qui attend depuis l'aube devant le bureau d'enrôlement", to: "VH_roulier", hide: { seen: "VH_roulier" } },
         { label: "Passer à la Truie-qui-file, où quelqu'un t'attend", to: "A2f_sabran", big: true },
       ] },
 
