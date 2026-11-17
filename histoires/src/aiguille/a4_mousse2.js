@@ -34,6 +34,7 @@ module.exports = {
         { label: "Aller voir qui crie, au pied de la falaise", to: "XT_debut", hide: { seen: "XT_debut" }, if: { count: JOURS, min: 1 }, why: "Personne ne crie encore." },
         { label: "La nuit, le suivre quand il sort sans lanterne", to: "A4n_suivre", hide: { any: [{ seen: "A4n_suivre" }, { seen: "XD_nuit" }] }, if: { count: JOURS, min: 2 }, why: "Il ne sort pas encore la nuit, ou tu dors trop bien." },
         { label: "Lui dire un nom que le Gabier criait la nuit, au Fanal", to: "A4n_fulbert", hide: { any: [{ seen: "A4n_fulbert" }, { not: { has: "larrouy:fulbert" } }, DEMASQUE] }, if: { seen: "A4n_histoire" }, why: "Tu ne sais pas encore assez de quoi il parle." },
+        { label: "Aller chercher le professeur là-haut, avec les cordes de Sauveur", to: "XT_retour", hide: { not: { has: "xt:gaudremont_haut" } } },
         { label: "Partir rejoindre les tiens", to: "A4n_fin", big: true, if: { count: JOURS, min: 3 }, why: "Tu n'as pas encore assez vu cette île pour la quitter, ou lui." },
       ] },
 
