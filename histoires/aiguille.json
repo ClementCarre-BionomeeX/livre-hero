@@ -2683,6 +2683,93 @@
   },
   {
    "if": {
+    "any": [
+     {
+      "has": "brousse:evade"
+     },
+     {
+      "has": "brousse:libere"
+     },
+     {
+      "has": "brousse:baron"
+     }
+    ]
+   },
+   "text": "Nathanaël Brousse, le numéro neuf, sorti de son cachot de Brisegrève, ne retourne jamais à terre. Il s'engage comme pilote sur tous les navires qui veulent bien d'un vieillard, et corrige les aiguilles des autres avec un mépris affectueux."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "brousse:secret"
+     },
+     {
+      "not": {
+       "any": [
+        {
+         "has": "brousse:evade"
+        },
+        {
+         "has": "brousse:libere"
+        },
+        {
+         "has": "brousse:baron"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "text": "Le numéro neuf a donné son secret, à travers un mur, contre une promesse. Il attend qu'on la tienne. Il a l'habitude d'attendre."
+  },
+  {
+   "if": {
+    "has": "vauclair:sauve"
+   },
+   "text": "Le chirurgien Vauclair s'installe à Varnèse, à deux rues du cabinet de Victorine Davrigny. Ils se disputent les malades, et se les envoient. Il ne touche plus à sa teinture. Il en garde un flacon dans un tiroir, pour se souvenir."
+  },
+  {
+   "if": {
+    "has": "vauclair:livre"
+   },
+   "text": "Le chirurgien Vauclair, livré aux fers à bord de la Cormorane, est jugé à Morlenc pour un crime qu'il a commis sous un autre visage. Il se défend mal. Il ne sait plus lequel des deux a fait quoi."
+  },
+  {
+   "if": {
+    "has": "vauclair:gris"
+   },
+   "text": "L'homme gris qu'est devenu le chirurgien Vauclair erre encore, dit-on, dans les ruelles de la Basse-Fosse, la nuit. On ferme les volets quand on l'entend rire."
+  },
+  {
+   "if": {
+    "has": "correction:parchemin"
+   },
+   "text": "Le parchemin du Gabier, avec sa phrase à l'encre sympathique, « tirez trois quarts au couchant, et partez de la pierre qui sonne », finit encadré au mur de la salle du Fanal, à côté du baromètre. Les clients croient que c'est une devinette. Ils n'ont pas tort."
+  },
+  {
+   "if": {
+    "has": "chien:apprivoise"
+   },
+   "text": "On parle encore, dans les fosses de la Basse-Fosse, du chien gris aux yeux jaunes qu'un enfant a sorti de là sans le battre. La veuve Rance n'a jamais retrouvé un chien pareil. Elle n'en cherche plus."
+  },
+  {
+   "if": {
+    "any": [
+     {
+      "has": "xt:vue"
+     },
+     {
+      "has": "xt:gaudremont_sauve"
+     },
+     {
+      "has": "xt:gaudremont_haut"
+     }
+    ]
+   },
+   "text": "Sur les cartes de l'Amirauté, la Table de Folle-Aiguille porte désormais une petite mention, d'une écriture de graveur : « Faune singulière. » C'est tout ce que la marine a accepté d'écrire."
+  },
+  {
+   "if": {
     "has": "freville:barre"
    },
    "text": "Abel Fréville, le charpentier, garde sa barre de fer dans son coffre jusqu'à la fin de ses jours, avec un nœud de ruban rouge autour. Il dit qu'elle a servi à quelque chose, une fois. Il ne dit pas à quoi."
@@ -3732,13 +3819,33 @@
    "choices": [
     {
      "label": "Écrire la lettre",
-     "fx": {
-      "gold": 2,
-      "regard": {
-       "annaig": "cordial"
-      }
+     "test": {
+      "dom": "savoir",
+      "diff": 0,
+      "label": "Trouver les mots"
      },
-     "to": "A1_s_annaig_bien"
+     "win": {
+      "fx": {
+       "gold": 4,
+       "regard": {
+        "annaig": "redevable"
+       },
+       "ep": [
+        "perso",
+        60
+       ]
+      },
+      "to": "A1_s_annaig_bien"
+     },
+     "lose": {
+      "fx": {
+       "gold": 2,
+       "regard": {
+        "annaig": "cordial"
+       }
+      },
+      "to": "A1_s_annaig_bien"
+     }
     }
    ]
   },
@@ -13173,7 +13280,7 @@
    "ambiance": "nuit",
    "text": [
     "La main glacée quitte ton bras. Il y a un long silence.",
-    "« Bien, dit la voix. Bien. Au moins, tu es franc{he}. C'est rare. » Les pas nus s'éloignent dans le noir, très doucement. « Je me débrouillerai. Je me suis toujours débrouillé. »",
+    "« Bien, dit la voix. Bien. Au moins, tu dis ce que tu penses. C'est rare. » Les pas nus s'éloignent dans le noir, très doucement. « Je me débrouillerai. Je me suis toujours débrouillé. »",
     "Les vols continuent. Puis, la neuvième nuit, ils s'arrêtent. Le lendemain, au matin, on trouve la porte du magasin à vin forcée et une bouteille de rhum vide sur le plancher de la soute aux voiles, avec la couverture de laine. Personne n'a rien entendu.",
     "Le soir, à la lisse, tu regardes le sillage. Tu penses à un homme qu'on ne voit pas, ivre, au bord du pont, dans le noir, et à une vague. Tu ne sauras jamais."
    ],
@@ -15214,7 +15321,7 @@
           "seen": "XK_dechiffre"
          }
         ],
-        "min": 4
+        "min": 3
        }
       ]
      },
@@ -19390,7 +19497,7 @@
     {
      "if": {
       "equipage": "loyal",
-      "min": 9
+      "min": 7
      },
      "fx": {
       "flag": "cormorane:tenue"
@@ -19400,7 +19507,7 @@
     {
      "if": {
       "equipage": "loyal",
-      "min": 6
+      "min": 4
      },
      "fx": {
       "flag": "cormorane:mutins"
@@ -26967,6 +27074,15 @@
      "to": "A5m_dagrel"
     },
     {
+     "label": "Renoncer pour aujourd'hui, et attendre le soir",
+     "hide": {
+      "not": {
+       "seen": "A5m_faux"
+      }
+     },
+     "to": "A5m_fin"
+    },
+    {
      "label": "Chercher le son de cloche entendu le premier jour",
      "hide": {
       "any": [
@@ -33472,16 +33588,6 @@
       }
      },
      "to": "F_chevalier",
-     "big": true
-    },
-    {
-     "label": "Les laisser partir",
-     "hide": {
-      "not": {
-       "has": "mutins:navire"
-      }
-     },
-     "to": "F_mutins",
      "big": true
     },
     {

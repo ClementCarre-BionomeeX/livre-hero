@@ -17,11 +17,11 @@ function choix(qui) {
     { label: "Laisser l'argent aux gens de l'île, et rentrer pauvres", hide: { not: { all: [OK, { not: PAYE }] } }, to: "F_ile", big: true },
     { label: "Rentrer les cales vides, derrière la Désinvolte", hide: { not: { all: [OK, PAYE] } }, to: "F_chevalier", big: true },
     { label: "Monter sur la Désinvolte, et lui laisser l'argent", hide: { not: { all: [{ any: [PERDU, { has: "mutins:partis" }] }, { has: "desinvolte:alliee" }] } }, to: "F_chevalier", big: true },
-    { label: m ? "Partir avec le maître-coq, sous pavillon noir" : "Les laisser partir", hide: { not: { has: "mutins:navire" } }, to: "F_mutins", big: true },
+    m ? { label: "Partir avec le maître-coq, sous pavillon noir", hide: { not: { has: "mutins:navire" } }, to: "F_mutins", big: true } : null,
     { label: "Regarder partir la Cormorane", hide: { not: { has: "mutins:partis" } }, to: "F_mutins", big: true },
     { label: "Rester sur l'île, et bâtir", hide: { not: PERDU }, to: "F_naufrage", big: true },
     { label: "Laisser le vieil homme reprendre la mer", hide: { not: { all: [DAGREL_VIF, { any: [OK, { has: "desinvolte:alliee" }, { has: "mutins:navire" }] }] } }, to: "F_dagrel", big: true },
     { label: "Ramener le vieil homme à Morlenc, pour qu'on le juge", hide: { not: { all: [VIEUX_LIE, OK] } }, to: "F_corde", big: true },
-  ];
+  ].filter(Boolean);
 }
 module.exports = { choix: choix, BARON: BARON, OK: OK, PERDU: PERDU, PAYE: PAYE, DAGREL_VIF: DAGREL_VIF, LIVRE_PUBLIC: LIVRE_PUBLIC };
