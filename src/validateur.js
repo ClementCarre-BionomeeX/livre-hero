@@ -518,7 +518,7 @@
       if (P[id].combat) ["win", "lose", "flee", "calm"].forEach(function (o) { var b = P[id].combat[o]; if (b && b.via) viaTags[b.via] = 1; });
     });
     M.endingsOf(story).forEach(function (e) { endIds[e.id] = 1; });
-    // 12.0: a book read twice names the ending of each reading, and where the second one starts.
+    // 12.1: a book read twice names the ending of each reading, and where the second one starts.
     if (story.twice) {
       ["first", "second"].forEach(function (k) { var e = story.twice[k]; if (!e || !(endIds[e] || endIds["fin:" + e])) E("twice." + k + " : « " + e + " » n'est pas une fin de l'histoire (fx.flag \"fin:…\" sur un passage end)."); });
       if (story.twice.start2 && !P[story.twice.start2]) E("twice.start2 : passage « " + story.twice.start2 + " » inconnu.");
@@ -590,7 +590,7 @@
       if (Z.kind === "molettes") { if (!Array.isArray(Z.wheels) || !Array.isArray(Z.answer) || Z.wheels.length !== Z.answer.length) E(w + " : autant de molettes que de symboles dans answer."); else Z.answer.forEach(function (a, i) { if (Z.wheels[i].indexOf(a) < 0) E(w + " : le symbole « " + a + " » manque sur la molette " + (i + 1) + "."); }); }
       if (Z.kind === "ordre") { var n = (Z.pieces || []).length, ok = Array.isArray(Z.answer) && Z.answer.length === n && Z.answer.slice().sort().every(function (x, i) { return x === i; }); if (!ok) E(w + " : answer doit ranger chaque morceau une fois (indices de 0 à " + (n - 1) + ")."); }
       if (Z.kind === "chiffre" && !Z.answer) E(w + " : il faut la réponse (answer).");
-      // 12.0: a carried puzzle (carry) gives its effects wherever it is solved; it may lead somewhere only from its own
+      // 12.1: a carried puzzle (carry) gives its effects wherever it is solved; it may lead somewhere only from its own
       // page (win.to), and it has no tries to lose. Its alternative answers (alt) each lead somewhere or give something.
       if (Z.carry) { if (Z.tries || Z.lose) E(w + " : une énigme gardée en suspens (carry) n'a ni essais comptés (tries) ni issue lose."); if (!Z.win || (Z.win.to && !P[Z.win.to])) E(w + " : issue win vers un passage inconnu."); else checkFx(Z.win.fx, w); }
       else if (!Z.win || !P[Z.win.to]) E(w + " : issue win sans passage connu."); else checkFx(Z.win.fx, w);
@@ -1284,7 +1284,7 @@
     }
     // The games read like a reader: on a puzzle, they type the right answer most of the time, a wrong one otherwise.
     // pr: the chance of typing the right answer (a lost game errs more; a targeted search answers as its target needs).
-    // 12.0: a riddle with two right answers (alt): the reader finds the hidden one about one time in two (always when
+    // 12.1: a riddle with two right answers (alt): the reader finds the hidden one about one time in two (always when
     // the search asks for it, pr above 0.95), while it counts.
     function answered(c, s, rnd, pr) {
       if (c.sys !== "puzzleTry" || !s.puzzle) return c;
@@ -1371,7 +1371,7 @@
       if (second) { s.second = {}; M.endingsOf(story).forEach(function (e) { s.second[e.id] = 1; }); }
       // 8.9: in a second reading, the reader has kept some things learned and read some pages in earlier games.
       if (second) { s.lore = {}; Object.keys(story.savoirs || {}).forEach(function (k) { if (rnd() < 0.75) s.lore[k] = 1; }); s.lu = {}; Object.keys(P).forEach(function (k) { if (rnd() < 0.3) s.lu[k] = 1; }); }
-      // 12.0: a second reader remembers some answers found in the first reading (the plain one of each riddle).
+      // 12.1: a second reader remembers some answers found in the first reading (the plain one of each riddle).
       if (second && story.puzzles) { s.answers = {}; Object.keys(story.puzzles).forEach(function (k) { if (rnd() < 0.5) s.answers[k] = [story.puzzles[k].answer]; }); }
       // 8.3: one game in four, the reader has masked the tender lines.
       if (seed % 4 === 1) s.tendre = "masquer";
@@ -1395,7 +1395,7 @@
         Object.keys(s.guards || {}).forEach(function (k) { guards[k] = 1; });
         if (v.kind === "end") {
           endings[s.node] = (endings[s.node] || 0) + 1;
-          // 12.0, the guarantee of a book read twice: each reading ends on its own ending.
+          // 12.1, the guarantee of a book read twice: each reading ends on its own ending.
           if (story.twice) { var want = story.twice[second ? "second" : "first"], got = (M.endingOf(story, s) || {}).id; if (got && got !== want && got !== "fin:" + want) errs["§ " + s.node + " : la " + (second ? "seconde" : "première") + " lecture finit sur « " + got + " », au lieu de « " + want + " » (twice)."] = 1; }
           var lv = M.level(s); levelAtEnd[lv] = (levelAtEnd[lv] || 0) + 1;
           story.quests.forEach(function (q) { if (M.questDone(s, q)) questDone[q.id] = (questDone[q.id] || 0) + 1; });

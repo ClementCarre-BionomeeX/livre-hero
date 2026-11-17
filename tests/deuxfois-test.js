@@ -1,5 +1,5 @@
 "use strict";
-// Checks the engine of the books read twice (12.0) on a small story: the first reading starts on the start and ends on
+// Checks the engine of the books read twice (12.1) on a small story: the first reading starts on the start and ends on
 // its own ending, the second (an ending already found) starts on start2 and ends on the other; a riddle with two right
 // answers (alt), the hidden one counted only in the second reading; a puzzle carried in the pocket and solved from
 // another page when its key comes; an answer found in an earlier game offered again.

@@ -567,7 +567,7 @@ Le héros du lecteur vu par un autre : dans le chapitre d'un autre personnage, `
 
 Le validateur refuse une escale sans nom, sans départ ou qu'aucun passage ne porte, une quête d'escale inconnue, un marin absent de `people` ou à penchant hors bornes, un marin inconnu dans un effet ou une condition, une quête `doit` sans source titrée. Test : `node tests/escales-test.js`.
 
-## À lire deux fois (17/11, 12.0) : deux lectures, énigmes en suspens, deux bonnes réponses, réponses gardées
+## À lire deux fois (17/11, 12.1) : deux lectures, énigmes en suspens, deux bonnes réponses, réponses gardées
 
 Demande de Clément (17/11) : des histoires courtes à faire deux fois, différentes la seconde fois ; la première lecture dévoile, la seconde reprend avec ce qu'on a appris ; beaucoup d'énigmes, dont certaines dont la clef n'arrive que plus tard. Deux fins suffisent.
 

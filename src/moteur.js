@@ -2635,14 +2635,14 @@
   }
   function puzzleRight(D, ans) { return answerFits(D, D.answer, ans); }
   // Intent: puzzleMatch(Story, State, Puzzle, answer) -> { alt: Alt | null } | null = which right answer was given.
-  // Why (12.0, a book read twice): a riddle may have two right answers, the plain one and the one it hides, each
+  // Why (12.1, a book read twice): a riddle may have two right answers, the plain one and the one it hides, each
   // leading elsewhere (alt: [{ id, answer, to, fx, if, say }]). An alt counts only while its condition holds.
   function puzzleMatch(story, s, D, ans) {
     if (answerFits(D, D.answer, ans)) return { alt: null };
     var a = (D.alt || []).filter(function (x) { return evalCond(story, s, x.if) && answerFits(D, x.answer, ans); })[0];
     return a ? { alt: a } : null;
   }
-  // Two readings (12.0): what a reader typed right in an earlier game (s.answers, from the profile) can be given again.
+  // Two readings (12.1): what a reader typed right in an earlier game (s.answers, from the profile) can be given again.
   function answerLabel(x) { return Array.isArray(x) ? x.join(" · ") : String(x); }
   function puzzleOpen(story, s) { var id = story.passages[s.node].puzzle; pocketKeep(story, s, id); s.puzzle = { id: id, from: s.node, wrong: 0, msg: null, forced: false }; s.node = "@enigme"; }
   function puzzleDone(story, s, ok, alt, ans) {
@@ -2684,7 +2684,7 @@
     var D = puzzleDef(story, id);
     return [].concat(((s.answers || {})[id]) || []).filter(function (a) { return !!puzzleMatch(story, s, D, a); }).slice(0, 2);
   }
-  // Puzzles carried (12.0, `carry: true`): opened once and left unsolved, the puzzle stays « en suspens »; from any
+  // Puzzles carried (12.1, `carry: true`): opened once and left unsolved, the puzzle stays « en suspens »; from any
   // page, the reader may take it up again (the key often comes later). Solved there, it gives its effects (win.fx, or
   // an alt's fx) and the reader stays on the page. A carried puzzle has no tries to lose.
   function pocketKeep(story, s, id) { if (puzzleDef(story, id).carry && !(s.puzzles || {})[id]) { s.pocket = s.pocket || {}; s.pocket[id] = s.pocket[id] || s.turn || 1; } }
@@ -3182,7 +3182,7 @@
       // A scene that spends the night tells it at its end; one that waits for the evening, at its start.
       if (s.took && s.took.node === s.node && s.took.turn === s.turn) { v.text[s.took.end ? "push" : "unshift"]("*(" + s.took.say + ")*"); if (!s.took.end) sec = sec.map(function (i) { return i + 1; }); }
       // The paragraphs of a second reading: the page may mark them, lightly.
-      // A book read twice (12.0): the ending says which reading it closes, and whether the other one waits.
+      // A book read twice (12.1): the ending says which reading it closes, and whether the other one waits.
       if (p.end && story.twice) { var rdg = readingOf(story, s); v.twice = { reading: rdg, text: interp(s, (rdg === 2 ? story.twice.end2 : story.twice.end1) || "") || null }; }
       if (sec.length) v.second = sec;
       // Back on a page already read whose author wrote no return text (first / again / once): the page folds, the
@@ -3966,7 +3966,7 @@
     }
   }
   // Intent: start(Story, State) -> () ! gives the archetype's kit (world.start.kits), then enters the first passage
-  // Two readings (12.0, Clément, 17/11: « une histoire à faire deux fois, différente la deuxième fois »):
+  // Two readings (12.1, Clément, 17/11: « une histoire à faire deux fois, différente la deuxième fois »):
   // story.twice = { first, second, start2, say1, say2, end1, end2 }. The first reading unveils and ends on the ending
   // `first`; once this reader has found an ending of the book (s.second), the game is the second reading: it starts on
   // `start2` (or the start) and ends on `second`. The author tags what belongs to a reading with `second: false` or
