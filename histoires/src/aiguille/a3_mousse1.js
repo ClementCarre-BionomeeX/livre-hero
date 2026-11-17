@@ -19,6 +19,7 @@ module.exports = {
     A3m_jours: { act: "III", title: "Vers Brisegrève", place: "mer_couchant", hub: true, noLead: true, backName: "le bord", ambiance: "mer",
       text: [
         { first: true, text: "Les jours prennent une forme. On te réveille à quatre heures pour le quart du matin, on frotte le pont à la brique et au sable, on lave à grands seaux d'eau de mer, on mange le biscuit et le lard, on tire sur des bouts dont tu apprends les noms un par un, comme on apprend les noms des gens d'un village : la drisse, l'écoute, le bras, la cargue, l'amure. Le soir, sur le gaillard d'avant, les matelots fument, chantent, racontent, et mentent, avec le même sérieux pour les quatre." },
+        { first: true, if: { has: "gabier:noeuds" }, text: "Le premier jour, le bosco te jette un bout de filin et te demande un nœud de chaise. Tes mains le font toutes seules, comme devant le feu du Fanal. Gobert le tâte, tire dessus, grogne. Il ne te le redemandera jamais." },
         { again: true, text: "Un jour de plus vers le sud. Le ciel reste bas, la mer verte, le vent constant." },
         { with: "chien", text: "Le chien te suit d'un bout à l'autre du pont, à deux pas derrière, comme une ombre qui aurait des dents." },
       ],
