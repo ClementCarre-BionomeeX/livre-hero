@@ -1,0 +1,4785 @@
+{
+ "id": "masque",
+ "title": "Le Masque de la Mi-Carême",
+ "subtitle": "Un matin de carnaval, un masque cadenassé, des devinettes de ta main",
+ "summary": "Le matin de la Mi-Carême, tu te réveilles sur un banc, au bord d'un canal de Lambrun, déguisé{e} en Pierrot. Ton masque est lacé derrière ta tête et fermé d'un petit cadenas. Tu ne te souviens de rien. Dans ta poche, un billet de ta propre écriture : ne retire pas le masque avant midi, suis les fleurs, ne fais confiance à personne qui connaît ton nom. Ce livre se lit deux fois : la première lecture est le matin ; la seconde, la nuit qui l'a fait.",
+ "tags": [
+  "enigmes",
+  "intrigue",
+  "aventure"
+ ],
+ "author": "Claude, pour Clément",
+ "age": 12,
+ "skin": "sable",
+ "cover": {
+  "motif": "oeil",
+  "color": "#5a2e3a"
+ },
+ "glossary": {
+  "vasque|vasques": "Grand bassin de pierre peu profond, où coule une fontaine.",
+  "oriel|oriels": "Fenêtre qui avance sur la façade, comme un petit balcon fermé.",
+  "chevrier|chevrière|chevriers": "Celui ou celle qui garde les chèvres.",
+  "boyau|boyaux": "Passage long et étroit.",
+  "toise|toises": "Ancienne mesure de longueur, un peu moins de deux mètres.",
+  "coudée|coudées": "Ancienne mesure de longueur : du coude au bout des doigts.",
+  "lieue|lieues": "Ancienne mesure de distance, environ quatre kilomètres, une heure de marche.",
+  "arnica": "Plante dont on tire un remède contre les coups et les bleus.",
+  "gambison|gambisons": "Veste épaisse et rembourrée, portée seule ou sous une armure.",
+  "broigne|broignes": "Vêtement de cuir renforcé de plaques ou d'anneaux de métal.",
+  "cotte|cottes": "Tunique. La cotte de mailles est faite de petits anneaux de fer entrelacés.",
+  "cuirasse|cuirasses": "Armure qui protège la poitrine et le dos.",
+  "heaume|heaumes": "Grand casque qui couvre toute la tête.",
+  "pourpoint|pourpoints": "Veste ajustée qui couvre le buste.",
+  "tabard|tabards": "Tunique sans manches portée par-dessus l'armure, souvent aux couleurs d'un seigneur.",
+  "hallebarde|hallebardes": "Arme à long manche, terminée par une lame de hache et une pointe.",
+  "piquier|piquiers": "Soldat armé d'une pique, une très longue lance.",
+  "arbalète|arbalètes": "Arc monté sur un manche de bois, qu'on tend avec un mécanisme ; il tire des carreaux.",
+  "baudrier|baudriers": "Bande de cuir portée en travers du corps, qui soutient l'épée.",
+  "ceinturon|ceinturons": "Grosse ceinture qui porte une arme.",
+  "herboristerie|herboristeries": "Boutique où l'on vend des plantes qui soignent.",
+  "apothicairerie": "Boutique de l'apothicaire, qui prépare les remèdes.",
+  "onguent|onguents": "Pommade qui soigne.",
+  "ravine|ravines": "Petit ravin creusé par l'eau.",
+  "rotonde|rotondes": "Salle ou bâtiment de forme ronde.",
+  "coupole|coupoles": "Toit en forme de demi-boule.",
+  "charretière": "Une porte charretière est assez large pour laisser passer une charrette.",
+  "cochère": "Une porte cochère est assez large pour laisser passer une voiture à chevaux.",
+  "caillé": "Le lait caillé est un lait épaissi, un peu aigre.",
+  "écuelle|écuelles": "Bol large et creux.",
+  "jonc|joncs": "Plante à tige droite qui pousse au bord de l'eau.",
+  "muletier|muletiers|muletière": "Celui ou celle qui conduit les mulets.",
+  "chamelier|chameliers": "Celui qui conduit les chameaux.",
+  "caravanier|caravaniers|caravanière": "Celui ou celle qui conduit une caravane de marchands.",
+  "osselets": "Jeu de petits os qu'on lance et qu'on rattrape.",
+  "chaulé|chaulés|chaulée|chaulées": "Blanchi à la chaux.",
+  "chaux": "Poudre blanche tirée du calcaire : on en blanchit les murs, on en fait du mortier.",
+  "margelle|margelles": "Rebord de pierre autour d'un puits.",
+  "rouvre|rouvres": "Une espèce de chêne.",
+  "câprier|câpriers": "Arbuste qui pousse dans les murs ; on mange ses boutons, les câpres.",
+  "auvent|auvents": "Petit toit au-dessus d'une porte, d'une fenêtre ou d'un étal.",
+  "garance": "Plante dont la racine donne une teinture rouge.",
+  "guède": "Plante dont on tire une teinture bleue.",
+  "astrolabe|astrolabes": "Instrument ancien pour mesurer la hauteur des étoiles et s'orienter.",
+  "éboulis": "Amas de pierres tombées d'une pente.",
+  "gourdin|gourdins": "Bâton gros et court qui sert d'arme.",
+  "tisonne|tisonnes|tisonner": "Remuer les braises du feu.",
+  "tonsure|tonsures": "Cercle rasé sur le haut du crâne, que portent certains religieux.",
+  "amadou": "Matière très sèche, tirée d'un champignon, qui prend feu d'une étincelle.",
+  "éperon|éperons": "Avancée pointue d'une montagne, d'un rocher ou d'un mur ; ou pointe de métal au talon du cavalier.",
+  "vélin": "Parchemin très fin, fait de peau de veau.",
+  "feuillet|feuillets": "Feuille d'un cahier ou d'un livre.",
+  "tenture|tentures": "Grand tissu tendu sur un mur ou devant une ouverture.",
+  "écluse|écluses": "Ouvrage qui retient l'eau d'une rivière ou d'un canal, et la laisse passer à volonté.",
+  "fagot|fagots": "Paquet de petit bois attaché.",
+  "contrebas": "En contrebas : plus bas.",
+  "baluchon|baluchons": "Petit paquet d'affaires noué dans un tissu.",
+  "besace|besaces": "Sac qu'on porte à l'épaule.",
+  "cairn|cairns": "Tas de pierres empilées pour marquer un chemin ou un lieu.",
+  "pilotis": "Pieux enfoncés dans le sol ou dans l'eau, sur lesquels on bâtit.",
+  "soupente|soupentes": "Petit réduit sous un escalier ou sous le toit.",
+  "bourg|bourgs": "Gros village où se tient le marché.",
+  "hameau|hameaux": "Tout petit village.",
+  "gibet|gibets": "Potence où l'on pendait les condamnés.",
+  "poulie|poulies": "Roue sur laquelle passe une corde, pour soulever une charge.",
+  "billot|billots": "Gros bloc de bois sur lequel on coupe ou on fend.",
+  "colporteur|colporteurs|colporteuse|colporteuses": "Marchand qui va de village en village, sa marchandise sur le dos.",
+  "fioritures": "Ornements, détails décoratifs.",
+  "collet|collets": "Piège fait d'un nœud coulant.",
+  "visière|visières": "Partie d'un casque qui protège le visage.",
+  "crevasse|crevasses": "Fente profonde dans la roche ou dans la glace.",
+  "milicien|miliciens|milicienne": "Habitant armé chargé de garder un lieu, sans être un vrai soldat.",
+  "enclume|enclumes": "Bloc de fer sur lequel le forgeron frappe le métal.",
+  "chanvre": "Plante dont on fait des cordes et de la toile.",
+  "meule|meules": "Grosse pierre ronde qui écrase le grain ; ou grand tas de foin.",
+  "dédale|dédales": "Labyrinthe, lieu où l'on se perd.",
+  "sauge": "Plante au parfum fort, qui soigne.",
+  "reliquaire|reliquaires": "Coffret précieux qui garde les restes d'un saint.",
+  "portefaix": "Homme dont le métier est de porter les fardeaux.",
+  "greffier|greffiers|greffière|greffières": "Personne chargée d'écrire et de garder les actes officiels.",
+  "scriptorium": "Salle où l'on copie les livres à la main.",
+  "cocagne": "Le pays de cocagne est un pays imaginaire où tout abonde.",
+  "grelot|grelots": "Petite boule de métal creuse qui tinte.",
+  "luthier|luthiers": "Artisan qui fabrique les instruments à cordes.",
+  "crieur|crieurs|crieuse": "Personne qui annonce les nouvelles à voix haute dans les rues.",
+  "relieur|relieurs": "Artisan qui coud et habille les livres.",
+  "ossuaire|ossuaires": "Lieu où l'on rassemble les os des morts.",
+  "almanach|almanachs": "Petit livre qui donne le calendrier, les saisons, des conseils et des prédictions.",
+  "nacre": "Matière brillante aux reflets changeants, à l'intérieur des coquillages.",
+  "écritoire|écritoires": "Petit pupitre ou coffret qui contient de quoi écrire.",
+  "teinturier|teinturiers|teinturière|teinturières": "Artisan qui colore les tissus.",
+  "étal|étals": "Table où le marchand expose sa marchandise.",
+  "alpage|alpages|estive": "Pâturage de montagne où l'on monte les bêtes pour l'été.",
+  "tisserand|tisserands|tisserande": "Artisan qui fabrique les tissus sur un métier.",
+  "moutier": "Ancien mot pour un monastère.",
+  "cloître|cloîtres": "Galerie couverte qui entoure la cour d'un monastère.",
+  "combe|combes": "Petite vallée étroite.",
+  "liard|liards": "Petite pièce de monnaie de très peu de valeur.",
+  "denier|deniers": "Ancienne pièce de monnaie.",
+  "fascines": "Fagots de branches serrées, pour renforcer un talus ou combler un fossé.",
+  "mélèze|mélèzes": "Arbre de montagne, cousin du sapin, qui perd ses aiguilles en hiver.",
+  "surplomb": "Partie qui avance au-dessus du vide.",
+  "complies": "Dernière prière du soir, chez les moines.",
+  "vêpres": "Prière de la fin d'après-midi, chez les moines.",
+  "héraut|hérauts": "Messager officiel qui porte les annonces d'un seigneur.",
+  "ménestrel|ménestrels": "Musicien et chanteur qui va de château en château.",
+  "péage|péager": "Le péage est le droit qu'on paie pour passer un pont ou un chemin.",
+  "chamois": "Chèvre sauvage des montagnes.",
+  "tréteau|tréteaux": "Support à quatre pieds ; on pose une planche dessus pour faire une table.",
+  "muret|murets": "Petit mur bas.",
+  "lavoir|lavoirs": "Bassin public où l'on lave le linge.",
+  "lavandière|lavandières": "Femme qui lave le linge au lavoir ou à la rivière.",
+  "linteau|linteaux": "Pierre ou poutre posée au-dessus d'une porte ou d'une fenêtre.",
+  "tilleul|tilleuls": "Grand arbre aux fleurs parfumées, dont on fait des tisanes.",
+  "rucher|ruchers": "Ensemble de ruches.",
+  "levain": "Pâte qui fait lever le pain.",
+  "fournil": "Pièce où se trouve le four du boulanger.",
+  "pupitre|pupitres": "Petite table inclinée pour lire ou écrire.",
+  "lutrin|lutrins": "Grand pupitre sur pied où l'on pose un gros livre.",
+  "poterne|poternes": "Petite porte discrète dans le mur d'un château.",
+  "stalle|stalles": "Siège de bois dans le chœur d'une église ; ou case d'un cheval à l'écurie.",
+  "étuve|étuves": "Pièce très chaude, pleine de vapeur.",
+  "lauze|lauzes": "Pierre plate qui couvre les toits en montagne.",
+  "roulier|rouliers": "Charretier qui transporte des marchandises sur les routes.",
+  "lampion|lampions": "Petite lanterne de papier.",
+  "clerc|clercs": "Homme d'Église, ou personne instruite qui sait lire et écrire.",
+  "encrier|encriers": "Petit pot qui contient l'encre.",
+  "colimaçon": "Un escalier en colimaçon tourne sur lui-même.",
+  "chambranle|chambranles": "Encadrement d'une porte ou d'une fenêtre.",
+  "beffroi|beffrois": "Tour où l'on sonne la cloche de la ville.",
+  "claie|claies": "Treillage de branches ou d'osier.",
+  "râtelier|râteliers": "Support où l'on range les armes ; ou mangeoire à foin.",
+  "embrasure|embrasures": "Ouverture dans un mur où se loge une porte ou une fenêtre.",
+  "cantinière|cantinières": "Femme qui vend à boire et à manger aux soldats.",
+  "herse|herses": "Grille qui descend pour fermer l'entrée d'un château.",
+  "chapelain|chapelains": "Prêtre au service d'un château ou d'une chapelle.",
+  "quignon|quignons": "Gros morceau de pain.",
+  "raidillon": "Petit chemin en pente raide.",
+  "joute|joutes|jouter": "Combat à cheval, lance contre lance, pour l'honneur.",
+  "écuyer|écuyers": "Jeune homme au service d'un chevalier.",
+  "replat|replats": "Endroit plat sur une pente.",
+  "bivouac|bivouacs": "Campement en plein air pour la nuit.",
+  "copiste|copistes": "Personne qui recopie les livres à la main.",
+  "mâtin|mâtins": "Gros chien de garde.",
+  "mansarde|mansardes": "Chambre sous le toit.",
+  "houlette": "Bâton de berger.",
+  "rouet|rouets": "Roue qui sert à filer la laine.",
+  "falot|falots": "Grosse lanterne.",
+  "naufrageur|naufrageurs": "Pilleur qui attire les bateaux sur les rochers.",
+  "naseaux": "Narines du cheval.",
+  "colombages": "Charpente de bois apparente dans les murs d'une maison, remplie de terre ou de briques.",
+  "angélus": "Cloche qui sonne le matin, à midi et le soir pour la prière.",
+  "chaume": "Paille qui couvre le toit des maisons.",
+  "quenouille|quenouilles": "Bâton autour duquel on enroule la laine à filer.",
+  "plastron|plastrons": "Pièce qui protège ou orne la poitrine.",
+  "batelier|bateliers|batelière": "Personne qui conduit un bateau sur une rivière.",
+  "marinier|mariniers": "Personne qui conduit un bateau sur une rivière ou un canal.",
+  "gentiane|gentianes": "Fleur de montagne, bleue ou jaune.",
+  "paillasse|paillasses": "Matelas rempli de paille.",
+  "sacristain|sacristains": "Homme qui garde l'église et ses objets.",
+  "parvis": "Place devant une église.",
+  "margrave|margraves": "Seigneur qui gouverne une province de frontière.",
+  "charron|charrons": "Artisan qui fabrique les roues et les charrettes.",
+  "pierrier|pierriers": "Machine de guerre qui lance des pierres.",
+  "heurtoir|heurtoirs": "Anneau de métal fixé à une porte, pour frapper.",
+  "complainte|complaintes": "Chanson triste.",
+  "battoir|battoirs": "Palette de bois pour battre le linge au lavoir.",
+  "barrique|barriques": "Tonneau.",
+  "fenaison|fenaisons": "Moment où l'on coupe et fait sécher le foin.",
+  "luth|luths": "Instrument à cordes au ventre bombé.",
+  "rebec|rebecs": "Petit violon ancien.",
+  "rabot|rabots": "Outil pour aplanir le bois.",
+  "rayonnage|rayonnages": "Étagères.",
+  "plioir": "Lame d'os ou de bois pour plier le papier.",
+  "paneterie": "Pièce où l'on garde le pain.",
+  "bouquetin|bouquetins": "Chèvre sauvage des montagnes, aux grandes cornes.",
+  "palefrenier|palefreniers": "Homme qui soigne les chevaux.",
+  "cellérier": "Moine chargé des provisions du monastère.",
+  "aussière|aussières": "Gros cordage d'un bateau.",
+  "coursive|coursives": "Passage étroit à l'intérieur d'un bateau.",
+  "comite": "Officier qui commande les rameurs d'une galère.",
+  "cambuse": "Réserve à provisions d'un bateau.",
+  "sentine": "Fond de la cale d'un bateau, où s'amasse l'eau sale.",
+  "galère|galères": "Navire de guerre à rames.",
+  "tonnelier|tonneliers": "Artisan qui fabrique les tonneaux.",
+  "paraphe|paraphes": "Signature courte, en quelques traits.",
+  "postillon|postillons": "Cavalier qui conduit une voiture de poste.",
+  "soupirail|soupiraux": "Petite ouverture qui donne de l'air et du jour à une cave.",
+  "oratoire|oratoires": "Petite chapelle.",
+  "andain|andains": "Rangée d'herbe coupée, laissée sur le pré pour sécher.",
+  "écheveau|écheveaux": "Fil enroulé en grande boucle.",
+  "besicles": "Anciennes lunettes.",
+  "licol|licols": "Courroie passée à la tête d'un cheval pour le mener.",
+  "ramure|ramures": "Les branches d'un arbre ; ou les bois d'un cerf.",
+  "violoneux": "Joueur de violon de village.",
+  "hauban|haubans": "Cordages qui tiennent le mât d'un bateau.",
+  "alezan|alezane": "Cheval à la robe brun-roux.",
+  "lingère|lingères": "Femme qui s'occupe du linge d'une maison.",
+  "cordier|cordiers": "Artisan qui fabrique les cordes.",
+  "corderie|corderies": "Atelier où l'on fabrique les cordes.",
+  "filin|filins": "Cordage.",
+  "drisse|drisses": "Cordage qui sert à hisser une voile.",
+  "psautier|psautiers": "Livre de psaumes, chants de prière.",
+  "verrier|verriers": "Artisan qui travaille le verre.",
+  "lices": "Terrain clos où se déroulent les tournois.",
+  "prévôt|prévôte|prévôts": "Officier qui rend la justice au nom du seigneur.",
+  "strophe|strophes": "Groupe de vers dans un poème ou une chanson.",
+  "hampe|hampes": "Long manche d'une lance ou d'un drapeau.",
+  "orfèvre|orfèvres": "Artisan qui travaille l'or et l'argent.",
+  "sellier|selliers": "Artisan qui fabrique les selles.",
+  "fondeur|fondeurs": "Artisan qui fond le métal, par exemple pour faire les cloches.",
+  "épissoir": "Outil pointu qui sert à joindre deux cordes en entrelaçant leurs brins.",
+  "épisser|épisse": "Joindre deux cordes en entrelaçant leurs brins.",
+  "parapet|parapets": "Petit mur qui protège du vide, au bord d'un pont ou d'un rempart.",
+  "créneau|créneaux": "Ouverture en haut d'un rempart, entre deux pans de mur.",
+  "bandoulière": "Portée en bandoulière : en travers du corps, d'une épaule à la hanche opposée.",
+  "serpe|serpes": "Outil à lame courbe pour couper les branches.",
+  "salpêtre": "Dépôt blanc qui se forme sur les murs humides.",
+  "lichen|lichens": "Plante sans racines, en croûte ou en touffes, qui pousse sur les pierres et les arbres.",
+  "surlendemain": "Le jour qui suit le lendemain."
+ },
+ "voice": "deuxième personne, présent",
+ "version": 1,
+ "start": "A_banc",
+ "twice": {
+  "first": "masque",
+  "second": "hirondelle",
+  "start2": "S_echoppe",
+  "begin2": {
+   "place": "echoppe",
+   "hour": 20,
+   "gold": 3,
+   "items": []
+  },
+  "say1": "Première lecture : le matin.",
+  "say2": "Seconde lecture : la nuit d'avant. Tu sais comment finira le matin. Toi, cette nuit, tu ne le sais pas encore ; ta main, peut-être.",
+  "end1": "La première lecture s'achève ici, à midi. Rouvre le livre : la seconde lecture commence la veille au soir, à vingt heures, et c'est toi qui écriras les énigmes du matin.",
+  "end2": "La seconde lecture s'achève. Le matin de la Mi-Carême a été écrit deux fois : une fois par toi, une fois pour toi."
+ },
+ "intro": [
+  "Le jour se lève sur Lambrun, gris et mouillé, sur ses canaux, ses ponts en dos d'âne et ses confettis détrempés. C'est le matin de la Mi-Carême.",
+  "Quelqu'un dort sur un banc, au bord du canal des Teinturiers, en costume blanc. C'est toi."
+ ],
+ "acts": [
+  {
+   "id": "I",
+   "title": "Acte I · Le matin",
+   "question": "Qu'as-tu fait cette nuit, et pourquoi l'as-tu oublié ?",
+   "levels": [
+    1,
+    1
+   ],
+   "start": "A_banc"
+  },
+  {
+   "id": "II",
+   "title": "Acte II · La nuit d'avant",
+   "question": "Que devras-tu laisser à celui ou celle que tu seras demain matin ?",
+   "levels": [
+    1,
+    1
+   ],
+   "start": "S_echoppe"
+  }
+ ],
+ "voies": {
+  "ecrivain": {
+   "label": "Écrivain public",
+   "labelF": "Écrivaine publique",
+   "tip": "Les lettres, les mots, les secrets des autres.",
+   "like": "mage",
+   "bonus": {
+    "savoir": 35,
+    "social": 25,
+    "discretion": 15,
+    "nature": 5,
+    "magie": 10,
+    "combat": 0
+   }
+  },
+  "matelot": {
+   "label": "Ancien matelot",
+   "labelF": "Ancienne matelote",
+   "tip": "Les quais, les cordes et les bagarres.",
+   "like": "guerrier",
+   "bonus": {
+    "combat": 30,
+    "nature": 25,
+    "social": 15,
+    "discretion": 15,
+    "savoir": 5,
+    "magie": 0
+   }
+  },
+  "comedien": {
+   "label": "Ancien comédien",
+   "labelF": "Ancienne comédienne",
+   "tip": "Les masques, les voix et les mensonges.",
+   "like": "voleur",
+   "bonus": {
+    "social": 35,
+    "discretion": 30,
+    "savoir": 15,
+    "nature": 5,
+    "magie": 5,
+    "combat": 0
+   }
+  }
+ },
+ "past": [
+  {
+   "q": "Une chose te revient, du temps d'avant cette nuit : ton métier. Lequel ?",
+   "answers": [
+    {
+     "label": "Tu tiens une échoppe d'écrivain public sous les arcades du marché. Tu écris les lettres de ceux qui ne savent pas, et tu lis les réponses.",
+     "fx": {
+      "voie": "ecrivain"
+     }
+    },
+    {
+     "label": "Tu as navigué six ans sur les barques de Lambrun à Gênes, avant de poser ton sac à terre et d'écrire pour les autres.",
+     "fx": {
+      "voie": "matelot"
+     }
+    },
+    {
+     "label": "Tu as joué la comédie dans une troupe de passage, puis la troupe est passée et tu es resté{e} : tu écris des lettres, à présent.",
+     "fx": {
+      "voie": "comedien"
+     }
+    }
+   ]
+  }
+ ],
+ "lore": {
+  "pages": [
+   {
+    "title": "Lambrun et la Mi-Carême",
+    "text": [
+     "**Lambrun** est un port de canaux, de ponts et de savonneries. La ville sent le savon le jour et la vase la nuit, et ses habitants prétendent que c'est la même odeur vue de deux côtés.",
+     "La **Mi-Carême** tombe au milieu du carême : un jour de carnaval au milieu des privations. Les blanchisseuses élisent leur **Reine**, on danse toute la nuit au **bal masqué de l'Opéra**, et à midi on brûle sur le quai le bonhomme Carême, un mannequin de paille qu'on promène la matinée entière.",
+     "**L'Hirondelle** est une barque de commerce qui fait la route de Gênes. Elle part à midi, le jour de la Mi-Carême, quand les quais sont pleins.",
+     "On paie en sous et en écus."
+    ]
+   }
+  ],
+  "names": {
+   "Lambrun": "Le port de canaux où se passe l'histoire.",
+   "Saint-Brice": "L'église de Lambrun, avec son clocher et sa grosse cloche, la Bourdonne.",
+   "Bourdonne": "La grosse cloche de Saint-Brice.",
+   "Hirondelle": "La barque qui part pour Gênes à midi.",
+   "Opéra": "La salle de spectacle de Lambrun, où se donne le bal masqué de la Mi-Carême."
+  }
+ },
+ "companions": {},
+ "factions": {},
+ "relics": {},
+ "people": {
+  "clarisse": {
+   "name": "Clarisse Ardel",
+   "aka": [
+    "Clarisse",
+    "Mademoiselle Ardel",
+    "la fiancée",
+    "la demoiselle"
+   ],
+   "f": true,
+   "qui": "L'héritière de la savonnerie Ardel, qu'on marie à midi.",
+   "aspect": {
+    "allure": "jeune fille vive, menue",
+    "visage": "taches de rousseur, yeux gris",
+    "signe": "se mord la lèvre quand elle ment",
+    "voix": "rit vite, parle vite"
+   },
+   "face": {
+    "age": "jeune",
+    "skin": "clair",
+    "hair": "roux",
+    "coif": "boucles",
+    "beard": "sans",
+    "eyes": "ronds",
+    "iris": "gris",
+    "nose": "retrousse",
+    "lips": "pleines",
+    "shape": "ovale",
+    "marks": [
+     "rousseur"
+    ]
+   },
+   "desc": "L'héritière de la savonnerie Ardel, dix-neuf ans. Son oncle la marie à midi au vieux banquier Coquelin."
+  },
+  "gaspard": {
+   "name": "Gaspard Ardel",
+   "aka": [
+    "Gaspard",
+    "l'oncle",
+    "Monsieur Ardel"
+   ],
+   "qui": "L'oncle et tuteur de Clarisse.",
+   "aspect": {
+    "allure": "grand, soigné, nerveux",
+    "habits": "redingote prune",
+    "signe": "se ronge l'ongle du pouce",
+    "voix": "voix douce et lasse"
+   },
+   "face": {
+    "age": "mur",
+    "skin": "clair",
+    "hair": "chatain",
+    "coif": "court",
+    "beard": "moustache",
+    "eyes": "lourds",
+    "iris": "brun",
+    "nose": "busque",
+    "lips": "fines",
+    "shape": "allonge",
+    "marks": []
+   },
+   "desc": "L'oncle et tuteur de Clarisse, qui tient la savonnerie depuis la mort de son frère. On le dit joueur. On le dit ruiné. On le dit tant de choses."
+  },
+  "lazare": {
+   "name": "Lazare",
+   "aka": [
+    "l'Arlequin",
+    "Lazare"
+   ],
+   "qui": "Un Arlequin qui dit te connaître.",
+   "aspect": {
+    "allure": "maigre, souple, toujours en mouvement",
+    "habits": "costume d'Arlequin à losanges",
+    "signe": "un masque noir à demi-visage",
+    "voix": "familière et gaie"
+   },
+   "face": {
+    "age": "adulte",
+    "skin": "hale",
+    "hair": "noir",
+    "coif": "court",
+    "beard": "sans",
+    "eyes": "amande",
+    "iris": "noir",
+    "nose": "fin",
+    "lips": "fines",
+    "shape": "allonge",
+    "marks": []
+   },
+   "desc": "Un Arlequin maigre et gai, qui t'appelle par ton nom."
+  },
+  "babet": {
+   "name": "Mère Babet",
+   "aka": [
+    "Babet",
+    "la Reine des Blanchisseuses",
+    "la Reine"
+   ],
+   "f": true,
+   "qui": "La Reine des Blanchisseuses de cette année.",
+   "aspect": {
+    "allure": "grosse femme aux bras rouges",
+    "habits": "couronne de carton doré",
+    "signe": "un battoir à la main",
+    "voix": "voix de poissonnière"
+   },
+   "face": {
+    "age": "mur",
+    "skin": "hale",
+    "hair": "gris",
+    "coif": "chignon",
+    "beard": "sans",
+    "eyes": "ronds",
+    "iris": "brun",
+    "nose": "large",
+    "lips": "pleines",
+    "shape": "rond",
+    "marks": []
+   },
+   "desc": "La doyenne du lavoir du Pont-Rouge, élue Reine des Blanchisseuses de la Mi-Carême. Elle bat le linge et les maris avec le même battoir."
+  },
+  "ferrat": {
+   "name": "Maître Ferrat",
+   "aka": [
+    "Ferrat",
+    "l'apothicaire"
+   ],
+   "qui": "L'apothicaire de la rue des Herbes.",
+   "aspect": {
+    "allure": "petit homme sec",
+    "habits": "tablier noir, lunettes rondes",
+    "signe": "les doigts jaunis par les drogues"
+   },
+   "face": {
+    "age": "ancien",
+    "skin": "clair",
+    "hair": "blanc",
+    "coif": "degarni",
+    "beard": "sans",
+    "eyes": "tombants",
+    "iris": "bleu",
+    "nose": "busque",
+    "lips": "fines",
+    "shape": "allonge",
+    "marks": [
+     "lunettes"
+    ]
+   },
+   "desc": "L'apothicaire de la rue des Herbes, qui vend des remèdes pour dormir, pour oublier et pour se réveiller, et qui ne demande jamais pourquoi."
+  },
+  "tiburce": {
+   "name": "Tiburce",
+   "aka": [
+    "le sonneur"
+   ],
+   "qui": "Le sonneur de Saint-Brice.",
+   "aspect": {
+    "allure": "géant voûté",
+    "signe": "sourd d'une oreille",
+    "voix": "parle trop fort"
+   },
+   "face": {
+    "age": "ancien",
+    "skin": "clair",
+    "hair": "roux",
+    "coif": "milong",
+    "beard": "barbe",
+    "eyes": "ronds",
+    "iris": "bleu",
+    "nose": "large",
+    "lips": "pleines",
+    "shape": "carre",
+    "marks": []
+   },
+   "desc": "Le sonneur de Saint-Brice depuis quarante ans. La Bourdonne l'a rendu à moitié sourd, et tout à fait fidèle."
+  },
+  "coquelin": {
+   "name": "Médard Coquelin",
+   "aka": [
+    "Coquelin",
+    "le banquier"
+   ],
+   "qui": "Le vieux banquier qui épouse Clarisse à midi.",
+   "desc": "Le banquier le plus riche de Lambrun, soixante-huit ans, qui prête à l'oncle et épouse la nièce."
+  },
+  "rosso": {
+   "name": "Le capitaine Rosso",
+   "aka": [
+    "Rosso",
+    "le capitaine"
+   ],
+   "qui": "Le capitaine de l'Hirondelle.",
+   "desc": "Le capitaine de l'Hirondelle, Génois, qui ne pose pas de questions tant qu'on le paie."
+  }
+ },
+ "items": {
+  "billet": {
+   "name": "Le billet de ta main",
+   "kind": "document",
+   "keep": true,
+   "desc": "Un papier plié en quatre, trouvé dans ta poche au réveil. C'est ton écriture.",
+   "text": "*Ne retire pas le masque avant midi.*\n\n*Tu ne te souviens de rien : c'est voulu. Tout ce que tu dois savoir, je te l'ai laissé en chemin. Suis les fleurs.*\n\n*Ne fais confiance à personne qui connaît ton nom.*\n\n*Si tu doutes, la clef de cette ligne est le numéro que tu as laissé à l'Opéra :*\n\n**S HYSLXBPU LZA H NHZWHYK**\n\n*— Toi.*"
+  },
+  "fleur": {
+   "name": "La fleur de papier",
+   "kind": "document",
+   "keep": true,
+   "desc": "Une rose de papier blanc épinglée sur ton costume. Sur un pétale, de ton écriture, une devinette."
+  },
+  "papiers": {
+   "name": "Les papiers de Clarisse",
+   "kind": "quete",
+   "keep": true,
+   "desc": "Un passeport pour Gênes au nom de Clarisse Ardel, et une lettre de sa grand-mère maternelle qui l'attend là-bas, dans un sac de tapisserie."
+  },
+  "passage": {
+   "name": "Le reçu de passage",
+   "kind": "document",
+   "keep": true,
+   "desc": "Un reçu du capitaine Rosso pour deux passages sur l'Hirondelle, payés cette nuit."
+  },
+  "clef_masque": {
+   "name": "La petite clef",
+   "kind": "outil",
+   "keep": true,
+   "desc": "La clef du cadenas de ton masque."
+  },
+  "ticket": {
+   "name": "Le ticket de vestiaire",
+   "kind": "document",
+   "keep": true,
+   "desc": "Un carton de l'Opéra, numéro 7, trouvé dans ton soulier."
+  },
+  "oubli": {
+   "name": "La fiole d'oubli",
+   "kind": "quete",
+   "desc": "Une petite fiole brune de chez Maître Ferrat : du pavot et de l'herbe des sorciers. On dort trois heures, et l'on oublie la nuit."
+  },
+  "domino": {
+   "name": "Le domino noir",
+   "kind": "quete",
+   "desc": "Un grand manteau de bal à capuchon, noir, et un loup de velours. Le prix de la loterie des masques."
+  }
+ },
+ "clues": {
+  "i_affiche": {
+   "rev": "M",
+   "text": "Une affiche sur le pont : *Ce vendredi vingt-quatre mars, à midi, en l'église Saint-Brice, mariage de Mademoiselle Clarisse Ardel et de Monsieur Médard Coquelin, banquier.*"
+  },
+  "i_nom": {
+   "rev": "M",
+   "text": "L'Arlequin, en te voyant sur le banc, t'a appelé{e} par ton nom."
+  },
+  "i_code": {
+   "rev": "M",
+   "text": "Dans le carnet de bal tombé de la poche de l'Arlequin, à l'Opéra, griffonné au crayon : *Coffre de G. : la noce. 2 · 4 · 0 · 3.*"
+  },
+  "i_lazare_gaspard": {
+   "rev": "M",
+   "text": "Devant la maison Ardel, l'Arlequin a reçu une bourse d'une main gantée de prune, par une fenêtre du rez-de-chaussée."
+  },
+  "i_ferrat": {
+   "rev": "M",
+   "text": "Maître Ferrat : « Pavot et herbe des sorciers. Trois heures de sommeil, et la nuit effacée. Vous me l'avez acheté à quatre heures, et vous saviez très bien ce que vous faisiez. »"
+  }
+ },
+ "quests": [],
+ "mysteries": {
+  "M": {
+   "title": "Qu'as-tu fait la nuit de la Mi-Carême ?",
+   "act": "I",
+   "solved": "nuit:comprise",
+   "answer": {
+    "person": "clarisse",
+    "text": "Tu as aidé Clarisse Ardel à fuir le mariage que son oncle lui imposait : tu l'as cachée au clocher de Saint-Brice, tu as payé son passage sur l'Hirondelle, volé ses papiers dans le coffre de l'oncle, semé des énigmes pour toi-même en ville, et bu l'oubli pour ne rien pouvoir avouer si l'on te prenait."
+   }
+  }
+ },
+ "puzzles": {
+  "m1": {
+   "kind": "chiffre",
+   "title": "La rose de papier",
+   "text": "Sur un pétale de la rose de papier épinglée à ton costume, de ton écriture, en lettres minuscules :\n\n*Je suis reine un jour par an, et le reste je suis à genoux ;*\n*ma couronne est en carton, mon sceptre est un battoir ;*\n*mon royaume est une planche au bord de l'eau froide,*\n*et je rends blanc ce que la ville a sali.*",
+   "answer": [
+    "blanchisseuse",
+    "la blanchisseuse",
+    "une blanchisseuse",
+    "reine des blanchisseuses",
+    "la reine des blanchisseuses",
+    "lavandiere",
+    "la lavandiere",
+    "laveuse",
+    "la laveuse"
+   ],
+   "wrongText": "Tu essaies le mot à voix basse, derrière ton masque. Il sonne creux.",
+   "tryLabel": "Dire le mot",
+   "label": "Lire la devinette de la rose de papier",
+   "leave": "Garder la rose pour plus tard",
+   "win": {
+    "to": "A_m1",
+    "fx": {
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "m2": {
+   "kind": "chiffre",
+   "title": "Le papier de la Reine",
+   "text": "Sur le papier que la Reine t'a rendu, de ton écriture, tracée vite :\n\n*Je suis rouge dans les blés et noir au fond des fioles ;*\n*je donne aux uns le sommeil, aux autres le repos,*\n*et à celui qui m'a bu cette nuit, l'oubli.*\n*Va chez celui qui me vend : il garde ce qui t'ouvre.*",
+   "answer": [
+    "pavot",
+    "le pavot",
+    "un pavot",
+    "pavots",
+    "opium",
+    "l'opium",
+    "laudanum",
+    "le laudanum"
+   ],
+   "wrongText": "Le mot ne colle pas. Le papier sent la lessive et le savon noir.",
+   "tryLabel": "Dire le mot",
+   "label": "Lire le papier de la Reine",
+   "leave": "Garder le papier pour plus tard",
+   "win": {
+    "to": "A_m2",
+    "fx": {
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "m3": {
+   "kind": "chiffre",
+   "title": "L'ordonnance",
+   "text": "Au dos de l'ordonnance de Maître Ferrat, de ton écriture :\n\n*On me laisse en entrant, on me reprend en sortant ;*\n*je garde les manteaux des gens qui dansent ;*\n*je donne un numéro et je rends ce qu'on m'a confié ;*\n*le tien est sous ton talon.*",
+   "answer": [
+    "vestiaire",
+    "le vestiaire",
+    "un vestiaire",
+    "vestiaire de l'opera",
+    "le vestiaire de l'opera"
+   ],
+   "wrongText": "Ferrat te regarde chercher avec la patience d'un homme qui a vu des gens chercher leur nom.",
+   "tryLabel": "Dire le mot",
+   "label": "Lire l'ordonnance",
+   "leave": "Garder l'ordonnance pour plus tard",
+   "win": {
+    "to": "A_m3",
+    "fx": {
+     "item": "ticket",
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "m4": {
+   "kind": "chiffre",
+   "title": "Le mot du sac",
+   "text": "Épinglé à l'intérieur du sac de tapisserie, de ton écriture :\n\n*Je pars quand le froid vient et je reviens au printemps ;*\n*je fais mon nid sous les toits et ma route sur la mer ;*\n*à midi, ce jour, je m'envole pour Gênes,*\n*et j'ai deux places sur mon dos.*",
+   "answer": [
+    "hirondelle",
+    "l'hirondelle",
+    "une hirondelle",
+    "la barque hirondelle",
+    "le bateau l'hirondelle"
+   ],
+   "wrongText": "Le mot s'envole sans toi.",
+   "tryLabel": "Dire le mot",
+   "label": "Lire le mot épinglé dans le sac",
+   "leave": "Garder le mot pour plus tard",
+   "win": {
+    "to": "A_m4",
+    "fx": {
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "m5": {
+   "kind": "chiffre",
+   "title": "Le revers du reçu",
+   "text": "Au revers du reçu de passage, de ton écriture, la plus pressée de toutes :\n\n*Je suis pendue et je ne meurs pas ;*\n*j'ai une langue et je ne parle pas ;*\n*à midi, je crierai la noce ou je crierai la fuite :*\n*elle est sous ma robe.*",
+   "answer": [
+    "cloche",
+    "la cloche",
+    "une cloche",
+    "la bourdonne",
+    "bourdonne",
+    "clocher",
+    "le clocher"
+   ],
+   "wrongText": "Le mot ne sonne pas.",
+   "tryLabel": "Dire le mot",
+   "label": "Lire le revers du reçu",
+   "leave": "Garder le reçu pour plus tard",
+   "win": {
+    "to": "A_m5",
+    "fx": {
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "m_chiffre": {
+   "kind": "chiffre",
+   "title": "La ligne du billet",
+   "carry": true,
+   "text": "Au bas du billet de ta main : *Si tu doutes, la clef de cette ligne est le numéro que tu as laissé à l'Opéra :*\n\n**S HYSLXBPU LZA H NHZWHYK**",
+   "answer": [
+    "l arlequin est a gaspard",
+    "l'arlequin est a gaspard",
+    "larlequin est a gaspard",
+    "l'arlequin est à gaspard"
+   ],
+   "wrongText": "Les lettres que tu obtiens ne veulent rien dire. Il te manque le bon nombre.",
+   "tryLabel": "Écrire ce que dit la ligne",
+   "label": "Déchiffrer la ligne du billet",
+   "win": {
+    "fx": {
+     "ep": [
+      "seance",
+      500
+     ]
+    }
+   }
+  },
+  "n_clarisse": {
+   "kind": "chiffre",
+   "title": "La devinette de Clarisse",
+   "text": "La jeune fille au domino rose s'assoit sur le tabouret des clients, croise les bras, et te regarde à travers les trous de son loup.\n\n« On dit que vous savez garder un secret. Je veux m'en assurer. Devinez :\n\n*Je suis noire et je dis blanc ;*\n*je pleure sur le papier et l'on m'en remercie ;*\n*je garde la parole de ceux qui sont partis ;*\n*vous avez les doigts pleins de moi.* »",
+   "answer": [
+    "encre",
+    "l'encre",
+    "de l'encre",
+    "une encre",
+    "l encre"
+   ],
+   "wrongText": "« Non. » Elle sourit sous son loup. « Regardez vos mains. »",
+   "tryLabel": "Répondre",
+   "label": "Répondre à la devinette du domino rose",
+   "leave": "Lui demander ce qu'elle veut",
+   "win": {
+    "to": "S_clarisse_plan",
+    "fx": {
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "n_loterie": {
+   "kind": "chiffre",
+   "title": "La loterie des masques",
+   "text": "Sur l'estrade de l'Opéra, le maître de cérémonie, déguisé en Grand Turc, agite un bocal plein de billets et crie la devinette de la loterie. Le premier masque qui trouve gagne le grand domino noir de velours, qu'une danseuse fait tourner au-dessus de sa tête :\n\n*Je montre tout le monde et je ne suis personne ;*\n*cette nuit, on me met pour être un autre ;*\n*demain, on me jette, et l'on redevient soi ;*\n*vous en portez un, et moi aussi.*",
+   "answer": [
+    "masque",
+    "le masque",
+    "un masque",
+    "loup",
+    "un loup",
+    "le loup"
+   ],
+   "wrongText": "Le Grand Turc agite son bocal. « Non ! Qui d'autre ? »",
+   "tryLabel": "Crier la réponse",
+   "label": "Répondre à la devinette de la loterie",
+   "leave": "Laisser les autres chercher",
+   "win": {
+    "to": "S_loterie_gagnee",
+    "fx": {
+     "item": "domino",
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "n_billet": {
+   "kind": "chiffre",
+   "title": "La ligne à chiffrer",
+   "text": "Tu trempes ta plume. La phrase à cacher tient en cinq mots : *L'ARLEQUIN EST A GASPARD.* La clef sera le numéro du vestiaire, le 7 : chaque lettre avance de sept crans dans l'alphabet, A devient H, B devient I, et ainsi jusqu'au bout, où l'alphabet recommence, comme une ronde. Tu laisses de côté l'apostrophe, qui trahirait la forme de la phrase.\n\nÉcris la ligne chiffrée, en capitales, mot par mot.",
+   "answer": [
+    "s hyslxbpu lza h nhzwhyk",
+    "shyslxbpu lza h nhzwhyk"
+   ],
+   "wrongText": "Tu relis ta ligne en reculant chaque lettre de sept crans, comme le fera demain la personne qui la lira. Il en sort un mot boiteux. Tu grattes l'encre avec ton canif et tu recommences.",
+   "tryLabel": "Écrire la ligne",
+   "label": "Chiffrer la ligne",
+   "leave": "L'écrire autrement",
+   "win": {
+    "to": "S_billet_chiffre",
+    "fx": {
+     "flag": "billet:chiffre",
+     "ep": [
+      "seance",
+      400
+     ]
+    }
+   }
+  },
+  "n_coffre": {
+   "kind": "molettes",
+   "title": "Le coffre de Gaspard Ardel",
+   "text": "Un coffre d'acier anglais, encastré dans le mur du cabinet, derrière un portrait de feu Monsieur Ardel père. La serrure est un cadran à quatre molettes de cuivre, chacune de 0 à 9.",
+   "wheels": [
+    [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9"
+    ],
+    [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9"
+    ],
+    [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9"
+    ],
+    [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9"
+    ]
+   ],
+   "answer": [
+    "2",
+    "4",
+    "0",
+    "3"
+   ],
+   "wrongText": "Le cadran tourne à vide, avec un cliquetis de dents d'acier. Au-dessus, feu Monsieur Ardel père te regarde faire, avec une moue de banquier.",
+   "tryLabel": "Tirer la poignée",
+   "label": "Tourner les molettes du coffre",
+   "leave": "Laisser le coffre",
+   "win": {
+    "to": "S_coffre_ouvert",
+    "fx": {
+     "item": "papiers",
+     "flag": "papiers:pris",
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  }
+ },
+ "achievements": {
+  "fleurs": {
+   "title": "Suivre les fleurs",
+   "desc": "Trouver les cinq devinettes du matin.",
+   "if": {
+    "all": [
+     {
+      "has": "enigme:m1"
+     },
+     {
+      "has": "enigme:m2"
+     },
+     {
+      "has": "enigme:m3"
+     },
+     {
+      "has": "enigme:m4"
+     },
+     {
+      "has": "enigme:m5"
+     }
+    ]
+   }
+  },
+  "ligne": {
+   "title": "La ligne du billet",
+   "desc": "Déchiffrer la ligne du billet avant midi.",
+   "if": {
+    "has": "enigme:m_chiffre"
+   }
+  },
+  "hirondelle": {
+   "title": "L'Hirondelle",
+   "desc": "Que Clarisse soit à bord à midi.",
+   "if": {
+    "has": "clarisse:partie"
+   }
+  }
+ },
+ "endings": {
+  "masque": {
+   "title": "Le masque tombé"
+  },
+  "hirondelle": {
+   "title": "L'Hirondelle"
+  }
+ },
+ "world": {
+  "noFood": true,
+  "money": {
+   "units": [
+    {
+     "name": "sou",
+     "plural": "sous",
+     "value": 1,
+     "short": "s."
+    },
+    {
+     "name": "écu",
+     "plural": "écus",
+     "value": 60,
+     "short": "é."
+    }
+   ]
+  },
+  "start": {
+   "place": "canal",
+   "hour": 6,
+   "clock": true,
+   "gold": 3,
+   "food": 0,
+   "items": [
+    "billet",
+    "fleur"
+   ],
+   "kits": {}
+  },
+  "places": {
+   "canal": {
+    "ambiance": "eau",
+    "name": "Le canal des Teinturiers",
+    "map": "lambrun",
+    "x": 50,
+    "y": 80,
+    "arrive": "A_banc",
+    "desc": "Un canal aux eaux bleues et rouges, bordé de bancs et de teintureries."
+   },
+   "lavoir": {
+    "ambiance": "eau",
+    "name": "Le lavoir du Pont-Rouge",
+    "map": "lambrun",
+    "x": 30,
+    "y": 60,
+    "arrive": "A_lavoir",
+    "desc": "Le grand lavoir couvert, où battent les blanchisseuses."
+   },
+   "herbes": {
+    "ambiance": "ville",
+    "name": "La rue des Herbes",
+    "map": "lambrun",
+    "x": 40,
+    "y": 40,
+    "arrive": "A_apothicaire",
+    "desc": "La rue des apothicaires et des herboristes."
+   },
+   "opera": {
+    "ambiance": "ville",
+    "name": "L'Opéra",
+    "map": "lambrun",
+    "x": 60,
+    "y": 45,
+    "arrive": "A_opera",
+    "desc": "La salle de spectacle de Lambrun, où se donne le bal masqué."
+   },
+   "quai": {
+    "ambiance": "mer",
+    "name": "Le quai de Gênes",
+    "map": "lambrun",
+    "x": 75,
+    "y": 70,
+    "arrive": "A_quai",
+    "desc": "Le quai d'où partent les barques pour Gênes."
+   },
+   "clocher": {
+    "ambiance": "temple",
+    "name": "Le clocher de Saint-Brice",
+    "map": "lambrun",
+    "x": 55,
+    "y": 20,
+    "arrive": "A_clocher",
+    "desc": "Le clocher de l'église Saint-Brice et sa grosse cloche, la Bourdonne."
+   },
+   "ardel": {
+    "ambiance": "ville",
+    "name": "La maison Ardel",
+    "map": "lambrun",
+    "x": 25,
+    "y": 30,
+    "arrive": "A_ardel",
+    "desc": "La grande maison des Ardel, au-dessus de la savonnerie."
+   },
+   "echoppe": {
+    "ambiance": "ville",
+    "name": "Ton échoppe",
+    "map": "lambrun",
+    "x": 45,
+    "y": 65,
+    "arrive": "S_echoppe",
+    "desc": "Ton échoppe d'écrivain public, sous les arcades du marché."
+   }
+  },
+  "routes": [],
+  "regions": {},
+  "events": {}
+ },
+ "banter": [],
+ "passages": {
+  "A_banc": {
+   "act": "I",
+   "title": "Le banc",
+   "place": "canal",
+   "second": false,
+   "hub": true,
+   "backName": "le banc",
+   "text": [
+    {
+     "first": true,
+     "text": "Tu te réveilles parce qu'une mouette te regarde. Elle se tient sur le dossier du banc, à un pied de ton visage, et elle penche la tête d'un côté, puis de l'autre, avec l'air d'un juge d'instruction qui hésite entre deux versions."
+    },
+    {
+     "first": true,
+     "text": "Le jour se lève sur Lambrun comme on soulève un drap sale. L'eau du canal des Teinturiers coule devant toi, bleue d'un côté, rouge de l'autre, selon les cuves qui se vident ; au milieu, les deux couleurs se mêlent en une traînée violette, épaisse et lente, qui ressemble à du vin répandu sur une nappe de deuil. Des confettis détrempés collent aux pavés. Une odeur de savon froid et de vase monte des berges. Quelque part, un tambour d'enfant bat trois coups, puis se tait, comme un cœur qui aurait changé d'avis."
+    },
+    {
+     "first": true,
+     "text": "Tu as froid. Tu as mal à la tête, d'un mal étrange, sourd, cotonneux, qui occupe l'endroit exact où devraient se trouver tes souvenirs. Tu portes un costume blanc, large, à gros boutons noirs : un Pierrot. Et sur ton visage, quelque chose de dur et de lisse, qui sent le carton et la colle."
+    },
+    {
+     "first": true,
+     "text": "Comment tu es arrivé{e} ici, mystère. Tu sais ton métier, tu sais ton nom, tu sais lire. La nuit d'hier est une page arrachée."
+    },
+    {
+     "again": true,
+     "text": "Le banc du canal des Teinturiers, l'eau bleue et rouge, la mouette, revenue se poster sur le dossier comme une sentinelle. La ville s'éveille derrière toi, de plus en plus bruyante."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Fouiller tes poches",
+     "hide": {
+      "seen": "A_billet"
+     },
+     "to": "A_billet"
+    },
+    {
+     "label": "Porter les mains à ton visage",
+     "hide": {
+      "seen": "A_cadenas"
+     },
+     "to": "A_cadenas"
+    },
+    {
+     "label": "Te pencher sur l'eau du canal",
+     "hide": {
+      "seen": "A_reflet"
+     },
+     "to": "A_reflet"
+    },
+    {
+     "label": "Relire la ligne étrange au bas du billet",
+     "if": {
+      "seen": "A_billet"
+     },
+     "hide": {
+      "has": "enigme:m_chiffre"
+     },
+     "to": "A_chiffre"
+    },
+    {
+     "label": "Regarder la rose de papier épinglée sur ton costume",
+     "if": {
+      "seen": "A_billet"
+     },
+     "hide": {
+      "has": "enigme:m1"
+     },
+     "to": "A_rose"
+    },
+    {
+     "label": "Répondre à l'Arlequin qui t'appelle depuis le pont",
+     "if": {
+      "seen": "A_billet"
+     },
+     "hide": {
+      "seen": "A_lazare"
+     },
+     "to": "A_lazare"
+    },
+    {
+     "label": "Monter sur le pont des Teinturiers",
+     "hide": {
+      "seen": "A_pont"
+     },
+     "to": "A_pont"
+    },
+    {
+     "label": "Passer par ton échoppe, sous les arcades du marché",
+     "if": {
+      "seen": "A_billet"
+     },
+     "hide": {
+      "seen": "A_echoppe_matin"
+     },
+     "to": "A_echoppe_matin"
+    },
+    {
+     "label": "Suivre la première fleur jusqu'au lavoir du Pont-Rouge",
+     "if": {
+      "has": "enigme:m1"
+     },
+     "fx": {
+      "until": 7
+     },
+     "to": "A_lavoir"
+    }
+   ]
+  },
+  "A_billet": {
+   "act": "I",
+   "title": "Le billet",
+   "place": "canal",
+   "second": false,
+   "text": [
+    "Dans la poche de ta blouse, trois sous, un bout de craie, et un papier plié en quatre. Tu le déplies. L'écriture te saute au visage avant les mots : c'est la tienne. Ces *t* barrés trop haut, ces *s* qui se couchent à la fin des lignes comme des chiens fatigués, tu les as tracés dix mille fois pour d'autres, sur des lettres d'amour, des réclamations au fisc, des faire-part.",
+    "*Ne retire pas le masque avant midi. Tu ne te souviens de rien : c'est voulu. Tout ce que tu dois savoir, je te l'ai laissé en chemin. Suis les fleurs. Ne fais confiance à personne qui connaît ton nom.*",
+    "Et au-dessous, une ligne de lettres en désordre, en capitales, qui ne forment aucun mot de ta connaissance, avec cette précision : *la clef de cette ligne est le numéro que tu as laissé à l'Opéra.* Puis une signature : *Toi.*",
+    {
+     "if": {
+      "voie": "ecrivain"
+     },
+     "text": "Tu juges l'écriture en homme de l'art, par réflexe, avant même de comprendre ce qu'elle dit : une main sûre, rapide, qui ne bave pas, qui ne revient pas sur ses jambages. Ta meilleure main. Celle des lettres qu'on te paie double. Cette nuit, tu as écrit pour toi-même comme pour un client exigeant."
+    },
+    "Tu relis trois fois. Il y a quelque chose de vertigineux à recevoir des ordres de soi-même, comme d'un aîné qu'on n'a jamais rencontré et qui vous connaîtrait par cœur. Celui ou celle qui a écrit ce billet savait ce que tu ignores. Celui ou celle qui a écrit ce billet a choisi que tu l'ignores. Tu te demandes si tu dois lui en vouloir, et tu décides de remettre la question à midi."
+   ],
+   "choices": [
+    {
+     "back": "A_banc"
+    }
+   ]
+  },
+  "A_chiffre": {
+   "act": "I",
+   "title": "La ligne du billet",
+   "place": "canal",
+   "second": false,
+   "puzzle": "m_chiffre",
+   "text": [
+    "Tu poses le billet sur ton genou. Vingt lettres en capitales, groupées en mots de longueur ordinaire : une phrase, donc, dont chaque lettre a été poussée dans l'alphabet d'un certain nombre de crans, à la façon des chiffres de caserne que les soldats s'échangent pour tromper l'adjudant. Tu connais ce jeu. Tu l'as appris à des amoureux timides, sous les arcades, pour quatre sous la leçon.",
+    {
+     "if": {
+      "not": {
+       "item": "ticket"
+      }
+     },
+     "text": "Il te manque le nombre. Le numéro que tu as laissé à l'Opéra : tu ignores encore ce que tu as laissé à l'Opéra."
+    },
+    {
+     "if": {
+      "item": "ticket"
+     },
+     "text": "Le ticket de vestiaire, dans ta main, porte un 7 rouge."
+    }
+   ],
+   "choices": [
+    {
+     "back": "A_banc"
+    }
+   ]
+  },
+  "A_cadenas": {
+   "act": "I",
+   "title": "Le masque",
+   "place": "canal",
+   "second": false,
+   "text": [
+    "Tes doigts trouvent un masque de carton laqué, froid, qui épouse ton visage du front à la lèvre supérieure. Tu cherches le cordon derrière ta tête, pour le défaire : tu trouves une tresse de soie dure, dans laquelle on a glissé une chaînette, et à l'endroit du nœud, un petit cadenas de laiton, gros comme une noisette.",
+    "Tu tires. La chaînette mord ta nuque. Tu tires encore, et le masque tient comme une seconde peau, comme une décision. On t'a fermé{e}. Ou tu t'es fermé{e} toi-même, ce qui est plus inquiétant et beaucoup plus probable.",
+    {
+     "if": {
+      "voie": "comedien"
+     },
+     "text": "Et pourtant, ce masque te va. Il épouse ton front, tes pommettes, ton nez, avec une exactitude de vieux complice, comme un masque qu'on aurait porté cent soirs de suite, sur cent scènes, et qui aurait pris la forme de ton visage à force de jouer dessus."
+    },
+    "Les gens qui passent sur le quai te regardent à peine. Un matin de Mi-Carême, à Lambrun, un Pierrot cadenassé fait partie du paysage, au même titre que les pigeons et les ivrognes."
+   ],
+   "choices": [
+    {
+     "back": "A_banc"
+    }
+   ]
+  },
+  "A_reflet": {
+   "act": "I",
+   "title": "Le reflet",
+   "place": "canal",
+   "second": false,
+   "text": [
+    "Tu te penches sur l'eau. Le canal te renvoie un Pierrot à l'envers, flottant sur un fond violet : la blouse blanche, la collerette froissée, et ce visage de carton laqué, d'un blanc de craie, avec une larme noire peinte sous l'œil gauche. Les trous des yeux sont deux puits. Au fond, deux yeux qui te ressemblent te regardent avec une méfiance parfaite.",
+    "Tes mains, au-dessus de l'eau, sont noires jusqu'à la deuxième phalange, d'une encre ancienne et fraîche à la fois, incrustée dans les cuticules : les mains de ton métier, qui ont écrit toute la nuit.",
+    "Et ton soulier gauche te gêne. Une petite gêne obstinée, sous le talon, comme un caillou qui aurait des idées."
+   ],
+   "choices": [
+    {
+     "back": "A_banc"
+    }
+   ]
+  },
+  "A_rose": {
+   "act": "I",
+   "title": "La rose de papier",
+   "place": "canal",
+   "second": false,
+   "puzzle": "m1",
+   "text": [
+    "Sur ta poitrine, à la place du cœur, quelqu'un a épinglé une rose de papier blanc, faite avec soin, pétale par pétale, dans une feuille de ton papier vergé. *Suis les fleurs.* Tu la détaches et tu la fais tourner entre tes doigts. Sur un pétale, à l'intérieur, de ton écriture la plus fine : quatre lignes."
+   ],
+   "choices": [
+    {
+     "back": "A_banc"
+    }
+   ]
+  },
+  "A_m1": {
+   "act": "I",
+   "title": "La Reine d'un jour",
+   "place": "canal",
+   "second": false,
+   "text": [
+    "La blanchisseuse. Bien sûr. À Lambrun, le jour de la Mi-Carême, les blanchisseuses élisent leur Reine, et la Reine règne une journée entière, couronnée de carton, sur une ville qui la méprise les trois cent soixante-quatre autres jours de l'année. Le royaume, c'est le lavoir. Le plus grand de la ville est au Pont-Rouge, à dix minutes d'ici en suivant le canal.",
+    "Tu repiques la rose sur ta blouse. Il te semble qu'elle a un peu plus de poids qu'avant."
+   ],
+   "choices": [
+    {
+     "back": "A_banc"
+    }
+   ]
+  },
+  "A_pont": {
+   "act": "I",
+   "title": "Le pont des Teinturiers",
+   "place": "canal",
+   "second": false,
+   "fx": {
+    "clue": "i_affiche"
+   },
+   "text": [
+    "Le pont des Teinturiers bombe le dos au-dessus du canal comme un chat qu'on caresse à rebrousse-poil. Ses parapets sont couverts d'affiches de la Mi-Carême, collées les unes sur les autres, si nombreuses qu'elles forment une croûte de papier épaisse d'un doigt : bals, loteries, combats de coqs, le grand défilé du bonhomme Carême, la messe des blanchisseuses.",
+    "Une affiche est plus neuve que les autres, la colle encore humide, collée par-dessus tout le reste avec l'impudence de l'argent. Le papier est épais, la typographie élégante, les majuscules ornées d'une couronne de fleurs d'oranger. *Ce vendredi vingt-quatre mars, à midi, en l'église Saint-Brice, mariage de Mademoiselle Clarisse Ardel et de Monsieur Médard Coquelin, banquier.*",
+    "Au-dessous, quelqu'un a écrit au charbon, d'une main d'apprenti : *VENDUE.*",
+    "De là-haut, tu vois toute la ville : les toits de tuiles, les canaux qui la découpent en îlots, les cheminées de la savonnerie Ardel qui fument déjà, et au-dessus de tout, noir sur le ciel gris, le clocher de Saint-Brice, où la grosse cloche dort encore."
+   ],
+   "choices": [
+    {
+     "label": "Regarder passer les premiers masques",
+     "hide": {
+      "seen": "A_masques_rue"
+     },
+     "to": "A_masques_rue"
+    },
+    {
+     "back": "A_banc"
+    }
+   ]
+  },
+  "A_masques_rue": {
+   "act": "I",
+   "title": "Les premiers masques",
+   "place": "canal",
+   "second": false,
+   "text": [
+    "Ils passent sur le pont par petites grappes, ceux de la nuit qui rentrent et ceux du jour qui sortent, et l'on ne sait plus lesquels sont ivres. Un Turc à barbe de laine soutient une Colombine en pleurs. Deux médecins à long nez se disputent le même diagnostic. Un ours de Savoie a retiré sa tête et la porte sous le bras, comme un saint martyr, en mâchant un croûton.",
+    "Une petite fille costumée en diablotin te tire la manche. « T'es triste, Pierrot ? » Tu touches la larme noire sur ton masque. « C'est peint », dis-tu. Elle hoche la tête, très sérieuse, comme si c'était précisément la réponse qu'elle redoutait, et elle repart en courant derrière son père."
+   ],
+   "choices": [
+    {
+     "back": "A_banc"
+    }
+   ]
+  },
+  "A_lazare": {
+   "act": "I",
+   "title": "L'Arlequin",
+   "place": "canal",
+   "second": false,
+   "fx": {
+    "clue": "i_nom",
+    "meet": [
+     "lazare"
+    ]
+   },
+   "text": [
+    "« {hero} ! Hé ! {hero} ! »",
+    "Quelqu'un t'appelle par ton nom depuis le pont. Un Arlequin, maigre et souple, en costume à losanges rouges, verts et jaunes, un loup noir sur le haut du visage. Il descend les marches quatre à quatre, sautille sur les pavés mouillés, et vient s'asseoir à côté de toi sur le banc avec la familiarité d'un vieil ami ou d'un pickpocket.",
+    "« Te voilà réveillé{e} ! J'ai eu peur, tu sais. Tu dormais comme un mort, je t'ai secoué{e} deux fois à cinq heures. » Il rit, d'un rire léger, sans fond. « C'est moi, Lazare. Tu ne me reconnais pas ? Ah, c'est le masque. Ou c'est ce que tu as bu. Tu as bu de tout, cette nuit, et tu as voulu finir sur ce banc pour voir le soleil se lever sur le canal. Un poète. Je t'ai toujours dit que tu avais l'âme d'un poète et la tête d'un sac de farine. »",
+    "Il te tape sur l'épaule. Il te connaît. Il dit ton nom comme on dit le nom de quelqu'un qu'on aime bien. Dans ta poche, un billet de ta main te conseille de te méfier de lui."
+   ],
+   "choices": [
+    {
+     "label": "Lui demander ce que vous avez fait cette nuit",
+     "hide": {
+      "seen": "A_lazare_nuit"
+     },
+     "to": "A_lazare_nuit"
+    },
+    {
+     "label": "Accepter qu'il t'accompagne",
+     "hide": {
+      "any": [
+       {
+        "has": "lazare:avec"
+       },
+       {
+        "has": "lazare:seul"
+       }
+      ]
+     },
+     "fx": {
+      "flag": "lazare:avec"
+     },
+     "to": "A_lazare_oui"
+    },
+    {
+     "label": "Lui dire que tu préfères marcher seul{e}",
+     "hide": {
+      "any": [
+       {
+        "has": "lazare:avec"
+       },
+       {
+        "has": "lazare:seul"
+       }
+      ]
+     },
+     "fx": {
+      "flag": "lazare:seul"
+     },
+     "to": "A_lazare_non"
+    }
+   ]
+  },
+  "A_lazare_nuit": {
+   "act": "I",
+   "title": "La nuit selon Lazare",
+   "place": "canal",
+   "second": false,
+   "text": [
+    "« Ce qu'on a fait ? » Lazare écarte les bras, comme un bonimenteur devant sa baraque. « Le bal de l'Opéra, voyons. Le plus beau bal depuis dix ans. Tu as dansé la polka avec une marquise qui avait des moustaches. Tu as perdu deux sous au pharaon. Tu as récité des vers à une statue. Et ensuite... » Il baisse la voix, l'air complice. « Ensuite, tu as dansé avec un domino rose. Toute la nuit. Rien qu'avec elle. »",
+    "Il te regarde à travers son loup noir. Ses yeux sont très attentifs, très gais.",
+    "« Une jolie taille, ce domino rose. Tu te rappelles où elle est passée ? Vous êtes partis ensemble vers une heure, et je vous ai perdus. Je me suis fait du souci. »"
+   ],
+   "choices": [
+    {
+     "back": "A_lazare"
+    }
+   ]
+  },
+  "A_lazare_oui": {
+   "act": "I",
+   "title": "Un ami de la nuit",
+   "place": "canal",
+   "second": false,
+   "text": [
+    "« À la bonne heure ! » Lazare bondit sur ses pieds. « Tu m'as fait promettre, cette nuit, de t'aider ce matin. Tu disais : demain, je ne me souviendrai de rien, et j'aurai une chose à faire avant midi. Je t'ai dit : je serai là. Et me voilà. »",
+    "Il te prend le bras, avec une vigueur fraternelle. Il sent la poudre de riz, le vin et une eau de toilette trop chère pour un Arlequin."
+   ],
+   "choices": [
+    {
+     "back": "A_banc"
+    }
+   ]
+  },
+  "A_lazare_non": {
+   "act": "I",
+   "title": "Seul{e}",
+   "place": "canal",
+   "second": false,
+   "text": [
+    "Lazare a l'air blessé une seconde entière, ce qui chez un Arlequin représente une éternité. Puis il rit, saute sur ses pieds, fait une révérence exagérée qui balaie les pavés.",
+    "« Comme tu voudras. Tu étais déjà comme ça cette nuit : tout{e} seul{e} contre le monde. » Il s'éloigne à reculons. « Mais si tu te perds, tu me siffles. Je ne serai jamais loin. »",
+    "Il disparaît dans un groupe de masques qui passe sur le pont. Tu as le sentiment, très net, très désagréable, que lui te voit encore."
+   ],
+   "choices": [
+    {
+     "back": "A_banc"
+    }
+   ]
+  },
+  "A_echoppe_matin": {
+   "act": "I",
+   "title": "Ton échoppe",
+   "place": "canal",
+   "second": false,
+   "text": [
+    "Les arcades du marché sont encore vides à cette heure, et ton échoppe est là où tu l'as laissée : une niche sous la troisième arcade, une planche sur deux tréteaux, un tabouret pour toi, un tabouret pour le client, et une enseigne en bois peint, *Lettres de toutes sortes. Discrétion.* Le volet de bois est fermé, mais le cadenas n'est pas mis.",
+    "Dedans, l'odeur d'encre et de papier tiède. Les plumes sont taillées, toutes, en rang, ce qui ne te ressemble guère. Le cahier des commandes est ouvert sur la planche. Ta dernière ligne, de la veille : *Vingt heures. Une demoiselle en domino rose. Rien à écrire.*",
+    "Dans le petit poêle de fonte, des cendres de papier, beaucoup, encore tièdes. Tu y plonges les doigts. Un fragment a survécu, un coin de feuille brûlé sur trois côtés, où tu lis, de ta main, le mot *hirond*, et rien d'autre.",
+    "Sous le tabouret des clients, une paillette rose brille dans la poussière comme une goutte de sang dans du lait."
+   ],
+   "choices": [
+    {
+     "back": "A_banc"
+    }
+   ]
+  },
+  "A_lavoir": {
+   "act": "I",
+   "title": "Le lavoir du Pont-Rouge",
+   "place": "lavoir",
+   "second": false,
+   "hub": true,
+   "backName": "le lavoir",
+   "fx": {
+    "meet": [
+     "babet"
+    ]
+   },
+   "text": [
+    {
+     "first": true,
+     "text": "Le lavoir du Pont-Rouge est une grande halle de bois noir posée sur le canal, ouverte sur l'eau, où la vapeur des lessiveuses monte jusqu'aux poutres et redescend en gouttes sur les têtes. Une cinquantaine de femmes y battent le linge à genoux dans leurs caisses de bois, en ligne, les bras rouges jusqu'aux coudes, avec un vacarme de bataille navale. Les battoirs claquent, l'eau gicle, les voix se croisent par-dessus, et tout cela sent la cendre, le savon noir et la sueur des siècles."
+    },
+    {
+     "first": true,
+     "text": "Aujourd'hui, pourtant, le travail a quelque chose de fébrile. On a tendu des guirlandes de papier entre les poutres. Au fond, sur une estrade de caisses retournées, un trône : un vieux fauteuil d'église, tendu de draps blancs, sous un dais de jupons. Et sur le trône, une femme énorme, coiffée d'une couronne de carton doré, tient un battoir comme un sceptre et invective les autres avec une voix à faire virer de bord une frégate."
+    },
+    {
+     "first": true,
+     "if": {
+      "has": "lazare:avec"
+     },
+     "text": "Lazare, sur le seuil, s'arrête net. La Reine l'a vu. Elle pointe son battoir sur lui. « Toi, l'Arlequin, tu restes dehors. Les losanges, je les connais : ils ont des poches partout. » Lazare sourit, salue, et s'adosse au chambranle, dehors, sans cesser de te regarder."
+    },
+    {
+     "again": true,
+     "text": "Le lavoir, sa vapeur, son vacarme, les guirlandes de papier. Sur son trône, la Reine des Blanchisseuses règne à coups de battoir."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Te présenter à la Reine",
+     "hide": {
+      "seen": "A_babet"
+     },
+     "to": "A_babet"
+    },
+    {
+     "label": "Lire le papier de la Reine",
+     "if": {
+      "has": "babet:papier"
+     },
+     "hide": {
+      "has": "enigme:m2"
+     },
+     "to": "A_papier"
+    },
+    {
+     "label": "Demander aux blanchisseuses ce qu'elles ont vu cette nuit",
+     "hide": {
+      "seen": "A_laveuses"
+     },
+     "to": "A_laveuses"
+    },
+    {
+     "label": "Approcher la vieille qui bat le linge à l'écart",
+     "hide": {
+      "seen": "A_gendre"
+     },
+     "to": "A_gendre"
+    },
+    {
+     "label": "Aider à porter le trône jusqu'au canal",
+     "if": {
+      "seen": "A_babet"
+     },
+     "hide": {
+      "seen": "A_couronne"
+     },
+     "to": "A_couronne"
+    },
+    {
+     "label": "Suivre la deuxième fleur jusqu'à la rue des Herbes",
+     "if": {
+      "has": "enigme:m2"
+     },
+     "fx": {
+      "until": 8
+     },
+     "to": "A_apothicaire"
+    }
+   ]
+  },
+  "A_babet": {
+   "act": "I",
+   "title": "La Reine des Blanchisseuses",
+   "place": "lavoir",
+   "second": false,
+   "fx": {
+    "flag": "babet:papier"
+   },
+   "text": [
+    "Tu remontes l'allée entre les caisses, sous les regards et sous les éclaboussures. La Reine te regarde venir avec une attention de douanier. Quand tu es devant le trône, elle pose les yeux sur la rose de papier épinglée sur ta blouse, et son visage énorme s'éclaire d'un coup, comme un four dont on ouvre la porte.",
+    "« Mon Pierrot ! » Elle te prend les deux mains dans les siennes, qui sont rouges, mouillées et larges comme des pelles. « Tu m'avais dit que tu viendrais, et que tu ne saurais plus qui tu es. Je t'ai pas cru{e}. J'ai dit : celui-là, il a bu. » Elle rit, et tout son corps rit avec elle, la couronne comprise. « Mère Babet, pour te servir. Reine depuis six heures du matin. Ça m'a pris quarante ans. »",
+    "Elle fouille sous son tablier et en tire un papier plié, protégé dans un mouchoir sec. « Tu me l'as confié à trois heures et demie. Tu m'as dit : seulement au Pierrot qui portera la rose. Tu m'as donné deux sous, et tu m'as embrassée sur le front. On m'avait plus embrassée sur le front depuis mon baptême. »",
+    "Elle baisse la voix, ce qui chez elle revient à parler comme tout le monde. « Tu m'as dit aussi de me méfier des masques, aujourd'hui. Le jour de la Mi-Carême ! J'ai ri. »"
+   ],
+   "choices": [
+    {
+     "back": "A_lavoir"
+    }
+   ]
+  },
+  "A_papier": {
+   "act": "I",
+   "title": "Le papier de la Reine",
+   "place": "lavoir",
+   "second": false,
+   "puzzle": "m2",
+   "text": [
+    "Tu déplies le papier dans la vapeur. L'encre a un peu bavé sur les bords, et ton écriture y est plus rapide, plus nerveuse, comme écrite debout, contre un mur, à la lueur d'une lanterne."
+   ],
+   "choices": [
+    {
+     "back": "A_lavoir"
+    }
+   ]
+  },
+  "A_m2": {
+   "act": "I",
+   "title": "Ce qui t'ouvre",
+   "place": "lavoir",
+   "second": false,
+   "text": [
+    "Le pavot. Rouge dans les blés en été, noir dans les fioles toute l'année. Les apothicaires en vendent sous vingt noms, pour la toux, pour les dents, pour les nerfs des dames, et quelques-uns, sous le comptoir, pour des usages qu'ils ne nomment pas. *Va chez celui qui me vend : il garde ce qui t'ouvre.*",
+    "Ce qui t'ouvre. Tu portes la main au petit cadenas de laiton, derrière ta tête.",
+    "« La rue des Herbes, dit Mère Babet, qui a lu par-dessus ton épaule sans le moindre scrupule. C'est là qu'ils sont tous, les vendeurs de poison. Le meilleur, c'est Ferrat. Le plus cher aussi. C'est souvent pareil. »"
+   ],
+   "choices": [
+    {
+     "back": "A_lavoir"
+    }
+   ]
+  },
+  "A_laveuses": {
+   "act": "I",
+   "title": "Ce que dit le lavoir",
+   "place": "lavoir",
+   "second": false,
+   "text": [
+    "Tu t'accroupis près d'une caisse, à côté d'une jeune blanchisseuse aux joues creuses, et d'une vieille qui fume la pipe en battant. Elles parlent sans s'arrêter de taper, chacune d'un côté de toi, comme deux horloges qui ne seraient pas d'accord sur l'heure.",
+    "« Cette nuit ? dit la jeune. J'ai vu un Pierrot passer le long du canal, vers deux heures. Avec un domino noir, qui courait comme une fille. — Un domino noir qui court comme une fille, dit la vieille, c'est une fille. — Ils allaient vers Saint-Brice. — Ou vers l'église. — C'est la même chose, idiote. »",
+    "La vieille tire sur sa pipe. « Et à cinq heures, des hommes en livrée prune, avec des lanternes, qui fouillaient les barques au Pont-Rouge. Les gens d'Ardel, ceux de la savonnerie. Ils cherchaient quelque chose qu'ils avaient perdu. » Elle crache dans le canal. « Une fiancée, on dit. Ça se perd, une fiancée. Moi, j'ai perdu trois maris. »"
+   ],
+   "choices": [
+    {
+     "back": "A_lavoir"
+    }
+   ]
+  },
+  "A_couronne": {
+   "act": "I",
+   "title": "La procession du trône",
+   "place": "lavoir",
+   "second": false,
+   "fx": {
+    "ep": [
+     "perso",
+     150
+    ]
+   },
+   "text": [
+    "Six blanchisseuses soulèvent le trône, avec Mère Babet dessus, et tu prends un des brancards. Le fauteuil pèse le poids d'une cathédrale. La Reine, là-haut, se cramponne aux accoudoirs et lance des ordres comme un amiral sur une mer démontée : « Doucement ! À gauche ! Toi, le Pierrot, tu lâches et je te noie ! »",
+    "Vous la portez jusqu'au bord du canal, où l'on doit la bénir à midi, et vous la posez sous les applaudissements, les sifflets et les injures affectueuses. Elle se redresse sur son trône, rajuste sa couronne, et te jette un sou, comme à un manant. Puis elle te fait un clin d'œil.",
+    "« Pour une Reine, dit-elle, il faut des sujets. Pour une fuite, il faut des amis. Tu as les deux, mon Pierrot. Je sais pas lequel des deux te sera le plus utile. »"
+   ],
+   "choices": [
+    {
+     "back": "A_lavoir"
+    }
+   ]
+  },
+  "A_apothicaire": {
+   "act": "I",
+   "title": "La rue des Herbes",
+   "place": "herbes",
+   "second": false,
+   "hub": true,
+   "backName": "la boutique de Ferrat",
+   "fx": {
+    "meet": [
+     "ferrat"
+    ]
+   },
+   "text": [
+    {
+     "first": true,
+     "text": "La rue des Herbes est si étroite que les toits s'y touchent presque, et le jour n'y descend qu'à midi, à contrecœur, comme un huissier dans une maison en deuil. Les boutiques d'apothicaires s'y alignent, chacune avec son enseigne de fer : un mortier, un serpent, une main ouverte, un œil. Toute la rue sent l'éther, la camomille, la cannelle et quelque chose de plus sombre, au fond, comme une cave où l'on aurait oublié des fleurs."
+    },
+    {
+     "first": true,
+     "text": "La boutique de Maître Ferrat porte l'enseigne du pavot : une tige de fer et une fleur peinte en rouge. Dedans, des bocaux par centaines, du sol au plafond, avec leurs étiquettes à l'encre brune, et derrière le comptoir, un petit homme sec en tablier noir, des lunettes rondes au bout du nez, qui pile quelque chose dans un mortier de marbre. Il lève les yeux sur toi. Il paraît aussi surpris qu'une horloge qui sonne l'heure."
+    },
+    {
+     "first": true,
+     "text": "« Vous voilà réveillé{e}, dit-il. Plus tôt que prévu. C'est la jeunesse, ou c'est le froid. »"
+    },
+    {
+     "first": true,
+     "if": {
+      "has": "lazare:avec"
+     },
+     "text": "Lazare entre derrière toi et fait aussitôt le tour des bocaux, les mains dans le dos, comme un amateur au musée. Ferrat suit chacun de ses pas par-dessus ses lunettes, sans cesser de piler."
+    },
+    {
+     "again": true,
+     "text": "La boutique au pavot, ses bocaux, son odeur de cave fleurie. Maître Ferrat pile, imperturbable."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Lui demander ce que tu lui as acheté cette nuit",
+     "hide": {
+      "seen": "A_ferrat_oubli"
+     },
+     "to": "A_ferrat_oubli"
+    },
+    {
+     "label": "Lui demander s'il garde quelque chose pour toi",
+     "hide": {
+      "seen": "A_ferrat_ordonnance"
+     },
+     "to": "A_ferrat_ordonnance"
+    },
+    {
+     "label": "Lui demander la clef de ton masque",
+     "if": {
+      "seen": "A_cadenas"
+     },
+     "hide": {
+      "item": "clef_masque"
+     },
+     "to": "A_ferrat_clef"
+    },
+    {
+     "label": "Lire l'ordonnance",
+     "if": {
+      "seen": "A_ferrat_ordonnance"
+     },
+     "hide": {
+      "has": "enigme:m3"
+     },
+     "to": "A_ordonnance"
+    },
+    {
+     "label": "Ouvrir le cadenas de ton masque",
+     "if": {
+      "item": "clef_masque"
+     },
+     "hide": {
+      "has": "masque:ote"
+     },
+     "to": "A_masque_ote"
+    },
+    {
+     "label": "Acheter des sels pour réveiller la mémoire",
+     "hide": {
+      "seen": "A_sels"
+     },
+     "to": "A_sels"
+    },
+    {
+     "label": "Suivre la troisième fleur jusqu'à l'Opéra",
+     "if": {
+      "has": "enigme:m3"
+     },
+     "fx": {
+      "until": 9
+     },
+     "to": "A_opera"
+    }
+   ]
+  },
+  "A_ferrat_oubli": {
+   "act": "I",
+   "title": "L'oubli",
+   "place": "herbes",
+   "second": false,
+   "fx": {
+    "clue": "i_ferrat"
+   },
+   "text": [
+    "Ferrat cesse de piler. Il essuie ses doigts jaunes sur son tablier, un par un, avec la lenteur d'un homme qui choisit ses mots comme ses poudres, au trébuchet.",
+    "« Du pavot, dit-il. Et de l'herbe des sorciers, ce que les savants appellent la datura, une plante qui pousse sur les tas d'ordures et qui fait voir aux paysans le diable en personne. Trois heures de sommeil, et la nuit effacée, proprement, comme une ardoise. Vous me l'avez acheté à quatre heures du matin. Vous avez frappé au volet. Vous avez payé, vous avez demandé la dose exacte, et vous saviez très bien ce que vous faisiez. »",
+    "Il reprend son pilon. « On vient me voir pour oublier un mort, un amour, une dette. Vous, c'était la première fois qu'on me demandait d'oublier une nuit qu'on n'avait pas encore finie. J'ai trouvé ça intéressant. Je n'ai pas posé de questions. Je ne pose jamais de questions. C'est pour ça qu'on me paie le double. »"
+   ],
+   "choices": [
+    {
+     "back": "A_apothicaire"
+    }
+   ]
+  },
+  "A_ferrat_ordonnance": {
+   "act": "I",
+   "title": "L'ordonnance",
+   "place": "herbes",
+   "second": false,
+   "text": [
+    "« Je garde deux choses pour vous », dit Ferrat. Il ouvre un tiroir sous le comptoir, en sort une ordonnance pliée, et la pose devant toi. « Celle-ci, vous m'avez dit de vous la donner si vous me demandiez si j'avais quelque chose pour vous. »",
+    "Il referme le tiroir. « L'autre, vous m'avez dit de vous la donner seulement si vous la demandiez par son nom. Vous avez une façon très précise d'être confus{e}. »"
+   ],
+   "choices": [
+    {
+     "back": "A_apothicaire"
+    }
+   ]
+  },
+  "A_ordonnance": {
+   "act": "I",
+   "title": "Le dos de l'ordonnance",
+   "place": "herbes",
+   "second": false,
+   "puzzle": "m3",
+   "text": [
+    "Au recto, de la main de Ferrat : *Une fiole. Pavot, datura. À boire d'un trait.* Au verso, de la tienne, quatre lignes."
+   ],
+   "choices": [
+    {
+     "back": "A_apothicaire"
+    }
+   ]
+  },
+  "A_m3": {
+   "act": "I",
+   "title": "Sous ton talon",
+   "place": "herbes",
+   "second": false,
+   "text": [
+    "Le vestiaire. Le bal de l'Opéra, où tu as passé la nuit si l'on en croit tout le monde. *Le tien est sous ton talon.*",
+    "Tu t'assieds sur le tabouret des clients et tu ôtes ton soulier gauche, sous le regard de Ferrat, qui en a vu d'autres. Dans le soulier, sous la semelle de feutre, plié en deux : un carton de l'Opéra, à bord doré, avec un numéro peint en rouge. Le *7*.",
+    "Ta gêne au talon s'en va. Une autre la remplace, plus haut."
+   ],
+   "choices": [
+    {
+     "back": "A_apothicaire"
+    }
+   ]
+  },
+  "A_ferrat_clef": {
+   "act": "I",
+   "title": "La clef",
+   "place": "herbes",
+   "second": false,
+   "fx": {
+    "item": "clef_masque"
+   },
+   "text": [
+    "« La clef », répète Ferrat, avec une petite satisfaction de joueur d'échecs qui voit l'adversaire jouer le coup prévu. Il soulève le couvercle d'un bocal étiqueté *Racine de guimauve*, plonge deux doigts dans la poudre blanche, et en retire une minuscule clef de laiton, qu'il souffle et qu'il te tend.",
+    "« Vous m'avez dit : s'il la demande, c'est qu'il est assez réveillé pour décider. Je vous la rends. Ce que vous en ferez ne me regarde pas. » Il hausse les épaules. « Vous m'avez dit aussi, si je me souviens bien, de ne pas l'ouvrir avant midi. Mais vous me l'avez dit hier, et hier vous étiez quelqu'un d'autre. »"
+   ],
+   "choices": [
+    {
+     "back": "A_apothicaire"
+    }
+   ]
+  },
+  "A_masque_ote": {
+   "act": "I",
+   "title": "Démasqué{e}",
+   "place": "herbes",
+   "second": false,
+   "fx": {
+    "flag": "masque:ote"
+   },
+   "text": [
+    "La petite clef tourne. Le cadenas s'ouvre avec un déclic de bijou. La tresse se défait, et le masque glisse dans ta main, chaud de ton visage, et l'air de la rue des Herbes te touche les joues, frais, chargé d'éther, comme une gifle légère.",
+    "Dans le miroir piqué, derrière le comptoir, ton visage te regarde, pâle, marqué par le carton, avec des yeux de quelqu'un qui n'a pas dormi depuis deux jours. Tu le reconnais. C'est un soulagement très bref.",
+    "Dehors, un homme en livrée prune passe devant la vitrine, ralentit, te regarde. Il te reconnaît aussi : l'écrivain public des arcades, celui qui écrit les lettres de tout le quartier. Il repart en hâte, sans un mot, dans la direction de la savonnerie.",
+    "« Voilà, dit Ferrat, en reprenant son pilon. Vous êtes quelqu'un, à présent. C'est toujours plus dangereux. »"
+   ],
+   "choices": [
+    {
+     "back": "A_apothicaire"
+    }
+   ]
+  },
+  "A_sels": {
+   "act": "I",
+   "title": "Les sels",
+   "place": "herbes",
+   "second": false,
+   "fx": {
+    "gold": -1,
+    "flag": "souvenir:rire"
+   },
+   "text": [
+    "Ferrat te fait respirer, pour un sou, un flacon de sels d'ammoniaque, en te tenant la nuque comme on tient celle d'un chiot qu'on veut corriger. L'odeur te traverse le crâne d'un trait, d'une narine jusqu'à l'occiput, et pendant une seconde, une seule, quelque chose revient.",
+    "Un rire. Un rire de jeune fille, vif, haut, un peu essoufflé, tout près de ton oreille, dans le noir, avec une odeur de cire et de vieux bois. Et des taches de rousseur, sur un nez, à la lueur d'une lanterne. Puis rien.",
+    "« C'est tout ce que ça fait, dit Ferrat, en rebouchant le flacon. Ça rend un morceau. Pour le reste, il faut attendre que l'herbe s'en aille. Huit jours. Ou jamais. Je n'ai jamais su lequel. »"
+   ],
+   "choices": [
+    {
+     "back": "A_apothicaire"
+    }
+   ]
+  },
+  "A_opera": {
+   "act": "I",
+   "title": "L'Opéra au matin",
+   "place": "opera",
+   "second": false,
+   "hub": true,
+   "backName": "le grand foyer",
+   "text": [
+    {
+     "first": true,
+     "text": "L'Opéra de Lambrun, à neuf heures du matin, après le bal, ressemble à un champ de bataille dont les morts se seraient relevés pour aller se coucher. Le grand foyer est jonché de serpentins, de plumes, de loups abandonnés, de verres brisés, de souliers dépareillés. Les lustres de cristal sont encore allumés pour quelques bougies, qui coulent sur les pampilles et font pleurer le plafond. Une odeur de vin aigre, de poudre et de sueur parfumée stagne sous les dorures."
+    },
+    {
+     "first": true,
+     "text": "Des balayeurs poussent des montagnes de confettis avec la résignation de Sisyphe. Sur une banquette de velours, un Grand Turc ronfle, son turban sur les yeux. Au fond, derrière un comptoir d'acajou, une vieille femme en bonnet de dentelle tricote au milieu de manteaux pendus, comme une Parque au milieu de ses fils."
+    },
+    {
+     "first": true,
+     "if": {
+      "has": "lazare:seul"
+     },
+     "text": "Et sur une banquette, les jambes croisées, l'Arlequin. Lazare. Il te fait un petit signe de la main, comme s'il t'attendait ici depuis le début. « Je te l'avais dit, {hero} : je ne suis jamais loin. »"
+    },
+    {
+     "again": true,
+     "text": "Le grand foyer saccagé, les lustres qui pleurent, les balayeurs. La dame du vestiaire tricote au milieu des manteaux."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Présenter le ticket au vestiaire",
+     "if": {
+      "item": "ticket"
+     },
+     "hide": {
+      "seen": "A_vestiaire"
+     },
+     "to": "A_vestiaire"
+    },
+    {
+     "label": "Lire le mot épinglé dans le sac",
+     "if": {
+      "seen": "A_vestiaire"
+     },
+     "hide": {
+      "has": "enigme:m4"
+     },
+     "to": "A_mot_sac"
+    },
+    {
+     "label": "Monter dans la grande salle",
+     "hide": {
+      "seen": "A_salle"
+     },
+     "to": "A_salle"
+    },
+    {
+     "label": "Faire le tour par la rue des Cordiers, derrière l'Opéra",
+     "hide": {
+      "seen": "A_cordiers"
+     },
+     "to": "A_cordiers"
+    },
+    {
+     "label": "Interroger les balayeurs",
+     "hide": {
+      "seen": "A_balayeurs"
+     },
+     "to": "A_balayeurs"
+    },
+    {
+     "label": "Faire un détour par la maison Ardel",
+     "if": {
+      "has": "enigme:m4"
+     },
+     "hide": {
+      "seen": "A_ardel"
+     },
+     "fx": {
+      "time": 1
+     },
+     "to": "A_ardel"
+    },
+    {
+     "label": "Suivre la quatrième fleur jusqu'au quai de Gênes",
+     "if": {
+      "has": "enigme:m4"
+     },
+     "fx": {
+      "time": 1
+     },
+     "to": "A_quai"
+    }
+   ]
+  },
+  "A_vestiaire": {
+   "act": "I",
+   "title": "Le numéro 7",
+   "place": "opera",
+   "second": false,
+   "fx": {
+    "item": "papiers"
+   },
+   "text": [
+    "La dame du vestiaire prend ton ticket, le regarde par-dessous ses lunettes, le regarde encore, puis te regarde, toi. « Le sept. Le Pierrot. » Elle se lève, disparaît entre les manteaux, et revient avec un sac de tapisserie, à fleurs passées, fermé d'une boucle de cuivre. « Vous l'avez déposé à cinq heures. Vous m'avez donné un sou de plus pour que je ne le donne à personne d'autre, même avec le ticket. J'ai dit : si quelqu'un d'autre a le ticket, c'est qu'il vous l'a pris, et ça me regarde pas. Vous avez dit : justement. »",
+    "Tu ouvres le sac sur le comptoir. Dedans, un passeport pour Gênes au nom de *Clarisse Ardel, dix-neuf ans, demoiselle, cheveux roux, yeux gris*, avec un cachet de la préfecture. Une lettre en italien, d'une écriture de vieille dame, qui commence par *Carissima nipote*. Une chemise de nuit pliée, une brosse en écaille, un petit portrait au pastel d'une femme rousse. Et épinglé à la doublure, un papier de ta main.",
+    {
+     "if": {
+      "has": "lazare:avec"
+     },
+     "text": "Lazare se penche par-dessus ton épaule pour regarder, avec une curiosité gaie. En se penchant, un petit carnet de bal tombe de sa manche à losanges et glisse sur le parquet, entre vos pieds."
+    },
+    {
+     "if": {
+      "not": {
+       "has": "lazare:avec"
+      }
+     },
+     "text": "Une ombre à losanges s'approche du comptoir. Lazare se penche par-dessus ton épaule pour regarder le sac, avec une curiosité gaie. En se penchant, un petit carnet de bal tombe de sa manche et glisse sur le parquet, entre vos pieds."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Ramasser le carnet avant lui",
+     "hide": {
+      "any": [
+       {
+        "seen": "A_carnet"
+       },
+       {
+        "seen": "A_carnet_rate"
+       }
+      ]
+     },
+     "test": {
+      "dom": "discretion",
+      "diff": 0,
+      "label": "Discrétion"
+     },
+     "win": {
+      "to": "A_carnet"
+     },
+     "lose": {
+      "to": "A_carnet_rate"
+     }
+    },
+    {
+     "label": "Laisser Lazare porter le sac",
+     "if": {
+      "has": "lazare:avec"
+     },
+     "hide": {
+      "any": [
+       {
+        "has": "lazare:sac"
+       },
+       {
+        "seen": "A_sac_garde"
+       }
+      ]
+     },
+     "fx": {
+      "flag": "lazare:sac"
+     },
+     "to": "A_sac_lazare"
+    },
+    {
+     "label": "Garder le sac contre toi",
+     "hide": {
+      "any": [
+       {
+        "has": "lazare:sac"
+       },
+       {
+        "seen": "A_sac_garde"
+       }
+      ]
+     },
+     "to": "A_sac_garde"
+    },
+    {
+     "back": "A_opera"
+    }
+   ]
+  },
+  "A_carnet": {
+   "act": "I",
+   "title": "Le carnet de bal",
+   "place": "opera",
+   "second": false,
+   "fx": {
+    "clue": "i_code"
+   },
+   "text": [
+    "Ta main est plus rapide que la sienne. Tu ramasses le carnet, un petit agenda de bal en nacre, avec son crayon pendu à un cordonnet, et tu l'ouvres en te relevant, d'un geste naturel, comme pour le lui rendre.",
+    "Des noms de danses, des noms de femmes, des chiffres de pharaon. Et sur la dernière page, au crayon, d'une écriture penchée : *Coffre de G. : la noce. 2 · 4 · 0 · 3.*",
+    "Lazare te reprend le carnet des doigts, très vite, très souriant. « Mes conquêtes, dit-il. Un gentleman ne les montre pas. » Il le glisse dans sa manche. Il sourit toujours. Ses yeux, derrière le loup, se sont un peu refroidis."
+   ],
+   "choices": [
+    {
+     "back": "A_vestiaire"
+    }
+   ]
+  },
+  "A_carnet_rate": {
+   "act": "I",
+   "title": "Trop lent{e}",
+   "place": "opera",
+   "second": false,
+   "text": [
+    "Lazare est plus rapide que toi. Il ramasse le carnet d'un mouvement de chat, et dans l'instant où il le referme, tu as juste le temps de lire, au crayon, sur la dernière page : *Coffre de G. : la noce.* La suite est sous son pouce.",
+    "« Mes conquêtes, dit-il en le glissant dans sa manche. Un gentleman ne les montre pas. »"
+   ],
+   "choices": [
+    {
+     "back": "A_vestiaire"
+    }
+   ]
+  },
+  "A_sac_lazare": {
+   "act": "I",
+   "title": "Le sac de Lazare",
+   "place": "opera",
+   "second": false,
+   "text": [
+    "« Donne, dit Lazare, je porte. Tu as l'air d'un mort qui marche, et les morts n'ont pas besoin de bagages. » Il prend le sac de tapisserie, le passe à son épaule. Il le porte bien. Il le porte comme quelque chose qui lui appartiendrait déjà."
+   ],
+   "choices": [
+    {
+     "back": "A_vestiaire"
+    }
+   ]
+  },
+  "A_sac_garde": {
+   "act": "I",
+   "title": "Le sac contre toi",
+   "place": "opera",
+   "second": false,
+   "text": [
+    "Tu refermes la boucle de cuivre et tu passes la bandoulière en travers de ta poitrine, sous la collerette. Le sac est léger. Il pèse le poids d'une vie qui tiendrait dans un passeport et une brosse à cheveux.",
+    {
+     "if": {
+      "has": "lazare:avec"
+     },
+     "text": "Lazare tend la main, ouvre la bouche pour offrir de le porter, voit ton geste, et rit. « Méfiant{e} ! Tu as bien raison. L'Opéra est plein de voleurs. »"
+    }
+   ],
+   "choices": [
+    {
+     "back": "A_vestiaire"
+    }
+   ]
+  },
+  "A_mot_sac": {
+   "act": "I",
+   "title": "Le mot du sac",
+   "place": "opera",
+   "second": false,
+   "puzzle": "m4",
+   "text": [
+    "Tu détaches le papier épinglé à la doublure. L'épingle est une épingle à cheveux, en écaille, comme la brosse."
+   ],
+   "choices": [
+    {
+     "back": "A_opera"
+    }
+   ]
+  },
+  "A_m4": {
+   "act": "I",
+   "title": "Deux places",
+   "place": "opera",
+   "second": false,
+   "text": [
+    "L'Hirondelle. Tout Lambrun connaît la barque de Gênes, son étrave peinte en bleu et son oiseau sculpté à la proue. Elle part du quai de Gênes, à l'embouchure, quand la marée tourne, et la marée tourne à midi, ce vendredi.",
+    "*J'ai deux places sur mon dos.* Un passeport, une lettre de grand-mère, deux places sur une barque. Le dessin de la nuit se précise, comme une gravure qui sort de l'acide."
+   ],
+   "choices": [
+    {
+     "back": "A_opera"
+    }
+   ]
+  },
+  "A_salle": {
+   "act": "I",
+   "title": "La grande salle",
+   "place": "opera",
+   "second": false,
+   "text": [
+    "La salle de bal est la salle de spectacle elle-même, dont on a recouvert le parterre d'un plancher pour danser. À neuf heures du matin, elle est immense et vide, avec ses quatre étages de loges noires qui la regardent comme les orbites d'un crâne de géant. Des guirlandes pendent, décrochées. Au centre du plancher, une flaque de champagne reflète le lustre.",
+    "Sur l'estrade de l'orchestre, abandonné entre les pupitres, un grand bocal de verre, vide, avec une affichette : *Loterie des masques. Gagnant du grand domino noir : un Pierrot.* Quelqu'un a ajouté au crayon : *Tricheur !*",
+    "Tu restes longtemps au milieu du plancher. Rien ne te revient, sauf, au bout des orteils, une envie de danser qui ne t'appartient pas, et qui s'en va."
+   ],
+   "choices": [
+    {
+     "back": "A_opera"
+    }
+   ]
+  },
+  "A_balayeurs": {
+   "act": "I",
+   "title": "Les balayeurs",
+   "place": "opera",
+   "second": false,
+   "text": [
+    "Les balayeurs s'appuient sur leurs balais avec soulagement, trop heureux qu'on leur donne un prétexte. « Un Pierrot ? dit le plus vieux. Il y en avait trente, de Pierrots. Mais un qui a gagné la loterie, oui, vers minuit. Il a deviné la devinette avant que le Turc ait fini de la lire. Les gens ont crié au tricheur. »",
+    "« Et après, dit le plus jeune, il a donné le domino noir à une demoiselle en rose, derrière un pilier. Et la demoiselle en rose est ressortie en noir, et la Reine des Blanchisseuses est ressortie en rose. Moi, je dis rien, je balaie. »",
+    "« Vers une heure, reprend le vieux, le Pierrot et le domino noir sont sortis par la porte des artistes. Et un Arlequin les a cherchés partout, jusqu'à trois heures, en soulevant les nappes. »"
+   ],
+   "choices": [
+    {
+     "back": "A_opera"
+    }
+   ]
+  },
+  "A_ardel": {
+   "act": "I",
+   "title": "La maison Ardel",
+   "place": "ardel",
+   "second": false,
+   "hub": true,
+   "backName": "la maison Ardel",
+   "text": [
+    {
+     "first": true,
+     "text": "La maison Ardel se dresse au-dessus de sa savonnerie comme un parvenu sur son tas d'or : quatre étages de pierre blanche, des balcons de fonte, des pots à feu sur la corniche, et dessous, au rez-de-chaussée, les grandes portes cochères d'où sortent les charrettes chargées de pains de savon. Les cheminées fument. L'air sent l'huile d'olive bouillie, la soude et la lavande de synthèse, une odeur si propre qu'elle en devient malsaine."
+    },
+    {
+     "first": true,
+     "text": "Devant le perron, une calèche blanche attend, décorée de rubans blancs et de fleurs d'oranger en cire, et les chevaux eux-mêmes portent des cocardes. Mais la calèche reste vide. Des valets en livrée prune entrent et sortent en courant, les visages défaits. Une fenêtre du premier étage est ouverte, et par cette fenêtre sort, de temps en temps, un cri d'homme."
+    },
+    {
+     "again": true,
+     "text": "La maison Ardel, la calèche blanche qui attend, les valets prune qui courent."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Observer les fenêtres du rez-de-chaussée",
+     "hide": {
+      "seen": "A_ardel_bourse"
+     },
+     "to": "A_ardel_bourse"
+    },
+    {
+     "label": "Parler au cocher de la calèche blanche",
+     "hide": {
+      "seen": "A_cocher"
+     },
+     "to": "A_cocher"
+    },
+    {
+     "label": "Parler à la cuisinière, à la porte de l'office",
+     "hide": {
+      "seen": "A_ardel_cuisine"
+     },
+     "to": "A_ardel_cuisine"
+    },
+    {
+     "label": "Attendre que Monsieur Ardel paraisse sur le perron",
+     "if": {
+      "seen": "A_ardel_cuisine"
+     },
+     "hide": {
+      "seen": "A_gaspard_matin"
+     },
+     "to": "A_gaspard_matin"
+    },
+    {
+     "label": "Aller au quai de Gênes",
+     "hide": {
+      "seen": "A_quai"
+     },
+     "fx": {
+      "time": 1
+     },
+     "to": "A_quai"
+    },
+    {
+     "label": "Aller au clocher de Saint-Brice",
+     "if": {
+      "has": "enigme:m5"
+     },
+     "fx": {
+      "time": 1
+     },
+     "to": "A_clocher"
+    }
+   ]
+  },
+  "A_ardel_bourse": {
+   "act": "I",
+   "title": "La main gantée",
+   "place": "ardel",
+   "second": false,
+   "fx": {
+    "clue": "i_lazare_gaspard"
+   },
+   "text": [
+    {
+     "if": {
+      "has": "lazare:avec"
+     },
+     "text": "Lazare te touche le bras. « Attends-moi là une minute. J'ai une petite course. » Il s'éloigne d'un pas léger, tourne le coin de la maison, et tu le perds de vue. Puis, parce que tu as le temps et le mauvais esprit, tu fais trois pas de côté, jusqu'à l'angle du mur."
+    },
+    {
+     "if": {
+      "not": {
+       "has": "lazare:avec"
+      }
+     },
+     "text": "Tu longes la façade, sous les fenêtres du rez-de-chaussée, comme un badaud qui regarde la calèche. À l'angle, dans le renfoncement d'une porte de service, un costume à losanges rouges, verts et jaunes. L'Arlequin. Lazare."
+    },
+    "Une fenêtre basse s'entrouvre. Une main en sort, gantée de chevreau prune, avec une chevalière d'or à l'auriculaire, et laisse tomber une bourse dans la main de l'Arlequin. Une voix douce et lasse, à l'intérieur, dit quelques mots que tu n'entends pas. Lazare s'incline, très bas, très comique, comme au théâtre.",
+    "La fenêtre se referme. Lazare soupèse la bourse, la fait disparaître dans sa manche, et se retourne.",
+    {
+     "if": {
+      "has": "lazare:avec"
+     },
+     "text": "Quand il revient vers toi, une minute plus tard, il sifflote. « Une dette de jeu qu'on me devait, dit-il. Les gens honnêtes paient le matin. »"
+    }
+   ],
+   "choices": [
+    {
+     "back": "A_ardel"
+    }
+   ]
+  },
+  "A_ardel_cuisine": {
+   "act": "I",
+   "title": "La cuisinière",
+   "place": "ardel",
+   "second": false,
+   "text": [
+    "La cuisinière des Ardel fume une pipe en terre sur le pas de l'office, les poings sur les hanches, en regardant courir les valets avec le mépris tranquille du personnel qui nourrit celui qui commande. Elle te jauge, Pierrot parmi d'autres. « Si tu viens pour la noce, mon pauvre, t'as le temps de mourir de faim. »",
+    "Tu demandes ce qui se passe. Elle crache, et se met à parler, car une cuisinière qui a un secret le porte comme une marmite trop pleine.",
+    "« La demoiselle a disparu cette nuit. Au bal. Monsieur l'a amenée à dix heures, au bras de son vieux, et à une heure, plus de demoiselle. Monsieur est vert. Le vieux Coquelin arrive à midi, à l'église, avec son notaire et son prêt. Pas de mariée, pas de prêt. Pas de prêt, plus de savonnerie. Plus de savonnerie, plus de cuisinière. » Elle tire sur sa pipe. « Moi, je dis que la petite a bien fait. Mais je le dis à un Pierrot, parce que les Pierrots, ça répète rien, ça a pas de bouche. »"
+   ],
+   "choices": [
+    {
+     "back": "A_ardel"
+    }
+   ]
+  },
+  "A_gaspard_matin": {
+   "act": "I",
+   "title": "Monsieur Ardel",
+   "place": "ardel",
+   "second": false,
+   "fx": {
+    "meet": [
+     "gaspard"
+    ]
+   },
+   "text": [
+    "La porte s'ouvre, et un homme sort sur le perron, grand, soigné, en redingote prune, une moustache trop noire pour son âge. Il ronge l'ongle de son pouce, à petits coups secs, comme un écureuil qui aurait des dettes. Gaspard Ardel. Il regarde la calèche blanche, les fleurs de cire, les chevaux à cocarde, avec l'expression d'un homme qui contemple son propre corbillard.",
+    "Ses yeux passent sur toi, sur ton masque blanc, sur ta rose de papier, et s'arrêtent une seconde. Puis il les détourne. Un Pierrot. Il y en a trente en ville.",
+    "« Qu'on attelle quand même, dit-il au cocher, d'une voix douce et lasse. Midi, c'est midi. On la trouvera. On la trouve toujours. » Il rentre. Tu remarques, quand il pose la main sur la poignée, qu'il porte des gants de chevreau prune."
+   ],
+   "choices": [
+    {
+     "back": "A_ardel"
+    }
+   ]
+  },
+  "A_quai": {
+   "act": "I",
+   "title": "Le quai de Gênes",
+   "place": "quai",
+   "second": false,
+   "hub": true,
+   "backName": "le quai",
+   "fx": {
+    "meet": [
+     "rosso"
+    ]
+   },
+   "text": [
+    {
+     "first": true,
+     "text": "Le quai de Gênes est le bout de la ville, l'endroit où les canaux renoncent et se jettent dans l'estuaire, gris, large, plat, qui sent le sel et le goudron. Des barques s'y serrent bord à bord, des tartanes, des felouques, des gabares, et leurs mâts se balancent ensemble au clapot comme une forêt de cierges dans une église ivre."
+    },
+    {
+     "first": true,
+     "text": "L'Hirondelle est là, au bout du quai : une longue barque de commerce, étrave bleue, une hirondelle de bois doré à la proue, ailes ouvertes, bec pointé vers la mer. On y charge des pains de savon par chaînes humaines, en chantant une chanson génoise. Sur le pont, un homme en caban, une casquette de cuir sur l'oreille, fume un cigare en surveillant tout d'un œil et la marée de l'autre."
+    },
+    {
+     "first": true,
+     "text": "Et sur le quai, la foule de la Mi-Carême commence à s'amasser autour d'un bûcher de fagots, où l'on brûlera à midi le bonhomme Carême."
+    },
+    {
+     "again": true,
+     "text": "Le quai de Gênes, l'Hirondelle qu'on charge, le bûcher du bonhomme Carême, et la foule qui grossit."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Monter à bord parler au capitaine",
+     "hide": {
+      "seen": "A_rosso"
+     },
+     "to": "A_rosso"
+    },
+    {
+     "label": "Lire le revers du reçu",
+     "if": {
+      "item": "passage"
+     },
+     "hide": {
+      "has": "enigme:m5"
+     },
+     "to": "A_recu"
+    },
+    {
+     "label": "Demander au capitaine de voir la cabine",
+     "if": {
+      "seen": "A_rosso"
+     },
+     "hide": {
+      "seen": "A_cabine"
+     },
+     "to": "A_cabine"
+    },
+    {
+     "label": "Interroger les portefaix",
+     "hide": {
+      "seen": "A_portefaix"
+     },
+     "to": "A_portefaix"
+    },
+    {
+     "label": "Regarder arriver le bonhomme Carême",
+     "hide": {
+      "seen": "A_careme"
+     },
+     "to": "A_careme"
+    },
+    {
+     "label": "Faire un détour par la maison Ardel",
+     "if": {
+      "has": "enigme:m5"
+     },
+     "hide": {
+      "seen": "A_ardel"
+     },
+     "fx": {
+      "time": 1
+     },
+     "to": "A_ardel"
+    },
+    {
+     "label": "Suivre la dernière fleur jusqu'au clocher de Saint-Brice",
+     "if": {
+      "has": "enigme:m5"
+     },
+     "fx": {
+      "time": 1
+     },
+     "to": "A_clocher"
+    }
+   ]
+  },
+  "A_rosso": {
+   "act": "I",
+   "title": "Le capitaine Rosso",
+   "place": "quai",
+   "second": false,
+   "fx": {
+    "item": "passage"
+   },
+   "text": [
+    "Le capitaine te regarde monter la passerelle sans bouger, son cigare entre les dents. Quand tu es devant lui, il retire le cigare, crache par-dessus bord, et dit, dans un français roulé comme un galet : « Le Pierrot. Bon. Tu es à l'heure. »",
+    "Il fouille la poche de son caban et en tire un papier plié. « Deux passages pour Gênes. Payés cette nuit, à trois heures, rubis sur l'ongle, par un Pierrot qui m'a réveillé en frappant sur la coque comme un huissier. Il m'a dit : demain matin, je reviendrai, je n'aurai plus de mémoire, rendez-moi le reçu. Je fais ce métier depuis trente ans, j'ai transporté des évêques, des forçats, des chanteuses et un éléphant. On ne m'avait jamais fait celle-là. »",
+    {
+     "if": {
+      "voie": "matelot"
+     },
+     "text": "Il te regarde descendre de la passerelle au pont, d'un seul pas, sans la main, comme on descend quand on a six ans de mer dans les genoux. « Toi, tu as navigué, dit-il. Tu montes à bord comme on rentre chez soi. Cette nuit aussi. »"
+    },
+    "Il te tend le reçu. « Midi, la marée. Pas une minute après. La mer n'attend pas les amoureux, et moi j'attends encore moins. »"
+   ],
+   "choices": [
+    {
+     "back": "A_quai"
+    }
+   ]
+  },
+  "A_recu": {
+   "act": "I",
+   "title": "Le revers du reçu",
+   "place": "quai",
+   "second": false,
+   "puzzle": "m5",
+   "text": [
+    "Tu retournes le reçu du capitaine. Ton écriture, là encore, mais si pressée, si penchée qu'elle semble courir sur le papier pour arriver avant toi."
+   ],
+   "choices": [
+    {
+     "back": "A_quai"
+    }
+   ]
+  },
+  "A_m5": {
+   "act": "I",
+   "title": "Sous sa robe",
+   "place": "quai",
+   "second": false,
+   "text": [
+    "La cloche. La Bourdonne de Saint-Brice, la plus grosse cloche de Lambrun, qui sonne les baptêmes, les incendies et les mariages. *À midi, je crierai la noce ou je crierai la fuite.* Et sous sa robe de bronze, dans la chambre des cloches, en haut de la tour : quelqu'un.",
+    "Tu lèves les yeux. Au-dessus des toits, le clocher noir se découpe sur le ciel gris. Une volée de pigeons en tombe, effrayée par quelque chose, et tourne autour de la flèche."
+   ],
+   "choices": [
+    {
+     "back": "A_quai"
+    }
+   ]
+  },
+  "A_portefaix": {
+   "act": "I",
+   "title": "Les portefaix",
+   "place": "quai",
+   "second": false,
+   "text": [
+    "Les portefaix de la chaîne humaine se passent les pains de savon de main en main, et ils parlent en même temps, à la cadence, si bien que chaque phrase arrive en morceaux, au rythme du chargement.",
+    "« Les gens d'Ardel... — à sept heures... — ils ont fouillé... — toutes les barques... — même la nôtre... — le capitaine les a jetés à l'eau... — un à un... — en jurant en génois... — ils cherchaient une fille rousse... — dans les pains de savon... »",
+    "Ils rient tous ensemble, sans s'arrêter. Le savon passe. La marée monte."
+   ],
+   "choices": [
+    {
+     "back": "A_quai"
+    }
+   ]
+  },
+  "A_careme": {
+   "act": "I",
+   "title": "Le bonhomme Carême",
+   "place": "quai",
+   "second": false,
+   "text": [
+    "Il arrive par la rue des Cordiers, sur une charrette tirée par un âne enrubanné, au milieu d'une procession de masques qui hurlent et de gamins qui lui jettent des harengs saurs : un mannequin de paille de dix pieds de haut, vêtu d'un habit noir de croque-mort, avec une tête de chiffon peinte, un long nez de carton et deux yeux de bouchon qui regardent le ciel avec une affliction de prédicateur.",
+    "On le hisse sur le bûcher, on l'attache au poteau, on lui met dans la main une morue séchée en guise de crucifix. À midi, on y mettra le feu, et tout Lambrun criera que le carême est mort, pour quelques heures, avant qu'il ressuscite le lendemain matin, comme chaque année, plus maigre et plus têtu.",
+    "Tu regardes le mannequin. Il te regarde. Vous portez l'un et l'autre un visage qui n'est pas le vôtre, et l'un et l'autre, à midi, on vous fera quelque chose."
+   ],
+   "choices": [
+    {
+     "back": "A_quai"
+    }
+   ]
+  },
+  "A_clocher": {
+   "act": "I",
+   "title": "Le clocher de Saint-Brice",
+   "place": "clocher",
+   "second": false,
+   "hub": true,
+   "backName": "le pied du clocher",
+   "fx": {
+    "meet": [
+     "tiburce"
+    ]
+   },
+   "text": [
+    {
+     "first": true,
+     "text": "L'église Saint-Brice est déjà parée pour la noce. Des tentures blanches pendent au portail, des fleurs d'oranger en cire ornent les bénitiers, et le bedeau balaie le parvis en prévision des souliers de satin. Le clocher, lui, se dresse à côté, séparé de l'église, une tour carrée de pierre noire, haute de cent vingt marches, couronnée d'une flèche d'ardoise. Le vent siffle dans les abat-sons comme dans les côtes d'un squelette."
+    },
+    {
+     "first": true,
+     "text": "À la petite porte basse de la tour, assis sur une borne, un géant voûté aux cheveux roux mêlés de blanc mâche du pain et du lard avec la lenteur d'un bœuf. Il a des mains énormes, calleuses, des mains qui tirent des cordes depuis quarante ans. Il te regarde arriver et reste assis. « LE MOT ? » crie-t-il, si fort que les pigeons s'envolent du parvis."
+    },
+    {
+     "first": true,
+     "if": {
+      "has": "lazare:avec"
+     },
+     "text": "Lazare, à côté de toi, lève les yeux vers le haut de la tour, très longtemps, avec une expression que tu n'avais pas encore vue sur son visage : le calme."
+    },
+    {
+     "again": true,
+     "text": "La tour noire, la porte basse, le sonneur sur sa borne."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Entrer dans l'église Saint-Brice",
+     "hide": {
+      "seen": "A_eglise"
+     },
+     "to": "A_eglise"
+    },
+    {
+     "label": "Demander au sonneur ce que tu as fait cette nuit",
+     "if": {
+      "seen": "A_tiburce_monte"
+     },
+     "hide": {
+      "seen": "A_tiburce_nuit"
+     },
+     "to": "A_tiburce_nuit"
+    },
+    {
+     "label": "Lui dire « Hirondelle »",
+     "hide": {
+      "seen": "A_tiburce_monte"
+     },
+     "to": "A_tiburce_monte"
+    },
+    {
+     "label": "Lui dire « Blanchisseuse »",
+     "hide": {
+      "any": [
+       {
+        "seen": "A_tiburce_doute"
+       },
+       {
+        "seen": "A_tiburce_monte"
+       }
+      ]
+     },
+     "to": "A_tiburce_doute"
+    },
+    {
+     "label": "Lui dire « Masque »",
+     "hide": {
+      "any": [
+       {
+        "seen": "A_tiburce_doute"
+       },
+       {
+        "seen": "A_tiburce_monte"
+       }
+      ]
+     },
+     "to": "A_tiburce_doute"
+    },
+    {
+     "label": "Monter à la chambre des cloches",
+     "if": {
+      "seen": "A_tiburce_monte"
+     },
+     "to": "A_chambre_cloches"
+    }
+   ]
+  },
+  "A_tiburce_doute": {
+   "act": "I",
+   "title": "Le mauvais mot",
+   "place": "clocher",
+   "second": false,
+   "text": [
+    "Le sonneur cesse de mâcher. Il te regarde longtemps, les sourcils broussailleux tirés vers le bas comme des volets.",
+    "« NON, crie-t-il. MAIS T'AS LA ROSE. » Il désigne la rose de papier sur ta blouse avec son couteau. « T'AS DIT : IL SAURA PLUS LE MOT, LE PAUVRE. IL AURA LA ROSE. ESSAIE ENCORE. LE MOT, C'EST CE QUI PART À MIDI. »"
+   ],
+   "choices": [
+    {
+     "back": "A_clocher"
+    }
+   ]
+  },
+  "A_tiburce_monte": {
+   "act": "I",
+   "title": "Le sonneur",
+   "place": "clocher",
+   "second": false,
+   "text": [
+    "Le géant se lève d'un coup, et il est encore plus grand debout, il cache la moitié de la tour. Il range son couteau, son pain, son lard, essuie ses mains sur ses cuisses. « HIRONDELLE, répète-t-il, content. C'EST ÇA. T'ES LE BON. »",
+    "Il ouvre la porte basse avec une clef longue comme un avant-bras. « Tiburce, crie-t-il, comme si tu l'avais oublié aussi, ce qui est le cas. Le sonneur. Quarante ans de Bourdonne. J'ai sonné son baptême, à la petite. Je sonnerai pas son mariage. Je sonnerai autre chose, si tu me le dis. »",
+    {
+     "if": {
+      "has": "lazare:avec"
+     },
+     "text": "Il pose sa grosse main sur la poitrine de Lazare, qui voulait entrer derrière toi. « LUI, NON. » Lazare lève les mains en riant. « Je garde la porte, alors. Il faut bien quelqu'un pour garder les portes. »"
+    }
+   ],
+   "choices": [
+    {
+     "back": "A_clocher"
+    }
+   ]
+  },
+  "A_chambre_cloches": {
+   "act": "I",
+   "title": "La chambre des cloches",
+   "place": "clocher",
+   "second": false,
+   "fx": {
+    "meet": [
+     "clarisse"
+    ],
+    "flag": "nuit:comprise",
+    "ep": [
+     "histoire",
+     500
+    ]
+   },
+   "text": [
+    "Cent vingt marches de pierre, usées en cuvette par des siècles de sonneurs, dans une spirale si étroite que tes épaules frottent les deux murs à la fois. Le noir, l'odeur de fiente de pigeon et de vieux chanvre, le vent qui siffle dans les meurtrières. Puis une trappe, une échelle, et la lumière grise des abat-sons.",
+    "La chambre des cloches est une cage de poutres noires où pendent quatre cloches, trois petites et une énorme, la Bourdonne, une montagne de bronze verdi, grosse comme une chaumière, suspendue à son joug de chêne avec la patience d'un animal endormi. Le vent fait vibrer son bord, et l'on entend, si l'on tend l'oreille, un bourdonnement presque inaudible, continu, comme un chat géant qui ronronnerait en rêve.",
+    "Sous la robe de la cloche, dans l'ombre, accroupie sur un sac de chanvre, une jeune fille en domino noir lève la tête. Elle a rabattu le capuchon. Ses cheveux roux en sortent en désordre, et la lumière grise accroche, sur son nez, des taches de rousseur.",
+    {
+     "if": {
+      "has": "souvenir:rire"
+     },
+     "text": "Tu les reconnais. Ce sont celles de la lanterne, celles que les sels de Ferrat t'ont rendues pendant une seconde."
+    },
+    "« Enfin ! » Elle se lève, se cogne la tête au bord de la cloche, qui vibre, jure comme une blanchisseuse, et rit, d'un rire vif, haut, un peu essoufflé. Puis elle s'arrête, et te regarde mieux. « Vous ne me reconnaissez pas. Vous l'aviez dit. Vous l'aviez bu exprès. » Elle te prend les mains, regarde l'encre sur tes doigts. « Clarisse Ardel. On devait me marier à midi. Vous m'avez cachée ici cette nuit. Vous avez tout préparé. Vous avez dit : si on me prend, je ne pourrai rien avouer, puisque je ne saurai rien. Et demain matin, je me retrouverai moi-même. »",
+    "Elle rit encore, plus bas. « Vous vous êtes retrouvé{e}. Vous êtes plus lent{e} que prévu. »"
+   ],
+   "choices": [
+    {
+     "label": "Lui donner ce que tu as trouvé en chemin et descendre vers le quai",
+     "to": "F_masque"
+    },
+    {
+     "label": "Attendre midi avec elle, sous la cloche",
+     "to": "F_masque"
+    }
+   ]
+  },
+  "F_masque": {
+   "act": "I",
+   "title": "Le masque tombé",
+   "place": "clocher",
+   "end": true,
+   "second": false,
+   "fx": {
+    "flag": "fin:masque"
+   },
+   "text": [
+    "Une voix monte de l'escalier, une voix familière et gaie. « {hero} ! Hé ! {hero} ! »",
+    "Lazare sort de la trappe, tranquillement, comme on sort de sa chambre. Il a ôté son loup noir. Son visage est jeune, maigre, ordinaire, un visage de valet. Derrière lui montent deux hommes en livrée prune, essoufflés, et derrière eux, plus lentement, une redingote prune et une moustache trop noire.",
+    {
+     "if": {
+      "has": "lazare:avec"
+     },
+     "text": "« Merci de m'avoir mené jusqu'ici, dit Lazare. Je l'ai cherchée toute la nuit. Toi, tu savais où elle était, même sans le savoir. Il suffisait de te tenir le bras. »"
+    },
+    {
+     "if": {
+      "has": "lazare:seul"
+     },
+     "text": "« Tu as marché seul{e} toute la matinée, dit Lazare. Et moi, toute la matinée, j'ai marché dix pas derrière toi. Il suffisait de suivre les fleurs. Tu les avais laissées pour toi ; elles servent à tout le monde. »"
+    },
+    {
+     "if": {
+      "has": "masque:ote"
+     },
+     "text": "Il n'a même pas besoin de te démasquer. Ton visage est nu depuis la rue des Herbes, et la moitié de la ville l'a reconnu avant lui."
+    },
+    {
+     "if": {
+      "not": {
+       "has": "masque:ote"
+      }
+     },
+     "text": "Il s'approche de toi, sort de sa manche un petit couteau, et coupe la tresse de soie derrière ta tête, d'un coup net. Le masque tombe sur le plancher, et roule, et s'arrête la larme en l'air. « Les cadenas, dit Lazare, c'est pour les honnêtes gens. »"
+    },
+    {
+     "if": {
+      "has": "enigme:m_chiffre"
+     },
+     "text": "*L'Arlequin est à Gaspard.* Tu l'avais déchiffré. Tu le savais. Savoir ne t'a servi à rien, parce qu'il te manquait le reste de ce que tu savais cette nuit."
+    },
+    {
+     "if": {
+      "clue": "i_lazare_gaspard"
+     },
+     "text": "Tu revois la main gantée de prune, la bourse, la révérence de théâtre. Gaspard Ardel tend la même main vers sa nièce."
+    },
+    "Clarisse recule sous la cloche jusqu'à toucher le bronze. Elle se tait. Elle regarde son oncle avec une telle fureur froide que l'un des valets baisse les yeux. « Venez, ma chérie, dit Gaspard Ardel, de sa voix douce et lasse. Monsieur Coquelin vous attend. Il est vieux ; il ne vous attendra pas longtemps, ni dans un sens ni dans l'autre. »",
+    {
+     "if": {
+      "item": "papiers"
+     },
+     "text": "Un valet t'arrache le sac de tapisserie et le tend à son maître, qui en retire le passeport, le regarde, et le déchire en quatre, avec soin, comme on déchire une lettre d'amour devant celui qui l'a écrite."
+    },
+    {
+     "if": {
+      "has": "lazare:sac"
+     },
+     "text": "Lazare porte toujours le sac de tapisserie à l'épaule. Il le tend à son maître avec une révérence. Le passeport en sort, et Gaspard Ardel le déchire en quatre."
+    },
+    "Ils l'emmènent. Tiburce, en bas de l'échelle, un valet sur chaque bras, hurle des injures que la cage des cloches renvoie comme un écho de cathédrale. Lazare reste le dernier. Il ramasse ton masque, le regarde, te le rend. « Tu as fait de ton mieux, dit-il, gentiment. Tu as dormi au mauvais moment, c'est tout. Ça arrive aux meilleurs. »",
+    "Midi. Un valet tire la corde. La Bourdonne s'ébranle au-dessus de toi, lentement, puis plus vite, et le premier coup tombe sur Lambrun comme une pierre dans un puits, si énorme, si proche, qu'il te traverse le corps et te jette à genoux. Elle sonne la noce. Elle sonne la noce à toute volée, pendant que sur le quai, au loin, le bonhomme Carême prend feu, et que l'Hirondelle, entre les fumées, déploie sa voile et s'en va vers Gênes avec deux places vides sur le dos.",
+    "Tu restes à genoux sous la cloche qui hurle, ton masque à la main, avec dans la tête un trou à la forme exacte d'une nuit. Quelqu'un, cette nuit, avait tout prévu. Quelqu'un avait tout écrit pour toi, sauf une ligne : celle qui t'aurait dit de te taire devant un ami."
+   ]
+  },
+  "S_echoppe": {
+   "act": "II",
+   "title": "L'échoppe, la veille au soir",
+   "place": "echoppe",
+   "second": true,
+   "text": [
+    "La veille de la Mi-Carême, à huit heures du soir, les arcades du marché sentent la friture, la poudre de riz et le vin chaud. Des masques passent déjà par bandes, en avance sur la fête, et leurs rires roulent sous les voûtes comme des billes dans un couloir. Tu ranges tes plumes. Tu as écrit aujourd'hui trois lettres d'amour, une réclamation au fisc et une menace de mort, d'un boucher à son gendre, que tu as adoucie en chemin jusqu'à en faire une invitation à dîner.",
+    "Tu as aussi, depuis ce matin, une impression étrange, que tu n'arrives pas à chasser : celle de te souvenir de demain. Un souvenir à l'envers, flou, insistant, comme un mot qu'on a sur le bout de la langue et qui serait dans une autre langue.",
+    "Le volet est à moitié baissé quand une main gantée de rose le retient. Une jeune fille se glisse dessous, en domino de soie rose, capuchon rabattu, un loup de velours sur les yeux. Elle s'assoit sur le tabouret des clients sans y être invitée, croise les bras, et te regarde à travers les trous de son loup. Sous le velours, sur l'arête du nez, tu devines des taches de rousseur."
+   ],
+   "choices": [
+    {
+     "label": "Écouter ce qu'elle a à dire",
+     "hide": {
+      "seen": "S_devinette"
+     },
+     "to": "S_devinette"
+    },
+    {
+     "label": "L'appeler par son nom : Mademoiselle Ardel",
+     "hide": {
+      "seen": "S_clarisse_nom"
+     },
+     "to": "S_clarisse_nom"
+    }
+   ]
+  },
+  "S_devinette": {
+   "act": "II",
+   "title": "La devinette du domino rose",
+   "place": "echoppe",
+   "second": true,
+   "puzzle": "n_clarisse",
+   "text": [
+    "« On m'a dit que vous saviez garder un secret, dit-elle. On dit ça de beaucoup de gens. Je veux m'en assurer à ma façon. »"
+   ],
+   "choices": [
+    {
+     "label": "L'appeler par son nom : Mademoiselle Ardel",
+     "hide": {
+      "seen": "S_clarisse_nom"
+     },
+     "to": "S_clarisse_nom"
+    }
+   ]
+  },
+  "S_clarisse_nom": {
+   "act": "II",
+   "title": "Mademoiselle Ardel",
+   "place": "echoppe",
+   "second": true,
+   "fx": {
+    "meet": [
+     "clarisse"
+    ]
+   },
+   "text": [
+    "Elle se fige. Puis, lentement, elle ôte son loup. Elle a dix-neuf ans, un visage vif et pointu semé de rousseur, des yeux gris qui ne se baissent pas, et une petite cicatrice blanche au menton, de celles qu'on se fait en tombant d'un mur qu'on n'avait pas le droit d'escalader.",
+    "« Comment savez-vous ? » Tu ne sais pas comment tu sais. Tu dis : les taches de rousseur, le gant, l'affiche. Elle fronce les sourcils. « L'affiche n'est pas encore posée. Mon oncle la fait coller cette nuit. » Elle te regarde longtemps. « Vous êtes bizarre. Tant mieux. J'ai besoin de quelqu'un de bizarre. »"
+   ],
+   "choices": [
+    {
+     "label": "Lui demander ce qu'elle attend de toi",
+     "to": "S_clarisse_plan"
+    }
+   ]
+  },
+  "S_clarisse_plan": {
+   "act": "II",
+   "title": "Ce que veut Clarisse",
+   "place": "echoppe",
+   "second": true,
+   "fx": {
+    "meet": [
+     "clarisse"
+    ],
+    "gold": 240
+   },
+   "text": [
+    {
+     "if": {
+      "has": "enigme:n_clarisse"
+     },
+     "text": "« L'encre, dit-elle, satisfaite. Bien. Les gens qui ont les doigts noirs d'encre mentent moins que les autres : on voit tout de suite ce qu'ils touchent. » Elle ôte son loup. Elle a dix-neuf ans, un visage vif et pointu semé de rousseur, des yeux gris qui ne se baissent pas."
+    },
+    "« Je m'appelle Clarisse Ardel. Demain à midi, à Saint-Brice, mon oncle Gaspard me marie à Monsieur Médard Coquelin, banquier, soixante-huit ans, quatre millions, deux veuvages et une haleine de cave. Mon oncle lui doit une somme qui ferait rougir un ministre. Je suis le remboursement. »",
+    "Elle parle vite, d'une voix nette, comme on récite une leçon apprise devant un miroir. « Mon père m'a laissé la savonnerie. Mon oncle en est le tuteur jusqu'à mes vingt et un ans. Il a tout joué, tout, au pharaon, au cercle du Commerce, et ce qu'il n'a pas perdu, il l'a emprunté à Coquelin. Le jour de mes noces, la tutelle passe au mari, et le mari efface la dette. Tout le monde y gagne, sauf la mariée. »",
+    "« Ma grand-mère maternelle vit à Gênes. Elle m'attend. L'Hirondelle part demain à midi, avec la marée. Il me faut trois choses : mon passeport, que mon oncle garde dans le coffre de son cabinet ; un passage, que je ne peux pas acheter moi-même sans que tout le port le sache ; et un endroit où dormir jusqu'à midi sans qu'on me trouve. » Elle pose sur la planche une bourse de soie qui tinte. « J'ai vendu les boucles d'oreilles de ma mère. Quatre écus. C'est tout ce que j'ai à moi. »",
+    "« Ce soir, à dix heures, mon oncle m'emmène au bal de l'Opéra, au bras de mon fiancé, pour me montrer à la ville une dernière fois en demoiselle. Si je n'y suis pas, il me fera enfermer à clef jusqu'à midi. Il faut que j'y aille, et il faut que j'en sorte. » Elle se lève. « On dit à l'Opéra que vous avez fait l'acteur, le marin, l'écrivain, que vous êtes passé{e} partout et resté{e} nulle part. On dit que vous écrivez les lettres des amoureux sans jamais les lire. Aidez-moi. Je n'ai personne d'autre. »"
+   ],
+   "choices": [
+    {
+     "label": "Lui promettre de l'aider",
+     "to": "S_veille"
+    }
+   ]
+  },
+  "S_veille": {
+   "act": "II",
+   "title": "Avant le bal",
+   "place": "echoppe",
+   "second": true,
+   "hub": true,
+   "backName": "ton échoppe",
+   "text": [
+    {
+     "first": true,
+     "text": "Clarisse est repartie dans la nuit, son domino rose sous un manteau de laine. « À dix heures, a-t-elle dit. Cherchez le domino rose. Il n'y en aura qu'un. J'ai fait acheter tous les autres. » Tu restes seul{e} dans ton échoppe, avec la bourse de soie, la lampe, et deux heures devant toi."
+    },
+    {
+     "first": true,
+     "text": "Et ce souvenir de demain, de plus en plus net, comme une encre sympathique qui monterait sous la chaleur : un banc, un canal, une mouette, des devinettes de ta main."
+    },
+    {
+     "again": true,
+     "text": "Ton échoppe, la lampe, la bourse de soie sur la planche. Dehors, les arcades se remplissent de masques."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Chercher ton vieux costume de Pierrot au fond du coffre",
+     "hide": {
+      "seen": "S_costume"
+     },
+     "to": "S_costume"
+    },
+    {
+     "label": "Écrire à la grand-mère de Gênes, pour annoncer Clarisse",
+     "hide": {
+      "seen": "S_lettre_nonna"
+     },
+     "to": "S_lettre_nonna"
+    },
+    {
+     "label": "Noter sur un papier ce souvenir de demain",
+     "hide": {
+      "seen": "S_demain"
+     },
+     "to": "S_demain"
+    },
+    {
+     "label": "Passer chez la costumière de l'arcade voisine",
+     "hide": {
+      "seen": "S_voisine"
+     },
+     "to": "S_voisine"
+    },
+    {
+     "label": "Partir pour le bal de l'Opéra",
+     "if": {
+      "seen": "S_costume"
+     },
+     "fx": {
+      "until": 22
+     },
+     "to": "S_bal"
+    }
+   ]
+  },
+  "S_costume": {
+   "act": "II",
+   "title": "Le Pierrot",
+   "place": "echoppe",
+   "second": true,
+   "text": [
+    {
+     "if": {
+      "voie": "comedien"
+     },
+     "text": "Le costume dort au fond de ton coffre depuis que la troupe est partie sans toi, plié dans un drap avec de la lavande : la blouse blanche à gros boutons noirs, la collerette, le pantalon large. Le masque de carton laqué, avec sa larme peinte, tu l'as joué cent fois, à Lyon, à Nîmes, à Marseille, devant des salles qui jetaient des pommes et d'autres qui jetaient des fleurs, et il a gardé, à l'intérieur, la forme exacte de ton visage."
+    },
+    {
+     "if": {
+      "not": {
+       "voie": "comedien"
+      }
+     },
+     "text": "Le costume dort au fond de ton coffre depuis une Mi-Carême d'il y a cinq ans, où une voisine costumière te l'avait laissé en paiement d'une lettre : la blouse blanche à gros boutons noirs, la collerette, le pantalon large, et un masque de carton laqué, d'un blanc de craie, avec une larme noire peinte sous l'œil gauche. Il t'attend depuis, intact."
+    },
+    "Tu l'essaies devant le bout de miroir accroché au pilier. Un Pierrot te regarde. Il a l'air triste et rusé, comme tous les Pierrots, ce qui est la définition même du personnage : un niais qui sait des choses.",
+    "En le nouant derrière ta tête, tes doigts hésitent. Sur le clou de la porte pend le petit cadenas de laiton de ta boîte aux lettres, gros comme une noisette, avec sa clef. Sans savoir pourquoi, tu le décroches et tu le mets dans ta poche."
+   ],
+   "choices": [
+    {
+     "back": "S_veille"
+    }
+   ]
+  },
+  "S_lettre_nonna": {
+   "act": "II",
+   "title": "Carissima",
+   "place": "echoppe",
+   "second": true,
+   "fx": {
+    "ep": [
+     "perso",
+     150
+    ]
+   },
+   "text": [
+    "Tu écris en italien, que tu as appris sur les quais, avec les mots des quais adoucis pour une vieille dame : *Madame, votre petite-fille arrivera par l'Hirondelle, si Dieu, la marée et un capitaine génois le permettent. Elle arrive avec une valise et une colère. Gardez-lui la colère. Elle lui servira.*",
+    "Tu plies la lettre, tu la cachettes de cire noire, et tu écris l'adresse. *Signora Teresa Molinari, salita San Matteo, Genova.* Tu la glisses dans ta poche. Elle partira avec Clarisse, ou elle ne partira pas."
+   ],
+   "choices": [
+    {
+     "back": "S_veille"
+    }
+   ]
+  },
+  "S_demain": {
+   "act": "II",
+   "title": "Le souvenir de demain",
+   "place": "echoppe",
+   "second": true,
+   "text": [
+    "Tu prends un papier, et tu notes ce qui te vient, sans réfléchir, comme on note un rêve au réveil avant qu'il s'enfuie : *un banc au bord de l'eau. Une rose de papier. Une reine en carton. Un pavot. Un vestiaire. Une hirondelle. Une cloche. Et un Arlequin qui rit.*",
+    "Tu relis. Cela ressemble à une liste de courses dressée par un poète ivre. Et pourtant, en relisant le dernier mot, tu sens un froid te descendre dans le dos, entre les omoplates, comme une goutte d'eau tombée d'une gouttière.",
+    "Tu brûles le papier dans le poêle. L'impression reste."
+   ],
+   "choices": [
+    {
+     "back": "S_veille"
+    }
+   ]
+  },
+  "S_bal": {
+   "act": "II",
+   "title": "Le bal de l'Opéra",
+   "place": "opera",
+   "second": true,
+   "hub": true,
+   "backName": "la salle de bal",
+   "text": [
+    {
+     "first": true,
+     "text": "À dix heures du soir, la veille de la Mi-Carême, la salle entière de l'Opéra est un incendie de lumière. Les quatre lustres de cristal flambent de cinq cents bougies chacun, les loges dorées regorgent de masques qui crient et qui boivent, le plancher posé sur le parterre ploie sous mille danseurs, et l'orchestre, juché sur son estrade, joue une polka si vite qu'on dirait une poursuite. L'air est épais de musc, de poudre, de vin chaud, de sueur et de fleurs coupées, et la chaleur monte en vagues jusqu'au plafond peint, où des dieux grecs regardent ce sabbat avec une lassitude d'habitués."
+    },
+    {
+     "first": true,
+     "text": "Des Turcs, des Colombines, des diables, des médecins à long nez, des ours, des bergères, des évêques à barbe postiche. Ici, le carnaval tourne à la contagion. Chacun est quelqu'un d'autre, et chacun en profite pour être enfin lui-même, ce qui est beaucoup plus inquiétant."
+    },
+    {
+     "again": true,
+     "text": "Le bal tourne sous les lustres, la polka galope, les masques crient. Dans un coin, un Arlequin à losanges reste adossé à sa colonne."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Chercher le domino rose",
+     "hide": {
+      "seen": "S_bal_clarisse"
+     },
+     "to": "S_bal_clarisse"
+    },
+    {
+     "label": "Observer l'oncle et son entourage, près de la loge d'honneur",
+     "hide": {
+      "seen": "S_bal_gaspard"
+     },
+     "to": "S_bal_gaspard"
+    },
+    {
+     "label": "Aborder l'Arlequin qui ne danse pas",
+     "if": {
+      "seen": "S_bal_gaspard"
+     },
+     "hide": {
+      "seen": "S_lazare_bal"
+     },
+     "to": "S_lazare_bal"
+    },
+    {
+     "label": "Aller saluer le banquier au buffet",
+     "if": {
+      "seen": "S_bal_clarisse"
+     },
+     "hide": {
+      "seen": "S_coquelin_bal"
+     },
+     "to": "S_coquelin_bal"
+    },
+    {
+     "label": "Boire avec le Grand Turc derrière son pilier",
+     "hide": {
+      "seen": "S_grand_turc"
+     },
+     "to": "S_grand_turc"
+    },
+    {
+     "label": "Faire les poches de l'Arlequin",
+     "if": {
+      "seen": "S_lazare_bal"
+     },
+     "hide": {
+      "any": [
+       {
+        "seen": "S_lazare_carnet"
+       },
+       {
+        "seen": "S_lazare_poches"
+       },
+       {
+        "has": "lazare:enferme"
+       },
+       {
+        "has": "lazare:mefiant"
+       }
+      ]
+     },
+     "test": {
+      "dom": "discretion",
+      "diff": 0,
+      "label": "Discrétion"
+     },
+     "win": {
+      "to": "S_lazare_carnet"
+     },
+     "lose": {
+      "fx": {
+       "flag": "lazare:mefiant"
+      },
+      "to": "S_lazare_poches"
+     }
+    },
+    {
+     "label": "Inviter la Reine des Blanchisseuses à danser",
+     "hide": {
+      "seen": "S_bal_babet"
+     },
+     "to": "S_bal_babet"
+    },
+    {
+     "label": "Attirer l'Arlequin dans le magasin des costumes",
+     "if": {
+      "seen": "S_lazare_bal"
+     },
+     "hide": {
+      "any": [
+       {
+        "has": "lazare:enferme"
+       },
+       {
+        "has": "lazare:mefiant"
+       }
+      ]
+     },
+     "test": {
+      "dom": "social",
+      "diff": 0,
+      "label": "Social"
+     },
+     "win": {
+      "fx": {
+       "flag": "lazare:enferme"
+      },
+      "to": "S_lazare_enferme"
+     },
+     "lose": {
+      "fx": {
+       "flag": "lazare:mefiant"
+      },
+      "to": "S_lazare_piege_rate"
+     }
+    },
+    {
+     "label": "Monter vers l'estrade pour la loterie de minuit",
+     "if": {
+      "has": "bal:plan"
+     },
+     "hide": {
+      "seen": "S_loterie"
+     },
+     "fx": {
+      "time": 2
+     },
+     "to": "S_loterie"
+    },
+    {
+     "label": "Tenter encore la devinette de la loterie",
+     "if": {
+      "seen": "S_loterie"
+     },
+     "hide": {
+      "item": "domino"
+     },
+     "to": "S_loterie"
+    },
+    {
+     "label": "Sortir avec le domino noir par la porte des artistes",
+     "if": {
+      "seen": "S_loterie_gagnee"
+     },
+     "fx": {
+      "time": 1
+     },
+     "to": "S_sortie"
+    }
+   ]
+  },
+  "S_bal_clarisse": {
+   "act": "II",
+   "title": "Le domino rose",
+   "place": "opera",
+   "second": true,
+   "fx": {
+    "flag": "bal:plan",
+    "meet": [
+     "gaspard",
+     "coquelin"
+    ]
+   },
+   "text": [
+    "Il n'y a qu'un domino rose dans toute la salle, en effet, et il danse avec un vieillard. Monsieur Médard Coquelin porte un habit noir sans masque, comme les banquiers, qui n'en ont pas besoin, et il danse la valse avec une raideur de cuiller dans une confiture. Il tient sa fiancée comme on tient un titre de propriété, à bout de bras, pour mieux le lire.",
+    "Tu attends la fin de la valse, et tu t'inclines devant le domino rose. Coquelin te regarde de haut en bas, toi et ta larme peinte, et rend sa fiancée avec un soupir de soulagement, car il a mal aux genoux.",
+    "Tu danses. Clarisse danse mal, trop vite, en menant, et elle te parle à l'oreille entre deux tours. « À une heure, la loterie sera tirée, et tout le monde regardera l'estrade. Il me faut un autre domino que celui-ci : mon oncle a fait acheter tous les roses pour qu'on me voie de partout. Trouvez-m'en un d'une autre couleur. Ensuite, la porte des artistes, derrière la scène, sur la rue des Cordiers. » Elle tourne. « Et méfiez-vous de tout le monde. Mon oncle a des yeux dans toute la salle. »"
+   ],
+   "choices": [
+    {
+     "back": "S_bal"
+    }
+   ]
+  },
+  "S_bal_gaspard": {
+   "act": "II",
+   "title": "La loge d'honneur",
+   "place": "opera",
+   "second": true,
+   "fx": {
+    "meet": [
+     "gaspard",
+     "lazare"
+    ]
+   },
+   "text": [
+    "Gaspard Ardel tient la loge d'honneur comme on tient une table de jeu, une coupe à la main, souriant à tout le monde, et rongeant l'ongle de son pouce dès que personne ne le regarde. Sa moustache est trop noire. Ses gants sont prune. Il suit des yeux le domino rose dans la foule, chaque tour, chaque pas, avec l'attention d'un joueur qui a misé sa maison sur un numéro et qui regarde tourner la roue.",
+    "Un Arlequin monte le rejoindre dans la loge, maigre, souple, en costume à losanges, un loup noir sur le haut du visage. Gaspard se penche vers lui sans le regarder. Tu n'entends pas les mots, mais tu vois le geste : un doigt ganté de prune qui désigne le domino rose dans la salle, puis qui se pose sur la poitrine de l'Arlequin. *Toi. Elle.*",
+    "L'Arlequin s'incline, très bas, très comique, comme au théâtre. Il redescend dans la salle et s'adosse à une colonne, face à la piste. Il rit avec tout le monde. Ses yeux suivent le domino rose.",
+    "Tu as froid, au milieu de ce four. Tu le connais, d'un endroit qui t'échappe."
+   ],
+   "choices": [
+    {
+     "back": "S_bal"
+    }
+   ]
+  },
+  "S_lazare_bal": {
+   "act": "II",
+   "title": "L'Arlequin",
+   "place": "opera",
+   "second": true,
+   "text": [
+    "Tu t'adosses à la même colonne que lui, comme un danseur qui reprend son souffle. Il te jette un regard en coin, et sourit aussitôt, de ce sourire léger, sans fond, qui va et vient sur son visage comme une lumière dans une maison vide.",
+    "« Joli Pierrot. Tu danses avec la plus belle fille du bal et tu as l'air d'aller à un enterrement. C'est le métier, je suppose. » Il te tend la main. « Lazare. Valet de pied, Arlequin de nuit, ami de tout le monde. » Il garde ta main un instant de trop. « Et toi ? Comment on t'appelle, quand tu n'es pas Pierrot ? »"
+   ],
+   "choices": [
+    {
+     "label": "Lui dire ton vrai nom",
+     "hide": {
+      "any": [
+       {
+        "has": "nom:donne"
+       },
+       {
+        "has": "nom:faux"
+       }
+      ]
+     },
+     "fx": {
+      "flag": "nom:donne"
+     },
+     "to": "S_nom_donne"
+    },
+    {
+     "label": "Lui donner un faux nom",
+     "hide": {
+      "any": [
+       {
+        "has": "nom:donne"
+       },
+       {
+        "has": "nom:faux"
+       }
+      ]
+     },
+     "fx": {
+      "flag": "nom:faux"
+     },
+     "to": "S_nom_faux"
+    }
+   ]
+  },
+  "S_nom_donne": {
+   "act": "II",
+   "title": "Ton nom",
+   "place": "opera",
+   "second": true,
+   "text": [
+    "« {hero}. » Tu le dis comme on dit son nom à quelqu'un de sympathique dans un bal, sans y penser, et au moment où il sort de ta bouche, tu as l'impression très nette de l'entendre dans une autre voix, plus tard, au bord de l'eau.",
+    "« {hero} », répète Lazare, avec gourmandise, comme on goûte un vin. « Je m'en souviendrai. J'ai une mémoire terrible pour les noms. C'est mon seul talent. » Il te tape sur l'épaule et retourne à sa colonne."
+   ],
+   "choices": [
+    {
+     "back": "S_bal"
+    }
+   ]
+  },
+  "S_nom_faux": {
+   "act": "II",
+   "title": "Un autre nom",
+   "place": "opera",
+   "second": true,
+   "text": [
+    "« Lunaire, dis-tu. Pierrot Lunaire. C'est mon vrai nom. Mes parents avaient de l'humour, et peu d'avenir. »",
+    "Lazare éclate de rire, un vrai rire, cette fois, surpris. « Lunaire ! Je m'en souviendrai. J'ai une mémoire terrible pour les noms. C'est mon seul talent. » Il te tape sur l'épaule. Tu sens, sous le rire, qu'il a rangé ce nom dans un tiroir, avec soin, comme une pièce de monnaie dont il vérifiera plus tard si elle est fausse."
+   ],
+   "choices": [
+    {
+     "back": "S_bal"
+    }
+   ]
+  },
+  "S_lazare_enferme": {
+   "act": "II",
+   "title": "Le magasin des costumes",
+   "place": "opera",
+   "second": true,
+   "fx": {
+    "ep": [
+     "perso",
+     300
+    ]
+   },
+   "text": [
+    "Tu reviens vers lui, l'air mystérieux, et tu lui glisses que la demoiselle au domino rose a laissé tomber un billet doux dans le magasin des costumes, sous l'escalier de la scène, et que tu n'oses pas aller le chercher, parce que tu n'es qu'un Pierrot. Les yeux de Lazare s'allument. Un billet doux de la fiancée, la veille des noces, c'est de l'or pour un valet : on le vend à l'oncle, ou on le vend à la fiancée, selon les cours.",
+    "Il te suit dans l'escalier, puis dans le magasin, une longue cave voûtée où pendent mille costumes de cent opéras, rois, sorcières, soldats, anges, si serrés qu'ils forment une foule muette dans le noir, une foule de pendus. Il s'enfonce entre les robes en cherchant à terre. Tu recules jusqu'à la porte, et tu tournes la grosse clef, deux tours.",
+    "Il frappe. Il appelle. Il rit, puis il ne rit plus. Mais la polka, au-dessus, couvre tout, et la porte est de chêne. On l'ouvrira demain matin, quand les machinistes viendront chercher les costumes du *Barbier de Séville*. Tu glisses la clef dans ta poche, et tu remontes dans la lumière."
+   ],
+   "choices": [
+    {
+     "back": "S_bal"
+    }
+   ]
+  },
+  "S_lazare_piege_rate": {
+   "act": "II",
+   "title": "L'Arlequin ne mord pas",
+   "place": "opera",
+   "second": true,
+   "text": [
+    "Tu lui parles d'un billet doux tombé dans le magasin des costumes. Lazare t'écoute, la tête penchée, avec un sourire très doux. « Un billet doux, dit-il. Dans une cave. Que tu as vu tomber, et que tu n'as pas ramassé. » Il secoue la tête. « Tu mens très mal, Pierrot. Tu as dû être un très mauvais comédien. Ou un très bon. »",
+    "Il reste à sa colonne. Mais à présent, ses yeux te suivent, toi aussi, autant que le domino rose."
+   ],
+   "choices": [
+    {
+     "back": "S_bal"
+    }
+   ]
+  },
+  "S_bal_babet": {
+   "act": "II",
+   "title": "La Reine au bal",
+   "place": "opera",
+   "second": true,
+   "fx": {
+    "meet": [
+     "babet"
+    ]
+   },
+   "text": [
+    "Les blanchisseuses ont leur coin, près du buffet, et elles y règnent par le nombre, le bruit et la largeur. Au milieu d'elles, une femme énorme aux bras rouges, couronnée de carton doré, mange un pâté à pleines mains : la Reine désignée, qu'on couronnera demain à six heures. Mère Babet.",
+    "Tu l'invites. Elle te regarde comme un poisson qui aurait demandé la main d'une poissonnière. Puis elle rit à faire trembler les verres, s'essuie les doigts sur ta collerette, et t'entraîne dans une mazurka qui tient de la charge de cavalerie.",
+    "« T'as une tête à avoir un service à demander, mon Pierrot, dit-elle en te broyant les côtes. Demande. Une Reine, c'est fait pour accorder des grâces. Après, je retourne à mon pâté. »"
+   ],
+   "choices": [
+    {
+     "label": "Lui demander de porter le domino rose à la place de la demoiselle",
+     "hide": {
+      "has": "babet:leurre"
+     },
+     "fx": {
+      "flag": "babet:leurre"
+     },
+     "to": "S_babet_leurre"
+    },
+    {
+     "back": "S_bal"
+    }
+   ]
+  },
+  "S_babet_leurre": {
+   "act": "II",
+   "title": "Une Reine en rose",
+   "place": "opera",
+   "second": true,
+   "text": [
+    "Tu lui expliques en trois tours de mazurka : la demoiselle, le vieux, l'oncle, l'Arlequin qui guette. Mère Babet s'arrête net au milieu de la piste, et deux couples se cognent contre elle comme contre une digue.",
+    "« Le vieux Coquelin, dit-elle. Il a fait saisir le lavoir de la mère Gendre, l'hiver dernier, pour trois écus. » Elle crache par terre, au bal de l'Opéra. « Je mettrai le rose. Je suis plus large qu'elle, mais l'Arlequin regardera la couleur, pas la taille : les hommes regardent toujours la couleur. Je danserai jusqu'à trois heures avec le dos tourné. Et je mangerai son pâté, au vieux. »"
+   ],
+   "choices": [
+    {
+     "back": "S_bal"
+    }
+   ]
+  },
+  "S_loterie": {
+   "act": "II",
+   "title": "La loterie des masques",
+   "place": "opera",
+   "second": true,
+   "puzzle": "n_loterie",
+   "text": [
+    "Minuit. L'orchestre s'arrête au milieu d'une mesure. Tous les masques se tournent vers l'estrade, où le maître de cérémonie, en Grand Turc, brandit un bocal de verre plein de billets. Une danseuse fait tourner au-dessus de sa tête un grand domino de velours noir, à capuchon, avec son loup, qui ondule dans la lumière des lustres comme une aile de corbeau."
+   ],
+   "choices": [
+    {
+     "back": "S_bal"
+    }
+   ]
+  },
+  "S_loterie_gagnee": {
+   "act": "II",
+   "title": "Le domino noir",
+   "place": "opera",
+   "second": true,
+   "text": [
+    "« Le masque ! » Tu l'as crié avant la fin du dernier vers, et le Grand Turc te regarde avec une stupeur de sultan détrôné. La salle siffle : « Tricheur ! Il connaissait la réponse ! » Tu montes sur l'estrade sous les huées et les applaudissements, également mérités, et la danseuse te jette le domino noir sur les épaules.",
+    "Derrière le troisième pilier, à l'abri d'une tenture, Clarisse t'attend. L'échange prend dix secondes. Le domino rose tombe, le noir monte, le capuchon se rabat sur les boucles rousses, le loup de velours noir se pose sur les taches de rousseur. Une autre femme sort de derrière le pilier.",
+    {
+     "if": {
+      "has": "babet:leurre"
+     },
+     "text": "Une troisième femme ramasse le domino rose par terre, l'enfile non sans peine, avec un craquement de coutures, rabat le capuchon sur sa couronne de carton, et retourne danser, de dos, au milieu de la piste. Contre la colonne, l'Arlequin garde les yeux sur le rose."
+    },
+    {
+     "if": {
+      "not": {
+       "has": "babet:leurre"
+      }
+     },
+     "text": "Le domino rose reste à terre, derrière le pilier, comme une peau de serpent abandonnée. Tu le roules et tu le fourres sous une banquette. Quelqu'un finira par remarquer que la couleur a disparu de la piste. Il faut faire vite."
+    }
+   ],
+   "choices": [
+    {
+     "back": "S_bal"
+    }
+   ]
+  },
+  "S_sortie": {
+   "act": "II",
+   "title": "La porte des artistes",
+   "place": "canal",
+   "second": true,
+   "text": [
+    "Une heure. La porte des artistes donne sur la rue des Cordiers, une ruelle noire, puante, encombrée de décors réformés, où un château fort en toile peinte achève de pourrir contre un mur. Le froid vous saute au visage après la fournaise du bal. Clarisse rit, d'un rire vif, haut, essoufflé, et se tait aussitôt, la main sur la bouche.",
+    {
+     "if": {
+      "not": {
+       "any": [
+        {
+         "has": "babet:leurre"
+        },
+        {
+         "has": "lazare:enferme"
+        }
+       ]
+      }
+     },
+     "text": "Derrière vous, par la porte entrouverte, une voix familière et gaie appelle quelqu'un dans la salle, puis une autre voix, plus rude, répond. Quelqu'un a remarqué que le rose avait disparu."
+    },
+    "Saint-Brice est à l'autre bout de la ville. Deux chemins : le long du canal, à découvert, sous les lanternes ; ou par les ruelles du quartier des tanneurs, dans le noir, là où rôdent les gens qu'on paie pour chercher."
+   ],
+   "choices": [
+    {
+     "label": "Longer le canal, sous les lanternes",
+     "to": "S_canal_nuit"
+    },
+    {
+     "label": "Couper par les ruelles, dans le noir",
+     "test": {
+      "dom": "discretion",
+      "diff": 0,
+      "label": "Discrétion"
+     },
+     "win": {
+      "to": "S_ruelles"
+     },
+     "lose": {
+      "to": "S_ruelles_vus"
+     }
+    }
+   ]
+  },
+  "S_canal_nuit": {
+   "act": "II",
+   "title": "Le long du canal",
+   "place": "canal",
+   "second": true,
+   "text": [
+    "Vous courez le long du canal des Teinturiers, sous les lanternes qui se reflètent dans l'eau bleue et rouge. Clarisse court comme une fille qui a grandi en sautant des murs, la main dans la tienne, le domino noir claquant derrière elle comme un drapeau de pirate. Tu passes devant un banc, au bord de l'eau, et tu ralentis malgré toi, sans savoir pourquoi. Une mouette dort sur le dossier, la tête sous l'aile.",
+    "Au lavoir du Pont-Rouge, des blanchisseuses de nuit trempent leur linge à la lueur d'une lampe. Elles lèvent la tête, vous regardent passer, se disent quelque chose. L'une rit."
+   ],
+   "choices": [
+    {
+     "label": "Monter vers Saint-Brice",
+     "fx": {
+      "time": 1
+     },
+     "to": "S_clocher_nuit"
+    }
+   ]
+  },
+  "S_ruelles": {
+   "act": "II",
+   "title": "Le quartier des tanneurs",
+   "place": "canal",
+   "second": true,
+   "text": [
+    "Les ruelles des tanneurs sentent la chaux, l'écorce et la peau morte, une odeur si épaisse qu'on la sent sur la langue. Vous avancez dans le noir complet, à tâtons, la main gauche sur le mur gluant, la droite tenant celle de Clarisse. Deux lanternes passent au bout d'une rue, portées par des hommes en livrée prune. Tu tires Clarisse dans un renfoncement de porte. Les lanternes passent à trois pas. Le cuir craque. Un homme jure. Puis le noir revient.",
+    "Clarisse respire contre ton épaule, très vite. « Vous êtes doué{e} pour ça, chuchote-t-elle. Vous êtes sûr{e} d'avoir été écrivain ? »"
+   ],
+   "choices": [
+    {
+     "label": "Monter vers Saint-Brice",
+     "fx": {
+      "time": 1
+     },
+     "to": "S_clocher_nuit"
+    }
+   ]
+  },
+  "S_ruelles_vus": {
+   "act": "II",
+   "title": "Les lanternes",
+   "place": "canal",
+   "second": true,
+   "text": [
+    "Tu heurtes une poubelle de tannerie, qui roule sur les pavés avec un fracas de tonnerre en fer-blanc. Au bout de la ruelle, deux lanternes se retournent. « Là ! » Des pas qui courent. Tu tires Clarisse dans une autre ruelle, puis dans une cour, puis sous un porche, et là, faute de mieux, tu fais ce que font tous les fuyards de toutes les comédies : tu la prends dans tes bras, son capuchon contre ton masque, comme deux amoureux de carnaval qui se sont trouvé un coin sombre.",
+    "Les lanternes passent. L'une s'arrête. Une voix grasse dit : « Laisse, c'est des amoureux. » L'autre dit : « Justement. » Et puis : « Une rousse, on a dit. Celle-là, on voit pas ses cheveux. » Les pas s'éloignent.",
+    "Clarisse se détache de toi et rajuste son loup. Elle tremble de rire, ou de froid. « Mon oncle paie mal, dit-elle. Il a toujours mal payé. C'est la seule chose qui nous sauve. »"
+   ],
+   "choices": [
+    {
+     "label": "Monter vers Saint-Brice",
+     "fx": {
+      "time": 1
+     },
+     "to": "S_clocher_nuit"
+    }
+   ]
+  },
+  "S_clocher_nuit": {
+   "act": "II",
+   "title": "Le sonneur, la nuit",
+   "place": "clocher",
+   "second": true,
+   "fx": {
+    "meet": [
+     "tiburce"
+    ]
+   },
+   "text": [
+    "Deux heures. Le clocher de Saint-Brice dresse sa tour noire contre un ciel sans lune, et le vent siffle dans les abat-sons comme dans les côtes d'un squelette. Le sonneur loge au pied de la tour, dans une cahute de planches accotée au mur. Tu frappes. Rien. Tu frappes plus fort. Une voix de tonnerre éclate à l'intérieur : « QUOI ? »",
+    "La porte s'ouvre sur un géant voûté en chemise de nuit, une chandelle à la main, roux et blanc de cheveux, l'air d'un ours qu'on a tiré de sa caverne en plein hiver. Il te regarde, toi et ta larme peinte. « Y A PAS DE MESSE POUR LES PIERROTS. »",
+    "Clarisse s'avance, et rabat son capuchon. Ses boucles rousses s'éclairent à la chandelle. Le géant la regarde. Sa bouche s'ouvre. « La petite Ardel, dit-il, et pour la première fois, il parle bas. J'ai sonné ton baptême. J'ai sonné l'enterrement de ton père. Demain, ils veulent que je sonne... » Sa phrase reste en l'air."
+   ],
+   "choices": [
+    {
+     "label": "Lui demander de la cacher sous la Bourdonne jusqu'à midi",
+     "to": "S_tiburce_oui"
+    }
+   ]
+  },
+  "S_tiburce_oui": {
+   "act": "II",
+   "title": "Le mot",
+   "place": "clocher",
+   "second": true,
+   "text": [
+    "Tiburce écoute, la main en cornet derrière sa bonne oreille, en hochant la tête à chaque mot comme s'il les comptait. Quand tu as fini, il pose sa chandelle, prend une clef longue comme un avant-bras sur un clou, et dit simplement : « BON. »",
+    "Puis il se penche vers toi. « ET DEMAIN, QUI VIENT LA CHERCHER ? MOI, J'OUVRE À PERSONNE. IL ME FAUT UN MOT. »",
+    "Tu réfléchis. Un mot que tu sauras demain, même sans mémoire, parce que la route de demain te le donnera. Un mot qui sera la dernière chose que tu auras apprise avant de monter. « Hirondelle », dis-tu.",
+    "« HIRONDELLE, répète Tiburce. Et s'il le sait plus, le mot, ton Pierrot de demain ? » Tu touches ta poitrine, à l'endroit du cœur, où il n'y a encore rien. « Il portera une rose de papier. — BON. »"
+   ],
+   "choices": [
+    {
+     "label": "Monter avec Clarisse jusqu'à la chambre des cloches",
+     "to": "S_chambre_nuit"
+    }
+   ]
+  },
+  "S_chambre_nuit": {
+   "act": "II",
+   "title": "Sous la Bourdonne",
+   "place": "clocher",
+   "second": true,
+   "fx": {
+    "ep": [
+     "histoire",
+     300
+    ]
+   },
+   "text": [
+    "Cent vingt marches dans le noir, avec la lanterne de Tiburce qui balance en dessous et projette vos ombres en spirale sur la pierre, géantes, tordues, comme les ombres de deux damnés qu'on reconduirait au jour. Puis la trappe, l'échelle, et la chambre des cloches, cage de poutres noires ouverte au vent. La Bourdonne pend au milieu, énorme, verdie, silencieuse, une montagne de bronze endormie sur son joug de chêne.",
+    "Tiburce étale un sac de chanvre sous la robe de la cloche, y pose une couverture, une miche, une gourde, et redescend sans un mot, avec la délicatesse surprenante des géants. La lanterne reste. Elle éclaire d'en dessous le visage de Clarisse, ses taches de rousseur, et les ombres de la cloche au-dessus de vous, comme une voûte d'église qui serait suspendue à un fil.",
+    "Elle s'assoit sous le bronze, les genoux sous le menton, et elle rit, d'un rire vif, haut, un peu essoufflé, dans l'odeur de cire et de vieux bois. Tu sais que tu entendras ce rire demain. Ce savoir te vient d'un lendemain."
+   ],
+   "choices": [
+    {
+     "label": "Lui demander pourquoi elle t'a choisi{e}, toi",
+     "hide": {
+      "seen": "S_pourquoi"
+     },
+     "to": "S_pourquoi"
+    },
+    {
+     "label": "Lui demander ce qu'elle emporte",
+     "hide": {
+      "seen": "S_mere_clarisse"
+     },
+     "to": "S_mere_clarisse"
+    },
+    {
+     "label": "Lui demander comment est mort son père",
+     "hide": {
+      "seen": "S_heritage"
+     },
+     "to": "S_heritage"
+    },
+    {
+     "label": "Partir pour la maison Ardel, chercher le passeport",
+     "to": "S_ardel_nuit"
+    }
+   ]
+  },
+  "S_pourquoi": {
+   "act": "II",
+   "title": "Pourquoi toi",
+   "place": "clocher",
+   "second": true,
+   "text": [
+    "« Parce que vous avez écrit la lettre de la mère Gendre, dit-elle. L'hiver dernier. Quand Coquelin a fait saisir son lavoir. Une lettre au juge, que tout le quartier a lue, parce que le juge l'a fait afficher pour se moquer, et que tout le monde a trouvé qu'elle se moquait de lui bien mieux. » Elle sourit. « Je l'ai recopiée trois fois. Je l'ai apprise par cœur. Je me suis dit : la personne qui a écrit ça n'a peur de rien, et sait mentir avec la vérité. »",
+    "Elle te regarde. « Et puis vous êtes la seule personne de Lambrun à qui mon oncle ne doit pas d'argent. Ça m'a semblé une recommandation. »"
+   ],
+   "choices": [
+    {
+     "back": "S_chambre_nuit"
+    }
+   ]
+  },
+  "S_heritage": {
+   "act": "II",
+   "title": "Le père de Clarisse",
+   "place": "clocher",
+   "second": true,
+   "text": [
+    "Clarisse se tait longtemps. Le vent fait vibrer le bord de la cloche, et l'on entend ce ronronnement de bronze, presque inaudible, qui ne s'arrête jamais.",
+    "« Il est tombé dans une cuve de soude, à la savonnerie, une nuit d'avril, il y a quatre ans. On l'a sorti le matin. On a dit : un vertige, il travaillait trop. » Elle regarde ses mains. « Il ne travaillait jamais la nuit. Il disait que le savon se fait le jour, comme le pain et les enfants. Et mon oncle avait perdu, la semaine d'avant, la moitié de sa part au cercle. »",
+    "« Je ne sais rien, dit-elle encore. Je n'ai aucune preuve. Je sais seulement que mon oncle tient ses comptes dans un grand livre noir, dans son coffre, avec mon passeport, et qu'il ne laisse personne y toucher, pas même son notaire. Un joueur qui tient si bien ses comptes, c'est qu'il a peur de les oublier. »"
+   ],
+   "choices": [
+    {
+     "back": "S_chambre_nuit"
+    }
+   ]
+  },
+  "S_ardel_nuit": {
+   "act": "II",
+   "title": "La maison Ardel, la nuit",
+   "place": "ardel",
+   "second": true,
+   "text": [
+    "Deux heures et demie. La maison Ardel dort d'un œil. Les fenêtres des étages sont noires, mais il y a de la lumière au rez-de-chaussée, chez les domestiques, et des allées et venues de lanternes dans la cour : on cherche encore la demoiselle, on revient, on repart. Le maître est encore dehors, au bal, ou au cercle, ou les deux, à boire pour se donner du courage ou à jouer pour s'en donner l'occasion.",
+    "Derrière la maison, la savonnerie respire dans le noir. Ses cuves chauffent toute la nuit, et une vapeur blanche, grasse, monte des lucarnes et retombe sur les toits en une bruine tiède qui sent l'huile et la soude."
+   ],
+   "choices": [
+    {
+     "label": "Passer par la savonnerie et monter par la gouttière",
+     "test": {
+      "dom": "nature",
+      "diff": 0,
+      "label": "Nature"
+     },
+     "win": {
+      "to": "S_savonnerie"
+     },
+     "lose": {
+      "to": "S_savonnerie_chute"
+     }
+    },
+    {
+     "label": "Frapper à la porte de l'office et parler à la cuisinière",
+     "to": "S_cuisine_nuit"
+    }
+   ]
+  },
+  "S_savonnerie": {
+   "act": "II",
+   "title": "La savonnerie",
+   "place": "ardel",
+   "second": true,
+   "text": [
+    "Tu entres dans la savonnerie par une lucarne, et tu restes un instant suspendu{e} à une poutre, au-dessus d'un spectacle d'enfer. Six cuves de fonte, larges comme des bassins, bouillonnent dans la pénombre rouge des foyers, chacune pleine d'une pâte jaune et lente qui crève en grosses bulles avec un bruit de bouche. La vapeur te brûle les yeux à travers ton masque. Des passerelles de bois courent au-dessus des cuves, sans garde-fou. Tu penses à un homme qui ne travaillait jamais la nuit.",
+    "Tu traverses par la passerelle, pas à pas, au-dessus de la soude, et tu trouves au bout une échelle, puis la gouttière, puis une fenêtre du premier étage que personne n'a fermée, parce que personne n'imagine qu'on puisse venir de ce côté-là."
+   ],
+   "choices": [
+    {
+     "label": "Entrer dans le cabinet de Gaspard Ardel",
+     "to": "S_cabinet"
+    }
+   ]
+  },
+  "S_savonnerie_chute": {
+   "act": "II",
+   "title": "La gouttière",
+   "place": "ardel",
+   "second": true,
+   "text": [
+    "La gouttière cède sous ta main avec un gémissement de fer rouillé, et tu tombes de la hauteur d'un homme, dans un tas de cendres de soude qui te reçoit comme un édredon empoisonné. Tes mains brûlent. Ta blouse blanche est grise. Un chien aboie dans la cour, puis se tait.",
+    "Tu te relèves, tu secoues ta blouse, tu fais le tour, et tu frappes, en Pierrot cendreux, à la porte de l'office."
+   ],
+   "choices": [
+    {
+     "label": "Parler à la cuisinière",
+     "to": "S_cuisine_nuit"
+    }
+   ]
+  },
+  "S_cuisine_nuit": {
+   "act": "II",
+   "title": "La cuisinière",
+   "place": "ardel",
+   "second": true,
+   "text": [
+    "La cuisinière des Ardel ouvre la porte avec une pipe en terre dans la bouche et un rouleau à pâtisserie dans la main, et elle te regarde, toi, ta larme et ton costume, sans le moindre étonnement. Un soir de Mi-Carême, elle a déjà ouvert à deux diables et un évêque.",
+    "Tu lui dis que tu viens pour la demoiselle. Elle tire sur sa pipe, longtemps. « Pour la ramener, ou pour l'aider ? » Tu dis : pour l'aider. Elle hoche la tête, et s'écarte. « L'escalier de service. Le cabinet de Monsieur, c'est au premier, la porte au fond. J'ai rien vu, j'ai rien entendu, je fais la pâte des brioches de la noce. » Elle crache. « Si y a pas de noce, je les mangerai moi-même. »"
+   ],
+   "choices": [
+    {
+     "label": "Entrer dans le cabinet de Gaspard Ardel",
+     "to": "S_cabinet"
+    }
+   ]
+  },
+  "S_cabinet": {
+   "act": "II",
+   "title": "Le cabinet",
+   "place": "ardel",
+   "second": true,
+   "hub": true,
+   "backName": "le cabinet",
+   "text": [
+    {
+     "first": true,
+     "text": "Le cabinet de Gaspard Ardel est une pièce étroite, tendue de cuir de Cordoue, encombrée de meubles trop beaux pour elle : un bureau de marqueterie, deux fauteuils à oreilles, une pendule de bronze qui représente la Fortune debout sur sa roue. Sur le mur du fond, dans un cadre doré, un portrait en pied de feu Monsieur Ardel père, le fondateur, la main sur un pain de savon comme sur une Bible, regarde la pièce avec une moue de banquier."
+    },
+    {
+     "first": true,
+     "text": "Le portrait est monté sur des charnières. Derrière, encastré dans le mur, un coffre d'acier anglais, dont la serrure est un cadran à quatre molettes de cuivre."
+    },
+    {
+     "again": true,
+     "text": "Le cabinet de cuir, la Fortune sur sa roue, le portrait ouvert sur le coffre. La pendule avance."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Fouiller le bureau",
+     "hide": {
+      "seen": "S_bureau"
+     },
+     "to": "S_bureau"
+    },
+    {
+     "label": "Tourner les molettes du coffre",
+     "hide": {
+      "has": "papiers:pris"
+     },
+     "to": "S_coffre"
+    },
+    {
+     "label": "Repartir sans les papiers, avant que Monsieur rentre",
+     "hide": {
+      "has": "papiers:pris"
+     },
+     "to": "S_retour_gaspard"
+    }
+   ]
+  },
+  "S_bureau": {
+   "act": "II",
+   "title": "Le bureau de Gaspard",
+   "place": "ardel",
+   "second": true,
+   "text": [
+    "Des reconnaissances de dettes, en liasses, nouées de faveurs roses, comme des lettres d'amour : cercle du Commerce, cercle des Négociants, un tripot du port, un certain Monsieur Isaac, un autre certain Monsieur Isaac. Le total, griffonné au crayon sur un buvard, fait un chiffre qu'on n'écrit pas sans trembler, et la main qui l'a écrit tremblait.",
+    "Et dans un tiroir, sous un pistolet de duel chargé, une lettre de Médard Coquelin, d'une écriture de comptable : *Mon cher Ardel, le prêt sera effacé le jour des noces, à midi. Si les noces n'ont pas lieu à midi, il sera exigible à midi et une minute. Vous connaissez mon amitié et mon exactitude.* Au-dessous, de la main de Gaspard, en travers : *le vingt-quatre. La noce. Ma délivrance.*"
+   ],
+   "choices": [
+    {
+     "back": "S_cabinet"
+    }
+   ]
+  },
+  "S_coffre": {
+   "act": "II",
+   "title": "Le coffre",
+   "place": "ardel",
+   "second": true,
+   "puzzle": "n_coffre",
+   "text": [
+    "Tu fais pivoter le portrait sur ses charnières. Feu Monsieur Ardel père s'écarte à regret. Le coffre t'attend, avec ses quatre molettes de cuivre, qui brillent à la lueur de ta chandelle comme quatre yeux de chat."
+   ],
+   "choices": [
+    {
+     "back": "S_cabinet"
+    }
+   ]
+  },
+  "S_coffre_ouvert": {
+   "act": "II",
+   "title": "Le coffre ouvert",
+   "place": "ardel",
+   "second": true,
+   "text": [
+    "Un déclic. La lourde porte d'acier pivote sans un bruit, sur des gonds huilés avec un soin d'avare. Dedans, sur l'étagère du haut, quelques rouleaux d'or, très peu, beaucoup moins que la serrure ne le promettait. Sur l'étagère du milieu, un passeport pour Gênes au nom de Clarisse Ardel, avec le cachet de la préfecture, et une lettre en italien, d'une écriture de vieille dame, *Carissima nipote*, jamais remise. Tu prends les deux.",
+    "Sur l'étagère du bas, un grand livre noir, relié de toile, épais comme un missel. Tu l'ouvres. Des colonnes, des dates, des sommes, d'une écriture soignée, appliquée, qui ne tremble pas ici. *Héritage Ardel, part de Clarisse.* Et en face, mois après mois, les retraits, les prêts, les pertes, jusqu'à zéro. Puis en dessous de zéro.",
+    "À la date d'un jour d'avril, il y a quatre ans, une seule ligne, d'une encre plus noire : *Mon frère refuse. Il faut en finir.*"
+   ],
+   "choices": [
+    {
+     "label": "Prendre aussi le grand livre noir",
+     "hide": {
+      "has": "preuve:prise"
+     },
+     "fx": {
+      "flag": "preuve:prise"
+     },
+     "to": "S_retour_gaspard"
+    },
+    {
+     "label": "Laisser le grand livre et refermer le coffre",
+     "hide": {
+      "has": "preuve:prise"
+     },
+     "to": "S_retour_gaspard"
+    }
+   ]
+  },
+  "S_retour_gaspard": {
+   "act": "II",
+   "title": "Monsieur rentre",
+   "place": "ardel",
+   "second": true,
+   "text": [
+    "Une porte claque en bas. Des pas dans l'escalier, des voix. La voix douce et lasse de Gaspard Ardel, plus lasse que douce, à présent, et une autre, plus rude, qui lui répond. Ils montent.",
+    "Le cabinet a deux sorties : la porte, par où ils arrivent, et un grand rideau de velours, devant la fenêtre."
+   ],
+   "choices": [
+    {
+     "label": "Te cacher derrière le rideau",
+     "test": {
+      "dom": "discretion",
+      "diff": 0,
+      "label": "Discrétion"
+     },
+     "win": {
+      "to": "S_rideau"
+     },
+     "lose": {
+      "fx": {
+       "flag": "mouille"
+      },
+      "to": "S_rideau_vu"
+     }
+    }
+   ]
+  },
+  "S_rideau": {
+   "act": "II",
+   "title": "Derrière le rideau",
+   "place": "ardel",
+   "second": true,
+   "text": [
+    "Tu te plaques contre la vitre froide, derrière le velours qui sent la poussière et le cigare. Ils entrent. Une allumette, une lampe. Gaspard Ardel se laisse tomber dans un fauteuil, et l'on entend le petit bruit sec, régulier, de ses dents sur l'ongle de son pouce.",
+    {
+     "if": {
+      "has": "lazare:enferme"
+     },
+     "text": "« Où est Lazare ? dit-il. — Personne l'a vu depuis minuit, Monsieur. — Lazare disparaît toujours quand on a besoin de lui. C'est un talent. Je le paierai quand même. Je paie toujours ceux qui disparaissent : ce sont les seuls qui ne reviennent pas réclamer. »"
+    },
+    {
+     "if": {
+      "not": {
+       "has": "lazare:enferme"
+      }
+     },
+     "text": "« Lazare la cherche, dit la voix rude. Il dit qu'elle est partie avec un Pierrot. Il dit qu'il retrouvera le Pierrot avant midi, que les Pierrots finissent toujours sur un banc. — Qu'il trouve. Qu'il trouve, et je lui donne ce qu'il voudra. »"
+    },
+    "Un silence. Puis Gaspard Ardel, très bas, comme pour lui-même : « Midi et une minute. » Il se lève, et la lampe s'éloigne, et la porte se referme. Tu attends cent battements de cœur, et tu sors par la fenêtre, par la gouttière, dans la nuit."
+   ],
+   "choices": [
+    {
+     "label": "Gagner le quai de Gênes",
+     "fx": {
+      "time": 1
+     },
+     "to": "S_quai_nuit"
+    }
+   ]
+  },
+  "S_rideau_vu": {
+   "act": "II",
+   "title": "Par la fenêtre",
+   "place": "ardel",
+   "second": true,
+   "text": [
+    "Tu te jettes derrière le rideau au moment où la porte s'ouvre, et le rideau, vieux, lourd, se décroche de sa tringle et te tombe dessus. Tu te débats sous le velours comme un fantôme de théâtre. Un cri. Une main t'empoigne. Tu frappes au hasard, tu sens céder un nez, tu ouvres la fenêtre, et tu sautes.",
+    "En dessous, c'est le canal. L'eau de mars te saisit comme une poigne de glace. Tu remontes, tu craches, tu nages vers l'autre rive dans le noir, pendant qu'en haut des lanternes s'agitent et qu'une voix douce et lasse crie, sans douceur : « Un Pierrot ! Trouvez-moi ce Pierrot ! »"
+   ],
+   "choices": [
+    {
+     "label": "Gagner le quai de Gênes",
+     "fx": {
+      "time": 1
+     },
+     "to": "S_quai_nuit"
+    }
+   ]
+  },
+  "S_quai_nuit": {
+   "act": "II",
+   "title": "L'Hirondelle, la nuit",
+   "place": "quai",
+   "second": true,
+   "fx": {
+    "meet": [
+     "rosso"
+    ]
+   },
+   "text": [
+    "Trois heures. Le quai de Gênes est désert et noir, et l'estuaire, au-delà, est un trou sans fond où clapote une eau invisible. Les barques dorment bord à bord en grinçant de leurs amarres comme des chiens qui rêvent. L'Hirondelle est au bout, son oiseau de bois doré luisant faiblement à la proue, ailes ouvertes sur le vide.",
+    {
+     "if": {
+      "has": "mouille"
+     },
+     "text": "Tu grelottes dans ta blouse trempée, qui colle à ta peau comme un linceul. Le vent de l'estuaire te traverse."
+    },
+    "Tu frappes sur la coque, à grands coups, comme un huissier. Au bout d'un long moment, une écoutille s'ouvre et une tête en sort, coiffée d'un bonnet de nuit et d'un cigare éteint. « Qui est le fils de chien qui... » Le capitaine Rosso te regarde, toi, ton masque, ta larme. Il soupire. « Un Pierrot. Évidemment. C'est la Mi-Carême. Qu'est-ce que tu veux, Pierrot ? »",
+    "Tu veux des passages pour Gênes, sans nom, pour demain midi. Rosso sort sur le pont. « Une place, une écu et demi. Payée d'avance. Pas de nom, ça fait pas plus cher, parce que je sais pas écrire. »"
+   ],
+   "choices": [
+    {
+     "label": "Payer deux places",
+     "if": {
+      "gold": {
+       "min": 180
+      }
+     },
+     "hide": {
+      "item": "passage"
+     },
+     "fx": {
+      "gold": -180,
+      "item": "passage",
+      "flag": "passage:deux"
+     },
+     "to": "S_recu_nuit"
+    },
+    {
+     "label": "Payer une seule place, pour Clarisse",
+     "if": {
+      "gold": {
+       "min": 90
+      }
+     },
+     "hide": {
+      "item": "passage"
+     },
+     "fx": {
+      "gold": -90,
+      "item": "passage",
+      "flag": "passage:une"
+     },
+     "to": "S_recu_nuit"
+    }
+   ]
+  },
+  "S_recu_nuit": {
+   "act": "II",
+   "title": "Le reçu",
+   "place": "quai",
+   "second": true,
+   "text": [
+    "Rosso fait le reçu à la lueur de sa lanterne, en dessinant les chiffres avec une application de petit garçon, et le signe d'une croix énorme. Tu le prends. Tu le retournes. Tu sors ta plume et ton encrier de poche, et sur le revers, appuyé{e} contre le bastingage, tu écris quatre lignes, vite, d'une écriture qui court : une cloche pendue qui ne meurt pas, une langue qui ne parle pas, et ce qui dort sous sa robe.",
+    "Puis tu rends le reçu au capitaine. « Demain matin, un Pierrot viendra. Il n'aura plus de mémoire. Rendez-lui ceci. »",
+    "Rosso te regarde longtemps, le reçu entre ses gros doigts. « J'ai transporté des évêques, des forçats, des chanteuses et un éléphant, dit-il. On ne m'avait jamais fait celle-là. » Il range le reçu dans son caban. « Midi, la marée. Pas une minute après. »"
+   ],
+   "choices": [
+    {
+     "label": "Demander au capitaine de voir la cabine",
+     "hide": {
+      "seen": "S_cabine_nuit"
+     },
+     "to": "S_cabine_nuit"
+    },
+    {
+     "label": "Aller au lavoir du Pont-Rouge",
+     "to": "S_lavoir_nuit"
+    }
+   ]
+  },
+  "S_lavoir_nuit": {
+   "act": "II",
+   "title": "Le lavoir, la nuit",
+   "place": "lavoir",
+   "second": true,
+   "fx": {
+    "meet": [
+     "babet"
+    ]
+   },
+   "text": [
+    "Trois heures et demie. Le lavoir du Pont-Rouge est une grande ombre posée sur l'eau, vide, silencieux, avec ses caisses de bois alignées comme des cercueils ouverts. Au bout, sous une lanterne, une femme énorme est assise sur le bord, les pieds dans le canal, une couronne de carton doré de travers sur la tête, et elle souffle comme un soufflet de forge.",
+    {
+     "if": {
+      "has": "babet:leurre"
+     },
+     "text": "Le domino rose est roulé en boule à côté d'elle, fendu dans le dos de la nuque aux reins. « Trois heures, dit Mère Babet. J'ai dansé trois heures, de dos. Ton Arlequin m'a suivie de colonne en colonne comme un chien suit une saucisse. Il s'est aperçu à la fin, quand j'ai mangé le pâté. Une demoiselle, ça mange pas comme ça. » Elle rit. « Il était vert. Il est parti en courant soulever les nappes. »"
+    },
+    {
+     "if": {
+      "not": {
+       "has": "babet:leurre"
+      }
+     },
+     "text": "« Mon Pierrot du bal ! dit Mère Babet. T'as filé avant la fin. Moi aussi. Ces dames de l'Opéra dansent comme des piquets. » Elle tape à côté d'elle sur la planche. « Assieds-toi. Tu sens la soude. »"
+    },
+    "Tu t'assois à côté d'elle. Tu sors un papier et ta plume, et tu écris, contre ton genou, à la lueur de la lanterne : quatre lignes sur une fleur rouge dans les blés et noire dans les fioles. Tu plies le papier, tu le lui donnes avec deux sous.",
+    "« Demain matin, dis-tu, un Pierrot viendra, qui ne saura plus qui il est. Il portera une rose de papier. Donnez-lui ceci. Et méfiez-vous des masques, demain. » Elle te regarde comme si tu avais bu. Puis tu te penches et tu l'embrasses sur le front, sous la couronne. Elle ne dit rien du tout, ce qui ne lui est pas arrivé depuis son baptême."
+   ],
+   "choices": [
+    {
+     "label": "Frapper au volet de Maître Ferrat, rue des Herbes",
+     "fx": {
+      "gold": -2,
+      "until": 4
+     },
+     "to": "S_ferrat_nuit"
+    }
+   ]
+  },
+  "S_ferrat_nuit": {
+   "act": "II",
+   "title": "L'apothicaire, à quatre heures",
+   "place": "herbes",
+   "second": true,
+   "fx": {
+    "meet": [
+     "ferrat"
+    ],
+    "gold": -30,
+    "item": "oubli"
+   },
+   "text": [
+    "Quatre heures. Tu frappes au volet de la boutique au pavot. Au bout de la troisième fois, il s'ouvre sur une chandelle et un bonnet de coton, et sous le bonnet, deux lunettes rondes. Maître Ferrat accueille la chose avec le calme parfait qu'il a, assure-t-on rue des Herbes, depuis sa naissance.",
+    "Tu lui demandes ce que tu es venu{e} lui demander, et que tu as compris, en traversant la ville, sans pouvoir dire d'où te venait cette certitude : de quoi oublier une nuit. Ferrat te regarde par-dessus ses lunettes. « Pavot et datura. Trois heures de sommeil, et la nuit effacée. Si on vous prend demain, vous ne saurez rien, et vous ne pourrez rien dire. C'est ça ? » Tu dis oui. Il hoche la tête. « C'est la première fois qu'on me demande d'oublier une nuit qu'on n'a pas finie. C'est intéressant. Trente sous. »",
+    "Il prépare la fiole, une petite fiole brune, bouchée de liège et de cire. Pendant qu'il dose, tu sors ton cadenas de laiton. Tu passes la chaînette dans la tresse de soie de ton masque, derrière ta tête, et tu fermes le cadenas sur ta nuque. Déclic. Puis tu lui tends la petite clef.",
+    "« Gardez-la. S'il la demande par son nom, c'est qu'il sera assez réveillé pour décider. Et s'il demande si vous gardez quelque chose pour lui, donnez-lui ceci. » Tu prends une de ses ordonnances, et tu écris au dos quatre lignes sur un endroit qui garde les manteaux des gens qui dansent. Ferrat range la clef dans le bocal de racine de guimauve, l'ordonnance dans son tiroir, et garde ses questions pour lui."
+   ],
+   "choices": [
+    {
+     "label": "Lui demander ce que fait l'herbe exactement",
+     "hide": {
+      "seen": "S_ferrat_effets"
+     },
+     "to": "S_ferrat_effets"
+    },
+    {
+     "label": "Porter le sac de Clarisse au vestiaire de l'Opéra",
+     "if": {
+      "has": "papiers:pris"
+     },
+     "fx": {
+      "until": 5
+     },
+     "to": "S_vestiaire_nuit"
+    },
+    {
+     "label": "Aller à ton échoppe écrire le billet",
+     "if": {
+      "not": {
+       "has": "papiers:pris"
+      }
+     },
+     "fx": {
+      "until": 5
+     },
+     "to": "S_ecrire"
+    }
+   ]
+  },
+  "S_vestiaire_nuit": {
+   "act": "II",
+   "title": "Le vestiaire, à cinq heures",
+   "place": "opera",
+   "second": true,
+   "fx": {
+    "gold": -2
+   },
+   "text": [
+    "Cinq heures. Le bal s'achève dans l'Opéra comme une marée qui se retire en laissant des épaves. Les derniers masques dorment sur les banquettes. Dans un coin, un Grand Turc ronfle déjà, son turban sur les yeux. Au vestiaire, la vieille dame en bonnet de dentelle tricote au milieu des manteaux, comme une Parque.",
+    "Tu as acheté en chemin, chez un fripier qui ne dormait pas, un sac de tapisserie à fleurs passées. Dedans, le passeport, la lettre de la grand-mère, et ce que Clarisse t'a confié pour la route, une chemise de nuit, une brosse en écaille, un petit portrait au pastel de sa mère. Tu épingles à la doublure, avec une épingle à cheveux de Clarisse, un papier où tu as écrit quatre lignes sur un oiseau qui part pour Gênes avec deux places sur le dos.",
+    "La dame du vestiaire te donne un carton à bord doré, numéro 7, peint en rouge. Tu lui donnes un sou de plus, pour qu'elle ne rende le sac à personne d'autre, même avec le ticket. « Si quelqu'un d'autre a le ticket, dit-elle, c'est qu'il vous l'a pris, et ça me regarde pas. » Tu dis : justement.",
+    "Puis tu ôtes ton soulier gauche, et tu glisses le ticket sous la semelle de feutre."
+   ],
+   "choices": [
+    {
+     "label": "Aller à ton échoppe écrire le billet",
+     "to": "S_ecrire"
+    }
+   ]
+  },
+  "S_ecrire": {
+   "act": "II",
+   "title": "Le billet",
+   "place": "echoppe",
+   "second": true,
+   "hub": true,
+   "backName": "ta planche",
+   "text": [
+    {
+     "first": true,
+     "text": "Ton échoppe, au petit jour encore noir. Tu allumes la lampe, tu tailles toutes tes plumes, en rang, une à une, parce que tes mains tremblent et qu'il faut les occuper. Puis tu prends une feuille de ton meilleur papier, et tu écris à quelqu'un que tu ne connais pas encore, et qui sera toi dans une heure."
+    },
+    {
+     "first": true,
+     "text": "*Ne retire pas le masque avant midi. Tu ne te souviens de rien : c'est voulu. Tout ce que tu dois savoir, je te l'ai laissé en chemin. Suis les fleurs. Ne fais confiance à personne qui connaît ton nom.*"
+    },
+    {
+     "first": true,
+     "text": "Tu t'arrêtes, la plume levée. Il reste à dire l'essentiel : qui est l'ennemi. Et le dire de façon que l'ennemi, s'il lit par-dessus ton épaule endormie, ne comprenne pas qu'on l'a reconnu."
+    },
+    {
+     "again": true,
+     "text": "Ta planche, la lampe, les plumes en rang. Le billet attend sa dernière ligne, ou sa signature."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Chiffrer la ligne sur l'Arlequin avec le numéro du vestiaire",
+     "if": {
+      "item": "papiers"
+     },
+     "hide": {
+      "any": [
+       {
+        "has": "billet:chiffre"
+       },
+       {
+        "has": "billet:clair"
+       },
+       {
+        "has": "billet:muet"
+       }
+      ]
+     },
+     "to": "S_chiffrer"
+    },
+    {
+     "label": "Écrire en clair : l'Arlequin ment",
+     "hide": {
+      "any": [
+       {
+        "has": "billet:chiffre"
+       },
+       {
+        "has": "billet:clair"
+       },
+       {
+        "has": "billet:muet"
+       }
+      ]
+     },
+     "fx": {
+      "flag": "billet:clair"
+     },
+     "to": "S_billet_clair"
+    },
+    {
+     "label": "N'écrire rien de plus sur l'Arlequin",
+     "hide": {
+      "any": [
+       {
+        "has": "billet:chiffre"
+       },
+       {
+        "has": "billet:clair"
+       },
+       {
+        "has": "billet:muet"
+       }
+      ]
+     },
+     "fx": {
+      "flag": "billet:muet"
+     },
+     "to": "S_billet_muet"
+    },
+    {
+     "label": "Glisser le grand livre noir sous la porte du banquier Coquelin",
+     "if": {
+      "has": "preuve:prise"
+     },
+     "hide": {
+      "has": "preuve:coquelin"
+     },
+     "fx": {
+      "flag": "preuve:coquelin"
+     },
+     "to": "S_coquelin_porte"
+    },
+    {
+     "label": "Plier la rose de papier",
+     "if": {
+      "any": [
+       {
+        "has": "billet:chiffre"
+       },
+       {
+        "has": "billet:clair"
+       },
+       {
+        "has": "billet:muet"
+       }
+      ]
+     },
+     "to": "S_rose"
+    }
+   ]
+  },
+  "S_chiffrer": {
+   "act": "II",
+   "title": "La ligne à chiffrer",
+   "place": "echoppe",
+   "second": true,
+   "puzzle": "n_billet",
+   "text": [
+    "Le numéro du vestiaire est dans ton soulier. Tu le sens sous ton talon, comme une petite pierre qui aurait des idées. Personne d'autre que toi ne saura où le chercher : il faudra que tu le trouves pour lire ce que tu vas écrire, et quand tu l'auras trouvé, tu seras déjà assez loin sur la route pour comprendre."
+   ],
+   "choices": [
+    {
+     "back": "S_ecrire"
+    }
+   ]
+  },
+  "S_billet_chiffre": {
+   "act": "II",
+   "title": "Vingt lettres",
+   "place": "echoppe",
+   "second": true,
+   "text": [
+    "**S HYSLXBPU LZA H NHZWHYK.** Tu relis la ligne en reculant chaque lettre de sept crans, et la phrase se redresse sous tes yeux comme un noyé qu'on retourne. Tu ajoutes : *Si tu doutes, la clef de cette ligne est le numéro que tu as laissé à l'Opéra.* Puis tu signes : *Toi.*",
+    "Tu as l'impression, en posant la plume, d'avoir déjà lu ce billet. Ce qui, quand on y pense, est la moindre des choses."
+   ],
+   "choices": [
+    {
+     "back": "S_ecrire"
+    }
+   ]
+  },
+  "S_billet_clair": {
+   "act": "II",
+   "title": "En clair",
+   "place": "echoppe",
+   "second": true,
+   "text": [
+    "*L'Arlequin ment. Fuis-le.* Tu l'écris en lettres capitales, nettes, lisibles d'un coup d'œil, au bas du billet. Puis tu signes : *Toi.*",
+    "C'est simple, c'est clair, c'est franc, et cela se lira aussi bien par-dessus une épaule endormie. Tu le sais. Tu le laisses quand même. Il y a des nuits où l'on préfère la franchise à la prudence, et ce n'est pas toujours la plus mauvaise façon de perdre."
+   ],
+   "choices": [
+    {
+     "back": "S_ecrire"
+    }
+   ]
+  },
+  "S_billet_muet": {
+   "act": "II",
+   "title": "Rien de plus",
+   "place": "echoppe",
+   "second": true,
+   "text": [
+    "Tu poses la plume. *Ne fais confiance à personne qui connaît ton nom.* Cela suffira. Tu te connais : tu as toujours été méfiant{e}, quand tu ne savais rien. C'est quand tu sais que tu fais confiance. Demain, tu ne sauras rien. Tu signes : *Toi.*"
+   ],
+   "choices": [
+    {
+     "back": "S_ecrire"
+    }
+   ]
+  },
+  "S_coquelin_porte": {
+   "act": "II",
+   "title": "La porte du banquier",
+   "place": "echoppe",
+   "second": true,
+   "fx": {
+    "ep": [
+     "histoire",
+     300
+    ]
+   },
+   "text": [
+    "La maison Coquelin est à deux rues, sur le quai des Changeurs, haute, étroite et propre comme un coffre-fort. Tu glisses le grand livre noir sous la porte, à plat, avec une feuille épinglée sur la couverture, de ta main : *À Monsieur Coquelin, de la part d'un ami de l'exactitude. Page d'avril, il y a quatre ans. Et le reste.*",
+    "Coquelin est un vieil homme avide et sans cœur. C'est aussi un banquier, c'est-à-dire un homme qui déteste par-dessus tout prêter à qui triche sur ses comptes. Tu comptes sur le banquier."
+   ],
+   "choices": [
+    {
+     "back": "S_ecrire"
+    }
+   ]
+  },
+  "S_rose": {
+   "act": "II",
+   "title": "La rose de papier",
+   "place": "echoppe",
+   "second": true,
+   "text": [
+    "Il reste la première devinette, celle qui ouvrira toutes les autres. Tu prends une feuille de vergé blanc, et tu plies une rose, pétale par pétale, comme te l'avait appris une costumière de ta jeunesse, et sur un pétale, à l'intérieur, en lettres minuscules, tu écris quatre lignes sur une reine d'un jour qui rend blanc ce que la ville a sali.",
+    "Puis tu brûles tous tes brouillons dans le poêle, un à un. Un coin de feuille résiste au feu, où l'on lit encore le mot *hirond*. Tu le laisses. Tu n'as plus le temps.",
+    "Tu épingles la rose sur ta blouse, à la place du cœur. Tu plies le billet en quatre et tu le glisses dans ta poche. Tu tailles une dernière plume, pour rien. Puis tu souffles la lampe."
+   ],
+   "choices": [
+    {
+     "label": "Aller t'asseoir sur le banc du canal des Teinturiers",
+     "to": "S_banc_nuit"
+    }
+   ]
+  },
+  "S_banc_nuit": {
+   "act": "II",
+   "title": "Le banc, à l'aube",
+   "place": "canal",
+   "second": true,
+   "text": [
+    "Le jour hésite encore. Le canal des Teinturiers coule devant toi, noir, puis gris, puis bleu d'un côté et rouge de l'autre, à mesure que la lumière remonte de l'eau. Une mouette se pose sur le dossier du banc, à un pied de ton visage, et penche la tête d'un côté, puis de l'autre.",
+    "Tu sors la fiole brune. Tu fais sauter la cire avec l'ongle. Tu penses à tout ce que tu as fait cette nuit, une dernière fois, comme on fait l'inventaire d'une maison avant de la quitter : le domino rose, la loterie, la cloche, le coffre, le capitaine, la Reine, l'apothicaire, le vestiaire, le billet, la rose. Dans une heure, il n'en restera rien. Il restera quelqu'un qui te ressemble, et qui devra tout retrouver tout{e} seul{e}, en suivant des fleurs.",
+    "Tu lui souhaites bonne chance. Tu lui en veux un peu d'avance."
+   ],
+   "choices": [
+    {
+     "label": "Boire la fiole d'un trait",
+     "if": {
+      "all": [
+       {
+        "has": "papiers:pris"
+       },
+       {
+        "item": "passage"
+       },
+       {
+        "any": [
+         {
+          "has": "lazare:enferme"
+         },
+         {
+          "has": "nom:faux"
+         }
+        ]
+       }
+      ]
+     },
+     "fx": {
+      "flag": "clarisse:partie"
+     },
+     "to": "F_hirondelle"
+    },
+    {
+     "label": "Boire la fiole d'un trait",
+     "if": {
+      "not": {
+       "all": [
+        {
+         "has": "papiers:pris"
+        },
+        {
+         "item": "passage"
+        },
+        {
+         "any": [
+          {
+           "has": "lazare:enferme"
+          },
+          {
+           "has": "nom:faux"
+          }
+         ]
+        }
+       ]
+      }
+     },
+     "to": "F_hirondelle"
+    }
+   ]
+  },
+  "F_hirondelle": {
+   "act": "II",
+   "title": "L'Hirondelle",
+   "place": "canal",
+   "end": true,
+   "second": true,
+   "fx": {
+    "flag": "fin:hirondelle"
+   },
+   "text": [
+    "C'est amer, puis c'est doux, puis ce n'est plus rien. Le canal s'incline. La mouette s'agrandit. Tu t'allonges sur le banc, la tête sur ton bras, et la nuit se replie au-dessus de toi comme une page qu'on tourne, et tu dors.",
+    "Ce qui suit, tu ne le sauras jamais tout à fait. Ou tu le sais déjà.",
+    {
+     "if": {
+      "all": [
+       {
+        "has": "nom:faux"
+       },
+       {
+        "not": {
+         "has": "lazare:enferme"
+        }
+       }
+      ]
+     },
+     "text": "À six heures, Lazare parcourt les quais en demandant à tout le monde un certain Lunaire. Les blanchisseuses rient. Les teinturiers haussent les épaules. Il passe à vingt pas d'un banc où dort un Pierrot parmi trente autres, et il ne s'arrête pas : il cherche un nom, et ce Pierrot-là n'en a plus."
+    },
+    {
+     "if": {
+      "has": "lazare:enferme"
+     },
+     "text": "À dix heures, les machinistes de l'Opéra, venus chercher les costumes du *Barbier de Séville*, ouvrent la porte du magasin et y trouvent un Arlequin endormi dans une robe de Rosine, qui leur demande l'heure avec une voix de mourant. On lui dit l'heure. Il se met à courir, mais Lambrun est grande, un matin de Mi-Carême, et il ne sait pas quel banc chercher."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "billet:clair"
+       },
+       {
+        "not": {
+         "all": [
+          {
+           "has": "papiers:pris"
+          },
+          {
+           "item": "passage"
+          },
+          {
+           "any": [
+            {
+             "has": "lazare:enferme"
+            },
+            {
+             "has": "nom:faux"
+            }
+           ]
+          }
+         ]
+        }
+       }
+      ]
+     },
+     "text": "À six heures, un Arlequin s'assoit à côté de toi sur le banc, sort le billet de ta poche avec deux doigts légers, le lit, sourit à la dernière ligne, et le remet en place. Puis il attend, en sifflotant, que tu te réveilles."
+    },
+    {
+     "if": {
+      "has": "clarisse:partie"
+     },
+     "text": "Le matin se passe comme il était écrit, ou presque. Un Pierrot sans mémoire suit des fleurs de papier à travers la ville, de la Reine à l'apothicaire, de l'Opéra au quai, et monte à onze heures cent vingt marches de pierre jusqu'à une jeune fille rousse qui l'attend sous une cloche, et qui rit en le voyant."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "clarisse:partie"
+       },
+       {
+        "has": "passage:deux"
+       }
+      ]
+     },
+     "text": "À midi moins le quart, sur le quai de Gênes, au milieu de la foule qui hurle autour du bonhomme Carême, un domino noir et un Pierrot montent la passerelle de l'Hirondelle. Le capitaine Rosso compte deux têtes, crache par-dessus bord, et fait larguer. Le Pierrot ne sait pas très bien pourquoi il part. Il a dans sa poche une lettre cachetée de cire noire pour une vieille dame de Gênes, et dans la main, la main d'une fille qui lui expliquera tout pendant la traversée. Il trouve que c'est une assez bonne façon de commencer une vie."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "clarisse:partie"
+       },
+       {
+        "has": "passage:une"
+       }
+      ]
+     },
+     "text": "À midi moins le quart, sur le quai de Gênes, un domino noir monte seul la passerelle de l'Hirondelle, se retourne, et fait un signe à un Pierrot resté sur le quai, au milieu de la foule. Le Pierrot répond au signe sans savoir qui il salue. Il sait seulement qu'il a bien fait, et que c'est la première fois de sa vie qu'il en est si sûr sans savoir pourquoi."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "not": {
+         "has": "clarisse:partie"
+        }
+       },
+       {
+        "not": {
+         "has": "preuve:coquelin"
+        }
+       }
+      ]
+     },
+     "text": "Le matin se passe comme tu l'as lu. Un Pierrot suit des fleurs. Un Arlequin le suit. À midi, dans la chambre des cloches, un couteau coupe une tresse de soie, et la Bourdonne sonne la noce à toute volée, pendant que l'Hirondelle part pour Gênes sans personne. Il manquait une chose, cette nuit, pour que les fleurs ne servent qu'à toi."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "not": {
+         "has": "clarisse:partie"
+        }
+       },
+       {
+        "has": "preuve:coquelin"
+       }
+      ]
+     },
+     "text": "Le matin se passe comme tu l'as lu, jusqu'à midi. À midi, sur le parvis de Saint-Brice, Monsieur Médard Coquelin descend de voiture avec son notaire et un grand livre noir sous le bras. Il reste au pied des marches, ouvre le livre à la page d'avril, devant tout le monde, et le tend au commissaire de police, qui passait par là parce que Coquelin l'avait prié de passer. Gaspard Ardel lit la page, et devient de la couleur de ses gants. La noce est annulée. Clarisse, ramenée du clocher par les valets de son oncle, voit les agents l'emmener à sa place."
+    },
+    {
+     "if": {
+      "all": [
+       {
+        "has": "clarisse:partie"
+       },
+       {
+        "has": "preuve:coquelin"
+       }
+      ]
+     },
+     "text": "Sur le parvis de Saint-Brice, à midi, la mariée manque. Il y a Monsieur Médard Coquelin, un grand livre noir ouvert à la page d'avril, un commissaire de police, et Gaspard Ardel qui devient de la couleur de ses gants. Le banquier réclame la justice, avec l'exactitude qu'il met à réclamer un prêt."
+    },
+    {
+     "if": {
+      "has": "clarisse:partie"
+     },
+     "text": "Et dans la chambre des cloches, Tiburce, seul, tire la corde de toutes ses forces. La Bourdonne s'ébranle et sonne sur Lambrun. Elle sonne à toute volée, comme pour un baptême, pendant que sur le quai le bonhomme Carême prend feu, et que l'Hirondelle, entre les fumées, déploie sa voile vers Gênes."
+    },
+    {
+     "if": {
+      "has": "babet:leurre"
+     },
+     "text": "Sur le canal, la Reine des Blanchisseuses, sur son trône de jupons, bénie par le curé, regarde passer la voile au loin, et lève son battoir comme un sceptre."
+    }
+   ]
+  },
+  "A_eglise": {
+   "act": "I",
+   "title": "Saint-Brice parée",
+   "place": "clocher",
+   "second": false,
+   "text": [
+    "L'église Saint-Brice sent l'encens froid, la cire neuve et la fleur d'oranger en tissu. On a tendu de blanc les piliers de la nef jusqu'à hauteur d'homme, et au-dessus, la pierre noire reprend ses droits, si bien que l'église a l'air d'une veuve qui aurait passé une robe de mariée par-dessus son deuil. Deux prie-Dieu de velours rouge attendent devant l'autel, côte à côte, comme deux accusés.",
+    "Au premier rang, un petit homme en noir range sur une chaise des liasses de papiers timbrés, en les comptant à mi-voix : le notaire de Monsieur Coquelin, qui vérifie que tout est prêt pour midi, le contrat, les quittances, la dot. Il te voit, te prend pour un mendiant de carnaval, et te tend un sou sans lever les yeux. « Pour la noce, dit-il. Priez pour qu'elle ait lieu. Mon client déteste attendre, et il a les moyens de ses détestations. »",
+    "Le curé, en surplis, arrange les fleurs de cire sur l'autel, et soupire à chaque fleur."
+   ],
+   "choices": [
+    {
+     "back": "A_clocher"
+    }
+   ]
+  },
+  "A_tiburce_nuit": {
+   "act": "I",
+   "title": "Ce que dit le sonneur",
+   "place": "clocher",
+   "second": false,
+   "text": [
+    "« CE QUE T'AS FAIT ? » Tiburce se gratte la barbe, longtemps, comme pour y retrouver un souvenir tombé. « T'AS FRAPPÉ À MA PORTE À DEUX HEURES. AVEC UN DOMINO NOIR. T'AS DIT : CACHE-LA. J'AI CACHÉ. » Il hausse les épaules, ce qui chez lui ressemble à un éboulement. « APRÈS, T'ES REPARTI{E}. T'AVAIS L'AIR D'AVOIR UNE LISTE. »",
+    "Il baisse la voix, ce qui ramène son cri au niveau d'une conversation ordinaire. « Et t'as dit : demain, je saurai plus rien. Je t'ai dit : c'est pas grave, moi non plus je sais jamais rien, et je vis très bien. »"
+   ],
+   "choices": [
+    {
+     "back": "A_clocher"
+    }
+   ]
+  },
+  "A_cordiers": {
+   "act": "I",
+   "title": "La rue des Cordiers",
+   "place": "opera",
+   "second": false,
+   "text": [
+    "Derrière l'Opéra, la rue des Cordiers est une ruelle noire et puante, encombrée de décors réformés : un château fort en toile peinte achève de pourrir contre un mur, une forêt de carton s'effeuille dans une flaque, une barque de théâtre s'est échouée sur des pavés. La petite porte des artistes, au milieu, est fermée par une chaîne.",
+    "En face, dans une échoppe de fripier grande comme une armoire, un vieil homme en bonnet grec trie des défroques de la nuit, qu'on lui vend au poids. Il te regarde. « Encore toi ? Tu veux me revendre le sac ? Je te l'ai vendu quatre sous à cinq heures moins le quart, je te le reprends pour deux. C'est le cours. »",
+    "Il retourne à ses chiffons. « Tu m'as réveillé, à cinq heures moins le quart. Tu sentais l'apothicaire. Tu avais un cadenas sur la tête, comme un coffre. J'ai pensé : en voilà un qui tient à ses idées. »"
+   ],
+   "choices": [
+    {
+     "back": "A_opera"
+    }
+   ]
+  },
+  "A_gendre": {
+   "act": "I",
+   "title": "La mère Gendre",
+   "place": "lavoir",
+   "second": false,
+   "text": [
+    "Dans un coin du lavoir, à l'écart, une vieille femme bat le linge plus fort que les autres, comme si elle frappait quelqu'un. On t'apprend que c'est la mère Gendre, qui avait son propre lavoir au canal des Tanneurs, l'hiver dernier, et que Monsieur Coquelin le lui a fait saisir pour trois écus de dette. Elle bat à présent le linge chez les autres, à genoux, à soixante-dix ans.",
+    "Elle lève la tête quand tu t'approches, et te regarde, ta larme, ta rose. « Ah, dit-elle, tu viens voir la ruine du quartier. » Puis, plus bas : « Un écrivain public m'a écrit une lettre au juge, l'hiver dernier. Une lettre si belle que le juge l'a fait afficher pour se moquer, et que c'est lui qui a eu l'air bête. J'ai perdu le lavoir quand même. Mais j'ai gagné la lettre. Je la garde sous mon matelas. » Elle reprend son battoir. « C'était pas toi, des fois ? T'as les mains de quelqu'un qui écrit. »"
+   ],
+   "choices": [
+    {
+     "back": "A_lavoir"
+    }
+   ]
+  },
+  "A_cabine": {
+   "act": "I",
+   "title": "La cabine de l'Hirondelle",
+   "place": "quai",
+   "second": false,
+   "text": [
+    "Rosso te fait descendre par une échelle dans le ventre de l'Hirondelle, où l'on respire le savon, le goudron et la cale. Au fond, sous le pont arrière, une cabine grande comme une armoire, avec deux couchettes superposées, une cuvette d'étain, un hublot rond où passe une lumière verte, et sur la couchette du bas, une couverture neuve, pliée en carré.",
+    "« Deux places, dit Rosso. Deux couchettes. La couverture, c'est le Pierrot de cette nuit qui l'a apportée. Il a dit : elle aura froid, elle a toujours froid. » Il te regarde de côté. « Je n'ai rien demandé. Je ne demande jamais rien. Mais tu parles comme quelqu'un qui connaît la personne qui aura froid. »"
+   ],
+   "choices": [
+    {
+     "back": "A_quai"
+    }
+   ]
+  },
+  "A_cocher": {
+   "act": "I",
+   "title": "Le cocher de la calèche blanche",
+   "place": "ardel",
+   "second": false,
+   "text": [
+    "Le cocher de la calèche blanche est assis sur son siège, en livrée blanche, avec des rubans blancs à son chapeau, et il a l'air d'un croque-mort qui se serait trompé de couleur. Il fume en regardant ses chevaux, qui mâchonnent leur cocarde.",
+    "« Trois noces, que j'ai menées, avec cette calèche, dit-il sans que tu lui demandes rien. La première, la mariée a pleuré. La deuxième, c'est le marié. La troisième, c'est le père, à cause de la dot. Celle-là, s'il y a une mariée, ce sera la quatrième. » Il souffle sa fumée. « Moi, je dis : on attelle, on attend, on verra bien qui pleure. »"
+   ],
+   "choices": [
+    {
+     "back": "A_ardel"
+    }
+   ]
+  },
+  "S_voisine": {
+   "act": "II",
+   "title": "La costumière",
+   "place": "echoppe",
+   "second": true,
+   "text": [
+    "Sous l'arcade voisine, la vieille Adélaïde, costumière, coud des paillettes sur un corsage de Colombine à la lueur d'une chandelle, des épingles plein la bouche, si bien qu'elle parle comme un hérisson. « Tu vas au bal ? Toi ? » Elle crache ses épingles une à une dans une soucoupe. « Ça fait cinq ans que tu me dis que tu n'iras plus jamais au bal. »",
+    "Elle te regarde mieux. « Tu as une tête à aller à autre chose qu'au bal. » Elle fouille dans une boîte, et te tend une bobine de ruban de soie noire, épaisse et dure, de celle dont on tresse les cordons de masques. « Tiens. Ton cordon est pourri, il lâchera au premier tour de valse. Celui-là, tu pourrais pendre un homme avec. » Elle remet ses épingles dans sa bouche. « Ne pends personne. »"
+   ],
+   "choices": [
+    {
+     "back": "S_veille"
+    }
+   ]
+  },
+  "S_coquelin_bal": {
+   "act": "II",
+   "title": "Le banquier au buffet",
+   "place": "opera",
+   "second": true,
+   "fx": {
+    "meet": [
+     "coquelin"
+    ]
+   },
+   "text": [
+    "Monsieur Médard Coquelin se tient au buffet, sans masque, un petit pâté dans chaque main, et il les mange avec la régularité d'un métronome. Soixante-huit ans, un habit noir de bonne coupe, un visage gris et lisse comme une pierre de rivière, et des yeux pâles qui calculent le prix de tout ce qu'ils regardent, y compris le pâté.",
+    "Tu le complimentes sur sa fiancée. Il hoche la tête. « Mademoiselle Ardel est une jeune personne de grand avenir, dit-il. Je le lui assure. » Il avale. « On dit en ville que je l'achète. C'est faux. On achète ce qu'on consomme. Moi, je place. Une savonnerie sans dettes, une épouse de dix-neuf ans, un oncle qui me doit sa liberté : c'est un placement à trois intérêts. »",
+    "Il prend un troisième pâté. « Ce que je ne supporte pas, voyez-vous, Pierrot, c'est l'inexactitude. Un homme qui triche sur ses comptes, je le ruine. Un homme qui les tient bien, je l'épouse, ou j'épouse sa nièce. » Il s'essuie les doigts. « Bonne nuit. Dansez. Vous avez l'âge de perdre votre temps. »"
+   ],
+   "choices": [
+    {
+     "back": "S_bal"
+    }
+   ]
+  },
+  "S_grand_turc": {
+   "act": "II",
+   "title": "Le Grand Turc",
+   "place": "opera",
+   "second": true,
+   "text": [
+    "Le maître de cérémonie se repose entre deux quadrilles derrière un pilier, en Grand Turc, le turban de travers, une bouteille de champagne à la main, qu'il boit au goulot avec une dignité ottomane. Il te tend la bouteille. Tu bois.",
+    "« La loterie, à minuit, dit-il. Le grand domino noir de velours, à capuchon, avec son loup. Vingt écus chez le tailleur. Le gagnant sera celui qui devinera ma devinette. » Il cligne de l'œil. « Je l'ai écrite moi-même. Tout le monde la trouvera trop facile, et personne ne la trouvera, parce que la réponse est sur le visage de tout le monde. Les gens ne regardent jamais leur propre visage, au bal. C'est pour ça qu'ils viennent. »"
+   ],
+   "choices": [
+    {
+     "back": "S_bal"
+    }
+   ]
+  },
+  "S_lazare_carnet": {
+   "act": "II",
+   "title": "Le carnet de l'Arlequin",
+   "place": "opera",
+   "second": true,
+   "text": [
+    "Lazare rit à une plaisanterie, la tête renversée, et sa manche à losanges bâille. Tes doigts y entrent et en ressortent, plus légers qu'une phalène, avec un petit carnet de bal en nacre. Tu l'ouvres derrière la colonne. Des noms de danses, des noms de femmes, des chiffres de pharaon. Et sur la dernière page, au crayon, d'une écriture penchée : *Coffre de G. : la noce. 2 · 4 · 0 · 3.*",
+    "Un valet qui sait le code du coffre de son maître. Un valet qui l'écrit dans son carnet de bal, entre deux polkas. Lazare sert Gaspard Ardel ; Lazare se sert aussi, à l'occasion. Tu remets le carnet dans sa manche à la faveur d'une autre plaisanterie. Il rit toujours."
+   ],
+   "choices": [
+    {
+     "back": "S_bal"
+    }
+   ]
+  },
+  "S_lazare_poches": {
+   "act": "II",
+   "title": "Les doigts dans la manche",
+   "place": "opera",
+   "second": true,
+   "text": [
+    "Tes doigts entrent dans sa manche à losanges et rencontrent une main, qui se referme sur ton poignet, doucement, fermement, comme un bracelet de fer.",
+    "« Pierrot, dit Lazare, sans cesser de sourire. On ne fait pas les poches d'un valet. Il n'y a jamais rien dedans, et ce qu'il y a appartient à quelqu'un d'autre. » Il te lâche, et te tapote la joue de carton. « Je te garde à l'œil, maintenant. Tu m'intéresses. »"
+   ],
+   "choices": [
+    {
+     "back": "S_bal"
+    }
+   ]
+  },
+  "S_mere_clarisse": {
+   "act": "II",
+   "title": "Le portrait au pastel",
+   "place": "clocher",
+   "second": true,
+   "text": [
+    "Clarisse sort de sous son domino un petit portrait au pastel, dans un cadre d'écaille grand comme une main : une femme rousse, au nez pointu, qui rit à quelqu'un hors du cadre. « Ma mère, dit-elle. Elle était de Gênes. Elle est morte quand j'avais six ans. Mon père a fait faire ce portrait de mémoire, après, par un peintre qui ne l'avait jamais vue. Il lui a dit : elle riait. Le peintre l'a fait rire. Le portrait ressemble à une inconnue, et c'est elle, trait pour trait. »",
+    "Elle le range. « Je l'emporte. C'est tout ce que j'emporte de cette maison, avec la brosse en écaille de ma grand-mère et une chemise de nuit. Le reste, mon oncle peut le jouer. »"
+   ],
+   "choices": [
+    {
+     "back": "S_chambre_nuit"
+    }
+   ]
+  },
+  "S_cabine_nuit": {
+   "act": "II",
+   "title": "La cabine",
+   "place": "quai",
+   "second": true,
+   "text": [
+    "Rosso te fait descendre dans le ventre de l'Hirondelle, une lanterne à la main. La cabine est sous le pont arrière, grande comme une armoire, avec deux couchettes superposées et un hublot noir. Il fait froid comme dans une cave. Tu poses sur la couchette du bas la couverture de laine que tu as prise chez toi, pliée en carré. « Elle aura froid, dis-tu. Elle a toujours froid. »",
+    "Cette certitude te vient d'un lendemain que tu as déjà oublié. Rosso te regarde de côté, et garde ses questions."
+   ],
+   "choices": [
+    {
+     "back": "S_recu_nuit"
+    }
+   ]
+  },
+  "S_ferrat_effets": {
+   "act": "II",
+   "title": "Ce que fait l'herbe",
+   "place": "herbes",
+   "second": true,
+   "text": [
+    "« Ce qu'elle fait exactement ? » Ferrat fait tourner la fiole dans la lumière de la chandelle. « Le pavot vous endort. La datura efface ce qu'il y avait avant le sommeil, comme une éponge sur une ardoise. Vous vous réveillerez avec votre nom, votre métier, votre alphabet, et un grand trou à la place de cette nuit. » Il pose la fiole. « Il en revient parfois des morceaux, avec des sels, une odeur, un rire. Le reste revient dans huit jours. Ou jamais. Je n'ai jamais su lequel. »",
+    "Il te regarde par-dessus ses lunettes. « Vous êtes sûr{e} ? On peut perdre une très belle nuit, avec ça. — C'est pour ça, dis-tu. Une nuit qu'on ne sait pas, on ne peut pas la vendre. »"
+   ],
+   "choices": [
+    {
+     "back": "S_ferrat_nuit"
+    }
+   ]
+  }
+ }
+}

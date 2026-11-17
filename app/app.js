@@ -2639,6 +2639,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "12.5", items: ["Troisième livre à lire deux fois : « Le Masque de la Mi-Carême ». Un matin de carnaval, sur un banc, un masque cadenassé sur le visage et des devinettes de ta propre main dans les poches.", "Un livre à lire deux fois peut ouvrir sa seconde lecture ailleurs, à une autre heure, avec d'autres poches."] },
     { v: "12.4", items: ["Deuxième livre à lire deux fois : « Le Testament en quatrains ». Une parfumeuse a écrit son testament en vers, et c'est toi, clerc de notaire, qui jugeras ce que ses héritiers trouveront avant l'aube. Certains quatrains ont deux bonnes réponses."] },
     { v: "12.3", items: ["Premier livre à lire deux fois : « La Nuit de la comète ». Une montagne, un observatoire, un pli cacheté de noir à ouvrir quand la comète touchera la Lyre. Onze énigmes, dont certaines attendent leur clef jusqu'à la seconde lecture.", "Dans la recherche de la bibliothèque, taper le nom entier d'un filtre (« à deux », « à lire deux fois ») range d'abord les livres de ce filtre."] },
     { v: "12.2", items: ["« L'Île Folle-Aiguille » s'étoffe encore : quatorze quêtes de plus, nées d'autres livres, pour l'enfant du Fanal, la médecin et le maître-coq, de l'auberge jusqu'à la plage du camp."] },
