@@ -16,6 +16,12 @@
   ]
  },
  "skin": "parchemin",
+ "tags": [
+  "aventure",
+  "mer",
+  "historique",
+  "drame"
+ ],
  "cover": {
   "motif": "etoile",
   "color": "#24392f"

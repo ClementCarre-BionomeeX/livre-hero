@@ -13,6 +13,7 @@ module.exports = {
   age: 14,
   adult: { themes: ["Piraterie, massacre d'une colonie, meurtres", "Mutinerie et trahisons", "Expériences d'un savant sur des êtres vivants", "Dépendance à une drogue", "Enfants vendus comme engagés", "Maladie et mort d'un proche"] },
   skin: "parchemin",
+  tags: ["aventure","mer","historique","drame"],
   cover: { motif: "etoile", color: "#24392f" },
   voice: "deuxième personne, présent",
   version: 1,
