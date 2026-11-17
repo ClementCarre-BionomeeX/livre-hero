@@ -124,7 +124,7 @@
         P.choices = [{ label: A ? String(A.title || "Chapitre " + A.id).replace(/\*/g, "") : "Suivant", to: nx, auto: "next" }];
       });
     }
-    // Ports of call (11.3): a quest listed in an escale is missed once the ship has left it.
+    // Ports of call (11.4): a quest listed in an escale is missed once the ship has left it.
     Object.keys(story.escales || {}).forEach(function (eid) {
       var gone = "escale-quittee:" + eid;
       [].concat(story.escales[eid].quests || []).forEach(function (qid) {
@@ -135,7 +135,7 @@
     Object.keys(story.passages).forEach(function (id) {
       // A roll's or a fight's outcome may also say back: "PASSAGE" (a way back after the roll).
       var P0 = story.passages[id], branches = [];
-      // A port of call (11.3): `escale: "<id>"` on the anchorage page. Arriving marks the ship at anchor there; the
+      // A port of call (11.4): `escale: "<id>"` on the anchorage page. Arriving marks the ship at anchor there; the
       // engine writes « Lever l'ancre » (story.escales[id].depart), which marks it left and closes its quests. Why:
       // Clément (17/11, l'île aux pirates) — the story declares its ports, the engine opens and closes them.
       var E0 = P0.escale && (story.escales || {})[P0.escale];
@@ -183,6 +183,12 @@
         if (!c.label) { var tp = story.passages[c.back]; c.label = c.back === "@route" ? "Reprendre la route" : "Revenir : " + cap(String((tp && (tp.backName || tp.title)) || c.back).replace(/\*/g, "")); c.autoBack = true; }
       });
     });
+    // 11.3: the keys a page gives a value to (fx.set: { key: value }). `has: "key"` then holds as soon as the key has
+    // any value. Why: an author writes `set: { "a2:invite": "jacquot" }` here and `has: "a2:invite"` there, and the
+    // choice was closed for good without a word (found in « Les Trois Clefs »).
+    var stateKeys = {};
+    (function scanSets(o, key) { if (o == null || typeof o !== "object") return; if (Array.isArray(o)) { o.forEach(function (x) { scanSets(x, key); }); return; } if (key === "set") Object.keys(o).forEach(function (k) { stateKeys[k] = 1; }); Object.keys(o).forEach(function (k) { scanSets(o[k], k); }); })(story.passages, "");
+    try { Object.defineProperty(story, "__states", { value: stateKeys, enumerable: false }); } catch (e) { story.__states = stateKeys; }
     try { Object.defineProperty(story, "__prepared", { value: true, enumerable: false }); } catch (e) { story.__prepared = true; }
     veilIndex(story);
     return story;
@@ -239,7 +245,7 @@
   function level(s) { return levelOfEp(s.ep); }
   function pvMax(s) { return PV_BASE + ((ARCHS[s.arch] || ARCHS.guerrier).pv) + PV_PER_LEVEL * (level(s) - 1); }
   function heroName(s) { return s.name || "le héros"; }
-  // {joueur}, {joueur:e} (11.3): the reader's own hero seen by another lead (the doctor who opens the door to the child
+  // {joueur}, {joueur:e} (11.4): the reader's own hero seen by another lead (the doctor who opens the door to the child
   // of the inn). Without heroes, or when the reader's hero leads, the same as {hero} and {e}.
   function playerNameOf(s) { var id = s.playerId; if (!id || id === s.lead) return heroName(s); return ((s.heroes || {})[id] || {}).name || heroName(s); }
   function playerFemOf(s) { if (!s.playerId || s.playerId === s.lead) return !!s.fem; return s.playerFem != null ? !!s.playerFem : false; }
@@ -325,13 +331,13 @@
   function evalCond(story, s, c) {
     if (c == null || c === true) return true;
     if (c === false) return false;
-    if (typeof c === "string") return !!s.flags[c];
+    if (typeof c === "string") return !!s.flags[c] || (!!(story && story.__states && story.__states[c]) && stateValue(s, "", c) != null);
     if (Array.isArray(c)) return c.every(function (x) { return evalCond(story, s, x); });
     // Cards (9.7): a thread's state (ouvert by default; noue, rate, aucun), a card played in this game.
     if ("fil" in c) return [].concat(c.is || "ouvert").indexOf(threadState(s, c.fil)) >= 0;
     if ("possede" in c) return owns(s, c.possede);
     if ("carteJouee" in c) return !!(s.jeu && [].concat(c.carteJouee).some(function (k) { return s.jeu.joue.indexOf(k) >= 0; }));
-    // Ports of call and the crew (11.3).
+    // Ports of call and the crew (11.4).
     if ("escale" in c) return c.is === "quittee" ? !!s.flags["escale-quittee:" + c.escale] : !!s.flags["escale:" + c.escale] && !s.flags["escale-quittee:" + c.escale];
     if ("escaleOuverte" in c) return escaleOpen(story, s, c.escaleOuverte);
     if ("marin" in c) return [].concat(c.is || "abord").some(function (w) { return crewIs(story, s, c.marin, w); });
@@ -350,6 +356,10 @@
     if ("cicatrice" in c) return [].concat(c.cicatrice).some(function (k) { return !!s.flags["cicatrice:" + k]; });
     if ("fatigue" in c) return rng(s.fatigue || 0, c.min, c.max);
     // At school (8.2): a trait of character, a duel fought.
+    // À trois (9.6): the result of a vote between the players, the post this hero took, the voice he cast.
+    if ("scrutin" in c) { var sr = stateValue(s, BALLOT_FLAG, c.scrutin); return c.is === null ? sr == null : sr != null && (c.is == null || [].concat(c.is).indexOf(sr) >= 0); }
+    if ("role" in c) { var rr = stateValue(s, ROLE_FLAG, c.role); return c.is === null ? rr == null : rr != null && (c.is == null || [].concat(c.is).indexOf(rr) >= 0); }
+    if ("voix" in c) { var vr = stateValue(s, VOICE_FLAG, c.voix); return c.is === null ? vr == null : vr != null && (c.is == null || [].concat(c.is).indexOf(vr) >= 0); }
     if ("trait" in c) return rng(traitOf(s, c.trait), c.min, c.max);
     if ("duel" in c) { var DU = (s.duels || {})[c.duel]; if (!DU) return c.is === null; return c.is == null || DU.out === c.is; }
     // A closed room (8.3): accounts heard, doubted, belied; silences kept; what the hero did and what it weighs; dread; attachments.
@@ -370,7 +380,7 @@
     if ("missed" in c) { var mq = (story.quests || []).filter(function (q) { return q.id === c.missed; })[0]; return !!mq && questMissed(story, s, mq); }
     // count: [conditions], min / max: how many of them hold ("at least three of these").
     if ("count" in c) { var nc = c.count.filter(function (x) { return evalCond(story, s, x); }).length; return nc >= (c.min || 0) && (c.max == null || nc <= c.max); }
-    if ("has" in c) return !!s.flags[c.has];
+    if ("has" in c) return !!s.flags[c.has] || (!!(story && story.__states && story.__states[c.has]) && stateValue(s, "", c.has) != null);
     if ("not" in c) return !evalCond(story, s, c.not);
     if ("all" in c) return c.all.every(function (x) { return evalCond(story, s, x); });
     if ("any" in c) return c.any.some(function (x) { return evalCond(story, s, x); });
@@ -503,6 +513,9 @@
     if ("temps" in c) return "Pas par ce temps-ci.";
     if ("blessure" in c) return c.blessure === false ? "Pas avec une blessure ouverte." : "Seulement avec cette blessure.";
     if ("fatigue" in c) return c.max != null ? "La fatigue te le défend." : "Il faut avoir veillé davantage.";
+    if ("scrutin" in c) return "Le vote n'a pas tourné ainsi.";
+    if ("role" in c) return "Ce n'est pas ton poste.";
+    if ("voix" in c) return "Ce n'est pas la voix que tu as donnée.";
     if ("trait" in c) return "Ce n'est pas dans ton caractère.";
     if ("angoisse" in c) return maxOf(c, "angoisse") != null ? "Tu es trop troublé{e} pour cela." : "Il faudrait que la peur te tienne davantage.";
     if ("attache" in c) return "Ce lien n'est pas assez fort pour cela.";
@@ -615,7 +628,13 @@
   // (s.alliesFem, set by src/multi.js); with several others, the plural; alone, the masculine of « l'autre ».
   var AUTRE = { e: ["", "e", "s"], il: ["il", "elle", "ils"], Il: ["Il", "Elle", "Ils"], le: ["le", "la", "les"], lui: ["lui", "elle", "eux"] };
   function autreForm(s, k) { var f = s.alliesFem || [], n = (s.allies || []).length; var F = AUTRE[k]; return n > 1 ? F[2] : f[0] ? F[1] : F[0]; }
-  function interp(s, t) { return veilPlain(s, String(t)).replace(/\{autre:(e|il|Il|le|lui)\}/g, function (m, k) { return autreForm(s, k); }).replace(/\{autre\}/g, s.allies && s.allies.length ? s.allies.join(" et ") : "l'autre").replace(/\{joueur:e\}/g, playerFemOf(s) ? "e" : "").replace(/\{joueur\}/g, playerNameOf(s)).replace(/\{hero\}/g, heroName(s)).replace(/\{niveau\}/g, String(level(s))).replace(/\{marque\}/g, String(s.mark))
+  // {qui:<role>:<option>} (9.6, « À trois »): the hero of the player who took this option of a role (s.roles, set by
+  // src/multi.js from the table's decisions); {qui:<role>:<option>:e|il|Il|le|lui} agrees with that hero. Unknown
+  // (played alone, or nobody took it): « l'un de vous », in the masculine.
+  var QUI_RE = /\{qui:([^:{}]+):([^:{}]+?)(?::(e|il|Il|le|lui))?\}/g, QUI_NOBODY = "l'un de vous";
+  function postHolder(s, role, option) { return (s.roles || {})[role + ":" + option] || null; }
+  function quiForm(s, m, role, option, k) { var q = postHolder(s, role, option); if (!k) return q ? q.name : QUI_NOBODY; return AUTRE[k][q && q.fem ? 1 : 0]; }
+  function interp(s, t) { return veilPlain(s, String(t)).replace(QUI_RE, function (m, r, o, k) { return quiForm(s, m, r, o, k); }).replace(/\{autre:(e|il|Il|le|lui)\}/g, function (m, k) { return autreForm(s, k); }).replace(/\{autre\}/g, s.allies && s.allies.length ? s.allies.join(" et ") : "l'autre").replace(/\{joueur:e\}/g, playerFemOf(s) ? "e" : "").replace(/\{joueur\}/g, playerNameOf(s)).replace(/\{hero\}/g, heroName(s)).replace(/\{niveau\}/g, String(level(s))).replace(/\{marque\}/g, String(s.mark))
     // {e}: the agreement of the lead hero ("assis{e}"), from the companion's own f: true.
     .replace(/\{e\}/g, s.fem ? "e" : ""); }
   // Intent: read(Story, State, Tagged, PassageId) -> Bool = do the tags a paragraph, a choice or a passage carries hold now
@@ -707,7 +726,7 @@
     return out;
   }
 
-  // ------------------------------------------------------------------ ports of call and the crew (11.3)
+  // ------------------------------------------------------------------ ports of call and the crew (11.4)
   // Intent: escaleOpen(Story, State, Escale) -> Bool = a quest of this port is begun and neither done, refused nor missed
   function escaleOpen(story, s, eid) {
     var E = (story.escales || {})[eid]; if (!E) throw new Error("escale inconnue " + eid);
@@ -967,7 +986,7 @@
       if (!(story.quests || []).some(function (x) { return x.id === q; })) throw new Error("quête inconnue " + q);
       if (!s.flags["quete:" + q]) {
         s.flags["quete:" + q] = true; ev(s, "Quête accomplie : " + questTitle(story, q), "quest");
-        // What this quest owes to another book (11.3): told once it is done, never before, so nothing is given away.
+        // What this quest owes to another book (11.4): told once it is done, never before, so nothing is given away.
         var QD = (story.quests || []).filter(function (x) { return x.id === q; })[0], SRC = QD && QD.doit && (story.sources || {})[QD.doit];
         if (SRC) ev(s, "Cette histoire doit quelque chose à *" + SRC.title + "*" + (SRC.author ? ", de " + SRC.author : "") + ".", "doit", { book: QD.doit });
       }
@@ -3783,6 +3802,10 @@
   }
 
   // Intent: apply(Story, State, Choice) -> () ! writes(State), random
+  var ROLE_FLAG = "role:", VOICE_FLAG = "voix:", BALLOT_FLAG = "monde:scrutin:";
+  function keyed(k, v) { var o = {}; o[k] = v; return o; }
+  // Intent: read(State, Prefix, Key) -> Option | null = the one value of a state written `prefix<key>=<option>`
+  function stateValue(s, prefix, key) { var p = prefix + key + "=", f = Object.keys(s.flags || {}).filter(function (x) { return x.indexOf(p) === 0; })[0]; return f ? f.slice(p.length) : null; }
   function choose(story, s, c) {
     prepare(story);
     s.evIn = false;
@@ -3796,6 +3819,10 @@
     if (c.back === true) c = Object.assign({}, c, { to: s.hubLast });
     if (c.once && s.node) { s.once = s.once || {}; s.once["c|" + s.node + "|" + (c.onceKey ? interp(s, c.onceKey) : c.label)] = 1; }
     if (c.silence) silenceNote(story, s, c.silence);
+    // À trois (9.6): the engine itself remembers the post a player took (role) and the voice he cast (voix), as the
+    // states `role:<key>=<option>` and `voix:<key>=<option>`; the scenario only reads them.
+    if (c.role) apply(story, s, { set: keyed(ROLE_FLAG + c.role, c.option || c.label) });
+    if (c.voix) apply(story, s, { set: keyed(VOICE_FLAG + c.voix, c.option || c.label) });
     if (c.refuse) { var rq = questOfRefusal(story, s, c); if (rq) { s.flags["quete-refus:" + rq.id] = true; ev(s, "Quête refusée : " + rq.title + ". Tu n'y reviendras pas.", "quest"); } else guard(s, "refuse : aucune quête ouverte ici"); }
     s.last = null; s.via = c.via || null;
     // takes on a choice (7.9): the way there spends time (a walk, a talk); the clock moves before the page opens, so
@@ -3915,6 +3942,7 @@
     battleDef: battleDef, heroForce: heroForce, tick: tick, reached: reached,
     weatherOf: weatherOf, weatherKind: weatherKind, weatherMod: weatherMod, roadTollOn: roadTollOn, seasonOf: seasonOf, woundsOpen: woundsOpen, woundDef: woundDef, woundDays: woundDays, FATIGUE_MAX: FATIGUE_MAX,
     traitOf: traitOf, traitWord: traitWord, practiceOf: practiceOf, TRAIT_MAX: TRAIT_MAX, DUEL_MOVES: DUEL_MOVES, puzzleRight: puzzleRight,
+    stateValue: stateValue, ROLE_FLAG: ROLE_FLAG, VOICE_FLAG: VOICE_FLAG, BALLOT_FLAG: BALLOT_FLAG, postHolder: postHolder,
     secretsOf: secretsOf, secretKnown: secretKnown, secretDef: secretDef, interludeOf: interludeOf, autreForm: autreForm,
     doubt: doubt, accountBy: accountBy, topicSolved: topicSolved, dreadOf: dreadOf, dreadMax: dreadMax, dreadWord: dreadWord, dreadTrouble: dreadTrouble, attachOf: attachOf, ATTACH_MAX: ATTACH_MAX,
     LENS_EFFECTS: LENS_EFFECTS, reveal: reveal, veilsIn: veilsIn, unveil: unveil, veilInfo: veilInfo, veilsOf: veilsOf, veilMark: veilMark, lensHeld: lensHeld, lensLeft: lensLeft, lensDef: lensDef, veilCount: veilCount, VEIL_RE: VEIL_RE,

@@ -1,0 +1,228 @@
+// Les Trois Clefs d'Aiguemorne · act IV, the voice (2): the evening and the night of the 6th of November. The supper
+// at the count's left, the tale of the aurochs, the Syndic's advice, the dice, the gallery of the Trophies with the
+// chevalier d'Ornevault, and, towards three in the morning, the count at a nearly empty table.
+// Shared: monde:a4:presente, monde:a4:tic (the count's left hand), monde:a4:estime_comte (the duel won, or the
+// chevalier's word), monde:a4:ornevault (the chevalier's friendship), monde:a4:mere (what the dowager said at ten
+// past three), monde:brandelis:honte (he has said it about the Remonteur), monde:a4:comte_froid (the mother was
+// spoken of badly).
+// Personal: a4:v_conte, a4:v_piege (the Syndic's advice heard), a4:v_veille (stayed up for him).
+// Ends at A4c_rdv (a4_rdv).
+var TABLE = { all: [{ has: "a1:v_sang" }, { has: "monde:a1:invite_chasses" }] };
+module.exports = {
+  passages: {
+    A4v_soir: { act: "IV", title: "Le retour de la chasse", place: "brandelis", ambiance: "chateau",
+      fx: { until: 20 },
+      text: [
+        "Elle rentre à la nuit, sans fanfare. On l'entend d'abord au pas des chevaux sur la chaussée, qui est celui d'une troupe battue ; puis à la voix du maître, dans la cour, qui dit trois mots à ses valets, et rien de plus. Les loups lui ont pris son daguet. Il monte se baigner.",
+        "On soupe à huit heures. Tu as passé le reste du jour au Héron, sur ton lit, la houppelande pendue à un clou, à te répéter la Lithovie : la capitale, que tu as nommée Vilkova ; le grand-duc, qui a soixante ans et une jambe de bois ; l'aurochs, que tu n'as jamais vu.",
+        { if: { has: "monde:a4:presente" }, text: "Quand tu entres dans la grande salle, sous les bois de cerf et leurs deux cents bougies, un maître d'hôtel te mène tout droit au sommet du fer à cheval. Ta chaise est à la gauche du fauteuil à bras. À droite, il y a déjà le velours prune. En face, une soutane violette, devant une assiette vide.", else: "Quand tu entres dans la grande salle, sous les bois de cerf et leurs deux cents bougies, un maître d'hôtel te mène à ta place. Elle est au bas bout, entre un abbé et un cadet de province : l'intendant a réglé les préséances. Le fauteuil à bras est à trente couverts de toi." },
+        "Le comte entre le dernier, les cheveux encore mouillés, le lévrier gris sur les talons. Tout le monde se lève. Il a remis sa figure de cour de château, comme on remet un habit ; mais il y a dessous, ce soir, une mauvaise humeur qu'il ne dépense pas.",
+        { if: { all: [{ not: "monde:a4:presente" }, TABLE] }, text: "Il parcourt la table des yeux. Il te trouve, au bas bout, dans ta fourrure. « La Lithovie est en pénitence ? Ravaudet, vous placez mes hôtes comme vous payez mes dettes. Excellence, ici ! À ma gauche. J'ai besoin ce soir de quelqu'un qui me fasse rire. »" },
+        { if: { all: [{ not: "monde:a4:presente" }, { not: TABLE }] }, text: "Il parcourt la table des yeux. Il s'arrête sur ta houppelande verte, là-bas, et lève son verre. « La Lithovie ! Vous m'avez promis un aurochs. Je vous écoute d'ici : j'ai la voix qui porte, tâchez d'avoir la vôtre. »" },
+      ],
+      choices: [{ label: "Déplier ta serviette", to: "A4v_souper", big: true }] },
+    A4v_souper: { act: "IV", title: "Comment on sert un aurochs", place: "brandelis", ambiance: "chateau",
+      text: [
+        "On sert le potage, les entrées, un pâté de venaison grand comme un bouclier. Le comte mange vite, boit de même. Il attend le rôt pour se tourner vers toi.",
+        "« Eh bien, Excellence. L'aurochs. Je veux tout : la bête, l'arme, la manière. Et songez que vous parlez à un homme qui a servi deux cents cerfs. Si vous me contez une chasse de tapisserie, je le saurai à la troisième phrase. »",
+        "Soixante personnes se sont tues. Tu n'as jamais vu d'aurochs. Tu as vu, ce matin, sous une bâche, une tête de carton avec des cornes, qui sert au second acte de *Tamerlan*.",
+      ],
+      choices: [
+        { label: "Raconter la bête qui charge, et l'homme seul, l'épieu planté en terre, qui attend",
+          test: { dom: "social", diff: 10, label: "Inventer une chasse devant un veneur", help: [{ if: { voie: "comedien" }, v: 20 }, { if: { voie: "bretteur" }, v: 10 }, { if: { has: "a4:v_maniere=hauteur" }, v: 5 }, { if: { has: "monde:a4:complice" }, v: 10 }, { if: { has: "a4:sentiers" }, v: 5 }] },
+          win: { fx: { flag: ["a4:v_conte", "monde:a4:presente"], ep: ["perso", 1000] }, to: "A4v_conte" }, lose: { to: "A4v_conte" } },
+        { label: "Raconter une chasse manquée : la tienne, où tu as eu peur, et où la bête t'a regardé{e}",
+          test: { dom: "social", diff: 5, label: "Dire vrai sous un mensonge", help: [{ if: { voie: "rebouteux" }, v: 15 }, { if: { voie: "coureur" }, v: 10 }, { if: { has: "a4:v_maniere=silence" }, v: 10 }, { if: { has: "monde:a4:complice" }, v: 10 }] },
+          win: { fx: { flag: ["a4:v_conte", "monde:a4:presente"], ep: ["perso", 1000] }, to: "A4v_conte" }, lose: { to: "A4v_conte" } },
+      ] },
+    A4v_conte: { act: "IV", title: "Vilkova", place: "brandelis", ambiance: "chateau",
+      fx: { flag: "a4:v_piege" },
+      text: [
+        { outcome: "win", text: "Tu ne décris pas l'aurochs. Tu décris ce que l'on sent dans ses jambes quand une chose plus lourde que soi vous a choisi, et qu'il n'y a plus dans toute la forêt que deux endroits : celui où l'on est, et celui où elle est. Cela, tu le connais. Tu l'as appris sur des toits, dans des caves, devant des hallebardes. Tu y mets seulement des cornes." },
+        { outcome: "win", text: "Le comte t'a écouté{e} le menton dans la main, sans boire. Quand tu te tais, il reste un instant où il est. « C'est cela », dit-il, pas très haut. « Je ne sais pas si vous avez vu un aurochs. Vous avez vu ce moment-là. » Puis, pour la table, de sa grande voix : « Messieurs, à la Lithovie ! On y sait ce que c'est que d'attendre une bête ! » On boit. Le chevalier d'Ornevault, à mi-table, a levé son verre un peu après les autres." },
+        { outcome: "lose", text: "Tu décris l'aurochs. Tu lui mets des cornes de six pieds, un poil roux, un souffle qui couche les fougères. Tu en mets trop : cela devient la tête de carton, avec ses yeux peints. Le comte t'écoute poliment, en homme à qui l'on montre le portrait d'un cheval par quelqu'un qui n'a jamais monté." },
+        { outcome: "lose", text: "« C'est très beau », dit-il quand tu as fini. « On dirait une tapisserie des Flandres. » Il n'y a pas de malice dans sa voix ; il y a pis, de la distraction. Il se retourne vers son voisin de droite. La table recommence à parler." },
+        "C'est au dessert que Maître Quincarnon se penche vers toi, par-dessus une pyramide de poires. Il est rond, cordial, confidentiel.",
+        "« Excellence, un conseil d'ami, puisque vous êtes neuf dans la maison. Si vous voulez plaire tout à fait à notre hôte, faites-le parler de Madame sa mère. La comtesse douairière. C'est son sujet favori ; il est intarissable. Dites-lui, tenez, que l'on vante jusqu'en Lithovie la façon dont elle tenait sa bourse. Il sera aux anges. »",
+        "Il se rassied. Il pèle une poire, en une seule épluchure, avec une adresse de gros homme.",
+        { if: { has: "a3:lor_brandelis" }, text: "*Ne lui parlez pas de sa mère. Quelqu'un vous y poussera.* Tu regardes la pelure descendre, intacte, jusqu'à la nappe." },
+      ],
+      choices: [{ label: "Suivre la table au jeu", to: "A4v_jeu", big: true }] },
+
+    // ───────────────────────────── The dice ─────────────────────────────
+    A4v_jeu: { act: "IV", title: "Le passe-dix", place: "brandelis", ambiance: "chateau",
+      fx: { until: 21 },
+      text: [
+        "On a desservi un bout de la grande table, on y a jeté un tapis vert, et vingt personnes se sont rangées autour. Les autres font cercle. Le comte tient le cornet le premier, de droit. Il a posé devant lui un carnet à souche, une plume, et la carafe.",
+        "« Je passe dix. Qui met contre ? »",
+        "On met contre. Des écus, des demi-louis, un abbé met une tabatière. Il secoue, d'un tour de poignet qui fait claquer le cuir, et jette. Trois dés d'ivoire roulent sur le drap, et toute la table se penche du même mouvement, comme un champ sous le vent.",
+        "« Douze ! » Il ramasse. Il rit. Il a oublié le daguet.",
+        { if: { has: "a4:passe_dix" }, text: "Tu sais ce jeu : un lieutenant décousu te l'a montré, sur une table d'auberge, avec le tour de poignet. *Cela ne change rien aux dés, cela impressionne la table.* Tu sais aussi ce qu'il faut regarder." },
+        "Il perd le coup suivant, passe le cornet, le reprend. Il joue comme il chasse : à grand bruit, sans calcul, en payant de sa personne. Quand il n'a plus d'or, ce qui vient vite, il ouvre le carnet, écrit une somme, signe d'un B qui tient la moitié de la feuille, et déchire. Personne ne refuse le papier. Personne ne le regarde non plus.",
+        "Le cornet vient à toi.",
+      ],
+      choices: [
+        { label: "Jouer petit, perdre avec grâce, et regarder ses mains pendant une heure",
+          test: { dom: "savoir", diff: 10, label: "Voir ce qu'un joueur fait sans le savoir", help: [{ if: { has: "a4:passe_dix" }, v: 20 }, { if: { voie: "crocheteur" }, v: 10 }, { if: { voie: "comedien" }, v: 5 }, { if: { has: "a1:v_sang" }, v: 10 }] },
+          win: { fx: { flag: "monde:a4:tic", gold: -40, clue: "s4_main_gauche", ep: ["perso", 1200] }, to: "A4v_jeu_vu" }, lose: { fx: { gold: -40 }, to: "A4v_jeu_vu" } },
+        { label: "Jouer pour gagner : passer dix, trois fois de suite, et lui prendre du papier",
+          test: { dom: "social", diff: 15, label: "Tenir le cornet contre le Connétable", help: [{ if: { has: "a4:passe_dix" }, v: 10 }, { if: { voie: "crocheteur" }, v: 10 }, { if: { has: "a1:v_sang" }, v: 10 }] },
+          win: { fx: { gold: 120, item: "bons_brandelis", ep: ["perso", 800] }, to: "A4v_jeu_vu" }, lose: { fx: { gold: -100 }, to: "A4v_jeu_vu" } },
+      ] },
+    A4v_jeu_vu: { act: "IV", title: "La main gauche", place: "brandelis", ambiance: "chateau",
+      text: [
+        { if: { has: "monde:a4:tic" }, text: "Tu le vois à la dixième fois, parce que tu l'attendais. Il prend toujours les dés de la main droite, sur le tapis, d'un geste rond. Mais trois fois dans l'heure, il les a pris de la gauche : distraitement, en regardant ailleurs, comme on se gratte. Et les trois fois, dans la seconde qui a suivi, il a dit : « Je double. » Sa main le sait avant sa bouche. Une envie lui vient dans le bras gauche, et monte." },
+        { if: { has: "monde:a4:tic" }, text: "Tu regardes autour de la table. Personne n'a rien vu, depuis quinze ans que l'on joue contre lui. Le chevalier d'Ornevault, peut-être ; il a l'œil sur ce bras-là, lui aussi, et une ride au coin de la bouche chaque fois qu'il bouge." },
+        { if: { not: "monde:a4:tic" }, text: "Tu regardes ses mains une heure. Ce sont de grandes mains brunes, couturées, qui font sauter les dés, écrivent, déchirent, versent à boire. Tu y cherches une habitude, un signe, une faiblesse. Tu y vois un homme qui s'amuse. S'il y a autre chose, il aurait fallu savoir d'avance où regarder." },
+        { outcome: "win", if: { item: "bons_brandelis" }, text: "Tu as passé dix trois fois. Il t'a payé{e} en riant, d'abord de deux louis qui lui restaient, puis d'une feuille de son carnet. Tu as un B dans ta manche, à présent, comme tout le pays." },
+        "À dix heures moins le quart, un valet vient lui parler à l'oreille. Sa figure change. Il vide son verre, se lève, pose le cornet devant le chevalier.",
+        "« Ornevault, tiens la banque. J'ai trois quarts d'heure d'ennui à prendre, derrière la chapelle, avec deux hommes qui ne jouent pas. » Il regarde le Syndic, qui est déjà debout, et le Doyen, qui n'a rien mangé. « Messieurs, je vous suis. Qu'on rentre les chiens. »",
+        "Ils sortent tous les trois. La table, sans lui, joue plus bas.",
+      ],
+      choices: [
+        { label: "Aller dans la galerie, sous les trophées : on t'y attend", to: "A4v_duel", if: { has: "a4:v_defi" }, hide: { not: "a4:v_defi" }, big: true },
+        { label: "Aller dans la galerie, où le chevalier fume seul", to: "A4v_ornevault_paix", if: { has: "a4:v_paix" }, hide: { not: "a4:v_paix" }, big: true },
+        { label: "Rester à la table, et attendre qu'il revienne", to: "A4v_attente", big: true },
+      ] },
+
+    // ───────────────────────────── The gallery ─────────────────────────────
+    A4v_duel: { act: "IV", title: "Sous les trophées", place: "brandelis", ambiance: "nuit",
+      text: [
+        "La galerie n'a que ses deux lanternes, une à chaque bout. Entre les deux, cent pas d'ombre, et trois cents têtes.",
+        "Le chevalier a passé la banque à un autre. Il t'attend au milieu, sous le portrait de la douairière, en manches de chemise, son habit plié sur un fauteuil. Il a planté deux flambeaux dans les mâchoires de deux massacres.",
+        "« Vous êtes venu{e}. C'est déjà une réponse à l'une de mes questions. » Il tire son épée, sans hâte, la fait plier contre le plancher. « Au premier sang. Je n'ai pas de témoin, et vous non plus ; nous avons ceux-ci. » Il montre le plafond. « Ils en ont vu d'autres. Si vous me touchez, je me suis trompé sur vous, et je vous en ferai mes excuses devant lui. Si je vous touche, vous partez demain avant le jour, avec votre fourrure. »",
+        "Il se met en garde. Il a une hanche raide, cinquante ans, et six campagnes dans le poignet.",
+        "La douairière vous regarde, de son cadre noir, avec ses yeux qui écoutent.",
+      ],
+      choices: [
+        { label: "Dégainer",
+          fight: { title: "Au premier sang, dans la galerie", enemies: [{ id: "ornevault", n: 1 }], win: { fx: { flag: ["monde:a4:estime_comte", "monde:a4:ornevault"], ep: ["perso", 1600] }, to: "A4v_duel_fin" }, lose: { fx: { pv: 4 }, to: "A4v_duel_fin" } } },
+        { label: "« Chevalier, je ne me bats pas contre le seul homme de cette maison qui l'aime. »",
+          test: { dom: "social", diff: 15, label: "Désarmer d'un mot un homme en garde", help: [{ if: { voie: "comedien" }, v: 10 }, { if: { voie: "rebouteux" }, v: 10 }, { if: { has: "a4:v_histoire_clef" }, v: 15 }, { if: { has: "a4:v_conte" }, v: 5 }] },
+          win: { fx: { flag: "monde:a4:ornevault", ep: ["perso", 1200] }, to: "A4v_duel_mot" }, lose: { to: "A4v_duel_mot" } },
+      ] },
+    A4v_duel_fin: { act: "IV", title: "Le premier sang", place: "brandelis", ambiance: "nuit",
+      text: [
+        { outcome: "win", text: "Il est meilleur que toi. Tu le sais à la troisième passe : il a le fer plus court, plus sûr, et il te ferait reculer jusqu'à la lanterne s'il avait encore ses deux jambes. Il ne les a plus. Sur un dégagement, sa hanche lui manque d'un demi-pied ; tu es dedans avant d'y avoir pensé, et ta pointe lui ouvre la manche, de l'épaule au coude." },
+        { outcome: "win", text: "Il regarde le rouge venir sur le linge. Il baisse son épée. Il n'a ni colère ni dépit : il a l'air d'un homme qui vient de recevoir une nouvelle. « Je me suis trompé. Vous n'êtes pas un fripon de table. Un fripon se serait fait porter malade. » Il noue un mouchoir avec ses dents. « Je ne sais toujours pas ce que vous êtes, et la Lithovie n'existe pas. Mais vous vous battez comme quelqu'un qui a une raison. Je dirai à Thibert que vous m'avez touché : il en rira huit jours, et il vous aimera pour cela plus que pour vos aurochs. »" },
+        { outcome: "lose", text: "Il est meilleur que toi. Tu le sais à la troisième passe, et lui depuis la première. Il te mène où il veut, entre ses deux flambeaux, sans se presser, en maître d'armes ; et quand il en a vu assez, il te pique à l'avant-bras, proprement, de la profondeur d'un ongle." },
+        { outcome: "lose", text: "« Premier sang. » Il essuie sa lame. « Vous partez demain. » Il te regarde, pourtant, remettre ton fer au fourreau d'une main qui ne tremble pas, et quelque chose se défait dans sa figure en lame de couteau. « Non. Restez jusqu'au bal. Vous êtes venu{e} : un fripon ne serait pas venu. Je vous garde à l'œil, voilà tout. C'est une place comme une autre. »" },
+        "Il reprend son habit. En passant sous le cadre noir, il ôte son chapeau, qu'il n'avait pas. Le geste lui est resté dans la main.",
+      ],
+      choices: [{ label: "Bander ce qu'il y a à bander, et retourner à la table", to: "A4v_attente", big: true }] },
+    A4v_duel_mot: { act: "IV", title: "Un mot contre une épée", place: "brandelis", ambiance: "nuit",
+      text: [
+        { outcome: "win", text: "Sa pointe ne bouge pas. Elle reste à hauteur de ta poitrine, le temps qu'il te regarde. Puis elle descend, d'un pouce, de deux." },
+        { outcome: "win", text: "« Qui vous a dit cela ? » « Une baronne qui a le pied dans une éclisse. Elle m'a raconté une nuit, il y a quinze ans : une chaise devant une porte, et une clef dans un poing. » Il rengaine. Il a vieilli de dix ans en une phrase. « Elle battait », dit-il. « Je vous jure qu'elle battait dans ma main, comme une chose qui a un cœur. Je n'ai pas dormi. J'ai compris cette nuit-là pourquoi sa mère ne riait jamais. » Il te tend la main, la droite, celle de l'épée. « Je ne sais pas ce que vous êtes venu{e} faire chez lui. Si c'est contre lui, je vous tuerai. Si c'est pour lui, venez me le dire. »" },
+        { outcome: "lose", text: "« C'est bien tourné. » Sa pointe n'a pas bougé d'un cheveu. « Les fripons tournent bien : c'est leur fonds de commerce. En garde, Excellence, ou partez ce soir. » Tu n'as pas tiré ton fer. Il attend, le temps de compter dix, puis il rengaine avec un mépris tranquille. « Vous resterez donc, et je vous aurai à l'œil. Ne vous approchez pas de sa gauche. »" },
+      ],
+      choices: [{ label: "Retourner à la table", to: "A4v_attente", big: true }] },
+    A4v_ornevault_paix: { act: "IV", title: "Une pipe sous un portrait", place: "brandelis", ambiance: "nuit",
+      fx: { flag: "monde:a4:ornevault", ep: ["perso", 800] },
+      text: [
+        "Il a passé la banque à un autre. Il fume, debout sous le portrait de la douairière, une petite pipe de soldat, et il regarde la fumée monter vers les massacres.",
+        "« Vous avez joué droit. » Il ne se retourne pas. « Je vous ai regardé{e} une heure. Vous perdez comme quelqu'un qui n'est pas venu pour gagner, ce qui m'inquiète d'une autre façon. Mais vous m'avez dit ce matin une chose juste, et je paie ce que je dois. »",
+        "Il montre le cadre noir, du tuyau de sa pipe.",
+        "« Voilà la personne qu'il faudrait pour le sauver, et elle est morte. Elle ne lui a jamais fait un reproche. Elle tenait la liste de ce qu'il perdait, avec les dates, et elle la laissait ouverte sur une table. Il aurait préféré le fouet. » Il tire une bouffée. « Je lui ai gagné sa clef, une nuit. Vous le savez, tout le monde le sait. Ce que l'on ne sait pas, c'est ce que j'ai fait jusqu'au matin : je l'ai tenue dans ma main, et elle battait. Je vous le jure. Comme une chose qui a un cœur. Je la lui ai rendue parce que j'avais peur de ce que je tenais. »",
+        "Il secoue sa pipe contre un bois de cerf.",
+        "« Il sort la nuit. Vous le verrez rentrer vers deux heures et demie, les bottes mouillées. Il vient alors s'asseoir à la table, où il ne reste que moi et les chandelles, et c'est la seule heure du jour où il parle. Je dormirai. Je dors très bien, à cette heure-là, quand il y a quelqu'un pour l'écouter à ma place. »",
+      ],
+      choices: [{ label: "Retourner à la table, et y rester", to: "A4v_attente", big: true }] },
+
+    // ───────────────────────────── Three in the morning ─────────────────────────────
+    A4v_attente: { act: "IV", title: "Une table qui se vide", place: "brandelis", ambiance: "nuit",
+      fx: { until: 23 },
+      text: [
+        "Il revient de la chapelle à onze heures, seul, à grands pas. Il ne s'assied pas. Il prend la carafe sur le tapis vert, boit à même, et regarde ses invités comme s'il cherchait lequel insulter.",
+        "« Jouez sans moi. J'ai besoin d'air. »",
+        "Il sort par la porte du fond, celle des appartements. Le lévrier gris veut le suivre ; il le renvoie du pied, doucement.",
+        "La table joue encore une heure. Puis l'abbé s'en va, la tabatière en moins. Les habits cramoisis montent se coucher, par deux, par trois, en bâillant : on ne chasse pas demain. Les valets mouchent une bougie sur deux. Vers une heure, il reste sous les bois de cerf le chevalier d'Ornevault, qui dort dans un fauteuil, le menton sur la poitrine ; un tapis vert ; trois dés ; et toi.",
+        "Les deux autres doivent t'attendre, là-haut, sous le balancier.",
+      ],
+      choices: [
+        { label: "Rester. Il reviendra, et un homme qui rentre à cette heure a quelque chose à dire", to: "A4v_trois_heures", big: true, fx: { flag: "a4:v_veille" } },
+        { label: "Monter à la tour : tu en sais assez pour une journée", to: "A4v_fin" },
+      ] },
+    A4v_trois_heures: { act: "IV", title: "Vers trois heures", place: "brandelis", ambiance: "nuit",
+      text: [
+        "Tu l'entends avant de le voir : un pas dans le corridor, lourd, mouillé. La porte du fond s'ouvre.",
+        "Il a de l'eau jusqu'aux genoux, de la vase à ses bottes, et sur lui une odeur de marais et de nuit. Il ne s'étonne pas de te trouver là. Il s'assied en face de toi, de l'autre côté du tapis, dans la lueur des quatre bougies qui restent, et il se verse à boire d'une main qui ne fait plus de bruit.",
+        "« La Lithovie ne dort pas. » Il pousse la carafe vers toi. « Moi non plus. Il y a onze ans que je ne sais plus à quelle heure on dort : mes horloges ne me le disent pas. »",
+        "Il prend les dés. Il les fait rouler d'une paume dans l'autre, sans jouer. Ornevault ronfle doucement. Dehors, sur l'étang, quelque chose crie, une fois : un héron, ou un rêve de chien.",
+        "« J'ai une décision à prendre avant le bal », dit-il aux dés. « On m'offre mes bois. On m'offre de mourir chez moi. Il suffit d'un B au bas d'une page. J'en ai mis deux mille dans ma vie, sur n'importe quoi. Et celui-là ne vient pas. »",
+        "Il lève les yeux sur toi. Ils sont bruns, fatigués, sans défense. C'est l'heure dont on t'a parlé.",
+      ],
+      choices: [
+        { label: "« Il y a de la bruyère fraîche sous un portrait, dans votre galerie. Les traces de bottes étaient les vôtres. »", if: { has: "a4:v_bruyere" }, hide: { not: "a4:v_bruyere" },
+          test: { dom: "social", diff: 5, label: "Entrer chez un homme par la seule porte qu'il laisse ouverte", help: [{ if: { voie: "rebouteux" }, v: 10 }, { if: { has: "monde:a4:estime_comte" }, v: 10 }, { if: { has: "monde:a4:complice" }, v: 10 }, { if: { has: "a4:v_conte" }, v: 5 }, { if: { has: "a4:v_maniere=silence" }, v: 5 }] },
+          win: { fx: { flag: ["monde:a4:mere", "monde:brandelis:honte"], clue: "j4_mere", ep: ["histoire", 1500] }, to: "A4v_mere" }, lose: { fx: { flag: "monde:brandelis:honte", clue: "r4_honte" }, to: "A4v_honte" } },
+        { label: "« On m'a conseillé, à votre table, de vous parler de votre mère. Un gros homme, qui pelait une poire. J'ai pensé que vous aimeriez le savoir. »", if: { has: "a4:v_piege" },
+          test: { dom: "social", diff: 5, label: "Rendre un piège à celui pour qui on l'avait tendu", help: [{ if: { voie: "comedien" }, v: 10 }, { if: { has: "a3:lor_brandelis" }, v: 15 }, { if: { has: "monde:a4:estime_comte" }, v: 10 }, { if: { has: "monde:a4:complice" }, v: 10 }, { if: { has: "a4:v_conte" }, v: 5 }] },
+          win: { fx: { flag: ["monde:a4:mere", "monde:brandelis:honte"], clue: "j4_mere", ep: ["histoire", 1500] }, to: "A4v_mere" }, lose: { fx: { flag: "monde:brandelis:honte", clue: "r4_honte" }, to: "A4v_honte" } },
+        { label: "« Vous buvez pour quelqu'un, monsieur le comte. Je ne vous demande pas pour qui. »", fx: { flag: "monde:brandelis:honte", clue: "r4_honte", ep: ["perso", 1000] }, to: "A4v_honte" },
+        { label: "« On vante jusque chez nous la façon dont Madame votre mère tenait sa bourse. »", fx: { flag: "monde:a4:comte_froid" }, to: "A4v_mere_ko" },
+      ] },
+    A4v_mere: { act: "IV", title: "Trois heures dix", place: "brandelis", ambiance: "nuit",
+      text: [
+        "Il ne répond pas tout de suite. Il a posé les dés. Sa main est montée à son ruban, et elle y reste.",
+        "« Vous êtes la première personne, depuis onze ans, à me parler d'elle sans vouloir quelque chose. » Il boit. « Ou alors vous voulez quelque chose, et vous le voulez mieux que les autres. À cette heure-ci, cela m'est égal. »",
+        "Il regarde, au-dessus de la cheminée, une pendule de bronze doré qui marque trois heures dix, comme toutes les autres.",
+        "« Elle est morte à cette heure-là. J'avais trente-neuf ans, je lui tenais la main, je pleurais comme un veau. Elle m'a fait signe de me pencher. Je croyais qu'elle allait me parler de mes dettes : elle ne m'en avait jamais parlé, je me disais qu'elle gardait cela pour la fin. » Il a un rire sans bruit. « Elle m'a dit : *Thibert, j'ai porté cette clef deux fois, quand tu étais petit. La première nuit, ces messieurs descendus, je suis restée la dernière. On a toussé, derrière la porte. La seconde fois, j'ai laissé des pastilles sur le seuil. Il y a quelqu'un. Je n'ai rien dit pendant vingt-quatre ans, parce que la ville était bien jugée, et que l'on ne dérange pas un juge qui juge bien. Mais toi, sache pour qui tu tournes.* »",
+        "Il fait tourner son verre.",
+        "« J'ai tourné quatre fois dans ma vie. La dernière, il y a sept ans, je savais. Je suis resté le dernier, comme elle. J'ai collé mon oreille au bronze. On ne toussait pas. » Il baisse la voix. « On écrivait. J'ai entendu une plume. Une plume qui courait, sans s'arrêter, comme quelqu'un qui a beaucoup à dire et pas beaucoup de temps. Je suis descendu sans frapper. Je me suis dit : *à la prochaine, je frapperai.* »",
+        "« Et au printemps, on m'a mis sous le nez deux papiers. Un grand, pour murer le guichet par où cette plume mange. Je n'ai pas signé celui-là. Et un petit, grand comme la main, pour un vieil homme qui graissait la machine et qui avait dit non. Celui-là… » Il vide son verre. « J'étais ivre, j'avais perdu, le gros me tenait la plume. Ce vieux savait qui écrit. Il aurait pu me le dire. J'ai signé sa mort avant de le lui avoir demandé. »",
+        "Il se lève. Il te regarde de toute sa hauteur, sans colère.",
+        "« Voilà. Vous savez ce que sait un Connétable. Faites-en ce que font de ces choses les gens de Lithovie. Je vais dormir deux heures, si l'on dort. »",
+      ],
+      choices: [{ label: "Le laisser sortir, et monter à la tour", to: "A4v_fin", big: true }] },
+    A4v_honte: { act: "IV", title: "Pour qui il boit", place: "brandelis", ambiance: "nuit",
+      text: [
+        { outcome: "lose", text: "Sa figure se ferme, à ce mot, comme une porte que le vent rabat. Il ne se fâche pas ; il s'en va de l'autre côté de lui-même. « On ne parle pas d'elle. » Il a dit cela sans élever la voix. « Vous ne pouviez pas le savoir. À présent, vous le savez. » Il reprend les dés, les repose. Il se tait longtemps." },
+        "« Pour qui je bois. » Il regarde son verre. « Vous avez l'œil, Excellence. On doit l'avoir, derrière la Pologne. »",
+        "Il se verse ce qui reste de la carafe.",
+        "« Je bois pour un petit homme qui sentait l'huile. Vous ne l'avez pas connu. Il remontait une horloge, dans ma ville, depuis quarante ans. Au printemps, il a dit non à trois personnes, dont j'étais. Les deux autres ont mis leur cachet sur un papier grand comme la main. Il restait une place. » Il lève sa main droite, celle qui signe, et la considère. « J'étais ivre. J'avais perdu six cents écus. On me tenait la plume. Je croyais qu'on lui ferait peur. J'ai servi deux cents cerfs de cette main-là, à la dague, en face, dans l'eau, et je n'ai jamais eu honte d'un seul. Celui-là, on l'a tué par-derrière, avec un marteau, sur ma signature. »",
+        "Il boit.",
+        "« Voilà pour qui. Ne le répétez pas ; ou répétez-le, cela m'est égal. Je voudrais que quelqu'un le sache qui ne soit ni mon créancier ni mon confesseur. Ils le savent tous les deux, et ils m'en aiment davantage. »",
+        "Il se lève, lourdement, et s'en va par la porte du fond sans te souhaiter la nuit.",
+      ],
+      choices: [{ label: "Monter à la tour", to: "A4v_fin", big: true }] },
+    A4v_mere_ko: { act: "IV", title: "Un verre contre un mur", place: "brandelis", ambiance: "nuit",
+      text: [
+        "Le verre part avant que tu aies fini ta phrase. Il te passe à un pouce de la tempe, et va s'écraser contre la cheminée, sous la pendule arrêtée.",
+        "Le comte est debout. Il a la figure blanche jusqu'aux lèvres, et sa cicatrice y fait un trait rouge. Sa main est sur sa dague. Ornevault s'est réveillé d'un coup, en soldat, déjà sur ses pieds.",
+        { if: { has: "monde:a4:estime_comte" }, text: "« Thibert. » La voix du chevalier, basse, coupante. « Cet ambassadeur m'a touché ce soir, dans ta galerie, loyalement. Tu ne vas pas me le tuer à trois heures du matin pour une phrase qu'on lui a soufflée. Regarde-le : il ne sait pas ce qu'il a dit. » Le comte te regarde. Il respire, une fois, longuement, par le nez. Sa main quitte la dague." },
+        { if: { not: "monde:a4:estime_comte" }, text: "« Thibert. » La voix du chevalier, basse, coupante. « Pas chez toi. Pas un hôte. » Le comte ne l'entend pas tout de suite. Il te regarde comme il regarde, dans l'eau, ce qu'il va servir. Puis quelque chose cède : ses épaules, d'abord. Sa main quitte la dague." },
+        "« Qui vous a dit de me dire cela ? »",
+        "Tu le lui dis. Un gros homme, au dessert, avec une poire.",
+        "Il a un rire que tu ne voudrais pas entendre deux fois. « Bien sûr. Il lui fallait un mort chez moi avant le bal : cela m'aurait coûté ma parole d'hôte, et il l'aurait mise sur son registre avec le reste. » Il se rassied. Il ne te regarde plus. « Vous êtes un sot, Excellence, ou vous le jouez très bien. Dans les deux cas, ne m'approchez plus avant que je vous fasse signe. Bonne nuit. »",
+        "Tu as gardé ta tête, et perdu ta place à sa gauche.",
+      ],
+      choices: [{ label: "Saluer, et monter à la tour", to: "A4v_fin", big: true }] },
+    A4v_fin: { act: "IV", title: "Ce qu'une table a rendu", place: "tour_horloge", ambiance: "nuit",
+      fx: { until: 23, catchup: 14, catchupWhy: "ce que l'on apprend à mentir une journée entière sous une fourrure" },
+      text: [
+        "Tu ôtes la houppelande sur la quatre-vingtième marche. Tu arrives en haut en chemise, le bonnet à la main, avec dans la bouche le goût du vin d'un autre.",
+        "Maître Crochemore lève le nez de son étau. « Son Excellence daigne monter. Son Excellence a-t-elle soupé ? » Il te tend la cruche, tout de même.",
+        "Tu fais ton compte, assis{e} contre le grand tambour.",
+        { if: { has: "monde:a4:presente" }, text: "Une chaise à sa gauche, sous deux cents bougies.", else: "Une chaise au bas bout, à trente couverts de lui." },
+        { if: { has: "monde:a4:tic" }, text: "Une main gauche, qui prend les dés avant que sa bouche dise *je double*." },
+        { if: { has: "monde:a4:clef_vue" }, text: "Une clef peinte, à la ceinture d'une morte : rouge, courte, quatre dents ou cinq." },
+        { if: { has: "monde:a4:ornevault" }, text: "Un chevalier qui l'aime, et qui te l'a dit." },
+        { if: { has: "monde:a4:mere" }, text: "Et une plume, qu'un comte a entendue courir derrière du bronze." },
+        { if: { has: "monde:a4:comte_froid" }, text: "Et un verre cassé, sous une pendule." },
+        "La vis résonne. Les deux autres sont là, ou ils montent.",
+      ],
+      choices: [{ label: "T'asseoir près du brasero", to: "A4c_rdv", big: true }] },
+  },
+
+  extras: {
+    enemies: {
+      ornevault: { name: "Le chevalier d'Ornevault", look: "humain", pv: 18, att: 44, def: 24, dmg: 6, desc: "Cinquante ans, une hanche raide, six campagnes dans le poignet. Il s'arrête au premier sang." },
+    },
+    clues: {
+      s4_main_gauche: { rev: "S", text: "Le comte de Brandelis, aux dés : quand il va doubler, il prend les dés de la main gauche, un instant avant de le dire. Personne à sa table ne l'a remarqué en quinze ans." },
+      j4_mere: { rev: "J", text: "Le comte, vers trois heures : sa mère, mourante, lui a dit qu'on avait toussé derrière la porte. « Sache pour qui tu tournes. » Lui, il y a sept ans, a collé l'oreille au bronze : « On écrivait. J'ai entendu une plume. »" },
+      r4_honte: { rev: "R", text: "Le comte de Brandelis boit pour le Remonteur : « Les deux autres ont mis leur cachet. Il restait une place. J'étais ivre, on me tenait la plume. On l'a tué par-derrière, sur ma signature. »" },
+    },
+  },
+};

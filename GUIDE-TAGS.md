@@ -474,6 +474,27 @@ Le validateur : syntaxe des voiles, lentille déclarée, objet existant, même v
 
 Pièges : un voile sans `#id` dont les mots dits sont courts (« rien ») risque de rencontrer un autre voile ; donner un `#id` dès qu'il a une suite. Les charges se dépensent aussi sur les voiles sans suite : un lecteur prudent les garde.
 
+## États et conditions (17/11, 11.3)
+
+- `has: "clé"` tient aussi dès qu'une page a donné une valeur à la clé (`fx.set: { "clé": "valeur" }`), quelle que soit la valeur. `has: "clé=valeur"` reste la forme précise. Avant, `has: "clé"` sur un état restait faux sans rien dire, et le choix était fermé pour toujours.
+- Validateur, livres à plusieurs : le partenaire fantôme tire chaque marque `monde:` une seule fois par partie, au premier rendez-vous de l'acte où une page peut la poser (avant : à chaque rendez-vous, ce qui finissait par les poser toutes sur un long livre). Une dernière passe de la recherche ciblée part des états qui tiennent déjà les marques demandées par le passage cherché, et essaie l'autre issue d'un test.
+- `VALID_TIME=1 node tests/build.js --only <id>` affiche la durée des parties et de la recherche ciblée ; `VALID_TIME=stop` s'arrête après les parties et liste les passages jamais vus, les boucles et les erreurs.
+
+## À trois (16/11, 9.6) : vote entre joueurs, postes, indices mis en commun
+
+Pour une histoire à trois joueurs, un héros chacun (voir GUIDE-MULTI.md, « À trois »).
+
+| Où | Clé | Sens |
+|---|---|---|
+| `story.scrutins` | `{ <id>: { title, options: { <opt>: "libellé" }, tie, tieSay, secret } }` | Un vote entre les joueurs. `tie` : l'issue quand aucune option n'a la majorité (une option de plus, que seule l'égalité donne). |
+| choix | `voix: "<scrutin>", option: "<opt>"` | Le joueur donne sa voix. Le moteur pose `voix:<scrutin>=<opt>` chez lui, compte au rendez-vous suivant et pose chez tous `monde:scrutin:<scrutin>=<résultat>`. |
+| condition | `{ scrutin: "<id>", is: "<opt>" }` · `{ voix: "<id>", is: "<opt>" }` · `{ role: "<rôle>", is: "<opt>" }` | Le résultat du vote · la voix du héros · le poste qu'il a pris (`is: null` : pas encore). |
+| texte | `{qui:<rôle>:<opt>}` · `{qui:<rôle>:<opt>:e}` | Le héros qui tient ce poste, et son accord. |
+| `story.multi` | `commun: true` | Les indices sont mis en commun à chaque rendez-vous. |
+| indice | `prive: true` | Cet indice ne se met pas en commun. |
+
+Le validateur refuse une voix pour un scrutin ou une option inconnus, une condition sur un rôle qu'aucun choix ne porte, et signale une option pour laquelle personne ne peut voter.
+
 ## À deux, séparés (16/11, 9.6) : dépôts d'un héros à l'autre, chroniques qui changent
 
 Pour « Le Douzième Coup » (les enfants de Clément, 16/11 : un grand scénario à deux). L'un des héros vit soixante ans avant l'autre : il lui enterre des objets, et le livre d'histoire que lit l'autre se réécrit. Le scénario déclare ; le moteur ouvre la liste, fait passer les objets au rendez-vous suivant, les vieillit, et annonce les lignes qui ont changé.
@@ -524,7 +545,7 @@ Le validateur : cartes, fils, haltes, résolutions et tags qui nomment ce qui ex
 
 Ce que le moteur fait seul : une fois par halte, le lecteur peut échanger une carte de sa main contre celle du dessus de sa pioche ; la page montre la pioche (sans son ordre), la défausse et les cartes perdues ; l'explication des règles s'affiche la première fois qu'une main apparaît. Une carte gagnée en route est couverte par la promesse du validateur comme les autres : une carte qu'on ne gagne qu'en route s'ajoute à `cartes` sans entrer dans `jeu.deck`. Pour qu'un gain serve, le donner avant une halte qui accepte son genre (tags `halte` sur le choix qui le donne).
 
-## L'île aux pirates (17/11, 11.3) : escales, équipage nommé, ce qu'une quête doit à un autre livre
+## L'île aux pirates (17/11, 11.4) : escales, équipage nommé, ce qu'une quête doit à un autre livre
 
 Pour « L'Île Folle-Aiguille » (Clément, 17/11 : un grand voyage, des escales qui portent chacune une quête, un équipage qui penche d'un côté ou de l'autre, des quêtes nées d'autres livres de la bibliothèque).
 

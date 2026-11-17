@@ -2604,7 +2604,8 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
-    { v: "11.3", items: ["« L'Île Folle-Aiguille », un grand roman d'aventures en cinq actes : une auberge sur une falaise, un vieux marin et son coffre, un port, une traversée, une île dont les boussoles tournent. Trois personnages à suivre, le troisième après une première fin ; un équipage dont chaque marin penche d'un côté ou de l'autre ; des escales qui portent chacune leur affaire ; et des quêtes nées d'autres livres de la bibliothèque. Huit fins, et le sort de dix personnes."] },
+    { v: "11.4", items: ["« L'Île Folle-Aiguille », un grand roman d'aventures en cinq actes : une auberge sur une falaise, un vieux marin et son coffre, un port, une traversée, une île dont les boussoles tournent. Trois personnages à suivre, le troisième après une première fin ; un équipage dont chaque marin penche d'un côté ou de l'autre ; des escales qui portent chacune leur affaire ; et des quêtes nées d'autres livres de la bibliothèque. Huit fins, et le sort de dix personnes."] },
+    { v: "11.3", items: ["Nouveau grand livre à trois : « Les Trois Clefs d'Aiguemorne », un casse de cape et d'épée dans une cité de serruriers. Trois joueurs, un héros chacun, cinq actes. À chaque acte, on se partage trois postes (la main, l'œil, la voix), chacun vit sa part de son côté, puis on met en commun et l'on vote.", "À trois : le vote entre joueurs (chacun donne sa voix sans voir celle des autres, le livre dépouille au rendez-vous), les postes, et les indices mis en commun."] },
     { v: "11.2", items: ["Histoires à cartes : ton jeu vit avec l'histoire. En route, on te donne des cartes nouvelles, on t'en vole, une scène te fait piocher ou défausser. Une fois par halte, tu peux échanger une carte de ta main contre celle du dessus de ta pioche. Touche les compteurs pour voir ta pioche, ta défausse et tes cartes perdues ; le bouton « ? » réexplique les règles, montrées d'office la première fois.", "« Le Courrier de Vèze » s'en sert : trois cartes à gagner en route (le Jeton des marchands, le Mulet de louage, la Médaille du pèlerin), et des voleurs qui se servent dans ta main."] },
     { v: "11.1", items: ["La bibliothèque se cherche : tape un titre, un auteur ou un genre au-dessus des livres, même avec une faute ou sans accent. « Filtres » trie par genre (aventure, enquête, science-fiction…), par nombre de joueurs, par longueur, par auteur, et selon ce que tu as déjà lu ; le menu d'à côté change l'ordre. Les romans à lire ont leur propre rayon."] },
     { v: "11.0", items: ["« Le Douzième Coup », un grand livre à lire à deux, chacun sur son écran : plus de deux mille passages. Une ville s'est arrêtée au onzième coup de midi, il y a soixante ans. L'un des deux lecteurs part de la veille, l'autre du soixantième anniversaire. Ils s'écrivent par deux Cahiers jumeaux, aux bornes de la route, et ce que l'un met en terre, l'autre peut le retrouver vieilli de soixante ans.", "Pour ce livre : des dépôts aux bornes, qui passent d'une époque à l'autre, et deux chroniques dont les lignes changent selon ce que les lecteurs ont fait (onglet « Chronique »)."] },
@@ -3099,7 +3100,7 @@
     // items, quests, feats) after (Clément, 11/11 then 13/11).
     var kwUsed = {}, evs = s.events || [], evEl = function (list, cls) { return list.length ? h("div", { class: "events " + cls, role: "status" }, list.map(function (e) { var el = h("div", { class: "ev " + (e.cls || "") }, rollBadge(e)); el.insertAdjacentHTML("beforeend", TextFx.auto(st, md(e.text), kwUsed));
       if (e.doc && st.items && st.items[e.doc]) el.appendChild(h("button", { class: "btn ghost sm ev-read", onclick: function () { A.modal = { kind: "doc", id: e.doc }; render(); } }, "Lire"));
-      // A quest's debt to another book (11.3): when that book is in the library, a way to find it there.
+      // A quest's debt to another book (11.4): when that book is in the library, a way to find it there.
       if (e.book && A.builtinMeta && A.builtinMeta[e.book]) el.appendChild(h("button", { class: "btn ghost sm ev-read", onclick: function () { stopSpeaking(); A.open["book:" + e.book] = true; A.screen = "home"; render(); } }, "Le voir dans la bibliothèque"));
       return el; })) : null; };
     if (pref("quietFx")) evs = evs.filter(function (e) { return !e.conseq; });
@@ -3600,6 +3601,7 @@
       if (c.test) meta = h("span", { class: "meta test", title: "Chance de réussite" }, (c.who ? M.nameOf(A.game.story, c.who) + " · " : "") + (c.test.label || M.DOMAINS[c.test.dom]) + " · " + c.chance + " %");
       else if (c.decidedBy) meta = h("span", { class: "meta" }, "choisi par " + c.decidedBy);
       else if (c.monde) meta = h("span", { class: "meta" }, "choix du monde · le premier décide pour tous");
+      else if (c.voix && A.game && A.game.multi) meta = h("span", { class: "meta" }, "ta voix · on compte quand tout le monde a voté");
       else if (c.role && A.game && A.game.multi) meta = h("span", { class: "meta" }, "un seul joueur peut le prendre");
       else if (c.hint) meta = h("span", { class: "meta" }, c.hint);
       else if (c.exit) meta = h("span", { class: "meta" }, "fin de l'acte");
@@ -5403,7 +5405,7 @@
   }
   // Who is with whom: the people met and the camps, on a circle; a line for each tie the hero has found.
   var TIE_COLOURS = { famille: "var(--gold)", allie: "var(--good)", ennemi: "var(--bad)", amour: "var(--mark)", dette: "var(--warn)", sert: "var(--accent)", secret: "var(--ink)", membre: "var(--line)" };
-  // The crew (11.3): who is aboard, who was lost, and of each one only what the hero believes of their leaning.
+  // The crew (11.4): who is aboard, who was lost, and of each one only what the hero believes of their leaning.
   function tabCrew(b, st, s) {
     var all = M.crewView(st, s);
     if (!all.length) { b.appendChild(h("div", { class: "notice" }, "Tu n'as encore embarqué avec personne.")); return; }
