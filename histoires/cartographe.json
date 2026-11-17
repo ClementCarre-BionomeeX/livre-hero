@@ -1,0 +1,3133 @@
+{
+ "id": "cartographe",
+ "title": "Le Cartographe de fièvre",
+ "subtitle": "Un archipel d'encre, une carte tracée en délire, un réveil",
+ "summary": "L'expédition du cartographe Eustache Malbrouck est partie relever les marais des Bouches-Noires. Tu étais son apprenti{e}. On t'a retrouvé{e} seul{e}, dans une barque à la dérive, brûlant{e} de fièvre. Depuis, tu navigues sur une mer d'encre, et ta main dessine la côte à mesure que la barque avance. Ce livre se lit deux fois : la première lecture est la fièvre ; la seconde, le réveil.",
+ "tags": [
+  "enigmes",
+  "fantastique",
+  "aventure"
+ ],
+ "author": "Claude, pour Clément",
+ "age": 12,
+ "skin": "parchemin",
+ "cover": {
+  "motif": "vague",
+  "color": "#1f3a3a"
+ },
+ "glossary": {
+  "vasque|vasques": "Grand bassin de pierre peu profond, où coule une fontaine.",
+  "oriel|oriels": "Fenêtre qui avance sur la façade, comme un petit balcon fermé.",
+  "chevrier|chevrière|chevriers": "Celui ou celle qui garde les chèvres.",
+  "boyau|boyaux": "Passage long et étroit.",
+  "toise|toises": "Ancienne mesure de longueur, un peu moins de deux mètres.",
+  "coudée|coudées": "Ancienne mesure de longueur : du coude au bout des doigts.",
+  "lieue|lieues": "Ancienne mesure de distance, environ quatre kilomètres, une heure de marche.",
+  "arnica": "Plante dont on tire un remède contre les coups et les bleus.",
+  "gambison|gambisons": "Veste épaisse et rembourrée, portée seule ou sous une armure.",
+  "broigne|broignes": "Vêtement de cuir renforcé de plaques ou d'anneaux de métal.",
+  "cotte|cottes": "Tunique. La cotte de mailles est faite de petits anneaux de fer entrelacés.",
+  "cuirasse|cuirasses": "Armure qui protège la poitrine et le dos.",
+  "heaume|heaumes": "Grand casque qui couvre toute la tête.",
+  "pourpoint|pourpoints": "Veste ajustée qui couvre le buste.",
+  "tabard|tabards": "Tunique sans manches portée par-dessus l'armure, souvent aux couleurs d'un seigneur.",
+  "hallebarde|hallebardes": "Arme à long manche, terminée par une lame de hache et une pointe.",
+  "piquier|piquiers": "Soldat armé d'une pique, une très longue lance.",
+  "arbalète|arbalètes": "Arc monté sur un manche de bois, qu'on tend avec un mécanisme ; il tire des carreaux.",
+  "baudrier|baudriers": "Bande de cuir portée en travers du corps, qui soutient l'épée.",
+  "ceinturon|ceinturons": "Grosse ceinture qui porte une arme.",
+  "herboristerie|herboristeries": "Boutique où l'on vend des plantes qui soignent.",
+  "apothicairerie": "Boutique de l'apothicaire, qui prépare les remèdes.",
+  "onguent|onguents": "Pommade qui soigne.",
+  "ravine|ravines": "Petit ravin creusé par l'eau.",
+  "rotonde|rotondes": "Salle ou bâtiment de forme ronde.",
+  "coupole|coupoles": "Toit en forme de demi-boule.",
+  "charretière": "Une porte charretière est assez large pour laisser passer une charrette.",
+  "cochère": "Une porte cochère est assez large pour laisser passer une voiture à chevaux.",
+  "caillé": "Le lait caillé est un lait épaissi, un peu aigre.",
+  "écuelle|écuelles": "Bol large et creux.",
+  "jonc|joncs": "Plante à tige droite qui pousse au bord de l'eau.",
+  "muletier|muletiers|muletière": "Celui ou celle qui conduit les mulets.",
+  "chamelier|chameliers": "Celui qui conduit les chameaux.",
+  "caravanier|caravaniers|caravanière": "Celui ou celle qui conduit une caravane de marchands.",
+  "osselets": "Jeu de petits os qu'on lance et qu'on rattrape.",
+  "chaulé|chaulés|chaulée|chaulées": "Blanchi à la chaux.",
+  "chaux": "Poudre blanche tirée du calcaire : on en blanchit les murs, on en fait du mortier.",
+  "margelle|margelles": "Rebord de pierre autour d'un puits.",
+  "rouvre|rouvres": "Une espèce de chêne.",
+  "câprier|câpriers": "Arbuste qui pousse dans les murs ; on mange ses boutons, les câpres.",
+  "auvent|auvents": "Petit toit au-dessus d'une porte, d'une fenêtre ou d'un étal.",
+  "garance": "Plante dont la racine donne une teinture rouge.",
+  "guède": "Plante dont on tire une teinture bleue.",
+  "astrolabe|astrolabes": "Instrument ancien pour mesurer la hauteur des étoiles et s'orienter.",
+  "éboulis": "Amas de pierres tombées d'une pente.",
+  "gourdin|gourdins": "Bâton gros et court qui sert d'arme.",
+  "tisonne|tisonnes|tisonner": "Remuer les braises du feu.",
+  "tonsure|tonsures": "Cercle rasé sur le haut du crâne, que portent certains religieux.",
+  "amadou": "Matière très sèche, tirée d'un champignon, qui prend feu d'une étincelle.",
+  "éperon|éperons": "Avancée pointue d'une montagne, d'un rocher ou d'un mur ; ou pointe de métal au talon du cavalier.",
+  "vélin": "Parchemin très fin, fait de peau de veau.",
+  "feuillet|feuillets": "Feuille d'un cahier ou d'un livre.",
+  "tenture|tentures": "Grand tissu tendu sur un mur ou devant une ouverture.",
+  "écluse|écluses": "Ouvrage qui retient l'eau d'une rivière ou d'un canal, et la laisse passer à volonté.",
+  "fagot|fagots": "Paquet de petit bois attaché.",
+  "contrebas": "En contrebas : plus bas.",
+  "baluchon|baluchons": "Petit paquet d'affaires noué dans un tissu.",
+  "besace|besaces": "Sac qu'on porte à l'épaule.",
+  "cairn|cairns": "Tas de pierres empilées pour marquer un chemin ou un lieu.",
+  "pilotis": "Pieux enfoncés dans le sol ou dans l'eau, sur lesquels on bâtit.",
+  "soupente|soupentes": "Petit réduit sous un escalier ou sous le toit.",
+  "bourg|bourgs": "Gros village où se tient le marché.",
+  "hameau|hameaux": "Tout petit village.",
+  "gibet|gibets": "Potence où l'on pendait les condamnés.",
+  "poulie|poulies": "Roue sur laquelle passe une corde, pour soulever une charge.",
+  "billot|billots": "Gros bloc de bois sur lequel on coupe ou on fend.",
+  "colporteur|colporteurs|colporteuse|colporteuses": "Marchand qui va de village en village, sa marchandise sur le dos.",
+  "fioritures": "Ornements, détails décoratifs.",
+  "collet|collets": "Piège fait d'un nœud coulant.",
+  "visière|visières": "Partie d'un casque qui protège le visage.",
+  "crevasse|crevasses": "Fente profonde dans la roche ou dans la glace.",
+  "milicien|miliciens|milicienne": "Habitant armé chargé de garder un lieu, sans être un vrai soldat.",
+  "enclume|enclumes": "Bloc de fer sur lequel le forgeron frappe le métal.",
+  "chanvre": "Plante dont on fait des cordes et de la toile.",
+  "meule|meules": "Grosse pierre ronde qui écrase le grain ; ou grand tas de foin.",
+  "dédale|dédales": "Labyrinthe, lieu où l'on se perd.",
+  "sauge": "Plante au parfum fort, qui soigne.",
+  "reliquaire|reliquaires": "Coffret précieux qui garde les restes d'un saint.",
+  "portefaix": "Homme dont le métier est de porter les fardeaux.",
+  "greffier|greffiers|greffière|greffières": "Personne chargée d'écrire et de garder les actes officiels.",
+  "scriptorium": "Salle où l'on copie les livres à la main.",
+  "cocagne": "Le pays de cocagne est un pays imaginaire où tout abonde.",
+  "grelot|grelots": "Petite boule de métal creuse qui tinte.",
+  "luthier|luthiers": "Artisan qui fabrique les instruments à cordes.",
+  "crieur|crieurs|crieuse": "Personne qui annonce les nouvelles à voix haute dans les rues.",
+  "relieur|relieurs": "Artisan qui coud et habille les livres.",
+  "ossuaire|ossuaires": "Lieu où l'on rassemble les os des morts.",
+  "almanach|almanachs": "Petit livre qui donne le calendrier, les saisons, des conseils et des prédictions.",
+  "nacre": "Matière brillante aux reflets changeants, à l'intérieur des coquillages.",
+  "écritoire|écritoires": "Petit pupitre ou coffret qui contient de quoi écrire.",
+  "teinturier|teinturiers|teinturière|teinturières": "Artisan qui colore les tissus.",
+  "étal|étals": "Table où le marchand expose sa marchandise.",
+  "alpage|alpages|estive": "Pâturage de montagne où l'on monte les bêtes pour l'été.",
+  "tisserand|tisserands|tisserande": "Artisan qui fabrique les tissus sur un métier.",
+  "moutier": "Ancien mot pour un monastère.",
+  "cloître|cloîtres": "Galerie couverte qui entoure la cour d'un monastère.",
+  "combe|combes": "Petite vallée étroite.",
+  "liard|liards": "Petite pièce de monnaie de très peu de valeur.",
+  "denier|deniers": "Ancienne pièce de monnaie.",
+  "fascines": "Fagots de branches serrées, pour renforcer un talus ou combler un fossé.",
+  "mélèze|mélèzes": "Arbre de montagne, cousin du sapin, qui perd ses aiguilles en hiver.",
+  "surplomb": "Partie qui avance au-dessus du vide.",
+  "complies": "Dernière prière du soir, chez les moines.",
+  "vêpres": "Prière de la fin d'après-midi, chez les moines.",
+  "héraut|hérauts": "Messager officiel qui porte les annonces d'un seigneur.",
+  "ménestrel|ménestrels": "Musicien et chanteur qui va de château en château.",
+  "péage|péager": "Le péage est le droit qu'on paie pour passer un pont ou un chemin.",
+  "chamois": "Chèvre sauvage des montagnes.",
+  "tréteau|tréteaux": "Support à quatre pieds ; on pose une planche dessus pour faire une table.",
+  "muret|murets": "Petit mur bas.",
+  "lavoir|lavoirs": "Bassin public où l'on lave le linge.",
+  "lavandière|lavandières": "Femme qui lave le linge au lavoir ou à la rivière.",
+  "linteau|linteaux": "Pierre ou poutre posée au-dessus d'une porte ou d'une fenêtre.",
+  "tilleul|tilleuls": "Grand arbre aux fleurs parfumées, dont on fait des tisanes.",
+  "rucher|ruchers": "Ensemble de ruches.",
+  "levain": "Pâte qui fait lever le pain.",
+  "fournil": "Pièce où se trouve le four du boulanger.",
+  "pupitre|pupitres": "Petite table inclinée pour lire ou écrire.",
+  "lutrin|lutrins": "Grand pupitre sur pied où l'on pose un gros livre.",
+  "poterne|poternes": "Petite porte discrète dans le mur d'un château.",
+  "stalle|stalles": "Siège de bois dans le chœur d'une église ; ou case d'un cheval à l'écurie.",
+  "étuve|étuves": "Pièce très chaude, pleine de vapeur.",
+  "lauze|lauzes": "Pierre plate qui couvre les toits en montagne.",
+  "roulier|rouliers": "Charretier qui transporte des marchandises sur les routes.",
+  "lampion|lampions": "Petite lanterne de papier.",
+  "clerc|clercs": "Homme d'Église, ou personne instruite qui sait lire et écrire.",
+  "encrier|encriers": "Petit pot qui contient l'encre.",
+  "colimaçon": "Un escalier en colimaçon tourne sur lui-même.",
+  "chambranle|chambranles": "Encadrement d'une porte ou d'une fenêtre.",
+  "beffroi|beffrois": "Tour où l'on sonne la cloche de la ville.",
+  "claie|claies": "Treillage de branches ou d'osier.",
+  "râtelier|râteliers": "Support où l'on range les armes ; ou mangeoire à foin.",
+  "embrasure|embrasures": "Ouverture dans un mur où se loge une porte ou une fenêtre.",
+  "cantinière|cantinières": "Femme qui vend à boire et à manger aux soldats.",
+  "herse|herses": "Grille qui descend pour fermer l'entrée d'un château.",
+  "chapelain|chapelains": "Prêtre au service d'un château ou d'une chapelle.",
+  "quignon|quignons": "Gros morceau de pain.",
+  "raidillon": "Petit chemin en pente raide.",
+  "joute|joutes|jouter": "Combat à cheval, lance contre lance, pour l'honneur.",
+  "écuyer|écuyers": "Jeune homme au service d'un chevalier.",
+  "replat|replats": "Endroit plat sur une pente.",
+  "bivouac|bivouacs": "Campement en plein air pour la nuit.",
+  "copiste|copistes": "Personne qui recopie les livres à la main.",
+  "mâtin|mâtins": "Gros chien de garde.",
+  "mansarde|mansardes": "Chambre sous le toit.",
+  "houlette": "Bâton de berger.",
+  "rouet|rouets": "Roue qui sert à filer la laine.",
+  "falot|falots": "Grosse lanterne.",
+  "naufrageur|naufrageurs": "Pilleur qui attire les bateaux sur les rochers.",
+  "naseaux": "Narines du cheval.",
+  "colombages": "Charpente de bois apparente dans les murs d'une maison, remplie de terre ou de briques.",
+  "angélus": "Cloche qui sonne le matin, à midi et le soir pour la prière.",
+  "chaume": "Paille qui couvre le toit des maisons.",
+  "quenouille|quenouilles": "Bâton autour duquel on enroule la laine à filer.",
+  "plastron|plastrons": "Pièce qui protège ou orne la poitrine.",
+  "batelier|bateliers|batelière": "Personne qui conduit un bateau sur une rivière.",
+  "marinier|mariniers": "Personne qui conduit un bateau sur une rivière ou un canal.",
+  "gentiane|gentianes": "Fleur de montagne, bleue ou jaune.",
+  "paillasse|paillasses": "Matelas rempli de paille.",
+  "sacristain|sacristains": "Homme qui garde l'église et ses objets.",
+  "parvis": "Place devant une église.",
+  "margrave|margraves": "Seigneur qui gouverne une province de frontière.",
+  "charron|charrons": "Artisan qui fabrique les roues et les charrettes.",
+  "pierrier|pierriers": "Machine de guerre qui lance des pierres.",
+  "heurtoir|heurtoirs": "Anneau de métal fixé à une porte, pour frapper.",
+  "complainte|complaintes": "Chanson triste.",
+  "battoir|battoirs": "Palette de bois pour battre le linge au lavoir.",
+  "barrique|barriques": "Tonneau.",
+  "fenaison|fenaisons": "Moment où l'on coupe et fait sécher le foin.",
+  "luth|luths": "Instrument à cordes au ventre bombé.",
+  "rebec|rebecs": "Petit violon ancien.",
+  "rabot|rabots": "Outil pour aplanir le bois.",
+  "rayonnage|rayonnages": "Étagères.",
+  "plioir": "Lame d'os ou de bois pour plier le papier.",
+  "paneterie": "Pièce où l'on garde le pain.",
+  "bouquetin|bouquetins": "Chèvre sauvage des montagnes, aux grandes cornes.",
+  "palefrenier|palefreniers": "Homme qui soigne les chevaux.",
+  "cellérier": "Moine chargé des provisions du monastère.",
+  "aussière|aussières": "Gros cordage d'un bateau.",
+  "coursive|coursives": "Passage étroit à l'intérieur d'un bateau.",
+  "comite": "Officier qui commande les rameurs d'une galère.",
+  "cambuse": "Réserve à provisions d'un bateau.",
+  "sentine": "Fond de la cale d'un bateau, où s'amasse l'eau sale.",
+  "galère|galères": "Navire de guerre à rames.",
+  "tonnelier|tonneliers": "Artisan qui fabrique les tonneaux.",
+  "paraphe|paraphes": "Signature courte, en quelques traits.",
+  "postillon|postillons": "Cavalier qui conduit une voiture de poste.",
+  "soupirail|soupiraux": "Petite ouverture qui donne de l'air et du jour à une cave.",
+  "oratoire|oratoires": "Petite chapelle.",
+  "andain|andains": "Rangée d'herbe coupée, laissée sur le pré pour sécher.",
+  "écheveau|écheveaux": "Fil enroulé en grande boucle.",
+  "besicles": "Anciennes lunettes.",
+  "licol|licols": "Courroie passée à la tête d'un cheval pour le mener.",
+  "ramure|ramures": "Les branches d'un arbre ; ou les bois d'un cerf.",
+  "violoneux": "Joueur de violon de village.",
+  "hauban|haubans": "Cordages qui tiennent le mât d'un bateau.",
+  "alezan|alezane": "Cheval à la robe brun-roux.",
+  "lingère|lingères": "Femme qui s'occupe du linge d'une maison.",
+  "cordier|cordiers": "Artisan qui fabrique les cordes.",
+  "corderie|corderies": "Atelier où l'on fabrique les cordes.",
+  "filin|filins": "Cordage.",
+  "drisse|drisses": "Cordage qui sert à hisser une voile.",
+  "psautier|psautiers": "Livre de psaumes, chants de prière.",
+  "verrier|verriers": "Artisan qui travaille le verre.",
+  "lices": "Terrain clos où se déroulent les tournois.",
+  "prévôt|prévôte|prévôts": "Officier qui rend la justice au nom du seigneur.",
+  "strophe|strophes": "Groupe de vers dans un poème ou une chanson.",
+  "hampe|hampes": "Long manche d'une lance ou d'un drapeau.",
+  "orfèvre|orfèvres": "Artisan qui travaille l'or et l'argent.",
+  "sellier|selliers": "Artisan qui fabrique les selles.",
+  "fondeur|fondeurs": "Artisan qui fond le métal, par exemple pour faire les cloches.",
+  "épissoir": "Outil pointu qui sert à joindre deux cordes en entrelaçant leurs brins.",
+  "épisser|épisse": "Joindre deux cordes en entrelaçant leurs brins.",
+  "parapet|parapets": "Petit mur qui protège du vide, au bord d'un pont ou d'un rempart.",
+  "créneau|créneaux": "Ouverture en haut d'un rempart, entre deux pans de mur.",
+  "bandoulière": "Portée en bandoulière : en travers du corps, d'une épaule à la hanche opposée.",
+  "serpe|serpes": "Outil à lame courbe pour couper les branches.",
+  "salpêtre": "Dépôt blanc qui se forme sur les murs humides.",
+  "lichen|lichens": "Plante sans racines, en croûte ou en touffes, qui pousse sur les pierres et les arbres.",
+  "surlendemain": "Le jour qui suit le lendemain."
+ },
+ "voice": "deuxième personne, présent",
+ "version": 1,
+ "start": "A_encre",
+ "twice": {
+  "first": "fievre",
+  "second": "carte",
+  "start2": "S_reveil",
+  "begin2": {
+   "place": "hopital",
+   "hour": 7,
+   "gold": 4,
+   "items": [
+    "carte_fievre"
+   ]
+  },
+  "say1": "Première lecture : la fièvre.",
+  "say2": "Seconde lecture : le réveil. Les îles de la fièvre avaient un visage. Tu vas les reconnaître.",
+  "end1": "La première lecture s'achève ici. Rouvre le livre : tu te réveilles, et la carte que ta main a tracée est sur ton lit.",
+  "end2": "La seconde lecture s'achève. La carte de fièvre a été lue deux fois : une fois en rêve, une fois les yeux ouverts."
+ },
+ "intro": [
+  "Une barque sur une eau noire, lisse, épaisse, qui ne fait pas de vagues mais des pleins et des déliés.",
+  "Dans la barque, toi, une plume à la main, et devant toi, une feuille blanche qui n'a pas de bord."
+ ],
+ "acts": [
+  {
+   "id": "I",
+   "title": "Acte I · La fièvre",
+   "question": "Que cache l'archipel d'encre ?",
+   "levels": [
+    1,
+    1
+   ],
+   "start": "A_encre"
+  },
+  {
+   "id": "II",
+   "title": "Acte II · Le réveil",
+   "question": "Où est l'expédition Malbrouck, et qui l'a perdue ?",
+   "levels": [
+    1,
+    1
+   ],
+   "start": "S_reveil"
+  }
+ ],
+ "voies": {
+  "graveur": {
+   "label": "Apprenti graveur",
+   "labelF": "Apprentie graveuse",
+   "tip": "Le trait, le cuivre, l'œil précis.",
+   "like": "mage",
+   "bonus": {
+    "savoir": 30,
+    "discretion": 20,
+    "nature": 15,
+    "social": 15,
+    "combat": 5,
+    "magie": 0
+   }
+  },
+  "batelier": {
+   "label": "Fils de batelier",
+   "labelF": "Fille de batelier",
+   "tip": "Les rames, les courants, les nuits sur l'eau.",
+   "like": "guerrier",
+   "bonus": {
+    "nature": 35,
+    "combat": 25,
+    "social": 10,
+    "discretion": 15,
+    "savoir": 5,
+    "magie": 0
+   }
+  },
+  "arpenteur": {
+   "label": "Arpenteur",
+   "labelF": "Arpenteuse",
+   "tip": "Les chaînes, les jalons, les gens qu'on mesure avec leurs terres.",
+   "like": "voleur",
+   "bonus": {
+    "social": 30,
+    "savoir": 20,
+    "nature": 20,
+    "discretion": 20,
+    "combat": 0,
+    "magie": 0
+   }
+  }
+ },
+ "past": [
+  {
+   "q": "Avant l'expédition, qu'est-ce qui t'a mené{e} chez Maître Malbrouck ?",
+   "answers": [
+    {
+     "label": "Tu gravais des cartes sur cuivre à l'atelier du quai, et il t'a pris{e} parce que tu dessinais les rivières comme si elles coulaient.",
+     "fx": {
+      "voie": "graveur"
+     }
+    },
+    {
+     "label": "Ton père menait des barges sur le fleuve ; tu sais lire un courant les yeux fermés, et Malbrouck avait besoin de quelqu'un qui sache ramer.",
+     "fx": {
+      "voie": "batelier"
+     }
+    },
+    {
+     "label": "Tu arpentais les terres des seigneurs avec une chaîne de dix toises ; Malbrouck disait que tu savais mesurer les gens aussi bien que les champs.",
+     "fx": {
+      "voie": "arpenteur"
+     }
+    }
+   ]
+  }
+ ],
+ "lore": {
+  "pages": [
+   {
+    "title": "Les Bouches-Noires",
+    "text": [
+     "Les **Bouches-Noires** sont les marais où le fleuve se perd avant la mer : mille îlots de roseaux, de saules et de vase, que personne n'a jamais cartographiés, parce que les chenaux changent à chaque crue.",
+     "On dit qu'ils sont vides. On dit aussi qu'ils sont habités par les **Roselins**, des gens des roseaux qui vivent sur des maisons flottantes et qu'on ne voit jamais.",
+     "Le **comte de Saint-Aubry** veut assécher les marais pour y planter du blé. Il a payé l'expédition du cartographe **Eustache Malbrouck** pour en lever la carte.",
+     "La ville la plus proche est **Brésille**, un port de salines, avec son hôpital, Saint-Lazare-des-Salines.",
+     "On paie en sous et en écus."
+    ]
+   }
+  ],
+  "names": {
+   "Bouches-Noires": "Les marais du delta, que l'expédition devait cartographier.",
+   "Brésille": "Le port de salines au bord des marais.",
+   "Roselins": "Les gens des roseaux, qui vivraient dans les marais.",
+   "Saint-Lazare": "L'hôpital de Brésille, tenu par des religieuses."
+  }
+ },
+ "companions": {},
+ "factions": {},
+ "relics": {},
+ "people": {
+  "agathe": {
+   "name": "Sœur Agathe",
+   "aka": [
+    "Agathe",
+    "la sœur",
+    "la religieuse"
+   ],
+   "f": true,
+   "qui": "La religieuse qui te soigne.",
+   "aspect": {
+    "allure": "grande, osseuse",
+    "habits": "cornette blanche aux ailes empesées",
+    "signe": "fait sonner une clochette pour appeler",
+    "voix": "douce et sans réplique"
+   },
+   "face": {
+    "age": "mur",
+    "skin": "clair",
+    "hair": "gris",
+    "coif": "foulard",
+    "beard": "sans",
+    "eyes": "tombants",
+    "iris": "bleu",
+    "nose": "busque",
+    "lips": "fines",
+    "shape": "allonge",
+    "marks": []
+   },
+   "desc": "La sœur hospitalière de Saint-Lazare, qui veille les fiévreux."
+  },
+  "leclou": {
+   "name": "Le docteur Leclou",
+   "aka": [
+    "Leclou",
+    "le docteur",
+    "le médecin"
+   ],
+   "qui": "Le médecin de l'hôpital.",
+   "aspect": {
+    "allure": "petit, sec, pressé",
+    "habits": "redingote noire",
+    "signe": "consulte sans cesse sa montre à répétition",
+    "voix": "parle par ordonnances"
+   },
+   "face": {
+    "age": "mur",
+    "skin": "clair",
+    "hair": "noir",
+    "coif": "degarni",
+    "beard": "moustache",
+    "eyes": "ronds",
+    "iris": "brun",
+    "nose": "fin",
+    "lips": "fines",
+    "shape": "rond",
+    "marks": [
+     "lunettes"
+    ]
+   },
+   "desc": "Le médecin de Saint-Lazare, qui compte le pouls des malades et les minutes de sa journée."
+  },
+  "saintaubry": {
+   "name": "Le comte de Saint-Aubry",
+   "aka": [
+    "Saint-Aubry",
+    "le comte",
+    "Monsieur le comte"
+   ],
+   "qui": "Le seigneur qui a payé l'expédition.",
+   "aspect": {
+    "allure": "grand, blanc, majestueux",
+    "habits": "manteau blanc à col de fourrure",
+    "signe": "sent le sel et l'eau de Cologne",
+    "voix": "voix lente de propriétaire"
+   },
+   "face": {
+    "age": "ancien",
+    "skin": "clair",
+    "hair": "blanc",
+    "coif": "court",
+    "beard": "longue",
+    "eyes": "lourds",
+    "iris": "gris",
+    "nose": "busque",
+    "lips": "fines",
+    "shape": "carre",
+    "marks": []
+   },
+   "desc": "Le maître des salines de Brésille, qui veut assécher les Bouches-Noires."
+  },
+  "iris": {
+   "name": "Iris Malbrouck",
+   "aka": [
+    "Iris",
+    "Mademoiselle Malbrouck",
+    "la fille du cartographe"
+   ],
+   "f": true,
+   "qui": "La fille du cartographe.",
+   "aspect": {
+    "allure": "jeune femme vive et tachée d'encre",
+    "habits": "habit de voyage brun",
+    "signe": "un compas pendu au cou",
+    "voix": "rapide et précise"
+   },
+   "face": {
+    "age": "jeune",
+    "skin": "dore",
+    "hair": "chatain",
+    "coif": "tresses",
+    "beard": "sans",
+    "eyes": "amande",
+    "iris": "vert",
+    "nose": "fin",
+    "lips": "pleines",
+    "shape": "ovale",
+    "marks": [
+     "grain"
+    ]
+   },
+   "desc": "La fille d'Eustache Malbrouck, graveuse de son métier, venue de la capitale chercher son père."
+  },
+  "joachim": {
+   "name": "Joachim",
+   "aka": [
+    "le guide",
+    "Joachim le Roselin"
+   ],
+   "qui": "Le guide des marais de l'expédition.",
+   "aspect": {
+    "allure": "homme sec, couleur de vase",
+    "habits": "veste de roseau tressé",
+    "signe": "se tient sur une jambe sans y penser",
+    "voix": "lente, rare"
+   },
+   "face": {
+    "age": "adulte",
+    "skin": "brun",
+    "hair": "noir",
+    "coif": "long",
+    "beard": "barbe",
+    "eyes": "amande",
+    "iris": "noir",
+    "nose": "large",
+    "lips": "pleines",
+    "shape": "allonge",
+    "marks": [
+     "tatouage"
+    ]
+   },
+   "desc": "Le guide que l'expédition avait engagé à Brésille, un homme des roseaux."
+  },
+  "brunel": {
+   "name": "Brunel",
+   "aka": [
+    "le quartier-maître",
+    "Maître Brunel"
+   ],
+   "qui": "Le quartier-maître de l'expédition.",
+   "aspect": {
+    "allure": "gros homme aux petits yeux",
+    "habits": "gilet de cuir taché",
+    "signe": "compte tout ce qu'il touche",
+    "voix": "grasse et prudente"
+   },
+   "face": {
+    "age": "adulte",
+    "skin": "hale",
+    "hair": "chatain",
+    "coif": "rase",
+    "beard": "barbe",
+    "eyes": "lourds",
+    "iris": "brun",
+    "nose": "large",
+    "lips": "pleines",
+    "shape": "rond",
+    "marks": []
+   },
+   "desc": "Le quartier-maître de l'expédition, revenu le premier à Brésille."
+  },
+  "malbrouck": {
+   "name": "Eustache Malbrouck",
+   "aka": [
+    "Malbrouck",
+    "le maître",
+    "le cartographe"
+   ],
+   "qui": "Le cartographe, ton maître.",
+   "aspect": {
+    "allure": "vieil homme maigre et grand",
+    "habits": "manteau à cent poches",
+    "signe": "un crayon derrière chaque oreille",
+    "voix": "rit en parlant"
+   },
+   "face": {
+    "age": "ancien",
+    "skin": "hale",
+    "hair": "blanc",
+    "coif": "milong",
+    "beard": "barbe",
+    "eyes": "ronds",
+    "iris": "bleu",
+    "nose": "busque",
+    "lips": "fines",
+    "shape": "allonge",
+    "marks": [
+     "lunettes"
+    ]
+   },
+   "desc": "Le plus grand cartographe du royaume, qui a cartographié trois déserts et perdu deux doigts au pôle."
+  }
+ },
+ "items": {
+  "plume": {
+   "name": "La plume",
+   "kind": "outil",
+   "keep": true,
+   "desc": "Une plume de héron, taillée, qui ne s'épuise jamais."
+  },
+  "couronne": {
+   "name": "La couronne de sel",
+   "kind": "quete",
+   "keep": true,
+   "desc": "Une couronne de sel cristallisé, gravée de chiffres romains : *XIV · IX*."
+  },
+  "legende": {
+   "name": "La légende de la carte",
+   "kind": "document",
+   "keep": true,
+   "desc": "Six lignes de ta main, au coin de la carte d'encre, sous le titre *Légende*."
+  },
+  "carte_fievre": {
+   "name": "La carte de fièvre",
+   "kind": "document",
+   "keep": true,
+   "desc": "Une grande feuille, faite de feuilles de température collées ensemble, couverte d'un archipel dessiné de ta main, au crayon, pendant ta fièvre."
+  },
+  "registre_brunel": {
+   "name": "Le carnet de Brunel",
+   "kind": "document",
+   "keep": true,
+   "desc": "Le carnet de comptes du quartier-maître, avec une ligne bizarre."
+  },
+  "carte_malbrouck": {
+   "name": "La carte de Malbrouck",
+   "kind": "quete",
+   "keep": true,
+   "desc": "La vraie carte des Bouches-Noires, levée par Eustache Malbrouck, avec les villages des Roselins."
+  }
+ },
+ "clues": {
+  "i_corde": {
+   "rev": "M",
+   "text": "Dans le magasin du quartier-maître, au fond de la fièvre, une amarre de barque coupée net, au couteau."
+  },
+  "i_jours": {
+   "rev": "M",
+   "text": "Les jours de l'expédition, remis dans l'ordre : le départ, l'avertissement du guide, la nuit des amarres, la dérive."
+  },
+  "i_herons": {
+   "rev": "M",
+   "text": "Au cœur de l'archipel d'encre, une île de brume où crient mille hérons, et des voix qui t'appellent par ton nom."
+  },
+  "i_roi": {
+   "rev": "M",
+   "text": "Le Roi de Sel veut la carte. Il a payé pour elle, dit-il, et il l'aura."
+  },
+  "i_brunel": {
+   "rev": "M",
+   "text": "Brunel est revenu seul à Brésille trois jours avant qu'on te retrouve, et il a dit que tout le monde était mort, par la faute du guide."
+  },
+  "i_comte_paie": {
+   "rev": "M",
+   "text": "Dans le carnet de Brunel : *le comte paie les cordes.*"
+  }
+ },
+ "quests": [],
+ "mysteries": {
+  "M": {
+   "title": "Qu'est devenue l'expédition Malbrouck ?",
+   "act": "II",
+   "solved": "malbrouck:retrouve",
+   "answer": {
+    "person": "brunel",
+    "text": "Le quartier-maître Brunel, payé par le comte de Saint-Aubry, a coupé les amarres de l'expédition une nuit de tempête, pour qu'aucune carte des marais habités ne revienne. Malbrouck et deux hommes ont survécu chez les Roselins, sur l'île aux Hérons, et la barque de l'apprenti a dérivé jusqu'à Brésille."
+   }
+  }
+ },
+ "puzzles": {
+  "f1": {
+   "kind": "chiffre",
+   "title": "La devinette de la Voilière",
+   "text": "La femme aux grandes ailes blanches se penche sur toi, et sa voix sonne comme une cloche dans un drap :\n\n*Je suis amère et je guéris ;*\n*j'ai poussé sur un arbre de l'autre côté du monde ;*\n*on me boit en grimaçant quand on tremble de chaud ;*\n*une poudre d'écorce, et la fièvre s'en va.*",
+   "answer": [
+    "quinquina",
+    "le quinquina",
+    "quinine",
+    "la quinine",
+    "ecorce de quinquina"
+   ],
+   "wrongText": "La Voilière secoue ses grandes ailes blanches. Une pluie de gouttes froides te tombe sur le front.",
+   "tryLabel": "Répondre",
+   "label": "Répondre à la Voilière",
+   "leave": "Garder le silence",
+   "win": {
+    "to": "A_f1",
+    "fx": {
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "f2": {
+   "kind": "chiffre",
+   "title": "La devinette du Roi de Sel",
+   "text": "Le Roi de Sel lève vers toi sa face blanche, qui s'effrite au coin des lèvres quand il parle :\n\n*Je tombe de haut et je ne me blesse jamais ;*\n*je remplis les marais et je vide le ciel ;*\n*les rois de sel me craignent plus que la guerre ;*\n*une goutte de moi, et ils pleurent jusqu'aux pieds.*",
+   "answer": [
+    "pluie",
+    "la pluie",
+    "de la pluie",
+    "l'eau",
+    "eau"
+   ],
+   "wrongText": "Le Roi de Sel ricane, et un peu de sa joue tombe en poussière blanche.",
+   "tryLabel": "Répondre",
+   "label": "Répondre au Roi de Sel",
+   "leave": "Le laisser régner",
+   "win": {
+    "to": "A_f2",
+    "fx": {
+     "item": "couronne",
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "f3": {
+   "kind": "ordre",
+   "title": "Les heures du Médecin-Horloge",
+   "text": "Le Médecin-Horloge ouvre le cadran de sa poitrine. Dedans, au lieu des chiffres, quatre petites scènes peintes sur émail, mélangées. « Remettez vos jours à l'heure, dit-il de sa voix de ressort. Un malade qui ne sait pas l'ordre de ses jours ne guérit pas : il recommence. »",
+   "pieces": [
+    "Une nuit de tempête, des barques qui s'éloignent, une main qui tient un couteau.",
+    "Un quai au soleil, des drapeaux, un vieil homme qui rit avec un crayon derrière chaque oreille.",
+    "Une barque seule sur une eau lisse, sous un ciel blanc, et toi qui ne bouges plus.",
+    "Un homme couleur de vase, debout sur une jambe, qui montre l'horizon et dit : pas par là."
+   ],
+   "answer": [
+    1,
+    3,
+    0,
+    2
+   ],
+   "wrongText": "Le Médecin-Horloge fait tic, puis tac, puis rien. « Vos jours boitent, dit-il. Recommencez. »",
+   "tryLabel": "Remonter l'horloge",
+   "label": "Remettre les jours dans l'ordre",
+   "leave": "Laisser les jours en désordre",
+   "win": {
+    "to": "A_f3",
+    "fx": {
+     "clue": "i_jours",
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "f4": {
+   "kind": "molettes",
+   "title": "Le cadenas du Magasin",
+   "text": "La porte du Magasin est fermée d'un cadenas en forme de rat, aux yeux de verre rouges, avec quatre molettes sur le ventre, chacune de 0 à 9.",
+   "wheels": [
+    [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9"
+    ],
+    [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9"
+    ],
+    [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9"
+    ],
+    [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9"
+    ]
+   ],
+   "answer": [
+    "1",
+    "4",
+    "0",
+    "9"
+   ],
+   "wrongText": "Le rat de fer couine, et ses yeux rouges clignent. La porte reste fermée.",
+   "tryLabel": "Tirer l'anse",
+   "label": "Tourner les molettes du rat",
+   "leave": "Laisser le rat",
+   "win": {
+    "to": "A_magasin",
+    "fx": {
+     "clue": "i_corde",
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "f5": {
+   "kind": "chiffre",
+   "title": "La légende de la carte",
+   "carry": true,
+   "text": "Au coin de la carte d'encre, sous le mot *Légende*, ta main a écrit six lignes, sans que tu le décides :\n\n*Hautes eaux à marée basse ;*\n*Échouage à toute heure ;*\n*Roseaux plus hauts qu'un homme ;*\n*Oiseaux gris, par milliers ;*\n*Nul n'y passe sans le mot ;*\n*Sel absent.*\n\nEt dessous, une question, de ta main encore : *Où sont-ils ?*",
+   "answer": [
+    "herons",
+    "les herons",
+    "l'ile aux herons",
+    "ile aux herons",
+    "l ile aux herons"
+   ],
+   "wrongText": "Tu relis les six lignes. Elles se tiennent droites, en colonne, comme des soldats qui gardent un mot entre leurs épaules.",
+   "tryLabel": "Répondre à ta propre question",
+   "label": "Lire la légende de la carte",
+   "win": {
+    "fx": {
+     "ep": [
+      "seance",
+      500
+     ]
+    }
+   }
+  },
+  "f6": {
+   "kind": "chiffre",
+   "title": "Le mot des roseaux",
+   "text": "L'homme couleur de vase, pendu par les pieds à son mât, rame quand même, lentement, la tête en bas. Il te regarde sans colère :\n\n*Je me tiens sur une patte et je ne tombe jamais ;*\n*je regarde l'eau une heure pour manger en un instant ;*\n*les gens pressés me perdent, les hérons m'ont inventée ;*\n*sans moi, personne n'entre chez nous.*",
+   "answer": [
+    "patience",
+    "la patience"
+   ],
+   "wrongText": "Il ferme les yeux. « Trop vite, dit-il. Vous répondez comme on se noie. »",
+   "tryLabel": "Répondre",
+   "label": "Répondre au rameur pendu",
+   "leave": "Le laisser ramer",
+   "win": {
+    "to": "A_f6",
+    "fx": {
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "g1": {
+   "kind": "chiffre",
+   "title": "La ligne du carnet",
+   "text": "Dans le carnet de comptes de Brunel, entre *biscuit : 40 livres* et *eau-de-vie : 6 pintes*, une ligne en capitales, dont chaque mot a l'air d'avoir été écrit par un gaucher devant un miroir :\n\n**EL ETMOC EIAP SEL SEDROC**",
+   "answer": [
+    "le comte paie les cordes"
+   ],
+   "wrongText": "Tu épelles les lettres dans l'ordre où elles sont. Rien. Elles n'ont pas l'ordre qu'elles disent.",
+   "tryLabel": "Écrire ce que dit la ligne",
+   "label": "Lire la ligne bizarre",
+   "leave": "Fermer le carnet",
+   "win": {
+    "to": "S_g1",
+    "fx": {
+     "clue": "i_comte_paie",
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  },
+  "g2": {
+   "kind": "ordre",
+   "title": "La route de la dérive",
+   "text": "Joachim pose le doigt sur ta carte de fièvre, sur les îles que tu as dessinées en délire, et puis sur la carte du port, où sont marqués les repères réels des marais. « Ta barque a dérivé par où ? dit-il. Si tu le sais, je sais où ils sont. Dans quel ordre, les repères ? »",
+   "pieces": [
+    "La vieille saline abandonnée, aux tas de sel blancs comme des tentes.",
+    "La cloche du bac de Sainte-Agathe, qui sonne dans la brume pour les bateliers.",
+    "L'entrepôt de l'expédition, sur pilotis, à l'entrée des chenaux.",
+    "Le moulin à marée, dont la roue tourne comme une horloge."
+   ],
+   "answer": [
+    1,
+    0,
+    3,
+    2
+   ],
+   "wrongText": "Joachim secoue la tête. « Ta barque ne remonte pas le courant. Recommence, en partant de la mer. » Puis il se reprend : « Non. En partant de ta fièvre. »",
+   "tryLabel": "Montrer la route",
+   "label": "Retracer la route de la dérive",
+   "leave": "Replier les cartes",
+   "win": {
+    "to": "S_g2",
+    "fx": {
+     "flag": "route:trouvee",
+     "ep": [
+      "seance",
+      400
+     ]
+    }
+   }
+  },
+  "g3": {
+   "kind": "chiffre",
+   "title": "La devinette de la vieille femme",
+   "text": "La vieille femme souffle un peu de fumée de roseau, qui reste suspendue entre vous comme une brume en petit :\n\n*J'ai un lit et je ne dors jamais ;*\n*j'ai une bouche et je ne mange pas ;*\n*je cours sans pieds, je murmure sans langue ;*\n*je vous ai porté jusqu'ici, et je porterai vos enfants.*",
+   "answer": [
+    "fleuve",
+    "le fleuve",
+    "riviere",
+    "la riviere",
+    "l'eau",
+    "eau",
+    "le courant",
+    "courant"
+   ],
+   "wrongText": "La vieille femme hoche la tête, poliment, comme on fait aux enfants qui disent une bêtise attendrissante, et rallume sa pipe.",
+   "tryLabel": "Répondre",
+   "label": "Répondre à la vieille femme",
+   "leave": "Garder le silence",
+   "win": {
+    "to": "S_g3",
+    "fx": {
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   }
+  }
+ },
+ "achievements": {
+  "archipel": {
+   "title": "L'archipel d'encre",
+   "desc": "Résoudre les six énigmes de la fièvre.",
+   "if": {
+    "all": [
+     {
+      "has": "enigme:f1"
+     },
+     {
+      "has": "enigme:f2"
+     },
+     {
+      "has": "enigme:f3"
+     },
+     {
+      "has": "enigme:f4"
+     },
+     {
+      "has": "enigme:f5"
+     },
+     {
+      "has": "enigme:f6"
+     }
+    ]
+   }
+  },
+  "herons": {
+   "title": "L'île aux Hérons",
+   "desc": "Retrouver Eustache Malbrouck.",
+   "if": {
+    "has": "malbrouck:retrouve"
+   }
+  },
+  "roselins": {
+   "title": "La carte des Roselins",
+   "desc": "Laisser la carte des marais à ceux qui y vivent.",
+   "if": {
+    "has": "carte:roselins"
+   }
+  }
+ },
+ "endings": {
+  "fievre": {
+   "title": "La fièvre"
+  },
+  "carte": {
+   "title": "La carte"
+  }
+ },
+ "world": {
+  "noFood": true,
+  "money": {
+   "units": [
+    {
+     "name": "sou",
+     "plural": "sous",
+     "value": 1,
+     "short": "s."
+    },
+    {
+     "name": "écu",
+     "plural": "écus",
+     "value": 60,
+     "short": "é."
+    }
+   ]
+  },
+  "start": {
+   "place": "encre",
+   "hour": 0,
+   "clock": true,
+   "gold": 0,
+   "food": 0,
+   "items": [
+    "plume"
+   ],
+   "kits": {}
+  },
+  "places": {
+   "encre": {
+    "ambiance": "mer",
+    "name": "La mer d'encre",
+    "map": "fievre",
+    "x": 50,
+    "y": 50,
+    "arrive": "A_encre",
+    "desc": "Une mer noire et lisse, où ta plume trace la côte."
+   },
+   "cloches": {
+    "ambiance": "temple",
+    "name": "L'île des Cloches Molles",
+    "map": "fievre",
+    "x": 25,
+    "y": 80,
+    "arrive": "A_cloches",
+    "desc": "Une île de draps blancs, de cloches de toile et de silence."
+   },
+   "sel": {
+    "ambiance": "champs",
+    "name": "Le royaume du Sel",
+    "map": "fievre",
+    "x": 20,
+    "y": 40,
+    "arrive": "A_sel",
+    "desc": "Une île blanche, toute de sel, sous un ciel de plomb."
+   },
+   "horloge": {
+    "ambiance": "ville",
+    "name": "La Tour du Médecin-Horloge",
+    "map": "fievre",
+    "x": 45,
+    "y": 20,
+    "arrive": "A_tour",
+    "desc": "Une tour qui fait tic-tac."
+   },
+   "magasin": {
+    "ambiance": "souterrain",
+    "name": "Le Magasin",
+    "map": "fievre",
+    "x": 70,
+    "y": 30,
+    "arrive": "A_magasin_porte",
+    "desc": "Un entrepôt sur pilotis, plein de tonneaux et de rats."
+   },
+   "pendu": {
+    "ambiance": "mer",
+    "name": "Le mât du Rameur",
+    "map": "fievre",
+    "x": 80,
+    "y": 60,
+    "arrive": "A_pendu",
+    "desc": "Un mât planté dans l'eau, où rame un homme pendu."
+   },
+   "herons": {
+    "ambiance": "foret",
+    "name": "L'île aux Hérons",
+    "map": "fievre",
+    "x": 60,
+    "y": 80,
+    "arrive": "A_herons",
+    "desc": "Une île de brume et de cris d'oiseaux."
+   },
+   "hopital": {
+    "ambiance": "temple",
+    "name": "L'hôpital Saint-Lazare",
+    "map": "bresille",
+    "x": 40,
+    "y": 50,
+    "arrive": "S_salle",
+    "desc": "L'hôpital des Salines, tenu par les sœurs."
+   },
+   "port": {
+    "ambiance": "mer",
+    "name": "Le port de Brésille",
+    "map": "bresille",
+    "x": 60,
+    "y": 70,
+    "arrive": "S_port",
+    "desc": "Le port des salines, ses barges et sa prison."
+   },
+   "comte": {
+    "ambiance": "chateau",
+    "name": "L'hôtel de Saint-Aubry",
+    "map": "bresille",
+    "x": 30,
+    "y": 20,
+    "arrive": "S_hotel",
+    "desc": "La demeure blanche du maître des salines."
+   },
+   "marais": {
+    "ambiance": "foret",
+    "name": "Les Bouches-Noires",
+    "map": "bresille",
+    "x": 80,
+    "y": 30,
+    "arrive": "S_marais",
+    "desc": "Les marais du delta, leurs chenaux et leurs roseaux."
+   }
+  },
+  "routes": [],
+  "regions": {},
+  "events": {}
+ },
+ "banter": [],
+ "passages": {
+  "A_encre": {
+   "act": "I",
+   "title": "La mer d'encre",
+   "place": "encre",
+   "second": false,
+   "hub": true,
+   "backName": "la barque",
+   "text": [
+    {
+     "first": true,
+     "text": "L'eau est noire, épaisse, lisse comme de la laque, et elle sent l'encre de noix et la fièvre. Ta barque glisse dessus sans rames, sans bruit, comme une plume sur un papier glacé. Il n'y a pas d'horizon. Il n'y a pas de ciel non plus, ou plutôt le ciel est blanc, du blanc d'une feuille qu'on n'a pas encore commencée, et la mer noire s'y arrête net, en une ligne parfaitement droite, comme la marge d'un cahier."
+    },
+    {
+     "first": true,
+     "text": "Tu as chaud. Tu as horriblement chaud, d'une chaleur qui vient de l'intérieur, des os, et qui te fait claquer des dents. Ta main droite tient une plume de héron. Elle bouge toute seule. Elle trace, sur le blanc du ciel, au fur et à mesure que la barque avance, la ligne de la côte, les anses, les pointes, les îles qui sortent de l'encre une à une, comme si c'était ta plume qui les inventait, ou comme si elles attendaient qu'on les dessine pour exister."
+    },
+    {
+     "again": true,
+     "text": "La mer d'encre, le ciel de papier, ta barque qui glisse, et ta main qui dessine la côte à mesure. Au loin, dans le blanc, des îles attendent leur trait."
+    },
+    {
+     "if": {
+      "has": "enigme:f1"
+     },
+     "text": "La poudre amère de la Voilière te brûle encore la langue. Ta fièvre a baissé d'un degré, et l'encre de la mer a pâli d'une nuance, comme une page qui sèche."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Lever les yeux vers le ciel blanc",
+     "if": {
+      "seen": "A_main"
+     },
+     "hide": {
+      "seen": "A_ciel"
+     },
+     "to": "A_ciel"
+    },
+    {
+     "label": "Te pencher sur ton reflet dans l'encre",
+     "if": {
+      "has": "enigme:f2"
+     },
+     "hide": {
+      "seen": "A_reflet"
+     },
+     "to": "A_reflet"
+    },
+    {
+     "label": "Repêcher la bouteille qui flotte contre la barque",
+     "if": {
+      "has": "enigme:f3"
+     },
+     "hide": {
+      "seen": "A_bouteille"
+     },
+     "to": "A_bouteille"
+    },
+    {
+     "label": "Regarder ta main dessiner",
+     "hide": {
+      "seen": "A_main"
+     },
+     "to": "A_main"
+    },
+    {
+     "label": "Écouter les voix qui tombent du ciel blanc",
+     "if": {
+      "seen": "A_main"
+     },
+     "hide": {
+      "seen": "A_voix"
+     },
+     "to": "A_voix"
+    },
+    {
+     "label": "Lire la légende au coin de la carte",
+     "if": {
+      "seen": "A_main"
+     },
+     "hide": {
+      "has": "enigme:f5"
+     },
+     "to": "A_legende"
+    },
+    {
+     "label": "Laisser la barque aller vers l'île des cloches",
+     "hide": {
+      "has": "enigme:f1"
+     },
+     "to": "A_cloches"
+    },
+    {
+     "label": "Laisser la barque aller vers l'île blanche",
+     "if": {
+      "has": "enigme:f1"
+     },
+     "hide": {
+      "has": "enigme:f2"
+     },
+     "to": "A_sel"
+    },
+    {
+     "label": "Laisser la barque aller vers la tour qui fait tic-tac",
+     "if": {
+      "has": "enigme:f2"
+     },
+     "hide": {
+      "has": "enigme:f3"
+     },
+     "to": "A_tour"
+    },
+    {
+     "label": "Laisser la barque aller vers l'entrepôt sur pilotis",
+     "if": {
+      "has": "enigme:f3"
+     },
+     "hide": {
+      "has": "enigme:f4"
+     },
+     "to": "A_magasin_porte"
+    },
+    {
+     "label": "Laisser la barque aller vers le mât où rame un pendu",
+     "if": {
+      "has": "enigme:f4"
+     },
+     "hide": {
+      "has": "enigme:f6"
+     },
+     "to": "A_pendu"
+    },
+    {
+     "label": "Laisser la barque entrer dans la brume",
+     "if": {
+      "has": "enigme:f6"
+     },
+     "to": "A_herons"
+    }
+   ]
+  },
+  "A_main": {
+   "act": "I",
+   "title": "La main qui dessine",
+   "place": "encre",
+   "second": false,
+   "fx": {
+    "item": "legende"
+   },
+   "text": [
+    "Tu regardes ta main comme on regarde la main d'un autre. Elle est maigre, brûlante, avec un tremblement très fin au bout des doigts, et pourtant le trait qu'elle trace est d'une sûreté que tu n'as jamais eue éveillé{e} : un trait de maître, souple, nerveux, qui suit la côte sans hésiter, qui pose les sondes, les hachures des marais, les petits arbres des îles.",
+    "La carte s'étend au-dessus de toi, dans le ciel blanc, immense, et ta barque est un point au milieu. Tu y reconnais des choses que tu n'as pas encore vues : une île de cloches, une île blanche, une tour, un entrepôt, un mât, et au centre, une tache grise, estompée au doigt, que ta main refuse de dessiner.",
+    {
+     "if": {
+      "voie": "graveur"
+     },
+     "text": "Tu reconnais le trait. C'est celui de ton maître, Eustache Malbrouck, celui que tu as copié dix mille fois sur le cuivre sans jamais l'égaler. Ta main l'a appris. Ta main s'en souvient mieux que toi."
+    },
+    "Au coin de la carte, dans un cartouche orné de roseaux, ta main a écrit le mot *Légende*, et six lignes en dessous."
+   ],
+   "choices": [
+    {
+     "back": "A_encre"
+    }
+   ]
+  },
+  "A_voix": {
+   "act": "I",
+   "title": "Les voix du ciel blanc",
+   "place": "encre",
+   "second": false,
+   "text": [
+    "Tu tends l'oreille. Du ciel de papier tombent des voix, lointaines, déformées, comme des voix entendues sous l'eau, ou à travers une porte. Une voix de femme, douce et sans réplique : *Le lit douze délire depuis trois jours. Le lit douze dessine sur les feuilles de température. J'ai voulu prendre le crayon : on m'a mordue.*",
+    "Une voix d'homme, sèche, pressée, et un tic-tac au fond : *Cent vingt pulsations. Quinquina, double dose. Une nuit encore, et nous saurons : un convalescent de plus, ou un lit de libre.*",
+    "Et une troisième, grasse, prudente, tout près, comme penchée sur toi : *Le douze parle ? Des noms ? Mon nom ?*",
+    "La barque tangue. Les voix s'éteignent. Le ciel redevient muet et blanc."
+   ],
+   "choices": [
+    {
+     "back": "A_encre"
+    }
+   ]
+  },
+  "A_legende": {
+   "act": "I",
+   "title": "La légende",
+   "place": "encre",
+   "second": false,
+   "puzzle": "f5",
+   "text": [
+    "Tu lis la légende que ta main a écrite, de la même écriture que la carte, mais plus petite, plus serrée, comme un secret qu'on chuchote."
+   ],
+   "choices": [
+    {
+     "back": "A_encre"
+    }
+   ]
+  },
+  "A_cloches": {
+   "act": "I",
+   "title": "L'île des Cloches Molles",
+   "place": "cloches",
+   "second": false,
+   "text": [
+    "L'île est faite de draps. Des draps blancs, propres, tendus sur des collines invisibles, qui ondulent doucement comme une poitrine qui respire. Ta barque s'échoue sur un rivage de toile amidonnée qui crisse sous tes pieds. Partout, des cloches pendent à des perches, des cloches de toile, molles, qui se balancent dans un vent que tu ne sens pas et sonnent sans bruit, avec un mouvement de langue qui ne frappe rien.",
+    "Sur chaque colline de drap, une forme est allongée, immobile, les mains sur la poitrine. Des dizaines. Elles ont toutes le même visage, pâle et luisant de sueur. Le tien.",
+    "Au sommet de la plus haute colline se tient une femme immense, aux grandes ailes blanches empesées qui lui sortent de la tête au lieu des épaules, et qui claquent quand elle tourne le visage. Elle tient une clochette de cuivre, la seule qui sonne. Elle l'agite. *Ding.* Tous les corps allongés frissonnent ensemble."
+   ],
+   "choices": [
+    {
+     "label": "Monter vers la femme aux ailes blanches",
+     "to": "A_voiliere"
+    },
+    {
+     "label": "Regarder de près un des corps couchés",
+     "hide": {
+      "seen": "A_corps"
+     },
+     "to": "A_corps"
+    },
+    {
+     "label": "Compter les collines de draps",
+     "if": {
+      "seen": "A_corps"
+     },
+     "hide": {
+      "seen": "A_lits"
+     },
+     "to": "A_lits"
+    }
+   ]
+  },
+  "A_corps": {
+   "act": "I",
+   "title": "Le dormeur",
+   "place": "cloches",
+   "second": false,
+   "text": [
+    "Tu te penches sur la forme la plus proche. C'est toi, en effet, en chemise de nuit d'hôpital, les lèvres sèches, les yeux qui roulent sous les paupières. Ta main droite, sur la poitrine, serre un bout de crayon. Elle dessine, sur le drap, à petits gestes obstinés, une ligne de côte.",
+    "Tu touches ton propre front. Il est brûlant. Tu retires vivement ta main. Le dormeur ouvre les yeux, te regarde sans te voir, et dit, d'une voix de vieillard : « Pas par là. » Puis il les referme."
+   ],
+   "choices": [
+    {
+     "back": "A_cloches"
+    }
+   ]
+  },
+  "A_voiliere": {
+   "act": "I",
+   "title": "La Voilière",
+   "place": "cloches",
+   "second": false,
+   "puzzle": "f1",
+   "text": [
+    "La femme aux ailes te regarde monter avec une patience infinie, comme on regarde un enfant monter un escalier trop grand. Son visage est long et osseux, ses yeux bleus tombent un peu aux coins. Elle sent le linge bouilli et la cire.",
+    "« Tu as soif, dit-elle. Tu as toujours soif. Je ne te donnerai rien tant que tu ne sauras pas ce que je te donne. »"
+   ],
+   "choices": [
+    {
+     "back": "A_cloches"
+    }
+   ]
+  },
+  "A_f1": {
+   "act": "I",
+   "title": "La poudre amère",
+   "place": "cloches",
+   "second": false,
+   "text": [
+    "« Le quinquina », dis-tu. La Voilière sourit, ce qui fait claquer ses ailes. Elle sort de sa manche une cuillère d'étain, y verse une poudre brune, y ajoute une goutte d'eau, et te la met dans la bouche avec une autorité qui ne souffre aucune discussion.",
+    "C'est amer à hurler. C'est amer comme une écorce de l'autre bout du monde, comme une forêt brûlée, comme un remords. Tu avales. La chaleur, dans tes os, recule d'un pas.",
+    "« Bien, dit la Voilière. À présent, va voir le Roi. Il veut ta carte. Ne la lui donne pas avant de savoir ce qu'il en fera. » Elle agite sa clochette. *Ding.* Et tu te retrouves dans ta barque."
+   ],
+   "choices": [
+    {
+     "back": "A_encre"
+    }
+   ]
+  },
+  "A_sel": {
+   "act": "I",
+   "title": "Le royaume du Sel",
+   "place": "sel",
+   "second": false,
+   "fx": {
+    "clue": "i_roi"
+   },
+   "text": [
+    "L'île est blanche, d'un blanc aveuglant, et elle crisse sous la quille : du sel. Des collines de sel, des tentes de sel, des routes de sel bordées de statues de sel, hommes et femmes figés au milieu d'un geste, une pelle à la main, un panier sur l'épaule, la bouche ouverte. Le ciel au-dessus est de plomb, bas, lourd, chargé d'une pluie qui ne tombe pas.",
+    "Au centre, sur un trône de sel taillé, un roi immense, tout blanc, barbe blanche, manteau blanc à col de fourrure blanche, se tient immobile, les mains sur les genoux. Quand il parle, des grains se détachent de ses lèvres et roulent dans sa barbe.",
+    "« Le cartographe, dit-il, d'une voix lente de propriétaire. Je t'attendais. J'ai payé ta carte. Je l'ai payée en écus et en patience. Je vais drainer cette mer noire, la mettre en sel et en blé, et ces petits gens des roseaux iront ailleurs, ou nulle part. » Il tend une main blanche. « Donne. »"
+   ],
+   "choices": [
+    {
+     "label": "Lui demander ce qu'il craint",
+     "to": "A_roi"
+    },
+    {
+     "label": "Regarder les statues de sel",
+     "hide": {
+      "seen": "A_statues"
+     },
+     "to": "A_statues"
+    }
+   ]
+  },
+  "A_statues": {
+   "act": "I",
+   "title": "Les sujets de sel",
+   "place": "sel",
+   "second": false,
+   "text": [
+    "Tu passes entre les statues. Elles sont faites avec un soin terrible : on voit les ampoules aux mains, les chemises collées au dos par la sueur, les pieds nus dans les sabots. Ce sont des ouvriers des salines. Ils ont tous les yeux tournés vers le trône.",
+    "L'une d'elles, une petite fille avec un panier, a une larme de sel au coin de l'œil, qui a coulé et qui s'est figée à mi-joue. Tu la touches. Elle est tiède.",
+    {
+     "if": {
+      "voie": "arpenteur"
+     },
+     "text": "Tu as arpenté ces terres-là, dans l'autre monde, celui d'avant la fièvre. Tu as planté tes jalons au milieu de gens qui te regardaient comme ces statues regardent le trône. Ils savaient tous que tes chiffres allaient leur prendre quelque chose."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Écouter la petite fille au panier",
+     "hide": {
+      "seen": "A_fille_sel"
+     },
+     "to": "A_fille_sel"
+    },
+    {
+     "back": "A_sel"
+    }
+   ]
+  },
+  "A_roi": {
+   "act": "I",
+   "title": "Le Roi de Sel",
+   "place": "sel",
+   "second": false,
+   "puzzle": "f2",
+   "text": [
+    "« Ce que je crains ? » Le Roi de Sel rit, et un morceau de sa joue tombe. « Rien. Je suis le plus riche de cette côte. » Puis il baisse la voix, et il lève les yeux vers le ciel de plomb. « Une seule chose. Devine-la, et je te laisse passer. Ne la devine pas, et tu restes, et tu deviens sel. »"
+   ],
+   "choices": [
+    {
+     "back": "A_sel"
+    }
+   ]
+  },
+  "A_f2": {
+   "act": "I",
+   "title": "La pluie",
+   "place": "sel",
+   "second": false,
+   "text": [
+    "« La pluie », dis-tu. Et comme si le ciel n'attendait que le mot, la pluie tombe.",
+    "Une pluie grosse, tiède, qui frappe l'île de sel avec un bruit de mille doigts. Les collines fondent. Les tentes s'affaissent. Les statues pleurent jusqu'aux pieds, et leurs visages se défont, et sous le sel, il y a des visages de chair, qui clignent des yeux, étonnés. Le Roi de Sel se tient la tête à deux mains, et sa couronne glisse, tombe, roule jusqu'à toi.",
+    "Tu la ramasses. Une couronne de sel cristallisé, lourde comme une pierre, gravée de chiffres romains : *XIV · IX*. Quand tu relèves la tête, le roi n'est plus qu'un tas de sel mouillé sur un trône vide, avec deux yeux gris au sommet, qui te regardent encore."
+   ],
+   "choices": [
+    {
+     "back": "A_encre"
+    }
+   ]
+  },
+  "A_tour": {
+   "act": "I",
+   "title": "La Tour du Médecin-Horloge",
+   "place": "horloge",
+   "second": false,
+   "text": [
+    "La tour sort de l'encre, ronde, étroite, faite de rouages empilés, et toute la tour fait tic-tac, si fort que l'eau autour frémit en cercles à chaque battement. Tu montes un escalier qui est un ressort, et chaque marche se tend sous ton pied et te rejette à la suivante.",
+    "En haut, dans une pièce ronde, un petit homme sec en redingote noire, à lunettes, t'attend debout. À la place de la tête, il a une montre. Une grosse montre à répétition, en or, avec un cadran d'émail blanc, deux aiguilles qui tournent trop vite, et un remontoir qui lui sert de nez.",
+    "« Votre pouls, dit le Médecin-Horloge, en prenant ton poignet entre deux doigts froids. Cent vingt. Trop vite. Vos jours sont en désordre. Un malade qui ne sait plus dans quel ordre ses jours sont venus ne guérit jamais : il recommence. »"
+   ],
+   "choices": [
+    {
+     "label": "Le laisser ouvrir son cadran",
+     "to": "A_cadran"
+    },
+    {
+     "label": "Lire le registre ouvert sur le pupitre",
+     "hide": {
+      "seen": "A_registre"
+     },
+     "to": "A_registre"
+    },
+    {
+     "label": "Descendre voir le balancier",
+     "hide": {
+      "seen": "A_balancier"
+     },
+     "to": "A_balancier"
+    }
+   ]
+  },
+  "A_cadran": {
+   "act": "I",
+   "title": "Le cadran",
+   "place": "horloge",
+   "second": false,
+   "puzzle": "f3",
+   "text": [
+    "Le Médecin-Horloge défait les boutons de sa redingote. Sa poitrine est un second cadran, plus grand, ouvert. Tic. Tac."
+   ],
+   "choices": [
+    {
+     "back": "A_tour"
+    }
+   ]
+  },
+  "A_f3": {
+   "act": "I",
+   "title": "Les jours à l'heure",
+   "place": "horloge",
+   "second": false,
+   "text": [
+    "Le départ, le quai, les drapeaux, ton maître qui rit avec ses deux crayons derrière les oreilles. Le guide, debout sur une jambe, qui montre l'horizon et dit *pas par là*. La nuit de tempête, les barques qui s'éloignent, une main qui tient un couteau. Et la dérive, sur une eau blanche, seul{e}.",
+    "Les aiguilles du Médecin-Horloge ralentissent. Tic. Tac. Tic. « Quatre-vingt-dix, dit-il, satisfait. Vous vous souvenez dans l'ordre. C'est un début de guérison, ou un début d'ennuis. » Il referme son cadran. « Une main qui tient un couteau. À qui, la main ? Je soigne les fièvres. Les crimes ont leurs propres médecins. »",
+    "Tu repenses à la main. Tu ne vois pas le visage. Tu vois les doigts, gras, courts, et un gilet de cuir taché."
+   ],
+   "choices": [
+    {
+     "back": "A_encre"
+    }
+   ]
+  },
+  "A_magasin_porte": {
+   "act": "I",
+   "title": "Le Magasin",
+   "place": "magasin",
+   "second": false,
+   "text": [
+    "Un entrepôt de planches noires, sur pilotis, au-dessus de l'encre, avec une enseigne peinte : *Magasin de l'Expédition. Tout est compté.* Des rats courent sur les poutres, gros comme des chats, avec des lorgnons sur le nez et des plumes derrière l'oreille. Ils comptent. Tu les entends : *quarante livres de biscuit, six pintes d'eau-de-vie, douze brasses d'amarre, une, deux, trois*.",
+    "La porte est fermée d'un cadenas de fer en forme de rat, aux yeux de verre rouges."
+   ],
+   "choices": [
+    {
+     "label": "Tourner les molettes du rat de fer",
+     "hide": {
+      "has": "enigme:f4"
+     },
+     "to": "A_rat"
+    },
+    {
+     "label": "Écouter les rats qui comptent sur les poutres",
+     "hide": {
+      "seen": "A_rats_comptent"
+     },
+     "to": "A_rats_comptent"
+    },
+    {
+     "back": "A_encre"
+    }
+   ]
+  },
+  "A_rat": {
+   "act": "I",
+   "title": "Le rat de fer",
+   "place": "magasin",
+   "second": false,
+   "puzzle": "f4",
+   "text": [
+    "Quatre molettes sur le ventre du rat. Tu sens dans ta poche le poids d'une couronne de sel, et ses chiffres gravés te reviennent sous les doigts."
+   ],
+   "choices": [
+    {
+     "back": "A_magasin_porte"
+    }
+   ]
+  },
+  "A_magasin": {
+   "act": "I",
+   "title": "Le marchand de rats",
+   "place": "magasin",
+   "second": false,
+   "fx": {
+    "clue": "i_brunel"
+   },
+   "text": [
+    "Dedans, des tonneaux jusqu'au plafond, des sacs, des caisses, des rouleaux de cordage. Et au milieu, derrière un comptoir, un rat énorme, gros comme un homme gros, en gilet de cuir taché, qui compte des pièces avec des doigts courts et gras, et qui lève vers toi deux petits yeux prudents.",
+    "« Ah, dit-il, d'une voix grasse. L'apprenti. On m'avait dit que tu étais mort{e}. Je l'avais même écrit. » Il tapote un registre. « Tout le monde est mort. Je suis rentré le premier, j'ai fait mes comptes, j'ai tout écrit. Ça simplifie. Les morts ne réclament pas leurs gages. »",
+    "Derrière lui, accroché à un clou, un bout d'amarre de barque, épais comme un poignet. Le bout est net, lisse, tranché d'un seul coup, au couteau, comme on coupe une amarre qu'on veut voir partir."
+   ],
+   "choices": [
+    {
+     "label": "Lui demander qui a coupé l'amarre",
+     "hide": {
+      "seen": "A_rat_parle"
+     },
+     "to": "A_rat_parle"
+    },
+    {
+     "label": "Lire son grand livre par-dessus le comptoir",
+     "hide": {
+      "seen": "A_comptoir"
+     },
+     "to": "A_comptoir"
+    },
+    {
+     "back": "A_encre"
+    }
+   ]
+  },
+  "A_rat_parle": {
+   "act": "I",
+   "title": "Les comptes du rat",
+   "place": "magasin",
+   "second": false,
+   "text": [
+    "Le rat ne regarde pas l'amarre. Il regarde ses pièces. « La tempête, dit-il. Les tempêtes coupent les cordes. Tout le monde sait ça. » Il en compte trois, les glisse dans son gilet. « Et le guide. C'est le guide qui nous a menés par là. C'est un homme des roseaux, ces gens-là sont tous des voleurs et des noyeurs. On l'a mis en prison. On le pendra. Ça simplifie aussi. »",
+    "Il lève vers toi ses petits yeux. « Tu ne te souviens de rien, hein ? Tu as la fièvre. On ne croit pas les fiévreux. » Il sourit, et ses dents sont jaunes et longues. « Dors. »"
+   ],
+   "choices": [
+    {
+     "back": "A_magasin"
+    }
+   ]
+  },
+  "A_pendu": {
+   "act": "I",
+   "title": "Le mât du Rameur",
+   "place": "pendu",
+   "second": false,
+   "text": [
+    "Un mât planté tout droit dans l'encre, sans bateau, sans voile. À la vergue, par les pieds, pend un homme maigre, couleur de vase, les cheveux longs flottant vers l'eau. Il tient deux rames, et il rame, lentement, la tête en bas, dans le vide, avec la régularité de quelqu'un qui a l'habitude et qui n'a pas d'autre choix.",
+    "Il te voit. Il ne s'arrête pas de ramer. « Toi, dit-il, d'une voix lente et rare. Tu es vivant{e}. Bon. » Il rame. « Ils m'ont pendu sans corde. Une cellule, c'est une corde. Ils disent que je vous ai noyés. Moi, je vous avais dit : pas par là. »"
+   ],
+   "choices": [
+    {
+     "label": "Lui demander le chemin de la brume",
+     "to": "A_rameur"
+    },
+    {
+     "label": "Suivre des yeux les hérons qui passent",
+     "hide": {
+      "seen": "A_herons_vol"
+     },
+     "to": "A_herons_vol"
+    }
+   ]
+  },
+  "A_rameur": {
+   "act": "I",
+   "title": "Le mot",
+   "place": "pendu",
+   "second": false,
+   "puzzle": "f6",
+   "text": [
+    "« Le chemin ? » Il rame. « Il n'y a pas de chemin. Il y a un mot. Chez nous, on n'entre pas par un chemin, on entre par un mot. »"
+   ],
+   "choices": [
+    {
+     "back": "A_pendu"
+    }
+   ]
+  },
+  "A_f6": {
+   "act": "I",
+   "title": "Patience",
+   "place": "pendu",
+   "second": false,
+   "text": [
+    "« Patience », dis-tu. Le rameur pendu cesse de ramer, pour la première fois. Il te regarde, la tête en bas, et il sourit, d'un sourire qui lui fend la figure à l'envers.",
+    "« Tu l'as. Garde-le. Tu en auras besoin deux fois. » Il reprend ses rames. « La brume est derrière moi. Elle crie. Ce sont les hérons. Et dessous les hérons, il y a ceux que tu cherches. »"
+   ],
+   "choices": [
+    {
+     "back": "A_encre"
+    }
+   ]
+  },
+  "A_herons": {
+   "act": "I",
+   "title": "L'île aux Hérons",
+   "place": "herons",
+   "second": false,
+   "fx": {
+    "clue": "i_herons"
+   },
+   "text": [
+    "La brume se referme sur la barque comme une main mouillée. Plus de ciel blanc, plus de mer noire : un gris uniforme, épais, qui te colle aux cils. Et dans le gris, des cris. Des milliers de cris rauques, enroués, qui viennent de partout et de nulle part, le cri des hérons, comme si mille vieillards toussaient ensemble dans une église noyée.",
+    "Ta plume, dans ta main, s'est arrêtée. Elle refuse de dessiner cette île. Tu la sens trembler entre tes doigts comme un oiseau qu'on tient.",
+    "Et dans le gris, une voix, tout près, une voix de vieil homme qui rit en parlant, que tu connais mieux que la tienne : « Par ici, petit{e}. Par ici. Tu as mis le temps. »"
+   ],
+   "choices": [
+    {
+     "label": "Écouter ce qui se cache sous les cris",
+     "hide": {
+      "seen": "A_cris"
+     },
+     "to": "A_cris"
+    },
+    {
+     "label": "Suivre la voix",
+     "to": "F_fievre"
+    }
+   ]
+  },
+  "F_fievre": {
+   "act": "I",
+   "title": "La fièvre",
+   "place": "herons",
+   "end": true,
+   "second": false,
+   "fx": {
+    "flag": "fin:fievre",
+    "meet": [
+     "malbrouck"
+    ]
+   },
+   "text": [
+    "La barque touche un fond de vase. Tu descends, dans de l'encre jusqu'aux genoux. Au milieu de l'île, dans un cercle de roseaux, il y a un trou d'eau noire, rond comme un puits, et dans le puits, un vieil homme maigre, à la barbe blanche, aux lunettes de travers, un crayon derrière chaque oreille, enfoncé dans l'encre jusqu'au menton. Eustache Malbrouck. Ton maître.",
+    "Il te regarde. Il rit. Même noyé, il rit. « Ne lâche pas la plume, dit-il. Tout ce que tu as dessiné cette nuit est vrai. Tout. Les îles sont des gens et les gens sont des îles. Dessine-moi le chemin, et ils viendront me chercher. »",
+    {
+     "if": {
+      "has": "enigme:f5"
+     },
+     "text": "Tu lui dis le mot de la légende, les six lignes, les hérons. Il hoche la tête dans l'encre. « Bien. Tu sais lire ta propre main. C'est plus rare qu'on croit. »"
+    },
+    {
+     "if": {
+      "clue": "i_corde"
+     },
+     "text": "Tu lui parles de l'amarre coupée, du rat, de ses doigts gras. Ses yeux se durcissent derrière ses lunettes. « Je sais, dit-il. J'ai vu le couteau. Je n'ai pas vu la main qui payait le couteau. »"
+    },
+    "L'encre monte. Elle lui touche les lèvres. Tu tends la main pour le saisir, et ta main traverse la sienne comme on traverse un reflet. L'encre te monte aux genoux, à la taille, à la poitrine, chaude, si chaude, et la brume se met à sonner, *ding*, une petite clochette de cuivre, très loin au-dessus, *ding*, et la chaleur se retire d'un coup, comme une marée.",
+    "Tu ouvres les yeux sur un plafond blanc. Un vrai plafond, avec une fissure en forme de rivière. Une odeur de linge bouilli, de cire et de quinquina. Une clochette sonne quelque part. Et ta main droite, sous le drap, serre un bout de crayon usé jusqu'au bois."
+   ]
+  },
+  "S_reveil": {
+   "act": "II",
+   "title": "Le réveil",
+   "place": "hopital",
+   "second": true,
+   "fx": {
+    "meet": [
+     "agathe"
+    ]
+   },
+   "text": [
+    "Un plafond blanc, une fissure en forme de rivière. Une odeur de linge bouilli, de cire et de quinquina. Tu es couché{e} dans un lit de fer, au milieu d'une longue salle voûtée où vingt autres lits s'alignent sous des draps blancs tendus, comme des collines. Par les hautes fenêtres entre une lumière grise de matin de marais.",
+    "Une clochette sonne. *Ding.* Une grande religieuse osseuse s'approche entre les lits, et sa cornette blanche, aux ailes empesées, claque quand elle tourne la tête. Elle a les yeux bleus, qui tombent un peu aux coins. Elle sent le linge bouilli et la cire. Tu la connais. Tu l'as vue en haut d'une colline de draps.",
+    "« Sept heures, dit-elle. Vous voilà revenu{e}. Sœur Agathe. Vous m'avez mordue. » Elle te montre un pansement sur sa main, sans rancune. « Trois jours de fièvre. On vous a trouvé{e} dans une barque, à la dérive, à l'entrée du port. Vous dessiniez. Vous n'avez fait que ça. »",
+    "Elle désigne le pied du lit. Là, roulée, une grande feuille faite de dizaines de feuilles de température collées les unes aux autres avec de la mie de pain, couvertes au dos d'un archipel au crayon, d'un trait sûr, nerveux, magnifique. Ta carte de fièvre."
+   ],
+   "choices": [
+    {
+     "label": "Dérouler la carte de fièvre",
+     "to": "S_carte"
+    }
+   ]
+  },
+  "S_carte": {
+   "act": "II",
+   "title": "La carte de fièvre",
+   "place": "hopital",
+   "second": true,
+   "text": [
+    "Tu la déroules sur ton lit. Elle est là, toute entière, telle que tu l'as rêvée : la mer, que ta main a hachurée de noir, l'île des cloches, l'île blanche, la tour, l'entrepôt sur pilotis, le mât, et au centre, une tache grise estompée au doigt, entourée de petits oiseaux dessinés en trois traits. Au coin, dans un cartouche de roseaux, la légende, six lignes de ta main.",
+    "Au bas de la feuille, une écriture d'une autre main, que tu reconnais : le docteur a noté tes températures, jour après jour, sur l'autre face, et le papier en garde les colonnes comme une carte garde ses latitudes. Quarante et un. Quarante et un. Quarante. Trente-sept et demi.",
+    "Tu regardes les îles. Tu regardes la salle. Les draps tendus. La clochette. La cornette. Tout ce que tu as dessiné cette nuit est vrai, a dit un vieil homme dans l'encre. Les îles sont des gens."
+   ],
+   "choices": [
+    {
+     "label": "Regarder autour de toi",
+     "to": "S_salle"
+    }
+   ]
+  },
+  "S_salle": {
+   "act": "II",
+   "title": "La salle des fiévreux",
+   "place": "hopital",
+   "second": true,
+   "hub": true,
+   "backName": "la salle",
+   "text": [
+    {
+     "first": true,
+     "text": "La salle des fiévreux de Saint-Lazare-des-Salines est longue comme une église, et l'on y entend les mêmes bruits qu'à l'église : des soupirs, des toux, des prières, et le pas des sœurs sur les dalles. Ton lit est le dernier, sous une fenêtre qui donne sur le port."
+    },
+    {
+     "again": true,
+     "text": "La salle des fiévreux, les lits sous leurs draps tendus, la clochette de Sœur Agathe, ta carte roulée au pied de ton lit."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Parler à Sœur Agathe de ce que tu as dit en délire",
+     "hide": {
+      "seen": "S_agathe"
+     },
+     "to": "S_agathe"
+    },
+    {
+     "label": "Attendre la visite du docteur",
+     "hide": {
+      "seen": "S_leclou"
+     },
+     "to": "S_leclou"
+    },
+    {
+     "label": "Recevoir la visiteuse qui demande l'apprenti de Malbrouck",
+     "if": {
+      "seen": "S_agathe"
+     },
+     "hide": {
+      "seen": "S_iris"
+     },
+     "to": "S_iris"
+    },
+    {
+     "label": "Recevoir le grand monsieur en blanc qui attend à la porte",
+     "if": {
+      "seen": "S_leclou"
+     },
+     "hide": {
+      "seen": "S_comte_visite"
+     },
+     "to": "S_comte_visite"
+    },
+    {
+     "label": "Regarder qui rôde au bout de la salle",
+     "if": {
+      "seen": "S_comte_visite"
+     },
+     "hide": {
+      "seen": "S_brunel_visite"
+     },
+     "to": "S_brunel_visite"
+    },
+    {
+     "label": "Regarder la plaque au pied de ton lit",
+     "hide": {
+      "seen": "S_lit_douze"
+     },
+     "to": "S_lit_douze"
+    },
+    {
+     "label": "Vider les poches de ton manteau",
+     "hide": {
+      "seen": "S_manteau"
+     },
+     "to": "S_manteau"
+    },
+    {
+     "label": "Parler à l'homme qui tousse dans le lit voisin",
+     "if": {
+      "seen": "S_lit_douze"
+     },
+     "hide": {
+      "seen": "S_voisin"
+     },
+     "to": "S_voisin"
+    },
+    {
+     "label": "Aller jusqu'à la chapelle au bout de la salle",
+     "if": {
+      "seen": "S_agathe"
+     },
+     "hide": {
+      "seen": "S_chapelle"
+     },
+     "to": "S_chapelle"
+    },
+    {
+     "label": "Quitter l'hôpital et descendre au port",
+     "if": {
+      "seen": "S_leclou"
+     },
+     "hide": {
+      "seen": "S_port"
+     },
+     "fx": {
+      "until": 9
+     },
+     "to": "S_port"
+    }
+   ]
+  },
+  "S_agathe": {
+   "act": "II",
+   "title": "Ce que tu as dit",
+   "place": "hopital",
+   "second": true,
+   "text": [
+    "Sœur Agathe s'assoit au bord de ton lit, droite comme une colonne. « Vous avez parlé, dit-elle. Beaucoup. Des cloches, du sel, d'une horloge, d'un rat. Et d'un pendu qui rame. » Elle hésite, ce qui chez elle doit être rare. « Et d'un nom. Joachim. Vous disiez : pas par là, pas par là, Joachim avait raison. »",
+    "« Joachim est en prison, au port, dit-elle encore. Le guide de votre expédition. Le quartier-maître est rentré il y a huit jours, seul, et il a dit que le guide vous avait menés exprès dans les chenaux de la Morte, pour vous noyer et vous voler. On va le juger samedi. On dit qu'on le pendra. » Elle se lève. « Je ne crois pas les quartiers-maîtres. Je les soigne depuis trente ans. Ils mentent sur leur pouls. »"
+   ],
+   "choices": [
+    {
+     "back": "S_salle"
+    }
+   ]
+  },
+  "S_leclou": {
+   "act": "II",
+   "title": "Le docteur",
+   "place": "hopital",
+   "second": true,
+   "fx": {
+    "meet": [
+     "leclou"
+    ]
+   },
+   "text": [
+    "Le docteur Leclou arrive à huit heures moins une, sa montre à répétition à la main, petit, sec, en redingote noire, des lunettes sur le nez. Il prend ton poignet entre deux doigts froids, et regarde le cadran de sa montre, et tu entends le tic-tac. Tu as envie de rire. Tu ne ris pas : tu as vu sa poitrine s'ouvrir en cadran, cette nuit.",
+    "« Quatre-vingts, dit-il. Guéri, ou presque. Vous pouvez sortir à midi, contre avis médical. Vous sortirez à neuf heures, je le vois à vos yeux. Les gens qui ont dessiné toute une nuit sortent toujours trop tôt. » Il note, ferme son carnet. « Quinquina, une dose matin et soir. Et ne retournez pas dans les marais. On n'en revient pas deux fois. »",
+    {
+     "if": {
+      "voie": "batelier"
+     },
+     "text": "Tu lui dis que tu es né{e} sur une barge, et que les marais, tu les connais. Il hausse les épaules. « Tous les noyés de mon registre connaissaient les marais. C'est pour ça qu'ils y allaient. »"
+    }
+   ],
+   "choices": [
+    {
+     "back": "S_salle"
+    }
+   ]
+  },
+  "S_iris": {
+   "act": "II",
+   "title": "Iris Malbrouck",
+   "place": "hopital",
+   "second": true,
+   "fx": {
+    "meet": [
+     "iris"
+    ],
+    "flag": "iris:avec"
+   },
+   "text": [
+    "Une jeune femme en habit de voyage brun s'approche de ton lit, à grands pas, un compas de laiton pendu au cou au bout d'une chaîne, des taches d'encre aux doigts. Elle a le front de ton maître, et son nez, et sa façon de regarder les choses comme si elle allait les mesurer.",
+    "« Iris Malbrouck, dit-elle. Graveuse. Je suis arrivée de la capitale hier soir, par la diligence. On m'a dit que mon père était mort, et que vous étiez vivant{e}. » Elle a les yeux secs. « Je ne crois pas que mon père soit mort. Il ne meurt pas. Il a perdu deux doigts au pôle et il a continué de dessiner. »",
+    "Elle voit la carte, au pied de ton lit, et se penche dessus. Longtemps. Puis elle pose le doigt sur la tache grise au centre, entourée de petits oiseaux. « C'est son trait, dit-elle, très bas. C'est son trait, de votre main. Qu'est-ce qu'il y a, là ? »",
+    "Tu lui dis : des hérons, une brume, une voix qui rit. Elle se redresse. « Alors je viens avec vous. »"
+   ],
+   "choices": [
+    {
+     "back": "S_salle"
+    }
+   ]
+  },
+  "S_comte_visite": {
+   "act": "II",
+   "title": "Le maître des salines",
+   "place": "hopital",
+   "second": true,
+   "fx": {
+    "meet": [
+     "saintaubry"
+    ]
+   },
+   "text": [
+    "Il entre dans la salle des fiévreux comme on entre dans une de ses propriétés : grand, majestueux, en manteau blanc à col de fourrure, la barbe blanche peignée, et il sent le sel et l'eau de Cologne. Les sœurs s'écartent. Les malades se taisent. Le comte de Saint-Aubry, maître des salines de Brésille.",
+    "Tu le reconnais. Tu l'as vu sur un trône de sel, cette nuit, perdre sa couronne sous la pluie.",
+    "« Mon pauvre cartographe, dit-il, d'une voix lente. Quelle épreuve. J'ai payé cette expédition, je me sens responsable. » Ses yeux gris tombent sur la carte roulée au pied de ton lit. « On me dit que vous avez dessiné, pendant votre fièvre. Des cartes. Je vous en offre deux cents écus. Pour la mémoire de votre maître. Un souvenir. »"
+   ],
+   "choices": [
+    {
+     "label": "Lui vendre la carte de fièvre",
+     "hide": {
+      "any": [
+       {
+        "has": "carte:vendue"
+       },
+       {
+        "has": "carte:gardee"
+       }
+      ]
+     },
+     "fx": {
+      "flag": "carte:vendue",
+      "gold": 12000
+     },
+     "to": "S_vendue"
+    },
+    {
+     "label": "Lui dire que la carte n'est pas à vendre",
+     "hide": {
+      "any": [
+       {
+        "has": "carte:vendue"
+       },
+       {
+        "has": "carte:gardee"
+       }
+      ]
+     },
+     "fx": {
+      "flag": "carte:gardee"
+     },
+     "to": "S_gardee"
+    }
+   ]
+  },
+  "S_vendue": {
+   "act": "II",
+   "title": "Deux cents écus",
+   "place": "hopital",
+   "second": true,
+   "text": [
+    "Le comte compte deux cents écus d'or sur ta couverture, en piles bien droites, comme des tours de sel. Il roule la carte avec un soin infini, la glisse sous son manteau, te tapote la main, et s'en va.",
+    "Tu regardes les écus. Tu fermes les yeux. Sous tes paupières, la carte est là, entière, chaque île, chaque trait. Tu l'as dessinée. Ta main s'en souvient. Il a acheté le papier ; il n'a pas acheté ta main."
+   ],
+   "choices": [
+    {
+     "back": "S_salle"
+    }
+   ]
+  },
+  "S_gardee": {
+   "act": "II",
+   "title": "Pas à vendre",
+   "place": "hopital",
+   "second": true,
+   "text": [
+    "Le comte sourit, d'un sourire qui n'atteint pas les yeux gris. « Tout est à vendre, jeune cartographe. Tout. C'est la seule loi de la nature que je connaisse. » Il se lève. « Réfléchissez. La fièvre rend sentimental. Je repasserai. »",
+    "Il s'en va. Tu remarques, quand il passe la porte, qu'il fait un petit signe de tête à quelqu'un, au bout de la salle, près du bénitier."
+   ],
+   "choices": [
+    {
+     "back": "S_salle"
+    }
+   ]
+  },
+  "S_brunel_visite": {
+   "act": "II",
+   "title": "Le quartier-maître",
+   "place": "hopital",
+   "second": true,
+   "fx": {
+    "meet": [
+     "brunel"
+    ],
+    "clue": "i_brunel"
+   },
+   "text": [
+    "Près du bénitier, un gros homme en gilet de cuir taché tourne son chapeau entre des doigts courts et gras. Il s'approche de ton lit avec une mine de circonstance, et ses petits yeux prudents font le tour de toi, du lit, de la carte, de la fenêtre, comme on fait un inventaire.",
+    "« Brunel, dit-il. Le quartier-maître. Tu te souviens de moi ? » Tu te souviens d'un rat derrière un comptoir. « Je suis rentré le premier. Seul. Huit jours de marais à pied. J'ai cru que tout le monde était mort. J'ai dit que c'était la faute du guide. » Il baisse la voix. « Tu te souviens de quelque chose ? De la nuit de la tempête ? Les fiévreux disent n'importe quoi. Personne ne les croit. »",
+    "Il te regarde un long moment. Puis il te tapote l'épaule, de ses doigts gras. « Dors, petit{e}. » Et il s'en va. Le mot te glace le sang : tu l'as entendu, cette nuit, dans la gueule d'un rat."
+   ],
+   "choices": [
+    {
+     "back": "S_salle"
+    }
+   ]
+  },
+  "S_port": {
+   "act": "II",
+   "title": "Le port de Brésille",
+   "place": "port",
+   "second": true,
+   "hub": true,
+   "backName": "le port",
+   "text": [
+    {
+     "first": true,
+     "text": "Le port de Brésille sent le sel, la vase et le goudron. Les barges plates des salines y attendent, chargées de sel en pains, et au-delà des jetées commencent les Bouches-Noires : une étendue infinie de roseaux gris-vert, plus hauts qu'un homme, où le fleuve se perd en mille bras, sous un ciel bas où passent, lentement, des hérons."
+    },
+    {
+     "first": true,
+     "text": "Sur le quai, la prison du port, un cube de pierre noire aux fenêtres grillées. Plus loin, l'entrepôt de l'expédition, sur pilotis, avec son enseigne neuve : *Brunel, avitaillement.* Et sur la colline, au-dessus des toits, l'hôtel blanc du comte de Saint-Aubry, posé comme un bloc de sel sur un tapis vert."
+    },
+    {
+     "again": true,
+     "text": "Le port, ses barges de sel, la prison noire, l'entrepôt sur pilotis, et au-delà, les roseaux à perte de vue."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Entrer à la prison du port",
+     "hide": {
+      "seen": "S_prison"
+     },
+     "to": "S_prison"
+    },
+    {
+     "label": "Parler à Joachim dans sa cellule",
+     "if": {
+      "seen": "S_prison"
+     },
+     "to": "S_joachim"
+    },
+    {
+     "label": "Faire la conversation au geôlier",
+     "if": {
+      "seen": "S_prison"
+     },
+     "hide": {
+      "seen": "S_geolier"
+     },
+     "to": "S_geolier"
+    },
+    {
+     "label": "Regarder les porteuses de sel sur le quai",
+     "hide": {
+      "seen": "S_quai_sel"
+     },
+     "to": "S_quai_sel"
+    },
+    {
+     "label": "Boire un verre au cabaret des bateliers",
+     "hide": {
+      "seen": "S_cabaret"
+     },
+     "to": "S_cabaret"
+    },
+    {
+     "label": "Te glisser dans l'entrepôt de Brunel",
+     "hide": {
+      "item": "registre_brunel"
+     },
+     "test": {
+      "dom": "discretion",
+      "diff": 0,
+      "label": "Discrétion"
+     },
+     "win": {
+      "fx": {
+       "item": "registre_brunel"
+      },
+      "to": "S_entrepot"
+     },
+     "lose": {
+      "to": "S_entrepot_vu"
+     }
+    },
+    {
+     "label": "Lire la ligne bizarre du carnet de Brunel",
+     "if": {
+      "item": "registre_brunel"
+     },
+     "hide": {
+      "has": "enigme:g1"
+     },
+     "to": "S_carnet"
+    },
+    {
+     "label": "Porter le carnet au lieutenant du port",
+     "if": {
+      "has": "enigme:g1"
+     },
+     "hide": {
+      "has": "joachim:libre"
+     },
+     "fx": {
+      "flag": "joachim:libre"
+     },
+     "to": "S_lieutenant"
+    },
+    {
+     "label": "Monter à l'hôtel de Saint-Aubry",
+     "if": {
+      "has": "enigme:g1"
+     },
+     "hide": {
+      "seen": "S_hotel"
+     },
+     "fx": {
+      "time": 1
+     },
+     "to": "S_hotel"
+    },
+    {
+     "label": "Partir dans les marais avec la marée de midi",
+     "if": {
+      "has": "route:trouvee"
+     },
+     "fx": {
+      "until": 12
+     },
+     "to": "S_marais"
+    }
+   ]
+  },
+  "S_prison": {
+   "act": "II",
+   "title": "La prison",
+   "place": "port",
+   "second": true,
+   "text": [
+    "Le geôlier est un vieil homme à jambe de bois qui mange des moules dans un chapeau. Il te laisse entrer pour un sou, parce que c'est jour de visite et qu'il n'en vient jamais. « Le Roselin ? Au fond. Il dit rien. Il se tient sur une jambe toute la journée. On dirait un héron. Ça me met mal à l'aise, rapport à ma jambe. »"
+   ],
+   "choices": [
+    {
+     "label": "Aller au fond, jusqu'à la cellule",
+     "fx": {
+      "gold": -1
+     },
+     "to": "S_joachim"
+    }
+   ]
+  },
+  "S_joachim": {
+   "act": "II",
+   "title": "Joachim",
+   "place": "port",
+   "second": true,
+   "fx": {
+    "meet": [
+     "joachim"
+    ]
+   },
+   "text": [
+    {
+     "first": true,
+     "text": "Dans la dernière cellule, un homme maigre, couleur de vase, se tient debout sur une jambe, l'autre repliée contre le genou, les bras croisés, au milieu d'un rayon de jour qui tombe de la lucarne. Il ne bouge pas. Ses cheveux longs lui tombent sur les épaules. Il te regarde à travers les barreaux sans ciller. Tu l'as vu pendu à un mât, ramant la tête en bas."
+    },
+    {
+     "first": true,
+     "text": "« Toi, dit-il, de sa voix lente et rare. Tu es vivant{e}. Bon. » Il ne change pas de jambe. « Je vous avais dit : pas par là. »"
+    },
+    {
+     "again": true,
+     "text": "Joachim, debout sur une jambe dans son rayon de jour, te regarde à travers les barreaux."
+    },
+    {
+     "if": {
+      "has": "joachim:libre"
+     },
+     "text": "La porte de la cellule est ouverte. Joachim n'est pas encore sorti. Il attendait que tu viennes le chercher."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Lui dire le mot des roseaux",
+     "hide": {
+      "has": "joachim:mot"
+     },
+     "fx": {
+      "flag": "joachim:mot"
+     },
+     "to": "S_joachim_mot"
+    },
+    {
+     "label": "Retracer avec lui la route de la dérive",
+     "if": {
+      "all": [
+       {
+        "has": "joachim:mot"
+       },
+       {
+        "has": "joachim:libre"
+       }
+      ]
+     },
+     "hide": {
+      "has": "route:trouvee"
+     },
+     "to": "S_route"
+    },
+    {
+     "back": "S_port"
+    }
+   ]
+  },
+  "S_joachim_mot": {
+   "act": "II",
+   "title": "Patience",
+   "place": "port",
+   "second": true,
+   "text": [
+    "Tu approches ton visage des barreaux, et tu dis, à voix basse : « Patience. »",
+    "Joachim pose enfin son autre pied par terre. Il te regarde, et quelque chose bouge sur son visage, qui pourrait être un sourire chez quelqu'un d'autre. « Qui te l'a dit ? » Tu dis : toi, dans ma fièvre. Il hoche la tête, comme si c'était l'explication la plus ordinaire du monde. « La fièvre, chez nous, on dit que c'est le marais qui parle. Il parle bien, à ce que je vois. »",
+    "Il s'approche des barreaux. « La nuit de la tempête, le gros a coupé les amarres. Les trois barques de devant sont parties à la dérive, avec le vieux, toi, et deux autres. Moi, j'étais dans la sienne. Il m'a assommé. Il a ramé huit jours vers Brésille, il m'a livré, et il a dit que j'avais tout fait. » Il retourne dans son rayon de jour. « Le vieux vit. Les miens l'ont trouvé, j'en suis sûr. Je sais où. Mais il faut sortir d'ici. Et il faut savoir par où le courant t'a pris, toi, pour savoir où il l'a laissé, lui. »"
+   ],
+   "choices": [
+    {
+     "back": "S_joachim"
+    }
+   ]
+  },
+  "S_entrepot": {
+   "act": "II",
+   "title": "L'entrepôt de Brunel",
+   "place": "port",
+   "second": true,
+   "text": [
+    "Tu te glisses par une trappe de chargement, entre deux pilotis, et tu te retrouves dans l'entrepôt : des tonneaux jusqu'au plafond, des sacs, des caisses, des rouleaux de cordage neuf. Exactement le Magasin de ta fièvre, moins les rats à lorgnon. L'odeur est la même : biscuit, goudron, eau-de-vie.",
+    "Sur un comptoir, sous une pierre, un carnet de comptes relié de cuir gras. Tu le prends. Et accroché à un clou, derrière le comptoir, un bout d'amarre épais comme un poignet, tranché net, au couteau. Il l'a gardé. Les gens qui comptent tout gardent tout."
+   ],
+   "choices": [
+    {
+     "back": "S_port"
+    }
+   ]
+  },
+  "S_entrepot_vu": {
+   "act": "II",
+   "title": "Le gardien de l'entrepôt",
+   "place": "port",
+   "second": true,
+   "text": [
+    "Un chien énorme se dresse dans l'ombre de l'entrepôt avant même que tu aies passé la trappe, et un commis à moitié endormi lève une lanterne. « Qui va là ? » Tu ressors à reculons, avec un sourire d'ivrogne et une excuse de batelier perdu{e}. Le commis te regarde partir longtemps.",
+    "Il faudra revenir quand il dormira mieux."
+   ],
+   "choices": [
+    {
+     "back": "S_port"
+    }
+   ]
+  },
+  "S_carnet": {
+   "act": "II",
+   "title": "Le carnet de Brunel",
+   "place": "port",
+   "second": true,
+   "puzzle": "g1",
+   "text": [
+    "Tu ouvres le carnet sur une borne du quai. Des colonnes de chiffres, une écriture grasse et appliquée. Biscuit, eau-de-vie, cordage, gages. Et une ligne qui détonne."
+   ],
+   "choices": [
+    {
+     "back": "S_port"
+    }
+   ]
+  },
+  "S_g1": {
+   "act": "II",
+   "title": "Les cordes",
+   "place": "port",
+   "second": true,
+   "text": [
+    "*Le comte paie les cordes.* Chaque mot retourné sur lui-même, comme un gant qu'on enlève. Brunel a écrit ses secrets à l'envers, mot par mot, avec la ruse d'un homme qui croit que personne ne lit jamais un carnet de comptes jusqu'au bout.",
+    "Et en face, dans la colonne des recettes, la date du quatorze septembre, la nuit de la tempête : *Reçu de M. le C. : 300 écus.*"
+   ],
+   "choices": [
+    {
+     "back": "S_port"
+    }
+   ]
+  },
+  "S_lieutenant": {
+   "act": "II",
+   "title": "Le lieutenant du port",
+   "place": "port",
+   "second": true,
+   "text": [
+    "Le lieutenant du port est un jeune homme maigre, qui lit le carnet de Brunel trois fois, en remuant les lèvres, puis la ligne à l'envers, quatre fois. Il devient très pâle. « Monsieur le comte, dit-il. Monsieur le comte paie aussi ma solde. » Il referme le carnet. Il réfléchit. Il a l'air d'un homme qui compte ses chances, et qui trouve qu'il en a peu.",
+    "Puis il se lève, prend son trousseau, et descend à la prison. « Le Roselin sort, dit-il au geôlier. Faute de preuves. » Il te rend le carnet. « Gardez-le. Si je le garde, il disparaîtra. Si vous le gardez, c'est vous qui disparaîtrez, peut-être, mais au moins ce ne sera pas ma faute. »"
+   ],
+   "choices": [
+    {
+     "back": "S_port"
+    }
+   ]
+  },
+  "S_route": {
+   "act": "II",
+   "title": "La route de la dérive",
+   "place": "port",
+   "second": true,
+   "puzzle": "g2",
+   "text": [
+    "Joachim, libre, s'accroupit sur le quai devant la prison, déroule ta carte de fièvre sur les pavés, et pose à côté la vieille carte du port, celle des bateliers, où sont marqués les repères des premiers chenaux.",
+    {
+     "if": {
+      "has": "carte:vendue"
+     },
+     "text": "Tu n'as plus la carte : le comte l'a achetée. Tu prends un bout de charbon, et tu la redessines sur les pavés, de mémoire, île par île. Ta main s'en souvient. Joachim te regarde faire sans un mot."
+    }
+   ],
+   "choices": [
+    {
+     "back": "S_joachim"
+    }
+   ]
+  },
+  "S_g2": {
+   "act": "II",
+   "title": "Où il est",
+   "place": "port",
+   "second": true,
+   "text": [
+    "La cloche du bac, les salines, le moulin à marée, l'entrepôt. Les cloches, le sel, l'horloge, le magasin. Ta barque a dérivé de repère en repère, et ta fièvre a fait de chacun une île, dans l'ordre exact où tu les as croisés, à demi mort{e}, au fond de ta barque.",
+    "Joachim pose le doigt sur la tache grise au centre de ta carte, puis sur la carte des bateliers, au-delà de l'entrepôt, là où les chenaux deviennent blancs, faute de relevés. « Là, dit-il. L'île aux Hérons. On y va avec la marée de midi. »"
+   ],
+   "choices": [
+    {
+     "back": "S_port"
+    }
+   ]
+  },
+  "S_hotel": {
+   "act": "II",
+   "title": "L'hôtel de Saint-Aubry",
+   "place": "comte",
+   "second": true,
+   "text": [
+    "L'hôtel du comte est blanc, d'un blanc de sel, avec des colonnes, des perrons, des statues de nymphes qui tiennent des urnes vides. On te fait attendre dans un salon où tout est blanc, les murs, les fauteuils, le piano, le tapis, comme si le maître de maison avait voulu vivre à l'intérieur d'un de ses tas de sel.",
+    "Le comte entre, majestueux, et s'assoit sans t'offrir de siège. « Vous avez réfléchi ? » Tu poses sur le piano blanc le carnet de Brunel, ouvert à la ligne retournée. Il la lit. Il ne change pas de visage. Les grands propriétaires ont des visages de propriété : rien n'y bouge sans autorisation.",
+    "« Trois cents écus, dit-il. Pour des cordes. C'est cher, pour des cordes. » Il referme le carnet du bout d'un doigt. « Que voulez-vous ? De l'argent ? J'en ai. Une place ? J'en ai. Je n'ai jamais eu besoin d'avoir raison, jeune cartographe. J'ai toujours eu besoin d'avoir le dernier mot, ce qui coûte moins cher. »"
+   ],
+   "choices": [
+    {
+     "label": "Lui dire que tu veux la vérité sur les marais",
+     "fx": {
+      "flag": "comte:confronte"
+     },
+     "to": "S_comte_verite"
+    }
+   ]
+  },
+  "S_comte_verite": {
+   "act": "II",
+   "title": "Les gens des roseaux",
+   "place": "comte",
+   "second": true,
+   "text": [
+    "Le comte se lève et va à la fenêtre, d'où l'on voit tout le delta, gris-vert, jusqu'à la mer. « La vérité ? Votre maître a écrit à l'Académie, de là-bas, par un batelier, il y a un mois. Il a écrit que les Bouches-Noires étaient habitées. Des villages. Des familles. Des gens qui vivent sur l'eau depuis mille ans. » Il hausse les épaules. « On n'assèche pas un marais habité. On assèche un marais vide. Il fallait que la carte revienne vide, ou pas du tout. »",
+    "Il se retourne. « Je n'ai tué personne. J'ai acheté des cordes. Ce qui arrive aux gens qui sont au bout des cordes ne m'appartient pas. » Il te raccompagne lui-même à la porte, avec une politesse de glace. « Bonne journée. Évitez les marais. »"
+   ],
+   "choices": [
+    {
+     "back": "S_port"
+    }
+   ]
+  },
+  "S_marais": {
+   "act": "II",
+   "title": "Les Bouches-Noires",
+   "place": "marais",
+   "second": true,
+   "text": [
+    "À midi, la marée tourne, et la barque de Joachim entre dans les roseaux. Il rame debout, à l'arrière, d'une seule rame, comme on fait chez lui, sans bruit. Les roseaux se referment derrière vous comme un rideau. Le port disparaît. Le ciel se réduit à une bande grise au-dessus des tiges, qui sifflent et se courbent au vent avec un bruit de foule qui chuchote.",
+    {
+     "if": {
+      "has": "iris:avec"
+     },
+     "text": "Iris est assise à l'avant, le compas de son père à la main, et elle relève les angles à chaque coude du chenal sur un carnet posé sur ses genoux, sans un mot, avec l'acharnement de quelqu'un qui dessine pour ne pas penser."
+    },
+    "Vous passez la cloche du bac, qui sonne dans la brume. Les vieilles salines abandonnées, aux tas blancs comme des tentes. Le moulin à marée, dont la roue tourne comme une horloge, tic, tac. L'entrepôt sur pilotis, vide, ses portes battantes. Chaque repère est une île de ta fièvre, que tu reconnais au passage comme on reconnaît un visage dans une foule. Et au-delà, les chenaux deviennent blancs sur toutes les cartes du monde."
+   ],
+   "choices": [
+    {
+     "label": "Accoster au moulin à marée",
+     "hide": {
+      "seen": "S_moulin"
+     },
+     "to": "S_moulin"
+    },
+    {
+     "label": "Longer les salines abandonnées",
+     "hide": {
+      "seen": "S_salines_mortes"
+     },
+     "to": "S_salines_mortes"
+    },
+    {
+     "label": "Entrer dans la brume",
+     "fx": {
+      "time": 3
+     },
+     "to": "S_roselins"
+    }
+   ]
+  },
+  "S_roselins": {
+   "act": "II",
+   "title": "Les gens des roseaux",
+   "place": "marais",
+   "second": true,
+   "text": [
+    "La brume tombe, d'un coup, épaisse, grise, qui colle aux cils. Et dans la brume, des cris : mille hérons, rauques, enroués, comme mille vieillards qui toussent dans une église noyée. Ton sang se glace. Tu connais ce bruit.",
+    "Puis des formes sortent de la brume, sans bruit : des barques longues et plates, faites de roseaux liés, chacune poussée par un homme ou une femme debout, couleur de vase, les cheveux longs. Elles vous entourent. Personne ne parle. Une vieille femme, à l'avant de la plus grande barque, te regarde, toi, l'étranger{e}, avec des yeux noirs et patients, et attend.",
+    "Joachim, derrière toi, ne dit rien. Il te laisse parler. C'est ton mot, à présent."
+   ],
+   "choices": [
+    {
+     "label": "Dire « Patience »",
+     "to": "S_ile_herons"
+    }
+   ]
+  },
+  "S_ile_herons": {
+   "act": "II",
+   "title": "L'île aux Hérons",
+   "place": "marais",
+   "second": true,
+   "fx": {
+    "flag": "malbrouck:retrouve",
+    "meet": [
+     "malbrouck"
+    ],
+    "ep": [
+     "histoire",
+     500
+    ]
+   },
+   "text": [
+    "La vieille femme hoche la tête. Les barques de roseaux s'écartent. Derrière la brume, il y a une île : de la vase, des saules, et sur des pilotis, un village de maisons rondes en roseau tressé, reliées par des passerelles, avec des fumées bleues qui montent droit. Sur chaque toit, des hérons, immobiles, sur une patte.",
+    "Et sur la passerelle du milieu, assis sur un tabouret, enveloppé dans une couverture de plumes, maigre, barbu, des lunettes de travers et un crayon derrière chaque oreille, un vieil homme dessine. Il lève la tête. Il rit. Même de loin, il rit.",
+    "« Par ici, petit{e}, crie Eustache Malbrouck. Par ici ! Tu as mis le temps ! »",
+    {
+     "if": {
+      "has": "iris:avec"
+     },
+     "text": "Iris saute de la barque avant qu'elle touche, tombe dans la vase jusqu'aux genoux, se relève, court sur la passerelle, et s'arrête devant son père. Ils se regardent. Ils ne s'embrassent pas : ils sont de la même race que leurs cartes, précis, secs, pudiques. Elle dit seulement : « Tu as encore perdu tes lunettes. » Il dit : « Elles sont sur mon nez. » Elle dit : « Justement. » Et puis elle pleure, et lui aussi, en riant."
+    },
+    "Il a de la fièvre, lui aussi, et une jambe cassée qu'une Roseline a remise en place avec des attelles de saule. Les deux bateliers de l'expédition sont là, vivants, maigres, en train d'apprendre à pêcher l'anguille avec des enfants qui rient d'eux. Et sur les genoux de ton maître, il y a une carte."
+   ],
+   "choices": [
+    {
+     "label": "Parcourir le village sur les passerelles",
+     "to": "S_village"
+    },
+    {
+     "label": "Regarder la carte de ton maître",
+     "to": "S_vraie_carte"
+    }
+   ]
+  },
+  "S_vraie_carte": {
+   "act": "II",
+   "title": "La vraie carte",
+   "place": "marais",
+   "second": true,
+   "fx": {
+    "item": "carte_malbrouck"
+   },
+   "text": [
+    "C'est la plus belle carte que tu aies jamais vue. Les Bouches-Noires, entières, levées pendant un mois sur une jambe cassée, avec l'aide des Roselins qui le portaient de barque en barque : chaque chenal, chaque îlot, chaque saule. Et sur les îlots, de petits ronds, tracés avec soin, avec des noms écrits en petites capitales : des villages. Quarante-trois villages. Des noms que personne, à Brésille, n'a jamais entendus.",
+    "« Le comte veut un marais vide, dit Malbrouck. Je lui ai fait un marais plein. » Il te tend la carte. « Tu l'as trouvée. Tu choisis ce qu'on en fait. Moi, je suis trop vieux, et trop en colère, et j'ai trop de fièvre. Je ferais une bêtise. »"
+   ],
+   "choices": [
+    {
+     "label": "Porter la carte à l'Académie, pour que le royaume sache que les marais sont habités",
+     "fx": {
+      "flag": "carte:academie"
+     },
+     "to": "S_choix"
+    },
+    {
+     "label": "Laisser la carte aux Roselins, et à eux seuls",
+     "fx": {
+      "flag": "carte:roselins"
+     },
+     "to": "S_choix"
+    },
+    {
+     "label": "Rapporter la carte au comte, qui l'a payée",
+     "fx": {
+      "flag": "carte:comte"
+     },
+     "to": "S_choix"
+    }
+   ]
+  },
+  "S_choix": {
+   "act": "II",
+   "title": "Le retour",
+   "place": "marais",
+   "second": true,
+   "text": [
+    "Le soir tombe sur le village des roseaux. Les hérons, sur les toits, rentrent la tête dans les épaules. Les Roselins allument de petits feux dans des pots de terre posés sur l'eau, et la brume devient dorée.",
+    "Demain, vous repartirez vers Brésille, avec ton maître sur une civière de roseaux, et ce que tu as choisi de faire de sa carte."
+   ],
+   "choices": [
+    {
+     "label": "Repartir à l'aube",
+     "fx": {
+      "until": 6
+     },
+     "to": "F_carte"
+    }
+   ]
+  },
+  "F_carte": {
+   "act": "II",
+   "title": "La carte",
+   "place": "marais",
+   "end": true,
+   "second": true,
+   "fx": {
+    "flag": "fin:carte"
+   },
+   "text": [
+    "Le retour se fait avec la marée du matin. Joachim rame debout. Malbrouck dort sur sa civière, un crayon dans la main, comme toi il y a quatre jours.",
+    {
+     "if": {
+      "has": "carte:academie"
+     },
+     "text": "La carte part pour la capitale, par la diligence, dans un tube de fer-blanc, avec une lettre de Malbrouck et une lettre de toi. Trois mois plus tard, l'Académie la publie, gravée sur cuivre par Iris Malbrouck, avec les quarante-trois villages. Le roi signe une ordonnance : les Bouches-Noires sont habitées, on ne les asséchera pas. Le comte de Saint-Aubry plante son blé ailleurs, sur des terres plus sèches et des gens plus faibles."
+    },
+    {
+     "if": {
+      "has": "carte:roselins"
+     },
+     "text": "La carte reste au village, roulée dans une gaine de roseau, sous le toit de la vieille femme aux yeux patients. À Brésille, tu dis que l'expédition a échoué, que les marais sont impraticables, que la carte est perdue. Personne n'y retournera de sitôt : les marais qu'on ne sait pas dessiner, on ne sait pas les vendre. Les Roselins restent invisibles, comme ils l'ont voulu depuis mille ans."
+    },
+    {
+     "if": {
+      "has": "carte:comte"
+     },
+     "text": "Tu portes la carte à l'hôtel blanc. Le comte la déroule sur son piano, et la regarde longtemps, les quarante-trois villages, les quarante-trois noms. Puis il la roule, la glisse sous son bras, et te paie, en or. Tu sais ce qu'il en fera. Tu l'as su en la lui tendant. Joachim ne te parle plus. Malbrouck non plus, pendant un an."
+    },
+    {
+     "if": {
+      "has": "joachim:libre"
+     },
+     "text": "Joachim retourne à ses roseaux. Avant de partir, il se tient un moment devant toi, sur une jambe, et il dit : « Tu reviendras. Tu as le mot. » Puis il s'en va, et la brume le reprend."
+    },
+    {
+     "if": {
+      "has": "enigme:g3"
+     },
+     "text": "Dans un coin de la carte des Bouches-Noires, au-dessus du village aux hérons, tu as écrit un nom, en petites capitales, de ta main : *CRUE*. Ce sera le premier nom de Roselin écrit sur une carte. Il y en aura d'autres."
+    },
+    {
+     "if": {
+      "has": "enigme:g1"
+     },
+     "text": "Brunel est arrêté sur le quai le jour même, avec son carnet en guise d'acte d'accusation, en train de charger une barge pour la mer. Il compte, en montant dans la voiture de la maréchaussée, les pavés sous ses pieds. Il en trouve trois cents."
+    },
+    {
+     "if": {
+      "has": "comte:confronte"
+     },
+     "text": "Le comte de Saint-Aubry n'est pas inquiété. On n'inquiète pas les comtes. Mais quand tu passes sous ses fenêtres, il ferme ses rideaux blancs, et cela, pour un homme de son espèce, est une défaite."
+    },
+    {
+     "if": {
+      "has": "carte:vendue"
+     },
+     "text": "Ta carte de fièvre, celle que tu as vendue deux cents écus au comte, finit dans un tiroir de l'hôtel blanc, où elle dort sous la poussière, entre deux titres de rente. Peu importe. Tu la sais par cœur."
+    },
+    {
+     "if": {
+      "not": {
+       "has": "carte:vendue"
+      }
+     },
+     "text": "Ta carte de fièvre, tu la gardes. Tu la fais encadrer, plus tard, dans ton atelier, à côté de la vraie, et les visiteurs demandent toujours pourquoi tu as accroché un dessin d'enfant à côté d'un chef-d'œuvre. Tu dis : c'est la même carte. Personne ne comprend. Malbrouck, lui, rit."
+    },
+    "Les années passent. Tu dessines d'autres cartes, de vraies, avec des latitudes et des sondes. Mais certaines nuits, quand tu as un peu de fièvre, ta main se met à tracer toute seule, sur le bord du papier, de petites îles qui n'existent pas encore. Tu la laisses faire. Tu as appris à lire ta propre main."
+   ]
+  },
+  "A_ciel": {
+   "act": "I",
+   "title": "Les chiffres du ciel",
+   "place": "encre",
+   "second": false,
+   "text": [
+    "Tu lèves les yeux. Le ciel blanc porte, à l'endroit où tes cartes mettent d'ordinaire les latitudes, une colonne de chiffres tracés à l'encre violette, d'une écriture fine et pressée : *41. 41. 40,5. 41.* Chaque fois que ta barque avance d'une encablure, un chiffre nouveau s'écrit en bas de la colonne, tout seul, avec un petit grattement de plume.",
+    "Ce sont des latitudes absurdes, des latitudes de désert ou de volcan. Ta main voudrait les recopier dans la marge de ta carte. Tu la retiens. Une carte qui note la chaleur au lieu de la distance a perdu la tête, ou bien elle te parle de toi."
+   ],
+   "choices": [
+    {
+     "back": "A_encre"
+    }
+   ]
+  },
+  "A_reflet": {
+   "act": "I",
+   "title": "Le reflet",
+   "place": "encre",
+   "second": false,
+   "text": [
+    "Tu te penches par-dessus le bord de la barque. L'encre est si lisse qu'elle fait miroir, un miroir noir, profond, où ton visage flotte, plus pâle que nature, les cheveux collés au front.",
+    "Derrière ton visage, au fond du reflet, il y a un plafond. Un plafond blanc, avec une fissure qui serpente comme une rivière, et ses affluents, et son delta. Une grande forme blanche passe devant, à ailes empesées, et se penche sur toi, d'en haut, d'en bas, tu ne sais plus. Une goutte froide tombe de nulle part sur ton front.",
+    "Tu te redresses d'un coup. La mer d'encre est vide. Le ciel est blanc. Ta main a profité de l'instant pour dessiner, dans un coin de la carte, une petite fissure en forme de rivière."
+   ],
+   "choices": [
+    {
+     "back": "A_encre"
+    }
+   ]
+  },
+  "A_bouteille": {
+   "act": "I",
+   "title": "La bouteille",
+   "place": "encre",
+   "second": false,
+   "text": [
+    "Une bouteille flotte contre la barque, bouchée à la cire, et tinte contre le bois avec la politesse d'un visiteur qui frappe. Tu la repêches. Dedans, roulé, un papier de bon grain. Tu casses le goulot sur le plat-bord.",
+    "*Rôle de l'expédition Malbrouck aux Bouches-Noires. E. Malbrouck, cartographe. {hero}, apprenti{e}. J. Brunel, quartier-maître. Joachim, des Roselins, guide. Pons et Ferréol, bateliers.*",
+    "En face de chaque nom, quelqu'un a écrit *mort*, d'une écriture grasse et appliquée, la même pour tous. En face du nom de Brunel, rien. En face du tien, le mot est écrit aussi, mais l'encre brille encore, fraîche, comme si on venait de le tracer, et qu'on attendait de voir s'il sècherait."
+   ],
+   "choices": [
+    {
+     "back": "A_encre"
+    }
+   ]
+  },
+  "A_lits": {
+   "act": "I",
+   "title": "Les collines numérotées",
+   "place": "cloches",
+   "second": false,
+   "text": [
+    "Tu marches entre les collines de draps. Chacune porte, plantée à son pied comme une borne, une petite plaque d'émail avec un chiffre romain. *I. II. III.* Sur chaque colline, la même forme couchée, ton visage, ta sueur, tes mains sur la poitrine. Tu en comptes vingt et une.",
+    "La douzième est vide. Le drap y est rabattu, net, avec un pli au carré, comme un lit qu'on vient de faire, ou qu'on attend de défaire. Sur l'oreiller, il y a un crayon. Tu le laisses où il est. Quelqu'un viendra le prendre pour toi, tu le sais, comme on sait ces choses-là en rêve."
+   ],
+   "choices": [
+    {
+     "back": "A_cloches"
+    }
+   ]
+  },
+  "A_fille_sel": {
+   "act": "I",
+   "title": "La petite fille de sel",
+   "place": "sel",
+   "second": false,
+   "text": [
+    "Tu restes devant la petite fille au panier, la larme figée à mi-joue. Ses lèvres de sel bougent à peine, avec un bruit de sucre qu'on écrase.",
+    "« Ma mère porte le sel au Roi, dit-elle. Un panier, un sou. Mon père tousse dans un lit blanc, très loin, sur une île qui sonne. Moi, je porte le sel aussi. On me paie la moitié, parce que je suis la moitié d'une personne. »",
+    "Elle se tait. Une seconde larme commence à poindre au coin de son œil, et sèche avant de couler, en un petit grain blanc qui brille."
+   ],
+   "choices": [
+    {
+     "back": "A_statues"
+    }
+   ]
+  },
+  "A_registre": {
+   "act": "I",
+   "title": "Le registre des entrées",
+   "place": "horloge",
+   "second": false,
+   "text": [
+    "Sur un pupitre, au milieu de la pièce ronde, un grand registre est ouvert. Le Médecin-Horloge ne t'empêche pas de lire : il a l'air de trouver que les malades devraient lire leur dossier plus souvent, ne serait-ce que pour corriger les fautes.",
+    "*Entrées du mois de septembre.* Des noms, des âges, des fièvres. *Mathurin, saunier, 51 ans, poitrine.* Et tout en bas, d'une encre plus fraîche : *Le 17. Apprenti{e} sans nom, trouvé{e} dans une barque à l'entrée du port. Fièvre des marais. Dessine. Lit 12.*",
+    "« Sans nom, dit le Médecin-Horloge, de sa voix de remontoir. Nous mettrons le nom à la sortie. Ou sur la pierre. Les deux registres sont tenus avec le même soin. »"
+   ],
+   "choices": [
+    {
+     "back": "A_tour"
+    }
+   ]
+  },
+  "A_balancier": {
+   "act": "I",
+   "title": "La salle du balancier",
+   "place": "horloge",
+   "second": false,
+   "text": [
+    "Sous la pièce ronde, au bout d'un escalier en ressort, une salle haute où bat un balancier énorme, une lame de cuivre longue comme un mât, qui passe et repasse au-dessus de ta tête avec un souffle de faux. Chaque battement fait trembler la tour, et l'encre dehors, et ton cœur, qui essaie de se mettre au pas et n'y parvient pas.",
+    "Contre le mur, debout, une caisse d'horloge vide, de la taille exacte d'un homme couché, avec une étiquette à l'encre violette : *Lit libre.* Le Médecin-Horloge, en descendant derrière toi, la tapote affectueusement. « Ma meilleure pendule. Elle sert à tout le monde, une seule fois. »"
+   ],
+   "choices": [
+    {
+     "back": "A_tour"
+    }
+   ]
+  },
+  "A_rats_comptent": {
+   "act": "I",
+   "title": "Les commis",
+   "place": "magasin",
+   "second": false,
+   "text": [
+    "Tu tends l'oreille vers les rats à lorgnon, sur les poutres. Ils comptent à mi-voix, en se passant des bouts de papier, avec l'application de commis de banque à la veille d'une inspection.",
+    "*Trois barques devant. Trois amarres. Trois coups de couteau. Une barque derrière, rentrée. Un guide, en cage. Témoins : zéro. Zéro. Zéro.* Le plus petit, tout au bout de la poutre, lève la patte : *Pardon, il en reste un, dans une barque qui dérive.* Les autres se retournent vers lui, et le regardent, et il baisse la patte, et se met à compter ses moustaches."
+   ],
+   "choices": [
+    {
+     "back": "A_magasin_porte"
+    }
+   ]
+  },
+  "A_comptoir": {
+   "act": "I",
+   "title": "Le grand livre du rat",
+   "place": "magasin",
+   "second": false,
+   "text": [
+    "Pendant que le rat compte ses pièces, tu lis son grand livre à l'envers, par-dessus le comptoir, comme on apprend à le faire dans les ateliers où le maître écrit plus vite qu'il ne parle.",
+    "*Biscuit, quarante livres. Eau-de-vie, six pintes. Amarres, douze brasses.* Et dans la colonne des recettes, une seule ligne, en lettres plus grosses que les autres : *Reçu de Sa Majesté le Roi de Sel, pour les cordes : 300.*",
+    "Le rat referme le livre d'un coup de patte, sans lever les yeux. « On ne lit pas les comptes des autres, dit-il. C'est plus grave que de lire leurs lettres. Les lettres mentent. »"
+   ],
+   "choices": [
+    {
+     "back": "A_magasin"
+    }
+   ]
+  },
+  "A_herons_vol": {
+   "act": "I",
+   "title": "Les hérons qui rentrent",
+   "place": "pendu",
+   "second": false,
+   "text": [
+    "Un bruit d'ailes passe au-dessus du mât. Une file de hérons gris traverse le ciel blanc, très bas, le cou replié, les pattes traînant derrière eux comme des cannes oubliées. Ils volent sans hâte, tous dans la même direction : vers la tache grise, au centre de ta carte, que ta main refuse de dessiner.",
+    "Le rameur pendu les suit des yeux, la tête en bas. « Ils rentrent, dit-il. Le soir, ils rentrent tous. Quand tu auras le mot, suis-les. Ils savent le chemin mieux que les cartes. Les cartes savent seulement le chemin de ceux qui les ont payées. »"
+   ],
+   "choices": [
+    {
+     "back": "A_pendu"
+    }
+   ]
+  },
+  "A_cris": {
+   "act": "I",
+   "title": "Les voix dans la brume",
+   "place": "herons",
+   "second": false,
+   "text": [
+    "Tu restes immobile dans la barque, et tu écoutes les hérons. Peu à peu, sous les mille cris rauques, ton oreille trie d'autres bruits. Deux voix d'hommes, qui se disputent sur la façon de vider une anguille. Un rire d'enfant, aigu, moqueur. Le choc sourd d'une perche contre un pilotis. Une odeur de fumée de saule.",
+    "Et une toux de vieillard, puis un rire qui la suit, le rire de quelqu'un qui tousse trop pour son goût et rit pour se venger. Tu connais ce rire. Tu l'as entendu tous les jours de ton apprentissage, au-dessus des plaques de cuivre, chaque fois que tu ratais un trait."
+   ],
+   "choices": [
+    {
+     "back": "A_herons"
+    }
+   ]
+  },
+  "S_lit_douze": {
+   "act": "II",
+   "title": "Le lit douze",
+   "place": "hopital",
+   "second": true,
+   "text": [
+    "Au pied de ton lit de fer, une petite plaque d'émail blanc porte un chiffre romain : *XII*. Au-dessus du lit, le crochet où l'on suspend la feuille de température est vide. Les feuilles sont au pied du lit, collées à la mie de pain, couvertes d'îles.",
+    "Tu comptes les lits de la salle. Vingt et un. Sous chaque drap tendu, une forme couchée, qui respire. Tu as marché sur leurs collines cette nuit, et chaque visage était le tien. De jour, ce sont des visages de sauniers, de bateliers, de pêcheuses d'anguilles, jaunes de fièvre, qui te regardent avec la curiosité un peu jalouse qu'on a pour les malades qui guérissent."
+   ],
+   "choices": [
+    {
+     "back": "S_salle"
+    }
+   ]
+  },
+  "S_manteau": {
+   "act": "II",
+   "title": "Tes poches",
+   "place": "hopital",
+   "second": true,
+   "text": [
+    "Ton manteau de voyage pend à un clou, au-dessus du lit, raide de vase séchée. Tu en vides les poches sur ta couverture, comme on dépouille un courrier.",
+    "Un bout de crayon usé jusqu'au bois. Une plume de héron grise, taillée, que tu as dû ramasser dans le fond de la barque et tailler en délire, car la taille est belle et tu ne t'en souviens pas. Un biscuit de mer ramolli, marqué au fer d'un *B* majuscule. Et une boussole de poche, dont l'aiguille tourne, tourne, et refuse de choisir un nord, comme une malade qui cherche le côté frais de l'oreiller.",
+    "Tu remets la plume dans ta poche. Ta main la serre d'elle-même, avec une familiarité de vieille complice."
+   ],
+   "choices": [
+    {
+     "back": "S_salle"
+    }
+   ]
+  },
+  "S_voisin": {
+   "act": "II",
+   "title": "Le saunier",
+   "place": "hopital",
+   "second": true,
+   "text": [
+    "Dans le lit onze, à ta droite, un homme maigre aux mains blanchies, crevassées de sel jusqu'au poignet, tousse dans un mouchoir à carreaux. Il a cinquante et un ans et en paraît soixante-dix. « Mathurin, dit-il. Saunier. Trente ans aux salines du comte. Le sel vous rentre dans la poitrine, à la longue, et il y fait des cristaux. »",
+    "Il tousse encore, puis sourit, d'un sourire où il manque des dents. « Ma femme porte les paniers, à présent. Et la petite aussi, Nine, huit ans. Un sou le panier pour la mère, un demi pour la petite. Le comte dit qu'il paie au poids. C'est vrai. Il paie au poids des gens. »",
+    {
+     "if": {
+      "seen": "A_fille_sel"
+     },
+     "text": "Une petite fille au panier, une larme de sel figée à mi-joue. *Mon père tousse dans un lit blanc, très loin, sur une île qui sonne.* Tu regardes Mathurin, et tu dois détourner les yeux, parce que la fièvre t'a appris le nom de sa fille avant lui."
+    }
+   ],
+   "choices": [
+    {
+     "back": "S_salle"
+    }
+   ]
+  },
+  "S_chapelle": {
+   "act": "II",
+   "title": "La chapelle des bateliers",
+   "place": "hopital",
+   "second": true,
+   "text": [
+    "Au bout de la salle, une petite chapelle basse, aux murs couverts d'ex-voto : des barques peintes sur des planchettes, des maquettes de barges pendues au plafond par des fils, des bouts de rame gravés de dates. *Sauvé des eaux, 1789. Rendu à sa mère par la Vierge des Salines.* Les marais rendent peu, mais ce qu'ils rendent, on le remercie avec soin.",
+    "Un ex-voto plus grand que les autres attire ton œil : une barque perdue au milieu de roseaux gris, sous un vol de hérons, dessinée à la plume d'un trait sûr, nerveux, que tu reconnaîtrais entre mille. En bas, à droite, deux initiales : *E. M.*, et une date vieille de quarante ans. Et dessous, une ligne de la même main : *Rendu par les gens des roseaux. Que Dieu les garde, puisque personne d'autre ne s'en charge.*"
+   ],
+   "choices": [
+    {
+     "back": "S_salle"
+    }
+   ]
+  },
+  "S_quai_sel": {
+   "act": "II",
+   "title": "Les porteuses de sel",
+   "place": "port",
+   "second": true,
+   "text": [
+    "Le long du quai, une file de femmes en jupe relevée, pieds nus, portent des paniers de sel des barges jusqu'aux entrepôts du comte, dans un va-et-vient lent qui ressemble à une procession. Un commis à chapeau, assis sur un tonneau, fait une encoche dans une baguette de bois à chaque panier.",
+    "Parmi elles, une petite fille de huit ans peut-être, avec un panier à sa taille, la moitié des autres. Sur sa joue, une traînée de sel séché, à l'endroit où une larme a coulé et où le vent l'a cuite. Tu t'arrêtes net. Tu l'as vue cette nuit, statue, sur une île blanche."
+   ],
+   "choices": [
+    {
+     "label": "Lui donner un sou, de la part de son père",
+     "if": {
+      "gold": {
+       "min": 1
+      }
+     },
+     "fx": {
+      "gold": -1
+     },
+     "to": "S_nine"
+    },
+    {
+     "back": "S_port"
+    }
+   ]
+  },
+  "S_nine": {
+   "act": "II",
+   "title": "Nine",
+   "place": "port",
+   "second": true,
+   "text": [
+    "Tu poses un sou dans le panier, sur le sel. La petite te regarde avec méfiance, puis avec stupeur quand tu lui dis que son père, au lit onze, pense à elle. Elle se tait. Elle prend le sou, le frotte sur sa jupe pour en ôter le sel, et le serre dans son poing.",
+    "Le commis au tonneau a tout vu. Sa baguette reste immobile, sans encoche. Il te regarde avec l'expression d'un homme qui vient d'assister à un désordre, et qui va devoir l'écrire quelque part."
+   ],
+   "choices": [
+    {
+     "back": "S_port"
+    }
+   ]
+  },
+  "S_cabaret": {
+   "act": "II",
+   "title": "Au Héron Borgne",
+   "place": "port",
+   "second": true,
+   "text": [
+    "Le cabaret des bateliers est une salle basse et enfumée, où l'on boit un vin de marais aigre comme un procès. On t'y reconnaît. On te paie un verre, parce qu'on paie toujours un verre aux revenants : c'est moins cher qu'une messe, et plus gai.",
+    "« Le comte va assécher, dit un vieux batelier à barbe d'étoupe. Il a acheté le delta au roi pour un écu symbolique, sur la foi d'une carte qui le dira vide. Une fois sec, il y mettra du blé et du sel, et nous, on ira ramer dans les champs. »",
+    "« Les Roselins ? rit un autre. Des contes de nourrice. Des gens qui vivent sur l'eau, sans impôt, sans curé et sans comte ? Si ça existait, le comte l'aurait déjà acheté. »",
+    "Toute la salle rit. Tu bois ton vin aigre. Tu as vu une vieille femme aux yeux patients, dans un rêve, et à Brésille, les rêves de fièvre boivent à leurs frais."
+   ],
+   "choices": [
+    {
+     "back": "S_port"
+    }
+   ]
+  },
+  "S_geolier": {
+   "act": "II",
+   "title": "Le geôlier",
+   "place": "port",
+   "second": true,
+   "text": [
+    "Le geôlier à jambe de bois t'offre une moule, à même le chapeau. Tu la prends, par politesse. Elle est délicieuse, ce qui t'étonne plus que tout le reste de la matinée.",
+    "« Ma jambe ? dit-il, sans qu'on lui ait rien demandé. Les salines. Un wagonnet de sel. Le comte m'a donné cette place pour la peine. Une jambe pour une prison, c'est le tarif. » Il mâche. « Il en vient, du monde, pour le Roselin. Le gros Brunel, deux fois, pour demander s'il parlait. Je lui ai dit : il se tient sur une jambe et il se tait. Ça l'a rassuré. Moi, ça m'inquiète. Un homme qui se tait sur une jambe, il attend quelque chose. »"
+   ],
+   "choices": [
+    {
+     "back": "S_port"
+    }
+   ]
+  },
+  "S_moulin": {
+   "act": "II",
+   "title": "Le moulin à marée",
+   "place": "marais",
+   "second": true,
+   "text": [
+    "Joachim laisse la barque glisser contre le moulin abandonné. Sa grande roue de bois noir tourne encore, poussée par le reflux, avec un claquement régulier de pales qui frappent l'eau. Tic. Tac. Tic. Un héron, perché sur le moyeu, tourne avec elle, gravement, une patte repliée, et se laisse remonter à chaque tour avec la dignité d'un médecin qui fait sa visite.",
+    {
+     "if": {
+      "has": "iris:avec"
+     },
+     "text": "Iris sort le compas de son père et relève l'angle du moulin par rapport au clocher du bac. Elle note un chiffre, puis le raye, puis le réécrit. « Il est passé ici, dit-elle. Il a dû noter ce moulin. Il note tout ce qui tourne. »"
+    },
+    "Tu regardes la roue, et tu entends la voix sèche d'un petit homme à tête de montre : *Vos jours sont en désordre.* Ils sont en ordre, à présent. Tu les tiens comme on tient une rame."
+   ],
+   "choices": [
+    {
+     "back": "S_marais"
+    }
+   ]
+  },
+  "S_salines_mortes": {
+   "act": "II",
+   "title": "Les salines abandonnées",
+   "place": "marais",
+   "second": true,
+   "text": [
+    "Vous longez les vieilles salines, abandonnées depuis qu'on en a creusé de plus grandes près du port. Les bassins se sont remplis de vase, et les tas de sel, jamais emportés, ont durci sous la pluie en blocs gris, hauts comme des tentes, que les herbes attaquent par le pied.",
+    "Sur l'un d'eux, quelqu'un a gravé des noms, au couteau, il y a longtemps, en colonnes, comme dans un registre : des prénoms, des âges, une croix. *Jeanne, 9 ans. Pierrot, 11 ans. Margot, 8 ans.* Joachim, à l'arrière, regarde les noms sans ralentir. « Les enfants des sauniers, dit-il. Le sel les mangeait. Les vôtres, on les grave sur le sel. Les nôtres, on les grave sur l'eau. Ça dure moins longtemps, mais ça fait moins mal à regarder. »"
+   ],
+   "choices": [
+    {
+     "back": "S_marais"
+    }
+   ]
+  },
+  "S_village": {
+   "act": "II",
+   "title": "Le village des roseaux",
+   "place": "marais",
+   "second": true,
+   "text": [
+    "Tu marches sur les passerelles de roseau tressé, qui plient sous ton pas et se redressent derrière toi. Les maisons rondes ont des portes basses, des toits pointus où dorment les hérons, et des jardins flottants, des radeaux de terre et de racines où poussent des choux, des oignons, des fleurs d'eau jaunes.",
+    "Des enfants te suivent à distance, en riant derrière leurs mains. Une femme tresse une nasse sans regarder ses doigts. Un homme, sur un radeau, fume une pipe de roseau en surveillant un filet. Partout, l'eau, qui clapote sous les pilotis, et dont personne ne se méfie, ici, puisqu'elle est la rue, le champ et le cimetière.",
+    "Tu penses au comte, à sa fenêtre, à son blé. Tu essaies d'imaginer ce village sec. Tu n'y arrives pas. L'imagination a ses pudeurs."
+   ],
+   "choices": [
+    {
+     "label": "Parler aux deux bateliers de l'expédition",
+     "hide": {
+      "seen": "S_bateliers"
+     },
+     "to": "S_bateliers"
+    },
+    {
+     "label": "Aller trouver la vieille femme aux yeux patients",
+     "hide": {
+      "has": "enigme:g3"
+     },
+     "to": "S_vieille"
+    },
+    {
+     "label": "T'asseoir près de ton maître",
+     "hide": {
+      "seen": "S_maitre"
+     },
+     "to": "S_maitre"
+    },
+    {
+     "back": "S_ile_herons"
+    }
+   ]
+  },
+  "S_bateliers": {
+   "act": "II",
+   "title": "Pons et Ferréol",
+   "place": "marais",
+   "second": true,
+   "text": [
+    "Pons et Ferréol, les deux bateliers de l'expédition, sont assis au bord d'une passerelle, les pieds dans l'eau, une anguille chacun entre les mains, et deux enfants roselins leur montrent, pour la dixième fois, avec une patience moqueuse, comment on la tient pour qu'elle ne file pas. L'anguille de Pons file. Les enfants hurlent de rire.",
+    "« Le gros a coupé, dit Ferréol, sans lever les yeux de son anguille. On l'a vu. Trois coups de couteau dans la nuit, et nos barques qui partent dans le courant comme des feuilles. Le vieux a crié ton nom jusqu'à ce que ta barque disparaisse. »",
+    "« Après, on a coulé, dit Pons. Eux nous ont repêchés. » Il désigne les enfants du menton. « Enfin, leurs parents. Depuis, on apprend l'anguille. C'est plus dur que la cartographie. Une côte, au moins, ça reste où on l'a mise. »"
+   ],
+   "choices": [
+    {
+     "back": "S_village"
+    }
+   ]
+  },
+  "S_vieille": {
+   "act": "II",
+   "title": "La vieille femme",
+   "place": "marais",
+   "second": true,
+   "puzzle": "g3",
+   "text": [
+    "La vieille femme qui t'a fait passer la brume est assise sur le seuil de la plus grande maison, sur une natte, et fume une pipe de roseau. Elle te fait signe de t'asseoir en face d'elle. Tu t'assois. Elle te regarde longtemps, avec ses yeux noirs et patients, et elle te parle, dans la langue de Brésille, lentement, comme on pose des pierres pour traverser un gué.",
+    "« Le mot, tu l'avais. Le mot ouvre la brume. Mais chez nous, le nom d'une personne s'ouvre avec un autre mot. Écoute. »"
+   ],
+   "choices": [
+    {
+     "back": "S_village"
+    }
+   ]
+  },
+  "S_g3": {
+   "act": "II",
+   "title": "Le nom de la vieille femme",
+   "place": "marais",
+   "second": true,
+   "text": [
+    "La vieille femme ôte sa pipe de sa bouche, et sourit pour la première fois. Un sourire tout en rides, comme un chenal vu d'en haut.",
+    "« Le fleuve, dit-elle. Oui. Chez nous, on donne aux enfants le nom de ce qui les a portés. Moi, je suis née dans une barque, pendant une crue. On m'appelle Crue. » Elle remet sa pipe. « Tu peux le dire, à présent. Tu peux même l'écrire. Sur ta carte, si tu veux. Il y a des noms qui ont besoin d'être écrits quelque part pour qu'on se souvienne qu'ils existent. »"
+   ],
+   "choices": [
+    {
+     "back": "S_village"
+    }
+   ]
+  },
+  "S_maitre": {
+   "act": "II",
+   "title": "Ton maître",
+   "place": "marais",
+   "second": true,
+   "text": [
+    "Tu t'assois sur la passerelle, à côté du tabouret de Malbrouck. Il dessine, la jambe tendue dans ses attelles de saule, les yeux sur son papier. Il dit : « Montre. » Tu lui montres ta carte de fièvre, ou tu la lui racontes, île par île. Il écoute, et il rit, et il tousse, et il rit encore.",
+    "« La Voilière, dit-il. Le Roi de Sel. Le Médecin-Horloge. Le rat. » Il s'essuie les yeux sous ses lunettes. « Tu es meilleur{e} que moi. Moi, ma première fièvre, j'ai dessiné une baleine qui me récitait l'almanach. Je l'ai gravée, d'ailleurs. Elle est très bien. Elle n'a jamais servi à rien. »",
+    {
+     "if": {
+      "seen": "S_chapelle"
+     },
+     "text": "Tu lui parles de l'ex-voto, dans la chapelle de l'hôpital, la barque, les hérons, les initiales. Il s'arrête de dessiner. « Tu l'as vu. Quarante ans. J'avais ton âge, et une fièvre, et une barque. Ils m'ont rendu, ce jour-là. Je leur devais une carte. Je leur devais une carte qui dise qu'ils sont là. »"
+    },
+    "Il reprend son crayon. « La fièvre dessine juste, tu sais. Elle dessine les gens à la place des côtes, voilà tout. Une bonne carte fait les deux. »"
+   ],
+   "choices": [
+    {
+     "back": "S_village"
+    }
+   ]
+  }
+ }
+}
