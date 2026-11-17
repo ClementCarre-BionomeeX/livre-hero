@@ -34,7 +34,10 @@ module.exports = {
         "Tu la relis dix fois. Elle ne veut rien dire. Elle veut dire quelque chose de très précis, à quelqu'un qui a sous les yeux ce que tu ne vois pas encore. Tu penses à la carte, aux relèvements notés au bord, *sud-ouest quart sud, trois cents pas*. Tu penses à la rose des vents de la timonière et à ses trente-deux aires, dont chacune s'appelle un quart.",
         "Tu brûles ta page de signes dans le fourneau de la cambuse, un matin, pendant que Fargue a le dos tourné. La phrase, tu l'as dans la tête. C'est encore l'endroit le plus sûr du navire.",
       ],
-      choices: [{ back: true }] },
+      choices: [
+        { label: "Regarder encore le parchemin, à plat sur tes genoux", to: "XK_chauffe" },
+        { back: true },
+      ] },
   },
   extras: {
     puzzles: {
