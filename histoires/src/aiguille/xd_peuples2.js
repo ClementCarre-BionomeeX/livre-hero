@@ -208,6 +208,7 @@ module.exports = {
         { label: "Suivre les enfants pâles", to: "XD_p_enfants", hide: { seen: "XD_p_enfants" } },
         { label: "Descendre dans la galerie basse, où l'on entend l'eau", to: "XD_p_galerie", hide: { seen: "XD_p_galerie" } },
         { label: "Regarder fondre l'argent", to: "XD_p_fonte", hide: { seen: "XD_p_fonte" } },
+        { label: "Écouter le garçon aux cheveux blancs, dans la galerie des fondeurs", to: "WN_riwal", hide: { seen: "WN_riwal" } },
         { label: "Chercher les chasseurs d'œufs", to: "XD_p_chasseurs", hide: { any: [{ seen: "XD_p_chasseurs" }, { not: { seen: "XT_chasseurs" } }] } },
         { label: "Saluer les trois vieilles femmes, près du foyer", to: "XD_p_meres", hide: { seen: "XD_p_meres" } },
       ].concat(DECIDER) },
