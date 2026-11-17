@@ -35,7 +35,7 @@ module.exports = {
         "Au matin, Fargue retire le couteau, panse la main avec un morceau de sa propre chemise, et Riou s'en va au bord de l'eau laver sa main dans la mer, longtemps. Les hommes ont vu. La loi a été appliquée. Personne ne volera plus de rhum, personne ne frappera plus personne, et la bande tient, comme la Maraude a tenu.",
         "Boucaut se réveille ce matin-là, avec une tête comme une citrouille, et ne se souvient de rien, ni du rhum ni du coup. Il demande pourquoi le joli cœur a la main bandée. On ne le lui dit pas.",
       ],
-      choices: [{ label: "Reprendre la marmite", back: "A4f_jours" }] },
+      choices: [{ label: "Reprendre la marmite", fx: { quest: "YQ" }, back: "A4f_jours" }] },
     YQ_fouet: { act: "IV", title: "La loi de la plage", place: "plage", ambiance: "nature", second: true,
       text: [
         "Il y a un murmure. Ce n'est pas la loi. C'est moins que la loi, et plus que rien. Malandain le regarde longtemps, puis hausse ses épaules énormes : « C'est toi le chef. Mais c'est noté. »",
@@ -43,7 +43,7 @@ module.exports = {
         "Le soir, Riou vient s'asseoir à côté de lui, au bout de la plage, le dos raide sous sa chemise. Il met longtemps à parler. « M-merci, dit-il enfin. P-pour la main. » Puis, d'un trait, sans bégayer, comme si la colère était partie avec le sang : « Je n'ai pas volé le rhum. »",
         "« Je sais, dit Fargue. Ça ne change rien. C'est pour ça que c'est une loi. »",
       ],
-      choices: [{ label: "Reprendre la marmite", back: "A4f_jours" }] },
+      choices: [{ label: "Reprendre la marmite", fx: { quest: "YQ" }, back: "A4f_jours" }] },
     YQ_mensonge: { act: "IV", title: "La loi de la plage", place: "plage", ambiance: "nature", second: true,
       text: [
         "Il y a un silence. Tout le monde a vu le coup. Tout le monde regarde Fargue, qui soutient les regards un par un, avec une tranquillité de prêtre qui donne l'absolution à un assassin.",
@@ -51,7 +51,7 @@ module.exports = {
         "Personne n'a vu autre chose. Malandain le regarde longtemps, avec ses petits yeux de taureau. Puis il se rassoit, sans un mot, et Fargue sait, à cet instant, qu'il vient de perdre quelque chose qu'il ne retrouvera pas : les hommes lui obéissent toujours, mais ils savent désormais que la loi a un prix, et que le chef le fixe.",
         "Boucaut se réveille le lendemain, avec une tête comme une citrouille, et ne se souvient de rien. On lui dit qu'il est tombé, saoul. Il le croit volontiers ; c'est arrivé souvent. Riou, lui, ne parle plus à personne, et surtout pas à Fargue, qui lui a sauvé la main en le traitant, devant tout le monde, de témoin d'un ivrogne.",
       ],
-      choices: [{ label: "Reprendre la marmite", back: "A4f_jours" }] },
+      choices: [{ label: "Reprendre la marmite", fx: { quest: "YQ" }, back: "A4f_jours" }] },
   },
   extras: {
     quests: [

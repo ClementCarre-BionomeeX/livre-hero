@@ -53,7 +53,7 @@ module.exports = {
         { if: { has: "zb:danse" }, text: "Tu as encore froid à la main droite. Tu la frottes contre ta cuisse. Le froid ne s'en va pas, de toute la matinée." },
         "Au Fanal, Zélie t'écoute, en épluchant ses pommes de terre, sans lever les yeux. « Kerlivit, dit-elle. Le manoir de Kerlivit. Il a brûlé il y a vingt ans, la nuit d'une noce. Le fiancé n'est jamais venu. On dit qu'il s'est noyé dans la brume, avec son cheval, dans les marais de Varnèse. La fille a mis le feu, ou les chandelles. On n'a jamais su. » Elle coupe une pomme de terre en deux. « Tu n'iras plus sur la lande les soirs de brume. Ou alors avec ton père. »",
       ],
-      choices: [{ label: "Rentrer les clous à l'atelier", back: "A1_jours" }] },
+      choices: [{ label: "Rentrer les clous à l'atelier", fx: { quest: "ZB" }, back: "A1_jours" }] },
   },
   extras: {
     quests: [

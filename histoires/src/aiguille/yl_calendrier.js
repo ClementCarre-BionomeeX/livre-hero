@@ -32,14 +32,14 @@ module.exports = {
         "Le lendemain, il monte au Haut-Verger annoncer aux Doux que le dimanche est désormais le jeudi. Tu le sais parce qu'il revient le soir avec une figure de prédicateur lapidé. Mère Aubépine, leur ancienne, lui a répondu devant tout le village, que Dieu avait sûrement l'habitude de ses mardis, après vingt ans, et qu'il n'allait pas changer de jour pour faire plaisir à un enfant de passage.",
         "« Elle a raison, dit-il en s'asseyant. C'est ce qui est vexant. »",
       ],
-      choices: [{ label: "Rentrer le bois avant la nuit", back: "A4n_jours" }] },
+      choices: [{ label: "Rentrer le bois avant la nuit", fx: { quest: "YL" }, back: "A4n_jours" }] },
     YL_garde: { act: "IV", title: "Le calendrier", place: "cabane", ambiance: "nature",
       text: [
         "Il te regarde longtemps, de ses yeux pâles, comme s'il cherchait sur ta figure si tu te moquais. Puis il hoche la tête, et passe la main, à plat, sur le sixième poteau, sur toutes ses entailles justes et fausses à la fois, comme on caresse un chien qu'on vient de gronder pour rien.",
         "« Tu as raison. Ce sont mes jours. Ils sont faux, mais je les ai tous faits. » Il remet son couteau à sa ceinture. « Et puis, entre nous, le monde peut bien attendre neuf jours. Il m'a bien fait attendre vingt ans. »",
         "Le lendemain est un jeudi pour toi. Pour la hutte, c'est le vingt-six, un lundi. Il se lève comme d'habitude, avant l'aube, grille ses graines, se baigne dans la vasque avec son grand bruit d'éléphant. Mardi, il mettra sa chemise blanche. Tu te surprends à penser que tu la mettrais aussi, si tu en avais une.",
       ],
-      choices: [{ label: "Rentrer le bois avant la nuit", back: "A4n_jours" }] },
+      choices: [{ label: "Rentrer le bois avant la nuit", fx: { quest: "YL" }, back: "A4n_jours" }] },
   },
   extras: {
     quests: [

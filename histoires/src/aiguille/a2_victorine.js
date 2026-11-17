@@ -33,6 +33,8 @@ module.exports = {
         { label: "Suivre le baron, un soir, au Cercle des Négociants", to: "YC_cercle", hide: { seen: "YC_cercle" }, if: { count: JOURS, min: 2 }, why: "Le baron ne l'a pas encore invitée à sortir." },
         { label: "Répondre au billet du baron, porté à neuf heures du soir", to: "YI_aile", hide: { seen: "YI_aile" }, if: { seen: "A2v_diner" }, why: "Le baron ne l'a pas encore reçue chez lui." },
         { label: "Monter au boudoir jaune de Madame de Pérignac, qui a des vapeurs", to: "YS_vapeurs", hide: { seen: "YS_vapeurs" }, if: { seen: "A2v_diner" }, why: "Personne, dans la Haute-Ville, ne te connaît encore." },
+        { label: "Acheter une botte de cresson au coin de la rue, à six heures", to: "ZF_coin", hide: { seen: "ZF_coin" } },
+        { label: "Suivre la jeune femme voilée qui t'attend dans l'escalier, à sept heures", to: "ZV_fille", hide: { seen: "ZV_fille" } },
         { label: "Le dixième jour", to: "A2v_fin", big: true, if: { count: JOURS, min: 4 }, why: "La liste est encore longue." },
       ] },
 

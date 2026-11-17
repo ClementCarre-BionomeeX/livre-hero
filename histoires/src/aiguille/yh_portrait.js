@@ -69,21 +69,21 @@ module.exports = {
         "Elle le lance. Il tourne en l'air, une fois, deux fois, montrant tour à tour le visage et le dos de la toile, comme une pièce qu'on joue à pile ou face, et il tombe à plat sur l'eau, face en haut. Et il flotte. Il flotte longtemps, s'éloignant lentement vers le large, Hector souriant au ciel, jusqu'à n'être plus qu'un petit rectangle doré qui accroche le soleil, puis rien.",
         "Victorine a gagné son pari. Elle s'aperçoit qu'elle rit. Elle remonte vers la chapelle les mains vides, plus légère de quatre livres et de quinze ans.",
       ],
-      choices: [{ label: "Remonter", fx: { flag: "yh:mer" }, back: "A5x_debut" }] },
+      choices: [{ label: "Remonter", fx: { quest: "YH", flag: "yh:mer" }, back: "A5x_debut" }] },
     YH_chapelle: { act: "V", title: "Le portrait", place: "misericorde", ambiance: "temple",
       text: [
         "Elle le cloue elle-même, avec un clou de la Cormorane et une pierre, au-dessus de l'autel vide de la Miséricorde, là où devait se trouver jadis un tableau de la Vierge ou d'un saint. Hector sourit à la nef ruinée, aux paillasses, à l'arbre qui a percé le toit.",
         "« Voilà, dit-elle. Tu voulais qu'on te regarde. On te regardera. Les oiseaux, les Doux, les crabes, et peut-être, un jour, un autre navire. Ils se demanderont quel saint tu étais. Tu n'auras qu'à sourire. Tu sais faire. »",
         "En sortant, elle se retourne une fois. Dans la lumière verte qui tombe du vitrail crevé, le portrait a l'air d'une icône. Elle se dit qu'il n'a jamais été aussi bien placé de sa vie.",
       ],
-      choices: [{ label: "Sortir de la chapelle", fx: { flag: "yh:chapelle" }, back: "A5x_debut" }] },
+      choices: [{ label: "Sortir de la chapelle", fx: { quest: "YH", flag: "yh:chapelle" }, back: "A5x_debut" }] },
     YH_garde: { act: "V", title: "Le portrait", place: "misericorde", ambiance: "temple",
       text: [
         "Elle le prend sous le bras, avec la trousse. Quatre livres. Elle boira un peu moins.",
         "Elle ne saurait pas dire pourquoi. Ce n'est pas de l'amour ; elle en est à peu près sûre. C'est autre chose, quelque chose qu'on éprouve pour une cicatrice : on ne l'aime pas, mais elle fait partie de la peau, et on ne s'imagine pas sans elle.",
         "La capitaine la voit passer avec son tableau sous le bras et lève un sourcil. « Un saint de la colonie, docteur ? — Non, capitaine. Un pécheur de Morlenc. — Ils pèsent le même poids. — Celui-ci pèse un peu plus. »",
       ],
-      choices: [{ label: "Le porter jusqu'à l'anse", fx: { flag: "yh:garde" }, back: "A5x_debut" }] },
+      choices: [{ label: "Le porter jusqu'à l'anse", fx: { quest: "YH", flag: "yh:garde" }, back: "A5x_debut" }] },
   },
   extras: {
     quests: [

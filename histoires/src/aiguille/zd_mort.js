@@ -38,21 +38,21 @@ module.exports = {
         "Elle ne peut pas creuser ; la terre, ici, n'est que roche. Alors elle fait ce qu'on fait sur les grèves du Ponant, pour les noyés qu'on ne peut pas porter : elle le roule dans le drap, et elle le couvre de pierres, une à une, sans bruit, en les prenant dans l'éboulis, jusqu'à ce qu'il ne soit plus qu'un long tas de cailloux au pied du mur, comme un cairn. Ça lui prend trois heures. Elle a les mains en sang. Les mouches se sont envolées.",
         "Quand elle rentre par la petite porte, à l'aube, la capitaine Ribaud est là, assise sur le coffre aux chasubles, un pistolet sur les genoux. Elle l'attendait. Elle regarde les mains de Victorine. « La sentinelle, dit-elle, avait ordre de tirer sur tout ce qui bouge au pied du mur. Je lui ai dit, à minuit, que les ombres de cette nuit étaient des chèvres. » Elle se lève. « Je vous mets aux arrêts, docteur. Trois jours. Vous les ferez à la sacristie, avec vos blessés. Comme d'habitude. »",
       ],
-      choices: [{ label: "Laver tes mains à la source", back: "A4w_jours" }] },
+      choices: [{ label: "Laver tes mains à la source", fx: { quest: "ZD" }, back: "A4w_jours" }] },
     ZD_treve: { act: "IV", title: "Le mort devant la porte", place: "misericorde", ambiance: "chateau",
       text: [
         "La capitaine refuse d'abord. Puis elle réfléchit, en regardant le cadavre par la meurtrière, et elle accepte, d'une voix sèche, comme on signe un mauvais traité. On hisse au clocher une chemise blanche au bout d'un aviron. On attend.",
         "Ils viennent au bout d'une heure, deux hommes de Fargue, sans armes, les mains en l'air, à pas lents, en regardant le clocher. Ils s'approchent du mort. Ils s'arrêtent à trois pas, à cause de l'odeur. Puis l'un d'eux, un grand roux, retire sa chemise, la noue sur son nez, et s'agenouille, et prend le mort sous les bras. L'autre prend les pieds. Ils l'emportent ainsi, lentement, vers la forêt, sans un regard pour la chapelle. Au bord des arbres, le grand roux se retourne, une fois, et lève la main vers le clocher. On ne sait pas si c'est un merci ou une menace. Peut-être les deux.",
         "Le soir, on voit monter de la plage, en bas, la fumée d'un grand feu. Et on entend, portée par le vent de terre, une chanson, une seule, chantée par une seule voix, une voix juste et grave que tout le monde, à la chapelle, reconnaît. Le maître-coq chante pour son mort. Personne, dans la nef, ne fait de plaisanterie.",
       ],
-      choices: [{ label: "Retourner à tes blessés", back: "A4w_jours" }] },
+      choices: [{ label: "Retourner à tes blessés", fx: { quest: "ZD" }, back: "A4w_jours" }] },
     ZD_chaux: { act: "IV", title: "Le mort devant la porte", place: "misericorde", ambiance: "chateau",
       text: [
         "Il y a deux sacs de chaux vive dans la sacristie, laissés là par les colons il y a trente ans pour un mur qu'ils n'ont jamais fini. On les monte sur le mur. On les vide, à la pelle, sur l'homme couché, jusqu'à ce qu'il ne soit plus qu'une forme blanche dans les cailloux, comme un gisant de plâtre sur une tombe d'église.",
         "La chaux fait son travail. L'odeur baisse, en deux jours. Les mouches s'en vont. Les blessés cessent de vomir, et l'on recommence à manger la soupe. Victorine a eu raison sur le fond, et la capitaine sur la forme, et tout le monde est content, et personne ne regarde plus par la meurtrière.",
         "Sauf Victorine. Elle regarde, chaque matin, la forme blanche au pied du mur, qui se creuse et se déforme à mesure que la chaux mange ce qu'elle recouvre. Au bout d'une semaine, on ne reconnaît plus un homme. On reconnaît une échelle de cordes, à côté.",
       ],
-      choices: [{ label: "Retourner à tes blessés", back: "A4w_jours" }] },
+      choices: [{ label: "Retourner à tes blessés", fx: { quest: "ZD" }, back: "A4w_jours" }] },
   },
   extras: {
     quests: [

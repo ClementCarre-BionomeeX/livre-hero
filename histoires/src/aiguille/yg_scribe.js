@@ -43,7 +43,7 @@ module.exports = {
         "Vous mangez l'orange à deux, au pied du grand mât, quartier par quartier, sans un mot. Il garde l'épluchure, en spirale, sur l'écritoire.",
         "Le lendemain, il ne mange pas sa ration. Mais il prend son quart. Le surlendemain, il copie le cahier des vivres. Il ne monte jamais aux huniers. Il ne parle jamais plus du Bureau. Il garde l'épluchure jusqu'à ce qu'elle sèche et devienne dure comme du cuir, et il la garde encore.",
       ],
-      choices: [{ label: "Retourner à ta corvée", fx: { flag: "yg:orange" }, back: "A3m_jours" }] },
+      choices: [{ label: "Retourner à ta corvée", fx: { quest: "YG", flag: "yg:orange" }, back: "A3m_jours" }] },
     YG_lettre: { act: "III", title: "La lettre", place: "cormorane", ambiance: "nuit",
       text: [
         "Tu lui apportes une feuille du cahier des vivres, et l'encrier. Tu lui demandes d'écrire une lettre. Une seule. Une vraie, qu'on enverra.",
@@ -52,7 +52,7 @@ module.exports = {
         "Il la relit. Il a un petit rire, très bref, le premier et le dernier que tu lui entendras. Il plie la lettre, la cachette avec la cire du second, et la met dans sa poche. « Je la lirai plus tard, dit-il. Quand je serai à la maison. »",
         "À partir de ce jour, il mange. Pas beaucoup. Assez.",
       ],
-      choices: [{ label: "Retourner à ta corvée", fx: { flag: "yg:lettre" }, back: "A3m_jours" }] },
+      choices: [{ label: "Retourner à ta corvée", fx: { quest: "YG", flag: "yg:lettre" }, back: "A3m_jours" }] },
     YG_terre: { act: "III", title: "Le copiste", place: "cormorane", ambiance: "mer",
       text: [
         "Tu le laisses. Tu ne sais pas quoi faire d'autre ; personne ne le sait.",
@@ -60,7 +60,7 @@ module.exports = {
         "Quand on le descend dans le canot, il ne résiste pas. Il s'assied à l'arrière, l'écritoire sur les genoux, très droit, et il regarde la Cormorane s'éloigner, ou plutôt un point à côté de la Cormorane, toujours le même.",
         "Tu le cherches des yeux, le lendemain, sur le quai du bourg. Tu ne le trouves pas. Il est quelque part, derrière un mur, assis, et il s'abstient.",
       ],
-      choices: [{ label: "Retourner à ta corvée", fx: { flag: "yg:terre" }, back: "A3m_jours" }] },
+      choices: [{ label: "Retourner à ta corvée", fx: { quest: "YG", flag: "yg:terre" }, back: "A3m_jours" }] },
   },
   extras: {
     people: {

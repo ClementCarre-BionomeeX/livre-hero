@@ -232,6 +232,7 @@ module.exports = {
         { label: "Descendre aux mares, à marée basse", to: "XQ_m_mares", hide: { seen: "XQ_m_mares" }, if: { seen: "XP_m_debut" }, why: "La chaloupe n'a pas encore touché la roche." },
         { label: "Suivre une traînée noire jusqu'à la mer", to: "XQ_m_trainees", hide: { seen: "XQ_m_trainees" }, if: { seen: "XP_m_debut" }, why: "La chaloupe n'a pas encore touché la roche." },
         { label: "Suivre le professeur au pied de la falaise de lave, d'où sort un souffle tiède", to: "ZA_bouche", hide: { seen: "ZA_bouche" }, if: { seen: "XP_m_debut" }, why: "La chaloupe ne t'a pas encore mis{e} à terre." },
+        { label: "Répondre à l'appel du baron, dans sa cabine", to: "ZL_baron", hide: { any: [{ seen: "ZL_baron" }, { has: "xs:baron_mort" }] } },
         { label: "Passer la nuit sur le bord du cratère", to: "XQ_m_nuit", hide: { seen: "XQ_m_nuit" }, if: { seen: "XP_m_debut" }, why: "La chaloupe n'a pas encore touché la roche." },
       ] },
     A3n_apres_ecueil: { act: "III", title: "La marmite", place: "sargues", ambiance: "mer",
@@ -251,6 +252,7 @@ module.exports = {
       ],
       choices: [
         { label: "Débarquer avec la corvée d'eau", to: "XF_m_debut", hide: { seen: "XF_m_debut" } },
+        { label: "Suivre Petit-Jules, la nuit, vers la plage des tortues", to: "ZH_plage", hide: { seen: "ZH_plage" }, if: { seen: "XF_m_debut" }, why: "Tu n'as pas encore mis le pied sur l'îlot." },
         { label: "Aller à la clairière, le dernier matin", to: "XF_m_clairiere", hide: { any: [{ seen: "XF_m_clairiere" }, { not: { seen: "XF_m_village" } }] }, if: { seen: "XF_m_fin" }, why: "Il reste des barriques à remplir avant le dernier matin." },
         { label: "Pêcher dans la crique avec Lagadec", to: "XQ_i_peche", hide: { seen: "XQ_i_peche" }, if: { seen: "XF_m_debut" }, why: "La chaloupe n'a pas encore touché le sable." },
         { label: "Faire le tour du jardin de la maison blanche", to: "XQ_i_cimetiere", hide: { seen: "XQ_i_cimetiere" }, if: { seen: "XF_m_debut" }, why: "La chaloupe n'a pas encore touché le sable." },

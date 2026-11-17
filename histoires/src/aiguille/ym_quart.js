@@ -65,7 +65,7 @@ module.exports = {
         { if: { has: "ym:voile" }, text: "« Tu as donné un ordre, dit-elle. Il était faux. » Elle trempe la plume. « Un ordre faux, donné à temps, vaut mieux que pas d'ordre du tout, et ne vaut pas mieux que ça. La misaine coûte quatre cents livres au baron. Je le lui dirai moi-même ; ça me fera plaisir. » Elle écrit. « Tu as tenu le pont, mousse. Mal. Le pont a tenu. Va dormir. »" },
         { if: { has: "ym:couteau" }, text: "« Lemerle me dit que tu lui as permis de couper la trombe, dit-elle, d'une voix sans aucune expression. Avec un couteau à manche noir. » Elle trempe la plume, la tient au-dessus de la page, longtemps. « Je ne peux pas écrire ça dans un livre de bord. Je vais écrire que la trombe s'est défaite à un mille, ce qui est vrai. » Elle écrit. Puis, sans lever les yeux : « Mon père avait le même couteau. Il est mort dans son lit. Va dormir. »" },
       ],
-      choices: [{ label: "Descendre dormir", back: "A3n_jours" }] },
+      choices: [{ label: "Descendre dormir", fx: { quest: "YM" }, back: "A3n_jours" }] },
   },
   extras: {
     quests: [

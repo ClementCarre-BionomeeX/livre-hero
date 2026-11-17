@@ -40,14 +40,14 @@ module.exports = {
         "« Rozenn, dit-il. Rozenn. Entre. Je suis là. Entre, je t'en supplie, une fois, une seule. Rozenn. » Il pleure. Cet homme dur, gris, terrible, pleure à genoux dans le lit d'une morte, la tête dehors, sous l'averse, en appelant un nom dans la nuit comme on appelle un chien perdu. Le vent entre par la fenêtre et éteint la chandelle. Rien ne répond. Rien que la pluie et la branche.",
         "Au matin, la servante te sert ton lait en silence. Kerbrat est assis dans la salle, devant le feu éteint, trempé, les cheveux collés au front, et il ne te regarde pas. Quand tu pars, il dit seulement, sans se retourner : « Elle avait seize ans. Comme toi. Son père l'a mariée au fils Le Bourhis, à cause des terres. Elle est revenue ici, pour mourir, l'hiver d'après. Je n'étais pas là. J'étais en mer. » Il se tait. « Depuis, je l'attends. Elle frappe chez les autres. Jamais chez moi. »",
       ],
-      choices: [{ label: "Redescendre vers l'anse", back: "A3o_lannoz" }] },
+      choices: [{ label: "Redescendre vers l'anse", fx: { quest: "ZE" }, back: "A3o_lannoz" }] },
     ZE_tu: { act: "III", title: "La ferme du haut de la lande", place: "lannoz", ambiance: "nuit",
       text: [
         "Il te regarde longtemps, à la lueur de la chandelle. Il voit que tu mens. Tu le vois voir. Il voit aussi, sur le dos de ta main, les marques rouges de quatre doigts fins, comme une brûlure de froid, qui commencent déjà à bleuir.",
         "Il ne dit rien. Il pose la chandelle sur la tablette du lit clos, il ferme la petite fenêtre, il pousse le loquet, et il reste là, debout, la main à plat sur le carreau, longtemps, sans un mot, comme on pose la main sur la vitre d'une voiture qui s'en va. Puis il sort, et referme la porte derrière lui, doucement.",
         "Au matin, la servante te sert ton lait en silence. Kerbrat n'est pas là. Elle te dit qu'il est parti sur la lande avant l'aube, sans manger, comme il le fait quelquefois, vers le cimetière de la chapelle des landes, à trois lieues, où il n'entre jamais, et devant le mur duquel il reste assis jusqu'au soir. « Vous avez dormi dans la chambre d'en haut, dit-elle. Je n'aurais pas dû. Pardonnez-moi. » Elle regarde ta main. « Elle aussi. Elle ne fait pas exprès. Elle a froid. »",
       ],
-      choices: [{ label: "Redescendre vers l'anse", back: "A3o_lannoz" }] },
+      choices: [{ label: "Redescendre vers l'anse", fx: { quest: "ZE" }, back: "A3o_lannoz" }] },
   },
   extras: {
     quests: [

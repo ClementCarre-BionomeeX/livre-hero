@@ -26,7 +26,7 @@ module.exports = {
         "Daguenet te regarde, vexé, puis il rit, et te tape sur l'épaule. « Tu as raison. Elle aimera les taches. C'est tout moi, les taches. » Il s'en va vers le gaillard en sifflant, ce qui est interdit.",
         "Le lendemain, Marjolaine Cotentin descend du perroquet avec une feuille chiffonnée dans le poing, et la jette à la mer sans l'avoir dépliée. Daguenet la regarde flotter, et ne siffle plus de la journée.",
       ],
-      choices: [{ label: "Retourner au travail", back: "A2m_jours" }] },
+      choices: [{ label: "Retourner au travail", fx: { quest: "YZ" }, back: "A2m_jours" }] },
     YZ_premiere: { act: "II", title: "La première lettre", place: "cormorane", ambiance: "nuit",
       text: [
         "Tu écris la nuit, dans l'entrepont, à la lueur d'un fanal, sur ton genou. Tu ne sais pas comment commencer. Tu écris *Mademoiselle*, et tu le barres : on ne dit pas mademoiselle à une gabière qui monte sans corde. Tu écris *Cotentin*, et tu le barres aussi. Tu finis par ne rien mettre en tête, et par commencer au milieu, comme on commence à parler à quelqu'un qu'on regarde depuis longtemps.",
@@ -68,7 +68,7 @@ module.exports = {
         "Elle se lève. Elle rentre sur le gaillard en marchant sur le beaupré, sans se tenir, comme sur une route, passe à un pas de toi sans te voir, et descend dans l'entrepont. Le lendemain, il y a dans le hamac de Daguenet toutes les lettres, attachées avec un fil de voile. Il n'y en a plus d'autres. Elle ne lui parle plus. Elle ne crache plus sur lui non plus. Elle le regarde comme on regarde un endroit vide.",
         "Daguenet te rend les lettres sans un mot. Il a perdu son sourire de propriétaire. Il le retrouvera, à Lannoz, auprès d'une fille de la lande qui n'aura rien lu.",
       ],
-      choices: [{ label: "Retourner au travail", back: "A3n_jours" }] },
+      choices: [{ label: "Retourner au travail", fx: { quest: "YZ" }, back: "A3n_jours" }] },
 
     YZ_plage: { act: "V", title: "Les lettres d'un autre", place: "anse_morte", ambiance: "mer",
       text: [
@@ -90,14 +90,14 @@ module.exports = {
         { if: { not: MORT }, text: "« Il m'a donné ses lèvres, dit-elle, et toi les mots. Je vais garder les lèvres. Elles sont là, au moins, elles chargent des barriques. » Elle a un rire bref. « Et je garde les lettres. Tu n'en écriras plus. Je ne veux pas qu'il y en ait d'autres. Celles-là suffisent pour une vie. »" },
         "Elle se lève, met le paquet dans sa chemise, contre sa peau, et s'en va vers la chaloupe. Avant d'y monter, elle se retourne, une fois, et te fait un signe de la main, très bref, qui ressemble à un salut de gabier sur une hune.",
       ],
-      choices: [{ label: "Revenir vers le camp", back: "A5o_debut" }] },
+      choices: [{ label: "Revenir vers le camp", fx: { quest: "YZ" }, back: "A5o_debut" }] },
     YZ_nie: { act: "V", title: "Les lettres d'un autre", place: "anse_morte", ambiance: "mer",
       text: [
         "Elle te regarde encore un long moment. Tu tiens bon. Tu as appris, au hameau, à mentir les yeux dans les yeux à des douaniers ; tu mens les yeux dans les yeux à une gabière qui pleure sans larmes.",
         "« Bien, dit-elle enfin. Alors c'était lui. » Elle prend la feuille sur tes genoux, la glisse dans le paquet, refait le nœud. « Il écrivait mieux qu'il ne parlait. Ça arrive. » Elle ne te croit pas. Tu le vois. Elle a choisi de te croire, comme on choisit de ne pas ouvrir une porte derrière laquelle on a entendu quelque chose.",
         "Elle s'en va vers la chaloupe, le paquet dans sa chemise. Tu restes sur le sable, les mains vides. Tu sais que tu as bien fait. Tu sais aussi que, de toutes les lettres que tu écriras dans ta vie, celles-là sont les seules qui ne seront jamais à toi.",
       ],
-      choices: [{ label: "Revenir vers le camp", back: "A5o_debut" }] },
+      choices: [{ label: "Revenir vers le camp", fx: { quest: "YZ" }, back: "A5o_debut" }] },
   },
   extras: {
     quests: [

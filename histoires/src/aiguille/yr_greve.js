@@ -58,14 +58,14 @@ module.exports = {
         "Tu es de retour au coupe-vent avant la relève. Personne ne t'a vu{e}. Sauf, en remontant l'échelle, une silhouette assise sur le gaillard d'avant, une pipe éteinte entre les dents : Marjolaine Cotentin, qui ne dormait pas. Elle te regarde passer. Elle ne dit rien. Elle hoche la tête, une fois, très lentement.",
         "Une heure plus tard, quand les hommes du baron arrivent par les magasins, avec leurs barres de fer, ils trouvent les portefaix debout, deux cents, en ligne, avec leurs crochets. Il n'y a pas de bataille. Les hommes du baron sont payés trois livres ; on ne meurt pas pour trois livres. Ils repartent par où ils sont venus. Le lendemain, la Chambre du Quai rend le sou. On charge la Cormorane en chantant.",
       ],
-      choices: [{ label: "Remonter à ton poste", back: "A2m_jours" }] },
+      choices: [{ label: "Remonter à ton poste", fx: { quest: "YR" }, back: "A2m_jours" }] },
     YR_poste: { act: "II", title: "La nuit du quai", place: "quai_hollandes", ambiance: "nuit",
       text: [
         "Tu restes. Tu te dis que ce n'est pas ton affaire, que tu es mousse, que tu as un navire. Tu te le dis plusieurs fois.",
         "Une heure plus tard, ils arrivent par les magasins. Tu entends d'abord les pas, puis un cri, puis un bruit de fer contre de l'os, mat, qu'on ne confond pas avec un autre. Les feux s'éparpillent. Des hommes courent dans tous les sens, des ombres en frappent d'autres. Ça dure moins de temps qu'il n'en faut pour le raconter. Puis il ne reste sur le quai que des sacs vides, des écuelles renversées, des feux piétinés, et trois hommes couchés qu'on relève, et un quatrième qu'on ne relève pas.",
         "Au matin, les portefaix reprennent le travail, à l'ancien tarif moins un sou. On charge la Cormorane en silence. Le vieux aux mains comme des racines n'est plus sur le quai. Tu ne demandes pas où il est. Thérèse Le Corre porte son sel, comme avant, sans chanter. Quand elle passe devant la Cormorane, elle ne regarde pas le navire.",
       ],
-      choices: [{ label: "Reprendre le travail", back: "A2m_jours" }] },
+      choices: [{ label: "Reprendre le travail", fx: { quest: "YR" }, back: "A2m_jours" }] },
   },
   extras: {
     people: {

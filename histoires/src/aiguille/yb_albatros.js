@@ -40,7 +40,7 @@ module.exports = {
         "Il ne bat pas des ailes. Il monte, simplement, comme une feuille, et il fait trois fois le tour du navire, très haut, puis il part vers le couchant, devant l'étrave, dans la direction où vous allez, et il disparaît.",
         "« Il nous montre le chemin », dit un ancien. Personne ne le contredit.",
       ],
-      choices: [{ label: "Reprendre le travail", fx: { flag: "yb:envole", penche: { coquerel: 2 } }, back: true }] },
+      choices: [{ label: "Reprendre le travail", fx: { quest: "YB", flag: "yb:envole", penche: { coquerel: 2 } }, back: true }] },
     YB_tue: { act: "III", title: "L'oiseau blanc", place: "sargues", ambiance: "mer",
       text: [
         "Le coup part. L'oiseau se plie en l'air, comme une lettre qu'on froisse, et tombe sur les herbes, à trente brasses, les ailes ouvertes, et reste là, blanc sur le jaune des sargues, sans bouger.",
@@ -80,7 +80,7 @@ module.exports = {
         "La capitaine coupe la ligne au cou de Coquerel avec un couteau qu'elle a pris on ne sait où, prend l'albatros par une patte, et le jette par-dessus bord, sans un mot, sans une prière. Il flotte un instant, blanc, puis il s'enfonce.",
         "Le vent ne revient pas cette nuit-là. Il revient deux jours plus tard, comme il revient toujours. Mais à bord, on dit désormais que la capitaine a privé la mer de son homme, et que la mer s'en souviendra.",
       ],
-      choices: [{ label: "Redescendre", fx: { flag: "yb:capitaine", penche: { coquerel: 1, malandain: -1 } }, back: true }] },
+      choices: [{ label: "Redescendre", fx: { quest: "YB", flag: "yb:capitaine", penche: { coquerel: 1, malandain: -1 } }, back: true }] },
     YB_rendu: { act: "III", title: "Le Jonas", place: "sargues", ambiance: "nuit",
       text: [
         { if: ENFANT, text: "Tu te laisses glisser le long d'un hauban et tu tombes au milieu d'eux. Tu as ton couteau à la main. Tu coupes la ligne au cou de Coquerel avant que personne ait compris, tu prends l'oiseau dans tes bras, lourd, raide, puant, et tu montes sur la lisse avec." },
@@ -92,7 +92,7 @@ module.exports = {
         { if: ENFANT, text: "Toi non plus, tout à fait." },
         { if: MEDECIN, text: "Victorine non plus, tout à fait, et cela l'agace considérablement." },
       ],
-      choices: [{ label: "Redescendre, les bras sentant la charogne", fx: { flag: "yb:rendu", penche: { coquerel: 2 } }, back: true }] },
+      choices: [{ label: "Redescendre, les bras sentant la charogne", fx: { quest: "YB", flag: "yb:rendu", penche: { coquerel: 2 } }, back: true }] },
     YB_noye: { act: "III", title: "Le Jonas", place: "sargues", ambiance: "nuit",
       text: [
         { if: ENFANT, text: "Tu ne bouges pas. Tu as tes raisons, qui sont toutes bonnes et qui pèsent toutes le même poids : rien." },
@@ -101,7 +101,7 @@ module.exports = {
         "À l'aube, Maître Gobert, qui fait le tour du bord avant le branle-bas, entend gémir sous la voûte de l'arrière. Coquerel est là, accroché aux chaînes du gouvernail, dans l'eau jusqu'aux épaules, les mains liées passées autour d'un gond, où il s'est tenu toute la nuit, pendant que les choses sans yeux lui frôlaient les jambes. L'albatros flotte à côté de lui, au bout de sa ligne, comme un compagnon fidèle.",
         "On le hisse. Il ne dit pas qui. Il ne dit rien. Il a les yeux grands ouverts, et il ne les ferme plus beaucoup, les jours suivants. Le vent revient trois jours plus tard. Coquerel ne rit plus. On s'aperçoit seulement alors combien on entendait ce rire, et combien il prenait de place.",
       ],
-      choices: [{ label: "Vivre avec", fx: { flag: "yb:jete", penche: { coquerel: -1 } }, back: true }] },
+      choices: [{ label: "Vivre avec", fx: { quest: "YB", flag: "yb:jete", penche: { coquerel: -1 } }, back: true }] },
 
     // ---------------------------------------------------------------- the cook's side
     YB_f_oiseau: { act: "III", title: "L'albatros", place: "sargues", ambiance: "mer", second: true,
@@ -119,13 +119,13 @@ module.exports = {
         "Il dit les mots en remuant la soupe, l'air de rien, comme on ajoute une pincée de sel. Il ne les dit qu'une fois. Une fois suffit. Le lendemain, il les entend revenir de l'autre bout du pont, dans la bouche d'hommes qui ne se souviennent plus où ils les ont pris et qui les croient à eux. C'est le principe d'une bonne sauce : au bout d'un moment, on ne sait plus ce qu'on y a mis.",
         "Il se sent sale, un peu. Il a l'habitude.",
       ],
-      choices: [{ label: "Retourner à la marmite", back: "A3f_jours" }] },
+      choices: [{ label: "Retourner à la marmite", fx: { quest: "YB" }, back: "A3f_jours" }] },
     YB_f_calme: { act: "III", title: "L'albatros", place: "sargues", ambiance: "mer", second: true,
       text: [
         "« Un calme, c'est un calme, dit-il en servant. J'en ai fait un de quarante jours, en mer des Moussons, avec un équipage qui avait pas tué une mouche. On a mangé les rats. On a bu la pluie. On est arrivés. Mangez votre soupe : elle, au moins, elle est pas maudite. »",
         "Ils mangent. Ils rient un peu. C'est un mauvais calcul pour un homme qui prépare une mutinerie, et il le sait, et il remplit les écuelles une deuxième fois. Il y a des choses qu'on ne fait pas, même quand elles servent. Il en reste deux ou trois, dans sa liste. Il y tient.",
       ],
-      choices: [{ label: "Retourner à la marmite", back: "A3f_jours" }] },
+      choices: [{ label: "Retourner à la marmite", fx: { quest: "YB" }, back: "A3f_jours" }] },
   },
   extras: {
     quests: [

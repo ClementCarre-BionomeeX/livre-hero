@@ -41,7 +41,7 @@ module.exports = {
         "Il voit le porte-cartes. Il voit l'âtre. Il comprend tout, en une seconde, et Victorine le voit comprendre. Puis il s'assied, remet son pied sur le tabouret, et lui tend le verre d'eau avec un sourire d'une politesse parfaite.",
         "« Vous avez soif, docteur ? Buvez. » Il la regarde boire. « Je vous paierai votre visite le double. Vous êtes un excellent médecin, et je ne veux pas d'autre ennemi que ceux que j'ai déjà. » Il prend une prise. « Madame de Pérignac a de la chance. Monsieur de Pérignac votera ce qu'il voudra, désormais. C'est-à-dire n'importe quoi. Je regretterai mes certitudes. »",
       ],
-      choices: [{ label: "Rentrer au Cormoran", back: "A2v_jours" }] },
+      choices: [{ label: "Rentrer au Cormoran", fx: { quest: "YS" }, back: "A2v_jours" }] },
     YS_rendue: { act: "II", title: "La lettre", place: "haute_ville", ambiance: "ville",
       text: [
         "La lettre est dans la trousse, sous les lancettes, quand Saint-Brice rentre avec le verre d'eau. Il le lui tend. Il ne regarde pas la cheminée. Il ne la regardera pas avant le soir, peut-être pas avant le lendemain ; il est de ces hommes qui ne regardent jamais ce qu'ils savent être à sa place.",
@@ -49,7 +49,7 @@ module.exports = {
         "« Les vrais, dit-elle. Il en reste un. J'avais gardé celui-là. » C'est une broche, une seule pierre, petite, très claire. « Pour vos dettes, docteur. On m'a dit que vous en aviez. Tout Morlenc le sait. » Victorine la regarde. Elle pense à la banque Clavières, à trois mille quatre cents livres, à une petite pierre très claire. Elle referme le coffret et le rend. « Gardez-la pour le jour où la raffinerie ne se relèvera pas, madame. Ce jour-là, vous en aurez plus besoin que moi. »",
         "Madame de Pérignac la regarde partir avec une stupeur absolue. Personne, à Morlenc, n'a jamais refusé un diamant.",
       ],
-      choices: [{ label: "Rentrer au Cormoran", back: "A2v_jours" }] },
+      choices: [{ label: "Rentrer au Cormoran", fx: { quest: "YS" }, back: "A2v_jours" }] },
     YS_gardee: { act: "II", title: "La lettre", place: "haute_ville", ambiance: "ville",
       text: [
         "La lettre est dans la trousse, sous les lancettes, quand Saint-Brice rentre avec le verre d'eau. Il le lui tend. Elle boit. Elle lui souhaite une bonne guérison, et s'en va.",
@@ -57,7 +57,7 @@ module.exports = {
         "Elle ne monte pas au boudoir jaune. Elle rentre au Cormoran, et range la lettre au fond de sa malle, sous les robes grises. Elle se dit qu'elle la rendra demain. Elle se dit qu'on ne sait jamais, quand on part avec un baron pour une île dont personne ne veut dire le nom, de quoi on aura besoin au retour.",
         "Le lendemain, Monsieur de Saint-Brice fait savoir, par un billet très courtois, qu'il a trouvé un autre médecin.",
       ],
-      choices: [{ label: "Rentrer au Cormoran", back: "A2v_jours" }] },
+      choices: [{ label: "Rentrer au Cormoran", fx: { quest: "YS" }, back: "A2v_jours" }] },
   },
   extras: {
     quests: [

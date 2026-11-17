@@ -29,21 +29,21 @@ module.exports = {
         "Le baron l'avale. Il ferme les yeux. Au bout d'une minute, il déclare qu'il le sent mourir. Au bout de cinq, qu'il est mort. Au bout de dix, il dort, d'un sommeil d'enfant, le dictionnaire sur la poitrine.",
         "Le lendemain, il a la lettre U, une urticaire, qui cède à une pilule. Le surlendemain, une variole, qui cède à deux, avec une tisane. Victorine roule des boulettes de mie tous les soirs ; Fargue, qui lui fournit le pain, ne pose pas de question, et lui en donne du meilleur. À Brisegrève, le baron se porte comme un charme, et dit à tout le monde que la médecin est un génie, ce qui, au fond, n'est pas faux, mais pas pour la raison qu'il croit.",
       ],
-      choices: [{ label: "Retourner à l'infirmerie", back: "A3v_jours" }] },
+      choices: [{ label: "Retourner à l'infirmerie", fx: { quest: "ZC" }, back: "A3v_jours" }] },
     ZC_honoraires: { act: "III", title: "Le malade de la grand-chambre", place: "cormorane", ambiance: "nuit",
       text: [
         "« C'est grave, monsieur le baron, dit-elle. Pas mortel, si l'on veille. Il faudra que je vous voie tous les jours. Deux fois, quand la mer est forte. » Elle tire de sa trousse un carnet. « À cinq livres la visite, tarif de Morlenc, que je porterai en déduction de ce que je vous dois. »",
         "Le baron accepte avec une reconnaissance pathétique. Il signe un reçu, sur le dictionnaire, page quatre cent douze. Le lendemain, elle monte deux fois. Le surlendemain, trois. Il a un mal nouveau à chaque visite, qu'elle soigne avec gravité par des moyens inoffensifs et coûteux, et son carnet se remplit de petites sommes, qui font, au bout de dix jours, deux cents livres de moins sur trois mille quatre cents.",
         "Elle est un peu honteuse. Pas beaucoup. Elle se dit que c'est la première fois de sa vie qu'un Clavières paie ce qu'il doit à un Davrigny, et que cela valait la peine de traverser la moitié du monde pour le voir. Elle se dit aussi, certains soirs, en redescendant, qu'elle a appris en dix jours un métier qu'elle méprisait, et qu'il est très facile.",
       ],
-      choices: [{ label: "Retourner à l'infirmerie", back: "A3v_jours" }] },
+      choices: [{ label: "Retourner à l'infirmerie", fx: { quest: "ZC" }, back: "A3v_jours" }] },
     ZC_verite: { act: "III", title: "Le malade de la grand-chambre", place: "cormorane", ambiance: "nuit",
       text: [
         "Elle prend le dictionnaire sur ses genoux, le referme, le met sous son bras. « Vous n'avez rien, monsieur le baron, dit-elle. Pas de ténia. Pas de goutte. Pas de pylore. Vous avez un corps de cinquante ans qui mange trop et ne fait rien, sur un navire où il n'y a rien à faire. Vous avez peur. C'est la seule maladie que vous ayez, et elle n'est pas dans ce livre. »",
         "Le baron la regarde, la bouche ouverte. Puis il devient très rouge. « Peur ? De quoi, peur ? » Elle hausse les épaules. « Je ne sais pas. Vous le savez. » Il y a un silence. Le baron baisse les yeux vers la chandelle, et pendant une seconde, une seule, Victorine voit passer sur sa figure quelque chose qui n'a rien d'imaginaire, une vraie peur, ancienne, de celles qu'on traîne depuis l'enfance et qui ont un nom de famille.",
         "Puis c'est fini. Il souffle la chandelle. « Bonne nuit, docteur. Vous êtes une femme sans pitié. » Il ne la fait plus appeler. Il ne lit plus le dictionnaire, que Victorine garde dans sa malle. Il fait les cent pas sur le pont, le soir, très longtemps, en regardant le sud.",
       ],
-      choices: [{ label: "Retourner à l'infirmerie", back: "A3v_jours" }] },
+      choices: [{ label: "Retourner à l'infirmerie", fx: { quest: "ZC" }, back: "A3v_jours" }] },
   },
   extras: {
     quests: [

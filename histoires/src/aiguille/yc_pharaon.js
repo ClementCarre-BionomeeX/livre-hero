@@ -45,21 +45,21 @@ module.exports = {
         "Le baron prend la feuille. Il la regarde, il la retourne, il la regarde encore, comme s'il ne savait pas lire. Puis il la déchire, lentement, en tout petits morceaux, qu'il laisse tomber dans une coupe de champagne vide.",
         "Dans la voiture, au retour, il ne dit rien pendant longtemps. Puis, devant le Cormoran, quand elle descend : « Vous ne m'avez rien demandé. — Non. — Vous auriez pu me demander n'importe quoi. — Je sais. » Il la regarde, avec dans les yeux quelque chose qui ressemble à de la terreur, ou à du respect. Chez lui, c'est souvent la même chose.",
       ],
-      choices: [{ label: "Monter dormir trois heures", fx: { flag: "yc:billet_rendu", regard: { claviere: "redevable" } }, back: "A2v_jours" }] },
+      choices: [{ label: "Monter dormir trois heures", fx: { quest: "YC", flag: "yc:billet_rendu", regard: { claviere: "redevable" } }, back: "A2v_jours" }] },
     YC_garde: { act: "II", title: "Le pharaon", place: "haute_ville", ambiance: "ville",
       text: [
         "Le baron la regarde plier la feuille. Il ne dit rien. Il a perdu son navire au pharaon, et une femme l'a regagné, et cette femme vient de le mettre dans sa trousse, entre le laudanum et les lancettes. Il comprend qu'il a désormais une créancière de plus. Il comprend aussi, et cela lui fait presque plaisir, qu'elle est la seule de toutes qu'il ne pourra pas acheter.",
         "« Vous me la rendrez, docteur ? — Un jour. Quand vous l'aurez méritée. — Et si je ne la mérite jamais ? — Alors elle sera bien gardée. »",
         "Dans la voiture, il rit tout le long du chemin, d'un rire qui fait mal à entendre.",
       ],
-      choices: [{ label: "Monter dormir trois heures", fx: { flag: "yc:billet_garde", regard: { claviere: "mefiant" } }, back: "A2v_jours" }] },
+      choices: [{ label: "Monter dormir trois heures", fx: { quest: "YC", flag: "yc:billet_garde", regard: { claviere: "mefiant" } }, back: "A2v_jours" }] },
     YC_perdu: { act: "II", title: "Le pharaon", place: "haute_ville", ambiance: "ville",
       text: [
         "Elle s'assied. Elle compte. Elle a raison deux fois, trois fois, puis la carte tombe du mauvais côté, contre toutes les raisons, comme elle tombait du mauvais côté pour Hector, un dimanche sur deux, pendant dix ans. Le sabot n'a pas d'opinion. Il ne connaît pas les veuves.",
         "Elle perd cent livres. L'avance du baron pour la pharmacie, moins ce qu'elle a déjà dépensé. Elle se lève. Elle a les mains très froides, et sur sa figure, elle le sait sans miroir, l'expression des dimanches soir : les lèvres sèches, les yeux trop fixes, et un sourire arrêté en route.",
         "Le baron revient, regarde le tapis, puis elle. Il gagne la main suivante, par hasard, et la suivante, et l'hypothèque lui revient sans qu'il ait rien fait, par la seule grâce d'un sabot qui n'a pas d'opinion. Il en rit beaucoup. Elle ne rit pas. Elle a compris, ce soir, une chose qu'elle aurait préféré ne jamais comprendre : pourquoi Hector revenait.",
       ],
-      choices: [{ label: "Rentrer à pied, sous la pluie", back: "A2v_jours" }] },
+      choices: [{ label: "Rentrer à pied, sous la pluie", fx: { quest: "YC" }, back: "A2v_jours" }] },
     YC_refus: { act: "II", title: "Le Cercle des Négociants", place: "haute_ville", ambiance: "ville",
       text: [
         "Monsieur s'incline. Il a l'air un peu déçu, comme un collectionneur qui voit filer un spécimen.",
@@ -67,7 +67,7 @@ module.exports = {
         "La partie reprend. Il gagne, enfin, au matin, assez pour racheter l'hypothèque du navire, et pas assez pour racheter la part. Monsieur la range dans son portefeuille avec les autres, très soigneusement, comme une fleur séchée dans un herbier.",
         "Dans la voiture, le baron dort, la bouche ouverte. Victorine regarde défiler les rues grises de Morlenc, et pense qu'il y a désormais, à bord de la Cormorane, un passager invisible, petit, chauve, aux ongles faits, qui attendra sur le quai le retour du navire, et qui ne prendra jamais froid.",
       ],
-      choices: [{ label: "Rentrer au Cormoran", fx: { flag: "yc:part_engagee" }, back: "A2v_jours" }] },
+      choices: [{ label: "Rentrer au Cormoran", fx: { quest: "YC", flag: "yc:part_engagee" }, back: "A2v_jours" }] },
 
     // ---------------------------------------------------------------- at sea, at dawn
     YC_aube: { act: "III", title: "Les mains du baron", place: "cormorane", ambiance: "nuit",
@@ -89,14 +89,14 @@ module.exports = {
         "Quand il se tait, le jour est levé. Les fenêtres de poupe sont pleines de mer, d'un gris de perle, et le sillage s'en va derrière eux vers le nord, vers Morlenc, droit et blanc, comme une ligne tirée au bas d'un compte.",
         "« Merci, dit-il. Personne ne m'avait jamais écouté. On m'a toujours payé, ou fait payer. » Il range les cartes. « Ne le dites à personne. Je serais obligé de vous détester. »",
       ],
-      choices: [{ label: "Retourner à la chèvre", fx: { flag: "yc:confession", regard: { claviere: "cordial" } }, back: true }] },
+      choices: [{ label: "Retourner à la chèvre", fx: { quest: "YC", flag: "yc:confession", regard: { claviere: "cordial" } }, back: true }] },
     YC_aube_mepris: { act: "III", title: "Les mains du baron", place: "cormorane", ambiance: "nuit",
       text: [
         "Elle sort. Elle ferme la porte derrière elle, pas fort, juste assez.",
         "Dans la coursive, elle s'arrête, la main sur la cloison, le cœur battant, et elle s'aperçoit qu'elle a les larmes aux yeux, de rage, et qu'elle ne sait pas contre qui. Contre le baron, sûrement. Contre Hector, toujours. Contre elle-même, qui a passé dix ans à écouter un homme regarder ses mains, et qui vient de refuser une heure à un autre, parce qu'elle n'en peut plus.",
         "La chèvre, elle, va très bien. Elle a eu un chevreau. Il est blanc. Tout le monde à bord l'appelle déjà Baron, sauf Victorine.",
       ],
-      choices: [{ label: "Retourner à la chèvre", fx: { flag: "yc:mepris", regard: { claviere: "mefiant" } }, back: true }] },
+      choices: [{ label: "Retourner à la chèvre", fx: { quest: "YC", flag: "yc:mepris", regard: { claviere: "mefiant" } }, back: true }] },
   },
   extras: {
     people: {

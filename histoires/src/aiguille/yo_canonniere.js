@@ -35,7 +35,7 @@ module.exports = {
       choices: [
         { label: "Aller porter à Rosemonde le premier bol de soupe, et lui faire place au feu, à côté de toi", fx: { flag: "yo:place" }, to: "YO_place" },
         { label: "Répondre au baron, devant tout le monde", fx: { flag: "yo:defendue" }, to: "YO_baron" },
-        { label: "Retourner à tes fiévreux, et ne rien dire", fx: { flag: "yo:silence" }, back: "A4w_jours" },
+        { label: "Retourner à tes fiévreux, et ne rien dire", fx: { quest: "YO", flag: "yo:silence" }, back: "A4w_jours" },
       ] },
     YO_place: { act: "IV", title: "La canonnière", place: "misericorde", ambiance: "temple",
       text: [
@@ -43,7 +43,7 @@ module.exports = {
         "Personne ne dit rien. La capitaine Ribaud pousse son écuelle de quelques pouces, pour faire de la place, sans lever les yeux. Benoît, en face, se décale aussi. Puis l'homme à l'épaule, le premier qui avait ri, tend à Rosemonde son quart de rhum, de sa main valide, sans un mot, la figure rouge jusqu'aux oreilles.",
         "Rosemonde boit la soupe. Elle ne remercie personne. Quand elle a fini, elle dit seulement, à Victorine, très bas : « Il était saoul, docteur. Ça a été vite. » Et elle se met à pleurer, sans bruit, la figure tournée vers le feu, et tout le monde fait semblant de regarder ailleurs, ce qui est la seule délicatesse dont une chapelle assiégée soit capable.",
       ],
-      choices: [{ label: "Retourner à tes fiévreux", back: "A4w_jours" }] },
+      choices: [{ label: "Retourner à tes fiévreux", fx: { quest: "YO" }, back: "A4w_jours" }] },
     YO_baron: { act: "IV", title: "La canonnière", place: "misericorde", ambiance: "temple",
       text: [
         "Victorine se lève, s'essuie les mains à son tablier, et marche jusqu'au chœur, où le baron est assis dans la seule stalle qui ait encore son dossier.",
@@ -51,7 +51,7 @@ module.exports = {
         "Il y a un silence. Puis quelqu'un rit, au fond de la nef, d'un vrai rire, cette fois, et c'est la capitaine Ribaud. Le baron se tait. Il ne demande plus rien, ni ce soir ni les jours suivants. Il boit sa décoction sans la regarder.",
         "Rosemonde, contre son pilier, n'a pas levé les yeux. Mais le soir, au feu, on lui fait place. Pas de bon cœur : de peur de la médecin. C'est déjà ça.",
       ],
-      choices: [{ label: "Retourner à tes fiévreux", back: "A4w_jours" }] },
+      choices: [{ label: "Retourner à tes fiévreux", fx: { quest: "YO" }, back: "A4w_jours" }] },
   },
   extras: {
     quests: [

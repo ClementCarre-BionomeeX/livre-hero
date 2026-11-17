@@ -44,7 +44,7 @@ module.exports = {
         "Malandain prend la bouteille et la piastre. Il ne dit pas merci. Il les regarde, longtemps, comme s'il cherchait ce qu'on attendait de lui en échange. Le soir, à la cambuse, on entend qu'il raconte l'histoire, et qu'il la raconte bien, et qu'on l'écoute. Il n'y parle pas des bragues. Personne ne lui en parle.",
         "Gobert, sur le gaillard d'avant, crache par-dessus bord. « On récompense un homme pour avoir éteint le feu qu'il a allumé, dit-il à personne. C'est nouveau. Ça fera des émules. »",
       ],
-      choices: [{ label: "Retourner au travail", back: true }] },
+      choices: [{ label: "Retourner au travail", fx: { quest: "YJ" }, back: true }] },
     YJ_puni: { act: "III", title: "Le jugement", place: "cormorane", ambiance: "mer",
       text: [
         "La capitaine hoche la tête. Elle fait mettre Malandain aux fers pour trois jours, à fond de cale, au pain et à l'eau, le bras bandé, pour ivresse de service et négligence des amarrages.",
@@ -53,14 +53,14 @@ module.exports = {
         { if: MEDECIN, text: "En passant, il regarde Victorine, et le bandage qu'elle lui a fait. Il a un regard qui ne se pose sur rien et se souvient de tout." },
         "L'équipage murmure. On a mis aux fers l'homme qui a sauvé le navire. Ceux qui le détestaient le plaignent. Le soir, à la cambuse, le maître-coq leur sert la soupe sans un mot, et tend l'oreille.",
       ],
-      choices: [{ label: "Retourner au travail", back: true }] },
+      choices: [{ label: "Retourner au travail", fx: { quest: "YJ" }, back: true }] },
     YJ_deux: { act: "III", title: "Le jugement", place: "cormorane", ambiance: "mer",
       text: [
         "La capitaine reste un long moment immobile. Puis elle fait apporter la bouteille de vieux rhum de la Martinière, et une piastre. Elle les donne à Malandain, devant tout l'équipage, pour le courage, en lui serrant la main. Et elle le fait mettre aux fers, dans la minute qui suit, devant le même équipage, pour les bragues, trois jours, la bouteille posée sur le pont à côté de lui, hors de portée, jusqu'à sa sortie.",
         "C'est juste, et c'est terrible. Tout le monde le sent, même ceux qui ne sauraient pas dire pourquoi. Malandain descend à fond de cale en regardant la bouteille par-dessus son épaule, et pour la première fois depuis Morlenc, il a l'air d'un homme qui ne comprend pas.",
         "Trois jours plus tard, il remonte, reprend sa bouteille, et la jette à la mer, sans l'ouvrir. Il garde la piastre.",
       ],
-      choices: [{ label: "Retourner au travail", back: true }] },
+      choices: [{ label: "Retourner au travail", fx: { quest: "YJ" }, back: true }] },
   },
   extras: {
     quests: [

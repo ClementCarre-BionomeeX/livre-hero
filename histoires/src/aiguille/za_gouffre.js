@@ -41,21 +41,21 @@ module.exports = {
         "La remontée est un cauchemar de corde mouillée et de lanterne éteinte. Le bas du puits est déjà noyé quand vous l'atteignez ; il faut nager deux brasses dans le noir, la corde entre les dents, avant de trouver les premières prises. En haut du tube, la lumière du jour vous éblouit comme un coup de poing. Vous vous couchez sur la lave chaude, tous les deux, en crachant de l'eau de mer, et le professeur reste longtemps sans rien dire, les yeux au ciel.",
         "« Vous m'avez volé le centre de la Terre, dit-il enfin. » Il tourne la tête vers toi. « Et la vie, accessoirement. Je ne sais pas encore lequel des deux je vous pardonnerai le moins. » Puis il rit, de son grand rire de tonnerre, et te broie la main dans la sienne.",
       ],
-      choices: [{ label: "Regagner la chaloupe", back: "A3n_ecueil" }] },
+      choices: [{ label: "Regagner la chaloupe", fx: { quest: "ZA" }, back: "A3n_ecueil" }] },
     ZA_seul: { act: "III", title: "Le gouffre de l'Écueil", place: "ecueil_rouge", ambiance: "souterrain",
       text: [
         "Tu lui laisses la corde. Il ne te regarde même pas partir ; il descend déjà, dans le second puits, la lanterne à la ceinture, en chantant un air d'opéra. Tu remontes dans le noir, à tâtons, le long des parois de verre, avec l'eau qui te poursuit, et tu nages les deux brasses noyées du bas du puits sans savoir si tu en verras le bout.",
         "Tu cours à la chaloupe. Le second Quémeneur, quatre hommes, des cordes, des lanternes. Il faut attendre la marée basse ; il faut six heures. Pendant six heures, tu es assis{e} devant la bouche du tube, à écouter le souffle de la montagne, et à te demander ce que tu as fait.",
         "À la marée basse, le professeur Gaudrémont sort tout seul du tube, avant qu'on ait fini de dérouler les cordes. Il est trempé, noir de suie, une manche arrachée, sans lanterne, sans corde, sans chapeau, et il porte dans ses bras, comme un nouveau-né, une pierre rouge, veinée de vert, qu'il a ramassée tout au fond. « Il continue ! crie-t-il à Benoît Quémeneur, qui recule. Il continue, monsieur ! J'ai entendu le feu ! » Il te voit, s'arrête, et te pose la main sur la tête. « Vous avez bien fait. Moi aussi. C'est rare, d'avoir raison à deux. »",
       ],
-      choices: [{ label: "Regagner la chaloupe", back: "A3n_ecueil" }] },
+      choices: [{ label: "Regagner la chaloupe", fx: { quest: "ZA" }, back: "A3n_ecueil" }] },
     ZA_verre: { act: "III", title: "Le gouffre de l'Écueil", place: "ecueil_rouge", ambiance: "souterrain",
       text: [
         "Tu grimpes sur un bloc de verre, tu tends le bras, et tu casses, au plafond, une aiguille longue comme un avant-bras, transparente, avec une bulle d'air prise dedans comme un insecte dans l'ambre. Elle tinte en se cassant. Tu la portes au professeur, au bord du second puits. Tu la lui mets dans la main.",
         "Il la regarde. Il la tourne vers la lanterne. La lumière passe à travers, et allume dans la bulle d'air un petit soleil. Il oublie le puits. Il oublie le centre de la Terre. Il regarde l'aiguille de verre, et il dit, très doucement : « Ça s'est formé goutte à goutte, pendant dix mille ans, dans le noir, pour que personne ne le voie. Et vous me l'avez cassé. » Il lève les yeux. « Merci. »",
         "Il te suit vers la corde sans résister, l'aiguille de verre serrée contre sa poitrine, à deux mains, comme on porte un cierge dans une procession. Vous remontez de justesse, en nageant les dernières brasses du bas du puits, la lanterne éteinte. En haut, sur la lave chaude, il n'a pas lâché l'aiguille. Elle est intacte. Il l'emballe dans sa chemise, et il ne la montrera à personne, à bord, pas même à toi.",
       ],
-      choices: [{ label: "Regagner la chaloupe", back: "A3n_ecueil" }] },
+      choices: [{ label: "Regagner la chaloupe", fx: { quest: "ZA" }, back: "A3n_ecueil" }] },
   },
   extras: {
     quests: [

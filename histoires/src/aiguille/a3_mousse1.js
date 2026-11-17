@@ -38,6 +38,7 @@ module.exports = {
         { label: "Regarder écrire le matelot à lunettes, au pied du grand mât", to: "YG_debut", hide: { seen: "YG_debut" } },
         { label: "Un coup de vent, l'après-midi, et un fracas dans la batterie", to: "YJ_canon", hide: { seen: "YJ_canon" }, if: { count: JOURS, min: 2 }, why: "La mer est encore maniable." },
         { label: "Lire, derrière la chaloupe, ce que la gabière a répondu", to: "YZ_reponse", hide: { any: [{ seen: "YZ_reponse" }, { not: { has: "yz:plume" } }] } },
+        { label: "Un cri, dans la soute aux voiles, et ton nom hurlé par Gobert", to: "ZX_trouve", hide: { any: [{ seen: "ZX_trouve" }, { not: { has: "zx:cache" } }] }, if: { count: JOURS, min: 2 }, why: "La soute garde encore son secret." },
         { label: "La dixième nuit", to: "A3m_grain", big: true, if: { count: JOURS, min: 4 }, why: "Brisegrève est encore loin." },
       ] },
 
@@ -269,6 +270,7 @@ module.exports = {
         { label: "Courir le bourg des soldats", to: "A3m_bourg", hide: { seen: "A3m_bourg" } },
         { label: "Monter l'escalier des forçats", to: "XQ_b_escalier", hide: { seen: "XQ_b_escalier" } },
         { label: "Aller voir les enfants qui pêchent sous le fort", to: "XQ_b_bouteilles", hide: { seen: "XQ_b_bouteilles" } },
+        { label: "Aller voir le vieil homme assis au bout de la jetée, face au fort", to: "ZM_jetee", hide: { seen: "ZM_jetee" } },
         { label: "Entrer à la cantine du bourg", to: "XQ_b_cantine", hide: { seen: "XQ_b_cantine" } },
         { label: "Le canot du fort accoste : on fouille la Cormorane", to: "YA_b_fouille", hide: { any: [{ seen: "YA_b_fouille" }, { not: { has: "ya:guerec_ami" } }] } },
         { label: "Te glisser à la grotte, la nuit, et frapper contre la roche", to: "XM_m_nuit", hide: { any: [{ not: { seen: "XM_m_gobert" } }, { seen: "XM_m_voix" }] } },

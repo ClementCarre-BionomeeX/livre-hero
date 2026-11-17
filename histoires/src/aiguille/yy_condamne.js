@@ -40,14 +40,14 @@ module.exports = {
         "Elle reste à côté de lui jusqu'à l'aube, à écouter la mer contre la tour. Quand le sergent ouvre la porte, à cinq heures et demie, Aubin Kerrien se lève, les yeux vagues, docile, aimable, et demande s'il a manqué la soupe. Il marche jusqu'au glacis entre deux soldats qui le soutiennent un peu. Il sourit aux mouettes. Il ne voit pas le peloton. Victorine, sur le rempart, a vu des gens mourir de cent façons. Elle n'a jamais vu personne mourir avec tant de politesse.",
         "Le gouverneur Lebihan la remercie de son certificat. *Condamné en état.* Il dit qu'elle a rendu les choses beaucoup plus faciles pour tout le monde. Elle se demande, en redescendant au canot, pour qui exactement.",
       ],
-      choices: [{ label: "Regagner la Cormorane", back: "A3v_brisegreve" }] },
+      choices: [{ label: "Regagner la Cormorane", fx: { quest: "YY" }, back: "A3v_brisegreve" }] },
     YY_veille: { act: "III", title: "La dernière nuit", place: "brisegreve", ambiance: "souterrain",
       text: [
         "Elle range la fiole au fond de la trousse, et elle s'assied sur la paillasse, à côté de lui, l'épaule contre son épaule, et elle ne dit rien. Il tremble. Elle le laisse trembler. Elle compte les coups de la mer avec lui, à voix basse, à partir d'un moment, parce que c'est lui qui a commencé à les compter, et qu'il ne faut pas laisser quelqu'un compter seul.",
         "Vers quatre heures, le tremblement s'arrête. Il dit : « Ça y est. Il a compris. » Il parle encore de Jeannette, mais autrement, comme d'une chose passée, finie, très belle, qu'il regarde de loin. Il demande à Victorine si elle croit en Dieu. Elle répond qu'elle ne sait pas. Il dit : « Moi non plus. C'est drôle. J'aurais cru qu'on savait, la dernière nuit. »",
         "À six heures, il marche jusqu'au glacis seul, sans qu'on le tienne, les yeux ouverts, et il regarde le peloton, et il regarde la mer, et il dit, très haut, d'une voix qui tremble à peine, « Bonjour, la mer », comme on salue quelqu'un de connaissance. Victorine, sur le rempart, ne détourne pas les yeux. Elle le lui avait promis, vers cinq heures. Il le lui avait demandé.",
       ],
-      choices: [{ label: "Regagner la Cormorane", back: "A3v_brisegreve" }] },
+      choices: [{ label: "Regagner la Cormorane", fx: { quest: "YY" }, back: "A3v_brisegreve" }] },
     YY_ecrit: { act: "III", title: "La dernière nuit", place: "brisegreve", ambiance: "souterrain",
       text: [
         "Il ne comprend pas d'abord. Puis il comprend, et il rit. « Un livre ? Moi ? Je ne sais même pas écrire mon nom en entier. — Moi, je sais. Parlez. » Elle trempe la plume.",
@@ -55,7 +55,7 @@ module.exports = {
         "À six heures, il y a quatorze feuillets couverts de l'écriture serrée de Victorine. Il les regarde, avant de sortir. « C'est moi, ça ? — C'est votre nuit. » Il hoche la tête. « Donnez-les à qui vous voudrez. Pas à Jeannette. Elle a dû se marier, à l'heure qu'il est ; elle a toujours été pressée. » Il le savait. Il sourit. Il sort.",
         "Sur le rempart, pendant la salve, Victorine tient les quatorze feuillets contre sa poitrine, sous son châle, à deux mains. Elle ne sait pas encore ce qu'elle en fera. Elle sait qu'elle ne les brûlera pas.",
       ],
-      choices: [{ label: "Regagner la Cormorane", back: "A3v_brisegreve" }] },
+      choices: [{ label: "Regagner la Cormorane", fx: { quest: "YY" }, back: "A3v_brisegreve" }] },
   },
   extras: {
     quests: [

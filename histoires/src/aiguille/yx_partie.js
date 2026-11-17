@@ -33,21 +33,21 @@ module.exports = {
         "Le pilote regarde le roi couché. Il ne comprend pas. Puis il comprend, et ses mains se posent à plat sur le bois, de chaque côté de l'échiquier, et il respire, très fort, comme un homme qui sort de l'eau. Ses yeux se fixent. Ils se fixent sur Fargue.",
         "« Tu as abandonné, dit-il. Avec deux pièces de moins. Tu aurais pu tenir encore vingt coups. » Il a la voix claire, maintenant, presque normale. « Tu m'as arrêté. » Il se lève, en se tenant à la lisse. « Sur le récif, tu ne t'es pas arrêté. » Il s'en va vers l'avant, lentement. Il ne rejouera plus. Fargue range les pièces une à une dans leur boîte, et il lui semble, pendant tout ce temps, qu'on vient de lui rendre une monnaie qu'il ne sait pas encore compter.",
       ],
-      choices: [{ label: "Ranger l'échiquier", back: "A3f_jours" }] },
+      choices: [{ label: "Ranger l'échiquier", fx: { quest: "YX" }, back: "A3f_jours" }] },
     YX_gagne: { act: "III", title: "La partie du pilote", place: "sargues", ambiance: "mer", second: true,
       text: [
         "Fargue joue. Il joue lentement, au contraire de l'autre, en prenant tout son temps, et chaque fois qu'il prend son temps, Brousse joue trois parties dans sa tête et se trompe dans celle-ci. Au vingt-cinquième coup, le pilote laisse sa dame en prise. Au trentième, Fargue annonce le mat.",
         "Brousse regarde l'échiquier. Il ne voit pas le mat. Il continue à jouer, dans sa tête, à voix haute, des coups qui n'existent pas, pour des pièces qui ne sont plus là. Il prend un pion noir, le pose sur une case vide, l'enlève, le repose. Les matelots s'écartent. Un des gabiers fait le signe de croix.",
         "On le descend dans son hamac, le soir, avec une fièvre de cheval. Il y reste trois jours, à jouer contre le plafond, en murmurant. Le quatrième, il remonte sur le pont, très pâle, et reprend sa place à côté du compas, comme si rien ne s'était passé. Il ne regarde plus jamais l'échiquier. Fargue, lui, ne joue plus qu'avec le baron, et gagne toujours, ce qui ne l'amuse plus du tout.",
       ],
-      choices: [{ label: "Ranger l'échiquier", back: "A3f_jours" }] },
+      choices: [{ label: "Ranger l'échiquier", fx: { quest: "YX" }, back: "A3f_jours" }] },
     YX_perdue: { act: "III", title: "La partie du pilote", place: "sargues", ambiance: "mer", second: true,
       text: [
         "Fargue joue les coups qu'il faut pour perdre, et il les joue lentement, en faisant semblant de chercher. Ce n'est pas facile ; il faut que l'autre ne le voie pas. Brousse ne le voit pas. Brousse ne voit plus rien que la partie qu'il joue depuis seize ans, et qu'il est en train, enfin, de gagner contre un vrai homme, avec de vraies pièces, sous un vrai ciel.",
         "Au trentième coup, il annonce le mat, d'une voix de prophète. Puis il s'arrête. Il regarde le roi noir pris dans son filet, le vrai roi, en ébène, avec sa petite croix au sommet. Il le prend dans sa main. Il le serre. Et il se met à pleurer, sans bruit, la tête baissée, avec le roi de Fargue dans son poing, comme un enfant qui tient le seul jouet qu'on lui ait jamais donné.",
         "« Merci, dit-il au bout d'un long moment. Tu as perdu exprès. J'ai vu au vingtième coup. » Il rouvre la main, et regarde le roi. « Je peux le garder ? » Fargue fait oui de la tête. Depuis, il joue avec un bouchon de liège à la place du roi noir, et c'est le baron qui gagne, maintenant, de temps en temps, ce qui rend le baron insupportable.",
       ],
-      choices: [{ label: "Ranger l'échiquier", back: "A3f_jours" }] },
+      choices: [{ label: "Ranger l'échiquier", fx: { quest: "YX" }, back: "A3f_jours" }] },
   },
   extras: {
     quests: [

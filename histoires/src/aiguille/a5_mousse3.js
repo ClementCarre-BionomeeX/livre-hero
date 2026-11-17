@@ -25,6 +25,8 @@ module.exports = {
       ],
       choices: [
         { label: "Marcher seul{e} jusqu'au bout de la plage", to: "YW_pointe", hide: { seen: "YW_pointe" } },
+        { label: "T'asseoir près du garçon du Haut-Verger, descendu seul sur la plage", to: "ZQ_sable", hide: { any: [{ seen: "ZQ_sable" }, { not: { seen: "XD_debut" } }] } },
+        { label: "T'asseoir près du Rouquin, qui regarde la mer", to: "ZX_plage", hide: { any: [{ seen: "ZX_plage" }, { not: { has: "zx:engage" } }] } },
         { label: "Aller au-devant de l'enfant qui t'attend au pied d'un cocotier", to: "YW_sureau", hide: { any: [{ seen: "YW_sureau" }, { not: { seen: "XD_debut" } }] } },
         { label: "Écrire les lettres de ceux qui font la queue devant toi", to: "YW_lettres", hide: { any: [{ seen: "YW_lettres" }, { not: ECRIVAIN }] } },
         { label: "Aller t'asseoir près de la gabière, au pied d'un cocotier", to: "YZ_plage", hide: { any: [{ seen: "YZ_plage" }, { not: { has: "yz:souffle" } }, { not: { marin: "marjolaine", is: ["loyal", "hesitant"] } }] } },

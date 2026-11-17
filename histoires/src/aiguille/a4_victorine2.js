@@ -41,6 +41,8 @@ module.exports = {
         { label: "S'asseoir, la nuit, en face du portrait", to: "YH_nuit", hide: { any: [{ seen: "YH_nuit" }, { not: { has: "yh:vu" } }] }, if: { count: JOURS, min: 1 }, why: "Les nuits du siège n'ont pas encore commencé." },
         { label: "Écouter Rosemonde, le soir où la fièvre entre dans la sacristie", to: "YO_fievre", hide: { any: [{ seen: "YO_fievre" }, { not: { marin: "rosemonde", is: "abord" } }, { has: "evac:pharmacie" }] }, if: { count: JOURS, min: 2 }, why: "La fièvre n'est pas encore entrée." },
         { label: "Un coup de feu, à trois heures du matin, du clocher", to: "ZD_coup", hide: { seen: "ZD_coup" }, if: { count: JOURS, min: 1 }, why: "Les mutins n'ont pas encore tâté le mur." },
+        { label: "Une nuit où personne ne dort, s'asseoir au feu du chœur", to: "ZG_feu", hide: { seen: "ZG_feu" }, if: { count: JOURS, min: 1 }, why: "La première nuit, tout le monde dort de fatigue." },
+        { label: "Huit heures : le baron monte sur le mur, en robe de chambre", to: "ZY_premier", hide: { any: [{ seen: "ZY_premier" }, { has: "xs:baron_mort" }] }, if: { count: JOURS, min: 1 }, why: "Le baron n'est pas encore sorti du chœur." },
         { label: "Un drapeau blanc sur le sentier", to: "A4w_parlement", big: true, if: { count: JOURS, min: 2 }, why: "Les mutins ne se sont pas encore montrés." },
       ] },
 

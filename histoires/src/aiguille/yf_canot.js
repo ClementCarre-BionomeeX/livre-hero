@@ -57,14 +57,14 @@ module.exports = {
         "Kerbiriou ne résiste pas. En passant devant Matthieu, il s'arrête, et le regarde, longtemps, sans colère. « T'as bien fait, petit. Tu leur diras, au juge, que je t'ai ramené. Tu leur diras ça aussi. »",
         "Le soir, dans l'entrepont, les anciens ne parlent à personne. Ils disent que la capitaine a jugé selon la terre, et que la terre n'a rien à faire en mer, et que la mer s'en souviendra. Les jeunes, eux, apportent à Matthieu du tabac.",
       ],
-      choices: [{ label: "Retourner à la marmite des jours", fx: { flag: "yf:fers", penche: { lagadec: -1, gobert: 1 } }, back: true }] },
+      choices: [{ label: "Retourner à la marmite des jours", fx: { quest: "YF", flag: "yf:fers", penche: { lagadec: -1, gobert: 1 } }, back: true }] },
     YF_coutume: { act: "III", title: "La coutume", place: "cormorane", ambiance: "mer",
       text: [
         "La capitaine réfléchit longtemps. Puis elle écrit dans le livre de bord : *Recueilli en mer le second Kerbiriou et le novice Matthieu, de la goélette* Bonne-Espérance *de Lannoz, perdue corps et biens. Les trois autres hommes du canot sont morts de faim et de soif au cours de la dérive.* Elle signe. Elle a écrit la coutume de la mer, qui consiste à ne pas écrire certaines choses.",
         "Kerbiriou la remercie. Elle ne lui répond pas. Il s'embarque comme matelot jusqu'à Lannoz, travaille bien, ne parle à personne, et descend à Lannoz sans se retourner.",
         "Matthieu reste. La capitaine l'inscrit au rôle comme second novice. Il est très doux, très obéissant, il mange tout ce qu'on lui donne, et il ne mange jamais de viande. Personne ne lui demande pourquoi.",
       ],
-      choices: [{ label: "Retourner à la marmite des jours", fx: { flag: "yf:coutume", penche: { lagadec: 1 } }, back: true }] },
+      choices: [{ label: "Retourner à la marmite des jours", fx: { quest: "YF", flag: "yf:coutume", penche: { lagadec: 1 } }, back: true }] },
     YF_silence: { act: "III", title: "Le silence", place: "cormorane", ambiance: "nuit",
       text: [
         { if: ENFANT, text: "Tu ne dis rien. Ni à la capitaine, ni à personne. Tu restes près de Matthieu, quand tu peux, et tu lui apprends des nœuds, parce que tu ne sais pas quoi faire d'autre, et que les nœuds, au moins, servent à quelque chose." },
@@ -72,7 +72,7 @@ module.exports = {
         "Kerbiriou se remet vite. C'est un homme solide. Il travaille comme matelot jusqu'à Lannoz, et il travaille bien, et les anciens l'aiment, et le soir, à la cambuse, il raconte la dérive, la soif, le soleil, les pailles. Il raconte bien. Il ne raconte jamais la paille cassée. Il regarde Matthieu, de temps en temps, par-dessus son écuelle, d'un regard tranquille de propriétaire.",
         "À Lannoz, il descend à terre et ne revient pas. Matthieu, le soir, monte sur le pont, et regarde le village longtemps, sans rien dire, comme on regarde une porte qu'on vient de fermer à clef de l'extérieur, en se demandant s'il reste quelqu'un dedans.",
       ],
-      choices: [{ label: "Retourner à la marmite des jours", back: true }] },
+      choices: [{ label: "Retourner à la marmite des jours", fx: { quest: "YF" }, back: true }] },
   },
   extras: {
     people: {

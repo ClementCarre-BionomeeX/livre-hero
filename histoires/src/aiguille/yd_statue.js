@@ -82,20 +82,20 @@ module.exports = {
         "Il reste la bague. Elle n'a pas fondu : l'argent fond plus bas que le bronze, et pourtant elle est là, au fond du creuset refroidi, intacte, noire, et elle ne tourne plus sur aucun doigt. Tarlet ne veut pas la reprendre. On la jette au ravin.",
         "Les balles de bronze sont distribuées aux tireurs du mur. Ils les chargent en dernier, quand ils n'en ont plus d'autres. Aucun ne dit pourquoi.",
       ],
-      choices: [{ label: "Retourner aux blessés", fx: { flag: "yd:fondue" }, back: "A4w_jours" }] },
+      choices: [{ label: "Retourner aux blessés", fx: { quest: "YD", flag: "yd:fondue" }, back: "A4w_jours" }] },
     YD_enterree: { act: "IV", title: "La terre", place: "misericorde", ambiance: "nuit",
       text: [
         "On la couche dans son trou, face contre terre, avec les cordes, à six, comme on l'a sortie. Personne ne veut lui toucher le visage. On rebouche. On tasse la terre rouge à coups de talon, longtemps, plus qu'il ne faut. Quelqu'un plante dessus une croix de deux branches. Quelqu'un d'autre l'arrache, en disant qu'on ne met pas de croix sur ça.",
         "La bague est restée à son doigt, sous la terre, à quatre pieds. Tarlet dit qu'il la sent, la nuit, qui serre.",
       ],
-      choices: [{ label: "Retourner aux blessés", fx: { flag: "yd:enterree" }, back: "A4w_jours" }] },
+      choices: [{ label: "Retourner aux blessés", fx: { quest: "YD", flag: "yd:enterree" }, back: "A4w_jours" }] },
     YD_debout: { act: "IV", title: "La dame de bronze", place: "misericorde", ambiance: "chateau",
       text: [
         "Victorine traverse la cour, va jusqu'au fond du verger, et se plante devant la dame de bronze, les bras croisés, sous les yeux de tous les hommes. Elle la regarde dans ses yeux d'argent. Elle dit, assez fort pour qu'on l'entende de la cour : « Madame, vous êtes une statue. J'ai soigné des vivants plus méchants que vous. »",
         "Puis elle revient. Les hommes la regardent revenir avec un mélange de respect et de pitié, comme on regarde quelqu'un qui vient de défier la foudre et qui ne sait pas encore s'il l'a fait.",
         "La statue reste debout contre son oranger, jusqu'à la fin du siège. Personne ne va plus au fond du verger. Les oranges y pourrissent sur l'arbre. Certaines nuits, les sentinelles du mur jurent qu'elles ont entendu, de ce côté, un bruit de pas très lourds, très lents, qui s'arrêtent dès qu'on lève la lanterne.",
       ],
-      choices: [{ label: "Retourner aux blessés", fx: { flag: "yd:debout" }, back: "A4w_jours" }] },
+      choices: [{ label: "Retourner aux blessés", fx: { quest: "YD", flag: "yd:debout" }, back: "A4w_jours" }] },
   },
   extras: {
     quests: [

@@ -52,7 +52,7 @@ module.exports = {
         "En remontant les marches, tu te retournes une fois. Elle a reposé le couvercle du cercueil du mousse inconnu, bien droit, et elle passe la main dessus, doucement, comme on borde un enfant.",
         "Le dimanche suivant, à la messe du recteur, il y a vingt-deux cierges neufs devant l'autel de Sainte-Anne. Personne ne sait qui les a payés. Tout le monde le sait.",
       ],
-      choices: [{ label: "Rentrer au Fanal avant l'aube", back: "A1_jours" }] },
+      choices: [{ label: "Rentrer au Fanal avant l'aube", fx: { quest: "YP" }, back: "A1_jours" }] },
     YP_part: { act: "I", title: "La gardienne", place: "chapelle", ambiance: "nuit",
       text: [
         "Les hommes rient, sauf la veuve. Elle te regarde longtemps, avec ses petits yeux de buis.",
@@ -60,7 +60,7 @@ module.exports = {
         { if: { not: PASSEUR }, text: "« Tu ne sais pas ce que c'est, dit-elle. Tu crois que c'est une aventure. C'est des nuits froides, un baril sur le dos qui te scie l'épaule, et la peur d'un coup de fusil à chaque bruit de bruyère. » Elle soupire. « Une fois. Le mois prochain. Après, on verra si tu as les épaules. »" },
         "Elle te met dans la main une pièce d'argent, pour sceller l'affaire. C'est une pièce étrangère, épaisse, usée, comme tu en vois beaucoup ces temps-ci. « Ton père en a plein une boîte de fer, à ce qu'on dit, lâche Gloaguen. Il devrait nous en vendre quelques-unes. » La veuve lui jette un regard qui le fait taire.",
       ],
-      choices: [{ label: "Rentrer au Fanal avant l'aube", fx: { gold: 5 }, back: "A1_jours" }] },
+      choices: [{ label: "Rentrer au Fanal avant l'aube", fx: { quest: "YP", gold: 5 }, back: "A1_jours" }] },
     YP_fouques: { act: "I", title: "Le brigadier", place: "fanal_salle", ambiance: "village",
       text: [
         "Tu promets. La veuve te croit ; elle a la bonne foi des gens qui n'ont jamais eu besoin de mentir à un enfant. Tu rentres par la lande. Au matin, tu vas à Varnèse, au poste, et tu demandes le brigadier Fouques.",
@@ -68,7 +68,7 @@ module.exports = {
         "« Le caveau des Moines, dit-il. Je le sais depuis douze ans. » Il te regarde avec une sorte de tristesse. « Si je descends là-dessous avec mes hommes, je trouve vingt barils, cinq pêcheurs de la Pointe que je connais par leur nom, et la veuve Kerdudo. Je les envoie aux galères de Morlenc. Et l'hiver prochain, les veuves de la Pointe mangent de l'herbe. » Il soupire. « Ce que tu m'as dit, je ne l'ai pas entendu. Ce que tu as fait, eux, l'entendront. Ici, tout se sait. »",
         "Le dimanche suivant, à la messe, la veuve Kerdudo ne te regarde pas. Elle fleurit l'autel, change les cierges, balaie la nef. Quand tu passes devant elle, elle se signe.",
       ],
-      choices: [{ label: "Rentrer au Fanal", back: "A1_jours" }] },
+      choices: [{ label: "Rentrer au Fanal", fx: { quest: "YP" }, back: "A1_jours" }] },
   },
   extras: {
     people: {

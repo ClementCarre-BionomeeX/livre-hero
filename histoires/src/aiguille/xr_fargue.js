@@ -15,6 +15,7 @@ module.exports = {
         { label: "Jouer aux échecs au café des Navigateurs, où le professeur tient table", to: "XR_echecs", hide: { seen: "XR_echecs" } },
         { label: "Passer la première nuit dans la cambuse de la Cormorane", to: "XR_cambuse", hide: { seen: "XR_cambuse" } },
         { label: "S'arrêter au lit du fond, dans la salle des hommes, sous la chambre de Lisette", to: "YT_salle", hide: { seen: "YT_salle" } },
+        { label: "Monter la rue des Juges, en habit du dimanche, avec un papier plié en quatre", to: "ZJ_rue", hide: { seen: "ZJ_rue" } },
         { label: "Passer à la Truie-qui-file, où quelqu'un t'attend", to: "A2f_sabran", big: true },
       ] },
 

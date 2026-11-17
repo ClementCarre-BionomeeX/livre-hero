@@ -60,21 +60,21 @@ module.exports = {
         "« Un mort qui a de l'argent, dit-il, c'est presque un vivant. Je vais aller voir si on prend des maîtres d'équipage, à Lannoz, ou plus loin. Des gens qui ne m'auront pas connu. » Il te serre la main, d'une poigne de galérien. « Merci. Tu as dit ce qu'il fallait. Ça ne veut pas dire que c'était juste. »",
         "Il s'en va vers le port, sans se retourner. Le lendemain, la borne est vide. Le surlendemain, les volets de la boutique sont rouverts, et la femme ronde rit avec un client, un peu trop fort.",
       ],
-      choices: [{ label: "Remonter vers le quai", back: "A2m_bf" }] },
+      choices: [{ label: "Remonter vers le quai", fx: { quest: "YN" }, back: "A2m_bf" }] },
     YN_proces: { act: "II", title: "Le noyé", place: "basse_fosse", ambiance: "ville",
       text: [
         "Il te regarde longtemps, puis il prend le mouchoir, et va le poser, sans un mot, sur le seuil de la boutique fermée, contre la porte. Il revient s'asseoir sur la borne.",
         "« Tu as raison, dit-il. Je suis vivant. Je veux qu'on me l'écrive. » Il rit, d'un rire qui fait mal. « Neuf ans de rame, ça vaut bien trois ans de procès. Et puis, au moins, pendant trois ans, j'aurai une affaire. Les morts n'en ont pas. »",
         "Le lendemain, il monte à la Haute-Ville, chez Maître Brindejonc, avec son certificat de moines et ses mains de galérien. Le surlendemain, la boutique Gourvennec reste fermée toute la journée. Les deux petits jouent derrière la vitrine, avec le chat, et ne sortent plus.",
       ],
-      choices: [{ label: "Remonter vers le quai", back: "A2m_bf" }] },
+      choices: [{ label: "Remonter vers le quai", fx: { quest: "YN" }, back: "A2m_bf" }] },
     YN_parti: { act: "II", title: "Le noyé", place: "basse_fosse", ambiance: "ville",
       text: [
         "Il hoche la tête. Il se lève, laisse le mouchoir et l'argent sur la borne, comme on laisse une offrande sur une tombe, et il remet son bonnet.",
         "« Tu as raison. On est quittes. Elle m'a pleuré, je l'ai aimée, et on est morts tous les deux, chacun à sa façon. » Il regarde la boutique fermée. « Dis-lui, si tu la revois, que le septième nom de la liste est reparti en mer. Elle peut le rayer pour de bon. »",
         "Il s'en va vers le port. Le soir, quand tu repasses, le mouchoir est toujours sur la borne, avec l'argent dedans, et personne n'y a touché, dans un quartier où l'on vole les clous des semelles. On dirait que toute la Basse-Fosse a compris ce que c'était.",
       ],
-      choices: [{ label: "Remonter vers le quai", back: "A2m_bf" }] },
+      choices: [{ label: "Remonter vers le quai", fx: { quest: "YN" }, back: "A2m_bf" }] },
   },
   extras: {
     people: {

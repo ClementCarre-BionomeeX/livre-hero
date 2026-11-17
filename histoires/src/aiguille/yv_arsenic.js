@@ -40,14 +40,14 @@ module.exports = {
         "Avant de partir, Victorine prend la boîte à chapeau sous son bras. Sur la grève, en attendant le canot, elle brûle les lettres une par une, sur un feu d'algues sèches. Les factures, elle les garde. L'huissier viendra quand même. Elle les fait porter au recteur, avec un mot : *pour quand il faudra lui expliquer d'où viennent les dettes. Dites-lui que c'était pour lui plaire. Ce sera presque vrai.*",
         "On enterre Guillemette Kervella le lendemain, à côté de l'église, avec la messe et la cloche, sous une croix de granit que le receveur paie trop cher. Il pleure à chaudes larmes. Il dit à tout le monde que sa femme était trop gourmande, et que c'était sa seule faute.",
       ],
-      choices: [{ label: "Regagner la Cormorane", back: "A3x_lannoz" }] },
+      choices: [{ label: "Regagner la Cormorane", fx: { quest: "YV" }, back: "A3x_lannoz" }] },
     YV_verite: { act: "III", title: "Le certificat", place: "lannoz", ambiance: "nuit",
       text: [
         "Victorine écrit ce qui est. *Empoisonnement arsenical volontaire.* Elle signe. Elle a toujours écrit ce qui était ; c'est la seule chose, dans son métier, qu'elle ait jamais pu se permettre sans demander la permission à personne.",
         "Le recteur lit. Il ferme les yeux, une seconde. Puis il plie le papier, et le range dans son bréviaire, sans un mot de reproche. « Vous êtes honnête, docteur, dit-il. C'est rare et c'est cruel. Je l'enterrerai moi-même, de l'autre côté du mur, demain à l'aube, avant que le bourg se réveille. Je dirai les prières quand même. Tout bas. L'Église n'a jamais rien interdit de dire tout bas. »",
         "Le receveur n'a pas compris le mot. Il demande ce que veut dire volontaire. Le recteur le lui explique, en bas, dans la cuisine, pendant une heure. Quand Victorine descend, Kervella est assis devant la table, la boîte à chapeau ouverte devant lui, et il lit les lettres, une par une, très lentement, en remuant les lèvres, avec l'application d'un enfant qui apprend à lire.",
       ],
-      choices: [{ label: "Regagner la Cormorane", back: "A3x_lannoz" }] },
+      choices: [{ label: "Regagner la Cormorane", fx: { quest: "YV" }, back: "A3x_lannoz" }] },
     YV_mari: { act: "III", title: "Le certificat", place: "lannoz", ambiance: "nuit",
       text: [
         "Victorine prend la boîte à chapeau et la pose sur les genoux du receveur. Elle lui dit ce qu'elle contient. Tout, simplement, comme on annonce un diagnostic. Puis elle lui dit ce que le recteur a dit : l'accident et le cimetière, ou la vérité et la lande. « C'est votre femme, monsieur Kervella. C'est à vous de dire ce qu'elle était. »",
@@ -55,7 +55,7 @@ module.exports = {
         "« Elle a pris le bocal pour du sucre, dit-il d'une voix très calme. Elle était gourmande. Je l'ai toujours dit. » Il regarde Victorine, avec ses yeux ronds et roses, et elle voit qu'il sait, maintenant, tout, et qu'il a choisi, en une minute, de ne jamais le savoir. « Écrivez ça, docteur. Elle aimait les belles choses. Le cimetière est plus joli que la lande. »",
         "Victorine écrit. Le soir, quand le canot la ramène à la Cormorane, elle voit, dans le jardin de curé de la maison blanche, un petit feu qui brûle derrière la grille. Le receveur est debout devant, et y jette quelque chose, feuille à feuille, en prenant son temps.",
       ],
-      choices: [{ label: "Regagner la Cormorane", back: "A3x_lannoz" }] },
+      choices: [{ label: "Regagner la Cormorane", fx: { quest: "YV" }, back: "A3x_lannoz" }] },
   },
   extras: {
     quests: [

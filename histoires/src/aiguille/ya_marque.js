@@ -214,7 +214,7 @@ module.exports = {
         "« Je sais pas, capitaine. — Alors trouvez, d'ici ce soir. Un nom qui ne soit à personne. Je vous l'inscrirai. »",
         "Il sort dans la cour, au soleil. On le voit marcher de long en large, entre les tombes de la fosse et la source, en remuant les lèvres, comme un enfant qui apprend une leçon, à la recherche d'un nom à lui.",
       ],
-      choices: [{ label: "Le regarder chercher", fx: { flag: "ya:raye" }, back: "A5x_debut" }] },
+      choices: [{ label: "Le regarder chercher", fx: { quest: "YA", flag: "ya:raye" }, back: "A5x_debut" }] },
     YA_jugement_fers: { act: "V", title: "Le livre de bord", place: "misericorde", ambiance: "temple",
       text: [
         "La capitaine hoche la tête, lentement, comme si elle avait espéré une autre réponse et se félicitait de ne pas l'avoir reçue.",
@@ -222,7 +222,7 @@ module.exports = {
         "« On ne vous mettra pas aux fers à bord, Guérec. Vous travaillerez comme les autres. À Morlenc, vous descendrez avec moi, et je parlerai pour vous. On m'écoute, à l'Amirauté. Pas toujours. »",
         "Guérec ne dit rien. Il regarde la page, où il ne sait pas lire son nom, ni l'autre. Puis il dit : « Douze ans, j'ai attendu qu'on me reprenne. C'est presque reposant, maintenant que c'est fait. »",
       ],
-      choices: [{ label: "Fermer la porte de la sacristie derrière eux", fx: { flag: "ya:fers" }, back: "A5x_debut" }] },
+      choices: [{ label: "Fermer la porte de la sacristie derrière eux", fx: { quest: "YA", flag: "ya:fers" }, back: "A5x_debut" }] },
     YA_jugement_reste: { act: "V", title: "Ce qu'il veut", place: "misericorde", ambiance: "temple",
       text: [
         "La capitaine se tourne vers lui. « Eh bien, Guérec ? »",
@@ -231,7 +231,7 @@ module.exports = {
         "La capitaine écrit : *Le nommé Guérec, gabier, a demandé à rester à terre. Accordé.* Elle signe. C'est vrai, chaque mot. Elle a l'air soulagée.",
         "Avant le départ, il donne à Victorine son couteau de gabier, le seul objet qu'il possède, pour l'enfant du Fanal, ou pour quelqu'un d'autre, comme elle voudra.",
       ],
-      choices: [{ label: "Prendre le couteau", fx: { flag: "ya:reste" }, back: "A5x_debut" }] },
+      choices: [{ label: "Prendre le couteau", fx: { quest: "YA", flag: "ya:reste" }, back: "A5x_debut" }] },
   },
   extras: {
     people: {

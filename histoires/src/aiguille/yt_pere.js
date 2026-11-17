@@ -40,14 +40,14 @@ module.exports = {
         "Le vieil homme rit. Il rit et il pleure, avec ses yeux d'enfant, et il serre la bourse dans sa main énorme sans l'ouvrir. « Je vous l'avais dit. Il fallait leur dire bien. Vous avez su leur dire. » Il se tourne vers la porte de la salle, et la regarde, et ne la quitte plus des yeux.",
         "Il la regarde toute la nuit. Fargue reste à côté de lui. Vers quatre heures, la main se desserre sur la bourse. Les yeux sont toujours tournés vers la porte, grands ouverts, avec dedans une attente heureuse que la mort n'a pas eu le temps d'éteindre. Sœur Marthe les lui ferme. « Vous lui avez menti, dit-elle à Fargue, sans reproche. — Oui, ma sœur. — Vous avez bien fait. Dieu fera le compte. Il en a l'habitude. »",
       ],
-      choices: [{ label: "Monter embrasser Lisette, qui dort", back: "XR_jours" }] },
+      choices: [{ label: "Monter embrasser Lisette, qui dort", fx: { quest: "YT" }, back: "XR_jours" }] },
     YT_verite: { act: "II", title: "Le père Jacquemin", place: "basse_fosse", ambiance: "nuit", second: true,
       text: [
         "Fargue s'assied sur le lit, pose la bourse sur le drap, et dit tout. Le suisse, la pluie, le piano, le billet. La robe de bal, le miroir, le bal de la Bourse. Demain matin, sans faute. Il le dit sans y mettre de cruauté, et sans rien en ôter.",
         "Le vieil homme écoute. Il ne pleure pas. Il hoche la tête, lentement, à chaque phrase, comme on reconnaît les étapes d'un chemin qu'on a déjà fait. À la fin, il dit seulement : « Le bal de la Bourse. Elle a raison, il ne faut pas le manquer, c'est là qu'on voit tout le monde. » Puis : « Je les ai faites comme ça, monsieur. Je voulais qu'elles ne sentent pas le chanvre. Elles ne le sentent pas. J'ai réussi. »",
         "Il meurt vers quatre heures, les yeux fermés, la tête tournée vers le mur, la bourse de Madame Varembert intacte sur le drap. Avant, il a demandé à Fargue de chanter quelque chose, n'importe quoi, et Fargue lui a chanté, à mi-voix, une chanson de cordiers qu'il ne savait pas qu'il savait, et le vieil homme a battu la mesure sur le drap, avec un doigt, jusqu'au bout.",
       ],
-      choices: [{ label: "Monter embrasser Lisette, qui dort", back: "XR_jours" }] },
+      choices: [{ label: "Monter embrasser Lisette, qui dort", fx: { quest: "YT" }, back: "XR_jours" }] },
     YT_fille: { act: "II", title: "La comtesse", place: "basse_fosse", ambiance: "nuit", second: true,
       text: [
         "Il traverse le boudoir en deux pas, prend la comtesse par le bras, au-dessus du coude, là où il tient les gigots, et la lève de son tabouret. La coiffeuse crie. Hortense de Saint-Rémy ne crie pas : elle est trop stupéfaite. Il l'emmène, dans sa robe de bal, à demi coiffée, une épingle de diamant de travers dans les cheveux, par l'escalier de marbre, devant les laquais pétrifiés, et la met dans le premier fiacre de la rue des Échevins.",
@@ -55,7 +55,7 @@ module.exports = {
         "Le père Jacquemin ouvre les yeux. Il la voit. Il ne voit pas qu'elle pleure de rage, ni que ses cheveux sont défaits, ni l'homme au tablier derrière elle. Il voit sa fille en robe de bal, au pied de son lit, comme il la voyait par la fenêtre, depuis la rue. Il tend la main. Elle la prend, parce qu'il n'y a rien d'autre à faire, et elle reste, debout, une heure, sans rien dire, avec la main de son père dans la sienne.",
         "Il meurt vers minuit, heureux. Elle repart en fiacre sans regarder Fargue, avant que la main soit froide, pour arriver au bal avant le menuet. On dira qu'elle était pâle, ce soir-là, et très belle. Le lendemain, Fargue reçoit une convocation à la Prévôté pour voies de fait, qu'il jette au feu de la cambuse. La Cormorane part dans sept jours. La Prévôté est lente.",
       ],
-      choices: [{ label: "Monter embrasser Lisette, qui dort", back: "XR_jours" }] },
+      choices: [{ label: "Monter embrasser Lisette, qui dort", fx: { quest: "YT" }, back: "XR_jours" }] },
   },
   extras: {
     quests: [

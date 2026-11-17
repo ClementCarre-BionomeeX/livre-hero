@@ -39,21 +39,21 @@ module.exports = {
         "Victorine prend la feuille timbrée sur le guéridon, la déchire en deux, puis en quatre, et pose les morceaux bien en vue, à côté de la lampe, là où le baron les trouvera en rentrant.",
         "Le baron rentre, voit les morceaux, et ne dit rien. Il a l'habitude de ne rien dire quand il perd ; c'est sa seule élégance de joueur. Il la raccompagne jusqu'à la porte de l'aile, et en la refermant derrière elle, avec la clef de sa chaîne de montre, il dit seulement : « Vous êtes une femme incommode, docteur. — Je suis un médecin, monsieur le baron. Les médecins incommodes sont les seuls qui guérissent. »",
       ],
-      choices: [{ label: "Laisser des ordres à la vieille servante, avant de partir", to: "YI_consigne" }, { label: "Rentrer au Cormoran", back: "A2v_jours" }] },
+      choices: [{ label: "Laisser des ordres à la vieille servante, avant de partir", to: "YI_consigne" }, { label: "Rentrer au Cormoran", fx: { quest: "YI" }, back: "A2v_jours" }] },
     YI_certificat: { act: "II", title: "Le papier timbré", place: "haute_ville", ambiance: "nuit",
       text: [
         "Victorine trempe la plume. Elle écrit ce qui est vrai : *catalepsie, accès fréquents, perte de conscience prolongée*. Elle écrit ce qui est faux : *incapable de gouverner sa personne et ses biens*. Elle signe. L'encre sèche vite, dans l'air froid de la chambre.",
         "Aurélie la regarde faire, sans un mot. Puis elle ferme les yeux, et s'en va, de nouveau, au fond de son puits, d'un coup, comme on se laisse tomber dans l'eau. Le pouls s'éteint presque sous les doigts de Victorine. Elle se demande si c'est la maladie, ou une manière de ne plus la voir.",
         "Le baron rentre, lit le certificat, le plie, le range dans sa poche intérieure. « Merci, docteur. Vous avez fait une bonne action. Je veillerai sur elle mieux que personne. » Il le pense peut-être. Il pense surtout aux biens qui dorment.",
       ],
-      choices: [{ label: "Laisser des ordres à la vieille servante, avant de partir", to: "YI_consigne" }, { label: "Rentrer au Cormoran", back: "A2v_jours" }] },
+      choices: [{ label: "Laisser des ordres à la vieille servante, avant de partir", to: "YI_consigne" }, { label: "Rentrer au Cormoran", fx: { quest: "YI" }, back: "A2v_jours" }] },
     YI_consigne: { act: "II", title: "La servante", place: "haute_ville", ambiance: "nuit",
       text: [
         "La vieille servante d'Aurélie dort sur une chaise, dans l'antichambre, avec un chapelet entre les doigts. Elle a soixante-dix ans ; elle a élevé Aurélie ; elle s'appelle Perrine ; elle ne sait pas lire. Victorine la réveille, et lui parle lentement, et lui fait répéter, mot pour mot, comme on fait apprendre une prière.",
         "« Quand elle tombera, et qu'on vous dira qu'elle est morte, vous attendrez. Trois jours, au moins. Vous ne laisserez personne la mettre en bière avant que la peau ne change, là, sur le ventre, et que l'odeur ne vienne. Vous direz que c'est l'ordre du médecin. Si on vous presse, vous direz que le médecin reviendra, et qu'il fera pendre celui qui l'aura enterrée vivante. »",
         "Perrine la regarde avec des yeux ronds. Puis elle hoche la tête, et répète, et répète encore, et à la fin elle prend la main de Victorine et l'embrasse. « J'ai toujours eu peur de ça, madame. Toujours. Depuis vingt ans. Personne ne voulait m'écouter. »",
       ],
-      choices: [{ label: "Rentrer au Cormoran", fx: { flag: "yi:consigne" }, back: "A2v_jours" }] },
+      choices: [{ label: "Rentrer au Cormoran", fx: { quest: "YI", flag: "yi:consigne" }, back: "A2v_jours" }] },
   },
   extras: {
     people: {

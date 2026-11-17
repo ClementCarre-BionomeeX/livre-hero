@@ -97,20 +97,20 @@ module.exports = {
         "« Elle vole, dit Sœur Marthe. — Oui, ma sœur. — Elle ment. — Oui, ma sœur. — Elle va me mettre la maison sens dessus dessous. — Oui, ma sœur. » Sœur Marthe soupire. « Bien. Elle couchera au deuxième, avec les autres. Il y a une grande qui est malade et qui s'ennuie ; elle lui fera la lecture. Tu sais lire, petite ? — Non. — Elle t'apprendra. Elle s'appelle Lisette. Elle a très mauvais caractère, elle aussi. Vous vous entendrez. »",
         "Fauvette regarde le parloir, les murs blancs, le crucifix, le pot de géraniums sur la fenêtre, comme on regarde une cage. Puis elle te regarde, toi. Elle ne dit pas merci. Elle dit : « Si je m'ennuie, je me sauve. — Si tu t'ennuies, dit Sœur Marthe, tu laveras les escaliers. On ne s'ennuie jamais en lavant les escaliers. »",
       ],
-      choices: [{ label: "Laisser Fauvette à la porte bleue", fx: { flag: "ye:soeurs" }, back: "A2m_bf" }] },
+      choices: [{ label: "Laisser Fauvette à la porte bleue", fx: { quest: "YE", flag: "ye:soeurs" }, back: "A2m_bf" }] },
     YE_denonce: { act: "II", title: "Le guet", place: "basse_fosse", ambiance: "nuit",
       text: [
         "Le sergent du guet t'écoute en se curant les ongles. Puis il appelle six hommes, et ils descendent au marais à la nuit, avec des lanternes et des gourdins, et tu les suis de loin.",
         "La saline est vide. Les bacs sont vides. Le fauteuil d'évêque est vide, et encore tiède. Il reste le brasero, qui fume, et sur le brasero, une marmite de soupe qui bout toute seule. Quelqu'un avait prévenu. Quelqu'un prévient toujours, à la Basse-Fosse.",
         "Le sergent mange une écuelle de soupe, dit qu'elle est excellente, et remonte en ville en sifflant. Le lendemain, la veuve Gâche a une autre saline, ailleurs, et les mêmes enfants, et toi, dans la Basse-Fosse, une réputation. Fauvette, tu ne la revois pas. Une fois, au coin de la rue des Cordiers, tu crois apercevoir un fichu rouge, qui se retourne, et qui disparaît.",
       ],
-      choices: [{ label: "Rentrer à bord", fx: { flag: "ye:denonce" }, back: "A2m_bf" }] },
+      choices: [{ label: "Rentrer à bord", fx: { quest: "YE", flag: "ye:denonce" }, back: "A2m_bf" }] },
     YE_laisse: { act: "II", title: "Fauvette", place: "basse_fosse", ambiance: "ville",
       text: [
         "Tu lui donnes tout ce que tu as dans les poches. Elle compte, très vite, d'un coup d'œil. Elle dit que c'est pas beaucoup. Elle le garde.",
         "Puis elle saute de la digue, et s'en va vers la saline, sans courir, du pas tranquille de quelqu'un qui rentre chez soi. Elle ne se retourne pas. Elle n'a jamais eu besoin de se retourner pour savoir ce qu'il y a derrière elle.",
       ],
-      choices: [{ label: "Rentrer à bord", fx: { flag: "ye:laisse" }, back: "A2m_bf" }] },
+      choices: [{ label: "Rentrer à bord", fx: { quest: "YE", flag: "ye:laisse" }, back: "A2m_bf" }] },
   },
   extras: {
     people: {
