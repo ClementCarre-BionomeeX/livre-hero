@@ -15,7 +15,7 @@ module.exports = {
         "Tout autour du cratère, plantés dans la roche à intervalles réguliers, il y a des piquets de bois, et sur chaque piquet, une boussole dans une boîte de cuivre. Quarante boussoles, peut-être. Toutes les aiguilles pointent vers la pierre.",
         "« Ne touchez à rien, je vous prie », dit une voix derrière toi.",
         "Un homme est sorti de la maison à la croix. Il est grand, voûté, maigre comme un clou de charpente, vêtu d'une robe de bure délavée jusqu'au blanc, nouée d'une corde, les pieds nus et noirs de cendre. Il a une barbe grise, des cheveux gris noués derrière la nuque, et des yeux étranges, très clairs, voilés d'un brouillard laiteux, qui regardent un peu à côté de toi.",
-        "« Frère Calixte, dit-il en s'inclinant. Ancien bénédictin de l'abbaye de Saint-Gildas. Ancien astronome de la même abbaye. Ancien tout, en somme. Je mesure. Vous ne dérangerez pas mes mesures, j'espère ? Elles sont la seule chose qui me reste, avec Dieu, qui me parle moins. »",
+        "« Frère Calixte, dit-il en s'inclinant. Ancien bénédictin de l'abbaye de Landévran. Ancien astronome de la même abbaye. Ancien tout, en somme. Je mesure. Vous ne dérangerez pas mes mesures, j'espère ? Elles sont la seule chose qui me reste, avec Dieu, qui me parle moins. »",
       ],
       choices: [
         { label: "« Qu'est-ce que c'est, cette pierre ? »", to: "XP_m_pierre" },
@@ -71,7 +71,7 @@ module.exports = {
         "Le petit point blanc s'approche du disque, lentement, lentement, touche son bord, et s'éteint d'un coup, comme une chandelle qu'on pince.",
         "« Maintenant ! »",
         "Le frère pousse un cri. Il regarde sa pendule, il compte, il écrit dans le noir, à tâtons, sur une ardoise, en marmonnant des chiffres en latin. Puis il pose l'ardoise. Il pleure.",
-        "« Vingt-huit degrés et sept minutes de longitude à l'ouest de Saint-Gildas, dit-il. Exactement. Six ans que j'attendais de le savoir. » Il te prend les mains. « Mon enfant, tu viens de faire de moi le seul homme au monde qui sache où il est. »",
+        "« Vingt-huit degrés et sept minutes de longitude à l'ouest de Landévran, dit-il. Exactement. Six ans que j'attendais de le savoir. » Il te prend les mains. « Mon enfant, tu viens de faire de moi le seul homme au monde qui sache où il est. »",
         "À l'aube, il te donne le cahier relié de toile, sans cérémonie, comme on rend un objet prêté. « Elle n'a plus besoin de moi, dit-il. Moi, je n'ai plus besoin d'elle. Je reste avec la pierre. Quelqu'un doit l'écouter. »",
       ],
       choices: [{ label: "Prendre la table", fx: { item: "table_calixte", flag: "correction:calixte", quest: "XP", regard: { calixte: "redevable" } }, to: "XP_m_fin" }] },

@@ -210,6 +210,7 @@ module.exports = {
         { label: "Regarder fondre l'argent", to: "XD_p_fonte", hide: { seen: "XD_p_fonte" } },
         { label: "Écouter le garçon aux cheveux blancs, dans la galerie des fondeurs", to: "WN_riwal", hide: { seen: "WN_riwal" } },
         { label: "Chercher les chasseurs d'œufs", to: "XD_p_chasseurs", hide: { any: [{ seen: "XD_p_chasseurs" }, { not: { seen: "XT_chasseurs" } }] } },
+        { label: "Suivre les enfants pâles vers une chose que les grands ne montrent pas", to: "UN_enfants", hide: { seen: "UN_enfants" }, if: { seen: "XD_p_enfants" }, why: "Les enfants pâles ne te font pas encore confiance." },
         { label: "Saluer les trois vieilles femmes, près du foyer", to: "XD_p_meres", hide: { seen: "XD_p_meres" } },
       ].concat(DECIDER) },
     XD_p_enfants: { act: "IV", title: "Les enfants des Puits", place: "puits", ambiance: "nuit",

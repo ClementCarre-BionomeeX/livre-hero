@@ -35,6 +35,9 @@ module.exports = {
         { label: "Monter au boudoir jaune de Madame de Pérignac, qui a des vapeurs", to: "YS_vapeurs", hide: { seen: "YS_vapeurs" }, if: { seen: "A2v_diner" }, why: "Personne, dans la Haute-Ville, ne te connaît encore." },
         { label: "Acheter une botte de cresson au coin de la rue, à six heures", to: "ZF_coin", hide: { seen: "ZF_coin" } },
         { label: "Suivre la jeune femme voilée qui t'attend dans l'escalier, à sept heures", to: "ZV_fille", hide: { seen: "ZV_fille" } },
+        { label: "Suivre le garçon des Sœurs, qui parle d'enfants malades au Quai-aux-Harengs", to: "WR_flux", hide: { seen: "WR_flux" }, if: { count: JOURS, min: 1 }, why: "Personne, à Morlenc, ne sait encore qu'elle est médecin." },
+        { label: "Monter rue des Juges, où une femme de chambre aux yeux rouges t'attend", to: "VA_albane", hide: { seen: "VA_albane" } },
+        { label: "Suivre le guetteur de nuit, qui a quelqu'un pour la médecin sous l'auvent de la criée", to: "UI_quai", hide: { seen: "UI_quai" }, if: { count: JOURS, min: 1 }, why: "Le guetteur ne connaît pas encore la médecin de la Cormorane." },
         { label: "Le dixième jour", to: "A2v_fin", big: true, if: { count: JOURS, min: 4 }, why: "La liste est encore longue." },
       ] },
 
