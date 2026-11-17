@@ -207,7 +207,7 @@ Object.assign(P, {
   K13r_line_sangles: { act: "IV", title: "À quarante pas de la porte", place: "tour", ambiance: "chateau",
     text: [
       "Tu as la lame sous la sangle des genoux quand sa main te tombe sur le poignet. Sa force est partie ; la précision lui reste. Elle serre où il faut.",
-      "« Range cela. Tu veux m'emporter où ? Je ne marche plus. Tu me porterais dix pas, et tu en as deux cent quatre-vingts à descendre. »",
+      "« Range cela. Tu veux m'emporter où ? Je ne marche plus. Tu me porterais dix pas, et tu as quatre-vingts marches à descendre, sans rampe. »",
       "Elle lâche. « Je suis où je veux être. Il croit m'avoir mise là : il m'y a portée, c'est toute la différence. À quinze pas de sa Régente, à quarante de sa porte, avec son beau Cahier sur les genoux. À midi moins le quart, il viendra me le prendre lui-même, devant ses invités, pour l'ouvrir. » Un petit éclair passe sous les loupes. « Je veux voir sa figure. J'ai limé trois jours pour cette figure. »",
       "« Et après ? »",
       "« Après, tu seras en bas, et {autre} en haut, et cela ne me regardera plus. J'ai fait la montre. Je ne suis pas chargée de la porter. » Elle tousse, longuement cette fois, et tu vois ce que la toux laisse dans son mouchoir. Elle le replie avant que tu aies pu en être sûr{e}.",
@@ -371,7 +371,7 @@ Object.assign(P, {
     text: [
       "La demie de dix heures ne sonne pas : rien ne sonne ici depuis soixante ans. Tu la lis à la pendule de voyage d'une dame de la Cour, posée sur un pliant, et à l'ombre du gnomon de la fontaine, qui est celle de 601.",
       "Il faut que tu sois en bas, la main sur un levier, quand quelqu'un sera en haut, la main sur une corde. Tu as deux chemins, et il est temps de prendre l'un.",
-      "L'escalier. Deux cent quatre-vingts marches, derrière la porte de bronze, soixante casaques, et ce que tu as su rassembler pour passer au travers. On y entre à onze heures, quand la place aura les yeux sur l'estrade.",
+      "L'escalier d'en bas. Quatre-vingts marches sans rampe, derrière la porte de bronze, soixante casaques, et ce que tu as su rassembler pour passer au travers. On y entre à onze heures, quand la place aura les yeux sur l'estrade.",
       { after: "r:droit_mesure", text: "Le Droit. Le boyau des Fondateurs, sous l'étoile de cuivre de la vieille église : tiré au cordeau jusque sous la Tour, vide, sans un garde. Il mange le sable trois fois. Tu l'as mesuré cette nuit : six pincées jusqu'à la grille, et rien pour revenir." },
       { before: "r:droit_mesure", text: "Le Droit. Le boyau des Fondateurs, sous l'étoile de cuivre de la vieille église : tiré au cordeau jusque sous la Tour, vide, sans un garde. On dit qu'il mange le sable trois fois. Tu ne l'as pas mesuré. Il faudrait, à vue de glaneur, six pincées jusqu'au bout, et l'on n'en revient pas." },
       { if: { item: "clef_droit" }, text: "Tu as la clef de sa grille." },
