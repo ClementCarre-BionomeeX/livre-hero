@@ -83,4 +83,15 @@ assert(rb.errors.some(function (e) { return /première lecture finit sur « fin:
 var bad2 = story(); bad2.puzzles.tablette.tries = 2; bad2.puzzles.quatrain.alt[0].id = ""; bad2.twice.second = "nulle";
 var r2 = V.staticCheck(bad2).errors.join("\n");
 assert(/carry/.test(r2) && /il faut un id/.test(r2) && /twice.second/.test(r2), r2);
+// 12.5, twice.begin2: the second reading opens at its own place and hour, with its own pockets and purse; the first
+// keeps world.start. An unknown item or place in begin2 is an error.
+var b2 = story(); b2.items = { lettre: { name: "La lettre" }, plume: { name: "La plume" } };
+b2.world.start.items = ["lettre"]; b2.world.start.gold = 5; b2.world.places.salle = { name: "La salle", arrive: "P2" };
+b2.twice.begin2 = { place: "salle", hour: 20, gold: 1, items: ["plume"] };
+var s1 = fresh(b2, false), s2 = fresh(b2, true);
+assert.deepStrictEqual(s1.items, ["lettre"]); assert.strictEqual(s1.gold, 5); assert.strictEqual(s1.time % 24, 8); assert.strictEqual(s1.place, "cour");
+assert.deepStrictEqual(s2.items, ["plume"]); assert.strictEqual(s2.gold, 1); assert.strictEqual(s2.time % 24, 20); assert.strictEqual(s2.place, "salle"); assert.strictEqual(s2.node, "P2");
+var bad3 = story(); bad3.twice.begin2 = { place: "nulle", items: ["rien"] };
+var r3 = V.staticCheck(bad3).errors.join("\n");
+assert(/begin2.items/.test(r3) && /begin2.place/.test(r3), r3);
 console.log("deux lectures : ok");
