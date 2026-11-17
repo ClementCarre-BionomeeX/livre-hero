@@ -10,7 +10,7 @@ module.exports = {
       fx: { meet: "rioual" },
       text: [
         "La source de la crique coule si lentement qu'à la nuit tombée, il reste six barriques à remplir. La chaloupe est repartie au navire avec les pleines. On a laissé à terre trois hommes et toi, avec les vides, un fanal, du biscuit, et l'ordre de finir à l'aube. On allume un feu de bois flotté au-dessus de la laisse de mer. Le bois flotté brûle bleu, à cause du sel, et il siffle en brûlant, comme s'il avait encore quelque chose à dire.",
-        "Il y a là le vieux Jos Rioual, gabier depuis quarante ans, qui ne parle presque jamais et qui fume une pipe si courte qu'elle lui roussit la moustache. Il y a Fañch Paugam, vingt ans, beau parleur, qui a des dents blanches et l'habitude de les montrer. Il y a Yann Bodiou, un grand garçon lent et pieux, qui a cousu une médaille de la Vierge dans la doublure de sa vareuse et qui la touche à travers le drap quand il croit qu'on ne le voit pas.",
+        "Il y a là le vieux Tudi Rioual, gabier depuis quarante ans, qui ne parle presque jamais et qui fume une pipe si courte qu'elle lui roussit la moustache. Il y a Fañch Paugam, vingt ans, beau parleur, qui a des dents blanches et l'habitude de les montrer. Il y a Yann Bodiou, un grand garçon lent et pieux, qui a cousu une médaille de la Vierge dans la doublure de sa vareuse et qui la touche à travers le drap quand il croit qu'on ne le voit pas.",
         "La nuit tombe d'un coup, comme on tire un rideau. Sur la plage, des formes noires, lourdes, sortent de l'eau et montent dans le sable en soufflant : les tortues, qui viennent pondre. Elles passent à dix pas du feu sans le regarder, avec une lenteur de pèlerines. Puis, de la forêt, au-dessus de la crique, le cri monte. Le même qu'au mouillage. Long, aigu, qui pourrait être celui d'un oiseau, ou d'une bête, ou d'un enfant. Il s'arrête net.",
         "Personne ne bouge. Paugam rit, trop fort. Bodiou touche sa médaille. Le vieux Rioual retire sa pipe de sa bouche, regarde le feu, et dit, de sa voix rouillée : « Ça, c'est quelqu'un qui appelle. Et quand quelqu'un appelle, la nuit, il vaut mieux savoir qui. » Puis il remet sa pipe, et il commence."
       ],
@@ -86,7 +86,7 @@ module.exports = {
   },
   extras: {
     people: {
-      rioual: { name: "Jos Rioual", qui: "Vieux gabier de quarante ans de mer, qui fume une pipe si courte qu'elle lui roussit la moustache, et raconte les laveuses de la grève." },
+      rioual: { name: "Tudi Rioual", qui: "Vieux gabier de quarante ans de mer, qui fume une pipe si courte qu'elle lui roussit la moustache, et raconte les laveuses de la grève." },
       paugam: { name: "Fañch Paugam", qui: "Matelot de vingt ans, beau parleur aux dents blanches, qui raconte l'histoire du noyé qui frappe à la coque." },
       bodiou: { name: "Yann Bodiou", qui: "Grand matelot lent et pieux, qui porte une médaille cousue dans sa vareuse." }
     },

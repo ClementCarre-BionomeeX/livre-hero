@@ -1,7 +1,7 @@
 // L'Île Folle-Aiguille · side story « Le pari de la tour » (owes its question to Chekhov's The Bet: what are fifteen
 // years of a life worth against a fortune, and what has the man who wins learned that the man who pays has not?).
 // Act III, Victorine at Brisegrève: Lezongar, a shipowner of the town, asks the ship's physician for a certificate of
-// health for a man he has not seen in fifteen years. At a dinner long ago, a young lawyer, Aubin Kerambrun, bet that
+// health for a man he has not seen in fifteen years. At a dinner long ago, a young lawyer, Pierig Kerambrun, bet that
 // he would stay fifteen years alone in a cell of the fort's west tower for two hundred thousand écus. The term ends
 // tomorrow at midnight. Lezongar is ruined. Victorine brings him the prisoner's renunciation before night (sj:lettre),
 // keeps watch in the tower's corridor (sj:garde), or opens the door herself at the prisoner's request (sj:libere).
@@ -13,7 +13,7 @@ module.exports = {
       text: [
         "L'homme qui monte à bord, le premier matin, est vêtu de noir, très correctement, d'un habit qui a été beau il y a dix ans et qu'on a brossé ce matin avec une application désespérée. Il a soixante ans, une face grise et molle, et des mains qui ne savent pas où se mettre. Il se présente : Lezongar, armateur à Brisegrève. Il demande la dame médecin. Il veut un certificat de bonne santé.",
         "Pour un homme, dit-il, qu'il n'a pas vu depuis quinze ans. Qui vit enfermé dans une cellule de la tour de l'ouest du fort, de son plein gré, à ses frais à lui, Lezongar, gardé par un guichetier qu'il paie. Et qui en sortira demain à minuit.",
-        "Il raconte, en tordant ses gants. Un dîner chez lui, il y a quinze ans, avec des officiers du fort, un juge, un jeune avocat de Morlenc. On disputait de la peine de mort. Le juge disait qu'elle était plus humaine que la prison perpétuelle, qui tue lentement. L'avocat, un garçon de vingt-cinq ans, Aubin Kerambrun, disait qu'il préférait vivre n'importe comment plutôt que pas du tout. Lezongar, qui était riche, qui avait bu, a parié deux cent mille écus que le jeune homme ne tiendrait pas cinq ans seul dans une cellule. Le jeune homme a dit : quinze. Et il est entré.",
+        "Il raconte, en tordant ses gants. Un dîner chez lui, il y a quinze ans, avec des officiers du fort, un juge, un jeune avocat de Morlenc. On disputait de la peine de mort. Le juge disait qu'elle était plus humaine que la prison perpétuelle, qui tue lentement. L'avocat, un garçon de vingt-cinq ans, Pierig Kerambrun, disait qu'il préférait vivre n'importe comment plutôt que pas du tout. Lezongar, qui était riche, qui avait bu, a parié deux cent mille écus que le jeune homme ne tiendrait pas cinq ans seul dans une cellule. Le jeune homme a dit : quinze. Et il est entré.",
         "« Il a tenu, dit Lezongar. Il tient. Demain, à minuit, je lui dois deux cent mille écus. » Il rit, d'un petit rire qui fait peur. « Je voudrais un certificat. Pour savoir s'il a toute sa raison. Un homme qui n'a pas sa raison, n'est-ce pas, ne peut pas réclamer. » Il regarde Victorine. Ses yeux disent une chose que sa bouche n'ose pas encore dire."
       ],
       choices: [
@@ -98,7 +98,7 @@ module.exports = {
   extras: {
     people: {
       lezongar: { name: "Lezongar", qui: "Armateur de Brisegrève, ruiné, qui a parié quinze ans plus tôt deux cent mille écus contre la liberté d'un jeune avocat." },
-      kerambrun: { name: "Aubin Kerambrun", qui: "Ancien avocat de Morlenc, enfermé de son plein gré depuis quinze ans dans la tour de l'ouest du fort de Brisegrève, pour gagner un pari." },
+      kerambrun: { name: "Pierig Kerambrun", qui: "Ancien avocat de Morlenc, enfermé de son plein gré depuis quinze ans dans la tour de l'ouest du fort de Brisegrève, pour gagner un pari." },
       riec: { name: "Riec", qui: "Vieux soldat, guichetier de la tour de l'ouest, qui tient depuis quinze ans le registre des demandes du prisonnier." }
     },
     quests: [

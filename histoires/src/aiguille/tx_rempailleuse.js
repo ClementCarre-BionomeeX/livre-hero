@@ -30,7 +30,7 @@ module.exports = {
       ] },
     TX_recit: { act: "III", title: "La rempailleuse", place: "lannoz", ambiance: "village",
       text: [
-        { first: true, text: "« J'avais huit ans. Mes parents étaient rempailleurs avant moi, sur les routes. On passait à Lannoz. Il y avait un petit garçon, le fils du mercier, Fañch Le Cozic, qui pleurait derrière la mercerie, parce que deux grands lui avaient volé deux sous. Moi, j'avais sept sous, que j'avais gagnés en tressant. Je les lui ai donnés. Tous. Il a arrêté de pleurer. Il les a pris. Il m'a laissée l'embrasser. Une fois, sur la joue." },
+        { first: true, text: "« J'avais huit ans. Mes parents étaient rempailleurs avant moi, sur les routes. On passait à Lannoz. Il y avait un petit garçon, le fils du mercier, Mikael Le Cozic, qui pleurait derrière la mercerie, parce que deux grands lui avaient volé deux sous. Moi, j'avais sept sous, que j'avais gagnés en tressant. Je les lui ai donnés. Tous. Il a arrêté de pleurer. Il les a pris. Il m'a laissée l'embrasser. Une fois, sur la joue." },
         { first: true, text: "« Alors l'année d'après, je suis revenue avec des sous. Je les avais gardés toute l'année, je les avais volés à mes parents. Je les lui ai donnés. Il m'a laissée l'embrasser. L'année d'après, pareil. Ça a duré quatre ans. Puis il est parti au collège, à Morlenc. Il est revenu avec un chapeau. Il ne m'a plus regardée. »" },
         { first: true, text: "Elle tousse. Elle s'essuie. Elle sourit." },
         { first: true, text: "« Je ne lui en veux pas. Il est devenu mercier, comme son père. Il a épousé la fille du notaire. Il a deux enfants. Je passe devant sa boutique deux fois par an. Je le regarde par la vitre. Il ne me voit pas. Il a grossi. Il est très bien. »" },
@@ -112,7 +112,7 @@ module.exports = {
   extras: {
     people: {
       gwenn: { name: "la Gwenn", aka: ["la rempailleuse"], f: true, qui: "Vieille rempailleuse des routes, qui passait à Lannoz deux fois l'an depuis cinquante ans, avec son âne et ses bottes de seigle." },
-      lecozic: { name: "Fañch Le Cozic", aka: ["le mercier de Lannoz"], qui: "Mercier de Lannoz, soixante ans, gros, rose, honnête, marié à la fille du notaire." }
+      lecozic: { name: "Mikael Le Cozic", aka: ["le mercier de Lannoz"], qui: "Mercier de Lannoz, soixante ans, gros, rose, honnête, marié à la fille du notaire." }
     },
     quests: [
       { id: "TX", act: "III", kind: "annexe", title: "La rempailleuse", start: "TX_charrette", doit: "rempailleuse", echo: ["tx:remet", "tx:tait", "tx:pauvres"] }

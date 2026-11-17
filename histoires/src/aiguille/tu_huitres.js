@@ -13,7 +13,7 @@ module.exports = {
         "Maître Gobert te loue pour un dimanche, à deux sous l'heure, à une famille qui a besoin de bras pour ses paniers. « C'est de l'argent propre, dit-il. Tu portes, tu te tais, tu souris. Et tu me rapportes la moitié. »",
         "La famille Ponthou t'attend sur le quai du bac, endimanchée de la tête aux pieds, comme pour une noce. Le père, monsieur Ponthou, est commis principal à la Compagnie des Bancs, un petit homme à favoris gris, aux souliers trop étroits. La mère est grande, sèche, avec un chapeau à plumes et une voix qui compte. Deux filles : l'aînée, Eulalie, vingt-huit ans, qui a attendu longtemps ; la cadette, Aglaé, dix-neuf ans, qui est jolie et qui le sait. Et le fiancé de Aglaé, un jeune clerc de notaire à lorgnon, que toute la famille couve des yeux comme un œuf d'or.",
         "Le bac part pour l'île de Lanvaon, de l'autre côté de la rade, où l'on va le dimanche manger des crêpes et regarder la mer. C'est une grosse barque pontée, à voile carrée, où l'on tient à trente, serrés. Tu portes deux paniers, un parapluie, un châle et un tabouret pliant.",
-        "Dès le départ, monsieur Ponthou tire de sa poche une lettre usée, pliée en huit, et la lit à voix haute au fiancé, pour la dixième fois peut-être. Une lettre de son frère Yvon, parti aux Îles il y a vingt ans, qui écrivait, il y a dix ans : *Je suis riche. Je reviendrai bientôt, et je ferai votre bonheur à tous.* Depuis, plus rien. Mais on l'attend. On l'attend chaque dimanche sur le quai, en regardant les grands navires. Le fiancé hoche la tête. On sent que la lettre a beaucoup compté dans la demande en mariage."
+        "Dès le départ, monsieur Ponthou tire de sa poche une lettre usée, pliée en huit, et la lit à voix haute au fiancé, pour la dixième fois peut-être. Une lettre de son frère Ninian, parti aux Îles il y a vingt ans, qui écrivait, il y a dix ans : *Je suis riche. Je reviendrai bientôt, et je ferai votre bonheur à tous.* Depuis, plus rien. Mais on l'attend. On l'attend chaque dimanche sur le quai, en regardant les grands navires. Le fiancé hoche la tête. On sent que la lettre a beaucoup compté dans la demande en mariage."
       ],
       choices: [
         { label: "Porter les paniers sur le pont du bac", to: "TU_ecailler" }
@@ -33,7 +33,7 @@ module.exports = {
         "Le fiancé s'appelle monsieur Morvan-Laz. Il est deuxième clerc chez un notaire de la Haute-Ville, et il le dit dans la première phrase, comme on montre son passeport. Il mange les huîtres d'une manière savante, en renversant la tête, le petit doigt levé, et il commente chacune, comme un vin.",
         "Il te prend pour confident, puisque tu es là et que tu portes son verre. Il t'explique qu'un mariage est une association. Que la jeune personne est charmante, certes, mais qu'on n'épouse pas une jeune personne : on épouse une famille, un avenir, des espérances. Que les espérances de la famille Ponthou sont aux Îles, dans le sucre, et que le sucre est une valeur sûre, quoi qu'on en dise.",
         "Il boit. Il essuie son lorgnon. Il ajoute, à mi-voix, que l'oncle a quarante-huit ans, d'après la lettre, qu'il est célibataire, d'après la lettre, et qu'il a le teint jaune des colonies, d'après la lettre, ce qui, entre nous, ne promet pas une longue vieillesse. Il sourit. Il a de très petites dents.",
-        "Tu reprends le verre vide. Tu te dis que tu n'aimerais pas être l'oncle Yvon, ni la cadette, ni le sucre."
+        "Tu reprends le verre vide. Tu te dis que tu n'aimerais pas être l'oncle Ninian, ni la cadette, ni le sucre."
       ],
       choices: [
         { label: "Rejoindre la mère, qui t'attend", back: "TU_mission" }
@@ -63,7 +63,7 @@ module.exports = {
       fx: { meet: "yvon" },
       text: [
         { first: true, text: "Tu t'assieds sur le pont, à côté de son tonneau. Il t'offre une huître, pour rien, parce que tu es un mousse et qu'il en a été un. Tu la manges. Elle a le goût de la mer et du cuivre." },
-        { first: true, text: "Il parle volontiers. Il parle comme parlent ceux à qui personne ne parle. Il s'appelle Yvon. Yvon Ponthou. Il est parti jeune, aux Îles, sur un trois-mâts. Il a fait fortune, oui, là-bas, une vraie, dans le sucre, un moment. Puis la fièvre, un associé, un incendie, un procès, et il a tout perdu en un an. Il est revenu il y a trois ans, sur un navire où il a payé son passage en lavant le pont. Il ouvre des huîtres sur le bac. Il couche dans une soupente de Lanvaon, chez le patron." },
+        { first: true, text: "Il parle volontiers. Il parle comme parlent ceux à qui personne ne parle. Il s'appelle Ninian. Ninian Ponthou. Il est parti jeune, aux Îles, sur un trois-mâts. Il a fait fortune, oui, là-bas, une vraie, dans le sucre, un moment. Puis la fièvre, un associé, un incendie, un procès, et il a tout perdu en un an. Il est revenu il y a trois ans, sur un navire où il a payé son passage en lavant le pont. Il ouvre des huîtres sur le bac. Il couche dans une soupente de Lanvaon, chez le patron." },
         { first: true, text: "Tu lui demandes s'il a de la famille. Il ouvre une huître, lentement. « Un frère, dit-il. À Morlenc. Un homme bien. Commis, je crois. Je lui ai écrit, autrefois, quand j'étais riche, que je reviendrais faire son bonheur. » Il pose l'huître sur le plat. « Je ne suis pas allé le voir. On ne va pas faire le bonheur des gens avec un couteau à huîtres. »" },
         { first: true, text: "Il regarde vers l'arrière du bac, sans le savoir, droit vers la famille en habits du dimanche, sans les reconnaître. Ses yeux sont très faibles. Il dit : « Il a peut-être des enfants, maintenant. Des filles. J'aurais aimé les voir. »" },
         { first: true, text: "À l'arrière, la mère te fait signe. Monsieur Ponthou a la tête dans les mains. Le fiancé, qui ne se doute de rien, demande une deuxième douzaine." },
@@ -77,9 +77,9 @@ module.exports = {
       ] },
     TU_dit: { act: "II", title: "L'écailler du bac", place: "quai_hollandes", ambiance: "mer",
       text: [
-        "Tu reviens vers l'arrière, et tu le dis. Pas bas, comme la mère voulait. Tout haut, pour que tout le monde entende : il s'appelle Yvon Ponthou, il a fait fortune et il l'a perdue, il ouvre des huîtres, il a un frère commis à Morlenc, et il aurait aimé voir ses nièces.",
+        "Tu reviens vers l'arrière, et tu le dis. Pas bas, comme la mère voulait. Tout haut, pour que tout le monde entende : il s'appelle Ninian Ponthou, il a fait fortune et il l'a perdue, il ouvre des huîtres, il a un frère commis à Morlenc, et il aurait aimé voir ses nièces.",
         "Le silence tombe sur l'arrière du bac comme un seau d'eau. Eulalie porte la main à sa bouche. Aglaé devient écarlate. Le fiancé enlève son lorgnon, l'essuie, le remet, et regarde l'avant du bac avec beaucoup d'attention, comme on regarde un compte qui ne tombe pas juste. La mère te fixe avec une haine pure, parfaite, que tu n'oublieras pas.",
-        "Et monsieur Ponthou se lève. Il se lève lentement, sur ses souliers trop étroits, la lettre pliée en huit dans la main. Il traverse tout le bac, entre les passagers, jusqu'au tonneau. Il dit : « Yvon. » L'écailler lève ses yeux faibles, et le reconnaît à la voix. Ils restent là, les deux frères, devant le plat d'étain, sans s'embrasser, sans rien dire, parce qu'ils sont de cette race d'hommes qui ne savent pas.",
+        "Et monsieur Ponthou se lève. Il se lève lentement, sur ses souliers trop étroits, la lettre pliée en huit dans la main. Il traverse tout le bac, entre les passagers, jusqu'au tonneau. Il dit : « Ninian. » L'écailler lève ses yeux faibles, et le reconnaît à la voix. Ils restent là, les deux frères, devant le plat d'étain, sans s'embrasser, sans rien dire, parce qu'ils sont de cette race d'hommes qui ne savent pas.",
         "Le fiancé de Aglaé descend du bac à Lanvaon, prétend une migraine, et prend le premier bac du retour, seul. Aglaé pleure toute l'après-midi sur les galets. Eulalie, l'aînée, celle qui a attendu longtemps, va s'asseoir près de son oncle, et elle lui demande de lui apprendre à ouvrir les huîtres. Elle s'y coupe deux fois. Elle rit."
       ],
       choices: [
@@ -110,7 +110,7 @@ module.exports = {
   extras: {
     people: {
       ponthou: { name: "monsieur Ponthou", aka: ["le commis de la Compagnie des Bancs"], qui: "Commis principal à la Compagnie des Bancs de Morlenc, père de deux filles, qui attend chaque dimanche le retour d'un frère riche." },
-      yvon: { name: "Yvon Ponthou", aka: ["l'écailler du bac"], qui: "Ancien marin revenu des Îles ruiné, qui ouvre des huîtres sur le bac de Lanvaon." }
+      yvon: { name: "Ninian Ponthou", aka: ["l'écailler du bac"], qui: "Ancien marin revenu des Îles ruiné, qui ouvre des huîtres sur le bac de Lanvaon." }
     },
     quests: [
       { id: "TU", act: "II", kind: "annexe", title: "L'écailler du bac", start: "TU_dimanche", doit: "mononcle", echo: ["tu:dit", "tu:frere", "tu:tait"] }

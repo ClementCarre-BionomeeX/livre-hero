@@ -11,7 +11,7 @@ module.exports = {
       text: [
         "Un jeune homme frappe à l'auberge du Cormoran, à huit heures du matin, en s'excusant. Il est étudiant en médecine, il s'appelle Simonneau, il loge dans une mansarde de la rue des Cordiers, et son voisin de palier est mort à l'aube. Il faut un médecin pour le certificat, sans quoi on ne peut pas enterrer. Les médecins du quartier ne se dérangent pas avant midi. On lui a dit qu'il y avait une femme docteur au Cormoran, qui se levait tôt.",
         "La mansarde est sous le toit, au sixième, une pièce unique, propre, pauvre, avec une fenêtre à tabatière ouverte sur les toits mouillés et le cri des goélands. Sur le lit, un homme de trente ans, maigre, au teint de cire, les mains croisées sur un drap tiré jusqu'au menton. Quelqu'un lui a fermé la bouche avec un mouchoir noué sur le crâne. Deux bougies.",
-        "Au pied du lit, sur une chaise, une jeune femme de vingt ans, Rosalie Kerguiduff, en camisole, les cheveux défaits, pleure sans bruit, la tête dans les mains. Le mort s'appelait Isidore Kerguiduff. Il était copiste à la Compagnie des Bancs. Ils étaient arrivés de la campagne il y a un mois, pour une place qu'il devait prendre lundi. Il était souvent malade, dit Simonneau. Des crises, depuis l'enfance. Il est tombé ce matin en se levant, et ne s'est pas relevé."
+        "Au pied du lit, sur une chaise, une jeune femme de vingt ans, Rosalie Kerguiduff, en camisole, les cheveux défaits, pleure sans bruit, la tête dans les mains. Le mort s'appelait Benoni Kerguiduff. Il était copiste à la Compagnie des Bancs. Ils étaient arrivés de la campagne il y a un mois, pour une place qu'il devait prendre lundi. Il était souvent malade, dit Simonneau. Des crises, depuis l'enfance. Il est tombé ce matin en se levant, et ne s'est pas relevé."
       ],
       choices: [
         { label: "Examiner le corps", to: "TV_examen" }
@@ -77,7 +77,7 @@ module.exports = {
       text: [
         "Elle dit qu'elle ne signera pas avant demain matin. Que c'est la loi des prudents, sinon celle de Morlenc. Simonneau proteste, poliment, puis moins poliment. Elle s'assied sur la chaise, près du lit, et ne bouge plus. Il finit par s'en aller, en claquant la porte. Rosalie dort, plus tard, en travers du pied du lit, épuisée.",
         "La nuit vient. Les bougies baissent. Victorine veille. Elle a pris le poignet du mort dans sa main, et elle le tient, comme on tient la main d'un malade. Vers trois heures, elle croit sentir quelque chose. Un battement, un seul, très loin, comme un pas dans une cave. Elle attend. Rien. Puis un autre, une minute plus tard.",
-        "À l'aube, Isidore Kerguiduff ouvre les yeux. Il les ouvre tout à fait, et il regarde le plafond, et il ne bouge pas. Puis il tourne la tête, lentement, vers Victorine. Il chuchote : « J'ai tout entendu. »",
+        "À l'aube, Benoni Kerguiduff ouvre les yeux. Il les ouvre tout à fait, et il regarde le plafond, et il ne bouge pas. Puis il tourne la tête, lentement, vers Victorine. Il chuchote : « J'ai tout entendu. »",
         "Il a tout entendu. Le miroir. La montre. Les pompes funèbres à onze heures. La main sur l'épaule. La place de la cafetière. Il ne pouvait pas bouger un cil. Il a entendu sa femme dire qu'on ne s'amusait pas beaucoup. Il a entendu la porte claquer.",
         "Il regarde Rosalie, endormie en travers du lit, les joues encore mouillées. Il la regarde longtemps, avec une tendresse effrayante. Puis il dit à Victorine, très bas, d'une voix de papier : « Laissez-moi partir. Signez. Je m'en irai par l'escalier de service, avant qu'elle se réveille. Je prendrai un autre nom. Elle sera libre. Elle a vingt ans. C'est la seule chose que je peux lui donner que je n'ai pas déjà ratée. »",
         "Victorine ne signe pas. Elle ne le retient pas non plus. Quand Rosalie se réveille, à huit heures, le lit est vide, la fenêtre à tabatière ouverte, et la médecin assise sur sa chaise, qui lui dit, en pesant chaque mot, que son mari n'est pas mort, qu'il est parti, et qu'il lui laisse le choix de le chercher ou non."
@@ -101,7 +101,7 @@ module.exports = {
   },
   extras: {
     people: {
-      kerguiduff: { name: "Isidore Kerguiduff", aka: ["le copiste de la mansarde"], qui: "Copiste de la Compagnie des Bancs, trente ans, sujet depuis l'enfance à des crises où il paraît mort." }
+      kerguiduff: { name: "Benoni Kerguiduff", aka: ["le copiste de la mansarde"], qui: "Copiste de la Compagnie des Bancs, trente ans, sujet depuis l'enfance à des crises où il paraît mort." }
     },
     quests: [
       { id: "TV", act: "II", kind: "annexe", title: "Le certificat de décès", start: "TV_mansarde", doit: "olivierbecaille", echo: ["tv:signe", "tv:attend", "tv:epreuve"] }

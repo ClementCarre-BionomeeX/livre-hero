@@ -41,7 +41,7 @@ module.exports = {
     XT_pont: { act: "IV", title: "Le pont", place: "table", ambiance: "nature",
       text: [
         "Tu passes. Les lianes ploient, se balancent, se tordent, et tu avances sans regarder en bas, en regardant le bout, comme on t'a appris à le faire sur les vergues. Tu poses le pied sur l'autre bord.",
-        "Le professeur passe ensuite. Il passe en parlant, sans s'arrêter une seconde, d'une voix de plus en plus aiguë, de botanique, de la résistance comparée des fibres végétales, de son grand-père qui était charpentier de marine à Saint-Malo, et quand il arrive de ton côté, il s'assied par terre, très pâle, et dit : « Admirable. Je ne repasserai jamais par là. »",
+        "Le professeur passe ensuite. Il passe en parlant, sans s'arrêter une seconde, d'une voix de plus en plus aiguë, de botanique, de la résistance comparée des fibres végétales, de son grand-père qui était charpentier de marine à Pors-Malou, et quand il arrive de ton côté, il s'assied par terre, très pâle, et dit : « Admirable. Je ne repasserai jamais par là. »",
       ],
       choices: [{ label: "Finir la montée", to: "XT_haut" }] },
     XT_pont_rate: { act: "IV", title: "Le pont", place: "table", ambiance: "nature",
