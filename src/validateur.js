@@ -1050,6 +1050,12 @@
         if (c.sys) return { d: Infinity, fixed: null };
         var raw = c;
         cand(live(raw.to), null); if (raw.win) cand(live(raw.win.to), 0.94); if (raw.lose) cand(live(raw.lose.to), 0.02);
+        // 10.4: when both outcomes of a test lead to the target, the nearer one on the map may be the wrong one (a
+        // switch further on reads what the failure left). One walk in three takes the other outcome.
+        if (otherWay && raw.win && raw.lose && out != null && rnd() < 0.34) {
+          var dOther = Infinity; [].concat(live(out > 0.5 ? raw.lose.to : raw.win.to)).forEach(function (t) { if (d[t] != null && d[t] < dOther) dOther = d[t]; });
+          if (dOther < Infinity) out = out > 0.5 ? 0.02 : 0.94;
+        }
         if (raw.fight) ["win", "lose", "flee", "calm"].forEach(function (o) { if (raw.fight[o]) cand(raw.fight[o].to, null); });
         return { d: best, fixed: out };
       }
@@ -1084,6 +1090,18 @@
         var all = Object.keys(common || {}).map(function (k) { return common[k]; });
         return { shut: all.filter(function (a) { return !a.voile; }), veils: all.filter(function (a) { return a.voile; }).map(function (a) { return a.voile; }) };
       }
+      // Intent: needOf(target) -> [Flag] — the marks asked (if: "mark" or if: { has }, alone or in an all) by every
+      // choice that leads to the target.
+      function needOf(target) {
+        var common = null;
+        function leads(to) { return Array.isArray(to) ? to.some(function (x) { return leads(x.to); }) : to === target; }
+        ids.forEach(function (id) { (P[id].choices || []).forEach(function (c) {
+          if (!(leads(c.to) || (c.win && leads(c.win.to)) || (c.lose && leads(c.lose.to)))) return;
+          var o = {}; (c.if && c.if.all ? c.if.all : [c.if]).forEach(function (a) { if (typeof a === "string") o[a] = 1; else if (a && typeof a.has === "string") o[a.has] = 1; });
+          if (!common) common = o; else Object.keys(common).forEach(function (k) { if (!o[k]) delete common[k]; });
+        }); });
+        return Object.keys(common || {});
+      }
       // Whether an effect shuts the door: it sets one of its marks, or brings one of its companions along.
       function shuts(fx, door) {
         if (!fx) return false;
@@ -1099,6 +1117,7 @@
       // door: null for the plain search; else the walks start only from states where the door is still open, the
       // furthest in the story first, never take a choice that shuts it while another is offered, stop as soon as it
       // is shut, walk longer, and keep their lenses for the words the door asks (one walk in two lifts no other).
+      var otherWay = false;
       function seek(target, pass, door) {
           if (seen[target]) return;
           var d = distTo(target);
@@ -1108,6 +1127,12 @@
           var budget = 300, near = [], steps = door ? 1000 : 300;
           if (door) from.sort(function (a, b) { return actIdx[P[b].act] - actIdx[P[a].act] || d[a] - d[b]; });
           from.forEach(function (k) { snaps[k].forEach(function (x) { if (door) { s = JSON.parse(x); if (!open(door.shut)) return; } near.push(x); }); });
+          // 10.4: the marks every choice leading to the target asks for (if: has). The kept states that already hold
+          // them go first, however far: such a mark is often earned much earlier (a friend made the day before).
+          if (otherWay) {
+            var need = needOf(target);
+            if (need.length) { var held = near.filter(function (x) { var st0 = JSON.parse(x); return need.every(function (f) { return st0.flags[f]; }); }); if (held.length) near = held.concat(near); }
+          }
           for (var wi = 0; wi < budget && wi < near.length * 4 && !seen[target]; wi++) {
             var wander = wi % 3 === 2 ? 0.4 : 0.15, half = wi >> 1;
             s = JSON.parse(wi % 2 === 0 && half < near.length ? near[half] : near[Math.floor(rnd() * near.length)]);
@@ -1141,14 +1166,21 @@
             if (s && s.seen) Object.keys(s.seen).forEach(mark);
           }
       }
+      var onlyT0 = typeof process !== "undefined" && process.env && process.env.VALID_ONLY;
       ["plain", "plain", "plain", "rich", "rich", "hurt", "hurt"].some(function (pass) {
         var missing = ids.filter(function (id) { return !seen[id]; });
         if (!missing.length) return true;
-        missing.forEach(function (target) { seek(target, pass, null); });
+        var onlyT = typeof process !== "undefined" && process.env && process.env.VALID_ONLY;
+        missing.forEach(function (target) { if (onlyT && target !== onlyT) return; seek(target, pass, null); });
         return false;
       });
       // Last: what is still missing behind a door that shuts (see doorOf) is looked for with that door kept open.
       ids.filter(function (id) { return !seen[id]; }).forEach(function (target) { var door = doorOf(target); if (door.shut.length) seek(target, "plain", door); });
+      // 10.4, last of all: what is still missing is looked for another way (see needOf, and the other outcome of a
+      // test in score). Kept apart so that the walks above stay what they were.
+      otherWay = true;
+      ids.filter(function (id) { return !seen[id]; }).forEach(function (target) { if (onlyT0 && target !== onlyT0) return; seek(target, "plain", null); });
+      otherWay = false;
     }
     // The games read like a reader: on a puzzle, they type the right answer most of the time, a wrong one otherwise.
     // pr: the chance of typing the right answer (a lost game errs more; a targeted search answers as its target needs).
