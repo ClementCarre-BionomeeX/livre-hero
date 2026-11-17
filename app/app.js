@@ -2147,7 +2147,10 @@
     G.fate = G.s.ironman && !/^jeu/.test(c.sys || "") ? { snap: snap, label: c.label, sys: c.sys || "", act: act0 || "", turn: G.s.turn } : null;
     persist(); bedtimeAfterChoice(); render();
     if (fight0 && fight0.hits && fight0.hits.length) { var partyIds = {}; M.partyView(G.story, G.s).forEach(function (m) { partyIds[m.who] = 1; }); Sfx.blows(fight0.hits, function (k) { return !!partyIds[k]; }); }
-    var top = document.querySelector(".page"); if (top) top.scrollIntoView({ block: "start", behavior: REDUCED ? "auto" : "smooth" });
+    // The notebook turns to a new sheet: straight to the top of the screen, at once (a smooth scroll from the bottom of a
+    // long page left the next one half-way, and the ink was written out of sight: Clément, 17/11).
+    if (Notebook.on()) window.scrollTo(0, 0);
+    else { var top = document.querySelector(".page"); if (top) top.scrollIntoView({ block: "start", behavior: REDUCED ? "auto" : "smooth" }); }
     // A screen reader starts again at the new page's title (the choice button it was on is gone).
     var hd = document.querySelector(".page-head h2"); if (hd) { try { hd.focus({ preventScroll: true }); } catch (e) {} }
     if (pref("autoRead") && A.tts) speak(M.view(G.story, G.s));
@@ -5627,7 +5630,9 @@
       var total = plan.reduce(function (a, x) { return a + x.n; }, 0), per = Math.max(45, Math.min(150, 2600 / total));
       plan.forEach(function (x) { x.p.classList.add("ink-wait"); });
       if (ch) ch.classList.add("ink-wait");
-      var i = 0, t0 = 0, done = false;
+      // the pen waits for the sheet to be in place (the page turn), and for the line it writes to be on screen: below
+      // the bottom of the screen it stops, and goes on when the reader scrolls down to it
+      var i = 0, t0 = 0, last = 0, done = false, start = 0, wait = pref("pageTurn") ? 480 : 160;
       function mask(p, v) { p.style.webkitMaskImage = p.style.maskImage = v ? v.img : ""; p.style.webkitMaskSize = p.style.maskSize = v ? v.size : ""; p.style.webkitMaskPosition = p.style.maskPosition = v ? v.pos : ""; p.style.webkitMaskRepeat = p.style.maskRepeat = v ? "no-repeat" : ""; }
       function dry(p) { mask(p, null); p.classList.remove("ink-wait"); void p.offsetWidth; p.classList.remove("ink-wet"); }
       function finish() {
@@ -5639,7 +5644,12 @@
       page.addEventListener("pointerdown", finish);
       function frame(ts) {
         if (done || !page.isConnected) return;
-        var x = plan[i]; if (!t0) { t0 = ts; x.p.classList.remove("ink-wait"); x.p.classList.add("ink-wet"); }
+        if (!start) start = ts;
+        if (ts - start < wait) { requestAnimationFrame(frame); return; }
+        var x = plan[i]; if (!t0) { t0 = ts; last = ts; x.p.classList.remove("ink-wait"); x.p.classList.add("ink-wet"); }
+        var lineY = x.p.getBoundingClientRect().top + Math.floor((ts - t0) / per) * x.lh;
+        if (lineY > (window.innerHeight || 800) - 28) { t0 += ts - last; last = ts; requestAnimationFrame(frame); return; }
+        last = ts;
         var t = (ts - t0) / per, k = Math.floor(t), f = t - k;
         if (k >= x.n) { dry(x.p); i++; t0 = 0; if (i >= plan.length) { finish(); return; } requestAnimationFrame(frame); return; }
         var top = k * x.lh, pct = Math.round(f * 100);
