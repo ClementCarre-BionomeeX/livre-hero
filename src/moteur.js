@@ -2628,24 +2628,44 @@
     return [{ sys: "puzzle", group: "enigme", label: interp(s, p.puzzleLabel || D.label || ("Te pencher sur " + lowArt(interp(s, D.title)))) }];
   }
   function plain(x) { return String(x == null ? "" : x).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]/g, ""); }
-  function puzzleRight(D, ans) {
+  function answerFits(D, want, ans) {
     if (ans == null || ans === "") return false;
-    if (D.kind === "molettes" || D.kind === "ordre") return Array.isArray(ans) && ans.length === D.answer.length && ans.every(function (x, i) { return String(x) === String(D.answer[i]); });
-    return [].concat(D.answer).some(function (a) { return plain(a) === plain(ans); });
+    if (D.kind === "molettes" || D.kind === "ordre") return Array.isArray(ans) && ans.length === want.length && ans.every(function (x, i) { return String(x) === String(want[i]); });
+    return [].concat(want).some(function (a) { return plain(a) === plain(ans); });
   }
-  function puzzleOpen(story, s) { s.puzzle = { id: story.passages[s.node].puzzle, from: s.node, wrong: 0, msg: null, forced: false }; s.node = "@enigme"; }
-  function puzzleDone(story, s, ok) {
-    var z = s.puzzle, D = puzzleDef(story, z.id), br = (ok ? D.win : D.lose) || {};
+  function puzzleRight(D, ans) { return answerFits(D, D.answer, ans); }
+  // Intent: puzzleMatch(Story, State, Puzzle, answer) -> { alt: Alt | null } | null = which right answer was given.
+  // Why (12.1, a book read twice): a riddle may have two right answers, the plain one and the one it hides, each
+  // leading elsewhere (alt: [{ id, answer, to, fx, if, say }]). An alt counts only while its condition holds.
+  function puzzleMatch(story, s, D, ans) {
+    if (answerFits(D, D.answer, ans)) return { alt: null };
+    var a = (D.alt || []).filter(function (x) { return evalCond(story, s, x.if) && answerFits(D, x.answer, ans); })[0];
+    return a ? { alt: a } : null;
+  }
+  // Two readings (12.1): what a reader typed right in an earlier game (s.answers, from the profile) can be given again.
+  function answerLabel(x) { return Array.isArray(x) ? x.join(" · ") : String(x); }
+  function puzzleOpen(story, s) { var id = story.passages[s.node].puzzle; pocketKeep(story, s, id); s.puzzle = { id: id, from: s.node, wrong: 0, msg: null, forced: false }; s.node = "@enigme"; }
+  function puzzleDone(story, s, ok, alt, ans) {
+    var z = s.puzzle, D = puzzleDef(story, z.id), br = (ok ? (alt || D.win) : D.lose) || {};
     s.puzzles = s.puzzles || {}; s.puzzles[z.id] = ok ? "ok" : "ko";
-    if (ok) { s.flags["enigme:" + z.id] = true; ev(s, "Énigme résolue : " + interp(s, D.title) + ".", "good"); stat(s, "puzzles"); }
+    if (ok) {
+      s.flags["enigme:" + z.id] = true; if (alt) s.flags["enigme:" + z.id + ":" + alt.id] = true;
+      if (ans != null) { s.solved = s.solved || {}; s.solved[z.id] = [].concat(s.solved[z.id] || []).filter(function (x) { return answerLabel(x) !== answerLabel(ans); }).concat([ans]); }
+      ev(s, "Énigme résolue : " + interp(s, D.title) + ".", "good"); stat(s, "puzzles");
+      if (alt && alt.say) ev(s, interp(s, alt.say), "good");
+    }
+    if (s.pocket) delete s.pocket[z.id];
     s.puzzle = null; s.last = ok ? "win" : "lose";
     apply(story, s, br.fx);
+    // Solved from the pocket (a puzzle carried since another page): its effects only, and the reader stays where they are.
+    if (z.pocket) { s.node = z.from; return; }
     go(story, s, br.to || z.from);
   }
   function puzzleTry(story, s, ans) {
     var z = s.puzzle, D = puzzleDef(story, z.id);
     if (ans == null || ans === "" || (Array.isArray(ans) && !ans.length)) { z.msg = "Tu hésites, et tu ne tentes rien."; return; }
-    if (puzzleRight(D, ans)) return puzzleDone(story, s, true);
+    var m = puzzleMatch(story, s, D, ans);
+    if (m) return puzzleDone(story, s, true, m.alt, ans);
     z.wrong++;
     z.msg = interp(s, D.wrongText || "Ce n'est pas ça.");
     if (D.tries && z.wrong >= D.tries) puzzleDone(story, s, false);
@@ -2658,6 +2678,28 @@
     if (roll.ok) return puzzleDone(story, s, true);
     z.forced = true; z.msg = interp(s, F.fail || "Peine perdue.");
   }
+  // Intent: recalled(Story, State, PuzzleId) -> [answer] = the right answers this reader typed in an earlier game, that
+  // still count now (an alt may hold only in a second reading).
+  function recalled(story, s, id) {
+    var D = puzzleDef(story, id);
+    return [].concat(((s.answers || {})[id]) || []).filter(function (a) { return !!puzzleMatch(story, s, D, a); }).slice(0, 2);
+  }
+  // Puzzles carried (12.1, `carry: true`): opened once and left unsolved, the puzzle stays « en suspens »; from any
+  // page, the reader may take it up again (the key often comes later). Solved there, it gives its effects (win.fx, or
+  // an alt's fx) and the reader stays on the page. A carried puzzle has no tries to lose.
+  function pocketKeep(story, s, id) { if (puzzleDef(story, id).carry && !(s.puzzles || {})[id]) { s.pocket = s.pocket || {}; s.pocket[id] = s.pocket[id] || s.turn || 1; } }
+  function pocketOf(story, s) { return Object.keys(s.pocket || {}).filter(function (k) { return !(s.puzzles || {})[k]; }); }
+  function pocketChoices(story, s, p) {
+    if (!p || p.end || s.combat || p.noPocket) return [];
+    var ids = pocketOf(story, s).filter(function (k) { return k !== p.puzzle; });
+    if (!ids.length) return [];
+    return [{ sys: "pocket", group: "enigme", label: ids.length === 1 ? "Reprendre l'énigme en suspens : " + lowArt(interp(s, puzzleDef(story, ids[0]).title)) : "Reprendre une énigme en suspens (" + ids.length + ")" }];
+  }
+  function pocketView(story, s) {
+    var ids = pocketOf(story, s), cs = ids.map(function (k) { return { sys: "pocketOpen", puzzle: k, group: "enigme", label: interp(s, puzzleDef(story, k).title) }; });
+    cs.push({ sys: "pocketLeave", label: "Revenir à la page" });
+    return { title: "Énigmes en suspens", kind: "enigme", text: ["Les énigmes que tu as laissées ouvertes. Une clef trouvée plus loin peut en ouvrir une."], choices: cs };
+  }
   function puzzleView(story, s) {
     var z = s.puzzle, D = puzzleDef(story, z.id), text = [interp(s, D.text)], cs = [];
     if (D.cipher) text.push("> " + interp(s, D.cipher));
@@ -2665,8 +2707,9 @@
     if (z.msg) text.push(z.msg);
     if (D.tries) text.push("*Essais restants : " + (D.tries - z.wrong) + ".*");
     cs.push({ sys: "puzzleTry", ui: true, group: "enigme", label: interp(s, D.tryLabel || "Essayer") });
+    recalled(story, s, z.id).forEach(function (a) { cs.push({ sys: "puzzleRecall", answer: a, group: "enigme", label: "Répondre ce que tu sais déjà : « " + answerLabel(a) + " »" }); });
     if (D.force && !z.forced) cs.push({ sys: "puzzleForce", group: "enigme", label: interp(s, D.force.label || "Forcer"), test: { dom: D.force.dom, diff: D.force.diff || 0, label: D.force.testLabel } });
-    cs.push({ sys: "puzzleLeave", label: interp(s, D.leave || "Laisser cela pour l'instant") });
+    cs.push({ sys: "puzzleLeave", label: interp(s, D.carry ? D.leave || "Garder l'énigme en suspens" : D.leave || "Laisser cela pour l'instant") });
     return { title: interp(s, D.title), kind: "enigme", text: text, choices: cs,
       puzzle: { id: z.id, kind: D.kind, wheels: D.wheels || null, pieces: (D.pieces || []).map(function (x) { return interp(s, x); }), size: (D.answer || []).length || null } };
   }
@@ -2938,6 +2981,7 @@
     "@bataille": function (story, s) { return battleView(story, s); },
     "@duel": function (story, s) { return duelView(story, s); },
     "@enigme": function (story, s) { return puzzleView(story, s); },
+    "@suspens": function (story, s) { return pocketView(story, s); },
     "@road": function (story, s) {
       var t = s.travel, region = (W(story).regions || {})[t.region] || {}, r = routeById(story, t.route);
       var q = (region.quiet && region.quiet.length) ? region.quiet[(t.step + s.turn) % region.quiet.length] : "La route se déroule sans histoire. Les heures passent au pas, et tu gardes l'œil ouvert.";
@@ -3114,7 +3158,7 @@
         cs = cs.concat([{ to: s.hubLast, label: "Revenir : " + interp(s, hp.title || (W(story).places[hp.place] || {}).name || "…"), auto: "back" }]);
       }
       if (!cs.length) { var back = backChoice(story, s, p); if (back) cs = [back]; }
-      cs = cs.concat(councilChoices(story, s, p), battleChoices(story, s, p), montrerChoices(story, s, p), accuseChoices(story, s, p), repayChoices(story, s, p), shopChoices(story, s, p), tavernChoices(story, s, p), craftChoices(story, s, p), vigilChoices(story, s, p), duelChoices(story, s, p), puzzleChoices(story, s, p), belieChoices(story, s, p), aparteChoices(story, s, p), depotChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p), cardChoices(story, s, p));
+      cs = cs.concat(councilChoices(story, s, p), battleChoices(story, s, p), montrerChoices(story, s, p), accuseChoices(story, s, p), repayChoices(story, s, p), shopChoices(story, s, p), tavernChoices(story, s, p), craftChoices(story, s, p), vigilChoices(story, s, p), duelChoices(story, s, p), puzzleChoices(story, s, p), pocketChoices(story, s, p), belieChoices(story, s, p), aparteChoices(story, s, p), depotChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p), cardChoices(story, s, p));
       var sec = [];
       v = { title: interp(s, p.title || ""), kind: p.end ? "end" : "passage", text: textList(story, s, p.text, null, sec), choices: cs, passage: p };
       // The people here at this hour, then the rumour heard on coming in (7.9).
@@ -3138,6 +3182,8 @@
       // A scene that spends the night tells it at its end; one that waits for the evening, at its start.
       if (s.took && s.took.node === s.node && s.took.turn === s.turn) { v.text[s.took.end ? "push" : "unshift"]("*(" + s.took.say + ")*"); if (!s.took.end) sec = sec.map(function (i) { return i + 1; }); }
       // The paragraphs of a second reading: the page may mark them, lightly.
+      // A book read twice (12.1): the ending says which reading it closes, and whether the other one waits.
+      if (p.end && story.twice) { var rdg = readingOf(story, s); v.twice = { reading: rdg, text: interp(s, (rdg === 2 ? story.twice.end2 : story.twice.end1) || "") || null }; }
       if (sec.length) v.second = sec;
       // Back on a page already read whose author wrote no return text (first / again / once): the page folds, the
       // reader goes straight to the choices and may unfold it (Clément's rule, 12/11: no long text replayed).
@@ -3902,7 +3948,11 @@
       case "puzzleForce": puzzleForce(story, s); break;
       // A closed room (8.3): putting an account in doubt before the one who gave it (or before oneself).
       case "belie": { var BA = accountDef(story, c.account); s.belied = s.belied || {}; s.belied[c.account] = s.turn; s.via = "doute"; go(story, s, BA.belie); break; }
-      case "puzzleLeave": { var pf = s.puzzle.from; s.puzzle = null; go(story, s, pf); break; }
+      case "puzzleLeave": { var pz = s.puzzle; s.puzzle = null; if (pz.pocket) s.node = pz.from; else go(story, s, pz.from); break; }
+      case "puzzleRecall": { var mr = puzzleMatch(story, s, puzzleDef(story, s.puzzle.id), c.answer); if (mr) puzzleDone(story, s, true, mr.alt, c.answer); break; }
+      case "pocket": s.pocketFrom = s.node; s.node = "@suspens"; break;
+      case "pocketOpen": s.puzzle = { id: c.puzzle, from: s.pocketFrom, wrong: 0, msg: null, forced: false, pocket: true }; s.node = "@enigme"; break;
+      case "pocketLeave": s.node = s.pocketFrom; s.pocketFrom = null; break;
       case "bplace": { var bb = s.battle; bb.at[bb.troops[bb.i]] = c.post; bb.i++; if (bb.i >= bb.troops.length) bb.step = "wave"; break; }
       case "border": battleOrder(story, s, c); break;
       case "bnext": { var bn = s.battle, BN = battleDef(story, bn.id); if (bn.wave + 1 >= BN.waves.length || battleLostDay(story, s)) { s.holdWorld = true; battleEnd(story, s); } else { bn.wave++; bn.step = "wave"; bn.res = null; } break; }
@@ -3916,22 +3966,34 @@
     }
   }
   // Intent: start(Story, State) -> () ! gives the archetype's kit (world.start.kits), then enters the first passage
+  // Two readings (12.1, Clément, 17/11: « une histoire à faire deux fois, différente la deuxième fois »):
+  // story.twice = { first, second, start2, say1, say2, end1, end2 }. The first reading unveils and ends on the ending
+  // `first`; once this reader has found an ending of the book (s.second), the game is the second reading: it starts on
+  // `start2` (or the start) and ends on `second`. The author tags what belongs to a reading with `second: false` or
+  // `second: true` (paragraph, choice, passage). The validator holds each reading to its own ending.
+  function readingOf(story, s) { return story.twice ? (secondOk(s, true) ? 2 : 1) : null; }
+  function startOf(story, s) {
+    var T = story.twice; if (!T) return story.start;
+    var r = readingOf(story, s);
+    ev(s, interp(s, r === 2 ? T.say2 || "Seconde lecture. Tu rouvres le livre avec ce que tu sais." : T.say1 || "Première lecture."), "lore");
+    return r === 2 && T.start2 ? T.start2 : story.start;
+  }
   function start(story, s) {
     s.events = [];
     if (s.tickDay == null) s.tickDay = day(s);
-    if (story.heroes) { initHeroes(story, s); enter(story, s, story.start); return; }
+    if (story.heroes) { initHeroes(story, s); enter(story, s, startOf(story, s)); return; }
     if (s.pv == null) s.pv = pvMax(s);
     // A voie's own kit (8.5) wins over its class's: the copiste has a pen case, not a lute.
     var kits = (W(story).start || {}).kits || {}, kit = (s.voie && ((story.voies || {})[s.voie] || {}).kit) || kits[s.arch] || [];
     kit.forEach(function (id) { s.items.push(id); if (item(story, id).ammo) s.arrows = (s.arrows || 0) + BOW_ARROWS; });
-    enter(story, s, story.start);
+    enter(story, s, startOf(story, s));
   }
 
   var API = {
     FACE: FACE, FACE_KEYS: FACE_KEYS, ASPECT_KEYS: ASPECT_KEYS, ASPECT_MAX_WORDS: ASPECT_MAX_WORDS, personOf: personOf, aspectOf: aspectOf, quiOf: quiOf, nameForms: nameForms, faceErrors: faceErrors, REGARDS: REGARDS, mysterySolved: mysterySolved, happened: happened, TAVERN_GAMES_PER_DAY: TAVERN_GAMES_PER_DAY,
     ARCHS: ARCHS, archOf: archOf, usesOf: usesOf, plainOf: plainOf, marksOf: marksOf, TEXT_FX: TEXT_FX, MARK_KINDS: MARK_KINDS, MOODS: MOODS, keywordsOf: keywordsOf, keywordFor: keywordFor, trouve: trouve, moodOf: moodOf, TECHS: TECHS, techsOf: techsOf, partyView: partyView, cpv: cpv, cpvMax: cpvMax, FRONT: FRONT, DOMAINS: DOMAINS, EP: EP, EP_PER_LEVEL: EP_PER_LEVEL, MAX_LEVEL: MAX_LEVEL, DIFFS: DIFFS, LOYAL_AT: LOYAL_AT, SUCCESS: SUCCESS, STEP_HOURS: STEP_HOURS,
     setRng: setRng, setDice: setDice, nudgeOf: nudgeOf, ambianceOf: ambianceOf, AMBIANCES: AMBIANCES, isNightNow: function (s) { var h = s.time % 24; return h >= NIGHT_FROM || h < NIGHT_TO; }, DIFFICULTY: DIFFICULTY, featsOf: featsOf, endingsOf: endingsOf, endingOf: endingOf, fatesOf: fatesOf, fateCount: fateCount, freshState: freshState, level: level, pvMax: pvMax, bonus: bonus, chance: chance, rollTest: rollTest,
-    evalCond: evalCond, describeCond: describeCond, textList: textList, view: view, allowed: allowed, target: target,
+    readingOf: readingOf, recalled: recalled, pocketOf: pocketOf, puzzleMatch: puzzleMatch, evalCond: evalCond, describeCond: describeCond, textList: textList, view: view, allowed: allowed, target: target,
     depotTag: depotTag, depotFits: depotFits, depotPuts: depotPuts, depotTakes: depotTakes, chroniquesOf: chroniquesOf, DEPOT_FLAG: DEPOT_FLAG, stockShown: stockShown,
     apply: apply, enter: enter, choose: choose, start: start, present: present, loyal: loyal, clueCount: clueCount,
     PERIODS: PERIODS, periodOf: periodOf, hereNow: hereNow, contradict: contradict, contradictionOf: contradictionOf, faded: faded, regardOk: regardOk, rumorById: rumorById, momentOf: momentOf,

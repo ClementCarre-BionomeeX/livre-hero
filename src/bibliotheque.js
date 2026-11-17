@@ -25,6 +25,7 @@
     { k: "historique", label: "Roman historique", also: "histoire epoque" },
     { k: "nature", label: "Nature et animaux", also: "animaux animal loup sauvage survie" },
     { k: "ecole", label: "École", also: "eleve college apprentissage etudes" },
+    { k: "enigmes", label: "Énigmes", also: "enigme devinette devinettes casse-tete chiffre code rebus" },
   ];
   var GENRE = {}; GENRES.forEach(function (g) { GENRE[g.k] = g; });
 
@@ -32,7 +33,7 @@
   // A game's size is its passages; a novel to read is one passage per chapter, so its size is its words.
   var GAME_SHORT = 100, GAME_LONG = 1000, READ_SHORT = 40000, READ_LONG = 70000;
   var FACETS = [
-    { k: "type", label: "Jeu ou lecture", values: [["jeu", "À jouer"], ["cartes", "À cartes"], ["lecture", "À lire"]] },
+    { k: "type", label: "Jeu ou lecture", values: [["jeu", "À jouer"], ["deuxfois", "À lire deux fois"], ["cartes", "À cartes"], ["lecture", "À lire"]] },
     { k: "joueurs", label: "Joueurs", values: [["seul", "Seul"], ["deux", "À deux"], ["plusieurs", "À plusieurs"]] },
     { k: "longueur", label: "Longueur", values: [["court", "Court"], ["moyen", "Moyen"], ["long", "Long"]] },
     { k: "genres", label: "Genres", values: GENRES.map(function (g) { return [g.k, g.label]; }) },
@@ -41,7 +42,7 @@
   ];
   // Words a reader may type for a facet's value (searched like the rest of the card).
   var FACET_WORDS = {
-    "type:jeu": "jeu jouer livre-jeu choix heros", "type:cartes": "cartes carte main", "type:lecture": "lire lecture roman classique sans choix",
+    "type:jeu": "jeu jouer livre-jeu choix heros", "type:cartes": "cartes carte main", "type:lecture": "lire lecture roman classique sans choix", "type:deuxfois": "deux fois deux lectures relire seconde lecture",
     "joueurs:seul": "seul solo un joueur", "joueurs:deux": "deux 2 joueurs duo", "joueurs:plusieurs": "plusieurs groupe joueurs famille",
     "longueur:court": "court courte rapide soiree", "longueur:moyen": "moyen", "longueur:long": "long longue grand",
     "public:adulte": "adulte adultes mature",
@@ -62,7 +63,7 @@
     return { id: st.id, title: st.title, subtitle: st.subtitle || "", summary: st.summary || "", version: st.version || 1,
       acts: (st.acts || []).length, passages: Object.keys(st.passages || {}).length, words: wordCount(st),
       multi: st.multi || null, kid: st.kid || null, adult: st.adult || null, cover: st.cover || null, age: st.age || null, author: st.author || null,
-      lecture: !!st.lecture, cartes: !!st.cartes, tags: Array.isArray(st.tags) ? st.tags.slice() : [] };
+      lecture: !!st.lecture, cartes: !!st.cartes, twice: !!st.twice, tags: Array.isArray(st.tags) ? st.tags.slice() : [] };
   }
   // « R. L. Stevenson · traduction de… » -> « R. L. Stevenson » ; « Claude, pour Clément » -> « Claude »
   function authorName(a) { return a ? String(a).split(/\s+·\s+|,\s+/)[0].trim() : ""; }
@@ -70,7 +71,7 @@
     var n = m.lecture ? m.words || 0 : m.passages || 0;
     var lo = m.lecture ? [READ_SHORT, READ_LONG] : [GAME_SHORT, GAME_LONG];
     return {
-      type: m.lecture ? "lecture" : m.cartes ? "cartes" : "jeu",
+      type: m.lecture ? "lecture" : m.cartes ? "cartes" : m.twice ? "deuxfois" : "jeu",
       joueurs: m.lecture ? null : !m.multi ? "seul" : (m.multi.min || 2) === 2 && (m.multi.max || 2) === 2 ? "deux" : "plusieurs",
       longueur: !n ? null : n < lo[0] ? "court" : n < lo[1] ? "moyen" : "long",
       public: m.adult ? "adulte" : "tous",

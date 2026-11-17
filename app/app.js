@@ -430,7 +430,7 @@
   // Why: « la collection demande un peu de tri » ; the home page stays as sober as 9.4 made it: one line, the rest folded.
   var LIB_SORTS = [["rayons", "Par rayons"], ["titre", "Par titre"], ["court", "Les plus courts d'abord"], ["long", "Les plus longs d'abord"], ["recent", "Lus récemment"], ["age", "Par âge conseillé"], ["auteur", "Par auteur"]];
   var LIB_PROGRESS = { k: "avancee", label: "", values: [["neuf", "Jamais ouverts"], ["encours", "En cours"], ["fini", "Terminés"]] };
-  var LIB_SHELVES = [["courtes", "Histoires courtes", "Une soirée, d'une traite."], ["romans", "Romans", "Quelques soirées, plusieurs fins."], ["grands", "Grands romans", "Des heures et des heures, en plusieurs actes."], ["plusieurs", "À plusieurs", "Chacun son héros, sur le même appareil ou dans une salle commune."], ["lire", "Romans à lire", "Des classiques, page après page, sans choix."]];
+  var LIB_SHELVES = [["courtes", "Histoires courtes", "Une soirée, d'une traite."], ["romans", "Romans", "Quelques soirées, plusieurs fins."], ["deuxfois", "À lire deux fois", "La première lecture dévoile ; la seconde reprend le livre avec ce que tu sais."], ["grands", "Grands romans", "Des heures et des heures, en plusieurs actes."], ["plusieurs", "À plusieurs", "Chacun son héros, sur le même appareil ou dans une salle commune."], ["lire", "Romans à lire", "Des classiques, page après page, sans choix."]];
   var SHORT_BOOK = 100, LONG_BOOK = 1000;
   function libState() {
     if (!A.lib) {
@@ -529,7 +529,7 @@
     if (!query && sort === "rayons") {
       // The shelves of 9.4, by the size of the book (its passages); the novels to read have their own.
       var size = function (m) { var st = A.builtins[m.id]; return st ? Object.keys(st.passages || {}).length : m.passages || 0; };
-      var shelfOf = function (m) { if (m.lecture) return "lire"; if (m.multi) return "plusieurs"; var n = size(m); return !n ? "romans" : n < SHORT_BOOK ? "courtes" : n < LONG_BOOK ? "romans" : "grands"; };
+      var shelfOf = function (m) { if (m.lecture) return "lire"; if (m.multi) return "plusieurs"; if (m.twice) return "deuxfois"; var n = size(m); return !n ? "romans" : n < SHORT_BOOK ? "courtes" : n < LONG_BOOK ? "romans" : "grands"; };
       LIB_SHELVES.forEach(function (sh) {
         var mine = found.filter(function (m) { return shelfOf(m) === sh[0]; }).sort(function (a, b) { return libMinutes(a) - libMinutes(b); });
         if (!mine.length) return;
@@ -581,7 +581,7 @@
   // button to play; the rest (whole summary, endings found, export, details) behind « En savoir plus ».
   function bookCard(m) {
     var st = A.builtins[m.id] || null, open = !!A.open["book:" + m.id];
-    var facts = [m.multi ? playersLabel(m.multi) : st ? "environ " + minutesLabel(storyMinutes(st)) + (m.lecture ? " de lecture" : " par partie") : null, m.age ? "dès " + m.age + " ans" : null, m.builtin ? null : "importée"].filter(Boolean);
+    var facts = [m.multi ? playersLabel(m.multi) : st ? "environ " + minutesLabel(storyMinutes(st)) + (m.lecture ? " de lecture" : m.twice ? " par lecture" : " par partie") : null, m.twice ? twiceLine(m) : null, m.age ? "dès " + m.age + " ans" : null, m.builtin ? null : "importée"].filter(Boolean);
     return h("article", { class: "card has-cover book" + (m.adult ? " adult" : "") + (open ? " open" : "") },
       cover(m, st),
       m.adult ? h("div", { class: "adult-tag" }, "Thème adulte") : null,
@@ -602,6 +602,13 @@
           ? h("span", { class: "confirm small" }, "Retirer ?", h("button", { class: "btn sm danger", onclick: function () { removeStory(m); } }, "Oui"), h("button", { class: "btn sm", onclick: function () { A.confirmDel = null; render(); } }, "Non"))
           : h("button", { class: "btn sm ghost", onclick: function () { A.confirmDel = "s:" + m.id; render(); } }, "Retirer")) : null),
       open ? aboutDetails(m) : null);
+  }
+  // Intent: twiceLine(StoryMeta) -> text = « à lire deux fois », and where this reader stands (12.0)
+  function twiceLine(m) {
+    var st = A.builtins[m.id], r = A.profile && st ? recordOf(A.profile, m.id) : null, T = st && st.twice;
+    if (!T || !r) return "à lire deux fois";
+    var has = function (e) { return !!(r.endings[e] || r.endings["fin:" + e]); };
+    return has(T.second) ? "les deux lectures faites" : has(T.first) ? "à lire deux fois · la seconde lecture t'attend" : "à lire deux fois";
   }
   // Intent: bookTags(StoryMeta) -> Element = the kind of book and its genres; a touch shows the books that share it.
   function bookTags(m) {
@@ -2032,6 +2039,8 @@
     if (!C.multi && A.profile) { var known = recordOf(A.profile, st.id).endings || {}; if (Object.keys(known).length) { s.second = {}; Object.keys(known).forEach(function (k) { s.second[k] = 1; }); } }
     // Paths that unveil (8.9): what this reader learned in earlier games (lore), and the pages already read there (lu,
     // from the trail: a page where a choice was taken), for the shortcuts over a known scene.
+    // 12.0: the answers this reader found to the puzzles in earlier games, offered again (« Répondre ce que tu sais déjà »).
+    if (!C.multi && A.profile && st.puzzles) { var ra = recordOf(A.profile, st.id).answers; if (ra) s.answers = clone(ra); }
     if (!C.multi && A.profile && (st.savoirs || st.leads)) { var rec0 = recordOf(A.profile, st.id); s.lore = Object.assign({}, rec0.lore || {}); s.lore0 = Object.assign({}, s.lore); s.lu = {}; Object.keys(rec0.trail || {}).forEach(function (k) { s.lu[k] = 1; }); }
     s.events = [];
     (st.past || []).forEach(function (q, qi) { M.apply(st, s, q.answers[C.past[qi]].fx); });
@@ -2630,6 +2639,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "12.1", items: ["Les livres à lire deux fois : la première lecture dévoile, la seconde reprend le livre avec ce que tu sais. La bibliothèque leur donne un rayon et dit où tu en es ; la fin de la première lecture propose la seconde.", "Une énigme laissée en suspens reste dans le carnet : quand la clef arrive, plus loin, « Reprendre l'énigme en suspens » la rouvre depuis n'importe quelle page.", "Une devinette peut avoir deux bonnes réponses, qui ne mènent pas au même endroit.", "Une réponse trouvée dans une partie est gardée : la partie suivante propose de la redonner."] },
     { v: "12.0", items: ["Les visages sont redessinés en formes libres : un front, des pommettes, une mâchoire et un menton, deux côtés un peu différents, des oreilles, un cou qui s'élargit vers les épaules et des vêtements avec une encolure. Les cheveux ont un bord irrégulier, une raie et des mèches, la barbe suit la mâchoire. Chaque personnage garde ses traits : âge, peau, yeux, coiffure et marques."] },
     { v: "11.9", items: ["La bibliothèque devient une étagère : les livres sont rangés debout, le dos tourné vers toi, chacun dans la couleur de sa reliure. Touche un dos pour sortir le livre.", "Les paysages en tête de page sont peints à l'aquarelle, avec un croquis à l'encre par-dessus.", "Les dés sont dessinés à l'encre et roulent depuis la marge avant de s'arrêter.", "Un objet trouvé, un haut fait, une quête nouvelle : chacun reçoit son sceau de cire. Les livres aux thèmes adultes portent un tampon rouge.", "Les portraits sont peints à l'aquarelle sur un papier crème, avec un trait d'encre qui tremble. Les ombres prennent un ton plus profond de la même peau."] },
     { v: "11.8", items: ["« L'Île Folle-Aiguille » grandit encore : une quarantaine de nouvelles quêtes nées d'autres livres, à l'auberge, à Morlenc, à bord, aux escales et sur l'île, pour chacun des trois personnages ; certaines se suivent d'un acte à l'autre."] },
@@ -3700,14 +3710,21 @@
     });
     return box;
   }
+  // Intent: twiceNote(Story, { reading, text }) -> Element = a book read twice (12.0): which reading ends here, and
+  // what waits. Why: the reader must know the book is not finished after the first ending, and that it ends after two.
+  function twiceNote(st, T) {
+    var say = T.text || (T.reading === 1 ? "La première lecture s'achève ici. Le livre se lit deux fois : rouvre-le, la seconde lecture ne sera pas la même, et tout ce que tu as compris te servira." : "La seconde lecture s'achève : tu as lu ce livre comme il demandait à l'être, deux fois.");
+    return h("div", { class: "notice twice-note" }, h("b", null, T.reading === 1 ? "Première lecture" : "Seconde lecture"), " · ", say);
+  }
   function renderEnding(st, s, v) {
     if (st.lecture) return renderBookEnd(st, s);
     var qs = M.questsOf(st), done = qs.filter(function (q) { return M.questDone(s, q); });
     return h("div", { class: "ending" }, h("h3", null, "Fin de la lecture"),
       h("div", { class: "small muted" }, s.name + ", " + M.archOf(st, s).label + " de niveau " + M.level(s) + (qs.length ? " · " + done.length + " quêtes sur " + qs.length : "") + " · " + M.timeLabel(s)),
       A.game && !A.game.multi ? endingNote(st, s) : null,
+      v.twice ? twiceNote(st, v.twice) : null,
       h("div", { class: "row" },
-        A.game && A.game.multi ? null : h("button", { class: "btn primary", onclick: function () { newGame(st.id); } }, "Relire avec un autre héros"),
+        A.game && A.game.multi ? null : h("button", { class: "btn primary", onclick: function () { newGame(st.id); } }, v.twice && v.twice.reading === 1 ? "Commencer la seconde lecture" : "Relire avec un autre héros"),
         A.game && !A.game.multi ? h("button", { class: "btn", onclick: function () { openRecit(); } }, "📖 Mon aventure") : null,
         h("button", { class: "btn", onclick: function () { A.carnet = true; A.carnetTab = "quetes"; render(); } }, "Ce que tu as fait"),
         A.game && !A.game.multi && !A.game.ephemeral ? h("button", { class: "btn", onclick: function () { A.carnet = true; A.carnetTab = "soupcons"; render(); } }, "🕵 Ce que tu croyais") : null,
@@ -6267,6 +6284,8 @@
     (s.items || []).forEach(function (k) { add(cx.items, k); });
     // What was learned (8.9) is kept at once: a game left halfway still opens its paths.
     Object.keys(s.lore || {}).forEach(function (k) { var lo = r.lore = r.lore || {}; if (!lo[k]) { lo[k] = Date.now(); changed = true; } });
+    // 12.0: the right answers found, kept at once for the next reading.
+    Object.keys(s.solved || {}).forEach(function (k) { var an = r.answers = r.answers || {}, had = (an[k] || []).map(String); s.solved[k].forEach(function (x) { if (had.indexOf(String(x)) < 0) { an[k] = (an[k] || []).concat([x]); had.push(String(x)); changed = true; } }); });
     // The trail (8.8): each choice of this game counted once in the reader's record, for « déjà suivie ».
     var wk = d.walk || {}, done = d.walked = d.walked || {}, tr = null, fresh = [];
     Object.keys(wk).forEach(function (node) { String(wk[node]).split(",").forEach(function (at) { if (at !== "" && !done[node + ":" + at]) fresh.push(1); }); });
