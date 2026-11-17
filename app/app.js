@@ -2470,6 +2470,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "10.8", items: ["« Le Maître de Ballantrae » de R. L. Stevenson, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1889. Deux frères Durie, l'un parti avec le prince Charlie, l'autre resté au domaine, et un intendant qui raconte tout, de l'Écosse jusqu'aux forêts de l'Amérique. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "10.7", items: ["« Enlevé ! » de R. L. Stevenson, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1886. Écosse, 1751 : un garçon trahi par son oncle, un brick, un rebelle des Highlands et une longue fuite dans la bruyère. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "10.6", items: ["« La Flèche noire » de R. L. Stevenson, à lire en entier, dans la traduction de P.-G. La Chesnais (1901). La guerre des Deux-Roses, des proscrits dans la forêt de Tunstall, un tuteur à démasquer. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "10.5", items: ["« Croc-Blanc » de Jack London, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1906 (la traduction française de 1923 est abrégée). Sans choix, avec les gens, les lieux et les mots d'un toucher, et une notice sur ce que le livre doit à son époque."] },
