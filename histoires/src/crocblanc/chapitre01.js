@@ -1,0 +1,107 @@
+// « Croc-Blanc » (White Fang), Jack London, 1906 : un livre à lire, sans choix (lecture: true).
+// Texte : traduction nouvelle par Claude, faite pour cette bibliothèque à partir du texte anglais de 1906 (Project Gutenberg
+// n° 910, domaine public). La traduction française de Gruyer et Postif (1923) est abrégée : celle-ci suit le roman en entier.
+// Les mesures sont converties en mètres, en kilos et en degrés Celsius. Les titres des chapitres sont ceux de London, traduits.
+// Tout ce qui n'est pas de London vit dans les tags : gens, lieux, mots, résumés des chapitres.
+// Chapitre I · Chapitre I · La piste de la viande
+module.exports = {
+  I_1: { act: "I", title: "Le fleuve gelé", place: "piste",
+    text: [
+      "De part et d'autre du fleuve gelé, la sombre forêt d'épicéas fronçait le sourcil. Un vent récent avait dépouillé les arbres de leur manteau blanc de givre, et ils semblaient se pencher les uns vers les autres, noirs et menaçants, dans la lumière qui baissait. Un immense silence régnait sur le pays. Le pays lui-même n'était que désolation, sans vie, sans mouvement, si solitaire et si froid que son âme n'était pas même celle de la tristesse. Il y avait là comme un rire, mais un rire plus terrible que toute tristesse : un rire sans joie, pareil au sourire du sphinx, un rire froid comme le gel et qui avait la dureté de ce qui ne se trompe jamais. C'était la sagesse souveraine et incommunicable de l'éternité, qui riait de la vanité de la vie et de l'effort de vivre. C'était le Wild, le Wild sauvage du Nord, au cœur gelé.",
+      "Et pourtant il y avait de la vie, au-dehors, dans ce pays, et une vie qui le défiait. Sur le fleuve gelé peinait une file de chiens à l'allure de loups. Leur fourrure hérissée était blanche de givre. Leur haleine gelait dans l'air à la sortie de leur gueule, jaillissait en jets de vapeur qui retombaient sur leur poil et s'y changeaient en cristaux de glace. Les chiens portaient des harnais de cuir, et des traits de cuir les reliaient à un traîneau qu'ils tiraient derrière eux. Le traîneau n'avait pas de patins. Il était fait d'une solide écorce de bouleau, et il reposait de toute sa surface sur la neige. Son avant se relevait en volute, pour pousser vers le bas et faire passer dessous la vague de neige molle qui se gonflait devant lui. Sur le traîneau, solidement arrimée, était posée une longue caisse étroite et oblongue. Il y avait d'autres choses sur le traîneau, des couvertures, une hache, une cafetière et une poêle à frire ; mais ce qu'on voyait d'abord, ce qui prenait presque toute la place, c'était la longue caisse étroite et oblongue.",
+      "En tête des chiens, sur de larges raquettes, peinait un homme. À l'arrière du traîneau peinait un second homme. Sur le traîneau, dans la caisse, était couché un troisième homme, dont la peine était finie : un homme que le Wild avait vaincu et abattu, si bien qu'il ne bougerait plus et ne lutterait plus jamais. Le Wild n'aime pas le mouvement. La vie l'offense, car la vie est mouvement ; et le Wild cherche toujours à détruire le mouvement. Il gèle l'eau pour l'empêcher de courir à la mer ; il chasse la sève des arbres jusqu'à ce qu'ils gèlent jusqu'au fond de leur cœur puissant ; et c'est l'homme qu'il traque et qu'il écrase avec le plus de férocité et de terreur, l'homme, la plus inquiète des vies, toujours en révolte contre la loi qui veut que tout mouvement finisse un jour par s'arrêter.",
+      "Mais à l'avant et à l'arrière, sans crainte et indomptables, peinaient les deux hommes qui n'étaient pas encore morts. Leurs corps étaient couverts de fourrure et de cuir souple. Les cils, les joues et les lèvres étaient si chargés des cristaux de leur haleine gelée qu'on ne distinguait plus leurs visages. Ils avaient l'air de masques de fantômes, de croque-morts d'un monde de spectres, menant le convoi de quelque spectre. Mais là-dessous, c'étaient des hommes, qui s'enfonçaient dans le pays de la désolation, de la moquerie et du silence ; de chétifs aventuriers lancés dans une aventure colossale, qui se mesuraient à la puissance d'un monde aussi lointain, aussi étranger, aussi dépourvu de pouls que les abîmes de l'espace."
+    ] },
+
+  I_2: { act: "I", title: "Un poisson de moins", place: "piste", fx: { meet: ["bill", "henry"] },
+    text: [
+      "Ils avançaient sans parler, gardant leur souffle pour le travail de leur corps. De tous côtés, le silence les pressait, comme une présence qu'on aurait pu toucher. Il agissait sur leur esprit comme la pression des eaux profondes agit sur le corps du plongeur. Il les écrasait du poids d'une immensité sans fin et d'une loi sans appel. Il les refoulait au plus profond d'eux-mêmes et faisait sortir d'eux, comme le jus du raisin, toutes les fausses ardeurs, toutes les exaltations, toute l'importance exagérée que l'âme humaine s'accorde, jusqu'à ce qu'ils se voient tels qu'ils étaient, bornés et petits, des grains, des poussières, qui se mouvaient avec une ruse faible et une sagesse courte au milieu du jeu des grandes forces et des grands éléments aveugles.",
+      "Une heure passa, puis une deuxième. La pâle lumière du court jour sans soleil commençait à décliner quand un cri faible et lointain s'éleva dans l'air immobile. Il monta d'un élan rapide jusqu'à sa note la plus haute, s'y tint, palpitant et tendu, puis mourut lentement. On aurait dit une âme en peine qui gémissait, s'il n'y avait eu dans ce cri une sorte de férocité triste et d'avidité affamée. L'homme de tête tourna la tête jusqu'à ce que ses yeux rencontrent ceux de l'homme de derrière. Et, par-dessus l'étroite caisse oblongue, chacun fit à l'autre un signe de tête.",
+      "Un deuxième cri s'éleva, et perça le silence d'une note aiguë comme une aiguille. Les deux hommes situèrent le son. Il venait de l'arrière, de quelque part dans l'étendue de neige qu'ils venaient de traverser. Un troisième cri lui répondit, à l'arrière lui aussi, et sur la gauche du deuxième.",
+      "— Ils sont après nous, Bill, dit l'homme de tête.",
+      "Sa voix sonnait rauque et irréelle, et il avait parlé avec un effort visible.",
+      "— La viande est rare, répondit son camarade. Ça fait des jours que j'ai pas vu une trace de lapin.",
+      "Après quoi ils ne parlèrent plus, mais leurs oreilles restaient tendues vers les cris de chasse qui continuaient de monter derrière eux.",
+      "À la tombée de la nuit, ils firent entrer les chiens dans un bouquet d'épicéas, au bord du fleuve, et dressèrent le camp. Le cercueil, à côté du feu, servit de siège et de table. Les chiens-loups, massés de l'autre côté du feu, grondaient et se chamaillaient entre eux, mais sans montrer la moindre envie de s'éloigner dans l'obscurité.",
+      "— M'est avis, Henry, qu'ils restent drôlement près du camp, remarqua Bill.",
+      "Henry, accroupi près du feu, où il faisait déposer le café en y jetant un morceau de glace, fit oui de la tête. Il ne parla pas avant de s'être assis sur le cercueil et d'avoir commencé à manger.",
+      "— Ils savent où leur peau est à l'abri, dit-il. Ils aiment mieux manger la pâtée qu'en servir. Ils sont pas bêtes, ces chiens.",
+      "Bill secoua la tête.",
+      "— Oh, je sais pas.",
+      "Son camarade le regarda avec curiosité.",
+      "— C'est bien la première fois que je t'entends dire qu'ils sont bêtes.",
+      "— Henry, dit l'autre, en mâchant posément ses haricots, t'as pas remarqué le raffut qu'ils ont fait, ces chiens, quand je leur donnais à manger ?",
+      "— C'est vrai qu'ils ont fait plus de grabuge que d'habitude, reconnut Henry.",
+      "— Combien qu'on a de chiens, Henry ?",
+      "— Six.",
+      "— Eh bien, Henry… (Bill s'arrêta un instant, pour donner plus de poids à ses paroles.) Comme je disais, Henry, on a six chiens. J'ai sorti six poissons du sac. J'ai donné un poisson à chaque chien, et, Henry, il m'a manqué un poisson."
+    ] },
+
+  I_3: { act: "I", title: "Le chien de trop", place: "piste", fx: { meet: ["uneoreille"] },
+    text: [
+      "— T'as mal compté.",
+      "— On a six chiens, répéta l'autre sans s'émouvoir. J'ai sorti six poissons. Une-Oreille a pas eu son poisson. Je suis retourné au sac après, et je lui ai pris son poisson.",
+      "— On n'a que six chiens, dit Henry.",
+      "— Henry, reprit Bill, je dis pas que c'étaient tous des chiens, mais ils étaient sept à avoir du poisson.",
+      "Henry s'arrêta de manger pour jeter un coup d'œil par-dessus le feu et compter les chiens.",
+      "— Ils sont plus que six, maintenant, dit-il.",
+      "— J'ai vu l'autre filer sur la neige, déclara Bill avec une assurance tranquille. J'en ai vu sept.",
+      "Henry le regarda d'un air de pitié et dit :",
+      "— Je serai bougrement content quand ce voyage sera fini.",
+      "— Qu'est-ce que tu veux dire par là ? demanda Bill.",
+      "— Je veux dire que ce qu'on transporte là te tape sur les nerfs, et que tu commences à voir des choses.",
+      "— J'y ai pensé, répondit Bill gravement. Alors, quand je l'ai vu filer sur la neige, j'ai regardé dans la neige et j'ai vu ses traces. Après, j'ai compté les chiens, et ils étaient toujours six. Les traces sont encore là, dans la neige. Tu veux les voir ? Je vais te les montrer.",
+      "Henry ne répondit pas et continua de mâcher en silence ; le repas fini, il le couronna d'une dernière tasse de café. Il s'essuya la bouche du revers de la main et dit :",
+      "— Alors, tu crois que c'était…",
+      "Un long cri plaintif, d'une tristesse farouche, venu de quelque part dans l'obscurité, l'avait interrompu. Il s'arrêta pour l'écouter, puis il acheva sa phrase d'un geste de la main vers l'endroit d'où venait le cri :",
+      "— … l'un d'eux ?",
+      "Bill fit oui de la tête.",
+      "— J'aime bougrement mieux croire ça que n'importe quoi d'autre. T'as bien vu toi-même le chahut qu'ont fait les chiens.",
+      "Les cris se succédaient, d'autres leur répondaient, et le silence devenait un vacarme de maison de fous. Les cris montaient de tous les côtés, et les chiens trahissaient leur peur en se serrant les uns contre les autres, si près du feu que la chaleur leur roussissait le poil. Bill remit du bois avant d'allumer sa pipe.",
+      "— M'est avis que t'as un peu le cafard, dit Henry.",
+      "— Henry… (Il tira longtemps sur sa pipe d'un air songeur avant de continuer.) Henry, je me disais qu'il a bougrement plus de chance que toi et moi on n'en aura jamais.",
+      "Du pouce, il désignait la troisième personne, dans la caisse sur laquelle ils étaient assis.",
+      "— Toi et moi, Henry, quand on mourra, on aura de la veine si on a assez de cailloux sur la carcasse pour que les chiens nous mangent pas.",
+      "— Mais on n'a pas de famille, ni d'argent, ni tout le reste, comme lui, répliqua Henry. Des enterrements à longue distance, c'est pas tout à fait dans nos moyens, à toi et à moi.",
+      "— Ce qui me dépasse, Henry, c'est qu'un type comme ça, qui est lord ou quelque chose dans son pays, et qui a jamais eu à s'en faire pour la mangeaille ni pour les couvertures, vienne fourrer son nez dans les coins du monde que le bon Dieu a oubliés : voilà ce que j'arrive pas bien à comprendre.",
+      "— Il aurait pu vivre vieux, s'il était resté chez lui, convint Henry."
+    ] },
+
+  I_4: { act: "I", title: "Des yeux dans la nuit", place: "piste",
+    text: [
+      "Bill ouvrit la bouche pour parler, mais il se ravisa. Il montra plutôt le mur de ténèbres qui les pressait de tous côtés. Dans ce noir complet, on ne devinait aucune forme ; on voyait seulement une paire d'yeux qui luisaient comme des charbons ardents. Henry désigna du menton une deuxième paire, puis une troisième. Un cercle d'yeux luisants s'était refermé autour du camp. De temps à autre, une paire d'yeux bougeait, ou disparaissait, pour reparaître un instant plus tard.",
+      "L'agitation des chiens n'avait cessé de grandir, et soudain, dans une vague de peur, ils se ruèrent de ce côté-ci du feu, se tapirent et rampèrent autour des jambes des hommes. Dans la bousculade, l'un des chiens avait été renversé au bord du feu, et il avait glapi de douleur et d'effroi, tandis que l'odeur de son poil roussi emplissait l'air. Ce remue-ménage fit un instant bouger le cercle d'yeux, qui recula même un peu ; mais il se reforma dès que les chiens se furent calmés.",
+      "— Henry, c'est bougrement malheureux d'être à court de munitions.",
+      "Bill avait fini sa pipe et aidait son compagnon à étendre le lit de fourrures et de couvertures sur les branches d'épicéa qu'il avait posées sur la neige avant le souper. Henry grogna et commença à délacer ses mocassins.",
+      "— Combien de cartouches t'as dit qu'il te restait ? demanda-t-il.",
+      "— Trois, répondit l'autre. Et je voudrais bien que ce soit trois cents. Je leur ferais voir de quel bois je me chauffe, à ces maudits-là !",
+      "Il montra le poing avec colère aux yeux luisants, et se mit à caler soigneusement ses mocassins devant le feu.",
+      "— Et je voudrais bien que ce coup de froid se casse, reprit-il. Ça fait deux semaines qu'il fait quarante-cinq sous zéro. Et je voudrais bien n'être jamais parti pour ce voyage, Henry. Il me dit rien qui vaille. Je me sens pas bien, je sais pas pourquoi. Et pendant que j'y suis, je voudrais bien que le voyage soit fini et qu'on n'en parle plus, et qu'on soit, toi et moi, assis près du feu à Fort McGurry, à cette heure-ci, à jouer au cribbage : voilà ce que je voudrais.",
+      "Henry grogna et se glissa dans le lit. Il s'assoupissait quand la voix de son camarade le réveilla.",
+      "— Dis donc, Henry, l'autre, celui qui est venu prendre un poisson, pourquoi les chiens lui sont pas tombés dessus ? C'est ça qui me tracasse.",
+      "— Tu te tracasses trop, Bill, répondit une voix endormie. T'étais pas comme ça, avant. Tais-toi donc, maintenant, et dors, et demain matin tout ira comme sur des roulettes. T'as l'estomac aigre, voilà ce qui te tracasse.",
+      "Les hommes dormirent, côte à côte sous la même couverture, d'un souffle lourd. Le feu baissa, et les yeux luisants resserrèrent le cercle qu'ils avaient jeté autour du camp. Les chiens se pressaient les uns contre les autres, apeurés, et grondaient de temps à autre d'un air menaçant quand une paire d'yeux s'approchait. Une fois, leur vacarme devint si fort que Bill se réveilla. Il sortit du lit avec précaution, pour ne pas troubler le sommeil de son camarade, et jeta du bois sur le feu. Quand les flammes se mirent à monter, le cercle d'yeux recula. Il jeta un coup d'œil distrait sur les chiens blottis. Il se frotta les yeux et les regarda de plus près. Puis il se glissa de nouveau sous les couvertures.",
+      "— Henry, dit-il. Oh, Henry.",
+      "Henry gémit en passant du sommeil à l'éveil, et demanda :",
+      "— Qu'est-ce qui va pas, encore ?",
+      "— Rien, répondit l'autre ; seulement, ils sont de nouveau sept. Je viens de compter.",
+      "Henry accusa réception de la nouvelle d'un grognement qui tourna en ronflement, tandis qu'il retombait dans le sommeil.",
+      "Le matin, ce fut Henry qui s'éveilla le premier et qui tira son compagnon du lit. Le jour ne viendrait pas avant trois heures, bien qu'il fût déjà six heures ; et dans l'obscurité, Henry s'occupa du déjeuner, pendant que Bill roulait les couvertures et apprêtait le traîneau pour le chargement.",
+      "— Dis donc, Henry, demanda-t-il tout à coup, combien t'as dit qu'on avait de chiens ?",
+      "— Six.",
+      "— Faux, proclama Bill d'un air de triomphe.",
+      "— Encore sept ? demanda Henry.",
+      "— Non, cinq ; il y en a un de parti.",
+      "— Bon Dieu ! s'écria Henry avec colère, et il laissa sa cuisine pour venir compter les chiens.",
+      "— T'as raison, Bill, conclut-il. Gras-Double est parti.",
+      "— Et il a filé comme l'éclair, une fois lancé. On n'aurait pas eu le temps de le voir.",
+      "— Pas la moindre chance, conclut Henry. Ils l'ont avalé tout vif. Je parie qu'il glapissait encore en leur descendant dans le gosier, les maudits !",
+      "— Ça a toujours été un chien idiot, dit Bill.",
+      "— Mais un chien a beau être idiot, il devrait pas l'être au point d'aller se suicider comme ça.",
+      "Il passa en revue le reste de l'attelage d'un œil connaisseur, qui résuma d'un coup les traits marquants de chaque bête.",
+      "— Je parie qu'aucun des autres ferait ça.",
+      "— On les chasserait pas du feu à coups de gourdin, approuva Bill. De toute façon, j'ai toujours pensé que Gras-Double avait quelque chose qui tournait pas rond.",
+      "Et telle fut l'épitaphe d'un chien mort sur la piste du Nord : moins maigre que celle de bien d'autres chiens, et de bien des hommes."
+    ] },
+
+};
