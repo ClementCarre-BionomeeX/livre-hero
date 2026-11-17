@@ -304,6 +304,7 @@
     if (Array.isArray(c)) return c.every(function (x) { return evalCond(story, s, x); });
     // Cards (9.7): a thread's state (ouvert by default; noue, rate, aucun), a card played in this game.
     if ("fil" in c) return [].concat(c.is || "ouvert").indexOf(threadState(s, c.fil)) >= 0;
+    if ("possede" in c) return owns(s, c.possede);
     if ("carteJouee" in c) return !!(s.jeu && [].concat(c.carteJouee).some(function (k) { return s.jeu.joue.indexOf(k) >= 0; }));
     // A siege (8.0): a stock and the days it lasts, a promise, a vote, a member's leaning, a battle, the hero's camp.
     if ("stock" in c) return rng(stockNow(story, s, c.stock), c.min, c.max);
@@ -978,6 +979,7 @@
     });
     // Cards (9.7): a thread opened, tied or missed by the story itself; élan given or taken.
     if (fx.fil) { [].concat(fx.fil.ouvre || []).forEach(function (k) { threadOpen(story, s, k); }); [].concat(fx.fil.noue || []).forEach(function (k) { threadTie(story, s, k); }); [].concat(fx.fil.rate || []).forEach(function (k) { threadMiss(story, s, k); }); }
+    if (DECK_FX.some(function (k) { return fx[k]; })) deckFx(story, s, fx);
     if (fx.elan) { var JE = jeuOf(story, s); JE.elan = Math.max(0, Math.min(ELAN_MAX, JE.elan + fx.elan)); ev(s, "Élan " + (fx.elan > 0 ? "+" : "−") + Math.abs(fx.elan) + " (" + JE.elan + ").", "carte"); }
     if (fx.note) ev(s, interp(s, fx.note), fx.noteCls || "");
   }
@@ -3287,6 +3289,7 @@
   }
   function allowed(story, s, p, c) {
     if (c.sys === "carte") return { ok: !!c.cardOk, why: c.cardWhy || "" };
+    if (c.sys === "echange") return { ok: true, why: "" };
     if (c.if && !evalCond(story, s, c.if)) return { ok: false, why: c.why || describeCond(story, c.if) };
     if (c.exit && s.toutJouer) {
       var act = (p && p.act) || (s.lastAct);
@@ -3358,7 +3361,7 @@
   function jeuOf(story, s) {
     if (s.jeu) return s.jeu;
     var deck = (s.deckChoisi && s.deckChoisi.length ? s.deckChoisi : (story.jeu || {}).deck || []).filter(function (id) { return cardDef(story, id); });
-    s.jeu = { pioche: shuffled(deck), main: [], defausse: [], elan: cardRules(story).depart, fils: {}, haltes: {}, joue: [], derniere: null, suite: null };
+    s.jeu = { pioche: shuffled(deck), main: [], defausse: [], perdues: [], echanges: {}, elan: cardRules(story).depart, fils: {}, haltes: {}, joue: [], derniere: null, suite: null };
     return s.jeu;
   }
   function threadState(s, id) { return (s.jeu && s.jeu.fils[id]) || "aucun"; }
@@ -3393,7 +3396,7 @@
     J.vue = H.id;
     var n = draw(story, s, Math.max(0, R.main - J.main.length)), was = J.elan;
     J.elan = Math.min(ELAN_MAX, J.elan + R.halte);
-    if (n || J.elan > was) ev(s, (n ? "Tu pioches " + n + " carte" + (n > 1 ? "s" : "") + ". " : "") + "Élan : " + J.elan + ".", "carte");
+    if (n || J.elan > was) ev(s, (n ? "Tu pioches " + n + " carte" + (n > 1 ? "s" : "") + ". " : "") + "Élan : " + J.elan + (J.elan > was ? " (+" + (J.elan - was) + " à chaque halte)" : "") + ".", "carte");
   }
   // Intent: resolutions(Story) -> [{ id, r }] = the passages that say what a card becomes (read once per story)
   function resolutions(story) {
@@ -3440,7 +3443,7 @@
       return { sys: "carte", carte: id, n: count[id], label: interp(s, C.titre), cardOk: !why, cardWhy: why, ui: true };
     });
     if (!cs.some(function (c) { return c.cardOk; })) cs.push({ sys: "carte", carte: PASS_CARD, label: "Passer son chemin", cardOk: true, cardWhy: "" });
-    return cs;
+    return cs.concat(swapChoices(story, s, H));
   }
   // Intent: handView(Story, State, Passage) -> Hand | null = what the page draws at a stop: the cards, the élan, the
   // piles, the threads.
@@ -3448,7 +3451,9 @@
     var H = stopOf(p); if (!H || !s.jeu) return null;
     var J = s.jeu;
     return { halte: H.id, nom: H.nom ? interp(s, H.nom) : "", joue: J.haltes[H.id] !== undefined, elan: J.elan, pioche: J.pioche.length, defausse: J.defausse.length, fils: filsOf(story, s),
-      types: H.types ? [].concat(H.types) : null, derniere: J.derniere ? J.derniere.enseigne : null, premiere: !J.joue.length };
+      types: H.types ? [].concat(H.types) : null, derniere: J.derniere ? J.derniere.enseigne : null, premiere: !J.joue.length,
+      perdues: pilesOf(J).perdues.length, echange: !J.echanges[H.id] && J.pioche.length + J.defausse.length > 0,
+      piles: { main: J.main.slice(), pioche: J.pioche.slice().sort(), defausse: J.defausse.slice(), perdues: J.perdues.slice() } };
   }
   // Intent: cardInfo(Story, CardId) -> { titre, type, typeNom, enseigne, enseigneNom, rarete, elan, texte, accroche }
   function cardInfo(story, id) {
@@ -3486,6 +3491,70 @@
     if (t.fil != null && ![].concat(t.fil).every(function (f) { return threadState(s, f) === "ouvert"; })) return false;
     if (t.noue != null && ![].concat(t.noue).every(function (f) { return threadState(s, f) === "noue"; })) return false;
     return true;
+  }
+
+  // ------------------------------------------------------------------ the life of the deck (9.8)
+  // Intent: the deck lives with the story. Why: Clément, 17/11 — draw, discard, gain and lose cards, before the draft.
+  //   fx.pioche: n          the reader draws n cards now (a refuge, a lucky find)
+  //   fx.gagne: id | [ids] | { carte, dans: main | pioche | defausse }   a card joins the reader's deck (the hand by default)
+  //   fx.perd: id | [ids] | { carte | type | enseigne, n, de: main | jeu }  a card leaves the game (stolen, burnt, given)
+  //   fx.defausse: n        n cards of the hand, at random, go to the discard pile (they come back when it is shuffled)
+  //   cond possede: id | [ids]   the reader has one of these cards (hand, draw pile or discard pile)
+  // At each stop, once, the reader may trade one card of the hand for the top of the draw pile.
+  var GAIN_PLACES = { main: "dans ta main", pioche: "dans ta pioche", defausse: "dans ta défausse" }, LOSS_FROM = { main: ["main"], jeu: ["main", "defausse", "pioche"] };
+  var DECK_FX = ["pioche", "gagne", "perd", "defausse"];
+  function pilesOf(J) { if (!J.perdues) J.perdues = []; if (!J.echanges) J.echanges = {}; return J; }
+  function owns(s, ids) { var J = s.jeu; if (!J) return false; return [].concat(ids).some(function (k) { return J.main.indexOf(k) >= 0 || J.pioche.indexOf(k) >= 0 || J.defausse.indexOf(k) >= 0; }); }
+  function cardName(story, s, id) { return "« " + interp(s, (cardDef(story, id) || {}).titre || id) + " »"; }
+  // Intent: gainCards(Story, State, Gain) ! the cards join the deck where the story says (the hand by default; the draw
+  // pile gets them shuffled in).
+  function gainCards(story, s, g) {
+    var J = pilesOf(jeuOf(story, s)), list = typeof g === "object" && !Array.isArray(g) ? [].concat(g.carte) : [].concat(g), where = (g && g.dans) || "main";
+    list.forEach(function (id) {
+      if (!cardDef(story, id)) { guard(s, "carte gagnée inconnue : " + id); return; }
+      if (where === "pioche") J.pioche.splice(Math.floor(RNG() * (J.pioche.length + 1)), 0, id); else J[where].push(id);
+      ev(s, "Tu gagnes la carte " + cardName(story, s, id) + ", " + GAIN_PLACES[where] + ".", "carte");
+    });
+  }
+  // Intent: loseCards(Story, State, Loss) ! the cards leave the game for good: looked for in the hand, then the
+  // discard pile, then the draw pile (or the hand only, with de: "main"); a card the reader lacks is simply not lost.
+  function loseCards(story, s, L) {
+    var J = pilesOf(jeuOf(story, s)), spec = typeof L === "object" && !Array.isArray(L) ? L : { carte: L };
+    var ids = spec.carte != null ? [].concat(spec.carte) : null, n = spec.n || (ids ? ids.length : 1), lost = 0;
+    var fits = function (id) { var C = cardDef(story, id) || {}; return (ids ? ids.indexOf(id) >= 0 : true) && (spec.type == null || [].concat(spec.type).indexOf(C.type) >= 0) && (spec.enseigne == null || [].concat(spec.enseigne).indexOf(C.enseigne) >= 0); };
+    LOSS_FROM[spec.de || "jeu"].forEach(function (pile) {
+      while (lost < n) {
+        var at = J[pile].map(function (id, i) { return fits(id) ? i : -1; }).filter(function (i) { return i >= 0; });
+        if (!at.length) break;
+        var i = ids ? at[0] : at[Math.floor(RNG() * at.length)], id = J[pile].splice(i, 1)[0];
+        J.perdues.push(id); lost++;
+        ev(s, "Tu perds la carte " + cardName(story, s, id) + " : elle quitte ton jeu.", "carte");
+      }
+    });
+  }
+  function discardCards(story, s, n) {
+    var J = jeuOf(story, s);
+    for (var k = 0; k < n && J.main.length; k++) { var id = J.main.splice(Math.floor(RNG() * J.main.length), 1)[0]; J.defausse.push(id); ev(s, "La carte " + cardName(story, s, id) + " part dans ta défausse.", "carte"); }
+  }
+  function deckFx(story, s, fx) {
+    if (fx.pioche) { var n = draw(story, s, fx.pioche); ev(s, n ? "Tu pioches " + n + " carte" + (n > 1 ? "s" : "") + "." : "Ta pioche et ta défausse sont vides : rien à piocher.", "carte"); }
+    if (fx.gagne) gainCards(story, s, fx.gagne);
+    if (fx.perd) [].concat(fx.perd).forEach(function (L) { loseCards(story, s, L); });
+    if (fx.defausse) discardCards(story, s, fx.defausse);
+  }
+  // Intent: swapChoices(Story, State, Stop) -> [Choice] = once per stop, one choice per card in the hand: it goes to the
+  // discard pile and the reader draws one in its place.
+  function swapChoices(story, s, H) {
+    var J = pilesOf(s.jeu);
+    if (J.echanges[H.id] || !(J.pioche.length + J.defausse.length)) return [];
+    return J.main.filter(function (id, i) { return J.main.indexOf(id) === i; }).map(function (id) { return { sys: "echange", carte: id, label: "Échanger " + cardName(story, s, id), ui: true }; });
+  }
+  function swapCard(story, s, c) {
+    var H = stopOf(story.passages[s.node]), J = pilesOf(jeuOf(story, s)), at = J.main.indexOf(c.carte);
+    if (!H || at < 0 || J.echanges[H.id]) throw new Error("échange impossible : " + c.carte);
+    J.main.splice(at, 1); J.echanges[H.id] = true;
+    draw(story, s, 1); J.defausse.push(c.carte);
+    ev(s, "Tu échanges " + cardName(story, s, c.carte) + " contre " + cardName(story, s, J.main[J.main.length - 1]) + ".", "carte");
   }
 
   // ------------------------------------------------------------------ moving
@@ -3682,6 +3751,7 @@
       case "order": giveOrder(story, s, c); break;
       case "lead": setLead(story, s, c.hero); break;
       case "carte": playCard(story, s, c); break;
+      case "echange": swapCard(story, s, c); break;
       case "jeu": tavernSit(story, s, c); break;
       case "montrer": s.show = { who: c.who, from: c.from || (s.show && s.node.charAt(0) === "@" ? s.show.from : s.node) }; s.node = "@montrer"; break;
       case "show": {
@@ -3766,7 +3836,7 @@
     secretsOf: secretsOf, secretKnown: secretKnown, secretDef: secretDef, interludeOf: interludeOf, autreForm: autreForm,
     doubt: doubt, accountBy: accountBy, topicSolved: topicSolved, dreadOf: dreadOf, dreadMax: dreadMax, dreadWord: dreadWord, dreadTrouble: dreadTrouble, attachOf: attachOf, ATTACH_MAX: ATTACH_MAX,
     LENS_EFFECTS: LENS_EFFECTS, reveal: reveal, veilsIn: veilsIn, unveil: unveil, veilInfo: veilInfo, veilsOf: veilsOf, veilMark: veilMark, lensHeld: lensHeld, lensLeft: lensLeft, lensDef: lensDef, veilCount: veilCount, VEIL_RE: VEIL_RE,
-    CARD_TYPES: CARD_TYPES, SUITS: SUITS, SUIT_WORDS: SUIT_WORDS, RARITIES: RARITIES, THREAD_STATES: THREAD_STATES, cardInfo: cardInfo, filsOf: filsOf, resolve: resolve, stopOf: stopOf,
+    CARD_TYPES: CARD_TYPES, SUITS: SUITS, SUIT_WORDS: SUIT_WORDS, RARITIES: RARITIES, THREAD_STATES: THREAD_STATES, cardInfo: cardInfo, filsOf: filsOf, DECK_FX: DECK_FX, GAIN_PLACES: GAIN_PLACES, LOSS_FROM: LOSS_FROM, resolve: resolve, stopOf: stopOf,
     item: item, weapon: weapon, armor: armor, useItem: useItem, day: day, timeLabel: timeLabel, routesFrom: routesFrom, isNight: isNight,
   };
   if (typeof module !== "undefined" && module.exports) module.exports = API; else root.Moteur = API;

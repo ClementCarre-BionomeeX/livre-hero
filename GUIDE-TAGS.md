@@ -505,3 +505,15 @@ Ce que le moteur fait seul : la pioche mélangée, la défausse rebattue quand l
 Le validateur : cartes, fils, haltes, résolutions et tags qui nomment ce qui existe ; et la promesse : **chaque carte de l'histoire, à chaque halte qui accepte son genre, a une résolution sans condition** (`resout: { type }`, avec ou sans `halte`). Sinon, erreur. Tests : `node tests/cartes-test.js`.
 
 Écrire une résolution : un paragraphe par halte (`halte`), un par carte quand la carte précise ce qui arrive (`carte`), des choix tagués `enseigne` pour la manière de s'en tirer, et une issue sans jet. Un fil se relit par des résolutions `resout: { type: [...], fil }` qui ramènent son personnage et le nouent.
+
+### La vie du deck (17/11, 11.1) : tirer, défausser, gagner, perdre
+
+| Où | Clé | Sens |
+|---|---|---|
+| effet | `pioche: n` | Le lecteur pioche n cartes tout de suite (la défausse est rebattue si la pioche est vide). |
+| effet | `defausse: n` | n cartes de la main, au hasard, partent à la défausse (elles reviendront). |
+| effet | `gagne: "<id>"` · `[ids]` · `{ carte, dans: "main" \| "pioche" \| "defausse" }` | Le lecteur gagne ces cartes (dans sa main par défaut ; mêlées à la pioche avec `dans: "pioche"`). La carte doit exister dans `cartes`. |
+| effet | `perd: "<id>"` · `[ids]` · `{ carte \| type \| enseigne, n, de: "main" \| "jeu" }` | Des cartes quittent la partie pour de bon (« cartes perdues »). Cherchées dans la main, puis la défausse, puis la pioche (`de: "main"` : la main seulement). Sans `carte`, au hasard parmi celles qui conviennent. Une carte que le lecteur n'a pas ne se perd pas. |
+| condition | `{ possede: "<id>" \| [ids] }` | Le lecteur a l'une de ces cartes (main, pioche ou défausse). |
+
+Ce que le moteur fait seul : une fois par halte, le lecteur peut échanger une carte de sa main contre celle du dessus de sa pioche ; la page montre la pioche (sans son ordre), la défausse et les cartes perdues ; l'explication des règles s'affiche la première fois qu'une main apparaît. Une carte gagnée en route est couverte par la promesse du validateur comme les autres : une carte qu'on ne gagne qu'en route s'ajoute à `cartes` sans entrer dans `jeu.deck`. Pour qu'un gain serve, le donner avant une halte qui accepte son genre (tags `halte` sur le choix qui le donne).

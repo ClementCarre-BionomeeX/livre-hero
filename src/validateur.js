@@ -11,7 +11,7 @@
     "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "via", "regard", "fresh", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed",
     "temps", "saison", "blessure", "cicatrice", "fatigue", "trait", "duel",
     "recit", "doute", "dementi", "silences", "geste", "poids", "angoisse", "attache",
-    "secret", "confie", "garde", "savoir", "lu", "voile", "voiles", "lens", "fil", "carteJouee"];
+    "secret", "confie", "garde", "savoir", "lu", "voile", "voiles", "lens", "fil", "carteJouee", "possede"];
   // The siege's conditions (8.0) carry a second key (is, member, hero, losses): they are read by their first key.
   var SIEGE_KEYS = ["depot", "fil", "voiles", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue", "trait", "duel"];
   var FX_KEYS = ["voie", "regard", "aspect", "qui", "resume", "set", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
@@ -20,7 +20,7 @@
     "stock", "promise", "keep", "break", "forgive", "sway", "sound", "camp", "tie",
     "meteo", "blessure", "soigner", "guerir", "fatigue", "trait", "pratique",
     "recit", "geste", "angoisse", "attache",
-    "secret", "surprend", "confier", "recharge", "devoile", "fil", "elan"];
+    "secret", "surprend", "confier", "recharge", "devoile", "fil", "elan", "pioche", "gagne", "perd", "defausse"];
   var DOM_KEYS = Object.keys(M.DOMAINS);
 
   // Collects every tag a condition reads (for the echo check).
@@ -278,6 +278,7 @@
       if (k === "clues" && !story.mysteries[c.clues]) E(where + " : mystère « " + c.clues + " » inconnu.");
       if (k === "clue" && !story.clues[c.clue]) E(where + " : indice « " + c.clue + " » inconnu.");
       if (k === "fil") { if (!(story.fils || {})[c.fil]) E(where + " : fil « " + c.fil + " » inconnu (fils)."); [].concat(c.is || []).forEach(function (x) { if (!M.THREAD_STATES[x] && x !== "aucun") E(where + " : état de fil « " + x + " » inconnu (ouvert, noue, rate, aucun)."); }); }
+      if (k === "possede") [].concat(c.possede).forEach(function (x) { if (!(story.cartes || {})[x]) E(where + " : possede, carte « " + x + " » inconnue (cartes)."); });
       if (k === "carteJouee") [].concat(c.carteJouee).forEach(function (x) { if (!(story.cartes || {})[x]) E(where + " : carte « " + x + " » inconnue (cartes)."); });
       if (k === "savoir") [].concat(c.savoir).forEach(function (x) { if (!(story.savoirs || {})[x]) E(where + " : savoir « " + x + " » inconnu (story.savoirs)."); });
       if (k === "lu" && !story.passages[c.lu]) E(where + " : passage « " + c.lu + " » inconnu (condition lu).");
@@ -341,6 +342,23 @@
       [].concat(fx.clue || []).forEach(function (x) { if (!story.clues[x]) E(where + " : indice « " + x + " » inconnu."); });
       if (fx.fil) Object.keys(fx.fil).forEach(function (k) { if (["ouvre", "noue", "rate"].indexOf(k) < 0) E(where + " : fil, « " + k + " » (attendu : ouvre, noue ou rate)."); else [].concat(fx.fil[k]).forEach(function (x) { if (!(story.fils || {})[x]) E(where + " : fil « " + x + " » inconnu (fils)."); }); });
       if (fx.elan != null && typeof fx.elan !== "number") E(where + " : elan, un nombre.");
+      ["pioche", "defausse"].forEach(function (k) { if (fx[k] != null && !(fx[k] >= 1 && fx[k] === Math.floor(fx[k]))) E(where + " : " + k + ", un entier de 1 ou plus (le nombre de cartes)."); });
+      var CK = function (x, w) { if (!(story.cartes || {})[x]) E(where + " : " + w + ", carte « " + x + " » inconnue (cartes)."); };
+      if (fx.gagne != null) {
+        var G = fx.gagne;
+        if (G && typeof G === "object" && !Array.isArray(G)) { if (G.carte == null) E(where + " : gagne, { carte, dans } demande carte."); [].concat(G.carte || []).forEach(function (x) { CK(x, "gagne"); }); if (G.dans != null && !M.GAIN_PLACES[G.dans]) E(where + " : gagne, dans « " + G.dans + " » (attendu : " + Object.keys(M.GAIN_PLACES).join(", ") + ")."); }
+        else [].concat(G).forEach(function (x) { CK(x, "gagne"); });
+      }
+      if (fx.perd != null) [].concat(fx.perd).forEach(function (L) {
+        if (L && typeof L === "object") {
+          Object.keys(L).forEach(function (k) { if (["carte", "type", "enseigne", "n", "de"].indexOf(k) < 0) E(where + " : perd, « " + k + " » inconnu (carte, type, enseigne, n, de)."); });
+          [].concat(L.carte || []).forEach(function (x) { CK(x, "perd"); });
+          [].concat(L.type || []).forEach(function (x) { if (!M.CARD_TYPES[x]) E(where + " : perd, type « " + x + " » inconnu."); });
+          [].concat(L.enseigne || []).forEach(function (x) { if (!M.SUITS[x]) E(where + " : perd, enseigne « " + x + " » inconnue."); });
+          if (L.de != null && !M.LOSS_FROM[L.de]) E(where + " : perd, de « " + L.de + " » (attendu : main ou jeu).");
+          if (L.n != null && !(L.n >= 1 && L.n === Math.floor(L.n))) E(where + " : perd, n un entier de 1 ou plus.");
+        } else CK(L, "perd");
+      });
       [].concat(fx.learn || []).forEach(function (x) { if (!(story.savoirs || {})[x]) E(where + " : savoir « " + x + " » inconnu (story.savoirs)."); });
       if (fx.voie && !(story.voies || {})[fx.voie]) E(where + " : voie « " + fx.voie + " » inconnue.");
       [].concat(fx.join || [], fx.met || [], fx.leave || []).concat(Object.keys(fx.conf || {}), Object.keys(fx.fear || {}))

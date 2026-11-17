@@ -42,6 +42,13 @@ module.exports = {
     texte: "Une trace rouge là où personne n'aurait dû toucher." },
   faux_ami: { titre: "Le Faux Ami", type: "trahison", enseigne: "racine", rarete: "commune", elan: 0,
     texte: "Il t'a offert à boire. Il a payé avec ton nom." },
+  // Cartes qu'on gagne en route (9.8) : absentes des decks de départ, l'histoire les donne.
+  sauf_conduit: { titre: "Le Jeton des marchands", type: "allie", enseigne: "masque", rarete: "rare", elan: 1,
+    texte: "Un rond de plomb aux armes d'une ville : les gardes connaissent ce signe, et ils détestent l'admettre." },
+  mulet: { titre: "Le Mulet de louage", type: "detour", enseigne: "racine", rarete: "peu", elan: 0,
+    texte: "Une bête têtue, qui connaît les sentes mieux que son loueur." },
+  medaille: { titre: "La Médaille du pèlerin", type: "presage", enseigne: "lanterne", rarete: "peu", elan: 0,
+    texte: "Un saint de cuivre usé par les pouces de cent prières." },
   raccourci: { titre: "Le Raccourci du contrebandier", type: "detour", enseigne: "masque", rarete: "commune", elan: 0,
     texte: "Plus court, plus sombre, et fréquenté par des gens qui n'aiment pas les témoins." },
 };

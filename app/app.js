@@ -2470,6 +2470,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "11.1", items: ["Histoires à cartes : ton jeu vit avec l'histoire. En route, on te donne des cartes nouvelles, on t'en vole, une scène te fait piocher ou défausser. Une fois par halte, tu peux échanger une carte de ta main contre celle du dessus de ta pioche. Touche les compteurs pour voir ta pioche, ta défausse et tes cartes perdues ; le bouton « ? » réexplique les règles, montrées d'office la première fois.", "« Le Courrier de Vèze » s'en sert : trois cartes à gagner en route (le Jeton des marchands, le Mulet de louage, la Médaille du pèlerin), et des voleurs qui se servent dans ta main."] },
     { v: "11.0", items: ["« Le Douzième Coup », un grand livre à lire à deux, chacun sur son écran : plus de deux mille passages. Une ville s'est arrêtée au onzième coup de midi, il y a soixante ans. L'un des deux lecteurs part de la veille, l'autre du soixantième anniversaire. Ils s'écrivent par deux Cahiers jumeaux, aux bornes de la route, et ce que l'un met en terre, l'autre peut le retrouver vieilli de soixante ans.", "Pour ce livre : des dépôts aux bornes, qui passent d'une époque à l'autre, et deux chroniques dont les lignes changent selon ce que les lecteurs ont fait (onglet « Chronique »)."] },
     { v: "10.9", items: ["« L'Île au trésor » de R. L. Stevenson, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1883. Une auberge sur la côte, un vieux marin et son coffre, une carte, une goélette, et un cuisinier à une jambe avec un perroquet sur l'épaule. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "10.8", items: ["« Le Maître de Ballantrae » de R. L. Stevenson, à lire en entier, dans une traduction nouvelle faite pour la bibliothèque à partir du texte anglais de 1889. Deux frères Durie, l'un parti avec le prince Charlie, l'autre resté au domaine, et un intendant qui raconte tout, de l'Écosse jusqu'aux forêts de l'Amérique. Avec les gens, les lieux et les mots d'un toucher."] },
@@ -3389,23 +3390,61 @@
       h("span", { class: "card-foot" }, C.enseigneNom + " · " + (M.RARITIES[C.rarete] || C.rarete), opts.n > 1 ? h("b", { class: "card-n" }, " × " + opts.n) : null),
       opts.why ? h("span", { class: "card-why" }, opts.why) : null);
   }
+  // The life of the deck (9.8): the piles can be looked at, one card may be traded at each stop, and the rules are
+  // told once, the first time a hand is shown (Clément, 17/11: « l'élan, on en gagne tous les combien ? »).
+  var HAND_HELP = "cartes-aide-vue";
   function renderHand(st, v) {
-    var H = v.hand, box = h("section", { class: "hand", "aria-label": "Ta main" });
+    var H = v.hand, box = h("section", { class: "hand", "aria-label": "Ta main" }), piles = function () { A.modal = { kind: "piles" }; render(); };
+    if (H.premiere && !H.joue && !A.modal && !lsGet(HAND_HELP)) A.modal = { kind: "handHelp" };
     box.appendChild(h("div", { class: "hand-bar" },
-      h("span", { class: "hand-elan", title: "L'élan se gagne à chaque halte ; les cartes fortes en coûtent." }, "Élan ", h("b", null, String(H.elan))),
-      h("span", { class: "muted small" }, "Pioche " + H.pioche + " · Défausse " + H.defausse),
-      H.types ? h("span", { class: "muted small" }, "Ici : " + H.types.map(function (t) { return M.CARD_TYPES[t]; }).join(", ")) : null));
+      h("span", { class: "hand-elan", title: "+1 à chaque halte (jusqu'à 5) ; +1 pour deux cartes de la même enseigne d'affilée ; les cartes fortes en coûtent." }, "Élan ", h("b", null, String(H.elan)), h("span", { class: "muted small" }, " / 5")),
+      h("button", { class: "linkish small", onclick: piles, title: "Voir ta pioche, ta défausse et tes cartes perdues" }, "Pioche " + H.pioche + " · Défausse " + H.defausse + (H.perdues ? " · Perdues " + H.perdues : "")),
+      H.types ? h("span", { class: "muted small" }, "Ici : " + H.types.map(function (t) { return M.CARD_TYPES[t]; }).join(", ")) : null,
+      h("button", { class: "btn ghost sm icon-btn", "aria-label": "Comment jouer les cartes", title: "Comment jouer les cartes", onclick: function () { A.modal = { kind: "handHelp" }; render(); } }, "?")));
     if (H.fils.length) box.appendChild(h("ul", { class: "hand-fils" }, H.fils.map(function (f) {
       return h("li", { class: "fil-" + f.etat }, h("b", null, f.titre), " · " + (f.etat === "noue" ? "noué" : f.etat === "rate" ? "manqué" : "ouvert") + (f.texte ? " — " + f.texte : ""));
     })));
-    var cards = v.choices.filter(function (c) { return c.sys === "carte" && c.ui; });
+    var cards = v.choices.filter(function (c) { return c.sys === "carte" && c.ui; }), swaps = {};
+    v.choices.forEach(function (c) { if (c.sys === "echange") swaps[c.carte] = c; });
+    var swapping = A.swap === H.halte && H.echange;
     if (!H.joue && cards.length) {
-      if (H.premiere) box.appendChild(h("p", { class: "notice soft small" }, "Choisis une carte : elle décide de ce qui arrive ici. Ce qu'elle devient dépend de l'endroit, de son enseigne et des fils déjà ouverts."));
-      box.appendChild(h("div", { class: "hand-cards", role: "group", "aria-label": "Les cartes de ta main" }, cards.map(function (c) {
+      if (swapping) box.appendChild(h("p", { class: "notice soft small", role: "status" }, "Touche la carte dont tu veux te défaire : elle part dans ta défausse, et tu prends celle du dessus de ta pioche."));
+      box.appendChild(h("div", { class: "hand-cards" + (swapping ? " swapping" : ""), role: "group", "aria-label": "Les cartes de ta main" }, cards.map(function (c) {
+        if (swapping) { var sw = swaps[c.carte]; return cardFace(st, c.carte, { button: true, off: !sw, n: c.n, onclick: function () { A.swap = null; if (sw) pick(sw); } }); }
         return cardFace(st, c.carte, { button: true, off: !c.ok, why: c.ok ? "" : c.why, n: c.n, onclick: function () { pick(c); } });
       })));
+      if (H.echange) box.appendChild(h("div", { class: "row hand-actions" }, h("button", { class: "btn sm" + (swapping ? " primary" : ""), onclick: function () { A.swap = swapping ? null : H.halte; render(); } },
+        swapping ? "Garder ma main" : "Échanger une carte (une fois par halte)")));
     }
     return box;
+  }
+  function modalHandHelp(box, close) {
+    var done = function () { lsSet(HAND_HELP, true); close(); };
+    modalHead(box, "Jouer avec des cartes", done);
+    var li = function (b, t) { return h("li", null, h("b", null, b), " " + t); };
+    box.appendChild(h("div", { class: "drawer-body stack" },
+      h("p", null, "À chaque halte, tu joues une carte de ta main. La carte décide du genre de chose qui t'arrive ; l'histoire te dit ce qu'elle devient à cet endroit."),
+      h("ul", { class: "hand-help" },
+        li("La main.", "Cinq cartes. À chaque halte, tu complètes ta main en piochant."),
+        li("L'élan.", "Tu commences avec 1. Tu gagnes 1 à chaque halte, jusqu'à 5. Les cartes fortes coûtent 1 ou 2 points (les ronds en haut à droite) ; les autres sont gratuites. Deux cartes de la même enseigne d'affilée te rendent 1 point. Certaines scènes en donnent aussi."),
+        li("L'enseigne.", "Lame (la force), Masque (la ruse), Lanterne (le savoir), Racine (les liens). Dans la scène qu'elle ouvre, la carte aide les jets de sa manière."),
+        li("Les fils.", "Certaines cartes ouvrent un fil : une personne, une dette, un secret. Une carte du bon genre le ramène plus loin, et le dénouement s'en souvient."),
+        li("Pioche et défausse.", "Une carte jouée va dans ta défausse. Quand la pioche est vide, la défausse est rebattue et redevient ta pioche. Touche les compteurs pour voir ce qu'elles contiennent."),
+        li("Échanger.", "Une fois par halte, tu peux te défaire d'une carte de ta main et prendre celle du dessus de ta pioche."),
+        li("Gagner et perdre.", "En route, l'histoire te donne des cartes nouvelles, ou t'en prend : une carte perdue quitte ta partie pour de bon.")),
+      h("div", { class: "row" }, h("button", { class: "btn primary", onclick: done }, "À la route"))));
+  }
+  function modalPiles(box, close) {
+    var G = A.game, st = G.story, v = M.view(st, G.s), P = (v.hand || {}).piles;
+    modalHead(box, "Ton jeu", close);
+    var b = h("div", { class: "drawer-body stack" });
+    if (!P) b.appendChild(h("p", null, "Pas de cartes ici."));
+    else [["main", "Ta main"], ["pioche", "Ta pioche (dans le désordre : l'ordre reste caché)"], ["defausse", "Ta défausse"], ["perdues", "Tes cartes perdues"]].forEach(function (x) {
+      var ids = P[x[0]]; if (!ids.length && x[0] === "perdues") return;
+      b.appendChild(h("h3", { class: "sub-h" }, x[1] + " · " + ids.length));
+      b.appendChild(ids.length ? h("div", { class: "hand-cards small-cards" }, ids.map(function (id) { return cardFace(st, id); })) : h("p", { class: "muted small" }, "Vide."));
+    });
+    box.appendChild(b);
   }
   var NUMBER_WORDS = ["", "Un", "Deux", "Trois", "Quatre", "Cinq", "Six", "Sept"];
   function renderChoices(v) {
@@ -5440,7 +5479,7 @@
     var m = A.modal, close = function () { if (m.kind === "send" || m.kind === "receive") Transfer.stop(); A.modal = null; render(); };
     var box = h("div", { class: "modal", role: "dialog", "aria-modal": "true" });
     var bg = h("div", { class: "drawer-bg", onclick: close });
-    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, shake: modalShake, adult: modalAdult, keys: modalKeys, news: modalNews, group: modalGroup, vote: modalVote, doc: modalDoc, bookNotice: modalBookNotice })[m.kind](box, close, m);
+    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, shake: modalShake, adult: modalAdult, keys: modalKeys, news: modalNews, group: modalGroup, vote: modalVote, doc: modalDoc, bookNotice: modalBookNotice, handHelp: modalHandHelp, piles: modalPiles })[m.kind](box, close, m);
     app.appendChild(bg); app.appendChild(box);
     var f = box.querySelector("[autofocus]"); if (f) setTimeout(function () { f.focus(); }, 0);
   }

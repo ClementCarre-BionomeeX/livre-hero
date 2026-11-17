@@ -159,4 +159,12 @@ module.exports = {
     choices: [
       { label: "Le prendre à part et le faire parler", fx: { ep: ["perso", 400] }, to: "C_secret_noue" },
     ] },
+
+  // ---------------------------------------------------------------- Le jeton des marchands, à la porte (gagné en route)
+  C_jeton_porte: { title: "Le jeton des marchands", resout: { carte: "sauf_conduit", halte: "porte" }, fx: { clock: { retard: -1 }, ep: ["perso", 200] },
+    text: [
+      "Tu sors de la file, tu remontes les charrettes, et tu montres au sergent le rond de plomb aux armes de Vèze. Il le regarde, il te regarde, et il fait la grimace d'un homme qui doit obéir à un morceau de métal.",
+      "« Les marchands par la poterne, » dit-il. La poterne s'ouvre, la file proteste, et tu passes sous le saint de bois avec une heure d'avance sur ta propre journée.",
+    ],
+    choices: [{ label: "Entrer dans Vèze", to: "@suite" }] },
 };
