@@ -1097,8 +1097,10 @@ button.pp.pp-face-btn { border-bottom: 0; display: inline-flex; align-items: cen
   box-shadow: var(--page-edge, 0 0 0 transparent), 1px 2px 0 rgb(40 28 12 / .10), 0 12px 28px rgb(40 28 12 / .16); }
 :root[data-style="carnet"][data-screen="game"] .page::after { content: ""; position: absolute; top: -6px; right: clamp(22px, 6vw, 56px); width: 15px; height: 66px; z-index: 1; pointer-events: none;
   background: var(--red-ink); clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 84%, 0 100%); box-shadow: inset -3px 0 0 rgb(0 0 0 / .12); }
-:root[data-style="carnet"][data-screen="game"] .vignette { border-radius: 0; filter: url(#carnet-lavis); opacity: .82;
-  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 98%); mask-image: linear-gradient(to bottom, #000 55%, transparent 98%); }
+:root[data-style="carnet"][data-screen="game"] .vignette { border-radius: 0; opacity: .92;
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 98%), linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 98%), linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+  -webkit-mask-composite: source-in; mask-composite: intersect; }
 :root[data-style="carnet"][data-screen="game"] .page-head h2 { letter-spacing: .005em; }
 :root[data-style="carnet"][data-screen="game"] .where { font-style: italic; font-size: 14px; }
 :root[data-style="carnet"][data-screen="game"] .para-num { color: var(--red-ink); font-style: italic; margin-right: 26px; }
@@ -1246,3 +1248,72 @@ button.pp.pp-face-btn { border-bottom: 0; display: inline-flex; align-items: cen
 :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .seg .btn { padding-left: 10px; padding-right: 10px; }
 :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"]) .top .btn { color: inherit; }
 :root[data-style="carnet"]:not([data-screen="editor"]):not([data-screen="essai"])[data-screen="game"] .top .btn.primary { background: none; clip-path: none; color: inherit; padding: 6px 6px; }
+
+/* ---------------------------------------------------------------------------------------------------------------
+   The notebook, last touches (11.9, Clément 17/11: « les propositions d'avant »).
+   The library on shelves: the books stand spine out on a drawn plank; a touch takes one out and its card opens below. */
+:root[data-style="carnet"] { --shelf-h: 196px; --plank: #8a6a44; --plank-edge: #5e4428; --spine-gold: #ecd9a4; }
+@media (prefers-color-scheme: dark) { :root[data-style="carnet"]:not([data-theme="light"]):not([data-theme="sepia"]) { --plank: #6b5236; --plank-edge: #3d2c1a; } }
+:root[data-style="carnet"][data-theme="dark"] { --plank: #6b5236; --plank-edge: #3d2c1a; }
+.shelf { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0 3px; padding: 0 10px 22px; margin: 6px 0 4px; row-gap: 22px;
+  background: repeating-linear-gradient(to bottom, transparent 0 var(--shelf-h), var(--plank) var(--shelf-h) calc(var(--shelf-h) + 9px), var(--plank-edge) calc(var(--shelf-h) + 9px) calc(var(--shelf-h) + 12px), transparent calc(var(--shelf-h) + 12px) calc(var(--shelf-h) + 22px));
+  background-position: 0 0; }
+.spine-slot { height: var(--shelf-h); display: flex; align-items: flex-end; }
+.spine { position: relative; display: flex; align-items: center; justify-content: center; width: var(--w); height: var(--tall); min-height: 0; padding: 14px 0; margin: 0;
+  border: 0; border-radius: 3px 3px 1px 1px; cursor: pointer; color: var(--spine-gold);
+  background:
+    linear-gradient(to bottom, transparent 7px, var(--spine-gold) 7px 8.5px, transparent 8.5px 11px, var(--spine-gold) 11px 11.8px, transparent 11.8px calc(100% - 12px), var(--spine-gold) calc(100% - 12px) calc(100% - 11.2px), transparent calc(100% - 11.2px) calc(100% - 8.5px), var(--spine-gold) calc(100% - 8.5px) calc(100% - 7px), transparent calc(100% - 7px)),
+    linear-gradient(to right, rgb(0 0 0 / .28), rgb(255 255 255 / .10) 30%, rgb(255 255 255 / .04) 55%, rgb(0 0 0 / .30)),
+    var(--cloth);
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / .25), 1px 0 2px rgb(0 0 0 / .25);
+  transform: rotate(var(--lean)); transform-origin: bottom center; transition: transform .25s ease-out; }
+.spine.adult { padding-top: 34px; }
+.spine:hover { transform: rotate(var(--lean)) translateY(-5px); }
+.spine.on { transform: translateY(-16px); }
+.spine:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.spine-title { writing-mode: vertical-rl; transform: rotate(180deg); font: 600 13px/1.08 var(--title); letter-spacing: .01em; max-height: 100%; max-width: 100%; overflow: hidden; text-align: center; text-shadow: 0 1px 0 rgb(0 0 0 / .35); }
+.spine-stamp { position: absolute; top: 14px; left: 50%; width: 18px; height: 18px; margin-left: -9px; border-radius: 50%; display: grid; place-items: center;
+  font: 700 10px/1 var(--title); color: #fff; background: #a3271b; box-shadow: 0 0 0 1.5px #6e160e, inset 0 0 3px rgb(0 0 0 / .4); }
+.shelf-pick { margin: -6px 0 22px; }
+.shelf-pick .card { animation: shelf-out .35s ease-out; }
+@keyframes shelf-out { from { opacity: 0; transform: translateY(-10px); } }
+@media (prefers-reduced-motion: reduce) { .spine, .shelf-pick .card { transition: none; animation: none; } }
+@media (max-width: 520px) { :root[data-style="carnet"] { --shelf-h: 176px; } .spine-title { font-size: 12px; } }
+/* the place's vignette, in watercolor: the notebook's own box of colors, whatever the paper */
+:root[data-style="carnet"] .vignette.lavis { --vig-sky: #c4d8df; --vig-far: #93a7b8; --vig-mid: #9fae7f; --vig-near: #7a6448; --vig-roof: #bf8c64; --vig-water: #7fa7bb; --vig-sun: #e8c26a; --vig-moon: #f1ead2; }
+:root[data-style="carnet"] .vignette.lavis .croquis { mix-blend-mode: multiply; }
+@media (prefers-color-scheme: dark) { :root[data-style="carnet"]:not([data-theme="light"]):not([data-theme="sepia"]) .vignette.lavis { --vig-sky: #2a3b4a; --vig-far: #3d5163; --vig-mid: #4a5a3c; --vig-near: #2f261c; --vig-roof: #5e4030; --vig-water: #2c4a5c; } :root[data-style="carnet"]:not([data-theme="light"]):not([data-theme="sepia"]) .vignette.lavis .croquis { mix-blend-mode: normal; } }
+:root[data-style="carnet"][data-theme="dark"] .vignette.lavis, :root[data-style="carnet"][data-theme="soir"] .vignette.lavis { --vig-sky: #2a3b4a; --vig-far: #3d5163; --vig-mid: #4a5a3c; --vig-near: #2f261c; --vig-roof: #5e4030; --vig-water: #2c4a5c; }
+:root[data-style="carnet"][data-theme="dark"] .vignette.lavis .croquis, :root[data-style="carnet"][data-theme="soir"] .vignette.lavis .croquis { mix-blend-mode: normal; }
+/* the dice, drawn in ink, roll in from the margin and settle on the line */
+:root[data-style="carnet"] .dice3d.croques { gap: 6px; margin-right: 10px; }
+:root[data-style="carnet"] .dice3d.croques .die3d.roule { animation: de-roule .95s cubic-bezier(.2,.7,.3,1) both; }
+:root[data-style="carnet"] .dice3d.croques .die3d.roule + .die3d.roule { animation-delay: .06s; animation-duration: 1.05s; }
+@keyframes de-roule { 0% { transform: translate(-70px, -14px); } 35% { transform: translate(-26px, 4px); } 55% { transform: translate(-10px, -6px); } 75% { transform: translate(-3px, 1px); } 100% { transform: none; } }
+@media (prefers-reduced-motion: reduce) { :root[data-style="carnet"] .dice3d.croques .die3d.roule { animation: none; } }
+/* what the hero takes, wins or swears: sealed with wax, the seal struck as it appears (an object red, a feat gold,
+   a quest green) */
+:root[data-style="carnet"] {
+  --seal: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 1.5 C23 3.5 25.5 1.8 27.6 4.4 C30.4 4.2 31.8 7 34.2 8.6 C35.2 11.6 38.4 13 37.6 16.4 C39.4 19.2 37.4 21.6 38.2 24.6 C36.6 27.2 37 30.4 34 31.8 C32.8 34.8 29.4 34.6 27.4 37 C24.4 37 22.4 39.2 19.4 38.4 C16.6 39 14.2 36.8 11.6 36.6 C9.6 34.4 6.4 34.2 5.4 31.2 C2.6 29.4 3.4 26.6 1.8 24.2 C2.4 21.2 0.8 18.6 2.6 16 C2.2 13 4.6 11.2 6 8.6 C8.2 6.8 9.6 4 12.6 3.8 C14.8 1.6 17.4 2.6 20 1.5 Z'/%3E%3C/svg%3E");
+  --worn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='60'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='2' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -3.2 2.35'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E");
+  --wax: #a3271b; --wax-feat: #b07d22; --wax-quest: #3f6a45;
+}
+:root[data-style="carnet"][data-screen="game"] .events .ev.item,
+:root[data-style="carnet"][data-screen="game"] .events .ev.feat,
+:root[data-style="carnet"][data-screen="game"] .events .ev.quest { position: relative; padding-left: 30px; min-height: 26px; }
+:root[data-style="carnet"][data-screen="game"] .events .ev.item::before,
+:root[data-style="carnet"][data-screen="game"] .events .ev.feat::before,
+:root[data-style="carnet"][data-screen="game"] .events .ev.quest::before {
+  content: ""; position: absolute; left: 0; top: 0; width: 23px; height: 23px; --c: var(--wax);
+  background: radial-gradient(circle at 38% 34%, rgb(255 255 255 / .38), transparent 34%), radial-gradient(circle, transparent 46%, rgb(0 0 0 / .28) 50%, transparent 56%, transparent 66%, rgb(255 255 255 / .12) 70%, transparent 76%), var(--c);
+  -webkit-mask: var(--seal) center / contain no-repeat; mask: var(--seal) center / contain no-repeat;
+  filter: drop-shadow(0 1px 0 rgb(0 0 0 / .3)); animation: sceau .42s cubic-bezier(.3,1.6,.5,1) both; }
+:root[data-style="carnet"][data-screen="game"] .events .ev.feat::before { --c: var(--wax-feat); }
+:root[data-style="carnet"][data-screen="game"] .events .ev.quest::before { --c: var(--wax-quest); }
+@keyframes sceau { 0% { transform: scale(1.9) rotate(-25deg); opacity: 0; } 60% { opacity: 1; } 100% { transform: none; } }
+@media (prefers-reduced-motion: reduce) { :root[data-style="carnet"][data-screen="game"] .events .ev::before { animation: none; } }
+
+/* « Thème adulte »: a red rubber stamp, struck a little askew, the ink worn */
+:root[data-style="carnet"] .adult-tag { background: none; color: var(--red-ink); border: 2.5px solid currentColor; outline: 1px solid currentColor; outline-offset: 2px;
+  border-radius: 4px; padding: 5px 10px 4px; font: 700 13px/1 var(--title); letter-spacing: .14em; transform: rotate(-4deg); margin: 4px 0 2px 4px;
+  -webkit-mask: var(--worn); mask: var(--worn); }

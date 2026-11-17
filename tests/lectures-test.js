@@ -4,6 +4,7 @@
 // Why: Clément, 16/11 — the novels of H. G. Wells join « Le Monde perdu » ; their reading time must be counted.
 // Usage: node tests/site.js && node tests/lectures-test.js [id…]
 var fs = require("fs"), path = require("path"), http = require("http");
+var openBook = require("./ouvrir-livre");
 var { chromium } = require("playwright");
 var ROOT = path.join(__dirname, "..", "site"), bad = [];
 function check(ok, what) { if (!ok) bad.push(what); }
@@ -27,8 +28,8 @@ var BOOKS = (IDS.length ? IDS : require("./page.js").STORIES).map(function (id) 
     await pg.addInitScript(function () { try { if (!localStorage.getItem("livre-heros:profil")) { localStorage.setItem("livre-heros:idx:profils", JSON.stringify(["p1"])); localStorage.setItem("livre-heros:profils:p1", JSON.stringify({ name: "Léa", color: "#a33", created: Date.now(), prefs: { gens: "noms" } })); localStorage.setItem("livre-heros:profil", JSON.stringify("p1")); localStorage.setItem("livre-heros:nouveautes-vues", JSON.stringify("999")); } } catch (e) {} });
     var shot = async function (n) { if (SHOTS) { fs.mkdirSync(SHOTS, { recursive: true }); await pg.screenshot({ path: path.join(SHOTS, st.id + "-" + n) }); } };
     try {
-      await pg.goto(url); await pg.waitForSelector("article.card");
-      var card = pg.locator("article.card").filter({ hasText: st.title }).first();
+      await pg.goto(url); await pg.waitForSelector("article.card, .spine");
+      var card = await openBook(pg, st.title);
       check(await card.count() === 1, st.id + " : le livre est dans la bibliothèque");
       await card.getByRole("button", { name: "Nouvelle partie" }).click();
       await pg.getByRole("button", { name: "Commencer la lecture" }).waitFor();

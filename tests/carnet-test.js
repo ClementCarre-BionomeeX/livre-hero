@@ -3,6 +3,7 @@
 // ringed by hand before the page turns, the new page's ink dries; « Classique » keeps the earlier look, at once.
 // Usage: node tests/site.js && node tests/carnet-test.js
 var fs = require("fs"), path = require("path"), http = require("http");
+var openBook = require("./ouvrir-livre");
 var { chromium } = require("playwright");
 var ROOT = path.join(__dirname, "..", "site"), bad = [];
 function check(ok, what) { if (!ok) bad.push(what); }
@@ -10,7 +11,7 @@ function check(ok, what) { if (!ok) bad.push(what); }
 async function firstPage(pg, url) {
   await pg.goto(url); await pg.waitForSelector("section");
   await pg.fill('input[aria-label="Nom du nouveau lecteur"]', "Léa"); await pg.getByRole("button", { name: "Ajouter" }).first().click();
-  await pg.locator("article.card").filter({ hasText: "Kardan" }).first().getByRole("button", { name: /Nouvelle partie/ }).click();
+  await (await openBook(pg, "Kardan")).getByRole("button", { name: /Nouvelle partie/ }).click();
   await pg.fill('input[aria-label="Nom du héros"]', "Ivo"); await pg.locator("button.arch").first().click();
   for (var box of await pg.locator(".past").all()) await box.locator("button.answer").first().click();
   await pg.getByRole("button", { name: "Commencer la lecture" }).click();

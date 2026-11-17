@@ -430,7 +430,7 @@
   // Why: « la collection demande un peu de tri » ; the home page stays as sober as 9.4 made it: one line, the rest folded.
   var LIB_SORTS = [["rayons", "Par rayons"], ["titre", "Par titre"], ["court", "Les plus courts d'abord"], ["long", "Les plus longs d'abord"], ["recent", "Lus récemment"], ["age", "Par âge conseillé"], ["auteur", "Par auteur"]];
   var LIB_PROGRESS = { k: "avancee", label: "", values: [["neuf", "Jamais ouverts"], ["encours", "En cours"], ["fini", "Terminés"]] };
-  var LIB_SHELVES = [["courtes", "Histoires courtes", "Une soirée, d'une traite."], ["romans", "Romans", "Quelques soirées, plusieurs fins."], ["grands", "Grands romans", "Des heures et des heures, en plusieurs actes."], ["plusieurs", "À plusieurs", "Chacun son héros, sur le même appareil ou dans une salle commune."], ["lire", "Romans à lire", "Des classiques, page après page, sans choix."]];
+  var LIB_SHELVES = [["courtes", "Histoires courtes", "Une soirée, d'une traite."], ["romans", "Romans", "Quelques soirées, plusieurs fins."], ["deuxfois", "À lire deux fois", "La première lecture dévoile ; la seconde reprend le livre avec ce que tu sais."], ["grands", "Grands romans", "Des heures et des heures, en plusieurs actes."], ["plusieurs", "À plusieurs", "Chacun son héros, sur le même appareil ou dans une salle commune."], ["lire", "Romans à lire", "Des classiques, page après page, sans choix."]];
   var SHORT_BOOK = 100, LONG_BOOK = 1000;
   function libState() {
     if (!A.lib) {
@@ -529,12 +529,12 @@
     if (!query && sort === "rayons") {
       // The shelves of 9.4, by the size of the book (its passages); the novels to read have their own.
       var size = function (m) { var st = A.builtins[m.id]; return st ? Object.keys(st.passages || {}).length : m.passages || 0; };
-      var shelfOf = function (m) { if (m.lecture) return "lire"; if (m.multi) return "plusieurs"; var n = size(m); return !n ? "romans" : n < SHORT_BOOK ? "courtes" : n < LONG_BOOK ? "romans" : "grands"; };
+      var shelfOf = function (m) { if (m.lecture) return "lire"; if (m.multi) return "plusieurs"; if (m.twice) return "deuxfois"; var n = size(m); return !n ? "romans" : n < SHORT_BOOK ? "courtes" : n < LONG_BOOK ? "romans" : "grands"; };
       LIB_SHELVES.forEach(function (sh) {
         var mine = found.filter(function (m) { return shelfOf(m) === sh[0]; }).sort(function (a, b) { return libMinutes(a) - libMinutes(b); });
         if (!mine.length) return;
         box.appendChild(h("h3", { class: "shelf-h" }, sh[1], h("span", { class: "small muted" }, " · " + sh[2])));
-        box.appendChild(h("div", { class: "cards" }, mine.map(bookCard)));
+        if (Notebook.on()) bookShelf(box, mine); else box.appendChild(h("div", { class: "cards" }, mine.map(bookCard)));
       });
     } else {
       var by = {
@@ -554,11 +554,34 @@
     if (!found.length) box.appendChild(h("div", { class: "notice" }, stories.length ? "Aucun livre ne correspond. " : "La bibliothèque est vide.",
       stories.length ? h("button", { class: "btn sm", onclick: function () { L.q = ""; L.f = {}; libSetPublic(L); var q = document.getElementById("lib-q"); if (q) q.value = ""; render(); } }, "Tout effacer") : null));
   }
+  // Intent: bookShelf(Element, [StoryMeta]) -> () = the books of one shelf standing side by side, spine out: the cloth
+  // of the cover, a width that grows with the book, the title up the spine. A touch takes the book out: its card opens
+  // under the shelf; a second touch puts it back.
+  // Why: Clément chose the « Carnet » look (17/11); the shelf of the scoping, « dos de livres, couverture qui sort ».
+  var SPINE_MIN = 34, SPINE_GROW = 4.4, SPINE_MAX = 68, SPINE_LEAN_EVERY = 6;
+  function bookShelf(box, books) {
+    var pick = books.filter(function (m) { return m.id === A.shelfPick; })[0];
+    box.appendChild(h("div", { class: "shelf", role: "list" }, books.map(function (m) {
+      var st = A.builtins[m.id] || null, c = (st && st.cover) || m.cover || {}, hs = hash(m.id || m.title);
+      var n = st ? Object.keys(st.passages || {}).length : m.passages || m.acts * 40 || 40, on = pick === m;
+      var w = Math.round(Math.min(SPINE_MAX, SPINE_MIN + Math.log(1 + n) * SPINE_GROW));
+      var lean = hs % SPINE_LEAN_EVERY === 0 && !on ? (hs % 2 ? 3 : -3) : 0;
+      return h("div", { class: "spine-slot", role: "listitem" }, h("button", {
+        class: "spine" + (on ? " on" : "") + (m.adult ? " adult" : ""), type: "button",
+        style: "--cloth:" + (c.color || COVER_CLOTHS[hs % COVER_CLOTHS.length]) + ";--w:" + w + "px;--tall:" + (84 + (hs >> 3) % 17) + "%;--lean:" + lean + "deg",
+        "aria-expanded": on ? "true" : "false", title: m.title,
+        onclick: function () {
+          A.shelfPick = on ? null : m.id; render();
+          var card = document.querySelector(".shelf-pick .card"); if (card && !on) card.scrollIntoView({ block: "nearest", behavior: REDUCED ? "auto" : "smooth" });
+        } }, h("span", { class: "spine-title" }, m.title), m.adult ? h("span", { class: "spine-stamp", "aria-label": "thème adulte" }, "A") : null));
+    })));
+    if (pick) box.appendChild(h("div", { class: "cards shelf-pick" }, bookCard(pick)));
+  }
   // Intent: bookCard(StoryMeta) -> Element = cover, title, one line of facts, three lines of the summary and the
   // button to play; the rest (whole summary, endings found, export, details) behind « En savoir plus ».
   function bookCard(m) {
     var st = A.builtins[m.id] || null, open = !!A.open["book:" + m.id];
-    var facts = [m.multi ? playersLabel(m.multi) : st ? "environ " + minutesLabel(storyMinutes(st)) + (m.lecture ? " de lecture" : " par partie") : null, m.age ? "dès " + m.age + " ans" : null, m.builtin ? null : "importée"].filter(Boolean);
+    var facts = [m.multi ? playersLabel(m.multi) : st ? "environ " + minutesLabel(storyMinutes(st)) + (m.lecture ? " de lecture" : m.twice ? " par lecture" : " par partie") : null, m.twice ? twiceLine(m) : null, m.age ? "dès " + m.age + " ans" : null, m.builtin ? null : "importée"].filter(Boolean);
     return h("article", { class: "card has-cover book" + (m.adult ? " adult" : "") + (open ? " open" : "") },
       cover(m, st),
       m.adult ? h("div", { class: "adult-tag" }, "Thème adulte") : null,
@@ -579,6 +602,13 @@
           ? h("span", { class: "confirm small" }, "Retirer ?", h("button", { class: "btn sm danger", onclick: function () { removeStory(m); } }, "Oui"), h("button", { class: "btn sm", onclick: function () { A.confirmDel = null; render(); } }, "Non"))
           : h("button", { class: "btn sm ghost", onclick: function () { A.confirmDel = "s:" + m.id; render(); } }, "Retirer")) : null),
       open ? aboutDetails(m) : null);
+  }
+  // Intent: twiceLine(StoryMeta) -> text = « à lire deux fois », and where this reader stands (12.0)
+  function twiceLine(m) {
+    var st = A.builtins[m.id], r = A.profile && st ? recordOf(A.profile, m.id) : null, T = st && st.twice;
+    if (!T || !r) return "à lire deux fois";
+    var has = function (e) { return !!(r.endings[e] || r.endings["fin:" + e]); };
+    return has(T.second) ? "les deux lectures faites" : has(T.first) ? "à lire deux fois · la seconde lecture t'attend" : "à lire deux fois";
   }
   // Intent: bookTags(StoryMeta) -> Element = the kind of book and its genres; a touch shows the books that share it.
   function bookTags(m) {
@@ -2009,6 +2039,8 @@
     if (!C.multi && A.profile) { var known = recordOf(A.profile, st.id).endings || {}; if (Object.keys(known).length) { s.second = {}; Object.keys(known).forEach(function (k) { s.second[k] = 1; }); } }
     // Paths that unveil (8.9): what this reader learned in earlier games (lore), and the pages already read there (lu,
     // from the trail: a page where a choice was taken), for the shortcuts over a known scene.
+    // 12.0: the answers this reader found to the puzzles in earlier games, offered again (« Répondre ce que tu sais déjà »).
+    if (!C.multi && A.profile && st.puzzles) { var ra = recordOf(A.profile, st.id).answers; if (ra) s.answers = clone(ra); }
     if (!C.multi && A.profile && (st.savoirs || st.leads)) { var rec0 = recordOf(A.profile, st.id); s.lore = Object.assign({}, rec0.lore || {}); s.lore0 = Object.assign({}, s.lore); s.lu = {}; Object.keys(rec0.trail || {}).forEach(function (k) { s.lu[k] = 1; }); }
     s.events = [];
     (st.past || []).forEach(function (q, qi) { M.apply(st, s, q.answers[C.past[qi]].fx); });
@@ -2607,6 +2639,9 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "12.1", items: ["Les livres à lire deux fois : la première lecture dévoile, la seconde reprend le livre avec ce que tu sais. La bibliothèque leur donne un rayon et dit où tu en es ; la fin de la première lecture propose la seconde.", "Une énigme laissée en suspens reste dans le carnet : quand la clef arrive, plus loin, « Reprendre l'énigme en suspens » la rouvre depuis n'importe quelle page.", "Une devinette peut avoir deux bonnes réponses, qui ne mènent pas au même endroit.", "Une réponse trouvée dans une partie est gardée : la partie suivante propose de la redonner."] },
+    { v: "12.0", items: ["Les visages sont redessinés en formes libres : un front, des pommettes, une mâchoire et un menton, deux côtés un peu différents, des oreilles, un cou qui s'élargit vers les épaules et des vêtements avec une encolure. Les cheveux ont un bord irrégulier, une raie et des mèches, la barbe suit la mâchoire. Chaque personnage garde ses traits : âge, peau, yeux, coiffure et marques."] },
+    { v: "11.9", items: ["La bibliothèque devient une étagère : les livres sont rangés debout, le dos tourné vers toi, chacun dans la couleur de sa reliure. Touche un dos pour sortir le livre.", "Les paysages en tête de page sont peints à l'aquarelle, avec un croquis à l'encre par-dessus.", "Les dés sont dessinés à l'encre et roulent depuis la marge avant de s'arrêter.", "Un objet trouvé, un haut fait, une quête nouvelle : chacun reçoit son sceau de cire. Les livres aux thèmes adultes portent un tampon rouge.", "Les portraits sont peints à l'aquarelle sur un papier crème, avec un trait d'encre qui tremble. Les ombres prennent un ton plus profond de la même peau."] },
     { v: "11.8", items: ["« L'Île Folle-Aiguille » grandit encore : une quarantaine de nouvelles quêtes nées d'autres livres, à l'auberge, à Morlenc, à bord, aux escales et sur l'île, pour chacun des trois personnages ; certaines se suivent d'un acte à l'autre."] },
     { v: "11.7", items: ["Tout le livre passe au carnet : la bibliothèque, la création du héros, le carnet du héros et les réglages. Les boutons deviennent des mots, l'option choisie est entourée à l'encre, les fiches sont des feuilles de papier aux bords irréguliers, les champs des lignes où écrire, et les barres (vie, domaines) des traits d'encre. L'atelier des histoires reste un outil, dans son style d'avant."] },
     { v: "11.6", items: ["Le livre devient un carnet : une feuille de papier aux bords irréguliers, une encre qui sèche quand la page arrive, des choix écrits au crayon et entourés à la main quand tu les prends, un signet de tissu, et les compteurs en haut de page comme le titre courant d'un livre. Les habillages (parchemin, givre, sable, enluminure) deviennent les papiers du carnet ; la nuit, il passe sur un papier bleu nuit. Réglages : « Style du livre » revient au style classique, et « Choix écrits au crayon » les remet en italique."] },
@@ -2922,6 +2957,11 @@
   // Intent: Dice3D.pair(n) -> Element = two ten-sided dice drawn in 3D on a canvas (tens and units of the d100 roll),
   // tumbling for DICE3D_MS then lying on the result. Plain canvas, no library. Why: Clément, 13/11 (piste 18).
   var DICE3D_MS = 950, DICE3D_PX = 46;
+  // Intent: mixColor("#rrggbb"|"rgb(…)", same, 0..1) -> "rgb(…)" = the second colour laid over the first at that strength
+  function mixColor(a, b, k) {
+    var rgb = function (c) { var m = /^#([0-9a-f]{6})$/i.exec(c.trim()); if (m) { var v = parseInt(m[1], 16); return [v >> 16, (v >> 8) & 255, v & 255]; } m = /(\d+)\D+(\d+)\D+(\d+)/.exec(c); return m ? [+m[1], +m[2], +m[3]] : [128, 128, 128]; };
+    var x = rgb(a), y = rgb(b); return "rgb(" + x.map(function (v, i) { return Math.round(v + (y[i] - v) * k); }).join(",") + ")";
+  }
   var Dice3D = (function () {
     var H = 1, E = 0.105, V = [[0, H, 0], [0, -H, 0]], F = [];
     for (var i = 0; i < 10; i++) { var a = i * Math.PI / 5, y = i % 2 ? -E : E; V.push([Math.cos(a), y, Math.sin(a)]); }
@@ -2945,11 +2985,13 @@
       order.forEach(function (o) {
         var n = ap(R, N[o.k]); if (n[2] <= 0) return;
         cx.beginPath(); o.f.forEach(function (i, j) { if (j) cx.lineTo(P[i][0], P[i][1]); else cx.moveTo(P[i][0], P[i][1]); }); cx.closePath();
-        cx.fillStyle = colors[0]; cx.fill(); cx.fillStyle = "rgba(0,0,0," + (0.45 * (1 - n[2])).toFixed(3) + ")"; cx.fill();
-        cx.strokeStyle = colors[2]; cx.lineWidth = dpr; cx.stroke();
+        cx.fillStyle = colors[0]; cx.fill(); cx.fillStyle = "rgba(0,0,0," + ((colors[3] ? 0.22 : 0.45) * (1 - n[2])).toFixed(3) + ")"; cx.fill();
+        cx.strokeStyle = colors[2]; cx.lineWidth = dpr * (colors[3] ? 1.25 : 1); cx.lineJoin = "round"; cx.stroke();
+        // drawn by hand (the « Carnet » look, 11.9): each edge goes over twice, a little beside itself
+        if (colors[3]) { cx.save(); cx.globalAlpha = 0.45; cx.lineWidth = dpr * 0.8; cx.beginPath(); o.f.forEach(function (i, j) { var q = P[i], dx = ((i * 7 + o.k * 3) % 5 - 2) * dpr * 0.6, dy = ((i * 3 + o.k) % 5 - 2) * dpr * 0.6; if (j) cx.lineTo(q[0] + dx, q[1] + dy); else cx.moveTo(q[0] + dx, q[1] + dy); }); cx.closePath(); cx.stroke(); cx.restore(); }
         if (n[2] > 0.55) {
           var c = o.f.reduce(function (a2, i) { return [a2[0] + P[i][0] / 4, a2[1] + P[i][1] / 4]; }, [0, 0]);
-          cx.fillStyle = colors[1]; cx.font = "600 " + Math.round(W * (label(o.k).length > 1 ? 0.2 : 0.26)) + "px system-ui, sans-serif"; cx.textAlign = "center"; cx.textBaseline = "middle";
+          cx.fillStyle = colors[1]; cx.font = colors[3] ? "700 " + Math.round(W * (label(o.k).length > 1 ? 0.26 : 0.34)) + "px Caveat, cursive" : "600 " + Math.round(W * (label(o.k).length > 1 ? 0.2 : 0.26)) + "px system-ui, sans-serif"; cx.textAlign = "center"; cx.textBaseline = "middle";
           cx.globalAlpha = Math.min(1, (n[2] - 0.55) * 3); cx.fillText(label(o.k), c[0], c[1] + (o.f[0] === 0 ? W * 0.03 : -W * 0.03)); cx.globalAlpha = 1;
         }
       });
@@ -2965,16 +3007,20 @@
         drawDie(cx, mul(Rf, axisRot(ax, (1 - e) * spins * Math.PI * 2)), label, colors, DICE3D_PX);
         if (k < 1 && cv.isConnected !== false) requestAnimationFrame(frame);
       };
-      if (A.rollAnim && !REDUCED) requestAnimationFrame(frame); else drawDie(cx, Rf, label, colors, DICE3D_PX);
+      if (A.rollAnim && !REDUCED) { requestAnimationFrame(frame); if (colors[3]) cv.classList.add("roule"); } else drawDie(cx, Rf, label, colors, DICE3D_PX);
       return cv;
     }
     return {
       pair: function (n) {
         var cs = getComputedStyle(document.documentElement), col = function (v, d) { return (cs.getPropertyValue(v) || "").trim() || d; };
-        var m = ((n % 100) + 100) % 100;
+        var m = ((n % 100) + 100) % 100, ink = col("--ink", "#222"), paper = col("--paper", "#f7f7f1");
+        // in the notebook, two dice drawn in ink on the paper; the tens wear a wash of red ink
+        if (Notebook.on()) return h("span", { class: "dice3d croques", role: "img", "aria-label": "Dés : " + n },
+          one(Math.floor(m / 10), true, [mixColor(paper, col("--red-ink", "#9b2d1f"), 0.22), ink, ink, true]),
+          one(m % 10, false, [paper, ink, ink, true]));
         return h("span", { class: "dice3d", role: "img", "aria-label": "Dés : " + n },
-          one(Math.floor(m / 10), true, [col("--accent", "#2c7464"), col("--accent-ink", "#fff"), col("--ink", "#222")]),
-          one(m % 10, false, [col("--paper", "#f7f7f1"), col("--ink", "#222"), col("--ink", "#222")]));
+          one(Math.floor(m / 10), true, [col("--accent", "#2c7464"), col("--accent-ink", "#fff"), ink]),
+          one(m % 10, false, [paper, ink, ink]));
       },
     };
   })();
@@ -3664,14 +3710,21 @@
     });
     return box;
   }
+  // Intent: twiceNote(Story, { reading, text }) -> Element = a book read twice (12.0): which reading ends here, and
+  // what waits. Why: the reader must know the book is not finished after the first ending, and that it ends after two.
+  function twiceNote(st, T) {
+    var say = T.text || (T.reading === 1 ? "La première lecture s'achève ici. Le livre se lit deux fois : rouvre-le, la seconde lecture ne sera pas la même, et tout ce que tu as compris te servira." : "La seconde lecture s'achève : tu as lu ce livre comme il demandait à l'être, deux fois.");
+    return h("div", { class: "notice twice-note" }, h("b", null, T.reading === 1 ? "Première lecture" : "Seconde lecture"), " · ", say);
+  }
   function renderEnding(st, s, v) {
     if (st.lecture) return renderBookEnd(st, s);
     var qs = M.questsOf(st), done = qs.filter(function (q) { return M.questDone(s, q); });
     return h("div", { class: "ending" }, h("h3", null, "Fin de la lecture"),
       h("div", { class: "small muted" }, s.name + ", " + M.archOf(st, s).label + " de niveau " + M.level(s) + (qs.length ? " · " + done.length + " quêtes sur " + qs.length : "") + " · " + M.timeLabel(s)),
       A.game && !A.game.multi ? endingNote(st, s) : null,
+      v.twice ? twiceNote(st, v.twice) : null,
       h("div", { class: "row" },
-        A.game && A.game.multi ? null : h("button", { class: "btn primary", onclick: function () { newGame(st.id); } }, "Relire avec un autre héros"),
+        A.game && A.game.multi ? null : h("button", { class: "btn primary", onclick: function () { newGame(st.id); } }, v.twice && v.twice.reading === 1 ? "Commencer la seconde lecture" : "Relire avec un autre héros"),
         A.game && !A.game.multi ? h("button", { class: "btn", onclick: function () { openRecit(); } }, "📖 Mon aventure") : null,
         h("button", { class: "btn", onclick: function () { A.carnet = true; A.carnetTab = "quetes"; render(); } }, "Ce que tu as fait"),
         A.game && !A.game.multi && !A.game.ephemeral ? h("button", { class: "btn", onclick: function () { A.carnet = true; A.carnetTab = "soupcons"; render(); } }, "🕵 Ce que tu croyais") : null,
@@ -4422,6 +4475,7 @@
   // Intent: Heraldry = a portrait for every hero and companion (a bust, the class's mark, colours seeded by the name),
   // and a coat of arms for every faction (field, division, charge, seeded by its id; a story may set its own: blasons).
   // Same name, same face, on every device: everything comes from hash(), nothing is stored.
+  var PORTRAIT_SLIP = "#f3ead3", PORTRAIT_INK_FULL = 110;   // a small portrait gets a lighter line: the features are a few pixels wide
   var PORTRAIT_SKINS = Object.keys(M.FACE.skins).map(function (k) { return M.FACE.skins[k]; });
   var PORTRAIT_HAIRS = Object.keys(M.FACE.hairs).map(function (k) { return M.FACE.hairs[k]; });
   var PORTRAIT_IRIS = Object.keys(M.FACE.irises).map(function (k) { return M.FACE.irises[k]; });
@@ -4487,125 +4541,263 @@
       if (d.age === "enfant") { if (given.beard == null) d.beard = "sans"; if (given.coif == null && (d.coif === "degarni" || d.coif === "couronne")) d.coif = "court"; }
       return d;
     };
-    // Where things sit on the head, by age: a child's head is rounder, the eyes larger and lower, the shoulders narrow.
-    var AGE_GEO = {
-      enfant: { rx: 12.3, ry: 12.5, cy: 28.5, ey: 29.2, es: 1.42, dx: 5.6, ny: 1.6, ns: 0.8, my: 36.7, neck: 8, sh: "M13 66 Q15 49 32 47.5 Q49 49 51 66 Z" },
-      jeune: { rx: 11.8, ry: 13.5, cy: 27.4, ey: 27.7, es: 1.28, dx: 5.5, ny: 0.5, ns: 0.92, my: 36.2, neck: 9, sh: "M10 66 Q12 47 32 45 Q52 47 54 66 Z" },
-      adulte: { rx: 12, ry: 14, cy: 27, ey: 27, es: 1.2, dx: 5.5, ny: 0, ns: 1, my: 36, neck: 10, sh: "M8 66 Q10 46 32 44 Q54 46 56 66 Z" },
+    // ---- the face, drawn in free shapes (Clément, 17/11: « les formes de base font trop artificielles »): a head with
+    // temples, cheekbones, a jaw and a chin, each side a little different; ears, a neck that widens to the shoulders,
+    // clothes with a neckline and folds; hair with an uneven edge, a parting and strands; brows that thin outwards, a
+    // nose with its wings, two lips. The same words of Moteur.FACE as before: no story has anything to change.
+    function rnd(seed) { var x = (seed >>> 0) || 1; return function () { x = (x * 1103515245 + 12345) % 2147483648; return x / 2147483648; }; }
+    function f(n) { return (Math.round(n * 100) / 100).toString(); }
+    // a smooth curve through the points (Catmull-Rom turned into cubic Béziers)
+    function smooth(pts, closed, tension) {
+      var k = tension || 6, n = pts.length, d = "M" + f(pts[0][0]) + " " + f(pts[0][1]), last = closed ? n : n - 1;
+      for (var i = 0; i < last; i++) {
+        var p0 = pts[(i - 1 + n) % n], p1 = pts[i], p2 = pts[(i + 1) % n], p3 = pts[(i + 2) % n];
+        if (!closed) { if (i === 0) p0 = p1; if (i + 2 >= n) p3 = p2; }
+        d += " C" + f(p1[0] + (p2[0] - p0[0]) / k) + " " + f(p1[1] + (p2[1] - p0[1]) / k) + " " + f(p2[0] - (p3[0] - p1[0]) / k) + " " + f(p2[1] - (p3[1] - p1[1]) / k) + " " + f(p2[0]) + " " + f(p2[1]);
+      }
+      return d + (closed ? " Z" : "");
+    }
+    function cont(d) { return d.replace(/^M/, "L"); }
+    // a row of small bumps along a line of points, pushed away from a centre (curly or frizzy outlines)
+    function bumpy(pts, cx, cy, amp) {
+      var d = "M" + f(pts[0][0]) + " " + f(pts[0][1]);
+      for (var i = 1; i < pts.length; i++) {
+        var a = pts[i - 1], b = pts[i], mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2, dx = mx - cx, dy = my - cy, l = Math.hypot(dx, dy) || 1;
+        d += " Q" + f(mx + dx / l * amp) + " " + f(my + dy / l * amp) + " " + f(b[0]) + " " + f(b[1]);
+      }
+      return d;
+    }
+    var FACE_GEO = {
+      enfant: { rx: 12.3, ry: 12.5, cy: 28.5, ey: 29.2, es: 1.42, dx: 5.6, ny: 1.6, my: 36.7, neck: 8, sw: 18.5 },
+      jeune: { rx: 11.8, ry: 13.5, cy: 27.4, ey: 27.7, es: 1.28, dx: 5.5, ny: 0.5, my: 36.2, neck: 9, sw: 21.5 },
+      adulte: { rx: 12, ry: 14, cy: 27, ey: 27, es: 1.2, dx: 5.5, ny: 0, my: 36, neck: 10, sw: 23.5 },
     };
     var EYES = {
-      amande: { w: "M-2.7 .3 Q-.6 -2.1 2.7 -.2 Q.3 1.8 -2.7 .3 Z", lid: "M-2.7 .3 Q-.6 -2.1 2.7 -.2", crease: "M-2.3 -1.5 Q0 -3 2.6 -1.5", r: 1.4 },
-      ronds: { w: "M-2.4 0 Q-2.3 -2.2 0 -2.2 Q2.3 -2.2 2.4 0 Q2.3 1.9 0 1.9 Q-2.3 1.9 -2.4 0 Z", lid: "M-2.4 0 Q-2.3 -2.2 0 -2.2 Q2.3 -2.2 2.4 0", crease: "M-2.2 -2.2 Q0 -3.5 2.4 -2.1", r: 1.55 },
-      // A single eyelid, no crease: the upper line runs smooth from a covered inner corner to a slightly higher outer one.
-      brides: { w: "M-2.7 .5 Q-1.6 -.85 .4 -1.05 Q1.9 -1.05 2.8 -.4 Q.9 1.3 -2.7 .5 Z", lid: "M-2.95 .8 Q-1.7 -.9 .4 -1.1 Q1.9 -1.1 3.05 -.45", r: 1.38 },
-      tombants: { w: "M-2.6 -.4 Q0 -2.2 2.7 .8 Q0 1.7 -2.6 -.4 Z", lid: "M-2.6 -.4 Q0 -2.2 2.9 1", crease: "M-2.2 -1.9 Q.2 -3.1 2.9 -.6", r: 1.4 },
-      lourds: { w: "M-2.6 .2 Q0 -1.2 2.6 .1 Q0 1.6 -2.6 .2 Z", lid: "M-2.7 .2 Q0 -1.3 2.7 .1", hood: "M-2.9 .1 Q0 -1.45 2.9 0 Q0 -3 -2.9 .1 Z", r: 1.35 },
+      amande: { w: "M-2.7 .3 Q-.6 -2.1 2.7 -.2 Q.3 1.8 -2.7 .3 Z", lid: "M-2.9 .4 Q-.6 -2.2 2.8 -.3", low: "M-2.4 .5 Q.2 1.7 2.5 0", crease: "M-2.3 -1.6 Q0 -3.1 2.6 -1.6", r: 1.4 },
+      ronds: { w: "M-2.4 0 Q-2.3 -2.2 0 -2.2 Q2.3 -2.2 2.4 0 Q2.3 1.9 0 1.9 Q-2.3 1.9 -2.4 0 Z", lid: "M-2.6 .1 Q-2.3 -2.3 0 -2.3 Q2.3 -2.3 2.6 0", low: "M-2.2 .6 Q0 2.1 2.2 .5", crease: "M-2.2 -2.3 Q0 -3.6 2.4 -2.2", r: 1.55 },
+      brides: { w: "M-2.7 .5 Q-1.6 -.85 .4 -1.05 Q1.9 -1.05 2.8 -.4 Q.9 1.3 -2.7 .5 Z", lid: "M-3 .85 Q-1.7 -.95 .4 -1.15 Q1.9 -1.15 3.1 -.5", low: "M-2.4 .7 Q.4 1.5 2.6 -.1", r: 1.38 },
+      tombants: { w: "M-2.6 -.4 Q0 -2.2 2.7 .8 Q0 1.7 -2.6 -.4 Z", lid: "M-2.8 -.4 Q0 -2.3 3 1", low: "M-2.3 -.1 Q0 1.5 2.5 .9", crease: "M-2.2 -2 Q.2 -3.2 2.9 -.7", r: 1.4 },
+      lourds: { w: "M-2.6 .2 Q0 -1.2 2.6 .1 Q0 1.6 -2.6 .2 Z", lid: "M-2.8 .2 Q0 -1.35 2.8 .1", low: "M-2.3 .5 Q0 1.6 2.3 .4", hood: "M-2.9 .1 Q0 -1.45 2.9 0 Q0 -3 -2.9 .1 Z", r: 1.35 },
     };
-    var NOSES = {
-      fin: "M32.5 29 Q33.1 31.2 32.6 32 Q32 32.5 31.2 32",
-      large: "M29.9 31.5 Q30.2 32.9 32 32.5 Q33.8 32.9 34.1 31.5 M32.9 29.2 Q33.2 30.4 33 31",
-      busque: "M32.2 27.8 Q34.5 30.2 33.3 31.9 Q32.3 32.6 31.2 32",
-      retrousse: "M32.6 29.4 Q33.4 30.8 33.2 31.3 Q32.3 32.2 31 31.5",
-    };
-    var CAP = "M19 28 Q17 10 32 10 Q47 10 45 28 Q44 19 36 17 Q30 21 21 21 Q20 24 19 28 Z";
-    var CAP_TIGHT = "M19.5 27 Q18 11.5 32 11.5 Q46 11.5 44.5 27 Q43 18 32 17.5 Q21 18 19.5 27 Z";
-    function ring(cx, cy, rad, r, from, to, n, fill) {
-      var out = ""; for (var i = 0; i < n; i++) { var a = (from + (to - from) * i / (n - 1)) * Math.PI / 180; out += '<circle cx="' + (cx + rad * Math.cos(a)).toFixed(1) + '" cy="' + (cy + rad * Math.sin(a)).toFixed(1) + '" r="' + r + '" fill="' + fill + '"/>'; }
-      return out;
+
+    function faceSvg(F, o) {
+      o = o || {};
+      var seed = String(o.seed || "?"), r = rnd(hash(seed + "|forme")), sz = o.size || 64, uid = o.uid;
+      var G = FACE_GEO[F.age] || FACE_GEO.adulte, old = F.age === "ancien", ripe = F.age === "mur" || old, kid = F.age === "enfant";
+      var has = function (m) { return (F.marks || []).indexOf(m) >= 0; };
+      var cloth = o.cloth, scarf = o.scarf, xs = hash(seed);
+      var skin = F.skin, shade = mix(skin, "#3a1f12", 0.38), deep = mix(skin, "#2a120a", 0.55), dark = lum(skin) < 0.45;
+      var lip = dark ? mix(skin, "#2a0f0a", 0.45) : mix(skin, "#8a2f28", F.lips === "pleines" ? 0.5 : 0.38), lipLow = mix(lip, skin, 0.35);
+      var hairDk = mix(F.hair, "#000000", lum(F.hair) > 0.5 ? 0.28 : 0.45), hairLt = mix(F.hair, "#ffffff", lum(F.hair) > 0.5 ? 0.25 : 0.2);
+      var brow = lum(F.hair) > 0.6 ? mix(F.hair, "#6b5a45", 0.35) : mix(F.hair, "#1c130d", 0.3), ink = "#2b2015";
+      var line = function (d, c, w, extra) { return '<path d="' + d + '" stroke="' + c + '" stroke-width="' + w + '" fill="none" stroke-linecap="round" stroke-linejoin="round"' + (extra || "") + "/>"; };
+      var fill = function (d, c, extra) { return '<path d="' + d + '" fill="' + c + '"' + (extra || "") + "/>"; };
+      var J = function (a) { return (r() - 0.5) * 2 * a; };   // a little unevenness, the same every time for the same person
+
+      // ---- the head: forehead, temples, cheekbones, jaw, chin; each side a little different
+      var sh = { ovale: [0.8, 3.2, 0.62, 1], rond: [0.92, 4.6, 0.6, 0.96], carre: [0.97, 5.4, 0.7, 1], allonge: [0.76, 3, 0.64, 1.06] }[F.shape] || [0.8, 3.2, 0.62, 1];
+      var rx = G.rx + (F.shape === "rond" ? 0.6 : F.shape === "allonge" ? -0.9 : 0), ry = G.ry * sh[3], cy = G.cy, jw = sh[0], cw = sh[1], jy = sh[2];
+      if (kid) { jw += 0.06; cw += 0.6; jy -= 0.04; }
+      if (old) { jw += 0.04; jy += 0.06; }
+      var asym = 1 + J(0.035);
+      var side = function (s) {
+        var k = s > 0 ? asym : 1;
+        return [[32 + s * rx * 0.7 * k, cy - ry * 0.87], [32 + s * rx * 0.98 * k, cy - ry * 0.33 + J(0.3)], [32 + s * rx * 1.0 * k, cy + ry * 0.12],
+          [32 + s * rx * jw * k, cy + ry * jy + J(0.3)], [32 + s * cw * k, cy + ry * 0.95]];
+      };
+      var R = side(1), L = side(-1);
+      var headPts = [[32 + J(0.3), cy - ry]].concat(R, [[32 + J(0.2), cy + ry * 1.01]], L.reverse());
+      var head = smooth(headPts, true, 5.6);
+      var top = cy - ry, chinY = cy + ry * 1.01, jawL = L[1], jawR = R[3];   // L reversed: L[1] is the left jaw
+
+      // ---- the neck and the shoulders, one body; then the clothes, with a neckline
+      var nw = G.neck / 2, sw = G.sw, ny0 = cy + ry * 0.5;
+      var bodyR = [[32 + nw, ny0], [32 + nw + 0.2, 41], [32 + nw + 1, 45.2], [32 + nw + 6, 47.3], [32 + sw * 0.72, 48.6], [32 + sw * 0.95, 52], [32 + sw * 1.05, 58], [32 + sw * 1.08, 66]];
+      var bodyL = bodyR.map(function (p) { return [64 - p[0], p[1]]; });
+      var body = smooth(bodyL.slice().reverse(), false, 6) + " " + cont(smooth(bodyR, false, 6)) + " Z";
+      var collar = (xs >>> 3) % 3;   // 0 round, 1 V, 2 shirt
+      var neckL = 32 - nw - 2.4, neckR = 32 + nw + 2.4, neckY = 46;
+      var clothR = [[neckR, neckY], [32 + nw + 6, 47.6], [32 + sw * 0.72, 48.9], [32 + sw * 0.95, 52.3], [32 + sw * 1.05, 58.2], [32 + sw * 1.08, 66]];
+      var clothL = clothR.map(function (p) { return [64 - p[0], p[1]]; });
+      var neckline = collar === 1 ? " L32 " + f(neckY + 7.5) : " Q32 " + f(neckY + (collar === 0 ? 4.5 : 6.5)) + " ";
+      var clothes = smooth(clothR, false, 6) + " L" + f(clothL[clothL.length - 1][0]) + " 66 " + cont(smooth(clothL.slice().reverse(), false, 6)) +
+        (collar === 1 ? " L32 " + f(neckY + 7.5) + " Z" : " Q32 " + f(neckY + (collar === 0 ? 4.5 : 6.5)) + " " + f(neckR) + " " + f(neckY) + " Z");
+      var folds = line("M" + f(32 - sw * 0.62) + " 56 Q" + f(32 - sw * 0.55) + " 60 " + f(32 - sw * 0.6) + " 65 M" + f(32 + sw * 0.62) + " 56.5 Q" + f(32 + sw * 0.56) + " 60.5 " + f(32 + sw * 0.62) + " 65 M" + f(32 - 4) + " 58 q2 2 1 6", mix(cloth, "#000000", 0.3), 0.45, ' opacity=".7"');
+      var shirt = collar === 2 ? fill("M" + f(neckL + 0.4) + " " + f(neckY - 0.3) + " L" + f(32 - 1.2) + " " + f(neckY + 6.6) + " L" + f(32 - 4.6) + " " + f(neckY + 5.2) + " Z M" + f(neckR - 0.4) + " " + f(neckY - 0.3) + " L" + f(32 + 1.2) + " " + f(neckY + 6.6) + " L" + f(32 + 4.6) + " " + f(neckY + 5.2) + " Z", mix(cloth, "#ffffff", 0.35)) : "";
+
+      var p = ['<svg class="portrait' + (o.wash ? " lavis" : "") + '" viewBox="0 0 64 64" width="' + sz + '" height="' + sz + '" role="img" aria-hidden="true">',
+        '<circle cx="32" cy="32" r="32" fill="' + F.back + '"/>',
+        '<clipPath id="qc' + uid + '"><circle cx="32" cy="32" r="32"/></clipPath><clipPath id="qe' + uid + '"><path d="' + (EYES[F.eyes] || EYES.amande).w + '"/></clipPath>' +
+        '<clipPath id="qh' + uid + '"><path d="' + head + '"/></clipPath><filter id="qb' + uid + '" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation=".9"/></filter>', '<g clip-path="url(#qc' + uid + ')">'];
+
+      // ---- hair: its outline over the head, a hairline, strands
+      var c = F.coif, vol = { court: 1.6, milong: 2.4, long: 2.6, boucles: 3.6, crepus: 5.4, chignon: 0.9, tresses: 0.9, locks: 1.6, degarni: 1.2, couronne: 1, rase: 0.3 }[c] || 1.6;
+      var outer = function (v, from, to, n, wob) {
+        var pts = []; for (var i = 0; i <= n; i++) { var a = (from + (to - from) * i / n) * Math.PI / 180, w = 1 + J(wob || 0.03);
+          pts.push([32 + Math.cos(a) * (rx + v) * w * (Math.cos(a) > 0 ? asym : 1), cy - 1 + Math.sin(a) * (ry + v * 0.8) * w]); }
+        return pts;
+      };
+      var part = J(2.2), hl = c === "crepus" || c === "boucles" ? 0.6 : 0.68;
+      var hairline = [[32 + rx * 0.99 * asym, cy - ry * 0.05], [32 + rx * 0.82 * asym, cy - ry * 0.42], [32 + rx * 0.45, cy - ry * (hl - 0.04) + J(0.4)], [32 + part, cy - ry * hl], [32 - rx * 0.45, cy - ry * (hl - 0.04) + J(0.4)], [32 - rx * 0.82, cy - ry * 0.42], [32 - rx * 0.99, cy - ry * 0.05]];
+      if (kid || F.age === "jeune") hairline[3][1] += 0.6;
+      var cap = function (v, pts) { var o2 = pts || outer(v, 172, 368, 9, 0.025); return smooth(o2, false, 6) + " " + cont(smooth(hairline, false, 6)) + " Z"; };
+      var strands = function (n, len, col, w) {
+        var out = "";
+        for (var i = 0; i < n; i++) { var t = (i + 0.5) / n, a = (190 + 160 * t) * Math.PI / 180, ex = 32 + Math.cos(a) * (rx + vol * 0.6), ey2 = cy - 1 + Math.sin(a) * (ry + vol * 0.5);
+          var sx = 32 + part + (ex - 32 - part) * 0.12, sy = cy - ry * hl - 0.3;
+          out += "M" + f(sx) + " " + f(sy) + " Q" + f((sx + ex) / 2 + J(1)) + " " + f(Math.min(sy, ey2) - 1.5) + " " + f(sx + (ex - sx) * len) + " " + f(sy + (ey2 - sy) * len) + " "; }
+        return line(out, col, w, ' opacity=".55"');
+      };
+      // behind the head
+      if (c === "long" || c === "milong") {
+        var yb = c === "long" ? 56 + J(1.5) : 44.5 + J(1), wv = c === "long" ? 3.4 : 2.6, back = [];
+        back.push([32 - rx - wv * 0.6, cy - 4]);
+        back.push([32 - rx - wv, cy + 4 + J(1)]); back.push([32 - rx - wv * 0.8 + J(0.8), (cy + yb) / 2 + 3]);
+        for (var tI = 0; tI <= 6; tI++) { var tx = 32 - rx - wv * 0.6 + (2 * rx + wv * 1.2) * tI / 6; back.push([tx, yb + (tI % 2 ? -2.2 : 0.6) + J(0.8)]); }
+        back.push([32 + rx + wv * 0.8 + J(0.8), (cy + yb) / 2 + 3]); back.push([32 + rx + wv, cy + 4 + J(1)]); back.push([32 + rx + wv * 0.6, cy - 4]); back.push([32, cy - ry - 3]);
+        p.push(fill(smooth(back, true, 6), F.hair));
+        p.push(line("M" + f(32 - rx - 1) + " " + f(cy + 3) + " Q" + f(32 - rx - 2.4) + " " + f(yb - 6) + " " + f(32 - rx + 0.4) + " " + f(yb - 1) + " M" + f(32 + rx + 1) + " " + f(cy + 3) + " Q" + f(32 + rx + 2.4) + " " + f(yb - 6) + " " + f(32 + rx - 0.4) + " " + f(yb - 1), hairDk, 0.5, ' opacity=".6"'));
+      }
+      if (c === "crepus" || c === "boucles") {
+        var ring = outer(vol, 150, 390, c === "crepus" ? 22 : 16, 0.03);
+        p.push(fill(bumpy(ring, 32, cy, c === "crepus" ? 1.3 : 1.9) + " Z", F.hair));
+      }
+      if (c === "chignon") p.push(fill(smooth(outer(0, 0, 360, 10, 0.06).map(function (q) { return [32 + (q[0] - 32) * 0.42, top - 3.6 + (q[1] - cy + 1) * 0.36]; }), true), F.hair) + line("M" + f(29.5) + " " + f(top - 4) + " q2.5 -2.4 5 0 M" + f(30) + " " + f(top - 2) + " q2 -1.6 4.2 .2", hairDk, 0.45));
+      if (c === "foulard") p.push(fill(smooth([[32 - rx - 3, cy - 2], [32 - rx - 3.4, cy + 10], [32 - rx + 1, cy + 19], [32, cy + 21], [32 + rx - 1, cy + 19], [32 + rx + 3.4, cy + 10], [32 + rx + 3, cy - 2], [32 + rx + 1, top - 2], [32, top - 4], [32 - rx - 1, top - 2]], true), scarf));
+      if (c === "tresses") [-1, 1].forEach(function (s) {
+        var bx = 32 + s * (rx + 0.6);
+        for (var j = 0; j < 8; j++) { var by = cy + 1 + j * 3.2, ox = (j % 2 ? 0.7 : -0.7) * s;
+          p.push(fill("M" + f(bx + ox - 2.2) + " " + f(by) + " Q" + f(bx + ox) + " " + f(by - 2.2) + " " + f(bx + ox + 2.2) + " " + f(by + 0.4) + " Q" + f(bx + ox) + " " + f(by + 3.4) + " " + f(bx + ox - 2.2) + " " + f(by) + " Z", F.hair) +
+            line("M" + f(bx + ox - 1.6) + " " + f(by + 0.4) + " Q" + f(bx + ox) + " " + f(by + 1.6) + " " + f(bx + ox + 1.6) + " " + f(by + 0.8), hairDk, 0.35, ' opacity=".7"')); }
+        p.push('<circle cx="' + f(bx) + '" cy="' + f(cy + 27.5) + '" r="1.2" fill="#c9a24a"/>');
+      });
+      if (c === "locks") for (var li = 0; li < 9; li++) { var lx = 32 - rx - 0.6 + li * (2 * rx + 1.2) / 8; if (Math.abs(lx - 32) < rx * 0.6) continue;
+        p.push(line("M" + f(lx) + " " + f(cy - 4) + " Q" + f(lx + (lx < 32 ? -1.6 : 1.6) + J(0.6)) + " " + f(cy + 9) + " " + f(lx + (lx < 32 ? -0.6 : 0.6)) + " " + f(cy + 19 + J(3)), F.hair, 2.6) + line("M" + f(lx) + " " + f(cy) + " l" + f(lx < 32 ? -0.4 : 0.4) + " 1.2 M" + f(lx + (lx < 32 ? -1 : 1)) + " " + f(cy + 7) + " l.3 1.2", hairDk, 0.35)); }
+      if (c === "capuche") p.push(fill(smooth([[32 - rx - 4.6, cy + 22], [32 - rx - 5, cy + 6], [32 - rx - 2.6, top + 1], [32, top - 5], [32 + rx + 2.6, top + 1], [32 + rx + 5, cy + 6], [32 + rx + 4.6, cy + 22]], false) + " Z", mix(cloth, "#000000", 0.15)));
+
+      // the body and the clothes
+      p.push(fill(body, skin));
+      p.push(fill("M" + f(32 - nw) + " " + f(ny0 + 2) + " Q32 " + f(chinY + 3.4) + " " + f(32 + nw) + " " + f(ny0 + 2) + " V" + f(ny0 - 1) + " Z", deep, ' opacity=".34" filter="url(#qb' + uid + ')"'));   // the shadow of the chin on the neck
+      if (old || F.age === "mur") p.push(line("M" + f(32 - nw + 1.6) + " " + f(chinY + 2.4) + " Q" + f(32 - nw + 1.2) + " 43 " + f(32 - nw + 2.4) + " 45.6 M" + f(32 + nw - 1.6) + " " + f(chinY + 2.4) + " Q" + f(32 + nw - 1.2) + " 43 " + f(32 + nw - 2.4) + " 45.6", shade, 0.45, ' opacity=".55"'));
+      p.push(fill(clothes, cloth) + shirt + folds);
+      if (c === "capuche") p.push(fill("M" + f(32 - rx - 4.6) + " " + f(cy + 22) + " Q" + f(32 - rx - 1) + " " + f(cy + 18) + " " + f(32 - nw - 1) + " 47 L" + f(32 + nw + 1) + " 47 Q" + f(32 + rx + 1) + " " + f(cy + 18) + " " + f(32 + rx + 4.6) + " " + f(cy + 22) + " L" + f(32 + rx + 6) + " 66 H" + f(32 - rx - 6) + " Z", mix(cloth, "#000000", 0.15)));
+      // the ears, behind the edge of the face
+      [-1, 1].forEach(function (s) {
+        var x0 = 32 + s * rx * 0.94 * (s > 0 ? asym : 1), y0 = G.ey - 1.8;
+        p.push(fill("M" + f(x0) + " " + f(y0) + " C" + f(x0 + s * 2.5) + " " + f(y0 - 1.6) + " " + f(x0 + s * 3.4) + " " + f(y0 + 2.8) + " " + f(x0 + s * 1.5) + " " + f(y0 + 5.6) + " C" + f(x0 + s * 0.8) + " " + f(y0 + 6.4) + " " + f(x0) + " " + f(y0 + 6) + " " + f(x0) + " " + f(y0 + 5) + " Z", mix(skin, shade, 0.12)) +
+          line("M" + f(x0 + s * 0.6) + " " + f(y0 + 0.9) + " C" + f(x0 + s * 2.2) + " " + f(y0 + 0.2) + " " + f(x0 + s * 2.4) + " " + f(y0 + 3) + " " + f(x0 + s * 1.2) + " " + f(y0 + 3.8), shade, 0.45, ' opacity=".7"'));
+      });
+      if (c === "foulard" || c === "turban" || c === "capuche") {} // the ears are covered further on
+      // the face
+      p.push(fill(head, skin));
+      // what shapes the face: the hollow under the cheekbone, the side of the temple, a child's round cheeks
+      p.push(fill("M" + f(32 + rx * 0.92) + " " + f(cy + ry * 0.05) + " Q" + f(32 + rx * 0.55) + " " + f(cy + ry * 0.32) + " " + f(32 + rx * 0.62) + " " + f(cy + ry * 0.62) + " Q" + f(32 + rx * 0.9) + " " + f(cy + ry * 0.45) + " " + f(32 + rx * 0.95) + " " + f(cy + ry * 0.05) + " Z", shade, ' opacity="' + (kid ? 0.12 : 0.26) + '" filter="url(#qb' + uid + ')"'));
+      p.push(fill("M" + f(32 - rx * 0.92) + " " + f(cy + ry * 0.05) + " Q" + f(32 - rx * 0.6) + " " + f(cy + ry * 0.32) + " " + f(32 - rx * 0.66) + " " + f(cy + ry * 0.6) + " Q" + f(32 - rx * 0.9) + " " + f(cy + ry * 0.45) + " " + f(32 - rx * 0.95) + " " + f(cy + ry * 0.05) + " Z", shade, ' opacity="' + (kid ? 0.08 : 0.16) + '" filter="url(#qb' + uid + ')"'));
+      if (kid) p.push('<ellipse cx="' + f(32 - rx * 0.55) + '" cy="' + f(G.ey + 4.4) + '" rx="2.5" ry="1.8" fill="#d8644e" opacity=".2"/><ellipse cx="' + f(32 + rx * 0.55) + '" cy="' + f(G.ey + 4.4) + '" rx="2.5" ry="1.8" fill="#d8644e" opacity=".2"/>');
+      // ---- what life left on the skin
+      var ve = G.ey - 27;
+      if (has("vitiligo")) p.push('<g clip-path="url(#qh' + uid + ')">' + fill("M33.3 " + f(23.4 + ve) + " Q37 " + f(21.2 + ve) + " 40.8 " + f(23.8 + ve) + " Q42.4 " + f(27 + ve) + " 40.3 " + f(29.8 + ve) + " Q37 " + f(31 + ve) + " 34.2 " + f(29.2 + ve) + " Q32.6 " + f(26.4 + ve) + " 33.3 " + f(23.4 + ve) + " Z M24.6 34 Q27.4 32.8 29.2 35.3 Q29.4 38.6 26.6 39.2 Q23.8 37.6 24.6 34 Z", mix(skin, "#fff3ea", 0.8)) + "</g>");
+      if (has("rousseur")) p.push('<g fill="' + mix(skin, "#8a4a22", 0.5) + '">' + [[26, 30.6], [27.6, 31.4], [24.8, 31.6], [29, 30.4], [35, 30.4], [36.4, 31.4], [38, 30.6], [39.2, 31.7], [31, 29.6], [33.2, 29.7], [26.4, 32.4], [37.6, 32.5]].map(function (q) { return '<circle cx="' + f(q[0] + J(0.3)) + '" cy="' + f(q[1] + G.ny + J(0.3)) + '" r="' + f(0.35 + r() * 0.2) + '"/>'; }).join("") + "</g>");
+      if (ripe) p.push(line("M" + f(32 - rx * 0.42) + " " + f(G.ey + 6) + " Q" + f(32 - rx * 0.52) + " " + f(G.my - 1.2) + " " + f(32 - rx * 0.38) + " " + f(G.my + 1.6) + " M" + f(32 + rx * 0.42) + " " + f(G.ey + 6) + " Q" + f(32 + rx * 0.52) + " " + f(G.my - 1.2) + " " + f(32 + rx * 0.38) + " " + f(G.my + 1.6), shade, 0.5, ' opacity="' + (old ? 0.75 : 0.45) + '"'));
+      if (old) p.push(line("M" + f(32 - 4.6) + " " + f(top + 4.6) + " Q32 " + f(top + 3.8) + " " + f(32 + 4.6) + " " + f(top + 4.6) + " M" + f(32 - 3.6) + " " + f(top + 6.2) + " Q32 " + f(top + 5.6) + " " + f(32 + 3.6) + " " + f(top + 6.2) + " M" + f(32 + G.dx + 3.6) + " " + f(G.ey - 0.6) + " l1.4 -.6 M" + f(32 + G.dx + 3.7) + " " + f(G.ey + 0.8) + " l1.4 .3 M" + f(32 - G.dx - 3.6) + " " + f(G.ey - 0.6) + " l-1.4 -.6 M" + f(32 - G.dx - 3.7) + " " + f(G.ey + 0.8) + " l-1.4 .3", shade, 0.42, ' opacity=".65"'));
+      // ---- hair and headwear in front
+      if (c === "long" || c === "milong" || c === "court" || c === "locks") {
+        var o3 = outer(vol, 168, 372, 10, 0.03);
+        if (c === "court") o3 = o3.map(function (q, i) { return i % 3 === 1 ? [q[0] + (q[0] - 32) * 0.05, q[1] - 0.8] : q; });
+        p.push(fill(cap(vol, o3), F.hair));
+        if (c === "long" || c === "milong") p.push(fill("M" + f(32 + part) + " " + f(cy - ry * hl) + " Q" + f(32 - rx * 0.7) + " " + f(cy - ry * 0.5) + " " + f(32 - rx * 1.02) + " " + f(cy + 2) + " L" + f(32 - rx - 1.6) + " " + f(cy + 2) + " Q" + f(32 - rx - 1) + " " + f(cy - ry * 0.7) + " " + f(32 + part) + " " + f(cy - ry * hl - 0.6) + " Z", F.hair));
+        p.push(strands(c === "court" ? 7 : 9, c === "court" ? 0.8 : 0.95, lum(F.hair) > 0.45 ? hairDk : hairLt, 0.4));
+      } else if (c === "crepus" || c === "boucles") {
+        p.push(fill(bumpy(outer(vol * 0.55, 186, 354, c === "crepus" ? 12 : 8, 0.02), 32, cy, c === "crepus" ? 0.9 : 1.4) + " " + cont(smooth(hairline.slice(1, 6).reverse().reverse(), false, 6)) + " Z", F.hair));
+        var curls = ""; for (var ci = 0; ci < (c === "crepus" ? 26 : 12); ci++) { var a2 = (175 + r() * 190) * Math.PI / 180, rr = 0.55 + r() * 0.5, qx = 32 + Math.cos(a2) * (rx + vol * 0.6) * rr * 1.05, qy = cy - 1 + Math.sin(a2) * (ry + vol * 0.5) * rr; if (qy > cy - ry * hl + 1 && Math.abs(qx - 32) < rx * 0.8) continue;
+          curls += "M" + f(qx) + " " + f(qy) + " a.8 .8 0 1 1 " + f(c === "crepus" ? 0.9 : 1.4) + " .3 "; }
+        p.push(line(curls, lum(F.hair) > 0.45 ? hairDk : hairLt, 0.35, ' opacity=".6"'));
+      } else if (c === "chignon" || c === "tresses") {
+        p.push(fill(cap(0.6, outer(0.6, 174, 366, 9, 0.015)), F.hair));
+        p.push(line("M" + f(32 + part) + " " + f(cy - ry * hl) + " Q" + f(32 + part * 0.4) + " " + f(top) + " " + f(32) + " " + f(top - 0.6), hairDk, 0.45) + strands(8, 0.95, lum(F.hair) > 0.45 ? hairDk : hairLt, 0.35));
+      } else if (c === "degarni" || c === "couronne") {
+        [-1, 1].forEach(function (s) { p.push(fill("M" + f(32 + s * rx * 1.02) + " " + f(cy + 1) + " Q" + f(32 + s * (rx + 1.4)) + " " + f(cy - 6) + " " + f(32 + s * rx * 0.62) + " " + f(cy - ry * (c === "degarni" ? 0.78 : 0.55)) + " Q" + f(32 + s * rx * 0.8) + " " + f(cy - 5) + " " + f(32 + s * rx * 0.86) + " " + f(cy + 1) + " Z", F.hair)); });
+        if (c === "degarni") p.push(line("M" + f(32 - rx * 0.4) + " " + f(top + 1.4) + " q4 -1.4 8 0", F.hair, 0.6, ' opacity=".5"'));
+      } else if (c === "rase") {
+        p.push(fill(cap(0.2, outer(0.2, 174, 366, 9, 0.01)), F.hair, ' opacity=".3"'));
+      } else if (c === "foulard") {
+        p.push(fill(smooth([[32 - rx - 1.6, cy + 3], [32 - rx - 2.2, cy - 6], [32 - rx * 0.6, top - 2.4], [32, top - 3.2], [32 + rx * 0.6, top - 2.4], [32 + rx + 2.2, cy - 6], [32 + rx + 1.6, cy + 3], [32 + rx * 0.7, cy - ry * 0.55], [32, cy - ry * 0.66], [32 - rx * 0.7, cy - ry * 0.55]], true), scarf));
+        p.push(fill(smooth([[32 - rx - 1.6, cy + 1], [32 - rx - 0.6, cy + 12], [32 - nw - 1, chinY + 5], [32 + nw + 1, chinY + 5], [32 + rx + 0.6, cy + 12], [32 + rx + 1.6, cy + 1], [32 + rx * 0.9, cy + 8], [32 + rx * 0.4, chinY + 1.4], [32 - rx * 0.4, chinY + 1.4], [32 - rx * 0.9, cy + 8]], true), scarf));
+        p.push(line("M" + f(32 - rx * 0.8) + " " + f(top + 1) + " Q32 " + f(top - 2.2) + " " + f(32 + rx * 0.8) + " " + f(top + 1) + " M" + f(32 + rx + 0.6) + " " + f(cy + 6) + " q-1.2 4 -3 7 M" + f(32 - rx - 0.6) + " " + f(cy + 6) + " q1.2 4 3 7", mix(scarf, "#000000", 0.3), 0.5, ' opacity=".8"'));
+      } else if (c === "turban") {
+        p.push(fill(smooth([[32 - rx - 1.6, cy - 1], [32 - rx - 2.4, cy - 8], [32 - rx * 0.6, top - 4.6], [32 + 1, top - 5.4], [32 + rx * 0.7, top - 4.2], [32 + rx + 2.4, cy - 8], [32 + rx + 1.6, cy - 1], [32 + rx * 0.6, cy - ry * 0.55], [32, cy - ry * 0.6], [32 - rx * 0.6, cy - ry * 0.55]], true), scarf));
+        p.push(line("M" + f(32 - rx - 1) + " " + f(cy - 4) + " Q" + f(32 - 2) + " " + f(top - 3) + " " + f(32 + rx + 1.6) + " " + f(cy - 7) + " M" + f(32 - rx * 0.4) + " " + f(top - 2.6) + " Q" + f(32 + 3) + " " + f(cy - 9) + " " + f(32 + rx + 1.8) + " " + f(cy - 3), mix(scarf, "#000000", 0.3), 0.55));
+      } else if (c === "capuche") {
+        p.push(fill(smooth([[32 - rx - 2.4, cy + 6], [32 - rx - 2.8, cy - 6], [32 - rx * 0.5, top - 2], [32, top - 2.6], [32 + rx * 0.5, top - 2], [32 + rx + 2.8, cy - 6], [32 + rx + 2.4, cy + 6], [32 + rx * 0.95, cy - 4], [32, cy - ry * 0.7], [32 - rx * 0.95, cy - 4]], true), mix(cloth, "#000000", 0.05)));
+        p.push(line("M" + f(32 - rx * 0.95) + " " + f(cy - 4) + " Q32 " + f(cy - ry * 0.95) + " " + f(32 + rx * 0.95) + " " + f(cy - 4), mix(cloth, "#000000", 0.45), 0.7, ' opacity=".7"'));
+      }
+      // ---- brows, eyes, nose, mouth
+      var E = EYES[F.eyes] || EYES.amande, blindL = has("aveugle"), blindR = has("aveugle") || has("oeil_voile");
+      [-1, 1].forEach(function (s) {
+        var blind = s < 0 ? blindL : blindR, iris = blind ? "#d3dade" : s < 0 && has("vairons") ? (lum(F.iris) < 0.3 ? FV.irises.bleu : FV.irises.brun) : F.iris, lift = J(0.25), bw = old ? 0.75 : kid ? 0.85 : 1;
+        p.push('<g transform="translate(' + f(32 + s * G.dx * (s > 0 ? asym : 1)) + " " + f(G.ey + lift) + ") scale(" + f(s * G.es) + " " + f(G.es) + ')">' +
+          fill("M-3.2 -2.9 Q-.6 " + f(F.eyes === "brides" ? -4.1 : -4.6) + " 3 -3.5 Q-.5 " + f((F.eyes === "brides" ? -3.4 : -3.8) + 0.4 * (1 - bw)) + " -3.1 -2.1 Z", brow, ' opacity="' + (old ? 0.75 : 0.95) + '"') +
+          fill(E.w, "#f4eee3") + '<g clip-path="url(#qe' + uid + ')"><circle cx="0" cy="-.25" r="' + E.r + '" fill="' + iris + '"/>' +
+          (blind ? '<circle cx="0" cy="-.25" r="' + f(E.r * 0.45) + '" fill="#b9c3c8"/>' : '<circle cx="0" cy="-.25" r="' + f(E.r * 0.48) + '" fill="#120c08"/><circle cx=".5" cy="-.75" r=".34" fill="#fff" opacity=".85"/>') +
+          fill("M-3 -3 H3 V" + f(E === EYES.lourds ? -0.6 : -1.15) + " Q0 " + f(E === EYES.lourds ? -0.4 : -1.4) + " -3 -1 Z", mix(skin, shade, 0.4), ' opacity=".35"') + "</g>" +   // the shadow of the upper lid on the eye
+          (E.hood ? fill(E.hood, shade, ' opacity=".4"') : "") + (E.crease ? line(E.crease, shade, 0.35, ' opacity=".7"') : "") +
+          line(E.lid, ink, F.eyes === "lourds" ? 0.85 : 0.7) + line(E.low, shade, 0.35, ' opacity=".6"') + line("M2.6 -.2 l.8 -.5", ink, 0.4) +
+          (ripe ? line("M-2.2 2.3 Q0 3.1 2.3 2.4", shade, 0.4, ' opacity="' + (old ? 0.8 : 0.5) + '"') : "") + "</g>");
+      });
+      var nt = cy + ry * 0.33 + G.ny * 0.4 + (kid ? -0.3 : 0), nwid = { fin: 1.5, large: 2.5, busque: 1.7, retrousse: 1.6 }[F.nose] || 1.6, ntip = F.nose === "retrousse" ? -0.5 : 0;
+      p.push('<g data-pop="2.6">');
+      p.push(line("M" + f(32 + 1.3) + " " + f(G.ey + 0.6) + " Q" + f(32 + (F.nose === "busque" ? 2.4 : 1.7)) + " " + f(G.ey + 2.8) + " " + f(32 + 1.4) + " " + f(nt - 1.4), shade, 0.45, ' opacity=".55"'));
+      p.push(fill("M" + f(32 - nwid) + " " + f(nt) + " Q" + f(32 - nwid - 0.6) + " " + f(nt + 1.2) + " " + f(32 - nwid * 0.4) + " " + f(nt + 1.3) + " Q32 " + f(nt + 1.9 + ntip) + " " + f(32 + nwid * 0.4) + " " + f(nt + 1.3) + " Q" + f(32 + nwid + 0.6) + " " + f(nt + 1.2) + " " + f(32 + nwid) + " " + f(nt) + " Q32 " + f(nt + 0.8 + ntip) + " " + f(32 - nwid) + " " + f(nt) + " Z", shade, ' opacity=".4" filter="url(#qb' + uid + ')"'));
+      p.push(line("M" + f(32 - nwid) + " " + f(nt) + " q-.7 .9 -.1 1.3 q.5 .2 1 0 M" + f(32 + nwid) + " " + f(nt) + " q.7 .9 .1 1.3 q-.5 .2 -1 0", deep, 0.45, ' opacity=".8"'));
+      p.push("</g>");
+      var my = G.my + (F.shape === "allonge" ? 0.6 : 0), mw = F.lips === "pleines" ? 3.6 : 3.3, low = F.lips === "pleines" ? 2.5 : 1.5;
+      p.push('<g data-pop=".9" transform="translate(0 ' + f(my) + ')">' +
+        fill("M" + f(32 - mw) + " .1 Q" + f(32 - mw * 0.5) + " " + f(F.lips === "pleines" ? -1.2 : -0.75) + " " + f(32 - 0.5) + " -.55 Q32 -.25 " + f(32 + 0.5) + " -.55 Q" + f(32 + mw * 0.5) + " " + f(F.lips === "pleines" ? -1.2 : -0.75) + " " + f(32 + mw) + " .1 Q32 .5 " + f(32 - mw) + " .1 Z", lip) +
+        fill("M" + f(32 - mw * 0.85) + " .3 Q32 " + f(low + 0.4) + " " + f(32 + mw * 0.85) + " .3 Q32 .7 " + f(32 - mw * 0.85) + " .3 Z", lipLow) +
+        line("M" + f(32 - mw) + " .1 Q32 .65 " + f(32 + mw) + " .1", mix(lip, "#1a0a06", 0.35), 0.5) +
+        line("M" + f(32 - 1.4) + " " + f(low + 1.4) + " Q32 " + f(low + 1.9) + " " + f(32 + 1.4) + " " + f(low + 1.4), shade, 0.4, ' opacity=".5"') + "</g>");
+      // ---- beards
+      var by = my;
+      if (F.beard === "barbe" || F.beard === "longue") {
+        var bl = F.beard === "longue" ? 15 : 3.2, bpts = [[32 - rx * 0.97, G.ey + 1.5], [32 - rx * 0.92, cy + ry * 0.45], [32 - rx * 0.6, chinY - 1]];
+        for (var bi = 0; bi <= 6; bi++) bpts.push([32 - rx * 0.45 + rx * 0.9 * bi / 6, chinY + bl * (1 - Math.pow((bi - 3) / 3.6, 2)) + (bi % 2 ? -1 : 0.5) + J(0.5)]);
+        bpts.push([32 + rx * 0.6, chinY - 1], [32 + rx * 0.92, cy + ry * 0.45], [32 + rx * 0.97, G.ey + 1.5]);
+        var inner = [[32 + rx * 0.82, G.ey + 2.5], [32 + mw + 1.6, by - 1.5], [32 + mw + 0.8, by + low + 1.6], [32, by + low + 2.4], [32 - mw - 0.8, by + low + 1.6], [32 - mw - 1.6, by - 1.5], [32 - rx * 0.82, G.ey + 2.5]];
+        p.push(fill(smooth(bpts, false, 6) + " " + cont(smooth(inner, false, 6)) + " Z", F.hair));
+        p.push(line("M" + f(32 - 3) + " " + f(chinY + 1) + " q.4 " + f(bl * 0.4) + " 1 " + f(bl * 0.6) + " M" + f(32 + 2.6) + " " + f(chinY + 1) + " q-.3 " + f(bl * 0.4) + " -.9 " + f(bl * 0.6) + " M" + f(32 - rx * 0.6) + " " + f(cy + ry * 0.55) + " q.6 2 1.6 3 M" + f(32 + rx * 0.6) + " " + f(cy + ry * 0.55) + " q-.6 2 -1.6 3", lum(F.hair) > 0.45 ? hairDk : hairLt, 0.4, ' opacity=".6"'));
+      }
+      if (F.beard && F.beard !== "sans") p.push(fill("M" + f(32 - mw - 0.6) + " " + f(by + 0.6) + " Q" + f(32 - mw * 0.6) + " " + f(by - 2.4) + " 32 " + f(by - 1.6) + " Q" + f(32 + mw * 0.6) + " " + f(by - 2.4) + " " + f(32 + mw + 0.6) + " " + f(by + 0.6) + " Q" + f(32 + mw * 0.5) + " " + f(by - 0.9) + " 32 " + f(by - 0.7) + " Q" + f(32 - mw * 0.5) + " " + f(by - 0.9) + " " + f(32 - mw - 0.6) + " " + f(by + 0.6) + " Z", F.hair));
+      // ---- what the face wears
+      if (has("grain")) p.push('<circle cx="' + f(32 + rx * 0.4) + '" cy="' + f(my - 2.2) + '" r=".6" fill="' + mix(skin, "#22130c", 0.75) + '"/>');
+      if (has("tatouage")) p.push(line("M32 " + f(top + 6.6) + " l1 1.2 l-1 1.2 l-1 -1.2 Z M32 " + f(chinY - 1.6) + " v1.6 M30.4 " + f(chinY - 1.8) + " v1.3 M33.6 " + f(chinY - 1.8) + " v1.3", "#27485a", 0.55, ' opacity=".9"'));
+      if (has("cicatrice")) p.push(line("M" + f(32 - rx * 0.72) + " " + f(G.ey + 3.6) + " l3.4 3.4", mix(skin, dark ? "#f0cfc4" : "#a8554c", 0.5), 0.8));
+      if (has("balafre")) p.push(line("M" + f(32 + G.dx + 2.6) + " " + f(G.ey - 7.4) + " Q" + f(32 + G.dx + 1.4) + " " + f(G.ey - 0.6) + " " + f(32 + G.dx - 0.8) + " " + f(G.ey + 6.8), mix(skin, dark ? "#f0cfc4" : "#a8554c", 0.55), 0.9));
+      if (has("lunettes")) { var gr = 3.4 * G.es; p.push('<g stroke="#3a2a18" stroke-width=".75" fill="#fff" fill-opacity=".12"><ellipse cx="' + f(32 - G.dx) + '" cy="' + f(G.ey + 0.2) + '" rx="' + f(gr) + '" ry="' + f(gr * 0.86) + '"/><ellipse cx="' + f(32 + G.dx * asym) + '" cy="' + f(G.ey + 0.2) + '" rx="' + f(gr) + '" ry="' + f(gr * 0.86) + '"/></g>' + line("M" + f(32 - G.dx + gr) + " " + f(G.ey) + " Q32 " + f(G.ey - 1.2) + " " + f(32 + G.dx * asym - gr) + " " + f(G.ey), "#3a2a18", 0.7)); }
+      if (has("appareil")) p.push(line("M" + f(32 + rx * asym + 0.4) + " " + f(G.ey - 2.2) + " q2.4 .2 2.2 3 q-.2 1.8 -1.4 2.6", "#d9772e", 1.5) + '<circle cx="' + f(32 + rx * asym) + '" cy="' + f(G.ey + 2.1) + '" r=".8" fill="#f1e6c8"/>');
+      if (has("bandeau")) { var ex = 32 - G.dx, eyy = G.ey; p.push(line("M" + f(32 + rx - 0.4) + " " + f(eyy - 7) + " L" + f(32 - rx + 0.2) + " " + f(eyy + 2.6), "#1c1612", 1) + fill("M" + f(ex - 3.4) + " " + f(eyy - 2.4) + " Q" + f(ex) + " " + f(eyy - 3.6) + " " + f(ex + 3.4) + " " + f(eyy - 2.4) + " Q" + f(ex + 3.8) + " " + f(eyy + 3.4) + " " + f(ex) + " " + f(eyy + 4) + " Q" + f(ex - 3.8) + " " + f(eyy + 3.4) + " " + f(ex - 3.4) + " " + f(eyy - 2.4) + " Z", "#1c1612")); }
+      if (has("tache")) p.push('<g clip-path="url(#qh' + uid + ')">' + fill("M" + f(32 - rx * 0.86) + " " + f(G.ey - 2.6) + " Q" + f(32 - rx * 0.66) + " " + f(G.ey - 4.2) + " " + f(32 - rx * 0.54) + " " + f(G.ey - 1.8) + " Q" + f(32 - rx * 0.46) + " " + f(G.ey + 2) + " " + f(32 - rx * 0.6) + " " + f(G.ey + 5.4) + " Q" + f(32 - rx * 0.8) + " " + f(G.ey + 6) + " " + f(32 - rx * 0.9) + " " + f(G.ey + 3) + " Q" + f(32 - rx * 0.95) + " " + f(G.ey) + " " + f(32 - rx * 0.86) + " " + f(G.ey - 2.6) + " Z", mix(skin, "#8e2f45", 0.45), ' opacity=".9"') + "</g>");
+      if (has("brulure")) p.push('<g clip-path="url(#qh' + uid + ')">' + fill("M" + f(32 + rx * 0.47) + " " + f(G.ey + 3.6) + " Q" + f(32 + rx * 0.79) + " " + f(G.ey + 1.6) + " " + f(32 + rx * 0.94) + " " + f(G.ey + 4) + " Q" + f(32 + rx * 0.96) + " " + f(G.ey + 8.4) + " " + f(32 + rx * 0.75) + " " + f(G.ey + 11.6) + " Q" + f(32 + rx * 0.55) + " " + f(G.ey + 13.8) + " " + f(32 + rx * 0.38) + " " + f(G.ey + 12.6) + " Q" + f(32 + rx * 0.3) + " " + f(G.ey + 10) + " " + f(32 + rx * 0.33) + " " + f(G.ey + 7) + " Q" + f(32 + rx * 0.33) + " " + f(G.ey + 4.6) + " " + f(32 + rx * 0.47) + " " + f(G.ey + 3.6) + " Z", mix(skin, "#a8554c", 0.34)) +
+        fill("M" + f(32 + rx * 0.58) + " " + f(G.ey + 5) + " q1.6 -.6 2.4 .8 q-.2 1.6 -1.6 1.6 q-1.2 -.6 -.8 -2.4 Z M" + f(32 + rx * 0.47) + " " + f(G.ey + 8.8) + " q1.4 -.2 1.8 1 q-.4 1.2 -1.6 1 q-.8 -.8 -.2 -2 Z", mix(skin, "#f6d9cf", 0.35), ' opacity=".8"') + "</g>");
+      if (o.hurt) p.push('<ellipse cx="' + f(32 + rx * 0.55) + '" cy="' + f(G.ey + 4.6) + '" rx="2.6" ry="1.9" fill="#6b3f6b" opacity=".38"/>' + line("M" + f(32 - rx * 0.53) + " " + f(top + 7.6) + " l3.2 1.3", "#a3322a", 0.7));
+      if (o.hurt > 1) p.push(fill("M" + f(32 - rx - 0.8) + " " + f(top + 9.4) + " Q32 " + f(top + 4.6) + " " + f(32 + rx + 0.8) + " " + f(top + 9.4) + " L" + f(32 + rx + 1) + " " + f(top + 5.6) + " Q32 " + f(top + 0.6) + " " + f(32 - rx - 1) + " " + f(top + 5.6) + " Z", "#f3ecdc", ' stroke="#cbbf9f" stroke-width=".4"') + '<circle cx="38" cy="' + f(top + 5.4) + '" r="1.3" fill="#a3322a" opacity=".75"/>');
+      if (o.mark) p.push('<g transform="translate(51 51)"><circle r="11" fill="#fbf4e2" stroke="#8a6a3a" stroke-width="1.5"/><path d="' + o.mark + '" transform="scale(.75)" stroke="#5a3f1c" stroke-width="2" fill="' + (o.arch === "mage" ? "#c9a24a" : "none") + '" stroke-linecap="round" stroke-linejoin="round"/></g>');
+      p.push("</g></svg>");
+      return p.join("");
     }
-    // Intent: portrait(seed, { arch, f, face?, size?, hurt?, noMark? }) -> svg markup ; hurt: 0 unharmed, 1 hurt
+
+    // Intent: portrait(seed, { arch, f, face?, size?, hurt?, noMark?, flat? }) -> svg markup ; hurt: 0 unharmed, 1 hurt
     // (a bruise, a cut), 2 badly hurt (a bandage round the head) — the state of the moment, not a trait of the face.
+    // In the « Carnet » look the portrait is a watercolour on a slip of cream paper (the same by night): the colours in
+    // a wash that drifts a little past the line, the ink line drawn from the same shapes (Clément chose it, 17/11).
     H.portrait = function (seed, o) {
       o = o || {}; var x = hash(String(seed || "?") + JSON.stringify(o.face || "") + (o.hurt || "")), sz = o.size || 64, F = H.faceOf(seed, o);
       var xs = hash(String(seed || "?")), gear = ARCH_GEAR[o.arch] || { cloth: pick(["#6d5a40", "#4f5d6b", "#6b4a4a", "#55663f"], xs >>> 9), mark: null };
-      var G = AGE_GEO[F.age] || AGE_GEO.adulte, has = function (m) { return F.marks.indexOf(m) >= 0; };
-      var rx = G.rx + (F.shape === "rond" ? 0.9 : F.shape === "allonge" ? -1.1 : 0), ry = G.ry + (F.shape === "rond" ? -0.7 : F.shape === "allonge" ? 0.5 : 0), cy = G.cy;
-      var skin = F.skin, shade = mix(skin, "#3a1f12", 0.38), dark = lum(skin) < 0.45, old = F.age === "ancien", ripe = F.age === "mur" || old;
-      var scar = dark ? mix(skin, "#f0cfc4", 0.5) : mix(skin, "#a8554c", 0.55), lip = dark ? mix(skin, "#2a0f0a", 0.5) : mix(skin, "#8a2f28", 0.6);
-      var brow = lum(F.hair) > 0.6 ? mix(F.hair, "#6b5a45", 0.35) : mix(F.hair, "#1c130d", 0.3), scarf = pick(SCARVES, xs >>> 5), ink = "#2b2015";
-      var line = function (d, c, w, extra) { return '<path d="' + d + '" stroke="' + c + '" stroke-width="' + w + '" fill="none" stroke-linecap="round" stroke-linejoin="round"' + (extra || "") + "/>"; };
-      var fill = function (d, c, extra) { return '<path d="' + d + '" fill="' + c + '"' + (extra || "") + "/>"; };
-      var p = ['<svg class="portrait" viewBox="0 0 64 64" width="' + sz + '" height="' + sz + '" role="img" aria-hidden="true">',
-        '<circle cx="32" cy="32" r="32" fill="' + F.back + '"/>',
-        '<clipPath id="pc' + x + '"><circle cx="32" cy="32" r="32"/></clipPath><clipPath id="pe' + x + '"><path d="' + EYES[F.eyes in EYES ? F.eyes : "amande"].w + '"/></clipPath><g clip-path="url(#pc' + x + ')">'];
-      // ---- hair behind the head
-      if (F.coif === "long") p.push(fill("M17 30 Q16 52 22 56 H42 Q48 52 47 30 Z", F.hair));
-      else if (F.coif === "milong") p.push(fill("M17.5 26 Q15 40 20 45.5 H44 Q49 40 46.5 26 Z", F.hair));
-      else if (F.coif === "crepus") p.push('<circle cx="32" cy="21.5" r="15.6" fill="' + F.hair + '"/>' + ring(32, 21.5, 15.2, 2.6, 150, 390, 17, F.hair));
-      else if (F.coif === "boucles") p.push(ring(32, 26, 14, 3.9, 170, 370, 11, F.hair));
-      else if (F.coif === "foulard") p.push(fill("M17 30 Q14 8 32 8 Q50 8 47 30 Q48 46 42 52 H22 Q16 46 17 30 Z", scarf));
-      p.push(fill(G.sh, gear.cloth));                                                                                     // shoulders
-      if (F.coif === "locks") for (var i = 0; i < 7; i++) { var lx = 17.5 + i * 4.8; p.push(line("M" + lx + " 22 Q" + (lx + (i < 3 ? -1.5 : i > 3 ? 1.5 : 0)) + " 38 " + (lx + (i < 3 ? -0.5 : i > 3 ? 0.5 : 0)) + " 51", F.hair, 3)); }
-      p.push('<rect x="' + (32 - G.neck / 2) + '" y="36" width="' + G.neck + '" height="11" rx="3" fill="' + skin + '"/>');           // neck
-      p.push(fill("M" + (32 - G.neck / 2) + " 40.5 Q32 44.5 " + (32 + G.neck / 2) + " 40.5 V38 H" + (32 - G.neck / 2) + " Z", shade, ' opacity=".22"'));
-      if (old) p.push(line("M30.3 42.5 V45.5 M33.7 42.5 V45.5", shade, 0.45, ' opacity=".6"'));
-      p.push('<ellipse cx="' + (32 - rx + 0.3) + '" cy="' + (G.ey + 1.2) + '" rx="1.9" ry="2.7" fill="' + mix(skin, shade, 0.18) + '"/><ellipse cx="' + (32 + rx - 0.3) + '" cy="' + (G.ey + 1.2) + '" rx="1.9" ry="2.7" fill="' + mix(skin, shade, 0.18) + '"/>'); // ears
-      var under = { degarni: null, couronne: null, rase: null, capuche: gear.cloth, foulard: scarf, turban: scarf }, uc = F.coif in under ? under[F.coif] : F.hair;
-      if (uc) p.push(fill("M" + (32 - rx - 1.3) + " 28 A" + (rx + 1.3) + " " + (28 - cy + ry + 1.6) + " 0 0 1 " + (32 + rx + 1.3) + " 28 Z", uc));   // no gap between the head and what covers it
-      p.push('<ellipse cx="32" cy="' + cy + '" rx="' + rx + '" ry="' + ry + '" fill="' + skin + '"/>');                               // head
-      if (F.shape === "carre") p.push(fill("M" + (32 - rx + 0.5) + " " + cy + " L" + (32 - rx + 1.4) + " " + (cy + ry * 0.62) + " Q" + (32 - rx + 3) + " " + (cy + ry) + " 32 " + (cy + ry) + " Q" + (32 + rx - 3) + " " + (cy + ry) + " " + (32 + rx - 1.4) + " " + (cy + ry * 0.62) + " L" + (32 + rx - 0.5) + " " + cy + " Z", skin));
-      // ---- the skin itself
-      if (F.age === "enfant") p.push('<circle cx="25" cy="33.6" r="2.4" fill="#d8644e" opacity=".2"/><circle cx="39" cy="33.6" r="2.4" fill="#d8644e" opacity=".2"/>');
-      if (has("vitiligo")) {
-        var vit = mix(skin, "#fff3ea", 0.8), ve = G.ey - 27;
-        p.push(fill("M33.3 " + (23.4 + ve) + " Q37 " + (21.2 + ve) + " 40.8 " + (23.8 + ve) + " Q42.4 " + (27 + ve) + " 40.3 " + (29.8 + ve) + " Q37 " + (31 + ve) + " 34.2 " + (29.2 + ve) + " Q32.6 " + (26.4 + ve) + " 33.3 " + (23.4 + ve) + " Z" +
-          " M24.6 34 Q27.4 32.8 29.2 35.3 Q29.4 38.6 26.6 39.2 Q23.8 37.6 24.6 34 Z M25.6 " + (cy - ry + 3.2) + " q3 -1.2 4.8 1 q-.9 2.2 -3.6 1.8 q-1.7 -1 -1.2 -2.8 Z M28.6 42 Q31 41 32.4 43.6 Q31.2 46 28.9 45.2 Z", vit, ' opacity=".95"'));
-      }
-      if (has("tache")) p.push(fill("M21.6 24.4 Q24 22.8 25.5 25.2 Q26.4 29 24.6 32.4 Q22.2 33 21.2 30 Q20.6 26.8 21.6 24.4 Z", mix(skin, "#8e2f45", 0.45), ' opacity=".9"'));
-      if (has("brulure")) p.push(fill("M37.6 30.6 Q41.4 28.6 43.3 31 Q43.5 35.4 41 38.6 Q38.6 40.8 36.6 39.6 Q35.5 37 36 34 Q36 31.6 37.6 30.6 Z", mix(skin, "#a8554c", 0.34)) + fill("M39 32 q1.6 -.6 2.4 .8 q-.2 1.6 -1.6 1.6 q-1.2 -.6 -.8 -2.4 Z M37.6 35.8 q1.4 -.2 1.8 1 q-.4 1.2 -1.6 1 q-.8 -.8 -.2 -2 Z", mix(skin, "#f6d9cf", 0.35), ' opacity=".8"'));
-      if (has("rousseur")) p.push('<g fill="' + mix(skin, "#8a4a22", 0.5) + '">' + [[26, 30.6], [27.6, 31.4], [24.8, 31.6], [29, 30.4], [35, 30.4], [36.4, 31.4], [38, 30.6], [39.2, 31.7], [31, 29.6], [33.2, 29.7], [26.4, 32.4], [37.6, 32.5]].map(function (q) { return '<circle cx="' + q[0] + '" cy="' + (q[1] + G.ny) + '" r=".45"/>'; }).join("") + "</g>");
-      if (ripe) p.push(line("M28 21.9 Q32 21.2 36 21.9 M40.9 26 l1.4 -.7 M41 27.4 l1.5 .3 M23.1 26 l-1.4 -.7 M23 27.4 l-1.5 .3 M28.3 32.2 Q27.3 34 27.8 35.6 M35.7 32.2 Q36.7 34 36.2 35.6", shade, 0.45, ' opacity="' + (old ? 0.75 : 0.5) + '"'));
-      if (old) p.push(line("M27.2 19.9 Q32 19.1 36.8 19.9 M23.6 31 Q24.4 34.2 26 36.4 M40.4 31 Q39.6 34.2 38 36.4 M30.6 24 l.5 1.6 M33.4 24 l-.5 1.6", shade, 0.45, ' opacity=".65"'));
-      // ---- hair and headwear in front
-      // Hair, headwear and beard are drawn for a head 12 wide: they follow the width of this one.
-      var fit = '<g transform="translate(32 0) scale(' + (rx / 12).toFixed(3) + ' 1) translate(-32 0)">', c = F.coif;
-      p.push(fit);
-      if (c === "capuche") p.push(fill("M16 32 Q14 8 32 8 Q50 8 48 32 Q46 18 32 17 Q18 18 16 32 Z M14 34 Q10 50 18 50 L20 36 Z M50 34 Q54 50 46 50 L44 36 Z", gear.cloth, ' opacity=".95"'));
-      else if (c === "foulard") p.push(fill("M19.2 28 Q17.5 10.5 32 10.5 Q46.5 10.5 44.8 28 Q43.4 17.6 32 17 Q20.6 17.6 19.2 28 Z M20.4 31 Q23 42.6 32 43.2 Q41 42.6 43.6 31 Q44.6 46 38 49 H26 Q19.4 46 20.4 31 Z", scarf) + line("M22 15.5 Q32 11.5 42 15.5", mix(scarf, "#000000", 0.25), 0.5));
-      else if (c === "turban") p.push(fill("M18.4 24.5 Q15.5 8.5 32 7.5 Q48.5 8.5 45.6 24.5 Q39 19.2 32 19.2 Q25 19.2 18.4 24.5 Z", scarf) + line("M19.5 19 Q30 12.5 44 13.5 M21 22 Q33 15.5 45.4 19 M24 10.8 Q33 9.5 41.5 11.6", mix(scarf, "#000000", 0.28), 0.6));
-      else if (c === "degarni") p.push(fill("M20 22 Q22 12 32 12 Q42 12 44 22 Q38 17 32 17 Q26 17 20 22 Z", F.hair));
-      else if (c === "couronne") p.push(fill("M19.6 30 Q18.2 24.5 20.4 20.6 Q21.4 24 21 30 Z M44.4 30 Q45.8 24.5 43.6 20.6 Q42.6 24 43 30 Z", F.hair));
-      else if (c === "rase") p.push(fill("M20.7 25 Q20.5 13.5 32 13.3 Q43.5 13.5 43.3 25 Q42 18 32 17.5 Q22 18 20.7 25 Z", F.hair, ' opacity=".35"'));
-      else if (c === "chignon") p.push('<circle cx="32" cy="8.8" r="5.2" fill="' + F.hair + '"/>' + fill(CAP_TIGHT, F.hair));
-      else if (c === "crepus") p.push(fill("M20.3 25.5 Q20.6 12.6 32 12.6 Q43.4 12.6 43.7 25.5 Q38.5 17.6 32 17.6 Q25.5 17.6 20.3 25.5 Z", F.hair));
-      else if (c === "boucles") p.push(fill("M20 24 Q21 12 32 12 Q43 12 44 24 Q38 17.5 32 17.5 Q26 17.5 20 24 Z", F.hair) + ring(32, 24.5, 10.4, 2.5, 205, 335, 7, F.hair));
-      else {
-        p.push(fill(c === "tresses" || c === "locks" ? CAP_TIGHT : CAP, F.hair));
-        if (c === "tresses") { [18.4, 45.6].forEach(function (bx) { for (var j = 0; j < 8; j++) p.push('<ellipse cx="' + (bx + (j % 2 ? 0.5 : -0.5)) + '" cy="' + (26.5 + j * 3.3) + '" rx="2.3" ry="2.1" fill="' + F.hair + '"/>'); p.push('<circle cx="' + bx + '" cy="53.4" r="1.3" fill="#c9a24a"/>'); }); p.push(line("M32 11.6 V17.4", mix(F.hair, skin, 0.5), 0.5)); }
-        if (c === "locks") p.push(line("M19.6 23 Q18.4 32 19 41 M44.4 23 Q45.6 32 45 41", F.hair, 2.8) + line("M26 12.6 Q25 15 24.4 18.6 M32 11.6 V17.4 M38 12.6 Q39 15 39.6 18.6", mix(F.hair, skin, 0.4), 0.45));
-      }
-      p.push("</g>");
-      // ---- brows, eyes, nose, mouth
-      var E = EYES[F.eyes in EYES ? F.eyes : "amande"], blindL = has("aveugle"), blindR = has("aveugle") || has("oeil_voile");
-      var odd = lum(F.iris) < 0.3 ? FV.irises.bleu : FV.irises.brun;
-      [-1, 1].forEach(function (side) {
-        var blind = side < 0 ? blindL : blindR, iris = blind ? "#d3dade" : side < 0 && has("vairons") ? odd : F.iris;
-        p.push('<g transform="translate(' + (32 + side * G.dx) + " " + G.ey + ") scale(" + (side * G.es) + " " + G.es + ')">' +
-          line("M-2.9 -3.2 Q-.2 " + (F.eyes === "brides" ? -4 : -4.4) + " 2.9 -3.3", brow, (old ? 0.75 : 0.95) / G.es) +
-          fill(E.w, "#f6f1e8") + '<g clip-path="url(#pe' + x + ')"><circle cx="0" cy="-.1" r="' + E.r + '" fill="' + iris + '"/>' +
-          (blind ? '<circle cx="0" cy="-.1" r="' + (E.r * 0.45) + '" fill="#b9c3c8"/>' : '<circle cx="0" cy="-.1" r="' + (E.r * 0.48) + '" fill="#120c08"/><circle cx=".5" cy="-.6" r=".34" fill="#fff" opacity=".85"/>') + "</g>" +
-          (E.hood ? fill(E.hood, shade, ' opacity=".4"') : "") + (E.crease ? line(E.crease, shade, 0.35, ' opacity=".7"') : "") + line(E.lid, ink, F.eyes === "lourds" ? 0.8 : 0.6) +
-          (ripe ? line("M-2.2 2.2 Q0 3 2.3 2.3", shade, 0.4, ' opacity="' + (old ? 0.8 : 0.5) + '"') : "") + "</g>");
-      });
-      p.push('<g transform="translate(' + (32 * (1 - G.ns)) + " " + (G.ny + 31 * (1 - G.ns)) + ") scale(" + G.ns + ')">' + line(NOSES[F.nose] || NOSES.fin, shade, 0.75) + "</g>");
-      var by = G.my - 36;
-      if (F.beard === "barbe" || F.beard === "longue") p.push(fit + fill(F.beard === "longue" ? "M20.6 29 Q19.5 50 32 57 Q44.5 50 43.4 29 Q41 38.6 32 38.8 Q23 38.6 20.6 29 Z" : "M20.6 29 Q21.5 44 32 45.5 Q42.5 44 43.4 29 Q41 38.6 32 38.8 Q23 38.6 20.6 29 Z", F.hair, ' transform="translate(0 ' + by + ')"') + "</g>");
-      if (F.lips === "pleines") p.push('<g transform="translate(0 ' + G.my + ')">' + fill("M28.4 0 Q30.6 -1.15 32 -.45 Q33.4 -1.15 35.6 0 Q32 2.8 28.4 0 Z", lip) + line("M28.4 0 Q32 .95 35.6 0", mix(lip, "#1a0a06", 0.35), 0.45) + "</g>");
-      else p.push('<g transform="translate(0 ' + G.my + ')">' + line("M28.6 0 Q32 1.9 35.4 0", mix(lip, "#1a0a06", 0.15), 1.1) + "</g>");
-      if (F.beard && F.beard !== "sans") p.push(fill("M27.1 35 Q29.5 32.9 32 33.6 Q34.5 32.9 36.9 35 Q34.3 34.4 32 34.6 Q29.7 34.4 27.1 35 Z", F.hair, ' transform="translate(0 ' + by + ')"') + line("M27.1 35 Q29.5 33.6 32 34.2 Q34.5 33.6 36.9 35", F.hair, 0.7, ' transform="translate(0 ' + by + ')"'));
-      // ---- what life left on the face, and what the face wears
-      if (has("grain")) p.push('<circle cx="36.6" cy="' + (33.7 + by) + '" r=".7" fill="' + mix(skin, "#22130c", 0.75) + '"/>');
-      if (has("tatouage")) p.push(line("M32 20.9 l1 1.2 l-1 1.2 l-1 -1.2 Z M32 " + (38.7 + by) + " v1.7 M30.3 " + (38.5 + by) + " v1.3 M33.7 " + (38.5 + by) + " v1.3", "#27485a", 0.6, ' opacity=".9"'));
-      if (has("cicatrice")) p.push(line("M23.4 " + (30.2 + G.ny) + " l3.6 3.6", scar, 0.85) + line("M24 " + (32 + G.ny) + " l1.2 -1.2 M25.2 " + (33.2 + G.ny) + " l1.2 -1.2", scar, 0.4));
-      if (has("balafre")) p.push(line("M" + (32 + G.dx + 2.6) + " " + (G.ey - 7.6) + " Q" + (32 + G.dx + 1.6) + " " + (G.ey - 1) + " " + (32 + G.dx - 0.6) + " " + (G.ey + 6.6), scar, 0.95));
-      if (has("lunettes")) { var gr = 3.5 * G.es; p.push('<g stroke="#3a2a18" stroke-width=".8" fill="#fff" fill-opacity=".14"><circle cx="' + (32 - G.dx) + '" cy="' + G.ey + '" r="' + gr + '"/><circle cx="' + (32 + G.dx) + '" cy="' + G.ey + '" r="' + gr + '"/></g>' + line("M" + (32 - G.dx + gr) + " " + G.ey + " Q32 " + (G.ey - 1.2) + " " + (32 + G.dx - gr) + " " + G.ey + " M" + (32 - G.dx - gr) + " " + G.ey + " L" + (32 - rx) + " " + (G.ey - 0.6) + " M" + (32 + G.dx + gr) + " " + G.ey + " L" + (32 + rx) + " " + (G.ey - 0.6), "#3a2a18", 0.8)); }
-      if (has("bandeau")) { var ex = 32 - G.dx, ey = G.ey; p.push(line("M" + (32 + rx - 0.4) + " " + (ey - 7) + " L" + (32 - rx + 0.2) + " " + (ey + 2.6), "#1c1612", 1.1) + fill("M" + (ex - 3.5) + " " + (ey - 2.5) + " Q" + ex + " " + (ey - 3.6) + " " + (ex + 3.5) + " " + (ey - 2.5) + " Q" + (ex + 3.9) + " " + (ey + 3.7) + " " + ex + " " + (ey + 4.3) + " Q" + (ex - 3.9) + " " + (ey + 3.7) + " " + (ex - 3.5) + " " + (ey - 2.5) + " Z", "#1c1612")); }
-      if (has("appareil")) p.push(line("M" + (32 + rx + 0.6) + " " + (G.ey - 1.6) + " q1.9 .3 1.7 2.7 q-.2 1.7 -1.2 2.3", "#d9772e", 1.5) + '<circle cx="' + (32 + rx + 0.2) + '" cy="' + (G.ey + 2.4) + '" r=".8" fill="#f1e6c8"/>');
-      if (o.hurt) p.push('<ellipse cx="38.6" cy="' + (31.6 + G.ny) + '" rx="2.6" ry="1.9" fill="#6b3f6b" opacity=".38"/>' + line("M25.6 " + (cy - ry + 7.6) + " l3.2 1.3", "#a3322a", 0.7));
-      if (o.hurt > 1) { var t = cy - ry; p.push(fill("M" + (32 - rx - 0.6) + " " + (t + 9.4) + " Q32 " + (t + 4.6) + " " + (32 + rx + 0.6) + " " + (t + 9.4) + " L" + (32 + rx + 0.8) + " " + (t + 5.6) + " Q32 " + (t + 0.6) + " " + (32 - rx - 0.8) + " " + (t + 5.6) + " Z", "#f3ecdc", ' stroke="#cbbf9f" stroke-width=".4"') + '<circle cx="38" cy="' + (t + 5.4) + '" r="1.3" fill="#a3322a" opacity=".75"/>'); }
-      if (gear.mark && !o.noMark) p.push('<g transform="translate(51 51)"><circle r="11" fill="#fbf4e2" stroke="#8a6a3a" stroke-width="1.5"/><path d="' + gear.mark + '" transform="scale(.75)" stroke="#5a3f1c" stroke-width="2" fill="' + (o.arch === "mage" ? "#c9a24a" : "none") + '" stroke-linecap="round" stroke-linejoin="round"/></g>');
-      p.push("</g></svg>");
-      return p.join("");
+      var wash = Notebook.on() && !o.flat;
+      var svg = faceSvg(F, { seed: seed, uid: x % 1000000, size: sz, cloth: gear.cloth, scarf: pick(SCARVES, xs >>> 5), hurt: o.hurt, mark: gear.mark && !o.noMark ? gear.mark : null, arch: o.arch, wash: wash });
+      if (!wash) return svg;
+      var i = svg.indexOf("<g clip-path"), j = svg.lastIndexOf("</svg>"), drawing = svg.slice(i, j);
+      return svg.slice(0, i).replace(/<circle cx="32" cy="32" r="32" fill="([^"]*)"\/>/, '<circle cx="32" cy="32" r="32" fill="' + PORTRAIT_SLIP + '"/><circle cx="32" cy="32" r="26" fill="$1" opacity=".75" filter="url(#portrait-tache)"/>') +
+        '<g transform="translate(.55 .45)" filter="url(#portrait-lavis)" fill-opacity=".92">' + drawing + '</g><g filter="url(#portrait-encre)" opacity="' + (sz >= PORTRAIT_INK_FULL ? ".85" : ".5") + '">' + drawing + "</g></svg>";
     };
     // Intent: arms(seed, spec?) -> { field, other, division, charge, chargeT } ; the rule of tincture: metal on colour.
     H.arms = function (seed, spec) {
@@ -5621,6 +5813,14 @@
         '<filter id="carnet-bord" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>' +
         '<filter id="carnet-bord-fin" x="-3%" y="-6%" width="106%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter>' +
         '<filter id="carnet-trait" x="-5%" y="-20%" width="110%" height="140%"><feTurbulence type="turbulence" baseFrequency="0.04" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" xChannelSelector="R" yChannelSelector="G"/></filter>' +
+        // the portraits (11.9, Clément chose « trait tremblé + lavis »): the colours in a wash that bleeds past the shapes,
+        // the ink line found where the colours change, trembling; a darker wash for the shadow side; cream paper under all
+        '<filter id="portrait-lavis" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".09" numOctaves="3" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G" result="d"/><feGaussianBlur in="d" stdDeviation=".28"/></filter>' +
+        '<filter id="portrait-encre" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB"><feFlood flood-color="#fff" result="w"/><feComposite in="SourceGraphic" in2="w" operator="over" result="flat"/><feColorMatrix in="flat" type="luminanceToAlpha" result="L"/>' +
+        '<feConvolveMatrix in="L" order="3" kernelMatrix="-1 -1 -1 -1 8 -1 -1 -1 -1" divisor="1" preserveAlpha="false" result="E1"/><feConvolveMatrix in="L" order="3" kernelMatrix="1 1 1 1 -8 1 1 1 1" divisor="1" preserveAlpha="false" result="E2"/>' +
+        '<feComposite in="E1" in2="E2" operator="arithmetic" k2="1" k3="1" result="E"/><feComponentTransfer in="E" result="T"><feFuncA type="linear" slope="3.5" intercept="-.12"/></feComponentTransfer>' +
+        '<feFlood flood-color="#2a241d" result="c"/><feComposite in="c" in2="T" operator="in" result="lines"/><feTurbulence type="turbulence" baseFrequency=".2" numOctaves="2" seed="5" result="n2"/><feDisplacementMap in="lines" in2="n2" scale="1.6" xChannelSelector="R" yChannelSelector="G"/></filter>' +
+        '<filter id="portrait-tache" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="3" seed="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G" result="d"/><feGaussianBlur in="d" stdDeviation=".9"/></filter>' +
         '<filter id="carnet-lavis" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.03" numOctaves="4" seed="11" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G" result="d"/><feGaussianBlur in="d" stdDeviation=".6"/></filter>' +
         '</defs></svg>';
       document.body.appendChild(d);
@@ -6084,6 +6284,8 @@
     (s.items || []).forEach(function (k) { add(cx.items, k); });
     // What was learned (8.9) is kept at once: a game left halfway still opens its paths.
     Object.keys(s.lore || {}).forEach(function (k) { var lo = r.lore = r.lore || {}; if (!lo[k]) { lo[k] = Date.now(); changed = true; } });
+    // 12.0: the right answers found, kept at once for the next reading.
+    Object.keys(s.solved || {}).forEach(function (k) { var an = r.answers = r.answers || {}, had = (an[k] || []).map(String); s.solved[k].forEach(function (x) { if (had.indexOf(String(x)) < 0) { an[k] = (an[k] || []).concat([x]); had.push(String(x)); changed = true; } }); });
     // The trail (8.8): each choice of this game counted once in the reader's record, for « déjà suivie ».
     var wk = d.walk || {}, done = d.walked = d.walked || {}, tr = null, fresh = [];
     Object.keys(wk).forEach(function (node) { String(wk[node]).split(",").forEach(function (at) { if (at !== "" && !done[node + ":" + at]) fresh.push(1); }); });
@@ -7834,7 +8036,7 @@
     function draw(kind, night, seed, o) {
       o = o || {};
       var r = rnd(seed), svgEl = s("svg", { viewBox: "0 0 600 90", preserveAspectRatio: "xMidYMax slice", class: o.engrave ? "gravure-art" : "vignette", role: "img", "aria-label": (o.engrave ? "Gravure : " : "Vignette : ") + kind });
-      var far = { fill: "var(--vig-far)" }, mid = { fill: "var(--vig-mid)" }, near = { fill: "var(--vig-near)" };
+      var far = { fill: "var(--vig-far)" }, mid = { fill: "var(--vig-mid)" }, near = { fill: "var(--vig-near)" }, roof = { fill: "var(--vig-roof, var(--vig-mid))" };
       if (o.engrave) {
         var pid = "h" + seed, defs = s("defs");
         [["a", 7, 45, 0.6], ["b", 4, -45, 0.8], ["c", 2.6, 45, 1]].forEach(function (x) {
@@ -7851,12 +8053,21 @@
         svgEl.appendChild(s("circle", { cx: 80 + r() * 440, cy: 22, r: 9, fill: o.engrave ? "none" : "var(--vig-sun)", stroke: o.engrave ? "var(--ink)" : "none", class: "sun" }));
         if (!o.engrave && kind !== "souterrain") for (var cl = 0; cl < 2; cl++) svgEl.appendChild(s("ellipse", { cx: r() * 600, cy: 10 + r() * 20, rx: 26 + r() * 20, ry: 4 + r() * 3, fill: "var(--paper)", opacity: ".55", class: "cloud", style: "animation-delay:-" + (r() * 60).toFixed(1) + "s" }));
       }
-      var P = function (d, a) { var o = { d: d }; for (var k in a) o[k] = a[k]; svgEl.appendChild(s("path", o)); };
+      // In the « Carnet » look (11.9) the landscape is a watercolor: each layer a wash that bleeds past its shape, the
+      // same shape sketched over it in a light, trembling ink line.
+      var wash = !o.engrave && Notebook.on();
+      if (wash) { svgEl.setAttribute("class", "vignette lavis"); svgEl.firstChild.setAttribute("filter", "url(#carnet-lavis)"); }
+      var P = function (d, a) {
+        var o = { d: d }; for (var k in a) o[k] = a[k];
+        if (wash && a && a.fill && !a.class) { o.filter = "url(#carnet-lavis)"; o["fill-opacity"] = a.opacity || ".82"; delete o.opacity; }
+        svgEl.appendChild(s("path", o));
+        if (wash && a && a.fill && !a.class && a.fill !== "var(--vig-sky)") svgEl.appendChild(s("path", { d: d, fill: "none", stroke: "var(--ink)", "stroke-width": ".7", "stroke-opacity": ".5", "stroke-linejoin": "round", filter: "url(#carnet-trait)", class: "croquis" }));
+      };
       switch (kind) {
         case "montagne": case "neige": P(peaks(r, 70, 5, 55), far); P(peaks(r, 82, 7, 30), mid); if (kind === "neige") P(peaks(r, 84, 9, 10), { fill: "var(--vig-sky)", opacity: ".5" }); break;
         case "foret": P(ridge(r, 62, 10, 12), far); P(pines(r, 80, 26, 38), mid); P(pines(r, 92, 14, 30), near); break;
-        case "ville": case "chateau": P(ridge(r, 70, 8, 6), far); P(roofs(r, 78, 30), mid); if (kind === "chateau") P("M250 90 V34 h12 v-8 h10 v8 h12 v-8 h10 v8 h12 V90 Z M330 90 V48 h22 V90 Z", near); break;
-        case "village": case "champs": P(ridge(r, 66, 12, 8), far); if (kind === "village") P(roofs(r, 80, 7), mid); P(ridge(r, 86, 4, 20), near); P(pines(r, 82, 5, 20), mid); break;
+        case "ville": case "chateau": P(ridge(r, 70, 8, 6), far); P(roofs(r, 78, 30), o.engrave ? mid : roof); if (kind === "chateau") P("M250 90 V34 h12 v-8 h10 v8 h12 v-8 h10 v8 h12 V90 Z M330 90 V48 h22 V90 Z", near); break;
+        case "village": case "champs": P(ridge(r, 66, 12, 8), far); if (kind === "village") P(roofs(r, 80, 7), o.engrave ? mid : roof); P(ridge(r, 86, 4, 20), near); P(pines(r, 82, 5, 20), mid); break;
         case "souterrain": svgEl.firstChild.setAttribute("fill", "var(--vig-near)"); P("M0 0 H600 V18 Q560 26 520 14 Q470 30 420 12 Q360 34 300 14 Q240 30 180 12 Q120 28 60 14 Q30 22 0 12 Z", mid); P("M0 90 V72 Q100 60 200 74 Q300 82 400 70 Q500 62 600 74 V90 Z", far); break;
         case "eau": case "mer": P(ridge(r, 58, 10, 8), far); svgEl.appendChild(s("rect", { x: 0, y: 64, width: 600, height: 26, fill: "var(--vig-water)" })); for (var j = 0; j < 14; j++) P("M" + (r() * 580) + " " + (70 + r() * 16) + " q6 -3 12 0 q6 3 12 0", { fill: "none", stroke: "var(--vig-sky)", "stroke-width": "1" }); break;
         case "temple": P(ridge(r, 70, 10, 6), far); P("M240 90 V50 L300 26 L360 50 V90 Z M254 90 V54 h8 V90 Z M276 90 V54 h8 V90 Z M316 90 V54 h8 V90 Z M338 90 V54 h8 V90 Z", mid); break;
