@@ -10,6 +10,7 @@ BASE = {
   "title": "Le Maître de Ballantrae",
   "subtitle": "Un roman à lire · R. L. Stevenson, 1889",
   "summary": "Écosse, 1745. Le prince Charles Stuart débarque pour reprendre le trône, et la maison de Durrisdeer, sur le rivage du Solway, décide de jouer sur les deux tableaux : un fils partira avec les rebelles, l'autre restera fidèle au roi George. Les deux frères tirent leur sort à pile ou face. Le récit en est fait, des années plus tard, par l'intendant de la famille, Ephraim Mackellar, qui a tout vu. Le roman de Stevenson en entier, dans une traduction nouvelle, sans choix : on le lit page après page, avec les gens, les lieux et les mots expliqués d'un appui.",
+  "tags": ["historique", "drame", "aventure"],
   "author": "R. L. Stevenson · traduction de Claude (2026)",
   "lecture": True,
   "age": 13,

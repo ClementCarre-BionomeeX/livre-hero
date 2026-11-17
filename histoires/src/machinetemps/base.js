@@ -8,6 +8,7 @@ module.exports = {
   title: "La Machine à explorer le temps",
   subtitle: "Un roman à lire · H. G. Wells, 1895",
   summary: "Richmond, un jeudi soir. Autour de la cheminée, un savant que ses amis appellent le Voyageur du Temps leur explique que le temps est une dimension comme les autres, où l'on peut se déplacer. Il leur montre une petite machine de cuivre et d'ivoire, puis celle, grandeur nature, qui attend dans son laboratoire. Une semaine plus tard, il arrive au dîner en retard, boitant, couvert de poussière, et commence son récit. Le roman de Wells en entier, dans une traduction nouvelle, sans choix : on le lit page après page, avec les gens, les lieux et les mots expliqués d'un appui.",
+  tags: ["sf","voyage"],
   author: "H. G. Wells · traduction de Claude (2026)",
   lecture: true,
   age: 12,

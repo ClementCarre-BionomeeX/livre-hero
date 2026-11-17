@@ -7,6 +7,7 @@ module.exports = {
   title: "Le Courrier de Vèze",
   subtitle: "Histoire à cartes · trois haltes, un pli scellé",
   summary: "La margrave d'Orbec te confie un pli scellé pour le conseil de Vèze, qui vote après-demain au soir. Deux jours de route, un gué, un col, une porte. À chaque halte, tu joues une carte de ta main : une rencontre, un obstacle, un détour, une trahison. La route se construit avec ce que tu joues, et elle se rejoue autrement à chaque partie.",
+  tags: ["aventure","voyage","intrigue"],
   author: "Claude, pour Clément",
   age: 12,
   cover: { motif: "cle", color: "#4a3a2a" },
