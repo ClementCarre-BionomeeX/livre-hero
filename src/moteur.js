@@ -162,6 +162,12 @@
         if (!c.label) { var tp = story.passages[c.back]; c.label = c.back === "@route" ? "Reprendre la route" : "Revenir : " + cap(String((tp && (tp.backName || tp.title)) || c.back).replace(/\*/g, "")); c.autoBack = true; }
       });
     });
+    // 11.3: the keys a page gives a value to (fx.set: { key: value }). `has: "key"` then holds as soon as the key has
+    // any value. Why: an author writes `set: { "a2:invite": "jacquot" }` here and `has: "a2:invite"` there, and the
+    // choice was closed for good without a word (found in « Les Trois Clefs »).
+    var stateKeys = {};
+    (function scanSets(o, key) { if (o == null || typeof o !== "object") return; if (Array.isArray(o)) { o.forEach(function (x) { scanSets(x, key); }); return; } if (key === "set") Object.keys(o).forEach(function (k) { stateKeys[k] = 1; }); Object.keys(o).forEach(function (k) { scanSets(o[k], k); }); })(story.passages, "");
+    try { Object.defineProperty(story, "__states", { value: stateKeys, enumerable: false }); } catch (e) { story.__states = stateKeys; }
     try { Object.defineProperty(story, "__prepared", { value: true, enumerable: false }); } catch (e) { story.__prepared = true; }
     veilIndex(story);
     return story;
@@ -300,7 +306,7 @@
   function evalCond(story, s, c) {
     if (c == null || c === true) return true;
     if (c === false) return false;
-    if (typeof c === "string") return !!s.flags[c];
+    if (typeof c === "string") return !!s.flags[c] || (!!(story && story.__states && story.__states[c]) && stateValue(s, "", c) != null);
     if (Array.isArray(c)) return c.every(function (x) { return evalCond(story, s, x); });
     // Cards (9.7): a thread's state (ouvert by default; noue, rate, aucun), a card played in this game.
     if ("fil" in c) return [].concat(c.is || "ouvert").indexOf(threadState(s, c.fil)) >= 0;
@@ -320,6 +326,10 @@
     if ("cicatrice" in c) return [].concat(c.cicatrice).some(function (k) { return !!s.flags["cicatrice:" + k]; });
     if ("fatigue" in c) return rng(s.fatigue || 0, c.min, c.max);
     // At school (8.2): a trait of character, a duel fought.
+    // À trois (9.6): the result of a vote between the players, the post this hero took, the voice he cast.
+    if ("scrutin" in c) { var sr = stateValue(s, BALLOT_FLAG, c.scrutin); return c.is === null ? sr == null : sr != null && (c.is == null || [].concat(c.is).indexOf(sr) >= 0); }
+    if ("role" in c) { var rr = stateValue(s, ROLE_FLAG, c.role); return c.is === null ? rr == null : rr != null && (c.is == null || [].concat(c.is).indexOf(rr) >= 0); }
+    if ("voix" in c) { var vr = stateValue(s, VOICE_FLAG, c.voix); return c.is === null ? vr == null : vr != null && (c.is == null || [].concat(c.is).indexOf(vr) >= 0); }
     if ("trait" in c) return rng(traitOf(s, c.trait), c.min, c.max);
     if ("duel" in c) { var DU = (s.duels || {})[c.duel]; if (!DU) return c.is === null; return c.is == null || DU.out === c.is; }
     // A closed room (8.3): accounts heard, doubted, belied; silences kept; what the hero did and what it weighs; dread; attachments.
@@ -340,7 +350,7 @@
     if ("missed" in c) { var mq = (story.quests || []).filter(function (q) { return q.id === c.missed; })[0]; return !!mq && questMissed(story, s, mq); }
     // count: [conditions], min / max: how many of them hold ("at least three of these").
     if ("count" in c) { var nc = c.count.filter(function (x) { return evalCond(story, s, x); }).length; return nc >= (c.min || 0) && (c.max == null || nc <= c.max); }
-    if ("has" in c) return !!s.flags[c.has];
+    if ("has" in c) return !!s.flags[c.has] || (!!(story && story.__states && story.__states[c.has]) && stateValue(s, "", c.has) != null);
     if ("not" in c) return !evalCond(story, s, c.not);
     if ("all" in c) return c.all.every(function (x) { return evalCond(story, s, x); });
     if ("any" in c) return c.any.some(function (x) { return evalCond(story, s, x); });
@@ -473,6 +483,9 @@
     if ("temps" in c) return "Pas par ce temps-ci.";
     if ("blessure" in c) return c.blessure === false ? "Pas avec une blessure ouverte." : "Seulement avec cette blessure.";
     if ("fatigue" in c) return c.max != null ? "La fatigue te le défend." : "Il faut avoir veillé davantage.";
+    if ("scrutin" in c) return "Le vote n'a pas tourné ainsi.";
+    if ("role" in c) return "Ce n'est pas ton poste.";
+    if ("voix" in c) return "Ce n'est pas la voix que tu as donnée.";
     if ("trait" in c) return "Ce n'est pas dans ton caractère.";
     if ("angoisse" in c) return maxOf(c, "angoisse") != null ? "Tu es trop troublé{e} pour cela." : "Il faudrait que la peur te tienne davantage.";
     if ("attache" in c) return "Ce lien n'est pas assez fort pour cela.";
@@ -585,7 +598,13 @@
   // (s.alliesFem, set by src/multi.js); with several others, the plural; alone, the masculine of « l'autre ».
   var AUTRE = { e: ["", "e", "s"], il: ["il", "elle", "ils"], Il: ["Il", "Elle", "Ils"], le: ["le", "la", "les"], lui: ["lui", "elle", "eux"] };
   function autreForm(s, k) { var f = s.alliesFem || [], n = (s.allies || []).length; var F = AUTRE[k]; return n > 1 ? F[2] : f[0] ? F[1] : F[0]; }
-  function interp(s, t) { return veilPlain(s, String(t)).replace(/\{autre:(e|il|Il|le|lui)\}/g, function (m, k) { return autreForm(s, k); }).replace(/\{autre\}/g, s.allies && s.allies.length ? s.allies.join(" et ") : "l'autre").replace(/\{hero\}/g, heroName(s)).replace(/\{niveau\}/g, String(level(s))).replace(/\{marque\}/g, String(s.mark))
+  // {qui:<role>:<option>} (9.6, « À trois »): the hero of the player who took this option of a role (s.roles, set by
+  // src/multi.js from the table's decisions); {qui:<role>:<option>:e|il|Il|le|lui} agrees with that hero. Unknown
+  // (played alone, or nobody took it): « l'un de vous », in the masculine.
+  var QUI_RE = /\{qui:([^:{}]+):([^:{}]+?)(?::(e|il|Il|le|lui))?\}/g, QUI_NOBODY = "l'un de vous";
+  function postHolder(s, role, option) { return (s.roles || {})[role + ":" + option] || null; }
+  function quiForm(s, m, role, option, k) { var q = postHolder(s, role, option); if (!k) return q ? q.name : QUI_NOBODY; return AUTRE[k][q && q.fem ? 1 : 0]; }
+  function interp(s, t) { return veilPlain(s, String(t)).replace(QUI_RE, function (m, r, o, k) { return quiForm(s, m, r, o, k); }).replace(/\{autre:(e|il|Il|le|lui)\}/g, function (m, k) { return autreForm(s, k); }).replace(/\{autre\}/g, s.allies && s.allies.length ? s.allies.join(" et ") : "l'autre").replace(/\{hero\}/g, heroName(s)).replace(/\{niveau\}/g, String(level(s))).replace(/\{marque\}/g, String(s.mark))
     // {e}: the agreement of the lead hero ("assis{e}"), from the companion's own f: true.
     .replace(/\{e\}/g, s.fem ? "e" : ""); }
   // Intent: read(Story, State, Tagged, PassageId) -> Bool = do the tags a paragraph, a choice or a passage carries hold now
@@ -3701,6 +3720,10 @@
   }
 
   // Intent: apply(Story, State, Choice) -> () ! writes(State), random
+  var ROLE_FLAG = "role:", VOICE_FLAG = "voix:", BALLOT_FLAG = "monde:scrutin:";
+  function keyed(k, v) { var o = {}; o[k] = v; return o; }
+  // Intent: read(State, Prefix, Key) -> Option | null = the one value of a state written `prefix<key>=<option>`
+  function stateValue(s, prefix, key) { var p = prefix + key + "=", f = Object.keys(s.flags || {}).filter(function (x) { return x.indexOf(p) === 0; })[0]; return f ? f.slice(p.length) : null; }
   function choose(story, s, c) {
     prepare(story);
     s.evIn = false;
@@ -3714,6 +3737,10 @@
     if (c.back === true) c = Object.assign({}, c, { to: s.hubLast });
     if (c.once && s.node) { s.once = s.once || {}; s.once["c|" + s.node + "|" + (c.onceKey ? interp(s, c.onceKey) : c.label)] = 1; }
     if (c.silence) silenceNote(story, s, c.silence);
+    // À trois (9.6): the engine itself remembers the post a player took (role) and the voice he cast (voix), as the
+    // states `role:<key>=<option>` and `voix:<key>=<option>`; the scenario only reads them.
+    if (c.role) apply(story, s, { set: keyed(ROLE_FLAG + c.role, c.option || c.label) });
+    if (c.voix) apply(story, s, { set: keyed(VOICE_FLAG + c.voix, c.option || c.label) });
     if (c.refuse) { var rq = questOfRefusal(story, s, c); if (rq) { s.flags["quete-refus:" + rq.id] = true; ev(s, "Quête refusée : " + rq.title + ". Tu n'y reviendras pas.", "quest"); } else guard(s, "refuse : aucune quête ouverte ici"); }
     s.last = null; s.via = c.via || null;
     // takes on a choice (7.9): the way there spends time (a walk, a talk); the clock moves before the page opens, so
@@ -3833,6 +3860,7 @@
     battleDef: battleDef, heroForce: heroForce, tick: tick, reached: reached,
     weatherOf: weatherOf, weatherKind: weatherKind, weatherMod: weatherMod, roadTollOn: roadTollOn, seasonOf: seasonOf, woundsOpen: woundsOpen, woundDef: woundDef, woundDays: woundDays, FATIGUE_MAX: FATIGUE_MAX,
     traitOf: traitOf, traitWord: traitWord, practiceOf: practiceOf, TRAIT_MAX: TRAIT_MAX, DUEL_MOVES: DUEL_MOVES, puzzleRight: puzzleRight,
+    stateValue: stateValue, ROLE_FLAG: ROLE_FLAG, VOICE_FLAG: VOICE_FLAG, BALLOT_FLAG: BALLOT_FLAG, postHolder: postHolder,
     secretsOf: secretsOf, secretKnown: secretKnown, secretDef: secretDef, interludeOf: interludeOf, autreForm: autreForm,
     doubt: doubt, accountBy: accountBy, topicSolved: topicSolved, dreadOf: dreadOf, dreadMax: dreadMax, dreadWord: dreadWord, dreadTrouble: dreadTrouble, attachOf: attachOf, ATTACH_MAX: ATTACH_MAX,
     LENS_EFFECTS: LENS_EFFECTS, reveal: reveal, veilsIn: veilsIn, unveil: unveil, veilInfo: veilInfo, veilsOf: veilsOf, veilMark: veilMark, lensHeld: lensHeld, lensLeft: lensLeft, lensDef: lensDef, veilCount: veilCount, VEIL_RE: VEIL_RE,

@@ -40,6 +40,21 @@ Quand tout le monde attend, les parties se synchronisent et l'histoire reprend.
 - `role` : premier servi, mais pour se répartir le travail ; une option prise par un joueur est fermée aux autres (« C'est Léo qui s'en charge. »), et un joueur ne peut prendre qu'une option par rôle. C'est l'outil pour séparer les joueurs (l'un à l'écurie, l'autre à l'armurerie) et faire que chacun rapporte une pièce du puzzle.
 - `option` est facultatif (sinon le libellé sert d'identifiant).
 
+## À trois : voter, savoir qui tient quel poste, mettre en commun (9.6)
+
+```js
+multi: { min: 3, max: 3, commun: true },
+scrutins: { plan: { title: "Par où entrer", options: { toit: "Par les toits", cave: "Par les caves" }, tie: "dispute", tieSay: "Trois avis, trois voix.", secret: false } },
+…
+{ label: "Par les toits", voix: "plan", option: "toit", to: "URNE" }     // chacun donne sa voix
+```
+
+- **Vote** (`voix` + `story.scrutins`) : chaque joueur donne sa voix, sans voir celle des autres. Le moteur compte au rendez-vous suivant, quand tout le monde a voté : la majorité l'emporte ; sans majorité, c'est l'option `tie` du scrutin (un désaccord que l'histoire a écrit), ou à défaut la première voix donnée. Chacun lit le dépouillement (« 2 voix pour … (Mila, Tom) » ; `secret: true` tait les noms). Le résultat se lit `{ scrutin: "plan", is: "toit" }` ; la voix de chacun `{ voix: "plan", is: "cave" }`. La forme sûre : la page du vote, puis une page `charniere: true` où l'on attend (« les cailloux sont dans le chapeau »), puis un aiguillage `branch` selon le résultat.
+- **Postes** : quand un joueur prend un choix `role`, le moteur retient son poste ; il se lit `{ role: "acte2", is: "main" }` (plus besoin de poser un drapeau à la main). `{qui:acte2:main}` donne le nom du héros qui tient ce poste, `{qui:acte2:main:e}` (ou `il`, `Il`, `le`, `lui`) s'accorde avec lui ; tant que personne ne l'a pris (ou en solo) : « l'un de vous ». Écrire ces phrases dans un paragraphe que le titulaire ne lit pas (`{ if: { not: { role: "acte2", is: "main" } }, … }`), puisque le livre lui dit « tu ».
+- **Mise en commun** (`multi.commun: true`) : à chaque rendez-vous, chacun reçoit les indices trouvés par les autres (« Mila rapporte : … »). Un indice `prive: true` reste à celui qui l'a trouvé. Ce qu'un héros a *vécu* se teste donc par un drapeau, et ce qu'il *sait* par un indice.
+
+Le partenaire fantôme du validateur vote lui aussi (n'importe quelle issue du scrutin, égalité comprise) et rapporte des indices des actes déjà joués. Exemple : `tests/trois-test.js`, et « Les Trois Clefs d'Aiguemorne » (`troisclefs`).
+
 ## Nommer les autres
 
 `{autre}` dans un texte donne le nom du ou des héros des autres joueurs (« Mila », « Mila et Tom »). En solo, il vaut « l'autre ». Depuis la 8.4, on accorde avec le héros de l'autre joueur : `{autre:e}`, `{autre:il}`, `{autre:Il}`, `{autre:le}`, `{autre:lui}` (« {autre} est assis{autre:e} »). Pour « vous » au pluriel, préférer une tournure sans participe accordé (« vous avez pris », plutôt que « vous êtes assis »).

@@ -12,9 +12,9 @@
     "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "via", "regard", "fresh", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed",
     "temps", "saison", "blessure", "cicatrice", "fatigue", "trait", "duel",
     "recit", "doute", "dementi", "silences", "geste", "poids", "angoisse", "attache",
-    "secret", "confie", "garde", "savoir", "lu", "voile", "voiles", "lens", "fil", "carteJouee", "possede"];
+    "secret", "confie", "garde", "savoir", "lu", "voile", "voiles", "lens", "scrutin", "role", "voix", "fil", "carteJouee", "possede"];
   // The siege's conditions (8.0) carry a second key (is, member, hero, losses): they are read by their first key.
-  var SIEGE_KEYS = ["depot", "fil", "voiles", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue", "trait", "duel"];
+  var SIEGE_KEYS = ["scrutin", "role", "voix", "depot", "fil", "voiles", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue", "trait", "duel"];
   var FX_KEYS = ["voie", "regard", "aspect", "qui", "resume", "set", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
     "give", "relicLose", "item", "drop", "gold", "food", "pv", "rest", "time", "until", "stamp", "reveal", "meet", "clock", "quest", "questSeen", "note", "noteCls",
     "assign", "team", "regroup", "away", "lead", "leadQuiet", "learn", "souv", "souvBack", "catchupAll", "awayUnless",
@@ -267,6 +267,8 @@
       if (f.flee && f.flee.dom && DOM_KEYS.indexOf(f.flee.dom) < 0) E(where + " : fuite, domaine « " + f.flee.dom + " » inconnu.");
       [f.win, f.lose, f.flee, f.talk && f.talk.win, f.calm].forEach(function (b) { if (!b) return; checkFx(b.fx, where); (Array.isArray(b.to) ? b.to.map(function (x) { return x.to; }) : [b.to]).forEach(function (t) { if (t !== "@ret" && t !== "@route" && t !== "@team" && t !== "@suite" && !P[t]) E(where + " : le combat mène à « " + t + " », qui n'existe pas."); }); });
     }
+    var ROLES_DECL = null;
+    function rolesDeclared() { if (!ROLES_DECL) { ROLES_DECL = {}; Object.keys(story.passages || {}).forEach(function (id) { (story.passages[id].choices || []).forEach(function (c) { if (c.role) (ROLES_DECL[c.role] = ROLES_DECL[c.role] || {})[c.option || c.label] = 1; }); }); } return ROLES_DECL; }
     function checkCond(c, where) {
       if (c == null || typeof c === "boolean" || typeof c === "string") return;
       if (Array.isArray(c)) { c.forEach(function (x) { checkCond(x, where); }); return; }
@@ -322,6 +324,8 @@
       if (k === "cicatrice") checkSea("cicatrice", c.cicatrice, where);
       // At school (8.2).
       if (k === "trait" && !(story.traits || {})[c.trait]) E(where + " : trait « " + c.trait + " » inconnu.");
+      if (k === "scrutin" || k === "voix") { var SC = (story.scrutins || {})[c[k]]; if (!SC) E(where + " : scrutin « " + c[k] + " » inconnu (scrutins)."); else [].concat(c.is == null ? [] : c.is).forEach(function (o) { if (!(SC.options || {})[o] && o !== SC.tie) E(where + " : option « " + o + " » inconnue du scrutin « " + c[k] + " »."); }); }
+      if (k === "role") { var RO = rolesDeclared()[c.role]; if (!RO) E(where + " : rôle « " + c.role + " » : aucun choix ne le porte."); else [].concat(c.is == null ? [] : c.is).forEach(function (o) { if (!RO[o]) E(where + " : option « " + o + " » inconnue du rôle « " + c.role + " »."); }); }
       if (k === "duel" && !(story.duels || {})[c.duel]) E(where + " : duel « " + c.duel + " » inconnu.");
       if (k === "duel" && c.is != null && c.is !== "win" && c.is !== "lose") E(where + " : duel, « " + c.is + " » (attendu : win ou lose).");
       if (k === "souvenirs" && c.souvenirs !== "lead" && !(story.heroes || {})[c.souvenirs]) E(where + " : héros « " + c.souvenirs + " » inconnu.");
@@ -706,6 +710,25 @@
       (p.choices || []).forEach(function (c) { if (String(c.label || "").indexOf("{{") >= 0) E("§ " + id + " : un mot caché sur un bouton (« " + String(c.label).slice(0, 40) + " ») ; les mots cachés vont dans le texte."); });
       (function scan(o) { if (o == null) return; if (typeof o === "string") { var rest = o.replace(M.VEIL_RE, "").replace(/\{\{[a-z]+:[^{}]*\}\}/g, ""); if (/\{\{|\}\}/.test(rest)) E("§ " + id + " : mot caché mal écrit : « " + o.slice(Math.max(0, o.indexOf("{{") - 10), o.indexOf("{{") + 60) + " » (attendu {{lentille|dit|dessous}} ou {{lentille#id|dit|dessous}})."); return; } if (Array.isArray(o)) o.forEach(scan); else if (typeof o === "object") Object.keys(o).forEach(function (k) { scan(o[k]); }); })(p.text);
     });
+    // Three players (9.6): a vote between the players is declared (scrutins), with its options; a choice gives a voice
+    // to one of them.
+    Object.keys(story.scrutins || {}).forEach(function (k) {
+      var S = story.scrutins[k], w = "Scrutin « " + k + " »", opts = Object.keys(S.options || {});
+      if (opts.length < 2) E(w + " : il faut au moins deux options (options: { id: \"libellé\" }).");
+      if (!story.multi) E(w + " : un vote entre joueurs demande une histoire à plusieurs (multi).");
+      var cast = {};
+      Object.keys(P).forEach(function (id) { (P[id].choices || []).forEach(function (c) { if (c.voix === k) cast[c.option || c.label] = id; }); });
+      opts.forEach(function (o) { if (!cast[o]) W(w + " : aucun choix ne donne sa voix à l'option « " + o + " »."); });
+    });
+    Object.keys(P).forEach(function (id) {
+      (P[id].choices || []).forEach(function (c) {
+        if (c.voix == null) return;
+        var S = (story.scrutins || {})[c.voix];
+        if (!S) { E("§ " + id + " : voix pour un scrutin inconnu « " + c.voix + " » (scrutins)."); return; }
+        if (!(S.options || {})[c.option || c.label]) E("§ " + id + " : voix pour une option inconnue « " + (c.option || c.label) + " » du scrutin « " + c.voix + " ».");
+        if (c.monde || c.role) E("§ " + id + " : un même choix ne peut pas être à la fois une voix et un choix du monde ou un rôle.");
+      });
+    });
     // Two players (8.4): secrets and their confessions, interludes from another point of view.
     Object.keys(story.secrets || {}).forEach(function (k) {
       var S = story.secrets[k], w = "Secret « " + k + " »";
@@ -1081,6 +1104,12 @@
         if (c.sys) return { d: Infinity, fixed: null };
         var raw = c;
         cand(live(raw.to), null); if (raw.win) cand(live(raw.win.to), 0.94); if (raw.lose) cand(live(raw.lose.to), 0.02);
+        // 11.3: when both outcomes of a test lead to the target, the nearer one on the map may be the wrong one (a
+        // switch further on reads what the failure left). One walk in three takes the other outcome.
+        if (otherWay && raw.win && raw.lose && out != null && rnd() < 0.34) {
+          var dOther = Infinity; [].concat(live(out > 0.5 ? raw.lose.to : raw.win.to)).forEach(function (t) { if (d[t] != null && d[t] < dOther) dOther = d[t]; });
+          if (dOther < Infinity) out = out > 0.5 ? 0.02 : 0.94;
+        }
         if (raw.fight) ["win", "lose", "flee", "calm"].forEach(function (o) { if (raw.fight[o]) cand(raw.fight[o].to, null); });
         return { d: best, fixed: out };
       }
@@ -1115,6 +1144,18 @@
         var all = Object.keys(common || {}).map(function (k) { return common[k]; });
         return { shut: all.filter(function (a) { return !a.voile; }), veils: all.filter(function (a) { return a.voile; }).map(function (a) { return a.voile; }) };
       }
+      // Intent: needOf(target) -> [Flag] — the marks asked (if: "mark" or if: { has }, alone or in an all) by every
+      // choice that leads to the target.
+      function needOf(target) {
+        var common = null;
+        function leads(to) { return Array.isArray(to) ? to.some(function (x) { return leads(x.to); }) : to === target; }
+        ids.forEach(function (id) { (P[id].choices || []).forEach(function (c) {
+          if (!(leads(c.to) || (c.win && leads(c.win.to)) || (c.lose && leads(c.lose.to)))) return;
+          var o = {}; (c.if && c.if.all ? c.if.all : [c.if]).forEach(function (a) { if (typeof a === "string") o[a] = 1; else if (a && typeof a.has === "string") o[a.has] = 1; });
+          if (!common) common = o; else Object.keys(common).forEach(function (k) { if (!o[k]) delete common[k]; });
+        }); });
+        return Object.keys(common || {});
+      }
       // Whether an effect shuts the door: it sets one of its marks, or brings one of its companions along.
       function shuts(fx, door) {
         if (!fx) return false;
@@ -1130,6 +1171,7 @@
       // door: null for the plain search; else the walks start only from states where the door is still open, the
       // furthest in the story first, never take a choice that shuts it while another is offered, stop as soon as it
       // is shut, walk longer, and keep their lenses for the words the door asks (one walk in two lifts no other).
+      var otherWay = false;
       function seek(target, pass, door) {
           if (seen[target]) return;
           var d = distTo(target);
@@ -1139,6 +1181,12 @@
           var budget = 300, near = [], steps = door ? 1000 : 300;
           if (door) from.sort(function (a, b) { return actIdx[P[b].act] - actIdx[P[a].act] || d[a] - d[b]; });
           from.forEach(function (k) { snaps[k].forEach(function (x) { if (door) { s = JSON.parse(x); if (!open(door.shut)) return; } near.push(x); }); });
+          // 11.3: the marks every choice leading to the target asks for (if: has). The kept states that already hold
+          // them go first, however far: such a mark is often earned much earlier (a friend made the day before).
+          if (otherWay) {
+            var need = needOf(target);
+            if (need.length) { var held = near.filter(function (x) { var st0 = JSON.parse(x); return need.every(function (f) { return st0.flags[f]; }); }); if (held.length) near = held.concat(near); }
+          }
           for (var wi = 0; wi < budget && wi < near.length * 4 && !seen[target]; wi++) {
             var wander = wi % 3 === 2 ? 0.4 : 0.15, half = wi >> 1;
             s = JSON.parse(wi % 2 === 0 && half < near.length ? near[half] : near[Math.floor(rnd() * near.length)]);
@@ -1172,14 +1220,21 @@
             if (s && s.seen) Object.keys(s.seen).forEach(mark);
           }
       }
+      var onlyT0 = typeof process !== "undefined" && process.env && process.env.VALID_ONLY;
       ["plain", "plain", "plain", "rich", "rich", "hurt", "hurt"].some(function (pass) {
         var missing = ids.filter(function (id) { return !seen[id]; });
         if (!missing.length) return true;
-        missing.forEach(function (target) { seek(target, pass, null); });
+        var onlyT = typeof process !== "undefined" && process.env && process.env.VALID_ONLY;
+        missing.forEach(function (target) { if (onlyT && target !== onlyT) return; seek(target, pass, null); });
         return false;
       });
       // Last: what is still missing behind a door that shuts (see doorOf) is looked for with that door kept open.
       ids.filter(function (id) { return !seen[id]; }).forEach(function (target) { var door = doorOf(target); if (door.shut.length) seek(target, "plain", door); });
+      // 11.3, last of all: what is still missing is looked for another way (see needOf, and the other outcome of a
+      // test in score). Kept apart so that the walks above stay what they were.
+      otherWay = true;
+      ids.filter(function (id) { return !seen[id]; }).forEach(function (target) { if (onlyT0 && target !== onlyT0) return; seek(target, "plain", null); });
+      otherWay = false;
     }
     // The games read like a reader: on a puzzle, they type the right answer most of the time, a wrong one otherwise.
     // pr: the chance of typing the right answer (a lost game errs more; a targeted search answers as its target needs).
@@ -1193,11 +1248,42 @@
     // 8.4: a story for several players is played alone here; a ghost partner stands for the others. At each rendezvous
     // (a new act, a passage charniere), it sets at random some of the world marks the story can set (monde:…) and tells
     // some of the secrets that have a confession, as the other player might have done meanwhile.
-    var GHOST = [];
+    var GHOST = [], GHOST_FROM = {}, ACT_IDS = (story.acts || []).map(function (x) { return x.id; });
     if (story.multi) {
       // A world choice (monde: key) is taken by every player alike: its marks are the player's own, never the ghost's.
-      (function scan(o, key) { if (o == null) return; if (typeof o === "string") { if ((key === "flag" || key === "flags") && o.indexOf("monde:") === 0 && GHOST.indexOf(o) < 0) GHOST.push(o); return; } if (Array.isArray(o)) { o.forEach(function (x) { scan(x, key); }); return; } if (typeof o === "object" && !o.monde) Object.keys(o).forEach(function (k) { scan(o[k], k); }); })(story.passages, "");
+      // 11.3: each mark and each shared state knows the first act where a page can set it (GHOST_FROM): the others
+      // cannot have set it before. Why: on a long story with many rendezvous, a ghost drawing every mark again at
+      // each of them ended with all of them set, the contrary ones together, and whole branches were never played.
+      Object.keys(story.passages).forEach(function (id) {
+        var ai = ACT_IDS.indexOf(story.passages[id].act);
+        (function scan(o, key) { if (o == null) return; if (typeof o === "string") { if ((key === "flag" || key === "flags") && o.indexOf("monde:") === 0) { if (GHOST.indexOf(o) < 0) GHOST.push(o); if (GHOST_FROM[o] == null || ai < GHOST_FROM[o]) GHOST_FROM[o] = ai; } return; } if (Array.isArray(o)) { o.forEach(function (x) { scan(x, key); }); return; } if (typeof o === "object" && !o.monde) Object.keys(o).forEach(function (k) { scan(o[k], k); }); })(story.passages[id], "");
+      });
       Object.keys(story.secrets || {}).forEach(function (k) { if (story.secrets[k].aveu) GHOST.push("monde:confie:" + k); });
+    }
+    // 9.6 (« À trois »): the ghost also votes (a scrutin the player has voted in gets a result at the next rendezvous,
+    // any of its options or its tie) and tells what the others may have found so far (the clues of the acts played,
+    // unless `prive`), as the pooling of a real table does.
+    var BALLOTS = story.multi ? Object.keys(story.scrutins || {}) : [], CLUE_ACT = {};
+    if (story.multi && story.multi.commun) Object.keys(P).forEach(function (id) {
+      var ai = (story.acts || []).map(function (a) { return a.id; }).indexOf(P[id].act);
+      (function scan(o, key, cond) { if (o == null) return; if (typeof o === "string") { if (key === "clue" && !cond && (story.clues || {})[o] && (CLUE_ACT[o] == null || ai < CLUE_ACT[o])) CLUE_ACT[o] = ai; return; } if (Array.isArray(o)) { o.forEach(function (x) { scan(x, key, cond); }); return; } if (typeof o === "object") Object.keys(o).forEach(function (k) { scan(o[k], k, cond || /^(if|hide|closes|after|before|help)$/.test(k)); }); })(P[id], "", false);
+    });
+    // A shared state (set: { "monde:…": value }) the others may have set: the ghost gives it one of its values.
+    var GHOST_SETS = {};
+    if (story.multi) Object.keys(story.passages).forEach(function (id) {
+      var ai = ACT_IDS.indexOf(story.passages[id].act);
+      (function scan(o, key) { if (o == null || typeof o !== "object") return; if (Array.isArray(o)) { o.forEach(function (x) { scan(x, key); }); return; } if (o.monde) return; if (key === "set") Object.keys(o).forEach(function (k) { if (k.indexOf("monde:") === 0 && o[k] != null) { GHOST_SETS[k] = GHOST_SETS[k] || []; if (GHOST_SETS[k].indexOf(o[k]) < 0) GHOST_SETS[k].push(o[k]); if (GHOST_FROM["=" + k] == null || ai < GHOST_FROM["=" + k]) GHOST_FROM["=" + k] = ai; } }); Object.keys(o).forEach(function (k) { scan(o[k], k); }); })(story.passages[id], "");
+    });
+    function ghostTable(s, rnd) {
+      var nowS = ACT_IDS.indexOf(s.lastAct);
+      Object.keys(GHOST_SETS).forEach(function (k) { if (GHOST_FROM["=" + k] > nowS) return; if (M.stateValue(s, "", k) == null && rnd() < 0.5) s.flags[k + "=" + GHOST_SETS[k][Math.floor(rnd() * GHOST_SETS[k].length)]] = true; });
+      BALLOTS.forEach(function (k) {
+        if (M.stateValue(s, M.VOICE_FLAG, k) == null || M.stateValue(s, M.BALLOT_FLAG, k) != null) return;
+        var S = story.scrutins[k], opts = Object.keys(S.options || {}); if (S.tie && opts.indexOf(S.tie) < 0) opts.push(S.tie);
+        if (opts.length) s.flags[M.BALLOT_FLAG + k + "=" + opts[Math.floor(rnd() * opts.length)]] = true;
+      });
+      var now = (story.acts || []).map(function (a) { return a.id; }).indexOf(s.lastAct);
+      Object.keys(CLUE_ACT).forEach(function (k) { if (!s.clues[k] && !story.clues[k].prive && CLUE_ACT[k] >= 0 && CLUE_ACT[k] < now + (P[s.node].charniere ? 1 : 0) && rnd() < 0.2) s.clues[k] = true; });
     }
     // 9.6: the ghost partner leaves things too: at a rendezvous, one deposit in three receives one thing that fits it.
     function ghostDepots(s, rnd) {
@@ -1209,12 +1295,20 @@
       });
     }
     function ghost(s, rnd, at) {
+      if (story.multi && P[s.node]) { var pg = P[s.node], kg = pg.charniere ? "c:" + s.node : "a:" + s.lastAct; s._ghostT = s._ghostT || {}; if (!s._ghostT[kg] && (pg.charniere || at !== s.lastAct)) { s._ghostT[kg] = 1; ghostTable(s, rnd); } }
       if ((!GHOST.length && !story.depots) || !P[s.node]) return;
       var p = P[s.node], key = p.charniere ? "c:" + s.node : "a:" + s.lastAct;
       s._ghost = s._ghost || {}; if (s._ghost[key] || (!p.charniere && at === s.lastAct)) return;
       s._ghost[key] = 1;
       if (story.depots) ghostDepots(s, rnd);
-      GHOST.forEach(function (f) { if (f.indexOf("monde:confie:") === 0 && (s.secrets || {})[f.slice(13)]) return; if (!s.flags[f] && rnd() < 0.3) s.flags[f] = true; });
+      // One draw for each mark in a game, at the first rendezvous from the act where a page can set it.
+      var nowG = ACT_IDS.indexOf(s.lastAct); s._ghostF = s._ghostF || {};
+      GHOST.forEach(function (f) {
+        if (f.indexOf("monde:confie:") === 0) { if (!(s.secrets || {})[f.slice(13)] && !s.flags[f] && rnd() < 0.3) s.flags[f] = true; return; }
+        if (s._ghostF[f] || GHOST_FROM[f] > nowG) return;
+        s._ghostF[f] = 1;
+        if (!s.flags[f] && rnd() < 0.4) s.flags[f] = true;
+      });
     }
     function play(mode, seed, toutJouer, second) {
       var rnd = seededRng(seed), s = null, fixed = mode === "win" ? 0.94 : mode === "lose" ? 0.02 : null;
@@ -1287,7 +1381,8 @@
       n++;
     }
     var T = typeof process !== "undefined" && process.env && process.env.VALID_TIME, t0 = Date.now();
-    if (T) console.log("parties : " + n + ", passages jamais vus : " + ids.filter(function (id) { return !seen[id]; }).length);
+    if (T) console.log("parties : " + n + ", passages jamais vus : " + ids.filter(function (id) { return !seen[id]; }).length + (T === "list" || T === "stop" ? " : " + ids.filter(function (id) { return !seen[id] && !P[id].branch; }).join(" ") : ""));
+    if (T === "stop") { console.log("impasses : " + JSON.stringify(dead) + "\nboucles : " + JSON.stringify(loops) + "\nerreurs : " + JSON.stringify(Object.keys(errs).slice(0, 20))); M.setRng(null); return { unreached: [], endings: endings, errors: [], deadEnds: dead, loops: loops }; }
     reachMissing();
     if (T) console.log("recherche ciblée : " + (Date.now() - t0) + " ms");
     M.setRng(null);

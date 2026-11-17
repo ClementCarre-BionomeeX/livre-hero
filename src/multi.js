@@ -92,6 +92,16 @@
     if (d.option === optionOf(c)) return { ok: true, decided: d };
     return { ok: false, why: d.by + " a déjà tranché : « " + d.label + " ».", decided: d };
   }
+  // Intent: roles(Game) -> { "<role>:<option>": { name, fem } } = the hero who holds each post taken so far
+  function rolesOf(g) {
+    var out = {};
+    Object.keys(g.decisions || {}).forEach(function (k) {
+      if (k.indexOf("role:") !== 0) return;
+      var d = g.decisions[k], o = player(g, d.pid);
+      out[k.slice(5)] = { name: (o && o.s && o.s.name) || d.by, fem: !!(o && o.s && o.s.fem) };
+    });
+    return out;
+  }
   // Intent: decide(Game, Player, Choice) -> Decision ! writes(Game.decisions) unless already decided
   function decide(g, p, c, at) {
     var key = decisionKey(c);
@@ -154,6 +164,8 @@
         p.s.allies = others.map(function (o) { return o.s.name || o.name; });
         // 8.4: the text may agree with the other hero ({autre:e}, {autre:il}…).
         p.s.alliesFem = others.map(function (o) { return !!o.s.fem; });
+        // 9.6: who took which post ({qui:<role>:<option>}), from the table's decisions, known to all at once.
+        p.s.roles = rolesOf(g);
       }
     });
     g.players.forEach(function (p) {
@@ -266,6 +278,9 @@
     });
     g.round++;
     g.players.forEach(function (p) { p.s.events = []; p.round = g.round; });
+    // 9.6 (« À trois »): at a rendezvous the players tell each other what they found (a story with
+    // multi.commun: every clue not marked `prive`), and the votes everybody has cast are counted.
+    if (!multiHero(story)) { if ((story.multi || {}).commun) poolClues(story, g, order); countBallots(story, g, order); }
     // 8.4: a secret the other told arrives with the rendezvous, and the player is told so, once.
     if (!multiHero(story) && story.secrets) g.players.forEach(function (p, i) {
       Object.keys(p.s.flags || {}).forEach(function (f) {
@@ -279,6 +294,53 @@
     report.stuck = allWaiting(g) && !g.players.every(function (p) { return p.wait.kind === WAIT.END; });
     report.over = g.players.every(function (p) { return p.wait && p.wait.kind === WAIT.END; });
     return report;
+  }
+  function heroOf(p) { return (p.s && p.s.name) || p.name; }
+  // Intent: pool(Story, Game, [Player]) -> () ! writes(every Player.s.clues, events)
+  function poolClues(story, g, order) {
+    var found = {};   // clue -> the first player who had it
+    order.forEach(function (p) { Object.keys(p.s.clues || {}).forEach(function (k) { var cl = (story.clues || {})[k]; if (cl && !cl.prive && !found[k]) found[k] = p; }); });
+    g.players.forEach(function (p) {
+      Object.keys(found).forEach(function (k) {
+        if (p.s.clues[k]) return;
+        p.s.clues[k] = true;
+        var cl = story.clues[k];
+        p.s.events.push({ text: heroOf(found[k]) + " rapporte (" + ((story.mysteries || {})[cl.rev] || {}).title + ") : " + M.interp(p.s, cl.text), cls: "clue" });
+      });
+    });
+  }
+  var VOICE = M.VOICE_FLAG, BALLOT = M.BALLOT_FLAG;
+  // Intent: tally(Story, [Option]) -> { result, counts, tie } = the option with the most voices; when the lead is
+  // shared, the scrutin's own `tie` option (a disagreement the story has written), else the first voice cast
+  function tally(S, voices) {
+    var counts = {}, best = 0;
+    voices.forEach(function (v) { counts[v] = (counts[v] || 0) + 1; best = Math.max(best, counts[v]); });
+    var lead = Object.keys(counts).filter(function (k) { return counts[k] === best; });
+    if (lead.length === 1) return { result: lead[0], counts: counts, tie: false };
+    return { result: S.tie || voices.filter(function (v) { return lead.indexOf(v) >= 0; })[0], counts: counts, tie: true };
+  }
+  // Intent: count(Story, Game, [Player]) -> () ! writes(every Player.s.flags, events) once every player has cast his voice
+  function countBallots(story, g, order) {
+    Object.keys(story.scrutins || {}).forEach(function (key) {
+      var S = story.scrutins[key];
+      if (g.players.some(function (p) { return M.stateValue(p.s, BALLOT, key) != null; })) return;
+      var cast = order.map(function (p) { return { p: p, v: M.stateValue(p.s, VOICE, key) }; });
+      var voters = cast.filter(function (x) { return x.v != null; });
+      // everybody still in the story must have voted
+      if (!voters.length || cast.some(function (x) { return x.v == null && !(x.p.wait && x.p.wait.kind === WAIT.END); })) return;
+      var T = tally(S, voters.map(function (x) { return x.v; }));
+      var lab = function (o) { return "« " + (((S.options || {})[o] || {}).label || (S.options || {})[o] || o) + " »"; };
+      var lines = Object.keys(T.counts).sort(function (a, b) { return T.counts[b] - T.counts[a]; }).map(function (o) {
+        var who = voters.filter(function (x) { return x.v === o; }).map(function (x) { return heroOf(x.p); });
+        return T.counts[o] + " voix pour " + lab(o) + (S.secret ? "" : " (" + who.join(", ") + ")");
+      });
+      var text = (S.title ? S.title + " · " : "Le vote · ") + lines.join(" ; ") + ". " + (T.tie ? (S.tieSay || "Pas de majorité.") : "La majorité l'emporte : " + lab(T.result) + ".");
+      g.players.forEach(function (p) {
+        Object.keys(p.s.flags).forEach(function (f) { if (f.indexOf(BALLOT + key + "=") === 0) delete p.s.flags[f]; });
+        p.s.flags[BALLOT + key + "=" + T.result] = true;
+        p.s.events.push({ text: M.interp(p.s, text), cls: "scrutin", pre: true });   // a cause: read before the page
+      });
+    });
   }
   // Intent: next(Game, PlayerId?) -> Player | null = on one device, whose turn comes after this one
   function nextPlayer(g, pid) {
@@ -295,6 +357,6 @@
 
   var API = { create: create, view: view, choose: choose, decide: decide, allWaiting: allWaiting, sync: sync, refreshWaits: refreshWaits,
     nextPlayer: nextPlayer, deal: deal, normalize: normalize, denormalize: denormalize, merge3: merge3, ownerOf: ownerOf, player: player,
-    rendezvousOf: rendezvousOf, decisionKey: decisionKey, actIndex: actIndex, reached: reached, multiHero: multiHero, WAIT: WAIT, optionOf: optionOf };
+    rendezvousOf: rendezvousOf, rolesOf: rolesOf, tally: tally, decisionKey: decisionKey, actIndex: actIndex, reached: reached, multiHero: multiHero, WAIT: WAIT, optionOf: optionOf };
   if (typeof module !== "undefined" && module.exports) module.exports = API; else root.Multi = API;
 })(typeof self !== "undefined" ? self : this);
