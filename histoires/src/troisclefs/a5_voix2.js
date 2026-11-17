@@ -75,7 +75,7 @@ module.exports = {
         "« C'est bien dit. On voit que vous lisez pour le Bronze. » Il te rend le rôle. « Mais voyez-vous, on m'a beaucoup proposé de me racheter. Des confesseurs, des femmes, mon intendant. Je me suis toujours méfié : cela commence par un beau geste, et cela finit par une vie rangée. »",
         "Il va au mannequin, décroche le manteau rouge.",
         "« Je monte ce soir avec mes deux collègues, le dernier, l'épée au côté, comme mon père. Je ne vous cherche pas. Si je vous trouve devant la porte, je ferai mon office, très bien, et sans rancune. » Il te salue, du salut qu'on fait sur le pré. « Allez. Vous aurez été la seule personne de cette semaine à me parler de ma mère sans que je lui en veuille. Cela vaut bien que je vous laisse une demi-journée d'avance. »",
-        "Dans la cuisine, Maître Ravaudet te tient la porte, le mouchoir à la main. Il ne dit rien. Il te glisse seulement, d'une voix mouillée : « Il ne dort plus. Il s'exerce jusqu'à trois heures. On ne s'exerce pas ainsi contre des gens que l'on méprise. »",
+        "Dans la cuisine, Maître Ravaudet te tient la porte, le mouchoir à la main. Il te glisse seulement, d'une voix mouillée : « Il ne dort plus. Il s'exerce jusqu'à trois heures. On ne s'exerce pas ainsi contre des gens que l'on méprise. »",
       ],
       choices: [{ back: "A5v_ville" }] },
 
@@ -147,7 +147,7 @@ module.exports = {
       text: [
         "Les doigts de chevreau accrochent le bord. Le capuchon glisse en arrière, d'un coup, jusqu'aux épaules.",
         "Cela dure une seconde. Tu le rabats à deux mains, en lâchant un bâton du rôle, qui se déroule de trois pieds sur le pavé. Autour de toi, on se précipite, on ramasse, on se signe : une Voix qui laisse tomber le rôle, c'est un présage, et chacun veut l'avoir conjuré.",
-        "Dans cette seconde, il y avait des torches, et ta figure dedans. Tu ne sais pas qui a regardé. Sous le dais violet, il t'a semblé qu'un visage très pâle se tournait, avec un sourire. Au pied de la voûte, un sergent à moustache rousse a froncé le sourcil, comme un homme qui cherche un mot.",
+        "Dans cette seconde, il y avait des torches, et ta figure dedans. Tu ignores qui a regardé. Sous le dais violet, il t'a semblé qu'un visage très pâle se tournait, avec un sourire. Au pied de la voûte, un sergent à moustache rousse a froncé le sourcil, comme un homme qui cherche un mot.",
         "Tu repars, le rôle levé. Tes mains tremblent. Dans la robe, personne ne le voit.",
       ],
       choices: [{ label: "Entrer dans la cour", to: "A5v_estrade", big: true }] },

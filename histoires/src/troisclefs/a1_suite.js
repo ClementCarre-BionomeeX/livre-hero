@@ -18,7 +18,7 @@ module.exports = {
 
     A1c_bilan: { act: "I", title: "Trois sur un toit", place: "basfonds", ambiance: "nuit",
       text: [
-        "Vous êtes trois sur le goudron. Personne ne manque. C'est la première chose qu'on vérifie, et on la vérifie des yeux, sans rien dire, parce que la voix tremblerait.",
+        "Vous êtes trois sur le goudron. Personne ne manque. C'est la première chose qu'on vérifie, et on la vérifie des yeux, en silence, parce que la voix tremblerait.",
         { if: { has: "monde:a1:fuite=propre" }, text: "Vous êtes sortis de l'impasse sans qu'un garde puisse jurer de vos figures. Le Cadenas a un mort, un billet, et trois ombres qu'on lui a décrites : c'est peu pour un homme qui aime les preuves.", else: "Vous êtes sortis de l'impasse à grand bruit. Vingt hommes du guet vous ont vus courir, de dos, de près ; demain il y aura sur les murs trois signalements, et ils seront bons." },
         { if: { has: "monde:a1:epreuve" }, text: "{qui:a1:main} tire de sa chemise un feuillet plié, noirci à la mine de plomb, où des lettres sortent en blanc : *…qu'il en soit ainsi à chaque Septaine, dans les mêmes termes…* Voilà ce que le vieil homme voulait remettre." },
         { if: { has: "monde:a1:coup_vu" }, text: "{qui:a1:oeil} montre entre deux doigts une pincée de poussière noire, vitreuse, qui crisse. Du mâchefer de forge. Celui qui a frappé en avait plein ses coutures." },

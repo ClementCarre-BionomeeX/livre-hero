@@ -333,7 +333,7 @@ module.exports = {
       fx: { set: { "a2:o_four": "amene" } },
       text: [
         "La porte du four est un trou dans la maçonnerie, que barre de l'intérieur une planche d'échafaudage. Un homme la tient. Tu ne vois de lui qu'une main et un blanc d'œil.",
-        { if: { has: "a2:o_invite=jacquot" }, text: "Tu montres l'oignon, sans un mot. La main le prend, le flaire, le rend. La planche s'écarte." },
+        { if: { has: "a2:o_invite=jacquot" }, text: "Tu montres l'oignon. La main le prend, le flaire, le rend. La planche s'écarte." },
         { if: { has: "a2:o_invite=trieuses" }, text: "« Thècle a vu mon tas », dis-tu. Un silence. Puis une voix jeune, que tu reconnais : « C'est bon. Je réponds. » La planche s'écarte." },
         { if: { has: "a2:o_invite=bannis" }, text: "« J'apporte un mot du Bois-Noir, dis-tu. De ceux qui attendent le jour de la cloche. » La planche hésite, puis s'écarte." },
         { if: { has: "a2:o_invite=barbette" }, text: "Barbette te précède, son sac sur l'épaule. « C'est avec moi. C'est nul à la grenaille, mais ça paie. » Un rire étouffé. La planche s'écarte." },
@@ -356,7 +356,7 @@ module.exports = {
         "« …quand il coule. Pas avant, pas après. Ceux de la halle ne peuvent pas lâcher les fours : ils sont à nous pour six minutes, qu'ils le veuillent ou non. Les rousses seront trente à faire la haie… L'équipe de nuit ne remonte pas. Celle du jour ne descend pas. On tient la recette, on tient les pompes… Trois jours sans pomper, et la Gueule a de l'eau jusqu'au Couchant… Il viendra parler. Il viendra, parce que ce qu'il a de plus cher est au fond d'un trou, et que le trou sera à nous. »",
         "Un murmure. Puis une autre voix, d'homme : « Et le Livre ? »",
         "« Le Livre, je m'en charge. »",
-        "Tu te dégages à reculons, en y laissant un peu de peau. Tu sais ce qu'ils feront. Tu ne sais pas ce qu'elle vaut, ni ce qu'elle voudrait de vous : il aurait fallu la voir.",
+        "Tu te dégages à reculons, en y laissant un peu de peau. Tu sais ce qu'ils feront. Tu ignores ce qu'elle vaut, et ce qu'elle voudrait de vous : il aurait fallu la voir.",
       ],
       choices: [{ label: "Rentrer en ville", to: "A2o_nuit", big: true }] },
 
@@ -509,7 +509,7 @@ module.exports = {
       ] },
     A2o_raid_tient: { act: "II", title: "Le temps de sortir", place: "crassier", ambiance: "nuit",
       text: [
-        "La porte d'un four à chaux a ceci de bon qu'on n'y passe qu'un à la fois, et courbé. Les deux premiers qui se présentent reçoivent la planche, puis ce que vous avez sous la main. Le garçon cogne comme on abat une taille, sans un mot. Derrière, les lanternes s'embarrassent ; la voix bilieuse crie de faire le tour.",
+        "La porte d'un four à chaux a ceci de bon qu'on n'y passe qu'un à la fois, et courbé. Les deux premiers qui se présentent reçoivent la planche, puis ce que vous avez sous la main. Le garçon cogne comme on abat une taille, en silence. Derrière, les lanternes s'embarrassent ; la voix bilieuse crie de faire le tour.",
         "« Assez ! » C'est Thècle, de la gueule du bas. « Elle est dehors. Lazare ! »",
         "Vous lâchez tout. Vous plongez sous l'arche, à plat ventre, l'un derrière l'autre, la brique vous râpant le dos, et vous sortez dans le creux, du côté où il n'y a pas de lanternes, parce qu'Escarbille, qui est un soldat, a cerné une porte et ignoré un trou.",
         "On court dans le noir, courbés, entre deux terrils. Au bout de trois cents pas, Zénobie s'arrête, la main levée. Elle n'est pas essoufflée.",
@@ -549,7 +549,7 @@ module.exports = {
         "Tu passes l'arche derrière Thècle, à plat ventre. Zénobie suit. Le garçon reste à la planche : quelqu'un doit rester, et il n'a pas demandé qui.",
         "Vous sortez dans le creux, du côté sans lanternes. De l'autre côté de la tour, on entend la planche voler en éclats, des coups, une voix jeune.",
         { if: { has: "a2:o_mouche" }, text: "Zénobie s'est arrêtée. Elle te regarde, dans la lueur rousse du ciel. « C'est toi qui les as amenés. » Elle n'attend pas de réponse. « Tu ne l'as pas voulu. Mais tu l'as fait, et tu es sorti{e} avant lui. »", else: "Zénobie s'est arrêtée. Elle écoute. Elle a ce visage que tu lui as vu devant la lampe, étroit, fermé, patient." },
-        "Thècle ne dit rien. Elle regarde la tour. Puis elle se détourne, et se met à marcher vers les corons, très droite.",
+        "Thècle regarde la tour. Puis elle se détourne, et se met à marcher vers les corons, très droite.",
         "« Lazare ne dira rien, dit Zénobie. Mais il est pris, et dans trois jours il faudra aussi que je le sorte de là. » Elle te considère une dernière fois. « Va-t'en. Ne reviens pas au Crassier. »",
       ],
       fx: { flag: "monde:a2:lazare_pris", unflag: "monde:a2:grise" },

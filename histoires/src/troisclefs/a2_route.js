@@ -40,7 +40,7 @@ module.exports = {
     A2c_images_regard: { act: "II", title: "Trois limeurs", place: "canal",
       text: [
         "Le colporteur vous regarde vous éloigner. Puis il regarde sa toile. Puis vous, de nouveau, trois dos sur un chemin de halage, dans cet ordre de taille.",
-        "Il ne dit rien. Un colporteur vit de ce qu'il raconte, et il lui faut du temps pour raconter : il ne courra pas au guet. Mais au prochain village, il chantera un treizième couplet.",
+        "Il se tait. Un colporteur vit de ce qu'il raconte, et il lui faut du temps pour raconter : il ne courra pas au guet. Mais au prochain village, il chantera un treizième couplet.",
       ],
       fx: { flag: "a1:signalement" },
       choices: [{ label: "Marcher jusqu'au soir", to: "A2c_soir1" }] },
@@ -243,7 +243,7 @@ module.exports = {
     A2c_meule_brule: { act: "II", title: "Les mottes", place: "boisnoir", ambiance: "foret",
       text: [
         "Les mottes sont brûlantes. Tu le savais, et tu y plonges les bras quand même, jusqu'aux coudes, parce qu'il y a là-dessous une petite main qui remue. Tu tires. L'enfant vient. Tu sens seulement après, en le posant, que tes avant-bras ont cuit.",
-        "La femme le prend. L'homme ferme la brèche. Puis il vient à toi, regarde tes bras, et sans rien dire va chercher dans sa hutte un pot de quelque chose de gras, de noir, qui sent le goudron et qui ôte le feu en une minute.",
+        "La femme le prend. L'homme ferme la brèche. Puis il vient à toi, regarde tes bras, et va chercher dans sa hutte un pot de quelque chose de gras, de noir, qui sent le goudron et qui ôte le feu en une minute.",
         "« Je m'appelle Jacquot le Sourd. Tu dis mon nom à n'importe quelle meule du Bois-Noir, et on te fait passer où tu veux, sans que les casaques de cuir le sachent. On connaît des chemins qu'ils ne gardent pas. » Il rebouche son pot. « On ne les a jamais dits à personne. Mais personne n'avait mis les bras là-dedans pour nous. »",
       ],
       choices: [{ label: "Reprendre le sentier", to: "A2c_embuscade" }] },
