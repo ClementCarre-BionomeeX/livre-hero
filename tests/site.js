@@ -71,7 +71,7 @@ fs.mkdirSync(path.join(OUT, "catalogue"), { recursive: true });
   var rep = V.staticCheck(JSON.parse(JSON.stringify(st)));
   if (rep.errors.length) { console.log("catalogue/" + f + " : " + rep.errors.length + " erreur(s), laissé de côté — " + rep.errors[0]); return; }
   fs.writeFileSync(path.join(OUT, "catalogue", st.id + ".json"), JSON.stringify(st));
-  catIndex.push({ id: st.id, title: st.title, subtitle: st.subtitle || "", summary: st.summary || "", author: st.author || "", age: st.age || null, adult: st.adult || null, passages: Object.keys(st.passages || {}).length, acts: (st.acts || []).length });
+  catIndex.push(require("../src/bibliotheque.js").card(st));
 });
 fs.writeFileSync(path.join(OUT, "catalogue", "index.json"), JSON.stringify(catIndex));
 

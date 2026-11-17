@@ -10,6 +10,7 @@ BASE = {
   "title": "Enlevé !",
   "subtitle": "Un roman à lire · R. L. Stevenson, 1886",
   "summary": "Écosse, juin 1751. David Balfour a dix-sept ans ; son père vient de mourir, et le pasteur du village lui remet une lettre pour la maison de Shaws, près d'Édimbourg, où vit un oncle dont il ignorait tout. La maison est à moitié bâtie, l'oncle avare et méfiant, et les gens du pays changent de visage quand on leur en demande le chemin. Le roman de Stevenson en entier, dans une traduction nouvelle, sans choix : on le lit page après page, avec les gens, les lieux et les mots expliqués d'un appui.",
+  "tags": ["historique", "aventure", "voyage"],
   "author": "R. L. Stevenson · traduction de Claude (2026)",
   "lecture": True,
   "age": 11,
