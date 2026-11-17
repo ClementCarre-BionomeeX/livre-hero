@@ -82,6 +82,14 @@
    "title": "Le Scarabée d'or",
    "author": "Edgar Allan Poe"
   },
+  "mobydick": {
+   "title": "Moby-Dick",
+   "author": "Herman Melville"
+  },
+  "travailleurs": {
+   "title": "Les Travailleurs de la mer",
+   "author": "Victor Hugo"
+  },
   "ile": {
    "title": "L'Île au trésor",
    "author": "Robert Louis Stevenson"
@@ -812,6 +820,20 @@
    ]
   },
   {
+   "id": "XO",
+   "act": "III",
+   "kind": "annexe",
+   "title": "La baleinière",
+   "start": "XO_m_debut",
+   "doit": "mobydick",
+   "echo": [
+    "xo:ligne_coupee",
+    "xo:homme_perdu",
+    "xo:certifie",
+    "xo:dort"
+   ]
+  },
+  {
    "id": "XP",
    "act": "III",
    "kind": "annexe",
@@ -861,6 +883,19 @@
     "chien:revenu",
     "chien:epargne",
     "chien:tue_chef"
+   ]
+  },
+  {
+   "id": "XU",
+   "act": "IV",
+   "kind": "annexe",
+   "title": "La cloche de la grotte",
+   "start": "XU_debut",
+   "doit": "travailleurs",
+   "echo": [
+    "xu:cloche",
+    "xu:pieuvre_tuee",
+    "xu:sauve"
    ]
   },
   {
@@ -1664,6 +1699,24 @@
     "voix": "habituée aux ordres"
    }
   },
+  "saint_aubert": {
+   "name": "Madame Saint-Aubert",
+   "aka": [
+    "la dame voilée",
+    "la femme du juge"
+   ],
+   "f": true,
+   "qui": "La femme du juge de paix de Varnèse : trente ans, trois enfants, une loge à la messe de dix heures."
+  },
+  "jobic": {
+   "name": "Jobic Le Goff",
+   "aka": [
+    "Jobic",
+    "le braconnier"
+   ],
+   "f": false,
+   "qui": "Le braconnier de Varnèse, le seul, ce qui fait de lui une institution."
+  },
   "ribaud": {
    "name": "La capitaine Solange Ribaud",
    "aka": [
@@ -2111,6 +2164,45 @@
    "aspect": {
     "allure": "petit, rond, poudré",
     "signe": "une tabatière à la main"
+   }
+  },
+  "guivarch": {
+   "name": "Yves Guivarc'h",
+   "aka": [
+    "le père Guivarc'h",
+    "le vieux gabier"
+   ],
+   "f": false,
+   "qui": "Le plus vieil homme du bord, soixante-trois ans, qui a menti de dix ans sur son âge pour signer."
+  },
+  "lemoal": {
+   "name": "Corentin Le Moal",
+   "aka": [
+    "Le Moal",
+    "le capitaine baleinier"
+   ],
+   "f": false,
+   "face": {
+    "age": "ancien",
+    "skin": "hale",
+    "hair": "gris",
+    "coif": "court",
+    "beard": "barbe",
+    "eyes": "lourds",
+    "iris": "gris",
+    "nose": "fin",
+    "lips": "fines",
+    "shape": "allonge",
+    "marks": [
+     "cicatrice"
+    ]
+   },
+   "desc": "Le capitaine du baleinier la Constance, de Kerverzot.",
+   "qui": "Le capitaine baleinier qui cherche une seule baleine.",
+   "aspect": {
+    "allure": "maigre, voûté",
+    "visage": "yeux d'un gris délavé qui surveillent la mer",
+    "signe": "les mains brûlées par les lignes"
    }
   },
   "calixte": {
@@ -2596,6 +2688,13 @@
    "desc": "Un papier roulé, sorti d'une bouteille verte, pêchée sous les égouts de la prison de Brisegrève.",
    "text": "« Ma chère maman, je suis à Brisegrève depuis l'automne. Je vais bien. On mange le soir. On travaille à l'escalier. Je ne suis pas malade. Ne pleurez pas. Ce que j'ai fait, je l'ai fait pour le pain du petit, et je recommencerais. Dites au petit que je suis soldat. Je vous embrasse. Votre fils, Yann Le Gall, de Plouvenec, rue du Lavoir, chez la veuve Le Gall. »"
   },
+  "ambre_gris": {
+   "name": "Une masse d'ambre gris",
+   "kind": "divers",
+   "keep": true,
+   "price": 0,
+   "desc": "Une masse grise et cireuse, de la taille d'un pain, sortie du ventre d'un cachalot dans la mer des Sargues. Elle sent la mer, le musc et autre chose. Dans un an, dit le timonier de la Constance, elle sentira la rose."
+  },
   "table_calixte": {
    "name": "La table des déviations",
    "kind": "document",
@@ -3067,6 +3166,241 @@
     "has": "ile:perroquets"
    },
    "text": "Dans le bois mort de Folle-Aiguille, les perroquets gris parlent toujours avec les voix de la colonie. Un savant de Morlenc vient un jour noter leurs paroles, mot pour mot, et publie la liste. On y trouve, entre un psaume et un alphabet, une voix qui dit : « Ouvrez. »"
+  },
+  {
+   "if": {
+    "has": "fargue:souvenir_ecrit"
+   },
+   "text": "Au fond d'un sac de marin, sous des chemises, deux pages pliées en quatre racontent une plage, une lune, un habit et une main levée. Elles sont adressées à une jeune fille qui ne les a jamais lues."
+  },
+  {
+   "if": {
+    "has": "fargue:souvenir_brule"
+   },
+   "text": "Une seule tête au monde garde le souvenir exact d'une plage, d'une lune, et d'un capitaine qui salue. Elle le garde bien. Elle le garde trop bien."
+  },
+  {
+   "if": {
+    "has": "fargue:malandain_promis"
+   },
+   "text": "Malandain a eu sa date. Il l'a tenue. On ne lui en a jamais donné d'autre."
+  },
+  {
+   "if": {
+    "has": "fargue:malandain_attend"
+   },
+   "text": "Lucien Fargue a fait attendre Malandain quelques jours de plus, dans les Sargues. Il ne saura jamais combien de vies ces quelques jours ont coûté ou épargné. Il les compte parfois, la nuit, sur trois doigts."
+  },
+  {
+   "if": {
+    "has": "fargue:lagadec"
+   },
+   "text": "Isidore Lagadec, le Hareng, ne rêve plus de la chapelle. Il rêve d'une écuelle de soupe, dans une cambuse, à minuit, et d'une voix qui lui proposait de partir."
+  },
+  {
+   "if": {
+    "has": "fargue:choucroute"
+   },
+   "text": "La médecin Davrigny recommande la choucroute à tous les capitaines de Morlenc. Quand on lui demande d'où elle tient la recette, elle répond : d'un cuisinier qui gardait toujours quelque chose."
+  },
+  {
+   "if": {
+    "item": "ambre_gris"
+   },
+   "text": "Une masse d'ambre gris, gardée au sec dans une boîte de fer, finit chez un parfumeur de la Haute-Ville de Morlenc, qui la paie son poids d'or et en tire, l'année suivante, une eau qui sent la rose et, très loin, la mer chaude."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "xo:ligne_coupee"
+     },
+     {
+      "not": {
+       "has": "xo:homme_perdu"
+      }
+     }
+    ]
+   },
+   "text": "À Kerverzot, un garçon aux cheveux de paille boite d'une cheville et raconte qu'on lui a sauvé la vie d'un coup de hachette, en sacrifiant la plus belle baleine de la saison. Les vieux baleiniers trouvent l'échange discutable. Sa mère, non."
+  },
+  {
+   "if": {
+    "has": "xo:homme_perdu"
+   },
+   "text": "À Kerverzot, on grave sur la pierre des noyés un nom de plus : Yann Le Bris, dix-sept ans. La pierre est longue. On y a laissé de la place."
+  },
+  {
+   "if": {
+    "has": "xo:certifie"
+   },
+   "text": "Le capitaine Corentin Le Moal finit ses jours à Kerverzot, sur un banc face à la mer, avec une longue-vue qu'on ne lui a jamais reprise. Un certificat signé d'une main de femme l'a ramené chez lui. Il ne l'a jamais pardonné, et il s'en félicite en secret, certains soirs."
+  },
+  {
+   "if": {
+    "has": "xo:refuse"
+   },
+   "text": "La Constance, de Kerverzot, n'est jamais rentrée. On dit qu'un baleinier noir de suie croise encore dans les herbes des Sargues, à la poursuite d'une ombre à tête grise. On le dit dans tous les ports. Personne ne l'a vu."
+  },
+  {
+   "if": {
+    "has": "xo:dort"
+   },
+   "text": "Le capitaine Le Moal rentre à Kerverzot et dort, la nuit, d'un sommeil léger, où un garçon de onze ans lui montre un crabe sur la grève. Il ne chasse plus. Il garde, au mur, une seule dent gravée."
+  },
+  {
+   "if": {
+    "has": "xu:cloche"
+   },
+   "text": "La cloche de la Miséricorde, tirée d'une grotte de la mer par un enfant et trois barriques, sonne de nouveau sur Folle-Aiguille. On l'a pendue à une branche maîtresse, faute de clocher. Elle sonne pour les vivants. C'est écrit dessus."
+  },
+  {
+   "if": {
+    "has": "xu:pieuvre_tuee"
+   },
+   "text": "Toute sa vie, {joueur} porte sur un bras une rangée de petites cicatrices rondes, régulières, comme des baisers. On demande souvent d'où elles viennent. La réponse, une grotte et une bête à l'œil doré, ne convainc personne."
+  },
+  {
+   "if": {
+    "has": "xu:sauve"
+   },
+   "text": "Dans une grotte de l'est, au pied de la falaise, plus rien ne garde le fond. Un vieil homme y a rompu un arrangement de vingt et un ans pour sauver un enfant. Il dit que c'est le seul contrat qu'il ait jamais rompu sans le regretter."
+  },
+  {
+   "if": {
+    "has": "victorine:sabine"
+   },
+   "text": "À Varnèse, Madame Saint-Aubert a eu une indigestion de moules, un soir de novembre, et la médecin est venue en pleine nuit. Elle va au sermon de dix heures avec ses trois enfants, qui grandissent. Le juge de paix ne s'est aperçu de rien. Il ne s'aperçoit jamais de rien ; c'est ce qui fait de lui un si bon juge."
+  },
+  {
+   "if": {
+    "has": "victorine:sabine_refus"
+   },
+   "text": "À Varnèse, Madame Saint-Aubert a mis au monde, au printemps, une quatrième fille, avec une sage-femme renvoyée à ses prières et le chirurgien de la garnison, que la médecin avait instruit par lettre avant de partir. Elle a failli mourir. Elle ne l'a pas fait. Elle a appelé la petite Victorine, sans en dire la raison à son mari, qui l'a trouvée très chrétienne."
+  },
+  {
+   "if": {
+    "has": "victorine:laudanum_jete"
+   },
+   "text": "Dans la cave de Varnèse, sous les bouquets de pavot, une fiole propre, sans étiquette, contient de l'eau de mélisse pour les nerfs de Madame la mairesse, qui la trouve souveraine."
+  },
+  {
+   "if": {
+    "has": "victorine:jobic"
+   },
+   "text": "Jobic Le Goff braconne toujours dans les bois de la Garenne. Il boite un peu, les jours de pluie, et raconte à qui veut l'entendre qu'il a eu, une nuit, les fesses soignées par la femme la plus savante du Ponant, qui est partie pour les îles avec un trésor et un banquier, dans cet ordre."
+  },
+  {
+   "if": {
+    "has": "guivarch:lettre_vraie"
+   },
+   "text": "Rue des Cordiers, à Morlenc, une vieille femme a reçu quarante livres et quatre lignes d'un homme parti il y a trente-quatre ans. Elle a ri, puis elle a pleuré, puis elle a acheté une paire de draps. Elle dit qu'il n'a jamais su écrire, et qu'il lui a écrit la plus belle lettre du monde."
+  },
+  {
+   "if": {
+    "has": "guivarch:lettre_belle"
+   },
+   "text": "Rue des Cordiers, à Morlenc, une vieille femme a reçu trois pages d'un homme parti il y a trente-quatre ans. Elle les lit le soir, à la fenêtre, à côté d'un pot de basilic. Il y a une phrase qu'elle ne lit jamais à voix haute. Les voisins, parfois, l'entendent rire, et ne tapent plus au mur."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "lemerle:yeux_secret"
+     },
+     {
+      "marin": "lemerle",
+      "is": [
+       "loyal",
+       "hesitant"
+      ]
+     }
+    ]
+   },
+   "text": "Annick Lemerle a fait abaisser sa cataracte à l'aiguille par un vieil homme de la rue des Lunetiers, à Morlenc. Une fois sur deux, on y voit après. Elle voit Rigel. Elle a envoyé à Varnèse un hareng fumé, sans un mot, ce qui chez elle est une lettre d'amour."
+  },
+  {
+   "if": {
+    "all": [
+     {
+      "has": "lemerle:yeux_dit"
+     },
+     {
+      "marin": "lemerle",
+      "is": [
+       "loyal",
+       "hesitant"
+      ]
+     }
+    ]
+   },
+   "text": "Annick Lemerle a quitté la mer au retour. Elle vend du hareng sur le quai de Morlenc, et elle connaît le vent du jour mieux que les pilotes. Quand on lui parle de médecins, elle crache par terre."
+  },
+  {
+   "if": {
+    "has": "xz:aveu_ecrit"
+   },
+   "text": "Sur le registre de la Prévôté de Morlenc, en marge d'une pendaison vieille de dix-neuf ans, un greffier a écrit à l'encre rouge, sur l'ordre exprès du Conseil : *Innocent.* La mère de Corentin Le Floch était morte. Une voisine de la rue des Tonneliers a porté le papier au cimetière et l'a lu à voix haute, devant une tombe sans nom, au cas où."
+  },
+  {
+   "if": {
+    "has": "xz:absous"
+   },
+   "text": "Le nom de Corentin Le Floch, pendu à la Croix-des-Marées pour un crime qu'il n'a pas commis, reste au registre de la Prévôté, à la colonne des coupables. Une seule personne au monde sait qu'il n'a rien à y faire. Elle y pense, parfois, en passant devant des églises."
+  },
+  {
+   "if": {
+    "has": "victorine:testaments"
+   },
+   "text": "Les testaments dictés dans la nef de la Miséricorde dorment dans la trousse de la médecin, pliés en quatre. Les vivants viennent les reprendre un à un, un peu honteux, comme on reprend un parapluie oublié chez une dame. Elle ne les leur rend jamais sans les avoir relus devant eux, à voix haute."
+  },
+  {
+   "if": {
+    "has": "victorine:ecorce_machee"
+   },
+   "text": "Victorine Davrigny n'a jamais retrouvé la couleur des yeux d'Hector. Elle a remis le portrait à l'endroit, au mur de son bureau, pour vérifier. Le peintre les a faits gris. Elle est presque sûre qu'il s'est trompé."
+  },
+  {
+   "if": {
+    "has": "victorine:ecorce_rendue"
+   },
+   "text": "Victorine Davrigny se rappelle tout. C'est fatigant. Elle le recommande."
+  },
+  {
+   "if": {
+    "has": "xw:enlise_sauve"
+   },
+   "text": "Un matelot de la Désinvolte, vingt ans, une dent en moins, raconte dans les ports du Couchant qu'un enfant l'a tiré d'une vase qui l'avalait, en lui apprenant à faire la planche dans la boue. Personne ne le croit. Il fait la démonstration, quand il a bu, dans les flaques."
+  },
+  {
+   "if": {
+    "has": "xw:enlise_laisse"
+   },
+   "text": "Il t'arrive de rêver d'une mangrove, d'un homme qui s'enfonce et de six autres qui le sortent sans toi. Dans le rêve, tu es toujours derrière les racines. Tu te réveilles avant de savoir si tu vas en sortir."
+  },
+  {
+   "if": {
+    "has": "xw:tombe_maraude"
+   },
+   "text": "Dans la mangrove du sud, une croix calée de pierres tient debout au pied d'un vieux palétuvier. *IL ÉTAIT BON.* Les crabes passent autour."
+  },
+  {
+   "if": {
+    "has": "xw:canot"
+   },
+   "text": "Sur la plage des crabes, sous un canot retourné, un pistolet rouillé et une balle qui n'a jamais servi attendent toujours quelqu'un qui ne viendra plus."
+  },
+  {
+   "if": {
+    "has": "fargue:tombe_annette"
+   },
+   "text": "Au bas du cimetière des Hollandes, contre le mur des pauvres, une dalle de granit gris, sans ange et sans dates : *ANNETTE FARGUE. ELLE CHANTAIT.* Les escargots passent dessus pour aller lire les noms du mur."
+  },
+  {
+   "if": {
+    "has": "fargue:fosse"
+   },
+   "text": "Sur le mur de la fosse des pauvres, au cimetière des Hollandes, un *A* et un *L* entrelacés s'effacent un peu plus chaque hiver sous la mousse. Personne d'autre ne sait qui ils étaient."
   },
   {
    "if": {
@@ -6786,7 +7120,7 @@
     "Un après-midi de pluie, le Gabier s'ennuie. Il te fait asseoir en face de lui, devant le feu, avec un bout de filin goudronné de deux brasses, et il t'apprend les nœuds.",
     "Il a des mains énormes, couturées, aux doigts tordus par quarante ans de cordages, et ces mains-là font des choses d'une délicatesse de dentellière. Le nœud plat, pour réunir deux bouts. La demi-clef, pour amarrer vite. Le nœud de chaise, qui ne glisse jamais, qui ne serre jamais, et qui se défait d'un coup de pouce quand on le veut : « Celui-là, il t'a sauvé la vie avant que tu saches son nom. On le passe sous les bras d'un homme à la mer. » La tête d'alouette, le nœud de cabestan, l'œil épissé, qu'il fait en trois secondes, sans regarder, en parlant d'autre chose.",
     "Tu rates tout, d'abord. Il ne s'impatiente pas. Il défait tes nœuds ratés, d'un coup de pouce, et te rend le filin. « Encore. » Au bout de deux heures, tu fais un nœud de chaise les yeux fermés. Il le regarde, le tâte, tire dessus de toutes ses forces. Il tient.",
-    "« Bon, dit-il. Maintenant, tu es bon{ne} à quelque chose. » Il reprend le filin, et fait un dernier nœud, lent, compliqué, avec treize tours, qui forme une boucle coulissante au bout d'une longue spirale. Il le pose sur la table entre vous deux.",
+    "« Bon, dit-il. Maintenant, tu sers à quelque chose. » Il reprend le filin, et fait un dernier nœud, lent, compliqué, avec treize tours, qui forme une boucle coulissante au bout d'une longue spirale. Il le pose sur la table entre vous deux.",
     "« Et celui-là, dit-il. Celui-là, tu ne l'apprends pas. »"
    ],
    "choices": [
@@ -7650,6 +7984,27 @@
      }
     },
     {
+     "label": "Recevoir la dame voilée qui attend sur le banc du cabinet",
+     "to": "XL_voilee",
+     "hide": {
+      "seen": "XL_voilee"
+     }
+    },
+    {
+     "label": "Descendre à la cave préparer la pharmacie de la semaine",
+     "to": "XL_cave",
+     "hide": {
+      "seen": "XL_cave"
+     }
+    },
+    {
+     "label": "Ouvrir à celui qui gratte à la fenêtre de derrière",
+     "to": "XL_braco",
+     "hide": {
+      "seen": "XL_braco"
+     }
+    },
+    {
      "label": "Monter enfin te coucher",
      "to": "A1v_minuit",
      "big": true,
@@ -8023,6 +8378,12 @@
     "Le baron écoute l'histoire en arpentant le cabinet, les mains dans le dos, entre l'ours et le cerf. Quand elle est finie, il s'arrête devant la fenêtre.",
     "« Voici ce que je propose, dit-il. J'arme un navire. J'en ai un à Morlenc, la Cormorane, trois-mâts de quatre cents tonneaux, la meilleure capitaine du Ponant, qui me déteste, ce qui est une garantie. Nous partons dans quinze jours. Nous trouvons cette île. Nous rapportons ce qu'il y a dessus, et l'Académie me fera un buste. » Il sourit. « Je plaisante. Je veux surtout l'aventure. On s'ennuie, à Morlenc, quand on a tout. »",
     "Il se tourne vers l'enfant. « Toi, tu viens. Tu seras mousse. C'est ta carte, d'une certaine manière, et un homme d'honneur ne vole pas les enfants. Pas devant témoins. »",
+    {
+     "if": {
+      "has": "victorine:cartes=baron"
+     },
+     "text": "Victorine regarde les mains du baron, pendant qu'il parle de l'Académie. Des mains soignées, blanches, très calmes. Le matin, devant les chandelles, elles se regardent elles-mêmes."
+    },
     "Puis vers Victorine. « Et vous, Madame, vous viendrez aussi. Il me faut un médecin de bord, et je n'en connais aucun que j'estime. Je rachète votre créance. Toute. Trois mille quatre cents livres, effacées le jour où vous signez votre engagement. Au retour, une part. » Il pose une feuille et une plume sur le bureau. « Vous voyez : je connais aussi le chiffre. Les banquiers ont une mémoire de créancier. »"
    ],
    "choices": [
@@ -8155,6 +8516,242 @@
      },
      "to": "A1_d_retour",
      "big": true
+    }
+   ]
+  },
+  "XL_voilee": {
+   "act": "I",
+   "title": "La dame voilée",
+   "place": "varnese_maison",
+   "ambiance": "nuit",
+   "text": [
+    "Quelqu'un attend sur le banc du cabinet, dans le noir. Victorine l'a vue en entrant et a fait semblant de ne rien voir, par politesse : une femme assise très droite, les mains gantées sur un réticule, un voile de deuil rabattu sur un chapeau qui coûte plus cher que la consultation de toute une année. Les femmes qui attendent dans le noir ont toujours la même chose à demander, et elles attendent toujours qu'on éteigne pour le demander.",
+    "Victorine allume une seule chandelle, la pose loin du banc, et s'assoit à son bureau en lui tournant à demi le dos. La dame relève son voile. C'est Madame Saint-Aubert, la femme du juge de paix, trente ans, trois enfants, une église pleine de bonnes œuvres et une loge à la messe de dix heures.",
+    "« Je voudrais, dit-elle d'une voix très posée, quelque chose qui fasse revenir le sang. Il est en retard. »",
+    "Victorine prend le poignet ganté, défait les trois boutons de nacre, compte le pouls. Elle pose deux questions, la date et les nausées, et reçoit deux réponses exactes, données par une femme qui a déjà fait le calcul cent fois dans son lit. Trois mois. Le sang ne reviendra pas tout seul."
+   ],
+   "choices": [
+    {
+     "label": "« Qui est le père ? »",
+     "to": "XL_voilee_pere"
+    },
+    {
+     "label": "Sortir la sabine de l'armoire, et dire la dose",
+     "to": "XL_voilee_sabine"
+    },
+    {
+     "label": "« Je ne vous donnerai rien de ce que vous demandez. Écoutez pourquoi. »",
+     "to": "XL_voilee_refus"
+    }
+   ]
+  },
+  "XL_voilee_pere": {
+   "act": "I",
+   "title": "La dame voilée",
+   "place": "varnese_maison",
+   "ambiance": "nuit",
+   "text": [
+    "Madame Saint-Aubert sourit, d'un sourire de salon qu'elle a dû apprendre au couvent et qui tient tout seul, comme un échafaudage autour d'une maison vide.",
+    "« Mon mari, docteur. Je suis une honnête femme. C'est bien le malheur. »",
+    "Elle tire sur un gant, doigt par doigt. « Au troisième, j'ai perdu tant de sang que l'abbé m'a donné l'extrême-onction entre la poire et le fromage. La sage-femme a dit à Saint-Aubert que le quatrième me tuerait. Saint-Aubert a répondu que c'était l'affaire de Dieu. Il a sa conscience, voyez-vous, et elle est très bien tenue : il la confesse tous les samedis, et le dimanche elle est comme neuve. »",
+    "Elle remet le gant. « Je ne veux pas mourir pour la conscience de Saint-Aubert. Je veux voir grandir les trois que j'ai. Voilà tout. Ce n'est pas un crime bien original. »"
+   ],
+   "choices": [
+    {
+     "label": "Sortir la sabine de l'armoire, et dire la dose",
+     "to": "XL_voilee_sabine"
+    },
+    {
+     "label": "« Je ne vous donnerai rien de ce que vous demandez. Écoutez pourquoi. »",
+     "to": "XL_voilee_refus"
+    }
+   ]
+  },
+  "XL_voilee_sabine": {
+   "act": "I",
+   "title": "La sabine",
+   "place": "varnese_maison",
+   "ambiance": "nuit",
+   "text": [
+    "La sabine est dans le troisième bocal du haut, derrière la camomille, où personne ne cherche jamais rien. Victorine pèse la poudre sur sa petite balance de cuivre, au grain près, avec une attention qu'elle refuse aux ordonnances de toux. La flamme de la chandelle tremble au-dessus des plateaux ; leur ombre, sur le mur, s'abaisse et se relève lentement, comme une chose qui respire.",
+    "Elle plie la poudre en trois papiers. Elle dit la dose, puis la redit, puis la fait répéter. Elle dit ce qui viendra, la douleur, le sang, et à partir de combien de sang il faudra envoyer le cocher la chercher, elle, et personne d'autre, à n'importe quelle heure, sous n'importe quel prétexte. « Une indigestion de moules, dit-elle. Votre mari me croira. Il croit à tout ce qui l'arrange. »",
+    "Madame Saint-Aubert range les trois papiers dans son réticule, entre un mouchoir brodé et un chapelet de nacre. Elle pose sur le bureau une pièce d'or. Victorine la regarde un moment, et la garde. L'honnêteté coûte trois mille quatre cents livres, ce mois-ci ; elle a renoncé à se l'offrir.",
+    "Sur le seuil, la dame rabat son voile. « Vous risquez le bagne, docteur. — Vous risquiez le cimetière, madame. On a chacune ses petits risques. »"
+   ],
+   "choices": [
+    {
+     "label": "Fermer l'armoire à clef, et la porte derrière elle",
+     "fx": {
+      "flag": "victorine:sabine",
+      "gold": 10
+     },
+     "back": "A1v_soir"
+    }
+   ]
+  },
+  "XL_voilee_refus": {
+   "act": "I",
+   "title": "La dame voilée",
+   "place": "varnese_maison",
+   "ambiance": "nuit",
+   "text": [
+    "Victorine parle longtemps. Elle parle de la sabine, de la rue et de l'ergot, de l'aiguille à tricoter et du persil, de tout ce qu'on vend sous le manteau aux foires de Morlenc, et de ce qu'elle a vu sortir des chambres où on les a essayés. Elle parle de la meunière de Kervil, morte en quatre jours, la fièvre montant comme une marée, et qui la suppliait à la fin de lui rendre son petit, celui qu'elle avait voulu perdre. Elle parle sans élever la voix, avec une précision de professeur ; c'est la seule manière qu'elle connaisse de dire les choses horribles.",
+    "« À trois mois, dit-elle enfin, je vous tuerais une fois sur cinq. Accouchée, avec moi au pied du lit et la sage-femme renvoyée à ses prières, vous avez une meilleure chance. Faites-moi appeler au premier mal. Avant le premier mal. Faites-moi appeler pour une indigestion de moules, et nous verrons ensemble ce que dit Dieu, et ce que dit la médecine, et lequel des deux parle le plus fort. »",
+    "Madame Saint-Aubert se lève. Elle a les yeux secs et la bouche très mince. « Vous êtes bien la seule à croire encore en ma chance, docteur. » Elle s'en va sans rien payer, ce que Victorine trouve juste.",
+    "La chandelle a coulé sur le bureau en une longue larme jaune, figée, qui pend du bord du plateau comme une stalactite dans une grotte où personne n'entre plus."
+   ],
+   "choices": [
+    {
+     "label": "Souffler la chandelle",
+     "fx": {
+      "flag": "victorine:sabine_refus"
+     },
+     "back": "A1v_soir"
+    }
+   ]
+  },
+  "XL_cave": {
+   "act": "I",
+   "title": "La cave aux simples",
+   "place": "varnese_maison",
+   "ambiance": "nuit",
+   "text": [
+    "La pharmacie de la semaine se prépare à la cave, où sèchent les simples. Victorine y descend avec une lanterne, par l'escalier de pierre qui sent la terre et le salpêtre. En bas, les bouquets pendent aux poutres la tête en bas, par centaines, sauge, rue, digitale, pavot, belladone, valériane, comme une assemblée de pendus très petits et très patients ; quand la lanterne passe, leurs ombres tournent toutes ensemble sur les murs, et reviennent ensuite à leur place, une à une, avec un retard qui n'a rien de naturel.",
+    "Monsieur Prosper l'attend en bas des marches. C'est-à-dire qu'elle l'y a descendu la semaine dernière pour faire de la place au cabinet, et qu'elle l'oublie chaque fois, et que chaque fois, au tournant de l'escalier, la lanterne lui montre d'abord le sourire. Un squelette sourit toujours. C'est un trait de caractère qu'on ne peut pas lui retirer.",
+    "« Bonsoir, Prosper. Toujours rien à me dire ? » Prosper, fidèle à lui-même, garde ses opinions.",
+    "Elle pile, pèse, filtre, étiquette. Au fond du dernier rayon, derrière les bocaux de graines de lin, sa main rencontre une fiole qu'elle ne cherchait pas et qu'elle reconnaît au toucher : la fiole de laudanum d'Hector, la dernière, celle de la dernière semaine, encore aux deux tiers pleine. Elle porte, collée de travers, une étiquette de la main d'Hector : *Pour dormir sans rêver de V.*"
+   ],
+   "choices": [
+    {
+     "label": "La glisser dans la sacoche, avec le reste",
+     "to": "XL_cave_garde"
+    },
+    {
+     "label": "La vider dans la rigole, jusqu'à la dernière goutte",
+     "to": "XL_cave_jete"
+    }
+   ]
+  },
+  "XL_cave_garde": {
+   "act": "I",
+   "title": "La cave aux simples",
+   "place": "varnese_maison",
+   "ambiance": "nuit",
+   "text": [
+    "Du laudanum est du laudanum. Celui d'Hector endort aussi bien qu'un autre ; l'opium ignore qui l'a payé et qui l'a gâché. Victorine décolle l'étiquette avec l'ongle, et elle se déchire au milieu, entre *rêver* et *de V.*, ce qui est presque drôle.",
+    "Elle glisse la fiole dans la poche intérieure de la sacoche, celle où l'on met les choses qu'on ne prête pas. Un jour, quelqu'un aura mal et rien d'autre ne restera. Ce jour-là, Hector servira enfin à quelque chose.",
+    "En remontant, elle souhaite le bonsoir à Prosper. Il le lui rend à sa manière, par son silence, et par son ombre, qui monte trois marches derrière elle avant de se rappeler qu'elle appartient à la cave."
+   ],
+   "choices": [
+    {
+     "label": "Remonter, la sacoche plus lourde d'une fiole",
+     "fx": {
+      "flag": "victorine:laudanum_hector"
+     },
+     "back": "A1v_soir"
+    }
+   ]
+  },
+  "XL_cave_jete": {
+   "act": "I",
+   "title": "La cave aux simples",
+   "place": "varnese_maison",
+   "ambiance": "nuit",
+   "text": [
+    "Le laudanum coule dans la rigole de la cave, épais, brun, avec une odeur de safran et de vieux vin qui monte d'un coup et remplit la voûte. Les bouquets de pavot, au-dessus, se balancent un peu, dans le courant d'air de la lanterne, comme s'ils reconnaissaient un parent.",
+    "Elle secoue la fiole jusqu'à la dernière goutte. Elle la rince. Elle la range parmi les fioles propres, sans étiquette, et demain elle y mettra de l'eau de mélisse pour les nerfs de Madame la mairesse, ce qui est une forme de vengeance qu'Hector aurait appréciée : il détestait la mairesse.",
+    "Elle reste un moment debout dans l'odeur. Elle pense à ses rêves à lui, ceux dont elle faisait partie et dont il voulait se passer. Elle n'en saura jamais rien. Elle remonte."
+   ],
+   "choices": [
+    {
+     "label": "Remonter, et ouvrir la fenêtre",
+     "fx": {
+      "flag": "victorine:laudanum_jete"
+     },
+     "back": "A1v_soir"
+    }
+   ]
+  },
+  "XL_braco": {
+   "act": "I",
+   "title": "La fenêtre de derrière",
+   "place": "varnese_maison",
+   "ambiance": "nuit",
+   "text": [
+    "On gratte à la fenêtre de derrière, celle de l'arrière-cuisine, qui donne sur le jardin et, au-delà du jardin, sur rien. On ne gratte jamais à cette fenêtre-là pour une bonne raison. Victorine ouvre quand même. Une figure noire de suie et de boue se dresse dans l'ombre du jardin, un bonnet enfoncé jusqu'aux sourcils, et une voix qui chuchote avec un effort considérable :",
+    "« C'est Jobic, docteur. Je viens pour mon derrière. »",
+    "Jobic Le Goff est le braconnier de Varnèse, le seul, ce qui fait de lui une institution. Il a pris cette nuit, dans les bois de la Garenne, une décharge de gros sel tirée par un garde du baron ; il l'a prise de dos, en fuyant, ce qui, explique-t-il en enjambant l'appui de la fenêtre, prouve son innocence : un coupable se serait retourné.",
+    "Il s'allonge à plat ventre sur la table de la cuisine, entre la miche et le pot de beurre, et présente sa blessure à la médecine avec une résignation de martyr. Le gros sel est entré profond, en cinquante grains au moins, et chaque grain brûle comme une petite braise sous la peau."
+   ],
+   "choices": [
+    {
+     "label": "Retirer le sel, grain à grain, à la pince",
+     "test": {
+      "dom": "savoir",
+      "diff": 0,
+      "label": "Cinquante grains, et pas un de plus"
+     },
+     "win": {
+      "to": "XL_braco_soin"
+     },
+     "lose": {
+      "to": "XL_braco_soin"
+     }
+    }
+   ]
+  },
+  "XL_braco_soin": {
+   "act": "I",
+   "title": "La fenêtre de derrière",
+   "place": "varnese_maison",
+   "ambiance": "nuit",
+   "text": [
+    {
+     "outcome": "win",
+     "text": "Grain à grain, à la pince, à la chandelle, avec une patience de dentellière. Jobic compte à voix haute, pour se tenir compagnie. À cinquante-trois, Victorine annonce que c'est le dernier. Il ne la croit pas ; elle lui montre la soucoupe. Il la contemple avec un respect religieux, comme on regarde des reliques."
+    },
+    {
+     "outcome": "lose",
+     "text": "Grain à grain, à la pince ; certains se dérobent, fondent, s'enfoncent ; il faut inciser deux fois. Jobic jure en breton, puis en français, puis dans une langue qu'il invente pour l'occasion et qui sonne très bien. Il en restera deux ou trois, qui fondront tout seuls, et qui lui feront, à chaque pluie, une conversation avec le baron."
+    },
+    "Elle lave la plaie au vinaigre. Jobic, la joue contre le bois de la table, reprend souffle et entreprend de payer, faute de mieux, en monnaie de braconnier, qui est la nouvelle.",
+    "« Vous savez ce qu'ils font, là-haut, les amis du baron ? Ils chassent pas. J'ai passé trois nuits sous leurs fenêtres, à guetter les lièvres qu'ils ne tuent pas ; ils ont jamais tiré un coup de fusil. Ils ont des chiens qui s'ennuient et des fusils qui rouillent. Ce qu'ils font, docteur, c'est des cartes. Toute la nuit, jusqu'au jour, les rideaux tirés, quatre messieurs de Morlenc en habit noir et le baron. Et c'est le baron qui perd. »"
+   ],
+   "choices": [
+    {
+     "label": "« Comment sais-tu qu'il perd ? »",
+     "to": "XL_braco_cartes"
+    },
+    {
+     "label": "Le renvoyer par la fenêtre, avec un pot d'onguent",
+     "fx": {
+      "flag": "victorine:jobic"
+     },
+     "back": "A1v_soir"
+    }
+   ]
+  },
+  "XL_braco_cartes": {
+   "act": "I",
+   "title": "La fenêtre de derrière",
+   "place": "varnese_maison",
+   "ambiance": "nuit",
+   "text": [
+    "Jobic se soulève sur un coude, offensé dans son honneur de témoin.",
+    "« Parce que je vois, docteur. Le rideau du petit salon a un trou, à hauteur d'homme debout sur un tonneau de pluie, et j'ai de bons yeux pour la nuit, c'est mon métier. Les autres, ils ramassent ; lui, il signe. Il signe des papiers, sur le coin de la table, entre deux donnes. Et le jour se lève, et les autres vont se coucher, et lui il reste assis tout seul devant les chandelles, et il regarde ses mains. Un homme qui gagne, ça ne regarde pas ses mains. »",
+    "Victorine connaît ce regard-là. Elle l'a vu dix ans à sa propre table, le matin, au-dessus d'une tasse de café qui refroidissait. Le regard d'un homme qui fait le compte de ce qu'il a joué et ne trouve plus rien à vendre, sinon ce qui appartient aux autres.",
+    "« Tu n'en parleras à personne, Jobic. — À personne, docteur. Je suis muet comme un lièvre. » Il enjambe la fenêtre en boitant, et le jardin l'avale."
+   ],
+   "choices": [
+    {
+     "label": "Refermer la fenêtre, et rester un moment devant",
+     "fx": {
+      "flag": "victorine:jobic",
+      "set": {
+       "victorine:cartes": "baron"
+      }
+     },
+     "back": "A1v_soir"
     }
    ]
   },
@@ -12306,8 +12903,8 @@
    ],
    "choices": [
     {
-     "label": "Passer à la Truie-qui-file, où quelqu'un t'attend",
-     "to": "A2f_sabran"
+     "label": "Les huit jours qui restent",
+     "to": "XR_jours"
     }
    ]
   },
@@ -12489,6 +13086,259 @@
      "label": "La veille",
      "to": "C2_fin",
      "big": true
+    }
+   ]
+  },
+  "XR_jours": {
+   "act": "II",
+   "title": "Les jours de l'armement",
+   "place": "basse_fosse",
+   "hub": true,
+   "noLead": true,
+   "backName": "Morlenc",
+   "ambiance": "ville",
+   "second": true,
+   "text": [
+    {
+     "first": true,
+     "text": "Restent huit jours avant l'appareillage. Fargue les passe à faire ce qu'un maître-coq fait avant un long voyage, acheter du lard, des pois, de l'oignon, du vinaigre, du citron, et à faire ce que fait un homme qui prépare autre chose, c'est-à-dire exactement la même chose, en regardant mieux autour de lui."
+    },
+    {
+     "again": true,
+     "text": "Morlenc continue, autour de lui, à vendre, à acheter, à pendre et à prier. Il a encore quelques jours à lui."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Monter au cimetière des Hollandes, à la fosse des pauvres",
+     "to": "XR_fosse",
+     "hide": {
+      "seen": "XR_fosse"
+     }
+    },
+    {
+     "label": "Jouer aux échecs au café des Navigateurs, où le professeur tient table",
+     "to": "XR_echecs",
+     "hide": {
+      "seen": "XR_echecs"
+     }
+    },
+    {
+     "label": "Passer la première nuit dans la cambuse de la Cormorane",
+     "to": "XR_cambuse",
+     "hide": {
+      "seen": "XR_cambuse"
+     }
+    },
+    {
+     "label": "Passer à la Truie-qui-file, où quelqu'un t'attend",
+     "to": "A2f_sabran",
+     "big": true
+    }
+   ]
+  },
+  "XR_fosse": {
+   "act": "II",
+   "title": "La fosse des pauvres",
+   "place": "haute_ville",
+   "ambiance": "nuit",
+   "second": true,
+   "text": [
+    "Le cimetière des Hollandes a deux étages, comme la ville. En haut, les terrasses des familles, les chapelles de marbre, les anges qui pleurent pour quarante livres la larme. En bas, contre le mur nord, là où le soleil ne vient jamais et où l'eau des terrasses suinte par les joints des pierres, la fosse des pauvres : une longue tranchée qu'on ouvre au printemps et qu'on referme à l'automne, avec de la chaux entre les couches, comme on fait les confitures.",
+    "Annette y est depuis onze ans. Quelque part. Au deuxième ou au troisième rang de l'hiver de cette année-là, entre un portefaix et une fille de la rue des Tanneurs, morte de la même toux qui mange aujourd'hui Lisette, dans la même chambre de la Basse-Fosse, un soir de février où Fargue était en mer.",
+    "Il n'y a pas de croix. Il y a le mur, verdi, ruisselant, couvert de mousse et d'escargots, et sur le mur, gravés au couteau, des centaines de noms, de prénoms, d'initiales, que les familles y ont laissés faute de mieux, les uns par-dessus les autres, si serrés qu'on dirait une écriture inconnue, une seule longue phrase dans une langue que parleraient les morts entre eux. Au milieu, à hauteur d'homme, un *A* et un *L* entrelacés, qu'il a gravés lui-même au retour.",
+    "Il reste devant le mur, le chapeau à la main. Il chante, à mi-voix, la berceuse. Les escargots, sur la pierre mouillée, continuent leur chemin, très lentement, d'un nom à un autre, comme s'ils les lisaient.",
+    "Il a dans sa poche l'argent du baron. Le marbrier des terrasses, en haut, fait des pierres convenables pour cent livres, avec le nom, les dates, une ancre. On n'y mettrait pas Annette, on ne sait plus où elle est. On y mettrait son nom."
+   ],
+   "choices": [
+    {
+     "label": "Monter chez le marbrier, et payer une pierre avec un nom",
+     "fx": {
+      "gold": -100
+     },
+     "to": "XR_fosse_pierre"
+    },
+    {
+     "label": "Garder chaque sou pour Lisette, qui vit",
+     "to": "XR_fosse_mur"
+    }
+   ]
+  },
+  "XR_fosse_pierre": {
+   "act": "II",
+   "title": "La pierre",
+   "place": "haute_ville",
+   "ambiance": "ville",
+   "second": true,
+   "text": [
+    "Le marbrier est un homme pâle aux mains blanches de poussière, qui parle des morts comme un tailleur parle de ses clients : avec respect, et le mètre à la main. Il propose un ange. Fargue refuse l'ange. Il propose une urne. Fargue refuse l'urne. Il propose, enfin, avec un soupir d'artiste méconnu, une simple dalle de granit gris, à poser contre le mur du bas, puisque Monsieur insiste pour le mur du bas.",
+    "*ANNETTE FARGUE. ELLE CHANTAIT.*",
+    "« Pas de dates ? — Elle n'aimait pas les dates. Elle disait que ça faisait des comptes. »",
+    "Fargue paie d'avance. Le marbrier le raccompagne jusqu'à la grille avec une considération toute neuve. Un homme qui paie d'avance une pierre sans ange, dans la Basse-Fosse, c'est un homme qui va partir loin, ou qui a fait quelque chose. Souvent les deux."
+   ],
+   "choices": [
+    {
+     "label": "Redescendre vers le port",
+     "fx": {
+      "flag": "fargue:tombe_annette"
+     },
+     "back": "XR_jours"
+    }
+   ]
+  },
+  "XR_fosse_mur": {
+   "act": "II",
+   "title": "Le mur",
+   "place": "haute_ville",
+   "ambiance": "nuit",
+   "second": true,
+   "text": [
+    "Il pose la main à plat sur le mur, sur le *A* et le *L*. La pierre est froide, mouillée, vivante d'escargots.",
+    "« Je ne t'achète rien, Annette, dit-il. Tu comprendras. L'argent va à la petite. Tu aurais fait pareil, en me traitant d'imbécile pour avoir seulement hésité. »",
+    "Il reste encore un moment. Puis il redescend par les terrasses, entre les anges à quarante livres, en sifflotant, parce qu'Annette n'aimait pas qu'on soit triste devant elle, et qu'il n'a jamais su lui refuser quoi que ce soit, sauf de rester à terre."
+   ],
+   "choices": [
+    {
+     "label": "Redescendre vers le port",
+     "fx": {
+      "flag": "fargue:fosse"
+     },
+     "back": "XR_jours"
+    }
+   ]
+  },
+  "XR_echecs": {
+   "act": "II",
+   "title": "Le café des Navigateurs",
+   "place": "quai_hollandes",
+   "ambiance": "ville",
+   "second": true,
+   "text": [
+    "Le café des Navigateurs est l'endroit de Morlenc où l'on parle le plus de la mer et où l'on en sent le moins l'odeur : boiseries, lustres, gazettes sur des bâtons, cartes marines encadrées, et des armateurs en gilet qui calculent, sur le marbre des tables, des naufrages au centime près. Un cuisinier en foulard rouge n'y entre que par la porte de derrière. Fargue entre par la grande, et personne n'ose le lui faire remarquer, parce qu'il a l'air de savoir ce qu'il fait.",
+    "Au fond, sous la grande carte du Ponant, le professeur Gaudrémont tient table d'échecs, comme chaque soir de sa vie à terre, et ruine les capitaines en retraite à un écu la partie, en les insultant à chaque coup avec une érudition admirable.",
+    "« Un cuisinier ! tonne-t-il. On m'envoie un cuisinier ! L'Académie a donc fini de me haïr en secret ! Asseyez-vous, cuisinier ! Vous connaissez la marche du cavalier, au moins ? »",
+    "Fargue s'assied. Il connaît la marche du cavalier. Il l'a apprise en prison, avec un jeu taillé dans de la mie de pain durcie au soleil, contre un faussaire qui trichait et un évêque défroqué qui ne trichait pas, ce qui le rendait beaucoup plus dangereux.",
+    "Au vingtième coup, le professeur a perdu une tour et le fil de ses insultes. Au trentième, Fargue voit le mat en quatre coups. Gaudrémont ne le voit pas. Il parle, en jouant, de son matériel pour le voyage, et en particulier d'un compas de déclinaison fabriqué à Morlenc sur ses propres plans, « le seul instrument au monde capable de dire à un marin quand son aiguille lui ment »."
+   ],
+   "choices": [
+    {
+     "label": "Donner le mat, et le regarder rugir",
+     "to": "XR_echecs_gagne"
+    },
+    {
+     "label": "Perdre, adroitement, et le faire parler de son compas",
+     "to": "XR_echecs_perdu"
+    }
+   ]
+  },
+  "XR_echecs_gagne": {
+   "act": "II",
+   "title": "Le café des Navigateurs",
+   "place": "quai_hollandes",
+   "ambiance": "ville",
+   "second": true,
+   "text": [
+    "Mat en quatre coups. Le professeur regarde l'échiquier, puis le cuisinier, puis l'échiquier, avec l'expression d'un homme qui vient de voir un phoque réciter Virgile.",
+    "Puis il éclate. Il éclate d'un rire de tonnerre qui fait trembler les lustres et se retourner les armateurs, et il frappe la table si fort que les pièces sautent. « Mat ! Par un cuisinier ! Garçon ! Une bouteille ! La meilleure ! C'est le cuisinier qui ne paie pas ! »",
+    "Ils boivent. Le professeur exige une revanche pour chaque soir, à bord. Fargue promet. Il ne saura rien du compas de déclinaison, ce soir-là, sinon que le professeur le range dans une boîte d'acajou dont il porte la clef au cou, et qu'il en parle comme un père de sa fille. C'est déjà beaucoup."
+   ],
+   "choices": [
+    {
+     "label": "Sortir dans le soir, avec un ami de plus",
+     "fx": {
+      "flag": "fargue:echecs_gagne",
+      "regard": {
+       "gaudremont": "cordial"
+      }
+     },
+     "back": "XR_jours"
+    }
+   ]
+  },
+  "XR_echecs_perdu": {
+   "act": "II",
+   "title": "Le café des Navigateurs",
+   "place": "quai_hollandes",
+   "ambiance": "ville",
+   "second": true,
+   "text": [
+    "Fargue joue un coup de débutant, un fou lancé à l'aventure, et le professeur fond dessus avec un cri de triomphe. Puis un autre. Puis il laisse sa dame en prise, avec une distraction parfaite, en demandant comment, au juste, un compas peut savoir que l'aiguille ment.",
+    "Gaudrémont, vainqueur, devient généreux, et généreux, il devient bavard. Il explique, en dessinant sur le marbre avec du vin : il existe des endroits, rares, où le fer de la terre détourne l'aiguille, la fait tourner, trembler, mentir de plusieurs quarts. Son instrument, une seconde aiguille montée sur un cercle gradué, mesure l'écart et permet de corriger. « Avec ceci, cuisinier, un homme qui a pris un relèvement faux, sur une île menteuse, peut retrouver le vrai. Sans ceci, il creuse dans la mer ! »",
+    "Fargue paie l'écu de la défaite. Il le paie avec plaisir. C'est l'écu le mieux placé de sa vie."
+   ],
+   "choices": [
+    {
+     "label": "Sortir dans le soir, en sachant une chose de plus",
+     "fx": {
+      "flag": "fargue:echecs_perdu",
+      "regard": {
+       "gaudremont": "cordial"
+      }
+     },
+     "back": "XR_jours"
+    }
+   ]
+  },
+  "XR_cambuse": {
+   "act": "II",
+   "title": "La cambuse",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "second": true,
+   "text": [
+    "La cambuse de la Cormorane est un réduit au-dessous du gaillard d'avant, entre le puits aux chaînes et la soute à pain, où l'on ne tient debout qu'en courbant la nuque. Un fourneau de fonte maçonné sur un lit de briques, un billot, une marmite assez grande pour bouillir un homme, des crochets, des couteaux, un hublot de la taille d'une assiette. Fargue y descend à la nuit, avec une lanterne, pour faire connaissance.",
+    "Il connaît les cambuses. Celle-ci a un défaut que n'ont pas les autres, et qu'il découvre en posant la lanterne sur le billot : on y entend le navire. Pas les bruits ordinaires, les craquements, le clapotis, les rats. Autre chose, venu de l'avant, à travers les membrures : un long murmure de bois qui travaille, monte, descend, se tait, reprend, comme une respiration de dormeur, ou comme quelqu'un, très loin, au fond d'une cave, qui récite une prière sans fin en changeant de langue toutes les trois phrases. Il reste longtemps sans bouger à l'écouter. Il finit par comprendre que c'est l'étrave, qui parle à l'eau du port. Il ne se sent pas mieux.",
+    "Il range. Les couteaux par taille. Les épices par couleur. Les barils de farine contre la cloison, trois, cerclés de fer, avec leur couvercle cloué. Il en décloue un, l'ouvre, plonge le bras dans la farine jusqu'à l'épaule, et la sent couler entre ses doigts, fraîche, douce, profonde.",
+    "Dans son sac, il y a un pistolet, chargé, enveloppé de toile cirée. Une farine bien tassée garde un pistolet au sec pendant six mois. Personne ne fouille la farine. Personne, sauf le cuisinier."
+   ],
+   "choices": [
+    {
+     "label": "Enfouir le pistolet au fond du baril",
+     "to": "XR_cambuse_pistolet"
+    },
+    {
+     "label": "Le garder dans ton sac, et laisser la farine à la farine",
+     "to": "XR_cambuse_propre"
+    }
+   ]
+  },
+  "XR_cambuse_pistolet": {
+   "act": "II",
+   "title": "La cambuse",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "second": true,
+   "text": [
+    "Le pistolet descend dans la farine comme un noyé dans la vase, sans bruit, et la farine se referme sur lui. Fargue lisse la surface du plat de la main, recloue le couvercle avec les mêmes clous, dans les mêmes trous, et fait au fer de la marmite, sur le cercle, une petite marque que personne ne remarquera, en forme de note de musique.",
+    "Puis il s'assied sur le billot, et il écoute encore l'étrave parler à l'eau. Il a maintenant un secret dans la cambuse. Le navire, à sa manière, en a d'autres. Ils vont bien s'entendre."
+   ],
+   "choices": [
+    {
+     "label": "Remonter sur le pont",
+     "fx": {
+      "flag": "fargue:pistolet_farine"
+     },
+     "back": "XR_jours"
+    }
+   ]
+  },
+  "XR_cambuse_propre": {
+   "act": "II",
+   "title": "La cambuse",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "second": true,
+   "text": [
+    "Il retire son bras de la farine, blanc jusqu'à l'épaule, comme un homme qui sort d'un rêve de neige. Il secoue sa manche. Il garde le pistolet dans son sac, sous sa chemise de rechange, avec les autres choses qu'on ne range nulle part.",
+    "La farine est pour le pain. Le pain est pour l'équipage. On peut préparer une mutinerie ; on ne gâche pas une fournée. Il y a des principes qu'un cuisinier garde jusqu'au bout, même quand il en a perdu tous les autres."
+   ],
+   "choices": [
+    {
+     "label": "Remonter sur le pont",
+     "fx": {
+      "flag": "fargue:farine_propre"
+     },
+     "back": "XR_jours"
     }
    ]
   },
@@ -17467,6 +18317,51 @@
      "why": "La capitaine dîne encore avec ses passagers."
     },
     {
+     "label": "Monter à la barre, où la timonière gouverne avec une joue enflée",
+     "to": "XN_lemerle",
+     "hide": {
+      "seen": "XN_lemerle"
+     }
+    },
+    {
+     "label": "Partager le bouillon du soir avec le maître-coq",
+     "to": "XN_fargue",
+     "hide": {
+      "seen": "XN_fargue"
+     }
+    },
+    {
+     "label": "Examiner le vieux gabier qui ne mange plus",
+     "to": "XN_guivarch",
+     "hide": {
+      "seen": "XN_guivarch"
+     },
+     "if": {
+      "count": [
+       {
+        "seen": "A3v_baron"
+       },
+       {
+        "seen": "A3v_table"
+       },
+       {
+        "seen": "A3v_infirmerie"
+       },
+       {
+        "seen": "A3v_benoit"
+       },
+       {
+        "seen": "A3v_gaudremont"
+       },
+       {
+        "seen": "XJ_bord"
+       }
+      ],
+      "min": 1
+     },
+     "why": "Le vieil homme mange encore sa ration."
+    },
+    {
      "label": "La dixième nuit",
      "to": "A3v_grain",
      "big": true,
@@ -18111,6 +19006,18 @@
    "ambiance": "nuit",
    "text": [
     "La dixième nuit, le grain tombe sur la Cormorane d'un seul coup, et dans le faux-pont, sous la ligne de flottaison, Victorine le reçoit comme un coup de bélier contre une porte. Le navire se couche. Les fioles sautent dans leurs casiers, la lanterne se balance à l'horizontale, l'eau entre par les jointures du pont et pleut en gouttes glacées sur la table d'opération. Au-dessus, sur le pont, les hommes crient, les voiles claquent comme des coups de canon, la mer frappe le bordé à un pouce de son oreille, comme si elle voulait entrer et le savait possible.",
+    {
+     "if": {
+      "has": "lemerle:yeux_secret"
+     },
+     "text": "Là-haut, à la roue, Annick Lemerle gouverne dans le noir absolu, sans étoiles, sans lune, au vent sur sa joue et au bruit de l'eau. Ce soir, personne à bord n'y voit mieux qu'elle."
+    },
+    {
+     "if": {
+      "has": "lemerle:yeux_dit"
+     },
+     "text": "Là-haut, à la roue, c'est Benoît Quémeneur qui gouverne, et Lemerle, à côté de lui, qui lui dit à l'oreille, d'une voix sèche, quand donner et quand reprendre."
+    },
     "Victorine s'accroche à une épontille et attend, en comptant, comme pendant un accouchement. Elle compte jusqu'à mille deux cents. Puis le vent tombe, et la mer, et la peur.",
     "Une heure plus tard, on lui descend Petit-Jules, le novice, l'épaule démise, blanc comme un linge, qui sourit en claquant des dents. Derrière lui, le maître-coq, trempé de la tête aux pieds, le foulard rouge collé au cou.",
     "« Il a glissé de la vergue du petit hunier, dit Fargue. Je passais par là. » Il dit cela comme on dit qu'on passait devant une boulangerie.",
@@ -19023,7 +19930,7 @@
      "to": "XV_bapteme_paye"
     },
     {
-     "label": "Refuser : tu n'es pas païen{ne}, et tu le dis",
+     "label": "Refuser : tu as déjà reçu un baptême, et tu le dis",
      "fx": {
       "flag": "bord:bapteme_refus"
      },
@@ -19072,7 +19979,7 @@
    "place": "mer_couchant",
    "ambiance": "mer",
    "text": [
-    "« Je ne suis pas païen{ne}, dis-tu. J'ai été baptisé{e} à Sainte-Anne-des-Grèves, par l'abbé Morisseau, et une fois suffit. »",
+    "« J'ai reçu le baptême à Sainte-Anne-des-Grèves, dis-tu, par l'abbé Morisseau, et une fois suffit. »",
     "Un silence. Puis le Bonhomme Tropique se lève de son trône, lentement, de toute sa hauteur, sa barbe d'étoupe au vent, et pointe son trident sur toi. « L'abbé Morisseau, dit-il d'une voix d'outre-tombe, n'a aucune juridiction sous le Tropique ! Saisissez l'hérétique ! »",
     "Huit mains t'empoignent. On te porte à la baille comme un sac, en chantant un cantique de circonstance que Gaudrémont a composé le matin même. On te plonge quatre fois au lieu d'une, une pour toi et trois pour l'abbé Morisseau. On te barbouille de goudron jusqu'aux oreilles. On te rase deux fois.",
     "Quand on te relâche enfin, ruisselant{e}, le Bonhomme te remet ton brevet avec une mention spéciale : *Hérétique repenti{e}, quatre immersions.* C'est le plus beau brevet de l'équipage. Gobert te le dit lui-même, plus tard, sans sa barbe. « Il en faut un comme toi par voyage, dit-il. Sinon, c'est pas drôle. »"
@@ -19517,6 +20424,258 @@
     }
    ]
   },
+  "XN_lemerle": {
+   "act": "III",
+   "title": "La timonière",
+   "place": "cormorane",
+   "ambiance": "mer",
+   "text": [
+    "Annick Lemerle a une joue de la taille d'une pomme et l'humeur d'un dogue à qui l'on a pris son os. Depuis trois jours, elle gouverne la Cormorane la mâchoire serrée, sans dire un mot, ce qui chez elle ne change rien, et sans manger, ce qui inquiète le maître-coq. C'est lui, d'ailleurs, qui vient chercher Victorine, en tablier. « La timonière a une dent, docteur. Elle refuse de quitter la barre. Elle dit que la dent peut attendre et que le vent, lui, n'attend pas. »",
+    "Victorine monte sur la dunette avec sa trousse. Lemerle est à la roue, immobile, longue, sa tresse noire rabattue sur l'épaule, les yeux sur le grand hunier. Elle ne tourne pas la tête.",
+    "« Ouvrez la bouche, dit Victorine. — J'ai le cap à tenir. — Tenez-le la bouche ouverte. Les marins y arrivent très bien, quand ils chantent. »",
+    "Lemerle ouvre la bouche, d'un pouce, sans lâcher la roue. Une molaire du bas, noire, sur un abcès gros comme une noisette. Victorine a arraché des dents dans des granges, dans des églises, sur un tonneau de cidre, une fois sur le dos d'un âne qui avançait ; jamais à une femme debout qui gouverne un trois-mâts par vent de travers."
+   ],
+   "choices": [
+    {
+     "label": "L'arracher là, debout, entre deux coups de roue",
+     "test": {
+      "dom": "savoir",
+      "diff": 0,
+      "label": "Une molaire, au roulis"
+     },
+     "win": {
+      "to": "XN_lemerle_dent"
+     },
+     "lose": {
+      "fx": {
+       "penche": {
+        "lemerle": -1
+       }
+      },
+      "to": "XN_lemerle_dent"
+     }
+    }
+   ]
+  },
+  "XN_lemerle_dent": {
+   "act": "III",
+   "title": "La timonière",
+   "place": "cormorane",
+   "ambiance": "mer",
+   "text": [
+    {
+     "outcome": "win",
+     "text": "Victorine attend le creux de la lame, quand le pont se pose un instant à plat, comme un plateau sur une table. Elle tire. La molaire vient d'un bloc, avec ses trois racines, et Lemerle n'a bougé que des sourcils. Le cap n'a pas varié d'un quart. Le maître-coq, qui regarde, applaudit sans bruit, du bout des doigts, comme à l'opéra."
+    },
+    {
+     "outcome": "lose",
+     "text": "La lame arrive en travers au moment où Victorine tire. La dent casse. Il faut reprendre les racines une à une, au davier, pendant que la Cormorane roule et que Lemerle, qui a lâché la roue d'une main pour s'agripper à l'habitacle, laisse le navire lofer de deux quarts. Le second crie depuis le passavant. Lemerle reprend la roue, crache le sang par-dessus la lisse, et regarde Victorine comme on regarde une maladresse qu'on n'oubliera pas."
+    },
+    "Victorine lui fait mordre une compresse d'eau-de-vie. Et c'est en lui tenant le menton, pour regarder la gencive à la lumière, qu'elle voit l'autre chose : un voile, très fin, dans l'œil gauche, comme la buée sur une vitre ; et dans l'œil droit, au fond, le début du même voile. Elle fait passer sa main devant l'œil gauche. La pupille la suit tard, mal, comme un chien qui a perdu l'odeur.",
+    "Lemerle a compris qu'elle a compris. Elle ne dit rien pendant une longue minute. Le vent chante dans les haubans un air qui n'a ni début ni fin.",
+    "« Les étoiles, dit-elle enfin, d'une voix pâteuse, à cause de la compresse. Celles de la quatrième grandeur, je ne les vois plus depuis l'an dernier. La troisième, les nuits claires. Je gouverne au compas, à la toile, au vent sur ma joue, au bruit de l'eau sous l'étrave. Je gouverne mieux que le second avec ses deux yeux. Vingt-deux ans que je tiens une barre. Si la capitaine l'apprend, je suis à terre, à Morlenc, à vendre du hareng sur le quai. Si vous le lui dites, je vous croirai honnête. Je vous en voudrai quand même. »"
+   ],
+   "choices": [
+    {
+     "label": "Garder le secret, et lui apprendre à ménager l'œil qui reste",
+     "to": "XN_lemerle_secret"
+    },
+    {
+     "label": "« Vous tenez la vie de quarante personnes. La capitaine le saura. »",
+     "to": "XN_lemerle_dit"
+    }
+   ]
+  },
+  "XN_lemerle_secret": {
+   "act": "III",
+   "title": "La timonière",
+   "place": "cormorane",
+   "ambiance": "mer",
+   "text": [
+    "Victorine lui dit ce qu'il faut savoir : pas de soleil en face sans le bord du chapeau, de l'eau de bleuet le soir, et surtout pas de ces collyres de foire qui achèvent en un mois ce que l'âge mettrait dix ans à faire. Elle lui dit aussi qu'il existe, à Morlenc, un vieux juif de la rue des Lunetiers qui abaisse les cataractes à l'aiguille, et qu'une fois sur deux on y voit après. Une fois sur deux, c'est beaucoup, en médecine. C'est presque de la magie.",
+    "Lemerle écoute, les yeux sur le hunier. Puis elle hoche la tête, une seule fois, et ce hochement de tête vaut, chez elle, un serment devant notaire.",
+    "Le soir, à la cambuse, il y a dans l'écuelle de Victorine un morceau de lard que personne d'autre n'a eu. Fargue jure ne pas savoir d'où il vient."
+   ],
+   "choices": [
+    {
+     "label": "Redescendre à l'infirmerie",
+     "fx": {
+      "flag": "lemerle:yeux_secret",
+      "penche": {
+       "lemerle": 1
+      }
+     },
+     "back": "A3v_jours"
+    }
+   ]
+  },
+  "XN_lemerle_dit": {
+   "act": "III",
+   "title": "La timonière",
+   "place": "cormorane",
+   "ambiance": "mer",
+   "text": [
+    "La capitaine Ribaud écoute Victorine dans sa chambre, debout, sans l'interrompre. Puis elle reste longtemps à regarder la carte du Ponant, sous le compas à pointes sèches.",
+    "« Je le savais, dit-elle. Je l'ai vue l'an dernier chercher Rigel. Rigel ! On voit Rigel depuis le fond d'un puits. » Elle repose le compas. « Je l'ai gardée parce qu'elle gouverne mieux que mon second et que je préfère une timonière aveugle à un timonier bavard. Maintenant que c'est dit à voix haute, je dois faire quelque chose. C'est ça, le malheur des choses dites à voix haute, docteur : elles obligent. »",
+    "Le lendemain, Benoît Quémeneur double Lemerle à la barre pour les quarts de nuit. Elle ne proteste pas. Elle ne parle plus à Victorine, ni ce jour-là, ni les suivants ; quand elles se croisent sur le pont, la timonière regarde le hunier, comme si la médecin était une étoile de la quatrième grandeur."
+   ],
+   "choices": [
+    {
+     "label": "Redescendre à l'infirmerie",
+     "fx": {
+      "flag": "lemerle:yeux_dit",
+      "penche": {
+       "lemerle": -1
+      }
+     },
+     "back": "A3v_jours"
+    }
+   ]
+  },
+  "XN_fargue": {
+   "act": "III",
+   "title": "Le bouillon",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "text": [
+    "Chaque soir, à la cloche de huit heures, le maître-coq descend à l'infirmerie un bouillon pour les malades, dans une marmite de cuivre qu'il porte à deux mains, enveloppée d'un torchon, comme un enfant de chœur porte le Saint-Sacrement. Il le sert lui-même, louche par louche, en annonçant chaque fois ce qu'il y a dedans avec une précision de pharmacien : « Os de bœuf salé, deux heures. Oignons. Une gousse d'ail, pas deux, l'ail échauffe. Un brin de thym de Varnèse, docteur, j'en ai pris un sac en souvenir de votre pays. »",
+    "Ce soir-là, les malades dorment. Il reste du bouillon. Fargue en remplit deux écuelles, en tend une à Victorine, et s'assied sur un coffre, l'autre écuelle entre ses mains, comme un homme qui a fini sa journée et ne sait pas encore s'il a envie de dormir.",
+    "Le fanal tangue au-dessus d'eux. Son ombre, à lui, se balance sur le bordé, plus grande que lui, et un peu en retard sur lui, comme si elle avait d'autres pensées.",
+    "« Vous cuisinez comme un médecin, dit Victorine. — Et vous soignez comme une cuisinière, docteur. Au feu doux, en goûtant souvent. C'est le plus beau compliment que je sache faire. »"
+   ],
+   "choices": [
+    {
+     "label": "Regarder sa main gauche, qui tient l'écuelle",
+     "to": "XN_fargue_doigts"
+    },
+    {
+     "label": "Lui demander où il a appris à faire un bouillon pareil",
+     "to": "XN_fargue_cuisine"
+    }
+   ]
+  },
+  "XN_fargue_doigts": {
+   "act": "III",
+   "title": "Le bouillon",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "text": [
+    "Trois doigts. Le pouce, l'index, le majeur. À la place des deux autres, deux moignons lisses, cicatrisés depuis longtemps, rosés à la lumière.",
+    "Il a vu qu'elle regardait. Il lève la main, la tourne, comme pour la lui montrer de plus près, avec la complaisance d'un homme qui raconte cette histoire-là depuis longtemps.",
+    "« Un requin, docteur. Au large du cap des Tempêtes. J'avais laissé traîner la main dans l'eau, depuis la chaloupe. On est bête, à vingt ans. »",
+    "Victorine prend la main, par habitude de métier, comme elle prendrait celle de n'importe qui. Les deux moignons s'arrêtent à la même hauteur, au ras de la deuxième phalange, en une seule ligne droite, nette comme le fil d'une règle. La peau s'est refermée par-dessus sans bourrelet ni cicatrice déchiquetée. Les requins, dans son expérience, ont moins de méthode.",
+    "Elle lui rend sa main. « Vous avez eu de la chance. Le requin était soigneux. »",
+    "Fargue sourit, finit son bouillon, et s'en va en sifflotant. Il oublie la marmite. Il revient la chercher une heure plus tard, ce qui ne lui arrive jamais."
+   ],
+   "choices": [
+    {
+     "label": "Laver les écuelles, et y penser",
+     "fx": {
+      "flag": "victorine:doigts"
+     },
+     "back": "A3v_jours"
+    }
+   ]
+  },
+  "XN_fargue_cuisine": {
+   "act": "III",
+   "title": "Le bouillon",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "text": [
+    "« En prison », dit Fargue, comme on dit « à Morlenc ».",
+    "Il raconte. Une forteresse dont il tait le nom, où la soupe était faite par un ancien cuisinier d'évêque condamné pour avoir empoisonné un chanoine, sans preuves, mais avec beaucoup de talent. Le cuisinier d'évêque l'avait pris pour aide, parce qu'il avait des mains de voleur, c'est-à-dire légères. Il lui avait appris le bouillon, la sauce, la patience, et l'art de mettre dans une soupe de prison un goût de dimanche avec trois os et une feuille de laurier volée au gouverneur.",
+    "« Il disait : la cuisine, c'est de la médecine pour les gens qui ne sont pas encore malades. Vous voyez qu'on était faits pour s'entendre, vous et moi. » Il ramasse les écuelles. « Il est mort de vieillesse, en prison. Le seul de nous tous. Le chanoine, je crois, l'avait bien cherché. »",
+    "Il s'en va avec la marmite. Victorine reste avec le goût du thym de Varnèse dans la bouche, et l'impression d'avoir été servie, avec une politesse parfaite, une histoire vraie à la place d'une autre."
+   ],
+   "choices": [
+    {
+     "label": "Retrouver les malades",
+     "back": "A3v_jours"
+    }
+   ]
+  },
+  "XN_guivarch": {
+   "act": "III",
+   "title": "Le vieux gabier",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "text": [
+    "Le père Guivarc'h a soixante-trois ans, le plus vieil homme du bord, et il a signé pour ce voyage en mentant de dix ans sur son âge, ce que tout le monde savait, et en taisant ce qu'il avait au ventre, ce que personne ne savait. Il le sait, lui. Il est venu en mer pour ne pas mourir à terre, dans un lit, comme un bourgeois. Il est en train de réussir.",
+    "Victorine le palpe. La chose est dure, grosse comme le poing, accrochée sous les côtes à droite ; elle a déjà jauni le blanc de ses yeux et creusé ses joues jusqu'à l'os. Une semaine. Peut-être deux. Il lit la réponse sur la figure de la médecin avant qu'elle l'ait formée.",
+    "« Bon, dit-il. Alors j'ai une lettre à faire écrire. Je sais pas les lettres, docteur. Je sais les nœuds. »",
+    "Il dicte, allongé dans le hamac de l'infirmerie, les yeux au plafond de planches où la lanterne fait danser une tache de lumière, ronde et jaune, qu'il suit du regard comme on suit la lune. La lettre est pour une femme de Morlenc, Marie-Josèphe Corlay, rue des Cordiers, qu'il a quittée il y a trente-quatre ans, un matin, sans rien dire, pour un embarquement de trois mois qui n'a jamais fini.",
+    "« Écrivez : *Marie-Jo. Je te dois quarante livres et une paire de draps. Les quarante livres sont dans la bourse, avec cette lettre. Les draps, je les ai usés. Ton Yves.* » Il ferme les yeux. « C'est tout. »"
+   ],
+   "choices": [
+    {
+     "label": "Écrire exactement ce qu'il dit, et rien d'autre",
+     "to": "XN_guivarch_vraie"
+    },
+    {
+     "label": "« Il n'y a rien d'autre à lui dire, en trente-quatre ans ? »",
+     "to": "XN_guivarch_belle"
+    }
+   ]
+  },
+  "XN_guivarch_vraie": {
+   "act": "III",
+   "title": "Le vieux gabier",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "text": [
+    "Victorine écrit, de sa belle écriture d'ordonnance, les quatre lignes, la signature, et, sous la signature, une croix que le vieil homme trace lui-même, en tenant la plume comme un épissoir. Elle plie la lettre, la cachette à la cire verte de la pharmacie, et la glisse avec les quarante livres dans une bourse de toile qu'il serre contre sa poitrine.",
+    "« Elle comprendra, dit-il. Elle a toujours compris ce que je ne disais pas. C'est pour ça que je suis parti, d'ailleurs. On ne peut rien cacher à une femme pareille. Même pas qu'on l'aime. »"
+   ],
+   "choices": [
+    {
+     "label": "Veiller avec lui",
+     "fx": {
+      "flag": "guivarch:lettre_vraie"
+     },
+     "to": "XN_guivarch_mer"
+    }
+   ]
+  },
+  "XN_guivarch_belle": {
+   "act": "III",
+   "title": "Le vieux gabier",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "text": [
+    "Le vieil homme ne répond pas tout de suite. La tache de lumière tourne au plafond. Dehors, la mer frappe le bordé, très doucement, comme quelqu'un qui demande à entrer et a tout son temps.",
+    "Puis il parle. Il parle d'une fenêtre, rue des Cordiers, avec un pot de basilic. D'un bal à la Saint-Jean, où il lui a marché sur les pieds quatorze fois, elle les avait comptés. D'une nuit où elle a ri si fort que les voisins ont tapé au mur, et de ce qu'elle avait dit pour le faire rire, lui, qu'il a gardé trente-quatre ans et qu'il dit maintenant, une fois, à voix basse, et que Victorine écrit sans rien en changer, parce qu'on ne retouche pas ce genre de phrase.",
+    "La lettre fait trois pages. Il la signe d'une croix, puis il demande qu'on ajoute en bas, en petit : *Les quarante livres sont pour les draps.* « Elle aime que les comptes soient justes. »",
+    "Victorine cachette la lettre. Ses mains tremblent un peu. Elle met ça sur le compte du roulis."
+   ],
+   "choices": [
+    {
+     "label": "Veiller avec lui",
+     "fx": {
+      "flag": "guivarch:lettre_belle"
+     },
+     "to": "XN_guivarch_mer"
+    }
+   ]
+  },
+  "XN_guivarch_mer": {
+   "act": "III",
+   "title": "L'immersion",
+   "place": "cormorane",
+   "ambiance": "mer",
+   "text": [
+    "Yves Guivarc'h meurt quatre jours plus tard, un peu avant l'aube, à l'heure où l'on change le quart, pendant que la cloche pique huit coups. Il les compte, les lèvres remuant. Au huitième, il s'arrête de compter.",
+    "On le coud dans son hamac, avec deux boulets aux pieds. Le voilier, selon l'usage, passe le dernier point à travers le nez, pour s'assurer, et Victorine, qui sait qu'il est mort, laisse faire, parce que les usages aussi sont une forme de soin.",
+    "La capitaine lit l'office, debout à la coupée, tête nue. La mer est d'huile, grise, sans une ride, et le ciel au-dessus est de la même couleur, si bien qu'on ne sait plus où finit l'un et où commence l'autre, et que la planche, quand on la bascule, semble verser le vieil homme dans le ciel. Le hamac glisse, entre dans l'eau sans un bruit, et descend, longtemps visible, une forme blanche qui s'éloigne dans le vert, puis dans le noir, toujours plus lente, comme si au fond quelque chose la retenait par la main pour la faire attendre.",
+    "Victorine garde la bourse, la lettre et les quarante livres dans la poche où l'on met les choses qu'on ne prête pas. Rue des Cordiers, à Morlenc. Elle a promis."
+   ],
+   "choices": [
+    {
+     "label": "Redescendre, et ranger le hamac vide",
+     "back": "A3v_jours"
+    }
+   ]
+  },
   "A3n_debut": {
    "act": "III",
    "title": "La marmite",
@@ -19702,6 +20861,40 @@
       "min": 1
      },
      "why": "Les nuits sont encore claires."
+    },
+    {
+     "label": "Regarder le baleinier encalminé à une encablure",
+     "to": "XO_m_debut",
+     "hide": {
+      "seen": "XO_m_debut"
+     },
+     "if": {
+      "count": [
+       {
+        "seen": "A3n_baignade"
+       },
+       {
+        "seen": "A3n_tuyau"
+       },
+       {
+        "seen": "A3n_brousse"
+       },
+       {
+        "seen": "A3n_eau"
+       },
+       {
+        "seen": "A3n_chien"
+       },
+       {
+        "seen": "A3n_fenouillet"
+       },
+       {
+        "seen": "XK_dechiffre"
+       }
+      ],
+      "min": 2
+     },
+     "why": "La brume ne cache encore rien."
     },
     {
      "label": "L'Écueil-Rouge en vue",
@@ -20516,6 +21709,368 @@
     }
    ]
   },
+  "XO_m_debut": {
+   "act": "III",
+   "title": "La Constance",
+   "place": "sargues",
+   "ambiance": "mer",
+   "fx": {
+    "meet": "lemoal"
+   },
+   "text": [
+    "Un matin, dans la brume des herbes, une voile. Un navire, encalminé comme vous, à une encablure, qui n'était pas là la veille au soir et que la nuit a apporté on ne sait comment. Un trois-mâts trapu, ventru, noirci de suie, avec sur le pont deux grands chaudrons de brique et, pendues aux bossoirs, cinq longues embarcations pointues aux deux bouts. Une odeur l'accompagne, que le moindre souffle porte jusqu'à la Cormorane : l'huile rance, la graisse brûlée, le poisson pourri, et quelque chose de plus profond, de plus animal, qui colle à la gorge.",
+    "« Un baleinier, dit Gobert en crachant. On le sentirait à trois lieues dans le noir. »",
+    "La *Constance*, de Kerverzot. Son capitaine vient à bord dans l'après-midi, dans une de ses embarcations, pour échanger des nouvelles et du tabac contre de l'eau douce, dont il manque. C'est un homme d'une soixantaine d'années, maigre, voûté, aux mains brûlées jusqu'aux poignets par les lignes, avec des yeux d'un gris si pâle qu'ils semblent délavés par trop de mer. Il s'appelle Corentin Le Moal. Il parle peu, poliment, d'une voix basse. Il ne regarde jamais son interlocuteur. Il regarde la mer, par-dessus son épaule, sans arrêt, comme on surveille une porte.",
+    "Il propose un marché à la capitaine Ribaud. Ses hommes ont le scorbut, la moitié ne peut plus ramer. Les baleines sont là : il en a vu souffler à l'aube, au sud, dans les chenaux. Qu'on lui prête quatre bras jeunes pour une chasse, et il paiera l'eau en huile, et chaque rameur aura sa part.",
+    "La capitaine hésite. Gobert lui montre quatre volontaires du menton, dont toi."
+   ],
+   "choices": [
+    {
+     "label": "Descendre dans la baleinière",
+     "to": "XO_m_baleiniere"
+    },
+    {
+     "label": "Laisser ta place à un autre",
+     "back": "A3n_jours"
+    }
+   ]
+  },
+  "XO_m_baleiniere": {
+   "act": "III",
+   "title": "La baleinière",
+   "place": "sargues",
+   "ambiance": "mer",
+   "text": [
+    "La baleinière est longue, étroite, légère comme une feuille, pointue aux deux bouts pour reculer aussi vite qu'elle avance. Six hommes : quatre rameurs, un timonier debout à l'arrière avec un long aviron de queue, et à l'avant, le harponneur, un grand homme silencieux venu des îles du Levant, nommé Siméon, qui ne rame pas, qui attend, la main posée sur ses fers comme sur l'épaule d'un ami. Au milieu, dans deux bailles, la ligne, lovée avec un soin de dentellière, des centaines de brasses de chanvre blanc qui court jusqu'au harpon.",
+    "« Ne mets jamais le pied dans les tours de la ligne, te dit le timonier, un vieux Kerverzotais aux joues creuses. Jamais. Quand elle file, elle file plus vite qu'un cheval au galop, et elle emporte ce qui est dedans. Une jambe, un bras, un homme. J'en ai vu partir trois. On ne les revoit pas. »",
+    "Vous ramez vers le sud, entre les îles d'herbes jaunes, sur l'eau lisse comme de l'huile, pendant deux heures. Il fait une chaleur de forge. Le chanvre de la ligne sent le goudron chaud. Personne ne parle.",
+    "Puis le timonier lève la main. Devant, à trois encablures, la mer se soulève, lentement, comme si quelque chose d'énorme respirait dessous, et un jet de vapeur monte, droit, blanc, en forme de bouquet, avec un bruit de soufflet de forge qu'on entend jusqu'ici. Puis un autre. Puis le dos. Un dos noir, ridé, luisant, long comme la Cormorane, qui roule à la surface sans hâte, avec une indifférence de montagne."
+   ],
+   "choices": [
+    {
+     "label": "Ramer, sans un bruit",
+     "to": "XO_m_chasse"
+    }
+   ]
+  },
+  "XO_m_chasse": {
+   "act": "III",
+   "title": "La chasse",
+   "place": "sargues",
+   "ambiance": "mer",
+   "text": [
+    "On approche. On rame à petits coups, les avirons gainés de toile, en retenant son souffle. La baleine dort, ou fait semblant. Elle est à cinquante brasses. À vingt. À dix. Tu vois son œil. Il est minuscule, dans ce corps immense, petit comme un œil de vache, très ancien, et il te regarde.",
+    "Siméon se lève à l'avant. Il prend son fer. Il le lève au-dessus de sa tête, à deux mains, et il reste ainsi une seconde, immobile, comme un homme qui prie. Puis il le lance.",
+    "Le fer entre dans le dos noir jusqu'à la hampe. La baleine tressaille, d'un frisson qui court sur toute sa longueur comme une onde sur un drap. Puis elle sonde. Sa queue se lève au-dessus de la baleinière, gigantesque, ruisselante, plus large que la maison du Fanal, et retombe à un pied du plat-bord, et l'eau vous gifle tous ensemble.",
+    "Et la ligne file. Elle sort de la baille en sifflant, si vite qu'elle fume en passant dans l'entaille de l'avant, et le timonier l'arrose avec un seau pour qu'elle ne prenne pas feu. La baleinière file avec elle, tirée par la bête, à une vitesse folle, sur l'eau lisse, en sautant sur les herbes, et les hommes hurlent de joie et de peur.",
+    "Alors le rameur devant toi, un jeune Kerverzotais aux cheveux de paille, glisse. Son pied entre dans un tour de ligne. La ligne se referme sur sa cheville. Il est arraché du banc, jeté contre le plat-bord. Il s'accroche. La ligne le tire. Il crie."
+   ],
+   "choices": [
+    {
+     "label": "Prendre la hachette du bord, et couper la ligne",
+     "test": {
+      "dom": "combat",
+      "diff": 1,
+      "label": "Un coup, un seul"
+     },
+     "win": {
+      "fx": {
+       "flag": "xo:ligne_coupee"
+      },
+      "to": "XO_m_coupe"
+     },
+     "lose": {
+      "fx": {
+       "flag": [
+        "xo:ligne_coupee",
+        "xo:homme_perdu"
+       ]
+      },
+      "to": "XO_m_perdu"
+     }
+    },
+    {
+     "label": "Te jeter sur lui, et le retenir à bras-le-corps",
+     "test": {
+      "dom": "nature",
+      "diff": 2,
+      "label": "Contre une baleine"
+     },
+     "win": {
+      "to": "XO_m_retenu"
+     },
+     "lose": {
+      "fx": {
+       "flag": "xo:homme_perdu"
+      },
+      "to": "XO_m_perdu"
+     }
+    }
+   ]
+  },
+  "XO_m_coupe": {
+   "act": "III",
+   "title": "La ligne",
+   "place": "sargues",
+   "ambiance": "mer",
+   "text": [
+    "La hachette est là, dans son étui, à l'avant, pour ça. Tu la prends. Tu frappes. Une fois, sur le chanvre tendu comme une corde de harpe, entre l'entaille et la cheville du garçon. La ligne cède avec un claquement de fouet, et son bout libre part dans la mer comme un serpent, et disparaît.",
+    "La baleinière s'arrête net. Le garçon aux cheveux de paille est couché au fond, la cheville en sang, à moitié écorchée, vivante. Il te regarde sans comprendre.",
+    "Le timonier te regarde aussi. Il ne dit rien pendant un long moment. Puis il crache dans l'eau. « Tu viens de couper trois cents brasses de ligne neuve, un fer et la plus belle baleine de la saison, dit-il. Et un garçon de dix-sept ans qui n'aurait pas revu Kerverzot. » Il reprend son aviron. « Le compte est bon. Ramez. »",
+    "Au loin, la baleine refait surface, une fois, souffle, avec le fer planté dans le dos et la ligne qui traîne derrière elle comme une queue de cerf-volant. Elle s'en va vers le sud, lentement. Elle portera ce fer longtemps. Ils en portent tous."
+   ],
+   "choices": [
+    {
+     "label": "Ramer vers la Constance",
+     "to": "XO_m_capitaine"
+    }
+   ]
+  },
+  "XO_m_retenu": {
+   "act": "III",
+   "title": "La ligne",
+   "place": "sargues",
+   "ambiance": "mer",
+   "text": [
+    "Tu te jettes sur lui. Tu l'attrapes par la ceinture, à deux bras, et tu te cales les pieds contre le banc. La ligne tire. Tu tires. Pendant une seconde, deux, trois, la baleine et toi vous disputez un garçon de dix-sept ans, et la baleine pèse soixante tonnes.",
+    "Puis Siméon est là. Il a traversé la baleinière d'un bond, par-dessus les bancs. Il passe la main dans la boucle, à la cheville du garçon, entre la corde et la peau, et il ouvre la boucle, d'un geste, comme on dénoue un lacet. Le pied sort. La ligne repart toute seule, en sifflant, et vous tombez tous les trois au fond de la baleinière, emmêlés, trempés.",
+    "Siméon se relève, retourne à l'avant, et reprend sa place, sans un mot, la main sur ses fers. La chasse continue.",
+    "Elle dure trois heures. La baleine tire la baleinière à travers la mer des Sargues comme un traîneau, puis se fatigue, puis remonte. On l'achève à la lance. Elle meurt en soufflant du sang, un jet rouge qui monte droit et retombe en pluie sur vous tous, chaud, et la mer autour devient rose, puis rouge, et les herbes jaunes rougissent aussi, sur une demi-lieue.",
+    "Tu regardes son œil, à la fin, quand elle roule sur le flanc. Il est ouvert. Il ne regarde plus rien."
+   ],
+   "choices": [
+    {
+     "label": "Remorquer la baleine jusqu'à la Constance",
+     "to": "XO_m_depecage"
+    }
+   ]
+  },
+  "XO_m_perdu": {
+   "act": "III",
+   "title": "La ligne",
+   "place": "sargues",
+   "ambiance": "mer",
+   "text": [
+    "Tu n'as pas le temps. Personne n'a le temps. Le garçon aux cheveux de paille passe par-dessus le plat-bord, la cheville prise dans la ligne, d'un seul coup, sans même crier une deuxième fois, et l'eau se referme sur lui, et la ligne continue de filer, avec lui au bout, vers le fond.",
+    {
+     "if": {
+      "has": "xo:ligne_coupee"
+     },
+     "text": "Ta hachette tombe sur le chanvre une seconde trop tard. La ligne coupée part dans la mer comme un serpent, et disparaît avec ce qu'elle emportait."
+    },
+    "Le timonier regarde l'endroit où il a disparu. Il ôte son bonnet. Les rameurs aussi. Siméon, à l'avant, ne bouge pas.",
+    "« Yann Le Bris, dit le timonier. Dix-sept ans. De Kerverzot. » Il remet son bonnet. « C'est le quatrième. »",
+    "On rame vers la Constance, en silence, dans la chaleur. Les regards évitent le tien, sans reproche. C'est la chasse. Ils le savaient tous en descendant dans la baleinière. Toi aussi, depuis que le timonier te l'a dit. Ça ne change rien à ce que tu sens, et que tu n'arrives pas à poser."
+   ],
+   "choices": [
+    {
+     "label": "Ramer vers la Constance",
+     "to": "XO_m_capitaine"
+    }
+   ]
+  },
+  "XO_m_depecage": {
+   "act": "III",
+   "title": "Le dépeçage",
+   "place": "sargues",
+   "ambiance": "mer",
+   "text": [
+    "Le dépeçage dure deux jours et deux nuits, le long du bord de la Constance, sous les chaudrons allumés qui fument noir dans le ciel blanc. Des hommes en sabots, sur la baleine même, découpent la graisse en longues bandes avec des pelles tranchantes, et des palans les hissent à bord, en spirale, comme on épluche une orange monstrueuse. L'huile bout. La fumée sent la friture et la chair. Les requins arrivent par dizaines et mordent dans la carcasse, et les hommes les tuent à coups de pelle, et d'autres viennent.",
+    "Le deuxième jour, en fouillant les entrailles avec une gaffe, le timonier pousse un cri. Il ramasse une masse grise, cireuse, de la taille d'un pain, qui flotte sur le sang. Il la flaire. Son visage s'illumine.",
+    "« De l'ambre, dit-il. De l'ambre gris. » Il te la tend. « Pour toi. C'est la coutume : l'ambre est à celui qui a sauvé un homme dans la chasse. Ça vaut son poids d'or, chez les parfumeurs de Morlenc. Ça sent la merde, aujourd'hui. Dans un an, ça sentira la rose. Garde-la au sec. »",
+    "Tu prends la masse grise. Elle sent, en effet, le fumier, la mer et le musc, et quelque chose d'autre, très loin, qui ressemble déjà à un parfum."
+   ],
+   "choices": [
+    {
+     "label": "L'envelopper dans ta chemise",
+     "fx": {
+      "item": "ambre_gris"
+     },
+     "to": "XO_m_capitaine"
+    }
+   ]
+  },
+  "XO_m_capitaine": {
+   "act": "III",
+   "title": "Le capitaine",
+   "place": "sargues",
+   "ambiance": "nuit",
+   "text": [
+    "Le dernier soir, avant que tu redescendes à la Cormorane, le capitaine Le Moal te fait appeler dans sa cabine. Une cabine étroite, nue, qui sent l'huile. Aux murs, des dents de cachalot gravées au couteau, des dizaines, toutes représentant la même baleine : un cachalot énorme à la tête grise, presque blanche, avec trois harpons plantés dans le dos.",
+    "« La Grise, dit-il, en suivant ton regard. Onze ans que je la cherche. Elle a pris mon fils, à Kerverzot, au large de la pointe, dans la première baleinière qu'il commandait. Elle a pris la baleinière, le fils et cinq hommes. Elle n'en a laissé aucun. » Il touche une des dents gravées. « Je l'ai revue quatre fois. Je lui ai mis trois fers. Elle les porte. Elle est là, quelque part, dans ces herbes. Je le sens. »",
+    "Il te regarde, pour la première fois, droit dans les yeux. Ses yeux délavés ont une fixité qui fait peur.",
+    "« Tu as le pied marin. Tu as la tête froide. Reste à bord de la Constance. Je te ferai harponneur dans trois ans. Tu seras là, le jour où on la trouvera. »"
+   ],
+   "choices": [
+    {
+     "label": "« Non, capitaine. Elle ne vous a rien laissé. Laissez-la. »",
+     "fx": {
+      "flag": "xo:refus_moal"
+     },
+     "to": "XO_m_fin"
+    },
+    {
+     "label": "« Non. J'ai déjà quelqu'un à suivre. »",
+     "to": "XO_m_fin"
+    }
+   ]
+  },
+  "XO_m_fin": {
+   "act": "III",
+   "title": "La Constance",
+   "place": "sargues",
+   "ambiance": "mer",
+   "text": [
+    {
+     "if": {
+      "has": "xo:refus_moal"
+     },
+     "text": "Le capitaine Le Moal te regarde longtemps. Puis il hoche la tête, lentement, comme si tu avais dit quelque chose qu'il savait déjà, qu'il se répète tous les soirs, et qui ne sert à rien. « Je la laisserai, dit-il, le jour où elle me laissera. » Il retourne à ses dents gravées."
+    },
+    "Le vent revient deux jours plus tard. La Constance met le cap au sud, sur la piste d'une ombre. La Cormorane met le cap au sien. Tu regardes le baleinier s'éloigner, noir de suie, avec ses chaudrons qui fument, jusqu'à ce qu'il ne soit plus qu'un point dans les herbes.",
+    {
+     "if": {
+      "not": {
+       "has": "xo:homme_perdu"
+      }
+     },
+     "text": "À la poupe, un garçon aux cheveux de paille, la cheville bandée, te fait de grands signes, des deux bras, jusqu'à ce que tu ne le voies plus."
+    },
+    "On a rempli deux barriques d'huile de baleine, pour la lampe de l'habitacle. Elle brûle clair, sans fumée. Elle sent, très légèrement, la mer chaude et le sang."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre le service",
+     "fx": {
+      "quest": "XO"
+     },
+     "back": "A3n_jours"
+    }
+   ]
+  },
+  "XO_v_debut": {
+   "act": "III",
+   "title": "La Constance",
+   "place": "sargues",
+   "ambiance": "mer",
+   "fx": {
+    "meet": "lemoal",
+    "flag": "quete-vue:XO"
+   },
+   "text": [
+    "Le baleinier est arrivé dans la nuit, avec la brume, et il est là au matin, à une encablure, noir de suie, ventru, puant, avec ses chaudrons de brique sur le pont et ses baleinières pendues aux bossoirs. Une odeur l'accompagne que Victorine connaît des quais de Morlenc, l'huile rance et la graisse brûlée, et qu'elle n'avait jamais respirée de si près.",
+    "À midi, une baleinière vient chercher la médecin. C'est le second du baleinier qui la demande, un homme carré, calme, aux yeux fatigués, nommé Hervé Kerjégu. Il a le scorbut à bord, dit-il, mais ce n'est pas pour le scorbut qu'il vient. C'est pour le capitaine.",
+    "Dans la baleinière, pendant qu'on rame, il parle à voix basse, pour que les rameurs n'entendent pas. « Le capitaine ne dort plus. Depuis trois semaines. Il reste sur le pont, la nuit, à regarder la mer. Il parle tout seul. Il parle à une baleine. » Il regarde ses mains. « Il cherche une baleine, Madame. Une seule. Depuis onze ans. Nous, on cherche de l'huile, pour nourrir nos familles. Il y a dix-huit mois qu'on n'a pas vu Kerverzot. »"
+   ],
+   "choices": [
+    {
+     "label": "Monter à bord de la Constance",
+     "to": "XO_v_capitaine"
+    }
+   ]
+  },
+  "XO_v_capitaine": {
+   "act": "III",
+   "title": "Le capitaine",
+   "place": "sargues",
+   "ambiance": "mer",
+   "text": [
+    "Le capitaine Corentin Le Moal la reçoit dans sa cabine, debout, courtois, avec une tasse de thé noir qu'il ne boit pas. Il a soixante ans, des mains brûlées par les lignes, et des yeux d'un gris délavé qui ne se posent jamais sur elle : ils regardent par le hublot, la mer, sans arrêt, comme on surveille une porte.",
+    "Elle l'examine. Le pouls est rapide, filant. Les mains tremblent. Les pupilles sont larges, le blanc de l'œil injecté. Il a maigri de vingt livres, dit le second. Il mange à peine. Il ne dort pas. Sa folie, si c'en est une, ressemble peu à celles de l'hospice de Saint-Lazare : il est usé, jusqu'à la trame, comme une voile qu'on a laissée trop longtemps au vent.",
+    "Aux murs, des dents de cachalot gravées au couteau, toutes représentant la même baleine : un cachalot à la tête presque blanche, avec trois harpons plantés dans le dos.",
+    "« Elle a pris mon fils, dit-il, sans quitter le hublot des yeux, comme s'il continuait une conversation commencée avec quelqu'un d'autre. Il y a onze ans. Je la trouverai. Je ne dors pas parce qu'elle ne dort pas. Elle est là, dans ces herbes, je le sens, et le jour où je dormirai, elle passera. »",
+    "Quand Victorine sort de la cabine, le second l'attend dans la coursive. Il a un papier à la main, et une plume.",
+    "« Un certificat, Madame, dit-il très bas. Que le capitaine est malade, hors d'état de commander. Avec votre signature de médecin, je prends le commandement, et on rentre à Kerverzot avec ce qu'on a. Personne ne sera puni. On dira qu'il a eu une fièvre. Trente hommes vous béniront. »"
+   ],
+   "choices": [
+    {
+     "label": "Signer le certificat",
+     "fx": {
+      "flag": "xo:certifie"
+     },
+     "to": "XO_v_certifie"
+    },
+    {
+     "label": "Refuser : il est épuisé, il n'est pas fou",
+     "fx": {
+      "flag": "xo:refuse"
+     },
+     "to": "XO_v_refuse"
+    },
+    {
+     "label": "Proposer autre chose : le faire dormir, trois jours, et voir",
+     "fx": {
+      "flag": "xo:dort"
+     },
+     "to": "XO_v_dort"
+    }
+   ]
+  },
+  "XO_v_certifie": {
+   "act": "III",
+   "title": "Le certificat",
+   "place": "sargues",
+   "ambiance": "mer",
+   "text": [
+    "Elle signe. *Je soussignée, Victorine Davrigny, médecin, certifie avoir examiné ce jour le capitaine Corentin Le Moal, et l'avoir trouvé en état d'épuisement nerveux grave, incompatible avec l'exercice du commandement.* Tout est vrai. C'est ce qui rend la chose si facile, et si laide.",
+    "Le second lit le certificat devant l'équipage assemblé, le soir même. Le capitaine écoute, debout, très droit, sans protester. Quand le second a fini, il lui tend lui-même la clef de sa cabine, et la longue-vue, et le livre de bord. Puis il va à l'arrière, et il s'assied sur un rouleau de cordage, et il regarde la mer.",
+    "En partant, Victorine le voit encore, de la baleinière qui la ramène à la Cormorane. Il n'a pas bougé. Il regarde le sud. La Constance mettra le cap au nord, vers Kerverzot, dès que le vent reviendra, et il le sait, et il regarde le sud quand même, et il le regardera jusqu'à ce qu'il ne puisse plus.",
+    "Elle a fait ce qu'il fallait. Elle en est sûre. Elle en sera sûre longtemps, sauf certaines nuits, où elle se demande ce qu'on retire exactement à un homme quand on lui retire la seule chose qui le tient debout."
+   ],
+   "choices": [
+    {
+     "label": "Retourner à l'infirmerie",
+     "fx": {
+      "quest": "XO"
+     },
+     "back": "A3w_jours"
+    }
+   ]
+  },
+  "XO_v_refuse": {
+   "act": "III",
+   "title": "Le certificat",
+   "place": "sargues",
+   "ambiance": "mer",
+   "text": [
+    "« Non, dit-elle. Votre capitaine est épuisé, monsieur Kerjégu. Il a perdu un fils. Il cherche ce qui le lui a pris. C'est une douleur, et une obstination, et une folie peut-être, mais c'est la sienne, et je ne vais pas la signer à sa place pour vous arranger. »",
+    "Le second la regarde. Il ne se met pas en colère. Il a l'air d'un homme qui s'attendait à ce refus, et qui l'espérait un peu, pour n'avoir rien à se reprocher.",
+    "« Alors on continue, dit-il. Jusqu'à ce qu'elle passe, ou qu'il meure, ou que nous mourions. » Il plie son papier, le range. « Merci, Madame. Vous êtes honnête. On n'en demandait pas tant. »",
+    "Elle redescend dans la baleinière. En s'éloignant, elle voit le capitaine Le Moal, sur le pont, à la lisse, qui regarde la mer, et le second, à trois pas derrière lui, qui regarde le capitaine. Elle se demande lequel des deux craquera le premier. Elle préfère ne pas le savoir."
+   ],
+   "choices": [
+    {
+     "label": "Retourner à l'infirmerie",
+     "fx": {
+      "quest": "XO"
+     },
+     "back": "A3w_jours"
+    }
+   ]
+  },
+  "XO_v_dort": {
+   "act": "III",
+   "title": "Le sommeil",
+   "place": "sargues",
+   "ambiance": "nuit",
+   "text": [
+    "« Ni l'un ni l'autre, dit-elle. Laissez-moi le faire dormir. Trois jours. Ensuite, nous verrons ce qu'il reste de lui. »",
+    "Le capitaine refuse d'abord. Puis il accepte, à condition qu'on le réveille si quelqu'un voit souffler une baleine à tête grise. On le lui promet. Elle lui donne du laudanum, une dose de cheval, dans son thé noir, et elle reste à côté de lui pendant qu'il s'endort, assis dans son fauteuil, face au hublot, les yeux ouverts jusqu'au dernier moment.",
+    "Il dort trois jours. Il dort comme on tombe dans un puits. Victorine reste à bord de la Constance, pour le veiller, et soigner le scorbut de l'équipage avec ce qu'elle a. Le troisième jour, au matin, il se réveille.",
+    "Il regarde le hublot. Puis il regarde Victorine. Pour la première fois, ses yeux délavés se posent sur quelqu'un.",
+    "« J'ai rêvé de lui, dit-il. Mon fils. Pas de la baleine. De lui. Il riait. Il avait onze ans, il était sur la grève de Kerverzot, il me montrait un crabe. » Il se tait. « Je n'avais pas rêvé de lui depuis onze ans. Je ne rêvais que d'elle. »",
+    "Le soir même, il donne l'ordre de mettre le cap au nord, dès que le vent reviendra, vers Kerverzot. L'équipage pleure de soulagement. Le second vient serrer la main de Victorine, longtemps, sans rien dire. Le capitaine, lui, reste à la poupe, à regarder le sud. Mais il dort, la nuit, maintenant. Un peu."
+   ],
+   "choices": [
+    {
+     "label": "Retourner à la Cormorane",
+     "fx": {
+      "quest": "XO"
+     },
+     "back": "A3w_jours"
+    }
+   ]
+  },
   "A3w_debut": {
    "act": "III",
    "title": "La marmite",
@@ -20665,6 +22220,37 @@
       "min": 1
      },
      "why": "Les rats restent encore dans la cale."
+    },
+    {
+     "label": "Descendre dans la baleinière qui vient chercher la médecin",
+     "to": "XO_v_debut",
+     "hide": {
+      "seen": "XO_v_debut"
+     },
+     "if": {
+      "count": [
+       {
+        "seen": "A3w_scorbut"
+       },
+       {
+        "seen": "A3w_baron"
+       },
+       {
+        "seen": "A3w_hamac"
+       },
+       {
+        "seen": "A3w_brousse"
+       },
+       {
+        "seen": "A3w_fargue"
+       },
+       {
+        "seen": "XJ_bord"
+       }
+      ],
+      "min": 2
+     },
+     "why": "La brume ne cache encore rien."
     },
     {
      "label": "L'Écueil-Rouge en vue",
@@ -21434,6 +23020,83 @@
      }
     },
     {
+     "label": "Éplucher des oignons, seul, une nuit sans sommeil",
+     "to": "XH_nuit",
+     "hide": {
+      "seen": "XH_nuit"
+     }
+    },
+    {
+     "label": "S'asseoir près de Malandain, qui aiguise son couteau",
+     "to": "XH_malandain",
+     "hide": {
+      "seen": "XH_malandain"
+     },
+     "if": {
+      "count": [
+       {
+        "seen": "A3f_cambuse"
+       },
+       {
+        "seen": "A3f_brousse"
+       },
+       {
+        "seen": "A3f_echecs"
+       },
+       {
+        "seen": "A3f_eau"
+       },
+       {
+        "seen": "A3f_medecin"
+       }
+      ],
+      "min": 1
+     },
+     "why": "Malandain n'a encore rien demandé."
+    },
+    {
+     "label": "Monter un café à la gabière, sur le beaupré",
+     "to": "XH_marjolaine",
+     "hide": {
+      "seen": "XH_marjolaine"
+     }
+    },
+    {
+     "label": "Servir une soupe à Lagadec, qui boit tard",
+     "to": "XH_lagadec",
+     "hide": {
+      "seen": "XH_lagadec"
+     }
+    },
+    {
+     "label": "Recevoir la médecin, qui cherche des citrons",
+     "to": "XH_choucroute",
+     "hide": {
+      "seen": "XH_choucroute"
+     },
+     "if": {
+      "count": [
+       {
+        "seen": "A3f_cambuse"
+       },
+       {
+        "seen": "A3f_brousse"
+       },
+       {
+        "seen": "A3f_echecs"
+       },
+       {
+        "seen": "A3f_eau"
+       },
+       {
+        "seen": "A3f_medecin"
+       }
+      ],
+      "min": 2
+     },
+     "why": "Les gencives ne saignent pas encore."
+    },
+    {
      "label": "Le vent revient",
      "to": "A3f_lettre",
      "big": true,
@@ -21693,6 +23356,18 @@
     "« Échec, dit Fargue.",
     "— Vous êtes un homme étonnant, Fargue. Vous avez lu, vous parlez bien, vous jouez mieux que mon notaire. Que faites-vous dans une cambuse ?",
     "— Je regarde les gens manger, monsieur le baron. C'est là qu'on les connaît. »",
+    {
+     "if": {
+      "has": "fargue:echecs_gagne"
+     },
+     "text": "Le professeur Gaudrémont, deux cabines plus loin, réclame sa revanche chaque soir depuis Morlenc, et chaque soir Fargue monte jouer avec le baron à sa place. Le professeur appelle cela une trahison de classe, et il a parfaitement raison."
+    },
+    {
+     "if": {
+      "has": "fargue:echecs_perdu"
+     },
+     "text": "Pendant que le baron réfléchit, Fargue pense à une boîte d'acajou, deux cabines plus loin, et à une seconde aiguille montée sur un cercle gradué, qui sait quand la première ment."
+    },
     "Le baron rit. Il bouge son roi. Fargue regarde l'échiquier, puis le coffre de fer vissé au plancher, puis la clef à la chaîne de montre."
    ],
    "choices": [
@@ -21883,6 +23558,326 @@
      "label": "Le vent",
      "to": "C3b_fin",
      "big": true
+    }
+   ]
+  },
+  "XH_nuit": {
+   "act": "III",
+   "title": "La cambuse, la nuit",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "second": true,
+   "text": [
+    "Une nuit sans sommeil, Fargue reste seul dans la cambuse, le fourneau éteint, une chandelle collée sur le billot. Il épluche des oignons pour le lendemain, parce que ses mains ont besoin de quelque chose à faire pendant que sa tête travaille. Les épluchures tombent dans un seau, en spirale, une par oignon, sans se rompre. Il n'a jamais su faire autrement.",
+    "Dans la chaleur immobile des Sargues, l'odeur de l'oignon lui rappelle une autre cambuse. Plus petite, plus sale, plus chaude encore. Celle de la Maraude, il y a vingt et un ans, quand il n'était pas cuisinier mais quartier-maître, et que le cuisinier était un vieil homme des îles du Levant à qui il manquait les deux oreilles et qui chantait en épluchant, comme lui maintenant. C'est de lui qu'il tient la manie. Il ne sait pas ce qu'il est devenu. Il ne s'est jamais demandé.",
+    "Il se rappelle la dernière nuit, et de cette nuit-là, surtout la plage. La lune. Le capitaine debout au bord de l'eau, très droit, en habit, comme pour une revue, avec un pistolet chargé d'une seule balle que Larrouy venait de lui donner. Les hommes dans le canot, qui ne disaient rien. Et le capitaine qui ne disait rien non plus, qui les regardait s'éloigner, et qui, au dernier moment, a levé la main, sans menace, pour saluer.",
+    "Fargue pose son couteau. Il regarde ses mains, la droite, et la gauche aux trois doigts. Il se demande, pour la millième fois, ce que le capitaine a fait de sa balle.",
+    "Sur le billot, à côté des oignons, il y a la lettre qu'il écrit à Lisette depuis Morlenc, et qu'il n'envoie jamais, parce qu'il n'y a pas de poste dans les Sargues, et parce qu'il ne l'enverrait pas s'il y en avait."
+   ],
+   "choices": [
+    {
+     "label": "Écrire cette nuit-là dans la lettre, telle qu'elle a été",
+     "fx": {
+      "flag": "fargue:souvenir_ecrit"
+     },
+     "to": "XH_nuit_ecrit"
+    },
+    {
+     "label": "Brûler la page à la chandelle, et finir les oignons",
+     "fx": {
+      "flag": "fargue:souvenir_brule"
+     },
+     "to": "XH_nuit_brule"
+    }
+   ]
+  },
+  "XH_nuit_ecrit": {
+   "act": "III",
+   "title": "La cambuse, la nuit",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "second": true,
+   "text": [
+    "Il prend la plume. Il écrit lentement, de sa grosse écriture appliquée de cuisinier qui a appris tard, en tirant la langue. Il écrit la plage, la lune, l'habit, le pistolet, la main levée. Il écrit la colonie, aussi, ce qu'il en a vu, ce qu'il en a fait, ce qu'il a laissé faire. Il écrit jusqu'à l'aube, deux pages, recto verso, sans une rature, comme on vide une cale.",
+    "Puis il relit. Il pense à Lisette lisant cela, près de sa fenêtre aux géraniums, avec ses joues trop roses. Il plie les pages en quatre, et les glisse tout au fond de son sac, sous ses chemises, avec les trois piastres qu'il n'a plus et la berceuse de sa mère qu'il n'a jamais écrite.",
+    "Il ne les enverra pas. Mais elles sont écrites, maintenant. Elles existent hors de sa tête. Il se sent plus léger, de deux pages exactement, et plus lourd d'autre chose, qu'il ne sait pas nommer, et qui est peut-être la peur qu'on les trouve."
+   ],
+   "choices": [
+    {
+     "label": "Allumer le fourneau pour le café du matin",
+     "back": "A3f_jours"
+    }
+   ]
+  },
+  "XH_nuit_brule": {
+   "act": "III",
+   "title": "La cambuse, la nuit",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "second": true,
+   "text": [
+    "Il approche la page de la chandelle. Le papier brunit, se recroqueville, prend feu par un coin, et brûle, et la petite flamme jaune éclaire un instant la cambuse entière, les casseroles pendues, les sacs de lentilles, le visage de Fargue, qui la regarde sans ciller.",
+    "Il laisse tomber la cendre dans le seau aux épluchures. Il reprend un oignon. Il l'épluche, en spirale, sans rompre la peau.",
+    "Ce qui n'est pas écrit n'existe qu'une fois, dans une seule tête, et meurt avec elle. Il a toujours pensé que c'était la meilleure manière de garder un secret. Il commence à se demander si c'est aussi la meilleure manière de le porter."
+   ],
+   "choices": [
+    {
+     "label": "Allumer le fourneau pour le café du matin",
+     "back": "A3f_jours"
+    }
+   ]
+  },
+  "XH_malandain": {
+   "act": "III",
+   "title": "La pierre à aiguiser",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "second": true,
+   "text": [
+    "Malandain aiguise son couteau sur une pierre, assis sur l'affût de sa pièce, à la lueur du fanal. Le bruit est régulier, patient, presque reposant. Il aiguise ce couteau tous les soirs depuis Morlenc. Le couteau n'a jamais servi. Il n'en a jamais eu autant besoin.",
+    "Fargue s'assied à côté de lui. Ils regardent la mer immobile, les herbes jaunes sous la lune.",
+    "« Quand ? demande Malandain sans lever les yeux.",
+    "— Pas encore.",
+    "— Je sais, pas encore. Je demande quand. » La pierre glisse sur la lame, une fois, deux fois. « Les autres commencent à parler. Ceux de la capitaine, je veux dire. Le second regarde trop. La médecin regarde trop. Le gosse aux oreilles regarde tout. Il faudra montrer, à un moment. Montrer qu'on ne joue pas. » Il essaie le fil sur son pouce. Une goutte de sang perle. Il la lèche. « Je veux être le premier. »",
+    "Fargue le regarde. Il voit un homme simple, d'une simplicité terrible, qui ne demande rien d'autre au monde que d'être utile à quelqu'un, et qui a choisi d'être utile de cette façon-là parce que personne ne lui en a jamais proposé une autre."
+   ],
+   "choices": [
+    {
+     "label": "« À Lannoz. Pas avant. Et un seul. »",
+     "fx": {
+      "flag": "fargue:malandain_promis",
+      "penche": {
+       "malandain": -1
+      }
+     },
+     "to": "XH_malandain_promis"
+    },
+    {
+     "label": "« Personne n'est le premier. On attend le signal, tous ensemble. »",
+     "test": {
+      "dom": "social",
+      "diff": 1,
+      "label": "Faire attendre un chien"
+     },
+     "win": {
+      "fx": {
+       "flag": "fargue:malandain_attend"
+      },
+      "to": "XH_malandain_attend"
+     },
+     "lose": {
+      "fx": {
+       "flag": "fargue:malandain_promis"
+      },
+      "to": "XH_malandain_promis"
+     }
+    }
+   ]
+  },
+  "XH_malandain_promis": {
+   "act": "III",
+   "title": "La pierre à aiguiser",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "second": true,
+   "text": [
+    "Malandain hoche la tête, lentement, comme un homme qui reçoit un ordre de mission. Il range son couteau.",
+    "« À Lannoz, répète-t-il. Un seul. » Il sourit. Il a de belles dents, très blanches, très régulières, qui ne vont pas avec le reste. « C'est bien, d'avoir une date. Ça aide à dormir. »",
+    "Il s'en va vers son hamac. Fargue reste seul sur l'affût, à regarder la goutte de sang séchée sur la pierre à aiguiser.",
+    "Il vient de donner une date. Il le sait : c'est la chose la plus grave qu'on puisse donner à un homme comme celui-là. Plus grave qu'un couteau. Un couteau, on peut le reprendre. Une date, elle arrive toute seule, qu'on le veuille ou non, et elle trouve toujours quelqu'un."
+   ],
+   "choices": [
+    {
+     "label": "Redescendre à la cambuse",
+     "back": "A3f_jours"
+    }
+   ]
+  },
+  "XH_malandain_attend": {
+   "act": "III",
+   "title": "La pierre à aiguiser",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "second": true,
+   "text": [
+    "Malandain cesse d'aiguiser. Il regarde Fargue, longtemps, avec une incompréhension sincère, comme un chien à qui l'on a montré le gibier et qu'on retient par le collier.",
+    "« Tous ensemble, dit-il.",
+    "— Tous ensemble. Au signal. Celui qui part avant, c'est celui qui nous fait tous pendre. À Morlenc, on pend les mutins en commençant par celui qui a tiré le premier. Ça fait un exemple. Tu veux être l'exemple ? »",
+    "Malandain réfléchit. Ça prend du temps. Puis il range son couteau, sans un mot, et s'en va vers son hamac, en traînant un peu les pieds, comme un enfant puni.",
+    "Fargue a gagné quelque chose. Quelques jours, peut-être. Il sait que la patience de Malandain est une corde, et qu'il vient d'en tirer un bon bout. Il ne sait pas combien il en reste."
+   ],
+   "choices": [
+    {
+     "label": "Redescendre à la cambuse",
+     "back": "A3f_jours"
+    }
+   ]
+  },
+  "XH_marjolaine": {
+   "act": "III",
+   "title": "La gabière",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "second": true,
+   "text": [
+    "Marjolaine Cotentin, gabière, vingt-deux ans, les bras durs comme des cordages et la langue plus dure encore, passe ses nuits de calme assise à califourchon sur le beaupré, au-dessus de l'eau, là où il fait un peu moins chaud. Fargue lui monte une tasse de café. Il s'assied sur le gaillard, à ses pieds, et attend qu'elle parle.",
+    "« Vous m'avez dit des choses, à Morlenc, dit-elle enfin. Des choses à moitié. » Elle souffle sur son café. « Je les ai finies toute seule, les choses. Je sais compter. Je sais qui vous parlez, et qui vous ne parlez pas. »",
+    {
+     "if": {
+      "has": "fargue:marjolaine"
+     },
+     "text": "Il lui a dit, sur le pont, au dixième jour, à mots couverts, ce qu'il préparait. Elle a écouté, sans oui ni non, et elle a dit : « J'y penserai. » Elle y a pensé."
+    },
+    "« Moi, dit-elle, j'ai une mère à Kerverzot, trois frères, et pas de dot. La part d'un gabier, à l'arrivée, c'est cent livres. Combien, la part d'un ami de la Chanson ? »"
+   ],
+   "choices": [
+    {
+     "label": "Lui dire la vérité : une part d'homme, pas moins, pas plus",
+     "fx": {
+      "penche": {
+       "marjolaine": -1
+      }
+     },
+     "to": "XH_marjolaine_part"
+    },
+    {
+     "label": "Lui dire de rester du côté de la capitaine, et de ne plus rien demander",
+     "fx": {
+      "penche": {
+       "marjolaine": 2
+      }
+     },
+     "to": "XH_marjolaine_non"
+    }
+   ]
+  },
+  "XH_marjolaine_part": {
+   "act": "III",
+   "title": "La gabière",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "second": true,
+   "text": [
+    "« Une part d'homme, dit-il. Comme les autres. Ni plus ni moins. Pas de passe-droit parce que tu es une fille, pas de rabais non plus. »",
+    "Elle le regarde par-dessus sa tasse. Puis elle rit, d'un rire bref, sec, qui ne ressemble pas du tout à un rire de fille.",
+    "« Une part d'homme. C'est la première fois qu'on me la propose. » Elle finit son café. « Les autres me proposent des choses, la nuit, dans l'entrepont, mais jamais une part. » Elle lui rend la tasse. « J'y suis, la Chanson. Pour la part. Pas pour vous. »",
+    "Elle remonte dans le beaupré, et regarde la mer. Fargue redescend, avec la tasse vide, et cette pensée qui ne le quitte plus de la nuit : il vient de recruter quelqu'un en lui disant la vérité. Il avait oublié que ça marchait aussi."
+   ],
+   "choices": [
+    {
+     "label": "Redescendre à la cambuse",
+     "back": "A3f_jours"
+    }
+   ]
+  },
+  "XH_marjolaine_non": {
+   "act": "III",
+   "title": "La gabière",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "second": true,
+   "text": [
+    "« Reste du côté de la capitaine, dit-il. Fais ton quart, prends ta paie, rentre à Kerverzot avec tes cent livres, et marie-toi avec un garçon qui n'a jamais vu d'île. »",
+    "Elle le regarde, surprise. « Vous me chassez ?",
+    "— Je te garde. » Il se lève. « Ce que je prépare, ce n'est pas pour une fille de vingt-deux ans avec une mère et trois frères. C'est pour des hommes qui n'ont plus rien à perdre, ou qui croient ne plus rien avoir. Toi, tu as encore tout. Garde-le. »",
+    "Il redescend. Elle reste sur son beaupré, sa tasse à la main, à le regarder partir, avec une expression qu'il ne voit pas, et qui est peut-être de la gratitude, et peut-être de la vexation, et sans doute les deux, comme chez la plupart des gens qu'on épargne."
+   ],
+   "choices": [
+    {
+     "label": "Redescendre à la cambuse",
+     "back": "A3f_jours"
+    }
+   ]
+  },
+  "XH_lagadec": {
+   "act": "III",
+   "title": "Le Hareng",
+   "place": "cormorane",
+   "ambiance": "nuit",
+   "second": true,
+   "text": [
+    "Lagadec vient boire à la cambuse, tard, quand tout le monde dort. Il a été de la Maraude, lui aussi, simple matelot, quinze ans à l'époque. Il est le seul à bord, avec Fargue, à savoir ce qu'il y a au bout du voyage. Ils n'en parlent jamais. Ce soir, Lagadec en parle.",
+    "« J'en rêve, dit-il. Tous les soirs, depuis qu'on est dans les herbes. Je rêve de la chapelle. Je rêve qu'on ouvre la porte, et qu'ils sont tous là, dedans, à nous attendre, assis sur les bancs, bien sages, avec leurs habits du dimanche, et qu'ils se retournent tous en même temps. » Il boit. « Ils ont pas de visage, dans le rêve. Juste des chapeaux. »",
+    "Fargue l'écoute. Il pose devant lui une écuelle de soupe chaude, qu'il n'a pas demandée.",
+    "« Tu peux encore descendre à Lannoz, dit Fargue. Je dirai que tu as déserté. Personne ne te cherchera. »",
+    "Lagadec regarde la soupe. « Et ma part ?",
+    "— Pas de part. Pas de chapelle. »",
+    "Lagadec mange sa soupe, lentement, jusqu'au fond, en raclant l'écuelle avec sa cuillère, comme on gratte une décision. Puis il se lève. « Je reste. J'ai rêvé de ça vingt ans pour rien. Autant que ça rapporte. »"
+   ],
+   "choices": [
+    {
+     "label": "Laver l'écuelle",
+     "fx": {
+      "flag": "fargue:lagadec"
+     },
+     "back": "A3f_jours"
+    }
+   ]
+  },
+  "XH_choucroute": {
+   "act": "III",
+   "title": "La choucroute",
+   "place": "cormorane",
+   "ambiance": "mer",
+   "second": true,
+   "text": [
+    "Au fond de la cambuse, derrière les sacs de pois, dans un recoin où personne ne regarde, Fargue garde quatre tonnelets de choucroute. Il les a achetés à Morlenc, de sa poche, à un marchand hollandais, avec les derniers sous qu'il avait après le parloir des Sœurs. Il ne les a déclarés à personne. Il les garde pour lui, pour ses hommes, pour plus tard, pour l'île, où l'on aura besoin de dents.",
+    "Le vingtième jour, la médecin vient le trouver. Elle a examiné les bouches de l'avant. Elle dit qu'il y a des gencives qui saignent, des dents qui bougent, de vieilles cicatrices qui se rouvrent, et qu'il lui faudrait des citrons, ou n'importe quoi de frais, n'importe quoi d'acide, et qu'elle sait qu'il n'en a pas.",
+    "Fargue la regarde. Il pense aux quatre tonnelets. Il pense à ses hommes, à qui il les destine. Il pense que parmi les gencives qui saignent, à l'avant, il y a celles de ses hommes, et celles des autres, et que le scorbut ne fait pas la différence."
+   ],
+   "choices": [
+    {
+     "label": "Lui montrer les tonnelets",
+     "fx": {
+      "flag": "fargue:choucroute",
+      "regard": {
+       "victorine": "cordial"
+      }
+     },
+     "to": "XH_choucroute_donne"
+    },
+    {
+     "label": "Lui dire qu'il n'a rien, et garder les tonnelets",
+     "to": "XH_choucroute_garde"
+    }
+   ]
+  },
+  "XH_choucroute_donne": {
+   "act": "III",
+   "title": "La choucroute",
+   "place": "cormorane",
+   "ambiance": "mer",
+   "second": true,
+   "text": [
+    "Il la mène au fond de la cambuse. Il déplace les sacs de pois. Elle voit les tonnelets. Elle en ouvre un. L'odeur aigre, puissante, monte dans la chaleur, et elle ferme les yeux, comme on respire un bouquet.",
+    "« Vous les cachiez, dit-elle.",
+    "— Je les gardais. C'est différent. Un cuisinier garde toujours quelque chose. Sinon, le jour où il n'y a plus rien, il n'est plus cuisinier, il est un homme comme les autres avec une marmite vide. »",
+    "Elle ne demande pas pour qui il les gardait. Elle le regarde, simplement, d'un regard de médecin qui sait lire autre chose que les gencives. Puis elle dit merci, et elle repart avec un tonnelet sous chaque bras, comme une ménagère qui revient du marché.",
+    "Dans huit jours, les gencives de l'avant ne saigneront plus. Fargue le sait. Il sait aussi que, sur l'île, ses hommes auront moins de dents. Il a fait un calcul. Il ne sait pas encore s'il était bon."
+   ],
+   "choices": [
+    {
+     "label": "Remettre les sacs de pois en place",
+     "back": "A3f_jours"
+    }
+   ]
+  },
+  "XH_choucroute_garde": {
+   "act": "III",
+   "title": "La choucroute",
+   "place": "cormorane",
+   "ambiance": "mer",
+   "second": true,
+   "text": [
+    "« Rien, dit-il. J'ai des pois, du lard, du biscuit. Pas de citrons. Je suis désolé, Madame. »",
+    "Elle le regarde. Elle hoche la tête. Elle s'en va. Elle ne le croit pas, il le voit à sa nuque, mais elle n'a pas le droit de fouiller une cambuse, et elle le sait, et il le sait.",
+    "Le soir, il ouvre un tonnelet en cachette, et en sert une louche à chacun de ses hommes, dans leur soupe, sans rien dire. Ils trouvent la soupe aigre. Ils la mangent quand même.",
+    "À l'avant, les gencives continuent de saigner. Il y a parmi elles celles du gabier Daguenet, qui est un brave garçon, et qui chante bien, et qui ne sera jamais à lui. Fargue ne pense pas à Daguenet. Il s'applique à ne pas y penser, avec l'énergie d'un homme qui récure une casserole très sale."
+   ],
+   "choices": [
+    {
+     "label": "Remettre les sacs de pois en place",
+     "back": "A3f_jours"
     }
    ]
   },
@@ -28111,6 +30106,21 @@
     },
     {
      "if": {
+      "all": [
+       {
+        "has": "victorine:laudanum_hector"
+       },
+       {
+        "not": {
+         "has": "evac:pharmacie"
+        }
+       }
+      ]
+     },
+     "text": "Au fond de la sacoche, dans la poche où l'on met les choses qu'on ne prête pas, il reste la fiole d'Hector, aux deux tiers pleine, avec la moitié d'une étiquette. Elle la pose à part, dans la niche, au bout de la rangée. La dernière réserve. Hector aura attendu trois ans et deux mille lieues pour servir à quelque chose."
+    },
+    {
+     "if": {
       "has": "vauclair:sauve"
      },
      "text": "Vauclair l'aide sans un mot, et quand ses mains tremblent trop, il les fourre sous ses aisselles et attend que ça passe."
@@ -28557,6 +30567,34 @@
       "min": 1
      },
      "why": "Le vieil homme ne t'en a encore rien dit."
+    },
+    {
+     "label": "Écouter le vieil homme parler d'une cloche",
+     "to": "XU_debut",
+     "hide": {
+      "seen": "XU_debut"
+     },
+     "if": {
+      "count": [
+       {
+        "seen": "A4n_histoire"
+       },
+       {
+        "seen": "XD_debut"
+       },
+       {
+        "seen": "XT_debut"
+       },
+       {
+        "seen": "A4n_compas"
+       },
+       {
+        "seen": "A4n_suivre"
+       }
+      ],
+      "min": 1
+     },
+     "why": "Il n'a encore rien dit d'une cloche."
     },
     {
      "label": "Partir rejoindre les tiens",
@@ -29646,6 +31684,219 @@
    "choices": [
     {
      "label": "Rentrer à la hutte, en courant",
+     "back": "A4n_jours"
+    }
+   ]
+  },
+  "XU_debut": {
+   "act": "IV",
+   "title": "La cloche",
+   "place": "cabane",
+   "ambiance": "nature",
+   "text": [
+    "Un soir, devant le feu, Sauveur parle d'une cloche.",
+    "« La chapelle de la Miséricorde avait une cloche, dit-il. Fondue à Morlenc, payée par les colons sou à sou, bénie par leur pasteur, qui n'avait aucun droit de bénir quoi que ce soit, étant protestant, et qui l'a fait quand même. Elle sonnait les offices, les naissances, les morts, et les navires. » Il tisonne le feu. « Le jour des clefs, quelqu'un l'a fait décrocher, et rouler jusqu'à la falaise, et jeter à la mer. Pour qu'elle ne sonne pas l'alarme. Ou pour qu'elle ne sonne plus jamais rien. Les deux raisons se valent. »",
+    "Il te regarde à travers la fumée de sa pipe.",
+    "« Elle est toujours là. Dans une grotte, au pied de la falaise de l'est, que la mer ne découvre qu'aux grandes marées, deux fois par lune. Je l'ai vue. Je n'ai jamais pu la sortir. Il faudrait des bras jeunes, et de l'obstination, et une idée. » Il sourit. « J'ai l'obstination. J'ai même eu l'idée. Les bras, je les ai laissés quelque part entre soixante et soixante-trois ans. »",
+    "La grande marée, dit-il, c'est après-demain."
+   ],
+   "choices": [
+    {
+     "label": "Descendre à la grotte avec lui, à la marée",
+     "to": "XU_grotte"
+    }
+   ]
+  },
+  "XU_grotte": {
+   "act": "IV",
+   "title": "La grotte",
+   "place": "cabane",
+   "ambiance": "souterrain",
+   "text": [
+    "À l'heure du plus bas de l'eau, la mer se retire de la falaise de l'est comme un rideau qu'on tire, et découvre, au ras des galets, une bouche noire, basse, frangée d'algues brunes qui pendent comme des cheveux mouillés. On y entre à quatre pattes. Puis on se relève.",
+    "Dedans, c'est une église. Une nef immense, creusée par la mer dans la roche noire, haute comme la chapelle de Sainte-Anne, avec une voûte qui se perd dans l'ombre. La lumière y entre par la bouche, rasante, et par en dessous, à travers une eau verte et claire qui remplit le fond de la nef, et elle monte le long des parois en reflets mouvants, comme si la grotte entière respirait. Et les parois sont vivantes. Des anémones rouges, mauves, orangées, ouvertes comme des fleurs de chair. Des éponges jaunes. Des étoiles de mer pourpres, collées au roc comme des sceaux de cire. Des moules par milliers, noires, serrées comme des tuiles. Tout cela luit, ruisselle, palpite, dans un silence de cathédrale où l'on entend seulement, très loin, le cœur de la mer.",
+    "Au fond, à demi plongée dans l'eau verte, couchée sur le flanc entre deux rochers, couverte d'algues et de coquillages, il y a la cloche. Grande. Plus grande que toi. La bouche tournée vers l'entrée, comme un animal endormi. Sur le bronze, sous la croûte de coquillages, on devine des lettres en relief.",
+    "Sauveur s'arrête à l'entrée. Il ne va pas plus loin. Il regarde la cloche, de loin, longtemps, avec une expression que tu ne lui as jamais vue, et que la lumière verte rend difficile à lire.",
+    "« Elle pèse six cents livres, dit-il. Je sais. Je l'ai fait porter. » Il se reprend. « Je l'ai vue porter. »"
+   ],
+   "choices": [
+    {
+     "label": "T'approcher de la cloche",
+     "to": "XU_cloche"
+    }
+   ]
+  },
+  "XU_cloche": {
+   "act": "IV",
+   "title": "La cloche",
+   "place": "cabane",
+   "ambiance": "souterrain",
+   "text": [
+    "Tu entres dans l'eau verte jusqu'aux genoux, puis jusqu'à la taille. Elle est froide, bien plus froide que la mer du dehors. Tu touches la cloche. Le bronze est lisse là où l'eau le lave, rugueux là où les coquillages ont pris.",
+    "Tu grattes la croûte avec ton couteau, à l'endroit des lettres. Elles apparaissent une à une, vertes de patine : *MISERICORDIA · SVPER · AQVAS.* La même devise que sur les piastres. Et dessous, plus petit : *Ie sonne pour les vivans.*",
+    "Tu essaies de la bouger. Tu pousses de tout ton poids, l'épaule contre le bronze. Rien. Pas un pouce. Six cents livres, coincées entre deux rochers, sous l'eau, depuis vingt et un ans.",
+    "Mais l'eau monte, déjà, par la bouche de la grotte. Lentement. Et en montant, elle soulève les algues, et les algues flottent, et le bois flotte, et les barriques flottent. Et une barrique vide, dit Sauveur depuis l'entrée, porte deux cents livres sans se plaindre.",
+    "Tu regardes la cloche. Tu regardes l'eau qui monte. Tu as une idée. C'est la sienne, sans doute. Il te l'a laissée trouver."
+   ],
+   "choices": [
+    {
+     "label": "Remonter avant que la mer ferme la grotte, et préparer les barriques",
+     "to": "XU_travail"
+    }
+   ]
+  },
+  "XU_travail": {
+   "act": "IV",
+   "title": "Le travail",
+   "place": "cabane",
+   "ambiance": "nature",
+   "text": [
+    "Il te faut trois barriques vides, des cordes, des coins de bois, un levier, et la marée.",
+    "Les barriques, Sauveur en a deux, derrière la hutte, qui servent à recueillir l'eau de pluie. La troisième, tu la trouves sur la plage du nord, rejetée par la mer, à moitié pleine de sable, sans fond. Il te faut une journée pour lui faire un fond avec des planches de caisse et de la poix que Sauveur fait cuire dans une marmite en jurant contre la qualité de la poix d'aujourd'hui, qui est pourtant la sienne, de l'année dernière. Les cordes, tu les tresses toi-même, avec des fibres de palmier, pendant deux soirs, devant le feu, les doigts en sang, en pensant au Gabier et à ses nœuds.",
+    "Au plus bas de la marée suivante, tu entres dans la grotte avec tout ton matériel. Tu as quatre heures. Tu glisses les coins sous la cloche, à coups de pierre. Tu passes les cordes autour, dans les anses, une à une, en plongeant dans l'eau verte, les yeux ouverts, au milieu des anémones qui se ferment à ton passage. Tu amarres les barriques vides aux cordes, au ras de l'eau, avec des nœuds de chaise qui ne glissent pas.",
+    "Puis tu attends la mer.",
+    "Elle monte. Elle couvre les barriques. Les cordes se tendent. Tu entends le bronze grincer contre la roche, un son grave, prolongé, presque une note, qui fait vibrer la grotte entière. La cloche bouge. Elle bouge d'un pouce. De deux."
+   ],
+   "choices": [
+    {
+     "label": "Pousser avec le levier, pendant que la mer tire",
+     "test": {
+      "dom": "savoir",
+      "diff": 1,
+      "label": "L'idée, et la mer"
+     },
+     "win": {
+      "to": "XU_pieuvre"
+     },
+     "lose": {
+      "to": "XU_travail_rate"
+     }
+    }
+   ]
+  },
+  "XU_travail_rate": {
+   "act": "IV",
+   "title": "Le travail",
+   "place": "cabane",
+   "ambiance": "nature",
+   "text": [
+    "Tu pousses. La cloche bouge encore d'un pouce. Puis une corde cède, celle que tu as tressée le premier soir, trop vite, avec des fibres trop sèches. Une barrique s'échappe et remonte à la surface comme un bouchon, et la cloche retombe dans son lit de rocher avec un bruit sourd, grave, qui résonne dans la nef comme un glas.",
+    "La mer monte. Il faut sortir. Tu sors, à la nage, par la bouche de la grotte presque fermée, en avalant de l'eau, et tu te hisses sur les galets, et tu restes là, couché{e} sur le dos, à regarder le ciel, avec l'envie de pleurer et une égratignure au front.",
+    "Sauveur s'assied à côté de toi. Il ne dit rien pendant un long moment.",
+    "« La première fois, dit-il enfin, j'ai cassé deux cordes et perdu les trois barriques. J'avais cinquante ans et je croyais tout savoir. » Il te tend une gourde. « Refais tes cordes. Plus lentement. Avec des fibres mouillées. La prochaine grande marée, c'est dans quinze jours. La cloche n'est pas pressée. Elle attend depuis vingt et un ans. »",
+    "Quinze jours plus tard, tu recommences. Les cordes tiennent."
+   ],
+   "choices": [
+    {
+     "label": "Retourner à la grotte, à la marée suivante",
+     "to": "XU_pieuvre"
+    }
+   ]
+  },
+  "XU_pieuvre": {
+   "act": "IV",
+   "title": "La bête",
+   "place": "cabane",
+   "ambiance": "souterrain",
+   "text": [
+    "La cloche se soulève. Les barriques la tirent vers le haut, la mer la porte, et elle quitte son lit de roche avec un long soupir de bronze, et elle flotte, entre deux eaux, suspendue sous les barriques comme un pendu sous une branche. Tu cries de joie. La grotte te renvoie ton cri, cent fois.",
+    "C'est alors que quelque chose te prend le bras.",
+    "Une chose froide, gluante, souple, qui sort d'une fente du rocher, à côté de toi, et qui s'enroule autour de ton poignet, puis de ton coude, et serre. Puis une deuxième, autour de ta taille. Une troisième, autour de ta jambe. Des lanières grises, longues comme des hommes, couvertes en dessous de ventouses blanches qui se collent à ta peau et la tirent, la sucent, comme cent petites bouches. Et dans la fente, au fond, un œil. Un œil énorme, doré, à la pupille en fente, qui te regarde sans colère, sans haine, sans rien, avec une attention parfaite.",
+    "La bête te tire vers la fente. Lentement. Patiemment. Elle a le temps. Toi, tu as la tête qui sort à peine de l'eau, et l'eau qui monte.",
+    "Tu as ton couteau dans la main libre. Sauveur t'a dit un jour, devant le feu, en parlant d'autre chose : *toutes les bêtes ont un endroit où vit leur volonté. Il faut le trouver, et frapper là, une fois.*"
+   ],
+   "choices": [
+    {
+     "label": "Frapper entre les yeux, là où vit la volonté de la bête",
+     "test": {
+      "dom": "combat",
+      "diff": 1,
+      "label": "Un seul coup, au bon endroit"
+     },
+     "win": {
+      "fx": {
+       "flag": [
+        "xu:pieuvre_tuee",
+        "xu:cloche"
+       ]
+      },
+      "to": "XU_pieuvre_tuee"
+     },
+     "lose": {
+      "fx": {
+       "flag": [
+        "xu:sauve",
+        "xu:cloche"
+       ]
+      },
+      "to": "XU_pieuvre_sauveur"
+     }
+    },
+    {
+     "label": "Trancher les bras, un par un",
+     "fx": {
+      "flag": [
+       "xu:sauve",
+       "xu:cloche"
+      ]
+     },
+     "to": "XU_pieuvre_sauveur"
+    }
+   ]
+  },
+  "XU_pieuvre_tuee": {
+   "act": "IV",
+   "title": "La bête",
+   "place": "cabane",
+   "ambiance": "souterrain",
+   "text": [
+    "Tu laisses les bras tranquilles. Tu te laisses tirer vers la fente, au contraire, au plus près de l'œil doré, jusqu'à sentir contre ta poitrine le corps mou, énorme, palpitant de la bête, et tu frappes, une fois, de toutes tes forces, entre les deux yeux, au milieu, là où la chair est plus ferme.",
+    "La bête devient blanche. D'un coup, tout entière, comme une chandelle qu'on souffle à l'envers. Les bras se relâchent. Les ventouses lâchent prise, une à une, avec un bruit de baisers mouillés. La bête glisse au fond de l'eau verte, lentement, en tournoyant, ses huit bras ouverts autour d'elle comme une fleur fanée.",
+    "Tu restes un moment accroché{e} au rocher, haletant{e}, couvert{e} de marques rouges, rondes, régulières, comme si cent bouches t'avaient embrassé{e}. Puis tu nages vers la sortie, en poussant devant toi la cloche suspendue sous ses barriques, jusqu'à la bouche de la grotte, jusqu'au jour."
+   ],
+   "choices": [
+    {
+     "label": "Sortir avec la cloche",
+     "to": "XU_fin"
+    }
+   ]
+  },
+  "XU_pieuvre_sauveur": {
+   "act": "IV",
+   "title": "La bête",
+   "place": "cabane",
+   "ambiance": "souterrain",
+   "text": [
+    "Tu frappes. Les bras. Un bras tranché tombe et se tord dans l'eau comme un serpent coupé. Un autre le remplace. La bête a huit bras ; tu en as deux, et l'eau monte jusqu'à ton menton.",
+    "Puis une ombre passe au-dessus de toi. Sauveur est entré dans la grotte, à la nage, avec un harpon de pêche qu'il tenait à la main depuis le début, et que tu n'avais pas remarqué. Il plonge. Il reste sous l'eau un temps qui te paraît impossible pour un homme de soixante-trois ans. L'eau verte se trouble, devient noire, d'une encre épaisse qui sent le fer.",
+    "Les bras te lâchent, d'un coup. Sauveur remonte, crachant, ruisselant, sa barbe pleine d'encre noire, et te prend par le col, et te tire vers la sortie, en poussant de l'autre main la cloche suspendue sous ses barriques.",
+    "Sur les galets, au soleil, il s'assied, essoufflé, et regarde ses mains. Elles tremblent. « Vingt et un ans que je ne l'avais pas tuée, dit-il. Je savais qu'elle était là. Elle gardait la cloche. Je la laissais faire. C'était un arrangement. » Il te regarde. « Vous avez rompu l'arrangement. Il fallait bien que je finisse le travail. »"
+   ],
+   "choices": [
+    {
+     "label": "Tirer la cloche sur les galets",
+     "to": "XU_fin"
+    }
+   ]
+  },
+  "XU_fin": {
+   "act": "IV",
+   "title": "La cloche",
+   "place": "cabane",
+   "ambiance": "nature",
+   "text": [
+    "Il faut une journée entière, avec les rouleaux de bois et le levier, pour hisser la cloche jusqu'en haut de la grève, à l'abri des marées. Vous la dressez sur deux pierres, la bouche vers le bas. Sauveur la gratte, lentement, avec une conque, jusqu'à ce que le bronze apparaisse, vert et doré, sous les coquillages. *MISERICORDIA · SVPER · AQVAS. Ie sonne pour les vivans.*",
+    "Puis il prend un galet rond, gros comme le poing, et il frappe la cloche, une fois.",
+    "Le son part. Un son énorme, grave, profond, qui roule sur la plage, sur la falaise, sur la Sylve, sur l'île entière, et qui ne finit pas, qui s'élargit, qui tremble, qui monte vers la Table et redescend, comme une vague qui ne se briserait jamais. Les perroquets s'envolent de la falaise par centaines. Au loin, dans le bois mort, d'autres perroquets répondent, avec des voix d'enfants.",
+    "Sauveur écoute le son jusqu'au bout, la tête baissée, les yeux fermés, comme on écoute une messe. Quand il rouvre les yeux, il a le visage mouillé. Ce n'est peut-être que l'eau de la grotte.",
+    "« Elle sonne pour les vivants, dit-il. C'est écrit dessus. » Il se lève. « Il faudra lui trouver un clocher. Plus tard. Quand il y aura assez de vivants pour qu'elle serve. »"
+   ],
+   "choices": [
+    {
+     "label": "Rentrer à la hutte",
+     "fx": {
+      "quest": "XU"
+     },
      "back": "A4n_jours"
     }
    ]
@@ -33310,6 +35561,12 @@
     "On entrouvre la porte. Victorine sort.",
     "Il a l'air fatigué. Il s'est rasé, il a mis une chemise propre, son foulard rouge, mais il a les yeux creusés de quelqu'un qui n'a pas dormi depuis deux nuits. Il la salue, très bas, avec une politesse de maître d'hôtel.",
     "« Docteur. Vous avez bonne mine. Le siège vous va. »",
+    {
+     "if": {
+      "has": "victorine:doigts"
+     },
+     "text": "« Et votre requin, Fargue ? » dit Victorine. Il regarde sa main gauche, puis elle, et pour la première fois depuis Morlenc il a l'air d'un homme qu'on a pris en faute. « Il se porte bien, docteur. Il a de la méthode. »"
+    },
     "Puis il expose ses conditions, à voix haute, pour qu'on l'entende du mur : la carte, contre la vie de tous. On creusera, on partagera : un tiers aux gens de la chapelle, deux tiers à l'équipage. La Cormorane rentrera à Morlenc avec tout le monde à bord, et l'on dira qu'il y a eu une fièvre, et que les morts sont morts de fièvre. Personne ne sera pendu. Tout le monde sera riche. C'est une proposition honnête, dit-il, la plus honnête qu'on ait jamais faite sur cette île.",
     "Puis il fait un pas vers elle, et baisse la voix."
    ],
@@ -34971,6 +37228,18 @@
       "has": "chien:mord_fargue"
      },
      "text": "Son bras gauche, sous le bandage, le lance. La morsure du chien-loup, dans les Sargues. Elle s'est rouverte en ramant. Il la serre de sa main droite, sans y penser, comme on tient une rampe."
+    },
+    {
+     "if": {
+      "has": "fargue:pistolet_farine"
+     },
+     "text": "Dans sa ceinture, il y a le pistolet du baril de farine, sorti cet après-midi, la crosse encore blanche dans les rainures. Il l'a nettoyé, rechargé, amorcé. Il ne l'a pas sorti. Il le touche, de temps en temps, comme on touche une dent malade."
+    },
+    {
+     "if": {
+      "has": "fargue:farine_propre"
+     },
+     "text": "Le pain de la Cormorane a été bon jusqu'au dernier jour. Ce soir, ses hommes le jettent aux crabes pour faire de la place au rhum. Il les regarde faire, et c'est peut-être la seule chose de la journée qui lui fait vraiment de la peine."
     },
     {
      "if": {
@@ -37253,6 +39522,25 @@
      "to": "A5m_dagrel"
     },
     {
+     "label": "Essayer les relèvements de la croix du nord, tels qu'écrits",
+     "hide": {
+      "any": [
+       {
+        "seen": "XW_nord"
+       },
+       {
+        "not": {
+         "seen": "A5m_faux"
+        }
+       },
+       {
+        "has": "correction:connue"
+       }
+      ]
+     },
+     "to": "XW_nord"
+    },
+    {
      "label": "Renoncer pour aujourd'hui, et attendre le soir",
      "hide": {
       "not": {
@@ -37783,6 +40071,199 @@
     {
      "label": "La nuit",
      "to": "C5_fin"
+    }
+   ]
+  },
+  "XW_nord": {
+   "act": "V",
+   "title": "La croix du nord",
+   "place": "sylve",
+   "ambiance": "nature",
+   "text": [
+    "Tu essaies la troisième croix, celle du nord, avec ses deux relèvements tels qu'ils sont écrits. Tu prends le premier quart sur la Dent-du-Nord, le second sur le sommet de la Table. Tu marches. Tu corriges. Tu marches encore. L'aiguille frissonne, hésite, tourne, revient, comme un chien qui ne veut pas aller là où on le mène.",
+    "Les lignes se croisent au sud. Tout au sud, à l'opposé exact des collines du nord, dans la mangrove.",
+    "La mangrove de Folle-Aiguille borde la côte sud sur une demi-lieue, entre la plage des crabes et l'embouchure d'un ruisseau noir. C'est une forêt qui marche sur l'eau. Les palétuviers se dressent sur leurs racines comme sur des échasses, des centaines de racines arquées, grises, entremêlées, qui plongent dans une vase noire où la marée monte et descend deux fois par jour. Il y fait une chaleur de serre. L'air sent le soufre, la feuille pourrie, et une sorte de sucre. Des crabes rouges, par milliers, détalent devant toi en agitant une pince énorme, une seule, comme s'ils te menaçaient tous d'un même geste.",
+    "Et tu entends des voix. Des voix d'hommes, et des bruits de pelles dans la boue."
+   ],
+   "choices": [
+    {
+     "label": "T'approcher des voix, à travers les racines",
+     "to": "XW_creuseurs"
+    },
+    {
+     "label": "Les contourner par la plage des crabes",
+     "to": "XW_plage"
+    }
+   ]
+  },
+  "XW_creuseurs": {
+   "act": "V",
+   "title": "La mangrove",
+   "place": "sylve",
+   "ambiance": "nature",
+   "text": [
+    "Ils sont six, dans une clairière de vase, entre les racines. Des marins du brigantin, la Désinvolte, en chemise, en culotte retroussée, couverts de boue noire jusqu'aux épaules. Ils creusent. Ils ont creusé toute la matinée, à en juger par les trous : une douzaine, partout, pleins d'eau, qui se referment à mesure qu'on les creuse, comme une bouche qui mâche.",
+    "Un officier, en habit bleu taché, une copie de la carte à la main, un compas dans l'autre, crie des ordres en regardant tour à tour la carte et l'aiguille, qui tourne. « Ici ! Non. Là. Trois pas au nord. Non, au nord, au vrai nord, celui de la carte ! » Les hommes le regardent sans amour.",
+    "Ils suivent les mêmes chiffres que toi. Ils creusent là où la carte ment. Ils ne trouveront rien, que de la vase et des crabes.",
+    "Puis un des hommes, à l'écart, au bord d'un trou plus grand que les autres, pousse un cri. Il s'enfonce. Il était debout dans la vase, et la vase s'est ouverte sous lui, et elle l'aspire, lentement, jusqu'aux cuisses, jusqu'à la taille. Il se débat. Plus il se débat, plus il descend. Les autres le regardent, figés. L'officier crie qu'on ne bouge pas, qu'on va s'enliser tous."
+   ],
+   "choices": [
+    {
+     "label": "Quitter les racines, et lui tendre une branche",
+     "test": {
+      "dom": "nature",
+      "diff": 1,
+      "label": "La vase qui avale"
+     },
+     "win": {
+      "fx": {
+       "flag": "xw:enlise_sauve"
+      },
+      "to": "XW_enlise_sauve"
+     },
+     "lose": {
+      "fx": {
+       "flag": "xw:enlise_sauve"
+      },
+      "to": "XW_enlise_pris"
+     }
+    },
+    {
+     "label": "Rester caché{e}",
+     "fx": {
+      "flag": "xw:enlise_laisse"
+     },
+     "to": "XW_enlise_laisse"
+    }
+   ]
+  },
+  "XW_enlise_sauve": {
+   "act": "V",
+   "title": "La vase",
+   "place": "sylve",
+   "ambiance": "nature",
+   "text": [
+    "Tu sors des racines. Les marins sursautent, lèvent leurs pelles. Tu ne les regardes pas. Tu casses une longue branche morte de palétuvier, tu te couches à plat ventre sur un lit de racines, au bord du trou, pour répartir ton poids comme les pêcheurs de l'anse des Corneilles sur la vase de la baie, et tu tends la branche à l'homme qui s'enfonce.",
+    "« Ne bouge plus, dis-tu. Ne te débats plus. Couche-toi sur le dos, comme dans l'eau. La vase te portera si tu lui en laisses le temps. »",
+    "Il te regarde, fou de peur. Puis il obéit. Il se renverse en arrière, lentement, les bras en croix, et la vase, qui l'avalait, s'arrête. Il attrape la branche. Tu tires. Les autres marins, enfin, se couchent à côté de toi, sur les racines, et tirent aussi. L'homme sort de la vase avec un bruit énorme de succion, en laissant ses deux bottes au fond.",
+    "Il reste couché sur les racines, couvert de boue noire, à respirer. Puis il te regarde. C'est un garçon de vingt ans, à peine, avec un accent du Couchant et une dent en moins.",
+    "L'officier en habit bleu s'approche, sa carte à la main. Il te regarde de la tête aux pieds. « Toi, tu es de la Cormorane. » Il hésite. Puis il range son pistolet, qu'il avait sorti. « Va-t'en. Je ne t'ai pas vu{e}. Et dis à ta capitaine que le Chevalier Quémeneur n'oublie pas les services. »"
+   ],
+   "choices": [
+    {
+     "label": "Continuer à travers les racines",
+     "to": "XW_tombe"
+    }
+   ]
+  },
+  "XW_enlise_pris": {
+   "act": "V",
+   "title": "La vase",
+   "place": "sylve",
+   "ambiance": "nature",
+   "text": [
+    "Tu sors des racines, une branche à la main. Tu te couches au bord du trou, tu la tends. L'homme l'attrape. Tu tires. Et la vase, sous ton propre ventre, s'ouvre à son tour, et tu glisses, et tu t'enfonces jusqu'aux hanches, à côté de lui.",
+    "Pendant un moment épouvantable, vous êtes deux à descendre, côte à côte, dans la boue noire et tiède, en vous tenant la main. Puis les marins de la Désinvolte se couchent sur les racines, en chaîne, comme on fait sur la glace, et vous tirent, l'un après l'autre, avec une gaffe et beaucoup de jurons.",
+    "Tu sors sans tes souliers. L'homme sort sans ses bottes. Vous restez couchés côte à côte sur les racines, noirs de vase des pieds à la tête, à respirer, et il se met à rire, d'un rire nerveux, interminable, et tu ris aussi, sans savoir pourquoi.",
+    "L'officier en habit bleu te regarde partir à pieds nus sans rien dire. Il a son pistolet à la main. Il ne s'en sert pas. Il le range, au bout d'un moment, comme on range un argument dont on n'a plus besoin."
+   ],
+   "choices": [
+    {
+     "label": "Continuer à travers les racines, pieds nus",
+     "to": "XW_tombe"
+    }
+   ]
+  },
+  "XW_enlise_laisse": {
+   "act": "V",
+   "title": "La vase",
+   "place": "sylve",
+   "ambiance": "nature",
+   "text": [
+    "Tu restes accroupi{e} derrière les racines, sans bouger. Tu te dis qu'ils sont six, armés, que ce sont les hommes du brigantin, que tu as le trésor à trouver, que ce n'est pas ton affaire.",
+    "L'homme s'enfonce. Jusqu'à la poitrine. Jusqu'aux épaules. Les autres finissent par se coucher sur les racines et lui tendre une pelle. Il l'attrape. Ils tirent. Ils le sortent, enfin, au dernier moment, avec la vase jusqu'au menton, et il reste couché sur les racines à vomir de la boue noire.",
+    "Il vit. Ils l'ont sauvé sans toi.",
+    "Tu repars à travers les racines, sans bruit, avec la sensation d'avoir regardé, une fois de plus, à trois pas de quelque chose, sans rien faire. Elle te colle à la peau, comme la vase de la mangrove, et il faudra plus qu'un bain pour l'enlever."
+   ],
+   "choices": [
+    {
+     "label": "Continuer à travers les racines",
+     "to": "XW_tombe"
+    }
+   ]
+  },
+  "XW_tombe": {
+   "act": "V",
+   "title": "La tombe dans les racines",
+   "place": "sylve",
+   "ambiance": "nature",
+   "text": [
+    "Plus loin, là où la mangrove remonte vers la terre ferme, au pied d'un palétuvier plus grand et plus vieux que les autres, il y a une croix. Une croix de bois, presque pourrie, à moitié mangée par les crabes, enfoncée dans un petit tertre que les racines ont envahi.",
+    "Sur la traverse, on a gravé au couteau, il y a longtemps, des lettres que l'humidité a presque effacées. Tu les déchiffres du bout des doigts, comme un aveugle.",
+    "*JOS. KERDRÉAN. MAÎTRE DE MANŒUVRE. LA MARAUDE. MORT DES FIÈVRES.* Et dessous, d'une autre main, plus maladroite : *IL ÉTAIT BON.*",
+    "Quelqu'un de l'équipage de la Maraude est mort ici, il y a vingt et un ans, pendant les jours où ils enterraient le trésor. Et quelqu'un l'a enterré, et lui a fait une croix, et a gravé dessus que c'était un homme bon. Au milieu de tout le reste. Au milieu des clefs, de la chapelle, de la crypte.",
+    "Tu restes un moment devant la croix pourrie. Tu ne sais pas quoi penser d'un équipage qui massacre une colonie et grave sur la tombe d'un camarade qu'il était bon. Tu penses que c'est peut-être la question la plus difficile que t'ait posée cette île."
+   ],
+   "choices": [
+    {
+     "label": "Redresser la croix, et la caler avec des pierres",
+     "fx": {
+      "flag": "xw:tombe_maraude"
+     },
+     "to": "XW_plage"
+    },
+    {
+     "label": "La laisser aux crabes",
+     "to": "XW_plage"
+    }
+   ]
+  },
+  "XW_plage": {
+   "act": "V",
+   "title": "La plage des crabes",
+   "place": "plage",
+   "ambiance": "nature",
+   "text": [
+    "La mangrove s'ouvre sur une plage de sable gris, au sud, que personne n'a encore foulée de ce voyage. Elle est rouge. Rouge de crabes, des milliers, des millions peut-être, qui couvrent le sable d'un tapis mouvant et cliquetant, et qui s'écartent devant tes pas en vague, avec un bruit de pluie sèche, et se referment derrière toi.",
+    "Au milieu de la plage, à demi enfoui dans le sable, il y a un canot. Un canot de navire, retourné, la quille en l'air, blanchi par le sel et le soleil comme un os de baleine. Les crabes entrent et sortent par les fentes du bordage.",
+    "Tu le retournes, avec beaucoup de peine. Dessous, dans le sable, rien. Des crabes, un aviron cassé, une écope de bois. Et, gravé sur le banc de nage, à la pointe de couteau, comme sur la croix de la mangrove, un nom de navire : *MARAUDE.*",
+    "Le canot de la Maraude. Celui qui a servi à enterrer le trésor, peut-être. Ou celui qui a ramené les mutins à leur bord, la nuit où ils ont laissé leur capitaine sur la plage. Il est là depuis vingt et un ans, la quille au ciel, sur une plage où personne ne vient, à attendre qu'on le retourne."
+   ],
+   "choices": [
+    {
+     "label": "Fouiller le canot jusqu'au bout",
+     "fx": {
+      "flag": "xw:canot"
+     },
+     "to": "XW_canot"
+    },
+    {
+     "label": "Revenir à la carte, dans ta tête",
+     "back": "A5m_debut"
+    }
+   ]
+  },
+  "XW_canot": {
+   "act": "V",
+   "title": "La plage des crabes",
+   "place": "plage",
+   "ambiance": "nature",
+   "text": [
+    "Tu fouilles le canot, planche par planche. Sous le banc de l'arrière, dans un coin que le sel a épargné, coincé entre deux membrures, il y a un objet enveloppé dans un morceau de toile cirée, durcie, cassante.",
+    "Tu le déballes. C'est un pistolet. Un vieux pistolet d'arçon, rongé de rouille, au chien cassé. Il est déchargé. Dans le canon, il n'y a rien. À côté, dans la toile, une seule balle de plomb, intacte, grise, ronde.",
+    {
+     "if": {
+      "has": "sauveur:histoire"
+     },
+     "text": "Tu as déjà vu ce genre de pistolet. Au-dessus d'une porte, sur deux chevilles. Celui-ci n'a jamais été tiré. Celui de la hutte, tu ne sais pas."
+    },
+    "Tu ne sais pas à qui il était. Tu sais que quelqu'un l'a caché là, dans le canot, avec une balle qui n'a jamais servi, et ne l'a jamais repris.",
+    "Tu laisses le pistolet dans sa toile, sous le banc. Il n'est pas à toi. La balle non plus. Tu remets le canot à l'endroit où tu l'as trouvé, la quille au ciel, pour les crabes."
+   ],
+   "choices": [
+    {
+     "label": "Revenir à la carte, dans ta tête",
+     "back": "A5m_debut"
     }
    ]
   },
@@ -42381,6 +44862,12 @@
     },
     {
      "if": {
+      "has": "xu:cloche"
+     },
+     "text": "Sur la grève de l'est, au pied de la falaise, une cloche verte et dorée attend sur deux pierres, la bouche en bas. Quelqu'un la frappe, ce matin, d'un galet, une seule fois. Le son roule sur l'île, sur l'anse, sur la mer. Ie sonne pour les vivans."
+    },
+    {
+     "if": {
       "all": [
        {
         "has": "chien:apprivoise"
@@ -42762,39 +45249,78 @@
    "act": "V",
    "title": "Le dernier matin",
    "place": "misericorde",
+   "hub": true,
+   "noLead": true,
+   "backName": "la nef",
    "ambiance": "mer",
    "text": [
-    "Elle fait sa dernière tournée dans la nef, à l'aube, comme chaque matin depuis le débarquement : les fiévreux, les blessés, les mourants, un par un, de la porte à l'autel, le pouls, la langue, le pansement. Elle connaît leurs noms. Elle connaît le nom de leurs mères. Elle le regrettera.",
     {
+     "first": true,
+     "text": "Elle fait sa dernière tournée dans la nef, à l'aube, comme chaque matin depuis le débarquement : les fiévreux, les blessés, les mourants, un par un, de la porte à l'autel, le pouls, la langue, le pansement. Elle connaît leurs noms. Elle connaît le nom de leurs mères. Elle le regrettera."
+    },
+    {
+     "first": true,
      "if": {
       "has": "chapelle:soins"
      },
      "text": "Ils sont moins nombreux qu'ils auraient dû l'être. Elle a passé deux nuits sans dormir pendant le siège, à recoudre et à cautériser, et deux hommes qui auraient dû mourir marchent ce matin, en s'appuyant sur des cannes de bambou. Elle ne s'en félicite pas. Elle les regarde marcher, simplement, plus longtemps qu'il ne faudrait."
     },
     {
+     "first": true,
      "if": {
       "has": "morts:enterres"
      },
      "text": "Dans la cour, il y a la fosse où l'on a enterré les ossements de la nef, le premier jour, avec une croix de deux planches. Quelqu'un y a posé des fleurs du verger. Elle ne sait pas qui. Elle ne demande pas."
     },
     {
+     "first": true,
      "if": {
       "has": "evac:vivres"
      },
      "text": "Il reste des vivres, ceux qu'on a sauvés de la Cormorane le jour de l'évacuation : du biscuit, du lard, trois barriques d'eau. Assez pour la traversée, si l'on ne traîne pas, et si l'on ne se dispute pas, ce qui est beaucoup demander à des marins."
     },
     {
+     "first": true,
      "if": {
       "has": "chapelle:demunis"
      },
      "text": "Il ne reste presque rien à manger. On a vécu des fruits du Haut-Verger, de poisson, de tortues, et de la charité des Doux. Les hommes ont maigri. Elle aussi. Elle se trouve, dans le reflet de l'eau de la source, une tête de supérieure de couvent."
     },
-    "Le rocher chante, à l'ouest. Le vent de retour souffle."
+    {
+     "first": true,
+     "text": "Le rocher chante, à l'ouest. Le vent de retour souffle."
+    },
+    {
+     "again": true,
+     "text": "La tournée continue, de la porte à l'autel. Dehors, le rocher chante toujours, et le vent de retour n'attendra pas indéfiniment."
+    }
    ],
    "choices": [
     {
+     "label": "S'asseoir au chevet du gabier qui brûle de fièvre",
+     "to": "XZ_fievre",
+     "hide": {
+      "seen": "XZ_fievre"
+     }
+    },
+    {
+     "label": "Recevoir la file de ceux qui veulent dicter leur testament",
+     "to": "XZ_testaments",
+     "hide": {
+      "seen": "XZ_testaments"
+     }
+    },
+    {
+     "label": "Aller à la porte, où la fille des Doux apporte les fruits",
+     "to": "XZ_ecorce",
+     "hide": {
+      "seen": "XZ_ecorce"
+     }
+    },
+    {
      "label": "Descendre à l'anse",
-     "to": "A5x_etat"
+     "to": "A5x_etat",
+     "big": true
     }
    ]
   },
@@ -43905,6 +46431,180 @@
      },
      "to": "F_corde",
      "big": true
+    }
+   ]
+  },
+  "XZ_fievre": {
+   "act": "V",
+   "title": "La fièvre",
+   "place": "misericorde",
+   "ambiance": "temple",
+   "text": [
+    "Au fond de la nef, sous le vitrail crevé où pend une liane, Mathurin Le Bris, gabier de misaine, brûle depuis trois jours de la fièvre des marais. Il l'a prise dans la mangrove, une nuit de corvée d'eau, avec un millier de moustiques et pas une plainte. Victorine lui a donné tout son quinquina, et le quinquina a perdu.",
+    "Il a les yeux grands ouverts, très brillants, et il voit des choses au plafond. Des choses qui le regardent aussi, à en juger par la manière dont il leur répond. Puis, vers l'aube, la fièvre se retire un moment, comme la mer avant la grande vague, et il la reconnaît.",
+    "« Docteur. Il y a pas de curé, ici. — Il y a moi. — Vous ferez l'affaire. Vous savez écrire, et Dieu, il paraît, sait lire. »",
+    "Il lui prend le poignet, avec une force de mourant, qui est la plus grande force du monde, et il raconte. Morlenc, il y a dix-neuf ans. Une nuit d'hiver, une rixe à la sortie de la Truie-qui-file, rue du Bas-Port. Un marchand de toile, pour une bourse de neuf livres, un coup de couteau de trop. Il s'est enfui. On a pris un autre, un portefaix ivre qui dormait sous le porche, du sang plein la chemise, le sang du marchand, sur lequel il était tombé. On l'a pendu à la Croix-des-Marées six semaines plus tard. Le Bris était dans la foule. Il a regardé jusqu'au bout. Il s'appelait Corentin Le Floch, le portefaix. Il criait qu'il n'avait rien fait, et c'était vrai, et personne ne l'a cru, parce que c'est ce que crient tous ceux qu'on pend.",
+    "« Il avait une mère, dit Le Bris. Rue des Tonneliers. Elle doit être morte. »"
+   ],
+   "choices": [
+    {
+     "label": "Écrire l'aveu, mot pour mot, et le lui faire signer d'une croix",
+     "to": "XZ_fievre_ecrit"
+    },
+    {
+     "label": "Lui dire qu'il est pardonné, et lui fermer les yeux quand ce sera l'heure",
+     "to": "XZ_fievre_absous"
+    }
+   ]
+  },
+  "XZ_fievre_ecrit": {
+   "act": "V",
+   "title": "L'aveu",
+   "place": "misericorde",
+   "ambiance": "temple",
+   "text": [
+    "Victorine écrit sur la dernière page blanche de son carnet de bord, à la lueur d'une lanterne qui pâlit à mesure que le jour entre par le vitrail. Elle écrit le nom, la date, la rue, les neuf livres, le couteau, le portefaix. Elle relit à voix haute. Le Bris approuve chaque phrase d'un battement de paupières.",
+    "Il trace la croix. Elle fait signer comme témoins les deux hommes les plus proches, qui ne savent pas ce qu'ils signent et le font par respect pour la médecin. Elle date, elle signe, elle sèche l'encre en soufflant dessus.",
+    "« Ça servira à quoi, docteur ? Il est mort, Hamon. — À ce qu'on ôte son nom du registre de la Prévôté. À ce que sa mère, si elle vit, puisse se promener rue des Tonneliers la tête haute. Aux morts, on ne rend que leur nom. C'est peu. C'est déjà ça. »",
+    "Le Bris sourit, de toute sa figure creusée, et la fièvre revient le chercher. Il meurt à midi, tranquille, en répétant le nom de Le Floch, comme on récite une leçon qu'on a enfin apprise."
+   ],
+   "choices": [
+    {
+     "label": "Fermer le carnet, et fermer ses yeux",
+     "fx": {
+      "flag": "xz:aveu_ecrit"
+     },
+     "back": "A5x_debut"
+    }
+   ]
+  },
+  "XZ_fievre_absous": {
+   "act": "V",
+   "title": "L'absolution",
+   "place": "misericorde",
+   "ambiance": "temple",
+   "text": [
+    "Victorine pose la main sur le front brûlant, comme elle l'a vu faire à l'abbé Morisseau mille fois, et elle dit les mots. Elle les sait par cœur ; elle les a entendus au chevet de tous ses mourants depuis quinze ans, prononcés la bouche pleine. Elle les dit mieux que lui.",
+    "Le Bris ferme les yeux. Ses mains se détendent sur la couverture. La peur s'en va de sa figure, d'un coup, comme une marée basse qui découvre une plage lisse.",
+    "Il meurt à midi, en paix. Victorine reste assise à côté de lui longtemps après, sans bouger, dans la lumière verte du vitrail. Elle a donné la paix à un assassin. Elle a gardé pour elle le nom d'un pendu innocent, rue des Tonneliers, et elle ne sait plus très bien, maintenant, lequel des deux elle a trahi. Les curés, pense-t-elle, doivent avoir un estomac solide."
+   ],
+   "choices": [
+    {
+     "label": "Se lever, et continuer la tournée",
+     "fx": {
+      "flag": "xz:absous"
+     },
+     "back": "A5x_debut"
+    }
+   ]
+  },
+  "XZ_testaments": {
+   "act": "V",
+   "title": "Les testaments",
+   "place": "misericorde",
+   "ambiance": "temple",
+   "text": [
+    "La rumeur a couru dans la nef pendant la nuit : la médecin sait écrire, et l'on part demain sur une mer qui a déjà mangé assez de monde. Au matin, ils font la queue devant la table de la sacristie, le bonnet à la main, en se poussant du coude, pour dicter leurs dernières volontés.",
+    "Les dernières volontés d'un matelot tiennent en général en trois lignes et une dette. Victorine écrit. Le premier lègue son couteau à son frère, et sa part de trésor à une femme de Lannoz dont il ne connaît que le prénom et la maison, la troisième après la fontaine. Le second lègue tout à sa mère, sauf sa chemise rouge, qu'il lègue à une autre femme de Lannoz, la troisième après la fontaine. Ils se regardent. Ils ne disent rien. Victorine non plus. Elle écrit.",
+    "Un vieux matelot lègue son âme à Dieu, son corps à la mer et ses dettes au baron, « qui a les moyens ». Un jeune lègue un perroquet qu'il n'a pas encore attrapé. Un autre dicte, très pâle, une seule phrase, qui ne concerne aucun bien : *Dire à mon père que je ne lui en veux pas.* Il demande qu'on souligne *pas*. Victorine souligne deux fois.",
+    {
+     "if": {
+      "marin": "arnoult",
+      "is": [
+       "loyal",
+       "hesitant"
+      ]
+     },
+     "text": "Le dernier de la file est Petit-Jules, le novice, qui n'a rien. Il réfléchit très fort, le front plissé, et finit par léguer à la médecin elle-même « la chanson que le maître-coq m'a chantée la nuit de l'épaule, vu que je ne sais pas à qui d'autre la donner »."
+    },
+    {
+     "if": {
+      "not": {
+       "marin": "arnoult",
+       "is": [
+        "loyal",
+        "hesitant"
+       ]
+      }
+     },
+     "text": "Le dernier de la file n'a rien à léguer et ne sait pas pourquoi il a fait la queue. Il reste planté devant la table, le bonnet tordu entre les mains, puis il dit qu'il voulait seulement voir quelqu'un écrire son nom, une fois, en entier. Victorine l'écrit, en belles lettres, sur une feuille à part, et la lui donne. Il la plie en huit et la met dans son soulier."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Plier les testaments, et les ranger dans la trousse",
+     "fx": {
+      "flag": "victorine:testaments"
+     },
+     "back": "A5x_debut"
+    }
+   ]
+  },
+  "XZ_ecorce": {
+   "act": "V",
+   "title": "L'écorce",
+   "place": "misericorde",
+   "ambiance": "nature",
+   "text": [
+    "Chaque matin, une fille des Doux monte du Haut-Verger jusqu'à la porte de la chapelle, un panier de fruits sur la hanche, le pied nu, une fleur de frangipanier derrière l'oreille. Elle s'appelle Pervenche, comme toutes les filles là-haut s'appellent d'une fleur, et elle sourit à tout, aux sentinelles, aux mousquets, aux morts, avec la même douceur égale, comme le soleil sourit sur un champ de bataille.",
+    "Ce matin, au fond du panier, sous les mangues, il y a autre chose : une poignée de lanières d'écorce brune, roulées comme du tabac. Pervenche en prend une, la tend à Victorine, et mime le geste de mâcher, puis celui de dormir, la joue sur ses mains jointes, avec un air de grande bonté.",
+    "Victorine sait ce que c'est. Elle a vu les Doux la mâcher, au Haut-Verger : ils oublient. Pas tout à coup. Un peu chaque jour, la veille, l'avant-veille, l'année d'avant, jusqu'à ce qu'ils ne gardent plus que le matin présent, la mangue, le soleil, le nom de fleur qu'on leur a donné. Ils sont heureux. Ils ont l'air de fantômes heureux.",
+    "Elle tient la lanière entre deux doigts. Elle pense à Hector, au portrait contre le mur, au tiroir aux mauvaises nouvelles, à quinze ans de dettes ; elle pense à tous les mourants dont elle sait le nom de la mère. Une seule lanière, pense-t-elle, pour une seule nuit sans rêver. Hector aurait compris.",
+    {
+     "if": {
+      "seen": "XL_cave"
+     },
+     "text": "Hector a écrit la même chose sur une étiquette, autrefois, de sa main penchée : *Pour dormir sans rêver de V.* Elle n'avait jamais pensé qu'un jour elle aurait envie de lui donner raison."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Mâcher la lanière, une seule, ce soir",
+     "to": "XZ_ecorce_machee"
+    },
+    {
+     "label": "La rendre à Pervenche, et garder tout ce qu'elle se rappelle",
+     "to": "XZ_ecorce_rendue"
+    }
+   ]
+  },
+  "XZ_ecorce_machee": {
+   "act": "V",
+   "title": "L'écorce",
+   "place": "misericorde",
+   "ambiance": "nature",
+   "text": [
+    "L'écorce est amère, puis sucrée, puis plus rien. Victorine s'endort sur sa paillasse de la sacristie comme on tombe dans un puits sans fond, sans rien voir défiler sur les parois.",
+    "Elle se réveille deux heures plus tard, reposée comme elle ne l'a pas été depuis des années. Il lui manque quelque chose. Elle cherche longtemps. Elle ne sait plus la couleur des yeux d'Hector. Elle sait qu'ils étaient beaux ; elle sait qu'elle les a regardés pendant douze ans. La couleur est partie, comme une étiquette qu'on décolle de travers, et il ne reste qu'un morceau de papier blanc.",
+    "Elle reste assise, les mains sur les genoux, à se demander si c'est une perte ou un cadeau. Elle conclut, en médecin, qu'on ne peut pas encore se prononcer, et qu'il faudra revoir la malade dans quelques années."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la tournée",
+     "fx": {
+      "flag": "victorine:ecorce_machee"
+     },
+     "back": "A5x_debut"
+    }
+   ]
+  },
+  "XZ_ecorce_rendue": {
+   "act": "V",
+   "title": "L'écorce",
+   "place": "misericorde",
+   "ambiance": "nature",
+   "text": [
+    "Victorine remet la lanière dans le panier, sous les mangues, et referme la main de Pervenche dessus. La fille la regarde sans comprendre, puis sourit quand même, parce qu'elle sourit à tout.",
+    "« Je garde mes morts, dit Victorine. C'est mon métier. Il faut bien que quelqu'un les garde. »",
+    "Pervenche hoche la tête, poliment, comme on approuve un étranger qui parle une langue inconnue, et redescend vers le verger en chantant. Victorine prend une mangue. Elle est mûre à éclater, chaude de soleil, d'un sucre presque écœurant. Elle la mange jusqu'au noyau, debout sur le seuil, en se rappelant tout."
+   ],
+   "choices": [
+    {
+     "label": "Reprendre la tournée",
+     "fx": {
+      "flag": "victorine:ecorce_rendue"
+     },
+     "back": "A5x_debut"
     }
    ]
   },
