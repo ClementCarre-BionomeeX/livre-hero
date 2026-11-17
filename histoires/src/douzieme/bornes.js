@@ -424,7 +424,9 @@ Object.assign(P, {
 
 // ---------- chapter 9 : the dial of the port (541) and the First milestone (601) ----------
 // What the one who stays may write to the other, carried from rendezvous to rendezvous.
+var SORTIS_J = { has: "monde:noyers_sortis" };
 var E_ECRIRE = [
+  { label: "Écrire à {autre} ce que la vieille a dit, sanglée sur sa chaise", hide: { any: [J, { not: { seen: "K13r_line_sangles" } }, { has: "monde:su:dure" }] }, to: "E_dure" },
   { label: "Écrire à {autre} ce que la sœur du chœur a compris", hide: { any: [J, { not: { has: "r:sait_deux" } }, { has: "monde:su:deux" }] }, to: "E_deux" },
   { label: "Écrire à {autre} ce que le Livre dit des hommes de cuivre", hide: { any: [J, { not: { has: "r:sait_cuivre" } }, { has: "monde:su:clef" }] }, to: "E_clef" },
   { label: "Écrire à {autre} les lignes rouges de la clepsydre", hide: { any: [J, { not: { has: "r:sait_hoquets" } }, { has: "monde:su:hoquets" }] }, to: "E_hoquets" },
@@ -749,7 +751,7 @@ Object.assign(P, {
   // ---------- chapter 13 : the copper star of Saint-Gnomon-le-Vieux, at three in the night, in both years ----------
   M13: { act: "IV", title: "La même étoile", backName: "la borne", charniere: true, aparte: true, depot: { put: ["cahier"], take: ["cahier"] },
     text: [
-      { first: true, if: J, text: "Les bâtons sont à peine appuyés : on a écrit bas, pour laisser dormir. *TROIS HEURES. JE SUIS DANS LA VIEILLE ÉGLISE DU BAS, ASSIS SUR UNE ÉTOILE DE CUIVRE. ELLE EST USÉE AU MILIEU. ICI MIDI QUOI QU'ON SONNE.*" },
+      { first: true, if: J, text: "Les bâtons sont à peine appuyés : on a écrit bas, pour laisser dormir. *TROIS HEURES. JE SUIS DANS LA VIEILLE ÉGLISE DU BAS, SUR UNE ÉTOILE DE CUIVRE. ELLE EST USÉE AU MILIEU. ICI MIDI QUOI QU'ON SONNE.*" },
       { first: true, if: J, text: "*TROIS CENTS VEILLEURS DORMENT SUR LA PAILLE, ENTRE TES PÈLERINS. CEUX QUI VEILLENT DISENT LES NOMS DES PRIS, UN PAR UN, AVEC UN PATER ENTRE CHACUN. ILS EN ONT POUR JUSQU'À L'AUBE.*" },
       { first: true, if: J, text: "*J'AI DEUX CHEMINS POUR ARRIVER EN BAS. L'ESCALIER, QUI EST À LUI. ET LE BOYAU SOUS CETTE ÉGLISE, QUI MANGE LE SABLE TROIS FOIS. JE CHOISIRAI AU JOUR.*" },
       { first: true, if: J, text: "*JE VEILLE. TOI AUSSI, JE PENSE.*" },
@@ -781,6 +783,52 @@ Object.assign(P, {
     choices: E_ECRIRE.concat([
       { label: "Fermer le Cahier : le jour vient", hide: R, to: "K13j_tantot", big: true },
       { label: "Fermer le Cahier, et dormir jusqu'au jour des autres", hide: J, to: "K13r_tantot", big: true },
+    ]) },
+
+  // ---------- chapter 13, end : a quarter to eleven, at the foot of the Tower, in both years ----------
+  E_dure: { title: "Exprès", back: true, fx: { flag: "monde:su:dure" },
+    text: [
+      "*LINE EST SUR LA PLACE, DANS UNE CHAISE, AVEC UNE SANGLE SUR LA POITRINE ET UNE AUTRE SUR LES GENOUX. J'AI VOULU COUPER. ELLE M'A PRIS LE POIGNET. ELLE DIT QU'ELLE EST OÙ ELLE VEUT.*",
+      "*ELLE M'A DONNÉ UNE COMMISSION POUR TOI. JE LA COPIE COMME ELLE L'A DITE : J'AI ÉTÉ DURE EXPRÈS. C'ÉTAIT LE SEUL MOYEN D'EN FAIRE QUELQU'UN QUI TIENT.*",
+      "*ELLE TOUSSE DANS UN MOUCHOIR, ET ELLE LE REPLIE VITE. ELLE DIT QUE SON RESSORT A FAIT UN BEL USAGE ET QU'IL TIENDRA JUSQU'À MIDI.*",
+      "Tu relis. De ton côté, c'est une vieille femme, à cent pas, que tu peux voir en levant la tête. Du sien, c'est une enfant de neuf ans, qu'on a peut-être embrassée ce matin.",
+    ] },
+
+  B13: { act: "IV", title: "L'aplomb de la cloche", backName: "la borne", charniere: true, aparte: true, depot: { put: ["cahier"], take: ["cahier"] },
+    text: [
+      { first: true, if: J, text: "Les bâtons sont appuyés, cette fois, à trouer la page : on a écrit dehors, au grand jour, sur un genou. *ONZE HEURES MOINS LE QUART. LA PLACE EST PLEINE. IL Y A TA FOULE, DE DOS, SOUS SON MIDI. ET DEVANT ELLE, LA NÔTRE : LA COUR SUR DES PLIANTS, TROIS CENTS VEILLEURS DEBOUT, DES CASAQUES NOIRES AUX QUATRE COINS.*" },
+      { first: true, if: J, text: "*LINE EST LÀ. ON L'A PORTÉE DANS UNE CHAISE, À QUARANTE PAS DE LA PORTE. ELLE A LES MAINS QUE TU CONNAIS.*" },
+      { first: true, if: { all: [J, { has: "monde:voie_droit" }] }, text: "*JE DESCENDS PAR LE TROU, SOUS L'ÉTOILE DE CUIVRE. SIX PINCÉES JUSQU'À LA GRILLE. CE CHEMIN-LÀ NE SE PREND QUE DANS UN SENS, ET C'EST LE BON.*" },
+      { first: true, if: { all: [J, { has: "monde:voie_escalier" }] }, text: "*JE PRENDS L'ESCALIER. DEUX CENT QUATRE-VINGTS MARCHES, ET SOIXANTE HOMMES DESSUS. J'ENTRE À ONZE HEURES, QUAND TOUTE LA PLACE REGARDERA L'ESTRADE.*" },
+      { first: true, if: { all: [J, { has: "monde:ordonnance_garde" }] }, text: "*J'AI UNE FEUILLE AVEC LE SCEAU DE TA REINE ET DEUX MAINS DESSOUS. ELLE DONNE L'ESCALIER À LA GARDE BLANCHE. ELLE A SOIXANTE ANS ET ELLE EST VALABLE DEPUIS CE MATIN.*" },
+      { first: true, if: { all: [J, { has: "monde:regente_libre" }] }, text: "*LA RÉGENTE EST DANS LE RANG DES PÈLERINS, SOUS UN FICHU. À ONZE HEURES ELLE L'ÔTERA.*" },
+      { first: true, if: J, text: "*QUAND TU SERAS SOUS LA CLOCHE, JE SERAI SOUS TOI. C'EST LA MÊME TOUR. IL Y AURA ENTRE NOUS UN ESCALIER ET SOIXANTE ANS, ET L'ESCALIER EST LE PLUS COURT DES DEUX.*" },
+      { first: true, if: J, text: "*TIENS-TOI BIEN. À MIDI.*" },
+      { first: true, if: J, text: "Tu lis cela dans ton rond de soleil. Tu lèves les yeux. La muraille s'en va, sans sommet, et quelque part là-dedans il y a une chambre basse, un puits, une barre : l'endroit où {autre} posera la main, dans une heure et dans soixante ans." },
+      { first: true, if: { all: [J, SORTIS_J] }, text: "Tu écris vite. Une charrette bleue, huit cruches, trois Noyer sur le siège. Une main d'enfant levée au septième peuplier. Tu écris que le chemin du canal est vide, à présent, et qu'il le sera." },
+      { first: true, if: { all: [J, { has: "monde:girard_jure" }, { not: SORTIS_J }] }, text: "Tu écris vite. Un garçon de quatorze ans, la main à plat sur le front d'une jument. *Sur la tête de la Grise.* Tu écris qu'il a juré de rester au pont, et qu'il a pleuré sur un sabot." },
+      { first: true, if: { all: [J, { has: "j:line_promesse" }] }, text: "Tu écris une petite fille, dans de la paille, avec une boîte de fer. Tu écris ce que tu lui as dit de sa robe grise et de ses lunettes. Tu écris : *elle a dit qu'elle s'ennuierait, et qu'elle ferait quelque chose pour moi en attendant.* Tu regardes le Cahier que tu tiens." },
+      { first: true, if: { all: [J, { item: "vis_line" }] }, text: "Tu écris la vis. Tu la sens, dans ta poche, contre la clef : elle ne pèse rien." },
+      { first: true, if: { all: [J, { has: "monde:oderic_affiche" }] }, text: "Tu écris une feuille, clouée d'un coup de talon à la porte d'une église, sous le tarif des messes." },
+      { first: true, if: J, text: "Tu écris la Reine, à pied, en blanc, et l'enfant qui s'est retournée sur le seuil pour dire bonjour à toute une place. Tu écris le verrou." },
+      { first: true, if: J, text: "Puis tu écris où tu es : une ruelle, une borne, une porte de fer avec un papillon. Tu écris que tu es à dix pas de l'aplomb de la cloche, et que tu vas faire ces dix pas." },
+      { first: true, if: R, text: "L'écriture penchée est ferme, et serrée : on a écrit au soleil, sans hâte, en personne qui a rangé ses affaires. *Onze heures moins le quart. Je suis dans une ruelle, derrière la Tour, sur une borne. Il y a une porte de fer, basse, avec un papillon dans l'anneau. Je suis à dix pas de l'aplomb de la cloche.*" },
+      { first: true, if: R, text: "*La Reine est montée à dix heures, à pied, en blanc, la petite par la main. Sur le seuil, la petite s'est retournée. Elle a dit bonjour à toute la place, et cinq mille mains lui ont répondu. Puis j'ai entendu le verrou.*" },
+      { first: true, if: { all: [R, { has: "monde:noyers_sortis" }] }, text: "*Écoute. Les trois Noyer sont partis ce matin, avant la fête, dans la charrette bleue. Le père a rompu sa promesse, à deux, avec la petite. J'ai vu une main d'enfant levée au septième peuplier. Ton garçon debout, le fouet en l'air : il n'y est plus. Il n'y a jamais été.*" },
+      { first: true, if: { all: [R, { has: "monde:girard_jure" }, { not: { has: "monde:noyers_sortis" } }] }, text: "*Girard a juré de ne pas tourner. Sur la tête de sa jument. Il restera au pont avec la petite. Le père est au bord de la place, sur une borne : je n'ai pas su l'en ôter.*" },
+      { first: true, if: { all: [R, { has: "monde:vis_line" }] }, text: "*La petite m'a donné une vis, la plus petite de sa montre. Elle dit qu'il en manquera une tant que je ne serai pas revenu{autre:e} la mettre. Je l'ai sur moi.*" },
+      { first: true, if: { all: [R, { has: "monde:josquin_debout" }] }, text: "*L'apprenti du vieux restera debout, avec de la cire. Il écrira sur les murs ce qu'il a vu. Cherche du charbon sur vos murs.*" },
+      { first: true, if: { all: [R, { has: "monde:oderic_affiche" }] }, text: "*J'ai cloué un papier à la porte de l'église où tu as dormi. Dis-moi s'il y est encore.*" },
+      { first: true, if: R, text: "*À onze heures, le vieux traversera sa cour avec un manteau d'araignées. Il laissera cette porte entrebâillée. Il descendra. Moi, je monterai.*" },
+      { first: true, if: R, text: "*C'est ma dernière page avant la cloche. Je me tiendrai droit{autre:e} : on m'a dit qu'on reste longtemps comme on était.*" },
+      { first: true, if: { all: [R, { any: [{ has: "monde:noyers_sortis" }, { has: "monde:girard_jure" }, { has: "monde:josquin_debout" }, { has: "monde:oderic_affiche" }] }] }, text: "Tu lèves la tête. Rien n'a bougé autour de toi, et pourtant quelque chose s'est déplacé, très loin, comme un meuble dans une maison voisine. Le monde vient de changer d'un doigt. Tu es seul{e} à l'avoir senti, avec un Cahier." },
+      { first: true, if: R, text: "Tu écris à ton tour. La place, les dos, la chaise. Par où tu descends. Tu écris la dernière ligne lentement, en appuyant, pour qu'elle traverse." },
+      { again: true, if: J, text: "La ruelle des Sonneurs, la borne, le rond de soleil. La porte au papillon est fermée." },
+      { again: true, if: R, text: "Le Cahier, ouvert sur tes genoux. Là-haut, les abat-sons." },
+    ],
+    choices: E_ECRIRE.concat([
+      { label: "Fermer le Cahier : onze heures vont sonner", hide: R, to: "K14j_route", big: true },
+      { label: "Fermer le Cahier : on accorde les trompettes", hide: J, to: "K14r_route", big: true },
     ]) },
 });
 
@@ -834,6 +882,8 @@ module.exports = { passages: P, extras: {
       { if: { has: "monde:su:arret" }, text: "*Après la séance, quatre rubans verts emmènent le Grand Maître par la poterne. Le 21, à la pointe du jour, il est de retour chez lui, sans chaîne, de la toile d'araignée plein le dos. Quelqu'un l'a sorti dans la nuit.*" }] },
     { id: "ansel", head: "Le neuvième oreiller", v: [
       { if: { has: "monde:su:ansel" }, text: "*Ansel, treize ans, le plus petit des neuf. C'est lui qui porte le maillet et passe sous la barre. Il a vu l'eau debout à l'essai, il a eu peur, et il a écrit à sa mère, la veuve Hurel, rue de la Poulie, à l'enseigne du Dé.*" }] },
+    { id: "dure", head: "Sur une chaise à sangles", v: [
+      { if: { has: "monde:su:dure" }, text: "*Line est sur la place, sanglée dans une chaise, où elle veut être. Elle te fait dire : j'ai été dure exprès. C'était le seul moyen d'en faire quelqu'un qui tient. Elle tousse, et elle dit que son ressort tiendra jusqu'à midi.*" }] },
     { id: "echelons", head: "La face du midi", v: [
       { if: { has: "monde:su:echelons" }, text: "*De l'oratoire de la Reine, on voit la face de la Tour que la place ne voit pas. Des échelons de fer y montent de la galerie du grand cadran aux abat-sons de la cloche, en passant contre la fenêtre de la Chambre haute. Vingt-deux. Le septième manque.*" }] },
     { id: "pont", head: "Arvoise, dans la Chronique", v: [
@@ -847,6 +897,14 @@ module.exports = { passages: P, extras: {
     { id: "seance", head: "An 541 · La séance du vingt juin", v: [
       { if: { has: "monde:vote_interdit" }, text: "« La veille du Grand Midi, les Jurés assemblés refusèrent par leurs voix la chambre que la Reine demandait pour Madame Aélis. D'où l'on voit que le Maudit, qui les présidait, sut tourner contre sa souveraine jusqu'à sa propre compagnie. »" },
       { text: "« La veille du Grand Midi, les Jurés assemblés accordèrent par leurs voix la chambre que la Reine demandait pour Madame Aélis. Le Maudit, qui les présidait, s'y opposa seul, renversa son siège, et jura devant tous qu'il mettrait la main au levier. Il tint parole. »" }] },
+    { id: "sortis", head: "An 541 · Ceux qui sortirent", v: [
+      { if: { has: "monde:josquin_debout" }, text: "« Il sortit de la ville, ce jour-là, quelques sourds et des enfants ; et un apprenti du Maudit, qui courut dix ans les provinces en charbonnant sur les murs le nom de son maître. On blanchit les murs. Il recommença. »" },
+      { if: { any: [{ has: "monde:perrine_debout" }, { has: "monde:brindille_sortie" }, { has: "monde:aymon_sourds" }] }, text: "« Il sortit de la ville, ce jour-là, quelques sourds et des enfants. On ne sait qui les avait avertis. »" }] },
+    { id: "placard", head: "An 541 · La feuille de Saint-Gnomon", v: [
+      { if: { has: "monde:oderic_affiche" }, text: "« Les Veilleurs montrent, à la porte de Saint-Gnomon-le-Vieux, une feuille clouée le matin du Grand Midi, qui parle d'un sceau d'argent. La Régence l'a fait ôter trois fois, comme séditieuse. Elle a été trois fois reclouée, et l'on a cessé d'y toucher. »" }] },
+    { id: "noyers", head: "Registre de la Deuxième · Noyer", v: [
+      { if: { has: "monde:noyers_sortis" }, text: "« Noyer Josse, laboureur. Noyer Girard, son fils. Noyer Adeline, sa fille. Rayés tous trois : partis le matin même, avant la fête, sur une charrette bleue. On ignore pourquoi un homme fait neuf lieues pour une cloche et s'en retourne sans l'avoir entendue. »" },
+      { if: { has: "monde:girard_jure" }, text: "« Noyer Girard, quatorze ans, et Noyer Adeline, neuf : rayés, sortis le jour même par le chemin du canal. Noyer Josse, leur père : Ville-Haute, parvis de la Tour, présumé. »" }] },
     { id: "regence", head: "An 541 · La Régence", v: [
       { text: "« Monseigneur Oderic, duc de Hautgué, que la Providence avait conduit ce matin-là à la chasse hors des murs, recueillit le royaume et le gouverna au nom de la Reine endormie. »" }] },
     { id: "livre", head: "An 541 · Sainte-Aure", v: [
