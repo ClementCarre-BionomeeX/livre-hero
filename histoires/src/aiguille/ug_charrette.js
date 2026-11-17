@@ -7,15 +7,40 @@
 // (ug:aide), or runs up to the Haute-Ville to fetch his father (ug:pere). Wired in A2m_jours.
 module.exports = {
   passages: {
+    UG_flute: { act: "II", title: "La charrette de la Persévérante", place: "quai_hollandes", ambiance: "ville",
+      text: [
+        "Au pied de la passerelle de la Persévérante, un matelot épisse un cordage, assis sur une bitte, avec la tranquillité d'un homme qui en a vu d'autres. Il a la cinquantaine, une figure couleur de vieux cuir, et un anneau de cuivre à chaque oreille. Il répond à ta question sans lever les yeux de son épissure, comme on parle du temps qu'il fera.",
+        "Il dit que la traversée dure entre deux et trois mois, selon les vents. Que les femmes voyagent dans l'entrepont, à fond de cale, dans un parc fermé par des barreaux, où l'on tient debout en se courbant. Qu'on les monte sur le pont une heure par jour, par groupes de dix, pour l'air, quand il fait beau. Qu'on leur donne la même ration qu'aux matelots, moins le vin.",
+        "Il dit que, sur une vingtaine, il en arrive d'ordinaire quinze. Les autres, la fièvre, le flux de sang, le chagrin. Il dit que le chagrin tue plus vite qu'on ne croit, surtout les jeunes. Il dit qu'on coud les mortes dans un sac, avec un boulet, et que l'aumônier dit trois mots, quand il y a un aumônier. Cette fois, il n'y en a pas.",
+        "Il serre son épissure. Il dit, en regardant enfin la charrette : « Les jolies, c'est les premières à partir. Elles ne mangent pas. Elles ont l'habitude qu'on les nourrisse. » Puis il te regarde, toi. Il demande si tu connais l'une d'elles. Tu dis non. Il dit que c'est mieux, et il reprend son cordage."
+      ],
+      choices: [
+        { back: "UG_quai", label: "Retourner au bord du quai" }
+      ] },
+    UG_mere: { act: "II", title: "La charrette de la Persévérante", place: "quai_hollandes", ambiance: "ville",
+      text: [
+        "Elle marche à côté de la charrette, de l'autre côté du jeune homme, une vieille femme en coiffe noire, voûtée, avec un pain rond serré sous le bras comme un enfant. Les gendarmes la repoussent du plat de leur sabre. Elle recule de trois pas, puis revient, comme une mouette qu'on chasse d'un tas de poissons. Elle ne crie pas. Elle suit.",
+        "Tu marches un moment à côté d'elle. Elle te regarde, avec des yeux rougis, sans larmes, et elle te dit, comme si tu lui avais demandé, que sa fille est la troisième à gauche, la grande, la brune, celle qui a le front bandé. Elle dit que sa fille a volé une pièce de drap chez un marchand de la rue des Juges, pour lui faire un manteau, à elle, la mère, parce qu'elle avait froid l'hiver dernier.",
+        "Elle dit qu'elle a le manteau sur le dos. Tu regardes. C'est un manteau de drap gris, épais, neuf encore, trop beau pour une vieille femme de la Basse-Fosse. Elle dit que les gendarmes ont voulu le reprendre, comme pièce à conviction, et que le juge a dit de le lui laisser, par pitié. Elle dit que le juge était un brave homme. Elle dit que sa fille part pour toujours, et qu'elle a un manteau.",
+        "Elle te tend le pain. Elle te demande de le porter à sa fille, toi qui as l'air de pouvoir passer. Elle dit que les gendarmes laisseront passer un mousse. Elle dit : « C'est du pain de chez nous. Elle aimait la croûte. » Tu prends le pain. Il est encore tiède."
+      ],
+      choices: [
+        { back: "UG_quai", label: "Retourner au bord du quai, le pain sous le bras" }
+      ] },
     UG_quai: { act: "II", title: "La charrette de la Persévérante", place: "quai_hollandes", ambiance: "ville",
       fx: { meet: "gaspard" },
       text: [
-        "Elle descend le quai des Hollandes au pas, une charrette de ferme à ridelles, tirée par deux bœufs, entre quatre gendarmes à cheval. Dedans, debout, serrées comme des harengs en caque, une vingtaine de femmes, enchaînées deux par deux par la cheville. Voleuses, receleuses, filles des quartiers bas, une empoisonneuse, à ce qu'on dit, et deux ou trois qui ne savent pas elles-mêmes ce qu'on leur reproche. Au bout du quai, le transport les attend : la Persévérante, une flûte ventrue, à la peinture écaillée, qui part demain pour les îles du Couchant, où l'on envoie ce que Morlenc ne veut plus voir.",
-        "Les dockers s'arrêtent pour regarder. On lance des quolibets, des trognons, un mot obscène qui fait rire. Les femmes regardent devant elles. L'une d'elles, au milieu, est plus jeune que les autres, dix-huit ans peut-être, avec des cheveux châtains coupés court par le bourreau, et un visage d'une beauté si insolente que les quolibets s'arrêtent net quand ils arrivent à elle, comme s'ils hésitaient.",
-        "Derrière la charrette, à vingt pas, tête nue, marche un jeune homme. Habit de bon drap, souillé de boue jusqu'aux genoux. Cravate défaite. Pas de chapeau, pas de canne, pas de montre : on voit la chaîne qui pend, vide, à son gilet. Il ne regarde rien d'autre que la nuque de la fille aux cheveux coupés. Il marche comme on marche derrière un cercueil.",
-        "Gobert, qui t'a envoyé chercher un rouleau de filin, s'arrête à côté de toi et crache. « Le fils Kermorvan, dit-il. Le conseiller. Il la suit depuis la prison. Ça fait trois jours. Elle l'a ruiné deux fois, à ce qu'on raconte, et elle l'a quitté deux fois pour un autre. Et le voilà. » Il hausse les épaules. « L'amour, petit. C'est pire que le scorbut. Au moins le scorbut, on sait ce qui le soigne. »",
+        { first: true, text: "Elle descend le quai des Hollandes au pas, une charrette de ferme à ridelles, tirée par deux bœufs, entre quatre gendarmes à cheval. Dedans, debout, serrées comme des harengs en caque, une vingtaine de femmes, enchaînées deux par deux par la cheville. Voleuses, receleuses, filles des quartiers bas, une empoisonneuse, à ce qu'on dit, et deux ou trois qui ne savent pas elles-mêmes ce qu'on leur reproche. Au bout du quai, le transport les attend : la Persévérante, une flûte ventrue, à la peinture écaillée, qui part demain pour les îles du Couchant, où l'on envoie ce que Morlenc ne veut plus voir." },
+        { first: true, text: "Les dockers s'arrêtent pour regarder. On lance des quolibets, des trognons, un mot obscène qui fait rire. Les femmes regardent devant elles. L'une d'elles, au milieu, est plus jeune que les autres, dix-huit ans peut-être, avec des cheveux châtains coupés court par le bourreau, et un visage d'une beauté si insolente que les quolibets s'arrêtent net quand ils arrivent à elle, comme s'ils hésitaient." },
+        { first: true, text: "Derrière la charrette, à vingt pas, tête nue, marche un jeune homme. Habit de bon drap, souillé de boue jusqu'aux genoux. Cravate défaite. Pas de chapeau, pas de canne, pas de montre : on voit la chaîne qui pend, vide, à son gilet. Il ne regarde rien d'autre que la nuque de la fille aux cheveux coupés. Il marche comme on marche derrière un cercueil." },
+        { first: true, text: "Gobert, qui t'a envoyé chercher un rouleau de filin, s'arrête à côté de toi et crache. « Le fils Kermorvan, dit-il. Le conseiller. Il la suit depuis la prison. Ça fait trois jours. Elle l'a ruiné deux fois, à ce qu'on raconte, et elle l'a quitté deux fois pour un autre. Et le voilà. » Il hausse les épaules. « L'amour, mousse. C'est pire que le scorbut. Au moins le scorbut, on sait ce qui le soigne. »" },
+        { again: true, text: "La charrette attend au pied de la passerelle, et derrière elle, tête nue, le fils Kermorvan regarde une nuque aux cheveux coupés." }
       ],
-      choices: [{ label: "Porter le seau d'eau du quai aux femmes de la charrette", to: "UG_eau" }] },
+      choices: [
+        { label: "Demander à un matelot de la Persévérante comment se passent ces traversées", to: "UG_flute", hide: { seen: "UG_flute" } },
+        { label: "Regarder la vieille femme qui suit la charrette avec un pain sous le bras", to: "UG_mere", hide: { seen: "UG_mere" } },
+        { label: "Porter le seau d'eau du quai aux femmes de la charrette", to: "UG_eau" }
+      ] },
     UG_eau: { act: "II", title: "La charrette de la Persévérante", place: "quai_hollandes", ambiance: "ville",
       text: [
         "La charrette s'arrête au pied de la passerelle, le temps qu'on prépare l'embarquement. Il fait chaud. Les femmes ont soif. Personne ne bouge. Tu prends le seau de la fontaine du quai et la louche de fer, et tu t'approches. Un gendarme lève la main, puis la baisse. Tu fais passer la louche, de main en main. Les femmes boivent comme des bêtes, en renversant. La fille aux cheveux coupés boit la dernière, lentement, en te regardant par-dessus la louche.",

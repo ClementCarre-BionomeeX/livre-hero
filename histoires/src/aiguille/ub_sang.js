@@ -7,14 +7,39 @@
 // call the whole camp to judge (ub:conseil). Wired in XS_camp.
 module.exports = {
   passages: {
+    UB_pere: { act: "IV", title: "Le sang du vieux Le Rest", place: "sylve", ambiance: "nature",
+      text: [
+        "Le père de Judicaël vit au fond de la grotte, dans une niche de rocher que l'eau de la cascade éclabousse quand le vent tourne. Un vieillard de soixante-dix ans, très droit, avec une barbe blanche et un bras droit qui pend, inerte, maigre, enveloppé dans une écharpe de laine. Il taille des pointes de flèches avec la main gauche, sur une pierre plate, lentement, à petits coups secs.",
+        "Il sait pourquoi Victorine est venue. Il demande, sans lever les yeux, si son fils vivra. Elle dit qu'elle le croit, si la fièvre ne tourne pas. Il hoche la tête. Il dit merci. Il continue de tailler.",
+        "Puis il dit qu'il n'a jamais demandé à son fils de le venger. Qu'il aurait préféré prendre la gifle et la garder, comme on garde une pierre dans sa poche, et l'oublier avec le temps. Il dit qu'à son âge, une gifle ne fait plus mal à la figure, seulement au fils qui la voit. Il dit que c'est pour ça qu'on ne devrait jamais frapper un vieux devant son fils. Le vieux Le Rest le savait. Il l'a fait quand même.",
+        "Il pose la pointe de flèche, finie, sur la pierre, à côté des autres. Il dit que si Morgane choisit la mort, il ne dira rien, parce que c'est la loi, et qu'il l'a votée, autrefois, à main levée, avec son bras droit. Il regarde son bras mort. Il dit que c'est drôle, ce qu'on vote avec un bras qui ne sert plus."
+      ],
+      choices: [
+        { back: "UB_sanglier", label: "Retourner au chevet du blessé" }
+      ] },
+    UB_lerest: { act: "IV", title: "Le sang du vieux Le Rest", place: "sylve", ambiance: "nature",
+      text: [
+        "Le vieux Kerjean allume sa pipe à un tison, tire trois bouffées, et parle du mort avec l'équité scrupuleuse qu'on doit aux morts qu'on n'aimait pas.",
+        "Le vieux Le Rest était le plus dur des proscrits. Le plus avare de ses mots, de son gibier, de son tabac. Il avait la main lourde avec les chiens, avec les enfants, avec sa fille. Personne ne l'aimait. Mais, le premier hiver, quand le camp a manqué de tout, c'est lui qui est parti seul, à travers la Sylve, pendant neuf jours, et qui est revenu avec un cerf sur le dos, à moitié mort de froid. Il n'a jamais rappelé ce cerf à personne. Tout le monde s'en souvient.",
+        "Kerjean dit que le vieux avait une raison pour la gifle. Une mauvaise raison, mais une raison : le père de Judicaël, vingt ans plus tôt, dans un autre pays, avant la Sylve, avait témoigné contre lui devant un juge, dans une affaire de bornage, et Le Rest avait perdu sa terre. C'est pour ça qu'il était venu ici. Il avait attendu vingt ans pour rendre la gifle. Une part de gibier avait suffi.",
+        "Kerjean tire sur sa pipe. Il dit qu'il n'y a pas d'innocents dans cette histoire, seulement des gens qui ont attendu trop longtemps pour régler leurs comptes. Il dit que Morgane, elle, attend depuis trois mois. Il dit qu'il espère qu'elle n'attendra pas vingt ans."
+      ],
+      choices: [
+        { back: "UB_sanglier", label: "Retourner au chevet du blessé" }
+      ] },
     UB_sanglier: { act: "IV", title: "Le sang du vieux Le Rest", place: "sylve", ambiance: "nature",
       fx: { meet: "morgane" },
       text: [
-        "Les chasseurs le rapportent à l'aube, sur une civière de branches, la cuisse ouverte du genou à l'aine par la défense d'un sanglier. Un garçon de vingt ans, Judicaël Madec, brun, maigre, avec une figure d'enfant de chœur et des mains d'archer. Victorine nettoie, ligature, recoud. Il serre les dents sur un bâton et ne crie pas. Quand elle a fini, il ouvre les yeux et lui demande, avant toute chose, si Morgane sait qu'il est blessé.",
-        "Personne ne répond. Les chasseurs s'en vont. Le vieux Kerjean, qui est resté, explique à Victorine, à voix basse, en bourrant sa pipe, ce que tout le camp sait. Il y a trois mois, le vieux Le Rest, un homme dur, a frappé le père de Judicaël au visage, à propos d'une part de gibier, devant tout le monde. Le père de Judicaël a soixante-dix ans et un bras mort. Il n'a pas pu répondre. Judicaël a répondu pour lui. Au couteau. Le vieux Le Rest est mort la nuit même.",
-        "La loi du camp est simple, parce qu'il faut qu'elle le soit : quand on tue un des leurs, c'est le plus proche parent du mort qui décide du sort du meurtrier. La mort, l'exil, ou le pardon. Le plus proche parent du vieux Le Rest, c'est sa fille, Morgane. Elle n'a rien décidé. Depuis trois mois, elle ne décide rien. Et tout le camp sait aussi que Morgane et Judicaël devaient se marier à la fin de l'hiver.",
+        { first: true, text: "Les chasseurs le rapportent à l'aube, sur une civière de branches, la cuisse ouverte du genou à l'aine par la défense d'un sanglier. Un garçon de vingt ans, Judicaël Madec, brun, maigre, avec une figure d'enfant de chœur et des mains d'archer. Victorine nettoie, ligature, recoud. Il serre les dents sur un bâton et ne crie pas. Quand elle a fini, il ouvre les yeux et lui demande, avant toute chose, si Morgane sait qu'il est blessé." },
+        { first: true, text: "Personne ne répond. Les chasseurs s'en vont. Le vieux Kerjean, qui est resté, explique à Victorine, à voix basse, en bourrant sa pipe, ce que tout le camp sait. Il y a trois mois, le vieux Le Rest, un homme dur, a frappé le père de Judicaël au visage, à propos d'une part de gibier, devant tout le monde. Le père de Judicaël a soixante-dix ans et un bras mort. Il n'a pas pu répondre. Judicaël a répondu pour lui. Au couteau. Le vieux Le Rest est mort la nuit même." },
+        { first: true, text: "La loi du camp est simple, parce qu'il faut qu'elle le soit : quand on tue un des leurs, c'est le plus proche parent du mort qui décide du sort du meurtrier. La mort, l'exil, ou le pardon. Le plus proche parent du vieux Le Rest, c'est sa fille, Morgane. Elle n'a rien décidé. Depuis trois mois, elle ne décide rien. Et tout le camp sait aussi que Morgane et Judicaël devaient se marier à la fin de l'hiver." },
+        { again: true, text: "Judicaël Madec, la cuisse recousue, dort d'un sommeil agité, et personne au camp ne prononce le nom de Morgane." }
       ],
-      choices: [{ label: "Veiller le blessé, la nuit, près du rideau d'eau", to: "UB_veille" }] },
+      choices: [
+        { label: "Aller voir le père de Judicaël, le vieil homme au bras mort", to: "UB_pere", hide: { seen: "UB_pere" } },
+        { label: "Demander au vieux Kerjean qui était le vieux Le Rest", to: "UB_lerest", hide: { seen: "UB_lerest" } },
+        { label: "Veiller le blessé, la nuit, près du rideau d'eau", to: "UB_veille" }
+      ] },
     UB_veille: { act: "IV", title: "Le sang du vieux Le Rest", place: "sylve", ambiance: "nuit",
       text: [
         "La fièvre monte au milieu de la nuit. Judicaël parle. Il ne demande pas pardon pour le vieux. Il dit qu'il le referait. Il dit qu'un fils qui laisse frapper son père n'est plus un fils, et qu'un homme qui n'est plus un fils ne vaut rien pour une femme, pas même pour celle-là. Il dit qu'il a choisi entre Morgane et son père, et que c'était la seule façon de rester digne d'elle, et que c'est cela qui l'a perdue. Il rit dans sa fièvre. Il trouve ça drôle. Victorine ne le trouve pas drôle du tout.",

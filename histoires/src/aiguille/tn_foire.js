@@ -39,16 +39,39 @@ module.exports = {
       choices: [
         { label: "Aller voir cet Ambroise Bothorel, le lendemain", to: "TN_tourbier" }
       ] },
+    TN_hommes: { act: "III", title: "La femme vendue", place: "lannoz", ambiance: "nature",
+      text: [
+        "À l'heure de la soupe, les tourbiers s'assoient en rond sur des briques de tourbe sèche, autour d'un feu qui ne fait pas de flamme, seulement une braise rouge et une fumée bleue qui sent la terre brûlée. Victorine s'assoit avec eux. Ils la regardent d'abord comme une bête rare, puis, parce qu'elle mange leur soupe sans faire de manières, comme une des leurs.",
+        "Elle leur demande ce qu'ils pensent de leur maître. Ils répondent tous ensemble, puis l'un après l'autre. Qu'il est juste. Qu'il paie le samedi, à l'heure, sans retenir un sou pour la pluie. Qu'il a tranché la querelle des deux Le Garrec sur le bornage, en une heure, et que les deux sont repartis contents, ce qui ne s'était jamais vu. Qu'il boit de l'eau, qu'il détourne les yeux des filles, et qu'il va à la chapelle tous les dimanches, et qu'il reste longtemps au fond, près du tronc des pauvres.",
+        "Le plus vieux, un homme édenté qui tranche la tourbe depuis cinquante ans, dit qu'il se souvient de lui avant. Il dit que c'était un jeune gars méchant de la langue, qui riait de tout et ne respectait rien. Il dit qu'une nuit de foire l'a changé, comme on change de chemise. Les autres le font taire. On ne parle pas de ça. Personne ne sait ce que c'était, la nuit de foire. Tout le monde le sait.",
+        "Puis un jeune dit, en riant, que le maître a une manie : à chaque foire de la Saint-Michel, il s'assoit sous la grande tente, devant un verre d'eau, et il reste là jusqu'à la nuit, à regarder les femmes qui passent avec un enfant au bras. On croit qu'il cherche une épouse. On le taquine. Il ne répond rien. Il les regarde passer, toutes, une par une, jusqu'à la dernière."
+      ],
+      choices: [
+        { back: "TN_tourbier", label: "Retourner au bord de la tourbière" }
+      ] },
+    TN_chemin: { act: "III", title: "La femme vendue", place: "lannoz", ambiance: "nature",
+      text: [
+        "Gwenaëlle marche vite, pieds nus dans la bruyère, un panier de tourbe sur la hanche, avec une grâce d'animal de la lande. Elle a vingt ans, des yeux clairs, un menton carré, volontaire, et des mains larges, trop larges pour sa taille, des mains qui ne ressemblent pas à celles de sa mère. Elle salue Victorine d'un signe de tête. Elle ne ralentit pas. Victorine marche à côté d'elle.",
+        "Elle demande, sans détour, si sa mère va mourir. Victorine dit oui. Gwenaëlle hoche la tête. Elle dit qu'elle le savait. Elle dit que sa mère lui cache quelque chose, depuis qu'elles sont revenues à Lannoz, qu'elle la surprend à regarder vers l'est, du côté des tourbières, avec des yeux de quelqu'un qui fait des comptes.",
+        "Elle dit qu'elle se rappelle à peine son père, le marin, Le Hénaff, parce qu'il était toujours en mer, et qu'il rapportait des oranges. Elle dit qu'il l'aimait, elle en est sûre, mais d'une drôle de façon, avec précaution, comme on tient un objet qu'on a peur de casser parce qu'il ne vous appartient pas tout à fait. Elle dit qu'enfant, elle croyait que tous les pères étaient comme ça.",
+        "Au carrefour, elle s'arrête, change son panier de hanche. Elle dit qu'un homme, à l'est, le maître des tourbiers, l'a regardée passer hier, longtemps, avec des yeux si tristes qu'elle a eu envie de lui demander s'il était malade. Elle rit. Elle dit que les hommes de la lande sont tous un peu fous. Elle reprend sa route vers Penfoul, en balançant ses grandes mains."
+      ],
+      choices: [
+        { back: "TN_tourbier", label: "Retourner au bord de la tourbière" }
+      ] },
     TN_tourbier: { act: "III", title: "La femme vendue", place: "lannoz", ambiance: "nature",
       fx: { meet: "bothorel" },
       text: [
-        "Victorine le trouve à l'est de la lande, au bord d'une tourbière, au milieu de ses hommes, à trancher des briques de tourbe noire avec une bêche à deux tranchants, au même rythme qu'eux, sans rien qui le distingue que le silence qui se fait quand il parle.",
-        "Un homme de quarante-deux ans, massif, voûté, grisonnant, avec des mains énormes et des yeux d'une douceur gênante, des yeux de vache qui aurait réfléchi. Il la reçoit avec une politesse grave. Il lui offre de l'eau, puisqu'il ne boit que ça. Il lui montre, sur le mur de sa cabane de tourbier, une planche où il a gravé au couteau des encoches, par rangées de douze. Il en manque une poignée pour arriver à vingt et un ans.",
-        "« À la Saint-Michel prochaine, dit-il, j'aurai fini. Je ne sais pas encore si je boirai. Je crois que non. Je crois que j'ai perdu le goût. Mais je voudrais avoir le choix. »",
-        "Elle lui demande, au hasard, pourquoi il a juré. Il la regarde longtemps de ses yeux doux. « Parce que j'ai fait une chose, dit-il, une nuit, qu'on ne répare pas. Alors je fais tous les jours une chose qui ne la répare pas non plus, mais qui me rappelle qu'elle est là. » Il reprend sa bêche. « On dit que je suis juste. Je suis surtout très occupé. »",
-        "En partant, elle passe devant la chapelle. Au fond, près de l'autel, il y a un tronc pour les pauvres, et à côté, sur une étagère, un bol de terre où quelqu'un a posé, il y a longtemps, une alliance de cuivre noircie et cinq écus d'argent. Le sacristain dit qu'on a retrouvé l'alliance dans une marmite de soupe, à une foire, il y a vingt ans, et que le maître des tourbiers a demandé qu'on la garde là, avec les écus, que personne n'a le droit de prendre pour les pauvres. Il vient les regarder tous les dimanches."
+        { first: true, text: "Victorine le trouve à l'est de la lande, au bord d'une tourbière, au milieu de ses hommes, à trancher des briques de tourbe noire avec une bêche à deux tranchants, au même rythme qu'eux, sans rien qui le distingue que le silence qui se fait quand il parle." },
+        { first: true, text: "Un homme de quarante-deux ans, massif, voûté, grisonnant, avec des mains énormes et des yeux d'une douceur gênante, des yeux de vache qui aurait réfléchi. Il la reçoit avec une politesse grave. Il lui offre de l'eau, puisqu'il ne boit que ça. Il lui montre, sur le mur de sa cabane de tourbier, une planche où il a gravé au couteau des encoches, par rangées de douze. Il en manque une poignée pour arriver à vingt et un ans." },
+        { first: true, text: "« À la Saint-Michel prochaine, dit-il, j'aurai fini. Je ne sais pas encore si je boirai. Je crois que non. Je crois que j'ai perdu le goût. Mais je voudrais avoir le choix. »" },
+        { first: true, text: "Elle lui demande, au hasard, pourquoi il a juré. Il la regarde longtemps de ses yeux doux. « Parce que j'ai fait une chose, dit-il, une nuit, qu'on ne répare pas. Alors je fais tous les jours une chose qui ne la répare pas non plus, mais qui me rappelle qu'elle est là. » Il reprend sa bêche. « On dit que je suis juste. Je suis surtout très occupé. »" },
+        { first: true, text: "En partant, elle passe devant la chapelle. Au fond, près de l'autel, il y a un tronc pour les pauvres, et à côté, sur une étagère, un bol de terre où quelqu'un a posé, il y a longtemps, une alliance de cuivre noircie et cinq écus d'argent. Le sacristain dit qu'on a retrouvé l'alliance dans une marmite de soupe, à une foire, il y a vingt ans, et que le maître des tourbiers a demandé qu'on la garde là, avec les écus, que personne n'a le droit de prendre pour les pauvres. Il vient les regarder tous les dimanches." },
+        { again: true, text: "Ambroise Bothorel tranche la tourbe au milieu de ses hommes, au même rythme qu'eux, et le silence se fait chaque fois qu'il parle." }
       ],
       choices: [
+        { label: "Demander aux tourbiers ce qu'ils pensent de leur maître", to: "TN_hommes", hide: { seen: "TN_hommes" } },
+        { label: "Croiser Gwenaëlle sur le chemin de Penfoul, un panier de tourbe sur la hanche", to: "TN_chemin", hide: { seen: "TN_chemin" } },
         { label: "Retrouver Bleuenn, le soir, au hameau de Penfoul", to: "TN_penfoul" }
       ] },
     TN_penfoul: { act: "III", title: "La femme vendue", place: "lannoz", ambiance: "nuit",

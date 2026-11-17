@@ -7,14 +7,39 @@
 // the ensign himself, and to end it (um:enseigne). Wired in A3v_brisegreve.
 module.exports = {
   passages: {
+    UM_oiseaux: { act: "III", title: "L'aveu de Madame Lebihan", place: "brisegreve", ambiance: "chateau",
+      text: [
+        "Il y a, près de la fenêtre aux rideaux, une grande cage dorée, haute comme un enfant, en forme de chapelle, avec un clocheton et des arcades. Dedans, sept oiseaux. Des serins jaunes, deux chardonnerets, un bouvreuil au ventre rose. Ils sautent de perchoir en perchoir, sans arrêt, avec de petits cris secs, et l'un d'eux, le bouvreuil, chante, de temps en temps, une phrase de trois notes qui ne finit pas.",
+        "Clémence Lebihan dit que c'est son mari qui les lui a offerts, le premier hiver, pour qu'elle ait de la compagnie. Elle les a tous nommés. Elle dit les noms, en les montrant du doigt à travers les barreaux : des noms de saintes, de reines, de dames de romans. Le bouvreuil s'appelle Hervé. Elle rougit en le disant. Elle dit que c'était avant. Elle dit qu'elle n'a pas pu changer son nom, après, parce qu'un oiseau ne comprendrait pas.",
+        "Elle dit que le bouvreuil a appris ses trois notes d'elle, au clavecin, et qu'il ne sait pas la suite, parce qu'elle ne la joue jamais. Elle dit que c'est la phrase du début d'une romance, et que la suite est trop triste.",
+        "Elle ouvre la petite porte de la cage, glisse la main, et le bouvreuil vient s'y poser, sans peur, et elle le caresse du bout d'un doigt. Elle regarde la fenêtre. Elle dit qu'elle a pensé, souvent, à ouvrir la fenêtre en même temps que la cage. Elle dit qu'elle ne l'a jamais fait, parce que les oiseaux de cage ne savent pas vivre dehors, et qu'ils meurent la première nuit. Elle remet le bouvreuil sur son perchoir. Elle referme la porte."
+      ],
+      choices: [
+        { back: "UM_billet", label: "Revenir près de Clémence Lebihan" }
+      ] },
+    UM_tabatieres: { act: "III", title: "L'aveu de Madame Lebihan", place: "brisegreve", ambiance: "chateau",
+      text: [
+        "Le cabinet du gouverneur est au bas de la tour, une pièce voûtée, sans fenêtre, éclairée par six lampes à huile qui ne s'éteignent jamais. Sur les murs, des vitrines. Dans les vitrines, des tabatières. Des centaines. D'or, d'argent, d'émail, d'écaille, de nacre, rangées par pays, par époque, par matière, chacune sur son petit coussin de velours, avec une étiquette à l'encre.",
+        "Clémence y conduit Victorine en tenant une lampe. Elle dit que son mari passe là trois heures par jour. Il les sort, il les essuie, il les remet. Il ne prise pas. Il dit que le tabac abîme l'intérieur. Il les aime vides.",
+        "Au milieu de la dernière vitrine, sur un coussin plus grand que les autres, il y a une tabatière d'or ovale, avec, sur le couvercle, une miniature peinte : le portrait d'une très jeune fille en robe blanche, des fleurs dans les cheveux, aux yeux trop grands. Victorine reconnaît Clémence, à dix-sept ans. L'étiquette dit, de l'écriture soigneuse du gouverneur : Pièce unique. Acquise le jour de mes noces.",
+        "Clémence regarde la miniature, à la lueur de la lampe. Elle dit que son mari ne l'a jamais battue, jamais grondée, jamais trompée. Elle dit qu'il ne lui a jamais rien refusé. Elle dit qu'il l'essuie, et qu'il la remet. Elle souffle la lampe, et elles remontent dans le noir, par l'escalier à vis."
+      ],
+      choices: [
+        { back: "UM_billet", label: "Revenir dans l'appartement de la tour" }
+      ] },
     UM_billet: { act: "III", title: "L'aveu de Madame Lebihan", place: "brisegreve", ambiance: "chateau",
       fx: { meet: "clemence" },
       text: [
-        "Le billet est écrit d'une petite écriture penchée, sur un papier qui sent l'iris : Madame Lebihan, souffrante, prie la médecin de la Cormorane de bien vouloir monter la voir, à l'heure qui lui conviendra, pour des vapeurs. Victorine ignorait que le gouverneur fût marié. Personne n'en parle au fort. Madame Lebihan ne dîne jamais. On la dit fragile, on la dit pieuse, on la dit très jeune. On la voit, parfois, à une fenêtre de la tour sud, la seule qui ait des rideaux.",
-        "L'appartement de la tour est une boîte à bijoux posée dans un cachot : des tentures roses, un clavecin, des oiseaux en cage, un tapis épais, et partout, derrière ce luxe, le granit noir qui suinte. Clémence Lebihan a vingt-six ans. Elle a été mariée à dix-sept, à un homme de trente ans plus âgé, qui collectionne les tabatières et les prisonniers, et qui l'aime, à ce qu'il semble, comme une tabatière de plus, avec beaucoup de soin. Elle est belle, pâle, avec des yeux trop grands et des mains qui ne savent pas où se mettre.",
-        "Elle n'a pas de vapeurs. Elle le dit tout de suite, en rougissant. Elle voulait parler à une femme qui ne soit pas d'ici, et qui parte bientôt, et qui soit tenue au secret par son métier. Elle demande si les médecins sont tenus au secret comme les prêtres. Victorine dit que oui, et mieux, parce qu'ils ne donnent pas de pénitence.",
+        { first: true, text: "Le billet est écrit d'une petite écriture penchée, sur un papier qui sent l'iris : Madame Lebihan, souffrante, prie la médecin de la Cormorane de bien vouloir monter la voir, à l'heure qui lui conviendra, pour des vapeurs. Victorine ignorait que le gouverneur fût marié. Personne n'en parle au fort. Madame Lebihan ne dîne jamais. On la dit fragile, on la dit pieuse, on la dit très jeune. On la voit, parfois, à une fenêtre de la tour sud, la seule qui ait des rideaux." },
+        { first: true, text: "L'appartement de la tour est une boîte à bijoux posée dans un cachot : des tentures roses, un clavecin, des oiseaux en cage, un tapis épais, et partout, derrière ce luxe, le granit noir qui suinte. Clémence Lebihan a vingt-six ans. Elle a été mariée à dix-sept, à un homme de trente ans plus âgé, qui collectionne les tabatières et les prisonniers, et qui l'aime, à ce qu'il semble, comme une tabatière de plus, avec beaucoup de soin. Elle est belle, pâle, avec des yeux trop grands et des mains qui ne savent pas où se mettre." },
+        { first: true, text: "Elle n'a pas de vapeurs. Elle le dit tout de suite, en rougissant. Elle voulait parler à une femme qui ne soit pas d'ici, et qui parte bientôt, et qui soit tenue au secret par son métier. Elle demande si les médecins sont tenus au secret comme les prêtres. Victorine dit que oui, et mieux, parce qu'ils ne donnent pas de pénitence." },
+        { again: true, text: "Clémence Lebihan, au milieu de ses tentures roses, attend qu'on l'écoute, et ses mains ne savent pas où se mettre." }
       ],
-      choices: [{ label: "L'écouter", to: "UM_confidence" }] },
+      choices: [
+        { label: "Regarder les oiseaux en cage, près de la fenêtre", to: "UM_oiseaux", hide: { seen: "UM_oiseaux" } },
+        { label: "Demander à voir le cabinet du gouverneur, où il range ses tabatières", to: "UM_tabatieres", hide: { seen: "UM_tabatieres" } },
+        { label: "L'écouter", to: "UM_confidence" }
+      ] },
     UM_confidence: { act: "III", title: "L'aveu de Madame Lebihan", place: "brisegreve", ambiance: "chateau",
       text: [
         "Il s'appelle Hervieu de Kerros. Il est enseigne à la garnison depuis un an. Il a vingt-quatre ans, il lit des poèmes en faisant sa ronde, il dessine les oiseaux de mer sur les marges de ses rapports. Elle l'a vu pour la première fois à la messe du fort, de sa tribune. Elle l'a revu chaque dimanche. Une fois, il lui a tendu son livre de prières, tombé sur une marche. Leurs doigts ne se sont pas touchés. Elle dit cela avec une précision qui fait mal : ils ne se sont pas touchés.",

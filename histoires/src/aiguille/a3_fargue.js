@@ -39,6 +39,7 @@ module.exports = {
         { label: "Rejouer une vieille partie, seul, à l'ombre de la voile", to: "YX_echiquier", hide: { any: [{ seen: "YX_echiquier" }, { not: { has: "brousse:abord" } }, { has: "fargue:tue_brousse" }] }, if: { count: JOURS, min: 1 }, why: "Le calme ne fait que commencer." },
         { label: "Prêter une aiguille au charpentier, qui a cassé le cordon de son scapulaire", to: "ZS_aiguille", hide: { seen: "ZS_aiguille" } },
         { label: "Recevoir Petit-Jules, qui entre dans la cambuse en se tordant les mains", to: "WO_des", hide: { seen: "WO_des" }, if: { count: JOURS, min: 1 }, why: "Petit-Jules n'a pas encore joué aux dés." },
+        { label: "Recevoir Lomig, qui demande une avance sur sa part du trésor", to: "SK_avance", hide: { seen: "SK_avance" } },
         { label: "Le vent revient", to: "A3f_lettre", big: true, if: { count: JOURS, min: 3 }, why: "Le calme dure encore." },
       ] },
 

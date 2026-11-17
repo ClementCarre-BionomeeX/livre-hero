@@ -27,15 +27,38 @@ module.exports = {
       choices: [
         { label: "Lui demander d'abord qui il est", to: "TR_abbe" }
       ] },
-    TR_abbe: { act: "III", title: "La messe de la lande", place: "lannoz", ambiance: "nuit",
+    TR_autel: { act: "III", title: "La messe de la lande", place: "lannoz", ambiance: "nuit",
       text: [
-        "Il s'appelle l'abbé Lézérec. Il était recteur de Lannoz, il y a dix ans. Il dit cela avec un sourire du côté gauche.",
-        "« J'ai aimé une femme, dit-il simplement. Jeanne-Marie Le Gonidec. La femme d'un fermier. Je ne l'ai jamais touchée. Je l'ai aimée avec les yeux, à l'église, pendant cinq ans, chaque dimanche, du haut de la chaire, et elle le savait, et elle me regardait aussi. C'est tout. C'est assez pour damner deux âmes, dit l'évêque. L'évêque a peut-être raison.",
-        "« Un soir de la Saint-Jean, le feu de joie, sur la lande. Elle m'a regardé à travers les flammes. Tout le village a vu ce regard. Le lendemain, on l'a retrouvée dans la tourbière du Corbeau, la tête dans l'eau noire. Elle n'avait pas laissé un mot. Le village a dit que je l'avais ensorcelée. L'évêque m'a retiré l'autel.",
-        "« Le jour de son enterrement, je me suis jeté dans le feu de tourbe de la maison curiale. On m'en a tiré. Voilà mon visage. Il est juste. La moitié de moi a brûlé. L'autre attend. »",
-        "Il pose la clochette sur l'autel. « Depuis dix ans, je dis la messe ici, pour elle, chaque nuit de pleine lune. Je n'en ai plus le droit. Je la dis quand même. Mais une messe sans personne pour répondre, c'est une prière dans un puits. Personne, à Lannoz, ne veut répondre. Ils ont peur que je les ensorcelle à leur tour. »"
+        "L'autel est une table de granit nue, sans nappe, fendue en travers par un coup de foudre ou de pioche, sur laquelle l'abbé a posé ce qu'il a : deux chandelles de suif dans des bougeoirs de fer, un missel aux pages gondolées par l'humidité, un calice d'étain cabossé, et une clochette de bronze, de celles qu'on accroche au cou des vaches.",
+        "Au pied de l'autel, sur la dalle, il y a une couronne de bruyère tressée, fraîche, et à côté, une autre, plus ancienne, sèche, et une autre, et une autre encore, empilées, jusqu'à la plus vieille, qui n'est plus qu'une poussière brune en forme de cercle. Tu en comptes neuf, et la poussière fait la dixième. Une par an.",
+        "Sur la plus fraîche, quelqu'un a noué un ruban. Un ruban de coiffe, en dentelle jaunie, de ceux que portent les femmes de la lande le dimanche. L'abbé voit que tu le regardes. Il dit que ce n'est pas lui qui l'a mis. Il dit qu'il trouve une couronne neuve chaque année, le jour de la Saint-Jean, sur la dalle, et qu'il ne sait pas qui l'apporte. Il dit qu'il a guetté, la première année. Puis il a cessé, par respect.",
+        "Il prend le ruban entre deux doigts de sa main valide, la seule qui obéisse encore. Il dit, très bas : « C'est celui de sa coiffe. Je le reconnaîtrais entre mille. Elle le portait le soir des feux. » Il le repose sur la bruyère, avec un soin infini. Il dit que quelqu'un, à Lannoz, pense comme lui. Il ne veut pas savoir qui. Il dit que ça lui suffit de savoir que c'est quelqu'un."
       ],
       choices: [
+        { back: "TR_abbe", label: "Retourner près de l'abbé" }
+      ] },
+    TR_clocher: { act: "III", title: "La messe de la lande", place: "lannoz", ambiance: "nuit",
+      text: [
+        "Le clocher de la chapelle de Coat-Du est un clocher-mur, une simple façade de granit percée en haut de deux arcades, comme deux yeux vides. Dans l'une, rien. Dans l'autre, rien non plus. On a descendu la cloche il y a dix ans, quand l'évêque a fermé la chapelle, et on l'a fondue pour faire des canons au fort de Brisegrève.",
+        "Pourtant, tu l'as entendue, à la veillée, à une demi-lieue. Toute la lande l'a entendue. Une cloche grave, lente, au son fêlé, qui sonnait l'élévation au milieu de la nuit. Tu demandes à l'abbé comment. Il agite la clochette de vache, sur l'autel. Un petit son clair, aigrelet, qui ne porterait pas à vingt pas.",
+        "Il dit qu'il ne sonne que ça. Il dit qu'il ne sait pas d'où vient l'autre son. Il dit que, la première fois qu'il l'a entendu, il y a neuf ans, il a cru qu'on se moquait de lui, et il est sorti, et il a fait le tour de la chapelle avec une lanterne. Il n'y avait personne. Les arcades étaient vides. Le son venait d'en haut, de l'arcade de gauche, là où pendait la cloche.",
+        "« J'ai décidé, dit-il, que c'était Dieu qui se moquait de moi. Ou qu'il me répondait. Je n'ai jamais su lequel des deux. À mon âge, on finit par trouver que c'est la même chose. » Il sourit, du côté gauche. Au-dessus de vous, dans l'arcade vide, le vent passe, et il fait un bruit."
+      ],
+      choices: [
+        { back: "TR_abbe", label: "Retourner près de l'abbé" }
+      ] },
+    TR_abbe: { act: "III", title: "La messe de la lande", place: "lannoz", ambiance: "nuit",
+      text: [
+        { first: true, text: "Il s'appelle l'abbé Lézérec. Il était recteur de Lannoz, il y a dix ans. Il dit cela avec un sourire du côté gauche." },
+        { first: true, text: "« J'ai aimé une femme, dit-il simplement. Jeanne-Marie Le Gonidec. La femme d'un fermier. Je ne l'ai jamais touchée. Je l'ai aimée avec les yeux, à l'église, pendant cinq ans, chaque dimanche, du haut de la chaire, et elle le savait, et elle me regardait aussi. C'est tout. C'est assez pour damner deux âmes, dit l'évêque. L'évêque a peut-être raison." },
+        { first: true, text: "« Un soir de la Saint-Jean, le feu de joie, sur la lande. Elle m'a regardé à travers les flammes. Tout le village a vu ce regard. Le lendemain, on l'a retrouvée dans la tourbière du Corbeau, la tête dans l'eau noire. Elle n'avait pas laissé un mot. Le village a dit que je l'avais ensorcelée. L'évêque m'a retiré l'autel." },
+        { first: true, text: "« Le jour de son enterrement, je me suis jeté dans le feu de tourbe de la maison curiale. On m'en a tiré. Voilà mon visage. Il est juste. La moitié de moi a brûlé. L'autre attend. »" },
+        { first: true, text: "Il pose la clochette sur l'autel. « Depuis dix ans, je dis la messe ici, pour elle, chaque nuit de pleine lune. Je n'en ai plus le droit. Je la dis quand même. Mais une messe sans personne pour répondre, c'est une prière dans un puits. Personne, à Lannoz, ne veut répondre. Ils ont peur que je les ensorcelle à leur tour. »" },
+        { again: true, text: "L'abbé Lézérec, devant l'autel, attend qu'on lui pose la question qu'il attend depuis dix ans." }
+      ],
+      choices: [
+        { label: "Regarder l'autel, où brûlent des chandelles de suif", to: "TR_autel", hide: { seen: "TR_autel" } },
+        { label: "Lever les yeux vers le clocher, où il n'y a plus de cloche", to: "TR_clocher", hide: { seen: "TR_clocher" } },
         { label: "Lui demander pourquoi elle s'est noyée", to: "TR_pourquoi" }
       ] },
     TR_pourquoi: { act: "III", title: "La messe de la lande", place: "lannoz", ambiance: "nuit",

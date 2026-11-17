@@ -16,14 +16,39 @@ module.exports = {
         "Tu restes jusqu'à minuit et demi, sans parler. Puis elle souffle sa lanterne, se lève, te dit bonsoir, et s'en va, très droite, sans se retourner.",
       ],
       choices: [{ label: "Descendre de nouveau la planche, le lendemain soir", to: "UA_deuxieme" }] },
+    UA_dentelle: { act: "II", title: "Les quatre nuits du quai", place: "quai_hollandes", ambiance: "nuit",
+      text: [
+        "Elle ouvre sa lanterne d'un cran, juste assez pour éclairer ses genoux, et elle te montre. Un carreau de dentellière, rond, bourré de son, posé sur sa jupe, hérissé d'épingles, avec trente fuseaux de buis qui pendent au bout de leurs fils comme des cloches minuscules. Au milieu, la dentelle avance, blanche, à peine plus large que deux doigts, d'un dessin si fin qu'on dirait du givre sur une vitre.",
+        "Elle dit que c'est un voile. Le sien. Pour la noce. Elle a commencé le lendemain du départ de la Belle-Ourse, et elle fait un pouce par soir, pas plus, parce qu'un voile de mariée ne doit pas se presser. Elle a calculé : il fallait qu'il fasse quatre aunes à la foire. Il en fait trois et demie. Il lui manque un demi-aune, et elle dit que c'est le retard de la Belle-Ourse qui le lui donnera.",
+        "Les fuseaux cliquettent sous ses doigts, sans qu'elle regarde. Tu demandes comment elle fait, dans le noir. Elle dit qu'elle n'a pas besoin de voir. Elle dit que ses mains connaissent le dessin par cœur : une rangée de vagues, une rangée de mouettes, et au milieu, tous les trois pouces, un petit trois-mâts toutes voiles dehors, qui fait le tour du voile et revient au point de départ.",
+        "Elle dit, en souriant pour la première fois, que s'il ne revient pas, elle aura au moins le plus beau voile de la rue des Cordiers, et qu'on pourra l'enterrer avec. Elle dit ça pour rire. Tu ne ris pas. Elle non plus, au bout d'un instant. Elle referme la lanterne. Les fuseaux continuent de cliqueter dans le noir."
+      ],
+      choices: [
+        { back: "UA_deuxieme", label: "Retourner sur la bitte, près d'elle" }
+      ] },
+    UA_tante: { act: "II", title: "Les quatre nuits du quai", place: "basse_fosse", ambiance: "ville",
+      text: [
+        "Au-dessus de la blanchisserie de la rue des Cordiers, au bout d'un escalier où l'on monte dans la vapeur et l'odeur de lessive, il y a deux pièces basses, propres, où trois dentellières travaillent à la fenêtre, en rang, leur carreau sur les genoux. La tante de Clervie est la plus vieille, une petite femme sèche, aux lunettes de fer, qui ne lève pas les yeux de ses fuseaux pour te parler.",
+        "Elle prend le torchon. Elle dit merci. Elle sait qui tu es. Clervie lui a parlé du mousse du quai. Elle dit, sans s'arrêter de travailler, qu'elle a été fiancée, elle aussi, à dix-neuf ans, à un marin qui partait pour les longues routes, et qu'elle a fait un voile, elle aussi, et qu'elle l'a encore, dans un coffre, plié dans du papier bleu, jamais porté.",
+        "Elle dit qu'elle n'a rien dit à Clervie. Elle dit qu'on ne dit rien à une fille qui attend : ça ne sert qu'à la faire attendre plus fort. Elle dit que les marins qui promettent à la foire sont comme les fuseaux : ils tournent dans un sens, puis dans l'autre, et le fil s'emmêle ou ne s'emmêle pas, selon une loi que personne ne connaît.",
+        "Elle lève enfin les yeux, par-dessus ses lunettes. Elle te regarde longtemps. Elle dit : « Tu restes avec elle, le soir. C'est bien. Le mien, je l'ai attendu seule. Ça dure plus longtemps, seule. » Elle retourne à ses fuseaux. Les deux autres dentellières n'ont pas levé la tête une seule fois."
+      ],
+      choices: [
+        { back: "UA_deuxieme", label: "Retourner au quai, le soir" }
+      ] },
     UA_deuxieme: { act: "II", title: "Les quatre nuits du quai", place: "quai_hollandes", ambiance: "nuit",
       text: [
-        "Elle est là. Elle a apporté deux galettes, une pour elle et une pour toi, enveloppées dans un torchon. Elle parle, ce soir-là, parce que la nuit est douce et qu'on parle mieux à quelqu'un dont on ne voit pas la figure.",
-        "Il s'appelle Tangi Guézennec. Il était maître d'équipage sur la Belle-Ourse, un trois-mâts de commerce qui fait les longues routes. Ils se sont rencontrés à la foire de l'an dernier, au Quai-aux-Harengs. Il a dansé avec elle trois soirs de suite. Le quatrième, la Belle-Ourse partait. Il lui a dit qu'il n'avait rien, que ce voyage le ferait riche, ou presque, et qu'il reviendrait l'épouser, ici, à la foire prochaine, le premier soir, au bout du quai des Hollandes. Il a dit : *Attends-moi sur la bitte qui regarde la passe. Je te verrai de la mer.*",
-        "La foire a commencé il y a trois jours. Elle vient chaque soir. Elle dit que les navires ont du retard, toujours, qu'un vent contraire peut coûter deux semaines, qu'il a peut-être relâché ailleurs. Elle dit tout cela très vite, en ordre, comme on récite une leçon apprise par cœur, et tu comprends qu'elle se la récite à elle-même depuis trois nuits.",
-        "Tu ne dis rien. Tu manges ta galette. Elle est bonne, au beurre salé. Tu te surprends à souhaiter, très fort, que la Belle-Ourse ait un vent contraire pour toujours. Tu as honte de ce souhait. Tu le gardes quand même.",
+        { first: true, text: "Elle est là. Elle a apporté deux galettes, une pour elle et une pour toi, enveloppées dans un torchon. Elle parle, ce soir-là, parce que la nuit est douce et qu'on parle mieux à quelqu'un dont on ne voit pas la figure." },
+        { first: true, text: "Il s'appelle Tangi Guézennec. Il était maître d'équipage sur la Belle-Ourse, un trois-mâts de commerce qui fait les longues routes. Ils se sont rencontrés à la foire de l'an dernier, au Quai-aux-Harengs. Il a dansé avec elle trois soirs de suite. Le quatrième, la Belle-Ourse partait. Il lui a dit qu'il n'avait rien, que ce voyage le ferait riche, ou presque, et qu'il reviendrait l'épouser, ici, à la foire prochaine, le premier soir, au bout du quai des Hollandes. Il a dit : *Attends-moi sur la bitte qui regarde la passe. Je te verrai de la mer.*" },
+        { first: true, text: "La foire a commencé il y a trois jours. Elle vient chaque soir. Elle dit que les navires ont du retard, toujours, qu'un vent contraire peut coûter deux semaines, qu'il a peut-être relâché ailleurs. Elle dit tout cela très vite, en ordre, comme on récite une leçon apprise par cœur, et tu comprends qu'elle se la récite à elle-même depuis trois nuits." },
+        { first: true, text: "Tu ne dis rien. Tu manges ta galette. Elle est bonne, au beurre salé. Tu te surprends à souhaiter, très fort, que la Belle-Ourse ait un vent contraire pour toujours. Tu as honte de ce souhait. Tu le gardes quand même." },
+        { again: true, text: "Clervie, sur la bitte qui regarde la passe, attend, et sa lanterne sourde éclaire à peine ses genoux." }
       ],
-      choices: [{ label: "Le lendemain, aller porter un pli à la capitainerie pour Gobert", to: "UA_capitainerie" }] },
+      choices: [
+        { label: "Demander à Clervie ce qu'elle brode, sous sa lanterne", to: "UA_dentelle", hide: { seen: "UA_dentelle" } },
+        { label: "Rapporter le torchon, le lendemain, chez la tante de la rue des Cordiers", to: "UA_tante", hide: { seen: "UA_tante" } },
+        { label: "Le lendemain, aller porter un pli à la capitainerie pour Gobert", to: "UA_capitainerie" }
+      ] },
     UA_capitainerie: { act: "II", title: "Les quatre nuits du quai", place: "quai_hollandes", ambiance: "ville",
       text: [
         "La capitainerie du port tient, sur un grand tableau noir, la liste des navires arrivés, avec la date, à la craie. Tu poses le pli de Gobert sur le comptoir, et tu lis le tableau en attendant le reçu, parce qu'on lit toujours ce qu'on a devant les yeux. Au milieu de la liste, à la date d'il y a huit jours, il y a écrit : *Belle-Ourse, trois-mâts, retour des longues routes. Quai du Commerce.*",

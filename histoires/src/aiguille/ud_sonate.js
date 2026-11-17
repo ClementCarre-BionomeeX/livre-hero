@@ -7,15 +7,40 @@
 // Wired in A1v_soir.
 module.exports = {
   passages: {
+    UD_servante: { act: "I", title: "La sonate de Madame Cosquer", place: "varnese", ambiance: "nuit",
+      text: [
+        "La petite servante est restée sur le palier, assise sur la dernière marche, les genoux serrés, son tablier tordu entre ses mains. Elle a quatorze ans. Elle se lève d'un bond quand Victorine sort de la chambre, comme prise en faute. Victorine lui fait signe de se rasseoir, et s'assied à côté d'elle, sur la marche, ce qui ne s'était jamais vu dans cette maison.",
+        "La petite parle vite, tout bas, en surveillant le vestibule par-dessus la rampe. Elle dit que les jeudis, quand le jeune monsieur au violon vient, Monsieur ne va pas au port. Il dit qu'il y va. Il sort par la grande porte, en faisant claquer ses talons. Puis il rentre par la cuisine, en chaussettes, et il s'assied dans le vestibule, sur la chaise qui est sous l'escalier, avec sa montre ouverte sur le genou, et il écoute.",
+        "Elle dit qu'il note des choses dans un petit carnet. Les heures. Les silences. Combien de temps dure le morceau. Combien de temps il y a entre la fin du morceau et le moment où le jeune monsieur descend. Elle dit qu'une fois, le jeune monsieur est resté trois minutes de plus pour remettre une corde à son violon, et que Monsieur, ce soir-là, n'a pas dîné.",
+        "Elle dit qu'elle a vu le carnet, une fois, oublié sur la console. Il y avait des pages et des pages de chiffres, comme un livre de comptes. Et en bas d'une page, d'une écriture plus grosse, tremblée, un seul mot, souligné trois fois. Elle ne sait pas lire. Elle a regardé la forme du mot. Elle la dessine du doigt sur la marche, dans la poussière de cire. Victorine reconnaît le mot. C'est : « Andante »."
+      ],
+      choices: [
+        { back: "UD_escalier", label: "Retourner au chevet d'Hélène Cosquer" }
+      ] },
+    UD_piano: { act: "I", title: "La sonate de Madame Cosquer", place: "varnese", ambiance: "nuit",
+      text: [
+        "Le salon du premier est sombre, éclairé seulement par la lampe de la rue qui passe à travers les rideaux de tulle. Le piano carré est ouvert, le couvercle relevé, comme une bouche qui aurait été interrompue au milieu d'une phrase. Sur le pupitre, une partition, ouverte aux pages du milieu. Sur une chaise, à côté, un étui de violon, oublié.",
+        "Victorine s'approche. La partition est usée, cornée, annotée au crayon de deux écritures différentes, l'une ronde et l'autre penchée, qui se répondent en marge : ici plus doux, ici attendre, ici ensemble. À un endroit, au milieu d'une page, les deux écritures ont tracé le même signe, au même endroit, une petite croix, sans commentaire.",
+        "Sur les touches du piano, il y a une épingle à cheveux, tombée. Et sur le tapis, sous le tabouret, un bouton de manchette, d'argent, arraché, avec un bout de fil. Victorine le ramasse. Il porte, gravées, deux initiales : celles de Monsieur Cosquer.",
+        "Elle repose le bouton sur le pupitre, à côté de la partition. Elle regarde les deux croix au crayon, une ronde, une penchée, au même endroit de la musique. Elle pense que deux personnes qui ne se sont jamais regardées en face peuvent se donner rendez-vous au milieu d'une page, et qu'un homme qui ne lit pas la musique peut entendre ce rendez-vous à travers un plancher. Elle referme le couvercle du piano, doucement."
+      ],
+      choices: [
+        { back: "UD_escalier", label: "Retourner au chevet d'Hélène Cosquer" }
+      ] },
     UD_escalier: { act: "I", title: "La sonate de Madame Cosquer", place: "varnese", ambiance: "nuit",
       fx: { meet: "helene" },
       text: [
-        "C'est une petite servante qui frappe, essoufflée, sans bonnet, et qui dit que Madame est tombée dans l'escalier. Elle dit « tombée » trop vite, en regardant ses souliers. Victorine reprend sa sacoche. La maison Cosquer est la plus belle de la rue du port, à deux étages, avec un balcon de fer forgé et, dans le salon du premier, un piano carré qu'on entend jusqu'au quai, les jeudis.",
-        "Monsieur Cosquer reçoit la médecin au pied de l'escalier, en habit, très pâle, très poli, les mains derrière le dos. Commis principal du port, quarante ans, une moustache cirée, une voix de chapelle. Il dit que sa femme a glissé sur une marche cirée, qu'elle est un peu commotionnée, qu'il est désolé de déranger à une heure pareille. Il ne monte pas avec elle. Il reste en bas, dans le vestibule, à écouter.",
-        "Hélène Cosquer est assise dans son lit, en chemise de nuit, avec un châle remonté jusqu'au menton. Trente ans, très belle, d'une beauté fatiguée, avec des yeux qui guettent la porte. Elle répète l'histoire de la marche cirée. Victorine lui demande d'ôter le châle. Elle hésite, puis obéit.",
-        "Sur le cou, à gauche, quatre marques ovales, bleues, en rang. À droite, une seule, plus large. Victorine en a vu sur des noyés repêchés, et une fois sur une servante de ferme qu'on avait retrouvée dans un fossé. On ne se fait pas ces marques-là dans un escalier. On se les fait faire par une main droite, d'homme, qui serre longtemps.",
+        { first: true, text: "C'est une petite servante qui frappe, essoufflée, sans bonnet, et qui dit que Madame est tombée dans l'escalier. Elle dit « tombée » trop vite, en regardant ses souliers. Victorine reprend sa sacoche. La maison Cosquer est la plus belle de la rue du port, à deux étages, avec un balcon de fer forgé et, dans le salon du premier, un piano carré qu'on entend jusqu'au quai, les jeudis." },
+        { first: true, text: "Monsieur Cosquer reçoit la médecin au pied de l'escalier, en habit, très pâle, très poli, les mains derrière le dos. Commis principal du port, quarante ans, une moustache cirée, une voix de chapelle. Il dit que sa femme a glissé sur une marche cirée, qu'elle est un peu commotionnée, qu'il est désolé de déranger à une heure pareille. Il ne monte pas avec elle. Il reste en bas, dans le vestibule, à écouter." },
+        { first: true, text: "Hélène Cosquer est assise dans son lit, en chemise de nuit, avec un châle remonté jusqu'au menton. Trente ans, très belle, d'une beauté fatiguée, avec des yeux qui guettent la porte. Elle répète l'histoire de la marche cirée. Victorine lui demande d'ôter le châle. Elle hésite, puis obéit." },
+        { first: true, text: "Sur le cou, à gauche, quatre marques ovales, bleues, en rang. À droite, une seule, plus large. Victorine en a vu sur des noyés repêchés, et une fois sur une servante de ferme qu'on avait retrouvée dans un fossé. On ne se fait pas ces marques-là dans un escalier. On se les fait faire par une main droite, d'homme, qui serre longtemps." },
+        { again: true, text: "Hélène Cosquer, dans son lit, le châle remonté jusqu'au menton, guette la porte, et en bas Monsieur Cosquer écoute." }
       ],
-      choices: [{ label: "Lui dire ce que disent ces marques, et attendre", to: "UD_jeudi" }] },
+      choices: [
+        { label: "Interroger la petite servante, restée sur le palier", to: "UD_servante", hide: { seen: "UD_servante" } },
+        { label: "Entrer un instant dans le salon, où le piano est resté ouvert", to: "UD_piano", hide: { seen: "UD_piano" } },
+        { label: "Lui dire ce que disent ces marques, et attendre", to: "UD_jeudi" }
+      ] },
     UD_jeudi: { act: "I", title: "La sonate de Madame Cosquer", place: "varnese", ambiance: "nuit",
       text: [
         "Hélène ne nie pas longtemps. Elle parle bas, en regardant la porte. Le jeudi, le neveu du recteur vient jouer avec elle. Un garçon de vingt-cinq ans, maigre, myope, qui joue du violon comme un ange et qui n'a jamais osé la regarder en face. Ils jouent une sonate. Toujours la même, depuis l'hiver, parce qu'elle est difficile et qu'ils ne l'ont pas encore domptée. Il y a un passage, au milieu, où le violon et le piano se répondent, se poursuivent, s'attrapent, et se lâchent. Ce soir, après le départ du violoniste, son mari est monté. Il lui a demandé ce que voulait dire ce passage.",

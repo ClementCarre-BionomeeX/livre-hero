@@ -2639,6 +2639,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "13.0", items: ["« L'Île Folle-Aiguille » dépasse les deux mille quatre cents passages : une vingtaine de quêtes de plus, une femme en blanc, une rempailleuse, trois cartes à jouer, un jars, un pari en haut d'une tour, et des scènes plus fouillées dans les quêtes déjà écrites."] },
     { v: "12.9", items: ["« L'Île Folle-Aiguille » gagne encore vingt-sept quêtes tirées d'autres livres : un gardien de sémaphore, un perroquet trop bavard, un visage voilé de noir, un souper aux oranges, et bien d'autres, sur l'île, en mer et aux escales."] },
     { v: "12.8", items: ["« L'Île Folle-Aiguille » continue de s'étoffer : une trentaine de quêtes de plus, nées d'autres livres, à l'auberge, à Morlenc, aux escales, à bord et sur l'île, pour l'enfant du Fanal, la médecin et le maître-coq."] },
     { v: "12.7", items: ["Cinquième livre à lire deux fois : « Le Cartographe de fièvre ». Élève d'un grand cartographe, tu dérives sur une mer d'encre, et ta main dessine les îles à mesure que la barque avance. Chaque île garde une devinette."] },

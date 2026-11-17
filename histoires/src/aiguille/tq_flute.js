@@ -17,16 +17,39 @@ module.exports = {
       choices: [
         { label: "T'asseoir sur la borne voisine et l'écouter", to: "TQ_recit" }
       ] },
+    TQ_rats: { act: "II", title: "Le preneur de rats", place: "basse_fosse", ambiance: "ville",
+      text: [
+        "Mathurin Pézennec rit, d'un rire sans dents, et il essuie le fifre sur sa manche. Il dit qu'on ne parle pas aux rats. On les écoute. Un rat, dit-il, c'est une faim qui marche. Il suffit de jouer l'air de ce qu'il a faim, et il vient. Le fromage, le grain, la charogne, chacun a son air, et le rat le reconnaît comme un chrétien reconnaît le cantique de son baptême.",
+        "Il te montre le fifre. Il est taillé dans un os, long, jauni, poli par les doigts, percé de six trous et d'un septième, sur le côté, très petit, qu'on bouche avec l'ongle. Il dit que c'est un tibia de grue, que son père le tenait de son père, et que la grue, avant d'être un fifre, avait fait trois fois le voyage des pays chauds.",
+        "Il dit que tous les êtres vivants ont leur air. Les chiens. Les chevaux. Les marins, qui viennent quand on joue la gigue de leur premier port. Les enfants. Il dit le mot sans changer de ton, comme le reste de la liste. Les enfants ont l'air le plus simple de tous. Trois notes qui montent. Deux qui descendent.",
+        "Il porte le fifre à ses lèvres. Il joue les trois notes qui montent. Il s'arrête. Il te regarde, d'un œil vif et triste. Tu t'aperçois que tu t'es levé{e} de ta borne sans t'en rendre compte, et que tu as fait un pas vers lui. Il range le fifre. Il dit : « Tu vois. Ça marche encore un peu, à ton âge. Plus pour longtemps. »"
+      ],
+      choices: [
+        { back: "TQ_recit", label: "Retourner t'asseoir sur la borne" }
+      ] },
+    TQ_seuils: { act: "II", title: "Le preneur de rats", place: "basse_fosse", ambiance: "ville",
+      text: [
+        "Ils sont partout, dans la ruelle, à mesure que le fifre joue : sur les seuils, aux fenêtres basses, sous les porches, accroupis contre les murs. Des enfants de la Basse-Fosse, sales, maigres, pieds nus, des petits qui tètent encore leur pouce et des grands qui fument déjà des bouts de corde. Ils ne s'approchent pas. Ils écoutent, de loin, la bouche ouverte, avec une immobilité que tu n'as jamais vue chez des enfants.",
+        "Une mère sort sur un seuil, appelle le sien pour la soupe. L'enfant ne bouge pas. Elle l'appelle encore, plus fort, puis elle le prend par l'oreille et le tire à l'intérieur. Il se laisse tirer sans se débattre, la tête tournée vers le fifre jusqu'au dernier moment, comme un tournesol.",
+        "Tu reconnais, parmi eux, des visages croisés depuis que tu viens à la Basse-Fosse : un gamin aux doigts agiles qui traîne toujours devant les tavernes, la fille du charcutier, deux gamins du cordonnier. Il y a aussi, assise sur une marche, une fillette de quatre ans, propre, en tablier blanc, qui ne vient visiblement pas d'ici, et qui a dû suivre la musique depuis la ville haute.",
+        "Quand le fifre s'arrête, ils restent un instant immobiles. Puis ils reprennent vie d'un coup, se bousculent, rient, s'insultent, comme si de rien n'était, et la ruelle redevient une ruelle. La fillette en tablier blanc se lève, regarde autour d'elle, ne reconnaît rien, et se met à pleurer. Une femme de la Basse-Fosse la prend par la main pour la ramener là-haut, en grommelant contre les gens de la ville haute qui ne surveillent pas leurs enfants."
+      ],
+      choices: [
+        { back: "TQ_recit", label: "Retourner t'asseoir sur la borne" }
+      ] },
     TQ_recit: { act: "II", title: "Le preneur de rats", place: "basse_fosse", ambiance: "ville",
       text: [
-        "Il s'appelle Mathurin Pézennec. Il est preneur de rats de son métier, de père en fils, depuis le temps où l'on payait les rats à la queue. Il est arrivé à Morlenc il y a quinze jours, sur une affiche des échevins, collée à toutes les portes : cent écus à quiconque délivrera la Basse-Fosse de sa vermine.",
-        "« J'ai joué trois nuits, dit-il. Trois nuits, à marée basse, en marchant du haut de la rue des Cordiers jusqu'à la vase de l'estuaire. Ils sont sortis de partout. Des caves, des greniers, des égouts, des berceaux. Ils m'ont suivi en rangs, comme des moines à la procession, les gros devant, les petits derrière. Je suis entré dans la vase jusqu'aux genoux. Eux, jusqu'aux oreilles. La marée est montée. Fini. »",
-        "Il crache. « Le lendemain, je suis allé chercher mes cent écus à l'hôtel des Échevins. Maître Glémarec m'a reçu, le premier des échevins, un homme qui a une chaîne d'or sur le ventre et un ventre sous la chaîne. Il m'a donné dix sous. Dix. Il m'a dit que les rats seraient partis tout seuls, avec la marée, que l'affiche était une façon de parler, et que, de toute manière, aucun tribunal de Morlenc ne condamnerait la ville à payer un homme pour avoir joué du fifre. Il a ri. Ses commis aussi. »",
-        "Il porte le fifre à ses lèvres, joue les trois notes qui montent, s'arrête avant les deux qui descendent.",
-        "« Je connais d'autres airs, dit-il doucement. Ce soir, j'en jouerai un autre. Je voulais que quelqu'un le sache, avant. Un mousse, c'est bien. Ça part, un mousse. »"
+        { first: true, text: "Il s'appelle Mathurin Pézennec. Il est preneur de rats de son métier, de père en fils, depuis le temps où l'on payait les rats à la queue. Il est arrivé à Morlenc il y a quinze jours, sur une affiche des échevins, collée à toutes les portes : cent écus à quiconque délivrera la Basse-Fosse de sa vermine." },
+        { first: true, text: "« J'ai joué trois nuits, dit-il. Trois nuits, à marée basse, en marchant du haut de la rue des Cordiers jusqu'à la vase de l'estuaire. Ils sont sortis de partout. Des caves, des greniers, des égouts, des berceaux. Ils m'ont suivi en rangs, comme des moines à la procession, les gros devant, les petits derrière. Je suis entré dans la vase jusqu'aux genoux. Eux, jusqu'aux oreilles. La marée est montée. Fini. »" },
+        { first: true, text: "Il crache. « Le lendemain, je suis allé chercher mes cent écus à l'hôtel des Échevins. Maître Glémarec m'a reçu, le premier des échevins, un homme qui a une chaîne d'or sur le ventre et un ventre sous la chaîne. Il m'a donné dix sous. Dix. Il m'a dit que les rats seraient partis tout seuls, avec la marée, que l'affiche était une façon de parler, et que, de toute manière, aucun tribunal de Morlenc ne condamnerait la ville à payer un homme pour avoir joué du fifre. Il a ri. Ses commis aussi. »" },
+        { first: true, text: "Il porte le fifre à ses lèvres, joue les trois notes qui montent, s'arrête avant les deux qui descendent." },
+        { first: true, text: "« Je connais d'autres airs, dit-il doucement. Ce soir, j'en jouerai un autre. Je voulais que quelqu'un le sache, avant. Un mousse, c'est bien. Ça part, un mousse. »" },
+        { again: true, text: "Mathurin Pézennec, sur sa borne, sous la pluie fine, joue les trois notes qui montent, et s'arrête avant les deux qui descendent." }
       ],
       choices: [
         { label: "Monter à l'hôtel des Échevins voir ce maître Glémarec", to: "TQ_echevin" },
+        { label: "Lui demander comment on parle aux rats", to: "TQ_rats", hide: { seen: "TQ_rats" } },
+        { label: "Regarder les enfants de la ruelle, qui écoutent le fifre depuis les seuils", to: "TQ_seuils", hide: { seen: "TQ_seuils" } },
         { label: "Attendre la nuit dans la ruelle", to: "TQ_nuit" }
       ] },
     TQ_echevin: { act: "II", title: "Le preneur de rats", place: "haute_ville", ambiance: "ville",

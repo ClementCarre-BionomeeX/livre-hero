@@ -6,13 +6,38 @@
 // last coin (uc:parole), or keeps it all as a common chest in his own keeping (uc:caisse). Wired in A4f_jours.
 module.exports = {
   passages: {
+    UC_tamis: { act: "IV", title: "Les piastres dans le sable", place: "plage", ambiance: "nuit", second: true,
+      text: [
+        "Fargue s'agenouille dans la laisse avec les autres, à la lanterne, et tamise le sable mouillé entre ses doigts. On trouve encore, de loin en loin, une pièce, un sou, un bouton qu'on avait pris pour une pièce. Chaque fois, celui qui trouve lève la main et crie, et dépose sa trouvaille sur la voile, sous les yeux de tous. C'est la règle, qu'on s'est donnée sans la dire.",
+        "Fargue regarde les mains plus que le sable. Il voit Coquerel trouver une piastre, la regarder, la lever très haut, et la déposer, avec une ostentation de saint. Il voit, cinq minutes après, le même Coquerel trouver une autre pièce, plus petite, et la faire glisser dans sa manche, d'un geste si naturel qu'on dirait qu'il se gratte. Il voit Boucaut chercher, à quatre pattes, sans rien trouver, avec une obstination de chien qui a enterré un os et ne sait plus où.",
+        "Il voit aussi le petit Le Duff, qui ne trouve rien pendant une heure, puis qui trouve une pièce d'or, une vraie, un louis, la seule de toute la nuit. Le petit Le Duff la regarde longtemps, à la lanterne, à genoux dans l'eau, et Fargue voit passer sur sa figure toutes les tentations du monde, l'une après l'autre, comme des nuages. Puis le petit lève la main, et crie, et va poser le louis sur la voile.",
+        "Personne ne le remercie. C'est la règle. Fargue note dans sa tête, à côté du nom de Coquerel : manche gauche. À côté de celui du petit Le Duff, il ne note rien. Il se dit qu'il y a des choses qu'on n'écrit pas, même dans sa tête, de peur de les abîmer."
+      ],
+      choices: [
+        { back: "UC_ressac", label: "Retourner devant le tas, sur la voile" }
+      ] },
+    UC_chuchote: { act: "IV", title: "Les piastres dans le sable", place: "plage", ambiance: "nuit", second: true,
+      text: [
+        "La nuit, sous les abris de voile, le camp ne dort pas. Il chuchote. Fargue, couché sur le dos dans le sien, les yeux ouverts, écoute à travers la toile comme on écoute à travers une cloison de taverne, avec la patience d'un homme qui sait que les choses importantes se disent toujours après minuit.",
+        "Deux voix, à gauche, s'entendent pour dire chacune cinquante, et se soutenir l'une l'autre, et partager la différence. Une voix, à droite, explique à une autre que le cuisinier coupera la poire en deux, de toute façon, et qu'il faut donc dire le double de ce qu'on veut. Une troisième voix dit qu'elle ne se souvient plus de ce qu'elle avait, et qu'elle dira ce que diront les autres, en un peu moins, pour ne pas se faire remarquer.",
+        "Puis, plus loin, une voix seule, qui ne s'adresse à personne. Une voix grave, éraillée, qui murmure dans le noir une prière, ou une chanson, ou le nom de quelqu'un. Fargue reconnaît Boucaut. Il l'entend répéter, tout bas, trois mots, toujours les mêmes, comme on récite un chapelet. Il met longtemps à les comprendre. C'est : « Pardon, ma mère. »",
+        "Fargue se tourne sur le côté. Il se dit que le monde se partage en deux espèces : ceux qui comptent ce qu'ils ont perdu, et ceux qui comptent qui ils ont perdu. Il se dit que la seconde espèce est plus rare, et qu'elle ment moins bien. Il s'endort sur cette pensée, satisfait, comme après une bonne soupe."
+      ],
+      choices: [
+        { back: "UC_ressac", label: "Retourner devant le tas, sur la voile" }
+      ] },
     UC_ressac: { act: "IV", title: "Les piastres dans le sable", place: "plage", ambiance: "nature", second: true,
       text: [
-        "Le canot des coffres a chaviré dans le ressac, le premier soir, à vingt pas de la plage, sous le poids de onze coffres de matelots entassés trop haut. On a repêché les hommes. On a repêché les coffres, aussi, ou ce qu'il en restait : du bois fendu, des charnières tordues, des chemises mouillées. Et dans le sable de la laisse, sur trente pas de long, l'argent. Les économies de toute une bordée, éparpillées par la vague comme des coquillages, piastres d'argent, livres, sous de cuivre, une bague, une montre qui ne marche plus.",
-        "On a ramassé à genoux, toute la nuit, à la lanterne, en tamisant le sable entre ses doigts. Au matin, il y a sur une voile étendue devant la cuisine de Fargue un tas brillant et sale, que personne n'ose toucher, et onze hommes assis en rond autour, qui se regardent comme des chiens autour d'un os. Fargue compte. Il compte deux fois, à voix haute. Trois cent douze livres, en tout, au change de Morlenc.",
-        "Puis il demande à chacun combien il avait. Boucaut dit soixante. Coquerel dit quarante. Le petit Le Duff, qui n'a jamais rien eu, dit trente, et rougit. Les autres disent leur chiffre. Fargue fait l'addition, dans le sable, avec un bâton. Six cent vingt livres. Il regarde le tas. Il regarde les onze. Il y en a qui mentent, et beaucoup. Il le sait. Eux aussi.",
+        { first: true, text: "Le canot des coffres a chaviré dans le ressac, le premier soir, à vingt pas de la plage, sous le poids de onze coffres de matelots entassés trop haut. On a repêché les hommes. On a repêché les coffres, aussi, ou ce qu'il en restait : du bois fendu, des charnières tordues, des chemises mouillées. Et dans le sable de la laisse, sur trente pas de long, l'argent. Les économies de toute une bordée, éparpillées par la vague comme des coquillages, piastres d'argent, livres, sous de cuivre, une bague, une montre qui ne marche plus." },
+        { first: true, text: "On a ramassé à genoux, toute la nuit, à la lanterne, en tamisant le sable entre ses doigts. Au matin, il y a sur une voile étendue devant la cuisine de Fargue un tas brillant et sale, que personne n'ose toucher, et onze hommes assis en rond autour, qui se regardent comme des chiens autour d'un os. Fargue compte. Il compte deux fois, à voix haute. Trois cent douze livres, en tout, au change de Morlenc." },
+        { first: true, text: "Puis il demande à chacun combien il avait. Boucaut dit soixante. Coquerel dit quarante. Le petit Le Duff, qui n'a jamais rien eu, dit trente, et rougit. Les autres disent leur chiffre. Fargue fait l'addition, dans le sable, avec un bâton. Six cent vingt livres. Il regarde le tas. Il regarde les onze. Il y en a qui mentent, et beaucoup. Il le sait. Eux aussi." },
+        { again: true, text: "Le tas brille sur la voile, devant la cuisine, et onze hommes assis en rond se regardent comme des chiens autour d'un os." }
       ],
-      choices: [{ label: "Demander à Lagadec, qui a vu les coffres à bord, ce qu'il en pense", to: "UC_lagadec" }] },
+      choices: [
+        { label: "Tamiser le sable de la laisse, à la lanterne, avec les onze", to: "UC_tamis", hide: { seen: "UC_tamis" } },
+        { label: "Écouter, la nuit, ce qu'on chuchote sous les voiles", to: "UC_chuchote", hide: { seen: "UC_chuchote" } },
+        { label: "Demander à Lagadec, qui a vu les coffres à bord, ce qu'il en pense", to: "UC_lagadec" }
+      ] },
     UC_lagadec: { act: "IV", title: "Les piastres dans le sable", place: "plage", ambiance: "nature", second: true,
       text: [
         "Lagadec fume sa pipe en regardant le tas. Il dit que Boucaut n'a jamais eu soixante livres de sa vie, qu'il boit sa paie avant de la toucher, mais que Boucaut avait une bague, celle-là, sa mère, et qu'elle vaut plus que sa parole. Il dit que Coquerel a dit vrai, c'est un avare, il couche avec son coffre. Il dit que le petit Le Duff a menti aussi, mais à l'envers : il avait cinquante livres, cousues dans la doublure de sa vareuse, l'argent de sa sœur, qu'il voulait lui rapporter, et il n'a pas osé dire un chiffre si gros devant les autres.",

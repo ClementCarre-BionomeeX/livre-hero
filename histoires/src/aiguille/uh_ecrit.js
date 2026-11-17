@@ -7,14 +7,39 @@
 // (uh:laisse). Wired in A4w_jours.
 module.exports = {
   passages: {
+    UH_histoire: { act: "IV", title: "C'est écrit là-haut", place: "misericorde", ambiance: "nature",
+      text: [
+        "Victorine monte sur le mur, un soir, à côté de lui, et s'assied, les jambes dans le vide, du côté de la chapelle, ce qui est une manière de compromis. Le Moigne la regarde avec un plaisir évident. Il lui offre sa blague à tabac. Elle refuse. Il dit qu'elle a tort, que ce qui est écrit pour le tabac est écrit aussi, et il commence une histoire.",
+        "C'est l'histoire de son premier capitaine, un homme qui croyait que tout était écrit, et qui l'avait appris dans un livre, chez un marchand de vin de Morlenc qui l'avait gagné aux cartes contre un philosophe. Le capitaine avait une jambe de bois, qu'il avait perdue d'une façon qui mérite qu'on la raconte, et Le Moigne commence à raconter la jambe, puis s'interrompt pour raconter le philosophe, puis le marchand de vin, qui avait une fille, et la fille, qui avait un amoureux à Varnèse.",
+        "Une balle siffle, frappe la pierre à deux pieds d'eux, fait voler un éclat. Le Moigne ne se retourne pas. Il dit que celle-là était pour l'amoureux de Varnèse, qui est mort depuis vingt ans d'une indigestion de moules, et qu'elle a dû se tromper d'époque. Il reprend l'histoire de la fille. Il ne revient jamais à la jambe du capitaine.",
+        "Au bout d'une heure, la nuit tombe. Il a raconté onze histoires, dont aucune n'a de fin. Victorine lui demande comment se termine celle de la jambe. Il dit qu'il ne sait pas. Il dit que c'est écrit quelque part, mais qu'il n'a jamais eu le temps de le lire, parce qu'une autre histoire commençait toujours avant. Il dit que c'est peut-être ça, la vie : une histoire qu'on interrompt pour en raconter une autre, et qui finit quand on ne regarde pas."
+      ],
+      choices: [
+        { back: "UH_mur", label: "Redescendre dans la cour de la chapelle" }
+      ] },
+    UH_jeune: { act: "IV", title: "C'est écrit là-haut", place: "misericorde", ambiance: "nature",
+      text: [
+        "Le plus jeune des garçons du mur s'appelle Goulwen, il a seize ans, il est novice, et il a des taches de rousseur jusque sur les paupières. Victorine le trouve dans la cour, au pied du mur, en train de se rouler une cigarette avec des mains qui tremblent, parce qu'il a vu Le Moigne fumer et qu'il veut faire pareil.",
+        "Elle lui demande pourquoi il monte. Il rougit. Il dit que c'est pour montrer qu'il n'a pas peur. Elle lui demande à qui. Il réfléchit. Il dit : à Le Moigne. Puis : aux autres. Puis : à lui-même. Puis il avoue qu'il a très peur, tout le temps, sur le mur, qu'il serre les fesses à chaque balle, et qu'il monte justement pour ça, pour que la peur s'en aille, parce que Le Moigne dit qu'elle s'en va quand on sait que tout est écrit.",
+        "Elle lui demande si elle s'en va. Il dit que non. Pas encore. Il dit que Le Moigne dit qu'il faut du temps. Il roule sa cigarette, la rate, la recommence. Il dit qu'il a écrit à sa mère, le premier soir, avant de monter, une lettre où il lui dit adieu, au cas où, et qu'il l'a cachée dans sa vareuse. Il demande à Victorine, s'il lui arrive quelque chose, de l'envoyer.",
+        "Victorine prend la lettre qu'il lui tend. Elle la met dans sa trousse. Elle lui dit qu'elle l'enverra, le jour venu, si c'est écrit. Il sourit, soulagé. Puis elle ajoute que, à son avis, ce qui est écrit sur ce mur, c'est surtout l'adresse de sa mère. Il ne comprend pas. Il comprendra plus tard, ou pas."
+      ],
+      choices: [
+        { back: "UH_mur", label: "Retourner dans la cour de la chapelle" }
+      ] },
     UH_mur: { act: "IV", title: "C'est écrit là-haut", place: "misericorde", ambiance: "nature",
       fx: { meet: "lemoigne" },
       text: [
-        "Chaque soir, à l'heure où les mutins tirent le plus, Jobard Le Moigne monte sur le mur de la chapelle, s'assied les jambes dans le vide, côté plage, et bourre sa pipe. Il la bourre lentement. Il l'allume au briquet, en s'y reprenant à trois fois à cause du vent. Il fume. Les balles sifflent autour de lui, frappent la pierre, font voler des éclats. Il ne baisse pas la tête. Quand on lui crie de descendre, il répond, de sa voix tranquille de Morlenc : « Ce qui est écrit là-haut est écrit. La balle qui me tuera est fondue depuis longtemps. Celles-là, ce sont celles des autres. »",
-        "C'est un gabier d'une quarantaine d'années, maigre, gai, bavard comme une pie, qui a passé sa vie à raconter des histoires qu'il ne finit jamais, parce qu'une autre histoire le prend en chemin. Il tient sa philosophie de son ancien capitaine, qui la tenait d'un livre, qu'il n'a jamais lu. Elle lui a réussi : trois naufrages, deux abordages, une fièvre jaune, et pas une égratignure. Il dit que c'est la preuve. Les autres disent que c'est de la chance. Il dit que la chance, c'est le nom que les ignorants donnent à ce qui est écrit.",
-        "Le troisième soir, il n'est plus seul sur le mur. Deux jeunes l'ont rejoint, pour faire les braves. Le quatrième, ils sont cinq. La capitaine Ribaud les fait descendre à coups de gueule. Ils remontent dès qu'elle a le dos tourné. Victorine compte, chaque soir, les têtes alignées sur le mur, et elle sait ce qu'elle comptera bientôt dans la sacristie.",
+        { first: true, text: "Chaque soir, à l'heure où les mutins tirent le plus, Jobard Le Moigne monte sur le mur de la chapelle, s'assied les jambes dans le vide, côté plage, et bourre sa pipe. Il la bourre lentement. Il l'allume au briquet, en s'y reprenant à trois fois à cause du vent. Il fume. Les balles sifflent autour de lui, frappent la pierre, font voler des éclats. Il ne baisse pas la tête. Quand on lui crie de descendre, il répond, de sa voix tranquille de Morlenc : « Ce qui est écrit là-haut est écrit. La balle qui me tuera est fondue depuis longtemps. Celles-là, ce sont celles des autres. »" },
+        { first: true, text: "C'est un gabier d'une quarantaine d'années, maigre, gai, bavard comme une pie, qui a passé sa vie à raconter des histoires qu'il ne finit jamais, parce qu'une autre histoire le prend en chemin. Il tient sa philosophie de son ancien capitaine, qui la tenait d'un livre, qu'il n'a jamais lu. Elle lui a réussi : trois naufrages, deux abordages, une fièvre jaune, et pas une égratignure. Il dit que c'est la preuve. Les autres disent que c'est de la chance. Il dit que la chance, c'est le nom que les ignorants donnent à ce qui est écrit." },
+        { first: true, text: "Le troisième soir, il n'est plus seul sur le mur. Deux jeunes l'ont rejoint, pour faire les braves. Le quatrième, ils sont cinq. La capitaine Ribaud les fait descendre à coups de gueule. Ils remontent dès qu'elle a le dos tourné. Victorine compte, chaque soir, les têtes alignées sur le mur, et elle sait ce qu'elle comptera bientôt dans la sacristie." },
+        { again: true, text: "Le Moigne fume sur le mur de la chapelle, les jambes dans le vide, et les balles des mutins font voler la pierre autour de lui." }
       ],
-      choices: [{ label: "Attendre ce qui doit arriver", to: "UH_balle" }] },
+      choices: [
+        { label: "Monter s'asseoir sur le mur, un soir, à côté de Le Moigne, et écouter son histoire", to: "UH_histoire", hide: { seen: "UH_histoire" } },
+        { label: "Parler au plus jeune des garçons qui montent sur le mur", to: "UH_jeune", hide: { seen: "UH_jeune" } },
+        { label: "Attendre ce qui doit arriver", to: "UH_balle" }
+      ] },
     UH_balle: { act: "IV", title: "C'est écrit là-haut", place: "misericorde", ambiance: "nature",
       text: [
         "Ça arrive le cinquième soir. Une balle, plus heureuse que les autres, traverse l'avant-bras gauche de Le Moigne, entre les deux os, et ressort par-derrière. Il ne tombe pas du mur. Il regarde son bras avec intérêt, comme un passant regarde une vitrine. Puis il descend, tout seul, en tenant sa pipe de la main droite pour ne pas la renverser. Les quatre autres descendent derrière lui, beaucoup plus vite qu'ils ne sont montés.",

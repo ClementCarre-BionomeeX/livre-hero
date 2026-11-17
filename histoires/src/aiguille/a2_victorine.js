@@ -39,6 +39,7 @@ module.exports = {
         { label: "Monter rue des Juges, où une femme de chambre aux yeux rouges t'attend", to: "VA_albane", hide: { seen: "VA_albane" } },
         { label: "Ouvrir à l'aubergiste, qui frappe à minuit pour le capitaine du troisième", to: "UZ_chambre", hide: { seen: "UZ_chambre" } },
         { label: "Suivre le guetteur de nuit, qui a quelqu'un pour la médecin sous l'auvent de la criée", to: "UI_quai", hide: { seen: "UI_quai" }, if: { count: JOURS, min: 1 }, why: "Le guetteur ne connaît pas encore la médecin de la Cormorane." },
+        { label: "Prendre, au sortir de l'hospice, la route du cimetière, à onze heures du soir", to: "SB_mur", hide: { seen: "SB_mur" } },
         { label: "Le dixième jour", to: "A2v_fin", big: true, if: { count: JOURS, min: 4 }, why: "La liste est encore longue." },
       ] },
 

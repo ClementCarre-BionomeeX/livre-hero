@@ -9,14 +9,39 @@
 // Wired in XR_jours.
 module.exports = {
   passages: {
+    TJ_voisin: { act: "II", title: "Le perroquet de l'épicerie", place: "basse_fosse", ambiance: "ville", second: true,
+      text: [
+        "Le mercier d'en face est un petit homme rond, à lunettes, qui vend du fil, des boutons et des nouvelles, et qui donne les nouvelles gratuitement, pour faire passer le fil. Il a vu Fargue regarder la boutique. Il traverse la rue avec un écheveau à la main, comme prétexte, et se plante à côté de lui.",
+        "Il dit que c'est une histoire bien triste, et bien belle. Le pauvre Gwilherm, toujours malade, toujours à tousser derrière son comptoir, et si jaloux, le pauvre, qu'il battait sa femme quand un client lui souriait. Et le grand Hervé, l'ami d'enfance, qui venait tous les jeudis jouer aux dominos avec lui, et qui supportait ses colères comme un saint. Et puis la promenade sur l'étang, le dimanche, et le malheur, et les deux survivants trempés, qu'on a dû arracher de la berge où ils appelaient encore.",
+        "Il dit qu'ils se sont mariés au bout d'un an, comme il se doit, et que tout le quartier a trouvé ça juste, et touchant. Il baisse la voix. Il dit que, depuis, la boutique est moins gaie. Qu'on ne les entend jamais se disputer, ni rire, ni rien. Qu'on dirait deux veufs qui tiendraient boutique ensemble. Il dit que c'est le chagrin, et que ça passera.",
+        "Puis il ajoute, comme une chose sans importance, en roulant son écheveau, que le perroquet, avant, ne disait que « Bonjour, la compagnie ». C'est depuis l'étang qu'il dit l'autre chose. Il ne sait pas qui le lui a appris. Il rit, d'un petit rire de mercier, et repart vers ses boutons."
+      ],
+      choices: [
+        { back: "TJ_epicerie", label: "Retourner devant l'épicerie" }
+      ] },
+    TJ_loueur: { act: "II", title: "Le perroquet de l'épicerie", place: "basse_fosse", ambiance: "ville", second: true,
+      text: [
+        "L'étang des Saulnes est à une demi-lieue de la ville, au bout d'un chemin de halage, une eau dormante, verte, bordée de saules qui y trempent leurs cheveux. Les gens de Morlenc y vont le dimanche, en barque, pour pêcher l'ablette et se faire voir. Le loueur de barques tient une guinguette de planches, sur pilotis, où l'on boit un vin blanc aigre en regardant les canards.",
+        "Fargue boit son vin aigre sans faire de grimace, ce qui lui vaut l'estime du loueur, un vieux à favoris blancs qui a vu, dit-il, tout ce qu'on peut voir sur une eau douce. Fargue parle de noyades, en général. Le vieux parle de la noyade Guyomarc'h, en particulier, parce que c'est la seule qui lui soit arrivée en quarante ans.",
+        "Il raconte la barque retournée, les cris, les deux sauvés. Il dit qu'il a tout de suite pensé à un malheur, parce qu'un homme qui ne sait pas nager, sur une barque, ça bouge toujours de travers. Puis il dit, en remplissant les verres, une chose qui l'a frappé, ce jour-là, et dont il n'a parlé à personne, parce que personne ne lui a rien demandé. Le grand, Hervé, avant de monter dans la barque, avait ôté ses bottes. Il les avait laissées sur le ponton, bien rangées. Par un dimanche sans soleil.",
+        "« Un homme qui ôte ses bottes pour monter dans une barque, dit le vieux, c'est un homme qui pense qu'il va nager. » Il boit. Il dit qu'il a dû se tromper, que c'était sûrement pour ne pas salir les planches. Il dit qu'Hervé est un garçon bien soigneux."
+      ],
+      choices: [
+        { back: "TJ_epicerie", label: "Retourner à l'épicerie de la rue des Cordiers" }
+      ] },
     TJ_epicerie: { act: "II", title: "Le perroquet de l'épicerie", place: "basse_fosse", ambiance: "ville", second: true,
       fx: { meet: "guyomarch" },
       text: [
-        "L'épicerie Guyomarc'h, rue des Cordiers, vend le meilleur vinaigre de la Basse-Fosse, et Fargue a besoin de quatre barils de vinaigre pour un long voyage. C'est une boutique étroite et sombre, qui sent le girofle, le savon noir et la morue sèche, avec un comptoir de chêne usé, des bocaux, des sacs, et, dans une cage de laiton suspendue au plafond, un perroquet gris à queue rouge, qui regarde les clients de profil, d'un œil jaune.",
-        "Derrière le comptoir, un couple. Elle, Laurence, vingt-huit ans, belle d'une beauté sombre et fatiguée, avec des cernes violets. Lui, Hervé, trente ans, un grand gaillard au cou épais, aux mains énormes, qui sourit trop. Ils sont mariés depuis un an, dit le voisin. Elle était veuve. Son premier mari, Gwilherm, un petit homme maladif qui tenait la boutique avant, s'est noyé dans l'étang des Saulnes, un dimanche, en barque, avec sa femme et son meilleur ami, qui ont tout fait pour le sauver. Le meilleur ami, c'était Hervé.",
-        "Pendant que Laurence mesure le vinaigre, le perroquet se met à parler. D'une voix aiguë, nasillarde, d'une ressemblance effrayante avec une voix humaine, il dit : « Gwilherm ! Gwilherm ! Laurence, où est Gwilherm ? » Laurence renverse la mesure. Le vinaigre coule sur le comptoir. Hervé devient gris. Il frappe la cage du plat de la main. Le perroquet se tait, et regarde Fargue, de profil, avec son œil jaune.",
+        { first: true, text: "L'épicerie Guyomarc'h, rue des Cordiers, vend le meilleur vinaigre de la Basse-Fosse, et Fargue a besoin de quatre barils de vinaigre pour un long voyage. C'est une boutique étroite et sombre, qui sent le girofle, le savon noir et la morue sèche, avec un comptoir de chêne usé, des bocaux, des sacs, et, dans une cage de laiton suspendue au plafond, un perroquet gris à queue rouge, qui regarde les clients de profil, d'un œil jaune." },
+        { first: true, text: "Derrière le comptoir, un couple. Elle, Laurence, vingt-huit ans, belle d'une beauté sombre et fatiguée, avec des cernes violets. Lui, Hervé, trente ans, un grand gaillard au cou épais, aux mains énormes, qui sourit trop. Ils sont mariés depuis un an, dit le voisin. Elle était veuve. Son premier mari, Gwilherm, un petit homme maladif qui tenait la boutique avant, s'est noyé dans l'étang des Saulnes, un dimanche, en barque, avec sa femme et son meilleur ami, qui ont tout fait pour le sauver. Le meilleur ami, c'était Hervé." },
+        { first: true, text: "Pendant que Laurence mesure le vinaigre, le perroquet se met à parler. D'une voix aiguë, nasillarde, d'une ressemblance effrayante avec une voix humaine, il dit : « Gwilherm ! Gwilherm ! Laurence, où est Gwilherm ? » Laurence renverse la mesure. Le vinaigre coule sur le comptoir. Hervé devient gris. Il frappe la cage du plat de la main. Le perroquet se tait, et regarde Fargue, de profil, avec son œil jaune." },
+        { again: true, text: "Le perroquet gris, dans sa cage de laiton, regarde Fargue de profil, et attend qu'on lui parle." }
       ],
-      choices: [{ label: "Payer le vinaigre, et attendre qu'Hervé parle", to: "TJ_cou" }] },
+      choices: [
+        { label: "Écouter le voisin, le mercier d'en face, qui ne demande qu'à parler", to: "TJ_voisin", hide: { seen: "TJ_voisin" } },
+        { label: "Aller boire un verre au loueur de barques de l'étang des Saulnes", to: "TJ_loueur", hide: { seen: "TJ_loueur" } },
+        { label: "Payer le vinaigre, et attendre qu'Hervé parle", to: "TJ_cou" }
+      ] },
     TJ_cou: { act: "II", title: "Le perroquet de l'épicerie", place: "basse_fosse", ambiance: "ville", second: true,
       text: [
         "Hervé raccompagne Fargue jusqu'à la porte, pour l'aider avec les barils. Sur le seuil, il se penche. Fargue voit, sur son cou épais, au-dessus du col, une cicatrice. Une cicatrice ronde, en croissant, en deux arcs, avec la marque nette de dents humaines. Une morsure, vieille d'un an, mal refermée, que le col frotte. Hervé voit qu'il regarde. Il remonte son col. Il sourit trop.",

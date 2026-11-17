@@ -18,14 +18,37 @@ module.exports = {
       choices: [
         { label: "Entrer dans la tourelle", to: "TM_tourelle" }
       ] },
-    TM_tourelle: { act: "III", title: "Le sémaphore", place: "brisegreve", ambiance: "nuit",
+    TM_registre: { act: "III", title: "Le sémaphore", place: "brisegreve", ambiance: "village",
       text: [
-        "Dedans, une seule pièce, carrée, propre comme une cellule de moine. Un lit de camp au carré, une table, un livre de signaux ouvert, un registre où il note, d'une écriture fine, chaque navire, chaque signal, chaque heure, une longue-vue de cuivre sur un trépied, et une petite étagère où il range, au cordeau, des livres de mathématiques. Il a appris l'algèbre tout seul, dit-il, ici, pendant les nuits. Il trouve que c'est une science reposante : les inconnues finissent toujours par se laisser trouver.",
-        "Le caporal Josselin Coadou a quarante ans, une figure de professeur, maigre, pâle, rasée de près, et des yeux qui reviennent sans arrêt à la fenêtre ouest, celle qui donne sur l'Éperon, une pointe de rochers noirs, très bas, au pied de la falaise, que la mer découvre à marée basse.",
-        "Il te remercie pour l'huile. Il te demande de rester un peu. Il le demande poliment, comme on demande l'heure, et sa main tremble sur la table.",
-        "« Je voudrais vous raconter quelque chose, dit-il. Vous êtes de passage. Vous repartez après-demain. Vous ne le répéterez à personne qui compte. C'est exactement ce qu'il me faut. »"
+        "Le registre est un gros cahier relié en toile verte, dont les pages sont réglées à la main, en colonnes : la date, l'heure, le navire, la nationalité, le signal reçu, le signal rendu. L'écriture du caporal est fine, régulière, sans une rature, d'une propreté de copiste. Les navires défilent, mois après mois, comme des perles sur un fil. Brick. Goélette. Lougre. Frégate. Cormorane, trois-mâts barque, avant-hier.",
+        "Puis tu remarques, dans la marge de droite, à certaines dates, un petit signe tracé au crayon, si léger qu'on le voit à peine. Une sorte de croix, avec un trait en travers du haut, comme un homme qui lève un bras. Il y en a une, il y a deux ans. Puis rien pendant des mois. Puis une autre, cet hiver. Puis trois, en mars. Puis presque chaque semaine, depuis un mois.",
+        "La dernière est d'hier soir. Elle est tracée plus fort que les autres, et le crayon a troué le papier.",
+        "Le caporal Coadou revient avec deux tasses de thé. Il voit le registre ouvert. Il voit où ton doigt s'est arrêté. Il ne dit rien. Il pose les tasses, prend le registre, le ferme doucement, et le range sur l'étagère, entre deux livres d'algèbre. Puis il s'assied, et il boit son thé, en regardant la fenêtre de l'ouest."
       ],
       choices: [
+        { back: "TM_tourelle", label: "Retourner près de la table" }
+      ] },
+    TM_lunette: { act: "III", title: "Le sémaphore", place: "brisegreve", ambiance: "village",
+      text: [
+        "La longue-vue est une belle pièce de marine, en cuivre et en acajou, sur un trépied de bronze dont les pieds sont scellés dans le plancher. Le caporal te montre comment la régler, d'un geste de professeur, en tournant la bague du bout des doigts. Puis il te laisse regarder, et il recule d'un pas, comme pour ne pas voir ce que tu vas voir.",
+        "L'Éperon remplit l'oculaire, énorme, tout proche, à toucher. Des rochers noirs, luisants, couverts d'algues brunes qui ondulent dans le ressac. Des flaques. Des moules. Une mouette posée, qui se lisse les plumes. Et, au pied de la falaise, là où l'Éperon rejoint la terre, une vieille cabane de pierres sèches, sans toit, que la mer recouvre aux grandes marées, et d'où part un sentier taillé, qui monte en lacets vers le sémaphore.",
+        "Il n'y a personne. Tu le dis. Le caporal hoche la tête. Il dit qu'il n'y a jamais personne, quand on regarde exprès. Il dit qu'il faut regarder au coucher du soleil, sans vouloir, et qu'alors on le voit, debout, au bout de l'Éperon, le bras levé.",
+        "Tu te recules de la lunette. Le caporal y colle son œil à son tour, longuement, et tu vois sa main, sur le trépied, se crisper. Il dit, sans se retourner, d'une voix tranquille : « La mouette s'est envolée. Elle ne s'envole jamais à cette heure-là. »"
+      ],
+      choices: [
+        { back: "TM_tourelle", label: "Retourner près de la table" }
+      ] },
+    TM_tourelle: { act: "III", title: "Le sémaphore", place: "brisegreve", ambiance: "nuit",
+      text: [
+        { first: true, text: "Dedans, une seule pièce, carrée, propre comme une cellule de moine. Un lit de camp au carré, une table, un livre de signaux ouvert, un registre où il note, d'une écriture fine, chaque navire, chaque signal, chaque heure, une longue-vue de cuivre sur un trépied, et une petite étagère où il range, au cordeau, des livres de mathématiques. Il a appris l'algèbre tout seul, dit-il, ici, pendant les nuits. Il trouve que c'est une science reposante : les inconnues finissent toujours par se laisser trouver." },
+        { first: true, text: "Le caporal Josselin Coadou a quarante ans, une figure de professeur, maigre, pâle, rasée de près, et des yeux qui reviennent sans arrêt à la fenêtre ouest, celle qui donne sur l'Éperon, une pointe de rochers noirs, très bas, au pied de la falaise, que la mer découvre à marée basse." },
+        { first: true, text: "Il te remercie pour l'huile. Il te demande de rester un peu. Il le demande poliment, comme on demande l'heure, et sa main tremble sur la table." },
+        { first: true, text: "« Je voudrais vous raconter quelque chose, dit-il. Vous êtes de passage. Vous repartez après-demain. Vous ne le répéterez à personne qui compte. C'est exactement ce qu'il me faut. »" },
+        { again: true, text: "Le caporal Coadou, à sa table, revient sans cesse à la fenêtre de l'ouest, celle qui donne sur l'Éperon." }
+      ],
+      choices: [
+        { label: "Feuilleter le registre des signaux, pendant qu'il prépare le thé", to: "TM_registre", hide: { seen: "TM_registre" } },
+        { label: "Regarder par la longue-vue de cuivre, du côté de l'Éperon", to: "TM_lunette", hide: { seen: "TM_lunette" } },
         { label: "Rester et l'écouter", to: "TM_recits" }
       ] },
     TM_recits: { act: "III", title: "Le sémaphore", place: "brisegreve", ambiance: "nuit",
