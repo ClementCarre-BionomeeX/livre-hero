@@ -54,5 +54,5 @@ function assemble(storiesJson, opts) {
     "<script>" + safe(read("app/app.js")) + "</script>",
   ]).join("\n");
 }
-var STORIES = ["kardan", "cendres", "vaudrenne", "pages", "quarante", "temoin", "malvoran", "soiree", "enquete", "siege", "mer", "ecole", "huisclos", "adeux", "maree", "retenue", "mondeperdu", "taiseurs", "courrier", "guerremondes", "hommeinvisible", "machinetemps", "ilemoreau", "premiershommes", "jekyll", "crocblanc", "fleche", "enleve", "ballantrae", "ile", "douzieme", "troisclefs", "aiguille", "comete", "testament", "masque"];
+var STORIES = ["kardan", "cendres", "vaudrenne", "pages", "quarante", "temoin", "malvoran", "soiree", "enquete", "siege", "mer", "ecole", "huisclos", "adeux", "maree", "retenue", "mondeperdu", "taiseurs", "courrier", "guerremondes", "hommeinvisible", "machinetemps", "ilemoreau", "premiershommes", "jekyll", "crocblanc", "fleche", "enleve", "ballantrae", "ile", "douzieme", "troisclefs", "aiguille", "comete", "testament", "masque", "orsenne"];
 module.exports = { assemble: assemble, buildOf: buildOf, STORIES: STORIES };
