@@ -227,6 +227,8 @@ module.exports = {
         { if: { all: [{ has: "lingots:fondeurs" }, { not: { has: "fargue:sac" } }] }, text: "Les lingots sont restés en bas, avec ceux qui les ont tirés de la roche. Il a les mains vides. Il les regarde, ses mains, la droite, la gauche, les trois doigts. Elles ont l'air propres, ce qui est déjà un mensonge." },
         { if: { has: "dagrel:mort" }, text: "Le capitaine est resté en bas aussi, avec ses maçons, le septième. Quelqu'un refermera le mur, un jour, ou personne." },
         { if: { has: "fargue:emmene_dagrel" }, text: "Le capitaine s'assied à côté de lui, sur le muret. Ils regardent les étoiles, tous les deux, sans parler, comme autrefois sur la dunette de la Maraude, pendant les quarts de nuit, avant tout." },
+        { if: { has: "fargue:lettre_verite" }, text: "Contre sa peau, sous la chemise, il y a une page du cahier des vivres, pliée en quatre, où il a écrit l'île comme elle est. Elle est un peu plus lourde, ce soir." },
+        { if: { has: "fargue:lettre_soleil" }, text: "Contre sa peau, sous la chemise, il y a une page du cahier des vivres, pliée en quatre, où il a mis du soleil en bocal et des oranges grosses comme une tête. Il la relit, à la lueur des étoiles. Il n'y croit plus du tout. Il la garde quand même." },
         "Il pense à Lisette. Il pense qu'il ne lui écrira pas, cette fois non plus. Il pense qu'il rentrera, peut-être, et qu'il lui parlera. De tout. Il pense que c'est la chose la plus effrayante qu'il ait jamais envisagée, et il a envisagé beaucoup de choses.",
       ],
       choices: [{ label: "La nuit", to: "C5b_fin" }] },
