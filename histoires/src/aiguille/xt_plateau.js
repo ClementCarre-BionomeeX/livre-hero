@@ -1,0 +1,194 @@
+// L'Île Folle-Aiguille · side story « Le plateau » (owes its question to The Lost World: what does a man of learning
+// owe to the wonders he finds, and to those who must carry him home?). Professor Gaudrémont has slipped out of the
+// chapel to climb the Table; the child finds him at the foot of the cliffs. The chimney, the hermit's liana bridge,
+// and above, another forest: wingless running birds taller than a man, lizards the size of calves, a horned herd at a
+// black lake. The professor exults, breaks a leg. From the western rim at sunset, the whole island, the Tooth of the
+// North, and beside it a rock pierced through where the wind sings (xt:vue). Outcomes: an egg for the Academy
+// (xt:oeuf), the professor carried down (xt:gaudremont_sauve) or left above with his notes (xt:gaudremont_haut).
+var VU = [{ seen: "XT_oiseaux" }, { seen: "XT_lezards" }, { seen: "XT_bord" }];
+module.exports = {
+  passages: {
+    XT_debut: { act: "IV", title: "Le professeur", place: "table", ambiance: "nature",
+      fx: { meet: "gaudremont" },
+      text: [
+        "Les cris viennent du pied de la falaise, à une demi-lieue de la hutte, et ce sont des cris de rage, pas de douleur : une voix de basse, énorme, qui maudit en latin, en grec et en patois du Ponant, dans cet ordre, puis recommence.",
+        "Tu trouves le professeur Gaudrémont suspendu à six pieds du sol, accroché par le fond de sa culotte à un buisson d'épines qui pousse en travers de la roche. Il a sa boîte à herboriser en bandoulière, un marteau de géologue à la ceinture, un parasol vert déchiré, et la barbe pleine de feuilles. Il te voit, et cesse de jurer, et prend un air digne.",
+        "« Ah ! dit-il. Une figure connue. Décrochez-moi, voulez-vous ? J'étudiais la flore rupestre. Elle a pris l'avantage. »",
+        "Tu le décroches. Il retombe sur ses pieds avec un bruit de sac de farine, s'époussette, constate l'étendue des dégâts à sa culotte, et hausse les épaules.",
+        "« La capitaine m'a interdit de quitter la chapelle, dit-il. J'ai considéré l'interdiction comme une hypothèse de travail, que j'ai réfutée par l'expérience. » Il lève les yeux vers le haut de la falaise, vers la chevelure de forêt suspendue dans le ciel. Ses yeux brillent comme ceux d'un enfant devant une vitrine. « Il y a quelque chose, là-haut. J'en suis sûr. Les oiseaux qui en descendent ne ressemblent à rien. J'ai vu, hier, avec la lunette de Benoît, une plume tomber de là-haut. Une plume de quatre pieds de long. Quatre pieds ! » Il te saisit le bras. « Vous connaissez un chemin. Vous avez la tête de quelqu'un qui connaît un chemin. »",
+      ],
+      choices: [
+        { label: "« Il y a une faille, et un pont. Venez. »", fx: { regard: { gaudremont: "admiratif" } }, to: "XT_faille" },
+        { label: "« Il faut redescendre à la chapelle, professeur. »", to: "XT_refus" },
+      ] },
+    XT_refus: { act: "IV", title: "Le professeur", place: "table", ambiance: "nature",
+      text: [
+        "Il te regarde comme on regarde un élève qui vient de dire que la terre est plate.",
+        "« Redescendre. Mon enfant, j'ai cinquante-huit ans. J'ai été hué par l'Académie de Morlenc quarante-trois fois, j'ai compté. On m'a traité de charlatan, de visionnaire, d'ivrogne, ce qui est exact mais hors de propos. J'ai traversé l'océan dans un placard qui sentait le hareng pour arriver au pied de cette falaise. » Il ouvre les bras. « Je monte. Avec vous ou sans vous. Sans vous, je me romprai le cou, et vous en aurez la responsabilité morale, que je vous lègue avec plaisir. »",
+      ],
+      choices: [{ label: "Soupirer, et le mener à la faille", to: "XT_faille" }] },
+    XT_faille: { act: "IV", title: "La faille", place: "table", ambiance: "nature",
+      text: [
+        "Le vieil homme de la hutte t'a montré la faille, un jour, de loin, sans y aller : « Je n'y monte plus. Là-haut, il y a des choses qui ne m'aiment pas, et le sentiment est réciproque. »",
+        "C'est une cheminée. Une fente verticale dans la muraille de roche grise, large comme une porte, haute comme un clocher, où l'eau de la cascade a coulé pendant des siècles avant de changer de lit. On y grimpe en s'arc-boutant, le dos contre une paroi, les pieds contre l'autre, dans une pénombre humide pleine de fougères minuscules et de petites chauves-souris qui s'envolent en piaillant.",
+        "Le professeur grimpe derrière toi, en soufflant comme une forge, en commentant tout ce qu'il touche. « Basalte. Basalte. Une ammonite ! Non : une crotte d'oiseau. Basalte. »",
+        "À mi-hauteur, la cheminée s'ouvre sur une corniche, et la corniche s'arrête au bord du vide. En face, à vingt pieds, l'autre bord de la faille. Entre les deux, le pont.",
+        "Trois lianes, tressées, tendues : une pour les pieds, deux pour les mains. Il y a vingt ans, quelqu'un les a nouées là, et elles ont vécu depuis, elles ont poussé, elles ont pris racine des deux côtés, elles se sont couvertes de feuilles et de petites fleurs blanches. Dessous, cent pieds de vide, et des rochers.",
+      ],
+      choices: [
+        { label: "Passer la première, pour lui montrer", test: { dom: "nature", diff: 0, label: "Le pont de lianes" }, win: { to: "XT_pont" }, lose: { to: "XT_pont_rate" } },
+      ] },
+    XT_pont: { act: "IV", title: "Le pont", place: "table", ambiance: "nature",
+      text: [
+        "Tu passes. Les lianes ploient, se balancent, se tordent, et tu avances sans regarder en bas, en regardant le bout, comme on t'a appris à le faire sur les vergues. Tu poses le pied sur l'autre bord.",
+        "Le professeur passe ensuite. Il passe en parlant, sans s'arrêter une seconde, d'une voix de plus en plus aiguë, de botanique, de la résistance comparée des fibres végétales, de son grand-père qui était charpentier de marine à Saint-Malo, et quand il arrive de ton côté, il s'assied par terre, très pâle, et dit : « Admirable. Je ne repasserai jamais par là. »",
+      ],
+      choices: [{ label: "Finir la montée", to: "XT_haut" }] },
+    XT_pont_rate: { act: "IV", title: "Le pont", place: "table", ambiance: "nature",
+      text: [
+        "Au milieu, ton pied glisse sur les feuilles mouillées. Tu te retrouves suspendu{e} par les mains, au-dessus de cent pieds de vide, les jambes battant dans le rien, avec les petites fleurs blanches qui tombent autour de toi et tourbillonnent très lentement jusqu'aux rochers.",
+        "Une main énorme t'attrape par le col. Le professeur Gaudrémont est à plat ventre sur le pont, qui ploie dangereusement sous son poids, et il te hisse d'un seul bras, avec une force que tu ne lui aurais jamais soupçonnée, en grognant.",
+        "« J'ai été lutteur de foire, dit-il, en te posant sur le bord. Pour payer mes études de géologie. On ne le dit pas à l'Académie. » Il te tapote la joue. « Vous me devez la vie. Je vous la rendrai quand j'aurai besoin qu'on me porte. »",
+      ],
+      choices: [{ label: "Finir la montée", fx: { flag: "xt:dette" }, to: "XT_haut" }] },
+
+    XT_haut: { act: "IV", title: "La Table", place: "table", hub: true, noLead: true, backName: "la Table", ambiance: "nature",
+      text: [
+        { first: true, text: "On sort de la faille par une dernière cheminée, en se hissant sur les coudes, et l'on se retrouve debout au bord d'un autre monde." },
+        { first: true, text: "Il fait plus frais, d'abord. L'air est sec, léger, et sent la résine. La forêt d'en haut ne ressemble pas à la Sylve. Les arbres sont plus bas, plus sombres, plus anciens d'aspect, avec des troncs écailleux comme des pommes de pin géantes et des couronnes de feuilles raides en éventail. Entre eux, des fougères hautes comme des maisons, et des prêles, des prêles énormes, des colonnes vertes, articulées, creuses, qui sonnent quand on les frappe. Le sol est couvert de mousse épaisse, élastique, où l'on enfonce sans bruit." },
+        { first: true, text: "Et le silence. Pas un perroquet, pas une grenouille. Un silence attentif, de pièce où l'on vient d'entrer et où quelqu'un, derrière un rideau, retient son souffle." },
+        { first: true, text: "Le professeur Gaudrémont s'est arrêté. Il a ôté son chapeau. Il ne dit rien du tout, ce qui ne lui est pas arrivé, selon toute vraisemblance, depuis l'âge de deux ans." },
+        { again: true, text: "La forêt d'en haut, les prêles, la mousse, le silence qui écoute." },
+      ],
+      choices: [
+        { label: "Suivre les traces géantes dans la mousse", to: "XT_oiseaux", hide: { seen: "XT_oiseaux" } },
+        { label: "Aller vers les rochers chauds, au soleil", to: "XT_lezards", hide: { seen: "XT_lezards" } },
+        { label: "Marcher vers l'ouest, jusqu'au bord", to: "XT_bord", hide: { seen: "XT_bord" } },
+        { label: "Descendre vers le lac noir, au centre", to: "XT_harde", big: true, hide: { seen: "XT_harde" }, if: { count: VU, min: 2 }, why: "Le professeur veut d'abord tout voir sur le chemin." },
+      ] },
+    XT_oiseaux: { act: "IV", title: "Les coureurs", place: "table", ambiance: "nature",
+      text: [
+        "Les traces sont des pieds à trois doigts, larges comme une assiette, enfoncés dans la mousse. Elles vont par deux, à six pieds l'une de l'autre. Le professeur les mesure avec un mètre de tailleur, en tremblant, et note.",
+        "Puis tu entends le bruit. Un tambour sourd, rapide, qui fait trembler le sol. Tu tires le professeur derrière une fougère juste à temps.",
+        "Ils passent. Trois, quatre, cinq. Des oiseaux. Des oiseaux sans ailes, ou si peu qu'on ne les voit pas, hauts comme deux hommes, avec des cous de serpent, des têtes énormes armées d'un bec crochu de la taille d'une hache, et des pattes, des pattes de cheval, couvertes d'écailles, qui frappent la mousse à toute vitesse. Ils courent en troupe, la tête basse, en sifflant. Ils disparaissent entre les arbres. Le sol tremble encore longtemps.",
+        "Le professeur s'est relevé. Il a des larmes dans les yeux.",
+        "« Je les avais dessinés, dit-il. D'après des os. Un fémur trouvé dans une carrière, il y a vingt ans. L'Académie a ri. Elle a dit que c'était un os de bœuf mal ressoudé. » Il rit, lui aussi, un rire qui se casse. « Un os de bœuf. »",
+        "Plus loin, au pied d'un arbre écailleux, dans un creux de mousse, un nid. Trois œufs. Gros comme des têtes d'enfants, d'un vert pâle tacheté de brun.",
+      ],
+      choices: [
+        { label: "Prendre un œuf pour le professeur", test: { dom: "discretion", diff: 0, label: "Avant le retour des coureurs" }, win: { fx: { flag: "xt:oeuf", item: "oeuf_coureur" }, to: "XT_oeuf" }, lose: { to: "XT_oeuf_rate" } },
+        { label: "Laisser le nid", fx: { regard: { gaudremont: "cordial" } }, back: "XT_haut" },
+      ] },
+    XT_oeuf: { act: "IV", title: "L'œuf", place: "table", ambiance: "nature",
+      text: [
+        "Tu prends un œuf. Il est lourd, tiède, et quelque chose bouge dedans, contre ta paume, un coup léger, comme un doigt qui frappe à une porte. Tu le donnes au professeur, qui l'enveloppe dans sa veste avec des gestes de nourrice et le serre contre son ventre.",
+        "« L'Académie, dit-il, pour lui-même. L'Académie. » Il savoure le mot comme on savoure une vengeance.",
+      ],
+      choices: [{ label: "Repartir", back: "XT_haut" }] },
+    XT_oeuf_rate: { act: "IV", title: "La mère", place: "table", ambiance: "nature",
+      text: [
+        "Ta main touche l'œuf quand le tambour reprend, tout près, et un sifflement de chaudière éclate au-dessus de ta tête. Tu roules de côté. Le bec s'abat là où tu étais, et arrache une motte de mousse grande comme une table.",
+        "Vous courez. Le professeur court bien mieux qu'on ne l'imaginerait, et plus longtemps. L'oiseau ne vous poursuit pas loin : il retourne à son nid, et y reste debout, sur une patte, à siffler.",
+      ],
+      choices: [{ label: "Repartir, sans œuf", back: "XT_haut" }] },
+    XT_lezards: { act: "IV", title: "Les rochers chauds", place: "table", ambiance: "nature",
+      text: [
+        "Les rochers affleurent au milieu de la forêt, gris, lisses, chauffés par le soleil, et sur les rochers, des pierres. Des pierres qui respirent.",
+        "Ce sont des lézards. Six ou sept, couchés au soleil, gris comme la roche, grands comme des veaux, avec des crêtes dorsales en dents de scie et des queues aussi longues que leur corps. Ils ont des yeux à paupières lourdes, et ils les ouvrent, très lentement, l'un après l'autre, en vous voyant.",
+        "Le professeur s'assied sur une souche, sort son carnet, et commence à dessiner, à toute vitesse, en marmonnant des mots grecs. Il est à dix pas du plus proche. Puis à huit : il se rapproche sans s'en rendre compte, en dessinant.",
+        "Le plus gros des lézards se lève sur ses pattes, d'un mouvement de levier, et ouvre la gueule. Elle est rose et noire, pleine de petites dents recourbées.",
+      ],
+      choices: [
+        { label: "Te jeter entre le professeur et la bête", to: "XT_lezard_combat" },
+        { label: "Tirer le professeur en arrière par sa veste", test: { dom: "nature", diff: 0, label: "Le tirer à temps" }, win: { to: "XT_lezard_fuite" }, lose: { to: "XT_lezard_combat" } },
+      ] },
+    XT_lezard_combat: { act: "IV", title: "Le lézard", place: "table", ambiance: "nature",
+      combat: { title: "Les rochers chauds", enemies: [{ id: "lezard_table", n: 1 }], terrain: "nature",
+        win: { to: "XT_lezard_gagne" }, lose: { to: "XT_lezard_fuite" },
+        flee: { label: "Attraper le professeur et courir", dom: "nature", diff: 0, to: "XT_lezard_fuite" } },
+      text: [
+        "La bête charge, plus vite qu'aucune chose aussi lourde n'a le droit de charger, la queue fouettant les fougères, avec un sifflement de soufflet crevé.",
+      ] },
+    XT_lezard_gagne: { act: "IV", title: "Le lézard", place: "table", ambiance: "nature",
+      text: [
+        "Le lézard recule, une plaie à la gueule, en sifflant, puis se retourne et regagne son rocher, avec la dignité offensée d'un notable qu'on a bousculé au marché. Il se recouche au soleil et ferme les yeux. Les autres n'ont pas bougé.",
+        "Le professeur n'a pas lâché son carnet. « Vous avez vu sa langue ? demande-t-il. Fourchue. Fourchue ! Ça change tout ! »",
+      ],
+      choices: [{ label: "Repartir", fx: { flag: "xt:dessins" }, back: "XT_haut" }] },
+    XT_lezard_fuite: { act: "IV", title: "Le lézard", place: "table", ambiance: "nature",
+      text: [
+        "Vous courez. Derrière vous, la bête s'arrête au bord des rochers, comme si la forêt était une frontière, et siffle, et retourne au soleil.",
+        "Le professeur est essoufflé, ravi, et il saigne d'une égratignure au front qu'il n'a pas remarquée. Il a toujours son carnet. « Trois croquis, dit-il. Trois ! Et l'animal a des dents en crochet, pas en scie. L'Académie va s'étrangler. »",
+      ],
+      choices: [{ label: "Repartir", fx: { flag: "xt:dessins" }, back: "XT_haut" }] },
+    XT_bord: { act: "IV", title: "Le bord du monde", place: "table", ambiance: "nature",
+      text: [
+        "Vous marchez vers l'ouest tout l'après-midi, à travers la forêt écailleuse, et vous arrivez au bord de la Table au moment où le soleil se couche.",
+        "La falaise tombe à pic sous vos pieds. Et l'île entière est là, en dessous, dorée, rouge, violette, avec ses ombres qui s'allongent. La Sylve, immense, sombre. L'anse, au sud, où brille un point blanc, la Cormorane. L'éperon et sa chapelle. Les vergers de l'est, en terrasses. Les collines rousses du nord, où montent, dans le soir, les fumées des puits, droites comme des colonnes.",
+        "Et à l'ouest, au bout de l'île, au-dessus de la mer en feu, la Dent-du-Nord, la grande dent de roche noire. Et à côté d'elle, plus basse, un rocher que tu n'avais pas vu d'en bas. Un rocher rond, isolé sur une pente nue, percé de part en part d'un trou rond, comme un œil, à travers lequel on voit le soleil couchant.",
+        "Le vent tourne. Il souffle de la mer, à l'ouest, droit dans l'œil du rocher. Et le rocher chante.",
+        "C'est un son grave, profond, énorme, qui monte jusqu'à vous à travers une lieue d'air du soir, et qui fait vibrer le sol sous tes pieds. Une cloche sous la terre. Il dure tant que dure la rafale. Puis le vent tombe, et le son meurt, et revient avec la rafale suivante.",
+        { if: { has: "pierre:entendue" }, text: "Tu l'as entendu, ce son, dans la Sylve, le premier jour, en fuyant. Tu l'avais pris pour une cloche." },
+        { if: { has: "correction:parchemin" }, text: "Partez de la pierre qui sonne. Tu le dis à voix haute sans le vouloir. Le professeur te regarde, et ne demande rien, et note quelque chose dans son carnet." },
+        "Le professeur a sorti sa boussole de poche. L'aiguille tourne, frissonne, se fixe, mais pas sur le nord. Il la regarde, puis le soleil, puis la boussole, et fait un calcul sur le coin de son carnet. « Trois quarts, dit-il. Elle se trompe de trois quarts de vent vers l'ouest, ici. Ou à peu près. C'est énorme. Ça doit être différent ailleurs sur l'île. Il faudrait des semaines pour tout relever. »",
+      ],
+      choices: [{ label: "Regarder le rocher jusqu'à la nuit", fx: { flag: ["xt:vue", "pierre:vue"] }, back: "XT_haut" }] },
+    XT_harde: { act: "IV", title: "Le lac noir", place: "table", ambiance: "nature",
+      text: [
+        "Au centre de la Table, dans un creux, un lac. Un lac rond, noir, immobile, entouré de roseaux hauts comme des mâts. Et au bord du lac, une harde.",
+        "Des bêtes massives, de la taille d'un bœuf de labour, à la peau grise et plissée comme du cuir mouillé, avec sur le front une collerette d'os en forme d'éventail, et trois cornes, deux longues au-dessus des yeux, une courte sur le nez. Elles boivent. Il y en a vingt. Des petits entre les pattes des grandes.",
+        "Le professeur n'y tient plus. Il sort des roseaux, son carnet à la main, et s'avance sur la grève de vase, à découvert, pour mieux voir, en murmurant des mesures. Une des bêtes lève la tête. Puis toutes.",
+        "Puis la harde charge. Pas vers vous : elle fuit, droit devant elle, dans le premier sens venu, et le premier sens venu, c'est le vôtre. Un mur de cornes et de cuir gris qui fait trembler la terre comme une avalanche.",
+        "Tu cours. Le professeur court. Le professeur tombe.",
+      ],
+      choices: [{ label: "Te retourner", to: "XT_jambe" }] },
+    XT_jambe: { act: "IV", title: "La jambe", place: "table", ambiance: "nature",
+      text: [
+        "La harde est passée. Elle est déjà loin, dans la forêt, où l'on entend craquer les arbres. Le professeur est couché dans la vase, sur le dos, et il regarde le ciel, et il sourit.",
+        "Sa jambe gauche fait un angle qu'une jambe ne doit pas faire, sous le genou.",
+        "« Cassée, dit-il, avec une satisfaction de connaisseur. Le tibia, et probablement le péroné. Une bête m'a marché dessus. Une bête que personne n'a jamais vue, dans un monde que personne n'a jamais vu. » Il rit, et le rire devient un gémissement, et redevient un rire. « Il y a des façons plus bêtes de se casser une jambe. Mon cousin s'est cassé la sienne en descendant de voiture, à Morlenc, devant la cathédrale. Une voiture ! »",
+        "La nuit tombe.",
+      ],
+      choices: [{ label: "Lui faire une attelle, et attendre le jour", fx: { flag: "xt:jambe" }, to: "XT_nuit" }] },
+    XT_nuit: { act: "IV", title: "La nuit sur la Table", place: "table", ambiance: "nuit",
+      text: [
+        "Tu lui fais une attelle avec deux tiges de prêle et les lanières de sa boîte à herboriser. Il ne crie pas. Il te dicte, pendant ce temps, d'une voix de professeur, la description de la harde, que tu notes dans son carnet sous sa dictée, à la lueur d'un feu de fougères sèches.",
+        "La nuit, sur la Table, il fait froid. Des bruits passent dans la forêt, lourds, lents. Quelque chose boit au lac, longtemps, avec un bruit de pompe. Le professeur ne dort pas. Il parle.",
+        "« Je ne peux pas redescendre, dit-il, vers minuit, très calmement. Pas par la cheminée. Pas avec cette jambe. Il faudrait me porter, et vous ne pouvez pas me porter. Je pèse deux cent quarante livres, dont quarante de vanité. »",
+        "Un silence.",
+        "« Laissez-moi ici, avec de l'eau, des fruits, mon carnet. Allez chercher des hommes, une corde, une civière. Ou ne revenez pas. Je finirai mes notes. Quelqu'un les trouvera, un jour. On trouve toujours les notes. C'est même la seule chose qu'on trouve. »",
+        { if: { has: "xt:dette" }, text: "Il te regarde, et sourit. « Je vous ai dit que je vous rendrais la vie quand j'aurais besoin qu'on me porte. Je retire. Ce serait une mauvaise affaire pour vous. »" },
+      ],
+      choices: [
+        { label: "Le porter quand même, jusqu'au pont, sur ton dos", test: { dom: "nature", diff: 0, label: "Deux cent quarante livres" }, win: { fx: { flag: "xt:gaudremont_sauve", regard: { gaudremont: "redevable" }, quest: "XT" }, to: "XT_porte" }, lose: { fx: { flag: "xt:gaudremont_haut", quest: "XT" }, to: "XT_laisse" } },
+        { label: "Le laisser, et promettre de revenir avec des hommes", fx: { flag: "xt:gaudremont_haut", regard: { gaudremont: "cordial" }, quest: "XT" }, to: "XT_laisse" },
+      ] },
+    XT_porte: { act: "IV", title: "La descente", place: "table", ambiance: "nature",
+      text: [
+        "Tu le portes. Pas sur ton dos : il ne tiendrait pas. Tu fabriques une sorte de traîneau avec deux tiges de prêle et sa veste, et tu le tires, sur la mousse, toute la matinée, jusqu'à la cheminée. Il pèse ce qu'il a dit, et il parle tout le temps, pour te donner du cœur, de ses années de lutteur de foire, de sa mère, d'une danseuse de Morlenc qui l'a ruiné, et tu tires.",
+        "Au pont, tu lui passes une corde sous les bras, nouée à la liane, et il traverse à plat ventre, en se tirant à la force des poignets, en hurlant de douleur et de joie mêlées. La cheminée, tu la descends sous lui, en lui guidant le pied valide prise par prise.",
+        "En bas, le vieil homme de la hutte vous attend, assis sur une pierre, comme s'il savait. Il regarde la jambe du professeur, puis le professeur, puis toi.",
+        "« Vous êtes monté{e}, dit-il. Et vous êtes redescendu{e}. Avec du poids. » Il se lève, et prend l'autre côté du traîneau. « C'est plus qu'on n'en a jamais fait de mon temps. »",
+        { if: { has: "xt:oeuf" }, text: "Dans la veste du professeur, contre son ventre, l'œuf vert est intact. Quelque chose y frappe, de temps en temps, de l'intérieur." },
+      ],
+      choices: [{ label: "Le ramener à la hutte", back: "A4n_jours" }] },
+    XT_laisse: { act: "IV", title: "La promesse", place: "table", ambiance: "nature",
+      text: [
+        "Tu le laisses à l'abri d'un rocher, au bord du lac, avec un tas de fruits, une calebasse d'eau, un feu de fougères et son carnet. Il t'a fait promettre de ne pas te retourner en partant. Tu te retournes. Il écrit déjà, la langue entre les dents, comme un écolier.",
+        "« Dites à l'Académie, crie-t-il, quand tu es déjà loin, que Gaudrémont avait raison ! Dites-le en entrant ! Avant de dire bonjour ! »",
+        "Tu redescends seul{e} par la cheminée et le pont, avec la promesse dans la poitrine comme une pierre.",
+      ],
+      choices: [{ label: "Redescendre", back: "A4n_jours" }] },
+  },
+  extras: {
+    items: {
+      oeuf_coureur: { name: "Un œuf de coureur", kind: "divers", keep: true, price: 0, desc: "Un œuf gros comme une tête d'enfant, vert pâle taché de brun, pris au nid d'un oiseau sans ailes de la Table. Quelque chose frappe dedans." },
+    },
+    enemies: {
+      lezard_table: { name: "Lézard de la Table", pv: 16, att: 28, def: 12, dmg: 5, look: "loup", desc: "Un lézard gris grand comme un veau, à crête en dents de scie, qui charge plus vite qu'il ne devrait." },
+    },
+    quests: [
+      { id: "XT", act: "IV", kind: "annexe", title: "Le plateau", start: "XT_debut", doit: "mondeperdu", echo: ["xt:vue", "xt:gaudremont_sauve", "xt:gaudremont_haut"] },
+    ],
+  },
+};

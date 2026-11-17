@@ -1,0 +1,226 @@
+// L'Île Folle-Aiguille · side story « Les deux peuples » (owes its question to The Time Machine: what becomes of people
+// split into those who forget and those who toil in the dark?). The child goes with the hermit to the High Orchard:
+// the Gentle, who chew a bark that makes them forget and have given themselves the names of flowers; the old Mother
+// Aubépine, who does not chew because someone must keep the names. At night the Founders come up from the wells and
+// take one of the Gentle to turn the wheel of the pumps. Below: the forge, the pale people, Hugon Forge-Noire, who has
+// melted the chapel's silver and wants a ship, and a walled gallery the Old One forbade. Outcomes: a pact with the
+// Founders (xd:pacte, the galleries open), a rescue by force (xd:libere, xd:guerre), or only having seen (xd:vu).
+var JOURS = [{ seen: "XD_aubepine" }, { seen: "XD_machee" }, { seen: "XD_manquants" }, { seen: "XD_dagrel" }];
+module.exports = {
+  passages: {
+    XD_debut: { act: "IV", title: "Le Haut-Verger", place: "haut_verger", ambiance: "village",
+      text: [
+        "Il te mène vers l'est, par un sentier qui sort de la forêt et monte, en lacets, sur des pentes plus claires, plus sèches, où la Sylve recule et s'ouvre. Et tout à coup, au détour d'un rocher, les vergers.",
+        "Ils couvrent la colline entière, en terrasses, jusqu'au ciel. Des arbres plantés en lignes, il y a trente ans, par des mains qui savaient planter, et qui ont grandi depuis sans que personne les taille, si bien que les lignes se sont effacées sous les branches et que l'ordre n'est plus qu'un souvenir dans la disposition des troncs. Des pommiers retournés à l'état sauvage, des orangers, des figuiers, des arbres que tu ne connais pas, chargés de fruits jaunes, rouges, violets, qui tombent et pourrissent dans l'herbe haute sans que personne les ramasse. L'air est épais, sucré, bourdonnant d'abeilles.",
+        "Entre les arbres, des maisons de bois. Des maisons sans portes. Juste des toits de palmes sur des poteaux, ouverts à tous les vents, avec des hamacs et des nattes.",
+        "Et des gens. Ils sont une trentaine, peut-être, assis dans l'herbe, couchés dans les hamacs, debout sous les arbres, et ils te regardent arriver sans bouger, avec un sourire. Tous le même. Ils portent des robes d'écorce battue, couleur de pain, et des couronnes de fleurs fanées, et ils ont tous, au coin des lèvres, une tache brune.",
+        "Quand ils voient le vieil homme, ils se lèvent, tous, lentement, et s'agenouillent dans l'herbe.",
+        "« Sauveur », disent-ils. Et c'est un murmure si doux, si heureux, qu'il te glace.",
+      ],
+      choices: [{ label: "Entrer dans le verger", to: "XD_verger" }] },
+
+    XD_verger: { act: "IV", title: "Le Haut-Verger", place: "haut_verger", hub: true, noLead: true, backName: "le Haut-Verger", ambiance: "village",
+      text: [
+        { first: true, text: "Les gens du Haut-Verger parlent la langue du Ponant, mais une langue d'il y a trente ans, lente, polie, pleine de mots que ta grand-mère disait. Ils parlent peu. Ils sourient beaucoup. Ils te touchent les cheveux, les mains, les habits, avec une curiosité d'enfants, et ils oublient ton nom à mesure que tu le dis." },
+        { first: true, text: "Ils se sont donné des noms de fleurs. Un grand homme maigre s'appelle Liseron. Une femme aux cheveux blancs, qui doit avoir quarante ans, s'appelle Pâquerette. Ils mâchent une écorce, tous, sans arrêt, comme les vaches mâchent l'herbe, en regardant le ciel." },
+        { again: true, text: "Les vergers, les maisons sans portes, les gens qui sourient en mâchant." },
+      ],
+      choices: [
+        { label: "Aller voir la vieille femme qui ne mâche pas", to: "XD_aubepine", hide: { seen: "XD_aubepine" } },
+        { label: "Accepter le morceau d'écorce qu'on te tend", to: "XD_machee", hide: { seen: "XD_machee" } },
+        { label: "Parler à la jeune fille qui pleure sans savoir pourquoi", to: "XD_manquants", hide: { seen: "XD_manquants" } },
+        { label: "Regarder le vieil homme parmi eux", to: "XD_dagrel", hide: { seen: "XD_dagrel" } },
+        { label: "Rester pour la nuit", to: "XD_nuit", big: true, if: { count: JOURS, min: 2 }, why: "Tu ne connais pas encore assez ce verger pour y dormir." },
+        { label: "Repartir avec le vieil homme", fx: { flag: "xd:visite" }, back: "A4n_jours", if: { count: JOURS, min: 1 }, why: "Tu viens à peine d'arriver." },
+      ] },
+    XD_aubepine: { act: "IV", title: "La Mère Aubépine", place: "haut_verger", ambiance: "village",
+      fx: { meet: "aubepine" },
+      text: [
+        "Elle est assise à l'écart, sous un figuier, sur une souche, si petite et si vieille qu'on la prendrait pour une racine. Une couronne de fleurs fraîches sur ses cheveux blancs, la seule fraîche du verger. Elle a les lèvres propres.",
+        "« Assieds-toi, dit-elle. Tu viens de la mer. Ça se sent. Vous sentez le sel et la peur, vous autres. Nous, nous sentons les fruits. »",
+        "Elle s'appelle Aubépine. Elle te dit que c'est le seul nom de fleur qu'elle ait accepté, parce que l'aubépine a des épines.",
+        "« Je ne mâche pas, dit-elle. Quelqu'un doit se souvenir. Ils ont tout oublié, eux. Le navire, le voyage, la chapelle, le jour des clefs. Ils ont oublié leurs noms. Ils ont oublié leurs morts. Ils sont heureux. » Elle dit « heureux » comme on dit « malades ». « C'est lui qui leur a donné l'écorce, après. Il leur a dit : mâchez, et vous n'aurez plus mal. Il disait vrai. Il dit toujours vrai, c'est sa méchanceté. »",
+        "Elle sort de sous sa robe un carnet. Un petit carnet de cuir, noirci, gondolé, cousu et recousu, plein d'une écriture serrée, minuscule.",
+        "« Les noms, dit-elle. Tous. Les deux cent dix-sept de la Compagnie, avec leur âge, leur métier, leur village. Et à côté, une croix pour ceux de la chapelle. J'ai mis vingt ans à les retrouver tous, un par un, en interrogeant ceux qui mâchaient, les jours où ils mâchaient moins. » Elle te le tend. « Prends-le. Emporte-le là d'où tu viens. Qu'on sache, quelque part, qu'ils ont eu des noms. Moi, je n'en ai plus pour longtemps, et ici, personne ne lira jamais rien. »",
+      ],
+      choices: [
+        { label: "Prendre le carnet", fx: { item: "carnet_noms", flag: "xd:noms", regard: { aubepine: "redevable" } }, to: "XD_aubepine_fin" },
+        { label: "« Gardez-le. Venez avec nous, et portez-le vous-même. »", fx: { flag: "xd:aubepine_part", regard: { aubepine: "cordial" } }, to: "XD_aubepine_fin" },
+      ] },
+    XD_aubepine_fin: { act: "IV", title: "La Mère Aubépine", place: "haut_verger", ambiance: "village",
+      text: [
+        { if: { has: "xd:aubepine_part" }, text: "Elle rit, un petit rire sec de branche. « Partir. À mon âge. Avec des gens qui sentent la peur. » Elle range le carnet sous sa robe. « Je vais y penser. Ici, on a le temps de penser. On n'a que ça. »" },
+        { if: { has: "xd:noms" }, text: "Le carnet est léger. Il pèse deux cent dix-sept noms, et cela ne fait pas une livre." },
+        { if: { item: "piastre" }, text: "Elle voit la piastre que tu portes, et la touche du doigt. « On en frappait mille par mois, dit-elle. Mon mari tenait le balancier. On croyait que c'était de l'argent. C'était une lettre d'invitation. »" },
+        "« Va, maintenant, dit-elle. Et méfie-toi de la nuit. La nuit, ceux d'en dessous montent. »",
+      ],
+      choices: [{ label: "Revenir dans le verger", back: "XD_verger" }] },
+    XD_machee: { act: "IV", title: "L'écorce", place: "haut_verger", ambiance: "village",
+      text: [
+        "Un garçon de ton âge, couronné de liserons, te tend un morceau d'écorce brune, fibreuse, de la taille d'un doigt, avec un sourire d'une gentillesse infinie.",
+        "« Mâche, dit-il. C'est bon. Après, il n'y a plus rien qui fait mal. »",
+      ],
+      choices: [
+        { label: "Mâcher", fx: { flag: "xd:machee" }, to: "XD_machee_oui" },
+        { label: "Le remercier, et garder l'écorce dans ta poche", fx: { item: "ecorce_douce" }, to: "XD_machee_non" },
+      ] },
+    XD_machee_oui: { act: "IV", title: "L'écorce", place: "haut_verger", ambiance: "village",
+      text: [
+        "C'est amer, d'abord, puis sucré, puis plus rien. Ta langue s'engourdit. Tes lèvres. Puis la chose descend, doucement, comme de l'eau tiède, dans ta gorge, ta poitrine, ton ventre, et partout où elle passe, quelque chose se dénoue.",
+        "Tu t'allonges dans l'herbe. Les branches au-dessus de toi sont très belles. Les fruits. Les abeilles. Tu ne sais plus très bien pourquoi tu avais peur. Il y avait un coup de feu, et un homme qui tombait dans une colonne de soleil, et c'est loin, c'est si loin, c'est arrivé à quelqu'un d'autre, dans un livre que tu as lu.",
+        "Tu restes là tout l'après-midi. Quand tu te relèves, le soleil est bas, et tu as du mal à te rappeler le nom de ton père. Tu le cherches. Il revient, lentement, comme une barque qui rentre au port par temps de brume. Lazare. Lazare Hersant. Il revient. Mais il a mis du temps.",
+        "Tu comprends, ce soir-là, avec une netteté épouvantable, pourquoi ils mâchent tous.",
+      ],
+      choices: [{ label: "Revenir dans le verger", back: "XD_verger" }] },
+    XD_machee_non: { act: "IV", title: "L'écorce", place: "haut_verger", ambiance: "village",
+      text: [
+        "Tu le remercies. Tu glisses l'écorce dans ta poche. Il continue de sourire, sans se vexer, sans comprendre, et va offrir un morceau à un perroquet, qui le refuse aussi.",
+        "Le soir, tu regardes l'écorce dans ta main. Elle sent la cannelle et la terre. Victorine Davrigny, elle, saurait ce que c'est.",
+      ],
+      choices: [{ label: "Revenir dans le verger", back: "XD_verger" }] },
+    XD_manquants: { act: "IV", title: "Primevère", place: "haut_verger", ambiance: "village",
+      text: [
+        "Elle a seize ans, ou dix-sept, des cheveux noirs pleins de fleurs jaunes, la tache brune au coin des lèvres comme les autres. Elle est assise sous un oranger et elle pleure. Elle pleure sans bruit, en souriant, avec un étonnement poli, comme si ses larmes appartenaient à quelqu'un d'autre et qu'elle les gardait par complaisance.",
+        "« Je m'appelle Primevère, dit-elle. Je ne sais pas pourquoi je pleure. C'est gênant. »",
+        "Tu t'assieds à côté d'elle. Elle te raconte, en cherchant ses mots, que son frère n'est plus là. Bleuet. Il est parti « au fond », il y a trois nuits. Ceux du fond l'ont emmené.",
+        "« Ils prennent quelqu'un, de temps en temps, dit-elle. Ils le rendent, après. Quand ils le rendent, il ne voit plus bien le jour, et il tousse. Mais il revient. » Elle s'essuie les yeux. « Sauveur dit que c'est comme ça. Que ceux du fond ont besoin de bras, et nous de fer pour les couteaux, et que c'est un échange. Sauveur sait. » Elle te regarde. « Pourquoi est-ce que je pleure, alors ? »",
+        "Tu ne sais pas quoi lui répondre. Tu le sais très bien.",
+      ],
+      choices: [{ label: "Lui promettre de chercher son frère", fx: { flag: "xd:promesse_bleuet" }, back: "XD_verger" }] },
+    XD_dagrel: { act: "IV", title: "Sauveur", place: "haut_verger", ambiance: "village",
+      text: [
+        "Tu le regardes parmi eux. Il passe d'arbre en arbre, de hamac en hamac, et partout on lui sourit, on lui tend des fruits, on lui baise les mains. Il bénit. Il fait un petit geste de la main droite au-dessus des têtes, un geste de prêtre, et les gens ferment les yeux de bonheur. Il demande des nouvelles des malades, des enfants. Il connaît tous les noms de fleurs. Il en a donné la moitié.",
+        "Le soir, tu le trouves seul, au bout du verger, assis sur un mur de pierres sèches, face au soleil couchant.",
+        "« Vous désapprouvez, dit-il sans se retourner. Vous avez raison. » Il croque une pomme sauvage. « Ils voulaient mourir, vous savez. Après. Tous. Ils se jetaient du haut de l'éperon. Ils refusaient de manger. Une mère a noyé ses deux enfants dans la source, pour qu'ils n'aient pas à se souvenir, et s'est noyée ensuite. Alors je leur ai donné l'écorce. Je la connaissais : les sauvages des îles du sud la mâchent pour les deuils. Ils ont cessé de mourir. Ils ont cessé de se souvenir. Ils ont cessé de me haïr. Les trois choses sont venues ensemble, je ne les ai pas choisies séparément. »",
+        "Il jette le trognon.",
+        "« J'ai fait du bien par intérêt, et du mal par pitié. Je ne sais plus lequel était lequel. Vingt et un ans que j'essaie de faire le compte, et le compte change tous les soirs. »",
+      ],
+      choices: [{ label: "Ne rien répondre", fx: { flag: "xd:sauveur_vu" }, back: "XD_verger" }] },
+
+    XD_nuit: { act: "IV", title: "Ceux du fond", place: "haut_verger", ambiance: "nuit",
+      text: [
+        "Tu dors dans un hamac, sous un toit de palmes, au milieu des gens du verger qui ronflent doucement, comme des enfants. Le vieil homme est reparti au crépuscule.",
+        "Ce sont les lanternes qui te réveillent. Quatre, cinq, qui montent du nord par le sentier, dans le noir, sans bruit. Elles s'arrêtent au bord du verger. Des silhouettes, derrière. Pâles. Vêtues de cuir. Elles avancent entre les hamacs, en levant les lanternes au-dessus des visages endormis, l'un après l'autre, comme des acheteurs au marché aux bestiaux.",
+        "Les gens du verger ne se réveillent pas. Ou bien ils se réveillent, et ferment les yeux plus fort.",
+        "Les silhouettes s'arrêtent au-dessus d'un hamac. Une jeune fille aux cheveux pleins de fleurs jaunes. Primevère. Une main pâle se pose sur son épaule. Elle ouvre les yeux. Elle ne crie pas. Elle se lève, docile, et les suit, en souriant, en tenant la main de l'homme comme on tient la main de son père.",
+        { with: "chien", text: "Le chien est debout, à côté de ton hamac, le poil dressé, tremblant de tout son corps, et il attend ton ordre." },
+      ],
+      choices: [
+        { label: "Leur barrer le chemin", to: "XD_combat" },
+        { label: "Les suivre, de loin, jusqu'au fond", test: { dom: "discretion", diff: 0, label: "Suivre les lanternes" }, win: { to: "XD_descente" }, lose: { to: "XD_pris" } },
+        { label: "Fermer les yeux, comme les autres", fx: { flag: "xd:yeux_fermes" }, to: "XD_ferme" },
+      ] },
+    XD_ferme: { act: "IV", title: "Les yeux fermés", place: "haut_verger", ambiance: "nuit",
+      text: [
+        "Tu fermes les yeux. Tu entends les pas s'éloigner dans l'herbe. Tu ne dors pas jusqu'à l'aube.",
+        "Le matin, Primevère n'est plus là. Personne ne le remarque. On lui a pris son hamac, déjà ; un garçon y mâche son écorce en regardant le ciel. Tu demandes. On te sourit. « Partie au fond, dit quelqu'un. Elle reviendra. »",
+        "Tu repars vers la hutte du vieil homme avec un poids sur la poitrine que tu ne connaissais pas, et qui ne te quittera plus jamais tout à fait : le poids exact de ce qu'on a laissé faire.",
+      ],
+      choices: [{ label: "Repartir", fx: { flag: "xd:vu", quest: "XD" }, back: "A4n_jours" }] },
+    XD_combat: { act: "IV", title: "Ceux du fond", place: "haut_verger", ambiance: "nuit",
+      combat: { title: "Le verger, la nuit", enemies: [{ id: "fondeur", n: 2 }], terrain: "nuit",
+        win: { to: "XD_combat_gagne" }, lose: { to: "XD_pris" },
+        flee: { label: "Lâcher prise et te jeter dans les arbres", dom: "nature", diff: 0, to: "XD_ferme" } },
+      text: [
+        "Tu sautes du hamac et te plantes entre les lanternes et le sentier du nord. Les silhouettes s'arrêtent. Elles te regardent, en clignant, et l'une d'elles dit, d'une voix enrouée de fumée : « Une de la mer. » Puis elles posent leurs lanternes dans l'herbe, très calmement, et sortent des marteaux de leurs ceintures.",
+      ] },
+    XD_combat_gagne: { act: "IV", title: "Ceux du fond", place: "haut_verger", ambiance: "nuit",
+      text: [
+        "Ils fuient. Ils fuient vers le nord, en laissant leurs lanternes, et l'un d'eux traîne la jambe. Primevère est restée debout au milieu du verger, toujours souriante, la main tendue vers celui qui la tenait, qui n'est plus là.",
+        "Autour de toi, les gens du verger se sont réveillés. Ils te regardent. Ils ne te remercient pas. Ils ont l'air effrayés, et de toi bien plus que des autres.",
+        "« Tu n'aurais pas dû, dit un vieil homme couronné de liserons. Maintenant, ils vont revenir, et ils seront en colère. Avant, ils n'étaient jamais en colère. »",
+      ],
+      choices: [{ label: "Ramener Primevère à son hamac", fx: { flag: ["xd:libere", "xd:guerre"], quest: "XD", regard: { hugon: "hostile" } }, to: "XD_fin_guerre" }] },
+    XD_pris: { act: "IV", title: "La capture", place: "puits", ambiance: "nuit",
+      text: [
+        "Une main pâle se referme sur ton bras, une main froide, dure comme une tenaille, qui sent le charbon. On te soulève. On t'emporte. Tu te débats, et l'on ne te frappe même pas : on attend que tu te fatigues, avec une patience de forgeron, et l'on reprend la marche.",
+        "Le sentier du nord, les herbes rousses, la colline pelée sous les étoiles. Un trou. Une échelle de fer qui descend dans une lueur rouge. On t'y pousse.",
+      ],
+      choices: [{ label: "Descendre", fx: { flag: "xd:captif" }, to: "XD_descente" }] },
+    XD_descente: { act: "IV", title: "Les Puits", place: "puits", ambiance: "nuit",
+      text: [
+        "L'échelle descend longtemps, plus longtemps qu'aucune échelle n'a le droit de descendre. L'air devient chaud, puis brûlant, puis lourd d'une odeur de soufre, de métal fondu, de sueur ancienne. La lueur rouge grandit en bas. Un bruit monte avec elle : un battement régulier, énorme, comme le cœur d'une bête enterrée.",
+        "En bas, une salle. Une salle immense, taillée dans la roche, voûtée comme une église, éclairée par la gueule d'une forge où rougeoie un feu de charbon. Des galeries partent dans toutes les directions, noires. Et partout, des gens. Pâles, maigres, vêtus de cuir brûlé, hommes, femmes, enfants, qui travaillent sans lever la tête : ils martèlent, ils trient, ils portent, ils soufflent. Ils clignent sans cesse des yeux, même ici, dans la pénombre, comme si la forge elle-même était trop vive.",
+        "Le bruit de cœur, c'est une roue. Une grande roue de bois, au fond de la salle, haute de trois toises, qu'on fait tourner en marchant dedans, comme un écureuil dans sa cage, et qui actionne les soufflets de la forge et les pompes qui vident l'eau des galeries. Dans la roue, ils sont six à marcher. Ils portent des robes d'écorce et des couronnes de fleurs fanées. Ils marchent en souriant.",
+        { if: { has: "xd:promesse_bleuet" }, text: "L'un d'eux est un garçon aux cheveux noirs, qui ressemble à Primevère comme un frère. Il tousse en marchant." },
+        "Un homme vient vers toi, à travers la salle. Massif, blême, une grande brûlure luisante sur la joue en forme de main, un tablier de cuir sur sa poitrine nue.",
+        "« Hugon Forge-Noire, dit-il. Maître de puits. Tu es chez nous. »",
+      ],
+      choices: [{ label: "L'écouter", fx: { meet: "hugon" }, to: "XD_hugon" }] },
+    XD_hugon: { act: "IV", title: "Hugon Forge-Noire", place: "puits", ambiance: "nuit",
+      text: [
+        "Il te fait asseoir sur une enclume froide, et s'assied en face, sur un tas de minerai, et te regarde de ses yeux plissés, presque blancs.",
+        "« Ceux d'en haut t'ont dit qu'on était des monstres, dit-il. Ils ne disent rien, ceux d'en haut. Ils sourient. C'est pire. » Il crache dans le feu. « Écoute. Le jour des clefs, j'avais vingt ans. J'étais à la mine, avec mon père et trente autres. On a entendu les coups de feu. On est remontés. On a vu la chapelle. Ceux qui étaient à la mine ont survécu, parce que les pirates ne savaient pas qu'on y était. Après, le Vieux est resté, et il a fait la paix avec ceux d'en haut. Nous, on n'a pas voulu de sa paix. On est redescendus. On n'est jamais remontés. »",
+        "« On a repris la mine. Et la forge. On travaille. On travaille depuis vingt et un ans. On a trouvé, il y a dix ans, sous l'autel de la chapelle, les vases de la Compagnie, que le Vieux avait cachés là. On les a fondus. On en a fait des outils, des clous, des lames. De l'argent, ici, ça ne vaut rien : ça vaut un clou. » Il te montre ses mains, crevassées, noires, brûlées. « Ceux d'en haut, eux, n'ont jamais plus rien fait de leurs mains. Ils mangent les fruits que nos pères ont plantés. Alors, quand il nous faut des bras pour la roue, on en prend. On les rend. Ils ne se plaignent pas. Ils ne se plaignent jamais de rien. »",
+        "Il se penche vers toi.",
+        "« Vous êtes venus avec un navire. Deux, à ce qu'on dit, et un troisième qui rôde. Nous, on veut partir. Tous. Les quarante qu'on est. On veut voir le jour ailleurs qu'ici, un jour qui ne nous rappelle rien. Il nous faut un navire. »",
+        { if: { has: "dagrel:demasque" }, text: "« Et il y a autre chose, ajoute-t-il, plus bas. Au fond de la galerie neuve, il y a un mur. Un mur de pierres maçonnées, avec une croix et une ancre gravées dessus, et des mots de prêtre. Le Vieux nous a interdit d'y toucher. Il a dit que derrière, il y avait la mort de tous ceux qui l'ouvriraient. On ne l'a jamais ouvert. On a peur de lui. Même ici. Même maintenant. »" },
+        { if: { not: { has: "dagrel:demasque" } }, text: "« Et au fond de la galerie neuve, ajoute-t-il, plus bas, il y a un mur que le Vieux nous a interdit d'ouvrir. On ne l'a jamais ouvert. »" },
+      ],
+      choices: [
+        { label: "« Si vous rendez ceux de la roue, je vous trouverai un navire. »", test: { dom: "social", diff: 0, label: "Convaincre Hugon" }, win: { fx: { flag: ["xd:pacte", "xd:galerie_vue"], regard: { hugon: "allie" } }, to: "XD_pacte" }, lose: { fx: { regard: { hugon: "mefiant" } }, to: "XD_refus" } },
+        { label: "Profiter qu'il parle pour courir à la roue et libérer les marcheurs", test: { dom: "combat", diff: 0, label: "Forcer la roue" }, win: { fx: { flag: ["xd:libere", "xd:guerre"], regard: { hugon: "hostile" } }, to: "XD_roue" }, lose: { to: "XD_refus" } },
+        { label: "« Montrez-moi ce mur. »", fx: { flag: "xd:galerie_vue" }, to: "XD_mur" },
+      ] },
+    XD_mur: { act: "IV", title: "Le mur", place: "puits", ambiance: "nuit",
+      text: [
+        "Il hésite. Puis il prend une lanterne, et te mène.",
+        "La galerie neuve s'enfonce sous la colline, droite, étroite, étayée de bois noir. Il fait plus frais. L'eau suinte des parois. Au bout, à deux cents pas, la galerie s'arrête contre un mur.",
+        "Un mur de moellons maçonnés à la chaux, propre, soigné, d'un travail de bon maçon, qui ferme le passage du sol à la voûte. Au milieu, gravées dans une pierre plus grande que les autres, une croix aux bras évasés et une ancre. Et dessous, en lettres capitales taillées au ciseau : HIC · IACET · RATIO · OMNIVM.",
+        "Hugon lève sa lanterne et ne s'approche pas.",
+        "« Des mots de prêtre, dit-il. Personne ici ne sait les lire. »",
+        { if: { voie: "ecrivain" }, text: "Toi, tu sais un peu de latin, celui des actes de mariage et des épitaphes que tu as recopiés pour les veuves. Ici gît le compte de tous. Ou la raison de tous. Le mot a les deux sens. Tu frissonnes." },
+        { if: { not: { voie: "ecrivain" } }, text: "Toi non plus. Mais tu retiens les lettres, une à une, en les répétant à mi-voix, pour les dire un jour à quelqu'un qui saura." },
+      ],
+      choices: [{ label: "Revenir vers la forge", fx: { flag: "puits:mur_lu" }, to: "XD_refus" }] },
+    XD_pacte: { act: "IV", title: "Le pacte", place: "puits", ambiance: "nuit",
+      text: [
+        "Il te regarde longtemps. Puis il se lève, va à la roue, et frappe trois coups sur le montant avec son marteau. La roue ralentit, s'arrête. Les marcheurs restent debout dedans, souriants, perdus, ne sachant que faire de leurs jambes.",
+        "« Sortez-les, dit Hugon. Ramenez-les en haut. » Puis, à toi : « Un navire. Tu as dit un navire. Ici, on tient parole, parce qu'on n'a rien d'autre. Si tu ne tiens pas la tienne, on remontera, et cette fois, on ne prendra pas des bras pour la roue. »",
+        { if: { has: "xd:promesse_bleuet" }, text: "Le garçon qui tousse sort de la roue en dernier. Tu lui dis le nom de sa sœur. Il le répète, Primevère, deux fois, comme un mot d'une langue qu'il aurait sue autrefois." },
+        "Il te raccompagne lui-même jusqu'à l'échelle, et au pied de l'échelle, il te serre la main. Sa main est brûlante, dure, et ne lâche pas tout de suite.",
+        "« Les galeries, dit-il. Si un jour vous avez besoin de passer sous la colline, demandez Forge-Noire. »",
+      ],
+      choices: [{ label: "Remonter, avec ceux de la roue", fx: { quest: "XD", flag: "xd:rendus" }, to: "XD_fin" }] },
+    XD_roue: { act: "IV", title: "La roue", place: "puits", ambiance: "nuit",
+      text: [
+        "Tu cours. Tu sautes dans la roue, tu bloques un rayon avec une barre de fer ramassée près de la forge, la roue s'arrête d'un coup, et les six marcheurs tombent les uns sur les autres en riant. Tu les tires dehors, par les mains, par les robes. Tu cries : « Courez ! L'échelle ! » Ils ne comprennent pas. Ils te suivent parce que tu cours.",
+        "Derrière, des cris, des marteaux. Le soufflet de la forge, privé de la roue, s'arrête, et la salle s'assombrit d'un coup, comme un œil qui se ferme. Dans le noir, on se bouscule, on tombe. L'échelle. Tu pousses les marcheurs devant toi, un par un, vers le haut, vers les étoiles.",
+        "Tu remontes en dernier. En bas, dans la lueur rouge qui revient, Hugon Forge-Noire ne te poursuit pas. Il te regarde monter, immobile, et il ne crie pas, et c'est pire.",
+      ],
+      choices: [{ label: "Sortir, sous les étoiles", fx: { quest: "XD" }, to: "XD_fin_guerre" }] },
+    XD_refus: { act: "IV", title: "La forge", place: "puits", ambiance: "nuit",
+      text: [
+        "Hugon secoue la tête, lentement.",
+        "« Tu parles comme ceux de la mer, dit-il. Avec des mots qui ne coûtent rien. » Il fait un geste vers l'échelle. « Remonte. On ne garde pas ceux qui n'ont rien à vendre. Dis aux tiens qu'on est là. Qu'on attend un navire. Ils sauront où nous trouver. »",
+        "On te reconduit à l'échelle. La roue tourne toujours. Les marcheurs sourient toujours.",
+      ],
+      choices: [{ label: "Remonter, seul{e}", fx: { flag: "xd:vu", quest: "XD" }, to: "XD_fin" }] },
+    XD_fin: { act: "IV", title: "L'aube", place: "haut_verger", ambiance: "village",
+      text: [
+        "Tu remontes au jour au moment où il se lève, et la lumière te frappe les yeux comme un coup. Tu comprends, en clignant, la moitié de ce que tu as vu.",
+        { if: { has: "xd:rendus" }, text: "Derrière toi, les six marcheurs sortent du puits l'un après l'autre, en se protégeant les yeux de leurs bras. Tu les ramènes au verger. Personne ne leur fait fête. Personne ne leur demande rien. On leur rend leur hamac, on leur tend un fruit, et ils mâchent. Primevère, seule, se lève et court vers son frère, sans savoir pourquoi elle court." },
+        "Tu reprends le chemin de la hutte sous la Table.",
+      ],
+      choices: [{ label: "Rentrer", back: "A4n_jours" }] },
+    XD_fin_guerre: { act: "IV", title: "L'aube", place: "haut_verger", ambiance: "village",
+      text: [
+        "À l'aube, tu ramènes au verger ceux que tu as tirés de la nuit. Personne ne te remercie. On t'évite. Les gens du verger te regardent passer comme on regarde un orage.",
+        "Le vieil homme t'attend sous le premier oranger, assis sur une pierre, les mains sur les genoux.",
+        "« Vous avez rompu un équilibre de vingt ans en une nuit, dit-il, sans colère. C'est un record. » Il se lève. « Ils vont remonter. Pas pour des bras, cette fois. Pour vous. Et pour tout ce qui sent la mer. Je vous conseille d'avertir vos amis de la chapelle. » Il soupire. « Vous avez bien fait, remarquez. On fait toujours bien, à votre âge. C'est ensuite que ça se gâte. »",
+      ],
+      choices: [{ label: "Rentrer avec lui", back: "A4n_jours" }] },
+  },
+  extras: {
+    items: {
+      carnet_noms: { name: "Le carnet des noms", kind: "divers", keep: true, price: 0, desc: "Un carnet de cuir noirci, recousu : les deux cent dix-sept noms de la Compagnie de la Miséricorde, avec une croix pour ceux de la chapelle." },
+      ecorce_douce: { name: "Un morceau d'écorce douce", kind: "divers", keep: true, price: 0, desc: "L'écorce que mâchent les gens du Haut-Verger. Elle sent la cannelle et la terre." },
+    },
+    enemies: {
+      fondeur: { name: "Fondeur des Puits", pv: 11, att: 28, def: 10, dmg: 4, look: "humain", desc: "Un homme pâle de la mine, des bras de forgeron, un marteau, et des yeux que la lanterne blesse." },
+    },
+    quests: [
+      { id: "XD", act: "IV", kind: "annexe", title: "Les deux peuples", start: "XD_debut", doit: "machinetemps", echo: ["xd:pacte", "xd:libere", "xd:vu"] },
+    ],
+  },
+};
