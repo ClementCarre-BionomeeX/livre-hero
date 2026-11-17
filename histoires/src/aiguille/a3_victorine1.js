@@ -241,6 +241,7 @@ module.exports = {
         { label: "Le canot du fort accoste : on fouille la Cormorane", to: "YA_b_fouille", hide: { any: [{ seen: "YA_b_fouille" }, { not: { has: "ya:marque_vue" } }] } },
         { label: "Répondre au billet du gouverneur, porté au coucher du soleil", to: "YY_billet", hide: { seen: "YY_billet" }, if: { seen: "XM_v_diner" }, why: "Le gouverneur ne la connaît pas encore." },
         { label: "Entendre la messe du dimanche à la chapelle du fort", to: "XQ_b_aumonier", hide: { seen: "XQ_b_aumonier" } },
+        { label: "Suivre le vieux sergent qui attend au pied de l'échelle", to: "WJ_sergent", hide: { seen: "WJ_sergent" } },
         { label: "Acheter des citrons à la cantinière du bourg", if: { gold: { min: 40 } }, hide: { any: [{ has: "pharmacie:citron" }, { seen: "A3v_citrons" }] }, fx: { gold: -40, flag: "citrons:victorine" }, to: "A3v_citrons" },
       ] },
     A3v_citrons: { act: "III", title: "Le bourg des soldats", place: "brisegreve", ambiance: "village",

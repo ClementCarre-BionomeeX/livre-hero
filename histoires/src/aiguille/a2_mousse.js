@@ -47,6 +47,7 @@ module.exports = {
         { label: "Suivre Daguenet derrière la chaloupe, où il te fait signe", to: "YZ_demande", hide: { seen: "YZ_demande" }, if: { seen: "A2m_mature" }, why: "Les gabiers ne te connaissent pas encore." },
         { label: "Passer devant la roulotte de la veuve Brisquet, au bout du quai de la foire", to: "ZU_veuve", hide: { seen: "ZU_veuve" }, if: { count: JOURS, min: 1 }, why: "La foire n'ouvre que le dimanche." },
         { label: "Aller prendre livraison des drisses à la corderie Ropars, avec Gobert", to: "ZX_corderie", hide: { seen: "ZX_corderie" }, if: { count: JOURS, min: 1 }, why: "Gobert ne t'emmène pas encore partout." },
+        { label: "Aller seul{e} à la foire, un soir, derrière la tente rayée", to: "WK_tente", hide: { seen: "WK_tente" }, if: { seen: "XG_foire" }, why: "Tu n'es pas encore allé{e} à la foire." },
         { label: "Le dixième jour", to: "A2m_fin", big: true, if: { count: JOURS, min: 3 }, why: "Il reste des jours d'armement." },
       ] },
 
@@ -222,6 +223,7 @@ module.exports = {
         { label: "Rentrer tard, par la rue des Cordiers", to: "XG_presse", hide: { seen: "XG_presse" }, if: { seen: "A2m_pellerin" }, why: "Tu ne connais encore personne, à la Basse-Fosse, à qui il pourrait arriver quelque chose." },
         { label: "Courir derrière la main qui vient de te prendre tes trois sous", to: "YE_main", hide: { seen: "YE_main" } },
         { label: "Descendre les six marches de la taverne du Pélican", to: "ZO_cave", hide: { seen: "ZO_cave" } },
+        { label: "S'arrêter sous le porche de la chapelle murée, où quelqu'un tousse", to: "WE_porche", hide: { seen: "WE_porche" } },
         { label: "Aller voir le vieil homme assis en face de la boutique verte", to: "YN_banc", hide: { seen: "YN_banc" } },
         { label: "Chercher la porte bleue des Sœurs, rue des Tanneurs", to: "A2m_soeurs", hide: { seen: "A2m_soeurs" }, if: { item: "lettre_soeurs" }, why: "Tu n'as rien à faire chez des religieuses." },
         { back: "A2m_jours" },

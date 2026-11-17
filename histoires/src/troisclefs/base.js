@@ -13,6 +13,7 @@ module.exports = {
   subtitle: "À trois · un prologue et cinq actes · d'Aiguemorne à la Nuit des Clefs",
   summary: "À Aiguemorne, cité de serruriers, c'est un automate qui gouverne : tous les sept ans, le Juge de Bronze rend sa Sentence, et nul ne la discute. Il siège derrière une porte à trois serrures, dont trois puissants gardent chacun une clef, à trois bouts du pays. Vous êtes trois, de la compagnie du Rossignol, et un homme aux gants gris vient de vous offrir trois mille écus pour entrer là où personne n'entre. Un œil qui voit, une voix qui ment, une main qui prend : à chaque étape, vous vous partagez les postes, et chacun rapporte sa part de l'affaire.",
   skin: "enluminure",
+  tags: ["fantasy","aventure","intrigue","voyage"],
   cover: { motif: "sceau", color: "#3a2f4a" },
   glossary: glossary,
   voice: "deuxième personne, présent",

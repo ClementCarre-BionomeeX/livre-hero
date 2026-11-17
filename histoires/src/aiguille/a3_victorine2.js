@@ -35,6 +35,7 @@ module.exports = {
         { label: "Regarder ce que la chaleur a fait du portrait", to: "YH_fissure", hide: { any: [{ seen: "YH_fissure" }, { not: { has: "yh:vu" } }] } },
         { label: "Un brick immobile dans les herbes, et une odeur que le vent apporte", to: "ZW_brick", hide: { seen: "ZW_brick" }, if: { count: JOURS, min: 1 }, why: "Le calme ne fait que commencer." },
         { label: "L'Écueil-Rouge en vue", to: "A3w_ecueil", big: true, hide: { seen: "A3w_ecueil" }, if: { count: JOURS, min: 2 }, why: "Le navire n'a pas encore assez avancé." },
+        { label: "À midi, onze hamacs qui tremblent ensemble dans l'entrepont", to: "WM_fievre", hide: { any: [{ seen: "WM_fievre" }, { not: { has: "pharmacie:quinquina" } }] }, if: { seen: "A3w_ecueil" }, why: "L'eau du bord est encore saine." },
         { label: "L'îlot en vue", to: "A3w_ilot", big: true, if: { all: [{ seen: "A3w_ecueil" }, { count: JOURS, min: 4 }] }, why: "L'îlot est encore loin dans les herbes." },
       ] },
 
