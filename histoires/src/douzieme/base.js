@@ -271,7 +271,7 @@ module.exports = {
       basse: { ambiance: "ville", name: "La ville basse", map: "monde", x: 76, y: 46, arrive: "K09j_quai", desc: "Les quais, les canaux, les entrepôts et les auberges de Méridane." },
       guilde: { ambiance: "ville", name: "La colline des Jurés", map: "monde", x: 80, y: 38, arrive: "K10j_cour", desc: "La maison de la Guilde des Horlogers-Jurés, ses ateliers, sa bibliothèque, au flanc du Mont-Cadran." },
       palais: { ambiance: "chateau", name: "Le palais de Méridane", map: "monde", x: 86, y: 42, arrive: "K11j_grille", desc: "La Ville-Haute et le palais des rois d'Aurime." },
-      tour: { ambiance: "chateau", name: "La Tour des Heures", map: "monde", x: 82, y: 32, arrive: "K14_parvis", desc: "La tour de la grande horloge, au sommet du Mont-Cadran. Sa cloche s'appelle la Patiente." },
+      tour: { ambiance: "chateau", name: "La Tour des Heures", map: "monde", x: 82, y: 32, arrive: "K14j_route", desc: "La tour de la grande horloge, au sommet du Mont-Cadran. Sa cloche s'appelle la Patiente." },
     },
     routes: [], regions: {}, events: {},
   },

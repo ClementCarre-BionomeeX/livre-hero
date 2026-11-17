@@ -167,12 +167,12 @@ Object.assign(P, {
 
   K11r_fenetre: { act: "III", title: "Vingt toises", place: "guilde", ambiance: "chateau",
     text: [
-      { first: true, text: "La fenêtre donne sur la Tour, et la Tour la remplit. À vingt toises, on distingue les joints des pierres sous le gris qui ruisselle. Un escalier sans rampe monte le long de la paroi jusqu'à une petite porte de fer, sous le grand cadran. Elle est entrebâillée. Quelqu'un est entré par là sans prendre le temps de la tirer derrière lui." },
-      { first: true, text: "Au pied de l'escalier, dans la ruelle, quatre hommes à rubans verts ont le nez en l'air. Ils sont pris en badauds, la bouche ouverte, comme les familles de la rue. Ce qu'ils étaient venus empêcher leur a passé devant, et ils regardaient la cloche." },
-      { first: true, text: "Tu mesures le chemin, pour demain. De cette cour à la porte de fer : vingt toises à découvert, un escalier où l'on ne se croise pas, et ton sablier qui filera trois grains pour un." },
+      { first: true, text: "La fenêtre donne sur la Tour, et la Tour la remplit. À vingt toises, on distingue les joints des pierres sous le gris qui ruisselle. Une ruelle étroite longe le pied de la paroi jusqu'à une petite porte de fer, basse, à l'aplomb du grand cadran. Elle est entrebâillée. Quelqu'un est entré par là sans prendre le temps de la tirer derrière lui." },
+      { first: true, text: "À l'entrée de la ruelle, quatre hommes à rubans verts ont le nez en l'air. Ils sont pris en badauds, la bouche ouverte, comme les familles de la rue. Ce qu'ils étaient venus empêcher leur a passé devant, et ils regardaient la cloche." },
+      { first: true, text: "Tu mesures le chemin, pour demain. De cette cour à la porte de fer : vingt toises à découvert, une ruelle où l'on ne se croise pas, et ton sablier qui filera trois grains pour un." },
       { first: true, after: "r:clef_droit", text: "Ou bien l'autre chemin, celui dont tu as la clef dans ta ceinture : par-dessous, depuis une église, dans le noir." },
-      { first: true, with: "carillon", text: "« Carillon est parti de cette table. » Il s'est mis à la fenêtre, à ta gauche. « Le Grand Maître a dit : *descends, et fais vite.* Puis il est sorti par la poterne, et il a monté cet escalier. Carillon l'a vu de la rue, en se retournant. Carillon n'avait pas l'ordre de se retourner. » *Ding*, fêlé. « Il le signale. »" },
-      { again: true, text: "La Tour, l'escalier sans rampe, la porte de fer entrebâillée." },
+      { first: true, with: "carillon", text: "« Carillon est parti de cette table. » Il s'est mis à la fenêtre, à ta gauche. « Le Grand Maître a dit : *descends, et fais vite.* Puis il est sorti par la poterne, et il a pris cette ruelle. Carillon l'a vu de la rue, en se retournant. Carillon n'avait pas l'ordre de se retourner. » *Ding*, fêlé. « Il le signale. »" },
+      { again: true, text: "La Tour, la ruelle, la porte de fer entrebâillée." },
     ],
     choices: [{ back: "K11r_cabinet" }] },
 
