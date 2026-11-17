@@ -78,7 +78,7 @@ module.exports = {
       text: [
         "Dans sa chambre, elle ouvre un tiroir de commode fermé à clef, et en sort une montre d'homme, en or, enveloppée dans un mouchoir de batiste brodé d'un A et d'un Q.",
         "« On me l'a envoyée de Pondichéry, avec la lettre. Elle était à son cou quand il est mort, disait la lettre. Elle était arrêtée. À trois heures dix. L'heure de sa mort, disait la lettre. » Elle la pose dans la main de Victorine. « Je la remonte tous les soirs, depuis huit ans. Je ne sais pas pourquoi. Pour qu'il y ait quelque chose de lui qui marche. »",
-        "La montre est lourde, belle, d'un horloger de Genève. Elle marche. Victorine l'ouvre, par habitude de médecin, pour voir le mouvement. Et sous le couvercle intérieur, dans l'or, gravée au burin d'une main experte, il y a une inscription qu'Héloïse ne connaît pas, parce qu'Héloïse n'a jamais ouvert ce couvercle-là.",
+        "La montre est lourde, belle, d'un horloger de Varnèse. Elle marche. Victorine l'ouvre, par habitude de médecin, pour voir le mouvement. Et sous le couvercle intérieur, dans l'or, gravée au burin d'une main experte, il y a une inscription qu'Héloïse ne connaît pas, parce qu'Héloïse n'a jamais ouvert ce couvercle-là.",
         "*À A. Q., de ses amis de Port-Louis, pour son retour d'entre les morts. 14 mars.*",
         "Le 14 mars de l'année qui a suivi la lettre. Un an après sa mort, à Port-Louis, des amis faisaient graver une montre pour fêter qu'il était vivant. Puis la montre a pris le chemin de la fiancée, avec la lettre, pour faire plus vrai.",
       ],
@@ -133,7 +133,7 @@ module.exports = {
   extras: {
     items: {
       bague_chevalier: { name: "La bague des Quémeneur", kind: "divers", keep: true, price: 0, desc: "Une bague d'or épaisse, à pierre noire, gravée d'un A et d'un Q entrelacés. Gagnée au pharaon, au Lansquenet, contre le Chevalier." },
-      montre_alexis: { name: "La montre de Pondichéry", kind: "divers", keep: true, price: 0, desc: "Une montre d'homme en or, de Genève, enveloppée dans un mouchoir brodé A. Q. Sous le couvercle intérieur : « À A. Q., de ses amis de Port-Louis, pour son retour d'entre les morts. 14 mars. »" },
+      montre_alexis: { name: "La montre de Pondichéry", kind: "divers", keep: true, price: 0, desc: "Une montre d'homme en or, de Varnèse, enveloppée dans un mouchoir brodé A. Q. Sous le couvercle intérieur : « À A. Q., de ses amis de Port-Louis, pour son retour d'entre les morts. 14 mars. »" },
     },
   },
 };

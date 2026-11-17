@@ -34,6 +34,7 @@ module.exports = {
         { label: "Recevoir la médecin, qui cherche des citrons", to: "XH_choucroute", hide: { seen: "XH_choucroute" }, if: { count: JOURS, min: 2 }, why: "Les gencives ne saignent pas encore." },
         { label: "Reprendre l'écuelle pleine qu'un gabier rend au comptoir, avec cérémonie", to: "VZ_pari", hide: { seen: "VZ_pari" }, if: { count: JOURS, min: 1 }, why: "Le calme ne fait que commencer, et tout le monde a faim." },
         { label: "Recevoir le baron, qui descend à la cambuse en robe de chambre de soie", to: "UK_tablier", hide: { any: [{ seen: "UK_tablier" }, { has: "xs:baron_mort" }] }, if: { count: JOURS, min: 1 }, why: "Le baron ne s'ennuie pas encore assez." },
+        { label: "Regarder, à la veillée, la fiole verte que Kerangoff approche de la lanterne", to: "TC_fiole", hide: { seen: "TC_fiole" }, if: { count: JOURS, min: 1 }, why: "Le calme ne fait que commencer ; personne ne paierait encore pour du vent." },
         { label: "Écouter la bordée murmurer contre l'oiseau mort", to: "YB_f_oiseau", hide: { seen: "YB_f_oiseau" } },
         { label: "Rejouer une vieille partie, seul, à l'ombre de la voile", to: "YX_echiquier", hide: { any: [{ seen: "YX_echiquier" }, { not: { has: "brousse:abord" } }, { has: "fargue:tue_brousse" }] }, if: { count: JOURS, min: 1 }, why: "Le calme ne fait que commencer." },
         { label: "Prêter une aiguille au charpentier, qui a cassé le cordon de son scapulaire", to: "ZS_aiguille", hide: { seen: "ZS_aiguille" } },

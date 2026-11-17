@@ -26,6 +26,7 @@ module.exports = {
         { label: "Regarder le grand muet nourrir un chiot jaune, au bout de ses doigts", to: "WH_chiot", hide: { seen: "WH_chiot" } },
         { label: "Regarder la femme à la lanière rouge, assise seule au bord du feu", to: "WV_laniere", hide: { seen: "WV_laniere" } },
         { label: "Recoudre le garçon que les chasseurs rapportent, la cuisse ouverte", to: "UB_sanglier", hide: { seen: "UB_sanglier" }, if: { count: JOURS, min: 1 }, why: "Les chasseurs ne sont pas encore partis." },
+        { label: "Descendre bander la cheville du garçon que les chasseurs gardent au fond de la citerne", to: "UV_citerne", hide: { seen: "UV_citerne" }, if: { count: JOURS, min: 1 }, why: "Les chasseurs ne sont pas encore rentrés." },
         { label: "Dire à Jeanne Brasdefer que l'enfant est hors de danger", to: "XS_marche", big: true, if: { count: JOURS, min: 2 }, why: "La fièvre n'est pas encore tombée pour de bon." },
       ] },
 

@@ -177,8 +177,8 @@ module.exports = {
     XM_v_soin: { act: "III", title: "La fièvre", place: "brisegreve", ambiance: "nuit",
       text: [
         "Victorine renvoie le geôlier, fait apporter de l'eau chaude, du linge, du bouillon, et passe la nuit au cachot. Elle saigne, elle lave, elle fait boire.",
-        { if: { has: "pharmacie:quinquina" }, text: "Elle a dans sa trousse l'écorce du Pérou qu'elle a achetée à Morlenc, à prix d'or, chez l'apothicaire de la Haute-Ville. Elle la fait infuser, et la lui fait boire à la cuiller, toutes les deux heures. Au matin, la fièvre tombe comme un drap qu'on retire." },
-        { if: { not: { has: "pharmacie:quinquina" } }, text: "Elle n'a ni écorce du Pérou ni rien qui vaille contre ces fièvres-là ; elle a de l'eau, du linge et de la patience. La fièvre tombe au matin du deuxième jour, épuisée, d'elle-même, comme tombent les fièvres qui n'ont pas réussi à tuer." },
+        { if: { has: "pharmacie:quinquina" }, text: "Elle a dans sa trousse l'écorce des Hautes-Terres qu'elle a achetée à Morlenc, à prix d'or, chez l'apothicaire de la Haute-Ville. Elle la fait infuser, et la lui fait boire à la cuiller, toutes les deux heures. Au matin, la fièvre tombe comme un drap qu'on retire." },
+        { if: { not: { has: "pharmacie:quinquina" } }, text: "Elle n'a ni écorce des Hautes-Terres ni rien qui vaille contre ces fièvres-là ; elle a de l'eau, du linge et de la patience. La fièvre tombe au matin du deuxième jour, épuisée, d'elle-même, comme tombent les fièvres qui n'ont pas réussi à tuer." },
         "L'homme ouvre les yeux. Il la regarde. Il est lucide.",
         "« Qui êtes-vous ?",
         "— Victorine Davrigny. Médecin. Je fais voile vers le sud, sur la Cormorane, pour le compte du baron Clavières. »",

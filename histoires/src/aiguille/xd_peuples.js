@@ -33,6 +33,7 @@ module.exports = {
         { label: "Suivre les enfants qui ramassent les fruits", to: "XD_enfants", hide: { seen: "XD_enfants" } },
         { label: "Monter jusqu'à la source, en haut des terrasses", to: "XD_source", hide: { seen: "XD_source" } },
         { label: "Entrer dans la grande maison au toit crevé", to: "XD_maison", hide: { seen: "XD_maison" } },
+        { label: "Ramasser les prunes qu'une femme couronnée de violettes vient de lâcher en te voyant", to: "UW_reconnu", hide: { seen: "UW_reconnu" }, if: { seen: "XD_aubepine" }, why: "Personne, ici, ne t'a encore regardé{e} deux fois." },
         { label: "Entrer dans la maison du vieil homme qui a eu la fièvre", to: "VF_fievre", hide: { seen: "VF_fievre" }, if: { seen: "XD_aubepine" }, why: "Personne, ici, ne t'a encore parlé du temps qui passe." },
         { label: "Aller à la danse du soir", to: "XD_fete", hide: { seen: "XD_fete" }, if: { count: JOURS, min: 1 }, why: "On ne danse pas encore. On attend que tu sois un peu d'ici." },
         { label: "Rester pour la nuit", to: "XD_nuit", big: true, if: { count: JOURS, min: 2 }, why: "Tu ne connais pas encore assez ce verger pour y dormir." },
