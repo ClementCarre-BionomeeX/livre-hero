@@ -5,7 +5,7 @@
 // Then the epilogue lines (what became of the others) and the fates: toi (by dream), Ludivine, Crochemore, the
 // Douairière, the Cadenas, Douce, Céleste, Loridan, Fifrelin.
 var FIN = function (id, title, text, fx) {
-  var f = { flag: "fin:" + id }; Object.keys(fx || {}).forEach(function (k) { f[k] = fx[k]; });
+  var f = { flag: "fin:" + id, quest: "V_nuit" }; Object.keys(fx || {}).forEach(function (k) { f[k] = fx[k]; });
   return { act: "V", title: title, place: "horloge_close", ambiance: "aube", end: true, epilogue: true, fx: f, text: text };
 };
 var Q = function (o) { return { scrutin: "releve_qui", is: o }; };
@@ -485,6 +485,7 @@ module.exports = {
       { if: { has: "monde:a5:cahier" }, text: "Le dernier cahier de graissage de Symphorien Balancier est au greffe, sous verre. Il s'arrête au 14 octobre. On a laissé la page suivante ouverte." },
       { if: { has: "monde:a5:tour_clos" }, text: "On a rouvert la niche de la chapelle avant la Noël. Savinien a porté le premier pain. Il tremblait si fort qu'il en a fait tomber la moitié." },
       { if: { all: [{ has: "monde:a5:tour_ouvert" }, { any: [F("large"), F("muraille"), F("dimanche"), F("releve")] }] }, text: "Savinien sert toujours le tour, à Sainte-Clavis. Il sait à présent qui mange, et il coupe le pain plus épais." },
+      { if: { has: "monde:a5:clous" }, text: "Les Clous, les enfants du quai, ont couru toutes les rues ce soir-là. Ils en ont gardé le droit d'entrer à la Clef-Tordue par la cuisine, et une soupe le jeudi. Le tout petit sait maintenant qui est la Douairière." },
       { if: { has: "a5:o_bas" }, text: "Une paire de bas gris, tricotés serré par une vieille femme aux yeux bleus, est arrivée où elle devait." },
     ],
     fates: [

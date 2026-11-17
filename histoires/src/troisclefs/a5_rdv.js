@@ -119,6 +119,8 @@ module.exports = {
         "Elle est nette, basse, un peu rouillée. Elle a cette lenteur des personnes que l'on n'a jamais interrompues.",
         "Vous levez les lanternes. Les yeux gris passent de l'un à l'autre, sans hâte, comme on lit trois lignes.",
         "« La main. L'œil. La voix. On m'a écrit vos emplois ; je vous aurais reconnus sans cela. » Une toux, sèche, brève, étouffée dans une manche. « Vous êtes à l'heure. C'est la première chose que l'on me rapporte de vous qui ne m'étonne pas. »",
+        { if: { has: "monde:a5:mot_pain" }, text: "« J'ai eu votre mot dans la mie. *Nous serons trois.* J'ai taillé trois plumes, à tout hasard. Et la poule était moins salée que de coutume : j'ai d'abord cru à un complot. »" },
+        { if: { has: "a5:m_voix" }, text: "Les yeux gris reviennent sur toi, et s'y arrêtent. « Deux petits, dit-elle. C'était vous, à la fente. Vous comptez juste. »" },
         "Maître Crochemore est resté sur le seuil. Il a son chapeau à deux mains, contre sa robe, et il regarde l'œuvre de son nom.",
       ],
       choices: [{ label: "Approcher de la grille", to: "A5c_ludivine", big: true }] },

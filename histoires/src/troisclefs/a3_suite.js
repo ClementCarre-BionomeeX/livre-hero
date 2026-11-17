@@ -447,7 +447,7 @@ module.exports = {
       choices: [{ label: "Reprendre ta place", to: "A3c_fin", big: true }] },
 
     A3c_fin: { act: "III", title: "La route de Brandelis", place: "ossevaux", ambiance: "ville", charniere: true,
-      fx: { ep: ["histoire", 2000] },
+      fx: { quest: "III_cendre", ep: ["histoire", 2000] },
       text: [
         "Loridan repart vers Aiguemorne, à pied, par la route des Cyprès. Il a dit qu'on le reverrait le jour de la troisième clef, et qu'il aurait alors une lettre.",
         "Derrière vous, Ossevaux est blanche sur son plateau blanc. Dix cimetières y fument encore, de tous leurs lumignons mouchés ; on dirait une ville que l'on vient d'éteindre.",

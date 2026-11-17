@@ -162,6 +162,12 @@
         if (!c.label) { var tp = story.passages[c.back]; c.label = c.back === "@route" ? "Reprendre la route" : "Revenir : " + cap(String((tp && (tp.backName || tp.title)) || c.back).replace(/\*/g, "")); c.autoBack = true; }
       });
     });
+    // 10.4: the keys a page gives a value to (fx.set: { key: value }). `has: "key"` then holds as soon as the key has
+    // any value. Why: an author writes `set: { "a2:invite": "jacquot" }` here and `has: "a2:invite"` there, and the
+    // choice was closed for good without a word (found in « Les Trois Clefs »).
+    var stateKeys = {};
+    (function scanSets(o, key) { if (o == null || typeof o !== "object") return; if (Array.isArray(o)) { o.forEach(function (x) { scanSets(x, key); }); return; } if (key === "set") Object.keys(o).forEach(function (k) { stateKeys[k] = 1; }); Object.keys(o).forEach(function (k) { scanSets(o[k], k); }); })(story.passages, "");
+    try { Object.defineProperty(story, "__states", { value: stateKeys, enumerable: false }); } catch (e) { story.__states = stateKeys; }
     try { Object.defineProperty(story, "__prepared", { value: true, enumerable: false }); } catch (e) { story.__prepared = true; }
     veilIndex(story);
     return story;
@@ -300,7 +306,7 @@
   function evalCond(story, s, c) {
     if (c == null || c === true) return true;
     if (c === false) return false;
-    if (typeof c === "string") return !!s.flags[c];
+    if (typeof c === "string") return !!s.flags[c] || (!!(story && story.__states && story.__states[c]) && stateValue(s, "", c) != null);
     if (Array.isArray(c)) return c.every(function (x) { return evalCond(story, s, x); });
     // Cards (9.7): a thread's state (ouvert by default; noue, rate, aucun), a card played in this game.
     if ("fil" in c) return [].concat(c.is || "ouvert").indexOf(threadState(s, c.fil)) >= 0;
@@ -341,7 +347,7 @@
     if ("missed" in c) { var mq = (story.quests || []).filter(function (q) { return q.id === c.missed; })[0]; return !!mq && questMissed(story, s, mq); }
     // count: [conditions], min / max: how many of them hold ("at least three of these").
     if ("count" in c) { var nc = c.count.filter(function (x) { return evalCond(story, s, x); }).length; return nc >= (c.min || 0) && (c.max == null || nc <= c.max); }
-    if ("has" in c) return !!s.flags[c.has];
+    if ("has" in c) return !!s.flags[c.has] || (!!(story && story.__states && story.__states[c.has]) && stateValue(s, "", c.has) != null);
     if ("not" in c) return !evalCond(story, s, c.not);
     if ("all" in c) return c.all.every(function (x) { return evalCond(story, s, x); });
     if ("any" in c) return c.any.some(function (x) { return evalCond(story, s, x); });

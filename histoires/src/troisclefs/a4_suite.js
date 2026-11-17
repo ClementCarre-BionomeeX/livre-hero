@@ -543,7 +543,7 @@ module.exports = {
       ],
       choices: [{ label: "Renverser le chapeau", to: "A4c_fin", big: true }] },
     A4c_fin: { act: "IV", title: "La route d'Aiguemorne", place: "bac", ambiance: "nuit",
-      fx: { ep: ["histoire", 2500], catchup: 17 },
+      fx: { quest: "IV_sang", ep: ["histoire", 2500], catchup: 17 },
       text: [
         { if: { scrutin: "intention_a4", is: "elle" }, text: "Les plumes l'emportent. On ira à elle. On fera ce qu'elle dira ; et chacun, en le décidant, se demande déjà ce qu'il fera si elle demande une chose qu'il ne veut pas donner." },
         { if: { scrutin: "intention_a4", is: "loi" }, text: "Les sifflets l'emportent. On ira au prévôt. La maison Berlue n'a jamais rien porté à un homme de loi que des fausses adresses ; la Douairière en rira, ou elle vous déshéritera." },

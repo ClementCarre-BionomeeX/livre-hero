@@ -285,7 +285,7 @@ module.exports = {
       choices: [{ label: "Reprendre ta place", to: "A2c_fin", big: true }] },
 
     A2c_fin: { act: "II", title: "La route d'Ossevaux", place: "boisnoir", charniere: true,
-      fx: { ep: ["histoire", 2000] },
+      fx: { quest: "II_fer", ep: ["histoire", 2000] },
       text: [
         "Loridan est reparti comme il était venu, à pied, par le chemin du canal, son bréviaire à la main. Il a dit qu'on le reverrait le jour de la deuxième clef, et qu'il tâcherait, d'ici là, de ne pas mourir.",
         "Vous êtes au bord du Bois-Noir. Devant vous, la grand-route descend vers le sud. Elle passera au large d'Aiguemorne, dont on verra le piton un soir, de loin, sans y entrer. Puis viendra la Blanche-Lande, une plaine de craie que le vent peigne ; et au bout, à six jours d'ici, une ville blanche sur un plateau blanc.",

@@ -131,7 +131,7 @@ module.exports = {
     A1v_barbier_ko: { act: "I", title: "Un garçon qui balaie", place: "heures",
       text: [
         "Le soufflet part, la boutique blanchit, et tu es derrière le paravent. Le garçon aussi. Il balayait là, accroupi, sans bruit, et tu lui marches sur la main.",
-        "Il crie. Six têtes poudrées se redressent ensemble. Tu dis que tu cherchais le cabinet ; le barbier, son soufflet au poing, te montre la porte de la rue avec une courtoisie de pistolet. Tu sors blanc{he} jusqu'aux sourcils, et six notables qui seront tout à l'heure à la réception ont eu le loisir de voir de près quelqu'un qui fouillait près de leurs gilets.",
+        "Il crie. Six têtes poudrées se redressent ensemble. Tu dis que tu cherchais le cabinet ; le barbier, son soufflet au poing, te montre la porte de la rue avec une courtoisie de pistolet. Tu sors avec de la poudre jusqu'aux sourcils, et six notables qui seront tout à l'heure à la réception ont eu le loisir de voir de près quelqu'un qui fouillait près de leurs gilets.",
       ],
       choices: [{ back: "A1v_carton" }] },
     A1v_apprenti: { act: "I", title: "Un apprenti qui regarde la rivière", place: "heures",

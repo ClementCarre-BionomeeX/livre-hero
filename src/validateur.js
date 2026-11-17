@@ -1162,10 +1162,16 @@
     // 8.4: a story for several players is played alone here; a ghost partner stands for the others. At each rendezvous
     // (a new act, a passage charniere), it sets at random some of the world marks the story can set (monde:…) and tells
     // some of the secrets that have a confession, as the other player might have done meanwhile.
-    var GHOST = [];
+    var GHOST = [], GHOST_FROM = {}, ACT_IDS = (story.acts || []).map(function (x) { return x.id; });
     if (story.multi) {
       // A world choice (monde: key) is taken by every player alike: its marks are the player's own, never the ghost's.
-      (function scan(o, key) { if (o == null) return; if (typeof o === "string") { if ((key === "flag" || key === "flags") && o.indexOf("monde:") === 0 && GHOST.indexOf(o) < 0) GHOST.push(o); return; } if (Array.isArray(o)) { o.forEach(function (x) { scan(x, key); }); return; } if (typeof o === "object" && !o.monde) Object.keys(o).forEach(function (k) { scan(o[k], k); }); })(story.passages, "");
+      // 10.4: each mark and each shared state knows the first act where a page can set it (GHOST_FROM): the others
+      // cannot have set it before. Why: on a long story with many rendezvous, a ghost drawing every mark again at
+      // each of them ended with all of them set, the contrary ones together, and whole branches were never played.
+      Object.keys(story.passages).forEach(function (id) {
+        var ai = ACT_IDS.indexOf(story.passages[id].act);
+        (function scan(o, key) { if (o == null) return; if (typeof o === "string") { if ((key === "flag" || key === "flags") && o.indexOf("monde:") === 0) { if (GHOST.indexOf(o) < 0) GHOST.push(o); if (GHOST_FROM[o] == null || ai < GHOST_FROM[o]) GHOST_FROM[o] = ai; } return; } if (Array.isArray(o)) { o.forEach(function (x) { scan(x, key); }); return; } if (typeof o === "object" && !o.monde) Object.keys(o).forEach(function (k) { scan(o[k], k); }); })(story.passages[id], "");
+      });
       Object.keys(story.secrets || {}).forEach(function (k) { if (story.secrets[k].aveu) GHOST.push("monde:confie:" + k); });
     }
     // 9.6 (« À trois »): the ghost also votes (a scrutin the player has voted in gets a result at the next rendezvous,
@@ -1178,9 +1184,13 @@
     });
     // A shared state (set: { "monde:…": value }) the others may have set: the ghost gives it one of its values.
     var GHOST_SETS = {};
-    if (story.multi) (function scan(o, key) { if (o == null || typeof o !== "object") return; if (Array.isArray(o)) { o.forEach(function (x) { scan(x, key); }); return; } if (o.monde) return; if (key === "set") Object.keys(o).forEach(function (k) { if (k.indexOf("monde:") === 0 && o[k] != null) { GHOST_SETS[k] = GHOST_SETS[k] || []; if (GHOST_SETS[k].indexOf(o[k]) < 0) GHOST_SETS[k].push(o[k]); } }); Object.keys(o).forEach(function (k) { scan(o[k], k); }); })(story.passages, "");
+    if (story.multi) Object.keys(story.passages).forEach(function (id) {
+      var ai = ACT_IDS.indexOf(story.passages[id].act);
+      (function scan(o, key) { if (o == null || typeof o !== "object") return; if (Array.isArray(o)) { o.forEach(function (x) { scan(x, key); }); return; } if (o.monde) return; if (key === "set") Object.keys(o).forEach(function (k) { if (k.indexOf("monde:") === 0 && o[k] != null) { GHOST_SETS[k] = GHOST_SETS[k] || []; if (GHOST_SETS[k].indexOf(o[k]) < 0) GHOST_SETS[k].push(o[k]); if (GHOST_FROM["=" + k] == null || ai < GHOST_FROM["=" + k]) GHOST_FROM["=" + k] = ai; } }); Object.keys(o).forEach(function (k) { scan(o[k], k); }); })(story.passages[id], "");
+    });
     function ghostTable(s, rnd) {
-      Object.keys(GHOST_SETS).forEach(function (k) { if (M.stateValue(s, "", k) == null && rnd() < 0.5) s.flags[k + "=" + GHOST_SETS[k][Math.floor(rnd() * GHOST_SETS[k].length)]] = true; });
+      var nowS = ACT_IDS.indexOf(s.lastAct);
+      Object.keys(GHOST_SETS).forEach(function (k) { if (GHOST_FROM["=" + k] > nowS) return; if (M.stateValue(s, "", k) == null && rnd() < 0.5) s.flags[k + "=" + GHOST_SETS[k][Math.floor(rnd() * GHOST_SETS[k].length)]] = true; });
       BALLOTS.forEach(function (k) {
         if (M.stateValue(s, M.VOICE_FLAG, k) == null || M.stateValue(s, M.BALLOT_FLAG, k) != null) return;
         var S = story.scrutins[k], opts = Object.keys(S.options || {}); if (S.tie && opts.indexOf(S.tie) < 0) opts.push(S.tie);
@@ -1195,7 +1205,14 @@
       var p = P[s.node], key = p.charniere ? "c:" + s.node : "a:" + s.lastAct;
       s._ghost = s._ghost || {}; if (s._ghost[key] || (!p.charniere && at === s.lastAct)) return;
       s._ghost[key] = 1;
-      GHOST.forEach(function (f) { if (f.indexOf("monde:confie:") === 0 && (s.secrets || {})[f.slice(13)]) return; if (!s.flags[f] && rnd() < 0.3) s.flags[f] = true; });
+      // One draw for each mark in a game, at the first rendezvous from the act where a page can set it.
+      var nowG = ACT_IDS.indexOf(s.lastAct); s._ghostF = s._ghostF || {};
+      GHOST.forEach(function (f) {
+        if (f.indexOf("monde:confie:") === 0) { if (!(s.secrets || {})[f.slice(13)] && !s.flags[f] && rnd() < 0.3) s.flags[f] = true; return; }
+        if (s._ghostF[f] || GHOST_FROM[f] > nowG) return;
+        s._ghostF[f] = 1;
+        if (!s.flags[f] && rnd() < 0.4) s.flags[f] = true;
+      });
     }
     function play(mode, seed, toutJouer, second) {
       var rnd = seededRng(seed), s = null, fixed = mode === "win" ? 0.94 : mode === "lose" ? 0.02 : null;
@@ -1268,7 +1285,8 @@
       n++;
     }
     var T = typeof process !== "undefined" && process.env && process.env.VALID_TIME, t0 = Date.now();
-    if (T) console.log("parties : " + n + ", passages jamais vus : " + ids.filter(function (id) { return !seen[id]; }).length);
+    if (T) console.log("parties : " + n + ", passages jamais vus : " + ids.filter(function (id) { return !seen[id]; }).length + (T === "list" || T === "stop" ? " : " + ids.filter(function (id) { return !seen[id] && !P[id].branch; }).join(" ") : ""));
+    if (T === "stop") { console.log("impasses : " + JSON.stringify(dead) + "\nboucles : " + JSON.stringify(loops) + "\nerreurs : " + JSON.stringify(Object.keys(errs).slice(0, 20))); M.setRng(null); return { unreached: [], endings: endings, errors: [], deadEnds: dead, loops: loops }; }
     reachMissing();
     if (T) console.log("recherche ciblée : " + (Date.now() - t0) + " ms");
     M.setRng(null);

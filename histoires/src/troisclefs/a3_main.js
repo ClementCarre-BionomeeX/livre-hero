@@ -109,7 +109,8 @@ module.exports = {
     // ───────────────────────────── The ossuary ─────────────────────────────
     A3m_ossuaire: { act: "III", title: "Le Grand Rangement", place: "carrieres", ambiance: "nuit", hub: true, backName: "la nef de l'ossuaire",
       text: [
-        { first: true, text: { if: { has: "a3:m_plaques" }, text: "*R. DES MARBRIERS. PLACE, côté du couchant.* Tu tiens ton fil : tu es sous la place des Dalles, et la cathédrale est devant toi, à trois cents pas.", else: "Les noms se brouillent. Tu prends la galerie la plus large, parce qu'elle descend et que tout ce que tu cherches est plus bas." } },
+        { first: true, if: { has: "a3:m_plaques" }, text: "*R. DES MARBRIERS. PLACE, côté du couchant.* Tu tiens ton fil : tu es sous la place des Dalles, et la cathédrale est devant toi, à trois cents pas." },
+        { first: true, if: { not: { has: "a3:m_plaques" } }, text: "Les noms se brouillent. Tu prends la galerie la plus large, parce qu'elle descend et que tout ce que tu cherches est plus bas." },
         { first: true, text: "Elle débouche dans une salle, et tu t'arrêtes sur le seuil, ta lumière au bout du bras." },
         { first: true, text: "On a rangé là mille ans d'Ossevaux. Les murs sont en os : des tibias couchés bout à bout, par assises régulières, serrés comme des bûches, et tous les trois pieds un rang de crânes, face au visiteur, en frise. Cela monte jusqu'à la voûte. Cela s'en va des deux côtés plus loin que ta lueur. Quelqu'un a passé sa vie à ce que ce soit droit." },
         { first: true, text: "Et c'est classé. Au-dessus de chaque travée, un cartouche de craie : BOULANGERS. DRAPIERS. GENS DE LOI. Chez les boulangers, on a fait une gerbe avec des côtes. Chez les gens de loi, les crânes sont tournés de trois quarts, comme des hommes qui se consultent. Tu passes devant les CHIRURGIENS, où il manque beaucoup de monde." },

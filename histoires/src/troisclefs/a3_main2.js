@@ -396,7 +396,7 @@ module.exports = {
         "Le père Cubitus a fini sa journée. Son fanal est éteint, son tas rangé. En passant, tu vois qu'il a mis le drapier à côté de son confrère.",
         { if: { has: "monde:a3:vieux_fer" }, text: "Tu passes devant le mur des clefs sans tourner la tête. Il y a là-haut, à gauche, un clou qui porte un sou." },
         "Tu ressors par où l'on sort. Dehors, il fait nuit. Tu avais oublié qu'il pouvait faire nuit autrement que par manque de chandelle : avec du vent, une odeur d'herbe mouillée, et un ciel.",
-        "Toutes les cloches d'Ossevaux sonnent la Toussaint, à la volée, sans égard pour l'usage de parler bas. Les dix cimetières ont rallumé leurs lumignons. Les gens montent vers la cathédrale par familles, un cierge à la main, et tu marches à contre-courant, blanc{he} de craie des pieds à la tête, sans que personne te regarde : dans cette ville, un passant couleur de tombe est un passant comme un autre.",
+        "Toutes les cloches d'Ossevaux sonnent la Toussaint, à la volée, sans égard pour l'usage de parler bas. Les dix cimetières ont rallumé leurs lumignons. Les gens montent vers la cathédrale par familles, un cierge à la main, et tu marches à contre-courant, couleur de craie des pieds à la tête, sans que personne te regarde : dans cette ville, un passant couleur de tombe est un passant comme un autre.",
         "Tu tâtes ta chemise. Le papier y est.",
         { if: { has: "monde:a3:muettes" }, text: "Il y a aussi ce que tu ne portes pas sur du papier. Six phrases. Tu te les redis en marchant, dans l'ordre, pour être sûr{e} de les rapporter entières ; et à la quatrième tu t'aperçois que tu as pressé le pas." },
       ],

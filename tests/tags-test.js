@@ -98,4 +98,17 @@ var st4 = { id: "t4", title: "T4", start: "A", acts: [{ id: "I", title: "I", lev
   } };
 var u4 = M.freshState(st4); u4.name = "A"; u4.arch = "voleur"; M.start(st4, u4);
 assert(M.view(st4, u4).choices.some(function (c) { return c.label === "Le prendre avec toi" && c.ok !== false; }), "un choix qui fait rejoindre ouvre la scène avec ce compagnon");
+// 10.4: `has: "key"` holds as soon as a page has given the key a value (fx.set), whatever the value.
+var st5 = { id: "t5", title: "T5", start: "A", acts: [{ id: "I", title: "I", levels: [1, 3], start: "A" }],
+  passages: {
+    A: { act: "I", title: "A", text: ["a"], choices: [{ label: "Prendre", fx: { set: { invite: "jacquot" } }, to: "B" }, { label: "Passer", to: "B" }] },
+    B: { act: "I", title: "B", text: ["b"], choices: [{ label: "Montrer", if: { has: "invite" }, to: "C" }, { label: "Fin", to: "C" }] },
+    C: { act: "I", title: "C", end: true, text: ["c"] },
+  } };
+var u5 = M.freshState(st5); u5.name = "A"; u5.arch = "voleur"; M.start(st5, u5);
+M.choose(st5, u5, M.view(st5, u5).choices[1]);
+assert(M.view(st5, u5).choices[0].ok === false, "has sur un état sans valeur : fermé");
+var u6 = M.freshState(st5); u6.name = "A"; u6.arch = "voleur"; M.start(st5, u6);
+M.choose(st5, u6, M.view(st5, u6).choices[0]);
+assert(M.view(st5, u6).choices[0].ok !== false, "has sur un état qui a une valeur : ouvert");
 console.log("tags-test : OK");
