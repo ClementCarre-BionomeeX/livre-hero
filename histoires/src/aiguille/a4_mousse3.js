@@ -13,6 +13,7 @@ module.exports = {
         { if: { not: { has: "mousse:chapelle" } }, text: "Tu le vois entrer depuis la lisière de la Sylve, à côté du vieil homme, qui le regarde longtemps, appuyé sur un bâton, son tricorne sans bord sur les yeux. Il mouille en travers de l'anse, et sa batterie, quatorze sabords ouverts d'un seul coup, fait face à la Cormorane comme une rangée de dents." },
         { if: AVEC_DAGREL, text: "« Un corsaire, dit Dagrel. Un vrai. Regardez comme il mouille : en travers, pour fermer la porte. J'ai fait la même chose, ici, il y a vingt et un ans. » Il sourit. « Les jeunes gens n'inventent jamais rien. Ils ont seulement de plus jolis navires. »" },
         { if: { all: [{ not: { has: "mousse:chapelle" } }, { not: { has: "dagrel:demasque" } }] }, text: "« Encore un qui vient creuser, dit le vieil homme. Ils creusent tous. » Il se gratte la barbe. « Celui-là a des canons. C'est une façon de creuser plus vite. »" },
+        { if: { has: "ilot:voile" }, text: "Tu la reconnais. Pas le navire : la façon dont il attend. Tu l'as vu, ce point blanc, du sommet de l'îlot, au milieu des herbes jaunes, immobile, derrière vous, pendant des jours. Il vous suivait. Il vous a laissés trouver l'île." },
         "Sur la plage, les mutins ont vu, eux aussi. Ils courent, ils crient, ils traînent le canot sous les arbres. Sur la Cormorane, quelqu'un hisse et rentre trois fois de suite un pavillon, sans savoir lequel montrer.",
         "Au crépuscule, une chaloupe du brigantin débarque des hommes avec des pelles.",
       ],

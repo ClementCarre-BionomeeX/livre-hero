@@ -55,6 +55,7 @@ module.exports = {
       text: [
         "Elle ouvre la plaie au bistouri, à la lueur du feu, pendant que deux proscrits tiennent l'enfant. Le pus sort, épais, jaune, puant. Elle lave à l'eau bouillie, au vin de palme, à tout ce qu'on lui donne. Elle trouve, tout au fond, un éclat de défense de sanglier, long comme un ongle, noirci, qu'elle extrait à la pince, et qu'elle pose sur une pierre à côté du feu, et que Jeanne Brasdefer regarde comme on regarde un ennemi.",
         "Elle bourre la plaie de charpie, la laisse ouverte. Elle donne à l'enfant de l'écorce de quinquina pilée dans du miel sauvage.",
+        { if: { item: "quinquina_ilot" }, text: "C'est l'écorce rouge du jardin d'Ombeline, sur l'îlot. Il lui en reste une lanière. Elle la pile tout entière." },
         "Vers l'aube, la fièvre tombe. Soazig ouvre les yeux, regarde Victorine, et demande, d'une voix claire : « Tu es qui, toi ? Tu viens de la mer ? » Victorine lui répond que oui, et l'enfant dit, très sérieusement : « Elle est comment, la mer, de l'autre côté ? » et se rendort avant la réponse.",
         "Jeanne Brasdefer n'a pas bougé de la nuit. Elle se lève. Elle va dehors, derrière la cascade. On l'entend, un moment, à travers le bruit de l'eau. Puis elle revient, le visage sec.",
       ],
