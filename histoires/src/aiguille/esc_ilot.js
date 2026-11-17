@@ -43,7 +43,7 @@ module.exports = {
         "Ombeline y est, à genoux, en train de désherber. Elle se relève en voyant Victorine, s'essuie les mains à son tablier, et attend, les yeux baissés.",
         "« C'est votre jardin ? » demande Victorine.",
         "Ombeline hoche la tête. Puis, comme Victorine se penche sur un arbuste à l'écorce rougeâtre, elle parle, pour la première fois, d'une voix basse, enrouée, comme une voix qui sert peu.",
-        "« L'arbre des fièvres, dit-elle. Je l'ai fait venir du Pérou, en graines, il y a quatre ans, dans une lettre. Il n'a jamais voulu pousser ailleurs que là. » Elle prend un petit couteau, détache de l'écorce une lanière longue comme la main, et la tend à Victorine. « Pour vos marins. Pilée dans du vin. Elle fait tomber les fièvres tierces. Le Maître ne sait pas que je l'ai. Il ne regarde jamais le jardin. »",
+        "« L'arbre des fièvres, dit-elle. Je l'ai fait venir des Hautes-Terres, en graines, il y a quatre ans, dans une lettre. Il n'a jamais voulu pousser ailleurs que là. » Elle prend un petit couteau, détache de l'écorce une lanière longue comme la main, et la tend à Victorine. « Pour vos marins. Pilée dans du vin. Elle fait tomber les fièvres tierces. Le Maître ne sait pas que je l'ai. Il ne regarde jamais le jardin. »",
       ],
       choices: [{ label: "Prendre l'écorce, et la remercier", fx: { item: "quinquina_ilot", regard: { ombeline: "cordial" } }, back: "A3w_ilot" }] },
     XQ_i_tortues: { act: "III", title: "Les tortues", place: "ilot", ambiance: "nature",
@@ -82,7 +82,7 @@ module.exports = {
   },
   extras: {
     items: {
-      quinquina_ilot: { name: "Une lanière d'écorce rouge", kind: "remede", keep: true, price: 0, desc: "L'écorce de l'arbre des fièvres, venu du Pérou en graines, que fait pousser Ombeline dans le jardin des simples de l'îlot. Pilée dans du vin, elle fait tomber les fièvres tierces." },
+      quinquina_ilot: { name: "Une lanière d'écorce rouge", kind: "remede", keep: true, price: 0, desc: "L'écorce de l'arbre des fièvres, venu des Hautes-Terres en graines, que fait pousser Ombeline dans le jardin des simples de l'îlot. Pilée dans du vin, elle fait tomber les fièvres tierces." },
     },
   },
 };

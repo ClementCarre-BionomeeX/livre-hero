@@ -35,6 +35,7 @@ module.exports = {
         { label: "Apprendre les nœuds du Gabier, un jour de pluie", to: "XA_noeuds", hide: { seen: "XA_noeuds" }, if: { count: JOURS, min: 1 }, why: "Il ne pleut pas encore assez pour qu'il s'ennuie." },
         { label: "Garder la lanterne du pignon, une nuit de fièvre", to: "XA_lanterne", hide: { seen: "XA_lanterne" }, if: { count: JOURS, min: 1 }, why: "Ton père garde encore la lanterne lui-même." },
         { label: "Aller au lavoir de la Fontaine-Morte, après minuit", to: "XA_lavoir", hide: { seen: "XA_lavoir" }, if: { seen: "A1_j_zelie" }, why: "Zélie ne t'en a encore rien défendu." },
+        { label: "Servir le jeune douanier qui ne boit jamais son cidre", to: "TA_cidre", hide: { seen: "TA_cidre" }, if: { count: JOURS, min: 1 }, why: "Le douanier blond n'est pas encore venu, ce soir." },
         { label: "Recevoir enfin le brigadier Fouques", to: "XA_fouques", hide: { any: [{ seen: "XA_fouques" }, { not: { has: "fouques:averti" } }] } },
         { label: "Une nuit, la cloche de Sainte-Anne sonne à toute volée", to: "XA_naufrage", hide: { seen: "XA_naufrage" }, if: { count: JOURS, min: 2 }, why: "La mer est encore trop sage." },
         { label: "Une nuit, suivre la lumière qui bouge sous Sainte-Anne", to: "YP_lueur", hide: { seen: "YP_lueur" }, if: { seen: "A1_j_chapelle" }, why: "Tu n'es pas retourné{e} à la chapelle depuis longtemps." },

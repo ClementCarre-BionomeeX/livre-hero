@@ -211,6 +211,7 @@ module.exports = {
         { label: "Écouter le garçon aux cheveux blancs, dans la galerie des fondeurs", to: "WN_riwal", hide: { seen: "WN_riwal" } },
         { label: "Chercher les chasseurs d'œufs", to: "XD_p_chasseurs", hide: { any: [{ seen: "XD_p_chasseurs" }, { not: { seen: "XT_chasseurs" } }] } },
         { label: "Suivre les enfants pâles vers une chose que les grands ne montrent pas", to: "UN_enfants", hide: { seen: "UN_enfants" }, if: { seen: "XD_p_enfants" }, why: "Les enfants pâles ne te font pas encore confiance." },
+        { label: "Ramasser le bout de cuir plié qu'une fille aux cheveux blancs te glisse à la fontaine", to: "TH_billet", hide: { seen: "TH_billet" }, if: { seen: "XD_p_enfants" }, why: "Personne, aux Puits, ne t'a encore remarqué{e}." },
         { label: "Saluer les trois vieilles femmes, près du foyer", to: "XD_p_meres", hide: { seen: "XD_p_meres" } },
       ].concat(DECIDER) },
     XD_p_enfants: { act: "IV", title: "Les enfants des Puits", place: "puits", ambiance: "nuit",

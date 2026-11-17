@@ -32,6 +32,7 @@ module.exports = {
         { label: "Attendre le vent, qui ne revient pas", to: "YB_calme", hide: { any: [{ seen: "YB_calme" }, { not: { has: "yb:tue" } }] } },
         { label: "Des pas sur le gaillard d'avant, la nuit", to: "YB_jonas", hide: { any: [{ seen: "YB_jonas" }, { not: { seen: "YB_calme" } }] } },
         { label: "Descendre dans la cale, la nuit, où brille une chandelle", to: "UQ_cale", hide: { seen: "UQ_cale" }, if: { count: JOURS, min: 1 }, why: "Elle dort encore, la nuit, malgré la chaleur." },
+        { label: "Ouvrir le carton à bord doré que le valet du baron a glissé sous la porte", to: "UY_carton", hide: { any: [{ seen: "UY_carton" }, { has: "xs:baron_mort" }] }, if: { seen: "A3w_scorbut" }, why: "Elle n'a pas encore regardé les bouches de l'avant." },
         { label: "Une chose sombre dans les herbes, à deux milles", to: "YF_canot", hide: { seen: "YF_canot" }, if: { count: JOURS, min: 1 }, why: "La vigie n'a encore rien signalé." },
         { label: "Regarder ce que la chaleur a fait du portrait", to: "YH_fissure", hide: { any: [{ seen: "YH_fissure" }, { not: { has: "yh:vu" } }] } },
         { label: "Un brick immobile dans les herbes, et une odeur que le vent apporte", to: "ZW_brick", hide: { seen: "ZW_brick" }, if: { count: JOURS, min: 1 }, why: "Le calme ne fait que commencer." },
@@ -184,6 +185,7 @@ module.exports = {
         { label: "Partir avec la corvée d'eau, dans le canot de Talec", to: "ZI_corvee", hide: { seen: "ZI_corvee" } },
         { label: "Recevoir le quartier-maître Kermarrec, qui demande s'il devient fou", to: "VC_timonier", hide: { seen: "VC_timonier" } },
         { label: "Panser, le soir, les hommes que la roche rouge a coupés", to: "VW_coupures", hide: { seen: "VW_coupures" }, if: { seen: "XP_v_debut" }, why: "La corvée n'a pas encore touché la roche." },
+        { label: "Recevoir le gabier qui rapporte du cratère un pot de croûte blanche", to: "TK_marque", hide: { seen: "TK_marque" } },
         { label: "Rester à bord, l'après-midi, près de la capitaine", to: "XQ_v_compas", hide: { seen: "XQ_v_compas" } },
       ] },
     A3w_apres_ecueil: { act: "III", title: "La marmite", place: "sargues", ambiance: "mer",
@@ -202,6 +204,7 @@ module.exports = {
       choices: [
         { label: "Attendre la corvée d'eau sur la plage", to: "XF_v_debut", hide: { seen: "XF_v_debut" } },
         { label: "Descendre au jardin de simples, derrière la maison", to: "XQ_i_jardin", hide: { seen: "XQ_i_jardin" }, if: { seen: "XF_v_debut" }, why: "Personne n'est encore descendu de la maison blanche." },
+        { label: "Examiner le voilier, monté sur le pont avec un carré de toile noire sur la figure", to: "TS_matin", hide: { seen: "TS_matin" } },
         { label: "Regarder les tortues monter sur la plage, à la nuit", to: "XQ_i_tortues", hide: { seen: "XQ_i_tortues" } },
         { label: "Suivre Ombeline jusqu'à la clairière, dans la forêt", to: "XF_v_mere", hide: { seen: "XF_v_mere" }, if: { seen: "XF_v_souper" }, why: "Ombeline ne lui a encore rien demandé." },
         { label: "Monter une seconde nuit à la salle blanche", to: "XF_v_retour", hide: { any: [{ seen: "XF_v_retour" }, { not: { has: "xf:aide" } }, { has: "halle:mort" }] } },

@@ -23,6 +23,8 @@ module.exports = {
         { label: "Pousser la porte vitrée du bureau des Rôles, où un commis rose attend", to: "VS_bureau", hide: { seen: "VS_bureau" } },
         { label: "Acheter quarante livres de chandelles chez la veuve Jézéquel, au fond d'une ruelle", to: "VV_boutique", hide: { seen: "VV_boutique" } },
         { label: "Monter l'échelle du grenier, au-dessus de la voilerie, chercher le portrait de Lisette", to: "UJ_atelier", hide: { seen: "UJ_atelier" } },
+        { label: "Descendre au quai, où un petit commis attend sous la pluie depuis l'aube", to: "UU_commis", hide: { seen: "UU_commis" }, if: { seen: "XR_echecs" }, why: "Personne, à Morlenc, ne sait encore pour qui Fargue cuisine." },
+        { label: "Acheter les épices rue des Cordiers, chez la veuve remariée au perroquet", to: "TJ_epicerie", hide: { seen: "TJ_epicerie" } },
         { label: "Passer à la Truie-qui-file, où quelqu'un t'attend", to: "A2f_sabran", big: true },
       ] },
 

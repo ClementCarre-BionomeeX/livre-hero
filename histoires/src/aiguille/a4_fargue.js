@@ -36,6 +36,7 @@ module.exports = {
         { label: "Compter l'argent qu'on a tamisé dans le sable, toute la nuit, à la lanterne", to: "UC_ressac", hide: { seen: "UC_ressac" } },
         { label: "Aller voir le vieux qu'on a attaché au poteau, près du feu", to: "UO_poteau", hide: { seen: "UO_poteau" }, if: { count: JOURS, min: 1 }, why: "Le camp n'a encore pris personne." },
         { label: "Prendre une pelle, et aller au bout de la plage", to: "XY_tombe", hide: { seen: "XY_tombe" } },
+        { label: "À midi, servir un vieux Doux qui descend de la forêt avec des figues", to: "TE_vieux", hide: { seen: "TE_vieux" }, if: { count: JOURS, min: 1 }, why: "Personne n'est encore monté au verger." },
         { label: "Fumer seul, la nuit, au bout de la plage", to: "XY_gabet", hide: { any: [{ seen: "XY_gabet" }, { not: { seen: "XY_tombe" } }] } },
         { label: "Écrire à Lisette, au bord du feu, une lettre qu'aucun navire ne portera", to: "YK_lettre", hide: { seen: "YK_lettre" }, if: { count: JOURS, min: 1 }, why: "La première nuit, il ne pense qu'aux hommes." },
         { label: "Midi : Boucaut cherche qui a bu son rhum", to: "YQ_coup", hide: { seen: "YQ_coup" }, if: { count: JOURS, min: 1 }, why: "Il reste encore du rhum pour tout le monde." },

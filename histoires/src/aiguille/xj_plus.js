@@ -18,6 +18,7 @@ module.exports = {
         { label: "Aller trouver le directeur de l'Hôtel-Dieu", to: "XJ_e_directeur", hide: { seen: "XJ_e_directeur" } },
         { label: "Chercher son logement, et sa logeuse", to: "XJ_e_logeuse", hide: { seen: "XJ_e_logeuse" } },
         { label: "Descendre dans l'impasse dont parlent les mendiants", to: "XJ_e_impasse", hide: { seen: "XJ_e_impasse" } },
+        { label: "Recevoir le notaire qui l'attend au Cormoran devant un chocolat froid", to: "TP_notaire", hide: { seen: "TP_notaire" } },
         { label: "Le suivre, le soir venu", to: "XJ_nuit", big: true },
         { label: "L'engager", fx: { recrue: "vauclair", flag: "vauclair:engage", regard: { vauclair: "redevable" } }, to: "XJ_engage", if: { count: [{ seen: "XJ_e_directeur" }, { seen: "XJ_e_logeuse" }, { seen: "XJ_e_impasse" }], min: 1 }, why: "Elle ne sait encore rien de plus qu'hier." },
         { label: "Lui faire dire que la place est prise", refuse: true, to: "XJ_refuse", if: { count: [{ seen: "XJ_e_directeur" }, { seen: "XJ_e_logeuse" }, { seen: "XJ_e_impasse" }], min: 1 }, why: "Elle ne sait encore rien de plus qu'hier." },
