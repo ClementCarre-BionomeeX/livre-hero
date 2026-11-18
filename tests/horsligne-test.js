@@ -32,7 +32,16 @@ function check(ok, what) { if (!ok) bad.push(what); }
     await pg.fill('input[aria-label="Nom du nouveau lecteur"]', "Léa"); await pg.getByRole("button", { name: "Ajouter" }).first().click();
     await pg.getByRole("tab", { name: "Plus" }).click();
     await pg.getByRole("button", { name: /Hors ligne/ }).click();
-    await pg.waitForFunction(function () { return /Tout est gardé sur cet appareil/.test(document.body.textContent); }, null, { timeout: 20000 }).catch(function () { bad.push("Plus → Hors ligne dit que tout est gardé (" + (/\d+ livres sur \d+[^.]*/.exec("") || "") + ")"); });
+    await pg.waitForFunction(function () { return /Tout est gardé sur cet appareil/.test(document.getElementById("app").innerText); }, null, { timeout: 20000 }).catch(function () { bad.push("Plus → Hors ligne dit que tout est gardé (" + (/\d+ livres sur \d+[^.]*/.exec("") || "") + ")"); });
+    // « Tout télécharger » after three books were lost: it shows its progress and says it is done (14.3)
+    await pg.evaluate(function () {
+      window.__avance = []; navigator.serviceWorker.addEventListener("message", function (e) { if (e.data && e.data.kind === "horsligne-avance") window.__avance.push(e.data); });
+      return caches.open("livre-jeu-fichiers").then(function (c) { return c.keys().then(function (ks) { return Promise.all(ks.filter(function (r) { return /histoires\/(kardan|temoin|siege)\.json/.test(r.url); }).map(function (r) { return c.delete(r); })); }); });
+    });
+    await pg.getByRole("button", { name: "Tout télécharger maintenant" }).click();
+    await pg.waitForFunction(function () { return /Téléchargement terminé/.test(document.getElementById("app").innerText); }, null, { timeout: 30000 }).catch(function () { bad.push("« Tout télécharger » dit quand c'est fini"); });
+    var av = await pg.evaluate(function () { return window.__avance; });
+    check(av.length === 4 && av[3].done === 3 && av[3].total === 3, "l'avancement compte les fichiers un par un (" + JSON.stringify(av.map(function (x) { return x.done + "/" + x.total; })) + ")");
     // without network: the site opens, a book starts
     up = false;
     await pg.reload(); await pg.waitForFunction(function () { return window.LIVRE_OUVERT; }, null, { timeout: 20000 });

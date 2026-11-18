@@ -35,11 +35,11 @@ async function firstPage(pg, url) {
     await firstPage(pg, url);
     var look = await pg.evaluate(function () {
       var r = document.documentElement, page = document.querySelector(".page.read"), cs = getComputedStyle(page), before = getComputedStyle(page, "::before");
-      return { style: r.getAttribute("data-style"), screen: r.getAttribute("data-screen"), defs: !!document.getElementById("carnet-bord"), border: cs.borderTopWidth, filter: before.filter,
+      return { style: r.getAttribute("data-style"), screen: r.getAttribute("data-screen"), defs: !!document.getElementById("carnet-bord"), border: cs.borderTopWidth, filter: before.webkitMaskBoxImageSource || before.getPropertyValue("-webkit-mask-box-image-source"),
         choiceBorder: getComputedStyle(document.querySelector(".choice")).borderTopWidth, title: document.querySelector("#page-title").textContent };
     });
     check(look.style === "carnet" && look.screen === "game", "le carnet est le style par défaut sur la page de lecture (" + look.style + ", " + look.screen + ")");
-    check(look.defs && /carnet-bord/.test(look.filter), "la feuille a ses bords tremblés (" + look.filter + ")");
+    check(/svg/.test(look.filter), "la feuille a ses bords tremblés (" + String(look.filter).slice(0, 60) + ")");
     check(look.border === "0px" && look.choiceBorder === "0px", "plus de cadre autour de la page ni des choix");
     await pg.locator(".choices .choice:not([disabled])").first().click();
     var ring = await pg.evaluate(function () { return { ring: !!document.querySelector(".choice.picked .carnet-cercle path"), others: [].every.call(document.querySelectorAll(".choices .choice"), function (c) { return c.disabled; }) }; });

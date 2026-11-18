@@ -701,18 +701,25 @@
     function sw() { return navigator.serviceWorker && navigator.serviceWorker.controller; }
     O.available = function () { return standalone() && !!sw(); };
     if (navigator.serviceWorker) navigator.serviceWorker.addEventListener("message", function (e) {
-      var d = e.data || {}; if (d.kind !== "horsligne") return;
+      var d = e.data || {};
+      if (d.kind === "horsligne-avance") { O.progress = d; var bar = document.getElementById("horsligne-avance"); if (bar) { bar.value = d.done; bar.max = Math.max(1, d.total); var t = document.getElementById("horsligne-texte"); if (t) t.textContent = progressText(d); } else if (A.screen === "home") render(); return; }
+      if (d.kind !== "horsligne") return;
+      if (d.fetch) O.progress = null; else O.asking = false;
       var books = d.kept.filter(function (f) { return /^histoires\//.test(f); }).length, allBooks = Object.keys(A.builtinMeta).filter(function (k) { return A.builtinMeta[k].file; }).length;
-      O.state = { books: books, allBooks: allBooks, rest: d.kept.length - books, allRest: d.all - allBooks, version: d.version }; O.busy = false;
+      O.state = { books: books, allBooks: allBooks, rest: d.kept.length - books, allRest: d.all - allBooks, version: d.version, done: !!d.fetch || !!(O.state && O.state.done) }; if (d.fetch) O.busy = false;
       if (A.screen === "home") render();
     });
-    O.ask = function (fetchAll) { var c = sw(); if (!c || (O.busy && !fetchAll)) return; if (fetchAll) O.busy = true; c.postMessage({ kind: "horsligne", fetch: !!fetchAll }); };
+    // a question at a time: the answer draws the page again, which must not ask again (14.3 looped there)
+    O.ask = function (fetchAll) { var c = sw(); if (!c || O.busy || O.asking) return; if (fetchAll) O.busy = true; else O.asking = true; c.postMessage({ kind: "horsligne", fetch: !!fetchAll }); };
+    function progressText(d) { return d.total ? d.done + " fichier" + (d.done > 1 ? "s" : "") + " sur " + d.total + (d.file ? " · " + ((A.builtinMeta[(/histoires\/(.+)\.json$/.exec(d.file) || [])[1]] || {}).title || d.file) : "") : "Tout est déjà là."; }
     O.line = function () { var s = O.state; return s ? s.books + " livres sur " + s.allBooks + " gardés sur l'appareil" : "Les livres gardés sur l'appareil"; };
     O.panel = function () {
       var s = O.state, box = h("div", { class: "stack" });
       box.appendChild(h("p", { class: "small muted" }, "Le livre lit toujours d'abord sa copie gardée sur l'appareil ; le réseau ne sert qu'à ce qui manque, aux mises à jour et au dossier partagé. Une mise à jour ne retélécharge que les livres modifiés."));
       if (s) box.appendChild(h("p", null, s.books === s.allBooks && s.rest === s.allRest ? "Tout est gardé sur cet appareil : " + s.allBooks + " livres et l'appli. Elle marche sans réseau." : s.books + " livres sur " + s.allBooks + " gardés sur cet appareil" + (s.rest < s.allRest ? ", l'appli pas encore en entier" : "") + "."));
       box.appendChild(h("div", { class: "row" }, h("button", { class: "btn sm primary", disabled: O.busy, onclick: function () { O.ask(true); render(); } }, O.busy ? "Téléchargement en cours…" : "Tout télécharger maintenant")));
+      if (O.busy && O.progress) box.appendChild(h("div", { class: "stack tight" }, h("progress", { id: "horsligne-avance", max: Math.max(1, O.progress.total), value: O.progress.done, style: "width:100%" }), h("span", { id: "horsligne-texte", class: "small" }, progressText(O.progress))));
+      if (s && s.done) box.appendChild(h("p", { class: "small" }, s.books === s.allBooks ? "✓ Téléchargement terminé." : "Le réseau a coupé avant la fin : relance le bouton plus tard, ce qui est gardé reste."));
       box.appendChild(h("p", { class: "small muted" }, "Mieux vaut le faire en wifi : tous les livres font environ 32 Mo. Si le réseau coupe, ce qui est déjà gardé reste, et la suite reprend plus tard."));
       return box;
     };
@@ -731,7 +738,7 @@
         Sync.on() ? "☁ Dossier de sauvegarde partagé" + (Sync.busy ? " · synchronisation…" : Sync.error ? " · ⚠ à vérifier" : "") : "☁ Configurer un dossier de sauvegarde partagé")));
       return bk;
     }));
-    if (Offline.available()) w.appendChild(homeFold("plus:horsligne", "Hors ligne", Offline.line(), function () { Offline.ask(false); return Offline.panel(); }));
+    if (Offline.available()) w.appendChild(homeFold("plus:horsligne", "Hors ligne", Offline.line(), function () { if (!Offline.state) Offline.ask(false); return Offline.panel(); }));
     w.appendChild(homeFold("plus:ajouter", "Ajouter des histoires", "Un fichier .json" + (catalogueOn() ? ", ou le catalogue partagé" : ""), function () {
       var file = h("input", { type: "file", accept: ".json,application/json", "aria-label": "Fichier d'histoire", onchange: function (e) { importStory(e.target.files[0]); e.target.value = ""; } });
       return [h("div", { class: "row" }, h("span", { class: "label" }, "Importer une histoire (.json)"), file),
@@ -2724,6 +2731,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "14.3", items: ["Plus → Hors ligne : « Tout télécharger » montre son avancement, fichier par fichier, et dit quand c'est fini.", "Les pages s'affichent aussitôt au défilement, même les longs chapitres : le bord tremblé du papier est dessiné une fois pour toutes au lieu d'être recalculé sur toute la hauteur de la feuille."] },
     { v: "14.2", items: ["Hors ligne au maximum : le livre lit d'abord sa copie gardée sur l'appareil et ne demande au réseau que ce qui manque. Une mise à jour ne retélécharge que les livres modifiés, plus les 32 Mo.", "Plus → Hors ligne : combien de livres sont gardés sur l'appareil, et un bouton pour tout télécharger d'un coup (en wifi de préférence).", "Le dossier partagé ne bloque plus la bibliothèque : ses salles arrivent quand le réseau répond."] },
     { v: "14.1", items: ["Plus de « mur » au défilement : les livres ne se lisent plus en arrière-plan pendant que tu fais défiler ; seuls ceux où tu as une partie sont préparés, quand tu laisses l'écran tranquille. Les autres se lisent quand tu les ouvres."] },
     { v: "14.0", items: ["L'encre du carnet redevient comme avant : la plume écrit d'un trait fluide, l'encre mouillée brille puis sèche. Sur un appareil qui peine, le mode « appareil ancien » (Réglages) l'écrit d'un coup."] },
