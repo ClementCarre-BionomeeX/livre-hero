@@ -42,7 +42,7 @@ module.exports = {
     text: [
       "Tu t'approches des grilles. Le fer doré est brûlant ; tu enroules ton foulard autour de ton poing. Tu frappes trois coups. Le métal résonne d'un bout à l'autre de la grille comme une cloche fêlée.",
       "Sur le perron, au bout de l'allée, un valet s'arrête de plier sa serviette. Il pose la serviette. Il descend les marches. Il remonte l'allée de gravier blanc, sans se presser, d'un pas parfaitement régulier, pendant quatre minutes. Il arrive devant les grilles. Il te regarde à travers les barreaux.",
-      "Il te regarde longtemps, sans rien dire, avec une politesse infinie.",
+      "Il te regarde longtemps, en silence, avec une politesse infinie.",
       "Puis il fait demi-tour, redescend l'allée pendant quatre minutes, remonte le perron, et reprend sa serviette.",
       "Derrière toi, Mama Salée hoche la tête, lentement, comme quelqu'un qui vérifie qu'une prophétie se déroule dans le bon ordre.",
     ],
@@ -144,7 +144,7 @@ module.exports = {
       "Sur le perron, au bout de l'allée, une femme s'est levée. Une robe blanche, une chevelure rousse qui flambe dans le soleil couchant. Elle a laissé tomber sa coupe de champagne, qui s'est brisée sur le marbre. Elle regarde l'ange d'acier. Puis elle regarde la vieille femme en cape de cuir, de l'autre côté des grilles.",
       "Mama Salée la voit aussi. Elle ne bouge pas. Son visage, lui, bouge, très légèrement, comme l'eau d'un seau qu'on vient de poser.",
       "« C'est elle, dit-elle tout bas. La rousse, là-haut. C'est ma fille. »",
-      "Elle reste un moment sans rien dire. Puis elle se tourne vers toi, et sa voix redevient celle de la cheffe des Demi-Sel.",
+      "Elle reste un moment silencieuse. Puis elle se tourne vers toi, et sa voix redevient celle de la cheffe des Demi-Sel.",
       "« Ruines. Le soleil se couche. Il faut décider ce qu'on fait de lui. »",
     ],
     choices: [{ label: "Regarder l'ange d'acier", to: "R3_heraut", big: true }] },

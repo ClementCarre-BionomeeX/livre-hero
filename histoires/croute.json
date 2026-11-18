@@ -2933,7 +2933,7 @@
     }
    },
    "text": [
-    "Vous travaillez à quatre mains, sans un mot, pendant que le jour se lève. Croûton tend la main ; tu y poses la pièce qu'elle veut avant qu'elle l'ait demandée. Le carburateur de la Comtesse est un objet de légende, assemblé à partir d'une cafetière, de deux bouchons de radiateur et d'un ressort dont personne ne connaît l'origine.",
+    "Vous travaillez à quatre mains, pendant que le jour se lève. Croûton tend la main ; tu y poses la pièce qu'elle veut avant qu'elle l'ait demandée. Le carburateur de la Comtesse est un objet de légende, assemblé à partir d'une cafetière, de deux bouchons de radiateur et d'un ressort dont personne ne connaît l'origine.",
     "« Elle chauffe, dit Croûton en essuyant ses mains sur sa salopette, ce qui les salit davantage. Avec cette chaleur, au-delà de trois heures de route, elle fondra comme tout le reste. » Elle réfléchit. « Enfin. Pas comme tout le reste. Elle est en fer. Elle cassera. »",
     "Elle range sa clé à molette dans la poche de poitrine et ajoute, en regardant ailleurs : « Merci. »",
     "Venant de Croûton, c'est un discours."
@@ -5636,7 +5636,7 @@
      "if": {
       "has": "comtesse=sorbier"
      },
-     "text": "Il te donne un chèque. Dix millions. Deux de ses hommes descendent de l'hélicoptère, prennent la Comtesse par le guidon et la selle, et la hissent dans la soute avec précaution, comme un meuble ancien. Elle ne démarre pas pour protester. Elle démarre une fois sur deux. Ce n'était pas la bonne fois. Croûton regarde la scène sans un mot, puis elle va se coucher sous le Plateau, le dos tourné."
+     "text": "Il te donne un chèque. Dix millions. Deux de ses hommes descendent de l'hélicoptère, prennent la Comtesse par le guidon et la selle, et la hissent dans la soute avec précaution, comme un meuble ancien. Elle ne démarre pas pour protester. Elle démarre une fois sur deux. Ce n'était pas la bonne fois. Croûton regarde la scène, puis elle va se coucher sous le Plateau, le dos tourné."
     },
     {
      "if": {
@@ -6488,7 +6488,7 @@
    "text": [
     "Tu décroches. Une voix répond aussitôt, comme si elle attendait près de l'appareil depuis des années. Tu donnes le nom : Firmin Levain, boulanger, Mirevaux, la Banque, rue des Notaires. Tu entends un stylo-plume courir sur du papier.",
     "« Merci, Octave, dit la voix de Madame Vernis. Les huissiers partent cette nuit. »",
-    "Tu raccroches. Mademoiselle Ghislaine range les cinq baguettes d'argent dans le tiroir, une à une, sans un mot. Puis elle referme le tiroir à clé, et met la clé dans sa poche, et regarde par la vitre le soleil qui se couche."
+    "Tu raccroches. Mademoiselle Ghislaine range les cinq baguettes d'argent dans le tiroir, une à une. Puis elle referme le tiroir à clé, et met la clé dans sa poche, et regarde par la vitre le soleil qui se couche."
    ],
    "choices": [
     {
@@ -7043,7 +7043,7 @@
      "if": {
       "has": "firmin=libre"
      },
-     "text": "Les huissiers t'écoutent, chapeau à la main. Ils ont été formés au respect des grandes maisons ; un majordome de la famille fondatrice est, pour eux, ce qui s'approche le plus d'un évêque. Ils dressent un procès-verbal de carence en trois exemplaires, te le font signer, et repartent. Firmin te regarde à travers la nuit. Il ne dit rien. Il lève une baguette, comme on lève un verre."
+     "text": "Les huissiers t'écoutent, chapeau à la main. Ils ont été formés au respect des grandes maisons ; un majordome de la famille fondatrice est, pour eux, ce qui s'approche le plus d'un évêque. Ils dressent un procès-verbal de carence en trois exemplaires, te le font signer, et repartent. Firmin te regarde à travers la nuit. Il lève une baguette, comme on lève un verre."
     },
     {
      "if": {
@@ -7335,7 +7335,7 @@
    "text": [
     "Tu t'approches des grilles. Le fer doré est brûlant ; tu enroules ton foulard autour de ton poing. Tu frappes trois coups. Le métal résonne d'un bout à l'autre de la grille comme une cloche fêlée.",
     "Sur le perron, au bout de l'allée, un valet s'arrête de plier sa serviette. Il pose la serviette. Il descend les marches. Il remonte l'allée de gravier blanc, sans se presser, d'un pas parfaitement régulier, pendant quatre minutes. Il arrive devant les grilles. Il te regarde à travers les barreaux.",
-    "Il te regarde longtemps, sans rien dire, avec une politesse infinie.",
+    "Il te regarde longtemps, en silence, avec une politesse infinie.",
     "Puis il fait demi-tour, redescend l'allée pendant quatre minutes, remonte le perron, et reprend sa serviette.",
     "Derrière toi, Mama Salée hoche la tête, lentement, comme quelqu'un qui vérifie qu'une prophétie se déroule dans le bon ordre."
    ],
@@ -7642,7 +7642,7 @@
     "Sur le perron, au bout de l'allée, une femme s'est levée. Une robe blanche, une chevelure rousse qui flambe dans le soleil couchant. Elle a laissé tomber sa coupe de champagne, qui s'est brisée sur le marbre. Elle regarde l'ange d'acier. Puis elle regarde la vieille femme en cape de cuir, de l'autre côté des grilles.",
     "Mama Salée la voit aussi. Elle ne bouge pas. Son visage, lui, bouge, très légèrement, comme l'eau d'un seau qu'on vient de poser.",
     "« C'est elle, dit-elle tout bas. La rousse, là-haut. C'est ma fille. »",
-    "Elle reste un moment sans rien dire. Puis elle se tourne vers toi, et sa voix redevient celle de la cheffe des Demi-Sel.",
+    "Elle reste un moment silencieuse. Puis elle se tourne vers toi, et sa voix redevient celle de la cheffe des Demi-Sel.",
     "« Ruines. Le soleil se couche. Il faut décider ce qu'on fait de lui. »"
    ],
    "choices": [
@@ -8009,7 +8009,7 @@
     "until": 6
    },
    "text": [
-    "À l'aube, le motard vient frapper à la porte du Salon Privilège. Il ne dit rien. Il montre le Plateau d'un mouvement de tête.",
+    "À l'aube, le motard vient frapper à la porte du Salon Privilège. Il montre le Plateau d'un mouvement de tête.",
     "C'est ainsi que tu fais la dernière partie du voyage : assis sur une chaise de jardin, à l'arrière d'un camion qui sent la frite, à côté d'un vieillard maigre qui compte des gouttes et d'une statue de beurre qui fond. Le Silence du Moteur est arrimé sur le plateau avec des sangles, à côté de l'ange. Gontran et Fulbert dorment dessus, l'un contre l'autre, la bouche ouverte. Deux cents motos vous escortent dans le soleil levant.",
     "Frère Beurrier te tend sa louche sans un mot. Tu la prends. Tu recueilles une goutte, que tu verses dans son seau. Il hoche la tête. Tu en recueilles une autre. Vous faites ça pendant trois heures. C'est une des plus belles matinées de ta vie, et tu ne pourras jamais l'expliquer à Monsieur.",
     "À une heure de l'arrivée, tu demandes au motard de te laisser descendre devant la porte de service. Il comprend. Il ralentit le convoi pour toi, deux cents motos au pas, le temps que tu descendes avec ta valise."
@@ -8850,7 +8850,7 @@
      "if": {
       "has": "lea:aveu"
      },
-     "text": "Léa Valmont s'est approchée de toi. Elle ne dit rien. Elle regarde ta chaîne."
+     "text": "Léa Valmont s'est approchée de toi. Elle regarde ta chaîne."
     },
     "Tu sais ce que tu vas faire. Tu le sais depuis le kilomètre 66, peut-être depuis le désert, peut-être depuis le pain."
    ],

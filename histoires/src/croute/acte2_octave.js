@@ -253,7 +253,7 @@ module.exports = {
     text: [
       "Tu décroches. Une voix répond aussitôt, comme si elle attendait près de l'appareil depuis des années. Tu donnes le nom : Firmin Levain, boulanger, Mirevaux, la Banque, rue des Notaires. Tu entends un stylo-plume courir sur du papier.",
       "« Merci, Octave, dit la voix de Madame Vernis. Les huissiers partent cette nuit. »",
-      "Tu raccroches. Mademoiselle Ghislaine range les cinq baguettes d'argent dans le tiroir, une à une, sans un mot. Puis elle referme le tiroir à clé, et met la clé dans sa poche, et regarde par la vitre le soleil qui se couche.",
+      "Tu raccroches. Mademoiselle Ghislaine range les cinq baguettes d'argent dans le tiroir, une à une. Puis elle referme le tiroir à clé, et met la clé dans sa poche, et regarde par la vitre le soleil qui se couche.",
     ],
     choices: [{ back: "O2_boutique" }] },
   O2_achete: { act: "II", title: "Le tiroir", place: "boutique",
@@ -370,7 +370,7 @@ module.exports = {
     ] },
   O2_huissiers_fin: { act: "II", title: "Minuit", place: "boutique",
     text: [
-      { if: { has: "firmin=libre" }, text: "Les huissiers t'écoutent, chapeau à la main. Ils ont été formés au respect des grandes maisons ; un majordome de la famille fondatrice est, pour eux, ce qui s'approche le plus d'un évêque. Ils dressent un procès-verbal de carence en trois exemplaires, te le font signer, et repartent. Firmin te regarde à travers la nuit. Il ne dit rien. Il lève une baguette, comme on lève un verre." },
+      { if: { has: "firmin=libre" }, text: "Les huissiers t'écoutent, chapeau à la main. Ils ont été formés au respect des grandes maisons ; un majordome de la famille fondatrice est, pour eux, ce qui s'approche le plus d'un évêque. Ils dressent un procès-verbal de carence en trois exemplaires, te le font signer, et repartent. Firmin te regarde à travers la nuit. Il lève une baguette, comme on lève un verre." },
       { if: { has: "firmin=pris" }, text: "L'hélicoptère blanc décolle avec Firmin Levain à son bord, entre deux chapeaux melon, ses paniers de pain sur les genoux. Il regarde par le hublot jusqu'au bout. Quand le bruit du rotor s'est éteint, il reste sur le parking une odeur de pain chaud qui met longtemps à s'en aller." },
     ],
     choices: [{ label: "Te coucher", to: "O2_salon" }] },

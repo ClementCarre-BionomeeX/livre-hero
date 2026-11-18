@@ -23,7 +23,7 @@ module.exports = {
   O3_plateau: { act: "III", title: "Sur le Plateau", place: "route",
     fx: { until: 6 },
     text: [
-      "À l'aube, le motard vient frapper à la porte du Salon Privilège. Il ne dit rien. Il montre le Plateau d'un mouvement de tête.",
+      "À l'aube, le motard vient frapper à la porte du Salon Privilège. Il montre le Plateau d'un mouvement de tête.",
       "C'est ainsi que tu fais la dernière partie du voyage : assis sur une chaise de jardin, à l'arrière d'un camion qui sent la frite, à côté d'un vieillard maigre qui compte des gouttes et d'une statue de beurre qui fond. Le Silence du Moteur est arrimé sur le plateau avec des sangles, à côté de l'ange. Gontran et Fulbert dorment dessus, l'un contre l'autre, la bouche ouverte. Deux cents motos vous escortent dans le soleil levant.",
       "Frère Beurrier te tend sa louche sans un mot. Tu la prends. Tu recueilles une goutte, que tu verses dans son seau. Il hoche la tête. Tu en recueilles une autre. Vous faites ça pendant trois heures. C'est une des plus belles matinées de ta vie, et tu ne pourras jamais l'expliquer à Monsieur.",
       "À une heure de l'arrivée, tu demandes au motard de te laisser descendre devant la porte de service. Il comprend. Il ralentit le convoi pour toi, deux cents motos au pas, le temps que tu descendes avec ta valise.",
@@ -215,7 +215,7 @@ module.exports = {
       { if: { not: { has: "cle:vernis" } }, text: "La grande clé dorée des grilles pend à ta chaîne, entre la clé des caves et celle de l'argenterie. Elle ne sert à rien depuis trente et un ans. Les grilles ont une serrure, pourtant. Une seule. Tu la cires chaque dimanche." },
       { if: { has: "cle:vernis" }, text: "La grande clé dorée des grilles est dans la poche de Madame Vernis. Il te reste, sur ta chaîne, la petite clé de la porte verte, la porte de service, que le règlement ignore." },
       "Le soleil touche l'horizon. Le gala va commencer. Monsieur attend. Le Domaine entier attend. Et devant les grilles, deux cents motards, un ange d'acier et une vieille femme attendent aussi.",
-      { if: { has: "lea:aveu" }, text: "Léa Valmont s'est approchée de toi. Elle ne dit rien. Elle regarde ta chaîne." },
+      { if: { has: "lea:aveu" }, text: "Léa Valmont s'est approchée de toi. Elle regarde ta chaîne." },
       "Tu sais ce que tu vas faire. Tu le sais depuis le kilomètre 66, peut-être depuis le désert, peut-être depuis le pain.",
     ],
     choices: [
