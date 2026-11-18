@@ -54,7 +54,7 @@ module.exports = {
       text: [
         "La cantinière lui sert une soupe, du pain blanc, une tranche de lard, un verre de vin. Il regarde l'assiette longtemps avant de la toucher. Il mange avec la cuillère seulement, très vite, courbé, le bras gauche autour de l'assiette, comme pour la défendre. Il laisse le vin. Il dit qu'il a oublié le goût, et qu'il a peur de ne pas l'aimer.",
         "Après, tu l'emmènes de l'autre côté de l'île, par le sentier des douaniers, en tenant ses souliers à la main, puisqu'il marche mieux pieds nus. Il faut une heure. Il s'arrête souvent, pour reprendre son souffle, pour regarder une herbe, un insecte, une pierre. Arrivé de l'autre côté, sur la falaise, il s'arrête net.",
-        "La mer est là, entière, de tous les côtés, jusqu'au bout du ciel. Pas un carré : toute. Il la regarde. Il a les yeux qui coulent, à cause de la lumière ou d'autre chose. Il reste debout au bord de la falaise jusqu'au soir, sans rien dire, à la regarder, comme on regarde quelqu'un qu'on avait cru mort.",
+        "La mer est là, entière, de tous les côtés, jusqu'au bout du ciel. Pas un carré : toute. Il la regarde. Il a les yeux qui coulent, à cause de la lumière ou d'autre chose. Il reste debout au bord de la falaise jusqu'au soir, en silence, à la regarder, comme on regarde quelqu'un qu'on avait cru mort.",
         "Quand tu dois redescendre au navire, il te dit qu'il reste encore un peu. Qu'il redescendra tout seul. Qu'il connaît le chemin, maintenant. Tu ne sais pas, en le quittant, s'il redescendra. Tu crois que oui. Tu le crois parce qu'il a remis ses souliers.",
       ],
       choices: [{ label: "Redescendre à l'anse", fx: { quest: "ZM" }, back: "A3m_brisegreve" }] },

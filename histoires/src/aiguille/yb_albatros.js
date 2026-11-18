@@ -76,7 +76,7 @@ module.exports = {
       text: [
         "La capitaine Ribaud monte sur le gaillard d'avant en chemise de nuit, pieds nus, un pistolet dans chaque main, les cheveux défaits, et elle ne crie pas, elle non plus.",
         "« Malandain. Lâchez cet homme. Le premier qui le touche, je le pends demain à la vergue de misaine, et le vent reviendra peut-être, puisque vous dites que la mer veut quelqu'un. Je lui donnerai le pendu, il est plus lourd. »",
-        "Un long moment, rien ne bouge. Puis Malandain lâche le bras de Coquerel, et recule, en souriant d'un côté de la bouche. Les autres reculent avec lui. Ils redescendent par l'écoutille, un par un, sans un mot.",
+        "Un long moment, rien ne bouge. Puis Malandain lâche le bras de Coquerel, et recule, en souriant d'un côté de la bouche. Les autres reculent avec lui. Ils redescendent par l'écoutille, un par un.",
         "La capitaine coupe la ligne au cou de Coquerel avec un couteau qu'elle a pris on ne sait où, prend l'albatros par une patte, et le jette par-dessus bord, sans un mot, sans une prière. Il flotte un instant, blanc, puis il s'enfonce.",
         "Le vent ne revient pas cette nuit-là. Il revient deux jours plus tard, comme il revient toujours. Mais à bord, on dit désormais que la capitaine a privé la mer de son homme, et que la mer s'en souviendra.",
       ],
@@ -97,7 +97,7 @@ module.exports = {
       text: [
         { if: ENFANT, text: "Tu ne bouges pas. Tu as tes raisons, qui sont toutes bonnes et qui pèsent toutes le même poids : rien." },
         { if: MEDECIN, text: "Victorine ne bouge pas. Elle a ses raisons, qui sont toutes bonnes et qui pèsent toutes le même poids : rien." },
-        "Ils le font passer par-dessus la lisse, avec l'oiseau. Il y a un bruit, pas très fort, un bruit d'eau épaisse. La lumière verte s'agite un moment à l'endroit où il est tombé, puis elle se calme, et redevient égale, comme une couverture qu'on lisse. Les hommes redescendent sans un mot.",
+        "Ils le font passer par-dessus la lisse, avec l'oiseau. Il y a un bruit, pas très fort, un bruit d'eau épaisse. La lumière verte s'agite un moment à l'endroit où il est tombé, puis elle se calme, et redevient égale, comme une couverture qu'on lisse. Les hommes redescendent en silence.",
         "À l'aube, Maître Gobert, qui fait le tour du bord avant le branle-bas, entend gémir sous la voûte de l'arrière. Coquerel est là, accroché aux chaînes du gouvernail, dans l'eau jusqu'aux épaules, les mains liées passées autour d'un gond, où il s'est tenu toute la nuit, pendant que les choses sans yeux lui frôlaient les jambes. L'albatros flotte à côté de lui, au bout de sa ligne, comme un compagnon fidèle.",
         "On le hisse. Il ne dit pas qui. Il ne dit rien. Il a les yeux grands ouverts, et il ne les ferme plus beaucoup, les jours suivants. Le vent revient trois jours plus tard. Coquerel ne rit plus. On s'aperçoit seulement alors combien on entendait ce rire, et combien il prenait de place.",
       ],

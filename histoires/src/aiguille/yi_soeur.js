@@ -43,7 +43,7 @@ module.exports = {
     YI_certificat: { act: "II", title: "Le papier timbré", place: "haute_ville", ambiance: "nuit",
       text: [
         "Victorine trempe la plume. Elle écrit ce qui est vrai : *catalepsie, accès fréquents, perte de conscience prolongée*. Elle écrit ce qui est faux : *incapable de gouverner sa personne et ses biens*. Elle signe. L'encre sèche vite, dans l'air froid de la chambre.",
-        "Aurélie la regarde faire, sans un mot. Puis elle ferme les yeux, et s'en va, de nouveau, au fond de son puits, d'un coup, comme on se laisse tomber dans l'eau. Le pouls s'éteint presque sous les doigts de Victorine. Elle se demande si c'est la maladie, ou une manière de ne plus la voir.",
+        "Aurélie la regarde faire. Puis elle ferme les yeux, et s'en va, de nouveau, au fond de son puits, d'un coup, comme on se laisse tomber dans l'eau. Le pouls s'éteint presque sous les doigts de Victorine. Elle se demande si c'est la maladie, ou une manière de ne plus la voir.",
         "Le baron rentre, lit le certificat, le plie, le range dans sa poche intérieure. « Merci, docteur. Vous avez fait une bonne action. Je veillerai sur elle mieux que personne. » Il le pense peut-être. Il pense surtout aux biens qui dorment.",
       ],
       choices: [{ label: "Laisser des ordres à la vieille servante, avant de partir", to: "YI_consigne" }, { label: "Rentrer au Cormoran", fx: { quest: "YI" }, back: "A2v_jours" }] },

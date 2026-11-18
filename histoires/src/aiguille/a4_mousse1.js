@@ -72,7 +72,7 @@ module.exports = {
         "Il remue la marmite. Il ne chante plus. Il regarde la forêt, à l'ouest, là où le ruisseau sort des arbres.",
         { if: { has: "fargue:protege_mousse" }, text: "« Écoute-moi, dit-il sans te regarder. Quand tu entendras un coup de feu, tout à l'heure, tu iras dans le bois, vers l'est. Tu marcheras jusqu'à ce que tu ne nous entendes plus. Et tu ne reviendras que quand je t'appellerai, moi. Personne d'autre. Tu as compris ? »" },
         { if: { not: { has: "fargue:protege_mousse" } }, text: "« Tu restes près de moi, aujourd'hui, dit-il sans te regarder. Quoi qu'il arrive. Près de moi, tu ne risques rien. » Il pose sa main droite sur ton épaule, et la laisse. Elle est lourde, chaude, et ne serre pas. Pas encore." },
-        { if: { has: "complot:tu" }, text: "Tu as gardé pour toi ce que tu as entendu dans la soute. Il le sait, ou il le devine. Il t'a donné, depuis, la meilleure part de chaque marmite, sans un mot." },
+        { if: { has: "complot:tu" }, text: "Tu as gardé pour toi ce que tu as entendu dans la soute. Il le sait, ou il le devine. Il t'a donné, depuis, la meilleure part de chaque marmite." },
         "Tu manges les fruits. Ils sont acides, sucrés, pleins de petits pépins durs. Le soleil monte. Les hommes qui roulaient les barriques se sont arrêtés et regardent l'ouest, eux aussi, les mains sur les reins.",
         "Un cri, d'abord. Loin, sous les arbres. Un cri d'homme, bref, coupé net, comme une question à laquelle on aurait répondu trop vite. Puis le coup de feu.",
       ],
@@ -94,7 +94,7 @@ module.exports = {
     A4m_tenu: { act: "IV", title: "Près de lui", place: "plage", ambiance: "nature",
       text: [
         "Tu restes. Il te garde contre lui, sans brutalité, comme on garde un enfant au bord d'une route où passent des chevaux.",
-        "Malandain sort du bois une demi-heure plus tard, seul, le mousquet sur l'épaule, et quelque chose de sombre sur ses manches. Il ne dit rien. Il s'assied près du feu, tend son écuelle. Fargue la lui remplit, d'une main qui ne tremble pas, et le regarde manger.",
+        "Malandain sort du bois une demi-heure plus tard, seul, le mousquet sur l'épaule, et quelque chose de sombre sur ses manches. Il s'assied près du feu, tend son écuelle. Fargue la lui remplit, d'une main qui ne tremble pas, et le regarde manger.",
         "« Il fallait que ce soit lui ? demande Fargue à voix très basse.",
         "— Il fallait que ce soit quelqu'un », dit Malandain, la bouche pleine.",
         "Fargue ne répond pas. Au large, sur la Cormorane, on voit des hommes courir sur le pont. Un coup de canon part, à blanc, ou pas. L'après-midi s'étire, chaude, épaisse, pleine de mouches. Les mutins boivent. Ils boivent le rhum que Boucaut a apporté dans un tonnelet marqué « vinaigre ». Vers le soir, ils sont ivres, et Fargue ne l'est pas, et il ne te regarde plus.",

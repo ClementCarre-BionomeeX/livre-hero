@@ -52,7 +52,7 @@ module.exports = {
       text: [
         "Tu te jettes sur lui. Tu l'attrapes par la ceinture, à deux bras, et tu te cales les pieds contre le banc. La ligne tire. Tu tires. Pendant une seconde, deux, trois, la baleine et toi vous disputez un garçon de dix-sept ans, et la baleine pèse soixante tonnes.",
         "Puis Siméon est là. Il a traversé la baleinière d'un bond, par-dessus les bancs. Il passe la main dans la boucle, à la cheville du garçon, entre la corde et la peau, et il ouvre la boucle, d'un geste, comme on dénoue un lacet. Le pied sort. La ligne repart toute seule, en sifflant, et vous tombez tous les trois au fond de la baleinière, emmêlés, trempés.",
-        "Siméon se relève, retourne à l'avant, et reprend sa place, sans un mot, la main sur ses fers. La chasse continue.",
+        "Siméon se relève, retourne à l'avant, et reprend sa place, la main sur ses fers. La chasse continue.",
         "Elle dure trois heures. La baleine tire la baleinière à travers la mer des Sargues comme un traîneau, puis se fatigue, puis remonte. On l'achève à la lance. Elle meurt en soufflant du sang, un jet rouge qui monte droit et retombe en pluie sur vous tous, chaud, et la mer autour devient rose, puis rouge, et les herbes jaunes rougissent aussi, sur une demi-lieue.",
         "Tu regardes son œil, à la fin, quand elle roule sur le flanc. Il est ouvert. Il ne regarde plus rien.",
       ],

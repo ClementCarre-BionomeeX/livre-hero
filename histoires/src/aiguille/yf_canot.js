@@ -16,7 +16,7 @@ module.exports = {
         "Un homme de quarante ans, barbu, noir de soleil, les lèvres fendues, qui dit d'une voix de corbeau : « Le second Kerbiriou, de la Bonne-Espérance. Trente-deux jours. De l'eau. » Et un garçon, quinze ans peut-être, si maigre que ses yeux semblent trop grands pour sa figure, qui ne dit rien, et qui regarde l'homme.",
         "Au fond du canot, sous les bancs, il y a des choses que les hommes de la chaloupe regardent, et qu'ils cessent de regarder, et qu'ils couvrent d'un prélart sans qu'on le leur ait demandé. Des os. Des os longs, raclés, blanchis, rangés avec soin. Et dans un vieux chapeau de feutre, coincé sous le banc de l'arrière, des brins de paille, cinq, dont deux sont plus courts que les autres.",
         { if: ENFANT, text: "Tu étais dans la chaloupe. Tu as vu le chapeau." },
-        { if: MEDECIN, text: "Victorine les reçoit à la coupée. Le second de la chaloupe lui tend le chapeau, sans un mot, avant même qu'on monte les deux survivants." },
+        { if: MEDECIN, text: "Victorine les reçoit à la coupée. Le second de la chaloupe lui tend le chapeau, avant même qu'on monte les deux survivants." },
       ],
       choices: [{ label: "Faire monter les deux hommes à l'infirmerie", to: "YF_recit" }] },
     YF_recit: { act: "III", title: "Le récit du second", place: "cormorane", ambiance: "mer",

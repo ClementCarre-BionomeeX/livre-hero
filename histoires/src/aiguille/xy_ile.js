@@ -38,7 +38,7 @@ module.exports = {
     // ---------------------------------------------------------------- the cook: the grave
     XY_tombe: { act: "IV", title: "La tombe", place: "plage", ambiance: "nature",
       text: [
-        "Le mort est resté trois jours sous sa voile, au bout de la plage. Personne n'y a touché. Les crabes, si. L'odeur commence à venir avec la brise de terre, le soir, et les hommes déplacent leurs abris sans un mot, comme on change de place à table pour ne pas voir quelqu'un.",
+        "Le mort est resté trois jours sous sa voile, au bout de la plage. Personne n'y a touché. Les crabes, si. L'odeur commence à venir avec la brise de terre, le soir, et les hommes déplacent leurs abris, comme on change de place à table pour ne pas voir quelqu'un.",
         "Fargue prend une pelle, un matin, et va creuser.",
         "Le sable est facile, en surface, et dur dessous, mêlé de racines et de coraux morts. Il creuse lentement, comme on creuse à cinquante ans, en s'arrêtant pour souffler. Il ne regarde pas la voile. Il sait ce qu'il y a dessous. Il a dit : un seul, pour que les autres comprennent. Celui-ci est le seul. Il est à lui.",
         "Au bout d'une heure, une ombre tombe sur le trou. Gabet est là, avec une deuxième pelle, sans rien dire. Il descend dans le trou et creuse à côté de lui.",
@@ -116,12 +116,12 @@ module.exports = {
         "Quarante-trois. Vingt-six adultes. Neuf vieillards. Huit enfants.",
         "Au fond, dans le recoin le plus étroit, il y a une femme, assise contre le mur, et contre elle, dans ses bras, un enfant de trois ou quatre ans. La femme tient encore, dans les os de sa main, un petit soulier de cuir rouge. Un seul. L'enfant a l'autre au pied.",
         "Victorine reste longtemps devant eux. Puis elle note, dans son carnet, comme pour les autres : *Femme, trente ans environ. Enfant, trois ans environ. Un soulier rouge.* Elle referme le carnet.",
-        "En remontant, elle croise le baron Clavières, qui attend en haut des marches, très pâle. Il demande ce qu'il y a en bas. Elle lui tend le carnet, ouvert, et le regarde lire. Il lit jusqu'au bout. Il lit *un soulier rouge*. Il ne dit rien. Il lui rend le carnet d'une main qui tremble à peine, et retourne dans le chœur, s'asseoir sur son banc, seul.",
+        "En remontant, elle croise le baron Clavières, qui attend en haut des marches, très pâle. Il demande ce qu'il y a en bas. Elle lui tend le carnet, ouvert, et le regarde lire. Il lit jusqu'au bout. Il lit *un soulier rouge*. Il lui rend le carnet d'une main qui tremble à peine, et retourne dans le chœur, s'asseoir sur son banc, seul.",
       ],
       choices: [{ label: "Laver ses mains à la source", fx: { flag: "chapelle:soulier" }, back: "A4w_jours" }] },
     XY_crypte_sceller: { act: "IV", title: "La crypte", place: "misericorde", ambiance: "souterrain",
       text: [
-        "Elle remonte. Elle ne dit rien. Elle fait signe à Fréville et à Benoît, et ils remettent la dalle en place, et le charpentier la scelle avec du mortier de chaux qu'il gâche dans un seau, à genoux, longuement, en lissant les joints avec son pouce comme on borde un lit.",
+        "Elle remonte. Elle fait signe à Fréville et à Benoît, et ils remettent la dalle en place, et le charpentier la scelle avec du mortier de chaux qu'il gâche dans un seau, à genoux, longuement, en lissant les joints avec son pouce comme on borde un lit.",
         "Quand c'est fait, Victorine reste debout sur la dalle. Sous ses pieds, quarante-trois personnes. Elle ne connaît pas leurs noms. Elle sait comment elles sont mortes, et elle sait que quelqu'un, il y a vingt et un ans, a posé cette dalle sur elles, et l'a scellée, et a peut-être lissé les joints avec son pouce, lui aussi.",
         "Le soir, on dit une prière dans le chœur, au-dessus de la dalle. C'est la capitaine Ribaud qui la dit, faute de prêtre. Elle la dit mal, en se trompant de mots, d'une voix rauque. Personne ne la corrige. Personne, depuis, ne marche sur cette dalle : on fait le tour.",
       ],

@@ -108,7 +108,7 @@ module.exports = {
     XB_h_benoit: { act: "II", title: "Benoît", place: "haute_ville", ambiance: "nuit",
       text: [
         "Benoît entre dans la chambre, trempé, tête nue, les cheveux collés au front. Il voit sa femme, la montre, la médecin. Il s'arrête.",
-        "Héloïse se lève, va vers lui, et lui met la montre ouverte dans la main, sans un mot.",
+        "Héloïse se lève, va vers lui, et lui met la montre ouverte dans la main.",
         "Il lit. Il est lent. Il lit les lettres l'une après l'autre, en remuant les lèvres, comme un homme qui a appris tard. Puis il referme le couvercle, avec le pouce, très délicatement, comme on ferme les yeux d'un mort.",
         "« Je savais, dit-il. Pas la date. Mais je savais. Un homme comme lui ne meurt pas de la fièvre. Il meurt d'une balle, dans un endroit absurde, ou il ne meurt pas. » Il rend la montre à sa femme. « Je n'ai rien dit, parce que je ne voulais pas le savoir. Toi non plus. Nous sommes quittes. »",
         "Il prend sa femme dans ses bras, la montre entre eux deux, et Victorine sort, et referme la porte, et descend l'escalier dans le noir, sans lumière, en tâtant le mur.",

@@ -98,7 +98,7 @@ module.exports = {
         "Ulric Malandain est tombé sur le pont à midi, foudroyé par le soleil, comme un bœuf à l'abattoir. On l'a descendu dans l'entrepont à six hommes et couché dans son hamac, où il délire en grognant, rouge, brûlant, énorme.",
         "Victorine le soigne sur place : on ne monte pas un homme pareil dans l'échelle du faux-pont. Elle lui fait boire de l'eau salée, lui mouille la tête, lui défait sa ceinture. En glissant la main sous son dos, pour le retourner, elle sent sous la toile du hamac, roulé dans une chemise, quelque chose de dur, de lourd, de froid.",
         "Un pistolet. Chargé, amorcé, la pierre à fusil neuve. Les pistolets du bord sont à la sainte-barbe, sous clef ; la capitaine en a la clef. Celui-ci n'a pas de numéro d'armurerie. Il sent l'huile fraîche.",
-        "Malandain ouvre un œil. Il voit sa main sous le hamac. Il ne dit rien. Il la regarde, d'un œil rouge, injecté, très lent, comme on regarde une mouche qu'on va écraser quand on aura la force de lever le bras.",
+        "Malandain ouvre un œil. Il voit sa main sous le hamac. Il la regarde, d'un œil rouge, injecté, très lent, comme on regarde une mouche qu'on va écraser quand on aura la force de lever le bras.",
       ],
       choices: [
         { label: "Laisser le pistolet où il est, finir de le soigner, et aller voir la capitaine", fx: { flag: "complot:soupcon" }, to: "A3w_hamac_capitaine" },
@@ -107,7 +107,7 @@ module.exports = {
     A3w_hamac_pris: { act: "III", title: "Le hamac du canonnier", place: "cormorane", ambiance: "mer",
       text: [
         "Elle prend le pistolet, le glisse dans sa trousse, sous les lancettes, finit de soigner Malandain, et monte. Le canonnier ne bouge pas. Il la regarde partir.",
-        "Le soir même, guéri, il se présente à la capitaine et déclare qu'on lui a volé un pistolet qu'il avait acheté à Morlenc, de ses deniers, pour se défendre contre les rats. La capitaine lui répond qu'à son bord, on se défend contre les rats avec un chat, et lui donne huit jours de fers. Il les fait sans un mot. Quand il ressort, il passe devant l'infirmerie, s'arrête sur le seuil, et regarde Victorine en souriant, longtemps, sans rien dire.",
+        "Le soir même, guéri, il se présente à la capitaine et déclare qu'on lui a volé un pistolet qu'il avait acheté à Morlenc, de ses deniers, pour se défendre contre les rats. La capitaine lui répond qu'à son bord, on se défend contre les rats avec un chat, et lui donne huit jours de fers. Il les fait en silence. Quand il ressort, il passe devant l'infirmerie, s'arrête sur le seuil, et regarde Victorine en souriant, longtemps, en silence.",
       ],
       choices: [{ label: "Lui rendre son sourire", fx: { penche: { malandain: -1 } }, to: "A3w_hamac_fin" }] },
     A3w_hamac_capitaine: { act: "III", title: "La capitaine", place: "cormorane", ambiance: "mer",

@@ -98,7 +98,7 @@ module.exports = {
       text: [
         "Tu te noues la corde autour de la taille. Ton père en tient l'autre bout, avec le père Pochon et deux autres. Tu entres dans l'eau. Elle te prend à la ceinture, à la poitrine, au cou, glaciale, folle, qui te jette en avant et te tire en arrière à chaque vague comme une foule qui hésite.",
         "Un homme est tombé des haubans. Il flotte à trente brasses, accroché à une barrique, et la mer l'emporte vers les Moines. Tu nages vers lui. Tu ne sais pas comment. Tu sais seulement qu'à un moment tu as sa manche dans la main, puis son col, et que tu cries « Tirez ! » d'une voix que tu ne reconnais pas, et que la corde te scie la taille.",
-        "On vous tire tous les deux sur les galets comme deux paquets de goémon. L'homme vomit de l'eau de mer pendant cinq minutes. Puis il te regarde. C'est un jeune matelot, à peine plus âgé que toi, roux, avec des taches de son et une dent cassée. Il te prend la main et la serre, très fort, sans un mot, parce qu'il n'a plus de voix.",
+        "On vous tire tous les deux sur les galets comme deux paquets de goémon. L'homme vomit de l'eau de mer pendant cinq minutes. Puis il te regarde. C'est un jeune matelot, à peine plus âgé que toi, roux, avec des taches de son et une dent cassée. Il te prend la main et la serre, très fort, en silence, parce qu'il n'a plus de voix.",
         "On en sauve cinq, cette nuit-là, sur onze. Ton père a les mains en sang à force d'avoir tiré la corde. Il ne dit rien sur le chemin du retour. Mais en arrivant au Fanal, il te pose sa veste sur les épaules, la sienne, encore chaude, et c'est la deuxième fois de ta vie qu'il le fait.",
       ],
       choices: [{ label: "Attendre l'aube", to: "XA_n_aube" }] },
@@ -141,7 +141,7 @@ module.exports = {
         "Ton père a de la fièvre, un soir, la fièvre de sa jambe, qui le prend deux fois l'an et le cloue au lit en grelottant. Il t'appelle, et te confie la lanterne du pignon : la moucher à minuit, remettre de l'huile à deux heures, la laisser brûler jusqu'à l'aube. « C'est tout, dit-il. Ne fais rien d'autre. Quoi qu'il arrive. »",
         "Tu passes la nuit sur le pignon, enveloppé{e} dans une couverture, entre la lanterne et la nuit. La mer est noire. Le ciel est noir. Les deux ne se distinguent qu'à la ligne d'écume des écueils, blanche et changeante, qui respire au pied de la falaise comme un dormeur.",
         "À deux heures, en remettant de l'huile, tu vois une lumière au large. Une seule. Elle s'allume, s'éteint, s'allume. Trois fois. Puis plus rien. Puis encore trois fois.",
-        "Elle attend une réponse. Tu ne sais pas laquelle. Mais tu as vu ton père, certaines nuits, passer la main devant la lanterne, trois fois, avant de redescendre, sans rien dire, en sifflotant.",
+        "Elle attend une réponse. Tu ne sais pas laquelle. Mais tu as vu ton père, certaines nuits, passer la main devant la lanterne, trois fois, avant de redescendre, en sifflotant.",
       ],
       choices: [
         { label: "Passer la main devant la lanterne, trois fois", fx: { flag: "fanal:signal" }, to: "XA_lanterne_signal" },
@@ -221,7 +221,7 @@ module.exports = {
       text: [
         "Tu recules. La femme ne te suit pas. Elle reste là, le drap tendu, à te regarder partir, et derrière elle, les battoirs ont repris leur lenteur de glas.",
         "Tu cours jusqu'au Fanal sans te retourner, les poumons en feu, les saules qui te fouettent le visage. Tu te glisses dans ton lit tout habillé{e}. Tu ne dors pas.",
-        "Le lendemain, à la cuisine, Zélie te regarde manger ta soupe. Elle remarque la boue à tes souliers, les égratignures des saules à tes joues. Elle ne dit rien. Elle sourit, d'un sourire en coin, très fin, très satisfait, celui d'un auteur dont la pièce a fait son effet.",
+        "Le lendemain, à la cuisine, Zélie te regarde manger ta soupe. Elle remarque la boue à tes souliers, les égratignures des saules à tes joues. Elle sourit, d'un sourire en coin, très fin, très satisfait, celui d'un auteur dont la pièce a fait son effet.",
       ],
       choices: [{ label: "Finir ta soupe", back: "A1_jours" }] },
 

@@ -78,7 +78,7 @@ module.exports = {
         "Il propose, au feu, un concours. Celui qui gagne prend la longue-vue et le dernier mot. Le perdant se tait à jamais sur l'affaire. Le camp applaudit. Malandain dit oui, pourvu que ce soit sans couteau.",
         "On débat de l'épreuve. On propose la lutte : Kerhallet refuse, il est maigre. On propose la course : Le Lann refuse, il est gros. Fargue propose la vue : celui des deux qui verra le premier, au large, la prochaine chose qui bouge sur la mer, une voile, un oiseau, un dauphin, aura gagné.",
         "Kerhallet pâlit. Le Lann le regarde. Ils savent tous les deux. Le camp ne sait pas.",
-        "Ils s'assoient côte à côte sur la dune, face à la mer, à l'aube. Le camp derrière. Ils attendent. Une heure. Deux. Puis Le Lann voit. Fargue le voit voir : un aileron, très loin, à droite, qui fend l'eau grise. Le Lann ne dit rien. Il regarde ailleurs, à gauche, avec beaucoup d'attention.",
+        "Ils s'assoient côte à côte sur la dune, face à la mer, à l'aube. Le camp derrière. Ils attendent. Une heure. Deux. Puis Le Lann voit. Fargue le voit voir : un aileron, très loin, à droite, qui fend l'eau grise. Le Lann regarde ailleurs, à gauche, avec beaucoup d'attention.",
         "Au bout d'un long moment, Kerhallet plisse les yeux, se lève à moitié, tend le bras, crie : « Là ! Un dauphin ! » Il le crie avec une telle joie que tout le camp se lève pour voir. Le Lann dit qu'il n'avait rien vu. Il donne la longue-vue. Il ne dira plus jamais rien sur l'affaire. Il a perdu. Il a l'air plus content que le gagnant."
       ],
       choices: [

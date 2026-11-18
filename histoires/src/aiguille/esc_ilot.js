@@ -32,7 +32,7 @@ module.exports = {
         "La mer des Sargues est là, tout autour, jusqu'au bout du monde. Une plaine jaune, immobile, où les herbes flottent en îles, en rubans, en tapis, avec entre elles des chenaux d'eau bleue, comme les rues d'une ville engloutie. La Cormorane, à tes pieds, dans la crique, a l'air d'un jouet. Il fait si clair qu'on voit la courbure de la terre.",
         "Et au nord, très loin, à l'extrême limite, là où le jaune devient gris, il y a un point blanc.",
         "Une voile. Un hunier, peut-être deux. Un navire, encalminé comme vous, qui ne bouge pas. Il est à la même route que vous. Il est derrière vous. Tu le regardes longtemps. Il ne s'approche pas. Il ne s'éloigne pas. Il attend, comme un chat qui regarde une souris par une fente, sans se presser, parce que la souris finira par sortir.",
-        "Quand tu redescends, tu le dis à Gobert. Gobert monte au sommet, avec la lunette. Il redescend sans rien dire, et va parler à la capitaine, longtemps, à voix basse.",
+        "Quand tu redescends, tu le dis à Gobert. Gobert monte au sommet, avec la lunette. Il redescend, et va parler à la capitaine, longtemps, à voix basse.",
       ],
       choices: [{ label: "Revenir sur la plage", fx: { flag: "ilot:voile" }, back: "A3n_ilot" }] },
 

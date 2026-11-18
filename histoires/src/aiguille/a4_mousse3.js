@@ -9,7 +9,7 @@ module.exports = {
   passages: {
     A4o_debut: { act: "IV", title: "Le brigantin", place: "sylve", ambiance: "nature",
       text: [
-        { if: { has: "mousse:chapelle" }, text: "Tu le vois entrer depuis le mur de la chapelle, ou depuis les vergers, à côté de la capitaine, qui le regarde à la lunette sans rien dire, la mâchoire serrée. Il mouille en travers de l'anse, et sa batterie, quatorze sabords ouverts d'un seul coup, fait face à la Cormorane comme une rangée de dents." },
+        { if: { has: "mousse:chapelle" }, text: "Tu le vois entrer depuis le mur de la chapelle, ou depuis les vergers, à côté de la capitaine, qui le regarde à la lunette, la mâchoire serrée. Il mouille en travers de l'anse, et sa batterie, quatorze sabords ouverts d'un seul coup, fait face à la Cormorane comme une rangée de dents." },
         { if: { not: { has: "mousse:chapelle" } }, text: "Tu le vois entrer depuis la lisière de la Sylve, à côté du vieil homme, qui le regarde longtemps, appuyé sur un bâton, son tricorne sans bord sur les yeux. Il mouille en travers de l'anse, et sa batterie, quatorze sabords ouverts d'un seul coup, fait face à la Cormorane comme une rangée de dents." },
         { if: AVEC_DAGREL, text: "« Un corsaire, dit Dagrel. Un vrai. Regardez comme il mouille : en travers, pour fermer la porte. J'ai fait la même chose, ici, il y a vingt et un ans. » Il sourit. « Les jeunes gens n'inventent jamais rien. Ils ont seulement de plus jolis navires. »" },
         { if: { all: [{ not: { has: "mousse:chapelle" } }, { not: { has: "dagrel:demasque" } }] }, text: "« Encore un qui vient creuser, dit le vieil homme. Ils creusent tous. » Il se gratte la barbe. « Celui-là a des canons. C'est une façon de creuser plus vite. »" },

@@ -55,7 +55,7 @@ module.exports = {
       text: [
         "Elle reste. Elle tient Blanche par le bras, doucement, fermement, comme on tient un malade qui veut se lever trop tôt. Blanche la regarde. Elle comprend. Elle ne se débat pas. Elle dit seulement, très bas : « Vous aussi. »",
         "Les lanternes arrivent. Deux gardiens, des hommes massifs, en blouse grise, polis, essoufflés, avec une couverture. Ils remercient la dame. Ils disent que mademoiselle Blanche est très malade, qu'elle s'imagine des choses, qu'elle a déjà essayé trois fois, qu'elle aurait pu tomber dans le port. Ils lui mettent la couverture sur les épaules. Elle se laisse faire.",
-        "Elle se retourne, en remontant la route, entre les deux lanternes, une seule fois. Elle ne dit rien. Elle regarde Victorine avec ses grands yeux clairs, longtemps, comme on regarde un visage pour s'en souvenir. Puis la route tourne.",
+        "Elle se retourne, en remontant la route, entre les deux lanternes, une seule fois. Elle regarde Victorine avec ses grands yeux clairs, longtemps, comme on regarde un visage pour s'en souvenir. Puis la route tourne.",
         "Le lendemain, un domestique en livrée apporte à l'auberge du Cormoran une lettre pour la médecin. Le docteur Trébern la remercie de son concours, et l'assure de ses sentiments distingués. Le papier est épais, filigrané. En bas, une deuxième signature, d'une écriture large : *Kerdaniel*. Le baron la remercie aussi. Il ne la connaît pas. Il a été prévenu dans la nuit.",
         "Victorine relit la lettre trois fois. Elle se demande pourquoi un baron que personne n'a réveillé remercie, avant le petit déjeuner, une inconnue d'avoir rendu une folle."
       ],
@@ -86,7 +86,7 @@ module.exports = {
         "La chambre de Blanche est au deuxième étage, au bout d'un couloir qui sent l'encaustique et l'éther. Une gardienne ouvre avec une clef qu'elle porte à la ceinture, au milieu d'un trousseau qui sonne comme une cloche de vache. La pièce est propre, blanche, étroite. Un lit de fer. Une chaise. Une table sans tiroir. La fenêtre a des barreaux, peints en blanc pour qu'on les remarque moins, ce qui les fait remarquer davantage.",
         "Sur la table, une pile de mouchoirs brodés, tous les mêmes. Dans un coin de chacun, au point de croix, en fil blanc sur toile blanche, presque invisible : deux lettres entrelacées, et une date. La même date, sur tous. Victorine en prend un, l'approche de la fenêtre. C'est une date d'il y a quatre ans, au printemps.",
         "Blanche, derrière elle, dit doucement que c'est le jour où elle est arrivée. Puis elle se reprend. Elle dit que c'est le jour où son père est mort. Puis elle dit que c'est le même jour, et que personne ne veut le croire, et qu'elle le brode pour ne pas l'oublier, parce qu'ici, on oublie les dates, avec les gouttes qu'on vous donne le soir.",
-        "Victorine glisse le mouchoir dans sa manche. La gardienne a vu. Elle ne dit rien. Elle regarde ailleurs, avec une telle application qu'on comprend qu'elle a déjà regardé ailleurs bien des fois, et qu'elle sait très bien ce qu'elle ne voit pas."
+        "Victorine glisse le mouchoir dans sa manche. La gardienne a vu. Elle regarde ailleurs, avec une telle application qu'on comprend qu'elle a déjà regardé ailleurs bien des fois, et qu'elle sait très bien ce qu'elle ne voit pas."
       ],
       choices: [
         { back: "SB_maison", label: "Retourner au cabinet du docteur" }

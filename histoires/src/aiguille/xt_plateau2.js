@@ -170,7 +170,7 @@ module.exports = {
         "Vous vous mettez à trois sous le tronc. Il bouge, un pouce, et glisse de côté, et retombe plus bas, sur le genou de Soufflet, avec un bruit sec de branche cassée.",
         "Soufflet hurle, cette fois. Un cri qui fait s'envoler des fougères une nuée de petits oiseaux gris.",
         "Il faut une heure, des leviers, des cordes, pour le sortir de là. Quand il est dehors, sa jambe a un angle que tu as appris à reconnaître. Mâchefer ne te regarde plus. Elle te tourne le dos, et parle à Étincelle, très vite, à voix basse, dans la langue enfouie, et tu entends le mot « mer » revenir plusieurs fois, sur le ton qu'on prend pour une injure.",
-        "Ils le portent à deux, dans un filet, et s'en vont vers le nord sans un mot. Au bord de la clairière, Mâchefer se retourne. « Tu as voulu aider, dit-elle. Je le dirai à Hugon. Je dirai aussi le reste. »",
+        "Ils le portent à deux, dans un filet, et s'en vont vers le nord en silence. Au bord de la clairière, Mâchefer se retourne. « Tu as voulu aider, dit-elle. Je le dirai à Hugon. Je dirai aussi le reste. »",
       ],
       choices: [{ label: "Revenir vers la forêt", fx: { flag: "xt:chasseurs_mefiants" }, back: "XT_haut" }] },
     XT_ch_parle: { act: "IV", title: "Les chasseurs d'œufs", place: "table", ambiance: "nature",

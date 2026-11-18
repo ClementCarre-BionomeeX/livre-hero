@@ -103,7 +103,7 @@ module.exports = {
       text: [
         "Le soir, il te laisse allumer le feu. Tu sors le briquet de ton père, le petit boîtier de métal blanc, usé par des années de pouce, tu bats l'amadou, et la flamme prend du premier coup, comme toujours.",
         "Une main se referme sur ton poignet. Une main longue, sèche, très forte.",
-        "Il ne dit rien. Il te prend le briquet, sans brutalité, comme on prend un objet qu'on reconnaît. Il le tourne vers le feu. L'ancre. La croix aux bras évasés. Il passe le pouce dessus, à l'endroit exact où ton père passe le sien.",
+        "Il te prend le briquet, sans brutalité, comme on prend un objet qu'on reconnaît. Il le tourne vers le feu. L'ancre. La croix aux bras évasés. Il passe le pouce dessus, à l'endroit exact où ton père passe le sien.",
         "« Je l'ai fait moi-même, dit-il. Dans la forge de la chapelle, le lendemain. J'ai fondu une de leurs pièces, et j'ai martelé ce boîtier, et j'ai gravé l'ancre et la croix avec la pointe d'un poignard, mal, vous voyez, la croix est de travers. » Sa voix est parfaitement calme. « Il y avait un mousse sur mon navire. Un petit boiteux du Ponant, de quatorze ans. Il avait pris une balle dans la jambe, pendant l'assaut, une balle d'un des leurs, qui défendaient leur porte. Il avait froid, la nuit, avec la fièvre, et il pleurait. Il disait qu'il voulait rentrer. Je lui ai fait un briquet. Je ne sais pas pourquoi. C'est la seule chose que j'aie faite de mes mains, cette année-là, qui n'ait servi à tuer personne. »",
         "Il te regarde. Il regarde ton visage, longtemps, trait par trait, comme on lit une lettre.",
         "« Lazare, dit-il. Lazare Hersant. Il vit ? »",

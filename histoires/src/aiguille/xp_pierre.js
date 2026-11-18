@@ -80,7 +80,7 @@ module.exports = {
         "Tu regardes si fort que tes yeux se mettent à pleurer. Le petit point blanc tremble, se dédouble, danse. Tu clignes une fois, une seule. Quand tu rouvres l'œil, il n'y a plus que trois points autour du disque.",
         "« Maintenant ? demande le frère.",
         "— Je… je crois. Il y a un instant. »",
-        "Il ne dit rien. Il regarde sa pendule, il écrit sur son ardoise, il efface. Il soupire. « À une minute près, dit-il doucement. Une minute, c'est quatre lieues. Ce n'est pas grave. Je recommencerai dans dix jours, à la prochaine. Je suis patient ; je n'ai que ça. »",
+        "Il regarde sa pendule, il écrit sur son ardoise, il efface. Il soupire. « À une minute près, dit-il doucement. Une minute, c'est quatre lieues. Ce n'est pas grave. Je recommencerai dans dix jours, à la prochaine. Je suis patient ; je n'ai que ça. »",
         "À l'aube, au moment où la chaloupe arrive, il te met quand même le cahier dans les mains. « Prends-la. Elle sera moins juste que je l'aurais voulu, mais elle sera juste. Et tu as veillé. C'est plus que n'en ont fait les évêques. »",
       ],
       choices: [{ label: "Prendre la table", fx: { item: "table_calixte", flag: "correction:calixte", quest: "XP" } , to: "XP_m_fin" }] },

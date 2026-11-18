@@ -76,7 +76,7 @@ module.exports = {
       choices: [{ label: "Le suivre en courant", fx: { flag: "xf:verite" }, to: "XF_m_nuit" }] },
     XF_m_nuit: { act: "III", title: "Les cages", place: "ilot", ambiance: "nuit",
       text: [
-        "Sept te fait traverser la forêt en pleine nuit, sans un mot. Il s'arrête à la lisière, au-dessus de la maison blanche. Elle est éteinte, sauf une fenêtre, au rez-de-chaussée, derrière laquelle une lampe brûle d'une lumière très blanche, très crue.",
+        "Sept te fait traverser la forêt en pleine nuit. Il s'arrête à la lisière, au-dessus de la maison blanche. Elle est éteinte, sauf une fenêtre, au rez-de-chaussée, derrière laquelle une lampe brûle d'une lumière très blanche, très crue.",
         "Derrière la maison, il y a un enclos de pieux, et dans l'enclos, des cages. Une dizaine, en planches et en barreaux de fer. On entend, dedans, des souffles, des gémissements, une voix qui répète un mot, toujours le même, à mi-voix, et qui ne trouve pas le suivant.",
         "« Les nouveaux, dit Sept tout bas. Pas finis. Le Maître finit, la nuit, dans la salle blanche. » Il touche ses cornes sciées. « Moi, j'étais là. Longtemps. » Il te regarde de ses yeux jaunes à la pupille couchée. « La clef, à la ceinture d'Ombeline. Ombeline dort. Ombeline est bonne. Ombeline pleure. »",
       ],
@@ -157,7 +157,7 @@ module.exports = {
       fx: { meet: "halle" },
       text: [
         "Évariste Hallé la reçoit sur la véranda, debout, en habit noir d'une coupe d'il y a vingt ans, avec une courtoisie d'ancien régime. Il est grand, très beau encore, avec des cheveux blancs rejetés en arrière, un visage de marbre et des yeux gris qui mesurent tout. Sa main droite tremble. Il la cache dans sa poche.",
-        "On soupe aux chandelles, sous un ciel d'étoiles énormes, d'un poisson grillé, de fruits qu'elle ne connaît pas et d'un vin blanc de Morlenc que Hallé sert en s'excusant de son âge. Ombeline sert, sans un mot. Des bruits montent parfois de la forêt, des voix, une litanie lente ; Hallé ne les entend pas.",
+        "On soupe aux chandelles, sous un ciel d'étoiles énormes, d'un poisson grillé, de fruits qu'elle ne connaît pas et d'un vin blanc de Morlenc que Hallé sert en s'excusant de son âge. Ombeline sert. Des bruits montent parfois de la forêt, des voix, une litanie lente ; Hallé ne les entend pas.",
         "« Vous vous rappelez ma dernière leçon, dit-il. Le chien. Il a dit « maman », devant trois cents personnes, et deux cents se sont évanouies, et cent ont signé la pétition qui m'a chassé. Vous, vous n'avez rien signé. Vous avez pris des notes. » Il sourit. « Une femme, à la Faculté. Sous le nom de son mari. C'est la chose la plus courageuse que j'aie vue dans cette maison de lâches. Et personne ne le sait. Personne ne le saura. C'est injuste, Madame. »",
         "Il se penche vers elle. « Ici, ce serait juste. Ici, vous auriez votre nom. Venez voir. »",
       ],
@@ -175,7 +175,7 @@ module.exports = {
       ] },
     XF_v_aide: { act: "III", title: "L'écarteur", place: "ilot", ambiance: "nuit",
       text: [
-        "Elle tient l'écarteur. Elle le tient deux heures, sans trembler, sous la lumière crue, pendant que la main gauche de Hallé, qui tremble moins, fait des choses qu'elle n'a jamais vues, qu'elle n'oubliera jamais, et qu'elle comprend. C'est cela, le pire : elle comprend tout. Elle voit chaque geste, elle en devine le suivant, elle admire. À un moment, sans qu'il le demande, elle prend la pince qu'il cherchait et la lui tend. Il la prend sans un mot.",
+        "Elle tient l'écarteur. Elle le tient deux heures, sans trembler, sous la lumière crue, pendant que la main gauche de Hallé, qui tremble moins, fait des choses qu'elle n'a jamais vues, qu'elle n'oubliera jamais, et qu'elle comprend. C'est cela, le pire : elle comprend tout. Elle voit chaque geste, elle en devine le suivant, elle admire. À un moment, sans qu'il le demande, elle prend la pince qu'il cherchait et la lui tend. Il la prend en silence.",
         "Quand c'est fini, la bête respire encore. Hallé se lave les mains. Il est épuisé, heureux. « Vous voyez, dit-il. Vous voyez ce qu'on pourrait faire. »",
         "Victorine sort sur la véranda. Elle regarde les étoiles. Elle a envie de vomir, et elle a envie de revenir demain. Les deux envies sont aussi fortes l'une que l'autre, et elle n'en a jamais eu de plus fortes de sa vie.",
         "À l'aube, Ombeline lui apporte une caisse de fioles brunes, scellées, étiquetées de la belle écriture du Maître : *Extrait antiscorbutique. Une cuiller par homme et par jour.* Elle la lui remet sans lever les yeux. Puis, au moment où Victorine se retourne pour partir, elle lui saisit la manche, et chuchote, très vite : « Emmenez-moi. »",

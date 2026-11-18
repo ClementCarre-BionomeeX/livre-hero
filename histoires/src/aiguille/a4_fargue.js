@@ -155,7 +155,7 @@ module.exports = {
       text: [
         "Dagrel hoche la tête, comme un professeur devant une réponse attendue.",
         "« Tu peux. Mais cette fois, je ne serai pas seul sur la plage. Il y a sur cette île des gens qui m'appellent Sauveur, et d'autres qui m'appellent le Vieux, et qui ont peur de moi. Il y a une femme avec un arc qui me déteste, mais qui déteste ton baron davantage. Et il y a, dans cette hutte, quelqu'un qui m'écoute raconter des histoires, le soir. » Il sourit. « Je me suis fait des amis, Lucien. Je n'en avais pas, de ton temps. C'est l'âge. »",
-        "Fargue se lève. Il ne dit rien. Il repart dans la nuit, et il sent, tout le long du chemin, le regard du vieil homme dans son dos, comme une main posée entre ses omoplates.",
+        "Fargue se lève. Il repart dans la nuit, et il sent, tout le long du chemin, le regard du vieil homme dans son dos, comme une main posée entre ses omoplates.",
       ],
       choices: [{ label: "Rentrer au camp", back: "A4f_jours" }] },
 

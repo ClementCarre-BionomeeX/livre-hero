@@ -184,7 +184,7 @@ module.exports = {
       ] },
     A2v_rosemonde_oui: { act: "II", title: "Rosemonde", place: "cormorane",
       text: [
-        "La capitaine Ribaud reçoit Rosemonde Lhuillier sur la dunette, la regarde, regarde la brûlure, regarde les mains. Elle lui fait démonter et remonter une platine de canon les yeux bandés. Rosemonde le fait en moins de temps qu'il n'en faut pour le dire, sans un mot.",
+        "La capitaine Ribaud reçoit Rosemonde Lhuillier sur la dunette, la regarde, regarde la brûlure, regarde les mains. Elle lui fait démonter et remonter une platine de canon les yeux bandés. Rosemonde le fait en moins de temps qu'il n'en faut pour le dire.",
         "« Tu étais sur l'Intrépide, dit la capitaine. À la bataille de la Pointe-Noire.",
         "— Oui, capitaine. Pièce numéro sept. Celle qui a démâté le vaisseau amiral d'en face.",
         "— Je sais. Je commandais le brick qui a ramassé les vôtres, après. » La capitaine se tourne vers Gobert. « Elle est chef de pièce. Malandain sera sous ses ordres. Dis-le-lui doucement ; il est susceptible. »",
@@ -206,7 +206,7 @@ module.exports = {
     A2v_capitaine_oui: { act: "II", title: "La capitaine", place: "cormorane",
       text: [
         "La capitaine hoche la tête. Elle ne remercie pas ; ce n'est pas son genre. Elle sort d'un tiroir une bouteille et deux verres, et sert deux doigts d'une eau-de-vie de cidre du Ponant qui sent les pommes et la cave.",
-        { if: { has: "victorine:misericorde" }, text: "Victorine lui parle du dîner, du vieux Lescalopier, du mot qu'il a crié et du silence qui a suivi. La capitaine écoute, sans rien dire. Puis : « La Miséricorde. J'ai entendu ce nom-là dans une taverne de Brisegrève, il y a quinze ans. Un vieux disait que c'était une île où l'on frappait des pièces d'argent, et que des gens de Morlenc y étaient passés, une nuit. Il disait qu'il ne restait que des cendres. Je l'ai cru ivre. »" },
+        { if: { has: "victorine:misericorde" }, text: "Victorine lui parle du dîner, du vieux Lescalopier, du mot qu'il a crié et du silence qui a suivi. La capitaine écoute, en silence. Puis : « La Miséricorde. J'ai entendu ce nom-là dans une taverne de Brisegrève, il y a quinze ans. Un vieux disait que c'était une île où l'on frappait des pièces d'argent, et que des gens de Morlenc y étaient passés, une nuit. Il disait qu'il ne restait que des cendres. Je l'ai cru ivre. »" },
         "« À notre santé, dit-elle. C'est la seule chose à bord dont j'aie encore la responsabilité. »",
       ],
       choices: [{ back: "A2v_jours" }] },

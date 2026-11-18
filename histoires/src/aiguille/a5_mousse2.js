@@ -58,7 +58,7 @@ module.exports = {
       text: [
         "Le puits mort est un trou noir au flanc d'une colline jaune, entouré d'un muret de pierres sèches à moitié écroulé. Une échelle de fer, rouillée, s'enfonce dans le noir. De la chaleur monte. Un battement aussi, très lent, très profond, qu'on sent dans la plante des pieds avant de l'entendre.",
         "On descend. On te délie les mains pour l'échelle et on te les rattache en bas. Puis on marche dans une galerie basse, à la lanterne, en se cognant la tête, en jurant, vers le battement.",
-        { if: { has: "xd:pacte" }, text: "Des Fondeurs vous attendent au premier carrefour. Ils sont six, pâles, avec des marteaux. Hugon Forge-Noire est devant. Il te voit, les mains liées. Il voit les mousquets. Il ne dit rien. Il s'écarte, lentement, et fait signe aux siens de s'écarter aussi. Mais en passant, tu vois sa main gauche fermer trois doigts, puis les rouvrir. Un signe. Tu ne sais pas encore lequel." },
+        { if: { has: "xd:pacte" }, text: "Des Fondeurs vous attendent au premier carrefour. Ils sont six, pâles, avec des marteaux. Hugon Forge-Noire est devant. Il te voit, les mains liées. Il voit les mousquets. Il s'écarte, lentement, et fait signe aux siens de s'écarter aussi. Mais en passant, tu vois sa main gauche fermer trois doigts, puis les rouvrir. Un signe. Tu ne sais pas encore lequel." },
         { if: { has: "xd:guerre" }, text: "Personne ne vous attend. Les galeries sont vides. Les forges sont froides. On a l'impression de traverser une ville après la peste. Les Fondeurs sont là, quelque part, dans le noir, et vous regardent passer. On le sent sur la nuque." },
         { if: { not: { any: [{ has: "xd:pacte" }, { has: "xd:guerre" }] } }, text: "Des yeux s'allument dans le noir, sur les côtés, au ras du sol, et s'éteignent quand on lève la lanterne. Les mutins serrent leurs armes. « Des rats, dit Coquerel. — Des rats qui clignent, dit Lagadec. J'aime pas les rats qui clignent. »" },
       ],
@@ -125,7 +125,7 @@ module.exports = {
       text: [
         "La galerie s'ouvre d'un coup, et l'on est au bord d'une salle si grande que la lanterne n'en éclaire rien : ni le plafond, ni le fond, ni les côtés. On en devine la taille aux échos, et à la lumière rouge qui palpite, loin, en bas, sur des formes énormes.",
         "Des forges. Dix, vingt, alignées le long d'un canal où coule une eau qui fume. Une roue de bois noir, haute comme trois hommes, tourne lentement dans le canal, et c'est elle, le battement : chaque fois qu'une pale frappe l'eau, la salle entière tressaille, comme un cœur.",
-        { if: { has: "xd:libere" }, text: "La roue tourne seule, maintenant, poussée par l'eau qu'on a détournée. Plus personne ne l'enchaîne. Les Fondeurs ont mis trois jours à trouver comment, après la nuit où tu as brisé les fers. Hugon l'a fait lui-même, sans un mot, à grands coups de marteau." },
+        { if: { has: "xd:libere" }, text: "La roue tourne seule, maintenant, poussée par l'eau qu'on a détournée. Plus personne ne l'enchaîne. Les Fondeurs ont mis trois jours à trouver comment, après la nuit où tu as brisé les fers. Hugon l'a fait lui-même, en silence, à grands coups de marteau." },
         { if: { has: "xd:captif" }, text: "Tu reconnais la place où tu as passé une nuit, enchaîné{e} à la roue, à côté d'un garçon du Haut-Verger qui chantait pour ne pas pleurer. Il y a encore, sur le bois, l'usure de tes mains." },
         { if: { has: "xd:yeux_fermes" }, text: "Tu te souviens de la nuit au Haut-Verger, quand tu as fermé les yeux pendant qu'on emmenait quelqu'un. Tu te demandes si c'est ici qu'on l'a amené. Tu ne demandes pas." },
         { if: { has: "xd:vu" }, text: "Tu as déjà vu cette salle. Tu as su, en la voyant, que les Doux du Haut-Verger et les Fondeurs des Puits étaient les deux moitiés d'une même colonie, cassée en deux par une nuit de massacre, et que chaque moitié avait gardé ce qui manquait à l'autre." },
@@ -264,7 +264,7 @@ module.exports = {
       text: [
         { if: { has: "livre=fargue" }, text: "Le maître-coq glisse le livre dans sa chemise, contre sa peau, et boutonne la chemise par-dessus. Il pose la main dessus, une seconde, comme on pose la main sur son cœur pour s'assurer qu'il bat." },
         "Les mutins chargent les lingots. Toute la nuit. Ils remontent à l'échelle avec des sacs qui leur arrachent les épaules, et redescendent, et remontent. Malandain compte. Il compte mal, et il recommence, et il se met en colère, et il recommence.",
-        "Vers le matin, le maître-coq vient s'asseoir à côté de toi. Il défait ta corde, sans rien dire, et la jette dans la galerie.",
+        "Vers le matin, le maître-coq vient s'asseoir à côté de toi. Il défait ta corde, et la jette dans la galerie.",
         "« Ils sont trop occupés pour te surveiller, dit-il. Et trop riches pour avoir encore besoin d'un guide. Va. Rentre chez les tiens. » Il regarde ses mains. « Ne cours pas. Marche. Si tu cours, ils se rappelleront qu'ils te détestent. »",
         "Tu marches. Personne ne se retourne. Malandain compte ses lingots.",
       ],

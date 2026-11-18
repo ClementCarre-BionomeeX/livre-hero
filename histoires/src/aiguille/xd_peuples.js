@@ -213,7 +213,7 @@ module.exports = {
         { if: { has: "xd:rendus" }, text: "Derrière toi, les six marcheurs sortent du puits l'un après l'autre, en se protégeant les yeux de leurs bras. Tu les ramènes au verger. Personne ne leur fait fête. Personne ne leur demande rien. On leur rend leur hamac, on leur tend un fruit, et ils mâchent. Primevère, seule, se lève et court vers son frère, sans savoir pourquoi elle court." },
         { if: { has: "fleur=chardon" }, text: "En traversant le verger, des voix t'appellent : « Chardon ! Chardon ! » On te tend des figues. On a retenu ce nom-là. On oubliera l'autre." },
         { if: { has: "fleur=ortie" }, text: "En traversant le verger, des voix t'appellent : « Ortie ! » avec un petit rire, à chaque fois, comme si le nom chatouillait." },
-        { if: { has: "fleur=bruyere" }, text: "En traversant le verger, la femme qui s'appelle Bruyère, comme toi, te rejoint, et marche à ton côté sans rien dire jusqu'au bout des terrasses." },
+        { if: { has: "fleur=bruyere" }, text: "En traversant le verger, la femme qui s'appelle Bruyère, comme toi, te rejoint, et marche à ton côté jusqu'au bout des terrasses." },
         { if: { has: "fleur=aucune" }, text: "En traversant le verger, personne ne t'appelle. On ne sait pas comment. On te sourit, de loin, avec un peu de gêne, comme on sourit à quelqu'un dont on a oublié le nom à un enterrement." },
         { if: { has: "xd:ecole" }, text: "Au bout du verger, devant l'école, Capucine est assise par terre avec son ardoise, au milieu de cinq petits, et elle fait la maîtresse, et elle est très sévère." },
         { if: { has: "xd:ecole_fermee" }, text: "Devant l'école, la porte est fermée de ses trois nœuds. Capucine n'y est pas. Tu ne la vois nulle part." },

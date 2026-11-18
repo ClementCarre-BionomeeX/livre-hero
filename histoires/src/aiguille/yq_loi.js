@@ -48,7 +48,7 @@ module.exports = {
       text: [
         "Il y a un silence. Tout le monde a vu le coup. Tout le monde regarde Fargue, qui soutient les regards un par un, avec une tranquillité de prêtre qui donne l'absolution à un assassin.",
         "« Il était saoul, répète-t-il. Il a bu la moitié du tonnelet cette nuit, je l'ai vu faire. Il s'est levé trop vite, et il est tombé sur la pierre. Riou a voulu le retenir. C'est ce que j'ai vu. » Il reprend sa louche. « Quelqu'un a vu autre chose ? »",
-        "Personne n'a vu autre chose. Malandain le regarde longtemps, avec ses petits yeux de taureau. Puis il se rassoit, sans un mot, et Fargue sait, à cet instant, qu'il vient de perdre quelque chose qu'il ne retrouvera pas : les hommes lui obéissent toujours, mais ils savent désormais que la loi a un prix, et que le chef le fixe.",
+        "Personne n'a vu autre chose. Malandain le regarde longtemps, avec ses petits yeux de taureau. Puis il se rassoit, en silence, et Fargue sait, à cet instant, qu'il vient de perdre quelque chose qu'il ne retrouvera pas : les hommes lui obéissent toujours, mais ils savent désormais que la loi a un prix, et que le chef le fixe.",
         "Boucaut se réveille le lendemain, avec une tête comme une citrouille, et ne se souvient de rien. On lui dit qu'il est tombé, saoul. Il le croit volontiers ; c'est arrivé souvent. Riou, lui, ne parle plus à personne, et surtout pas à Fargue, qui lui a sauvé la main en le traitant, devant tout le monde, de témoin d'un ivrogne.",
       ],
       choices: [{ label: "Reprendre la marmite", fx: { quest: "YQ" }, back: "A4f_jours" }] },

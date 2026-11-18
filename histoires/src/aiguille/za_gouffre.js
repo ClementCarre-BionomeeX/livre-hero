@@ -38,7 +38,7 @@ module.exports = {
     ZA_remonte: { act: "III", title: "Le gouffre de l'Écueil", place: "ecueil_rouge", ambiance: "souterrain",
       text: [
         "Tu le prends par la manche. Il se dégage. Tu le reprends, des deux mains, et tu tires, et il se retourne vers toi avec une fureur de vieux lion, et lève la main. Puis il voit l'eau à vos genoux. Il l'entend, enfin, le carillon. Sa main retombe.",
-        "La remontée est un cauchemar de corde mouillée et de lanterne éteinte. Le bas du puits est déjà noyé quand vous l'atteignez ; il faut nager deux brasses dans le noir, la corde entre les dents, avant de trouver les premières prises. En haut du tube, la lumière du jour vous éblouit comme un coup de poing. Vous vous couchez sur la lave chaude, tous les deux, en crachant de l'eau de mer, et le professeur reste longtemps sans rien dire, les yeux au ciel.",
+        "La remontée est un cauchemar de corde mouillée et de lanterne éteinte. Le bas du puits est déjà noyé quand vous l'atteignez ; il faut nager deux brasses dans le noir, la corde entre les dents, avant de trouver les premières prises. En haut du tube, la lumière du jour vous éblouit comme un coup de poing. Vous vous couchez sur la lave chaude, tous les deux, en crachant de l'eau de mer, et le professeur reste longtemps en silence, les yeux au ciel.",
         "« Vous m'avez volé le centre de la Terre, dit-il enfin. » Il tourne la tête vers toi. « Et la vie, accessoirement. Je ne sais pas encore lequel des deux je vous pardonnerai le moins. » Puis il rit, de son grand rire de tonnerre, et te broie la main dans la sienne.",
       ],
       choices: [{ label: "Regagner la chaloupe", fx: { quest: "ZA" }, back: "A3n_ecueil" }] },
