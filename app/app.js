@@ -273,8 +273,22 @@
       return Promise.all(parts).then(function (ps) { return JSON.parse(ps.map(function (p) { return (p && p.chunk) || ""; }).join("")); });
     });
   }
+  // Intent: roomQuick(coll) -> Promise<[doc]> = the shared rooms of the family's save folder as last read, at once; the
+  // folder is asked in the background, and the library is drawn again when its answer changes something.
+  // Why: Clément, 18/11, on a 4G that comes and goes: each return to the library waited for GitHub, seconds per touch.
+  var roomSeen = {}, ROOM_QUICK_MS = 300;
+  function roomQuick(coll) {
+    if (!Room.site()) return Room.list(coll);
+    var late = false;
+    var ask = Room.list(coll).then(function (docs) {
+      var was = JSON.stringify(roomSeen[coll] || []); roomSeen[coll] = docs;
+      if (late && JSON.stringify(docs) !== was && A.screen === "home") refresh().then(render);
+      return docs;
+    });
+    return Promise.race([ask, new Promise(function (ok) { setTimeout(function () { late = true; ok(roomSeen[coll] || []); }, ROOM_QUICK_MS); })]);
+  }
   function refresh() {
-    return Promise.all([Store.list("profils"), Store.list("scenarios"), Store.list("parties"), Store.list("multis"), Room.list("salles"), Room.on() ? Room.list("direct") : Promise.resolve([])]).then(function (r) {
+    return Promise.all([Store.list("profils"), Store.list("scenarios"), Store.list("parties"), Store.list("multis"), roomQuick("salles"), Room.on() ? roomQuick("direct") : Promise.resolve([])]).then(function (r) {
       A.direct = r[5];
       A.multis = r[3].concat(r[4]).sort(function (a, b) { return (b.updated || 0) - (a.updated || 0); });
       var got = {}; r[0].forEach(function (p) { got[p.id] = 1; });
@@ -679,6 +693,31 @@
   }
   // The sections below were whole parts of the old page; inside a fold, their own title would say it twice.
   function inner(sec) { if (sec && sec.firstChild && sec.firstChild.tagName === "H2") sec.removeChild(sec.firstChild); if (sec) sec.classList.remove("section"); return sec; }
+  // Intent: Offline = what the installed copy keeps on this device (sw.js): how many books, and a button to keep them
+  // all now. A new version downloads only the books that changed (each file is kept under its content hash).
+  // Why: Clément, 18/11: « tout doit fonctionner hors ligne au maximum, quitte à avoir un bouton download des livres ».
+  var Offline = (function () {
+    var O = { state: null, busy: false };
+    function sw() { return navigator.serviceWorker && navigator.serviceWorker.controller; }
+    O.available = function () { return standalone() && !!sw(); };
+    if (navigator.serviceWorker) navigator.serviceWorker.addEventListener("message", function (e) {
+      var d = e.data || {}; if (d.kind !== "horsligne") return;
+      var books = d.kept.filter(function (f) { return /^histoires\//.test(f); }).length, allBooks = Object.keys(A.builtinMeta).filter(function (k) { return A.builtinMeta[k].file; }).length;
+      O.state = { books: books, allBooks: allBooks, rest: d.kept.length - books, allRest: d.all - allBooks, version: d.version }; O.busy = false;
+      if (A.screen === "home") render();
+    });
+    O.ask = function (fetchAll) { var c = sw(); if (!c || (O.busy && !fetchAll)) return; if (fetchAll) O.busy = true; c.postMessage({ kind: "horsligne", fetch: !!fetchAll }); };
+    O.line = function () { var s = O.state; return s ? s.books + " livres sur " + s.allBooks + " gardés sur l'appareil" : "Les livres gardés sur l'appareil"; };
+    O.panel = function () {
+      var s = O.state, box = h("div", { class: "stack" });
+      box.appendChild(h("p", { class: "small muted" }, "Le livre lit toujours d'abord sa copie gardée sur l'appareil ; le réseau ne sert qu'à ce qui manque, aux mises à jour et au dossier partagé. Une mise à jour ne retélécharge que les livres modifiés."));
+      if (s) box.appendChild(h("p", null, s.books === s.allBooks && s.rest === s.allRest ? "Tout est gardé sur cet appareil : " + s.allBooks + " livres et l'appli. Elle marche sans réseau." : s.books + " livres sur " + s.allBooks + " gardés sur cet appareil" + (s.rest < s.allRest ? ", l'appli pas encore en entier" : "") + "."));
+      box.appendChild(h("div", { class: "row" }, h("button", { class: "btn sm primary", disabled: O.busy, onclick: function () { O.ask(true); render(); } }, O.busy ? "Téléchargement en cours…" : "Tout télécharger maintenant")));
+      box.appendChild(h("p", { class: "small muted" }, "Mieux vaut le faire en wifi : tous les livres font environ 32 Mo. Si le réseau coupe, ce qui est déjà gardé reste, et la suite reprend plus tard."));
+      return box;
+    };
+    return O;
+  })();
   // Intent: renderHomeMore(Element) -> () = « Plus »: what one opens now and then
   function renderHomeMore(w) {
     w.appendChild(homeFold("plus:sauvegardes", "Sauvegardes", Sync.on() ? "Dossier partagé branché" + (Sync.error ? " · ⚠ à vérifier" : "") : "Exporter, importer, partager entre appareils", function () {
@@ -692,6 +731,7 @@
         Sync.on() ? "☁ Dossier de sauvegarde partagé" + (Sync.busy ? " · synchronisation…" : Sync.error ? " · ⚠ à vérifier" : "") : "☁ Configurer un dossier de sauvegarde partagé")));
       return bk;
     }));
+    if (Offline.available()) w.appendChild(homeFold("plus:horsligne", "Hors ligne", Offline.line(), function () { Offline.ask(false); return Offline.panel(); }));
     w.appendChild(homeFold("plus:ajouter", "Ajouter des histoires", "Un fichier .json" + (catalogueOn() ? ", ou le catalogue partagé" : ""), function () {
       var file = h("input", { type: "file", accept: ".json,application/json", "aria-label": "Fichier d'histoire", onchange: function (e) { importStory(e.target.files[0]); e.target.value = ""; } });
       return [h("div", { class: "row" }, h("span", { class: "label" }, "Importer une histoire (.json)"), file),
@@ -2684,6 +2724,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "14.2", items: ["Hors ligne au maximum : le livre lit d'abord sa copie gardée sur l'appareil et ne demande au réseau que ce qui manque. Une mise à jour ne retélécharge que les livres modifiés, plus les 32 Mo.", "Plus → Hors ligne : combien de livres sont gardés sur l'appareil, et un bouton pour tout télécharger d'un coup (en wifi de préférence).", "Le dossier partagé ne bloque plus la bibliothèque : ses salles arrivent quand le réseau répond."] },
     { v: "14.1", items: ["Plus de « mur » au défilement : les livres ne se lisent plus en arrière-plan pendant que tu fais défiler ; seuls ceux où tu as une partie sont préparés, quand tu laisses l'écran tranquille. Les autres se lisent quand tu les ouvres."] },
     { v: "14.0", items: ["L'encre du carnet redevient comme avant : la plume écrit d'un trait fluide, l'encre mouillée brille puis sèche. Sur un appareil qui peine, le mode « appareil ancien » (Réglages) l'écrit d'un coup."] },
     { v: "13.9", items: ["Corrigé : sans réseau, un livre pas encore gardé sur l'appareil faisait tourner la bibliothèque en boucle jusqu'à la figer."] },
@@ -8630,5 +8671,6 @@
     preloadBooks();
     Sync.start();
     Old.watchStart();
+    Offline.ask(false);
   });
 })();
