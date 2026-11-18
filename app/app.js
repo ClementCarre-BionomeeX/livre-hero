@@ -236,10 +236,15 @@
     chain.then(function () { A.builtinsDone(); if (A.screen === "home") render(); });
   }
   // Intent: needBooks([StoryId]|null) -> Promise ! the books a screen needs (all of them for null), read now.
+  // A book that could not be read (no network and not kept on the device) is not asked for again by the screens that
+  // draw themselves: true only when a book did arrive. Why: 13.6 asked again at each drawing, and each failure drew the
+  // page again — a loop that froze Clément's phone (18/11). Opening the book (loadStory) still tries again.
+  var bookMissing = {};
   function needBooks(ids) {
-    var ms = (ids || Object.keys(A.builtinMeta)).map(function (id) { return A.builtinMeta[id]; }).filter(function (m) { return m && m.file && !A.builtins[m.id]; });
+    var ms = (ids || Object.keys(A.builtinMeta)).map(function (id) { return A.builtinMeta[id]; }).filter(function (m) { return m && m.file && !A.builtins[m.id] && !bookMissing[m.id]; });
     if (!ms.length) return Promise.resolve(false);
-    return ms.reduce(function (p, m) { return p.then(function () { return fetchBuiltin(m).catch(function () {}); }); }, Promise.resolve()).then(function () { return true; });
+    var got = false;
+    return ms.reduce(function (p, m) { return p.then(function () { return fetchBuiltin(m).then(function () { got = got || !!A.builtins[m.id]; if (!A.builtins[m.id]) bookMissing[m.id] = true; }, function () { bookMissing[m.id] = true; }); }); }, Promise.resolve()).then(function () { return got; });
   }
   // Intent: fetchBuiltin(meta) -> Story ! one book's text from histoires/, asked once even when two screens want it.
   var builtinFetches = {};
@@ -2050,7 +2055,7 @@
     var btn = h("button", { class: "btn ghost sm", "aria-expanded": open ? "true" : "false", onclick: function () { A.open["book:" + m.id] = !open; render(); } }, open ? "Moins" : "En savoir plus");
     if (!open) return h("div", { class: "about-book" }, btn);
     var box = h("div", { class: "about-book stack tight" }, btn);
-    if (!st) { box.appendChild(h("div", { class: "small muted" }, "Le livre se charge…")); return box; }
+    if (!st) { box.appendChild(h("div", { class: "small muted" }, bookMissing[m.id] ? "Le livre n'a pas pu être lu : pas de réseau, et il n'est pas encore gardé sur l'appareil." : "Le livre se charge…")); return box; }
     var ends = M.endingsOf(st).length, acts = (st.acts || []).length;
     var facts = [m.multi ? playersLabel(m.multi) : "environ " + minutesLabel(storyMinutes(st)) + " de lecture par partie", acts ? acts + " acte" + (acts > 1 ? "s" : "") : null, ends ? ends + " fins" : null, st.voies ? "un héros au métier choisi par l'histoire" : null].filter(Boolean);
     box.appendChild(h("div", { class: "small" }, facts.join(" · ")));
@@ -2680,6 +2685,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "13.9", items: ["Corrigé : sans réseau, un livre pas encore gardé sur l'appareil faisait tourner la bibliothèque en boucle jusqu'à la figer."] },
     { v: "13.8", items: ["Un jet raté ne se retente plus à l'infini : sur la même page, le second essai réussit, l'échec ayant déjà eu ses conséquences. Le choix l'annonce."] },
     { v: "13.7", items: ["« Le Cartographe de fièvre » : la devinette du rameur est plus claire, et la fièvre en glisse la clef plus tôt, notée dans le carnet."] },
     { v: "13.6", items: ["Plus rapide sur les tablettes et téléphones anciens : les livres se lisent quand la page est au repos, l'encre qui s'écrit coûte trois fois moins à dessiner.", "Réglages → « Cet appareil » : le mode « appareil ancien » retire le grain, les bords tremblés, les ombres et les animations ; le livre le propose de lui-même quand l'appareil peine.", "« ⏱ Mesurer la vitesse » (ou l'adresse du site suivie de ?diag) : un rapport de vitesse à copier ou partager."] },
