@@ -2643,7 +2643,8 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
-    { v: "13.3", items: ["Près de mille neuf cents mots rares expliqués d'un toucher, dans les romans comme dans les histoires : vieux métiers, marine, mine, horlogerie, remèdes, mots d'Église, et les passages en latin des romans. Un mot qui sert aussi de nom (un chien, une auberge) garde sa capitale et ne s'ouvre pas."] },
+    { v: "13.4", items: ["Près de mille neuf cents mots rares expliqués d'un toucher, dans les romans comme dans les histoires : vieux métiers, marine, mine, horlogerie, remèdes, mots d'Église, et les passages en latin des romans. Un mot qui sert aussi de nom (un chien, une auberge) garde sa capitale et ne s'ouvre pas."] },
+    { v: "13.3", items: ["« Le Cartographe de fièvre » : chaque île de la fièvre laisse maintenant reprendre la barque, même sans avoir répondu à sa devinette.", "Le vérificateur des livres refuse désormais une énigme qu'on ne peut quitter qu'en donnant la réponse."] },
     { v: "13.2", items: ["Les visages entrent dans les dialogues : aux premiers mots de chacun, son portrait de trois quarts, tourné vers celui à qui il parle. Dans la marge sur un grand écran, en petit médaillon sur un téléphone, ou tous en bande sous le titre. Réglage « Visages dans les dialogues »."] },
     { v: "13.1", items: ["« L'Île Folle-Aiguille » atteint deux mille cinq cents passages : soixante-dix scènes nouvelles se glissent avant les grandes décisions des quêtes, pour regarder, écouter, interroger, avant de choisir."] },
     { v: "13.0", items: ["« L'Île Folle-Aiguille » dépasse les deux mille quatre cents passages : une vingtaine de quêtes de plus, une femme en blanc, une rempailleuse, trois cartes à jouer, un jars, un pari en haut d'une tour, et des scènes plus fouillées dans les quêtes déjà écrites."] },
