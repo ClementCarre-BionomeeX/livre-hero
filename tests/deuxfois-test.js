@@ -99,4 +99,21 @@ var h1 = story(); h1.passages.P.hub = true;
 assert(!V.staticCheck(h1).errors.some(function (e) { return /sans issue/.test(e); }));
 h1.passages.Z.choices = [{ label: "Regarder le mur", to: "Z" }];
 assert(V.staticCheck(h1).errors.some(function (e) { return /§ Z : énigme « quatrain » sans issue/.test(e); }), V.staticCheck(h1).errors.join("\n"));
+// 13.8 (Clément, 18/11): a failed test is not rolled again on the same page; the next try passes. retry: true rolls.
+var tt = { id: "tt", title: "Test", start: "A", acts: [{ id: "I", title: "I", levels: [1, 1], start: "A" }],
+  world: { start: { place: "c", hour: 8 }, places: { c: { name: "C", arrive: "A" } } },
+  passages: {
+    A: { act: "I", title: "A", hub: true, text: ["A"], choices: [
+      { label: "Se faufiler", test: { dom: "discretion", diff: -200 }, win: { to: "W" }, lose: { to: "L" } },
+      { label: "Parier", retry: true, test: { dom: "discretion", diff: -200 }, win: { to: "W" }, lose: { to: "L" } }] },
+    L: { act: "I", title: "L", text: ["L"], choices: [{ back: "A" }] },
+    W: { act: "I", title: "W", end: true, text: ["W"] } } };
+var ts = fresh(tt, false);
+var c0 = view(tt, ts).choices.filter(function (x) { return x.label === "Se faufiler"; })[0]; assert(c0.chance < 100);
+M.choose(tt, ts, c0); assert.strictEqual(ts.node, "L");
+pick(tt, ts, ""); assert.strictEqual(ts.node, "A");
+var c1 = view(tt, ts).choices.filter(function (x) { return x.label === "Se faufiler"; })[0]; assert(c1.learned && c1.chance === 100, JSON.stringify(c1));
+var cp = view(tt, ts).choices.filter(function (x) { return x.label === "Parier"; })[0]; M.choose(tt, ts, cp); assert.strictEqual(ts.node, "L");
+pick(tt, ts, ""); cp = view(tt, ts).choices.filter(function (x) { return x.label === "Parier"; })[0]; assert(!cp.learned && cp.chance < 100);
+M.choose(tt, ts, c1); assert.strictEqual(ts.node, "W");
 console.log("deux lectures : ok");
