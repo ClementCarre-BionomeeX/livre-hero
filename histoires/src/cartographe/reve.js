@@ -14,7 +14,7 @@ module.exports = {
       { label: "Te pencher sur ton reflet dans l'encre", if: { has: "enigme:f2" }, hide: { seen: "A_reflet" }, to: "A_reflet" },
       { label: "Repêcher la bouteille qui flotte contre la barque", if: { has: "enigme:f3" }, hide: { seen: "A_bouteille" }, to: "A_bouteille" },
       { label: "Regarder ta main dessiner", hide: { seen: "A_main" }, to: "A_main" },
-      { label: "Écouter les voix qui tombent du ciel blanc", if: { seen: "A_main" }, hide: { seen: "A_voix" }, to: "A_voix" },
+      { label: "Écouter les voix qui tombent du ciel blanc", if: { seen: "A_main" }, to: "A_voix" },
       { label: "Lire la légende au coin de la carte", if: { seen: "A_main" }, hide: { has: "enigme:f5" }, to: "A_legende" },
       { label: "Laisser la barque aller vers l'île des cloches", hide: { has: "enigme:f1" }, to: "A_cloches" },
       { label: "Laisser la barque aller vers l'île blanche", if: { has: "enigme:f1" }, hide: { has: "enigme:f2" }, to: "A_sel" },
@@ -37,6 +37,7 @@ module.exports = {
     ] },
 
   A_voix: { act: "I", title: "Les voix du ciel blanc", place: "encre", second: false,
+    fx: { clue: "i_voix" },
     text: [
       "Tu tends l'oreille. Du ciel de papier tombent des voix, lointaines, déformées, comme des voix entendues sous l'eau, ou à travers une porte. Une voix de femme, douce et sans réplique : *Le lit douze délire depuis trois jours. Le lit douze dessine sur les feuilles de température. J'ai voulu prendre le crayon : on m'a mordue.*",
       "Une voix d'homme, sèche, pressée, et un tic-tac au fond : *Cent vingt pulsations. Quinquina, double dose. Une nuit encore, et nous saurons : un convalescent de plus, ou un lit de libre.*",

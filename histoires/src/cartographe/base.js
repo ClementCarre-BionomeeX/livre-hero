@@ -99,11 +99,12 @@ module.exports = {
     plume: { name: "La plume", kind: "outil", keep: true, desc: "Une plume de héron, taillée, qui ne s'épuise jamais." },
     couronne: { name: "La couronne de sel", kind: "quete", keep: true, desc: "Une couronne de sel cristallisé, gravée de chiffres romains : *XIV · IX*." },
     legende: { name: "La légende de la carte", kind: "document", keep: true, desc: "Six lignes de ta main, au coin de la carte d'encre, sous le titre *Légende*." },
-    carte_fievre: { name: "La carte de fièvre", kind: "document", keep: true, desc: "Une grande feuille, faite de feuilles de température collées ensemble, couverte d'un archipel dessiné de ta main, au crayon, pendant ta fièvre." },
+    carte_fievre: { name: "La carte de fièvre", kind: "document", keep: true, desc: "Une grande feuille, faite de feuilles de température collées ensemble, couverte d'un archipel dessiné de ta main, au crayon, pendant ta fièvre. Les îles s'y suivent dans l'ordre où ta barque les a touchées : l'île des cloches, l'île blanche du sel, la tour qui fait tic-tac, l'entrepôt sur pilotis, le mât du rameur, et au centre, la tache grise de l'île aux hérons." },
     registre_brunel: { name: "Le carnet de Brunel", kind: "document", keep: true, desc: "Le carnet de comptes du quartier-maître, avec une ligne bizarre." },
     carte_malbrouck: { name: "La carte de Malbrouck", kind: "quete", keep: true, desc: "La vraie carte des Bouches-Noires, levée par Eustache Malbrouck, avec les villages des Roselins." },
   },
   clues: {
+    i_voix: { rev: "F", text: "Les voix tombées du ciel blanc : une femme qui dit qu'on la mord ; un homme pressé, avec un tic-tac, qui ordonne « Quinquina, double dose » ; une voix grasse qui demande si l'on a dit son nom." },
     i_corde: { rev: "M", text: "Dans le magasin du quartier-maître, au fond de la fièvre, une amarre de barque coupée net, au couteau." },
     i_jours: { rev: "M", text: "Les jours de l'expédition, remis dans l'ordre : le départ, l'avertissement du guide, la nuit des amarres, la dérive." },
     i_herons: { rev: "M", text: "Au cœur de l'archipel d'encre, une île de brume où crient mille hérons, et des voix qui t'appellent par ton nom." },
@@ -113,6 +114,7 @@ module.exports = {
   },
   quests: [],
   mysteries: {
+    F: { title: "Ce que disent les voix du ciel", act: "I" },
     M: { title: "Qu'est devenue l'expédition Malbrouck ?", act: "II", solved: "malbrouck:retrouve",
       answer: { person: "brunel", text: "Le quartier-maître Brunel, payé par le comte de Saint-Aubry, a coupé les amarres de l'expédition une nuit de tempête, pour qu'aucune carte des marais habités ne revienne. Malbrouck et deux hommes ont survécu chez les Roselins, sur l'île aux Hérons, et la barque de l'apprenti a dérivé jusqu'à Brésille." } },
   },
