@@ -70,6 +70,13 @@ function check(ok, what) { if (!ok) bad.push(what); }
     await pg.getByLabel("Appareil ancien").uncheck();
     check(await pg.evaluate(function () { return document.documentElement.getAttribute("data-appareil"); }) === null, "décochée, le carnet revient");
     await P.ctx.close();
+    // 2b. a book that cannot be read (no network, not kept): picking it asks once, the page does not loop (13.9)
+    P = await page(function () { localStorage.setItem("livre-heros:appareil", JSON.stringify("ancien")); }); pg = P.pg;
+    await pg.route(/histoires\/temoin\.json/, function (r) { r.abort(); });
+    var asked = 0; pg.on("request", function (r) { if (/temoin\.json/.test(r.url())) asked++; });
+    await reader(pg); await openBook(pg, "Témoin"); await pg.waitForTimeout(1500);
+    check(asked <= 2, "un livre illisible n'est pas redemandé en boucle (" + asked + " demandes)");
+    await P.ctx.close();
     // 3. ?diag: the badge, the report, a measure
     P = await page(null, "?diag"); pg = P.pg;
     check(await pg.locator(".diag-badge").count() === 1, "?diag montre le petit ⏱");
