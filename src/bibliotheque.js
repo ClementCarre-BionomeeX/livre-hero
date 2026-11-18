@@ -26,6 +26,7 @@
     { k: "nature", label: "Nature et animaux", also: "animaux animal loup sauvage survie" },
     { k: "ecole", label: "École", also: "eleve college apprentissage etudes" },
     { k: "enigmes", label: "Énigmes", also: "enigme devinette devinettes casse-tete chiffre code rebus" },
+    { k: "humour", label: "Humour", also: "humour drole comique satire parodie rire absurde" },
   ];
   var GENRE = {}; GENRES.forEach(function (g) { GENRE[g.k] = g; });
 
