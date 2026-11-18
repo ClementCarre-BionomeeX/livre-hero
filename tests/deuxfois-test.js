@@ -94,4 +94,9 @@ assert.deepStrictEqual(s2.items, ["plume"]); assert.strictEqual(s2.gold, 1); ass
 var bad3 = story(); bad3.twice.begin2 = { place: "nulle", items: ["rien"] };
 var r3 = V.staticCheck(bad3).errors.join("\n");
 assert(/begin2.items/.test(r3) && /begin2.place/.test(r3), r3);
+// 13.3: a puzzle page the reader can only leave by answering is an error, once the story has hubs.
+var h1 = story(); h1.passages.P.hub = true;
+assert(!V.staticCheck(h1).errors.some(function (e) { return /sans issue/.test(e); }));
+h1.passages.Z.choices = [{ label: "Regarder le mur", to: "Z" }];
+assert(V.staticCheck(h1).errors.some(function (e) { return /§ Z : énigme « quatrain » sans issue/.test(e); }), V.staticCheck(h1).errors.join("\n"));
 console.log("deux lectures : ok");

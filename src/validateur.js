@@ -615,6 +615,18 @@
       (Z.hint || []).forEach(function (h) { checkCond(h.if, w); });
       if (!Object.keys(P).some(function (id) { return P[id].puzzle === k; })) E(w + " : aucun passage ne l'ouvre (puzzle: \"" + k + "\").");
     });
+    // 13.3 (Clément, Cartographe): a puzzle must never wall the reader in. From the page of a puzzle, the reader must be
+    // able to walk, by ordinary choices only, to a hub or an ending, so that a clue kept elsewhere can be fetched.
+    if (Object.keys(P).some(function (id) { return P[id].hub; })) Object.keys(P).forEach(function (id) {
+      if (!P[id].puzzle) return;
+      var seenQ = {}, todo = [id], free = false;
+      while (todo.length && !free) {
+        var q = todo.pop(); if (seenQ[q] || !P[q]) continue; seenQ[q] = true;
+        if ((q !== id && (P[q].hub || P[q].end)) || P[q].back === true || (P[q].choices || []).some(function (c) { return c.back === true; })) { free = true; break; }
+        (P[q].choices || []).forEach(function (c) { targetsOf(c).forEach(function (t) { if (typeof t === "string") todo.push(t); }); if (typeof c.back === "string") todo.push(c.back); });
+      }
+      if (!free) E("§ " + id + " : énigme « " + P[id].puzzle + " » sans issue ; sans la réponse, aucun choix ne mène à un carrefour (hub) ni à une fin.");
+    });
     (story.dreams || []).forEach(function (d, i) {
       var w = "Rêve " + (i + 1) + " (" + d.to + ")";
       if (!P[d.to]) E(w + " : passage inconnu."); else if (!P[d.to].back && !(P[d.to].choices || []).length) E(w + " : le rêve ne ramène nulle part (back: true).");
