@@ -894,7 +894,7 @@
   // Why: Clément, 15/11 — words that tremble or shimmer, rule words one taps, hidden letters for the reader to find.
   // The engine gives v.marked to draw and v.text, without the marks, to everything that reads aloud or searches.
   var TextFx = (function () {
-    var RE = /\{\{(fx|cle|or|envers|encre|tache|gens):([^{}|]*)(?:\|([^{}]*))?\}\}/g, LETTERED = { tremble: 1, ondule: 1, ecrit: 1 }, pop = null;
+    var RE = /\{\{(fx|cle|or|envers|encre|tache|gens|dit):([^{}|]*)(?:\|([^{}]*))?\}\}/g, LETTERED = { tremble: 1, ondule: 1, ecrit: 1 }, pop = null;
     function mode() { var m = pref("textFx"); return m === "aucun" || m === "discret" ? m : "anime"; }
     // Each letter in its own span (--i its rank), words kept whole; tags and entities left as they are.
     function letters(html) {
@@ -919,6 +919,7 @@
         if (k === "envers") return "<span class=\"tx-envers\" role=\"button\" tabindex=\"0\" data-envers=\"1\" aria-label=\"Écrit à l'envers. Touche pour le retourner.\"><span>" + a + "</span></span>";
         if (k === "encre") return (s.items || []).indexOf(a) >= 0 ? "<span class=\"tx-encre\">" + (b || "") + "</span>" : "<span class=\"tx-encre-vide\" aria-hidden=\"true\">" + new Array(Math.max(4, Math.round(plainOfHtml(b || "").length * 0.6))).join("\u00a0") + "</span>";
         if (k === "gens") return a === "aucun" || !People.on() ? (b || "") : People.button(st, s, a, b || "");
+        if (k === "dit") return "";   // who says the words of the paragraph: read by Talk, never shown
         if (k === "tache") return "<span class=\"tx-tache\" role=\"img\" aria-label=\"Un mot sous une tache d'encre\"><span aria-hidden=\"true\">" + a + "</span></span>";
         return all;
       });
@@ -1392,6 +1393,7 @@
     function wrap(p) {
       var w = document.createTreeWalker(p, NodeFilter.SHOW_TEXT), n, lead = [];
       while ((n = w.nextNode())) {
+        if (n.parentNode.closest && n.parentNode.closest(".say-face")) continue;
         var m = LETTER.exec(n.data);
         if (!m) { lead.push(n); continue; }
         if (!LEAD.test(n.data.slice(0, m.index)) || lead.some(function (x) { return !LEAD.test(x.data); })) return false;
@@ -2639,6 +2641,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "13.2", items: ["Les visages entrent dans les dialogues : aux premiers mots de chacun, son portrait de trois quarts, tourné vers celui à qui il parle. Dans la marge sur un grand écran, en petit médaillon sur un téléphone, ou tous en bande sous le titre. Réglage « Visages dans les dialogues »."] },
     { v: "13.1", items: ["« L'Île Folle-Aiguille » atteint deux mille cinq cents passages : soixante-dix scènes nouvelles se glissent avant les grandes décisions des quêtes, pour regarder, écouter, interroger, avant de choisir."] },
     { v: "13.0", items: ["« L'Île Folle-Aiguille » dépasse les deux mille quatre cents passages : une vingtaine de quêtes de plus, une femme en blanc, une rempailleuse, trois cartes à jouer, un jars, un pari en haut d'une tour, et des scènes plus fouillées dans les quêtes déjà écrites."] },
     { v: "12.9", items: ["« L'Île Folle-Aiguille » gagne encore vingt-sept quêtes tirées d'autres livres : un gardien de sémaphore, un perroquet trop bavard, un visage voilé de noir, un souper aux oranges, et bien d'autres, sur l'île, en mer et aux escales."] },
@@ -2902,6 +2905,50 @@
     app.appendChild(w);
   }
 
+  // Intent: Talk = the faces of those who speak, beside their words (Clément, 18/11). At the first words of each
+  // speaker in a page, the face turned three quarters: the first who speaks stands in the left margin and looks right,
+  // the next in the right margin and looks left, and so on. Where the margins are too narrow (a phone, two pages side
+  // by side) a small medallion looking at the words opens them instead. « En bande », all of them face each other
+  // under the title. Who speaks is read by the engine (M.speakers): the story only declares, {{dit:…}} when unsure.
+  // The reader's setting: visages = repliques | bande | aucun.
+  var Talk = (function () {
+    var YAW = 0.5, BIG = 84, MINI = 30, BAND = 76;
+    function mode() { return pref("visages"); }
+    function face(G, who, size, yaw) {
+      var st = G.story, s = G.s;
+      return who === "heros" ? heroFace(st, s, size, yaw) : (st.people || {})[who] ? personFace(st, who, size, yaw) : portraitOf(st, who, s, size, yaw);
+    }
+    // the shortest name the text calls the person by (« Ismaël » for « Ismaël le chevrier »)
+    function nameOf(G, who) {
+      if (who === "heros") return G.s.name || "";
+      var p = M.personOf(G.story, who), full = p ? String(p.name).split(",")[0].trim() : who;
+      return M.nameForms(G.story).filter(function (f) { return f[1] === who && /^[A-ZÀ-ÖØ-Þ]/.test(f[0]); }).map(function (f) { return f[0]; }).concat([full]).sort(function (a, b) { return a.length - b.length; })[0];
+    }
+    // Intent: cast(G, v) -> null | { order: [who], at: { paragraph: who } } = who speaks first in the page, in order
+    function cast(G, v) {
+      if (mode() === "aucun" || G.multi || !v || !v.text) return null;
+      var who = M.speakers(G.story, G.s, v.marked || v.text), order = [], at = {};
+      who.forEach(function (w, i) { if (w && w !== "heros" && !M.personOf(G.story, w) && !(G.story.heroes || {})[w]) return; if (w && order.indexOf(w) < 0) { order.push(w); at[i] = w; } });
+      return order.length ? { order: order, at: at } : null;
+    }
+    // The faces at the first words of a speaker: the one of the margin and the medallion; the CSS shows one of them.
+    function mark(G, c, ti, p) {
+      if (!c || mode() !== "repliques" || !(ti in c.at)) return;
+      var who = c.at[ti], right = c.order.indexOf(who) % 2 === 1, name = nameOf(G, who);
+      p.classList.add("say", right ? "say-r" : "say-l");
+      p.insertBefore(h("span", { class: "say-face", "aria-hidden": "true" },
+        h("span", { class: "say-big", "data-name": name, html: face(G, who, BIG, right ? -YAW : YAW) }),
+        h("span", { class: "say-mini", title: name, html: face(G, who, MINI, YAW) })), p.firstChild);
+    }
+    function band(G, c) {
+      if (!c || mode() !== "bande") return null;
+      return h("div", { class: "say-band", role: "group", "aria-label": "Qui parle dans cette page" }, c.order.map(function (who, i) {
+        return h("span", { class: "say-band-face", "data-name": nameOf(G, who), html: face(G, who, BAND, i === 0 ? YAW : -YAW) });
+      }));
+    }
+    return { cast: cast, mark: mark, band: band };
+  })();
+
   // ------------------------------------------------------------------ book covers
   // Intent: cover(StoryMeta) -> Element = a cover drawn by the device: a cloth colour, a gilt frame, the story's emblem
   // (tag cover.motif: dedale, flocon, sceau, oeil, vanne, ecu, etoile), its title. Why: Clément, 13/11 (piste 16).
@@ -3158,7 +3205,8 @@
     if (folded) prose.appendChild(h("p", { class: "reread" }, h("span", { class: "muted" }, "Tu connais déjà cette page. "),
       h("button", { class: "btn ghost sm", onclick: function () { A.unfold = s.node + "#" + s.turn; render(); } }, "Relire")));
     // A paragraph of the second reading (tag second) carries a light mark in the margin.
-    else { var glUsed = {}, ppUsed = {}; (v.marked || v.text).forEach(function (t, ti) { var ht = TextFx.mood(Glossary.mark(st, People.mark(st, s, TextFx.render(st, s, md(t)), ppUsed), glUsed), v.mood, ti); prose.appendChild(h("p", { class: (v.second || []).indexOf(ti) >= 0 ? "second" : null, html: pref("syllables") ? Syllables.mark(ht) : ht })); }); }
+    else { var glUsed = {}, ppUsed = {}, talk = Talk.cast(G, v), tb = Talk.band(G, talk); if (tb) page.insertBefore(tb, prose);
+      (v.marked || v.text).forEach(function (t, ti) { var ht = TextFx.mood(Glossary.mark(st, People.mark(st, s, TextFx.render(st, s, md(t)), ppUsed), glUsed), v.mood, ti), pe = h("p", { class: (v.second || []).indexOf(ti) >= 0 ? "second" : null, html: pref("syllables") ? Syllables.mark(ht) : ht }); Talk.mark(G, talk, ti, pe); prose.appendChild(pe); }); }
     // What led to this page (the rolls, their outcome, the blows) comes before the text; what follows from it (clues,
     // items, quests, feats) after (Clément, 11/11 then 13/11).
     var kwUsed = {}, evs = s.events || [], evEl = function (list, cls) { return list.length ? h("div", { class: "events " + cls, role: "status" }, list.map(function (e) { var el = h("div", { class: "ev " + (e.cls || "") }, rollBadge(e)); el.insertAdjacentHTML("beforeend", TextFx.auto(st, md(e.text), kwUsed));
@@ -4686,11 +4734,13 @@
       if (c === "capuche") p.push(fill(smooth([[32 - rx - 4.6, cy + 22], [32 - rx - 5, cy + 6], [32 - rx - 2.6, top + 1], [32, top - 5], [32 + rx + 2.6, top + 1], [32 + rx + 5, cy + 6], [32 + rx + 4.6, cy + 22]], false) + " Z", mix(cloth, "#000000", 0.15)));
 
       // the body and the clothes
-      p.push(fill(body, skin));
+      p.push('<g data-body="1">' + fill(body, skin) + "</g>");   // the neck and shoulders stay under the skull when the head turns
       p.push(fill("M" + f(32 - nw) + " " + f(ny0 + 2) + " Q32 " + f(chinY + 3.4) + " " + f(32 + nw) + " " + f(ny0 + 2) + " V" + f(ny0 - 1) + " Z", deep, ' opacity=".34" filter="url(#qb' + uid + ')"'));   // the shadow of the chin on the neck
+      p.push('<g data-body="1">');
       if (old || F.age === "mur") p.push(line("M" + f(32 - nw + 1.6) + " " + f(chinY + 2.4) + " Q" + f(32 - nw + 1.2) + " 43 " + f(32 - nw + 2.4) + " 45.6 M" + f(32 + nw - 1.6) + " " + f(chinY + 2.4) + " Q" + f(32 + nw - 1.2) + " 43 " + f(32 + nw - 2.4) + " 45.6", shade, 0.45, ' opacity=".55"'));
       p.push(fill(clothes, cloth) + shirt + folds);
       if (c === "capuche") p.push(fill("M" + f(32 - rx - 4.6) + " " + f(cy + 22) + " Q" + f(32 - rx - 1) + " " + f(cy + 18) + " " + f(32 - nw - 1) + " 47 L" + f(32 + nw + 1) + " 47 Q" + f(32 + rx + 1) + " " + f(cy + 18) + " " + f(32 + rx + 4.6) + " " + f(cy + 22) + " L" + f(32 + rx + 6) + " 66 H" + f(32 - rx - 6) + " Z", mix(cloth, "#000000", 0.15)));
+      p.push("</g>");
       // the ears, behind the edge of the face
       [-1, 1].forEach(function (s) {
         var x0 = 32 + s * rx * 0.94 * (s > 0 ? asym : 1), y0 = G.ey - 1.8;
@@ -4792,18 +4842,100 @@
       if (o.hurt > 1) p.push(fill("M" + f(32 - rx - 0.8) + " " + f(top + 9.4) + " Q32 " + f(top + 4.6) + " " + f(32 + rx + 0.8) + " " + f(top + 9.4) + " L" + f(32 + rx + 1) + " " + f(top + 5.6) + " Q32 " + f(top + 0.6) + " " + f(32 - rx - 1) + " " + f(top + 5.6) + " Z", "#f3ecdc", ' stroke="#cbbf9f" stroke-width=".4"') + '<circle cx="38" cy="' + f(top + 5.4) + '" r="1.3" fill="#a3322a" opacity=".75"/>');
       if (o.mark) p.push('<g transform="translate(51 51)"><circle r="11" fill="#fbf4e2" stroke="#8a6a3a" stroke-width="1.5"/><path d="' + o.mark + '" transform="scale(.75)" stroke="#5a3f1c" stroke-width="2" fill="' + (o.arch === "mage" ? "#c9a24a" : "none") + '" stroke-linecap="round" stroke-linejoin="round"/></g>');
       p.push("</g></svg>");
+      faceSvg.geo = { rx: rx, cy: cy, ry: ry, chinY: chinY };
       return p.join("");
     }
 
-    // Intent: portrait(seed, { arch, f, face?, size?, hurt?, noMark?, flat? }) -> svg markup ; hurt: 0 unharmed, 1 hurt
+    // ---- the face turned three quarters (Clément, 18/11: faces in the dialogue look at each other)
+    var TurnFace = (function () {
+      var NS = "http://www.w3.org/2000/svg";
+      function num(s) { return parseFloat(s); }
+      // the parts of a path, every command made absolute; H and V become L
+      function parse(d) {
+        var toks = d.match(/[a-zA-Z]|-?\d*\.?\d+(?:e-?\d+)?/g) || [], i = 0, cmd = "", out = [], cx = 0, cy = 0, sx = 0, sy = 0;
+        var take = function () { return num(toks[i++]); };
+        while (i < toks.length) {
+          if (/[a-zA-Z]/.test(toks[i])) cmd = toks[i++];
+          var rel = cmd === cmd.toLowerCase() && cmd !== "z" && cmd !== "Z", C = cmd.toUpperCase(), ox = rel ? cx : 0, oy = rel ? cy : 0;
+          if (C === "Z") { out.push({ c: "Z", p: [] }); cx = sx; cy = sy; continue; }
+          if (C === "M") { var x = take() + ox, y = take() + oy; out.push({ c: "M", p: [[x, y]] }); cx = sx = x; cy = sy = y; cmd = rel ? "l" : "L"; continue; }
+          if (C === "L") { var lx = take() + ox, ly = take() + oy; out.push({ c: "L", p: [[lx, ly]] }); cx = lx; cy = ly; continue; }
+          if (C === "H") { var hx = take() + (rel ? cx : 0); out.push({ c: "L", p: [[hx, cy]] }); cx = hx; continue; }
+          if (C === "V") { var vy = take() + (rel ? cy : 0); out.push({ c: "L", p: [[cx, vy]] }); cy = vy; continue; }
+          if (C === "C") { var a = [take() + ox, take() + oy], b = [take() + ox, take() + oy], e = [take() + ox, take() + oy]; out.push({ c: "C", p: [a, b, e] }); cx = e[0]; cy = e[1]; continue; }
+          if (C === "S" || C === "Q") { var q1 = [take() + ox, take() + oy], q2 = [take() + ox, take() + oy]; out.push({ c: C, p: [q1, q2] }); cx = q2[0]; cy = q2[1]; continue; }
+          if (C === "T") { var t1 = [take() + ox, take() + oy]; out.push({ c: "T", p: [t1] }); cx = t1[0]; cy = t1[1]; continue; }
+          if (C === "A") { var rx = take(), ry = take(), rot = take(), la = take(), sw = take(), ax = take() + ox, ay = take() + oy; out.push({ c: "A", p: [[ax, ay]], a: [rx, ry, rot, la, sw] }); cx = ax; cy = ay; continue; }
+          i++;
+        }
+        return out;
+      }
+      function f2(n) { return (Math.round(n * 100) / 100).toString(); }
+      // Intent: turn(svgText, yaw, geo) -> svgText = the portrait turned by `yaw` (radians; positive: the face looks to the
+      // viewer's right). The drawing seen from the front is wrapped on a cylinder that turns: the near side widens, the far
+      // side narrows, nose and lips come forward towards the gaze; the neck and shoulders stay under the skull (data-body).
+      function turn(svgText, yaw, geo) {
+        var svg = new DOMParser().parseFromString(svgText.replace(/^<svg /, '<svg xmlns="' + NS + '" '), "image/svg+xml").documentElement;
+        var R = geo.rx * 1.08, chin = geo.chinY;
+        var phi = function (y) { return y < chin ? yaw : y > chin + 9 ? yaw * 0.3 : yaw * (1 - 0.7 * (y - chin) / 9); };
+        var shift = function (y) { return -R * Math.sin(phi(y)) * 0.45; };
+        var W = function (x, y, pop) {
+          var ph = phi(y), u = (x - 32) / R, edge = 0.999;
+          if (Math.abs(u) <= edge) { var th = Math.asin(u), a = Math.max(-1.45, Math.min(1.45, th + ph)); return 32 + R * Math.sin(a) + shift(y) + (pop || 0) * Math.sin(ph); }
+          // beyond the face (hair, ears, a hood): each point on its own wider cylinder, seen at its silhouette
+          var s = u > 0 ? 1 : -1, near = s * ph > 0, d = Math.abs(x - 32);
+          return 32 + s * d * (near ? Math.sin(1.45) : Math.cos(Math.abs(ph))) + shift(y);
+        };
+        var skull = -R * Math.sin(yaw) * 0.5, Rb = 26, phb = yaw * 0.3;
+        var Wb = function (x) { var u = Math.max(-0.999, Math.min(0.999, (x - 32) / Rb)); return 32 + Rb * (Math.sin(Math.asin(u) + phb) - Math.sin(phb) * 0.4) + skull; };
+        var dW = function (x, y) { return (W(x + 0.05, y) - W(x - 0.05, y)) / 0.1; };
+        function walk(node, dy, pop, body) {
+          if (node.nodeType !== 1) return;
+          var tag = node.tagName, id = node.getAttribute("id") || "";
+          if (tag === "clipPath" && !/^qh/.test(id)) return;          // the frame and the eyes' own clip stay as they are
+          if (node.getAttribute("data-pop")) pop = num(node.getAttribute("data-pop"));
+          if (node.getAttribute("data-body")) body = true;
+          var tr = node.getAttribute("transform");
+          if (tr && /scale/.test(tr)) {                               // an eye: moved and narrowed as a whole
+            var m = /translate\(([-\d.]+)[ ,]+([-\d.]+)\)\s*scale\(([-\d.]+)[ ,]+([-\d.]+)\)/.exec(tr);
+            if (m) { var tx = num(m[1]), ty = num(m[2]) + dy, k = dW(tx, ty); node.setAttribute("transform", "translate(" + f2(W(tx, ty, 0.4)) + " " + m[2] + ") scale(" + f2(num(m[3]) * k) + " " + m[4] + ")"); }
+            return;
+          }
+          if (tr) { var mt = /translate\(([-\d.]+)[ ,]+([-\d.]+)\)/.exec(tr); if (mt && num(mt[1]) === 0) dy += num(mt[2]); }
+          if (tag === "path") {
+            var parts = parse(node.getAttribute("d") || "");
+            node.setAttribute("d", parts.map(function (q) {
+              if (q.c === "Z") return "Z";
+              var pts = q.p.map(function (pt) { return f2(body ? Wb(pt[0]) : W(pt[0], pt[1] + dy, pop)) + " " + f2(pt[1]); });
+              if (q.c === "A") { var k2 = dW(q.p[0][0], q.p[0][1] + dy); return "A" + f2(q.a[0] * k2) + " " + f2(q.a[1]) + " " + q.a[2] + " " + q.a[3] + " " + q.a[4] + " " + pts[0]; }
+              return q.c + pts.join(" ");
+            }).join(" "));
+          } else if (tag === "circle" || tag === "ellipse") {
+            var cx = num(node.getAttribute("cx")), cy = num(node.getAttribute("cy")), rr = num(node.getAttribute(tag === "circle" ? "r" : "rx")), ry = tag === "circle" ? rr : num(node.getAttribute("ry"));
+            if (id === "" && node.parentNode && node.parentNode.tagName === "svg") return;   // the paper and the wash behind
+            var e = document.createElementNS(NS, "ellipse");
+            Array.prototype.forEach.call(node.attributes, function (at) { if (!/^(cx|cy|r|rx|ry)$/.test(at.name)) e.setAttribute(at.name, at.value); });
+            e.setAttribute("cx", f2(W(cx, cy + dy, pop))); e.setAttribute("cy", f2(cy)); e.setAttribute("rx", f2(rr * dW(cx, cy + dy))); e.setAttribute("ry", f2(ry));
+            node.parentNode.replaceChild(e, node); return;
+          }
+          Array.prototype.slice.call(node.childNodes).forEach(function (ch) { walk(ch, dy, pop, body); });
+        }
+        walk(svg, 0, 0, false);
+        return new XMLSerializer().serializeToString(svg);
+      }
+      return turn;
+    })();
+    // Intent: portrait(seed, { arch, f, face?, size?, hurt?, noMark?, flat?, yaw? }) -> svg markup ; hurt: 0 unharmed, 1 hurt
     // (a bruise, a cut), 2 badly hurt (a bandage round the head) — the state of the moment, not a trait of the face.
     // In the « Carnet » look the portrait is a watercolour on a slip of cream paper (the same by night): the colours in
     // a wash that drifts a little past the line, the ink line drawn from the same shapes (Clément chose it, 17/11).
+    // yaw (radians, about ±0.5): the face turned three quarters, looking to the viewer's right when positive.
     H.portrait = function (seed, o) {
       o = o || {}; var x = hash(String(seed || "?") + JSON.stringify(o.face || "") + (o.hurt || "")), sz = o.size || 64, F = H.faceOf(seed, o);
       var xs = hash(String(seed || "?")), gear = ARCH_GEAR[o.arch] || { cloth: pick(["#6d5a40", "#4f5d6b", "#6b4a4a", "#55663f"], xs >>> 9), mark: null };
       var wash = Notebook.on() && !o.flat;
-      var svg = faceSvg(F, { seed: seed, uid: x % 1000000, size: sz, cloth: gear.cloth, scarf: pick(SCARVES, xs >>> 5), hurt: o.hurt, mark: gear.mark && !o.noMark ? gear.mark : null, arch: o.arch, wash: wash });
+      var svg = faceSvg(F, { seed: seed, uid: (x + (o.yaw ? Math.round(o.yaw * 100) * 7919 : 0)) % 1000000, size: sz, cloth: gear.cloth, scarf: pick(SCARVES, xs >>> 5), hurt: o.hurt, mark: gear.mark && !o.noMark ? gear.mark : null, arch: o.arch, wash: wash });
+      if (o.yaw && typeof DOMParser !== "undefined") svg = TurnFace(svg, o.yaw, faceSvg.geo);
       if (!wash) return svg;
       var i = svg.indexOf("<g clip-path"), j = svg.lastIndexOf("</svg>"), drawing = svg.slice(i, j);
       return svg.slice(0, i).replace(/<circle cx="32" cy="32" r="32" fill="([^"]*)"\/>/, '<circle cx="32" cy="32" r="32" fill="' + PORTRAIT_SLIP + '"/><circle cx="32" cy="32" r="26" fill="$1" opacity=".75" filter="url(#portrait-tache)"/>') +
@@ -4842,17 +4974,11 @@
     };
     return H;
   })();
-  // A person of the story: `f` when the story says it, else a guess from a title (Mère, Sire…) or the « elle / il » of
-  // the description; with no clue, a face without beard nor long hair.
-  function personFace(st, k, size) {
-    var p = (st.people || {})[k] || {}, f = p.f;
-    if (f == null) {
-      var n = p.name || "", d = " " + (p.desc || "") + " ";
-      if (/^(Mère|Dame|Sœur|Soeur|Madame|Mademoiselle|La |Reine|Tante|Grand-mère|Veuve)/.test(n)) f = true;
-      else if (/^(Père|Frère|Maître|Sire|Messire|Le |Roi|Oncle|Grand-père|Monsieur|Capitaine)/.test(n)) f = false;
-      else { var el = (d.match(/\b[Ee]lle\b/g) || []).length, il = (d.match(/\b[Ii]l\b/g) || []).length; if (el > il) f = true; else if (il > el) f = false; }
-    }
-    return Heraldry.portrait(st.id + "|" + (p.name || k), { f: f, face: p.face, size: size || 40 });
+  // A person of the story: a woman or a man as the story says or lets guess (M.femOf); with no clue, a face without
+  // beard nor long hair.
+  function personFace(st, k, size, yaw) {
+    var p = (st.people || {})[k] || {}, f = M.femOf(st, k);
+    return Heraldry.portrait(st.id + "|" + (p.name || k), { f: f == null ? undefined : f, face: p.face, size: size || 40, yaw: yaw });
   }
   // Intent: hurtOf(pv, max) -> 0 | 1 | 2 = what a portrait shows of the wounds of the moment: nothing above half the
   // hit points, a bruise and a cut under half, a bandage under a quarter. Healed, the face is clean again.
@@ -4860,19 +4986,19 @@
   function hurtOf(pv, max) { var q = max > 0 ? pv / max : 1; return q <= BADLY_HURT_AT ? 2 : q <= HURT_AT ? 1 : 0; }
   // The face of the hero being played: the one composed at creation (s.face) for the reader's own hero, else the
   // face the story gives to the hero who leads.
-  function heroFace(st, s, size) {
-    if (s.lead != null && st.heroes && st.heroes[s.lead]) return portraitOf(st, s.lead, s, size);
-    return Heraldry.portrait(st.id + "|" + s.name, { arch: s.arch, face: s.face, size: size, hurt: hurtOf(s.pv, M.pvMax(s)) });
+  function heroFace(st, s, size, yaw) {
+    if (s.lead != null && st.heroes && st.heroes[s.lead]) return portraitOf(st, s.lead, s, size, yaw);
+    return Heraldry.portrait(st.id + "|" + s.name, { arch: s.arch, face: s.face, size: size, hurt: hurtOf(s.pv, M.pvMax(s)), yaw: yaw });
   }
   // Intent: portraitOf(Story, id, State, size?) -> svg = a companion or a hero of the story: the face the story
   // declares (face) on the name's own; the reader's own hero keeps the face composed at creation, led or not.
-  function portraitOf(st, k, s, size) {
+  function portraitOf(st, k, s, size, yaw) {
     var hero = st.heroes && st.heroes[k], c = (st.companions || {})[k] || {}, mine = hero && hero.player, lead = s.lead === k;
     var sheet = !hero ? {} : lead ? s : (s.heroes && s.heroes[k]) || {};
     var name = sheet.name || (hero && hero.name) || c.name || k, arch = sheet.arch || (hero && hero.arch) || c.arch;
     var f = mine ? null : hero && hero.f != null ? hero.f : c.f;
     var hurt = lead ? hurtOf(s.pv, M.pvMax(s)) : s.cpv && s.cpv[k] != null ? hurtOf(s.cpv[k], M.cpvMax(st, s, k)) : 0;
-    return Heraldry.portrait(st.id + "|" + name, { arch: arch, f: f, face: mine ? s.face : (hero && hero.face) || c.face, hurt: hurt, size: size });
+    return Heraldry.portrait(st.id + "|" + name, { arch: arch, f: f, face: mine ? s.face : (hero && hero.face) || c.face, hurt: hurt, size: size, yaw: yaw });
   }
 
   // ------------------------------------------------------------------ dictation in the children's workshop
@@ -5787,7 +5913,7 @@
   // ------------------------------------------------------------------ reading preferences (per reader)
   // Intent: pref(Key) -> Value = the reader's own setting, else the default
   // Why: Clément (12/11): text size, spacing, theme, voice, real dice, sound… follow the reader, not the device.
-  var PREFS = { style: "carnet", choiceHand: true, skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, lore: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6, spread: "auto", pageTurn: true, swipe: false, contrast: false, cvd: false, quietFx: false, dice3d: true, attachements: "discret", trouble: true, textFx: "anime", gens: "aucun", gensRappel: "chaque", gensCarte: true, gensScene: false, gensDefaut: [], gensSuivi: {}, trail: true };
+  var PREFS = { style: "carnet", choiceHand: true, skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, lore: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6, spread: "auto", pageTurn: true, swipe: false, contrast: false, cvd: false, quietFx: false, dice3d: true, attachements: "discret", trouble: true, textFx: "anime", gens: "aucun", gensRappel: "chaque", gensCarte: true, gensScene: false, gensDefaut: [], gensSuivi: {}, trail: true, visages: "repliques" };
   var SIZES = { s: ["Petit", 16], m: ["Normal", 18], l: ["Grand", 21], xl: ["Très grand", 24] };
   var SPACINGS = { serre: ["Serré", 1.5], normal: ["Normal", 1.72], aere: ["Aéré", 2] };
   var THEMES = { auto: "Comme l'appareil", light: "Clair", sepia: "Sépia", dark: "Sombre", soir: "Lumière du soir" };
@@ -5910,6 +6036,7 @@
     r.style.setProperty("--read-font", (FONTS[pref("font")] || FONTS.livre)[1]);
     if (pref("font") === "lisible" || pref("font") === "grimoire") r.setAttribute("data-font", pref("font")); else r.removeAttribute("data-font");
     if (pref("lettrine")) r.removeAttribute("data-lettrine"); else r.setAttribute("data-lettrine", "non");
+    r.setAttribute("data-visages", pref("visages"));
     r.setAttribute("lang", "fr");
     r.setAttribute("data-spread", pref("spread") === "non" ? "non" : "auto");
     if (pref("contrast")) r.setAttribute("data-contrast", "fort"); else r.removeAttribute("data-contrast");
@@ -5997,6 +6124,8 @@
     b.appendChild(prefToggle("lore", "Fiches du monde", "Les noms du monde (lieux, fêtes, ordres) se touchent dans le texte pour lire ce qu'un habitant en sait."));
     b.appendChild(prefToggle("syllables", "Syllabes en couleurs", "Une syllabe sur deux change de couleur, comme dans les méthodes de lecture."));
     b.appendChild(prefToggle("fog", "Carte sous le brouillard", "La carte du carnet se dévoile autour des lieux atteints et le long des routes parcourues."));
+    b.appendChild(seg({ repliques: "À côté des répliques", bande: "En bande", aucun: "Non" }, "visages", "Visages dans les dialogues"));
+    b.appendChild(h("p", { class: "small muted" }, "Le visage de qui parle, tourné vers l'autre, à ses premiers mots de la page : dans la marge sur un grand écran, en petit médaillon sur un téléphone. En bande : tous sous le titre."));
     b.appendChild(seg({ aucun: "Non", noms: "Oui" }, "gens", "Aide pour suivre les personnages"));
     b.appendChild(h("p", { class: "small muted" }, "Les noms des gens rencontrés se touchent : on lit qui c'est, ce qui te lie à cette personne, à quoi elle ressemble. On peut garder un trait (ses habits, un signe) à côté de son nom dans tout le livre, jusqu'à « Je connais son nom maintenant »."));
     if (pref("gens") === "noms") {

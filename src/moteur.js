@@ -3269,12 +3269,13 @@
   //   {{encre:<item>|texte}} invisible ink: shown only while the hero carries the item
   //   {{tache:texte}}        a blot: unreadable, and read by nobody
   //   {{gens:<id>|texte}}    these words name that person (people or companions); {{gens:aucun|texte}}: they name nobody
+  //   {{dit:<id>}}           the words in guillemets of this paragraph are said by that person (or heros, or aucun)
   var TEXT_FX = { tremble: "tremble", ondule: "ondule", irise: "irisé", chuchote: "chuchoté", efface: "s'efface", rature: "raturé", ecrit: "s'écrit lettre à lettre", lueur: "luit" };
-  var MARK_RE = /\{\{(fx|cle|or|envers|encre|tache|gens):([^{}|]*)(?:\|([^{}]*))?\}\}/g;
-  var MARK_KINDS = { fx: 1, cle: 1, or: 1, envers: 1, encre: 1, tache: 1, gens: 1 };
+  var MARK_RE = /\{\{(fx|cle|or|envers|encre|tache|gens|dit):([^{}|]*)(?:\|([^{}]*))?\}\}/g;
+  var MARK_KINDS = { fx: 1, cle: 1, or: 1, envers: 1, encre: 1, tache: 1, gens: 1, dit: 1 };
   function plainOf(story, s, t) {
     return String(t).replace(MARK_RE, function (all, k, a, b) {
-      if (k === "tache") return "";
+      if (k === "tache" || k === "dit") return "";
       if (k === "encre") return s && (s.items || []).indexOf(a) >= 0 ? (b || "") : "";
       if (k === "envers" || (k === "cle" && b == null)) return a;
       return b == null ? a : b;
@@ -3320,6 +3321,85 @@
     Object.keys(seen).forEach(function (f) { if (seen[f] !== "?") out.push([f, seen[f]]); });
     out.sort(function (a, b) { return b[0].length - a[0].length; });
     if (story) try { Object.defineProperty(story, "_nameForms", { value: out, enumerable: false, configurable: true }); } catch (e) {}
+    return out;
+  }
+  // Intent: femOf(story, id) -> true | false | null = a woman, a man, or unknown: `f` when the story says it, else a
+  // guess from a title (Mère, Sire…) or the « elle / il » of the description.
+  function femOf(story, id) {
+    var p = personOf(story, id) || {}; if (p.f != null) return !!p.f;
+    var n = p.name || "", d = " " + (p.desc || "") + " ";
+    if (/^(Mère|Dame|Sœur|Soeur|Madame|Mademoiselle|La |Reine|Tante|Grand-mère|Veuve)/.test(n)) return true;
+    if (/^(Père|Frère|Maître|Sire|Messire|Le |Roi|Oncle|Grand-père|Monsieur|Capitaine)/.test(n)) return false;
+    var el = (d.match(/\b[Ee]lle\b/g) || []).length, il = (d.match(/\b[Ii]l\b/g) || []).length;
+    return el > il ? true : il > el ? false : null;
+  }
+  // Intent: speakers(story, s, texts) -> [id | "heros" | null] = who speaks in each paragraph of a page that holds
+  // words in guillemets, read from the French of the page: {{dit:id}} when the author says it; else an incise
+  // (« …, dit Brune », « dit-il », « demandes-tu »); else the narration that leads to the words (« Brune hausse les
+  // épaules. « … » », « Il rit. « … » », « Tu hésites. « … » »); else a reply alone after someone's words is the
+  // hero's answer, and the hero's is answered. « il / elle » is the last person who spoke, else the last one named
+  // (by gender when the story knows it). Only people the hero has met are named (nothing given away); null when unsure.
+  // Why: Clément, 18/11: the faces of the speakers beside their words, three quarters, looking at each other.
+  var SAY = [["dit", "dis"], ["demande", "demandes"], ["répond", "réponds"], ["reprend", "reprends"], ["ajoute", "ajoutes"], ["souffle", "souffles"], ["murmure", "murmures"], ["chuchote", "chuchotes"],
+    ["lance", "lances"], ["crie", "cries"], ["hurle", "hurles"], ["grogne", "grognes"], ["gronde", "grondes"], ["siffle", "siffles"], ["soupire", "soupires"], ["répète", "répètes"], ["rit", "ris"],
+    ["ricane", "ricanes"], ["sourit", "souris"], ["explique", "expliques"], ["insiste", "insistes"], ["tranche", "tranches"], ["coupe", "coupes"], ["corrige", "corriges"], ["proteste", "protestes"],
+    ["objecte", "objectes"], ["annonce", "annonces"], ["déclare", "déclares"], ["avoue", "avoues"], ["admet", "admets"], ["conclut", "conclus"], ["poursuit", "poursuis"], ["continue", "continues"],
+    ["rétorque", "rétorques"], ["réplique", "répliques"], ["glisse", "glisses"], ["marmonne", "marmonnes"], ["grommelle", "grommelles"], ["s'exclame", "t'exclames"], ["s'écrie", "t'écries"],
+    ["fait", "fais"], ["risque", "risques"], ["hasarde", "hasardes"], ["propose", "proposes"], ["ordonne", "ordonnes"], ["supplie", "supplies"], ["observe", "observes"], ["remarque", "remarques"],
+    ["précise", "précises"], ["enchaîne", "enchaînes"], ["lâche", "lâches"], ["jette", "jettes"], ["assure", "assures"], ["promet", "promets"]];
+  var SAY_RE = (function () {
+    var three = SAY.map(function (v) { return v[0]; }).join("|"), two = SAY.map(function (v) { return v[1]; }).join("|"), W = "A-Za-zÀ-ÖØ-öø-ÿŒœ";
+    return { named: new RegExp("[,!?…»]\\s*(?:" + three + ")\\s+([A-ZÀ-ÖØ-Þ][" + W + "'’-]*(?:\\s+[A-ZÀ-ÖØ-Þ][" + W + "'’-]*)?)"),
+      pron: new RegExp("(?:^|[^" + W + "])(?:" + three + ")-(?:t-)?(il|elle)(?![" + W + "])"),
+      hero: new RegExp("(?:^|[^" + W + "])(?:(?:" + two + ")-tu|[Tt]u\\s+(?:(?:lui|leur|me|te|les|la|le|l'|l’|en)\\s+)?(?:" + two + "))(?![" + W + "])") };
+  })();
+  var SPEECH_MIN_WORDS = 4, INCISE_REACH = 30;   // an incise belongs to the first words said when it comes inside them or just after
+  function speakers(story, s, texts) {
+    var forms = nameForms(story), out = [], last = null, lastOther = null, named = [];
+    var known = function (id) { return id !== s.lead && !!((s.people || {})[id] || ((s.met || {})[id] && (story.companions || {})[id])); };
+    var who = function (word) { var hit = null; forms.some(function (f) { if (word === f[0] || word.indexOf(f[0] + " ") === 0 || f[0].indexOf(word) === 0 && word.length >= 3 && f[0].charAt(word.length) === " ") { hit = f[1]; return true; } return false; }); return hit && known(hit) ? hit : null; };
+    var namesIn = function (t) { var ids = []; forms.forEach(function (f) { if (!known(f[1])) return; var i = t.indexOf(f[0]); if (i >= 0 && !/[A-Za-zÀ-ÿ]/.test(t.charAt(i - 1) || " ") && !/[A-Za-zÀ-ÿ]/.test(t.charAt(i + f[0].length) || " ")) ids.push([i, f[1], f[0]]); }); ids.sort(function (a, b) { return a[0] - b[0]; }); namesIn.first = ids.length ? ids[0][2] : null; return ids.map(function (x) { return x[1]; }); };
+    var pronoun = function (pr) {
+      var fem = pr === "elle", fits = function (id) { var g = femOf(story, id); return g == null || g === fem; };
+      if (lastOther && fits(lastOther)) return lastOther;
+      for (var k = named.length - 1; k >= 0; k--) if (fits(named[k])) return named[k];
+      return null;
+    };
+    [].concat(texts || []).forEach(function (raw, i) {
+      raw = String(raw); var t = unveil(plainOf(story, s, raw)), res = null;
+      var quotes = t.match(/«[^»]*»?/g) || [], outside = t.replace(/«[^»]*»?/g, " « » ");
+      var speech = quotes.some(function (q) { return /[.?!…]/.test(q) || q.split(/\s+/).length - 2 >= SPEECH_MIN_WORDS; });
+      var forced = /\{\{dit:([^{}|]+)\}\}/.exec(raw);
+      if (forced) res = forced[1] === "aucun" ? null : forced[1] === "heros" || forced[1] === s.lead ? "heros" : forced[1];
+      else if (speech) {
+        var q0 = t.indexOf("«"), q1 = t.indexOf("»", q0); if (q1 < 0) q1 = t.length;
+        // an incise of the first words said (« …, dit Brune, … », « … », dit-il, « …, demandes-tu »): the earliest
+        var hit = null;
+        [["named", SAY_RE.named], ["pron", SAY_RE.pron], ["hero", SAY_RE.hero]].forEach(function (k) {
+          var re = new RegExp(k[1].source, "g"), m;
+          while ((m = re.exec(t))) { if (m.index > q1 + INCISE_REACH) break; if (m.index < q0) continue; if (k[0] === "named" && !who(m[1])) continue; if (!hit || m.index < hit.at) hit = { at: m.index, kind: k[0], m: m }; break; }
+        });
+        // else the narration next to the first words: the sentence that leads to them, or the one that follows
+        var sentences = function (x) { return x.split(/[.!?…;]\s|[.!?…;]$/).map(function (y) { return y.trim(); }).filter(Boolean); };
+        var lead = sentences(t.slice(0, q0)).pop() || "", after = sentences(t.slice(q1 + 1).replace(/«[\s\S]*$/, ""))[0] || "";
+        namesIn(t.slice(0, q0)).forEach(function (id) { named = named.filter(function (x) { return x !== id; }); named.push(id); });
+        var bySentence = function (seg) {
+          if (!seg) return undefined;
+          var ids = namesIn(seg), sub = /(^|[^A-Za-zÀ-ÿ])(tu|t['’]|il|elle)(?![A-Za-zÀ-ÿ])/i.exec(seg), at = sub ? sub.index : Infinity, idAt = ids.length ? seg.indexOf(namesIn.first) : Infinity;
+          if (ids.length && idAt <= at) return ids[0];
+          if (sub) return /^t/i.test(sub[2]) ? "heros" : pronoun(sub[2].toLowerCase());
+          return undefined;
+        };
+        if (hit) res = hit.kind === "named" ? who(hit.m[1]) : hit.kind === "hero" ? "heros" : pronoun(hit.m[1]);
+        else if (lead) { var r1 = bySentence(lead); res = r1 === undefined ? null : r1; }
+        else if (after) { var r2 = bySentence(after); res = r2 === undefined ? null : r2; }
+        else if (last) res = last === "heros" ? lastOther : "heros";
+      }
+      namesIn(outside).forEach(function (id) { named = named.filter(function (x) { return x !== id; }); named.push(id); });
+      out.push(forced || speech ? res : null);
+      if (forced || speech) { last = res; if (res && res !== "heros") lastOther = res; }
+      else last = null;
+    });
     return out;
   }
   // A face said in words (when the story wrote no visage): hair and how it is worn, beard, marks.
@@ -3999,7 +4079,7 @@
 
   var API = {
     FACE: FACE, FACE_KEYS: FACE_KEYS, ASPECT_KEYS: ASPECT_KEYS, ASPECT_MAX_WORDS: ASPECT_MAX_WORDS, personOf: personOf, aspectOf: aspectOf, quiOf: quiOf, nameForms: nameForms, faceErrors: faceErrors, REGARDS: REGARDS, mysterySolved: mysterySolved, happened: happened, TAVERN_GAMES_PER_DAY: TAVERN_GAMES_PER_DAY,
-    ARCHS: ARCHS, archOf: archOf, usesOf: usesOf, plainOf: plainOf, marksOf: marksOf, TEXT_FX: TEXT_FX, MARK_KINDS: MARK_KINDS, MOODS: MOODS, keywordsOf: keywordsOf, keywordFor: keywordFor, trouve: trouve, moodOf: moodOf, TECHS: TECHS, techsOf: techsOf, partyView: partyView, cpv: cpv, cpvMax: cpvMax, FRONT: FRONT, DOMAINS: DOMAINS, EP: EP, EP_PER_LEVEL: EP_PER_LEVEL, MAX_LEVEL: MAX_LEVEL, DIFFS: DIFFS, LOYAL_AT: LOYAL_AT, SUCCESS: SUCCESS, STEP_HOURS: STEP_HOURS,
+    ARCHS: ARCHS, archOf: archOf, usesOf: usesOf, plainOf: plainOf, marksOf: marksOf, speakers: speakers, femOf: femOf, TEXT_FX: TEXT_FX, MARK_KINDS: MARK_KINDS, MOODS: MOODS, keywordsOf: keywordsOf, keywordFor: keywordFor, trouve: trouve, moodOf: moodOf, TECHS: TECHS, techsOf: techsOf, partyView: partyView, cpv: cpv, cpvMax: cpvMax, FRONT: FRONT, DOMAINS: DOMAINS, EP: EP, EP_PER_LEVEL: EP_PER_LEVEL, MAX_LEVEL: MAX_LEVEL, DIFFS: DIFFS, LOYAL_AT: LOYAL_AT, SUCCESS: SUCCESS, STEP_HOURS: STEP_HOURS,
     setRng: setRng, setDice: setDice, nudgeOf: nudgeOf, ambianceOf: ambianceOf, AMBIANCES: AMBIANCES, isNightNow: function (s) { var h = s.time % 24; return h >= NIGHT_FROM || h < NIGHT_TO; }, DIFFICULTY: DIFFICULTY, featsOf: featsOf, endingsOf: endingsOf, endingOf: endingOf, fatesOf: fatesOf, fateCount: fateCount, freshState: freshState, level: level, pvMax: pvMax, bonus: bonus, chance: chance, rollTest: rollTest,
     readingOf: readingOf, recalled: recalled, pocketOf: pocketOf, puzzleMatch: puzzleMatch, evalCond: evalCond, describeCond: describeCond, textList: textList, view: view, allowed: allowed, target: target,
     depotTag: depotTag, depotFits: depotFits, depotPuts: depotPuts, depotTakes: depotTakes, chroniquesOf: chroniquesOf, DEPOT_FLAG: DEPOT_FLAG, stockShown: stockShown,

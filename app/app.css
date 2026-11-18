@@ -1317,3 +1317,41 @@ button.pp.pp-face-btn { border-bottom: 0; display: inline-flex; align-items: cen
 :root[data-style="carnet"] .adult-tag { background: none; color: var(--red-ink); border: 2.5px solid currentColor; outline: 1px solid currentColor; outline-offset: 2px;
   border-radius: 4px; padding: 5px 10px 4px; font: 700 13px/1 var(--title); letter-spacing: .14em; transform: rotate(-4deg); margin: 4px 0 2px 4px;
   -webkit-mask: var(--worn); mask: var(--worn); }
+
+/* Faces in the dialogue (18/11): the face of who speaks at the first words, turned towards the other. A small
+   medallion in the line by default; in the margins of the page where they are wide enough (Talk in app.js). */
+.say-face { display: contents; }
+.say-big { display: none; }
+.say-mini { display: inline-block; width: 30px; height: 30px; vertical-align: -9px; margin-right: .35em; }
+.say-mini svg, .say-big svg, .say-band-face svg { display: block; width: 100%; height: auto; }
+.say-big::after, .say-band-face::after { content: attr(data-name); display: block; text-align: center; margin-top: 2px; font: 600 17px/1 var(--hand, cursive); color: var(--accent); overflow-wrap: anywhere; }
+:root[data-style="carnet"] .say-big::after, :root[data-style="carnet"] .say-band-face::after { color: var(--red-ink, var(--accent)); }
+:root { --say-m: 100px; --say-w: 84px; }
+@media (min-width: 760px) {
+  :root[data-visages="repliques"]:not([data-spread="auto"]) .page.read { max-width: calc(40rem + 2 * var(--say-m)); padding-inline: calc(clamp(18px, 5vw, 48px) + var(--say-m)); }
+  :root[data-visages="repliques"]:not([data-spread="auto"]) .say { position: relative; }
+  :root[data-visages="repliques"]:not([data-spread="auto"]) .say-mini { display: none; }
+  :root[data-visages="repliques"]:not([data-spread="auto"]) .say-big { display: block; position: absolute; top: .1em; width: var(--say-w); }
+  :root[data-visages="repliques"]:not([data-spread="auto"]) .say-l .say-big { left: calc(-1 * var(--say-m)); }
+  :root[data-visages="repliques"]:not([data-spread="auto"]) .say-r .say-big { right: calc(-1 * var(--say-m)); }
+}
+/* With two pages side by side allowed: the margins only while the screen shows one page. */
+@media (min-width: 760px) and (max-width: 999px), (min-width: 760px) and (orientation: portrait) {
+  :root[data-visages="repliques"][data-spread="auto"] .page.read { max-width: calc(40rem + 2 * var(--say-m)); padding-inline: calc(clamp(18px, 5vw, 48px) + var(--say-m)); }
+  :root[data-visages="repliques"][data-spread="auto"] .say { position: relative; }
+  :root[data-visages="repliques"][data-spread="auto"] .say-mini { display: none; }
+  :root[data-visages="repliques"][data-spread="auto"] .say-big { display: block; position: absolute; top: .1em; width: var(--say-w); }
+  :root[data-visages="repliques"][data-spread="auto"] .say-l .say-big { left: calc(-1 * var(--say-m)); }
+  :root[data-visages="repliques"][data-spread="auto"] .say-r .say-big { right: calc(-1 * var(--say-m)); }
+}
+.say-band { display: flex; justify-content: center; align-items: flex-end; gap: clamp(22px, 9vw, 90px); margin: 14px 0 0; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+.say-band-face { width: 76px; }
+@media (max-width: 520px) { .say-band-face { width: 64px; } .say-band { gap: 18px; } }
+/* Two pages side by side: the face set into the column, on the side it looks from. */
+@media (min-width: 1000px) and (orientation: landscape) {
+  :root[data-visages="repliques"][data-spread="auto"] .page.read .say-mini { display: none; }
+  :root[data-visages="repliques"][data-spread="auto"] .page.read .say-big { display: block; width: 66px; margin-top: .25em; }
+  :root[data-visages="repliques"][data-spread="auto"] .page.read .say-l .say-big { float: left; margin-right: 14px; }
+  :root[data-visages="repliques"][data-spread="auto"] .page.read .say-r .say-big { float: right; margin-left: 14px; }
+  :root[data-visages="repliques"][data-spread="auto"] .page.read .say-big::after { font-size: 15px; }
+}
