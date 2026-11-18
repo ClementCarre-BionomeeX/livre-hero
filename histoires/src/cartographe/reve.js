@@ -66,6 +66,7 @@ module.exports = {
       { label: "Monter vers la femme aux ailes blanches", to: "A_voiliere" },
       { label: "Regarder de près un des corps couchés", hide: { seen: "A_corps" }, to: "A_corps" },
       { label: "Compter les collines de draps", if: { seen: "A_corps" }, hide: { seen: "A_lits" }, to: "A_lits" },
+      { back: "A_encre" },
     ] },
 
   A_corps: { act: "I", title: "Le dormeur", place: "cloches", second: false,
@@ -107,6 +108,7 @@ module.exports = {
     choices: [
       { label: "Lui demander ce qu'il craint", to: "A_roi" },
       { label: "Regarder les statues de sel", hide: { seen: "A_statues" }, to: "A_statues" },
+      { back: "A_encre" },
     ] },
 
   A_statues: { act: "I", title: "Les sujets de sel", place: "sel", second: false,
@@ -149,6 +151,7 @@ module.exports = {
       { label: "Le laisser ouvrir son cadran", to: "A_cadran" },
       { label: "Lire le registre ouvert sur le pupitre", hide: { seen: "A_registre" }, to: "A_registre" },
       { label: "Descendre voir le balancier", hide: { seen: "A_balancier" }, to: "A_balancier" },
+      { back: "A_encre" },
     ] },
 
   A_cadran: { act: "I", title: "Le cadran", place: "horloge", second: false, puzzle: "f3",
@@ -220,6 +223,7 @@ module.exports = {
     choices: [
       { label: "Lui demander le chemin de la brume", to: "A_rameur" },
       { label: "Suivre des yeux les hérons qui passent", hide: { seen: "A_herons_vol" }, to: "A_herons_vol" },
+      { back: "A_encre" },
     ] },
 
   A_rameur: { act: "I", title: "Le mot", place: "pendu", second: false, puzzle: "f6",
