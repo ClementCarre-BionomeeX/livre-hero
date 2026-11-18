@@ -16,7 +16,7 @@ module.exports = {
       choices: [{ label: "« Qu'est-ce qui vous est arrivé ? »", to: "XI_i_brule" }] },
     XI_i_brule: { act: "IV", title: "Le soleil", place: "cabane", ambiance: "nature",
       text: [
-        "« Le soleil, dit-il. Le soleil, mon petit. J'ai traversé l'océan pour lui. J'ai eu froid quatre ans, à Morlenc, à grelotter dans mes greniers, à rêver de lui. Et il est là. Et il me traverse. »",
+        "« Le soleil, dit-il. Le soleil, mon enfant. J'ai traversé l'océan pour lui. J'ai eu froid quatre ans, à Morlenc, à grelotter dans mes greniers, à rêver de lui. Et il est là. Et il me traverse. »",
         "Il rit, et le rire lui fait mal, et les cloques tremblent dans l'air.",
         "« Une peau sans couleur, vois-tu, ne se défend pas. La couleur, c'est une armure. Je l'ai enlevée, la mienne, pour qu'on ne me voie plus, et je n'avais pas pensé que le soleil, lui, me verrait. Il me voit très bien. Il me cuit. Je suis descendu à terre avec la corvée d'eau, je me suis couché sur le sable, nu, les bras en croix, pour la première fois depuis quatre ans, et je me suis endormi. Quand je me suis réveillé, je brûlais. »",
         "Une cloque, sur ce qui doit être son épaule, crève, et une goutte de liquide clair coule dans l'air, et tombe dans la vase.",

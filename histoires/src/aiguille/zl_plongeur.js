@@ -28,7 +28,7 @@ module.exports = {
       text: [
         "Tu reviens. Il t'attend, le deuxième jour, assis à l'entrée du tube, peigné, la barbe lavée à l'eau de mer, ce qui lui donne l'air d'un prophète qui se serait mis en frais. Il te raconte les bancs de perles du Couchant, les plongées à quinze brasses, une pierre aux pieds, le cœur qui cogne dans les oreilles, les huîtres grandes comme des assiettes qu'on ouvre au couteau sur le pont, par centaines, pour trouver une perle dans la centième. Il te montre comment retenir son souffle. Tu tiens une minute. Il en tenait trois.",
         "Le troisième jour, il te montre la bourse. Il la sort d'une fente de la roche, derrière son lit. Une bourse de peau de requin, et dedans, quand il la renverse dans le creux de sa main, une poignée de perles noires, une trentaine, rondes, lourdes, avec ce lustre de nuit qui semble venir du dedans, comme un œil. Il les fait rouler. Il dit qu'avec une seule de ces perles on achète une maison à Morlenc. Avec toutes, une rue.",
-        "« Je n'ai pas de rue à acheter, dit-il. J'ai un trou. » Il te regarde, de ses yeux rouges. « Toi, petit, ton navire, il repasse par ici, au retour ? »",
+        "« Je n'ai pas de rue à acheter, dit-il. J'ai un trou. » Il te regarde, de ses yeux rouges. « Toi, mousse, ton navire, il repasse par ici, au retour ? »",
         "Tu sais ce que le baron veut que tu répondes. Tu sais aussi que la Cormorane ne prendra pas à bord un homme dont la plaie empeste, pas plus que la goélette ; la capitaine Ribaud a refusé la semaine dernière un mouton malade, à Brisegrève, pour moins que ça. Le baron le sait aussi. Il n'a jamais été question de le ramener.",
       ],
       choices: [

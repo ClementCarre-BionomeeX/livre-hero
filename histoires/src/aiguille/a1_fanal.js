@@ -273,7 +273,7 @@ module.exports = {
       text: [
         { if: { has: "hulotte:trompee" }, text: "Il vient pourtant, deux jours plus tard. Le mensonge a acheté deux jours, et rien de plus : on ne trompe pas longtemps ceux qui ont le temps." },
         "Il entre à la tombée du jour, avec deux hommes qui restent sur le seuil comme des chiens bien dressés. C'est un homme trapu, aux épaules de bœuf, sanglé dans une redingote de capitaine bleu nuit à boutons dorés, trop belle pour lui, qui a dû appartenir à quelqu'un de plus mince et de moins vivant. Son visage est criblé de petite vérole, grêlé comme une pierre sous l'averse, et une barbe rousse n'en cache qu'une partie. Quand il sourit, une dent d'or s'allume.",
-        "Il s'assied à la meilleure table, croise les jambes et dit d'une voix très douce, presque tendre : « Un verre de ton meilleur, petit. Et va dire à Ignace qu'un vieil ami l'attend. Dis-lui : Sabran. Il comprendra. »",
+        "Il s'assied à la meilleure table, croise les jambes et dit d'une voix très douce, presque tendre : « Un verre de ton meilleur, mon enfant. Et va dire à Ignace qu'un vieil ami l'attend. Dis-lui : Sabran. Il comprendra. »",
         "Ton père, derrière le comptoir, a cessé d'essuyer sa chope.",
       ],
       choices: [
@@ -292,7 +292,7 @@ module.exports = {
     A1_sab_tison: { act: "I", title: "Le Grêlé", place: "fanal_salle",
       text: [
         "Tu poses la main sur le tisonnier, l'air de rien, comme pour arranger une bûche. Sabran te regarde faire avec un intérêt amusé.",
-        "« Tu as raison, petit, dit-il. Le feu, il faut s'en occuper. Sinon il fait des bêtises. » Il boit. « Mais tu tiens ce tisonnier comme une fourchette. Mets ton pouce dessus. Là. Voilà. Maintenant tu pourrais faire mal à quelqu'un. »",
+        "« Tu as raison, mon enfant, dit-il. Le feu, il faut s'en occuper. Sinon il fait des bêtises. » Il boit. « Mais tu tiens ce tisonnier comme une fourchette. Mets ton pouce dessus. Là. Voilà. Maintenant tu pourrais faire mal à quelqu'un. »",
         "C'est à ce moment que le Gabier descend l'escalier. Personne ne l'a prévenu. Il a entendu. Les vieux marins entendent leur nom à travers trois ponts et un ouragan.",
       ],
       choices: [{ label: "Serrer le tisonnier", to: "A1_sab_face" }] },

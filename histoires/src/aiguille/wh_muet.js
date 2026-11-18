@@ -14,13 +14,36 @@ module.exports = {
         "Elle aboie. Elle aboie la nuit, à la lune, aux chauves-souris, au vent dans le rideau de la cascade, d'un petit aboiement aigu, joyeux, qui porte loin dans la forêt, beaucoup plus loin qu'on ne croirait. Goulven ne l'entend pas. Tous les autres l'entendent. Et, en bas, sous la forêt, les mutins de Fargue chassent le cochon sauvage depuis trois jours, de plus en plus près.",
       ],
       choices: [{ label: "S'asseoir près du feu, où l'on discute à voix basse", to: "WH_ordre" }] },
-    WH_ordre: { act: "IV", title: "Le chiot du muet", place: "sylve", ambiance: "nuit",
+    WH_gorge: { act: "IV", title: "Le chiot du muet", place: "sylve", ambiance: "nuit",
       text: [
-        "Jeanne Brasdefer a écouté tout le monde, longtemps, sans rien dire, comme elle fait toujours. Puis elle a tranché. Elle le dit à Victorine sans baisser la voix, puisque celui qu'elle condamne ne l'entendra pas. « Douze ans que nous vivons derrière cette eau sans que personne ne sache où. Douze ans de silence, médecin. Les enfants ici ont appris à pleurer sans bruit avant d'apprendre à parler. Et une chienne de dix jours va nous faire égorger, tous, pour une lune. Demain à l'aube, Goulven la noiera dans la vasque. »",
-        "Elle va vers Goulven. Elle s'accroupit devant lui. Ils ont un langage à eux, de gestes, de mimiques, de doigts posés sur la paume. Victorine regarde Jeanne le lui dire : la main sur la bouche, le doigt vers la forêt, le geste de l'égorgement, puis les deux mains qui plongent dans une eau invisible, et qui tiennent, et qui serrent. Goulven regarde les mains. Il regarde le chiot, qui dort sur son pied. Il regarde Jeanne. Il hoche la tête, une fois, lentement, comme un homme qui comprend une chose qu'il savait.",
-        "Puis il prend le chiot dans ses bras, et il va s'asseoir contre la paroi, à l'écart, et il reste là, sans bouger, à le regarder dormir, avec son sourire tranquille, qui ne change pas. C'est ce sourire que Victorine ne supporte pas.",
+        "Goulven lève les yeux quand Victorine s'assied à côté de lui, et il lui fait de la place, poliment, en se poussant contre la roche humide. Il ne cache pas la chienne. Il la lui montre, au contraire, en écartant un peu ses grandes mains, comme on montre un trésor à quelqu'un qu'on estime : regarde. La petite bête dort, roulée en boule, le museau dans la queue, et ses côtes se soulèvent très vite, comme chez tous les petits.",
+        "Elle se réveille. Elle bâille, d'un bâillement immense pour sa taille, qui découvre une langue rose et des dents comme des grains de riz. Elle voit la lueur du feu, au loin, sur la paroi. Elle se dresse sur ses pattes de devant, les oreilles en avant. Et Goulven fait alors une chose que Victorine n'oubliera pas. Il pose, très doucement, deux doigts à plat sur la gorge de la chienne.",
+        "La chienne aboie. Un petit aboiement aigu, joyeux, qui claque contre la roche et que toute la grotte entend. Les têtes se tournent. Jeanne, près du feu, se lève à demi. Goulven, lui, n'a rien entendu. Il a senti. Ses doigts ont reçu la vibration de la gorge, et son visage s'éclaire, tout entier, d'un émerveillement d'enfant, comme si on venait de lui faire entendre de la musique pour la première fois.",
+        "Il regarde Victorine, avec ce visage-là, pour qu'elle partage. Il pose la main de Victorine, à son tour, sur la gorge de la chienne. La chienne aboie encore. Victorine sent le petit tremblement sous ses doigts, chaud, rapide, vivant. Goulven hoche la tête, très content : tu vois. Victorine retire sa main. Elle comprend qu'on va demander à cet homme de noyer la seule voix qu'il ait jamais entendue.",
       ],
       choices: [
+        { back: "WH_ordre", label: "Se relever, et regarder vers le feu" }
+      ] },
+    WH_meute: { act: "IV", title: "Le chiot du muet", place: "sylve", ambiance: "nuit",
+      text: [
+        "La sentinelle de la cascade est une femme maigre, au visage taillé à la serpe, qui se tient assise sur une saillie de roche, derrière le rideau d'eau, avec un mousquet en travers des genoux. De là, à travers l'eau qui tombe, on voit la forêt d'en bas comme à travers une vitre qui ruisselle : des masses noires, mouvantes, et, très loin, entre les troncs, deux ou trois points rouges qui s'allument et s'éteignent.",
+        "La sentinelle dit que ce sont les torches des mutins. Ils chassent la nuit, depuis une semaine. Elle dit qu'ils sont plus près que la semaine dernière. Elle ne dit pas cela pour faire peur. Elle le dit comme on donne la hauteur de la marée. Puis elle lève un doigt. Écoute.",
+        "Victorine écoute. Le fracas de la cascade, d'abord, qui couvre tout. Puis, derrière, la forêt. Un cri d'oiseau de nuit. Le vent. Et, très loin, une plainte longue, montante, qui se reprend, et à laquelle d'autres plaintes répondent, de proche en proche, sur la pente, comme un chœur qui s'accorde dans une église obscure. La meute. Victorine sent ses cheveux se hérisser sur sa nuque.",
+        "Puis, derrière elle, dans la grotte, la petite chienne aboie, une fois, deux fois, à la lune. La sentinelle ne bouge pas. Elle dit seulement, à voix basse, sans quitter la forêt des yeux : « La meute lui a répondu, hier soir. Elle l'a reconnue. » En bas, entre les troncs, un des points rouges s'arrête, et reste immobile, très longtemps.",
+      ],
+      choices: [
+        { back: "WH_ordre", label: "Revenir dans la grotte, vers le feu" }
+      ] },
+    WH_ordre: { act: "IV", title: "Le chiot du muet", place: "sylve", ambiance: "nuit",
+      text: [
+        { first: true, text: "Jeanne Brasdefer a écouté tout le monde, longtemps, sans rien dire, comme elle fait toujours. Puis elle a tranché. Elle le dit à Victorine sans baisser la voix, puisque celui qu'elle condamne ne l'entendra pas. « Douze ans que nous vivons derrière cette eau sans que personne ne sache où. Douze ans de silence, médecin. Les enfants ici ont appris à pleurer sans bruit avant d'apprendre à parler. Et une chienne de dix jours va nous faire égorger, tous, pour une lune. Demain à l'aube, Goulven la noiera dans la vasque. »" },
+        { first: true, text: "Elle va vers Goulven. Elle s'accroupit devant lui. Ils ont un langage à eux, de gestes, de mimiques, de doigts posés sur la paume. Victorine regarde Jeanne le lui dire : la main sur la bouche, le doigt vers la forêt, le geste de l'égorgement, puis les deux mains qui plongent dans une eau invisible, et qui tiennent, et qui serrent. Goulven regarde les mains. Il regarde le chiot, qui dort sur son pied. Il regarde Jeanne. Il hoche la tête, une fois, lentement, comme un homme qui comprend une chose qu'il savait." },
+        { first: true, text: "Puis il prend le chiot dans ses bras, et il va s'asseoir contre la paroi, à l'écart, et il reste là, sans bouger, à le regarder dormir, avec son sourire tranquille, qui ne change pas. C'est ce sourire que Victorine ne supporte pas." },
+        { again: true, text: "Goulven, contre la paroi, regarde dormir la chienne avec son sourire tranquille." }
+      ],
+      choices: [
+        { label: "S'asseoir près de Goulven, contre la paroi, et regarder la chienne", to: "WH_gorge", hide: { seen: "WH_gorge" } },
+        { label: "Aller écouter la forêt, au bord de la cascade, avec la sentinelle", to: "WH_meute", hide: { seen: "WH_meute" } },
         { label: "Aller trouver Jeanne, et plaider pour la chienne", fx: { flag: "wh:plaide" }, to: "WH_plaide" },
         { label: "Proposer de lui couper la voix, d'un coup de scalpel", fx: { flag: "wh:voix" }, to: "WH_voix" },
         { label: "Dire à Jeanne que tu l'emportes, quand tu redescendras à la chapelle", fx: { flag: "wh:emmene" }, to: "WH_emmene" },

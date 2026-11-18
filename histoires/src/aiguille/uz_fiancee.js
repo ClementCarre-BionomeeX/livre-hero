@@ -39,15 +39,38 @@ module.exports = {
         "Il reste la lettre cachetée, pour Amélie Kerdudal, et les derniers mots. On viendra les lui demander. On demande toujours les derniers mots. Elle s'habille, elle met la lettre dans son sac, et elle monte vers la haute ville, sous une pluie fine, en préparant des phrases qu'elle ne dira pas.",
       ],
       choices: [{ label: "Monter rue des Juges, chez Mademoiselle Kerdudal", to: "UZ_amelie" }] },
-    UZ_amelie: { act: "II", title: "Les derniers mots du capitaine Audren", place: "haute_ville", ambiance: "ville",
+    UZ_portrait: { act: "II", title: "Les derniers mots du capitaine Audren", place: "haute_ville", ambiance: "ville",
       text: [
-        "La maison est haute et étroite, en granit gris, avec un rideau de dentelle à chaque fenêtre. Mademoiselle Amélie Kerdudal reçoit Victorine dans un salon où rien n'a bougé depuis dix ans, à en juger par la couleur des tentures. Elle a trente-deux ans. Elle est vêtue de noir. Elle sait déjà : on le lui a dit ce matin, au port. Elle se tient très droite, avec un visage d'une beauté fatiguée, et des yeux qui n'ont pas pleuré, parce qu'elle a fini ses larmes, dit-elle, il y a longtemps, à force d'attendre.",
-        "Elle prend la lettre. Elle ne l'ouvre pas. Elle la pose sur ses genoux. Elle dit qu'elle a toutes les autres, cent vingt, rangées par date dans un coffret de bois de rose. Elle dit qu'elles sont belles. Il parlait du fleuve, des oiseaux, des enfants des villages qui couraient après sa pirogue. Il disait qu'il faisait du bien, là-bas. Il disait qu'il revenait bientôt. Elle dit qu'elle le croyait. Elle dit qu'elle le croit encore.",
-        { if: { seen: "UZ_lu" }, text: "Victorine pense aux enfants des villages. Elle pense à la date d'une lettre, dans le carnet, le lendemain d'un incendie. Elle se demande laquelle de ces cent vingt lettres porte cette date. Elle sent ses mains devenir froides." },
-        { if: { seen: "UZ_brule" }, text: "Victorine pense aux enfants des villages. Elle pense aux cases, et aux feux, et à une écriture régulière qui a noirci dans un poêle avant qu'elle puisse la lire. Elle ne sait rien. Elle sait trop." },
-        "Puis Amélie Kerdudal lève vers elle ses yeux secs, et lui pose la question. Elle dit qu'elle sait qu'il est mort la nuit, et que Victorine était là. Elle demande quels ont été ses derniers mots.",
+        "Au-dessus de la cheminée, dans un cadre doré que personne n'a laissé ternir, un jeune homme en uniforme de la Compagnie, la main sur un globe, regarde un peu au-dessus de la tête des visiteurs, avec cet air de promettre quelque chose au plafond qu'ont tous les portraits de départ. Vingt-cinq ans. Des cheveux blonds, une bouche généreuse, un menton de bon élève. Le peintre a mis dans ses yeux une lumière bleue de bon augure.",
+        "Victorine le regarde, et elle revoit l'homme qu'elle a veillé trois nuits : la peau jaune tendue sur les pommettes, les cheveux blancs collés de sueur, les mains qui griffaient le drap, les yeux grands ouverts sur des choses qu'il était seul à voir. Elle cherche, d'un visage à l'autre, un trait commun. Elle trouve le menton. Il avait gardé le menton.",
+        "Sous le portrait, sur le piano fermé, une partition ouverte, jaunie, aux coins roulés par l'humidité. Une romance à deux voix. Les deux voix sont annotées au crayon, deux écritures différentes, des respirations, des nuances, un « plus doux ici » d'une main de jeune fille, et, d'une main d'homme, en marge de la dernière mesure, une petite étoile.",
+        "Amélie Kerdudal suit son regard. Elle dit qu'ils l'ont chantée la veille de son départ. Elle dit qu'elle n'a jamais refermé le cahier. Elle dit que la servante a le droit d'épousseter le piano, mais qu'elle n'a pas le droit de toucher à la page. Elle dit cela avec un sourire bref, comme on avoue une petite folie qu'on a décidé de garder. Victorine regarde l'étoile, et elle ne dit rien.",
       ],
       choices: [
+        { back: "UZ_amelie", label: "Revenir s'asseoir en face d'elle" }
+      ] },
+    UZ_servante: { act: "II", title: "Les derniers mots du capitaine Audren", place: "haute_ville", ambiance: "ville",
+      text: [
+        "La servante est une vieille femme en coiffe, au visage plissé comme une pomme d'hiver, qui reconduit Victorine dans l'entrée pour qu'elle reprenne son manteau, et qui, au lieu de le lui tendre, le garde contre elle, en le pliant et en le dépliant. Elle parle très vite, très bas, comme on vide une bouteille avant qu'on vous l'arrache.",
+        "Dix ans, dit-elle. Trois prétendants, trois bons partis, renvoyés. Un notaire, un capitaine du port, un veuf très riche de la place du Change, qui revenait chaque année au premier de l'an, avec un bouquet, et qui a fini par épouser une cousine. Mademoiselle allait au port chaque fois qu'un navire de la Compagnie entrait. Chaque fois. Elle a compté, un jour : cent quarante navires. Elle mettait sa robe grise, celle qu'il aimait.",
+        "Elle dit que Mademoiselle a brodé son trousseau la première année. Puis qu'elle l'a défait, la quatrième, parce que les modes avaient changé, et qu'elle l'a rebrodé. Puis défait encore, la huitième, parce qu'elle avait maigri. Elle dit qu'il dort dans un coffre, au grenier, le troisième trousseau, et qu'il ne servira plus, sauf à l'enterrer, peut-être.",
+        "Puis la servante lève les yeux, et elle dit, d'une voix soudain dure : « Les lettres étaient belles, madame. Toutes. Elle me les lisait, le soir. Je ne sais pas lire. Si vous avez quelque chose à lui dire qui n'est pas beau, dites-le-moi d'abord, à moi, que je sache où mettre mes mains. » Elle rend enfin le manteau. Elle ne bouge pas de l'entrée.",
+      ],
+      choices: [
+        { back: "UZ_amelie", label: "Retourner au salon, où Amélie Kerdudal attend" }
+      ] },
+    UZ_amelie: { act: "II", title: "Les derniers mots du capitaine Audren", place: "haute_ville", ambiance: "ville",
+      text: [
+        { first: true, text: "La maison est haute et étroite, en granit gris, avec un rideau de dentelle à chaque fenêtre. Mademoiselle Amélie Kerdudal reçoit Victorine dans un salon où rien n'a bougé depuis dix ans, à en juger par la couleur des tentures. Elle a trente-deux ans. Elle est vêtue de noir. Elle sait déjà : on le lui a dit ce matin, au port. Elle se tient très droite, avec un visage d'une beauté fatiguée, et des yeux qui n'ont pas pleuré, parce qu'elle a fini ses larmes, dit-elle, il y a longtemps, à force d'attendre." },
+        { first: true, text: "Elle prend la lettre. Elle ne l'ouvre pas. Elle la pose sur ses genoux. Elle dit qu'elle a toutes les autres, cent vingt, rangées par date dans un coffret de bois de rose. Elle dit qu'elles sont belles. Il parlait du fleuve, des oiseaux, des enfants des villages qui couraient après sa pirogue. Il disait qu'il faisait du bien, là-bas. Il disait qu'il revenait bientôt. Elle dit qu'elle le croyait. Elle dit qu'elle le croit encore." },
+        { first: true, if: { seen: "UZ_lu" }, text: "Victorine pense aux enfants des villages. Elle pense à la date d'une lettre, dans le carnet, le lendemain d'un incendie. Elle se demande laquelle de ces cent vingt lettres porte cette date. Elle sent ses mains devenir froides." },
+        { first: true, if: { seen: "UZ_brule" }, text: "Victorine pense aux enfants des villages. Elle pense aux cases, et aux feux, et à une écriture régulière qui a noirci dans un poêle avant qu'elle puisse la lire. Elle ne sait rien. Elle sait trop." },
+        { first: true, text: "Puis Amélie Kerdudal lève vers elle ses yeux secs, et lui pose la question. Elle dit qu'elle sait qu'il est mort la nuit, et que Victorine était là. Elle demande quels ont été ses derniers mots." },
+        { again: true, text: "Amélie Kerdudal attend, très droite, la lettre fermée sur ses genoux, et le salon garde ses dix ans de silence." }
+      ],
+      choices: [
+        { label: "Regarder le portrait, au-dessus de la cheminée", to: "UZ_portrait", hide: { seen: "UZ_portrait" } },
+        { label: "Demander à la vieille servante, dans l'entrée, comment ont passé ces dix ans", to: "UZ_servante", hide: { seen: "UZ_servante" } },
         { label: "Lui dire qu'il est mort en disant son nom", fx: { flag: "uz:ment" }, to: "UZ_ment" },
         { label: "Lui répéter ce qu'il a dit, mot pour mot", fx: { flag: "uz:verite" }, to: "UZ_verite" },
         { label: "Lui donner le carnet, et la laisser décider de le lire", fx: { flag: "uz:journal" }, to: "UZ_journal", if: { seen: "UZ_lu" }, why: "Elle a jeté le carnet au feu." },

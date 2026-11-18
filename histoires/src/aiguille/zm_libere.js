@@ -15,14 +15,37 @@ module.exports = {
         "« Tu es du navire, dit-il, sans te regarder. Il y a des places, dans ton navire ? Des petites. Pas plus grandes que ça. » Il écarte les mains, de la largeur d'un cachot.",
       ],
       choices: [{ label: "T'asseoir à côté de lui", to: "ZM_parle" }] },
-    ZM_parle: { act: "III", title: "Le libéré de Brisegrève", place: "brisegreve", ambiance: "mer",
+    ZM_baluchon: { act: "III", title: "Le libéré de Brisegrève", place: "brisegreve", ambiance: "mer",
       text: [
-        "Il s'appelle Quéré. Il le dit lentement, comme un mot étranger qu'on vient de lui apprendre. Il a été condamné à vingt-deux ans, pour une grange brûlée, dans un pays dont il a oublié le nom du village ; on a ajouté neuf ans pour deux évasions, et il ne se souvient plus pourquoi il s'était évadé, ni de ce qu'il espérait trouver dehors.",
-        "Il te parle du fort. De sa case, au troisième étage de la tour du nord, avec une fenêtre large comme une main, d'où l'on voyait un carré de mer, toujours le même. De l'araignée qu'il avait au plafond, qui est morte la neuvième année, et qu'il n'a jamais remplacée parce qu'il ne voulait pas d'une autre. Du gardien Lhostis, qui lui apportait sa soupe depuis quinze ans et qui lui a serré la main ce matin, à la porte, en pleurant. Il te parle de tout ça comme on parle de sa maison.",
-        "« Dehors, dit-il, il y a trop de choses. Trop de côtés. On ne sait pas où regarder. Là-haut, il y avait le mur, le carré de mer, la soupe, la cloche. On savait. » Il regarde ses souliers neufs. « Ils m'ont donné quarante livres, ces souliers, et une adresse à Morlenc, une œuvre, des dames. Je ne sais pas ce que c'est, une œuvre. Je ne sais pas où c'est, Morlenc. »",
-        "Il regarde le fort. Une cloche sonne, là-haut, la soupe de midi. Il se lève à moitié, d'instinct, le dos courbé, la jambe droite qui traîne un peu, comme si le fer y était encore. Puis il se rassoit, très lentement, et cache son visage dans ses mains.",
+        "Il le défait sur ses genoux, avec des doigts gourds, comme on ouvre un paquet qu'on n'a pas fait soi-même. Un mouchoir à carreaux noué aux quatre coins. Dedans, une chemise neuve, pliée par une autre main que la sienne. Une bourse de toile, avec les quarante livres. Un papier plié, cacheté, avec un sceau rouge : son congé. Il le tient à l'envers. Il ne sait pas lire.",
+        "Et puis ses choses à lui. Une cuiller d'étain, tordue, usée d'un côté jusqu'à la moitié du cuilleron, à force de racler la même gamelle pendant trente et un ans. Il dit qu'on lui a permis de la garder. Il dit que c'est la seule chose du fort qu'on lui ait permis d'emporter, et qu'il ne sait pas manger avec une autre.",
+        "Un bâton de bois dur, long comme l'avant-bras, couvert d'entailles serrées, si serrées qu'elles font comme une écorce. Il dit que ce sont les jours. Il dit qu'il a fait une entaille chaque soir, pendant onze ans, puis qu'il a arrêté, parce que le bâton était plein, et qu'il n'a pas osé en demander un autre. Les vingt années suivantes, il ne les a pas comptées. Il dit qu'elles ont passé plus vite.",
+        "Il renoue le mouchoir, aux quatre coins, très soigneusement, et il le pose à ses pieds. Il dit que c'est tout. Il dit qu'il pensait avoir plus de choses, après trente et un ans. Il regarde ses mains vides, posées sur ses genoux, avec une sorte d'étonnement, comme si on venait de les lui rendre aussi, et qu'il ne savait pas encore à quoi elles servaient.",
       ],
       choices: [
+        { back: "ZM_parle", label: "Rester assis{e} près de lui, sur la jetée" }
+      ] },
+    ZM_sergent: { act: "III", title: "Le libéré de Brisegrève", place: "brisegreve", ambiance: "mer",
+      text: [
+        "Le sergent Quillévéré est de garde à la porte basse du fort, assis sur un banc de pierre, à l'ombre, sa pipe aux dents et son mousquet contre le mur. Il voit le petit point gris, au bout de la jetée, aussi bien que toi. Il dit qu'il l'a vu sortir ce matin. Il dit qu'il l'a vu entrer aussi, il y a trente et un ans. Il était tambour, à l'époque. Il avait douze ans.",
+        "Il dit que le deux cent onze était le meilleur prisonnier du fort. Le plus tranquille. Celui qui sonnait la cloche de la soupe, depuis vingt ans, parce qu'il sonnait à la seconde, sans jamais se tromper, mieux que l'horloge de la chapelle. Il dit que les recrues apprenaient l'heure en l'écoutant. Il dit qu'on ne sait pas qui la sonnera, maintenant.",
+        "Tu lui demandes ce qu'il avait fait. Le sergent fronce les sourcils. Il réfléchit. Il dit qu'il ne s'en souvient plus. Une grange, il croit, ou un moulin. Quelque chose qui a brûlé, dans un village de l'intérieur. Il dit que personne ne s'en souvient plus, au fort, même pas les officiers, même pas le registre, peut-être. Il dit qu'au bout d'un certain temps, un homme n'est plus là pour ce qu'il a fait. Il est là parce qu'il est là.",
+        "Puis il tire sur sa pipe, et il dit, sans te regarder, qu'il manque un allumeur de lanternes, sur le rempart, depuis l'automne. Il dit que ce n'est pas un travail pour un soldat. Il dit que c'est un travail pour un homme qui connaît les heures. Il souffle sa fumée vers la jetée, et il ne dit plus rien.",
+      ],
+      choices: [
+        { back: "ZM_parle", label: "Redescendre vers la jetée, où le vieil homme attend" }
+      ] },
+    ZM_parle: { act: "III", title: "Le libéré de Brisegrève", place: "brisegreve", ambiance: "mer",
+      text: [
+        { first: true, text: "Il s'appelle Quéré. Il le dit lentement, comme un mot étranger qu'on vient de lui apprendre. Il a été condamné à vingt-deux ans, pour une grange brûlée, dans un pays dont il a oublié le nom du village ; on a ajouté neuf ans pour deux évasions, et il ne se souvient plus pourquoi il s'était évadé, ni de ce qu'il espérait trouver dehors." },
+        { first: true, text: "Il te parle du fort. De sa case, au troisième étage de la tour du nord, avec une fenêtre large comme une main, d'où l'on voyait un carré de mer, toujours le même. De l'araignée qu'il avait au plafond, qui est morte la neuvième année, et qu'il n'a jamais remplacée parce qu'il ne voulait pas d'une autre. Du gardien Lhostis, qui lui apportait sa soupe depuis quinze ans et qui lui a serré la main ce matin, à la porte, en pleurant. Il te parle de tout ça comme on parle de sa maison." },
+        { first: true, text: "« Dehors, dit-il, il y a trop de choses. Trop de côtés. On ne sait pas où regarder. Là-haut, il y avait le mur, le carré de mer, la soupe, la cloche. On savait. » Il regarde ses souliers neufs. « Ils m'ont donné quarante livres, ces souliers, et une adresse à Morlenc, une œuvre, des dames. Je ne sais pas ce que c'est, une œuvre. Je ne sais pas où c'est, Morlenc. »" },
+        { first: true, text: "Il regarde le fort. Une cloche sonne, là-haut, la soupe de midi. Il se lève à moitié, d'instinct, le dos courbé, la jambe droite qui traîne un peu, comme si le fer y était encore. Puis il se rassoit, très lentement, et cache son visage dans ses mains." },
+        { again: true, text: "Quéré est assis sur sa bitte d'amarrage, le visage dans les mains, son baluchon à ses pieds, face au fort." }
+      ],
+      choices: [
+        { label: "Lui demander ce qu'il porte dans son baluchon", to: "ZM_baluchon", hide: { seen: "ZM_baluchon" } },
+        { label: "Aller demander au sergent de la porte qui était le deux cent onze", to: "ZM_sergent", hide: { seen: "ZM_sergent" } },
         { label: "L'emmener manger à la cantine, et lui montrer la mer, de l'autre côté de l'île", fx: { flag: "zm:repas" }, to: "ZM_repas" },
         { label: "Lui trouver une place sur la barque de pêche qui part ce soir pour la côte", fx: { flag: "zm:barque" }, to: "ZM_barque" },
         { label: "Le raccompagner jusqu'à la porte du fort, puisqu'il le demande", fx: { flag: "zm:porte" }, to: "ZM_porte" },

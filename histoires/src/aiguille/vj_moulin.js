@@ -14,14 +14,37 @@ module.exports = {
         "Ce samedi-là, tu pars avant l'aube, parce que ton père a besoin de toi au comptoir dans la matinée. Tu coupes par le bas, par la rivière, le long du nouveau moulin à eau du meunier Rannou, celui qui a coûté si cher et qui moud, dit-on, pour toute la côte. La porte de derrière est entrouverte. Dans la lueur grise, un vieil homme en sort, courbé sous un sac de farine, et charge le sac sur un âne. Il glisse une pièce dans la main du commis de Rannou. Il regarde autour de lui. L'âne s'appelle Monseigneur.",
       ],
       choices: [{ label: "Le suivre de loin, jusqu'à la falaise", to: "VJ_secret" }] },
-    VJ_secret: { act: "I", title: "Les ailes du père Gléau", place: "falaise", ambiance: "nature",
+    VJ_commis: { act: "I", title: "Les ailes du père Gléau", place: "falaise", ambiance: "nature",
       text: [
-        "Il monte à la falaise par le chemin creux, lentement, en parlant à son âne. Il entre dans son moulin. Tu attends. Une heure plus tard, il ressort, avec trois sacs neufs, marqués à son nom, *Gléau, moulin de la Falaise*, d'une belle peinture bleue. Il les charge sur Monseigneur. Il prend le chemin de Varnèse, où c'est jeudi tous les jours pour quelqu'un. Il chantonne.",
-        "Tu entres. La porte n'est pas fermée ; il n'y a rien à voler. En bas, la meule dormante est lisse comme un miroir, sans une rayure, sans un grain, avec une épaisse couche de poussière que personne n'a dérangée depuis des années. En haut, l'arbre tourne à vide, les engrenages tournent à vide, les ailes tournent à vide, et tout le moulin gémit et tremble comme une maison hantée, pour rien, pour le paysage, pour les pêcheurs qui rentrent. Dans un coin, il y a une pile de sacs de Rannou, vides, soigneusement pliés. Dans un autre, une boîte en fer-blanc, ouverte. Elle contient trois pièces.",
-        "Tu comprends. Il achète chez Rannou la farine qu'il revend comme la sienne, et il la revend moins cher qu'il ne l'achète, parce qu'il faut bien que les gens la prennent. Il fait ça depuis des années. La boîte en fer-blanc était pleine, un jour. Elle sera vide avant l'hiver. Sur le seuil, en sortant, tu marches sur quelque chose : la cruche de cidre de la semaine dernière, encore pleine, bouchée. Il ne la boit pas. Il la garde. Il y en a d'autres, derrière la porte, alignées.",
+        "Le moulin de Rannou, en bas, au bord de la rivière, ne ressemble à rien de ce que tu connais. Une grande bâtisse neuve, en pierre de taille, avec un toit d'ardoise bleue, une roue à aubes haute comme une maison qui tourne dans un fracas d'eau, et, à l'intérieur, un grondement continu de meules, si fort que le sol en tremble sous tes sabots. Tout est blanc : le seuil, les murs, les toiles d'araignée, les chats.",
+        "Le commis de la porte de derrière est un garçon de vingt ans, blanc de la tête aux pieds, qui fume une pipe éteinte sur un sac. Tu lui demandes, l'air de rien, pour le père Gléau. Il te regarde, il comprend que tu as vu, et il éclate de rire. Il dit que le vieux vient chaque semaine avant le jour, qu'il paie ses trois sacs au prix, rubis sur l'ongle, et qu'il lui glisse en plus une pièce, à lui, pour qu'il se taise.",
+        "Il dit que le patron ne sait rien. Il dit que le patron est trop occupé à moudre pour toute la côte, et à compter ce que ça lui rapporte. Il tire sur sa pipe éteinte. Il dit : « Le vieux me paie pour me taire, et le patron me paie pour moudre. Je fais les deux, et je suis payé deux fois. C'est le meilleur métier du pays. »",
+        "Puis il ajoute, sans rire cette fois, en regardant vers la falaise où l'on voit tourner les ailes au-dessus des arbres, que ça a commencé il y a quatre ans. La première semaine, dit-il, où la grande roue a tourné. Il dit qu'il a d'abord cru que le vieux était fou. Il dit qu'il a compris plus tard. Il dit que le jour où le vieux ne viendra plus, il saura ce que ça veut dire, et qu'il n'aime pas y penser. Il rallume enfin sa pipe.",
       ],
       choices: [
-        { label: "Rentrer tout raconter à ton père", fx: { flag: "vj:dit" }, to: "VJ_dit" },
+        { back: "VJ_secret", label: "Remonter jusqu'au moulin de la falaise" }
+      ] },
+    VJ_marche: { act: "I", title: "Les ailes du père Gléau", place: "falaise", ambiance: "nature",
+      text: [
+        "Tu le suis de loin, en te cachant derrière les talus, sur le chemin de Varnèse. Il marche à côté de son âne, une main posée sur les sacs, et il chante, d'une voix cassée et juste, une chanson de meunier où il est question d'une fille qui trouve une bague dans sa farine. Les gens qu'il croise le saluent. Il les salue tous, par leur nom, et il demande des nouvelles de leurs vaches.",
+        "Au marché, sur la place, il installe ses sacs à côté de l'étal du boulanger, à la place qu'il occupe depuis quarante ans, et que personne ne lui dispute. La boulangère lui achète un sac. Puis la femme du charron. Puis une fermière. Il annonce son prix. Tu entends le prix. Tu as entendu, une heure plus tôt, chez Rannou, celui du commis. Celui du marché est plus bas d'un bon quart.",
+        "La boulangère ouvre le sac, y plonge la main, laisse couler la farine entre ses doigts, la flaire, et dit, très fort, pour que tout le marché l'entende, que c'est toujours la meilleure de la côte, et que les meules de pierre, les vraies, celles du vent, donnent un autre goût que les roues à eau. Le père Gléau rougit de plaisir sous sa barbe farineuse. Il dit que c'est le vent de mer. Il dit que le vent de mer est salé, et que ça se sent.",
+        "Tu restes derrière une charrette, sans bouger, à le regarder recevoir les compliments qu'il paie de sa poche. Il rit. Il caresse son âne. Il compte ses sous dans sa boîte en fer-blanc, avec le soin d'un homme qui compte ce qu'il a gagné, et non ce qu'il a perdu. Tu repars avant lui, par les champs, pour être au moulin quand il rentrera.",
+      ],
+      choices: [
+        { back: "VJ_secret", label: "Revenir au moulin par les champs, avant lui" }
+      ] },
+    VJ_secret: { act: "I", title: "Les ailes du père Gléau", place: "falaise", ambiance: "nature",
+      text: [
+        { first: true, text: "Il monte à la falaise par le chemin creux, lentement, en parlant à son âne. Il entre dans son moulin. Tu attends. Une heure plus tard, il ressort, avec trois sacs neufs, marqués à son nom, *Gléau, moulin de la Falaise*, d'une belle peinture bleue. Il les charge sur Monseigneur. Il prend le chemin de Varnèse, où c'est jeudi tous les jours pour quelqu'un. Il chantonne." },
+        { first: true, text: "Tu entres. La porte n'est pas fermée ; il n'y a rien à voler. En bas, la meule dormante est lisse comme un miroir, sans une rayure, sans un grain, avec une épaisse couche de poussière que personne n'a dérangée depuis des années. En haut, l'arbre tourne à vide, les engrenages tournent à vide, les ailes tournent à vide, et tout le moulin gémit et tremble comme une maison hantée, pour rien, pour le paysage, pour les pêcheurs qui rentrent. Dans un coin, il y a une pile de sacs de Rannou, vides, soigneusement pliés. Dans un autre, une boîte en fer-blanc, ouverte. Elle contient trois pièces." },
+        { first: true, text: "Tu comprends. Il achète chez Rannou la farine qu'il revend comme la sienne, et il la revend moins cher qu'il ne l'achète, parce qu'il faut bien que les gens la prennent. Il fait ça depuis des années. La boîte en fer-blanc était pleine, un jour. Elle sera vide avant l'hiver. Sur le seuil, en sortant, tu marches sur quelque chose : la cruche de cidre de la semaine dernière, encore pleine, bouchée. Il ne la boit pas. Il la garde. Il y en a d'autres, derrière la porte, alignées." },
+        { again: true, text: "Le moulin gémit au-dessus de toi, ses ailes tournent à vide, et la cruche pleine attend sur le seuil." }
+      ],
+      choices: [
+        { label: "Descendre au moulin de Rannou, parler au commis de la porte de derrière", to: "VJ_commis", hide: { seen: "VJ_commis" } },
+        { label: "Suivre de loin le vieil homme et son âne jusqu'au marché de Varnèse", to: "VJ_marche", hide: { seen: "VJ_marche" } },
+        { label: "Aller tout raconter à ton père", fx: { flag: "vj:dit" }, to: "VJ_dit" },
         { label: "Garder le secret, et faire comme si tu n'avais rien vu", fx: { flag: "vj:tait" }, to: "VJ_tait" },
         { label: "Attendre le vieil homme au moulin, et lui dire que tu sais", fx: { flag: "vj:lui" }, to: "VJ_lui" },
       ] },

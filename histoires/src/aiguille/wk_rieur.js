@@ -13,13 +13,36 @@ module.exports = {
         "Tu paies ton sou. À l'intérieur, sur une estrade de planches, éclairé par deux chandelles, un garçon de ton âge est assis sur un tabouret, en habit d'arlequin trop court. Il a les cheveux noirs, des mains fines, de beaux yeux sombres, très tristes. Et une bouche fendue jusqu'aux oreilles, d'une joue à l'autre, en un rire énorme, figé, qui découvre toutes ses dents. On rit, autour de toi. Une femme rit tant qu'elle doit s'asseoir. Lui ne bouge pas. Il regarde le fond de la tente, au-dessus des têtes, et il rit, il rit, il rit, avec des yeux de noyé.",
       ],
       choices: [{ label: "Attendre que les autres soient sortis", to: "WK_seul" }] },
-    WK_seul: { act: "II", title: "Le Rieur des Îles", place: "champ_foire", ambiance: "nuit",
+    WK_coulisse: { act: "II", title: "Le Rieur des Îles", place: "champ_foire", ambiance: "nuit",
       text: [
-        "Tu restes. Les autres sortent. Maître Chiquet passe la tête par la fente de la toile, voit que tu as payé, et retourne à sa saucisse. Le garçon tourne les yeux vers toi. Il a l'habitude qu'on reste, dit-il : il y en a toujours un, chaque soir, qui reste, pour regarder de plus près, ou pour toucher. Il parle mal, avec cette bouche, en mangeant les consonnes, d'une voix douce de fille. Il demande si tu veux toucher. Les gens paient un sou de plus pour toucher.",
-        "Tu dis que non. Tu lui demandes s'il a mal. Il réfléchit, comme si personne ne lui avait jamais posé la question. Il dit que non, plus maintenant ; seulement l'hiver, quand il gèle, les coins de la bouche se fendent et saignent. Il dit qu'il est né comme ça. Maître Chiquet le lui a dit. Maître Chiquet l'a acheté tout petit à des gens qui l'avaient trouvé dans une barque, sur une plage du Couchant. Il n'a jamais su sa mère. Il dit que ce n'est pas grave, parce qu'avec une figure comme ça, une mère, ça ne t'aurait pas gardé.",
-        "Il te regarde, avec ses yeux sombres, au-dessus de son rire. Tu regardes les commissures de sa bouche, à la lueur des chandelles : deux lignes blanches, fines, droites, régulières, comme des coutures. Tu as raccommodé assez de voiles pour connaître une couture. Les choses qui poussent ont des bords qui hésitent. Celles-là ont des bords qui obéissent : quelqu'un les a faites.",
+        "Derrière l'estrade, séparé du public par un rideau de toile à sac, il y a l'endroit où il vit. Une paillasse par terre, sur des planches, pour l'humidité. Une couverture de cheval. Un bol de bois, une cuiller. Un sac avec un habit de rechange, d'arlequin aussi. Une chandelle éteinte plantée dans une bouteille. C'est tout. On a pris soin de laisser assez de place pour qu'il s'allonge, et pas un pouce de plus.",
+        "Contre le montant de la baraque, il y a un morceau de miroir, un éclat de grand miroir à cadre doré, de ceux qu'on voit dans les cafés, gros comme une assiette. Il est retourné. Face contre la toile. Le garçon te voit le regarder. Il dit, de sa voix douce : « Je ne le regarde pas. Maître Chiquet dit que je dois savoir de quoi j'ai l'air, pour bien rire. Je sais de quoi j'ai l'air. »",
+        "Au dos du miroir, sur le tain écaillé, des marques. Des traits, gravés à la pointe d'un clou, par groupes, comme on compte les jours en prison. Tu lui demandes ce que c'est. Il dit que ce sont les villes. Une ville, un trait. Il dit qu'il y en a cent dix-sept. Il dit qu'il les a toutes vues par la fente de la toile, en arrivant, et en repartant, et que c'est assez.",
+        "Il dit qu'il aimerait voir la mer, une fois, de près, sans toile entre elle et lui. Il dit qu'on lui a dit qu'il venait de la mer. Il le dit sans tristesse, comme on parle d'un parent éloigné qu'on n'a pas eu l'occasion de connaître. Puis il remet le rideau de toile à sac en place, avec soin, et il retourne s'asseoir sur son tabouret, au milieu des chandelles.",
       ],
       choices: [
+        { back: "WK_seul", label: "Revenir devant l'estrade, près de lui" }
+      ] },
+    WK_chiquet: { act: "II", title: "Le Rieur des Îles", place: "champ_foire", ambiance: "nuit",
+      text: [
+        "Maître Chiquet est assis sur une caisse, devant la baraque, sous une lanterne de papier rouge qui lui fait une figure de diable débonnaire. Il mange une saucisse avec un couteau, tranche par tranche, et il boit du cidre à la cruche. Il a un gilet de velours vert taché de graisse, une chaîne de montre sans montre, et l'air d'un homme qui a trouvé sa place dans le monde et qui la trouve bonne.",
+        "Il est enchanté qu'on lui fasse la conversation. Il dit que le garçon est le meilleur numéro de la foire, après la Femme-Poisson, qui est sa cousine. Il dit qu'il le nourrit, qu'il l'habille, qu'il le loge, et que le garçon mange comme quatre, à son âge, et que s'il ne riait pas pour gagner sa soupe, il ne voit pas qui la lui donnerait. Il dit : « Il rit pour moi, je mange pour lui. C'est un commerce honnête. »",
+        "Il sort de sa poche un petit carnet graisseux et le feuillette avec fierté. Les recettes, ville par ville, depuis dix ans. Il y a de bonnes années et de mauvaises. Il dit que les ports sont meilleurs que les bourgs, parce que les marins ont peur des choses de la mer, et qu'ils paient deux sous pour avoir peur un peu plus. Il dit que les femmes donnent plus que les hommes, et les enfants plus que tout le monde, parce qu'ils reviennent.",
+        "Puis il te regarde, la tranche de saucisse au bout du couteau, et il te demande, aimablement, si tu as fini de regarder, ou si tu veux repayer. Il dit que c'est un sou par visite, même pour les amis. Il rit. Il a un très bon rire, gras, communicatif, de ceux qu'on entend de loin dans une foire, et qui donnent envie de venir voir.",
+      ],
+      choices: [
+        { back: "WK_seul", label: "Rentrer sous la toile, sans repayer" }
+      ] },
+    WK_seul: { act: "II", title: "Le Rieur des Îles", place: "champ_foire", ambiance: "nuit",
+      text: [
+        { first: true, text: "Tu restes. Les autres sortent. Maître Chiquet passe la tête par la fente de la toile, voit que tu as payé, et retourne à sa saucisse. Le garçon tourne les yeux vers toi. Il a l'habitude qu'on reste, dit-il : il y en a toujours un, chaque soir, qui reste, pour regarder de plus près, ou pour toucher. Il parle mal, avec cette bouche, en mangeant les consonnes, d'une voix douce de fille. Il demande si tu veux toucher. Les gens paient un sou de plus pour toucher." },
+        { first: true, text: "Tu dis que non. Tu lui demandes s'il a mal. Il réfléchit, comme si personne ne lui avait jamais posé la question. Il dit que non, plus maintenant ; seulement l'hiver, quand il gèle, les coins de la bouche se fendent et saignent. Il dit qu'il est né comme ça. Maître Chiquet le lui a dit. Maître Chiquet l'a acheté tout petit à des gens qui l'avaient trouvé dans une barque, sur une plage du Couchant. Il n'a jamais su sa mère. Il dit que ce n'est pas grave, parce qu'avec une figure comme ça, une mère, ça ne t'aurait pas gardé." },
+        { first: true, text: "Il te regarde, avec ses yeux sombres, au-dessus de son rire. Tu regardes les commissures de sa bouche, à la lueur des chandelles : deux lignes blanches, fines, droites, régulières, comme des coutures. Tu as raccommodé assez de voiles pour connaître une couture. Les choses qui poussent ont des bords qui hésitent. Celles-là ont des bords qui obéissent : quelqu'un les a faites." },
+        { again: true, text: "Le garçon attend sur son tabouret, son rire immobile à la lueur des deux chandelles." }
+      ],
+      choices: [
+        { label: "Regarder ce qu'il y a derrière l'estrade", to: "WK_coulisse", hide: { seen: "WK_coulisse" } },
+        { label: "Aller parler à Maître Chiquet, qui mange sa saucisse dehors", to: "WK_chiquet", hide: { seen: "WK_chiquet" } },
         { label: "Lui promettre de revenir demain avec la médecin de la Cormorane", fx: { flag: "wk:medecin" }, to: "WK_medecin" },
         { label: "Lui proposer de l'aider à s'enfuir, cette nuit", fx: { flag: "wk:fuite" }, to: "WK_fuite" },
         { label: "Lui demander comment il s'appelle", fx: { flag: "wk:nom" }, to: "WK_nom" },

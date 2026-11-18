@@ -16,13 +16,36 @@ module.exports = {
         "Il dit qu'il s'appelle Job Kerbrat. Qu'il est aide-cuisinier, sous les ordres de Fargue. Qu'il a appris, par un guetteur, que son fils était mort cette nuit. Il dit qu'il ne vient pas se battre, ni parlementer, ni rien demander pour les autres. Il vient chercher son fils. Pour l'enterrer lui-même, sur la plage, avec ses mains. Il dit qu'il n'a rien à donner en échange, que ce qu'il a sur lui : un couteau de cuisine, une montre en argent qui ne marche plus, et trois piastres. Il les pose par terre, devant la porte. Puis il attend.",
       ],
       choices: [{ label: "Écouter ce qu'en disent les hommes de la garnison", to: "WW_garnison" }] },
-    WW_garnison: { act: "V", title: "Le corps du fils", place: "misericorde", ambiance: "mer",
+    WW_fosse: { act: "V", title: "Le corps du fils", place: "misericorde", ambiance: "mer",
       text: [
-        "Ils grondent. Trois des leurs sont morts dans l'escarmouche du verger, couchés dans la fosse de la cour depuis l'avant-veille, et l'un d'eux, Yves Quintin, est mort d'un coup de couteau, peut-être du couteau de ce garçon-là. Un matelot dit que le corps du mutin ira à la mer, cousu dans un sac, sans prière, comme on fait des traîtres. Un autre dit qu'on pourrait garder le vieux, aussi, comme otage, puisqu'il est venu tout seul. Un troisième crache par la meurtrière. Personne ne dit rien de gentil. Ils ont peur, ils sont fatigués, et ils ont un mort de l'autre camp entre les mains, ce qui est un pouvoir, pour des gens qui n'en ont plus aucun.",
-        "La capitaine Ribaud est au clocher, avec sa longue-vue, à surveiller la plage. Elle fait dire que, pour un mort, c'est la médecin qui décide. C'est elle qui l'a soigné. C'est son mort. Victorine regarde le corps du garçon, sous le drap, contre le mur. Elle regarde le vieil homme, par la porte entrebâillée, debout dans le soleil, le bonnet tordu dans ses mains. Il a les mêmes oreilles que son fils. Elle ne l'avait pas remarqué, chez le fils. Elle le remarque chez le père.",
-        "Elle pense que, dans quelques heures, tout le monde descendra à l'anse, où se décidera ce qui doit se décider entre les deux camps, et que ce qu'on fait ce matin d'un mort pèsera dans la balance, d'un côté ou de l'autre, d'un poids qu'elle ne sait pas mesurer.",
+        "La fosse est au fond de la cour, contre le mur nord, là où la terre est la moins dure, et elle est déjà refermée : un rectangle de terre fraîche, plus sombre que le reste, avec trois croix de bois de caisse plantées côte à côte, liées à la ficelle, sur lesquelles on a écrit les noms au charbon. La rosée a fait couler le charbon. Les noms pleurent des traînées noires.",
+        "Un matelot est assis près des croix, le dos au mur, son mousquet entre les genoux. Il ne se lève pas quand Victorine approche. C'est le matelot d'Yves Quintin, au sens de la marine : celui qui partageait son hamac de quart, sa gamelle et ses dettes. Il dit, sans la regarder, qu'ils ont navigué ensemble neuf ans, sur quatre navires. Il dit que Quintin lui devait trois piastres, et qu'il les lui doit toujours.",
+        "Il dit qu'il a vu le coup de couteau. De loin, dans le verger, dans la fumée. Il dit qu'il ne sait pas qui l'a donné. Il dit que tout le monde, ce matin, dit que c'est le petit Kerbrat, parce que le petit Kerbrat est mort et qu'il faut bien que ce soit quelqu'un. Il dit qu'il n'en sait rien, lui, qu'il était là, et qu'il n'en sait rien.",
+        "Puis il dit, plus bas, en regardant la croix du milieu, que Quintin aurait voulu qu'on le rende à sa mère, lui aussi, s'il était tombé de l'autre côté. Il dit que ça ne change rien à ce qu'il pense. Il dit qu'il voudrait seulement qu'on lui laisse le temps de penser autre chose. Il remet son mousquet droit entre ses genoux, et il regarde le mur.",
       ],
       choices: [
+        { back: "WW_garnison", label: "Revenir dans la nef, près du corps" }
+      ] },
+    WW_drap: { act: "V", title: "Le corps du fils", place: "misericorde", ambiance: "mer",
+      text: [
+        "Elle soulève le drap. Le garçon a le visage paisible et jaune des morts de la nuit, la bouche un peu ouverte, comme s'il allait encore demander de l'eau. Il est plus jeune, mort. On ne voit plus le mutin. On voit un gabier de dix-neuf ans, avec un duvet blond au menton qu'il n'avait pas encore eu besoin de raser, et une cicatrice d'enfant au sourcil.",
+        "Elle lui avait retiré sa vareuse, l'avant-veille, pour la plaie. La vareuse est pliée sous sa tête, en guise d'oreiller. Elle la déplie, pour la lui remettre, par une sorte de décence. Dans la poche de poitrine, il y a un petit sachet de toile, noué d'un fil, gros comme une noix. Elle l'ouvre. Du thym. Du thym sec, de cuisine, émietté, qui sent encore, tout de suite, la soupe et le dimanche.",
+        "Elle se rappelle la première nuit, quand il avait de la fièvre, et qu'il portait sans cesse la main à sa poitrine, et qu'elle avait cru à la douleur. Il cherchait le sachet. Il le respirait. C'est du thym de la cambuse d'un aide-cuisinier, d'un petit vieux en tablier qui attend devant la porte avec un chiffon blanc au bout d'un bâton.",
+        "Elle referme le sachet. Elle le remet dans la poche. Elle remet la vareuse au garçon, avec peine, parce que les bras ne plient plus. Elle rabat le drap. Elle reste un instant les mains posées à plat sur le linge, comme on pose les mains sur une table avant de se lever pour dire quelque chose d'important.",
+      ],
+      choices: [
+        { back: "WW_garnison", label: "Se relever, et regarder la porte où attend le père" }
+      ] },
+    WW_garnison: { act: "V", title: "Le corps du fils", place: "misericorde", ambiance: "mer",
+      text: [
+        { first: true, text: "Ils grondent. Trois des leurs sont morts dans l'escarmouche du verger, couchés dans la fosse de la cour depuis l'avant-veille, et l'un d'eux, Yves Quintin, est mort d'un coup de couteau, peut-être du couteau de ce garçon-là. Un matelot dit que le corps du mutin ira à la mer, cousu dans un sac, sans prière, comme on fait des traîtres. Un autre dit qu'on pourrait garder le vieux, aussi, comme otage, puisqu'il est venu tout seul. Un troisième crache par la meurtrière. Personne ne dit rien de gentil. Ils ont peur, ils sont fatigués, et ils ont un mort de l'autre camp entre les mains, ce qui est un pouvoir, pour des gens qui n'en ont plus aucun." },
+        { first: true, text: "La capitaine Ribaud est au clocher, avec sa longue-vue, à surveiller la plage. Elle fait dire que, pour un mort, c'est la médecin qui décide. C'est elle qui l'a soigné. C'est son mort. Victorine regarde le corps du garçon, sous le drap, contre le mur. Elle regarde le vieil homme, par la porte entrebâillée, debout dans le soleil, le bonnet tordu dans ses mains. Il a les mêmes oreilles que son fils. Elle ne l'avait pas remarqué, chez le fils. Elle le remarque chez le père." },
+        { first: true, text: "Elle pense que, dans quelques heures, tout le monde descendra à l'anse, où se décidera ce qui doit se décider entre les deux camps, et que ce qu'on fait ce matin d'un mort pèsera dans la balance, d'un côté ou de l'autre, d'un poids qu'elle ne sait pas mesurer." },
+        { again: true, text: "Les hommes grondent dans la nef. Par la porte entrebâillée, le vieil homme attend, son chiffon blanc au bout de son bâton." }
+      ],
+      choices: [
+        { label: "Aller voir la fosse de la cour, où dorment les trois de la garnison", to: "WW_fosse", hide: { seen: "WW_fosse" } },
+        { label: "Soulever le drap, et regarder une dernière fois le garçon", to: "WW_drap", hide: { seen: "WW_drap" } },
         { label: "Laver le corps, le coudre dans un drap propre, et le rendre au père", fx: { flag: "ww:rend" }, to: "WW_rend" },
         { label: "Laisser la garnison décider, puisque ce sont eux qui ont perdu des hommes", fx: { flag: "ww:garde" }, to: "WW_garde" },
         { label: "Porter le corps elle-même jusqu'à la plage, avec le vieil homme", fx: { flag: "ww:porte" }, to: "WW_porte" },

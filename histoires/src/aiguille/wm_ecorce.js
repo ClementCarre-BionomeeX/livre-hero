@@ -14,13 +14,36 @@ module.exports = {
         "Elle a de quoi. C'est ce qui la tient debout. Dans le coffre de bois sec, au fond de l'infirmerie, il y a les quatre livres d'écorce qu'elle a achetées au Quai des Hollandes, rouges et amères, au prix d'un cheval, en marchandant comme une poissonnière, et en se félicitant du cachet de cire de l'apothicaire, qui garantissait la marchandise. Elle ouvre le coffre pour la première fois. Elle prend la cuiller.",
       ],
       choices: [{ label: "Préparer la première dose", to: "WM_brique" }] },
-    WM_brique: { act: "III", title: "La poudre rouge", place: "sargues", ambiance: "nuit",
+    WM_cachet: { act: "III", title: "La poudre rouge", place: "sargues", ambiance: "nuit",
       text: [
-        "La première couche est bonne. Rouge, fine, amère à vous retourner la langue, avec cette odeur de cave et d'écorce mouillée qu'on n'imite pas. Elle en prépare six doses. Puis elle creuse, pour la suite, et la cuiller rencontre une autre couleur. Un rouge plus orange, plus terne. Elle en met sur sa langue. C'est amer, à cause de l'aloès qu'on y a mêlé pour tromper. Sous l'amertume, ça crisse sous la dent. De la brique pilée.",
-        "Elle vide le coffre sur une toile, à la lueur de la lanterne, et elle trie, à la pointe du scalpel, comme on trie des lentilles, pendant trois heures. À la fin, il y a sur la toile un petit tas d'écorce vraie, de quoi soigner peut-être cinq hommes jusqu'au bout, et un grand tas de poussière de brique, qui a coûté le prix d'un cheval. Le cachet de cire est intact sur le couvercle. Il est très beau. Elle le regarde longtemps.",
-        "Elle aurait pu goûter au Quai des Hollandes. Elle a goûté le dessus. Elle était pressée, il y avait dix choses à faire, l'apothicaire avait l'air honnête, il avait une barbe d'apôtre et une fille à marier. Elle pense à tous les traités qu'elle a lus, et à celui qu'on n'écrit pas, où il serait dit que la faute d'un médecin se mesure en hommes. Il y en a onze dans l'entrepont. Il y en aura d'autres demain.",
+        "Le coffre est un beau coffre. Bois de cèdre, coins de cuivre, une poignée de cuir de chaque côté, et, sur le couvercle, une étiquette gravée, collée avec soin : un mortier, un pilon, deux serpents enlacés, et le nom de l'apothicaire du Quai des Hollandes en lettres anglaises, avec la mention : Écorce des Hautes-Terres, première qualité, garantie pure. Le cachet de cire rouge, par-dessus, reproduit le mortier en relief. Il a fallu un graveur pour ce cachet.",
+        "Victorine retourne le coffre, vide, sous la lanterne. Le fond est doublé d'un papier fleuri, collé sur le bois, comme on en met dans les tiroirs des dames. Dans un coin, le papier gondole. Elle glisse la pointe du scalpel dessous. Il se décolle tout seul, sur une largeur de main. Dessous, sur le bois brut, une autre étiquette, plus ancienne, à moitié arrachée, d'un papier grossier.",
+        "C'est un bordereau de grossiste, au nom d'un entrepôt de la ville basse. Il reste deux lignes lisibles, d'une écriture de commis pressé : « Aloès en poudre, 6 livres. Brique pilée, tamisée fin, 40 livres. » En dessous, une somme, et une date de l'automne dernier. Le coffre a été rempli avant d'être fleuri. On a acheté la brique au poids, en sachant ce qu'on achetait, et l'on a collé le papier par-dessus.",
+        "Victorine remet le papier en place, et l'aplatit du plat de la main. Elle pense à la barbe d'apôtre de l'apothicaire, à sa fille à marier, à la façon dont il lui a serré la main en lui souhaitant bon voyage. Elle pense qu'elle aurait préféré une erreur. Une erreur se pardonne, et l'on peut se dire qu'on aurait pu la commettre soi-même.",
       ],
       choices: [
+        { back: "WM_brique", label: "Revenir à la toile, aux deux tas" }
+      ] },
+    WM_entrepont: { act: "III", title: "La poudre rouge", place: "sargues", ambiance: "nuit",
+      text: [
+        "L'entrepont, la nuit, dans le calme, est un four où l'on a pendu quarante hamacs. Pas un souffle par les sabords ouverts. Les fanaux brûlent mal, faute d'air, d'une flamme basse et jaune qui fume. Les hamacs des fiévreux se reconnaissent de loin : ils tremblent. Ils tremblent tout seuls, par saccades, comme des cocons où quelque chose voudrait éclore.",
+        "Elle passe de l'un à l'autre, avec sa lanterne. Le frisson, d'abord, qui fait claquer les dents et qu'aucune couverture ne calme. Puis la chaleur, qui monte d'un coup, rougit les visages, fait délirer. Puis la sueur, qui trempe la toile, et le sommeil de pierre. Et deux jours plus tard, à la même heure, tout recommence. Elle connaît le rythme. Elle l'a vu cent fois. Il ne lui a jamais paru aussi méchant.",
+        "Un jeune gabier, entre deux accès, la reconnaît, et sourit, les lèvres sèches. Il lui demande si c'est bien la poudre rouge qu'elle va leur donner. Il dit que les anciens lui ont dit que la poudre rouge, c'est la seule chose qui marche, et que la médecin en a un plein coffre, et que la médecin, elle, ne se trompe pas. Il dit qu'il est content d'être sur ce navire-là, et pas sur un autre.",
+        "Victorine lui pose la main sur le front, qui brûle. Elle dit que oui. Elle ne sait pas encore ce qu'elle vient d'affirmer. Elle remonte l'échelle avec la sensation que chaque hamac, derrière elle, s'est tourné vers sa lanterne, et la regarde partir.",
+      ],
+      choices: [
+        { back: "WM_brique", label: "Remonter vers la toile et la lanterne" }
+      ] },
+    WM_brique: { act: "III", title: "La poudre rouge", place: "sargues", ambiance: "nuit",
+      text: [
+        { first: true, text: "La première couche est bonne. Rouge, fine, amère à vous retourner la langue, avec cette odeur de cave et d'écorce mouillée qu'on n'imite pas. Elle en prépare six doses. Puis elle creuse, pour la suite, et la cuiller rencontre une autre couleur. Un rouge plus orange, plus terne. Elle en met sur sa langue. C'est amer, à cause de l'aloès qu'on y a mêlé pour tromper. Sous l'amertume, ça crisse sous la dent. De la brique pilée." },
+        { first: true, text: "Elle vide le coffre sur une toile, à la lueur de la lanterne, et elle trie, à la pointe du scalpel, comme on trie des lentilles, pendant trois heures. À la fin, il y a sur la toile un petit tas d'écorce vraie, de quoi soigner peut-être cinq hommes jusqu'au bout, et un grand tas de poussière de brique, qui a coûté le prix d'un cheval. Le cachet de cire est intact sur le couvercle. Il est très beau. Elle le regarde longtemps." },
+        { first: true, text: "Elle aurait pu goûter au Quai des Hollandes. Elle a goûté le dessus. Elle était pressée, il y avait dix choses à faire, l'apothicaire avait l'air honnête, il avait une barbe d'apôtre et une fille à marier. Elle pense à tous les traités qu'elle a lus, et à celui qu'on n'écrit pas, où il serait dit que la faute d'un médecin se mesure en hommes. Il y en a onze dans l'entrepont. Il y en aura d'autres demain." },
+        { again: true, text: "Sur la toile, à la lueur de la lanterne, le petit tas d'écorce et le grand tas de brique attendent qu'elle décide." }
+      ],
+      choices: [
+        { label: "Examiner de près le coffre et son cachet", to: "WM_cachet", hide: { seen: "WM_cachet" } },
+        { label: "Descendre voir les fiévreux de l'entrepont", to: "WM_entrepont", hide: { seen: "WM_entrepont" } },
         { label: "Réunir l'équipage, et dire la vérité, toute", fx: { flag: "wm:dit" }, to: "WM_dit" },
         { label: "Garder l'écorce pour les plus atteints, et donner la brique aux autres, sans rien dire", fx: { flag: "wm:cache" }, to: "WM_cache" },
         { label: "Monter à la grand-chambre, où le baron garde son propre coffre", fx: { flag: "wm:baron" }, to: "WM_baron" },

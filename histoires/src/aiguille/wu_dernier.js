@@ -14,13 +14,36 @@ module.exports = {
         "Le professeur est blanc. Il dit, à voix très basse : « Elle appelle. Elle appelle tous les soirs. Il n'y a personne. C'est la dernière. »",
       ],
       choices: [{ label: "Attendre ce qu'il va faire", to: "WU_fusil" }] },
-    WU_fusil: { act: "IV", title: "Le dernier", place: "table", ambiance: "nuit",
+    WU_academie: { act: "IV", title: "Le dernier", place: "table", ambiance: "nuit",
       text: [
-        "Il nettoie son fusil, à la lueur du feu, pendant une heure, avec un soin d'horloger. Il parle en même temps, sans te regarder, d'une voix égale. Il dit qu'il a soixante ans. Qu'il a passé vingt ans à se faire rire au nez par des hommes qui n'ont jamais quitté leur fauteuil. Qu'un dessin, ces gens-là le déchirent ; qu'un récit, ils le traitent de fable ; qu'une plume, ils la disent de poule teinte. Mais qu'une peau, montée, debout, dans une vitrine du Muséum de Morlenc, avec un squelette à côté, ils ne pourront rien contre.",
-        "Il dit que l'oiseau mourra de toute façon, bientôt, seul, de vieillesse, dans son fourré, et que les fourmis le mangeront, et qu'il n'en restera rien, et que le monde ne saura jamais qu'il a existé. Il dit qu'il ne la tuera pas pour lui. Il la tuera pour elle, pour qu'elle existe dans la mémoire des hommes, ce qui est la seule éternité qu'il connaisse. Il dit cela avec une ferveur sincère. Puis il dit, plus bas, qu'il sait aussi, bien sûr, qu'il la tuera pour lui. Il n'est pas sot.",
-        "Il charge le fusil. Il dit qu'il tirera demain, au coucher du soleil, quand elle sera à la mare, de dos, en train de crier. Une seule balle, derrière la tête. Elle ne sentira rien. Il te demande de ne pas regarder, si tu préfères. Il te dit bonne nuit. Il dort, ou il fait semblant. Toi, tu restes éveillé{e}, dans la fougère, à regarder le fourré, où rien ne bouge.",
+        "Il pose le fusil sur ses genoux. Il ouvre son sac, et il en sort un portefeuille de cuir, usé, et du portefeuille une feuille de journal pliée en huit, jaunie, cassée aux plis, recollée avec des bandes de papier. Il la déplie au feu, avec des précautions de chirurgien. Il te la tend. C'est une caricature.",
+        "On y voit un gros homme barbu, en habit de savant, monté sur un tabouret, qui brandit un œuf énorme devant une assemblée de vieillards en perruque, pliés de rire. Sous l'image, une légende : « Monsieur G. présente à l'Académie l'œuf de la poule de ses rêves. » Le professeur dit qu'il avait quarante ans. Il dit qu'il avait trouvé, sur une grève du sud, un fragment de coquille gros comme une assiette, et qu'il avait osé dire qu'il existait, quelque part, un oiseau assez grand pour l'avoir pondu.",
+        "Il dit qu'on n'a pas discuté. On a ri. Il dit qu'on peut se battre contre un argument, mais pas contre un rire : il ne laisse rien à quoi s'accrocher. Il dit que la caricature a été épinglée trois ans dans le vestiaire de l'Académie. Il dit qu'il la porte sur lui depuis vingt ans, pour ne pas oublier, et qu'il n'a pas oublié.",
+        "Il replie la feuille, en suivant les vieux plis, et la range. Il regarde le fusil. Il dit, plus bas, que l'oiseau de la mare pond des œufs de cette taille. Il les a mesurés, à l'empreinte des pattes, au poids du corps, à la largeur du bassin. Il dit qu'il avait raison. Il dit qu'il avait raison depuis vingt ans, et qu'il le tient enfin, et que demain soir il n'aura plus qu'à presser la détente pour l'apprendre au monde.",
       ],
       choices: [
+        { back: "WU_fusil", label: "Rester près du feu, à côté de lui" }
+      ] },
+    WU_fourre: { act: "IV", title: "Le dernier", place: "table", ambiance: "nuit",
+      text: [
+        "La lune est pleine sur la Table, et les arbres écailleux de l'ouest font sur la mousse des ombres découpées comme de la dentelle noire. Tu suis le sentier de l'oiseau, celui qu'elle prend tous les soirs, et que ses pas ont creusé dans la terre comme une rigole. Il mène, à cent pas de la mare, à un fourré de fougères géantes, plus hautes que toi, où l'air est immobile et sent l'humus et la plume.",
+        "Tu écartes les fougères. Elle est là. Elle dort debout, sur une seule patte, la tête rentrée dans les plumes du dos, immense et grise dans la lumière bleue, immobile comme une statue qu'on aurait oubliée là depuis le commencement du monde. Autour d'elle, sur le sol tassé, il y a des plumes, de vieilles plumes, beaucoup, comme dans un nid qu'on aurait occupé très longtemps, seul.",
+        "Au milieu du cercle de terre battue, il y a une pierre. Une pierre ronde, lisse, grise, de la taille d'un gros œuf, qu'elle a dû apporter là, avec son bec, d'on ne sait où. La terre autour est creusée en cuvette, et la pierre y est posée avec soin, au fond. Tu la regardes longtemps avant de comprendre qu'elle couve une pierre.",
+        "Elle ouvre un œil, rond, jaune, énorme, et te regarde, sans bouger, sans peur, avec la tranquillité de ceux qui n'ont jamais rencontré d'ennemi. Puis elle le referme. Tu laisses retomber les fougères. Tu redescends au feu sans faire de bruit. Le professeur dort, le fusil chargé contre la cuisse, et il ronfle, d'un ronflement qui ressemble au cri de la mare.",
+      ],
+      choices: [
+        { back: "WU_fusil", label: "Revenir au feu, près du professeur endormi" }
+      ] },
+    WU_fusil: { act: "IV", title: "Le dernier", place: "table", ambiance: "nuit",
+      text: [
+        { first: true, text: "Il nettoie son fusil, à la lueur du feu, pendant une heure, avec un soin d'horloger. Il parle en même temps, sans te regarder, d'une voix égale. Il dit qu'il a soixante ans. Qu'il a passé vingt ans à se faire rire au nez par des hommes qui n'ont jamais quitté leur fauteuil. Qu'un dessin, ces gens-là le déchirent ; qu'un récit, ils le traitent de fable ; qu'une plume, ils la disent de poule teinte. Mais qu'une peau, montée, debout, dans une vitrine du Muséum de Morlenc, avec un squelette à côté, ils ne pourront rien contre." },
+        { first: true, text: "Il dit que l'oiseau mourra de toute façon, bientôt, seul, de vieillesse, dans son fourré, et que les fourmis le mangeront, et qu'il n'en restera rien, et que le monde ne saura jamais qu'il a existé. Il dit qu'il ne la tuera pas pour lui. Il la tuera pour elle, pour qu'elle existe dans la mémoire des hommes, ce qui est la seule éternité qu'il connaisse. Il dit cela avec une ferveur sincère. Puis il dit, plus bas, qu'il sait aussi, bien sûr, qu'il la tuera pour lui. Il n'est pas sot." },
+        { first: true, text: "Il charge le fusil. Il dit qu'il tirera demain, au coucher du soleil, quand elle sera à la mare, de dos, en train de crier. Une seule balle, derrière la tête. Elle ne sentira rien. Il te demande de ne pas regarder, si tu préfères. Il te dit bonne nuit. Il dort, ou il fait semblant. Toi, tu restes éveillé{e}, dans la fougère, à regarder le fourré, où rien ne bouge." },
+        { again: true, text: "Le professeur, au bord du feu, essuie son fusil chargé, et la lune monte au-dessus de la Table." }
+      ],
+      choices: [
+        { label: "Demander au professeur ce que l'Académie lui a fait, il y a vingt ans", to: "WU_academie", hide: { seen: "WU_academie" } },
+        { label: "Aller voir, au clair de lune, l'oiseau qui dort dans son fourré", to: "WU_fourre", hide: { seen: "WU_fourre" } },
         { label: "Le laisser tirer, et l'aider à porter le corps", fx: { flag: "wu:tir" }, to: "WU_tir" },
         { label: "Aller au fourré avant l'aube, et chasser l'oiseau loin de la mare", fx: { flag: "wu:effraie" }, to: "WU_effraie" },
         { label: "Le réveiller, et lui demander de la dessiner, et de la laisser vivre", fx: { flag: "wu:dessin" }, to: "WU_dessin" },
