@@ -407,8 +407,11 @@ Pour le lecteur qui a du mal à suivre les personnages par leur nom. Le lecteur 
 | passage (fx) | `aspect: { hesna: { habits: "robe de fête jaune" } }` | Elle change d'allure : seules les clés données changent. |
 | passage (fx) | `qui: { hesna: "…" }` | Ce que le héros sait d'elle change (une révélation). |
 | texte | `{{gens:hesna|la patronne}}` / `{{gens:aucun|Brune}}` | Forcer un lien sur des mots qui la désignent, ou l'empêcher (un nom qui est aussi un mot courant). |
+| texte | `{{dit:hesna}}` / `{{dit:heros}}` / `{{dit:aucun}}` | Dans un paragraphe de dialogue : qui dit les paroles entre guillemets. Rarement utile : le moteur le lit seul (« dit Brune », « dit-il », « demandes-tu », « Il rit. « … » », la réplique seule qui répond). À poser quand il se trompe. |
 
 Seules les personnes rencontrées (`meet`) et les compagnons connus sont repérés, pour ne rien dévoiler : posez `meet` sur la page où chacun entre en scène. Le moteur retient le lieu et le jour de la première rencontre. Les choix du lecteur (traits rappelés, « Ma description » écrite avec ses mots, « je connais son nom ») vont dans ses réglages, par histoire. En option, un bandeau « Dans cette scène » montre en haut de page les visages des personnes que la page nomme.
+
+Visages dans les dialogues (18/11, 13.2) : aux premiers mots de chaque personne qui parle dans une page, son portrait de trois quarts tourné vers l'autre (réglage du lecteur « Visages dans les dialogues », actif par défaut). Le moteur trouve qui parle (`M.speakers`) parmi les gens rencontrés et le héros ; dans le doute, personne. `{{dit:…}}` corrige un paragraphe.
 
 Toute la bibliothèque déclare ses `aspect` (15/11). Une nouvelle histoire fait de même pour chaque personnage, en ne prenant rien qui dévoile une surprise.
 

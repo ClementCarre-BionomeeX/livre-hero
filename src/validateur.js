@@ -210,9 +210,9 @@
       texts.forEach(function (x) {
         var where = x[0], t = x[1];
         if (/\{\{[a-z]+:/.test(t)) {
-          var rest = t.replace(/\{\{(fx|cle|or|envers|encre|tache|gens):([^{}|]*)(?:\|([^{}]*))?\}\}/g, "");
+          var rest = t.replace(/\{\{(fx|cle|or|envers|encre|tache|gens|dit):([^{}|]*)(?:\|([^{}]*))?\}\}/g, "");
           var bad = rest.match(/\{\{[a-z]+:[^}]*\}?\}?/);
-          if (bad) E(where + " : marque inconnue ou mal fermée « " + bad[0].slice(0, 40) + " » (fx, cle, or, envers, encre, tache, gens).");
+          if (bad) E(where + " : marque inconnue ou mal fermée « " + bad[0].slice(0, 40) + " » (fx, cle, or, envers, encre, tache, gens, dit).");
         }
         M.marksOf(t).forEach(function (m) {
           if (m.kind === "fx") { if (!M.TEXT_FX[m.arg]) E(where + " : effet « " + m.arg + " » inconnu (" + Object.keys(M.TEXT_FX).join(", ") + ")."); if (!m.text) E(where + " : effet « " + m.arg + " » sans texte."); }
@@ -220,6 +220,7 @@
           if (m.kind === "or") { if (!(story.trouvailles || {})[m.arg]) E(where + " : trouvaille « " + m.arg + " » inconnue (story.trouvailles)."); else hidden[m.arg] = 1; if (!m.text) E(where + " : trouvaille « " + m.arg + " » sans texte."); }
           if (m.kind === "encre") { if (!story.items[m.arg]) E(where + " : encre invisible, objet « " + m.arg + " » inconnu."); if (!m.text) E(where + " : encre invisible sans texte."); }
           if (m.kind === "gens") { if (m.arg !== "aucun" && !M.personOf(story, m.arg)) E(where + " : {{gens:" + m.arg + "|…}}, personnage inconnu (people, companions ou « aucun »)."); if (!m.text) E(where + " : {{gens:" + m.arg + "}} sans texte."); }
+          if (m.kind === "dit") { if (m.arg !== "aucun" && m.arg !== "heros" && !M.personOf(story, m.arg) && !(story.heroes || {})[m.arg]) E(where + " : {{dit:" + m.arg + "}}, personnage inconnu (people, companions, heroes, « heros » ou « aucun »)."); if (m.text != null) E(where + " : {{dit:" + m.arg + "}} ne prend pas de texte."); if (!/«/.test(t)) E(where + " : {{dit:" + m.arg + "}} dans un paragraphe sans paroles entre guillemets."); }
           if ((m.kind === "envers" || m.kind === "tache") && !m.arg) E(where + " : « " + m.kind + " » sans texte.");
         });
       });
