@@ -2317,6 +2317,10 @@
   }
  },
  "clues": {
+  "i_patients": {
+   "rev": "F",
+   "text": "La Voilière : on appelle les malades des patients, parce qu'on leur demande seulement d'attendre sans bouger, comme le héron au bord de l'eau attend son poisson."
+  },
   "i_voix": {
    "rev": "F",
    "text": "Les voix tombées du ciel blanc : une femme qui dit qu'on la mord ; un homme pressé, avec un tic-tac, qui ordonne « Quinquina, double dose » ; une voix grasse qui demande si l'on a dit son nom."
@@ -2349,7 +2353,7 @@
  "quests": [],
  "mysteries": {
   "F": {
-   "title": "Ce que disent les voix du ciel",
+   "title": "Ce que la fièvre t'a dit",
    "act": "I"
   },
   "M": {
@@ -2547,7 +2551,7 @@
   "f6": {
    "kind": "chiffre",
    "title": "Le mot des roseaux",
-   "text": "L'homme couleur de vase, pendu par les pieds à son mât, rame quand même, lentement, la tête en bas. Il te regarde sans colère :\n\n*Je me tiens sur une patte et je ne tombe jamais ;*\n*je regarde l'eau une heure pour manger en un instant ;*\n*les gens pressés me perdent, les hérons m'ont inventée ;*\n*sans moi, personne n'entre chez nous.*",
+   "text": "L'homme couleur de vase, pendu par les pieds à son mât, rame quand même, lentement, la tête en bas. Il te regarde sans colère :\n\n*Le héron me tient sur une patte, une heure durant, au bord de l'eau ;*\n*je ne coûte rien, et les gens pressés en manquent toujours ;*\n*les malades de l'hôpital en portent presque le nom ;*\n*sans moi, personne n'entre chez nous.*",
    "answer": [
     "patience",
     "la patience"
@@ -3105,9 +3109,13 @@
    "title": "La poudre amère",
    "place": "cloches",
    "second": false,
+   "fx": {
+    "clue": "i_patients"
+   },
    "text": [
     "« Le quinquina », dis-tu. La Voilière sourit, ce qui fait claquer ses ailes. Elle sort de sa manche une cuillère d'étain, y verse une poudre brune, y ajoute une goutte d'eau, et te la met dans la bouche avec une autorité qui ne souffre aucune discussion.",
     "C'est amer à hurler. C'est amer comme une écorce de l'autre bout du monde, comme une forêt brûlée, comme un remords. Tu avales. La chaleur, dans tes os, recule d'un pas.",
+    "Elle essuie la cuillère sur son tablier. « Sais-tu pourquoi on appelle les malades des patients ? Parce que c'est tout ce qu'on leur demande. Attendre, sans bouger, comme le héron au bord de l'eau attend son poisson. Les malades pressés meurent les premiers. »",
     "« Bien, dit la Voilière. À présent, va voir le Roi. Il veut ta carte. Ne la lui donne pas avant de savoir ce qu'il en fera. » Elle agite sa clochette. *Ding.* Et tu te retrouves dans ta barque."
    ],
    "choices": [

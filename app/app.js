@@ -2680,6 +2680,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "13.7", items: ["« Le Cartographe de fièvre » : la devinette du rameur est plus claire, et la fièvre en glisse la clef plus tôt, notée dans le carnet."] },
     { v: "13.6", items: ["Plus rapide sur les tablettes et téléphones anciens : les livres se lisent quand la page est au repos, l'encre qui s'écrit coûte trois fois moins à dessiner.", "Réglages → « Cet appareil » : le mode « appareil ancien » retire le grain, les bords tremblés, les ombres et les animations ; le livre le propose de lui-même quand l'appareil peine.", "« ⏱ Mesurer la vitesse » (ou l'adresse du site suivie de ?diag) : un rapport de vitesse à copier ou partager."] },
     { v: "13.5", items: ["« Le Cartographe de fièvre » : ce que disent les voix du ciel blanc se note dans le carnet, et on peut les réécouter depuis la barque. La carte de fièvre, dans tes affaires, dit dans quel ordre ta barque a touché les îles."] },
     { v: "13.4", items: ["Près de mille neuf cents mots rares expliqués d'un toucher, dans les romans comme dans les histoires : vieux métiers, marine, mine, horlogerie, remèdes, mots d'Église, et les passages en latin des romans. Un mot qui sert aussi de nom (un chien, une auberge) garde sa capitale et ne s'ouvre pas."] },

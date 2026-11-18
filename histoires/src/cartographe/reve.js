@@ -89,9 +89,11 @@ module.exports = {
     ] },
 
   A_f1: { act: "I", title: "La poudre amère", place: "cloches", second: false,
+    fx: { clue: "i_patients" },
     text: [
       "« Le quinquina », dis-tu. La Voilière sourit, ce qui fait claquer ses ailes. Elle sort de sa manche une cuillère d'étain, y verse une poudre brune, y ajoute une goutte d'eau, et te la met dans la bouche avec une autorité qui ne souffre aucune discussion.",
       "C'est amer à hurler. C'est amer comme une écorce de l'autre bout du monde, comme une forêt brûlée, comme un remords. Tu avales. La chaleur, dans tes os, recule d'un pas.",
+      "Elle essuie la cuillère sur son tablier. « Sais-tu pourquoi on appelle les malades des patients ? Parce que c'est tout ce qu'on leur demande. Attendre, sans bouger, comme le héron au bord de l'eau attend son poisson. Les malades pressés meurent les premiers. »",
       "« Bien, dit la Voilière. À présent, va voir le Roi. Il veut ta carte. Ne la lui donne pas avant de savoir ce qu'il en fera. » Elle agite sa clochette. *Ding.* Et tu te retrouves dans ta barque.",
     ],
     choices: [
