@@ -2731,6 +2731,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "14.4", items: ["Nouvelle histoire, « La Grande Fonte », dans l'univers de Croûte & Chrome : deux héros, le Motard des ruines et le majordome Octave, un ange de beurre qui fond au soleil, huit fins.", "Bibliothèque : nouveau genre « Humour » dans les filtres."] },
     { v: "14.3", items: ["Plus → Hors ligne : « Tout télécharger » montre son avancement, fichier par fichier, et dit quand c'est fini.", "Les pages s'affichent aussitôt au défilement, même les longs chapitres : le bord tremblé du papier est dessiné une fois pour toutes au lieu d'être recalculé sur toute la hauteur de la feuille."] },
     { v: "14.2", items: ["Hors ligne au maximum : le livre lit d'abord sa copie gardée sur l'appareil et ne demande au réseau que ce qui manque. Une mise à jour ne retélécharge que les livres modifiés, plus les 32 Mo.", "Plus → Hors ligne : combien de livres sont gardés sur l'appareil, et un bouton pour tout télécharger d'un coup (en wifi de préférence).", "Le dossier partagé ne bloque plus la bibliothèque : ses salles arrivent quand le réseau répond."] },
     { v: "14.1", items: ["Plus de « mur » au défilement : les livres ne se lisent plus en arrière-plan pendant que tu fais défiler ; seuls ceux où tu as une partie sont préparés, quand tu laisses l'écran tranquille. Les autres se lisent quand tu les ouvres."] },
