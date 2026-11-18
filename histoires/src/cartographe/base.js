@@ -104,6 +104,7 @@ module.exports = {
     carte_malbrouck: { name: "La carte de Malbrouck", kind: "quete", keep: true, desc: "La vraie carte des Bouches-Noires, levée par Eustache Malbrouck, avec les villages des Roselins." },
   },
   clues: {
+    i_patients: { rev: "F", text: "La Voilière : on appelle les malades des patients, parce qu'on leur demande seulement d'attendre sans bouger, comme le héron au bord de l'eau attend son poisson." },
     i_voix: { rev: "F", text: "Les voix tombées du ciel blanc : une femme qui dit qu'on la mord ; un homme pressé, avec un tic-tac, qui ordonne « Quinquina, double dose » ; une voix grasse qui demande si l'on a dit son nom." },
     i_corde: { rev: "M", text: "Dans le magasin du quartier-maître, au fond de la fièvre, une amarre de barque coupée net, au couteau." },
     i_jours: { rev: "M", text: "Les jours de l'expédition, remis dans l'ordre : le départ, l'avertissement du guide, la nuit des amarres, la dérive." },
@@ -114,7 +115,7 @@ module.exports = {
   },
   quests: [],
   mysteries: {
-    F: { title: "Ce que disent les voix du ciel", act: "I" },
+    F: { title: "Ce que la fièvre t'a dit", act: "I" },
     M: { title: "Qu'est devenue l'expédition Malbrouck ?", act: "II", solved: "malbrouck:retrouve",
       answer: { person: "brunel", text: "Le quartier-maître Brunel, payé par le comte de Saint-Aubry, a coupé les amarres de l'expédition une nuit de tempête, pour qu'aucune carte des marais habités ne revienne. Malbrouck et deux hommes ont survécu chez les Roselins, sur l'île aux Hérons, et la barque de l'apprenti a dérivé jusqu'à Brésille." } },
   },
@@ -168,7 +169,7 @@ module.exports = {
     },
     f6: {
       kind: "chiffre", title: "Le mot des roseaux",
-      text: "L'homme couleur de vase, pendu par les pieds à son mât, rame quand même, lentement, la tête en bas. Il te regarde sans colère :\n\n*Je me tiens sur une patte et je ne tombe jamais ;*\n*je regarde l'eau une heure pour manger en un instant ;*\n*les gens pressés me perdent, les hérons m'ont inventée ;*\n*sans moi, personne n'entre chez nous.*",
+      text: "L'homme couleur de vase, pendu par les pieds à son mât, rame quand même, lentement, la tête en bas. Il te regarde sans colère :\n\n*Le héron me tient sur une patte, une heure durant, au bord de l'eau ;*\n*je ne coûte rien, et les gens pressés en manquent toujours ;*\n*les malades de l'hôpital en portent presque le nom ;*\n*sans moi, personne n'entre chez nous.*",
       answer: ["patience", "la patience"],
       wrongText: "Il ferme les yeux. « Trop vite, dit-il. Vous répondez comme on se noie. »",
       tryLabel: "Répondre", label: "Répondre au rameur pendu", leave: "Le laisser ramer",
