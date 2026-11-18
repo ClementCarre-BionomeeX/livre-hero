@@ -33,7 +33,9 @@ node tests/build.js      # construit et valide les histoires, écrit histoires/*
 node tests/site.js       # écrit site/ : la version hors ligne (à partir de histoires/*.json)
 ```
 
-Chaque push sur `main` republie la version hors ligne sur GitHub Pages (`.github/workflows/pages.yml`).
+Chaque push sur `main` republie la version hors ligne sur GitHub Pages (`.github/workflows/pages.yml`). Le service worker
+(`site/sw.js`) garde chaque fichier sous l'empreinte de son contenu : une nouvelle version ne retélécharge que ce qui a changé,
+et l'appli lit sa copie avant le réseau (`node tests/horsligne-test.js`).
 
 Essais visuels : `node tests/captures.js site/index.html captures/apres` photographie les écrans principaux (téléphone
 et tablette) ; `node tests/captures.js --compare captures/avant captures/apres captures/comparaison` les compare. Sur
