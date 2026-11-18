@@ -3206,7 +3206,7 @@
       }
       // Guarantee: a button agrees with the hero too ({e}, {hero}), like the text.
       if (/\{[a-z]+\}/.test(c.label)) c = Object.assign({}, c, { label: interp(s, c.label) });
-      var a = allowed(story, s, p, c); return Object.assign({}, c, { ok: a.ok, why: a.why, unveiled: a.ok && unveils(c), goes: backGoes(story, s, c) || goesTo(story, s, p, c), note: c.refuse ? "refus définitif" : c.fx && c.fx.camp && c.fx.camp !== s.camp ? "choix de camp : d'autres portes se fermeront" : aheadOf(story, s, c) || c.note, chance: c.test ? chance(story, s, c.test, c.who) : null }); });
+      var a = allowed(story, s, p, c); return Object.assign({}, c, { ok: a.ok, why: a.why, unveiled: a.ok && unveils(c), goes: backGoes(story, s, c) || goesTo(story, s, p, c), note: c.refuse ? "refus définitif" : c.fx && c.fx.camp && c.fx.camp !== s.camp ? "choix de camp : d'autres portes se fermeront" : aheadOf(story, s, c) || c.note, chance: c.test ? (learned(s, c) ? 100 : chance(story, s, c.test, c.who)) : null, learned: learned(s, c) || undefined }); });
     // Paths that unveil (8.9): a way closed until another game opens it is not shown by its words, which would tell
     // too much; the page only counts the closed ways (v.locked). The people of a `leads` page keep their hint.
     var lockedN = 0;
@@ -3987,10 +3987,18 @@
     chooseOn(story, s, c);
     if (ctk && !(s.took && s.took.turn === s.turn && s.took.node === s.node)) s.took = { node: s.node, turn: s.turn, say: ctk.say, end: false };
   }
+  // Intent: learnedKey(State, Choice) -> String = the name under which a failed test on this page is remembered.
+  // Why: Clément, 18/11 (Cartographe) — a failed test the reader can retry at will only asks for clicks (twenty, at
+  // 5 %). The engine rolls a test once: after a failure, the same test on the same page passes on the next try, the
+  // failure already paid (its branch was played). `retry: true` on the choice keeps rolling every time.
+  function learnedKey(s, c) { return s.node + "|" + (c.who || "") + "|" + c.label; }
+  function learned(s, c) { return !!(c.test && !c.retry && s.learned && s.learned[learnedKey(s, c)]); }
   function chooseOn(story, s, c) {
     if (c.test) {
-      var roll = rollTest(story, s, c.test, c.who);
-      ev(s, (c.who ? nameOf(story, c.who) + " : " : "") + "jet de " + interp(s, c.test.label || DOMAINS[c.test.dom]) + " · " + roll.line + " → " + (roll.ok ? "réussite" : "raté"), (roll.ok ? "good" : "bad") + " roll", { roll: roll });
+      var wise = learned(s, c), roll = wise ? null : rollTest(story, s, c.test, c.who);
+      if (wise) { roll = { ok: true }; if (!c.who && story.practice) practiceUse(story, s, c.test.dom); ev(s, (c.who ? nameOf(story, c.who) + " : " : "") + interp(s, c.test.label || DOMAINS[c.test.dom]) + " · second essai : l'échec t'a appris le chemin → réussite", "good roll"); }
+      else ev(s, (c.who ? nameOf(story, c.who) + " : " : "") + "jet de " + interp(s, c.test.label || DOMAINS[c.test.dom]) + " · " + roll.line + " → " + (roll.ok ? "réussite" : "raté"), (roll.ok ? "good" : "bad") + " roll", { roll: roll });
+      if (!roll.ok && !c.retry) { s.learned = s.learned || {}; s.learned[learnedKey(s, c)] = true; }
       apply(story, s, c.fx);
       var br = roll.ok ? c.win : c.lose;
       s.last = roll.ok ? "win" : "lose";

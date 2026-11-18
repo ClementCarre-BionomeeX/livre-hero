@@ -2680,6 +2680,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "13.8", items: ["Un jet raté ne se retente plus à l'infini : sur la même page, le second essai réussit, l'échec ayant déjà eu ses conséquences. Le choix l'annonce."] },
     { v: "13.7", items: ["« Le Cartographe de fièvre » : la devinette du rameur est plus claire, et la fièvre en glisse la clef plus tôt, notée dans le carnet."] },
     { v: "13.6", items: ["Plus rapide sur les tablettes et téléphones anciens : les livres se lisent quand la page est au repos, l'encre qui s'écrit coûte trois fois moins à dessiner.", "Réglages → « Cet appareil » : le mode « appareil ancien » retire le grain, les bords tremblés, les ombres et les animations ; le livre le propose de lui-même quand l'appareil peine.", "« ⏱ Mesurer la vitesse » (ou l'adresse du site suivie de ?diag) : un rapport de vitesse à copier ou partager."] },
     { v: "13.5", items: ["« Le Cartographe de fièvre » : ce que disent les voix du ciel blanc se note dans le carnet, et on peut les réécouter depuis la barque. La carte de fièvre, dans tes affaires, dit dans quel ordre ta barque a touché les îles."] },
@@ -3754,7 +3755,7 @@
       if (g !== lastGroup && GROUPS[g]) box.appendChild(h("div", { class: "label group-label" }, GROUPS[g]));
       lastGroup = g;
       var meta = null;
-      if (c.test) meta = h("span", { class: "meta test", title: "Chance de réussite" }, (c.who ? M.nameOf(A.game.story, c.who) + " · " : "") + (c.test.label || M.DOMAINS[c.test.dom]) + " · " + c.chance + " %");
+      if (c.test) meta = h("span", { class: "meta test", title: "Chance de réussite" }, (c.who ? M.nameOf(A.game.story, c.who) + " · " : "") + (c.test.label || M.DOMAINS[c.test.dom]) + " · " + (c.learned ? "second essai, réussite assurée" : c.chance + " %"));
       else if (c.decidedBy) meta = h("span", { class: "meta" }, "choisi par " + c.decidedBy);
       else if (c.monde) meta = h("span", { class: "meta" }, "choix du monde · le premier décide pour tous");
       else if (c.voix && A.game && A.game.multi) meta = h("span", { class: "meta" }, "ta voix · on compte quand tout le monde a voté");

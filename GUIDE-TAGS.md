@@ -30,6 +30,8 @@ Tout paragraphe sous condition ou sous tag accepte `else: "…"`, le texte donn�
 
 Les aides d'un jet (`test.help`) lisent les mêmes tags : `{ with: "corbe", v: 10 }`.
 
+Un jet raté ne se relance pas (13.8, Clément) : sur la même page, le même choix à jet réussit au second essai, l'échec ayant déjà été joué (sa branche `lose`). Le choix l'annonce (« second essai, réussite assurée »). `retry: true` sur le choix garde un jet à chaque essai (un pari, un jeu de hasard).
+
 `if` et `hide` restent disponibles pour les cas que les tags ne couvrent pas.
 
 ## Ce que le moteur garantit seul
