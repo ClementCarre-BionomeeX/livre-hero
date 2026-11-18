@@ -2685,6 +2685,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "14.0", items: ["L'encre du carnet redevient comme avant : la plume écrit d'un trait fluide, l'encre mouillée brille puis sèche. Sur un appareil qui peine, le mode « appareil ancien » (Réglages) l'écrit d'un coup."] },
     { v: "13.9", items: ["Corrigé : sans réseau, un livre pas encore gardé sur l'appareil faisait tourner la bibliothèque en boucle jusqu'à la figer."] },
     { v: "13.8", items: ["Un jet raté ne se retente plus à l'infini : sur la même page, le second essai réussit, l'échec ayant déjà eu ses conséquences. Le choix l'annonce."] },
     { v: "13.7", items: ["« Le Cartographe de fièvre » : la devinette du rameur est plus claire, et la fièvre en glisse la clef plus tôt, notée dans le carnet."] },
@@ -6145,7 +6146,6 @@
   // Intent: Notebook = the notebook style (11.5): on() -> Bool; defs() puts the SVG filters (trembling edges, washes) in
   // the document once; circle(Button, then) rings the chosen line in pencil before the page turns.
   // Why: Clément (17/11) found the book too « technical », straight lines and interface; he chose the notebook.
-  var INK_STEP_MS = 32, INK_DRY_MS = 2400;   // a stroke of the pen every 32 ms; the drying lasts 2.2 s (app.css)
   var Notebook = {
     on: function () { return pref("style") !== "classique"; },
     defs: function () {
@@ -6179,14 +6179,12 @@
       if (ch) ch.classList.add("ink-wait");
       // the pen waits for the sheet to be in place (the page turn), and for the line it writes to be on screen: below
       // the bottom of the screen it stops, and goes on when the reader scrolls down to it
-      var i = 0, t0 = 0, last = 0, drawn = 0, done = false, start = 0, wait = pref("pageTurn") ? 480 : 160;
+      var i = 0, t0 = 0, last = 0, done = false, start = 0, wait = pref("pageTurn") ? 480 : 160;
       function mask(p, v) { p.style.webkitMaskImage = p.style.maskImage = v ? v.img : ""; p.style.webkitMaskSize = p.style.maskSize = v ? v.size : ""; p.style.webkitMaskPosition = p.style.maskPosition = v ? v.pos : ""; p.style.webkitMaskRepeat = p.style.maskRepeat = v ? "no-repeat" : ""; }
-      // a wet paragraph is drawn apart from the paper (its own layer), so the pen does not make the grained, trembling
-      // sheet be drawn again at each stroke; the layer goes once the ink is dry (Clément, 18/11: an old tablet)
-      function dry(p) { mask(p, null); p.classList.remove("ink-wait"); void p.offsetWidth; p.classList.remove("ink-wet"); setTimeout(function () { p.classList.remove("ink-layer"); }, INK_DRY_MS); }
+      function dry(p) { mask(p, null); p.classList.remove("ink-wait"); void p.offsetWidth; p.classList.remove("ink-wet"); }
       function finish() {
         if (done) return; done = true;
-        plan.forEach(function (x) { if (x.p.classList.contains("ink-wait") || x.p.classList.contains("ink-wet")) { x.p.classList.remove("ink-wait"); x.p.classList.add("ink-wet", "ink-layer"); dry(x.p); } });
+        plan.forEach(function (x) { if (x.p.classList.contains("ink-wait") || x.p.classList.contains("ink-wet")) { x.p.classList.remove("ink-wait"); x.p.classList.add("ink-wet"); dry(x.p); } });
         if (ch) ch.classList.remove("ink-wait");
         page.removeEventListener("pointerdown", finish);
       }
@@ -6195,15 +6193,12 @@
         if (done || !page.isConnected) return;
         if (!start) start = ts;
         if (ts - start < wait) { requestAnimationFrame(frame); return; }
-        var x = plan[i]; if (!t0) { t0 = ts; last = ts; drawn = 0; x.p.classList.remove("ink-wait"); x.p.classList.add("ink-wet", "ink-layer"); }
+        var x = plan[i]; if (!t0) { t0 = ts; last = ts; x.p.classList.remove("ink-wait"); x.p.classList.add("ink-wet"); }
         var lineY = x.p.getBoundingClientRect().top + Math.floor((ts - t0) / per) * x.lh;
         if (lineY > (window.innerHeight || 800) - 28) { t0 += ts - last; last = ts; requestAnimationFrame(frame); return; }
         last = ts;
         var t = (ts - t0) / per, k = Math.floor(t), f = t - k;
         if (k >= x.n) { dry(x.p); i++; t0 = 0; if (i >= plan.length) { finish(); return; } requestAnimationFrame(frame); return; }
-        // the pen moves thirty times a second: half the drawing of every frame, the same speed
-        if (ts - drawn < INK_STEP_MS) { requestAnimationFrame(frame); return; }
-        drawn = ts;
         var top = k * x.lh, pct = Math.round(f * 100);
         // what is written: the lines above, then the current line up to the pen (a soft edge where the ink is still going down)
         mask(x.p, { img: "linear-gradient(#000, #000), linear-gradient(to right, #000 " + pct + "%, transparent calc(" + pct + "% + 1.6em))",

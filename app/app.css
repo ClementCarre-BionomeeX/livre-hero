@@ -1146,11 +1146,8 @@ button.pp.pp-face-btn { border-bottom: 0; display: inline-flex; align-items: cen
 :root[data-style="carnet"] { --ink-wet: color-mix(in srgb, var(--ink) 40%, #0c1a4d); }
 @media (prefers-color-scheme: dark) { :root[data-style="carnet"]:not([data-theme="light"]):not([data-theme="sepia"]) { --ink-wet: color-mix(in srgb, var(--ink) 50%, #c4dcff); } }
 :root[data-style="carnet"][data-theme="dark"], :root[data-style="carnet"][data-theme="soir"] { --ink-wet: color-mix(in srgb, var(--ink) 50%, #c4dcff); }
-/* the wet ink: its colour only (18/11: a blurred halo on every letter, fading for 2.2 s, cost an old tablet most of the
-   page turn); the paragraph being written has its own layer, so the paper under it is not drawn again at each stroke */
-:root[data-style="carnet"] .page.ink-in .prose p { transition: color 2.2s ease-out; }
-:root[data-style="carnet"] .page.ink-in .prose p.ink-wet { color: var(--ink-wet); transition: none; }
-:root[data-style="carnet"] .page.ink-in .prose p.ink-layer { will-change: transform; }
+:root[data-style="carnet"] .page.ink-in .prose p { transition: color 2.2s ease-out, text-shadow 2.2s ease-out; }
+:root[data-style="carnet"] .page.ink-in .prose p.ink-wet { color: var(--ink-wet); text-shadow: 0 0 .6px var(--ink-wet), 0 0 3px color-mix(in srgb, var(--ink-wet) 30%, transparent); transition: none; }
 :root[data-style="carnet"] .page.ink-in .prose p.ink-wait { visibility: hidden; }
 :root[data-style="carnet"] .page.ink-in .choices.ink-wait { opacity: 0; pointer-events: none; }
 :root[data-style="carnet"] .page.ink-in .choices { transition: opacity .5s ease-out; }
