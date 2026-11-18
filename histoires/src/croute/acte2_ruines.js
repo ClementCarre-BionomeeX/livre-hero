@@ -359,7 +359,7 @@ module.exports = {
   R2_sorbier_fin: { act: "II", title: "Le chèque", place: "boutique",
     text: [
       { if: { has: "n1=sorbier" }, text: "Il prend la baguette du bout des doigts, la glisse dans un étui de velours qui l'attendait déjà dans sa poche, et te donne un chèque. Dix millions. Tu regardes le chiffre. Il a sept zéros. Tu n'as jamais vu sept zéros d'un coup. Ils ont l'air d'une rangée de roues." },
-      { if: { has: "comtesse=sorbier" }, text: "Il te donne un chèque. Dix millions. Deux de ses hommes descendent de l'hélicoptère, prennent la Comtesse par le guidon et la selle, et la hissent dans la soute avec précaution, comme un meuble ancien. Elle ne démarre pas pour protester. Elle démarre une fois sur deux. Ce n'était pas la bonne fois. Croûton regarde la scène sans un mot, puis elle va se coucher sous le Plateau, le dos tourné." },
+      { if: { has: "comtesse=sorbier" }, text: "Il te donne un chèque. Dix millions. Deux de ses hommes descendent de l'hélicoptère, prennent la Comtesse par le guidon et la selle, et la hissent dans la soute avec précaution, comme un meuble ancien. Elle ne démarre pas pour protester. Elle démarre une fois sur deux. Ce n'était pas la bonne fois. Croûton regarde la scène, puis elle va se coucher sous le Plateau, le dos tourné." },
       { if: { has: "comtesse=garde" }, text: "Monsieur Sorbier range son carnet sans paraître déçu. Les collectionneurs ne sont jamais déçus ; ils attendent. « Je serai aux grilles, dit-il. Tout le monde sera aux grilles. »" },
       "L'hélicoptère noir décolle et file vers l'est, vers le canyon. Le silence revient sur le kilomètre 66, avec le grésillement du néon rose.",
     ],

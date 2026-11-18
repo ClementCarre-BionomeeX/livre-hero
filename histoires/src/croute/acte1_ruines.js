@@ -20,7 +20,7 @@ module.exports = {
   R1_comtesse: { act: "I", title: "La Comtesse", place: "campement",
     fx: { regard: { crouton: "cordial" } },
     text: [
-      "Vous travaillez à quatre mains, sans un mot, pendant que le jour se lève. Croûton tend la main ; tu y poses la pièce qu'elle veut avant qu'elle l'ait demandée. Le carburateur de la Comtesse est un objet de légende, assemblé à partir d'une cafetière, de deux bouchons de radiateur et d'un ressort dont personne ne connaît l'origine.",
+      "Vous travaillez à quatre mains, pendant que le jour se lève. Croûton tend la main ; tu y poses la pièce qu'elle veut avant qu'elle l'ait demandée. Le carburateur de la Comtesse est un objet de légende, assemblé à partir d'une cafetière, de deux bouchons de radiateur et d'un ressort dont personne ne connaît l'origine.",
       "« Elle chauffe, dit Croûton en essuyant ses mains sur sa salopette, ce qui les salit davantage. Avec cette chaleur, au-delà de trois heures de route, elle fondra comme tout le reste. » Elle réfléchit. « Enfin. Pas comme tout le reste. Elle est en fer. Elle cassera. »",
       "Elle range sa clé à molette dans la poche de poitrine et ajoute, en regardant ailleurs : « Merci. »",
       "Venant de Croûton, c'est un discours.",
