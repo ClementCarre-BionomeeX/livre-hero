@@ -36,4 +36,6 @@ module.exports = {
   "gallon": "Une mesure anglaise, environ quatre litres et demi.",
   "Walsingham": "Une famille seigneuriale rivale de Sir Daniel.",
   "Azincourt": "La grande victoire anglaise sur les Français, en 1415.",
+  // 18/11 : mots rares et passages en langue étrangère (passe de définitions).
+  "pater noster|pater": "« Notre Père », en latin : la prière, et le temps qu'il faut pour la dire.",
 };

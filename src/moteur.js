@@ -3323,6 +3323,35 @@
     if (story) try { Object.defineProperty(story, "_nameForms", { value: out, enumerable: false, configurable: true }); } catch (e) {}
     return out;
   }
+  // Intent: glossaryNames(story) -> { form: true } = the rare words of the glossary (written in lower case there) that
+  // the story also uses as names: met with a capital in the middle of a sentence anywhere in its texts (« le chien
+  // s'appelait Pataud », « l'auberge du Fanal »). Their capitalised occurrences are the name, never the rare word.
+  // Why: 18/11, the glossary grew to the whole library: a shared word must not explain a character's or a place's name.
+  var GLOSS_WORD = "A-Za-zÀ-ÖØ-öø-ÿŒœÆæ", GLOSS_SKIP_KEYS = { glossary: 1, lore: 1, keywords: 1 };
+  function glossaryNames(story) {
+    if (!story) return {};
+    if (story._glossaryNames) return story._glossaryNames;
+    var lower = {}, out = {};
+    Object.keys(story.glossary || {}).forEach(function (k) { k.split("|").forEach(function (f) { f = f.trim(); if (f && f === f.toLowerCase()) lower[f] = 1; }); });
+    var word = new RegExp("[" + GLOSS_WORD + "]+(?:-[" + GLOSS_WORD + "]+)*", "g");
+    var midSentence = function (t, at) { var before = t.slice(0, at).replace(/[\s*_«»"“”(\[—–-]+$/, ""); return before !== "" && !/[.!?…:]$/.test(before); };
+    var scan = function (t) {
+      var m; word.lastIndex = 0;
+      while ((m = word.exec(t))) {
+        var w = m[0], lw = w.toLowerCase();
+        if (lower[lw] && w.charAt(0) !== lw.charAt(0) && w !== w.toUpperCase() && midSentence(t, m.index)) out[lw] = true;
+      }
+    };
+    var walk = function (v, key) {
+      if (GLOSS_SKIP_KEYS[key]) return;
+      if (typeof v === "string") { if (/\s/.test(v)) scan(v); }
+      else if (Array.isArray(v)) v.forEach(function (x) { walk(x, key); });
+      else if (v && typeof v === "object") Object.keys(v).forEach(function (k) { walk(v[k], k); });
+    };
+    if (Object.keys(lower).length) walk(story, "");
+    try { Object.defineProperty(story, "_glossaryNames", { value: out, enumerable: false, configurable: true }); } catch (e) {}
+    return out;
+  }
   // Intent: femOf(story, id) -> true | false | null = a woman, a man, or unknown: `f` when the story says it, else a
   // guess from a title (Mère, Sire…) or the « elle / il » of the description.
   function femOf(story, id) {
@@ -4078,7 +4107,7 @@
   }
 
   var API = {
-    FACE: FACE, FACE_KEYS: FACE_KEYS, ASPECT_KEYS: ASPECT_KEYS, ASPECT_MAX_WORDS: ASPECT_MAX_WORDS, personOf: personOf, aspectOf: aspectOf, quiOf: quiOf, nameForms: nameForms, faceErrors: faceErrors, REGARDS: REGARDS, mysterySolved: mysterySolved, happened: happened, TAVERN_GAMES_PER_DAY: TAVERN_GAMES_PER_DAY,
+    FACE: FACE, FACE_KEYS: FACE_KEYS, ASPECT_KEYS: ASPECT_KEYS, ASPECT_MAX_WORDS: ASPECT_MAX_WORDS, personOf: personOf, aspectOf: aspectOf, quiOf: quiOf, nameForms: nameForms, glossaryNames: glossaryNames, faceErrors: faceErrors, REGARDS: REGARDS, mysterySolved: mysterySolved, happened: happened, TAVERN_GAMES_PER_DAY: TAVERN_GAMES_PER_DAY,
     ARCHS: ARCHS, archOf: archOf, usesOf: usesOf, plainOf: plainOf, marksOf: marksOf, speakers: speakers, femOf: femOf, TEXT_FX: TEXT_FX, MARK_KINDS: MARK_KINDS, MOODS: MOODS, keywordsOf: keywordsOf, keywordFor: keywordFor, trouve: trouve, moodOf: moodOf, TECHS: TECHS, techsOf: techsOf, partyView: partyView, cpv: cpv, cpvMax: cpvMax, FRONT: FRONT, DOMAINS: DOMAINS, EP: EP, EP_PER_LEVEL: EP_PER_LEVEL, MAX_LEVEL: MAX_LEVEL, DIFFS: DIFFS, LOYAL_AT: LOYAL_AT, SUCCESS: SUCCESS, STEP_HOURS: STEP_HOURS,
     setRng: setRng, setDice: setDice, nudgeOf: nudgeOf, ambianceOf: ambianceOf, AMBIANCES: AMBIANCES, isNightNow: function (s) { var h = s.time % 24; return h >= NIGHT_FROM || h < NIGHT_TO; }, DIFFICULTY: DIFFICULTY, featsOf: featsOf, endingsOf: endingsOf, endingOf: endingOf, fatesOf: fatesOf, fateCount: fateCount, freshState: freshState, level: level, pvMax: pvMax, bonus: bonus, chance: chance, rollTest: rollTest,
     readingOf: readingOf, recalled: recalled, pocketOf: pocketOf, puzzleMatch: puzzleMatch, evalCond: evalCond, describeCond: describeCond, textList: textList, view: view, allowed: allowed, target: target,

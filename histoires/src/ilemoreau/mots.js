@@ -39,4 +39,8 @@ module.exports = {
   "brick": "Un voilier à deux mâts gréés de voiles carrées.",
   "monogamie": "Le fait de n'avoir qu'une seule épouse.",
   "omnibus": "Une grande voiture publique tirée par des chevaux, l'autobus de l'époque.",
+  // 18/11 : mots rares et passages en langue étrangère (passe de définitions).
+  "hiloire": "Rebord surélevé qui entoure une ouverture du pont d'un navire, pour empêcher l'eau d'y couler.",
+  "Hi non sunt homines": "« Ce ne sont pas des hommes ; ce sont des animaux que nous avons… », en latin d'écolier.",
+  "radula": "Sorte de langue râpeuse, couverte de petites dents, avec laquelle l'escargot racle sa nourriture.",
 };

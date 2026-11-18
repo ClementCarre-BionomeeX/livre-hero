@@ -25,4 +25,12 @@ module.exports = {
   "psyché": "Grand miroir mobile monté sur un cadre, où l'on se voit en pied.",
   "strychnine": "Un poison violent, qu'on employait aussi à très petites doses comme remontant.",
   "anarchiste": "Partisan de l'anarchie : vers 1890, certains anarchistes posaient des bombes, et le mot faisait peur.",
+  // 18/11 : mots rares et passages en langue étrangère (passe de définitions).
+  "nauplies": "Larves minuscules de certains crustacés, qui nagent dans le plancton.",
+  "tornaria": "Larves microscopiques d'animaux marins, qui flottent dans le plancton.",
+  "ladrerie": "Avarice sordide.",
+  "tapetum": "Couche du fond de l'œil de certains animaux, qui renvoie la lumière : c'est elle qui fait briller les yeux du chat dans la nuit.",
+  "ouiche": "« Ah bien, ouiche ! » : exclamation moqueuse, « pas du tout ! ».",
+  "défroque": "Vieux vêtements usés.",
+  "serin": "Petit oiseau jaune. « J'étais un serin » : j'étais un niais.",
 };

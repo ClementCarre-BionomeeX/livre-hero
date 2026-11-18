@@ -42,6 +42,7 @@ module.exports = {
   skin: "parchemin",
   cover: { motif: "etoile", color: "#2f3d4f" },
   glossary: Object.assign({}, require("../glossaire.js"), {
+    "défroque": "Vieux vêtements usés.",
     "glaneur|glaneuse|glaneurs|glaneuses": "Celui ou celle qui entre dans la lisière de la Dormante pour y ramasser ce qui traîne, comme on ramasse les épis après la moisson.",
     "lisière": "Le bord d'une forêt, d'un champ, ou ici de la Dormante : la bande de terre où l'on passe d'un côté à l'autre.",
     "borne|bornes": "Une pierre plantée au bord d'une route pour compter les lieues. Celles de la route royale portent un cadran solaire.",

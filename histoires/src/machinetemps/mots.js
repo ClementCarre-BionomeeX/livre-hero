@@ -39,4 +39,7 @@ module.exports = {
   "Trias": "La première période de l'ère des dinosaures, il y a plus de deux cents millions d'années.",
   "Jurassique": "La période des grands dinosaures, entre le Trias et le Crétacé.",
   "Crétacé": "La dernière période de l'ère des dinosaures, terminée il y a soixante-six millions d'années.",
+  // 18/11 : mots rares et passages en langue étrangère (passe de définitions).
+  "peptone": "Extrait de viande prédigérée, qu'on donnait aux malades pour les fortifier.",
+  "palpe|palpes": "Petit organe mou qui sert à tâter, chez certains animaux.",
 };

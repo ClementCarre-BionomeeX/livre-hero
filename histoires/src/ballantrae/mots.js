@@ -51,4 +51,13 @@ module.exports = {
   "memento mori": "Mots latins : « souviens-toi que tu mourras ».",
   "ultima ratio": "Mots latins : « le dernier argument », celui de la force.",
   "quantum mutatus ab illo": "Mots de Virgile : « combien changé de ce qu'il était ».",
+  // 18/11 : mots rares et passages en langue étrangère (passe de définitions).
+  "calenders": "Moines mendiants et vagabonds des contes des « Mille et Une Nuits », traduits en français par Antoine Galland.",
+  "scaura": "Mot indien pour l'eau-de-vie, que le texte appelle aussi « eau de feu ».",
+  "ladre|ladres": "Avare.",
+  "portemanteau|portemanteaux": "Grande valise de cuir qui s'ouvre en deux.",
+  "incontinent": "Aussitôt, sur-le-champ (sens ancien).",
+  "miserere": "« Aie pitié », en latin.",
+  "memento": "« Souviens-toi », en latin : un rappel.",
+  "Gnatique patrisque, alma, precor, miserere": "« Aie pitié, je t'en prie, du fils et du père, ô mère bienfaisante » : un vers latin de Virgile.",
 };

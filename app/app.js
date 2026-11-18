@@ -1005,7 +1005,8 @@
       Object.keys(LN).forEach(function (k) { k.split("|").forEach(function (f) { f = f.trim(); if (f) { defs[f.toLowerCase()] = { def: LN[k], head: k.split("|")[0].trim(), lore: true, form: f }; forms.push(f.toLowerCase()); } }); });
       forms.sort(function (a, b) { return b.length - a.length; });
       var esc2 = function (x) { return x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); };
-      cache = { st: st, defs: defs, re: forms.length ? new RegExp("(^|[^" + LETTER + "-])(" + forms.map(esc2).join("|") + ")(?=$|[^" + LETTER + "-])", "gi") : null };
+      // a shared rare word that the story also uses as a name (« Pataud », « le Fanal ») is left alone with its capital
+      cache = { st: st, defs: defs, names: M.glossaryNames(st), re: forms.length ? new RegExp("(^|[^" + LETTER + "-])(" + forms.map(esc2).join("|") + ")(?=$|[^" + LETTER + "-])", "gi") : null };
       return cache;
     }
     // html from md(): only <strong>, <em> and <br> tags, so the words are looked for between the tags.
@@ -1018,6 +1019,7 @@
         if (/^</.test(part) || inBtn) return part;
         return part.replace(c.re, function (all, pre, word) {
           var d = c.defs[word.toLowerCase()]; if (!d || used[d.head]) return all;
+          if (!d.lore && c.names[word.toLowerCase()] && word.charAt(0) !== word.charAt(0).toLowerCase()) return all;
           if (d.lore ? (word !== d.form || pref("lore") === false) : pref("glossary") === false) return all;
           used[d.head] = true;
           return pre + "<button type=\"button\" class=\"gl" + (d.lore ? " lore" : "") + "\" data-gl=\"" + esc(word.toLowerCase()) + "\">" + word + "</button>";
@@ -2641,6 +2643,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "13.4", items: ["Près de mille neuf cents mots rares expliqués d'un toucher, dans les romans comme dans les histoires : vieux métiers, marine, mine, horlogerie, remèdes, mots d'Église, et les passages en latin des romans. Un mot qui sert aussi de nom (un chien, une auberge) garde sa capitale et ne s'ouvre pas."] },
     { v: "13.3", items: ["« Le Cartographe de fièvre » : chaque île de la fièvre laisse maintenant reprendre la barque, même sans avoir répondu à sa devinette.", "Le vérificateur des livres refuse désormais une énigme qu'on ne peut quitter qu'en donnant la réponse."] },
     { v: "13.2", items: ["Les visages entrent dans les dialogues : aux premiers mots de chacun, son portrait de trois quarts, tourné vers celui à qui il parle. Dans la marge sur un grand écran, en petit médaillon sur un téléphone, ou tous en bande sous le titre. Réglage « Visages dans les dialogues »."] },
     { v: "13.1", items: ["« L'Île Folle-Aiguille » atteint deux mille cinq cents passages : soixante-dix scènes nouvelles se glissent avant les grandes décisions des quêtes, pour regarder, écouter, interroger, avant de choisir."] },
