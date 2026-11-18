@@ -48,7 +48,7 @@ module.exports = {
       text: [
         "Il est dans la rangée de gauche, le cinquième à partir de la poterne. Dix-huit ans, peut-être, un nez cassé de travers, une joue toute rouge, avec la marque des quatre doigts du gant, nette comme un tampon. Il a les larmes aux yeux. Il tient sa baguette à deux mains.",
         "Quand Ollivro passe devant lui, il frappe. Fort. De toutes ses forces, comme on frappe pour ne pas être frappé soi-même. Et à chaque coup, ses lèvres bougent. Tu es assez près pour lire sur ses lèvres. Il dit : pardon. Pardon. Pardon.",
-        "À côté de lui, un vieux soldat frappe aussi, régulièrement, sans rien dire, avec une sorte de lassitude de batteur en grange. Il a fait ça cent fois. Il fera ça cent fois encore. Il bâille, entre deux coups.",
+        "À côté de lui, un vieux soldat frappe aussi, régulièrement, avec une sorte de lassitude de batteur en grange. Il a fait ça cent fois. Il fera ça cent fois encore. Il bâille, entre deux coups.",
         "Tu ne sais pas lequel des deux te fait le plus peur."
       ],
       choices: [
@@ -85,7 +85,7 @@ module.exports = {
         "Tu lui dis de venir. Tu lui dis de venir voir son père. Elle ne comprend pas. Elle te suit, en riant encore, en pantoufles, par les couloirs du fort, jusqu'à la poterne de la cour basse.",
         "Elle voit. Tu la regardes voir. Tu vois son rire s'arrêter au milieu, comme une montre qu'on écrase. Elle voit l'homme à genoux, la chose rouge à la place du dos, les baguettes, et son père, droit comme un mât, qui marche derrière, et qui surveille les coups.",
         "Le commandant se retourne. Il la voit. Il reste figé, une seconde, la main levée. Il a l'air, à cet instant, d'un très vieil homme. Puis il fait un geste au tambour. Le tambour s'arrête. Il dit, d'une voix enrouée : « Assez. Portez-le à l'infirmerie. » Les sergents détachent Ollivro. Ils l'emportent.",
-        "Hermine ne dit rien. Elle remonte à la tour est, sans un mot, sans se retourner, en pantoufles. Le soir, on entend, depuis le bourg, au-dessus de la mer, quelqu'un qui joue de l'épinette, très mal, en frappant les touches, le même air de danse, encore et encore, en se trompant toujours à la même mesure.",
+        "Hermine remonte à la tour est, sans un mot, sans se retourner, en pantoufles. Le soir, on entend, depuis le bourg, au-dessus de la mer, quelqu'un qui joue de l'épinette, très mal, en frappant les touches, le même air de danse, encore et encore, en se trompant toujours à la même mesure.",
         "Tu ne sauras pas si tu as sauvé un homme ou détruit une maison. Peut-être les deux."
       ],
       choices: [

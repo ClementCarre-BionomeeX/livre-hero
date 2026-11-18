@@ -141,7 +141,7 @@ module.exports = {
     TK_fin_garde: { act: "III", title: "La main sur la joue", place: "cormorane", ambiance: "mer",
       text: [
         "Le matin passe sans lui. Il descend à midi, pour faire panser le cercle blanc, qui suppure un peu. Il ne parle pas du reste. Elle non plus.",
-        "Le soir, au gaillard, quand on pose sa gamelle par terre, il la ramasse, il s'assied au milieu des autres, et il mange, sans un mot, la joue gauche tournée vers eux, en pleine lumière, comme on pose une carte sur la table. On le laisse faire. Au bout de trois soirs, quelqu'un lui passe le pain. C'est le père Cariou, qui a besoin de place pour ses jambes, dit-il, et qui ne regarde personne en le faisant.",
+        "Le soir, au gaillard, quand on pose sa gamelle par terre, il la ramasse, il s'assied au milieu des autres, et il mange, la joue gauche tournée vers eux, en pleine lumière, comme on pose une carte sur la table. On le laisse faire. Au bout de trois soirs, quelqu'un lui passe le pain. C'est le père Cariou, qui a besoin de place pour ses jambes, dit-il, et qui ne regarde personne en le faisant.",
         "Victorine garde le pot de croûte au fond de son coffre. Elle y pense quelquefois, la nuit. Elle se demande ce qu'elle aurait fait, si le garçon avait redescendu l'échelle à l'aube, la chemise déjà ôtée. Elle ne trouve pas la réponse, et elle soupçonne qu'il le savait, et qu'il est resté en haut exprès, pour lui épargner la question."
       ],
       choices: [

@@ -87,7 +87,7 @@ module.exports = {
         { if: { any: [{ has: "tresor:couchant_mutins" }, { has: "lingots:mutins" }] }, text: "Ils ont l'argent. Les piastres du rocher qui sonne, ou les lingots des Puits, ou les deux. On voit les sacs passer de main en main, et chaque sac fait plier un homme." },
         { if: MALANDAIN, text: "Malandain est sur le gaillard, une longue-vue à l'œil, et il regarde la plage. Il te cherche. Il t'a promis quelque chose, et il est de ceux qui tiennent ce genre de promesse." },
         { if: { all: [{ not: MALANDAIN }, { not: { has: "fargue:retourne" } }] }, text: "Le maître-coq est sur la dunette, à la place du capitaine, les mains derrière le dos. Il regarde la plage. Il te voit. Il lève la main, une fois." },
-        { if: { all: [{ not: MALANDAIN }, { has: "fargue:retourne" }] }, text: "C'est Lagadec qui commande, avec l'œil fermé que lui a laissé la nuit du compte. Il ne sait pas commander. Il le fait quand même, en criant beaucoup. Le maître-coq est à côté de toi, sur la plage, et il regarde partir ses hommes sans un mot." },
+        { if: { all: [{ not: MALANDAIN }, { has: "fargue:retourne" }] }, text: "C'est Lagadec qui commande, avec l'œil fermé que lui a laissé la nuit du compte. Il ne sait pas commander. Il le fait quand même, en criant beaucoup. Le maître-coq est à côté de toi, sur la plage, et il regarde partir ses hommes." },
       ],
       choices: [
         { label: "Monter à bord avec le maître-coq", hide: { any: [MALANDAIN, { has: "fargue:retourne" }] }, fx: { flag: "mutins:navire" }, to: "A5o_pavillon" },

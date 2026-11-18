@@ -40,7 +40,7 @@ module.exports = {
     YO_place: { act: "IV", title: "La canonnière", place: "misericorde", ambiance: "temple",
       text: [
         "Victorine remplit le premier bol, avant celui de la capitaine, avant celui du baron, et le porte à travers la nef, dans un silence qui se fait autour d'elle à mesure qu'elle avance, comme un cercle dans l'eau. Elle le met dans les mains de Rosemonde. Elle prend la canonnière par le bras, la relève, et l'amène au feu, et la fait asseoir à sa propre place, entre elle et la capitaine.",
-        "Personne ne dit rien. La capitaine Ribaud pousse son écuelle de quelques pouces, pour faire de la place, sans lever les yeux. Benoît, en face, se décale aussi. Puis l'homme à l'épaule, le premier qui avait ri, tend à Rosemonde son quart de rhum, de sa main valide, sans un mot, la figure rouge jusqu'aux oreilles.",
+        "Personne ne dit rien. La capitaine Ribaud pousse son écuelle de quelques pouces, pour faire de la place, sans lever les yeux. Benoît, en face, se décale aussi. Puis l'homme à l'épaule, le premier qui avait ri, tend à Rosemonde son quart de rhum, de sa main valide, la figure rouge jusqu'aux oreilles.",
         "Rosemonde boit la soupe. Elle ne remercie personne. Quand elle a fini, elle dit seulement, à Victorine, très bas : « Il était saoul, docteur. Ça a été vite. » Et elle se met à pleurer, sans bruit, la figure tournée vers le feu, et tout le monde fait semblant de regarder ailleurs, ce qui est la seule délicatesse dont une chapelle assiégée soit capable.",
       ],
       choices: [{ label: "Retourner à tes fiévreux", fx: { quest: "YO" }, back: "A4w_jours" }] },

@@ -65,10 +65,10 @@ module.exports = {
     XM_m_baron: { act: "III", title: "Le prix d'un homme", place: "brisegreve", ambiance: "village",
       text: [
         "Le baron Clavières t'écoute au mess des officiers du fort, entre le fromage et la liqueur, avec l'impatience aimable d'un homme qu'on dérange pour un mousse. Puis tu dis : « pilote », et « Maraude », et il pose son verre.",
-        "Il ne dit rien. Il sort. Une heure plus tard, il revient avec le gouverneur, qui a l'air d'un homme qui vient de vendre un cheval mort au prix d'un cheval vivant. On fait monter un forgeron. On ouvre une porte qui n'avait pas été ouverte depuis la Saint-Martin de l'an passé.",
+        "Il sort. Une heure plus tard, il revient avec le gouverneur, qui a l'air d'un homme qui vient de vendre un cheval mort au prix d'un cheval vivant. On fait monter un forgeron. On ouvre une porte qui n'avait pas été ouverte depuis la Saint-Martin de l'an passé.",
         "À l'aube, deux soldats amènent sur la grève, sous une couverture, un homme si maigre qu'il flotte dans ses chaînes. Une barbe blanche jusqu'à la ceinture, des cheveux blancs plus longs encore, des ongles comme des griffes, et des yeux qui clignent, qui pleurent, qui ne supportent pas la lumière grise du matin. Il tourne la tête vers la mer et ne la quitte plus.",
         "« Mon pilote, dit le baron avec douceur. Monsieur Brousse a bien voulu reprendre du service. » Il te tapote la joue. « Brave enfant. Tu as l'œil. »",
-        "Brousse, entre les deux soldats, te cherche du regard. Il te trouve. Il ne dit rien. Il regarde le baron, ensuite, d'une façon que tu n'oublieras pas.",
+        "Brousse, entre les deux soldats, te cherche du regard. Il te trouve. Il regarde le baron, ensuite, d'une façon que tu n'oublieras pas.",
       ],
       choices: [{ label: "Remonter à bord avec eux", fx: { recrue: "brousse", flag: ["brousse:baron", "brousse:abord"], quest: "XM" }, to: "XM_m_retour" }] },
     XM_m_barre: { act: "III", title: "La barre", place: "cormorane", ambiance: "mer",
@@ -115,14 +115,14 @@ module.exports = {
       text: [
         "Ton pied heurte la pince, qui tombe sur la roche avec un bruit de cloche. La lanterne se tourne vers toi. Un soldat te saisit par la vareuse et te tire au jour, en criant. L'autre, l'oreille contre le mur, entend gratter.",
         "Ils comprennent. En une heure, le fort est debout. On descend aux cachots. On trouve le trou. On trouve le numéro neuf, couché au bout de son tunnel, la tête à un pouce du jour.",
-        "Toi, on te ramène à la Cormorane à l'aube, au bout d'une corde, et le gouverneur Lebihan exige de la capitaine une amende de quarante livres « pour la pince et pour la peine ». C'est le baron qui la paie, sans un mot. Le soir, il te fait venir, te regarde un moment, et dit seulement : « Tu me les rendras. »",
+        "Toi, on te ramène à la Cormorane à l'aube, au bout d'une corde, et le gouverneur Lebihan exige de la capitaine une amende de quarante livres « pour la pince et pour la peine ». C'est le baron qui la paie. Le soir, il te fait venir, te regarde un moment, et dit seulement : « Tu me les rendras. »",
         "En levant l'ancre, le lendemain, tu entends, venu du fort, un cri. Un seul, long, qui n'a plus rien d'humain. Puis la roche se tait.",
       ],
       choices: [{ label: "Ne plus regarder le fort", fx: { flag: ["brousse:repris", "mousse:amende"] }, to: "XM_m_retour" }] },
     XM_m_sortie: { act: "III", title: "Le jour", place: "brisegreve", ambiance: "nuit",
       text: [
         "Tu tires. La main est sèche, légère, faite d'os et de corne. Un bras suit, puis une tête, puis des épaules, puis un homme entier, qui sort du trou comme un enfant sort de sa mère : en se tordant, nu jusqu'à la ceinture, couvert de poussière de granit, avec une barbe blanche qui lui descend jusqu'au ventre et des cheveux blancs qui lui couvrent le dos.",
-        "Il reste à genoux sur la roche de la grotte. Il ne regarde pas toi. Il regarde l'entrée, la nuit, et derrière la nuit, la mer qui respire. Il se traîne jusqu'au bassin et y plonge la tête, et boit, et relève la tête, et rit. Puis il se traîne jusqu'à l'entrée de la grotte et regarde la mer, à genoux, sans rien dire, jusqu'à ce que tu le tires par le bras.",
+        "Il reste à genoux sur la roche de la grotte. Il ne regarde pas toi. Il regarde l'entrée, la nuit, et derrière la nuit, la mer qui respire. Il se traîne jusqu'au bassin et y plonge la tête, et boit, et relève la tête, et rit. Puis il se traîne jusqu'à l'entrée de la grotte et regarde la mer, à genoux, en silence, jusqu'à ce que tu le tires par le bras.",
         "« Pardon, dit-il. J'avais oublié qu'elle était si grande. »",
       ],
       choices: [

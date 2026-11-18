@@ -89,7 +89,7 @@ module.exports = {
       text: [
         "Tu lui parles longtemps. Tu lui dis qu'un engagé n'est pas un loué, qu'un novice gagne une solde, qu'au bout de trois voyages on est matelot, au bout de dix, on choisit son navire, qu'on n'est jamais à personne, sur la mer, quand on sait son métier. Tu lui dis que l'île, c'est beau, mais que l'île est à quelqu'un aussi, au Vieux, aux Fondeurs, à la mer. Tu ne sais pas si tu y crois. Tu le dis bien.",
         "Il t'écoute. Il ramasse une poignée de sable, la laisse couler entre ses doigts. Il dit : « Tu crois que je serai matelot ? » Tu dis oui. Il dit : « Et capitaine ? » Tu dis : pourquoi pas. Il rit. Il dit que tu mens comme un curé, mais que tu mens bien.",
-        "Il monte dans la chaloupe, avec les autres, son sac sur l'épaule, et il prend un aviron sans qu'on le lui demande. Il regarde l'île s'éloigner, jusqu'au bout, sans rien dire. Puis il se retourne vers le large, et il ne regarde plus en arrière. Tu ne sais pas si tu viens de le sauver ou de lui reprendre la seule chose qu'il ait jamais eue. Tu sais qu'il te fait confiance. C'est lourd, la confiance d'un enfant de l'Hôpital. On ne la reçoit pas deux fois.",
+        "Il monte dans la chaloupe, avec les autres, son sac sur l'épaule, et il prend un aviron sans qu'on le lui demande. Il regarde l'île s'éloigner, jusqu'au bout, en silence. Puis il se retourne vers le large, et il ne regarde plus en arrière. Tu ne sais pas si tu viens de le sauver ou de lui reprendre la seule chose qu'il ait jamais eue. Tu sais qu'il te fait confiance. C'est lourd, la confiance d'un enfant de l'Hôpital. On ne la reçoit pas deux fois.",
       ],
       choices: [{ label: "Regarder la mer encore un peu", fx: { quest: "ZX" }, back: "A5o_debut" }] },
   },

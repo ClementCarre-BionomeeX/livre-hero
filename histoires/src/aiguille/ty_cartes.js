@@ -87,7 +87,7 @@ module.exports = {
         "Fargue tient la banque. Il tient la banque comme on la tenait, il y a vingt ans, dans l'entrepont d'un certain navire, à la lanterne, pour des hommes qui avaient des couteaux. Il ne triche pas, ou presque. Il n'a pas besoin. Ansquer mise sur des cartes qu'il croit inspirées, et qui ne le sont pas. En une heure, il a tout perdu. Les huit cents livres, sa montre, son épée.",
         "Il reste assis, devant le tapis vide, blanc comme une nappe. Il dit qu'il va se tuer. Il le dit très calmement.",
         "Fargue pousse vers lui, sur la table, toute la pile. L'argent, la montre, l'épée. « Il n'y a pas de secret, dit-il. Il y avait un homme qui trichait pour elle. Il est mort. Ce soir, c'était moi. Demain, ce sera le banquier, et il trichera contre vous. Reprenez votre argent, lieutenant. Achetez une maison. Épousez la petite en gris qui vous écrit. Et ne mettez plus les pieds dans cette salle. »",
-        "Ansquer prend l'argent. Il regarde Fargue avec une haine profonde, la haine qu'on garde pour ceux qui vous ont sauvé de vous-même et qui l'ont vu. Il s'en va sans un mot. Fargue rentre à la Cormorane en sifflant un air de quart, un air qu'il n'avait pas sifflé depuis longtemps."
+        "Ansquer prend l'argent. Il regarde Fargue avec une haine profonde, la haine qu'on garde pour ceux qui vous ont sauvé de vous-même et qui l'ont vu. Il s'en va en silence. Fargue rentre à la Cormorane en sifflant un air de quart, un air qu'il n'avait pas sifflé depuis longtemps."
       ],
       choices: [
         { label: "Retourner aux préparatifs", fx: { quest: "TY" }, back: "XR_jours" }

@@ -54,7 +54,7 @@ module.exports = {
         { first: true, text: "Victorine s'assied près de Rosalie. Elle lui demande comment c'était, ces crises, depuis l'enfance." },
         { first: true, text: "La jeune femme essuie ses yeux. Il tombait, dit-elle. Il devenait raide, ou mou, ça dépendait. Il ne respirait presque plus. Une fois, chez sa mère, il est resté comme ça un jour et une nuit, et le curé était venu. Puis il s'était réveillé, et il avait demandé à boire. Elle l'a oublié, ce matin, dans sa peur, et le jeune monsieur n'en sait rien." },
         { first: true, text: "Elle ajoute, très bas, en regardant ses mains : « Il était gentil. Il était souvent malade. On ne s'amusait pas beaucoup. » Puis elle rougit, et elle se remet à pleurer, plus fort, comme pour effacer la phrase." },
-        { first: true, text: "Simonneau a entendu. Il ne dit rien. Il regarde par la fenêtre à tabatière les toits mouillés, et il consulte encore sa montre. Victorine remarque qu'il est rasé de frais, qu'il porte une cravate propre, un matin de deuil, à huit heures, et qu'il connaît, dans la mansarde, la place exacte de la cafetière." },
+        { first: true, text: "Simonneau a entendu. Il regarde par la fenêtre à tabatière les toits mouillés, et il consulte encore sa montre. Victorine remarque qu'il est rasé de frais, qu'il porte une cravate propre, un matin de deuil, à huit heures, et qu'il connaît, dans la mansarde, la place exacte de la cafetière." },
         { again: true, text: "Rosalie pleure toujours, sur sa chaise, au pied du lit. Simonneau, sur le seuil, attend." }
       ],
       choices: [

@@ -129,7 +129,7 @@ module.exports = {
       choices: [{ label: "Ressortir sur le pont", to: "XK_signes" }] },
     A3m_parch_vu: { act: "III", title: "La chaleur", place: "cormorane", ambiance: "mer",
       text: [
-        "Tes doigts sont gourds ; le parchemin s'accroche, se déplie à moitié, et quand tu le replies enfin, il est trop tard. Fargue est derrière toi. Il ne dit rien. Il regarde par-dessus ton épaule, avec une attention très douce, les lignes de signes rouges qui pâlissent déjà à mesure que la peau refroidit.",
+        "Tes doigts sont gourds ; le parchemin s'accroche, se déplie à moitié, et quand tu le replies enfin, il est trop tard. Fargue est derrière toi. Il regarde par-dessus ton épaule, avec une attention très douce, les lignes de signes rouges qui pâlissent déjà à mesure que la peau refroidit.",
         "« De l'encre de citron, dit-il enfin. Les contrebandiers s'en servent. Les amoureux aussi. » Il te tapote l'épaule. « Range ça, va. Et ne le montre à personne d'autre. À bord, il y a des gens qui savent lire ce qui ne s'écrit pas. »",
         "Il recommence à chanter. Il ne chante plus tout à fait juste.",
       ],
@@ -255,7 +255,7 @@ module.exports = {
         lose: { fx: { penche: { arnoult: -1 }, flag: "jules:sauve_fargue" }, to: "A3m_grain_fin" } }] },
     A3m_grain_fin: { act: "III", title: "Le grain", place: "mer_couchant", ambiance: "nuit",
       text: [
-        { outcome: "win", text: "Ta main se referme sur son poignet. Il pèse un poids de mort au bout de ton bras, au-dessus du vide, pendant une seconde qui n'en finit pas ; puis ses pieds retrouvent le marchepied, ses mains la toile, et il est là, contre toi, collé à la vergue, haletant, trempé, vivant. Il ne dit rien. Il te serre le bras si fort que tu en garderas les marques une semaine." },
+        { outcome: "win", text: "Ta main se referme sur son poignet. Il pèse un poids de mort au bout de ton bras, au-dessus du vide, pendant une seconde qui n'en finit pas ; puis ses pieds retrouvent le marchepied, ses mains la toile, et il est là, contre toi, collé à la vergue, haletant, trempé, vivant. Il te serre le bras si fort que tu en garderas les marques une semaine." },
         { outcome: "lose", text: "Tes doigts frôlent sa manche et se referment sur rien. Petit-Jules tombe. Il tombe dans le noir, sans un cri, et tu le perds de vue. Puis, en bas, sous la vergue, dans les haubans, une ombre a jailli de nulle part et l'a cueilli au vol, d'un seul bras, comme on cueille un fruit : un homme large, en foulard rouge, qui le tient serré contre lui, accroché aux enfléchures de l'autre main, celle qui n'a que trois doigts. Fargue redescend avec lui jusqu'au pont, tranquillement, sous la pluie. Petit-Jules lui jette les bras au cou en sanglotant." },
         "Le grain passe aussi vite qu'il est venu. À l'aube, la mer est grise, longue, fatiguée, et le ciel se déchire à l'est sur une bande d'or pâle. Il manque une cage à poules, deux barriques, un seau, et la moitié du sommeil de l'équipage.",
         "Et au sud, sur l'horizon, il y a une roche.",

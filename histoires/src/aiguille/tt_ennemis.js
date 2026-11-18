@@ -21,7 +21,7 @@ module.exports = {
       text: [
         { first: true, text: "Le manoir de Kerazan est une longue maison de granit au fond d'une allée de hêtres, avec toutes ses fenêtres éclairées dans la pluie. Il saute de la berline avant qu'elle s'arrête. Il court. Elle le suit, dans le vestibule, dans l'escalier, jusqu'à la chambre." },
         { first: true, text: "La chambre est vide. Le lit est fait. La bougie brûle sur la table de chevet. Sur l'oreiller, un billet plié." },
-        { first: true, text: "Il le lit debout. Victorine voit son visage changer, morceau par morceau, comme un mur qui s'écroule par pans. Il lui tend le billet sans rien dire." },
+        { first: true, text: "Il le lit debout. Victorine voit son visage changer, morceau par morceau, comme un mur qui s'écroule par pans. Il lui tend le billet." },
         { first: true, text: "Quatre lignes, d'une écriture ronde de pensionnaire. *Pardonne-moi. Il fallait que tu partes pour que je puisse partir. La crise était fausse. Paul m'attend au relais de la Croix-Blanche, la diligence de Morlenc passe à minuit. Ne me cherche pas. Clotilde.*" },
         { first: true, text: "Une servante, sur le palier, explique en pleurant que Madame s'est relevée dès que la berline a tourné l'allée, qu'elle a pris une valise préparée sous le lit, et qu'un cabriolet l'attendait au bout du parc. Il y a de cela une heure et demie." },
         { again: true, text: "La chambre, le lit fait, la bougie. Il relit le billet, assis sur le bord du lit, comme on relit une addition fausse." }

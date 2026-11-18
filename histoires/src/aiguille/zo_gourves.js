@@ -44,7 +44,7 @@ module.exports = {
     ZO_fille: { act: "II", title: "Le père de Soizic", place: "basse_fosse", ambiance: "ville",
       text: [
         "Tu lui dis. La boîte à sel. La chique de tabac qu'elle sort pour la sentir. Le bateau peint en bleu, qu'elle attend. Tu le dis simplement, sans rien ajouter, sans rien demander, et tu vois chaque mot l'atteindre, comme des pierres qu'on lance dans une eau trouble, et qui font des ronds.",
-        "Il ne dit rien. Il se laisse glisser le long du mur, jusqu'au sol, sous l'escalier, et il reste assis là, son verre vide à la main, à regarder le verre. Tu t'en vas. Sur la première marche de l'escalier, tu te retournes. Il a posé le verre par terre, à côté de lui, et sa main est restée ouverte, sur le pavé, comme une main qui attend qu'on la prenne.",
+        "Il se laisse glisser le long du mur, jusqu'au sol, sous l'escalier, et il reste assis là, son verre vide à la main, à regarder le verre. Tu t'en vas. Sur la première marche de l'escalier, tu te retournes. Il a posé le verre par terre, à côté de lui, et sa main est restée ouverte, sur le pavé, comme une main qui attend qu'on la prenne.",
         "Tu ne sais pas ce que ça veut dire. Peut-être rien. Un homme pose un verre, il en reprend un autre. Tu remontes dans la ruelle. Tu as les mains qui tremblent, et tu ne sais pas si c'est de colère, ou de pitié, ou d'avoir fait la chose la plus cruelle de ta vie, qui est de donner de l'espoir à un homme qui l'avait noyé exprès.",
       ],
       choices: [{ label: "Reprendre ta tournée de la Basse-Fosse", fx: { quest: "ZO" }, back: "A2m_bf" }] },

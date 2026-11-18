@@ -15,7 +15,7 @@ module.exports = {
       ] },
     A1_coffre_pere: { act: "I", title: "Le coffre", place: "fanal_chambre",
       text: [
-        "Ton père monte sans un mot. Il pose la chandelle sur la table, s'assied sur la chaise, sa jambe raide allongée devant lui, et te fait signe d'ouvrir. Il ne veut pas toucher la clef. Tu comprends qu'il ne la touchera jamais.",
+        "Ton père monte. Il pose la chandelle sur la table, s'assied sur la chaise, sa jambe raide allongée devant lui, et te fait signe d'ouvrir. Il ne veut pas toucher la clef. Tu comprends qu'il ne la touchera jamais.",
         "Tu glisses l'aiguille dans le trou du centre de la rose de laiton, la pointe bleue vers le nord, et tu tournes. Quelque chose se défait dans le bois, avec un claquement sec et un soupir de ressort, comme si le coffre respirait pour la première fois depuis vingt ans.",
       ],
       choices: [{ label: "Soulever le couvercle", via: "pere", to: "A1_coffre_dedans" }] },

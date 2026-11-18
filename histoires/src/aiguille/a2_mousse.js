@@ -275,7 +275,7 @@ module.exports = {
       text: [
         "Sœur Marthe range la lettre dans sa manche et te fait entrer, pour te donner un verre de lait, parce qu'on donne un verre de lait aux enfants qui portent des lettres, c'est la règle. La jeune fille te sourit. Elle s'appelle Lisette. Elle te demande d'où tu viens ; tu dis le Ponant, la mer, un navire qui part pour le sud. Ses yeux s'allument.",
         "« Le sud, dit-elle. Le soleil. Mon père dit qu'il y a là-bas des îles où l'on n'a jamais froid. Il est cuisinier sur les navires ; il chante, il fait rire tout le monde. Il vient le dimanche, quand il est à terre. » Elle tousse. Elle cache sa bouche derrière un mouchoir, et le mouchoir disparaît très vite dans sa manche. « Il dit qu'un jour il m'y emmènera, dans le soleil. Quand il aura l'argent. »",
-        "Sœur Marthe, derrière elle, te regarde sans rien dire. Au moment où tu pars, elle te raccompagne jusqu'à la porte bleue et dit à voix basse, comme on se confesse : « Il lui faudrait le soleil avant le printemps. Et l'argent pour l'y mener. Les médecins de la Haute-Ville disent qu'au printemps prochain, il sera trop tard pour tout, même pour le soleil. »",
+        "Sœur Marthe, derrière elle, te regarde en silence. Au moment où tu pars, elle te raccompagne jusqu'à la porte bleue et dit à voix basse, comme on se confesse : « Il lui faudrait le soleil avant le printemps. Et l'argent pour l'y mener. Les médecins de la Haute-Ville disent qu'au printemps prochain, il sera trop tard pour tout, même pour le soleil. »",
       ],
       choices: [{ label: "Repartir", fx: { flag: "lisette:vue", drop: "lettre_soeurs" }, to: "A2m_soeurs_fin" }] },
     A2m_soeurs_fin: { act: "II", title: "La porte bleue", place: "basse_fosse",

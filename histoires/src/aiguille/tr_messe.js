@@ -80,7 +80,7 @@ module.exports = {
         "Il dit sa messe. Il la dit lentement, avec une gravité terrible, chaque geste pesé, la moitié brûlée de son visage dans l'ombre, la moitié belle dans la lumière. Au moment de l'élévation, il lève l'hostie vers le ciel ouvert, et ses mains tremblent si fort que tu crois qu'il va la laisser tomber. Il ne la laisse pas tomber.",
         "Les lanternes arrivent. Elles s'arrêtent à la porte de la chapelle. Quatre hommes, cinq, avec des fourches et des bâtons. Ils regardent. Ils voient le prêtre brûlé, et toi, un mousse étranger, à genoux, qui répond la messe. Ils ne bougent pas. Ils restent sur le seuil, les fourches baissées, sans oser entrer, comme on reste à la porte d'une maison où quelqu'un est en train de mourir.",
         "La messe finit. L'abbé Lézérec se retourne, et bénit. Il bénit la chapelle, la lande, toi, les hommes à la porte. Un des hommes, un vieux, ôte son bonnet. Les autres, après un moment, l'imitent.",
-        "Puis ils s'en vont, sans un mot. L'abbé souffle les chandelles. Il te dit merci, et il ajoute, de sa voix douce : « C'est la première fois en dix ans qu'elle a eu une vraie messe. Il fallait quelqu'un qui ne savait pas. »"
+        "Puis ils s'en vont, en silence. L'abbé souffle les chandelles. Il te dit merci, et il ajoute, de sa voix douce : « C'est la première fois en dix ans qu'elle a eu une vraie messe. Il fallait quelqu'un qui ne savait pas. »"
       ],
       choices: [
         { label: "Rentrer à la grange, avant l'aube", fx: { quest: "TR" }, back: "A3o_lannoz" }

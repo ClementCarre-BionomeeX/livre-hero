@@ -27,7 +27,7 @@ module.exports = {
       ] },
     WA_dehors: { act: "IV", title: "La cabane des fiévreux", place: "misericorde", ambiance: "chateau",
       text: [
-        "On les descend le soir même, sur des brancards, par la petite porte de la sacristie. Ils ne protestent pas. Le gabier de Morlenc regarde Victorine, en passant, sans un mot, avec des yeux d'enfant qu'on envoie au lit sans souper. Elle lui dit qu'elle descendra demain matin. Il hoche la tête.",
+        "On les descend le soir même, sur des brancards, par la petite porte de la sacristie. Ils ne protestent pas. Le gabier de Morlenc regarde Victorine, en passant, avec des yeux d'enfant qu'on envoie au lit sans souper. Elle lui dit qu'elle descendra demain matin. Il hoche la tête.",
         "Elle descend chaque matin, par la corde, avec des seaux de bouillon et d'eau bouillie, et elle reste jusqu'à midi, et elle remonte, en se lavant les mains au vinaigre jusqu'aux coudes. Le flux cesse de courir dans la nef. Au bout de huit jours, il n'y a plus de nouveau malade à la chapelle. La capitaine avait raison.",
         "Dans la cabane, il en meurt deux. Le troisième soir, un mutin vient rôder autour, à la nuit ; Victorine l'apprend le lendemain par le gabier de Morlenc, qui l'a vu se pencher à la porte, renifler, et repartir en courant. On les laisse en paix. Le gabier de Morlenc remonte le douzième jour, guéri, maigre comme un clou. Il ne dit jamais rien à Victorine de ces douze nuits. Quand elle le croise dans la nef, il lui fait un petit salut poli, comme on salue quelqu'un qu'on a connu ailleurs.",
       ],

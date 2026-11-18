@@ -84,7 +84,7 @@ module.exports = {
       ] },
     XS_preuves: { act: "IV", title: "Les pièces", place: "sylve", ambiance: "nature",
       text: [
-        "Victorine sort le pli de sa trousse, et le pose sur la pierre plate, devant le feu éteint, à côté du fagot d'écorce lié de noir. Elle ne dit rien. Elle regarde Guénolé.",
+        "Victorine sort le pli de sa trousse, et le pose sur la pierre plate, devant le feu éteint, à côté du fagot d'écorce lié de noir. Elle regarde Guénolé.",
         "Guénolé, très pâle, s'avance, dénoue la toile cirée, et lit, à voix haute, de sa voix de commis, sans rien changer, les instructions au capitaine Bréhat. La phrase du milieu. La latitude. Le prix doublé.",
         "La grotte se tait. On n'entend plus que la cascade.",
         "Jeanne Brasdefer ne regarde pas le pli. Elle regarde Guénolé, longtemps, et Guénolé soutient son regard, en tremblant de tout son petit corps. « Douze ans, dit-elle enfin, très bas. Tu l'as gardé douze ans. »",
@@ -127,7 +127,7 @@ module.exports = {
       text: [
         "Elle rentre à la sacristie au moment où le soleil touche le clocher. Elle range sa trousse. Elle se lave les mains à la source.",
         { if: { has: "xs:soin" }, text: "Dans sa poche, il y a un petit éclat de défense de sanglier, noirci, que Soazig lui a donné en se réveillant, pour qu'elle se souvienne. Victorine n'aura aucun mal à se souvenir." },
-        { if: { has: "xs:camp_vu" }, text: "Avant de dormir, elle dessine pour la capitaine, sur le dos d'une ordonnance, le plan de la plage : les trois feux, la tente, les fusils à gauche, la poudre à droite, la sentinelle qui dort à la deuxième heure. La capitaine le regarde, et le plie, et le range dans son gilet sans un mot." },
+        { if: { has: "xs:camp_vu" }, text: "Avant de dormir, elle dessine pour la capitaine, sur le dos d'une ordonnance, le plan de la plage : les trois feux, la tente, les fusils à gauche, la poudre à droite, la sentinelle qui dort à la deuxième heure. La capitaine le regarde, et le plie, et le range dans son gilet en silence." },
         { if: { has: "xs:arc" }, text: "Elle a un brassard de cuir à l'avant-bras gauche. Benoît le remarque, et lève un sourcil. Elle ne l'enlève pas." },
         { if: { has: "xs:soin_rate" }, text: "Elle a encore sous les ongles, malgré la cascade, malgré la source, une ligne brune, très fine, qui ne part pas." },
       ],

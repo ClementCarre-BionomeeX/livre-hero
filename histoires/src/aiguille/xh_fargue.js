@@ -60,7 +60,7 @@ module.exports = {
         "Malandain cesse d'aiguiser. Il regarde Fargue, longtemps, avec une incompréhension sincère, comme un chien à qui l'on a montré le gibier et qu'on retient par le collier.",
         "« Tous ensemble, dit-il.",
         "— Tous ensemble. Au signal. Celui qui part avant, c'est celui qui nous fait tous pendre. À Morlenc, on pend les mutins en commençant par celui qui a tiré le premier. Ça fait un exemple. Tu veux être l'exemple ? »",
-        "Malandain réfléchit. Ça prend du temps. Puis il range son couteau, sans un mot, et s'en va vers son hamac, en traînant un peu les pieds, comme un enfant puni.",
+        "Malandain réfléchit. Ça prend du temps. Puis il range son couteau, en silence, et s'en va vers son hamac, en traînant un peu les pieds, comme un enfant puni.",
         "Fargue a gagné quelque chose. Quelques jours, peut-être. Il sait que la patience de Malandain est une corde, et qu'il vient d'en tirer un bon bout. Il ne sait pas combien il en reste.",
       ],
       choices: [{ label: "Redescendre à la cambuse", back: "A3f_jours" }] },
@@ -131,7 +131,7 @@ module.exports = {
       text: [
         "« Rien, dit-il. J'ai des pois, du lard, du biscuit. Pas de citrons. Je suis désolé, Madame. »",
         "Elle le regarde. Elle hoche la tête. Elle s'en va. Elle ne le croit pas, il le voit à sa nuque, mais elle n'a pas le droit de fouiller une cambuse, et elle le sait, et il le sait.",
-        "Le soir, il ouvre un tonnelet en cachette, et en sert une louche à chacun de ses hommes, dans leur soupe, sans rien dire. Ils trouvent la soupe aigre. Ils la mangent quand même.",
+        "Le soir, il ouvre un tonnelet en cachette, et en sert une louche à chacun de ses hommes, dans leur soupe. Ils trouvent la soupe aigre. Ils la mangent quand même.",
         "À l'avant, les gencives continuent de saigner. Il y a parmi elles celles du gabier Daguenet, qui est un brave garçon, et qui chante bien, et qui ne sera jamais à lui. Fargue ne pense pas à Daguenet. Il s'applique à ne pas y penser, avec l'énergie d'un homme qui récure une casserole très sale.",
       ],
       choices: [{ label: "Remettre les sacs de pois en place", back: "A3f_jours" }] },

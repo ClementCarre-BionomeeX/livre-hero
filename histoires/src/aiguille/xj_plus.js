@@ -110,7 +110,7 @@ module.exports = {
     XJ_n4: { act: "III", title: "La quatrième nuit", place: "cormorane", ambiance: "nuit",
       text: [
         "La quatrième nuit, il se tait. Il reste couché dans le hamac, les yeux ouverts, à regarder Victorine sans ciller, avec un sourire qui n'appartient à personne. Il ne dort pas. Elle non plus. Le navire craque. La chandelle baisse.",
-        "Vers minuit, il se lève, sans un mot, et va au mur de l'infirmerie, contre la cloison peinte en blanc, et il commence à y écrire avec le bout d'un tison froid, très vite, des colonnes de chiffres, de lettres, de noms.",
+        "Vers minuit, il se lève, et va au mur de l'infirmerie, contre la cloison peinte en blanc, et il commence à y écrire avec le bout d'un tison froid, très vite, des colonnes de chiffres, de lettres, de noms.",
       ],
       choices: [
         { label: "Lire ce qu'il écrit", fx: { flag: "xj:mur" }, to: "XJ_n4_mur" },

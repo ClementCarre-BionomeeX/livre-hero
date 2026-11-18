@@ -38,9 +38,9 @@ module.exports = {
       ] },
     YG_orange: { act: "III", title: "L'orange", place: "cormorane", ambiance: "mer",
       text: [
-        "C'est une orange de Morlenc, la dernière de la caisse du baron, que tu as prise sur la table de la grand-chambre en passant le balai. Tu la poses sur l'écritoire fermée, sur ses genoux, sans rien dire.",
+        "C'est une orange de Morlenc, la dernière de la caisse du baron, que tu as prise sur la table de la grand-chambre en passant le balai. Tu la poses sur l'écritoire fermée, sur ses genoux, en silence.",
         "Il la regarde longtemps. Elle est d'un orange violent, presque obscène, au milieu de tout ce gris. Puis il la prend, lentement, et il l'épluche, d'un seul ruban, avec ses mains blanches et précises, sans casser la spirale, comme il écrivait. Il mange un quartier. Il te tend le deuxième.",
-        "Vous mangez l'orange à deux, au pied du grand mât, quartier par quartier, sans un mot. Il garde l'épluchure, en spirale, sur l'écritoire.",
+        "Vous mangez l'orange à deux, au pied du grand mât, quartier par quartier. Il garde l'épluchure, en spirale, sur l'écritoire.",
         "Le lendemain, il ne mange pas sa ration. Mais il prend son quart. Le surlendemain, il copie le cahier des vivres. Il ne monte jamais aux huniers. Il ne parle jamais plus du Bureau. Il garde l'épluchure jusqu'à ce qu'elle sèche et devienne dure comme du cuir, et il la garde encore.",
       ],
       choices: [{ label: "Retourner à ta corvée", fx: { quest: "YG", flag: "yg:orange" }, back: "A3m_jours" }] },

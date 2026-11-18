@@ -44,7 +44,7 @@ module.exports = {
     ZE_tu: { act: "III", title: "La ferme du haut de la lande", place: "lannoz", ambiance: "nuit",
       text: [
         "Il te regarde longtemps, à la lueur de la chandelle. Il voit que tu mens. Tu le vois voir. Il voit aussi, sur le dos de ta main, les marques rouges de quatre doigts fins, comme une brûlure de froid, qui commencent déjà à bleuir.",
-        "Il ne dit rien. Il pose la chandelle sur la tablette du lit clos, il ferme la petite fenêtre, il pousse le loquet, et il reste là, debout, la main à plat sur le carreau, longtemps, sans un mot, comme on pose la main sur la vitre d'une voiture qui s'en va. Puis il sort, et referme la porte derrière lui, doucement.",
+        "Il pose la chandelle sur la tablette du lit clos, il ferme la petite fenêtre, il pousse le loquet, et il reste là, debout, la main à plat sur le carreau, longtemps, comme on pose la main sur la vitre d'une voiture qui s'en va. Puis il sort, et referme la porte derrière lui, doucement.",
         "Au matin, la servante te sert ton lait en silence. Kerbrat n'est pas là. Elle te dit qu'il est parti sur la lande avant l'aube, sans manger, comme il le fait quelquefois, vers le cimetière de la chapelle des landes, à trois lieues, où il n'entre jamais, et devant le mur duquel il reste assis jusqu'au soir. « Vous avez dormi dans la chambre d'en haut, dit-elle. Je n'aurais pas dû. Pardonnez-moi. » Elle regarde ta main. « Elle aussi. Elle ne fait pas exprès. Elle a froid. »",
       ],
       choices: [{ label: "Redescendre vers l'anse", fx: { quest: "ZE" }, back: "A3o_lannoz" }] },

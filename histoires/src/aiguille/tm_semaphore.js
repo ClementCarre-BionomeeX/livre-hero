@@ -23,7 +23,7 @@ module.exports = {
         "Le registre est un gros cahier relié en toile verte, dont les pages sont réglées à la main, en colonnes : la date, l'heure, le navire, la nationalité, le signal reçu, le signal rendu. L'écriture du caporal est fine, régulière, sans une rature, d'une propreté de copiste. Les navires défilent, mois après mois, comme des perles sur un fil. Brick. Goélette. Lougre. Frégate. Cormorane, trois-mâts barque, avant-hier.",
         "Puis tu remarques, dans la marge de droite, à certaines dates, un petit signe tracé au crayon, si léger qu'on le voit à peine. Une sorte de croix, avec un trait en travers du haut, comme un homme qui lève un bras. Il y en a une, il y a deux ans. Puis rien pendant des mois. Puis une autre, cet hiver. Puis trois, en mars. Puis presque chaque semaine, depuis un mois.",
         "La dernière est d'hier soir. Elle est tracée plus fort que les autres, et le crayon a troué le papier.",
-        "Le caporal Coadou revient avec deux tasses de thé. Il voit le registre ouvert. Il voit où ton doigt s'est arrêté. Il ne dit rien. Il pose les tasses, prend le registre, le ferme doucement, et le range sur l'étagère, entre deux livres d'algèbre. Puis il s'assied, et il boit son thé, en regardant la fenêtre de l'ouest."
+        "Le caporal Coadou revient avec deux tasses de thé. Il voit le registre ouvert. Il voit où ton doigt s'est arrêté. Il pose les tasses, prend le registre, le ferme doucement, et le range sur l'étagère, entre deux livres d'algèbre. Puis il s'assied, et il boit son thé, en regardant la fenêtre de l'ouest."
       ],
       choices: [
         { back: "TM_tourelle", label: "Retourner près de la table" }

@@ -26,7 +26,7 @@ module.exports = {
       choices: [{ label: "Attendre minuit avec les autres, au feu", to: "VT_minuit" }] },
     VT_minuit: { act: "IV", title: "Le souper sur la dalle", place: "misericorde", ambiance: "nuit",
       text: [
-        "Minuit, à la montre de la capitaine, qu'elle tient ouverte dans sa paume sans rien dire. Lesquer lève sa timbale vers le vide. « Vous êtes en retard, dit-il. C'est bien les gens de qualité. »",
+        "Minuit, à la montre de la capitaine, qu'elle tient ouverte dans sa paume en silence. Lesquer lève sa timbale vers le vide. « Vous êtes en retard, dit-il. C'est bien les gens de qualité. »",
         "Trois coups. Sous la dalle. Sourds, espacés, très nets, comme on frappe à une porte quand on sait qu'on est attendu. Ils montent par la pierre et on les sent dans les pieds avant de les entendre. Puis le silence. Le feu craque. Quelqu'un, derrière Victorine, récite un Ave à toute vitesse, en avalant les mots.",
         "Lesquer est resté la timbale levée. Une seconde, deux. Victorine voit sa pomme d'Adam monter et descendre. Puis il éclate de rire, d'un rire plus haut que le premier, et il frappe trois fois la dalle du talon de sa botte. « Entrez ! »",
         "Trois coups lui répondent. Exactement les mêmes.",
@@ -59,10 +59,10 @@ module.exports = {
     VT_pardon: { act: "IV", title: "Le souper sur la dalle", place: "misericorde", ambiance: "souterrain",
       text: [
         "Elle lui dit, devant tout le monde, qu'il a lancé une invitation, qu'on lui a répondu, et qu'un homme bien élevé rend la visite qu'on lui fait. Seul. Avec une chandelle. Et qu'il aura la bonté, en bas, de présenter ses excuses à ses hôtes, puisqu'il les a fait attendre. Quelqu'un, au feu, rit nerveusement. Lesquer la dévisage. Elle vient de le prendre à son propre jeu, et il le sait, et il ne peut plus reculer sans que tout le chœur le voie reculer.",
-        { if: { seen: "XY_crypte_sceller" }, text: "Fréville casse le mortier à la masse, sans un mot. On soulève la dalle. Lesquer prend la chandelle, salue la compagnie d'une révérence, et descend en sifflant un air de cabaret." },
+        { if: { seen: "XY_crypte_sceller" }, text: "Fréville casse le mortier à la masse. On soulève la dalle. Lesquer prend la chandelle, salue la compagnie d'une révérence, et descend en sifflant un air de cabaret." },
         { if: { not: { seen: "XY_crypte_sceller" } }, text: "On soulève la dalle. Lesquer prend la chandelle, salue la compagnie d'une révérence, et descend en sifflant un air de cabaret." },
         "Le sifflement s'arrête au bas des marches. On voit la lueur de la chandelle bouger contre la voûte, s'éloigner, se fixer quelque part, au fond. Puis plus rien. Pas un mot. Les trois coups reviennent, une fois, et ne reviennent plus. Le chœur attend. Un quart d'heure. Benoît Quémeneur dit qu'il descend le chercher. Victorine lui pose la main sur le bras.",
-        "Lesquer remonte au bout d'une demi-heure. La chandelle est éteinte ; il l'a gardée à la main. Il a de la poussière sur les genoux, sur ses deux genoux. Il ne dit rien. Il va reprendre la bouteille et la gamelle sur le rebord de la dalle, très soigneusement, comme on débarrasse une table après un repas, et il les rapporte au feu, et il s'assied.",
+        "Lesquer remonte au bout d'une demi-heure. La chandelle est éteinte ; il l'a gardée à la main. Il a de la poussière sur les genoux, sur ses deux genoux. Il va reprendre la bouteille et la gamelle sur le rebord de la dalle, très soigneusement, comme on débarrasse une table après un repas, et il les rapporte au feu, et il s'assied.",
         "Le lendemain, il rit de nouveau, aussi fort, de ses dettes et de ses femmes ; le siège n'a que faire d'un gabier converti. Mais il fait le tour de la dalle, comme les autres. Et quand on lui demande ce qu'il a vu en bas, il répond qu'il a présenté ses excuses, et qu'on les a acceptées, et qu'il ne savait pas que ça se faisait encore. Victorine se demande si la peur vaut un repentir. Elle se dit que, de loin, à la lueur d'une chandelle, on les confond facilement, et que, pour ceux d'en bas, c'est peut-être la même chose.",
       ],
       choices: [{ label: "Retourner au feu du chœur", fx: { quest: "VT" }, back: "A4w_jours" }] },

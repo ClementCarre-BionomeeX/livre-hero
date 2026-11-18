@@ -28,7 +28,7 @@ module.exports = {
       choices: [{ label: "Redescendre vers le bourg", back: "A3m_brisegreve" }] },
     XQ_b_biscuit_vu: { act: "III", title: "La canne", place: "brisegreve", ambiance: "mer",
       text: [
-        "Le sergent a vu. Il ne dit rien. Il lève sa canne et l'abat sur l'épaule du garçon, une fois, d'un coup sec, sans colère, comme on chasse une mouche. Le biscuit tombe, roule sur deux marches, et tombe dans le vide, vers la mer.",
+        "Le sergent a vu. Il lève sa canne et l'abat sur l'épaule du garçon, une fois, d'un coup sec, sans colère, comme on chasse une mouche. Le biscuit tombe, roule sur deux marches, et tombe dans le vide, vers la mer.",
         "Le garçon n'a pas crié. Il continue de descendre, de compter. Le sergent passe devant toi, et te dit, très poliment, en touchant son chapeau : « Ici, on ne nourrit pas les bêtes, mon enfant. Ça les rend paresseuses. »",
         "Tu restes collé{e} contre la roche longtemps après qu'ils sont passés.",
       ],

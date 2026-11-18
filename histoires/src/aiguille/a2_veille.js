@@ -181,7 +181,7 @@ module.exports = {
       choices: [{ label: "Le matin", to: "A2vv_fin" }] },
     A2vv_fin: { act: "II", title: "Le jour du départ", place: "cormorane", ambiance: "mer",
       text: [
-        { if: { has: "sabran:copie" }, text: "À l'aube, la capitaine Ribaud écoute le récit du vol sans un mot. Puis : « Une copie volée, ça veut dire un navire qui nous suivra. Je préfère le savoir. » Elle regarde Victorine. « Et vous, médecin, vous avez maintenant un ennemi qui sait lire. C'est le pire genre. »" },
+        { if: { has: "sabran:copie" }, text: "À l'aube, la capitaine Ribaud écoute le récit du vol. Puis : « Une copie volée, ça veut dire un navire qui nous suivra. Je préfère le savoir. » Elle regarde Victorine. « Et vous, médecin, vous avez maintenant un ennemi qui sait lire. C'est le pire genre. »" },
         "Victorine monte à bord avec sa malle, ses livres, et le portrait d'Hector face contre le fond. Elle s'installe dans une cabine de deux pas sur trois, à côté de la pharmacie. Elle ne redescendra plus à terre avant longtemps.",
         "La marée sera haute à minuit.",
       ],

@@ -66,7 +66,7 @@ module.exports = {
       text: [
         "Tu restes à plat ventre sur les planches tièdes, et tu ne dis rien. Ce sont ses lettres. C'est son rendez-vous. C'est sa bouche. Daguenet te regarde encore un moment, dans le noir, puis il se tourne vers Marjolaine et bafouille quelque chose sur le temps qu'il fait.",
         "Elle se lève. Elle rentre sur le gaillard en marchant sur le beaupré, sans se tenir, comme sur une route, passe à un pas de toi sans te voir, et descend dans l'entrepont. Le lendemain, il y a dans le hamac de Daguenet toutes les lettres, attachées avec un fil de voile. Il n'y en a plus d'autres. Elle ne lui parle plus. Elle ne crache plus sur lui non plus. Elle le regarde comme on regarde un endroit vide.",
-        "Daguenet te rend les lettres sans un mot. Il a perdu son sourire de propriétaire. Il le retrouvera, à Lannoz, auprès d'une fille de la lande qui n'aura rien lu.",
+        "Daguenet te rend les lettres. Il a perdu son sourire de propriétaire. Il le retrouvera, à Lannoz, auprès d'une fille de la lande qui n'aura rien lu.",
       ],
       choices: [{ label: "Retourner au travail", fx: { quest: "YZ" }, back: "A3n_jours" }] },
 

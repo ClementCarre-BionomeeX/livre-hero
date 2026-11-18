@@ -170,7 +170,7 @@ module.exports = {
         "— Tout le monde a soif. »",
         "Malandain pose son gobelet sur la cuve, très doucement. Il est énorme. Il fait une tête de plus que Gobert et le double de son poids. Il regarde le bosco, sans colère, avec une sorte de curiosité, comme on regarde une porte qu'on va enfoncer. Autour d'eux, le pont se tait. Les hommes regardent. Gobert ne recule pas. Il pose la main sur son cabillot.",
         "Alors une voix chante, à l'avant. Fargue sort de la cambuse en s'essuyant les mains à son tablier, traverse le pont, se plante entre les deux hommes, et tend à Malandain sa propre pinte, pleine.",
-        "« Tiens, Ulric. Je ne bois que du vin, de toute façon. » Il rit. Malandain le regarde, prend le gobelet, boit d'un trait, le rend, et retourne à l'avant sans un mot. Fargue tape sur l'épaule de Gobert. « Un bon bosco, ça ne cède jamais. Un bon cuisinier, ça cède toujours. C'est pour ça qu'on fait la paire. »",
+        "« Tiens, Ulric. Je ne bois que du vin, de toute façon. » Il rit. Malandain le regarde, prend le gobelet, boit d'un trait, le rend, et retourne à l'avant. Fargue tape sur l'épaule de Gobert. « Un bon bosco, ça ne cède jamais. Un bon cuisinier, ça cède toujours. C'est pour ça qu'on fait la paire. »",
         "Le pont se remet à respirer. Les hommes se dispersent. Mais tu as vu qui Malandain a écouté, et ce n'est pas le bosco.",
       ],
       choices: [{ label: "Regarder qui a vu ce que tu as vu", fx: { devine: ["malandain", "gobert"], penche: { tarlet: -1, rivoal: -1 } }, to: "A3n_eau_fin" }] },

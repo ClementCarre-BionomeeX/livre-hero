@@ -44,7 +44,7 @@ module.exports = {
       ] },
     TW_rival: { act: "IV", title: "Le tour de terre", place: "plage", ambiance: "nature", second: true,
       text: [
-        "Jaffrézic monte sur la butte en s'essuyant le front. C'est lui qui voulait la vallée, hier soir, couteau à moitié sorti. Il prend la longue-vue sans un mot, regarde longtemps, la rend.",
+        "Jaffrézic monte sur la butte en s'essuyant le front. C'est lui qui voulait la vallée, hier soir, couteau à moitié sorti. Il prend la longue-vue, regarde longtemps, la rend.",
         "« Il va trop loin, dit-il. Il ne rentrera pas. » Il ne sourit pas. Il s'assied à côté de Fargue, sur le rocher, et il reste là, à regarder vers le nord, avec une drôle de figure.",
         "« On était mousses ensemble, dit-il au bout d'un moment. Sur un baleinier. Il avait faim, déjà. Il volait le biscuit des autres, la nuit, et il le cachait dans son hamac, et il ne le mangeait pas. Il le gardait. Il en avait des kilos, à la fin, tout moisi. On l'a battu pour ça. Il a recommencé. » Il crache. « Je la lui laisse, sa vallée. Qu'il rentre. »",
         "Il redescend vers le camp sans attendre de réponse. Fargue le regarde partir, et se dit que la seule personne au monde qui souhaite sincèrement le retour de Le Dréau est celle à qui il voulait prendre la vallée."

@@ -143,7 +143,7 @@ module.exports = {
     A3v_infirmerie: { act: "III", title: "Les malades de l'avant", place: "cormorane", ambiance: "mer",
       text: [
         "Le matin, ils viennent à l'infirmerie par l'échelle du faux-pont, un par un, en baissant la tête, en tenant leur bonnet, avec une timidité de premiers communiants. Ils ont des furoncles, des dents, des ventres, des chagrins qu'ils appellent des coliques. Victorine les écoute, les palpe, les soigne, et apprend, comme le disent les médecins de campagne, que l'homme est un animal qui ment partout sauf sur une table.",
-        { if: { marin: "gabet" }, text: "Térence Gabet vient au troisième jour, le poignet enveloppé dans un chiffon sale. La vieille marque, sous le chiffon, s'est rouverte : un ulcère rouge, gonflé, autour de la lettre V blanchie. Il la regarde soigner sans rien dire, en souriant de ses belles dents." },
+        { if: { marin: "gabet" }, text: "Térence Gabet vient au troisième jour, le poignet enveloppé dans un chiffon sale. La vieille marque, sous le chiffon, s'est rouverte : un ulcère rouge, gonflé, autour de la lettre V blanchie. Il la regarde soigner, en souriant de ses belles dents." },
         { if: { all: [{ marin: "gabet" }, { has: "gabet:marque" }] }, text: "Elle reconnaît le poignet. Elle l'a vu à Morlenc, sur la dunette, sortir de la manche d'un homme qui saluait la capitaine. Elle n'avait rien dit. Il le sait, à la façon dont il la regarde maintenant." },
         "Le quatrième jour, Isidore Lagadec, le matelot maigre aux yeux pâles, se fait porter à l'infirmerie avec une fièvre de cheval. Il délire à moitié. Victorine lui ôte sa chemise pour l'ausculter.",
         "Sur l'avant-bras gauche, il porte un tatouage ancien, bleui, à demi effacé : une croix aux bras évasés, posée sur une ancre.",
@@ -182,7 +182,7 @@ module.exports = {
     A3v_benoit_voile: { act: "III", title: "Le quart du second", place: "cormorane", ambiance: "nuit",
       text: [
         "À l'aube, le ciel blanchit au nord-est. Benoît prend la longue-vue, par habitude, et fait le tour de l'horizon.",
-        { if: { has: "sabran:copie" }, text: "Il s'arrête au nord. Il regarde longtemps. Puis il tend la longue-vue à Victorine sans rien dire. Au bout de la lunette, très loin, presque fondue dans la brume grise du matin, il y a une voile. Un brigantin, gris, fin, rapide, qui tient leur route à la même vitesse qu'eux. « Il y a trois jours qu'il est là, dit Benoît. Il ne se rapproche pas. Il ne s'éloigne pas. » Il reprend la longue-vue. « Je connais ce gréement. Je l'ai vu au Quai des Hollandes, l'hiver dernier, quand personne ne savait encore à qui il était. Il s'appelle la Désinvolte. »" },
+        { if: { has: "sabran:copie" }, text: "Il s'arrête au nord. Il regarde longtemps. Puis il tend la longue-vue à Victorine. Au bout de la lunette, très loin, presque fondue dans la brume grise du matin, il y a une voile. Un brigantin, gris, fin, rapide, qui tient leur route à la même vitesse qu'eux. « Il y a trois jours qu'il est là, dit Benoît. Il ne se rapproche pas. Il ne s'éloigne pas. » Il reprend la longue-vue. « Je connais ce gréement. Je l'ai vu au Quai des Hollandes, l'hiver dernier, quand personne ne savait encore à qui il était. Il s'appelle la Désinvolte. »" },
         { if: { not: { has: "sabran:copie" } }, text: "L'horizon est vide. Il referme la longue-vue d'un coup sec, satisfait, comme on referme un livre de comptes juste." },
       ],
       choices: [{ label: "Redescendre à l'infirmerie", fx: { flag: "victorine:benoit" }, to: "A3v_benoit_fin" }] },

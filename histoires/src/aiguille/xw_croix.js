@@ -41,7 +41,7 @@ module.exports = {
         "Tu sors des racines, une branche à la main. Tu te couches au bord du trou, tu la tends. L'homme l'attrape. Tu tires. Et la vase, sous ton propre ventre, s'ouvre à son tour, et tu glisses, et tu t'enfonces jusqu'aux hanches, à côté de lui.",
         "Pendant un moment épouvantable, vous êtes deux à descendre, côte à côte, dans la boue noire et tiède, en vous tenant la main. Puis les marins de la Désinvolte se couchent sur les racines, en chaîne, comme on fait sur la glace, et vous tirent, l'un après l'autre, avec une gaffe et beaucoup de jurons.",
         "Tu sors sans tes souliers. L'homme sort sans ses bottes. Vous restez couchés côte à côte sur les racines, noirs de vase des pieds à la tête, à respirer, et il se met à rire, d'un rire nerveux, interminable, et tu ris aussi, sans savoir pourquoi.",
-        "L'officier en habit bleu te regarde partir à pieds nus sans rien dire. Il a son pistolet à la main. Il ne s'en sert pas. Il le range, au bout d'un moment, comme on range un argument dont on n'a plus besoin.",
+        "L'officier en habit bleu te regarde partir à pieds nus. Il a son pistolet à la main. Il ne s'en sert pas. Il le range, au bout d'un moment, comme on range un argument dont on n'a plus besoin.",
       ],
       choices: [{ label: "Continuer à travers les racines, pieds nus", to: "XW_tombe" }] },
     XW_enlise_laisse: { act: "V", title: "La vase", place: "sylve", ambiance: "nature",

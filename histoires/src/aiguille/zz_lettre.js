@@ -30,7 +30,7 @@ module.exports = {
       text: [
         "Tu lis. Lentement, mot à mot, comme c'est écrit, sans rien adoucir, parce que tu ne sais pas comment on adoucit. Le neuf septembre. Le brouillard. Le doris. L'aviron.",
         "Elle ne crie pas. Elle reste assise, les aiguilles dans les mailles. Elle demande : « Relis. » Tu relis. Elle demande : « L'aviron, c'était le sien ? » Tu dis que la lettre ne le dit pas. Elle hoche la tête. Puis elle reprend ses aiguilles, et elle se remet à raccommoder, très vite, plus vite qu'avant, les yeux secs, et tu restes là, la lettre à la main, à la regarder faire des mailles, jusqu'à ce que sa mère descende de la falaise en courant, parce que quelqu'un lui a dit.",
-        "Le soir, tu entends, depuis le Fanal, les femmes de la Pointe qui chantent pour elle, dans la maison, la complainte des noyés. Tu entends aussi, entre deux couplets, une voix seule, celle de Bleunven, qui demande, encore et encore, si l'aviron était le sien. Ton père, au comptoir, te regarde rentrer. Il ne dit rien. Il te sert un bol de cidre chaud, ce qu'il ne fait jamais, et le pose devant toi.",
+        "Le soir, tu entends, depuis le Fanal, les femmes de la Pointe qui chantent pour elle, dans la maison, la complainte des noyés. Tu entends aussi, entre deux couplets, une voix seule, celle de Bleunven, qui demande, encore et encore, si l'aviron était le sien. Ton père, au comptoir, te regarde rentrer. Il te sert un bol de cidre chaud, ce qu'il ne fait jamais, et le pose devant toi.",
       ],
       choices: [{ label: "Boire le cidre", fx: { quest: "ZZ" }, back: "A1_jours" }] },
     ZZ_invente: { act: "I", title: "La lettre des bancs", place: "greve", ambiance: "mer",
@@ -42,7 +42,7 @@ module.exports = {
       choices: [{ label: "Remonter la grève, sans te retourner", fx: { quest: "ZZ" }, back: "A1_jours" }] },
     ZZ_recteur: { act: "I", title: "La lettre des bancs", place: "greve", ambiance: "mer",
       text: [
-        "Tu dis que l'écriture est trop difficile. Que c'est un autre qui a écrit. Que tu n'arrives pas à lire. Elle te regarde, étonnée ; tu lis toujours tout. Puis elle regarde le cachet de cire noire, pour la première fois, et tu vois qu'elle le voit, et qu'elle ne veut pas le voir, et qu'elle te tend la main pour reprendre la lettre, sans un mot.",
+        "Tu dis que l'écriture est trop difficile. Que c'est un autre qui a écrit. Que tu n'arrives pas à lire. Elle te regarde, étonnée ; tu lis toujours tout. Puis elle regarde le cachet de cire noire, pour la première fois, et tu vois qu'elle le voit, et qu'elle ne veut pas le voir, et qu'elle te tend la main pour reprendre la lettre.",
         "Vous montez ensemble à Sainte-Anne-des-Grèves, chez le recteur. Elle marche devant toi, la lettre serrée contre elle. Elle ne te parle pas. Au presbytère, elle entre seule, et la porte se referme. Tu restes dehors, sur le muret, sous la croix de granit, au vent. Tu entends, au bout d'un long moment, à travers la porte, un seul cri, bref, comme un oiseau qu'on attrape.",
         "Quand elle ressort, elle passe devant toi sans s'arrêter. Puis elle revient sur ses pas. Elle te prend la main, une seconde. « Tu savais, dit-elle. Merci de ne pas l'avoir dit toi-même. » Et elle s'en va vers la falaise. Tu ne sais pas si tu as eu du cœur ou de la lâcheté. Le recteur, sur le seuil, te regarde, et soupire, et te dit que c'est souvent la même chose, à ton âge, et au sien.",
       ],

@@ -74,7 +74,7 @@ module.exports = {
     XJ_engage: { act: "II", title: "L'aide-chirurgien", place: "cormorane",
       text: [
         "Émeric Vauclair monte à bord de la Cormorane avec une malle de livres, une trousse d'instruments d'argent qui vaut plus que le navire, et une petite fiole brune enveloppée dans un mouchoir.",
-        { if: { has: "vauclair:averti" }, text: "Il tend la fiole à Victorine, sur la passerelle, sans un mot. Elle la range dans le placard de la pharmacie, sous clef, à côté du laudanum. Il regarde la clef disparaître sous sa robe avec une expression qu'elle n'oubliera pas : un mélange de gratitude et de faim." },
+        { if: { has: "vauclair:averti" }, text: "Il tend la fiole à Victorine, sur la passerelle. Elle la range dans le placard de la pharmacie, sous clef, à côté du laudanum. Il regarde la clef disparaître sous sa robe avec une expression qu'elle n'oubliera pas : un mélange de gratitude et de faim." },
         { if: { not: { has: "vauclair:averti" } }, text: "Il garde la fiole dans la poche intérieure de son habit, contre son cœur, et la touche, de temps en temps, du bout des doigts, comme on vérifie qu'un portefeuille est encore là." },
         "La capitaine Ribaud le regarde passer avec une méfiance de principe, Gobert avec une méfiance d'expérience. Les matelots, eux, l'adorent dès le premier jour : il soigne les ampoules, les cors et les dents gâtées avec une douceur de mère, et refuse tout paiement.",
       ],

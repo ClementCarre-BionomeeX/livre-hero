@@ -83,7 +83,7 @@ module.exports = {
       choices: [{ label: "Recopier la page, et rendre l'enveloppe au recteur", fx: { flag: "lannoz:brehat" }, back: "A3x_lannoz" }] },
     XQ_l_benoit: { act: "III", title: "La lande", place: "lannoz", ambiance: "nature",
       text: [
-        "Benoît Quémeneur descend à terre pour la première fois depuis Morlenc. Il marche sur la lande, seul, les mains derrière le dos, comme sur la dunette. Victorine marche à côté de lui, sans rien dire. Ils marchent longtemps, sous la bruine, dans la bruyère qui leur mouille les jambes.",
+        "Benoît Quémeneur descend à terre pour la première fois depuis Morlenc. Il marche sur la lande, seul, les mains derrière le dos, comme sur la dunette. Victorine marche à côté de lui. Ils marchent longtemps, sous la bruine, dans la bruyère qui leur mouille les jambes.",
         "« Il y a, à Morlenc, au bord du fleuve, un pré qu'on appelle le Pré-aux-Mouettes, dit-il enfin. Avec un calvaire. Nous y allions, enfants. Alexis voulait toujours se battre. Au bâton, à l'épée de bois, aux poings. Moi, je ne voulais pas. Je n'ai jamais voulu. »",
         "Il s'arrête, regarde la mer.",
         "« Il m'attendait, là-bas, au bout du pré, le dimanche, avec deux bâtons. Et moi, j'allais à la messe. Je savais qu'il m'attendait. J'y allais quand même, à la messe. Je me disais que si je n'y allais jamais, il finirait par se lasser. » Il sourit, un sourire de travers. « Il ne s'est jamais lassé. Il m'attend encore, je crois. Quelque part. Avec deux bâtons. »",

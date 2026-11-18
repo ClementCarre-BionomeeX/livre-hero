@@ -139,7 +139,7 @@ module.exports = {
     // ---------------------------------------------------------------- the doctor and the Mother
     XF_v_mere: { act: "III", title: "La Mère", place: "ilot", ambiance: "nature",
       text: [
-        "Ombeline vient la chercher sur la plage, le deuxième jour, sans un mot, avec un regard qui dit à la fois *venez* et *pardonnez-moi*. Elle la mène par la forêt, en évitant la maison, jusqu'à une clairière au creux d'un vallon, où des huttes de palmes entourent un cercle de pierres blanches.",
+        "Ombeline vient la chercher sur la plage, le deuxième jour, avec un regard qui dit à la fois *venez* et *pardonnez-moi*. Elle la mène par la forêt, en évitant la maison, jusqu'à une clairière au creux d'un vallon, où des huttes de palmes entourent un cercle de pierres blanches.",
         "Dans la plus grande hutte, sur une litière de fougères, une créature énorme est couchée sur le côté. Une truie, peut-être, autrefois. Une femme, aujourd'hui, ou ce qu'on a pu en faire : une robe, des mains, de petits yeux bleus noyés dans la graisse, qui s'ouvrent quand Victorine entre et qui la regardent avec une confiance terrible.",
         "« La Mère, dit Ombeline. Ses coutures se sont ouvertes, sous le bras, il y a dix jours. Le Maître dit que c'est sans intérêt. Il dit qu'elle est finie depuis longtemps et qu'il n'y a plus rien à apprendre sur elle. »",
         "Victorine s'agenouille et soulève le bras. L'odeur la frappe au visage, douceâtre, épaisse, une odeur d'hôpital de la Marine en août. La cicatrice ancienne a cédé sur une longueur de main, et sous la peau, le pus a creusé une poche grosse comme un poing, rouge, luisante, chaude comme une brique sortie du four.",
@@ -270,7 +270,7 @@ module.exports = {
     XF_o_retenue: { act: "IV", title: "L'aiguille d'Ombeline", place: "misericorde", ambiance: "chateau",
       text: [
         "Ombeline pose l'aiguille. Elle la pose très lentement, sur le linge, à côté des deux doigts. Pendant une seconde, Victorine croit qu'elle va désobéir, et elle ne sait pas ce qu'elle ferait alors.",
-        "Puis Ombeline reprend la charpie, l'eau-de-vie, le fil ordinaire. Elle nettoie, régularise, ferme, avec une perfection froide, sans un mot. Quand c'est fini, elle enveloppe les deux doigts dans le linge, noue les coins, et sort les enterrer dans la cour de la chapelle, au pied du mur, à genoux, avec une cuiller.",
+        "Puis Ombeline reprend la charpie, l'eau-de-vie, le fil ordinaire. Elle nettoie, régularise, ferme, avec une perfection froide, en silence. Quand c'est fini, elle enveloppe les deux doigts dans le linge, noue les coins, et sort les enterrer dans la cour de la chapelle, au pied du mur, à genoux, avec une cuiller.",
         "Le soir, elle revient s'asseoir près de Victorine, à la lueur de la chandelle. « Vous aviez raison, dit-elle. Je crois. Je ne sais pas. » Elle regarde ses mains. « Il aurait eu ses doigts une fois sur trois. Deux fois sur trois, il aurait eu la gangrène. Je n'ai pensé qu'à la fois sur trois. Le Maître ne pensait jamais qu'à celle-là, lui non plus. »",
         "Yvon Le Bihan vit, avec trois doigts à la main gauche. Il apprend à faire des nœuds autrement. Il dit à qui veut l'entendre que c'est la jolie demoiselle aux cheveux tirés qui l'a sauvé, et Ombeline, chaque fois, rougit et sort de la pièce.",
       ],

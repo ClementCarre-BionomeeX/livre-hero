@@ -66,7 +66,7 @@ module.exports = {
       ] },
     A3f_soute_fin: { act: "III", title: "La soute aux voiles", place: "cormorane", ambiance: "nuit", second: true,
       text: [
-        { if: { has: "fargue:epargne_mousse" }, text: "L'enfant sort de la soute sans un mot, en le frôlant, et Fargue le regarde partir vers l'avant, noir comme un ramoneur, droit comme un piquet. Il sait que l'enfant ira trouver la capitaine, ou la médecin. Il le laisse faire. Une capitaine qui sait n'est pas plus dangereuse qu'une capitaine qui se doute ; elle est seulement plus prudente, et la prudence fait perdre du temps à ceux qui l'ont. Et puis, l'enfant du Fanal, il ne veut pas qu'on lui fasse de mal. Il l'a décidé à Morlenc. C'est une décision qu'il n'a pas les moyens de prendre, et il la prend quand même." },
+        { if: { has: "fargue:epargne_mousse" }, text: "L'enfant sort de la soute, en le frôlant, et Fargue le regarde partir vers l'avant, noir comme un ramoneur, droit comme un piquet. Il sait que l'enfant ira trouver la capitaine, ou la médecin. Il le laisse faire. Une capitaine qui sait n'est pas plus dangereuse qu'une capitaine qui se doute ; elle est seulement plus prudente, et la prudence fait perdre du temps à ceux qui l'ont. Et puis, l'enfant du Fanal, il ne veut pas qu'on lui fasse de mal. Il l'a décidé à Morlenc. C'est une décision qu'il n'a pas les moyens de prendre, et il la prend quand même." },
         { if: { has: "fargue:menace_mousse" }, text: "L'enfant tremble sous sa main, sans pleurer. Fargue lui dit, très doucement, sans méchanceté, comme on explique une recette, ce qu'on fait aux mousses qui parlent, sur certains navires, et comment on les retrouve, et dans quel état. Puis il le lâche, lui essuie la joue de son pouce, laisse une trace blanche dans la suie, et lui sourit. « Va te laver. Je t'aime bien, tu sais. Ne m'oblige pas. » L'enfant part. Fargue reste seul dans la soute aux voiles, la lanterne à la main, et il a honte, pour la première fois depuis longtemps, et la honte a le goût exact de ce qu'il a dit au garçon qui boitait, il y a vingt et un ans." },
       ],
       choices: [{ label: "Retourner à la cambuse", to: "A3f_cambuse_fin" }] },
@@ -164,7 +164,7 @@ module.exports = {
       choices: [{ label: "Retourner à la cambuse", to: "A3f_eau_fin" }] },
     A3f_eau_fin: { act: "III", title: "La pinte", place: "sargues", ambiance: "mer", second: true,
       text: [
-        { if: { has: "fargue:pinte" }, text: "Malandain boit d'un trait, rend le gobelet, et retourne à l'avant sans un mot. Gobert le regarde partir, puis regarde Fargue, d'un regard de vieux chien qui a compris qu'on vient de lui sauver la vie et qui ne pardonnera jamais qu'on l'ait fait. Tarlet et Rivoal, eux, ont vu qu'un homme a donné son eau à un homme qui avait soif. Le soir, ils boivent leur pinte assis à côté de la cambuse." },
+        { if: { has: "fargue:pinte" }, text: "Malandain boit d'un trait, rend le gobelet, et retourne à l'avant. Gobert le regarde partir, puis regarde Fargue, d'un regard de vieux chien qui a compris qu'on vient de lui sauver la vie et qui ne pardonnera jamais qu'on l'ait fait. Tarlet et Rivoal, eux, ont vu qu'un homme a donné son eau à un homme qui avait soif. Le soir, ils boivent leur pinte assis à côté de la cambuse." },
         "Fargue n'a pas soif. Il ne boit que du vin, a-t-il dit. Il a menti. Il a soif à en crever, toute la nuit.",
       ],
       choices: [{ back: "A3f_jours" }] },

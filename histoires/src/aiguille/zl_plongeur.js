@@ -39,7 +39,7 @@ module.exports = {
     ZL_ruse: { act: "III", title: "Le plongeur de l'Écueil", place: "ecueil_rouge", ambiance: "souterrain",
       text: [
         "Il hésite très peu. C'est ce qui est terrible. Il te tend la bourse avec un petit rire de soulagement, comme un homme qui pose un fardeau, et il dit qu'il fera ses paquets, qu'il n'a rien, que ce sera vite fait. Il demande seulement s'il aura un hamac, ou s'il faudra dormir sur le pont. Il préfère le pont. Il a perdu l'habitude des plafonds bas, à part le sien.",
-        "Le baron prend la bourse sans un mot, la vide sur sa couchette, compte les perles deux fois, et t'en tend une, la plus petite, avec un sourire d'une grande délicatesse. « Un toit neuf, dit-il. Pour ton père. Tu as été parfait. » Il met les autres dans une boîte à priser. La Cormorane lève l'ancre le lendemain à l'aube.",
+        "Le baron prend la bourse, la vide sur sa couchette, compte les perles deux fois, et t'en tend une, la plus petite, avec un sourire d'une grande délicatesse. « Un toit neuf, dit-il. Pour ton père. Tu as été parfait. » Il met les autres dans une boîte à priser. La Cormorane lève l'ancre le lendemain à l'aube.",
         "Tu es sur le pont, à la poupe, quand elle passe au large de l'autre côté du récif. Il est là, à l'entrée de son tube de lave, debout sur son pied valide, appuyé à un bâton, avec un baluchon à l'épaule. Il lève la main. Il la garde levée longtemps. Puis il comprend, et il la baisse, lentement, et il reste là, sans bouger, à regarder le navire s'en aller, comme il a regardé l'autre, il y a neuf ans.",
         "La perle noire est dans ta poche. Elle est lourde.",
       ],

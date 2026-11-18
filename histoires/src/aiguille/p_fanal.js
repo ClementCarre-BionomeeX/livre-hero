@@ -8,7 +8,7 @@ module.exports = {
         "Novembre ronge la falaise depuis trois semaines. Le vent vient du large sans reprendre souffle ; il entre sous les ardoises, siffle dans le conduit de la cheminée, fait claquer le volet de la chambre du haut avec la patience d'un créancier. La lande, derrière l'auberge, s'est couchée sous lui comme un chien battu. Devant, il n'y a que la mer : grise à midi, noire à quatre heures, et blanche partout où elle se jette sur les écueils de l'anse.",
         "Le Fanal tient bon. C'est une maison de granit à deux étages, bâtie de travers par un aïeul qui ne croyait pas aux angles droits, avec une lanterne de cuivre au pignon que ton père allume chaque soir à la tombée du jour. Les marins du large la prennent pour un feu de côte et saluent en passant. Les douaniers prétendent qu'elle guide les contrebandiers. Les deux ont raison, ce qui fait de l'auberge un lieu de paix.",
         "Tu as seize ans, des mains qui sentent la corde et la saumure, et ce soir, comme tous les soirs, tu as rentré le bois, rincé les chopes, et poussé la vache dans l'appentis. Lazare Hersant, ton père, boite entre les tables avec le pas lourd qu'il traîne depuis avant ta naissance. Zélie, la vieille servante, chante faux dans la cuisine une complainte où il est question d'une noyée, de ses sabots et de ses regrets.",
-        { if: { is: { mere: "chale" } }, text: "Le châle bleu de ta mère pend au clou, près de la porte de la cuisine. Zélie le décroche les soirs de grand froid pour te le jeter sur les épaules sans un mot." },
+        { if: { is: { mere: "chale" } }, text: "Le châle bleu de ta mère pend au clou, près de la porte de la cuisine. Zélie le décroche les soirs de grand froid pour te le jeter sur les épaules." },
         { if: { is: { mere: "medaille" } }, text: "Sous ta chemise, la médaille de sainte Anne a pris la chaleur de ta peau. Ta mère la portait pour les noyés. Tu la portes par habitude, et peut-être, les soirs comme celui-ci, un peu pour eux." },
         { if: { is: { mere: "livre" } }, text: "Sur l'étagère, derrière le comptoir, le livre de gravures de ta mère attend entre deux pots de grès : quarante navires dessinés à l'eau-forte, et sous chacun un nom, de sa main ronde." },
       ],
@@ -195,7 +195,7 @@ module.exports = {
       choices: [{ label: "Monter son coffre à la chambre de la mer", fx: { item: "piastre" }, to: "A1_chambre" }] },
     A1_piastre_gardee: { act: "I", title: "La pièce", place: "fanal_salle",
       text: [
-        "La piastre disparaît dans ta poche. Personne n'a rien vu, sauf l'étranger, qui a tout vu. Il ne dit rien. Il lève simplement son verre dans ta direction, d'un geste lent, comme on salue un confrère.",
+        "La piastre disparaît dans ta poche. Personne n'a rien vu, sauf l'étranger, qui a tout vu. Il lève simplement son verre dans ta direction, d'un geste lent, comme on salue un confrère.",
       ],
       choices: [{ label: "Monter son coffre à la chambre de la mer", to: "A1_chambre" }] },
     A1_rhum: { act: "I", title: "Le rhum", place: "fanal_salle",
