@@ -48,4 +48,12 @@ module.exports = {
   "malaria": "La fièvre des marais, qu'on attribuait alors à l'air malsain.",
   "Lillibullero": "Un air populaire anglais, que le docteur siffle.",
   "grog": "De l'eau mêlée de rhum, la boisson des marins.",
+  // 18/11 : mots rares et passages en langue étrangère (passe de définitions).
+  "dépitation": "Mot écorché pour « députation » : quelqu'un envoyé pour parler au nom des autres.",
+  "faubert|fauberts": "Balai fait de vieux cordages, pour laver le pont d'un navire ; dans la bouche d'un matelot, une injure.",
+  "muscadiers": "Arbres des pays chauds qui donnent la noix de muscade.",
+  "épissoire": "Grosse aiguille de fer ou de bois dont les marins se servent pour entrelacer les brins des cordages.",
+  "mollé": "Molli, faibli : ils ont lâché pied (langage de marin).",
+  "carlingue": "Grosse pièce de bois qui renforce le fond d'un navire, tout en bas de la coque.",
+  "guigne": "Malchance (familier).",
 };

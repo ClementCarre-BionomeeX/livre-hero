@@ -10,7 +10,9 @@ module.exports = {
   tags: ["fantasy","aventure","voyage","intrigue"],
   skin: "givre",
   cover: { motif: "flocon", color: "#2c3c5a" },
-  glossary: require("../glossaire.js"), // rare words explained on a tap (Clément, 12/11)
+  glossary: Object.assign({}, require("../glossaire.js"), {   // rare words explained on a tap (Clément, 12/11)
+    "ladre": "Lépreux (sens ancien) ; on l'obligeait à agiter une clochette pour qu'on s'écarte de son chemin.",   // 18/11: elsewhere « ladre » means a miser
+  }),
   voice: "deuxième personne, présent",
   version: 1,
   start: "C_six",

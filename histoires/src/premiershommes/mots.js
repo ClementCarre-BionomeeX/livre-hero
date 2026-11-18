@@ -63,4 +63,7 @@ module.exports = {
   "Tartares": "Le nom qu'on donnait aux Mongols et aux peuples des steppes.",
   "Anglo-Saxons": "Les peuples de langue anglaise. Le mot servait alors à les dire supérieurs aux autres.",
   "trou d'homme": "L'ouverture ronde, juste assez large pour un homme, par laquelle on entre dans la sphère.",
+  // 18/11 : mots rares et passages en langue étrangère (passe de définitions).
+  "incontinent": "Aussitôt, sur-le-champ (sens ancien).",
+  "palpe|palpes": "Petit organe mou qui sert à tâter, chez certains animaux.",
 };

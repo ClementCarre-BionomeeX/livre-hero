@@ -280,4 +280,11 @@ module.exports = {
   "Kimberley": "Ville d'Afrique du Sud, célèbre pour ses mines de diamants creusées dans des cheminées volcaniques d'argile bleue.",
   "De Beers": "La grande compagnie minière des diamants de Kimberley.",
   "Spink": "Une célèbre maison londonienne d'experts en pièces, médailles et pierres précieuses.",
+  // 18/11 : mots rares et passages en langue étrangère (passe de définitions).
+  "jacitara": "Palmier grimpant des forêts d'Amazonie.",
+  "mansos": "Mot espagnol : « apprivoisés ». Des Indiens en paix avec les Blancs, à l'opposé des « bravos », les sauvages.",
+  "vexillaria": "Une espèce d'orchidée sauvage (nom latin savant).",
+  "anéroïde": "Baromètre anéroïde : baromètre sans mercure, où une petite boîte de métal se gonfle ou se creuse selon la pression de l'air.",
+  "germinatif": "Le plasma germinatif : selon une théorie de l'époque, la part de l'être vivant qui passe aux descendants.",
+  "découplé|découplés|découplée": "Bien découplé : grand, souple et bien bâti.",
 };

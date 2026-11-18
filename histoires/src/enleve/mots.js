@@ -45,4 +45,17 @@ module.exports = {
   "Carolines": "Les colonies anglaises de Caroline, en Amérique, où l'on vendait des engagés pour travailler dans les plantations.",
   "eau-de-vie": "Ici, le whisky, l'alcool de grain des Écossais.",
   "toise|toises": "Une ancienne mesure, près de deux mètres.",
+  // 18/11 : mots rares et passages en langue étrangère (passe de définitions).
+  "boddle|boddles": "Petite pièce de cuivre écossaise, de très faible valeur.",
+  "plack|placks": "Ancienne petite pièce de monnaie écossaise, de très faible valeur.",
+  "pétasites": "Plantes aux feuilles immenses, qui poussent au bord de l'eau.",
+  "whateffer": "La façon dont un Highlander prononce l'anglais « whatever » : « quoi qu'il en soit ».",
+  "pipée": "Ce qu'il faut de tabac pour bourrer une pipe.",
+  "Sabelle": "Sabellus, un personnage d'une épigramme du poète latin Martial.",
+  "matelote": "Danse de matelots, vive et sautillante.",
+  "Nec gemino bellum Trojanum orditur ab ovo": "« Il ne fait pas commencer la guerre de Troie à l'œuf d'où sortirent les jumeaux », en latin (Horace) : un bon conteur ne remonte pas au déluge.",
+  "nec minus paribus curis vestigia figit": "« Et, d'un souci égal, il pose ses pas à côté des siens », en latin (Virgile).",
+  "Fui, non sum": "« Je l'ai été, je ne le suis plus », en latin.",
+  "imberbis juvenis custode remoto": "« Le jeune homme sans barbe, enfin débarrassé de son gardien », en latin (Horace).",
+  "in medias res": "« Au milieu des choses », en latin : en entrant tout de suite dans le vif du sujet.",
 };

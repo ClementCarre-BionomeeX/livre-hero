@@ -23,4 +23,9 @@ module.exports = {
   "Regent's Park": "Un grand parc royal au nord du centre de Londres.",
   "Portland Street": "Une rue de Londres, près de Regent's Park.",
   "Babylone": "Dans la Bible, une main écrit sur le mur du palais de Babylone l'annonce de la chute du roi.",
+  // 18/11 : mots rares et passages en langue étrangère (passe de définitions).
+  "abominé": "Avoir en horreur, maudire : un nom « abominé », c'est un nom que tout le monde exècre.",
+  "antipodiques": "Opposés en tout, comme deux points du globe situés exactement de part et d'autre de la Terre.",
+  "gîtaient": "Gîter : avoir son gîte, dormir quelque part.",
+  "prédécès": "« En cas de sien prédécès » : au cas où le destinataire mourrait avant l'auteur de la lettre (langage de notaire).",
 };

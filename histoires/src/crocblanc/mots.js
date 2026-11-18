@@ -48,4 +48,6 @@ module.exports = {
   "Sierra Vista": "Le nom de la propriété du juge Scott, dans la vallée de Santa Clara.",
   "Santa Clara": "Une vallée fertile au sud de San Francisco, couverte alors de vergers et de fermes.",
   "San Jose": "La ville de la vallée de Santa Clara, au sud de San Francisco.",
+  // 18/11 : mots rares et passages en langue étrangère (passe de définitions).
+  "patafiole": "« Que le diable me patafiole ! » : juron plaisant, « que le diable m'emporte ! ».",
 };

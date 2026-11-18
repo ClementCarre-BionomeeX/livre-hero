@@ -40,4 +40,14 @@ module.exports = {
   "vicaire": "Prêtre qui assiste le curé d'une paroisse ; ici, un pasteur de l'Église anglicane.",
   "tympan": "Membrane de l'oreille qui vibre aux sons.",
   "bactéries": "Êtres vivants microscopiques ; certains causent des maladies, d'autres font pourrir ce qui est mort.",
+  // 18/11 : mots rares et passages en langue étrangère (passe de définitions).
+  "kopjes": "Petites collines rocheuses d'Afrique du Sud (mot afrikaans), où les Boers tendaient des embuscades aux soldats britanniques.",
+  "météorolithe": "Météorite (nom ancien) : pierre ou bloc de métal tombé du ciel.",
+  "voiturées": "Une voiturée : le chargement d'une voiture.",
+  "détrônement": "Le fait d'être chassé du trône, privé de sa place souveraine.",
+  "tripoteurs": "Gens qui font des affaires louches, des trafics.",
+  "conjurateurs": "Qui conjurent, écartent un malheur par des formules magiques.",
+  "lungs": "« Poumons », en anglais : les parcs et les espaces verts où les Londoniens vont prendre l'air.",
+  "incontinent": "Aussitôt, sur-le-champ (sens ancien).",
+  "passavant": "Passerelle qui relie l'avant et l'arrière d'un navire, sur le côté.",
 };
