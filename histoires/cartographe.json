@@ -2301,7 +2301,7 @@
    "name": "La carte de fièvre",
    "kind": "document",
    "keep": true,
-   "desc": "Une grande feuille, faite de feuilles de température collées ensemble, couverte d'un archipel dessiné de ta main, au crayon, pendant ta fièvre."
+   "desc": "Une grande feuille, faite de feuilles de température collées ensemble, couverte d'un archipel dessiné de ta main, au crayon, pendant ta fièvre. Les îles s'y suivent dans l'ordre où ta barque les a touchées : l'île des cloches, l'île blanche du sel, la tour qui fait tic-tac, l'entrepôt sur pilotis, le mât du rameur, et au centre, la tache grise de l'île aux hérons."
   },
   "registre_brunel": {
    "name": "Le carnet de Brunel",
@@ -2317,6 +2317,10 @@
   }
  },
  "clues": {
+  "i_voix": {
+   "rev": "F",
+   "text": "Les voix tombées du ciel blanc : une femme qui dit qu'on la mord ; un homme pressé, avec un tic-tac, qui ordonne « Quinquina, double dose » ; une voix grasse qui demande si l'on a dit son nom."
+  },
   "i_corde": {
    "rev": "M",
    "text": "Dans le magasin du quartier-maître, au fond de la fièvre, une amarre de barque coupée net, au couteau."
@@ -2344,6 +2348,10 @@
  },
  "quests": [],
  "mysteries": {
+  "F": {
+   "title": "Ce que disent les voix du ciel",
+   "act": "I"
+  },
   "M": {
    "title": "Qu'est devenue l'expédition Malbrouck ?",
    "act": "II",
@@ -2896,9 +2904,6 @@
      "if": {
       "seen": "A_main"
      },
-     "hide": {
-      "seen": "A_voix"
-     },
      "to": "A_voix"
     },
     {
@@ -2997,6 +3002,9 @@
    "title": "Les voix du ciel blanc",
    "place": "encre",
    "second": false,
+   "fx": {
+    "clue": "i_voix"
+   },
    "text": [
     "Tu tends l'oreille. Du ciel de papier tombent des voix, lointaines, déformées, comme des voix entendues sous l'eau, ou à travers une porte. Une voix de femme, douce et sans réplique : *Le lit douze délire depuis trois jours. Le lit douze dessine sur les feuilles de température. J'ai voulu prendre le crayon : on m'a mordue.*",
     "Une voix d'homme, sèche, pressée, et un tic-tac au fond : *Cent vingt pulsations. Quinquina, double dose. Une nuit encore, et nous saurons : un convalescent de plus, ou un lit de libre.*",
