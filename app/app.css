@@ -1146,8 +1146,11 @@ button.pp.pp-face-btn { border-bottom: 0; display: inline-flex; align-items: cen
 :root[data-style="carnet"] { --ink-wet: color-mix(in srgb, var(--ink) 40%, #0c1a4d); }
 @media (prefers-color-scheme: dark) { :root[data-style="carnet"]:not([data-theme="light"]):not([data-theme="sepia"]) { --ink-wet: color-mix(in srgb, var(--ink) 50%, #c4dcff); } }
 :root[data-style="carnet"][data-theme="dark"], :root[data-style="carnet"][data-theme="soir"] { --ink-wet: color-mix(in srgb, var(--ink) 50%, #c4dcff); }
-:root[data-style="carnet"] .page.ink-in .prose p { transition: color 2.2s ease-out, text-shadow 2.2s ease-out; }
-:root[data-style="carnet"] .page.ink-in .prose p.ink-wet { color: var(--ink-wet); text-shadow: 0 0 .6px var(--ink-wet), 0 0 3px color-mix(in srgb, var(--ink-wet) 30%, transparent); transition: none; }
+/* the wet ink: its colour only (18/11: a blurred halo on every letter, fading for 2.2 s, cost an old tablet most of the
+   page turn); the paragraph being written has its own layer, so the paper under it is not drawn again at each stroke */
+:root[data-style="carnet"] .page.ink-in .prose p { transition: color 2.2s ease-out; }
+:root[data-style="carnet"] .page.ink-in .prose p.ink-wet { color: var(--ink-wet); transition: none; }
+:root[data-style="carnet"] .page.ink-in .prose p.ink-layer { will-change: transform; }
 :root[data-style="carnet"] .page.ink-in .prose p.ink-wait { visibility: hidden; }
 :root[data-style="carnet"] .page.ink-in .choices.ink-wait { opacity: 0; pointer-events: none; }
 :root[data-style="carnet"] .page.ink-in .choices { transition: opacity .5s ease-out; }
@@ -1355,3 +1358,17 @@ button.pp.pp-face-btn { border-bottom: 0; display: inline-flex; align-items: cen
   :root[data-visages="repliques"][data-spread="auto"] .page.read .say-r .say-big { float: right; margin-left: 14px; }
   :root[data-visages="repliques"][data-spread="auto"] .page.read .say-big::after { font-size: 15px; }
 }
+
+/* ------------------------------------------------------------------ « appareil ancien » (18/11, Clément's old tablet)
+   What costs an old graphics chip most goes: the SVG filters (trembling edges, washes, portraits' ink), the blurred
+   shadows, the grain of the paper, blend modes, every animation and transition. The page keeps its colours, its
+   papers and its layout. app.js: Old; the motion that JavaScript drives stops through REDUCED. */
+:root[data-appareil="ancien"] { --grain: none; }
+:root[data-appareil="ancien"] *, :root[data-appareil="ancien"] *::before, :root[data-appareil="ancien"] *::after {
+  filter: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; mix-blend-mode: normal !important;
+  box-shadow: none !important; text-shadow: none !important; animation: none !important; transition: none !important; will-change: auto !important; scroll-behavior: auto !important; }
+/* the sheets keep a plain edge where the shadow drew it */
+:root[data-appareil="ancien"][data-style="carnet"][data-screen="game"] .page::before { outline: 1px solid var(--line); }
+/* the diagnosis badge (Diag), over everything, out of the way of the choices */
+.diag-badge { position: fixed; left: 8px; bottom: 8px; z-index: 9999; padding: 4px 8px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--ink); font: 12px/1.2 var(--sans, sans-serif); opacity: .85; }
+.diag-report { width: 100%; font: 12px/1.35 var(--mono, monospace); white-space: pre-wrap; }

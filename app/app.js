@@ -65,7 +65,7 @@
       return "<span role=\"button\" tabindex=\"0\" class=\"voile v-" + esc(state) + " fx-" + esc(fx) + "\" data-voile=\"" + esc(id) + "\" title=\"" + esc(label) + "\" aria-label=\"" + esc(label + " : " + unveil(inner).replace(/<[^>]+>/g, "")) + "\">" + (REDUCED_MOTION() ? inner : veilLetters(inner)) + "</span>";
     });
   }
-  function REDUCED_MOTION() { try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } }
+  function REDUCED_MOTION() { return REDUCED; }
   // A tap on words that stir: the engine reveals them (a charge spent, the veil's own effects), the game is saved, the
   // page is drawn again with the words beneath, which come up through the ink.
   function onVeilTap(e) {
@@ -197,27 +197,56 @@
   // file), or, on the site, beside it in histoires/<id>.json, fetched after the library shows (from the cache offline).
   // Why: Clément, 13/11 (piste 35): start faster on an old phone. The library needs only each book's card
   // (histoires-resume); a book's whole text is read when it is there, and a game waits for it.
-  var BUILTIN_BREATH_MS = 30;
+  var BUILTIN_BREATH_MS = 250, BUILTIN_WAIT_MS = 2000, BUILTIN_IDLE_MS = 3000;
   function loadBuiltins() {
     var el = document.getElementById("histoires-fournies"), res = document.getElementById("histoires-resume");
     if (el) { JSON.parse(el.textContent).forEach(function (st) { A.builtins[st.id] = st; A.builtinMeta[st.id] = storyMeta(st); }); A.builtinsReady = Promise.resolve(); return; }
     var list = res ? JSON.parse(res.textContent) : [];
     list.forEach(function (m) { A.builtinMeta[m.id] = m; });
-    // One book after the other, the smallest first, with a breath between two: an old tablet (Clément, 16/11: Galaxy
-    // Tab A of 2016) never holds the eighteen texts half-read at once, and the short books are ready first.
-    var order = list.slice().sort(function (a, b) { return (a.passages || 0) - (b.passages || 0); });
-    A.builtinsReady = order.reduce(function (p, m) {
-      return p.then(function () {
-        if (A.builtins[m.id]) return null;
-        return fetchBuiltin(m).then(function () { return new Promise(function (res) { setTimeout(res, BUILTIN_BREATH_MS); }); }, function () { A.builtinsErr = true; });
+    A.builtinsReady = new Promise(function (ok) { A.builtinsDone = ok; });
+  }
+  // Intent: preloadBooks() -> () ! the books' texts read in the background, once the library shows: first the books
+  // someone has a game or an ending in (the resume card, the album, the challenges need them), then, on a device that
+  // can afford it, the others, one after the other, the smallest first, when the page is idle and not while a page is
+  // being read. On an « appareil ancien », the others wait until a screen asks for them.
+  // Why: Clément, 16/11 and 18/11 (Galaxy Tab A of 2016): reading 32 MB of books blocks the page for seconds; an old
+  // tablet never holds the texts half-read at once, and a reader turning pages is never stopped by a book he did not open.
+  function preloadBooks() {
+    if (!A.builtinsDone) return;
+    var used = {};
+    (A.allGames || []).forEach(function (g) { used[g.story] = 1; });
+    (A.profiles || []).forEach(function (p) { Object.keys(p.records || {}).forEach(function (id) { used[id] = 1; }); });
+    var metas = Object.keys(A.builtinMeta).map(function (k) { return A.builtinMeta[k]; }).filter(function (m) { return m.file; })
+      .sort(function (a, b) { return (a.passages || 0) - (b.passages || 0); });
+    var first = metas.filter(function (m) { return used[m.id]; }), rest = metas.filter(function (m) { return !used[m.id]; });
+    function idle() {
+      return new Promise(function (ok) {
+        (function again() {
+          if (A.screen === "game" || document.hidden) { setTimeout(again, BUILTIN_WAIT_MS); return; }
+          if (window.requestIdleCallback) requestIdleCallback(function () { ok(); }, { timeout: BUILTIN_IDLE_MS }); else setTimeout(ok, BUILTIN_BREATH_MS);
+        })();
       });
-    }, Promise.resolve()).then(function () { render(); });
+    }
+    function one(m) {
+      if (A.builtins[m.id]) return Promise.resolve();
+      return idle().then(function () { return fetchBuiltin(m); }).then(function () { return new Promise(function (res) { setTimeout(res, BUILTIN_BREATH_MS); }); }, function () { A.builtinsErr = true; });
+    }
+    var chain = first.reduce(function (p, m) { return p.then(function () { return one(m); }); }, Promise.resolve()).then(function () { if (first.length) render(); });
+    chain = chain.then(function () { return rest.reduce(function (p, m) { return p.then(function () { return Old.on() ? null : one(m); }); }, Promise.resolve()); });
+    chain.then(function () { A.builtinsDone(); if (A.screen === "home") render(); });
+  }
+  // Intent: needBooks([StoryId]|null) -> Promise ! the books a screen needs (all of them for null), read now.
+  function needBooks(ids) {
+    var ms = (ids || Object.keys(A.builtinMeta)).map(function (id) { return A.builtinMeta[id]; }).filter(function (m) { return m && m.file && !A.builtins[m.id]; });
+    if (!ms.length) return Promise.resolve(false);
+    return ms.reduce(function (p, m) { return p.then(function () { return fetchBuiltin(m).catch(function () {}); }); }, Promise.resolve()).then(function () { return true; });
   }
   // Intent: fetchBuiltin(meta) -> Story ! one book's text from histoires/, asked once even when two screens want it.
   var builtinFetches = {};
   function fetchBuiltin(m) {
     if (!builtinFetches[m.id]) {
-      builtinFetches[m.id] = fetch(m.file).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (st) { A.builtins[st.id] = st; return st; });
+      var t0 = Diag.now();
+      builtinFetches[m.id] = fetch(m.file).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (st) { A.builtins[st.id] = st; Diag.book(m, t0); return st; });
       builtinFetches[m.id].catch(function () { delete builtinFetches[m.id]; });
     }
     return builtinFetches[m.id];
@@ -260,6 +289,11 @@
   // Why: render empties #app first, so an error while drawing left a blank page (Clément, 11/11: black screen when
   // resuming an old save).
   function render() {
+    var t0 = Diag.now();
+    renderNow();
+    Diag.rendered(t0);
+  }
+  function renderNow() {
     // A field marked data-keep-focus (the library's search) keeps the focus and the caret through a redraw.
     var act = document.activeElement, keep = act && act.id && act.getAttribute("data-keep-focus") ? { id: act.id, a: act.selectionStart, b: act.selectionEnd } : null;
     app.textContent = "";
@@ -581,6 +615,8 @@
   // button to play; the rest (whole summary, endings found, export, details) behind « En savoir plus ».
   function bookCard(m) {
     var st = A.builtins[m.id] || null, open = !!A.open["book:" + m.id];
+    // a book not read yet (appareil ancien, or early after the start): its length and records come once it is there
+    if (!st && m.file && (open || A.shelfPick === m.id)) needBooks([m.id]).then(function (got) { if (got) render(); });
     var facts = [m.multi ? playersLabel(m.multi) : st ? "environ " + minutesLabel(storyMinutes(st)) + (m.lecture ? " de lecture" : m.twice ? " par lecture" : " par partie") : null, m.twice ? twiceLine(m) : null, m.age ? "dès " + m.age + " ans" : null, m.builtin ? null : "importée"].filter(Boolean);
     return h("article", { class: "card has-cover book" + (m.adult ? " adult" : "") + (open ? " open" : "") },
       cover(m, st),
@@ -663,7 +699,7 @@
     if (A.profile) w.appendChild(homeFold("plus:bilan", "Bilan de lecture de " + A.profile.name, "Temps, fins, hauts faits, mots", function () { A.open.bilan = true; return inner(renderBilan(A.profile)); }));
     var fam = renderFamily(), dfs = renderChallenges();
     if (fam || dfs) w.appendChild(homeFold("plus:famille", "La famille", "Tableau, défis et album", function () {
-      return [fam ? inner(fam) : null, h("div", { class: "row" }, h("button", { class: "btn sm", onclick: function () { A.screen = "album"; render(); } }, "📖 Ouvrir l'album de la famille")), dfs];
+      return [fam ? inner(fam) : null, h("div", { class: "row" }, h("button", { class: "btn sm", onclick: function () { A.screen = "album"; render(); needBooks(null).then(function (got) { if (got && A.screen === "album") render(); }); } }, "📖 Ouvrir l'album de la famille")), dfs];
     }));
     w.appendChild(homeFold("plus:parents", "Espace parent", "Temps de lecture, heure du coucher, objectifs", function () { A.open.parents = true; return inner(renderParents()); }));
     w.appendChild(homeFold("plus:atelier", "Atelier d'auteur", "Éditeur, essai d'un passage, signalements", function () { if (!A.open.atelier) { A.open.atelier = true; loadSignals(); } return inner(renderAtelier()); }));
@@ -2447,6 +2483,7 @@
     o = o || {};
     A.stats = { tab: o.tab || (A.stats && A.stats.tab) || "lecteur", book: o.book || (A.stats && A.stats.book) || null, open: o.run || null, busy: true, multis: [], salles: [] };
     A.screen = "stats"; render(); window.scrollTo(0, 0);
+    needBooks((A.allGames || []).map(function (g) { return g.story; })).then(function (got) { if (got && A.screen === "stats") render(); });
     var salles = (A.multis || []).filter(function (m) { return m.kind === "salle"; });
     Promise.all([Store.list("multis").catch(function () { return []; }),
       Promise.all(salles.map(function (m) { return Room.list(sallePath(m.id) + "/joueurs").then(function (seats) { return { m: m, seats: seats || [] }; }).catch(function () { return { m: m, seats: [] }; }); }))])
@@ -2643,6 +2680,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "13.6", items: ["Plus rapide sur les tablettes et téléphones anciens : les livres se lisent quand la page est au repos, l'encre qui s'écrit coûte trois fois moins à dessiner.", "Réglages → « Cet appareil » : le mode « appareil ancien » retire le grain, les bords tremblés, les ombres et les animations ; le livre le propose de lui-même quand l'appareil peine.", "« ⏱ Mesurer la vitesse » (ou l'adresse du site suivie de ?diag) : un rapport de vitesse à copier ou partager."] },
     { v: "13.5", items: ["« Le Cartographe de fièvre » : ce que disent les voix du ciel blanc se note dans le carnet, et on peut les réécouter depuis la barque. La carte de fièvre, dans tes affaires, dit dans quel ordre ta barque a touché les îles."] },
     { v: "13.4", items: ["Près de mille neuf cents mots rares expliqués d'un toucher, dans les romans comme dans les histoires : vieux métiers, marine, mine, horlogerie, remèdes, mots d'Église, et les passages en latin des romans. Un mot qui sert aussi de nom (un chien, une auberge) garde sa capitale et ne s'ouvre pas."] },
     { v: "13.3", items: ["« Le Cartographe de fièvre » : chaque île de la fièvre laisse maintenant reprendre la barque, même sans avoir répondu à sa devinette.", "Le vérificateur des livres refuse désormais une énigme qu'on ne peut quitter qu'en donnant la réponse."] },
@@ -5941,9 +5979,165 @@
     else lsSet("prefs", p);
     render();
   }
+  // ------------------------------------------------------------------ speed: the diagnosis and the old devices
+  // Intent: Diag = what the page costs on this device, kept quietly (marks of the start, each drawing of the screen,
+  // each book read, the long tasks), and, in diagnosis mode (?diag in the address, or Réglages → « Mesurer la
+  // vitesse »), the frames per second of each screen, a few measures on demand and a report to copy or share.
+  // Why: Clément, 18/11: « les perfs sont horribles » on his old tablet; Claude cannot hold the tablet, the report
+  // brings its numbers into the thread.
+  var DIAG_KEEP = 300, DIAG_LONG_FRAME_MS = 50, DIAG_SCROLL_MS = 2500, DIAG_IDLE_MS = 2000, DIAG_RENDERS = 5;
+  var Diag = (function () {
+    var D = { marks: [], renders: [], books: [], longs: [], frames: {}, active: false, tests: null };
+    var perf = window.performance || { now: function () { return Date.now(); } };
+    D.now = function () { return perf.now(); };
+    D.mark = function (name) { D.marks.push([name, Math.round(D.now())]); };
+    D.rendered = function (t0) { var ms = D.now() - t0; D.renders.push([A.screen + (A.modal ? "+" + A.modal.kind : "") + (A.carnet ? "+carnet" : ""), ms]); if (D.renders.length > DIAG_KEEP) D.renders.shift(); };
+    D.book = function (m, t0) {
+      var size = 0; try { var e = perf.getEntriesByName(new URL(m.file, location.href).href)[0]; size = e ? e.decodedBodySize || e.encodedBodySize || 0 : 0; } catch (x) { /* no timing */ }
+      D.books.push([m.id, Math.round(D.now() - t0), Math.round(size / 1024)]);
+    };
+    try { new PerformanceObserver(function (l) { l.getEntries().forEach(function (e) { D.longs.push([Math.round(e.startTime), Math.round(e.duration), A.screen]); if (D.longs.length > DIAG_KEEP) D.longs.shift(); }); }).observe({ entryTypes: ["longtask"] }); } catch (e) { D.noLongTasks = true; }
+    // the frames of each screen, while the diagnosis is on
+    var last = 0, badge = null, shown = 0, count = 0;
+    function frame(t) {
+      if (!D.active) return;
+      if (last && !document.hidden) {
+        var dt = t - last, k = A.screen || "?", f = D.frames[k] = D.frames[k] || { n: 0, ms: 0, slow: 0, worst: 0 };
+        if (dt < 1000) { f.n++; f.ms += dt; if (dt > DIAG_LONG_FRAME_MS) f.slow++; if (dt > f.worst) f.worst = dt; count++; }
+      }
+      last = t;
+      if (t - shown > 1000) { if (badge) badge.lastChild.textContent = count + " i/s"; count = 0; shown = t; }
+      requestAnimationFrame(frame);
+    }
+    D.start = function () {
+      if (D.active) return; D.active = true;
+      try { sessionStorage.setItem(LOCAL + "diag", "1"); } catch (e) { /* ignore */ }
+      badge = document.createElement("button"); badge.className = "diag-badge"; badge.type = "button"; badge.title = "Diagnostic de vitesse : le rapport";
+      badge.appendChild(document.createTextNode("⏱ ")); badge.appendChild(document.createTextNode("…"));
+      badge.onclick = function () { A.modal = { kind: "diag" }; render(); };
+      document.body.appendChild(badge);
+      requestAnimationFrame(frame);
+    };
+    D.stop = function () { D.active = false; last = 0; if (badge) badge.remove(); badge = null; try { sessionStorage.removeItem(LOCAL + "diag"); } catch (e) { /* ignore */ } };
+    // Intent: D.measure() -> Promise ! a few measures on the screen behind the report: the screen drawn again five
+    // times, the frames while the page scrolls by itself, the frames while nothing moves.
+    D.measure = function () {
+      var out = {}, modal = A.modal;
+      function frames(ms, each) {
+        return new Promise(function (ok) {
+          var t0 = 0, prev = 0, n = 0, slow = 0, worst = 0;
+          function f(t) { if (!t0) t0 = prev = t; else { var dt = t - prev; n++; if (dt > DIAG_LONG_FRAME_MS) slow++; worst = Math.max(worst, dt); prev = t; } if (each) each(t - t0); if (t - t0 < ms) requestAnimationFrame(f); else ok({ fps: Math.round(n * 1000 / (t - t0)), lentes: n ? Math.round(slow * 100 / n) : 0, pire: Math.round(worst) }); }
+          requestAnimationFrame(f);
+        });
+      }
+      A.modal = null; render(); var y0 = window.scrollY;
+      var ts = []; for (var i = 0; i < DIAG_RENDERS; i++) { var t0 = D.now(); renderNow(); ts.push(D.now() - t0); }
+      out.dessin = Math.round(ts.sort(function (a, b) { return a - b; })[Math.floor(ts.length / 2)]);
+      out.ecran = A.screen;
+      var room = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+      return frames(DIAG_IDLE_MS).then(function (r) { out.immobile = r; window.scrollTo(0, 0);
+        return frames(DIAG_SCROLL_MS, function (e) { window.scrollTo(0, Math.round(room * Math.min(1, e / DIAG_SCROLL_MS))); }); })
+        .then(function (r) { out.defile = r; out.hauteur = room; window.scrollTo(0, y0); D.tests = out; A.modal = modal || { kind: "diag" }; render(); });
+    };
+    function median(a) { var b = a.slice().sort(function (x, y) { return x - y; }); return b.length ? b[Math.floor(b.length / 2)] : 0; }
+    D.report = function () {
+      var n = navigator, L = [], nav = (perf.getEntriesByType && perf.getEntriesByType("navigation")[0]) || {};
+      var mem = perf.memory ? Math.round(perf.memory.usedJSHeapSize / 1048576) + " Mo utilisés sur " + Math.round(perf.memory.jsHeapSizeLimit / 1048576) : "inconnue";
+      L.push("Rapport de vitesse · Livre-jeu " + (BUILD.version || "") + " (" + BUILD.id + ") · " + new Date().toLocaleString("fr-FR"));
+      L.push("Appareil : " + n.userAgent);
+      L.push("Processeurs : " + (n.hardwareConcurrency || "?") + " · mémoire : " + (n.deviceMemory ? n.deviceMemory + " Go" : "?") + " · écran " + window.innerWidth + "×" + window.innerHeight + " ×" + (window.devicePixelRatio || 1) + " · installé : " + (window.matchMedia && matchMedia("(display-mode: standalone)").matches ? "oui" : "non"));
+      L.push("Réglages : appareil ancien " + (Old.on() ? "oui" : "non") + " · moins d'animations (système) " + (REDUCED_OS ? "oui" : "non") + " · style " + pref("style") + " · thème " + pref("theme") + " · visages " + pref("visages") + " · mots à effets " + pref("textFx"));
+      L.push("Démarrage : page lue " + Math.round(nav.domInteractive || 0) + " ms · prête " + Math.round(nav.domContentLoadedEventEnd || 0) + " ms · " + D.marks.map(function (x) { return x[0] + " " + x[1] + " ms"; }).join(" · "));
+      L.push("Mémoire du script : " + mem);
+      var bk = D.books.reduce(function (a, x) { return a + x[1]; }, 0), big = D.books.slice().sort(function (a, b) { return b[1] - a[1]; }).slice(0, 3);
+      L.push("Livres lus : " + D.books.length + " en " + bk + " ms" + (big.length ? " · les plus longs : " + big.map(function (x) { return x[0] + " " + x[1] + " ms (" + x[2] + " Ko)"; }).join(", ") : ""));
+      var by = {}; D.renders.forEach(function (x) { (by[x[0]] = by[x[0]] || []).push(x[1]); });
+      L.push("Dessins de l'écran (médiane / pire, en ms) : " + (Object.keys(by).map(function (k) { return k + " ×" + by[k].length + " " + Math.round(median(by[k])) + " / " + Math.round(Math.max.apply(null, by[k])); }).join(" · ") || "aucun"));
+      var lt = D.longs.reduce(function (a, x) { return a + x[1]; }, 0), ltBy = {}; D.longs.forEach(function (x) { ltBy[x[2]] = (ltBy[x[2]] || 0) + x[1]; });
+      L.push("Tâches longues (> 50 ms) : " + (D.noLongTasks ? "non mesurées sur cet appareil" : D.longs.length + ", " + lt + " ms en tout, la pire " + Math.max.apply(null, [0].concat(D.longs.map(function (x) { return x[1]; }))) + " ms · " + Object.keys(ltBy).map(function (k) { return k + " " + ltBy[k] + " ms"; }).join(" · ")));
+      L.push("Images par seconde (moyenne, images lentes, pire image) : " + (Object.keys(D.frames).map(function (k) { var f = D.frames[k]; return k + " " + (f.ms ? Math.round(f.n * 1000 / f.ms) : 0) + " i/s, " + (f.n ? Math.round(f.slow * 100 / f.n) : 0) + " % lentes, " + Math.round(f.worst) + " ms"; }).join(" · ") || "pas encore mesurées"));
+      if (D.tests) L.push("Mesures (" + D.tests.ecran + ") : dessin " + D.tests.dessin + " ms · immobile " + D.tests.immobile.fps + " i/s (" + D.tests.immobile.lentes + " % lentes, pire " + D.tests.immobile.pire + " ms) · défilement de " + D.tests.hauteur + " px " + D.tests.defile.fps + " i/s (" + D.tests.defile.lentes + " % lentes, pire " + D.tests.defile.pire + " ms)");
+      var why = Old.reasons(); if (why.length) L.push("Signes d'un appareil à la peine : " + why.join(" ; "));
+      return L.join("\n");
+    };
+    try { if (/(^|[?&#])diag\b/.test(location.search + location.hash) || sessionStorage.getItem(LOCAL + "diag")) D.start(); } catch (e) { /* ignore */ }
+    return D;
+  })();
+  function modalDiag(box, close) {
+    modalHead(box, "Diagnostic de vitesse", close);
+    var b = h("div", { class: "drawer-body" }), txt = Diag.report();
+    if (!Diag.active) Diag.start();
+    b.appendChild(h("p", null, "Le livre note ce que chaque écran lui coûte sur cet appareil. Joue quelques pages, ouvre un livre, reviens ici, puis envoie le rapport à Claude : il dira où le temps passe."));
+    var ta = h("textarea", { rows: 12, readonly: true, class: "diag-report", "aria-label": "Rapport de vitesse" }); ta.value = txt;
+    b.appendChild(ta);
+    var copy = function () {
+      var done = function () { flash("Rapport copié : colle-le dans le fil avec Claude."); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done, function () { ta.select(); try { document.execCommand("copy"); done(); } catch (e) { /* the reader copies by hand */ } });
+      else { ta.select(); try { document.execCommand("copy"); done(); } catch (e) { /* the reader copies by hand */ } }
+    };
+    b.appendChild(h("div", { class: "row" },
+      h("button", { class: "btn primary", onclick: copy }, "Copier le rapport"),
+      navigator.share ? h("button", { class: "btn", onclick: function () { navigator.share({ title: "Rapport de vitesse du Livre-jeu", text: txt }).catch(function () {}); } }, "Partager…") : null,
+      h("button", { class: "btn", onclick: function (e) { e.target.disabled = true; e.target.textContent = "Mesure en cours…"; Diag.measure(); } }, "Mesurer cet écran")));
+    b.appendChild(h("p", { class: "small muted" }, "« Mesurer cet écran » ferme cette fenêtre quelques secondes : l'écran derrière est redessiné, puis il défile tout seul. Le petit ⏱ en bas montre les images par seconde ; il reste jusqu'à la fermeture de la page."));
+    b.appendChild(h("div", { class: "row" }, h("button", { class: "btn sm ghost", onclick: function () { Diag.stop(); close(); } }, "Arrêter le diagnostic")));
+    box.appendChild(b);
+  }
+
+  // Intent: Old = the « appareil ancien » mode of this device (not of a reader: it is the tablet that is old): no
+  // filters, shadows, grain or motion, the ink written at once, the books read only when a screen needs them.
+  // reasons() -> [text] = why this device looks slow (little memory, a slow start, pages that judder), and the mode
+  // is offered once when one shows; the reader decides, and the answer is kept on the device.
+  var OLD_MEMORY_GB = 2, OLD_START_MS = 6000, OLD_WATCH_MS = 15000, OLD_MIN_FRAMES = 60, OLD_SLOW_SHARE = 0.25;
+  var Old = (function () {
+    var O = {}, slow = 0, frames = 0, watched = 0, why = [];
+    O.on = function () { return lsGet("appareil") === "ancien"; };
+    O.set = function (on) { lsSet("appareil", on ? "ancien" : "normal"); REDUCED = REDUCED_OS || on; render(); };
+    O.reasons = function () {
+      var r = why.slice();
+      if (navigator.deviceMemory && navigator.deviceMemory <= OLD_MEMORY_GB) r.unshift("mémoire de " + navigator.deviceMemory + " Go");
+      var open = Diag.marks.filter(function (x) { return x[0] === "bibliothèque ouverte"; })[0];
+      if (open && open[1] > OLD_START_MS) r.unshift("bibliothèque ouverte en " + Math.round(open[1] / 100) / 10 + " s");
+      return r;
+    };
+    function offer() {
+      if (lsGet("appareil") != null) return;
+      // the browsers driven by the tests stay quiet (a slow test machine is not a reader's tablet), unless a test asks
+      if (navigator.webdriver && !lsGet("appareil-offre-test")) return;
+      try { if (sessionStorage.getItem(LOCAL + "appareil-plus-tard")) return; } catch (e) { /* ignore */ }
+      var r = O.reasons(); if (!r.length) return;
+      if (A.modal || A.busy) { setTimeout(offer, OLD_WATCH_MS); return; }
+      A.modal = { kind: "old", why: r }; render();
+    }
+    // the frames of the first pages read, measured once per visit, while no choice was made on this device
+    function watch(t) {
+      if (lsGet("appareil") != null || watched > OLD_WATCH_MS) return;
+      if (A.screen === "game" && !document.hidden && O.last) { var dt = t - O.last; if (dt < 1000) { frames++; watched += dt; if (dt > DIAG_LONG_FRAME_MS) slow++; } }
+      O.last = A.screen === "game" ? t : 0;
+      if (watched > OLD_WATCH_MS) { if (frames >= OLD_MIN_FRAMES && slow / frames > OLD_SLOW_SHARE) { why.push(Math.round(slow * 100 / frames) + " % des images de la lecture en retard"); offer(); } return; }
+      requestAnimationFrame(watch);
+    }
+    O.watchStart = function () { if (lsGet("appareil") != null) return; offer(); requestAnimationFrame(watch); };
+    return O;
+  })();
+  function modalOld(box, close, m) {
+    var later = function () { try { sessionStorage.setItem(LOCAL + "appareil-plus-tard", "1"); } catch (e) { /* ignore */ } close(); };
+    modalHead(box, "Cet appareil semble à la peine", later);
+    var b = h("div", { class: "drawer-body" });
+    b.appendChild(h("p", null, "Le livre a remarqué : " + (m.why || []).join(" ; ") + "."));
+    b.appendChild(h("p", null, "Le mode « appareil ancien » garde les histoires, les réglages et les sauvegardes, et retire ce qui coûte cher à dessiner : le grain et les bords tremblés du papier, les ombres, l'encre qui s'écrit, les animations. Les livres ne sont lus que quand on les ouvre."));
+    b.appendChild(h("div", { class: "row" },
+      h("button", { class: "btn primary", autofocus: true, onclick: function () { A.modal = null; Old.set(true); } }, "Passer en appareil ancien"),
+      h("button", { class: "btn", onclick: function () { A.modal = null; Old.set(false); } }, "Tout garder"),
+      h("button", { class: "btn ghost", onclick: later }, "Plus tard")));
+    b.appendChild(h("p", { class: "small muted" }, "On peut changer d'avis dans les Réglages de lecture, rubrique « Cet appareil »."));
+    box.appendChild(b);
+  }
+
   // Intent: Notebook = the notebook style (11.5): on() -> Bool; defs() puts the SVG filters (trembling edges, washes) in
   // the document once; circle(Button, then) rings the chosen line in pencil before the page turns.
   // Why: Clément (17/11) found the book too « technical », straight lines and interface; he chose the notebook.
+  var INK_STEP_MS = 32, INK_DRY_MS = 2400;   // a stroke of the pen every 32 ms; the drying lasts 2.2 s (app.css)
   var Notebook = {
     on: function () { return pref("style") !== "classique"; },
     defs: function () {
@@ -5977,12 +6171,14 @@
       if (ch) ch.classList.add("ink-wait");
       // the pen waits for the sheet to be in place (the page turn), and for the line it writes to be on screen: below
       // the bottom of the screen it stops, and goes on when the reader scrolls down to it
-      var i = 0, t0 = 0, last = 0, done = false, start = 0, wait = pref("pageTurn") ? 480 : 160;
+      var i = 0, t0 = 0, last = 0, drawn = 0, done = false, start = 0, wait = pref("pageTurn") ? 480 : 160;
       function mask(p, v) { p.style.webkitMaskImage = p.style.maskImage = v ? v.img : ""; p.style.webkitMaskSize = p.style.maskSize = v ? v.size : ""; p.style.webkitMaskPosition = p.style.maskPosition = v ? v.pos : ""; p.style.webkitMaskRepeat = p.style.maskRepeat = v ? "no-repeat" : ""; }
-      function dry(p) { mask(p, null); p.classList.remove("ink-wait"); void p.offsetWidth; p.classList.remove("ink-wet"); }
+      // a wet paragraph is drawn apart from the paper (its own layer), so the pen does not make the grained, trembling
+      // sheet be drawn again at each stroke; the layer goes once the ink is dry (Clément, 18/11: an old tablet)
+      function dry(p) { mask(p, null); p.classList.remove("ink-wait"); void p.offsetWidth; p.classList.remove("ink-wet"); setTimeout(function () { p.classList.remove("ink-layer"); }, INK_DRY_MS); }
       function finish() {
         if (done) return; done = true;
-        plan.forEach(function (x) { if (x.p.classList.contains("ink-wait") || x.p.classList.contains("ink-wet")) { x.p.classList.remove("ink-wait"); x.p.classList.add("ink-wet"); dry(x.p); } });
+        plan.forEach(function (x) { if (x.p.classList.contains("ink-wait") || x.p.classList.contains("ink-wet")) { x.p.classList.remove("ink-wait"); x.p.classList.add("ink-wet", "ink-layer"); dry(x.p); } });
         if (ch) ch.classList.remove("ink-wait");
         page.removeEventListener("pointerdown", finish);
       }
@@ -5991,12 +6187,15 @@
         if (done || !page.isConnected) return;
         if (!start) start = ts;
         if (ts - start < wait) { requestAnimationFrame(frame); return; }
-        var x = plan[i]; if (!t0) { t0 = ts; last = ts; x.p.classList.remove("ink-wait"); x.p.classList.add("ink-wet"); }
+        var x = plan[i]; if (!t0) { t0 = ts; last = ts; drawn = 0; x.p.classList.remove("ink-wait"); x.p.classList.add("ink-wet", "ink-layer"); }
         var lineY = x.p.getBoundingClientRect().top + Math.floor((ts - t0) / per) * x.lh;
         if (lineY > (window.innerHeight || 800) - 28) { t0 += ts - last; last = ts; requestAnimationFrame(frame); return; }
         last = ts;
         var t = (ts - t0) / per, k = Math.floor(t), f = t - k;
         if (k >= x.n) { dry(x.p); i++; t0 = 0; if (i >= plan.length) { finish(); return; } requestAnimationFrame(frame); return; }
+        // the pen moves thirty times a second: half the drawing of every frame, the same speed
+        if (ts - drawn < INK_STEP_MS) { requestAnimationFrame(frame); return; }
+        drawn = ts;
         var top = k * x.lh, pct = Math.round(f * 100);
         // what is written: the lines above, then the current line up to the pen (a soft edge where the ink is still going down)
         mask(x.p, { img: "linear-gradient(#000, #000), linear-gradient(to right, #000 " + pct + "%, transparent calc(" + pct + "% + 1.6em))",
@@ -6034,6 +6233,7 @@
     // become its papers. « Classique » keeps the earlier look. The screen is named so the notebook can grow screen by screen.
     r.setAttribute("data-style", pref("style") === "classique" ? "classique" : "carnet");
     r.setAttribute("data-screen", A.screen || "");
+    if (Old.on()) r.setAttribute("data-appareil", "ancien"); else r.removeAttribute("data-appareil");
     if (pref("choiceHand")) r.removeAttribute("data-hand"); else r.setAttribute("data-hand", "non");
     Notebook.defs();
     r.style.setProperty("--read-size", (SIZES[pref("size")] || SIZES.m)[1] + "px");
@@ -6061,7 +6261,7 @@
     var m = A.modal, close = function () { if (m.kind === "send" || m.kind === "receive") Transfer.stop(); A.modal = null; render(); };
     var box = h("div", { class: "modal", role: "dialog", "aria-modal": "true" });
     var bg = h("div", { class: "drawer-bg", onclick: close });
-    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, shake: modalShake, adult: modalAdult, keys: modalKeys, news: modalNews, group: modalGroup, vote: modalVote, doc: modalDoc, bookNotice: modalBookNotice, handHelp: modalHandHelp, piles: modalPiles })[m.kind](box, close, m);
+    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, shake: modalShake, adult: modalAdult, keys: modalKeys, news: modalNews, group: modalGroup, vote: modalVote, doc: modalDoc, bookNotice: modalBookNotice, handHelp: modalHandHelp, piles: modalPiles, diag: modalDiag, old: modalOld })[m.kind](box, close, m);
     app.appendChild(bg); app.appendChild(box);
     var f = box.querySelector("[autofocus]"); if (f) setTimeout(function () { f.focus(); }, 0);
   }
@@ -6110,6 +6310,10 @@
     modalHead(box, "Réglages de lecture" + (A.profile ? " · " + A.profile.name : ""), close);
     var b = h("div", { class: "drawer-body" });
     b.appendChild(buildLine());
+    b.appendChild(h("div", { class: "stack tight" }, h("span", { class: "label" }, "Cet appareil"),
+      h("label", { class: "toggle" }, h("input", { type: "checkbox", checked: Old.on(), onchange: function (e) { Old.set(e.target.checked); } }),
+        h("span", null, h("b", null, "Appareil ancien"), h("br"), h("span", { class: "small muted" }, "Pour une tablette ou un téléphone qui peine : sans grain ni bords tremblés, sans ombres ni animations, l'encre écrite d'un coup ; les livres ne sont lus que quand on les ouvre. Vaut pour tous les lecteurs de cet appareil."))),
+      h("div", { class: "row" }, h("button", { class: "btn sm", onclick: function () { A.modal = { kind: "diag" }; render(); } }, "⏱ Mesurer la vitesse"))));
     b.appendChild(seg({ carnet: "Carnet", classique: "Classique" }, "style", "Style du livre"));
     if (pref("style") !== "classique") b.appendChild(prefToggle("choiceHand", "Choix écrits au crayon", "Les choix s'écrivent à la main dans le carnet. Sans cela, ils sont en italique, plus faciles à lire pour les longues phrases."));
     b.appendChild(seg(SKINS, "skin", pref("style") !== "classique" ? "Papier du carnet" : "Habillage du livre"));
@@ -6290,7 +6494,9 @@
       done.length ? h("ol", null, done.map(function (a) { return h("li", null, h("b", null, String(a.title).replace(/\*/g, "")), h("div", { class: "small" }, a.recap)); })) : null,
       here.length ? h("div", { class: "small muted" }, "Dans ce chapitre : " + here.map(function (e) { return String(e.title).replace(/\*/g, ""); }).join(" · ") + ".") : null);
   }
-  var REDUCED = (function () { try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } })();
+  // Nothing moves when the device asks for less motion, or when the reader chose « appareil ancien » (Old, 18/11).
+  var REDUCED_OS = (function () { try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } })();
+  var REDUCED = REDUCED_OS || lsGet("appareil") === "ancien";
   // Intent: leadsIn(Event) -> Bool = shown before the text: a roll, or what the choice did before the page opened;
   // a found clue, an item, a quest, a feat, a level, a meeting stay after it whatever their moment.
   var EV_AFTER = /\b(clue|item|quest|feat|level|people|map|souv|lead|stain)\b/;
@@ -8417,6 +8623,9 @@
     return refresh();
   }).then(function () { A.busy = false; render(); }, function () { A.busy = false; render(); }).then(function () {
     window.LIVRE_OUVERT = true;   // app/demarrage.js: the book did open, its help note stays away
+    Diag.mark("bibliothèque ouverte");
+    preloadBooks();
     Sync.start();
+    Old.watchStart();
   });
 })();
