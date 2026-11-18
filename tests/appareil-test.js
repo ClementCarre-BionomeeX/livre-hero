@@ -62,7 +62,9 @@ function check(ok, what) { if (!ok) bad.push(what); }
     await pg.waitForTimeout(500);
     check(!(await pg.locator(".modal").count()), "pas d'offre sur un appareil sans signe de lenteur");
     await reader(pg);
-    await pg.waitForFunction(function () { return performance.getEntriesByType("resource").filter(function (e) { return /histoires\//.test(e.name); }).length > 3; }, null, { timeout: 30000 }).catch(function () { bad.push("les livres se lisent en fond sur un appareil ordinaire"); });
+    await pg.waitForTimeout(3000);
+    var early = await pg.evaluate(function () { return performance.getEntriesByType("resource").filter(function (e) { return /histoires\//.test(e.name); }).length; });
+    check(early === 0, "aucun livre lu en fond quand personne n'y a de partie (14.1 : le « mur » au défilement) — " + early + " lus");
     // the setting, in Réglages → Cet appareil
     await startKardan(pg);
     await pg.keyboard.press("r"); await pg.getByLabel("Appareil ancien").check();

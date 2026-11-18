@@ -197,7 +197,7 @@
   // file), or, on the site, beside it in histoires/<id>.json, fetched after the library shows (from the cache offline).
   // Why: Clément, 13/11 (piste 35): start faster on an old phone. The library needs only each book's card
   // (histoires-resume); a book's whole text is read when it is there, and a game waits for it.
-  var BUILTIN_BREATH_MS = 250, BUILTIN_WAIT_MS = 2000, BUILTIN_IDLE_MS = 3000;
+  var BUILTIN_BREATH_MS = 250, BUILTIN_WAIT_MS = 1000, BUILTIN_QUIET_MS = 2500;
   function loadBuiltins() {
     var el = document.getElementById("histoires-fournies"), res = document.getElementById("histoires-resume");
     if (el) { JSON.parse(el.textContent).forEach(function (st) { A.builtins[st.id] = st; A.builtinMeta[st.id] = storyMeta(st); }); A.builtinsReady = Promise.resolve(); return; }
@@ -205,37 +205,36 @@
     list.forEach(function (m) { A.builtinMeta[m.id] = m; });
     A.builtinsReady = new Promise(function (ok) { A.builtinsDone = ok; });
   }
-  // Intent: preloadBooks() -> () ! the books' texts read in the background, once the library shows: first the books
-  // someone has a game or an ending in (the resume card, the album, the challenges need them), then, on a device that
-  // can afford it, the others, one after the other, the smallest first, when the page is idle and not while a page is
-  // being read. On an « appareil ancien », the others wait until a screen asks for them.
-  // Why: Clément, 16/11 and 18/11 (Galaxy Tab A of 2016): reading 32 MB of books blocks the page for seconds; an old
-  // tablet never holds the texts half-read at once, and a reader turning pages is never stopped by a book he did not open.
+  // Intent: preloadBooks() -> () ! the books someone has a game or an ending in (the resume card, the album, the
+  // challenges need them), read in the background once the library shows, one after the other, only after the reader
+  // has left the screen alone for a moment, never while a page is being read. The other books are read when a screen
+  // asks for them (a card opened, the album, the statistics).
+  // Why: Clément, 16/11 and 18/11: reading a book's text (up to 4 MB) blocks the page; read while he scrolled, it put
+  // « a wall » in the scrolling, on his old tablet and on his phone.
+  var lastTouch = 0;
+  ["scroll", "touchstart", "touchmove", "wheel", "pointerdown", "keydown"].forEach(function (k) { window.addEventListener(k, function () { lastTouch = Date.now(); }, { passive: true, capture: true }); });
   function preloadBooks() {
     if (!A.builtinsDone) return;
     var used = {};
     (A.allGames || []).forEach(function (g) { used[g.story] = 1; });
     (A.profiles || []).forEach(function (p) { Object.keys(p.records || {}).forEach(function (id) { used[id] = 1; }); });
-    var metas = Object.keys(A.builtinMeta).map(function (k) { return A.builtinMeta[k]; }).filter(function (m) { return m.file; })
+    var first = Object.keys(A.builtinMeta).map(function (k) { return A.builtinMeta[k]; }).filter(function (m) { return m.file && used[m.id]; })
       .sort(function (a, b) { return (a.passages || 0) - (b.passages || 0); });
-    var first = metas.filter(function (m) { return used[m.id]; }), rest = metas.filter(function (m) { return !used[m.id]; });
-    function idle() {
+    function quiet() {
       return new Promise(function (ok) {
         (function again() {
-          if (A.screen === "game" || document.hidden) { setTimeout(again, BUILTIN_WAIT_MS); return; }
-          if (window.requestIdleCallback) requestIdleCallback(function () { ok(); }, { timeout: BUILTIN_IDLE_MS }); else setTimeout(ok, BUILTIN_BREATH_MS);
+          if (A.screen === "game" || document.hidden || Date.now() - lastTouch < BUILTIN_QUIET_MS) { setTimeout(again, BUILTIN_WAIT_MS); return; }
+          ok();
         })();
       });
     }
     function one(m) {
       if (A.builtins[m.id]) return Promise.resolve();
-      return idle().then(function () { return fetchBuiltin(m); }).then(function () { return new Promise(function (res) { setTimeout(res, BUILTIN_BREATH_MS); }); }, function () { A.builtinsErr = true; });
+      return quiet().then(function () { return fetchBuiltin(m); }).then(function () { return new Promise(function (res) { setTimeout(res, BUILTIN_BREATH_MS); }); }, function () { A.builtinsErr = true; });
     }
-    var chain = first.reduce(function (p, m) { return p.then(function () { return one(m); }); }, Promise.resolve()).then(function () { if (first.length) render(); });
-    chain = chain.then(function () { return rest.reduce(function (p, m) { return p.then(function () { return Old.on() ? null : one(m); }); }, Promise.resolve()); });
-    chain.then(function () { A.builtinsDone(); if (A.screen === "home") render(); });
+    first.reduce(function (p, m) { return p.then(function () { return one(m); }); }, Promise.resolve())
+      .then(function () { A.builtinsDone(); if (first.length && A.screen === "home") render(); });
   }
-  // Intent: needBooks([StoryId]|null) -> Promise ! the books a screen needs (all of them for null), read now.
   // A book that could not be read (no network and not kept on the device) is not asked for again by the screens that
   // draw themselves: true only when a book did arrive. Why: 13.6 asked again at each drawing, and each failure drew the
   // page again — a loop that froze Clément's phone (18/11). Opening the book (loadStory) still tries again.
@@ -2685,6 +2684,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "14.1", items: ["Plus de « mur » au défilement : les livres ne se lisent plus en arrière-plan pendant que tu fais défiler ; seuls ceux où tu as une partie sont préparés, quand tu laisses l'écran tranquille. Les autres se lisent quand tu les ouvres."] },
     { v: "14.0", items: ["L'encre du carnet redevient comme avant : la plume écrit d'un trait fluide, l'encre mouillée brille puis sèche. Sur un appareil qui peine, le mode « appareil ancien » (Réglages) l'écrit d'un coup."] },
     { v: "13.9", items: ["Corrigé : sans réseau, un livre pas encore gardé sur l'appareil faisait tourner la bibliothèque en boucle jusqu'à la figer."] },
     { v: "13.8", items: ["Un jet raté ne se retente plus à l'infini : sur la même page, le second essai réussit, l'échec ayant déjà eu ses conséquences. Le choix l'annonce."] },
