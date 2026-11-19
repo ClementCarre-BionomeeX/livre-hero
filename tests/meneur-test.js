@@ -122,21 +122,21 @@ it("rien de bon posé : l'issue par défaut ; la carte gardée reste en main pou
 
 it("la ferveur paie les cartes rares et les signes ; trop chères, la donne est refusée", function () {
   var st = story(), s = solo(st);
-  assert.strictEqual(s.ferveur, 1);
+  assert.strictEqual(M.fervour(s), 1);
   deal(st, s, { basile: ["biche"], salee: ["plume"] });
   pick(st, s, function (c) { return c.sys === "donneValider"; });
   ["basile", "salee"].forEach(function (h) { pick(st, s, function (c) { return c.sys === "poser" && c.hero === h; }); pick(st, s, function (c) { return c.sys === "carte" && c.carte === "@passer"; }); });
   pick(st, s, function (c) { return c.sys === "retourner"; });
   pick(st, s, function (c) { return c.ok; });
-  assert.strictEqual(s.node, "E2"); assert.strictEqual(s.ferveur, 1);
+  assert.strictEqual(s.node, "E2"); assert.strictEqual(M.fervour(s), 1);
   deal(st, s, { basile: ["foudre"], salee: ["caillou"] });
   var val = M.view(st, s).choices.filter(function (c) { return c.sys === "donneValider"; })[0];
   assert.ok(!val.ok && /2 de ferveur \(tu en as 1\)/.test(val.why), val.why);
-  s.ferveur = 3;
+  M.apply(st, s, { ferveur: 2 });
   pick(st, s, function (c) { return c.sys === "signe" && c.signe === "brume"; });
   assert.strictEqual(M.dealCheck(st, s, "grille", s.table.d, s.table.sg), "");
   pick(st, s, function (c) { return c.sys === "donneValider"; });
-  assert.strictEqual(s.ferveur, 0);
+  assert.strictEqual(M.fervour(s), 0);
   assert.ok(M.evalCond(st, s, { signe: "brume" }));
   assert.ok(M.evalCond(st, s, { ferveur: true, max: 0 }));
 });
@@ -185,6 +185,9 @@ it("à trois : les enfants attendent la donne, la reçoivent à la synchro, pose
   assert.ok(MU.allWaiting(g));
   MU.sync(st, g);
   ["a", "b", "c"].forEach(function (pid) { choose(st, g, pid, function (c) { return c.sys === "retourner"; }); assert.strictEqual(MU.player(g, pid).s.node, "I_porte_deux"); });
+  ["a", "b", "c"].forEach(function (pid) { choose(st, g, pid, function (c) { return c.label === "Passer"; }); });
+  MU.sync(st, g);
+  assert.strictEqual(M.fervour(MU.player(g, "c").s), 3, "la ferveur d'une page lue par trois joueurs ne compte qu'une fois");
   M.setRng(null);
 });
 

@@ -340,7 +340,7 @@
     if ("pose" in c) return trialLaid(story, s, c.pose, c.hero);
     if ("issue" in c) { var ti = trialRead(s, c.issue).issue; return c.is == null ? !!ti : [].concat(c.is).indexOf(ti) >= 0; }
     if ("signe" in c) return !!(s.signes || {})[c.signe];
-    if ("ferveur" in c) return rng(s.ferveur || 0, c.min, c.max);
+    if ("ferveur" in c) return rng(fervour(s), c.min, c.max);
     if ("possede" in c) return owns(s, c.possede);
     if ("carteJouee" in c) return !!(s.jeu && [].concat(c.carteJouee).some(function (k) { return s.jeu.joue.indexOf(k) >= 0; }));
     // Ports of call and the crew (11.4).
@@ -3900,7 +3900,7 @@
     });
     if (why) return why;
     var cost = dealCost(story, s, T, d, signs);
-    if (cost > (s.ferveur || 0)) return "Il te faudrait " + cost + " de ferveur (tu en as " + (s.ferveur || 0) + ").";
+    if (cost > fervour(s)) return "Il te faudrait " + cost + " de ferveur (tu en as " + fervour(s) + ").";
     if (T.clefs && T.clefs.length) {
       var hands = {}; who.forEach(function (h) { hands[h] = jeuFor(story, s, h).main.concat(d[h] || []); });
       if (!T.clefs.some(function (k) { return keyOpens(k, hands, who); })) return "Avec cette donne, personne n'a de quoi ouvrir : " + interp(s, T.titre || id) + ".";
@@ -3916,7 +3916,7 @@
     var keys = (T.clefs || []).filter(function (k) {
       var Rk = reserveOf(story, s, T), cost = 0, ok = true;
       [].concat(k).forEach(function (c) { var i = -1; Rk.forEach(function (r, j) { if (i < 0 && r.carte === c) i = j; }); if (i < 0) ok = false; else { cost += Rk[i].ferveur; Rk.splice(i, 1); } });
-      return ok && cost <= (s.ferveur || 0) && (!Array.isArray(k) || who.length > 1);
+      return ok && cost <= fervour(s) && (!Array.isArray(k) || who.length > 1);
     });
     if (keys.length) {
       var k = keys[Math.floor(RNG() * keys.length)], order = shuffled(who);
@@ -3965,7 +3965,7 @@
         var why = dealCheck(story, s, W.e, W.d, W.sg); if (why) throw new Error("donne refusée : " + why);
         T = trialDef(story, W.e);
         var cost = dealCost(story, s, T, W.d, W.sg), R = trialState(s, W.e), lines = [];
-        if (cost) fervourMove(story, s, -cost);
+        if (cost) fervourMove(story, s, -cost, "donne:" + W.e);
         Object.keys(W.d).forEach(function (h) {
           var J = jeuFor(story, s, h); W.d[h].forEach(function (k) { J.main.push(k); }); J.recus = W.d[h].slice();
           lines.push(nameOf(story, h) + " : " + (W.d[h].length ? W.d[h].map(function (k) { return cardName(story, s, k); }).join(", ") : "rien"));
@@ -4028,41 +4028,44 @@
     R.issue = pick0;
     return pick0;
   }
-  // Intent: fervourMove(Story, State, Int) ! the game master's fervour, never below zero; told to him alone
-  function fervourMove(story, s, n) {
-    s.ferveur = Math.max(0, (s.ferveur || 0) + n);
-    var m = masterOf(story);
-    if (!m || !story.heroes || s.lead === m || !s.lead) ev(s, "Ferveur " + (n > 0 ? "+" : "−") + Math.abs(n) + " (" + s.ferveur + ").", "ferveur");
+  // Intent: fervourMove(Story, State, Int) ! the game master's fervour moves; told to him alone.
+  // The fervour is kept as one entry per page that moved it ("+2"), and read as their sum: at three, the players read
+  // the same page apart, each on his copy, and the merge of src/multi.js keeps one entry per page instead of adding
+  // the three (it adds numbers; these are words).
+  function fervourMove(story, s, n, key) {
+    s.ferveurs = s.ferveurs || {};
+    var k = key || "p:" + s.node + "#" + ((s.seen || {})[s.node] || 0), was = fervour(s);
+    s.ferveurs[k] = String((parseInt(s.ferveurs[k] || "0", 10) || 0) + n);
+    var m = masterOf(story), now = fervour(s);
+    if (now !== was && (!m || !story.heroes || s.lead === m || !s.lead)) ev(s, "Ferveur " + (now > was ? "+" : "−") + Math.abs(now - was) + " (" + now + ").", "ferveur");
   }
+  // Intent: fervour(State) -> Int = the game master's fervour now (never below zero)
+  function fervour(s) { var t = 0; Object.keys(s.ferveurs || {}).forEach(function (k) { t += parseInt(s.ferveurs[k], 10) || 0; }); return Math.max(0, t); }
   // The game master's table and the laying of a card: pages of the engine, like a deposit (9.6).
   BUILTIN["@table"] = function (story, s) {
     var W = s.table, T = trialDef(story, W.e), who = trialFor(story, T), back = story.passages[W.from] || {}, text = [], cs = [];
     text.push(interp(s, T.serrure || ""));
-    text.push("**Ferveur : " + (s.ferveur || 0) + ".** Jusqu'à " + dealMax(T) + " carte" + (dealMax(T) > 1 ? "s" : "") + " pour chacun" + (dealMin(T) ? ", au moins " + dealMin(T) : "") + ".");
-    who.forEach(function (h) {
-      var held = jeuFor(story, s, h).main;
-      text.push("**" + nameOf(story, h) + "** · ta donne : " + (W.d[h].length ? W.d[h].map(function (k) { return cardName(story, s, k); }).join(", ") : "rien encore") + "." + (held.length ? " Déjà en main : " + held.map(function (k) { return cardName(story, s, k); }).join(", ") + "." : ""));
-    });
-    if (W.sg.length) text.push("Signes : " + W.sg.map(function (g) { return interp(s, (T.signes[g] || {}).titre || g); }).join(", ") + ".");
     var why = dealCheck(story, s, W.e, W.d, W.sg);
-    if (why) text.push("*" + why + "*");
     var left = reserveLeft(story, s, T, W.d), seen = {};
     left.forEach(function (r) {
       var key = r.carte + "|" + r.ferveur; if (seen[key]) return; seen[key] = 1;
       who.forEach(function (h) {
         if (W.d[h].length >= dealMax(T)) return;
-        cs.push({ sys: "donner", carte: r.carte, hero: h, group: "donne", label: "À " + nameOf(story, h) + " : " + cardName(story, s, r.carte) + (r.ferveur ? " (" + r.ferveur + " de ferveur)" : "") });
+        cs.push({ sys: "donner", carte: r.carte, hero: h, ferveur: r.ferveur, ui: true, group: "donne", label: "À " + nameOf(story, h) + " : " + cardName(story, s, r.carte) + (r.ferveur ? " (" + r.ferveur + " de ferveur)" : "") });
       });
     });
-    who.forEach(function (h) { W.d[h].forEach(function (k, i) { if (W.d[h].indexOf(k) === i) cs.push({ sys: "reprendre", carte: k, hero: h, group: "reprendre", label: "Reprendre " + cardName(story, s, k) + " à " + nameOf(story, h) }); }); });
+    who.forEach(function (h) { W.d[h].forEach(function (k, i) { if (W.d[h].indexOf(k) === i) cs.push({ sys: "reprendre", carte: k, hero: h, ui: true, group: "reprendre", label: "Reprendre " + cardName(story, s, k) + " à " + nameOf(story, h) }); }); });
     Object.keys(T.signes || {}).forEach(function (g) {
       var G = T.signes[g]; if (G.if != null && !evalCond(story, s, G.if)) return;
-      cs.push({ sys: "signe", signe: g, group: "signe", label: (W.sg.indexOf(g) >= 0 ? "Renoncer au signe : " : "Faire un signe : ") + interp(s, G.titre || g) + (G.ferveur ? " (" + G.ferveur + " de ferveur)" : "") });
+      cs.push({ sys: "signe", signe: g, on: W.sg.indexOf(g) >= 0, ferveur: G.ferveur || 0, titre: interp(s, G.titre || g), ui: true, group: "signe", label: (W.sg.indexOf(g) >= 0 ? "Renoncer au signe : " : "Faire un signe : ") + interp(s, G.titre || g) + (G.ferveur ? " (" + G.ferveur + " de ferveur)" : "") });
     });
-    cs.push({ sys: "donneSuggeree", label: "Donne suggérée : le moteur range les cartes, tu peux corriger" });
-    cs.push({ sys: "donneValider", label: "Valider la donne", if: why ? { not: true } : undefined, why: why });
+    cs.push({ sys: "donneSuggeree", ui: true, label: "Donne suggérée : le moteur range les cartes, tu peux corriger" });
+    cs.push({ sys: "donneValider", ui: true, label: "Valider la donne", if: why ? { not: true } : undefined, why: why });
     cs.push({ sys: "tableQuitter", label: "Revenir : " + cap(interp(s, String(back.backName || back.title || "").replace(/\*/g, ""))) });
-    return { title: interp(s, T.titre || W.e), kind: "table", text: text.filter(Boolean), choices: cs, table: { epreuve: W.e, ferveur: s.ferveur || 0, donne: W.d, signes: W.sg.slice(), why: why } };
+    var held = {}; who.forEach(function (h) { held[h] = jeuFor(story, s, h).main.slice(); });
+    return { title: interp(s, T.titre || W.e), kind: "table", text: text.filter(Boolean), choices: cs,
+      table: { epreuve: W.e, ferveur: fervour(s), pour: who.map(function (h) { return { id: h, nom: nameOf(story, h), donne: W.d[h].slice(), main: held[h] }; }),
+        reserve: left, max: dealMax(T), min: dealMin(T), signes: W.sg.slice(), why: why } };
   };
   BUILTIN["@pose"] = function (story, s) {
     var W = s.poser, T = trialDef(story, W.e), J = jeuOf(story, s), text = [], count = {}, order = [];
@@ -4397,7 +4400,7 @@
     secretsOf: secretsOf, secretKnown: secretKnown, secretDef: secretDef, interludeOf: interludeOf, autreForm: autreForm,
     doubt: doubt, accountBy: accountBy, topicSolved: topicSolved, dreadOf: dreadOf, dreadMax: dreadMax, dreadWord: dreadWord, dreadTrouble: dreadTrouble, attachOf: attachOf, ATTACH_MAX: ATTACH_MAX,
     LENS_EFFECTS: LENS_EFFECTS, reveal: reveal, veilsIn: veilsIn, unveil: unveil, veilInfo: veilInfo, veilsOf: veilsOf, veilMark: veilMark, lensHeld: lensHeld, lensLeft: lensLeft, lensDef: lensDef, veilCount: veilCount, VEIL_RE: VEIL_RE,
-    trialDef: trialDef, trialFor: trialFor, trialRead: trialRead, trialIssues: trialIssues, dealCheck: dealCheck, dealSuggest: dealSuggest, reserveOf: reserveOf, masterOf: masterOf, jeuFor: jeuFor, LAY_NOTHING: LAY_NOTHING,
+    trialDef: trialDef, trialFor: trialFor, trialRead: trialRead, trialIssues: trialIssues, dealCheck: dealCheck, dealSuggest: dealSuggest, fervour: fervour, reserveOf: reserveOf, masterOf: masterOf, jeuFor: jeuFor, LAY_NOTHING: LAY_NOTHING,
     CARD_TYPES: CARD_TYPES, SUITS: SUITS, SUIT_WORDS: SUIT_WORDS, RARITIES: RARITIES, THREAD_STATES: THREAD_STATES, cardInfo: cardInfo, filsOf: filsOf, DECK_FX: DECK_FX, GAIN_PLACES: GAIN_PLACES, LOSS_FROM: LOSS_FROM, resolve: resolve, stopOf: stopOf,
     escaleOpen: escaleOpen, crewView: crewView, crewIs: crewIs, crewCount: crewCount, crewLean: crewLean, CREW_WORDS: CREW_WORDS, CREW_MAX: CREW_MAX,
     item: item, weapon: weapon, armor: armor, useItem: useItem, day: day, timeLabel: timeLabel, routesFrom: routesFrom, isNight: isNight,
