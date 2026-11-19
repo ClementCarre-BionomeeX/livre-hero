@@ -62,7 +62,7 @@ module.exports = {
     act: "II", title: "Les roues dans la nuit", place: "chambre",
     text: [
       "Tu te réveilles au bruit des roues.",
-      "Ce n'est pas un bruit de jour : c'est un bruit étouffé, sourd, qui monte du bois par la lucarne, le grincement d'essieux qu'on n'a pas graissés pour ne pas acheter de graisse, des sabots qui glissent sur les pierres, et par moments une voix d'homme qui jure à mi-voix. Le bruit vient de la lisière, du vieux chemin des charrettes, et il s'en va vers le nord, vers le cœur des collines, là où personne ne va.",
+      "C'est un bruit de nuit, étouffé, sourd, qui monte du bois par la lucarne, le grincement d'essieux qu'on a laissés secs par économie de graisse, des sabots qui glissent sur les pierres, et par moments une voix d'homme qui jure à mi-voix. Le bruit vient de la lisière, du vieux chemin des charrettes, et il s'en va vers le nord, vers le cœur des collines, là où personne ne va.",
       { with: WITH, text: "Ortie est déjà à la lucarne, debout sur son lit, le nez contre la vitre. « Il y a des lumières, chuchote-t-elle. Trois. Elles montent dans le bois. »" },
     ],
     choices: [
@@ -168,7 +168,7 @@ module.exports = {
     fx: { flag: "corvin:allie", regard: { corvin: "allie" }, ep: ["seance", 400] },
     text: [
       "Tu poses tout sur le comptoir, devant lui.",
-      { if: { has: "grenouille:gardee" }, text: "La grenouille grise d'Ortie, dans son bocal, qui dort toujours. Maître Corvin la regarde longtemps, sans un mot, puis il note quelque chose dans un carnet." },
+      { if: { has: "grenouille:gardee" }, text: "La grenouille grise d'Ortie, dans son bocal, qui dort toujours. Maître Corvin la regarde longtemps, puis il note quelque chose dans un carnet." },
       { if: { item: "tonneau_douve" }, text: "La douve de tonneau aux armes de Rocheclaire, et le givre qui ne fond pas. Maître Corvin y passe le doigt, le porte à sa langue, et reste un moment immobile, les yeux mi-clos, comme un dégustateur." },
       { if: { clue: "g_ornieres" }, text: "Ce que tu as vu sur le vieux chemin : la charrette, les tonneaux, les lanternes voilées, la nuit." },
       { if: { clue: "g_mains" }, text: "Les mains du garde-chasse, brûlées de froid en septembre." },
@@ -210,7 +210,7 @@ module.exports = {
     act: "II", title: "Tu vas partir aussi", place: "boutique",
     text: [
       { if: { has: "dispute:crie" }, text: "Tu cries. Tu ne savais pas que tu pouvais crier si fort. Ortie te regarde crier sans bouger, l'eau de ses cheveux lui coulant dans les yeux, et quand tu t'arrêtes, à bout de souffle, elle dit, très calmement, de sa voix des grandes peurs : « Tu vas partir aussi. Comme Mémé. Tu cries parce que tu vas partir. »" },
-      { if: { has: "dispute:serre" }, text: "Tu la serres contre toi, toute mouillée, toute froide, et tu ne dis rien parce que tu ne pourrais rien dire. Elle se laisse faire. Au bout d'un long moment, elle dit dans ton cou : « Je croyais que tu allais crier. » Puis, plus bas : « Tu vas pas partir, toi ? Comme Mémé ? »" },
+      { if: { has: "dispute:serre" }, text: "Tu la serres contre toi, toute mouillée, toute froide, et tu te tais, parce que les mots te manquent. Elle se laisse faire. Au bout d'un long moment, elle dit dans ton cou : « Je croyais que tu allais crier. » Puis, plus bas : « Tu vas pas partir, toi ? Comme Mémé ? »" },
       { if: { has: "dispute:punie" }, text: "Ortie monte l'escalier sans un mot, en laissant une trace mouillée sur chaque marche. À la dernière, elle se retourne. « Tu vas partir aussi, dit-elle. Comme Mémé. C'est pour ça que tu me grondes. Pour t'habituer. »" },
       "Bistre, assis sur le comptoir, vous regarde toutes les deux avec ses yeux jaunes. Pour une fois, il n'a pas l'air de se moquer.",
     ],

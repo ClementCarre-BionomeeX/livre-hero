@@ -5189,7 +5189,7 @@
     "Bistre, qui crache sur tous les clients par principe, saute du rebord de la fenêtre, traverse la boutique, et se frotte contre le bas de sa cape en ronronnant comme une marmite.",
     {
      "with": "ortie",
-     "text": "Ortie s'est figée derrière le comptoir, les yeux ronds. Elle ne pose pas une seule question, ce qui ne lui est pas arrivé depuis sa naissance."
+     "text": "Ortie s'est figée derrière le comptoir, les yeux ronds. Elle garde toutes ses questions pour elle, ce qui ne lui est pas arrivé depuis sa naissance."
     }
    ],
    "choices": [
@@ -5924,7 +5924,7 @@
      "if": {
       "has": "enseigne:feuille"
      },
-     "text": "Ortie regarde la feuille verte, à l'endroit où était le crapaud, et ne dit rien. Elle ne dit rien pendant une heure, ce qui doit être un record. Puis elle va bouder dans le jardin, et elle boude avec application."
+     "text": "Ortie regarde la feuille verte, à l'endroit où était le crapaud, et se tait. Elle se tait pendant une heure, ce qui doit être un record. Puis elle va bouder dans le jardin, et elle boude avec application."
     },
     {
      "if": {
@@ -6246,7 +6246,7 @@
    },
    "text": [
     "Tu te réveilles sans savoir pourquoi, au milieu de la nuit, avec la certitude qu'il manque un bruit. Il te faut un long moment pour comprendre lequel : la respiration d'Ortie, de l'autre côté de la malle. Son lit est vide. Les couvertures sont rejetées. La porte de la chambre est ouverte sur l'escalier noir.",
-    "Tu descends pieds nus. La boutique est obscure, et l'horloge y bat avec une régularité d'horloge qui n'a jamais semblé si lente ni si forte ; les flacons des étagères te regardent passer de leurs reflets de lune. La porte de derrière est entrouverte, et l'air de la nuit entre par la fente, froid, chargé d'une odeur de mousse que tu ne connais pas, plus profonde que celle du jardin, l'odeur d'un endroit qu'on n'a pas ouvert depuis longtemps.",
+    "Tu descends pieds nus. La boutique est obscure, et l'horloge y bat avec une régularité d'horloge qui n'a jamais semblé si lente ni si forte ; les flacons des étagères te regardent passer de leurs reflets de lune. La porte de derrière est entrouverte, et l'air de la nuit entre par la fente, froid, chargé d'une odeur de mousse inconnue, plus profonde que celle du jardin, l'odeur d'un endroit resté longtemps fermé.",
     "Ortie est au fond du jardin, devant la haie de buis, debout, en chemise de nuit, les pieds dans l'herbe mouillée. Elle te tourne le dos. Elle regarde vers le nord, vers le cœur du bois, et elle chante.",
     "C'est un air que tu n'as jamais entendu : lent, sur quatre notes qui reviennent, avec des mots que tu comprends à moitié, comme on comprend une langue qu'on a parlée enfant. « Une qui veille… une qui chante… » Sa voix est plus grave que la sienne. Ses yeux sont ouverts. Elle ne te voit pas.",
     "Bistre est assis devant elle, au pied de la haie, entre Ortie et le bois. Il ne bouge pas. Il lui barre le chemin."
@@ -6451,7 +6451,7 @@
     ]
    },
    "text": [
-    "Tu prends Ortie dans tes bras, sans rien dire. Elle se laisse faire, raide d'abord, puis toute molle, comme un chat qu'on porte.",
+    "Tu prends Ortie dans tes bras, en silence. Elle se laisse faire, raide d'abord, puis toute molle, comme un chat qu'on porte.",
     "« Je veux pas que Mémé reste un arbre, dit-elle dans ton épaule. Je veux pas être un arbre. Je veux pas que tu sois un arbre. Je veux qu'on soit trois dans la boutique, avec Bistre, et Monseigneur, et que tu cries parce que j'ai mis les doigts dans la confiture. »",
     "Elle pleure, sans bruit, ce qui ne lui ressemble pas. Une larme glisse sur sa joue, s'arrête au bord du menton, et tombe.",
     "Tu la recueilles dans le petit flacon de cristal que Mémé t'a donné au Creux, sans réfléchir, d'un geste aussi naturel que de rattraper une tasse. La larme brille au fond du flacon comme une perle d'eau, et Ortie s'endort contre toi, le nez mouillé, avant d'avoir vu ce que tu as fait."
@@ -6952,7 +6952,7 @@
    "place": "chambre",
    "text": [
     "Tu te réveilles au bruit des roues.",
-    "Ce n'est pas un bruit de jour : c'est un bruit étouffé, sourd, qui monte du bois par la lucarne, le grincement d'essieux qu'on n'a pas graissés pour ne pas acheter de graisse, des sabots qui glissent sur les pierres, et par moments une voix d'homme qui jure à mi-voix. Le bruit vient de la lisière, du vieux chemin des charrettes, et il s'en va vers le nord, vers le cœur des collines, là où personne ne va.",
+    "C'est un bruit de nuit, étouffé, sourd, qui monte du bois par la lucarne, le grincement d'essieux qu'on a laissés secs par économie de graisse, des sabots qui glissent sur les pierres, et par moments une voix d'homme qui jure à mi-voix. Le bruit vient de la lisière, du vieux chemin des charrettes, et il s'en va vers le nord, vers le cœur des collines, là où personne ne va.",
     {
      "with": "ortie",
      "text": "Ortie est déjà à la lucarne, debout sur son lit, le nez contre la vitre. « Il y a des lumières, chuchote-t-elle. Trois. Elles montent dans le bois. »"
@@ -7254,7 +7254,7 @@
      "if": {
       "has": "grenouille:gardee"
      },
-     "text": "La grenouille grise d'Ortie, dans son bocal, qui dort toujours. Maître Corvin la regarde longtemps, sans un mot, puis il note quelque chose dans un carnet."
+     "text": "La grenouille grise d'Ortie, dans son bocal, qui dort toujours. Maître Corvin la regarde longtemps, puis il note quelque chose dans un carnet."
     },
     {
      "if": {
@@ -7374,7 +7374,7 @@
      "if": {
       "has": "dispute:serre"
      },
-     "text": "Tu la serres contre toi, toute mouillée, toute froide, et tu ne dis rien parce que tu ne pourrais rien dire. Elle se laisse faire. Au bout d'un long moment, elle dit dans ton cou : « Je croyais que tu allais crier. » Puis, plus bas : « Tu vas pas partir, toi ? Comme Mémé ? »"
+     "text": "Tu la serres contre toi, toute mouillée, toute froide, et tu te tais, parce que les mots te manquent. Elle se laisse faire. Au bout d'un long moment, elle dit dans ton cou : « Je croyais que tu allais crier. » Puis, plus bas : « Tu vas pas partir, toi ? Comme Mémé ? »"
     },
     {
      "if": {
@@ -8021,7 +8021,7 @@
      "text": "Dehors, près des chevaux, Brunet le garde-chasse a ôté son chapeau. Il regarde ses gants de cuir. Quand la comtesse se tourne vers lui et lui demande s'il sait quelque chose, il répond « oui, madame », très bas, et il ne regarde pas le sénéchal."
     },
     "Ambroise Malbec sourit jusqu'au bout. Il dit que c'est une invention, une page volée, un faux de sorcière ; il dit que la jeune personne est jalouse, et la Guilde rancunière, et le bois malade de sa propre vieillesse. Il le dit très bien.",
-    "La comtesse l'écoute jusqu'à la fin, comme elle écoute un sermon : sans un mot, sans un geste, en pensant à autre chose. Puis elle dit : « Ambroise, vous parlez trop bien pour un honnête homme. » Et elle appelle ses gens.",
+    "La comtesse l'écoute jusqu'à la fin, comme elle écoute un sermon : muette, immobile, en pensant à autre chose. Puis elle dit : « Ambroise, vous parlez trop bien pour un honnête homme. » Et elle appelle ses gens.",
     "On l'emmène. Il proteste avec politesse, en soulevant son chapeau.",
     {
      "with": "ortie",
@@ -8446,7 +8446,7 @@
     },
     "Au Creux, la Source brille au fond de la combe d'une lumière pâle et malade, plus faible qu'il y a trois nuits. Mémé est assise entre ses racines. Elle vous attend. Elle a l'air plus petite, et plus grise, et ses yeux sont fermés.",
     "Ortie lâche ta main, et elle se met à chanter.",
-    "Elle chante sans le savoir, sans ouvrir vraiment la bouche, un air très ancien qui monte de sa gorge comme l'eau monte d'une source. La Source frémit. Mémé ouvre les yeux.",
+    "Elle chante sans le savoir, la bouche à peine ouverte, un air très ancien qui monte de sa gorge comme l'eau monte d'une source. La Source frémit. Mémé ouvre les yeux.",
     {
      "if": {
       "has": "malbec:arrete"

@@ -81,7 +81,7 @@ module.exports = {
       title: "La larme", place: "chambre", back: true, with: WITH,
       fx: { item: "larme", flag: "larme:ortie", conf: { ortie: 5 }, ep: ["seance", 300] },
       text: [
-        "Tu prends Ortie dans tes bras, sans rien dire. Elle se laisse faire, raide d'abord, puis toute molle, comme un chat qu'on porte.",
+        "Tu prends Ortie dans tes bras, en silence. Elle se laisse faire, raide d'abord, puis toute molle, comme un chat qu'on porte.",
         "« Je veux pas que Mémé reste un arbre, dit-elle dans ton épaule. Je veux pas être un arbre. Je veux pas que tu sois un arbre. Je veux qu'on soit trois dans la boutique, avec Bistre, et Monseigneur, et que tu cries parce que j'ai mis les doigts dans la confiture. »",
         "Elle pleure, sans bruit, ce qui ne lui ressemble pas. Une larme glisse sur sa joue, s'arrête au bord du menton, et tombe.",
         "Tu la recueilles dans le petit flacon de cristal que Mémé t'a donné au Creux, sans réfléchir, d'un geste aussi naturel que de rattraper une tasse. La larme brille au fond du flacon comme une perle d'eau, et Ortie s'endort contre toi, le nez mouillé, avant d'avoir vu ce que tu as fait.",

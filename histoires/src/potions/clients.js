@@ -23,7 +23,7 @@ module.exports = {
       "C'est une vieille femme, petite, enveloppée dans une cape grise dont le capuchon lui couvre le visage jusqu'à la bouche. Elle sent la mousse et la pluie, comme un sous-bois après l'orage ; des brindilles sont prises dans le bas de sa cape, et l'ourlet est mouillé, alors qu'il n'a pas plu depuis huit jours.",
       "« Un baume, dit-elle. Pour une vieille qui a les mains qui craquent. » Sa voix est très basse, avec un froissement dedans, un bruit de feuilles qu'on remue. Elle tend vers le comptoir une main gantée de gris.",
       "Bistre, qui crache sur tous les clients par principe, saute du rebord de la fenêtre, traverse la boutique, et se frotte contre le bas de sa cape en ronronnant comme une marmite.",
-      { with: WITH, text: "Ortie s'est figée derrière le comptoir, les yeux ronds. Elle ne pose pas une seule question, ce qui ne lui est pas arrivé depuis sa naissance." },
+      { with: WITH, text: "Ortie s'est figée derrière le comptoir, les yeux ronds. Elle garde toutes ses questions pour elle, ce qui ne lui est pas arrivé depuis sa naissance." },
     ],
     choices: [
       { label: "Lui donner un baume de plantain", if: { item: "p_baume" }, fx: { drop: "p_baume", flag: "grise:servie" }, to: "K_dame_grise_gland" },
