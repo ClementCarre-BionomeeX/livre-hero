@@ -85,7 +85,7 @@ module.exports = {
       "Devant la crèmerie, un garçon de seize ans, maigre, sérieux, coiffé d'un casque de moto trop grand, achète une motte de beurre. C'est Gaston, le fils du quincaillier. Il fait le signe de croix devant les églises, les ambulances, les couchers de soleil, et, tu le vois faire, devant le petit ange doré du papier sulfurisé, avant de glisser la motte dans son sac.",
       "« Pour qu'elle tienne », dit-il, en voyant que tu le regardes. Il a l'air un peu gêné, et pas du tout de rire.",
       { if: COMPRIS, text: "Tu sais ce qui va arriver à midi. Tu l'as lu avec Basile, au talkie. Tu regardes le Carrefour, le marché, les enfants, la fontaine, et tu sens dans ton ventre la même chose que la nuit où ton père est parti : le monde qui continue comme si de rien n'était, une minute de trop." },
-      { if: { not: COMPRIS }, text: "Tu ne sais pas ce qui va arriver à midi. Personne ne le sait. Tu regardes le ciel par habitude de motarde, pour voir s'il pleuvra. Il est blanc, sans un nuage, et le soleil a l'air un peu trop gros, comme une motte qu'on aurait laissée trop près du feu." },
+      { if: { not: COMPRIS }, text: "Tu ignores ce qui va arriver à midi. Personne ne le sait. Tu regardes le ciel par habitude de motarde, pour voir s'il pleuvra. Il est blanc, sans un nuage, et le soleil a l'air un peu trop gros, comme une motte qu'on aurait laissée trop près du feu." },
       "Dans la crèmerie, ta mère range la cave. Elle descend les mottes du jour une à une, par l'escalier de pierre, parce qu'il fait déjà trop chaud au rez-de-chaussée. La cave est profonde, voûtée, la plus fraîche de la rue. On dit qu'Augustine Salée l'a creusée elle-même, en 1899, avec une pioche et du sel.",
     ],
     choices: [
@@ -128,9 +128,9 @@ module.exports = {
     ] },
   S4_fin: { act: "II", title: "La file des phares", place: "route",
     text: [
-      { if: { has: "s4=convoi" }, text: "Tu viens. Ripaille hoche la tête, une fois, comme on conclut une affaire au marché. Tu prends ta place dans la file, entre deux motos qui sentent l'huile brûlée. Ta mère te regarde partir depuis la fontaine. Elle ne dit rien. Elle lève la main, deux doigts tendus, et fait dans l'air, vers toi, un petit geste que tu ne lui connais pas : comme on étale du beurre sur une tartine. C'est peut-être une bénédiction. C'est peut-être un conseil." },
+      { if: { has: "s4=convoi" }, text: "Tu viens. Ripaille hoche la tête, une fois, comme on conclut une affaire au marché. Tu prends ta place dans la file, entre deux motos qui sentent l'huile brûlée. Ta mère te regarde partir depuis la fontaine. Elle lève la main, deux doigts tendus, et fait dans l'air, vers toi, un petit geste que tu ne lui connais pas : comme on étale du beurre sur une tartine. C'est peut-être une bénédiction. C'est peut-être un conseil." },
       { if: { has: "s4=seule" }, text: "Tu dis non. Ripaille hausse les épaules, sans colère. « Comme tu veux. » Les camions partent. Tu attends qu'ils soient loin, puis tu enfourches la Baratte et tu les suis, tous feux éteints, à la lueur de la ville qui brûle. Ta mère te regarde partir depuis la fontaine. Elle lève la main, deux doigts tendus, et fait dans l'air, vers toi, un petit geste que tu ne lui connais pas : comme on étale du beurre sur une tartine." },
-      "Tu appelles Basile au talkie. Tu lui dis où tu es. Tu lui dis avec qui. Il met longtemps à répondre. Quand il répond, il dit seulement : « Je t'attends à la porte verte. » Puis, après un silence : « Article 88. » Tu ne sais pas ce que c'est. Tu sens que c'est important.",
+      "Tu appelles Basile au talkie. Tu lui dis où tu es. Tu lui dis avec qui. Il met longtemps à répondre. Quand il répond, il dit seulement : « Je t'attends à la porte verte. » Puis, après un silence : « Article 88. » Tu ignores ce que c'est. Tu sens que c'est important.",
       "La route du Domaine, la nuit, entre les champs de panneaux. Ils dorment de nouveau, tête basse, comme ce matin. Ils ont l'air innocents. Ils ont l'air de ne se souvenir de rien.",
     ],
     choices: [{ label: "Rouler vers le camp des Ferrailleurs", fx: { flag: "ch4:salee" }, to: "C4" }] },
@@ -141,7 +141,7 @@ module.exports = {
       "Ils arrivent avec le jour. D'abord une moto, puis trois, puis vingt : les Ferrailleurs qui reviennent du Domaine, les camions vides ou à moitié pleins, et d'autres, beaucoup d'autres, des motards de la route que l'Effondrement a jetés hors des villes, sans maison, sans lumière, sans rien d'autre que leur machine et le plein qui reste. Ils viennent au Carrefour parce que la fontaine coule. Ils coupent leurs moteurs.",
       "Ils voient l'ange.",
       "Il se tient sur la bascule du marché, doré, de travers, la trompette aux lèvres, un pied levé au-dessus de la ville brûlée. Il est le seul objet frais du pays. Il sent la crème. Le premier soleil le fait luire doucement, sans éclat, comme une joue.",
-      "Un grand motard barbu descend de sa machine. Il s'approche. Il ôte son casque. Il reste longtemps devant l'ange, sans rien dire. Puis il pose un genou à terre, sur le pavé couvert de suie. Derrière lui, un autre. Puis un autre. Le jeune Gaston, avec son casque trop grand, se signe et s'agenouille le premier rang, les yeux brillants. Ripaille, la dernière, reste debout, les bras croisés, avec ses chaînes ; puis elle décroise les bras.",
+      "Un grand motard barbu descend de sa machine. Il s'approche. Il ôte son casque. Il reste longtemps devant l'ange, muet. Puis il pose un genou à terre, sur le pavé couvert de suie. Derrière lui, un autre. Puis un autre. Le jeune Gaston, avec son casque trop grand, se signe et s'agenouille le premier rang, les yeux brillants. Ripaille, la dernière, reste debout, les bras croisés, avec ses chaînes ; puis elle décroise les bras.",
       "Tu es debout près de la fontaine, les mains brûlées, dans ta cape de cuir. Personne ne te regarde. Tout le monde regarde l'ange.",
     ],
     choices: [

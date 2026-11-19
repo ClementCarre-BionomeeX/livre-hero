@@ -4218,7 +4218,7 @@
        "has": "midi:compris"
       }
      },
-     "text": "Tu ne sais pas ce que c'est. Tu lèves les yeux vers la voûte, par habitude de garde, pour vérifier que rien ne menace. Cent mètres de verre, propres, bleus. Le soleil est très blanc, aujourd'hui. Il a l'air de se rapprocher."
+     "text": "Tu ignores ce que c'est. Tu lèves les yeux vers la voûte, par habitude de garde, pour vérifier que rien ne menace. Cent mètres de verre, propres, bleus. Le soleil est très blanc, aujourd'hui. Il a l'air de se rapprocher."
     }
    ],
    "choices": [
@@ -4294,7 +4294,7 @@
      "if": {
       "has": "compteur=octave"
      },
-     "text": "À trois heures, Octave est descendu au local technique avec la clé maîtresse et a coupé le compteur général lui-même, sans un mot, de la main gauche, en tenant sa veste de la droite. Les panneaux du Domaine dorment, tête basse. Le palais tient debout. Le reste du pays, au-delà des grilles, brûle encore."
+     "text": "À trois heures, Octave est descendu au local technique avec la clé maîtresse et a coupé le compteur général lui-même, de la main gauche, en tenant sa veste de la droite. Les panneaux du Domaine dorment, tête basse. Le palais tient debout. Le reste du pays, au-delà des grilles, brûle encore."
     },
     "Les gardes sont partis. Ils ont des familles à Mirevaux, dans les villages, sur la route, et le téléphone ne marche plus. Le chef Gourdon les a laissés partir un par un, en notant l'heure de chaque départ dans le cahier de service, d'une écriture de plus en plus grosse.",
     "Il est le dernier. Il te trouve à la Salle froide, qui n'est plus froide. Le climatiseur s'est tu à midi. Sous leurs cloches de verre, les Enjambeurs de beurre se sont affaissés, l'un après l'autre, en un siècle de flaques dorées. Celui de 1938 a fondu le premier, ce qui ne surprend personne. Seul, au milieu, sur son socle, le Héraut d'inox se tient droit et brille, indifférent, la trompette levée.",
@@ -4662,7 +4662,7 @@
        "has": "midi:compris"
       }
      },
-     "text": "Tu ne sais pas ce qui va arriver à midi. Personne ne le sait. Tu regardes le ciel par habitude de motarde, pour voir s'il pleuvra. Il est blanc, sans un nuage, et le soleil a l'air un peu trop gros, comme une motte qu'on aurait laissée trop près du feu."
+     "text": "Tu ignores ce qui va arriver à midi. Personne ne le sait. Tu regardes le ciel par habitude de motarde, pour voir s'il pleuvra. Il est blanc, sans un nuage, et le soleil a l'air un peu trop gros, comme une motte qu'on aurait laissée trop près du feu."
     },
     "Dans la crèmerie, ta mère range la cave. Elle descend les mottes du jour une à une, par l'escalier de pierre, parce qu'il fait déjà trop chaud au rez-de-chaussée. La cave est profonde, voûtée, la plus fraîche de la rue. On dit qu'Augustine Salée l'a creusée elle-même, en 1899, avec une pioche et du sel."
    ],
@@ -4804,7 +4804,7 @@
      "if": {
       "has": "s4=convoi"
      },
-     "text": "Tu viens. Ripaille hoche la tête, une fois, comme on conclut une affaire au marché. Tu prends ta place dans la file, entre deux motos qui sentent l'huile brûlée. Ta mère te regarde partir depuis la fontaine. Elle ne dit rien. Elle lève la main, deux doigts tendus, et fait dans l'air, vers toi, un petit geste que tu ne lui connais pas : comme on étale du beurre sur une tartine. C'est peut-être une bénédiction. C'est peut-être un conseil."
+     "text": "Tu viens. Ripaille hoche la tête, une fois, comme on conclut une affaire au marché. Tu prends ta place dans la file, entre deux motos qui sentent l'huile brûlée. Ta mère te regarde partir depuis la fontaine. Elle lève la main, deux doigts tendus, et fait dans l'air, vers toi, un petit geste que tu ne lui connais pas : comme on étale du beurre sur une tartine. C'est peut-être une bénédiction. C'est peut-être un conseil."
     },
     {
      "if": {
@@ -4812,7 +4812,7 @@
      },
      "text": "Tu dis non. Ripaille hausse les épaules, sans colère. « Comme tu veux. » Les camions partent. Tu attends qu'ils soient loin, puis tu enfourches la Baratte et tu les suis, tous feux éteints, à la lueur de la ville qui brûle. Ta mère te regarde partir depuis la fontaine. Elle lève la main, deux doigts tendus, et fait dans l'air, vers toi, un petit geste que tu ne lui connais pas : comme on étale du beurre sur une tartine."
     },
-    "Tu appelles Basile au talkie. Tu lui dis où tu es. Tu lui dis avec qui. Il met longtemps à répondre. Quand il répond, il dit seulement : « Je t'attends à la porte verte. » Puis, après un silence : « Article 88. » Tu ne sais pas ce que c'est. Tu sens que c'est important.",
+    "Tu appelles Basile au talkie. Tu lui dis où tu es. Tu lui dis avec qui. Il met longtemps à répondre. Quand il répond, il dit seulement : « Je t'attends à la porte verte. » Puis, après un silence : « Article 88. » Tu ignores ce que c'est. Tu sens que c'est important.",
     "La route du Domaine, la nuit, entre les champs de panneaux. Ils dorment de nouveau, tête basse, comme ce matin. Ils ont l'air innocents. Ils ont l'air de ne se souvenir de rien."
    ],
    "choices": [
@@ -4833,7 +4833,7 @@
     "Ils arrivent avec le jour. D'abord une moto, puis trois, puis vingt : les Ferrailleurs qui reviennent du Domaine, les camions vides ou à moitié pleins, et d'autres, beaucoup d'autres, des motards de la route que l'Effondrement a jetés hors des villes, sans maison, sans lumière, sans rien d'autre que leur machine et le plein qui reste. Ils viennent au Carrefour parce que la fontaine coule. Ils coupent leurs moteurs.",
     "Ils voient l'ange.",
     "Il se tient sur la bascule du marché, doré, de travers, la trompette aux lèvres, un pied levé au-dessus de la ville brûlée. Il est le seul objet frais du pays. Il sent la crème. Le premier soleil le fait luire doucement, sans éclat, comme une joue.",
-    "Un grand motard barbu descend de sa machine. Il s'approche. Il ôte son casque. Il reste longtemps devant l'ange, sans rien dire. Puis il pose un genou à terre, sur le pavé couvert de suie. Derrière lui, un autre. Puis un autre. Le jeune Gaston, avec son casque trop grand, se signe et s'agenouille le premier rang, les yeux brillants. Ripaille, la dernière, reste debout, les bras croisés, avec ses chaînes ; puis elle décroise les bras.",
+    "Un grand motard barbu descend de sa machine. Il s'approche. Il ôte son casque. Il reste longtemps devant l'ange, muet. Puis il pose un genou à terre, sur le pavé couvert de suie. Derrière lui, un autre. Puis un autre. Le jeune Gaston, avec son casque trop grand, se signe et s'agenouille le premier rang, les yeux brillants. Ripaille, la dernière, reste debout, les bras croisés, avec ses chaînes ; puis elle décroise les bras.",
     "Tu es debout près de la fontaine, les mains brûlées, dans ta cape de cuir. Personne ne te regarde. Tout le monde regarde l'ange."
    ],
    "choices": [
@@ -5093,7 +5093,7 @@
      "if": {
       "has": "ange:prete"
      },
-     "text": "Au dos de chaque affiche, en tout petit, on a imprimé : *L'Ange du Raccordement est une marque déposée du Consortium des Panneaux Réunis.* Tu ne sais pas encore ce que cela veut dire. Tu le sauras."
+     "text": "Au dos de chaque affiche, en tout petit, on a imprimé : *L'Ange du Raccordement est une marque déposée du Consortium des Panneaux Réunis.* Tu ignores encore ce que cela veut dire. Tu le sauras."
     },
     {
      "if": {
@@ -5238,7 +5238,7 @@
      "if": {
       "has": "a4=camp"
      },
-     "text": "Tu restes sur la capsule. Elle est cousue au blouson de Ripaille, sur le cœur, à gauche. Tu ne sais pas si c'est un hasard. Tu sens le cœur de Ripaille battre derrière toi, lent, régulier, celui de quelqu'un qui pèse les choses avant de les fondre."
+     "text": "Tu restes sur la capsule. Elle est cousue au blouson de Ripaille, sur le cœur, à gauche. Tu ignores si c'est un hasard. Tu sens le cœur de Ripaille battre derrière toi, lent, régulier, celui de quelqu'un qui pèse les choses avant de les fondre."
     },
     {
      "if": {
@@ -5582,12 +5582,12 @@
     "Zénith regarde le registre. Il regarde Mademoiselle Vernis. Il regarde, très longuement, Basile, au garde-à-vous, puis Salée, appuyée sur son diable de mottes, les mains violettes d'encre jusqu'aux poignets.",
     "« Depuis quand est-il en restauration ? »",
     "— Depuis neuf heures moins deux, dit Mademoiselle Vernis, sans ciller. C'est écrit. Ce qui est écrit au registre fait foi. »",
-    "Il y a un silence de cave. Puis Zénith fait un geste, et Phébus baisse le réflectomètre. Le président s'en va sans un mot. En passant devant Salée, il s'arrête, regarde ses mains violettes, et dit, très doucement : « Joli travail. » Ce n'est pas un compliment.",
+    "Il y a un silence de cave. Puis Zénith fait un geste, et Phébus baisse le réflectomètre. Le président s'en va. En passant devant Salée, il s'arrête, regarde ses mains violettes, et dit, très doucement : « Joli travail. » Ce n'est pas un compliment.",
     {
      "if": {
       "signe": "reflet"
      },
-     "text": "Avant de sortir, Zénith jette un dernier regard au Héraut. Dans le ventre poli de l'ange, au lieu de son propre reflet, il voit une demi-seconde un petit visage joufflu, doré, qui le regarde en soufflant dans une trompette. Il ne dit rien. Il manque la marche du seuil."
+     "text": "Avant de sortir, Zénith jette un dernier regard au Héraut. Dans le ventre poli de l'ange, au lieu de son propre reflet, il voit une demi-seconde un petit visage joufflu, doré, qui le regarde en soufflant dans une trompette. Il manque la marche du seuil."
     },
     "Quand la porte s'est refermée, Mademoiselle Vernis referme le registre, regarde les deux jeunes gens, et dit : « Je n'ai rien vu. J'ai lu. » Elle s'en va. Octave, derrière elle, emporte le registre sous son bras, comme une pièce à conviction."
    ],
@@ -5621,7 +5621,7 @@
     "Au moment où Phébus appuie sur la détente, Monseigneur saute des bras de son maître. Il n'a jamais rien fait de sa vie, à part dormir et grandir des pattes, et il choisit cet instant pour commencer. Il traverse la Salle froide en trois bonds désarticulés, et il plante ses dents de lait dans le câble du réflectomètre.",
     "Le câble cède. L'écran s'éteint. Phébus regarde son appareil mort, puis le chiot, qui le regarde aussi, le câble dans la gueule, sans aboyer. Il n'aboie jamais. On dit que c'est de race.",
     "« Monseigneur ! » s'écrie Monsieur Hippolyte, et il fond en larmes, de fierté.",
-    "Zénith ne dit rien pendant un long moment. Puis il dit : « Nous avons d'autres câbles. » Mais Lumen, avec un temps de retard, vient de découvrir que les autres câbles sont restés dans la camionnette, à trois cents mètres, et que la camionnette est fermée par un Verrou Lumière qui ne s'ouvre qu'au soleil, et que la camionnette est garée à l'ombre.",
+    "Zénith se tait un long moment. Puis il dit : « Nous avons d'autres câbles. » Mais Lumen, avec un temps de retard, vient de découvrir que les autres câbles sont restés dans la camionnette, à trois cents mètres, et que la camionnette est fermée par un Verrou Lumière qui ne s'ouvre qu'au soleil, et que la camionnette est garée à l'ombre.",
     "Le président s'en va. Il s'en va lentement, en homme qui a l'habitude de revenir.",
     {
      "if": {
@@ -5675,7 +5675,7 @@
      "if": {
       "signe": "reflet"
      },
-     "text": "En partant, Zénith jette un dernier regard au Héraut. Dans son ventre d'acier poli, à la place de son reflet, il voit une demi-seconde un petit visage doré qui souffle dans une trompette, et qui le regarde sans aucune bienveillance. Il ne dit rien. Il s'en souviendra."
+     "text": "En partant, Zénith jette un dernier regard au Héraut. Dans son ventre d'acier poli, à la place de son reflet, il voit une demi-seconde un petit visage doré qui souffle dans une trompette, et qui le regarde sans aucune bienveillance. Il se tait. Il s'en souviendra."
     }
    ],
    "choices": [
@@ -5756,7 +5756,7 @@
     ]
    },
    "text": [
-    "Ce qui fait comprendre, ce n'est pas la plaquette. Ce sont deux objets qui n'ont rien à voir avec elle.",
+    "Ce qui fait comprendre, ce sont deux objets étrangers à la plaquette.",
     "Le premier est le calendrier des livraisons de la crèmerie, où un homme du Consortium a entouré de rouge, ce matin, la case de midi, en écrivant dedans *Raccordement*. Le second est une carte du réseau, dépliée, avec chaque champ de panneaux en petit carré bleu et chaque ligne en veine fine, oubliée par un technicien sur un pupitre, ou tombée d'une camionnette sur le bord de la route.",
     "« Midi, dit une voix au canal 4. Ils ont entouré midi. Chez ma mère. Chez tout le monde, sûrement.",
     "— Et les lignes, dit l'autre voix. Toutes les lignes vont au même endroit. Deux endroits. Mirevaux. Et ici. »",
@@ -6189,7 +6189,7 @@
     "Le capot de l'armoire résiste. La notice est en douze langues, et Basile a commencé par le finnois. Au talkie, Salée lit des pages qui parlent du bonheur des familles. Le compteur tourne.",
     "Les techniciens arrivent en bas de l'escalier. Ils ne disent rien. Phébus pose la main sur l'épaule de Basile, sans violence, et le reconduit vers l'escalier, comme on reconduit un visiteur qui s'est trompé de salle. Lumen referme l'armoire derrière eux.",
     "Basile remonte au jour. Le Domaine brûle doucement par endroits, comme une tarte oubliée. Les panneaux des toits, braqués sur les fenêtres, renvoient le soleil dans les chambres, et les rideaux de soie prennent feu un par un.",
-    "À trois heures, quand les techniciens sont repartis, Octave descend au local technique avec la clé maîtresse de la maison, celle qu'aucun garde n'a jamais vue. Il ouvre l'armoire. Il abaisse le levier rouge, de la main gauche, en tenant sa veste de la droite pour ne pas la froisser. Le compteur s'arrête. Il remonte. Il ne dit rien à personne. Aux grilles, un déclic : les serrures solaires ont lâché."
+    "À trois heures, quand les techniciens sont repartis, Octave descend au local technique avec la clé maîtresse de la maison, celle qu'aucun garde n'a jamais vue. Il ouvre l'armoire. Il abaisse le levier rouge, de la main gauche, en tenant sa veste de la droite pour ne pas la froisser. Le compteur s'arrête. Il remonte, et garde la chose pour lui. Aux grilles, un déclic : les serrures solaires ont lâché."
    ],
    "choices": [
     {
@@ -6243,7 +6243,7 @@
     "Elle monte dans le deuxième camion avec trois Ferrailleurs qui ne la regardent pas. Elle s'assied sur une pile de cordes, le col relevé. Le camion démarre. Personne ne compte les têtes : on compte le métal.",
     "Au talkie, glissé dans sa manche, elle murmure à Basile : « Je suis dedans. Deuxième camion. On arrive par la cour dans trois heures.",
     "— Je serai à la porte verte », dit Basile. Puis : « Salée. Il y a une chose que je n'ai pas dite. Le règlement prévoit qu'on peut sortir une collection en cas de péril. Article 88. Il faut seulement l'écrire au registre. »",
-    "Salée ne dit rien pendant un long moment. Le camion cahote. Puis elle dit : « Alors écris. »",
+    "Salée garde le silence un long moment. Le camion cahote. Puis elle dit : « Alors écris. »",
     {
      "if": {
       "signe": "capsule"
@@ -6639,7 +6639,7 @@
      "if": {
       "signe": "fidele"
      },
-     "text": "Pendant qu'ils travaillaient, quelqu'un est venu. Un garçon de seize ans, maigre, sérieux, un casque trop grand sur la tête : Gaston. Il les a vus porter, tasser, mouler. Il n'a rien demandé. Il a pris un seau, il est descendu aux caves, et il a remonté du beurre avec eux jusqu'au bout, sans un mot. Maintenant, devant l'ange, il se signe, très lentement, et il reste là."
+     "text": "Pendant qu'ils travaillaient, quelqu'un est venu. Un garçon de seize ans, maigre, sérieux, un casque trop grand sur la tête : Gaston. Il les a vus porter, tasser, mouler. Il n'a rien demandé. Il a pris un seau, il est descendu aux caves, et il a remonté du beurre avec eux jusqu'au bout. Maintenant, devant l'ange, il se signe, très lentement, et il reste là."
     }
    ],
    "choices": [
