@@ -54,7 +54,7 @@ module.exports = {
   A_ouverture: {
     act: "I", title: "La boutique rouvre", place: "boutique",
     text: [
-      { if: { has: "enseigne:feuille" }, text: "Ortie regarde la feuille verte, à l'endroit où était le crapaud, et ne dit rien. Elle ne dit rien pendant une heure, ce qui doit être un record. Puis elle va bouder dans le jardin, et elle boude avec application." },
+      { if: { has: "enseigne:feuille" }, text: "Ortie regarde la feuille verte, à l'endroit où était le crapaud, et se tait. Elle se tait pendant une heure, ce qui doit être un record. Puis elle va bouder dans le jardin, et elle boude avec application." },
       { if: { has: "enseigne:crapaud" }, text: "Ortie pousse un cri de victoire et va chercher Monseigneur dans sa poche pour lui montrer son portrait. Monseigneur, tenu à bout de bras devant l'enseigne, ne manifeste rien. C'est un crapaud ; il a vu d'autres honneurs." },
       "Vous accrochez l'enseigne aux chaînes, en montant sur la brouette. Elle grince aussitôt, comme l'ancienne, avec la même note, comme si le grincement venait des chaînes et qu'il attendait une planche pour reprendre sa chanson.",
       "Tu ôtes le volet. Tu décroches le carton *Fermé*. La clochette, au-dessus de la porte, se balance un peu dans le courant d'air.",
@@ -173,7 +173,7 @@ module.exports = {
     fx: { clue: "m_chanson", ep: ["seance", 150] },
     text: [
       "Tu te réveilles sans savoir pourquoi, au milieu de la nuit, avec la certitude qu'il manque un bruit. Il te faut un long moment pour comprendre lequel : la respiration d'Ortie, de l'autre côté de la malle. Son lit est vide. Les couvertures sont rejetées. La porte de la chambre est ouverte sur l'escalier noir.",
-      "Tu descends pieds nus. La boutique est obscure, et l'horloge y bat avec une régularité d'horloge qui n'a jamais semblé si lente ni si forte ; les flacons des étagères te regardent passer de leurs reflets de lune. La porte de derrière est entrouverte, et l'air de la nuit entre par la fente, froid, chargé d'une odeur de mousse que tu ne connais pas, plus profonde que celle du jardin, l'odeur d'un endroit qu'on n'a pas ouvert depuis longtemps.",
+      "Tu descends pieds nus. La boutique est obscure, et l'horloge y bat avec une régularité d'horloge qui n'a jamais semblé si lente ni si forte ; les flacons des étagères te regardent passer de leurs reflets de lune. La porte de derrière est entrouverte, et l'air de la nuit entre par la fente, froid, chargé d'une odeur de mousse inconnue, plus profonde que celle du jardin, l'odeur d'un endroit resté longtemps fermé.",
       "Ortie est au fond du jardin, devant la haie de buis, debout, en chemise de nuit, les pieds dans l'herbe mouillée. Elle te tourne le dos. Elle regarde vers le nord, vers le cœur du bois, et elle chante.",
       "C'est un air que tu n'as jamais entendu : lent, sur quatre notes qui reviennent, avec des mots que tu comprends à moitié, comme on comprend une langue qu'on a parlée enfant. « Une qui veille… une qui chante… » Sa voix est plus grave que la sienne. Ses yeux sont ouverts. Elle ne te voit pas.",
       "Bistre est assis devant elle, au pied de la haie, entre Ortie et le bois. Il ne bouge pas. Il lui barre le chemin.",
