@@ -337,7 +337,7 @@
     if ("fil" in c) return [].concat(c.is || "ouvert").indexOf(threadState(s, c.fil)) >= 0;
     // A game master's trials (14.6): dealt, laid (by one hero or by all), what they opened, a sign, the fervour.
     if ("donne" in c) return !!trialRead(s, c.donne).donne;
-    if ("pose" in c) return trialLaid(story, s, c.pose, c.hero);
+    if ("pose" in c) return trialLaid(story, s, c.pose, c.hero, c.carte);
     if ("issue" in c) { var ti = trialRead(s, c.issue).issue; return c.is == null ? !!ti : [].concat(c.is).indexOf(ti) >= 0; }
     if ("signe" in c) return !!(s.signes || {})[c.signe];
     if ("ferveur" in c) return rng(fervour(s), c.min, c.max);
@@ -3848,7 +3848,7 @@
   //   passage issue: { epreuve, carte | paire, if }   what the laid cards open: the most precise holds (a pair laid by
   //                             two heroes, then one card, then neither: the default, which every trial must have)
   //   fx.ferveur: n     the game master's fervour (spent on rare cards and signs)
-  //   cond { donne: id } · { pose: id, hero } · { issue: id, is } · { signe: id } · { ferveur: true, min, max }
+  //   cond { donne: id } · { pose: id, hero, carte } (laid; by these heroes; this card) · { issue: id, is } · { signe: id } · { ferveur: true, min, max }
   var LAY_NOTHING = "@rien", DEAL_MAX = 3, DEAL_MIN = 1, ISSUE_PAIR = 16, ISSUE_CARD = 8, ISSUE_IF = 1;
   function trialDef(story, id) { var T = (story.epreuves || {})[id]; if (!T) throw new Error("épreuve inconnue " + id); return T; }
   function masterOf(story) { return (story.multi || {}).meneur || null; }
@@ -3856,9 +3856,10 @@
   function trialFor(story, T) { return T.pour ? [].concat(T.pour) : heroIds(story).filter(function (h) { return h !== masterOf(story); }); }
   function trialRead(s, id) { return (s.epreuves || {})[id] || {}; }
   function trialState(s, id) { s.epreuves = s.epreuves || {}; s.epreuves[id] = s.epreuves[id] || {}; return s.epreuves[id]; }
-  function trialLaid(story, s, id, hero) {
-    var L = trialRead(s, id).poses || {};
-    return hero != null ? L[hero] != null : trialFor(story, trialDef(story, id)).every(function (h) { return L[h] != null; });
+  function trialLaid(story, s, id, hero, carte) {
+    var L = trialRead(s, id).poses || {}, heroes = hero != null ? [].concat(hero) : trialFor(story, trialDef(story, id));
+    if (carte != null) return heroes.some(function (h) { return [].concat(carte).indexOf(L[h]) >= 0; });
+    return heroes.every(function (h) { return L[h] != null; });
   }
   function dealMax(T) { return T.par_joueur || DEAL_MAX; }
   function dealMin(T) { return T.min_par_joueur != null ? T.min_par_joueur : DEAL_MIN; }
@@ -4045,6 +4046,10 @@
   BUILTIN["@table"] = function (story, s) {
     var W = s.table, T = trialDef(story, W.e), who = trialFor(story, T), back = story.passages[W.from] || {}, text = [], cs = [];
     text.push(interp(s, T.serrure || ""));
+    // What opens the lock, told by the engine from the keys the story declares: the game master builds the riddle on it.
+    if ((T.clefs || []).length) text.push("**Ce qui ouvre :** " + T.clefs.map(function (k) {
+      return Array.isArray(k) ? cardName(story, s, k[0]) + " et " + cardName(story, s, k[1]) + ", posées par deux joueurs différents" : cardName(story, s, k) + ", posée seule";
+    }).join(" ; ") + ". Le reste de ta réserve ne l'ouvre pas.");
     var why = dealCheck(story, s, W.e, W.d, W.sg);
     var left = reserveLeft(story, s, T, W.d), seen = {};
     left.forEach(function (r) {

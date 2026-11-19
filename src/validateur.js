@@ -330,7 +330,7 @@
       if (k === "clue" && !story.clues[c.clue]) E(where + " : indice « " + c.clue + " » inconnu.");
       if (k === "fil") { if (!(story.fils || {})[c.fil]) E(where + " : fil « " + c.fil + " » inconnu (fils)."); [].concat(c.is || []).forEach(function (x) { if (!M.THREAD_STATES[x] && x !== "aucun") E(where + " : état de fil « " + x + " » inconnu (ouvert, noue, rate, aucun)."); }); }
       if (["donne", "pose", "issue"].indexOf(k) >= 0 && !(story.epreuves || {})[c[k]]) E(where + " : épreuve « " + c[k] + " » inconnue (story.epreuves).");
-      if (k === "pose" && c.hero != null && !(story.heroes || {})[c.hero]) E(where + " : pose, héros « " + c.hero + " » inconnu.");
+      if (k === "pose") { [].concat(c.hero || []).forEach(function (x) { if (!(story.heroes || {})[x]) E(where + " : pose, héros « " + x + " » inconnu."); }); [].concat(c.carte || []).forEach(function (x) { if (!(story.cartes || {})[x]) E(where + " : pose, carte « " + x + " » inconnue."); }); }
       if (k === "issue") [].concat(c.is || []).forEach(function (x) { if (!P[x] || !P[x].issue || P[x].issue.epreuve !== c.issue) E(where + " : issue, « " + x + " » n'est pas une issue de l'épreuve « " + c.issue + " »."); });
       if (k === "signe" && !Object.keys(story.epreuves || {}).some(function (e) { return ((story.epreuves[e].signes) || {})[c.signe]; })) E(where + " : signe « " + c.signe + " » inconnu (signes d'une épreuve).");
       if (k === "ferveur" && c.min == null && c.max == null) E(where + " : la condition « ferveur » s'écrit { ferveur: true, min: …, max: … }.");
