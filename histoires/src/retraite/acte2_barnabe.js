@@ -13,7 +13,7 @@ module.exports = {
       { if: PACTE_A, text: "Aujourd'hui, tu ne fais pas du pain pour Mirevaux. Tu fais un pain pour l'éternité, et l'éternité, contrairement à Mirevaux, ne te pardonnera pas une grigne de travers. Ernestine Chrome l'attend à cinq heures et demie, à la forge, pour en prendre l'empreinte." },
       { if: PACTE_R, text: "Aujourd'hui, tu ne fais pas du pain pour Mirevaux. Tu fais un pain pour personne en particulier, et surtout pas pour une forgeronne du faubourg qui trouve que ta croûte ressemble à un gourdin. Mie le portera là-bas, *de la part de personne*. Tu le fais quand même parfait. Une question d'honneur." },
       "Tu pèses la farine trois fois. Tu prends le levain du fond du pot, le plus vieux, celui que ton père nourrissait déjà quand tu étais au berceau, et qu'il appelait *le patriarche*. Tu pétris à la main, longtemps, en écoutant la pâte. Une bonne pâte a une voix ; elle soupire quand elle est prête.",
-      "Mie te regarde faire sans un mot. Elle ne compte rien. C'est la première fois que tu la vois ne rien compter.",
+      "Mie te regarde faire en silence. Elle ne compte rien. C'est la première fois que tu la vois ne rien compter.",
       "Reste le geste le plus difficile de ton métier : la grigne. Un coup de lame, un seul, en biais, sur la pâte crue. Trop profond, la baguette s'ouvre comme une plaie. Trop léger, elle éclate n'importe où. Le coup juste, c'est celui qu'on ne pense pas.",
     ],
     choices: [
@@ -27,7 +27,7 @@ module.exports = {
       "Vingt-deux minutes. Tu ouvres le four. La baguette sort, dorée, cambrée, les grignes ouvertes comme des ailes, et sur la grille, elle chante. Elle chante plus fort que toutes les baguettes de ta vie : un crépitement de pluie fine, de bois sec, de feu de cheminée.",
       "Mie a les larmes aux yeux. Elle prétend que c'est la farine.",
       "Tu enveloppes la baguette dans un torchon propre. Puis, sans trop savoir pourquoi, tu glisses à côté d'elle une deuxième baguette de la même fournée, presque aussi belle. Au cas où.",
-      { if: PACTE_A, text: "Tu cours, littéralement, à travers la ville endormie, jusqu'au faubourg. Ernestine t'ouvre avant que tu frappes. Elle prend le torchon des deux mains, comme on reçoit un nouveau-né, et elle l'écoute chanter, penchée au-dessus, sans un mot. Puis elle referme la porte. Elle a du travail." },
+      { if: PACTE_A, text: "Tu cours, littéralement, à travers la ville endormie, jusqu'au faubourg. Ernestine t'ouvre avant que tu frappes. Elle prend le torchon des deux mains, comme on reçoit un nouveau-né, et elle l'écoute chanter, penchée au-dessus. Puis elle referme la porte. Elle a du travail." },
       { if: PACTE_R, text: "Tu confies le torchon à Mie, avec ordre de la remettre à la forge *de la part de personne*. Mie part en courant. Elle revient vingt minutes plus tard. « Elle a dit merci à personne, rapporte-t-elle. Et elle a dit que personne pétrissait drôlement bien. »" },
       "Il fait jour. Tu as une journée devant toi, et un pain qui, ce soir, deviendra autre chose.",
     ],

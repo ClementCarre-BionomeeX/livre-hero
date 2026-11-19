@@ -117,7 +117,7 @@ module.exports = {
   E1_cremerie_dit: { act: "I", title: "Le beurre et le marbre", place: "cremerie",
     text: [
       "Tu lui dis ce que tu as vu. La chaise. L'encrier. Le courant d'air.",
-      "Augustine Salée t'écoute sans un mot. Puis elle prend un couteau et coupe la motte de demi-sel en deux, d'un geste sec, comme on tranche une question.",
+      "Augustine Salée t'écoute. Puis elle prend un couteau et coupe la motte de demi-sel en deux, d'un geste sec, comme on tranche une question.",
       "« Les fonds sont déplacés, dit-elle. Par prudence. Monsieur Sorbier l'a dit au Comité, le mois dernier. Le siècle change, les voleurs rôdent. » Elle enveloppe le beurre dans du papier. « Tu es jeune, Ernestine. Tu vois un coffre vide et tu crois que l'argent n'existe pas. Moi, je vois quatorze retraités payés chaque vendredi. »",
       "Elle te tend le paquet. Ses mains tremblent un peu. Tu ne sais pas si c'est le froid de la boutique.",
       "« Ne répète pas ça au Carrefour, dit-elle. Mille neuf cent douze personnes ont confiance. La confiance, c'est comme le beurre. Ça ne se refait pas, une fois fondu. »",
