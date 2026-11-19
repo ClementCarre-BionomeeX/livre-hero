@@ -110,7 +110,7 @@ check(B.sortKey({ title: "Le Monde perdu" }) === "monde perdu" && B.sortKey({ ti
     await pg.click(".lib-filter-btn");
     await pg.locator(".lib-panel .chip", { hasText: "Croûte 'n Chrome" }).click();
     var serie = await titles(pg);
-    check(serie.length === 2 && serie.indexOf("La Grande Fonte") >= 0 && serie.indexOf("La Super Retraite") >= 0, "série « Croûte 'n Chrome » : " + serie.join(" | "));
+    check(serie.length === 3 && serie.indexOf("La Grande Fonte") >= 0 && serie.indexOf("La Super Retraite") >= 0 && serie.indexOf("Le Grand Raccordement") >= 0, "série « Croûte 'n Chrome » : " + serie.join(" | "));
     await pg.locator(".lib-panel button", { hasText: "Fermer les filtres" }).click();
     await pg.locator(".lib-chosen button", { hasText: "Tout effacer" }).click();
     // Orders

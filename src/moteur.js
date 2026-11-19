@@ -335,6 +335,12 @@
     if (Array.isArray(c)) return c.every(function (x) { return evalCond(story, s, x); });
     // Cards (9.7): a thread's state (ouvert by default; noue, rate, aucun), a card played in this game.
     if ("fil" in c) return [].concat(c.is || "ouvert").indexOf(threadState(s, c.fil)) >= 0;
+    // A game master's trials (14.6): dealt, laid (by one hero or by all), what they opened, a sign, the fervour.
+    if ("donne" in c) return !!trialRead(s, c.donne).donne;
+    if ("pose" in c) return trialLaid(story, s, c.pose, c.hero, c.carte);
+    if ("issue" in c) { var ti = trialRead(s, c.issue).issue; return c.is == null ? !!ti : [].concat(c.is).indexOf(ti) >= 0; }
+    if ("signe" in c) return !!(s.signes || {})[c.signe];
+    if ("ferveur" in c) return rng(fervour(s), c.min, c.max);
     if ("possede" in c) return owns(s, c.possede);
     if ("carteJouee" in c) return !!(s.jeu && [].concat(c.carteJouee).some(function (k) { return s.jeu.joue.indexOf(k) >= 0; }));
     // Ports of call and the crew (11.4).
@@ -1079,6 +1085,7 @@
     if (fx.fil) { [].concat(fx.fil.ouvre || []).forEach(function (k) { threadOpen(story, s, k); }); [].concat(fx.fil.noue || []).forEach(function (k) { threadTie(story, s, k); }); [].concat(fx.fil.rate || []).forEach(function (k) { threadMiss(story, s, k); }); }
     if (DECK_FX.some(function (k) { return fx[k]; })) deckFx(story, s, fx);
     if (fx.elan) { var JE = jeuOf(story, s); JE.elan = Math.max(0, Math.min(ELAN_MAX, JE.elan + fx.elan)); ev(s, "Élan " + (fx.elan > 0 ? "+" : "−") + Math.abs(fx.elan) + " (" + JE.elan + ").", "carte"); }
+    if (fx.ferveur) fervourMove(story, s, fx.ferveur);
     if (fx.note) ev(s, interp(s, fx.note), fx.noteCls || "");
   }
 
@@ -1093,7 +1100,7 @@
   // other one stopped ("@team" resumes it, or starts it at story.teams[team].start). Story without heroes: no change.
   // A hero who was elsewhere brings his own day, place, purse and provisions (the six prologues run side by side); a
   // hero who walks with the lead takes over the shared purse and provisions, and the day does not move.
-  var SHEET_KEYS = ["name", "arch", "ep", "items", "fatigue", "arrows"], APART_KEYS = ["time", "place", "gold", "food"];
+  var SHEET_KEYS = ["name", "arch", "ep", "items", "fatigue", "arrows", "jeu"], APART_KEYS = ["time", "place", "gold", "food"];
   function isHero(story, id) { return !!(story.heroes && story.heroes[id]); }
   // The reader's own hero (`player`) speaks in the gender the reader chose (s.playerFem, 11.3); the others in their own.
   // Why: « L'Île Folle-Aiguille » lets the reader be the inn's son or daughter, and hands the book to the doctor and back.
@@ -3158,7 +3165,7 @@
         cs = cs.concat([{ to: s.hubLast, label: "Revenir : " + interp(s, hp.title || (W(story).places[hp.place] || {}).name || "…"), auto: "back" }]);
       }
       if (!cs.length) { var back = backChoice(story, s, p); if (back) cs = [back]; }
-      cs = cs.concat(councilChoices(story, s, p), battleChoices(story, s, p), montrerChoices(story, s, p), accuseChoices(story, s, p), repayChoices(story, s, p), shopChoices(story, s, p), tavernChoices(story, s, p), craftChoices(story, s, p), vigilChoices(story, s, p), duelChoices(story, s, p), puzzleChoices(story, s, p), pocketChoices(story, s, p), belieChoices(story, s, p), aparteChoices(story, s, p), depotChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p), cardChoices(story, s, p));
+      cs = cs.concat(councilChoices(story, s, p), battleChoices(story, s, p), montrerChoices(story, s, p), accuseChoices(story, s, p), repayChoices(story, s, p), shopChoices(story, s, p), tavernChoices(story, s, p), craftChoices(story, s, p), vigilChoices(story, s, p), duelChoices(story, s, p), puzzleChoices(story, s, p), pocketChoices(story, s, p), belieChoices(story, s, p), aparteChoices(story, s, p), depotChoices(story, s, p), trialChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p), cardChoices(story, s, p));
       var sec = [];
       v = { title: interp(s, p.title || ""), kind: p.end ? "end" : "passage", text: textList(story, s, p.text, null, sec), choices: cs, passage: p };
       // The people here at this hour, then the rumour heard on coming in (7.9).
@@ -3614,11 +3621,24 @@
   function shuffled(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(RNG() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
   // Intent: jeuOf(Story, State) -> Jeu = the reader's cards, made at the first stop from the deck the app gave
   // (s.deckChoisi, a draft or a deck built later) or the story's own deck.
+  // 14.6: in a story with several heroes, each hero has his own cards (they follow him like his bag); a hero's own
+  // deck (story.heroes[h].deck) comes before the story's.
   function jeuOf(story, s) {
     if (s.jeu) return s.jeu;
-    var deck = (s.deckChoisi && s.deckChoisi.length ? s.deckChoisi : (story.jeu || {}).deck || []).filter(function (id) { return cardDef(story, id); });
-    s.jeu = { pioche: shuffled(deck), main: [], defausse: [], perdues: [], echanges: {}, elan: cardRules(story).depart, fils: {}, haltes: {}, joue: [], derniere: null, suite: null };
+    var own = story.heroes && s.lead && story.heroes[s.lead] ? story.heroes[s.lead].deck : null;
+    s.jeu = newJeu(story, s.deckChoisi && s.deckChoisi.length ? s.deckChoisi : own || (story.jeu || {}).deck || []);
     return s.jeu;
+  }
+  function newJeu(story, deck) {
+    deck = deck.filter(function (id) { return cardDef(story, id); });
+    return { pioche: shuffled(deck), main: [], defausse: [], perdues: [], echanges: {}, elan: cardRules(story).depart, fils: {}, haltes: {}, joue: [], derniere: null, suite: null };
+  }
+  // Intent: jeuFor(Story, State, Hero) -> Jeu = the cards of any hero, the lead's or another's (made on first need)
+  function jeuFor(story, s, hero) {
+    if (!story.heroes || hero === s.lead) return jeuOf(story, s);
+    var H = (s.heroes || {})[hero]; if (!H) throw new Error("héros inconnu " + hero);
+    if (!H.jeu) H.jeu = newJeu(story, story.heroes[hero].deck || []);
+    return H.jeu;
   }
   function threadState(s, id) { return (s.jeu && s.jeu.fils[id]) || "aucun"; }
   function threadOpen(story, s, id) {
@@ -3719,6 +3739,7 @@
   }
   // Intent: playCard(Story, State, Choice) ! the card goes to the discard pile, its élan is paid, its scene opens.
   function playCard(story, s, c) {
+    if (s.node === "@pose") { layCard(story, s, c); return; }
     var p = story.passages[s.node], H = stopOf(p), J = jeuOf(story, s);
     if (!H) throw new Error("carte jouée hors d'une halte");
     if (c.carte === PASS_CARD) { J.haltes[H.id] = PASS_CARD; J.derniere = null; J.suite = H.suite; ev(s, "Tu passes ton chemin sans jouer de carte.", "carte"); go(story, s, H.suite); return; }
@@ -3812,6 +3833,256 @@
     draw(story, s, 1); J.defausse.push(c.carte);
     ev(s, "Tu échanges " + cardName(story, s, c.carte) + " contre " + cardName(story, s, J.main[J.main.length - 1]) + ".", "carte");
   }
+
+  // ------------------------------------------------------------------ trials dealt by a game master (14.6)
+  // Intent: one player, the game master (story.multi.meneur, one of the heroes), builds the riddles. Before each trial
+  // he deals cards from a reserve into the hands of the other heroes; each of them lays one card face down; the cards
+  // are turned over together, and the story tells what they open. Why: Clément, 19/11 — « Le jour de l'Effondrement »:
+  // he plays the Enjambeur and deals the cards into his children's decks to build the riddles. The story declares; the
+  // engine checks every deal before the others see it (a riddle nobody could open is refused, with its reason), and
+  // every trial goes on, whatever is laid.
+  //   story.epreuves { <id>: { titre, serrure, pour: [heroes], par_joueur, min_par_joueur, poser,
+  //                            reserve: [card | { carte, ferveur, if }], clefs: [card | [card, card]],
+  //                            signes: { <id>: { titre, ferveur, if } } } }
+  //   passage epreuve: "<id>"   the trial's crossroads: the engine adds the table, the laying and the turning over
+  //   passage issue: { epreuve, carte | paire, if }   what the laid cards open: the most precise holds (a pair laid by
+  //                             two heroes, then one card, then neither: the default, which every trial must have)
+  //   fx.ferveur: n     the game master's fervour (spent on rare cards and signs)
+  //   cond { donne: id } · { pose: id, hero, carte } (laid; by these heroes; this card) · { issue: id, is } · { signe: id } · { ferveur: true, min, max }
+  var LAY_NOTHING = "@rien", DEAL_MAX = 3, DEAL_MIN = 1, ISSUE_PAIR = 16, ISSUE_CARD = 8, ISSUE_IF = 1;
+  function trialDef(story, id) { var T = (story.epreuves || {})[id]; if (!T) throw new Error("épreuve inconnue " + id); return T; }
+  function masterOf(story) { return (story.multi || {}).meneur || null; }
+  // Intent: trialFor(Story, Trial) -> [Hero] = the heroes who get cards and lay one (all but the game master by default)
+  function trialFor(story, T) { return T.pour ? [].concat(T.pour) : heroIds(story).filter(function (h) { return h !== masterOf(story); }); }
+  function trialRead(s, id) { return (s.epreuves || {})[id] || {}; }
+  function trialState(s, id) { s.epreuves = s.epreuves || {}; s.epreuves[id] = s.epreuves[id] || {}; return s.epreuves[id]; }
+  function trialLaid(story, s, id, hero, carte) {
+    var L = trialRead(s, id).poses || {}, heroes = hero != null ? [].concat(hero) : trialFor(story, trialDef(story, id));
+    if (carte != null) return heroes.some(function (h) { return [].concat(carte).indexOf(L[h]) >= 0; });
+    return heroes.every(function (h) { return L[h] != null; });
+  }
+  function dealMax(T) { return T.par_joueur || DEAL_MAX; }
+  function dealMin(T) { return T.min_par_joueur != null ? T.min_par_joueur : DEAL_MIN; }
+  // Intent: reserveOf(Story, State, Trial) -> [{ carte, ferveur }] = the cards the game master may deal now, one entry
+  // per copy
+  function reserveOf(story, s, T) {
+    return (T.reserve || []).map(function (r) { return typeof r === "string" ? { carte: r } : r; })
+      .filter(function (r) { return cardDef(story, r.carte) && (r.if == null || evalCond(story, s, r.if)); })
+      .map(function (r) { return { carte: r.carte, ferveur: r.ferveur || 0 }; });
+  }
+  // What is still in the reserve once the cards of this deal are taken (a card dealt twice needs two copies).
+  function reserveLeft(story, s, T, d) {
+    var R = reserveOf(story, s, T), used = [];
+    Object.keys(d).forEach(function (h) { d[h].forEach(function (k) { used.push(k); }); });
+    used.forEach(function (k) { for (var i = 0; i < R.length; i++) if (R[i].carte === k) { R.splice(i, 1); return; } });
+    return R;
+  }
+  function dealCost(story, s, T, d, signs) {
+    var R = reserveOf(story, s, T), cost = 0;
+    Object.keys(d).forEach(function (h) { d[h].forEach(function (k) {
+      var best = null; for (var i = 0; i < R.length; i++) if (R[i].carte === k && (best == null || R[i].ferveur < R[best].ferveur)) best = i;
+      if (best != null) { cost += R[best].ferveur; R.splice(best, 1); }
+    }); });
+    (signs || []).forEach(function (g) { cost += ((T.signes || {})[g] || {}).ferveur || 0; });
+    return cost;
+  }
+  // Intent: keyOpens(Key, {Hero: [Card]}, [Hero]) -> Bool = one card held by somebody, or a pair held by two heroes
+  function keyOpens(k, hands, who) {
+    if (!Array.isArray(k)) return who.some(function (h) { return hands[h].indexOf(k) >= 0; });
+    return who.some(function (x) { return who.some(function (y) { return x !== y && hands[x].indexOf(k[0]) >= 0 && hands[y].indexOf(k[1]) >= 0; }); });
+  }
+  // Intent: dealCheck(Story, State, TrialId, Deal, [Sign]) -> "" | Why = why this deal cannot be given (empty: it can)
+  function dealCheck(story, s, id, d, signs) {
+    var T = trialDef(story, id), who = trialFor(story, T), max = dealMax(T), min = dealMin(T), why = "";
+    who.forEach(function (h) {
+      var n = (d[h] || []).length;
+      if (!why && n > max) why = "Pas plus de " + max + " carte" + (max > 1 ? "s" : "") + " pour " + nameOf(story, h) + ".";
+      if (!why && n < min) why = nameOf(story, h) + " attend encore " + (min - n > 1 ? (min - n) + " cartes." : "une carte.");
+    });
+    if (why) return why;
+    var cost = dealCost(story, s, T, d, signs);
+    if (cost > fervour(s)) return "Il te faudrait " + cost + " de ferveur (tu en as " + fervour(s) + ").";
+    if (T.clefs && T.clefs.length) {
+      var hands = {}; who.forEach(function (h) { hands[h] = jeuFor(story, s, h).main.concat(d[h] || []); });
+      if (!T.clefs.some(function (k) { return keyOpens(k, hands, who); })) return "Avec cette donne, personne n'a de quoi ouvrir : " + interp(s, T.titre || id) + ".";
+    }
+    return "";
+  }
+  // Intent: dealSuggest(Story, State, TrialId) -> Deal = a deal the engine makes: one key that can be paid for, a pair
+  // split between two heroes, then every hero filled up to the minimum with cards that cost nothing
+  function dealSuggest(story, s, id) {
+    var T = trialDef(story, id), who = trialFor(story, T), d = {}, R = reserveOf(story, s, T);
+    who.forEach(function (h) { d[h] = []; });
+    var take = function (k, h) { for (var i = 0; i < R.length; i++) if (R[i].carte === k) { R.splice(i, 1); d[h].push(k); return true; } return false; };
+    var keys = (T.clefs || []).filter(function (k) {
+      var Rk = reserveOf(story, s, T), cost = 0, ok = true;
+      [].concat(k).forEach(function (c) { var i = -1; Rk.forEach(function (r, j) { if (i < 0 && r.carte === c) i = j; }); if (i < 0) ok = false; else { cost += Rk[i].ferveur; Rk.splice(i, 1); } });
+      return ok && cost <= fervour(s) && (!Array.isArray(k) || who.length > 1);
+    });
+    if (keys.length) {
+      var k = keys[Math.floor(RNG() * keys.length)], order = shuffled(who);
+      if (Array.isArray(k)) { take(k[0], order[0]); take(k[1], order[1]); } else take(k, order[0]);
+    }
+    var want = Math.min(dealMax(T), Math.max(dealMin(T), 2));
+    who.forEach(function (h) {
+      var free = shuffled(R.filter(function (r) { return !r.ferveur; }).map(function (r) { return r.carte; }));
+      while (d[h].length < want && free.length) take(free.shift(), h);
+    });
+    return d;
+  }
+  // Intent: trialChoices(Story, State, Passage) -> [Choice] = on a trial's crossroads: the game master's table until the
+  // deal is made, each hero's laying, then the turning over once every card is down
+  function trialChoices(story, s, p) {
+    if (!p || !p.epreuve) return [];
+    var id = p.epreuve, T = trialDef(story, id), R = trialRead(s, id), m = masterOf(story), cs = [];
+    if (!R.donne) cs.push({ sys: "table", epreuve: id, hero: m, fx: m && story.teams && story.teams[m] ? { team: m } : undefined, big: true,
+      label: (m ? nameOf(story, m) + " · " : "") + interp(s, T.tableLabel || "préparer l'épreuve") });
+    trialFor(story, T).forEach(function (h) {
+      if ((R.poses || {})[h] != null) return;
+      cs.push({ sys: "poser", epreuve: id, hero: h, fx: story.teams && story.teams[h] ? { team: h } : undefined, big: true, if: { donne: id },
+        why: (m ? nameOf(story, m) : "Le meneur") + " prépare encore l'épreuve.", label: nameOf(story, h) + " · " + interp(s, T.poserLabel || "poser une carte") });
+    });
+    cs.push({ sys: "retourner", epreuve: id, big: true, if: { pose: id }, why: R.donne ? "Chacun doit d'abord poser sa carte." : "L'épreuve n'est pas encore prête.",
+      label: interp(s, T.retournerLabel || "Retourner les cartes") });
+    return cs;
+  }
+  function leadTo(story, s, hero) {
+    if (!hero || !story.heroes || s.lead === hero) return;
+    if (story.teams && story.teams[hero] && s.assign && s.assign[hero]) switchTeam(story, s, s.assign[hero], s.node);
+    else setLead(story, s, hero, true);
+  }
+  function backTo(story, s, from) { go(story, s, from); }
+  // Intent: trialSys(Story, State, Choice) ! the game master's table, the laying, the turning over
+  function trialSys(story, s, c) {
+    var W = s.table, T;
+    switch (c.sys) {
+      case "table": leadTo(story, s, c.hero); s.table = { e: c.epreuve, from: s.node, d: {}, sg: [] }; trialFor(story, trialDef(story, c.epreuve)).forEach(function (h) { s.table.d[h] = []; }); s.node = "@table"; return;
+      case "donner": W.d[c.hero].push(c.carte); return;
+      case "reprendre": { var i = W.d[c.hero].lastIndexOf(c.carte); if (i >= 0) W.d[c.hero].splice(i, 1); return; }
+      case "donneSuggeree": W.d = dealSuggest(story, s, W.e); return;
+      case "signe": { var gi = W.sg.indexOf(c.signe); if (gi >= 0) W.sg.splice(gi, 1); else W.sg.push(c.signe); return; }
+      case "tableQuitter": { var fq = W.from; s.table = null; backTo(story, s, fq); return; }
+      case "donneValider": {
+        var why = dealCheck(story, s, W.e, W.d, W.sg); if (why) throw new Error("donne refusée : " + why);
+        T = trialDef(story, W.e);
+        var cost = dealCost(story, s, T, W.d, W.sg), R = trialState(s, W.e), lines = [];
+        if (cost) fervourMove(story, s, -cost, "donne:" + W.e);
+        Object.keys(W.d).forEach(function (h) {
+          var J = jeuFor(story, s, h); W.d[h].forEach(function (k) { J.main.push(k); }); J.recus = W.d[h].slice();
+          lines.push(nameOf(story, h) + " : " + (W.d[h].length ? W.d[h].map(function (k) { return cardName(story, s, k); }).join(", ") : "rien"));
+        });
+        W.sg.forEach(function (g) { s.signes = s.signes || {}; s.signes[g] = true; });
+        // The laid cards are written by several players apart: their place is made now, merged later (src/multi.js).
+        R.donne = W.d; R.poses = R.poses || {};
+        ev(s, "La donne est faite. " + lines.join(" · ") + ".", "carte");
+        var fr = W.from; s.table = null; backTo(story, s, fr); return;
+      }
+      case "poser": leadTo(story, s, c.hero); s.poser = { e: c.epreuve, from: s.node, hero: c.hero }; s.node = "@pose"; return;
+      case "retourner": {
+        var to = trialIssue(story, s, c.epreuve), RR = trialRead(s, c.epreuve), who = trialFor(story, trialDef(story, c.epreuve));
+        ev(s, "On retourne les cartes. " + who.map(function (h) { var k = (RR.poses || {})[h]; return nameOf(story, h) + " : " + (k && k !== LAY_NOTHING ? cardName(story, s, k) : "rien"); }).join(" · ") + ".", "carte");
+        s.via = "epreuve"; go(story, s, to); return;
+      }
+    }
+  }
+  // Intent: layCard(Story, State, Choice) ! the card leaves the hand, face down, until the cards are turned over
+  function layCard(story, s, c) {
+    var W = s.poser, J = jeuOf(story, s), R = trialState(s, W.e);
+    R.poses = R.poses || {};
+    if (c.carte === PASS_CARD) { R.poses[W.hero] = LAY_NOTHING; ev(s, "Tu ne poses rien.", "carte"); }
+    else {
+      var at = J.main.indexOf(c.carte); if (at < 0) throw new Error("carte absente de la main : " + c.carte);
+      J.main.splice(at, 1); J.defausse.push(c.carte); J.joue.push(c.carte); J.recus = [];
+      R.poses[W.hero] = c.carte; ev(s, "Tu poses " + cardName(story, s, c.carte) + ", face cachée.", "carte");
+    }
+    var fr = W.from; s.poser = null; go(story, s, fr);
+  }
+  // Intent: trialIssues(Story) -> { TrialId: [PassageId] } = the passages that tell what a trial opened, in the order written
+  function trialIssues(story) {
+    if (story._issues) return story._issues;
+    var out = {};
+    Object.keys(story.passages).forEach(function (id) { var r = story.passages[id].issue; if (r && r.epreuve) (out[r.epreuve] = out[r.epreuve] || []).push(id); });
+    try { Object.defineProperty(story, "_issues", { value: out, enumerable: false }); } catch (e) { /* frozen */ }
+    return out;
+  }
+  // Intent: trialIssue(Story, State, TrialId) -> PassageId ! writes(the trial's issue) = the most precise issue that holds
+  // for the cards laid: the same for every player, since it reads only what they all share (first written wins a tie)
+  function trialIssue(story, s, id) {
+    var R = trialState(s, id); if (R.issue) return R.issue;
+    var L = R.poses || {}, laid = Object.keys(L).filter(function (h) { return L[h] !== LAY_NOTHING; });
+    var best = -1, pick0 = null;
+    (trialIssues(story)[id] || []).forEach(function (pid) {
+      var r = story.passages[pid].issue, sc = 0;
+      if (r.paire) {
+        var a = r.paire[0], b = r.paire[1];
+        if (!laid.some(function (x) { return laid.some(function (y) { return x !== y && L[x] === a && L[y] === b; }); })) return;
+        sc = ISSUE_PAIR;
+      } else if (r.carte != null) {
+        if (!laid.some(function (x) { return [].concat(r.carte).indexOf(L[x]) >= 0; })) return;
+        sc = ISSUE_CARD;
+      }
+      if (r.if != null) { if (!evalCond(story, s, r.if)) return; sc += ISSUE_IF; }
+      if (!sceneOk(story, s, story.passages[pid])) return;
+      if (sc > best) { best = sc; pick0 = pid; }
+    });
+    if (!pick0) throw new Error("épreuve « " + id + " » sans issue par défaut");
+    R.issue = pick0;
+    return pick0;
+  }
+  // Intent: fervourMove(Story, State, Int) ! the game master's fervour moves; told to him alone.
+  // The fervour is kept as one entry per page that moved it ("+2"), and read as their sum: at three, the players read
+  // the same page apart, each on his copy, and the merge of src/multi.js keeps one entry per page instead of adding
+  // the three (it adds numbers; these are words).
+  function fervourMove(story, s, n, key) {
+    s.ferveurs = s.ferveurs || {};
+    var k = key || "p:" + s.node + "#" + ((s.seen || {})[s.node] || 0), was = fervour(s);
+    s.ferveurs[k] = String((parseInt(s.ferveurs[k] || "0", 10) || 0) + n);
+    var m = masterOf(story), now = fervour(s);
+    if (now !== was && (!m || !story.heroes || s.lead === m || !s.lead)) ev(s, "Ferveur " + (now > was ? "+" : "−") + Math.abs(now - was) + " (" + now + ").", "ferveur");
+  }
+  // Intent: fervour(State) -> Int = the game master's fervour now (never below zero)
+  function fervour(s) { var t = 0; Object.keys(s.ferveurs || {}).forEach(function (k) { t += parseInt(s.ferveurs[k], 10) || 0; }); return Math.max(0, t); }
+  // The game master's table and the laying of a card: pages of the engine, like a deposit (9.6).
+  BUILTIN["@table"] = function (story, s) {
+    var W = s.table, T = trialDef(story, W.e), who = trialFor(story, T), back = story.passages[W.from] || {}, text = [], cs = [];
+    text.push(interp(s, T.serrure || ""));
+    // What opens the lock, told by the engine from the keys the story declares: the game master builds the riddle on it.
+    if ((T.clefs || []).length) text.push("**Ce qui ouvre :** " + T.clefs.map(function (k) {
+      return Array.isArray(k) ? cardName(story, s, k[0]) + " et " + cardName(story, s, k[1]) + ", posées par deux joueurs différents" : cardName(story, s, k) + ", posée seule";
+    }).join(" ; ") + ". Le reste de ta réserve ne l'ouvre pas.");
+    var why = dealCheck(story, s, W.e, W.d, W.sg);
+    var left = reserveLeft(story, s, T, W.d), seen = {};
+    left.forEach(function (r) {
+      var key = r.carte + "|" + r.ferveur; if (seen[key]) return; seen[key] = 1;
+      who.forEach(function (h) {
+        if (W.d[h].length >= dealMax(T)) return;
+        cs.push({ sys: "donner", carte: r.carte, hero: h, ferveur: r.ferveur, ui: true, group: "donne", label: "À " + nameOf(story, h) + " : " + cardName(story, s, r.carte) + (r.ferveur ? " (" + r.ferveur + " de ferveur)" : "") });
+      });
+    });
+    who.forEach(function (h) { W.d[h].forEach(function (k, i) { if (W.d[h].indexOf(k) === i) cs.push({ sys: "reprendre", carte: k, hero: h, ui: true, group: "reprendre", label: "Reprendre " + cardName(story, s, k) + " à " + nameOf(story, h) }); }); });
+    Object.keys(T.signes || {}).forEach(function (g) {
+      var G = T.signes[g]; if (G.if != null && !evalCond(story, s, G.if)) return;
+      cs.push({ sys: "signe", signe: g, on: W.sg.indexOf(g) >= 0, ferveur: G.ferveur || 0, titre: interp(s, G.titre || g), ui: true, group: "signe", label: (W.sg.indexOf(g) >= 0 ? "Renoncer au signe : " : "Faire un signe : ") + interp(s, G.titre || g) + (G.ferveur ? " (" + G.ferveur + " de ferveur)" : "") });
+    });
+    cs.push({ sys: "donneSuggeree", ui: true, label: "Donne suggérée : le moteur range les cartes, tu peux corriger" });
+    cs.push({ sys: "donneValider", ui: true, label: "Valider la donne", if: why ? { not: true } : undefined, why: why });
+    cs.push({ sys: "tableQuitter", label: "Revenir : " + cap(interp(s, String(back.backName || back.title || "").replace(/\*/g, ""))) });
+    var held = {}; who.forEach(function (h) { held[h] = jeuFor(story, s, h).main.slice(); });
+    return { title: interp(s, T.titre || W.e), kind: "table", text: text.filter(Boolean), choices: cs,
+      table: { epreuve: W.e, ferveur: fervour(s), pour: who.map(function (h) { return { id: h, nom: nameOf(story, h), donne: W.d[h].slice(), main: held[h] }; }),
+        reserve: left, max: dealMax(T), min: dealMin(T), signes: W.sg.slice(), why: why } };
+  };
+  BUILTIN["@pose"] = function (story, s) {
+    var W = s.poser, T = trialDef(story, W.e), J = jeuOf(story, s), text = [], count = {}, order = [];
+    text.push(interp(s, T.poser || "Pose une carte, face cachée. On les retournera ensemble."));
+    if ((J.recus || []).length) text.push("Nouveau dans ta main : " + J.recus.map(function (k) { return cardName(story, s, k); }).join(", ") + ".");
+    J.main.forEach(function (id) { if (!count[id]) order.push(id); count[id] = (count[id] || 0) + 1; });
+    var cs = order.map(function (id) { return { sys: "carte", carte: id, n: count[id], label: interp(s, cardDef(story, id).titre), cardOk: true, cardWhy: "", ui: true }; });
+    cs.push({ sys: "carte", carte: PASS_CARD, label: "Ne rien poser", cardOk: true, cardWhy: "" });
+    var hand = { halte: "@pose:" + W.e, nom: interp(s, T.titre || ""), joue: false, pose: true, elan: J.elan, pioche: J.pioche.length, defausse: J.defausse.length, fils: [], types: null, derniere: null, premiere: false,
+      perdues: pilesOf(J).perdues.length, echange: false, recus: (J.recus || []).slice(), piles: { main: J.main.slice(), pioche: J.pioche.slice().sort(), defausse: J.defausse.slice(), perdues: J.perdues.slice() } };
+    return { title: interp(s, T.titre || W.e), kind: "pose", text: text, choices: cs, hand: hand };
+  };
 
   // ------------------------------------------------------------------ moving
   function enter(story, s, id) {
@@ -4023,6 +4294,7 @@
       case "order": giveOrder(story, s, c); break;
       case "lead": setLead(story, s, c.hero); break;
       case "carte": playCard(story, s, c); break;
+      case "table": case "donner": case "reprendre": case "donneSuggeree": case "signe": case "donneValider": case "tableQuitter": case "poser": case "retourner": trialSys(story, s, c); break;
       case "echange": swapCard(story, s, c); break;
       case "jeu": tavernSit(story, s, c); break;
       case "montrer": s.show = { who: c.who, from: c.from || (s.show && s.node.charAt(0) === "@" ? s.show.from : s.node) }; s.node = "@montrer"; break;
@@ -4133,6 +4405,7 @@
     secretsOf: secretsOf, secretKnown: secretKnown, secretDef: secretDef, interludeOf: interludeOf, autreForm: autreForm,
     doubt: doubt, accountBy: accountBy, topicSolved: topicSolved, dreadOf: dreadOf, dreadMax: dreadMax, dreadWord: dreadWord, dreadTrouble: dreadTrouble, attachOf: attachOf, ATTACH_MAX: ATTACH_MAX,
     LENS_EFFECTS: LENS_EFFECTS, reveal: reveal, veilsIn: veilsIn, unveil: unveil, veilInfo: veilInfo, veilsOf: veilsOf, veilMark: veilMark, lensHeld: lensHeld, lensLeft: lensLeft, lensDef: lensDef, veilCount: veilCount, VEIL_RE: VEIL_RE,
+    trialDef: trialDef, trialFor: trialFor, trialRead: trialRead, trialIssues: trialIssues, dealCheck: dealCheck, dealSuggest: dealSuggest, fervour: fervour, reserveOf: reserveOf, masterOf: masterOf, jeuFor: jeuFor, LAY_NOTHING: LAY_NOTHING,
     CARD_TYPES: CARD_TYPES, SUITS: SUITS, SUIT_WORDS: SUIT_WORDS, RARITIES: RARITIES, THREAD_STATES: THREAD_STATES, cardInfo: cardInfo, filsOf: filsOf, DECK_FX: DECK_FX, GAIN_PLACES: GAIN_PLACES, LOSS_FROM: LOSS_FROM, resolve: resolve, stopOf: stopOf,
     escaleOpen: escaleOpen, crewView: crewView, crewIs: crewIs, crewCount: crewCount, crewLean: crewLean, CREW_WORDS: CREW_WORDS, CREW_MAX: CREW_MAX,
     item: item, weapon: weapon, armor: armor, useItem: useItem, day: day, timeLabel: timeLabel, routesFrom: routesFrom, isNight: isNight,

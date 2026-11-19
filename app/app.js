@@ -2731,6 +2731,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "14.6", items: ["Nouvelle histoire à trois, « Le Grand Raccordement », troisième livre de Croûte & Chrome : le jour de l'Effondrement. Deux joueurs sont Basile et Salée ; le troisième joue l'Enjambeur, le meneur, qui distribue les cartes de chaque épreuve dans leurs mains. Six fins.", "Épreuves d'un meneur : le meneur fait sa donne depuis une réserve (le livre refuse une donne que personne ne pourrait ouvrir), chacun pose une carte face cachée, et l'on retourne ensemble. Une paire posée par les deux joueurs l'emporte sur une carte seule. La ferveur paie les cartes rares et les signes."] },
     { v: "14.5", items: ["Nouvelle histoire à deux joueurs, « La Super Retraite », dans l'univers de Croûte & Chrome : Mirevaux, fin 1899, un boulanger, une forgeronne, une caisse qui promet tout, et la toute première baguette d'acier. Huit fins.", "Bibliothèque : nouveau filtre « Série » ; « La Grande Fonte » et « La Super Retraite » y sont rangées sous « Croûte 'n Chrome »."] },
     { v: "14.4", items: ["Nouvelle histoire, « La Grande Fonte », dans l'univers de Croûte & Chrome : deux héros, le Motard des ruines et le majordome Octave, un ange de beurre qui fond au soleil, huit fins.", "Bibliothèque : nouveau genre « Humour » dans les filtres."] },
     { v: "14.3", items: ["Plus → Hors ligne : « Tout télécharger » montre son avancement, fichier par fichier, et dit quand c'est fini.", "Les pages s'affichent aussitôt au défilement, même les longs chapitres : le bord tremblé du papier est dessiné une fois pour toutes au lieu d'être recalculé sur toute la hauteur de la feuille."] },
@@ -3333,6 +3334,7 @@
     else {
       if (v.urgent && !G.multi && !G.ephemeral && !folded) page.appendChild(urgentBar(G, v));
       if (v.hand) page.appendChild(renderHand(st, v));
+      if (v.table) page.appendChild(renderTable(st, v));
       page.appendChild(renderChoices(v));
     }
     if (v.kind === "end") page.appendChild(renderEnding(st, s, v));
@@ -3733,15 +3735,17 @@
   function suitIcon(k) { return h("span", { class: "suit suit-" + k, "aria-hidden": "true", html: '<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">' + (SUIT_ICONS[k] || "") + "</svg>" }); }
   function cardFace(st, id, opts) {
     opts = opts || {};
-    var C = M.cardInfo(st, id), dots = "";
+    var C = M.cardInfo(st, id), dots = "", mj = !!(st.multi && st.multi.meneur);
     for (var i = 0; i < C.elan; i++) dots += "●";
+    // 14.6: in a story with a game master, the corner tells the fervour a card costs him (élan is not used there).
+    if (mj) dots = opts.cost ? new Array(opts.cost + 1).join("✦") : "";
     return h(opts.button ? "button" : "div", { class: "card card-" + C.enseigne + " rar-" + C.rarete + (opts.off ? " off" : ""), disabled: opts.button && opts.off ? true : null, onclick: opts.onclick || null,
         "aria-label": C.titre + ", " + C.typeNom + ", " + C.enseigneNom + (C.elan ? ", coûte " + C.elan + " d'élan" : "") + (opts.why ? ". " + opts.why : "") },
-      h("span", { class: "card-top" }, suitIcon(C.enseigne), h("span", { class: "card-type" }, C.typeNom), h("span", { class: "card-elan", title: C.elan ? C.elan + " d'élan" : "Gratuite" }, dots || "○")),
+      h("span", { class: "card-top" }, suitIcon(C.enseigne), h("span", { class: "card-type" }, C.typeNom), h("span", { class: "card-elan", title: mj ? (opts.cost ? opts.cost + " de ferveur" : "") : C.elan ? C.elan + " d'élan" : "Gratuite" }, mj ? dots : dots || "○")),
       h("span", { class: "card-title" }, C.titre),
       C.texte ? h("span", { class: "card-text" }, C.texte) : null,
       C.accroche ? h("span", { class: "card-hook" }, C.accroche) : null,
-      h("span", { class: "card-foot" }, C.enseigneNom + " · " + (M.RARITIES[C.rarete] || C.rarete), opts.n > 1 ? h("b", { class: "card-n" }, " × " + opts.n) : null),
+      h("span", { class: "card-foot" }, C.enseigneNom + " · " + (M.RARITIES[C.rarete] || C.rarete), opts.n > 1 ? h("b", { class: "card-n" }, " × " + opts.n) : null, opts.fresh ? h("b", { class: "card-new" }, " · nouveau") : null),
       opts.why ? h("span", { class: "card-why" }, opts.why) : null);
   }
   // The life of the deck (9.8): the piles can be looked at, one card may be traded at each stop, and the rules are
@@ -3749,6 +3753,7 @@
   var HAND_HELP = "cartes-aide-vue";
   function renderHand(st, v) {
     var H = v.hand, box = h("section", { class: "hand", "aria-label": "Ta main" }), piles = function () { A.modal = { kind: "piles" }; render(); };
+    if (H.pose) return renderLay(st, v);
     if (H.premiere && !H.joue && !A.modal && !lsGet(HAND_HELP)) A.modal = { kind: "handHelp" };
     box.appendChild(h("div", { class: "hand-bar" },
       h("span", { class: "hand-elan", title: "+1 à chaque halte (jusqu'à 5) ; +1 pour deux cartes de la même enseigne d'affilée ; les cartes fortes en coûtent." }, "Élan ", h("b", null, String(H.elan)), h("span", { class: "muted small" }, " / 5")),
@@ -3771,6 +3776,80 @@
         swapping ? "Garder ma main" : "Échanger une carte (une fois par halte)")));
     }
     return box;
+  }
+  // ------------------------------------------------------------------ a game master's trials (14.6)
+  // Intent: renderLay(Story, View) -> Element = a trial: the hero's hand, the cards just received marked « nouveau »;
+  // one touch lays a card face down. Why: Clément, 19/11 — his children lay the cards he dealt them.
+  var LAY_HELP = "epreuve-aide-vue", TABLE_HELP = "table-aide-vue";
+  function renderLay(st, v) {
+    var H = v.hand, box = h("section", { class: "hand lay", "aria-label": "Ta main" });
+    if (!A.modal && !lsGet(LAY_HELP)) A.modal = { kind: "trialHelp", who: "lay" };
+    var cards = v.choices.filter(function (c) { return c.sys === "carte" && c.ui; });
+    box.appendChild(h("div", { class: "hand-bar" }, h("span", { class: "small muted" }, cards.length ? "Touche la carte que tu poses, face cachée." : "Ta main est vide."),
+      h("button", { class: "btn ghost sm icon-btn", "aria-label": "Comment marche une épreuve", title: "Comment marche une épreuve", onclick: function () { A.modal = { kind: "trialHelp", who: "lay" }; render(); } }, "?")));
+    if (cards.length) box.appendChild(h("div", { class: "hand-cards", role: "group", "aria-label": "Les cartes de ta main" }, cards.map(function (c) {
+      return cardFace(st, c.carte, { button: true, n: c.n, fresh: (H.recus || []).indexOf(c.carte) >= 0, onclick: function () { pick(c); } });
+    })));
+    return box;
+  }
+  // Intent: renderTable(Story, View) -> Element = the game master's table: the reserve (each card with one button per
+  // hero), each hero's deal (touch a card to take it back), the signs, the fervour, and the deal checked by the engine
+  // before it can be given.
+  function renderTable(st, v) {
+    var T = v.table, box = h("section", { class: "table-mj", "aria-label": "Ta table" }), give = {}, back = {};
+    if (!A.modal && !lsGet(TABLE_HELP)) A.modal = { kind: "trialHelp", who: "table" };
+    v.choices.forEach(function (c) {
+      if (c.sys === "donner") (give[c.carte] = give[c.carte] || []).push(c);
+      if (c.sys === "reprendre") back[c.hero + "|" + c.carte] = c;
+    });
+    var by = function (sys) { return v.choices.filter(function (c) { return c.sys === sys; }); };
+    box.appendChild(h("div", { class: "hand-bar" }, h("span", { class: "hand-elan", title: "La ferveur paie les cartes rares et les signes. Elle monte quand on prie, quand on invoque, quand on croit." }, "Ferveur ", h("b", null, String(T.ferveur))),
+      h("span", { class: "small muted" }, "Jusqu'à " + T.max + " carte" + (T.max > 1 ? "s" : "") + " pour chacun" + (T.min ? ", au moins " + T.min : "") + "."),
+      h("button", { class: "btn ghost sm icon-btn", "aria-label": "Comment faire une donne", title: "Comment faire une donne", onclick: function () { A.modal = { kind: "trialHelp", who: "table" }; render(); } }, "?")));
+    T.pour.forEach(function (P) {
+      var row = h("div", { class: "table-row" }, h("h3", { class: "sub-h" }, "Pour " + P.nom + " · " + P.donne.length + " / " + T.max));
+      if (P.donne.length) row.appendChild(h("p", { class: "small muted" }, "Touche une carte pour la reprendre."));
+      row.appendChild(P.donne.length ? h("div", { class: "hand-cards small-cards" }, P.donne.map(function (k) {
+        var c = back[P.id + "|" + k]; return cardFace(st, k, { button: !!c, onclick: c ? function () { pick(c); } : null });
+      })) : h("p", { class: "muted small" }, "Rien encore."));
+      if (P.main.length) row.appendChild(h("p", { class: "small muted" }, "Déjà dans sa main : " + P.main.map(function (k) { return M.cardInfo(st, k).titre; }).join(", ") + "."));
+      box.appendChild(row);
+    });
+    var cardsLeft = Object.keys(give);
+    box.appendChild(h("h3", { class: "sub-h" }, "Ta réserve"));
+    box.appendChild(cardsLeft.length ? h("div", { class: "hand-cards reserve" }, cardsLeft.map(function (k) {
+      var cs = give[k], cost = cs[0].ferveur || 0, f = cardFace(st, k, { cost: cost });
+      return h("div", { class: "reserve-card" }, f, h("div", { class: "row reserve-give" }, cs.map(function (c) {
+        return h("button", { class: "btn sm", onclick: function () { pick(c); } }, "→ " + M.nameOf(st, c.hero));
+      })));
+    })) : h("p", { class: "muted small" }, "Toutes les cartes de ta réserve sont dans la donne."));
+    var sg = by("signe");
+    if (sg.length) box.appendChild(h("div", { class: "stack" }, h("h3", { class: "sub-h" }, "Les signes"), h("div", { class: "row" }, sg.map(function (c) {
+      return h("button", { class: "btn sm" + (c.on ? " primary" : ""), "aria-pressed": c.on ? "true" : "false", onclick: function () { pick(c); } }, c.titre + (c.ferveur ? " · " + c.ferveur + " ✦" : ""));
+    }))));
+    var ok = by("donneValider")[0], sug = by("donneSuggeree")[0];
+    if (T.why) box.appendChild(h("p", { class: "notice soft small", role: "status" }, T.why));
+    box.appendChild(h("div", { class: "row" }, ok ? h("button", { class: "btn primary", disabled: !ok.ok, onclick: function () { pick(ok); } }, "Valider la donne") : null,
+      sug ? h("button", { class: "btn", onclick: function () { pick(sug); } }, "Donne suggérée") : null));
+    return box;
+  }
+  function modalTrialHelp(box, close, who) {
+    var done = function () { lsSet(who === "table" ? TABLE_HELP : LAY_HELP, true); close(); };
+    var li = function (b, t) { return h("li", null, h("b", null, b), " " + t); };
+    modalHead(box, who === "table" ? "Faire une donne" : "Une épreuve", done);
+    box.appendChild(h("div", { class: "drawer-body stack" }, who === "table"
+      ? h("ul", { class: "hand-help" },
+        li("La serrure.", "Tu lis ce qui attend les autres. Eux ne le savent pas encore."),
+        li("La donne.", "Tu ranges des cartes de ta réserve dans la main de chacun. Le jeu refuse une donne avec laquelle personne ne pourrait ouvrir, et te dit pourquoi."),
+        li("La difficulté.", "Une clef dans la bonne main, c'est facile. Les deux moitiés d'une paire chez deux joueurs différents, il faut se parler. Un leurre bien choisi, il faut réfléchir."),
+        li("La ferveur.", "Les cartes rares et les signes en coûtent. Elle monte quand on te prie."),
+        li("Rien n'est perdu.", "Une mauvaise carte posée ouvre une autre suite, jamais une impasse."))
+      : h("ul", { class: "hand-help" },
+        li("Les cartes.", "Avant chaque épreuve, des cartes arrivent dans ta main. Celles que tu viens de recevoir sont marquées « nouveau »."),
+        li("Poser.", "Chacun pose une carte, face cachée. Vous pouvez en parler à voix haute avant, mais sans montrer vos mains."),
+        li("Retourner.", "Quand tout le monde a posé, on retourne les cartes ensemble. Certaines serrures s'ouvrent avec une carte, d'autres avec deux cartes posées par deux joueurs."),
+        li("Garder.", "Une carte que tu ne poses pas reste dans ta main pour plus tard.")),
+      h("div", { class: "row" }, h("button", { class: "btn primary", onclick: done }, "Compris"))));
   }
   function modalHandHelp(box, close) {
     var done = function () { lsSet(HAND_HELP, true); close(); };
@@ -3910,6 +3989,7 @@
   function safeKey(k) { return String(k).replace(/[^A-Za-z0-9_-]/g, "_"); }
   function heroLabel(st, hid) {
     var H = st.heroes[hid];
+    if (st.multi && st.multi.meneur === hid) return (H.name || M.nameOf(st, hid)) + " · le meneur, qui prépare les épreuves";
     return H.player ? "Le héros que l'on crée (" + M.nameOf(st, hid) + ")" : (H.name || M.nameOf(st, hid)) + " · " + ((M.ARCHS[H.arch] || {}).label || "");
   }
   function playerHero(st) { return Object.keys(st.heroes || {}).filter(function (k) { return st.heroes[k].player; })[0] || null; }
@@ -6315,7 +6395,7 @@
     var m = A.modal, close = function () { if (m.kind === "send" || m.kind === "receive") Transfer.stop(); A.modal = null; render(); };
     var box = h("div", { class: "modal", role: "dialog", "aria-modal": "true" });
     var bg = h("div", { class: "drawer-bg", onclick: close });
-    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, shake: modalShake, adult: modalAdult, keys: modalKeys, news: modalNews, group: modalGroup, vote: modalVote, doc: modalDoc, bookNotice: modalBookNotice, handHelp: modalHandHelp, piles: modalPiles, diag: modalDiag, old: modalOld })[m.kind](box, close, m);
+    ({ prefs: modalPrefs, report: modalReport, dice: modalDice, mark: modalMark, bedtime: modalBedtime, send: modalSend, receive: modalReceive, words: modalWords, sync: modalSync, chapter: modalChapter, shake: modalShake, adult: modalAdult, keys: modalKeys, news: modalNews, group: modalGroup, vote: modalVote, doc: modalDoc, bookNotice: modalBookNotice, handHelp: modalHandHelp, trialHelp: function (b, c, m) { modalTrialHelp(b, c, m.who); }, piles: modalPiles, diag: modalDiag, old: modalOld })[m.kind](box, close, m);
     app.appendChild(bg); app.appendChild(box);
     var f = box.querySelector("[autofocus]"); if (f) setTimeout(function () { f.focus(); }, 0);
   }
