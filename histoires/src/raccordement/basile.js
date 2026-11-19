@@ -46,7 +46,7 @@ module.exports = {
   B1_fin: { act: "I", title: "Canal 4", place: "salle",
     fx: { clue: "c_verrou" },
     text: [
-      { if: { has: "b:talkie" }, text: "« Le second ? » Le chef te regarde comme on regarde une question mal posée. « Le second, c'est pour le collègue. Vous n'avez pas de collègue. Le règlement prévoit deux gardes par poste. Le budget en prévoit un. » Il referme le tiroir. Tu le rouvres dès qu'il a tourné les talons, et tu glisses le second talkie dans ta poche. Tu ne sais pas encore pourquoi. Le règlement non plus." },
+      { if: { has: "b:talkie" }, text: "« Le second ? » Le chef te regarde comme on regarde une question mal posée. « Le second, c'est pour le collègue. Vous n'avez pas de collègue. Le règlement prévoit deux gardes par poste. Le budget en prévoit un. » Il referme le tiroir. Dès qu'il a tourné les talons, tu ouvres de nouveau le tiroir, et tu glisses le second talkie dans ta poche. Tu ne sais pas encore pourquoi. Le règlement non plus." },
       { if: { not: { has: "b:talkie" } }, text: "Le chef sort. Le tiroir est resté entrouvert, et le second talkie-walkie te regarde avec son petit ange doré. Tu le glisses dans ta poche. Article 21 : le garde veille au matériel. Personne ne dira que tu as laissé traîner le matériel." },
       "Tu passes par la galerie des cuisines pour gagner la porte de service. Elle est en fer peint en vert, au fond de la cour, et sur sa face intérieure, au-dessus de la vieille serrure du chef, on a vissé cette nuit un boîtier blanc et lisse, sans trou de clé, avec une petite cellule noire au milieu et, gravé dessous, un soleil carré : *Verrou Lumière™ · une solution du Consortium des Panneaux Réunis.*",
       "Tu poses la main dessus. Il est tiède. Il est le seul objet tiède du Domaine.",
@@ -165,7 +165,7 @@ module.exports = {
       { if: { has: "basile=serment" }, text: "Tu le dis. Ta voix se casse au milieu du mot *jamais*, et le reste sort en chuchotement. Salée te regarde. Elle prend ta main brûlée dans sa main brûlée, paume contre paume, et elle serre, ce qui fait très mal à tous les deux. C'est sa réponse. C'est un serment de beurre et de fer, et c'est le seul contrat de ta vie que tu n'as pas lu jusqu'au bout avant de le signer." },
       { if: { has: "basile=garde" }, text: "Tu le dis. Ta voix se casse au milieu du mot *socle*. Salée te regarde longtemps, comme on regarde quelqu'un partir sur une route qu'on ne prendra pas. Elle hoche la tête. Tu te lèves. Une nuit de marche jusqu'au Domaine, dans l'autre sens, les mains vides. Il y a un socle de marbre noir dans une salle qui n'est plus froide, et le règlement prévoit un garde. Il ne prévoit pas qu'il y ait quelque chose dessus." },
       "Le soleil se lève derrière les toits. La première lumière tombe sur l'ange de beurre, et le beurre luit, doux, mat, chaud. Rien ne brille. Rien ne renvoie rien. C'est exactement ce que vous vouliez.",
-      "Tu ouvres la bouche une dernière fois, pour rien, pour essayer. Il n'en sort qu'un souffle. Tu la refermes. Tu ne la rouvriras pas avant trente et un ans.",
+      "Tu ouvres la bouche une dernière fois, pour rien, pour essayer. Il n'en sort qu'un souffle. Tu la refermes. Elle restera fermée trente et un ans.",
     ],
     choices: [{ label: "Regarder le soleil toucher la trompette", fx: { flag: "ch5:basile" }, to: "C5" }] },
 };

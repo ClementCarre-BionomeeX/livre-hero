@@ -2728,7 +2728,7 @@
    "enseigne": "masque",
    "rarete": "commune",
    "elan": 0,
-   "texte": "Un badge plastifié : *BASILE · STAGIAIRE · ACCÈS LIMITÉ*. Il ouvre la cantine."
+   "texte": "Un badge plastifié : « BASILE · STAGIAIRE · ACCÈS LIMITÉ ». Il ouvre la cantine."
   },
   "sifflet": {
    "titre": "Le Sifflet réglementaire",
@@ -2824,7 +2824,7 @@
    "enseigne": "masque",
    "rarete": "commune",
    "elan": 0,
-   "texte": "*Abonnement Lumière™ : le premier mois offert !* Il est valable jusqu'à midi."
+   "texte": "« Abonnement Lumière™ : le premier mois offert ! » Il est valable jusqu'à midi."
   },
   "meteo": {
    "titre": "La Météo du matin",
@@ -2928,7 +2928,7 @@
    "enseigne": "lame",
    "rarete": "commune",
    "elan": 0,
-   "texte": "Un levier de fonte peint en rouge, marqué *NE JAMAIS ABAISSER*. Il faut être deux pour l'abaisser."
+   "texte": "Un levier de fonte peint en rouge, marqué « NE JAMAIS ABAISSER ». Il faut être deux pour l'abaisser."
   },
   "molette": {
    "titre": "La Clé à molette",
@@ -3411,72 +3411,6 @@
      "if": {
       "all": [
        {
-        "not": {
-         "has": "ch1:basile"
-        }
-       },
-       {
-        "any": [
-         {
-          "has": "ch1:salee"
-         },
-         {
-          "has": "ch1:enjambeur"
-         }
-        ]
-       }
-      ]
-     },
-     "text": "Au Domaine, un garde stagiaire n'a pas encore raconté son heure."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "not": {
-         "has": "ch1:salee"
-        }
-       },
-       {
-        "any": [
-         {
-          "has": "ch1:basile"
-         },
-         {
-          "has": "ch1:enjambeur"
-         }
-        ]
-       }
-      ]
-     },
-     "text": "Sur la route de Mirevaux, une motarde n'a pas encore raconté son heure."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "not": {
-         "has": "ch1:enjambeur"
-        }
-       },
-       {
-        "any": [
-         {
-          "has": "ch1:basile"
-         },
-         {
-          "has": "ch1:salee"
-         }
-        ]
-       }
-      ]
-     },
-     "text": "Sur chaque motte de beurre du pays, un petit ange doré n'a pas encore raconté son heure."
-    },
-    {
-     "if": {
-      "all": [
-       {
         "has": "ch1:basile"
        },
        {
@@ -3488,6 +3422,24 @@
       ]
      },
      "text": "Il est sept heures moins le quart. Dans la cour des cuisines du Domaine, une moto à side-car s'arrête devant une porte verte qui, hier encore, n'avait qu'une serrure."
+    },
+    {
+     "if": {
+      "not": {
+       "all": [
+        {
+         "has": "ch1:basile"
+        },
+        {
+         "has": "ch1:salee"
+        },
+        {
+         "has": "ch1:enjambeur"
+        }
+       ]
+      }
+     },
+     "text": "Chacun raconte son heure. Le récit reprendra ensemble quand les trois l'auront fait."
     }
    ],
    "choices": [
@@ -3582,72 +3534,6 @@
      "if": {
       "all": [
        {
-        "not": {
-         "has": "ch2:basile"
-        }
-       },
-       {
-        "any": [
-         {
-          "has": "ch2:salee"
-         },
-         {
-          "has": "ch2:enjambeur"
-         }
-        ]
-       }
-      ]
-     },
-     "text": "Au Domaine, un garde stagiaire n'a pas encore raconté son heure."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "not": {
-         "has": "ch2:salee"
-        }
-       },
-       {
-        "any": [
-         {
-          "has": "ch2:basile"
-         },
-         {
-          "has": "ch2:enjambeur"
-         }
-        ]
-       }
-      ]
-     },
-     "text": "Sur la route de Mirevaux, une motarde n'a pas encore raconté son heure."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "not": {
-         "has": "ch2:enjambeur"
-        }
-       },
-       {
-        "any": [
-         {
-          "has": "ch2:basile"
-         },
-         {
-          "has": "ch2:salee"
-         }
-        ]
-       }
-      ]
-     },
-     "text": "Sur chaque motte de beurre du pays, un petit ange doré n'a pas encore raconté son heure."
-    },
-    {
-     "if": {
-      "all": [
-       {
         "has": "ch2:basile"
        },
        {
@@ -3659,6 +3545,24 @@
       ]
      },
      "text": "Onze heures et demie. Dans une poche de cape de cuir, à Mirevaux, et dans une poche d'uniforme, au Domaine, deux talkies-walkies grésillent en même temps."
+    },
+    {
+     "if": {
+      "not": {
+       "all": [
+        {
+         "has": "ch2:basile"
+        },
+        {
+         "has": "ch2:salee"
+        },
+        {
+         "has": "ch2:enjambeur"
+        }
+       ]
+      }
+     },
+     "text": "Chacun raconte son heure. Le récit reprendra ensemble quand les trois l'auront fait."
     }
    ],
    "choices": [
@@ -3748,72 +3652,6 @@
      "if": {
       "all": [
        {
-        "not": {
-         "has": "ch3:basile"
-        }
-       },
-       {
-        "any": [
-         {
-          "has": "ch3:salee"
-         },
-         {
-          "has": "ch3:enjambeur"
-         }
-        ]
-       }
-      ]
-     },
-     "text": "Au Domaine, un garde stagiaire n'a pas encore raconté son heure."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "not": {
-         "has": "ch3:salee"
-        }
-       },
-       {
-        "any": [
-         {
-          "has": "ch3:basile"
-         },
-         {
-          "has": "ch3:enjambeur"
-         }
-        ]
-       }
-      ]
-     },
-     "text": "Sur la route de Mirevaux, une motarde n'a pas encore raconté son heure."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "not": {
-         "has": "ch3:enjambeur"
-        }
-       },
-       {
-        "any": [
-         {
-          "has": "ch3:basile"
-         },
-         {
-          "has": "ch3:salee"
-         }
-        ]
-       }
-      ]
-     },
-     "text": "Sur chaque motte de beurre du pays, un petit ange doré n'a pas encore raconté son heure."
-    },
-    {
-     "if": {
-      "all": [
-       {
         "has": "ch3:basile"
        },
        {
@@ -3825,6 +3663,24 @@
       ]
      },
      "text": "Midi sonne au clocher de Mirevaux. Le premier coup tombe sur la ville. Au deuxième, tous les panneaux du pays tournent la tête."
+    },
+    {
+     "if": {
+      "not": {
+       "all": [
+        {
+         "has": "ch3:basile"
+        },
+        {
+         "has": "ch3:salee"
+        },
+        {
+         "has": "ch3:enjambeur"
+        }
+       ]
+      }
+     },
+     "text": "Chacun raconte son heure. Le récit reprendra ensemble quand les trois l'auront fait."
     }
    ],
    "choices": [
@@ -3902,72 +3758,6 @@
      "if": {
       "all": [
        {
-        "not": {
-         "has": "ch4:basile"
-        }
-       },
-       {
-        "any": [
-         {
-          "has": "ch4:salee"
-         },
-         {
-          "has": "ch4:enjambeur"
-         }
-        ]
-       }
-      ]
-     },
-     "text": "Au Domaine, un garde stagiaire n'a pas encore raconté son heure."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "not": {
-         "has": "ch4:salee"
-        }
-       },
-       {
-        "any": [
-         {
-          "has": "ch4:basile"
-         },
-         {
-          "has": "ch4:enjambeur"
-         }
-        ]
-       }
-      ]
-     },
-     "text": "Sur la route de Mirevaux, une motarde n'a pas encore raconté son heure."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "not": {
-         "has": "ch4:enjambeur"
-        }
-       },
-       {
-        "any": [
-         {
-          "has": "ch4:basile"
-         },
-         {
-          "has": "ch4:salee"
-         }
-        ]
-       }
-      ]
-     },
-     "text": "Sur chaque motte de beurre du pays, un petit ange doré n'a pas encore raconté son heure."
-    },
-    {
-     "if": {
-      "all": [
-       {
         "has": "ch4:basile"
        },
        {
@@ -3979,6 +3769,24 @@
       ]
      },
      "text": "La nuit tombe. Sur la route de Mirevaux au Domaine, des phares s'allument, l'un après l'autre, en file. Ce sont des camions. Ils roulent vers le métal."
+    },
+    {
+     "if": {
+      "not": {
+       "all": [
+        {
+         "has": "ch4:basile"
+        },
+        {
+         "has": "ch4:salee"
+        },
+        {
+         "has": "ch4:enjambeur"
+        }
+       ]
+      }
+     },
+     "text": "Chacun raconte son heure. Le récit reprendra ensemble quand les trois l'auront fait."
     }
    ],
    "choices": [
@@ -4056,72 +3864,6 @@
      "if": {
       "all": [
        {
-        "not": {
-         "has": "ch5:basile"
-        }
-       },
-       {
-        "any": [
-         {
-          "has": "ch5:salee"
-         },
-         {
-          "has": "ch5:enjambeur"
-         }
-        ]
-       }
-      ]
-     },
-     "text": "Au Domaine, un garde stagiaire n'a pas encore raconté son heure."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "not": {
-         "has": "ch5:salee"
-        }
-       },
-       {
-        "any": [
-         {
-          "has": "ch5:basile"
-         },
-         {
-          "has": "ch5:enjambeur"
-         }
-        ]
-       }
-      ]
-     },
-     "text": "Sur la route de Mirevaux, une motarde n'a pas encore raconté son heure."
-    },
-    {
-     "if": {
-      "all": [
-       {
-        "not": {
-         "has": "ch5:enjambeur"
-        }
-       },
-       {
-        "any": [
-         {
-          "has": "ch5:basile"
-         },
-         {
-          "has": "ch5:salee"
-         }
-        ]
-       }
-      ]
-     },
-     "text": "Sur chaque motte de beurre du pays, un petit ange doré n'a pas encore raconté son heure."
-    },
-    {
-     "if": {
-      "all": [
-       {
         "has": "ch5:basile"
        },
        {
@@ -4133,6 +3875,24 @@
       ]
      },
      "text": "Le soleil se lève. Le premier rayon touche la trompette de l'ange."
+    },
+    {
+     "if": {
+      "not": {
+       "all": [
+        {
+         "has": "ch5:basile"
+        },
+        {
+         "has": "ch5:salee"
+        },
+        {
+         "has": "ch5:enjambeur"
+        }
+       ]
+      }
+     },
+     "text": "Chacun raconte son heure. Le récit reprendra ensemble quand les trois l'auront fait."
     }
    ],
    "choices": [
@@ -4293,7 +4053,7 @@
      "if": {
       "has": "b:talkie"
      },
-     "text": "« Le second ? » Le chef te regarde comme on regarde une question mal posée. « Le second, c'est pour le collègue. Vous n'avez pas de collègue. Le règlement prévoit deux gardes par poste. Le budget en prévoit un. » Il referme le tiroir. Tu le rouvres dès qu'il a tourné les talons, et tu glisses le second talkie dans ta poche. Tu ne sais pas encore pourquoi. Le règlement non plus."
+     "text": "« Le second ? » Le chef te regarde comme on regarde une question mal posée. « Le second, c'est pour le collègue. Vous n'avez pas de collègue. Le règlement prévoit deux gardes par poste. Le budget en prévoit un. » Il referme le tiroir. Dès qu'il a tourné les talons, tu ouvres de nouveau le tiroir, et tu glisses le second talkie dans ta poche. Tu ne sais pas encore pourquoi. Le règlement non plus."
     },
     {
      "if": {
@@ -4655,7 +4415,7 @@
      "text": "Tu le dis. Ta voix se casse au milieu du mot *socle*. Salée te regarde longtemps, comme on regarde quelqu'un partir sur une route qu'on ne prendra pas. Elle hoche la tête. Tu te lèves. Une nuit de marche jusqu'au Domaine, dans l'autre sens, les mains vides. Il y a un socle de marbre noir dans une salle qui n'est plus froide, et le règlement prévoit un garde. Il ne prévoit pas qu'il y ait quelque chose dessus."
     },
     "Le soleil se lève derrière les toits. La première lumière tombe sur l'ange de beurre, et le beurre luit, doux, mat, chaud. Rien ne brille. Rien ne renvoie rien. C'est exactement ce que vous vouliez.",
-    "Tu ouvres la bouche une dernière fois, pour rien, pour essayer. Il n'en sort qu'un souffle. Tu la refermes. Tu ne la rouvriras pas avant trente et un ans."
+    "Tu ouvres la bouche une dernière fois, pour rien, pour essayer. Il n'en sort qu'un souffle. Tu la refermes. Elle restera fermée trente et un ans."
    ],
    "choices": [
     {
@@ -7436,7 +7196,7 @@
     {
      "id": "livre",
      "title": "Honorine, le livre",
-     "text": "**Honorine Salée** rouvre la crèmerie dans la cave, avec le livre de comptes sauvé de la rue du Beurre. Elle y inscrit, à la date de l'Effondrement, une seule ligne : *Beurre : tout.* Puis, en dessous : *Fille : rentrée.*"
+     "text": "**Honorine Salée** remet la crèmerie en marche dans la cave, avec le livre de comptes sauvé de la rue du Beurre. Elle y inscrit, à la date de l'Effondrement, une seule ligne : *Beurre : tout.* Puis, en dessous : *Fille : rentrée.*"
     }
    ]
   },

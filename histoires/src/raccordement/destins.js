@@ -57,7 +57,7 @@ module.exports = {
       { id: "mains", title: "Honorine, les mains", if: { has: "honorine=blessee" },
         text: "**Honorine Salée** garde de la rue du Beurre deux mains couturées qu'elle montre volontiers. Elle dit que c'est le métier qui est rentré. Elle sale son beurre avec ces mains-là jusqu'à sa mort, et elle dit que ça le rend meilleur." },
       { id: "livre", title: "Honorine, le livre",
-        text: "**Honorine Salée** rouvre la crèmerie dans la cave, avec le livre de comptes sauvé de la rue du Beurre. Elle y inscrit, à la date de l'Effondrement, une seule ligne : *Beurre : tout.* Puis, en dessous : *Fille : rentrée.*" },
+        text: "**Honorine Salée** remet la crèmerie en marche dans la cave, avec le livre de comptes sauvé de la rue du Beurre. Elle y inscrit, à la date de l'Effondrement, une seule ligne : *Beurre : tout.* Puis, en dessous : *Fille : rentrée.*" },
     ] },
     { who: "ripaille", label: "Ripaille", list: [
       { id: "route", title: "Ripaille, sur la route", if: { has: "fin:route" },

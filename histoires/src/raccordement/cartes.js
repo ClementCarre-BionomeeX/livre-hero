@@ -9,7 +9,7 @@ var cartes = {
   trousseau: c("Le Trousseau du chef", "tresor", "masque", "Quarante et une clés sur un anneau de fer. Le chef Gourdon sait laquelle ouvre quoi. Personne d'autre."),
   miroir: c("Le Rétroviseur de la Baratte", "revelation", "lanterne", "Un rétroviseur rond, dévissé d'une vieille moto. On peut y attraper le soleil et l'envoyer où l'on veut."),
   cle_cave: c("La Clé de la cave à beurre", "detour", "racine", "Une petite clé de cuivre qui ouvre la trappe aux mottes, sous la cour des cuisines. Elle sent le beurre."),
-  badge: c("Le Badge de stagiaire", "obstacle", "masque", "Un badge plastifié : *BASILE · STAGIAIRE · ACCÈS LIMITÉ*. Il ouvre la cantine."),
+  badge: c("Le Badge de stagiaire", "obstacle", "masque", "Un badge plastifié : « BASILE · STAGIAIRE · ACCÈS LIMITÉ ». Il ouvre la cantine."),
   sifflet: c("Le Sifflet réglementaire", "peril", "lame", "Un sifflet de garde, chromé. Il fait venir le chef, à coup sûr."),
   lunettes: c("Les Lunettes de soleil", "refuge", "masque", "Des lunettes noires à monture rouge. Avec elles, on ne voit plus rien, mais on a l'air de savoir où l'on va."),
   // II · La visite technique
@@ -23,7 +23,7 @@ var cartes = {
   loupe: c("La Loupe de Mademoiselle Vernis", "revelation", "lanterne", "Une loupe à manche d'ivoire, pour les lignes écrites en petit. Les plus importantes."),
   calendrier: c("Le Calendrier des livraisons", "presage", "lanterne", "Le calendrier de la crèmerie, où chaque livraison a son heure. Aujourd'hui, une seule case est entourée de rouge, par quelqu'un d'autre."),
   carte_reseau: c("La Carte du réseau", "revelation", "racine", "Une carte du pays où chaque champ de panneaux est un petit carré bleu, et chaque ligne une veine."),
-  bon: c("Le Bon de réduction", "obstacle", "masque", "*Abonnement Lumière™ : le premier mois offert !* Il est valable jusqu'à midi."),
+  bon: c("Le Bon de réduction", "obstacle", "masque", "« Abonnement Lumière™ : le premier mois offert ! » Il est valable jusqu'à midi."),
   meteo: c("La Météo du matin", "presage", "racine", "« Grand soleil sur tout le pays. Aucun nuage avant ce soir. Profitez-en. »"),
   // IV · Midi pile
   parasol: c("Le Parasol de la terrasse", "refuge", "racine", "Un grand parasol de toile écrue, à manivelle. Il fait trois mètres d'ombre ronde."),
@@ -39,7 +39,7 @@ var cartes = {
   klaxon: c("Le Klaxon", "peril", "lame", "Un klaxon à poire, en cuivre. Il fait se retourner les gens, et rien d'autre."),
   louche: c("La Louche à crème", "trahison", "masque", "Une louche de fer-blanc. On peut vider la rue avec, en mille ans."),
   // VI · Le Compteur général
-  levier: c("Le Levier rouge", "obstacle", "lame", "Un levier de fonte peint en rouge, marqué *NE JAMAIS ABAISSER*. Il faut être deux pour l'abaisser."),
+  levier: c("Le Levier rouge", "obstacle", "lame", "Un levier de fonte peint en rouge, marqué « NE JAMAIS ABAISSER ». Il faut être deux pour l'abaisser."),
   molette: c("La Clé à molette", "tresor", "lame", "Une clé à molette de garde, longue comme un avant-bras. Elle desserre tout, même les choses qu'on ne devrait pas."),
   notice: c("La Notice en douze langues", "obstacle", "lanterne", "Quatre-vingts pages, douze langues, aucune n'est la bonne."),
   fusible: c("Le Fusible de rechange", "trahison", "lanterne", "Un fusible neuf, sous blister. Il rétablit le courant. C'est le contraire de ce qu'il faut."),
