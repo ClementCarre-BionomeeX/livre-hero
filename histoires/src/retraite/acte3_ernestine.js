@@ -11,7 +11,7 @@ module.exports = {
   E3_aube: { act: "III", title: "Le dernier matin du siècle", place: "forge",
     text: [
       "Tu n'as pas dormi. Tu as passé la nuit assise sur le tabouret, le dos contre le mur chaud de la forge, à regarder refroidir l'acier, comme une mère regarde respirer un enfant malade. À six heures, les cloches des trois églises sonnent la première messe à trois heures différentes, et tu te lèves avec les genoux d'une vieille femme.",
-      "On frappe. Barnabé Croûte est sur le seuil, le torchon sous le bras, le nez rouge, les yeux brillants. Il entre sans un mot. Il regarde l'enclume.",
+      "On frappe. Barnabé Croûte est sur le seuil, le torchon sous le bras, le nez rouge, les yeux brillants. Il entre. Il regarde l'enclume.",
       "Tu enveloppes la n° 1 toi-même, dans le torchon, en la tournant deux fois, comme on emmaillote. Tu la lui donnes. Il la prend à deux mains. Vous restez un moment ainsi, chacun tenant un bout du torchon, et aucun des deux ne lâche le premier.",
       { if: DEUX, text: "Quand il est parti, tu prends la n° 2, tu l'enroules dans le vieux tablier de ton père, et tu la glisses sous l'enclume, dans le creux où ton père cachait autrefois sa bouteille d'eau-de-vie. Elle y est mieux gardée que dans une banque. Tu en sais quelque chose." },
       { if: { not: DEUX }, text: "Quand il est parti, l'enclume est vide. Il reste sur le chiffon une trace claire, la forme exacte d'une baguette, comme l'ombre d'un objet qu'on aurait emporté au soleil." },

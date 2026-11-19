@@ -9,7 +9,7 @@ module.exports = {
   E2_aube: { act: "II", title: "Le pain de cinq heures", place: "forge",
     text: [
       "Le 30 décembre, à cinq heures et demie du matin, il fait si froid que le feu de la forge a l'air d'avoir froid lui aussi.",
-      { if: PACTE_A, text: "On frappe. Barnabé Croûte est sur le seuil, essoufflé, un torchon dans les bras. Il a couru à travers la ville. Tu prends le torchon. Dedans, il y a deux baguettes, dont une plus belle que l'autre. La plus belle est chaude comme un petit animal. Et elle chante : un crépitement de pluie fine, de bois sec, qui monte du torchon jusqu'à ton visage. Tu n'avais jamais écouté un pain. Tu restes penchée au-dessus, sans un mot. Quand tu relèves la tête, il est parti. Il sait qu'on ne parle pas à un forgeron qui a du travail." },
+      { if: PACTE_A, text: "On frappe. Barnabé Croûte est sur le seuil, essoufflé, un torchon dans les bras. Il a couru à travers la ville. Tu prends le torchon. Dedans, il y a deux baguettes, dont une plus belle que l'autre. La plus belle est chaude comme un petit animal. Et elle chante : un crépitement de pluie fine, de bois sec, qui monte du torchon jusqu'à ton visage. Tu n'avais jamais écouté un pain. Tu restes penchée au-dessus. Quand tu relèves la tête, il est parti. Il sait qu'on ne parle pas à un forgeron qui a du travail." },
       { if: PACTE_R, text: "On frappe. Sur le seuil, une petite fille de douze ans, en tablier trop grand, un torchon dans les bras. « De la part de personne », dit-elle, et elle te tend le torchon. Dedans, il y a deux baguettes, et la plus belle chante. Tu restes penchée au-dessus un moment. « Dis à personne merci, dis-tu. Et dis-lui que personne pétrit drôlement bien. » La petite fille hoche la tête, compte quelque chose sur ses doigts, et part en courant." },
       "Tu poses la plus belle sur l'établi, dans la lumière du feu. L'autre, tu la ranges sous l'établi, dans le torchon. Au cas où. Tu la regardes comme ton père regardait un lingot avant de le travailler : longtemps, sans la toucher. Les grignes. Les bulles. La courbe du bout. Tout cela doit passer dans la terre, puis dans le métal, sans perdre un cheveu.",
       "Tu prépares la terre réfractaire, celle des creusets, mêlée de sable fin et de crin de cheval. Il faut l'appliquer sur le pain sans l'écraser, couche par couche, comme on habille un nouveau-né.",
@@ -60,7 +60,7 @@ module.exports = {
   E2_cle_vue: { act: "II", title: "Trois clés", place: "banque",
     text: [
       "Tu lui tends une clé. Ta main est parfaitement calme. Mais Isidore, qui se tient derrière son maître, laisse tomber ses yeux, une fraction de seconde, sur la poche de ton tablier, où la troisième clé fait une petite bosse. Sorbier suit son regard.",
-      "Il sourit. Il tend de nouveau la main, sans un mot.",
+      "Il sourit. Il tend de nouveau la main, en silence.",
       "Tu lui donnes la troisième clé. Il les fait sauter toutes les deux dans sa paume, comme des dés. « L'acier est une affaire de confiance, Mademoiselle Chrome. Comme l'argent. » Il les met dans son gilet.",
       "Isidore regarde le mur. Son visage ne dit rien. Mais tu sais maintenant qu'il voit tout.",
     ],
@@ -87,7 +87,7 @@ module.exports = {
     text: [
       "Isidore attend devant ta porte, dans le froid, droit, ganté, depuis on ne sait combien de temps. Il a l'air d'une statue qu'on aurait livrée à la mauvaise adresse.",
       "« Monsieur souhaite seize cerclages d'acier, pour des malles. En acier qui ne rouille pas. Pour un long voyage. » Il te tend un papier avec des mesures, d'une écriture penchée et parfaite. « Pour ce soir. »",
-      "Seize cerclages. Quatre malles. Un long voyage. Tu les forges pendant qu'il attend, assis sur le banc près du feu, à côté de Mémé Chrome. Ils se tiennent tous les deux très droits, sans un mot, comme deux personnes qui se reconnaissent.",
+      "Seize cerclages. Quatre malles. Un long voyage. Tu les forges pendant qu'il attend, assis sur le banc près du feu, à côté de Mémé Chrome. Ils se tiennent tous les deux très droits, comme deux personnes qui se reconnaissent.",
       "Quand tu as fini, il paie, il range les cerclages dans un sac de toile, et il se lève.",
     ],
     choices: [
@@ -130,7 +130,7 @@ module.exports = {
     text: [
       { if: { has: "e:gratin_lettre" }, text: "Tu lis. *Mon cher Maître, trois millions, comme convenu. Peu importe l'objet : vous l'estimerez. Le reste vous sera remis sur le quai. H. S.*" },
       { if: { has: "e:gratin_lettre" }, text: "*Peu importe l'objet.* Tu relèves les yeux vers ton four, où ton moule cuit, où le pain de Barnabé brûle pour laisser sa forme. Peu importe l'objet. Tu pourrais leur apporter un fer à cheval, un seau, un concombre d'acier. Il vaudrait trois millions. Et le coffre serait toujours vide." },
-      { if: { has: "e:gratin_honnete" }, text: "Tu poses l'enveloppe sur l'établi, rabat ouvert, sans la regarder. Tu as été élevée par un homme qui disait qu'on ne lit pas les lettres des autres, même quand elles tombent à vos pieds, surtout quand elles tombent à vos pieds. Tu y penses pendant une heure. Tu ne la lis pas. C'est une forme d'acier, aussi." },
+      { if: { has: "e:gratin_honnete" }, text: "Tu poses l'enveloppe sur l'établi, rabat ouvert, les yeux ailleurs. Tu as été élevée par un homme qui disait que les lettres des autres restent aux autres, même quand elles tombent à vos pieds, surtout quand elles tombent à vos pieds. Tu y penses pendant une heure. Tu la laisses où elle est. C'est une forme d'acier, aussi." },
     ],
     choices: [{ label: "Reprendre ta journée", to: "E2_jour" }] },
 
@@ -172,7 +172,7 @@ module.exports = {
     text: [
       { if: DEUX, text: "Tu verses. Le métal coule dans le premier moule avec un bruit de soie déchirée, puis dans le second, jusqu'à la dernière goutte. Le creuset est vide. Tu n'as jamais rien versé aussi exactement de ta vie." },
       { if: UNE, text: "Tu verses. Le métal coule dans le moule avec un bruit de soie déchirée. Ce qui reste au fond du creuset, tu le jettes dans un seau d'eau, où il siffle et se fige en une petite étoile tordue. Tu la donneras plus tard à la petite fille au tablier trop grand." },
-      "Puis vous attendez, assis côte à côte sur l'enclume, deux heures, sans un mot. Le froid dans le dos. Le feu devant.",
+      "Puis vous attendez, assis côte à côte sur l'enclume, deux heures. Le froid dans le dos. Le feu devant.",
       "À une heure du matin, tu brises le moule au marteau.",
       "Elle est là. Une baguette d'acier blanc, avec la croûte de Barnabé, ses grignes, ses bulles, la petite cambrure du bout que fait sa main. Elle brille comme un miroir qu'on aurait roulé. Elle pèse comme un gourdin. Elle est belle comme une chose trouvée au fond de la mer.",
       "Et en refroidissant sur l'enclume, elle fait un bruit. Un crépitement minuscule, cristal par cristal. Barnabé tend l'oreille, et toi aussi.",
