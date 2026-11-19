@@ -130,6 +130,7 @@ epilogue: [
   { if: { has: "patente:delai" }, text: "**La patente.** Maître Corvin t'a accordé un délai jusqu'à la Saint-Martin. Il est arrivé à la Saint-Martin, exact, et il a payé lui-même." },
   { if: { quest: "II_page" }, text: "**La page arrachée.** La page du chêne creux a repris sa place dans le grimoire de Mémé, tenue par une épingle, puis par de la colle." },
   { if: { quest: "II_ornieres" }, text: "**Les ornières.** Tu as suivi les ornières du vieux chemin jusqu'au tonneau tombé. Le chemin a été barré l'hiver suivant." },
+  { if: { quest: "III_malbec" }, text: "**Le sénéchal.** Le bois de Vergeronde se passe désormais de sénéchal. La comtesse fait ses comptes elle-même, le dimanche, avec une plume d'oie et beaucoup de soupirs." },
   { if: { has: "poche:bravo" }, text: "**La page volée.** Ortie raconte à tout le hameau qu'elle a fait arrêter un sénéchal avec un crapaud. C'est presque vrai." },
   { if: { has: "poche:sermon" }, text: "**La page volée.** Ortie ne fouille plus dans les poches des gens. Elle fouille dans les sacs." },
 ],
