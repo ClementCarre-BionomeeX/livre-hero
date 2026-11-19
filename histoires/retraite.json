@@ -4158,7 +4158,7 @@
    "place": "cremerie",
    "text": [
     "Tu lui dis ce que tu as vu. La chaise. L'encrier. Le courant d'air.",
-    "Augustine Salée t'écoute sans un mot. Puis elle prend un couteau et coupe la motte de demi-sel en deux, d'un geste sec, comme on tranche une question.",
+    "Augustine Salée t'écoute. Puis elle prend un couteau et coupe la motte de demi-sel en deux, d'un geste sec, comme on tranche une question.",
     "« Les fonds sont déplacés, dit-elle. Par prudence. Monsieur Sorbier l'a dit au Comité, le mois dernier. Le siècle change, les voleurs rôdent. » Elle enveloppe le beurre dans du papier. « Tu es jeune, Ernestine. Tu vois un coffre vide et tu crois que l'argent n'existe pas. Moi, je vois quatorze retraités payés chaque vendredi. »",
     "Elle te tend le paquet. Ses mains tremblent un peu. Tu ne sais pas si c'est le froid de la boutique.",
     "« Ne répète pas ça au Carrefour, dit-elle. Mille neuf cent douze personnes ont confiance. La confiance, c'est comme le beurre. Ça ne se refait pas, une fois fondu. »"
@@ -4439,7 +4439,7 @@
      "text": "Aujourd'hui, tu ne fais pas du pain pour Mirevaux. Tu fais un pain pour personne en particulier, et surtout pas pour une forgeronne du faubourg qui trouve que ta croûte ressemble à un gourdin. Mie le portera là-bas, *de la part de personne*. Tu le fais quand même parfait. Une question d'honneur."
     },
     "Tu pèses la farine trois fois. Tu prends le levain du fond du pot, le plus vieux, celui que ton père nourrissait déjà quand tu étais au berceau, et qu'il appelait *le patriarche*. Tu pétris à la main, longtemps, en écoutant la pâte. Une bonne pâte a une voix ; elle soupire quand elle est prête.",
-    "Mie te regarde faire sans un mot. Elle ne compte rien. C'est la première fois que tu la vois ne rien compter.",
+    "Mie te regarde faire en silence. Elle ne compte rien. C'est la première fois que tu la vois ne rien compter.",
     "Reste le geste le plus difficile de ton métier : la grigne. Un coup de lame, un seul, en biais, sur la pâte crue. Trop profond, la baguette s'ouvre comme une plaie. Trop léger, elle éclate n'importe où. Le coup juste, c'est celui qu'on ne pense pas."
    ],
    "choices": [
@@ -4490,7 +4490,7 @@
      "if": {
       "has": "pacte=allies"
      },
-     "text": "Tu cours, littéralement, à travers la ville endormie, jusqu'au faubourg. Ernestine t'ouvre avant que tu frappes. Elle prend le torchon des deux mains, comme on reçoit un nouveau-né, et elle l'écoute chanter, penchée au-dessus, sans un mot. Puis elle referme la porte. Elle a du travail."
+     "text": "Tu cours, littéralement, à travers la ville endormie, jusqu'au faubourg. Ernestine t'ouvre avant que tu frappes. Elle prend le torchon des deux mains, comme on reçoit un nouveau-né, et elle l'écoute chanter, penchée au-dessus. Puis elle referme la porte. Elle a du travail."
     },
     {
      "if": {
@@ -5055,7 +5055,7 @@
      "if": {
       "has": "pacte=allies"
      },
-     "text": "On frappe. Barnabé Croûte est sur le seuil, essoufflé, un torchon dans les bras. Il a couru à travers la ville. Tu prends le torchon. Dedans, il y a deux baguettes, dont une plus belle que l'autre. La plus belle est chaude comme un petit animal. Et elle chante : un crépitement de pluie fine, de bois sec, qui monte du torchon jusqu'à ton visage. Tu n'avais jamais écouté un pain. Tu restes penchée au-dessus, sans un mot. Quand tu relèves la tête, il est parti. Il sait qu'on ne parle pas à un forgeron qui a du travail."
+     "text": "On frappe. Barnabé Croûte est sur le seuil, essoufflé, un torchon dans les bras. Il a couru à travers la ville. Tu prends le torchon. Dedans, il y a deux baguettes, dont une plus belle que l'autre. La plus belle est chaude comme un petit animal. Et elle chante : un crépitement de pluie fine, de bois sec, qui monte du torchon jusqu'à ton visage. Tu n'avais jamais écouté un pain. Tu restes penchée au-dessus. Quand tu relèves la tête, il est parti. Il sait qu'on ne parle pas à un forgeron qui a du travail."
     },
     {
      "if": {
@@ -5311,7 +5311,7 @@
    "place": "banque",
    "text": [
     "Tu lui tends une clé. Ta main est parfaitement calme. Mais Isidore, qui se tient derrière son maître, laisse tomber ses yeux, une fraction de seconde, sur la poche de ton tablier, où la troisième clé fait une petite bosse. Sorbier suit son regard.",
-    "Il sourit. Il tend de nouveau la main, sans un mot.",
+    "Il sourit. Il tend de nouveau la main, en silence.",
     "Tu lui donnes la troisième clé. Il les fait sauter toutes les deux dans sa paume, comme des dés. « L'acier est une affaire de confiance, Mademoiselle Chrome. Comme l'argent. » Il les met dans son gilet.",
     "Isidore regarde le mur. Son visage ne dit rien. Mais tu sais maintenant qu'il voit tout."
    ],
@@ -5402,7 +5402,7 @@
    "text": [
     "Isidore attend devant ta porte, dans le froid, droit, ganté, depuis on ne sait combien de temps. Il a l'air d'une statue qu'on aurait livrée à la mauvaise adresse.",
     "« Monsieur souhaite seize cerclages d'acier, pour des malles. En acier qui ne rouille pas. Pour un long voyage. » Il te tend un papier avec des mesures, d'une écriture penchée et parfaite. « Pour ce soir. »",
-    "Seize cerclages. Quatre malles. Un long voyage. Tu les forges pendant qu'il attend, assis sur le banc près du feu, à côté de Mémé Chrome. Ils se tiennent tous les deux très droits, sans un mot, comme deux personnes qui se reconnaissent.",
+    "Seize cerclages. Quatre malles. Un long voyage. Tu les forges pendant qu'il attend, assis sur le banc près du feu, à côté de Mémé Chrome. Ils se tiennent tous les deux très droits, comme deux personnes qui se reconnaissent.",
     "Quand tu as fini, il paie, il range les cerclages dans un sac de toile, et il se lève."
    ],
    "choices": [
@@ -5527,7 +5527,7 @@
      "if": {
       "has": "e:gratin_honnete"
      },
-     "text": "Tu poses l'enveloppe sur l'établi, rabat ouvert, sans la regarder. Tu as été élevée par un homme qui disait qu'on ne lit pas les lettres des autres, même quand elles tombent à vos pieds, surtout quand elles tombent à vos pieds. Tu y penses pendant une heure. Tu ne la lis pas. C'est une forme d'acier, aussi."
+     "text": "Tu poses l'enveloppe sur l'établi, rabat ouvert, les yeux ailleurs. Tu as été élevée par un homme qui disait que les lettres des autres restent aux autres, même quand elles tombent à vos pieds, surtout quand elles tombent à vos pieds. Tu y penses pendant une heure. Tu la laisses où elle est. C'est une forme d'acier, aussi."
     }
    ],
    "choices": [
@@ -5664,7 +5664,7 @@
      },
      "text": "Tu verses. Le métal coule dans le moule avec un bruit de soie déchirée. Ce qui reste au fond du creuset, tu le jettes dans un seau d'eau, où il siffle et se fige en une petite étoile tordue. Tu la donneras plus tard à la petite fille au tablier trop grand."
     },
-    "Puis vous attendez, assis côte à côte sur l'enclume, deux heures, sans un mot. Le froid dans le dos. Le feu devant.",
+    "Puis vous attendez, assis côte à côte sur l'enclume, deux heures. Le froid dans le dos. Le feu devant.",
     "À une heure du matin, tu brises le moule au marteau.",
     "Elle est là. Une baguette d'acier blanc, avec la croûte de Barnabé, ses grignes, ses bulles, la petite cambrure du bout que fait sa main. Elle brille comme un miroir qu'on aurait roulé. Elle pèse comme un gourdin. Elle est belle comme une chose trouvée au fond de la mer.",
     "Et en refroidissant sur l'enclume, elle fait un bruit. Un crépitement minuscule, cristal par cristal. Barnabé tend l'oreille, et toi aussi.",
@@ -6659,7 +6659,7 @@
      "if": {
       "has": "b3=associe"
      },
-     "text": "Tu remets ton torchon à l'employé de la Caisse. Puis Isidore vient te chercher, sans un mot, et te conduit sur l'estrade, à un fauteuil doré, à côté de celui de Sorbier. De là-haut, tu vois toute la Salle : mille neuf cent douze visages tournés vers vous. Tu as l'impression d'être assis sur une enveloppe."
+     "text": "Tu remets ton torchon à l'employé de la Caisse. Puis Isidore vient te chercher, en silence, et te conduit sur l'estrade, à un fauteuil doré, à côté de celui de Sorbier. De là-haut, tu vois toute la Salle : mille neuf cent douze visages tournés vers vous. Tu as l'impression d'être assis sur une enveloppe."
     }
    ],
    "choices": [
@@ -6679,7 +6679,7 @@
    "place": "forge",
    "text": [
     "Tu n'as pas dormi. Tu as passé la nuit assise sur le tabouret, le dos contre le mur chaud de la forge, à regarder refroidir l'acier, comme une mère regarde respirer un enfant malade. À six heures, les cloches des trois églises sonnent la première messe à trois heures différentes, et tu te lèves avec les genoux d'une vieille femme.",
-    "On frappe. Barnabé Croûte est sur le seuil, le torchon sous le bras, le nez rouge, les yeux brillants. Il entre sans un mot. Il regarde l'enclume.",
+    "On frappe. Barnabé Croûte est sur le seuil, le torchon sous le bras, le nez rouge, les yeux brillants. Il entre. Il regarde l'enclume.",
     "Tu enveloppes la n° 1 toi-même, dans le torchon, en la tournant deux fois, comme on emmaillote. Tu la lui donnes. Il la prend à deux mains. Vous restez un moment ainsi, chacun tenant un bout du torchon, et aucun des deux ne lâche le premier.",
     {
      "if": {
