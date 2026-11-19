@@ -88,7 +88,7 @@
       if (!H.suite || !P[H.suite]) E(w + " : suite « " + H.suite + " » inconnue (où l'on va après la scène de la carte).");
       [].concat(H.types || []).forEach(function (t) { if (!M.CARD_TYPES[t]) E(w + " : type « " + t + " » inconnu."); });
     });
-    if (any && !deck.length) W("Jeu : aucun deck (jeu.deck) ; le lecteur n'aura de cartes que celles que l'appli lui donne.");
+    if (any && !deck.length && !story.epreuves) W("Jeu : aucun deck (jeu.deck) ; le lecteur n'aura de cartes que celles que l'appli lui donne.");
     var res = Object.keys(P).filter(function (id) { return P[id].resout; });
     res.forEach(function (id) {
       var r = P[id].resout, w = "§ " + id + " (résolution)";
