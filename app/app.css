@@ -1388,3 +1388,6 @@ button.pp.pp-face-btn { border-bottom: 0; display: inline-flex; align-items: cen
 .reserve-give .btn { flex: 1 1 auto; }
 .card-new { color: var(--accent); }
 .table-row .hand-cards.small-cards .card:not(:disabled) { cursor: pointer; }
+/* A name to write (14.7, story.asks): the shop's sign, before the choice that carries it. */
+.choices .ask { margin: 6px 0 10px; gap: 6px; }
+.choices .ask .ask-input { width: 100%; max-width: 420px; padding: 10px; font-size: 1.15em; font-family: inherit; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); color: var(--ink); }

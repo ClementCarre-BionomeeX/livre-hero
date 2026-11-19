@@ -1941,7 +1941,9 @@
     }))));
     else w.appendChild(h("div", { class: "stack" }, h("span", { class: "label" }, "Ton nom"), nameIn));
     // How the text speaks of the hero (Clément, 13/11, Malvoran): the engine fills {e} from s.fem ("assis{e}").
-    if ((!st.heroes || playerHero(st)) && !cast) {
+    // A book that speaks to its hero one way only (story.heroFem, 14.7: « une sorcière »): nothing to choose.
+    if (st.heroFem != null) C.fem = !!st.heroFem;
+    if ((!st.heroes || playerHero(st)) && !cast && st.heroFem == null) {
       var gd = h("div", { class: "row" });
       [[false, "Au masculin (« tu es assis »)"], [true, "Au féminin (« tu es assise »)"]].forEach(function (g) {
         gd.appendChild(h("button", { type: "button", class: "btn sm" + (!!C.fem === g[0] ? " primary" : " ghost"), "aria-pressed": !!C.fem === g[0] ? "true" : "false", onclick: function () { C.fem = g[0]; render(); } }, g[1]));
@@ -2731,6 +2733,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "14.7", items: ["Nouvelle histoire, « La Sorcière de Vergeronde » : une boutique de potions au fond des bois, une petite sœur très pénible, et une forêt qui grisonne. On cueille, on prépare, on vend, et l'on choisit soi-même le nom de sa boutique. Six fins.", "Nouveau : la cueillette (les plantes repoussent), le comptoir et ses clients (chacun demande quelque chose, on le sert ou l'on s'excuse), les recettes qu'on prépare plusieurs fois, et un champ où écrire sa propre réponse."] },
     { v: "14.6", items: ["Nouvelle histoire à trois, « Le Grand Raccordement », troisième livre de Croûte & Chrome : le jour de l'Effondrement. Deux joueurs sont Basile et Salée ; le troisième joue l'Enjambeur, le meneur, qui distribue les cartes de chaque épreuve dans leurs mains. Six fins.", "Épreuves d'un meneur : le meneur fait sa donne depuis une réserve (le livre refuse une donne que personne ne pourrait ouvrir), chacun pose une carte face cachée, et l'on retourne ensemble. Une paire posée par les deux joueurs l'emporte sur une carte seule. La ferveur paie les cartes rares et les signes."] },
     { v: "14.5", items: ["Nouvelle histoire à deux joueurs, « La Super Retraite », dans l'univers de Croûte & Chrome : Mirevaux, fin 1899, un boulanger, une forgeronne, une caisse qui promet tout, et la toute première baguette d'acier. Huit fins.", "Bibliothèque : nouveau filtre « Série » ; « La Grande Fonte » et « La Super Retraite » y sont rangées sous « Croûte 'n Chrome »."] },
     { v: "14.4", items: ["Nouvelle histoire, « La Grande Fonte », dans l'univers de Croûte & Chrome : deux héros, le Motard des ruines et le majordome Octave, un ange de beurre qui fond au soleil, huit fins.", "Bibliothèque : nouveau genre « Humour » dans les filtres."] },
@@ -3235,6 +3238,8 @@
     accuse: ["L'accusation", "En trois temps : qui, pourquoi, et la preuve. Chacun des trois compte à part."],
     silence: ["Te taire", "Se taire est un choix comme un autre, et il a ses suites."],
     atelier: ["L'établi", "Deux objets du sac peuvent en faire un troisième, quand on sait comment."],
+    cueillette: ["La cueillette", "Ce qui pousse ici va dans ton sac. Une plante cueillie repousse : il faut revenir un autre jour."],
+    comptoir: ["Le comptoir", "Aux heures d'ouverture, fais entrer les clients un par un. Chacun demande une chose : vends-la si tes étagères en ont, sinon excuse-toi. Chaque client prend une heure."],
   };
   function firstUse(G, v) {
     if (G.multi && A.multi && A.multi.kind !== "local") return null;
@@ -3248,6 +3253,7 @@
     if (v.battle) keys.push("battle"); if (v.council) keys.push("council"); if (v.puzzle) keys.push("puzzle");
     if (p.aparte) keys.push("aparte"); if (v.souvenir) keys.push("souvenir"); if (v.interlude) keys.push("interlude");
     if (p.atelier) keys.push("atelier");
+    if (p.gather) keys.push("cueillette"); if (p.comptoir) keys.push("comptoir");
     cs.forEach(function (c) { if (c.sys === "montrer") keys.push("montrer"); if (c.sys === "accuse") keys.push("accuse"); if (c.silence) keys.push("silence"); });
     var key = keys.filter(function (k) { return FIRST_USE[k] && !seen[k]; })[0];
     if (!key) return null;
@@ -3681,7 +3687,7 @@
     }
     return box;
   }
-  var GROUPS = { doute: "Ce que tu ne crois pas", duel: "Ta lame", enigme: "L'énigme", conseil: "Le vote", bataille: "Tes ordres", dette: "Ce que tu dois", jeu: "À la table", route: "Prendre la route", shop: "Acheter et vendre", fight: "Que fais-tu ?", order: "Ce tour, tes compagnons · un ordre gratuit chacun ; sans ordre, ils agissent à leur guise", lead: "Qui mène ? · changer de héros ne coûte rien" };
+  var GROUPS = { doute: "Ce que tu ne crois pas", duel: "Ta lame", enigme: "L'énigme", conseil: "Le vote", bataille: "Tes ordres", dette: "Ce que tu dois", jeu: "À la table", route: "Prendre la route", shop: "Acheter et vendre", fight: "Que fais-tu ?", order: "Ce tour, tes compagnons · un ordre gratuit chacun ; sans ordre, ils agissent à leur guise", lead: "Qui mène ? · changer de héros ne coûte rien", cueillette: "Ce qui pousse ici", comptoir: "Le comptoir", client: "Ce qu'on te demande" };
   // The « coup de pouce » (option for young readers, Clément, 12/11): NUDGES_PER_ACT per act, kept in the game.
   var NUDGES_PER_ACT = 2;
   function nudgesLeft(G) { var used = (G.s.nudges || {})[G.s.lastAct || "_"] || 0; return Math.max(0, NUDGES_PER_ACT - used); }
@@ -3888,6 +3894,8 @@
     v.choices.forEach(function (c) {
       if (c.restart || c.ui) return;   // a choice the page draws itself (a puzzle's « Essayer »)
       nth++;
+      // A name to write (14.7, story.asks): the field, then the passage's own button, which carries the answer.
+      if (c.sys === "ask") { box.appendChild(renderAsk(c)); return; }
       var g = c.group || null;
       if (g !== lastGroup && GROUPS[g]) box.appendChild(h("div", { class: "label group-label" }, GROUPS[g]));
       lastGroup = g;
@@ -3906,6 +3914,18 @@
     // Paths that unveil (8.9): the ways still closed here are counted, not named.
     if (v.locked) box.appendChild(h("p", { class: "locked-ways small muted" }, "🔒 " + (v.locked > 1 ? NUMBER_WORDS[v.locked] || v.locked : "Un") + (v.locked > 1 ? " autres chemins partent d'ici. D'autres parties les ouvriront." : " autre chemin part d'ici. Une autre partie l'ouvrira.")));
     return box;
+  }
+  // Intent: renderAsk(Choice) -> Element = a text field and the button that gives its words to the story (« Le nom de ta
+  // boutique »). An empty field takes the story's own name. Why: Clément, 19/11 — his daughter names her shop.
+  function renderAsk(c) {
+    var I = c.input || {}, key = (A.game && A.game.s.node) + "|" + c.ask;
+    A.askText = A.askText && A.askText.key === key ? A.askText : { key: key, text: "" };
+    var go = function () { pick(Object.assign({}, c, { answer: A.askText.text })); };
+    var inp = h("input", { type: "text", class: "ask-input", value: A.askText.text, maxlength: I.max || 40, placeholder: I.hint || I.def || "", "aria-label": I.label || "Ta réponse", autocomplete: "off",
+      oninput: function (e) { A.askText.text = e.target.value; }, onkeydown: function (e) { if (e.key === "Enter") { e.preventDefault(); go(); } } });
+    return h("div", { class: "ask stack" }, I.label ? h("span", { class: "label" }, I.label) : null, inp,
+      I.def ? h("span", { class: "small muted" }, "Sans rien écrire : « " + I.def + " ».") : null,
+      h("button", { class: "choice big", onclick: go }, h("span", null, c.label)));
   }
   // Intent: renderCompare(Story, Mine) -> Element = where the other readers of the house (and this reader's earlier
   // games) took another way: the page, their choice, yours; how many pages they read that you never saw; their ending

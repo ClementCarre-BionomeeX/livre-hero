@@ -589,3 +589,25 @@ Demande de Clément (17/11) : des histoires courtes à faire deux fois, différe
 Ce que le moteur garantit : la lecture est dite au début de la partie ; la fin dit quelle lecture elle clôt, et le bouton « Commencer la seconde lecture » remplace « Relire » après la première ; la bibliothèque range ces livres sur leur rayon (« À lire deux fois ») et dit où le lecteur en est. Le validateur joue des premières et des secondes lectures et refuse (ERREUR) une première lecture qui finit ailleurs que sur `first`, ou une seconde ailleurs que sur `second` ; il vérifie les autres réponses (id, forme, cible) et les énigmes en suspens (ni essais ni échec). Les parties d'essai trouvent la réponse cachée d'une devinette une fois sur deux, et en seconde lecture se souviennent d'une réponse sur deux.
 
 Genre à déclarer : `enigmes` (« Énigmes ») pour un livre qui en fait son cœur. Exemple de test : `tests/deuxfois-test.js`.
+
+## La boutique (19/11, 14.7) : cueillir, préparer, vendre, nommer
+
+Demande de Clément (19/11) pour sa fille : tenir une boutique de potions dans les bois (trouver les ingrédients, préparer, vendre), choisir le nom de la boutique, et une grande intrigue autour. Le moteur tient la boucle (repousse, clients, prix, temps) ; l'histoire déclare.
+
+| Où | Clé | Sens |
+|---|---|---|
+| passage | `gather: [{ item, n, every, takes, test, fail, say, fx, if, when, label, verb }]` | Ce qui pousse ici. Un bouton par plante (groupe « Ce qui pousse ici »), grisé tant qu'elle n'a pas repoussé : `every` jours (1 par défaut). `takes` : heures passées (1). `test` : un jet (`fail.say`, `fail.fx`) ; raté, on revient le lendemain. `n` : combien on en cueille. |
+| `story` | `asks: { id: { def, max, hint, label, say } }` | Une réponse que le lecteur écrit lui-même (le nom de la boutique). `def` : la réponse si l'on n'écrit rien ; `max` : longueur (40 au plus). Le moteur nettoie le texte (pas de balises). |
+| passage | `ask: "id"` | Sur une page qui a un seul choix ordinaire : le choix devient un champ à remplir et un bouton. La réponse est gardée dans la partie. |
+| texte | `{nom:id}` | La réponse écrite (ou `def`). |
+| `story` | `clients: { open: [9, 19], every, label, closed, none, rep, list: [...] }` | Les clients. `open` : heures d'ouverture ; `every` : heures entre deux clients ; `rep` : la jauge (stock) que chaque vente fait monter. |
+| client | `{ id, to, wants, pay, tip, prio, once, max, if, act, weight, thanks, served, away, rep, fx, sell }` | `to` : sa page. `wants` : ce qu'il peut demander (un objet, ou `{ item, if }`) ; le moteur en tire un. `pay` : multiplie le prix de l'objet ; `tip` : en plus. `prio` : vient avant les autres, une fois, quand son `if` tient (un client de l'histoire). `max` : visites au plus. `sell: false` : une visite qui n'achète rien (la page porte ses propres choix). |
+| passage | `comptoir: true` | Le comptoir : « Ouvrir la porte au client suivant », grisé hors des heures ou quand personne n'attend. Sur la page du client, le moteur ajoute « Lui vendre » (grisé si l'étagère est vide, avec le prix) et « T'excuser ». |
+| paragraphe | `if: { voeu: "objet" }` | La ligne qui dit pourquoi le client veut cet objet. `{voeu}` dans un texte : ce qu'il demande (`un` de l'objet). |
+| recette | `verb`, `made`, `takes`, `n`, `known`, `test`, `fail` | Le mot du bouton (« Préparer »), le mot du constat, les heures passées, combien de flacons, une recette montrée grisée avant d'avoir ses ingrédients, un jet de chaudron (le pourcentage est affiché) et ce que donne un raté. `of` peut répéter un ingrédient (deux langues-de-cerf). |
+| condition | `{ item: "x", n: 3 }` | Au moins trois exemplaires. Les objets `unique: false` s'empilent. |
+| condition | `{ hour: { min, max } }` | L'heure du jour (`max` exclu). |
+| condition | `{ answered: "id" }` | Le lecteur a déjà répondu. |
+| `story` | `heroFem: true` | Héroïne imposée : l'écran de création n'offre pas le choix. |
+
+Ce que le moteur garantit : les plantes repoussent seules ; un client ne vient qu'une fois par jour ; le prix suit la renommée et les `moves` ; les visites de l'histoire (`prio`) passent avant les autres ; la page d'un client n'est jamais une impasse. Exemple : `histoires/src/potions/`.

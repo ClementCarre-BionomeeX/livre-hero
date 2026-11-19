@@ -125,7 +125,7 @@ check(B.sortKey({ title: "Le Monde perdu" }) === "monde perdu" && B.sortKey({ ti
     await card.getByRole("button", { name: "En savoir plus" }).click();
     await pg.locator(".book", { hasText: "Croc-Blanc" }).locator(".book-tags .chip", { hasText: "Nature et animaux" }).click();
     var nat = await titles(pg);
-    check(nat.length === 2 && nat.indexOf("Croc-Blanc") >= 0 && nat.indexOf("Le Monde perdu") >= 0, "genre « Nature et animaux » depuis la fiche : " + nat.join(" | "));
+    check(nat.length === 3 && nat.indexOf("Croc-Blanc") >= 0 && nat.indexOf("Le Monde perdu") >= 0 && nat.indexOf("La Sorcière de Vergeronde") >= 0, "genre « Nature et animaux » depuis la fiche : " + nat.join(" | "));
     // Progress of the reader
     await pg.locator(".lib-chosen button", { hasText: "Tout effacer" }).click();
     await pg.click(".lib-filter-btn");
