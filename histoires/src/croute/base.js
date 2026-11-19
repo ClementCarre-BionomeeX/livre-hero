@@ -10,6 +10,7 @@ module.exports = {
   subtitle: "Croûte & Chrome · un motard des ruines, un majordome, et un ange de beurre qui fond",
   summary: "Au Carrefour de Mirevaux, ville en ruines, le Grand Enjambeur fond. Les motards des Demi-Sel comptent les gouttes : quand l'ange de beurre aura coulé tout entier, disent-ils, le monde finira une seconde fois. Au même moment, de l'autre côté du désert, derrière des grilles dorées qui ne s'ouvrent jamais, un milliardaire apprend en pleurant que sa baguette d'inox de cent vingt-sept ans n'est que la seconde. Tu suis tour à tour un motard qui crie et un majordome qui se tait. Le beurre fond. Le chrome reste. Le reste dépend de toi.",
   tags: ["aventure", "voyage", "humour"],
+  serie: "Croûte 'n Chrome",
   author: "Claude, pour Clément",
   age: 10,
   skin: "sable",
