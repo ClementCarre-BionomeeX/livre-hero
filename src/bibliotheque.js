@@ -1,9 +1,9 @@
 "use strict";
 // The library's shelves: what kind of book each one is, and how a reader finds one among many.
 // Intent: card(Story) -> StoryMeta = the library card of a book (the fields the home page reads without the text).
-// Intent: facets(StoryMeta) -> { type, joueurs, longueur, public, auteur, genres } = what a book is, said once here:
-// a story declares only its genres (`tags`); the rest comes from what it already declares (lecture, cartes, multi,
-// adult, author, its size).
+// Intent: facets(StoryMeta) -> { type, joueurs, longueur, public, auteur, serie, genres } = what a book is, said once
+// here: a story declares only its genres (`tags`) and its series (`serie`, Clément 19/11: « Croûte 'n Chrome »); the
+// rest comes from what it already declares (lecture, cartes, multi, adult, author, its size).
 // Intent: search([StoryMeta], query) -> [{ m, score }] = the books that match, best first, tolerant of typos, accents
 // and missing spaces (« stevensn », « enquete », « huisclos »).
 // Why: Clément, 17/11: « la collection demande un peu de tri » ; tags, search, sort, with fuzzy finding.
@@ -39,6 +39,7 @@
     { k: "longueur", label: "Longueur", values: [["court", "Court"], ["moyen", "Moyen"], ["long", "Long"]] },
     { k: "genres", label: "Genres", values: GENRES.map(function (g) { return [g.k, g.label]; }) },
     { k: "public", label: "Public", values: [["tous", "Pour tous"], ["adulte", "Thèmes adultes"]] },
+    { k: "serie", label: "Série", values: null },     // the series of the library (`serie`), found in it
     { k: "auteur", label: "Auteur", values: null },   // the authors of the library, found in it
   ];
   // Words a reader may type for a facet's value (searched like the rest of the card).
@@ -63,7 +64,7 @@
   function card(st) {
     return { id: st.id, title: st.title, subtitle: st.subtitle || "", summary: st.summary || "", version: st.version || 1,
       acts: (st.acts || []).length, passages: Object.keys(st.passages || {}).length, words: wordCount(st),
-      multi: st.multi || null, kid: st.kid || null, adult: st.adult || null, cover: st.cover || null, age: st.age || null, author: st.author || null,
+      multi: st.multi || null, kid: st.kid || null, adult: st.adult || null, cover: st.cover || null, age: st.age || null, author: st.author || null, serie: st.serie || null,
       lecture: !!st.lecture, cartes: !!st.cartes, twice: !!st.twice, tags: Array.isArray(st.tags) ? st.tags.slice() : [] };
   }
   // « R. L. Stevenson · traduction de… » -> « R. L. Stevenson » ; « Claude, pour Clément » -> « Claude »
@@ -77,11 +78,12 @@
       longueur: !n ? null : n < lo[0] ? "court" : n < lo[1] ? "moyen" : "long",
       public: m.adult ? "adulte" : "tous",
       auteur: authorName(m.author) || null,
+      serie: m.serie || null,
       genres: (m.tags || []).filter(function (t) { return GENRE[t]; }),
     };
   }
   function label(facet, v) {
-    if (facet === "auteur") return v;
+    if (facet === "auteur" || facet === "serie") return v;
     var f = FACETS.filter(function (x) { return x.k === facet; })[0], hit = f && f.values && f.values.filter(function (x) { return x[0] === v; })[0];
     return hit ? hit[1] : v;
   }
@@ -139,6 +141,7 @@
     var key = m.id + "|" + (m.version || 1) + "|" + m.title;
     if (cache[key]) return cache[key];
     var f = facets(m), kinds = [], labels = [];
+    if (f.serie) { kinds.push(f.serie); labels.push(fold(f.serie)); }
     f.genres.forEach(function (g) { kinds.push(GENRE[g].label, GENRE[g].also); labels.push(fold(GENRE[g].label)); });
     ["type", "joueurs", "longueur", "public"].forEach(function (k) { if (f[k]) { kinds.push(label(k, f[k])); labels.push(fold(label(k, f[k]))); if (FACET_WORDS[k + ":" + f[k]]) kinds.push(FACET_WORDS[k + ":" + f[k]]); } });
     // Each field: its words, and two words run together (« huisclos », « conandoyle »), found whole or by their start.

@@ -98,13 +98,20 @@ check(B.sortKey({ title: "Le Monde perdu" }) === "monde perdu" && B.sortKey({ ti
     await pg.locator(".lib-panel .chip", { hasText: "Pour tous" }).click();   // take the device's filter off
     await pg.locator(".lib-panel .chip", { hasText: "À deux" }).click();
     var two = await titles(pg);
-    check(two.length === 3, "« À deux » : " + two.join(" | "));
+    check(two.length === 4, "« À deux » : " + two.join(" | "));
     await pg.locator(".lib-panel .chip", { hasText: "Fantasy" }).click();
     var two2 = await titles(pg);
     check(two2.length === 2 && two2.indexOf("Le Pli de Brumefond") < 0, "« À deux » + « Fantasy » : " + two2.join(" | "));
     if (shots) await pg.screenshot({ path: path.join(shots, "3-telephone-filtres.png"), fullPage: false });
     await pg.locator(".lib-panel button", { hasText: "Fermer les filtres" }).click();
     check(await pg.locator(".lib-chosen .chip").count() === 2, "les filtres choisis ne restent pas affichés une fois le panneau fermé");
+    await pg.locator(".lib-chosen button", { hasText: "Tout effacer" }).click();
+    // Series (Clément 19/11): « Croûte 'n Chrome » gathers its books
+    await pg.click(".lib-filter-btn");
+    await pg.locator(".lib-panel .chip", { hasText: "Croûte 'n Chrome" }).click();
+    var serie = await titles(pg);
+    check(serie.length === 2 && serie.indexOf("La Grande Fonte") >= 0 && serie.indexOf("La Super Retraite") >= 0, "série « Croûte 'n Chrome » : " + serie.join(" | "));
+    await pg.locator(".lib-panel button", { hasText: "Fermer les filtres" }).click();
     await pg.locator(".lib-chosen button", { hasText: "Tout effacer" }).click();
     // Orders
     await pg.selectOption(".lib-sort", "titre");
