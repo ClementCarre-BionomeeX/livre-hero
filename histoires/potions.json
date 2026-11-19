@@ -3172,7 +3172,7 @@
   },
   {
    "id": "II_page",
-   "act": "II",
+   "act": "III",
    "kind": "annexe",
    "title": "La page arrachée",
    "start": "B_page_indice",
@@ -3180,7 +3180,7 @@
   },
   {
    "id": "II_ornieres",
-   "act": "II",
+   "act": "III",
    "kind": "annexe",
    "title": "Les ornières de la nuit",
    "start": "B_cahots",
@@ -6859,7 +6859,6 @@
    ]
   },
   "B_page_indice": {
-   "act": "II",
    "title": "Ce que dit Bistre",
    "place": "boutique",
    "with": "ortie",
@@ -6882,7 +6881,6 @@
    ]
   },
   "B_chene": {
-   "act": "II",
    "title": "Le chêne creux",
    "place": "combe",
    "fx": {
@@ -6913,7 +6911,6 @@
    ]
   },
   "B_tiennot_reveil": {
-   "act": "II",
    "title": "Tiennot",
    "place": "hameau",
    "fx": {
@@ -7051,7 +7048,6 @@
    ]
   },
   "B_ornieres": {
-   "act": "II",
    "title": "Les ornières",
    "place": "lisiere",
    "fx": {
@@ -7483,7 +7479,6 @@
    ]
   },
   "B_lison_reveil": {
-   "act": "II",
    "title": "Lison",
    "place": "boutique",
    "fx": {
@@ -9553,6 +9548,12 @@
     "quest": "II_ornieres"
    },
    "text": "**Les ornières.** Tu as suivi les ornières du vieux chemin jusqu'au tonneau tombé. Le chemin a été barré l'hiver suivant."
+  },
+  {
+   "if": {
+    "quest": "III_malbec"
+   },
+   "text": "**Le sénéchal.** Le bois de Vergeronde se passe désormais de sénéchal. La comtesse fait ses comptes elle-même, le dimanche, avec une plume d'oie et beaucoup de soupirs."
   },
   {
    "if": {

@@ -21,7 +21,7 @@ module.exports = {
     ],
   },
   B_page_indice: {
-    act: "II", title: "Ce que dit Bistre", place: "boutique", with: WITH,
+    title: "Ce que dit Bistre", place: "boutique", with: WITH,
     fx: { conf: { ortie: 5 } },
     text: [
       "Ortie te tire par le tablier jusqu'à l'escalier, où Bistre est assis sur la troisième marche, la queue enroulée autour des pattes, l'air d'un notaire qui attend qu'on vienne signer.",
@@ -33,7 +33,7 @@ module.exports = {
     choices: [{ back: "H_boutique" }],
   },
   B_chene: {
-    act: "II", title: "Le chêne creux", place: "combe",
+    title: "Le chêne creux", place: "combe",
     fx: { flag: "recette:eveil", item: ["page_eveil", "rosee", "rosee", "rosee"], quest: "II_page", ep: ["seance", 400] },
     text: [
       "Le chêne creux est mort depuis cent ans, et debout par entêtement. Son tronc s'ouvre à hauteur d'enfant sur une cavité noire qui sent le bois pourri, la terre et le champignon. Tu y passes le bras jusqu'à l'épaule, en évitant de penser à ce qui pourrait y vivre.",
@@ -45,7 +45,7 @@ module.exports = {
     choices: [{ back: "H_combe" }],
   },
   B_tiennot_reveil: {
-    act: "II", title: "Tiennot", place: "hameau",
+    title: "Tiennot", place: "hameau",
     fx: { flag: "tiennot:reveille", quest: "II_tiennot", stock: { renommee: 4 }, regard: { ferrand: "redevable" }, ep: ["seance", 400] },
     text: [
       "Tu glisses le flacon entre les lèvres grises de Tiennot, goutte à goutte, et la potion d'éveil luit faiblement dans sa bouche ouverte, comme un ciel avant le soleil.",
@@ -94,7 +94,7 @@ module.exports = {
     choices: [{ label: "Te glisser dans ton lit, transie", takes: 2, fx: { flag: "t:brunet" }, to: "H_chambre" }],
   },
   B_ornieres: {
-    act: "II", title: "Les ornières", place: "lisiere",
+    title: "Les ornières", place: "lisiere",
     fx: { item: "tonneau_douve", clue: "g_tonneau", flag: "ornieres:suivies", quest: "II_ornieres", ep: ["seance", 300] },
     text: [
       "Au jour, le vieux chemin des charrettes parle. Deux ornières profondes y montent vers le nord, fraîches, découpées dans la terre molle, et elles redescendent à côté, plus profondes encore : la charrette est remontée vide et revenue lourde. Les sabots des mulets n'ont pas laissé de fers, seulement des empreintes rondes et floues, comme si on les avait enveloppés.",
@@ -251,7 +251,7 @@ module.exports = {
     choices: [{ back: "H_boutique" }],
   },
   B_lison_reveil: {
-    act: "II", title: "Lison", place: "boutique",
+    title: "Lison", place: "boutique",
     fx: { flag: ["lison:reveillee", "gaspard:avoue", "t:gaspard"], quest: "III_lison", stock: { renommee: 3 }, regard: { gaspard: "redevable" }, ep: ["seance", 400] },
     text: [
       "La potion d'éveil luit entre les lèvres grises de Lison, et le gris recule comme une marée qui descend. Lison éternue, ouvre les yeux, voit son père, et lui dit, d'une voix faible mais très nette : « Tu as encore payé le sel trop cher. »",
