@@ -8,7 +8,7 @@
   var B = typeof module !== "undefined" && module.exports ? require("./bibliotheque.js") : root.Bibliotheque;
 
   var COND_KEYS = ["voie", "trouvaille", "trouvailles", "is", "count", "has", "not", "all", "any", "clues", "clue", "mark", "present", "loyal", "met", "gone", "conf", "fear", "relics", "relic",
-    "given", "item", "gold", "food", "pv", "clock", "fac", "level", "day", "since", "night", "seen", "arch", "quest", "place", "known", "person", "party",
+    "given", "item", "hour", "voeu", "answered", "gold", "food", "pv", "clock", "fac", "level", "day", "since", "night", "seen", "arch", "quest", "place", "known", "person", "party",
     "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "via", "regard", "fresh", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed",
     "temps", "saison", "blessure", "cicatrice", "fatigue", "trait", "duel",
     "recit", "doute", "dementi", "silences", "geste", "poids", "angoisse", "attache",
@@ -185,6 +185,7 @@
     ["companions", "factions", "relics", "mysteries", "clues"].forEach(function (k) { story[k] = story[k] || {}; });
     story.quests = story.quests || []; story.banter = story.banter || [];
     var P = story.passages, acts = {};
+    var SHOP = shopIndex(story), counters = SHOP.counters, clientPages = SHOP.clientPages;
     story.acts.forEach(function (a) { acts[a.id] = a; if (!P[a.start]) E("Acte " + a.id + " : son passage de départ « " + a.start + " » n'existe pas."); });
     if (!P[story.start]) E("Le passage de départ « " + story.start + " » n'existe pas.");
     Object.keys(story.clues).forEach(function (k) { if (!story.mysteries[story.clues[k].rev]) E("Indice " + k + " : mystère « " + story.clues[k].rev + " » inconnu."); });
@@ -622,6 +623,35 @@
       checkCond(R.if, w); checkFx(R.fx, w);
       if (!Object.keys(P).some(function (id) { return P[id].atelier || (R.anywhere && P[id].hub); })) E(w + " : aucun passage atelier où l'assembler.");
     });
+    // 14.7, a shop of one's own: what grows (gather), the names the reader writes (asks), the clients at the counter.
+    Object.keys(P).forEach(function (id) {
+      var p = P[id], w = "§ " + id;
+      (p.gather || []).forEach(function (g, i) {
+        if (!items[g.item]) E(w + " : cueillette " + (i + 1) + ", objet « " + g.item + " » inconnu.");
+        else if (items[g.item].unique !== false && (g.n || 1) > 1) E(w + " : cueillette de « " + g.item + " » par " + g.n + " alors que l'objet est unique (unique: false).");
+        if (g.test && DOM_KEYS.indexOf(g.test.dom) < 0) E(w + " : cueillette, domaine « " + g.test.dom + " » inconnu.");
+        checkCond(g.if, w); checkFx(g.fx, w);
+      });
+      if (p.ask) {
+        if (!(story.asks || {})[p.ask]) E(w + " : ask « " + p.ask + " » inconnu (story.asks).");
+        if ((p.choices || []).filter(function (c) { return !c.sys; }).length !== 1) E(w + " : un passage ask porte un seul choix, celui qui donne la réponse.");
+      }
+      if (p.comptoir && !story.clients) E(w + " : comptoir sans story.clients.");
+    });
+    if (story.clients) {
+      if (!counters.length) E("Clients : aucun passage comptoir.");
+      var cIds = {};
+      (story.clients.list || []).forEach(function (e, i) {
+        var w = "Client " + (e.id || i + 1);
+        if (!e.id) E(w + " : sans id."); else if (cIds[e.id]) E(w + " : id en double."); cIds[e.id] = 1;
+        if (!P[e.to]) E(w + " : passage « " + e.to + " » inconnu.");
+        if (!(e.wants || []).length && e.sell !== false) E(w + " : ne demande rien (wants).");
+        (e.wants || []).forEach(function (x) { var it = typeof x === "string" ? x : x.item; if (!items[it]) E(w + " : demande « " + it + " », objet inconnu."); else if (!items[it].price) E(w + " : « " + it + " » n'a pas de prix (price)."); if (typeof x === "object") checkCond(x.if, w); });
+        [e.served, e.away].forEach(function (x) { if (x && !P[x]) E(w + " : passage « " + x + " » inconnu."); });
+        if (story.clients.rep && !(story.stocks || {})[story.clients.rep]) E("Clients : réserve « " + story.clients.rep + " » inconnue (story.stocks).");
+        checkCond(e.if, w); checkFx(e.fx, w);
+      });
+    }
     (story.vigils || []).forEach(function (v, i) {
       var w = "Veillée " + (i + 1) + " (" + v.to + ")";
       if (!P[v.to]) E(w + " : passage inconnu.");
@@ -945,7 +975,7 @@
       if (p.end) { ends++; return; }
       if (p.combat) { checkFight(p.combat, where); eachFx(p, function (fx) { checkFx(fx, where); }); return; }
       // back: true on the passage: the engine adds the way back to the crossroads the reader came from (7.9).
-      if ((!Array.isArray(p.choices) || !p.choices.length) && !p.routes && !p.shop && !p.back && !p.council && !p.battle && !p.duel && !p.puzzle && !p.halte && !p.epreuve) { E(where + " : aucun choix (seules les fins n'en ont pas)."); return; }
+      if ((!Array.isArray(p.choices) || !p.choices.length) && !p.routes && !p.shop && !p.back && !(clientPages[id] && clientPages[id].some(function (e) { return e.sell !== false; })) && !p.council && !p.battle && !p.duel && !p.puzzle && !p.halte && !p.epreuve) { E(where + " : aucun choix (seules les fins n'en ont pas)."); return; }
       if (p.place && !places[p.place]) E(where + " : lieu « " + p.place + " » inconnu.");
       if (p.shop && !(story.shops || {})[p.shop]) E(where + " : boutique « " + p.shop + " » inconnue.");
       if (p.urgent != null && !(typeof p.urgent === "number" && p.urgent >= 5 && p.urgent <= 120)) E(where + " : tag urgent, un nombre de secondes entre 5 et 120.");
@@ -1100,6 +1130,7 @@
     opts = opts || {};
     var games = opts.games || 1200, maxSteps = opts.maxSteps || 4000;
     var P = story.passages, ids = Object.keys(P);
+    var SHOP = shopIndex(story), counters = SHOP.counters, clientPages = SHOP.clientPages;
     var seen = {}, endings = {}, errs = {}, dead = {}, loops = {}, guards = {}, questDone = {}, taken = {}, allowedCount = {}, levelAtEnd = {};
     var archs = Object.keys(M.ARCHS), modes = ["uniform", "curious", "explore", "win", "lose", "explore"];
     // Snapshots: a few states kept per passage (reservoir), so that a passage random games never reached can be
@@ -1172,6 +1203,9 @@
       // 8.1: the encounters at sea come on any crossroads; the vigils, on a passage marked veillee.
       if (p.hub && story.encounters) (story.encounters.list || []).forEach(function (e) { add(e.to); });
       if (p.veillee) (story.vigils || []).forEach(function (v) { add(v.to); });
+      // 14.7: the counter brings its clients in; a client's page goes back to the counter (or to its served / away page).
+      if (p.comptoir && story.clients) (story.clients.list || []).forEach(function (e) { add(e.to); });
+      if (clientPages[id]) clientPages[id].forEach(function (e) { if (e.sell === false) return; add(e.served); add(e.away); if (!e.served || !e.away) counters.forEach(function (c) { add(c); }); });
       // 8.2: after a duel or a puzzle, and the dreams on waking.
       if (p.duel && (story.duels || {})[p.duel]) { add(story.duels[p.duel].win.to); add(story.duels[p.duel].lose.to); }
       if (p.puzzle && (story.puzzles || {})[p.puzzle]) { var ZZ = story.puzzles[p.puzzle]; if (ZZ.win.to) add(ZZ.win.to); if (ZZ.lose && ZZ.lose.to) add(ZZ.lose.to); (ZZ.alt || []).forEach(function (a) { if (a.to) add(a.to); }); }
@@ -1320,7 +1354,7 @@
               if (seen[target] || v.kind === "end") { if (v.kind === "end" && P[s.node]) endings[s.node] = (endings[s.node] || 0) + 1; break; }
               if (s.node === "@accuse" && s.acc && s.acc.step === "qui" && rnd() > wander) { var sa = accuseSearch(s, d); if (sa) { s = sa; continue; } }
               tryContra(s, 1, rnd); tryDoubt(s, 1, rnd);
-              var cs = v.choices.filter(function (c) { if (c.ok && !c.sys) allowedCount[s.node + " | " + c.label] = 1; return c.ok && !c.restart; });
+              var cs = v.choices.filter(function (c) { if (c.ok && (!c.sys || c.sys === "ask")) allowedCount[s.node + " | " + c.label] = 1; return c.ok && !c.restart; });
               if (door) { if (!open(door.shut)) break; var kept = cs.filter(function (c) { return !choiceShuts(c, door.shut, target); }); if (kept.length) cs = kept; }
               if (!cs.length) break;
               var scored = cs.map(function (c) { return { c: c, sc: score(c, d, s.node) }; });
@@ -1358,6 +1392,8 @@
     // 12.1: a riddle with two right answers (alt): the reader finds the hidden one about one time in two (always when
     // the search asks for it, pr above 0.95), while it counts.
     function answered(c, s, rnd, pr) {
+      // 14.7: a name to write: the story's own, or a reader's (with a stray brace, which the engine must clean).
+      if (c.sys === "ask") { var NM = ["", "La Marmite d'Ortie", "  Au Chaudron {e} *qui* fume  ", "Chez Moi"]; return Object.assign({}, c, { answer: NM[Math.floor(rnd() * NM.length)] }); }
       if (c.sys !== "puzzleTry" || !s.puzzle) return c;
       var Z = (story.puzzles || {})[s.puzzle.id] || {}, right = [].concat(Z.answer)[0];
       if (Z.kind === "molettes" || Z.kind === "ordre") right = Z.answer;
@@ -1473,7 +1509,7 @@
           return;
         }
         var cs = v.choices.filter(function (c) {
-          if (c.ok && !c.sys) allowedCount[s.node + " | " + c.label] = 1;
+          if (c.ok && (!c.sys || c.sys === "ask")) allowedCount[s.node + " | " + c.label] = 1;
           return c.ok && !c.restart;
         });
         if (!cs.length) { dead[s.node] = (dead[s.node] || 0) + 1; return; }
@@ -1492,7 +1528,7 @@
           if (!pool.length) pool = cs;
           c = pool[Math.floor(rnd() * pool.length)];
         } else c = cs[Math.floor(rnd() * cs.length)];
-        if (!c.sys) taken[s.node + " | " + c.label] = 1;
+        if (!c.sys || c.sys === "ask") taken[s.node + " | " + c.label] = 1;
         try { M.choose(story, s, answered(c, s, rnd, mode === "lose" ? 0.2 : 0.7)); } catch (e) { errs["§ " + s.node + " / « " + String(c.label).slice(0, 40) + " » : " + e.message] = 1; return; }
         tryContra(s, mode === "lose" ? 0.1 : 0.4, rnd); tryDoubt(s, mode === "lose" ? 0.1 : 0.3, rnd);
         s.events.forEach(function (e) { if (/undefined|NaN/.test(e.text)) errs["§ " + s.node + " effet : " + e.text.slice(0, 80)] = 1; });
@@ -1526,6 +1562,12 @@
 
   // Intent: validate(Story, Options) -> Report
   // Blocking problems make the story unplayable; warnings are shown but do not block.
+  // 14.7: the counters of a shop and the pages of its clients (a client's page gets its choices from the engine).
+  function shopIndex(story) {
+    var P = story.passages || {}, counters = Object.keys(P).filter(function (id) { return P[id].comptoir; }), clientPages = {};
+    ((story.clients || {}).list || []).forEach(function (e) { if (e.to) (clientPages[e.to] = clientPages[e.to] || []).push(e); });
+    return { counters: counters, clientPages: clientPages };
+  }
   function validate(story, opts) {
     M.prepare(story);
     var st = staticCheck(story);

@@ -402,7 +402,10 @@
     if ("relics" in c) return rng(s.relics.length, c.relics.min, c.relics.max);
     if ("relic" in c) return s.relics.indexOf(c.relic) >= 0;
     if ("given" in c) return s.given.indexOf(c.given) >= 0;
-    if ("item" in c) return s.items.indexOf(c.item) >= 0;
+    if ("item" in c) return c.n > 1 ? countOf(s, c.item) >= c.n : s.items.indexOf(c.item) >= 0;
+    // A shop of one's own (14.7): the want of the client at the counter.
+    if ("voeu" in c) return !!s.client && [].concat(c.voeu).indexOf(s.client.want) >= 0;
+    if ("answered" in c) return !!(s.answers || {})[c.answered];
     if ("gold" in c) return rng(s.gold, c.gold.min, c.gold.max);
     if ("food" in c) return rng(s.food, c.food.min, c.food.max);
     if ("pv" in c) return rng(s.pv, c.pv.min, c.pv.max);
@@ -413,6 +416,8 @@
     // Days elapsed since a moment the story stamped (fx.stamp): 0 on that day. Without the stamp (older saves), since day 1.
     if ("since" in c) return rng(day(s) - ((s.stamps || {})[c.since] || 1), c.min, c.max);
     if ("night" in c) return isNight(s) === !!c.night;
+    // 14.7: the hour of the day ({ hour: { min, max } }, max excluded): the mist on the pond lies only at dawn.
+    if ("hour" in c) return hour(s) >= (c.hour.min || 0) && hour(s) < (c.hour.max == null ? 24 : c.hour.max);
     // Asked about the passage being read, "seen" means "on an earlier visit": a hub's first-arrival text
     // ({ not: { seen: <itself> } }) would otherwise never show, since entering a passage marks it seen.
     if ("seen" in c) return c.seen === s.node ? s.seen[c.seen] > 1 : !!s.seen[c.seen];
@@ -503,13 +508,14 @@
     if ("loyal" in c) return nameOf(story, c.loyal) + " doit te faire confiance (50 ou plus).";
     if ("relics" in c) return "Il faut " + (c.relics.min || 0) + " reliques en main.";
     if ("relic" in c) return "Il faut : " + ((story.relics || {})[c.relic] || c.relic) + ".";
-    if ("item" in c) return "Il faut : " + item(story, c.item).name + ".";
+    if ("item" in c) return "Il faut : " + item(story, c.item).name + (c.n > 1 ? " ×" + c.n : "") + ".";
     if ("gold" in c) return "Il faut " + money(story, c.gold.min) + ".";
     if ("food" in c) return "Il faut " + c.food.min + " jours de vivres.";
     if ("level" in c) return "Il faut le niveau " + c.level.min + ".";
     if ("quest" in c) return "Il faut d'abord finir « " + questTitle(story, c.quest) + " ».";
     if ("fac" in c) return "Il faut la confiance de " + ((story.factions || {})[c.fac] || c.fac) + ".";
     if ("known" in c) return "Tu ne connais pas encore ce lieu.";
+    if ("hour" in c) return "Pas à cette heure-ci" + (c.hour.min != null ? " : à partir de " + c.hour.min + " h" : "") + (c.hour.max != null ? (c.hour.min != null ? ", avant " : " : avant ") + c.hour.max + " h" : "") + ".";
     if ("savoir" in c || "lu" in c || "second" in c) return "Une autre partie ouvrira ce chemin.";
     if ("lead" in c) return "Il faut que " + nameOf(story, c.lead) + " mène le groupe.";
     if ("souv" in c) return "Ce souvenir n'est plus à toi.";
@@ -640,7 +646,7 @@
   var QUI_RE = /\{qui:([^:{}]+):([^:{}]+?)(?::(e|il|Il|le|lui))?\}/g, QUI_NOBODY = "l'un de vous";
   function postHolder(s, role, option) { return (s.roles || {})[role + ":" + option] || null; }
   function quiForm(s, m, role, option, k) { var q = postHolder(s, role, option); if (!k) return q ? q.name : QUI_NOBODY; return AUTRE[k][q && q.fem ? 1 : 0]; }
-  function interp(s, t) { return veilPlain(s, String(t)).replace(QUI_RE, function (m, r, o, k) { return quiForm(s, m, r, o, k); }).replace(/\{autre:(e|il|Il|le|lui)\}/g, function (m, k) { return autreForm(s, k); }).replace(/\{autre\}/g, s.allies && s.allies.length ? s.allies.join(" et ") : "l'autre").replace(/\{joueur:e\}/g, playerFemOf(s) ? "e" : "").replace(/\{joueur\}/g, playerNameOf(s)).replace(/\{hero\}/g, heroName(s)).replace(/\{niveau\}/g, String(level(s))).replace(/\{marque\}/g, String(s.mark))
+  function interp(s, t) { return veilPlain(s, String(t)).replace(QUI_RE, function (m, r, o, k) { return quiForm(s, m, r, o, k); }).replace(/\{autre:(e|il|Il|le|lui)\}/g, function (m, k) { return autreForm(s, k); }).replace(/\{autre\}/g, s.allies && s.allies.length ? s.allies.join(" et ") : "l'autre").replace(/\{joueur:e\}/g, playerFemOf(s) ? "e" : "").replace(/\{joueur\}/g, playerNameOf(s)).replace(/\{hero\}/g, heroName(s)).replace(/\{niveau\}/g, String(level(s))).replace(/\{nom:([a-z0-9_]+)\}/g, function (m, k) { return (s.answers || {})[k] || (s.askDefs || {})[k] || ""; }).replace(/\{voeu\}/g, function () { return (s.client && s.client.voeu) || "un remède"; }).replace(/\{marque\}/g, String(s.mark))
     // {e}: the agreement of the lead hero ("assis{e}"), from the companion's own f: true.
     .replace(/\{e\}/g, s.fem ? "e" : ""); }
   // Intent: read(Story, State, Tagged, PassageId) -> Bool = do the tags a paragraph, a choice or a passage carries hold now
@@ -2477,19 +2483,55 @@
       if (!p.atelier && !R.anywhere) return false;
       if (R.once !== false && s.flags["fait:" + k]) return false;
       if (!tagsOk(story, s, R, null) || !evalCond(story, s, R.if)) return false;
-      return (R.of || []).some(function (x) { return s.items.indexOf(x) >= 0; });
+      // 14.7: a recipe the reader knows (`known: true`) stays on the workbench, greyed, even with nothing in the bag.
+      return R.known || (R.of || []).some(function (x) { return s.items.indexOf(x) >= 0; });
     }).map(function (k) {
-      var R = story.recipes[k], miss = (R.of || []).filter(function (x) { return s.items.indexOf(x) < 0; });
-      return { sys: "craft", recipe: k, group: "atelier", label: "Assembler : " + interp(s, R.label || item(story, R.make).name),
-        if: { all: (R.of || []).map(function (x) { return { item: x }; }) }, why: miss.length ? "Il te manque : " + miss.map(function (x) { return item(story, x).name; }).join(", ") + "." : "" };
+      var R = story.recipes[k], need = needOf(R.of), miss = [];
+      Object.keys(need).forEach(function (x) { var lack = need[x] - countOf(s, x); if (lack > 0) miss.push(item(story, x).name + (lack > 1 ? " ×" + lack : "")); });
+      var tk = R.takes ? takesOf(s, R.takes) : null;
+      return { sys: "craft", recipe: k, group: "atelier", label: interp(s, (R.verb || "Assembler") + " : " + (R.label || item(story, R.make).name)) + (tk ? " (" + tk.ahead + ")" : ""),
+        if: { all: Object.keys(need).map(function (x) { return need[x] > 1 ? { item: x, n: need[x] } : { item: x }; }) }, why: miss.length ? "Il te manque : " + miss.join(", ") + "." : "",
+        test: R.test || undefined, chance: undefined };
     });
+  }
+  // Intent: countOf(State, Item) -> Int = how many of this thing the bag holds (things that are not unique pile up)
+  function countOf(s, id) { var n = 0; s.items.forEach(function (x) { if (x === id) n++; }); return n; }
+  function needOf(list) { var o = {}; (list || []).forEach(function (x) { o[x] = (o[x] || 0) + 1; }); return o; }
+  // Intent: spend(Story, State, Hours) -> () ! the clock moves, and stops on the hour of a scene the world imposes
+  function spend(story, s, h) { if (!h) return; var st = stopAt(story, s, s.time + h); s.time = st != null ? st : s.time + h; }
+  // Intent: give(Story, State, Item, N) -> Int ! puts n of a thing in the bag (one only if it is unique) and says it once
+  function give(story, s, id, n, verb) {
+    var I = item(story, id), got = 0;
+    for (var i = 0; i < (n || 1); i++) { if (I.unique !== false && s.items.indexOf(id) >= 0) break; s.items.push(id); got++; }
+    if (got) ev(s, (verb || "Objet") + " : " + I.name + (got > 1 ? " ×" + got : ""), "item");
+    return got;
   }
   function craft(story, s, k) {
     var R = story.recipes[k]; if (!R) throw new Error("assemblage inconnu " + k);
     (R.of || []).forEach(function (x) { if ((R.keep || []).indexOf(x) < 0) { var at = s.items.indexOf(x); if (at >= 0) s.items.splice(at, 1); } });
+    var tk = R.takes ? takesOf(s, R.takes) : null;
+    if (tk) spend(story, s, tk.hours);
+    // 14.7: a brew may fail (test: { dom, diff, label }); the ingredients are spent, `fail` says what is left.
+    if (R.test) {
+      var roll = rollTest(story, s, R.test);
+      ev(s, "jet de " + interp(s, R.test.label || DOMAINS[R.test.dom]) + " · " + roll.line + " → " + (roll.ok ? "réussite" : "raté"), (roll.ok ? "good" : "bad") + " roll", { roll: roll });
+      if (!roll.ok) {
+        var F = R.fail || {};
+        s.flags["rate:" + k] = true;
+        ev(s, interp(s, F.say || "La préparation tourne mal : il n'en reste qu'une odeur de brûlé."), "bad");
+        if (F.make) give(story, s, F.make, F.n || 1, R.made);
+        apply(story, s, F.fx);
+        if (tk) go(story, s, s.node);
+        return;
+      }
+    }
     s.flags["fait:" + k] = true;
     if (R.say) ev(s, interp(s, R.say), "item");
-    apply(story, s, Object.assign({}, R.fx || {}, { item: [].concat(R.make || [], (R.fx || {}).item || []) }));
+    var fx = Object.assign({}, R.fx || {});
+    if (R.n > 1 || R.made) { [].concat(R.make || []).forEach(function (x) { give(story, s, x, R.n || 1, R.made); }); apply(story, s, fx); }
+    else apply(story, s, Object.assign(fx, { item: [].concat(R.make || [], fx.item || []) }));
+    s.made = (s.made || 0) + (R.n || 1);
+    if (tk) go(story, s, s.node);
   }
   // Vigils (story.vigils: [{ to, with, label, if }]): on a passage marked `veillee: true`, at night, the engine offers to
   // keep watch with a companion who is there; one vigil a night, each scene once.
@@ -2499,6 +2541,139 @@
     return story.vigils.filter(function (v) { var tp = story.passages[v.to]; return tp && !s.seen[v.to] && tagsOk(story, s, v, null) && evalCond(story, s, v.if) && sceneOk(story, s, tp); })
       .map(function (v) { return { sys: "vigil", to: v.to, group: "veillee", label: interp(s, v.label || ("Veiller avec " + nameOf(story, [].concat(v.with)[0]))) }; });
   }
+
+  // ------------------------------------------------------------------ a shop of one's own (14.7, « La boutique »)
+  // Clément, 19/11, for his daughter: a witch who gathers, brews and sells, and names her shop. The story declares,
+  // the engine does the rest: what grows back where and when (gather), the name the reader writes (asks), and who
+  // comes in at the counter, what they want and what they pay (clients). Brewing is the workbench (recipes) above.
+
+  // --- gathering (passage `gather: [{ item, n, verb, label, every, takes, test, fail, say, if, when, saison, temps }]`)
+  // Each entry can be gathered once every `every` days (1 by default): the plant grows back, the reader comes back.
+  function gatherKey(s, i) { return s.node + "#" + i; }
+  function gatherChoices(story, s, p) {
+    if (!p || !p.gather || s.combat || s.travel) return [];
+    var out = [];
+    p.gather.forEach(function (g, i) {
+      if (!tagsOk(story, s, g, null) || !evalCond(story, s, g.if)) return;
+      var last = (s.gathered || {})[gatherKey(s, i)], every = g.every || 1, tk = takesOf(s, g.takes == null ? 1 : g.takes);
+      var next = last != null ? last + every : null, wait = next != null && day(s) < next;
+      out.push({ sys: "gather", gather: i, group: "cueillette", test: g.test || undefined,
+        label: interp(s, (g.verb || "Cueillir") + " : " + (g.label || item(story, g.item).name)) + (tk ? " (" + tk.ahead + ")" : ""),
+        if: wait ? { day: { min: next } } : undefined, why: wait ? (next - day(s) > 1 ? "Il faudra revenir dans " + (next - day(s)) + " jours : rien n'a encore repoussé." : "Déjà cueilli aujourd'hui : il faudra revenir demain.") : "" });
+    });
+    return out;
+  }
+  function gather(story, s, i) {
+    var p = story.passages[s.node], g = p.gather[i]; s.gathered = s.gathered || {};
+    s.gathered[gatherKey(s, i)] = day(s);
+    var tk = takesOf(s, g.takes == null ? 1 : g.takes);
+    if (g.test) {
+      var roll = rollTest(story, s, g.test);
+      ev(s, "jet de " + interp(s, g.test.label || DOMAINS[g.test.dom]) + " · " + roll.line + " → " + (roll.ok ? "réussite" : "raté"), (roll.ok ? "good" : "bad") + " roll", { roll: roll });
+      if (!roll.ok) { ev(s, interp(s, g.fail || "Tu reviens les mains vides."), "bad"); if (tk) spend(story, s, tk.hours); go(story, s, s.node); return; }
+    }
+    if (g.say) ev(s, interp(s, g.say));
+    give(story, s, g.item, g.n || 1, g.made || "Cueilli");
+    apply(story, s, g.fx);
+    if (tk) spend(story, s, tk.hours);
+    go(story, s, s.node);
+  }
+
+  // --- a name the reader writes (story.asks: { id: { def, max, hint, say } }, passage `ask: "<id>"` + one choice)
+  // While the name is not given, the passage's choice carries a text field; `{nom:<id>}` writes the name in the text.
+  var ASK_MAX = 40;
+  function askOf(story, id) { return (story.asks || {})[id] || {}; }
+  function answerOf(story, s, id) { var a = (s.answers || {})[id]; return a || askOf(story, id).def || ""; }
+  function cleanAnswer(v, max) { return String(v == null ? "" : v).replace(/<[^>]*>/g, "").replace(/[{}<>*_|#`\[\]\\]/g, "").replace(/\s+/g, " ").trim().slice(0, max || ASK_MAX).trim(); }
+  function askChoice(story, s, p, cs) {
+    if (!p || !p.ask || (s.answers || {})[p.ask]) return cs;
+    var A = askOf(story, p.ask), own = cs.filter(function (c) { return !c.sys; })[0];
+    if (!own) return cs;
+    return [Object.assign({}, own, { sys: "ask", ask: p.ask, input: { hint: A.hint || "", def: A.def || "", max: A.max || ASK_MAX, label: A.label || "" }, big: true })];
+  }
+  function answer(story, s, c) {
+    var A = askOf(story, c.ask), v = cleanAnswer(c.answer, A.max) || A.def || "";
+    s.answers = s.answers || {}; s.answers[c.ask] = v;
+    if (A.say) ev(s, interp(s, A.say), "good");
+    var plain = Object.assign({}, c); delete plain.sys; delete plain.ask; delete plain.input; delete plain.answer;
+    chooseOn(story, s, plain);
+  }
+
+  // --- the counter (story.clients: { open: [from, to], every, label, rep, list: [{ id, to, wants, pay, tip, prio,
+  // once, max, if, act, when, weight, thanks, served, away, lost }] }, passage `comptoir: true`)
+  // In the opening hours, « the next client » comes in: a client of the story who must come (prio) first, else one drawn
+  // among those who can come. A client wants one of `wants`; on their page the engine adds « Lui vendre » (greyed when
+  // the shelf is empty) and « T'excuser ». The price is the thing's own, times the counter's moves and the client's pay.
+  var CLIENT_HOURS = [9, 19];
+  function counterOpen(story, s) { var o = (story.clients || {}).open || CLIENT_HOURS, h = hour(s); return h >= o[0] && h < o[1]; }
+  function clientById(story, id) { return ((story.clients || {}).list || []).filter(function (e) { return e.id === id; })[0] || null; }
+  function clientPool(story, s) {
+    var C = story.clients || {};
+    return (C.list || []).filter(function (e) {
+      var tp = story.passages[e.to], met = (s.clientsMet || {})[e.id] || 0;
+      if (!tp || (e.once !== false && met) || (e.max && met >= e.max)) return false;
+      if ((s.clientDay || {})[e.id] === day(s)) return false;
+      if (e.act && [].concat(e.act).indexOf(s.lastAct) < 0) return false;
+      return tagsOk(story, s, e, null) && evalCond(story, s, e.if) && sceneOk(story, s, tp);
+    });
+  }
+  function counterChoices(story, s, p) {
+    if (!p || !p.comptoir || !story.clients || s.combat || s.travel) return [];
+    var C = story.clients, o = C.open || CLIENT_HOURS, label = interp(s, C.label || "Faire entrer le client suivant"), tk = takesOf(s, C.every || 1);
+    if (!counterOpen(story, s)) return [{ sys: "client", group: "comptoir", label: label, if: { has: "__boutique-ouverte" }, why: interp(s, C.closed || ("La boutique est fermée à cette heure : elle ouvre de " + o[0] + " h à " + o[1] + " h.")) }];
+    if (!clientPool(story, s).length) return [{ sys: "client", group: "comptoir", label: label, if: { has: "__client-attend" }, why: interp(s, C.none || "Personne n'attend à la porte pour le moment.") }];
+    return [{ sys: "client", group: "comptoir", big: true, label: label + (tk ? " (" + tk.ahead + ")" : "") }];
+  }
+  function clientPick(story, s) {
+    var pool = clientPool(story, s); if (!pool.length) return null;
+    var pr = pool.filter(function (e) { return e.prio; });
+    return pr.length ? pr[0] : weighted(pool, function (e) { return e.weight || 1; });
+  }
+  function clientIn(story, s) {
+    var e = clientPick(story, s); if (!e) return;
+    var C = story.clients, from = s.node;
+    s.clientsMet = s.clientsMet || {}; s.clientsMet[e.id] = (s.clientsMet[e.id] || 0) + 1;
+    s.clientDay = s.clientDay || {}; s.clientDay[e.id] = day(s);
+    var wants = [].concat(e.wants || []).filter(function (w) { return typeof w === "string" || evalCond(story, s, w.if); }).map(function (w) { return typeof w === "string" ? w : w.item; });
+    var tk = takesOf(s, C.every || 1); if (tk) spend(story, s, tk.hours);
+    s.client = { id: e.id, to: e.to, from: from, want: wants.length ? wants[Math.floor(RNG() * wants.length)] : null };
+    s.client.voeu = voeuOf(story, s);
+    s.clients = (s.clients || 0) + 1;
+    go(story, s, e.to);
+  }
+  function clientPrice(story, s, e, it) { var f = priceFactor(story, s, story.clients || {}); return priced(Math.round((item(story, it).price || 1) * (e.pay || 1)) + (e.tip || 0), f); }
+  function clientChoices(story, s, p) {
+    var k = s.client; if (!k || k.to !== s.node || !story.clients) return [];
+    var e = clientById(story, k.id); if (!e || !k.want || e.sell === false) return [];
+    var I = item(story, k.want), pr = clientPrice(story, s, e, k.want);
+    return [
+      { sys: "serve", group: "client", big: true, label: interp(s, (e.serveLabel || "Lui vendre : ") + I.name) + " · " + money(story, pr, true), if: { item: k.want }, why: interp(s, e.empty || "Tes étagères n'en ont plus : il faudra en préparer."), price: pr },
+      { sys: "turnAway", group: "client", label: interp(s, e.awayLabel || (story.clients.awayLabel || "T'excuser : tu n'en as pas aujourd'hui")) },
+    ];
+  }
+  function serve(story, s) {
+    var k = s.client, e = clientById(story, k.id), C = story.clients, pr = clientPrice(story, s, e, k.want), at = s.items.indexOf(k.want);
+    if (at >= 0) s.items.splice(at, 1);
+    s.gold += pr; s.served = (s.served || 0) + 1;
+    s.flags["servi:" + e.id] = true; s.flags["vendu:" + k.want] = true;
+    ev(s, "Vendu : " + item(story, k.want).name + " (+" + money(story, pr) + " · bourse : " + money(story, s.gold) + ")", "good");
+    var th = [].concat(e.thanks || []); if (th.length) ev(s, interp(s, th[Math.floor(RNG() * th.length)]));
+    if (C.rep) apply(story, s, { stock: keyed(C.rep, e.rep == null ? 1 : e.rep) });
+    apply(story, s, e.fx);
+    s.client = null;
+    go(story, s, e.served || k.from);
+  }
+  function turnAway(story, s) {
+    var k = s.client, e = clientById(story, k.id), C = story.clients;
+    s.flags["renvoye:" + e.id] = true; s.turnedAway = (s.turnedAway || 0) + 1;
+    if (e.sorry) ev(s, interp(s, e.sorry));
+    if (C.rep && (e.lost || C.lost)) apply(story, s, { stock: keyed(C.rep, -(e.lost || C.lost)) });
+    s.client = null;
+    go(story, s, e.away || k.from);
+  }
+  function keyed(k, v) { var o = {}; o[k] = v; return o; }
+  // {voeu}: what the client at the counter wants (the thing's `un`, « une potion de sommeil », or its name).
+  function voeuOf(story, s) { var k = s.client; if (!k || !k.want || !story || !story.items || !story.items[k.want]) return "un remède"; var I = story.items[k.want]; return I.un || I.name.charAt(0).toLowerCase() + I.name.slice(1); }
 
   // ------------------------------------------------------------------ at school (8.2, « L'école des arts »)
   // Practice (story.practice: { every, step, max, doms, say }): each roll the hero makes in a domain counts as a use;
@@ -3148,6 +3323,8 @@
   function view(story, s) {
     // A saved game reopened gets a story freshly read, never prepared by freshState: the engine prepares it here too.
     prepare(story);
+    // 14.7: the names the reader has not written yet read as the story's own ({nom:<id>}).
+    if (story.asks && !s.askDefs) { s.askDefs = {}; Object.keys(story.asks).forEach(function (k) { s.askDefs[k] = story.asks[k].def || ""; }); }
     lensNews(story, s);
     chroniqueNews(story, s);
     var v, p = null;
@@ -3165,7 +3342,8 @@
         cs = cs.concat([{ to: s.hubLast, label: "Revenir : " + interp(s, hp.title || (W(story).places[hp.place] || {}).name || "…"), auto: "back" }]);
       }
       if (!cs.length) { var back = backChoice(story, s, p); if (back) cs = [back]; }
-      cs = cs.concat(councilChoices(story, s, p), battleChoices(story, s, p), montrerChoices(story, s, p), accuseChoices(story, s, p), repayChoices(story, s, p), shopChoices(story, s, p), tavernChoices(story, s, p), craftChoices(story, s, p), vigilChoices(story, s, p), duelChoices(story, s, p), puzzleChoices(story, s, p), pocketChoices(story, s, p), belieChoices(story, s, p), aparteChoices(story, s, p), depotChoices(story, s, p), trialChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p), cardChoices(story, s, p));
+      cs = askChoice(story, s, p, cs);
+      cs = cs.concat(councilChoices(story, s, p), battleChoices(story, s, p), montrerChoices(story, s, p), accuseChoices(story, s, p), repayChoices(story, s, p), shopChoices(story, s, p), tavernChoices(story, s, p), craftChoices(story, s, p), gatherChoices(story, s, p), counterChoices(story, s, p), clientChoices(story, s, p), vigilChoices(story, s, p), duelChoices(story, s, p), puzzleChoices(story, s, p), pocketChoices(story, s, p), belieChoices(story, s, p), aparteChoices(story, s, p), depotChoices(story, s, p), trialChoices(story, s, p), travelChoices(story, s, p), leadChoices(story, s, p), cardChoices(story, s, p));
       var sec = [];
       v = { title: interp(s, p.title || ""), kind: p.end ? "end" : "passage", text: textList(story, s, p.text, null, sec), choices: cs, passage: p };
       // The people here at this hour, then the rumour heard on coming in (7.9).
@@ -4120,6 +4298,8 @@
   function enterIn(story, s, id, mem) {
     // The passage left (a fight or a road in between does not count): read by the tag `via`.
     if (s.node && s.node.charAt(0) !== "@" && s.node !== id) s.from = s.node;
+    // 14.7: a client stays at the counter while their page is read; any other page sends them away.
+    if (s.client && s.client.to !== id) s.client = null;
     s.node = id;
     var p = story.passages[id];
     if (!sceneOk(story, s, p)) guard(s, "scène jouée alors que ses tags (with, without, when, after, before) ne sont pas remplis");
@@ -4348,6 +4528,12 @@
       case "buy": s.gold -= c.price; s.items.push(c.item); ev(s, "Acheté : " + item(story, c.item).name + " (−" + money(story, c.price) + ", reste " + money(story, s.gold) + ")", "item"); if (item(story, c.item).reveals) apply(story, s, { reveal: item(story, c.item).reveals }); break;
       // At sea (8.1).
       case "craft": craft(story, s, c.recipe); break;
+      // A shop of one's own (14.7).
+      case "gather": gather(story, s, c.gather); break;
+      case "ask": answer(story, s, c); break;
+      case "client": clientIn(story, s); break;
+      case "serve": serve(story, s); break;
+      case "turnAway": turnAway(story, s); break;
       case "vigil": s.vigilNight = nightKey(s); go(story, s, c.to); break;
       case "buyFood": s.gold -= c.price; s.food++; ev(s, "Un jour de vivres de plus (" + s.food + ")", "item"); break;
       case "sell": var at = s.items.indexOf(c.item); if (at >= 0) { var it = item(story, c.item), pr = c.price != null ? c.price : Math.floor(it.price * SELL_RATE); s.items.splice(at, 1); s.gold += pr; ev(s, "Vendu : " + it.name + " (+" + money(story, pr) + ")", "good"); } break;
@@ -4378,7 +4564,10 @@
     s.events = [];
     begin2(story, s);
     if (s.tickDay == null) s.tickDay = day(s);
+    if (story.asks && !s.askDefs) { s.askDefs = {}; Object.keys(story.asks).forEach(function (k) { s.askDefs[k] = story.asks[k].def || ""; }); }
     if (story.heroes) { initHeroes(story, s); enter(story, s, startOf(story, s)); return; }
+    // 14.7: a book that speaks to its hero in one way only (story.heroFem: true, « une sorcière »).
+    if (story.heroFem != null) s.fem = !!story.heroFem;
     if (s.pv == null) s.pv = pvMax(s);
     // A voie's own kit (8.5) wins over its class's: the copiste has a pen case, not a lute.
     var kits = (W(story).start || {}).kits || {}, kit = (s.voie && ((story.voies || {})[s.voie] || {}).kit) || kits[s.arch] || [];
@@ -4408,6 +4597,7 @@
     trialDef: trialDef, trialFor: trialFor, trialRead: trialRead, trialIssues: trialIssues, dealCheck: dealCheck, dealSuggest: dealSuggest, fervour: fervour, reserveOf: reserveOf, masterOf: masterOf, jeuFor: jeuFor, LAY_NOTHING: LAY_NOTHING,
     CARD_TYPES: CARD_TYPES, SUITS: SUITS, SUIT_WORDS: SUIT_WORDS, RARITIES: RARITIES, THREAD_STATES: THREAD_STATES, cardInfo: cardInfo, filsOf: filsOf, DECK_FX: DECK_FX, GAIN_PLACES: GAIN_PLACES, LOSS_FROM: LOSS_FROM, resolve: resolve, stopOf: stopOf,
     escaleOpen: escaleOpen, crewView: crewView, crewIs: crewIs, crewCount: crewCount, crewLean: crewLean, CREW_WORDS: CREW_WORDS, CREW_MAX: CREW_MAX,
+    countOf: countOf, counterOpen: counterOpen, clientPool: clientPool, answerOf: answerOf, cleanAnswer: cleanAnswer,
     item: item, weapon: weapon, armor: armor, useItem: useItem, day: day, timeLabel: timeLabel, routesFrom: routesFrom, isNight: isNight,
   };
   if (typeof module !== "undefined" && module.exports) module.exports = API; else root.Moteur = API;
