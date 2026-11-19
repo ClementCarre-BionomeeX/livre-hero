@@ -17,8 +17,8 @@
 (function (root) {
   var M = root.Moteur || (typeof require !== "undefined" ? require("./moteur.js") : null);
   // What says where a player stands and is never merged: his place in the text, his current hero and team.
-  var POSITION_KEYS = ["node", "ret", "events", "travel", "combat", "bookmark", "team", "lead", "lastAct", "turn", "toutJouer", "allies"];
-  var SHEET_KEYS = ["name", "arch", "ep", "items", "fatigue", "arrows", "time", "place", "gold", "food"];
+  var POSITION_KEYS = ["node", "ret", "events", "travel", "combat", "bookmark", "team", "lead", "lastAct", "turn", "toutJouer", "allies", "table", "poser"];
+  var SHEET_KEYS = ["name", "arch", "ep", "items", "fatigue", "arrows", "time", "place", "gold", "food", "jeu"];
   var WORLD_FLAG = "monde:";
   var WAIT = { RDV: "rdv", BLOCKED: "bloque", END: "fin" };
 
@@ -178,7 +178,7 @@
   }
 
   // ------------------------------------------------------------------ playing
-  function choiceKey(c) { return JSON.stringify(["label", "sys", "foe", "hero", "tech", "on", "item", "order", "comp", "route", "dest", "passage"].map(function (k) { return c[k] == null ? null : c[k]; })); }
+  function choiceKey(c) { return JSON.stringify(["label", "sys", "foe", "hero", "tech", "on", "item", "order", "comp", "route", "dest", "passage", "carte", "epreuve", "signe"].map(function (k) { return c[k] == null ? null : c[k]; })); }
   // Intent: choose(Story, Game, PlayerId, Choice) -> Decision | null ! writes(Player.s, Game)
   function choose(story, g, pid, c) {
     var p = player(g, pid), v = view(story, g, pid);

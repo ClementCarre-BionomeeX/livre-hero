@@ -12,10 +12,10 @@
     "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "via", "regard", "fresh", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed",
     "temps", "saison", "blessure", "cicatrice", "fatigue", "trait", "duel",
     "recit", "doute", "dementi", "silences", "geste", "poids", "angoisse", "attache",
-    "secret", "confie", "garde", "savoir", "lu", "voile", "voiles", "lens", "scrutin", "role", "voix", "fil", "carteJouee", "possede", "escale", "escaleOuverte", "marin", "equipage"];
+    "secret", "confie", "garde", "savoir", "lu", "voile", "voiles", "lens", "scrutin", "role", "voix", "fil", "carteJouee", "possede", "escale", "escaleOuverte", "marin", "equipage", "donne", "pose", "issue", "signe", "ferveur"];
   // The siege's conditions (8.0) carry a second key (is, member, hero, losses): they are read by their first key.
-  var SIEGE_KEYS = ["scrutin", "role", "voix", "depot", "escale", "marin", "equipage", "fil", "voiles", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue", "trait", "duel"];
-  var FX_KEYS = ["voie", "regard", "aspect", "qui", "resume", "set", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
+  var SIEGE_KEYS = ["donne", "pose", "issue", "signe", "ferveur", "scrutin", "role", "voix", "depot", "escale", "marin", "equipage", "fil", "voiles", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed", "fatigue", "trait", "duel"];
+  var FX_KEYS = ["ferveur", "voie", "regard", "aspect", "qui", "resume", "set", "flag", "flags", "unflag", "clue", "mark", "ep", "catchup", "catchupWhy", "join", "met", "leave", "conf", "fear", "fac", "relic",
     "give", "relicLose", "item", "drop", "gold", "food", "pv", "rest", "time", "until", "stamp", "reveal", "meet", "clock", "quest", "questSeen", "note", "noteCls",
     "assign", "team", "regroup", "away", "lead", "leadQuiet", "learn", "souv", "souvBack", "catchupAll", "awayUnless",
     "stock", "promise", "keep", "break", "forgive", "sway", "sound", "camp", "tie",
@@ -121,6 +121,50 @@
         var ok = sure.some(function (id) { var r = P[id].resout; return (r.carte != null ? [].concat(r.carte).indexOf(k) >= 0 : [].concat(r.type).indexOf(c.type) >= 0) && (r.halte == null || [].concat(r.halte).indexOf(h) >= 0); });
         if (!ok) E("Halte « " + h + " » : la carte « " + k + " » (" + M.CARD_TYPES[c.type] + ") n'y a aucune résolution sans condition ; écrire un passage resout: { type: \"" + c.type + "\" } (avec ou sans halte).");
       });
+    });
+  }
+  // Intent: trialCheck(Story, E, W) ! a game master's trials (14.6): the game master is a hero, every trial names what
+  // exists, can be opened with its reserve, has its crossroads, and has a default issue (so that whatever is laid, the
+  // story goes on).
+  function trialCheck(story, E, W) {
+    var P = story.passages, T0 = story.epreuves || {}, C = story.cartes || {}, H = story.heroes || {}, m = (story.multi || {}).meneur;
+    if (m && !H[m]) E("multi.meneur : « " + m + " » n'est pas un héros (story.heroes).");
+    if (Object.keys(T0).length && !m) E("Épreuves sans meneur : déclarer multi.meneur (le héros qui fait les donnes).");
+    var hubs = {}, issues = {};
+    Object.keys(P).forEach(function (id) {
+      var p = P[id];
+      if (p.epreuve) { if (!T0[p.epreuve]) E("§ " + id + " : épreuve « " + p.epreuve + " » inconnue (story.epreuves)."); else (hubs[p.epreuve] = hubs[p.epreuve] || []).push(id); }
+      if (p.issue) {
+        var r = p.issue, w = "§ " + id + " (issue)";
+        if (!T0[r.epreuve]) { E(w + " : épreuve « " + r.epreuve + " » inconnue."); return; }
+        (issues[r.epreuve] = issues[r.epreuve] || []).push(id);
+        if (r.paire && (!Array.isArray(r.paire) || r.paire.length !== 2)) E(w + " : paire, deux cartes [a, b].");
+        [].concat(r.carte || [], r.paire || []).forEach(function (x) { if (!C[x]) E(w + " : carte « " + x + " » inconnue (cartes)."); });
+      }
+    });
+    Object.keys(T0).forEach(function (k) {
+      var T = T0[k], w = "Épreuve « " + k + " »", who = T.pour ? [].concat(T.pour) : Object.keys(H).filter(function (h) { return h !== m; });
+      if (!T.titre) E(w + " : sans titre.");
+      if (!T.serrure) E(w + " : sans serrure (le texte que lit le meneur avant sa donne).");
+      who.forEach(function (h) { if (!H[h]) E(w + " : héros « " + h + " » inconnu."); if (h === m) E(w + " : le meneur ne reçoit pas de cartes."); });
+      if (!who.length) E(w + " : personne ne reçoit de cartes.");
+      var R = (T.reserve || []).map(function (r) { return typeof r === "string" ? r : r.carte; });
+      R.forEach(function (x) { if (!C[x]) E(w + " : réserve, carte « " + x + " » inconnue (cartes)."); });
+      if (!R.length) E(w + " : réserve vide.");
+      var max = T.par_joueur || 3, min = T.min_par_joueur != null ? T.min_par_joueur : 1;
+      if (min > max) E(w + " : min_par_joueur plus grand que par_joueur.");
+      if (R.length < min * who.length) E(w + " : la réserve (" + R.length + " cartes) ne suffit pas à donner " + min + " carte(s) à chacun.");
+      var keyIn = function (key) { var left = R.slice(); return [].concat(key).every(function (x) { var i = left.indexOf(x); if (i < 0) return false; left.splice(i, 1); return true; }); };
+      (T.clefs || []).forEach(function (key) {
+        [].concat(key).forEach(function (x) { if (!C[x]) E(w + " : clef, carte « " + x + " » inconnue."); });
+        if (Array.isArray(key) && (key.length !== 2 || who.length < 2)) E(w + " : une clef en paire demande deux cartes et deux joueurs.");
+        if (!keyIn(key)) W(w + " : la clef " + JSON.stringify(key) + " n'est pas toute dans la réserve (elle ne pourra venir que des mains).");
+      });
+      if (T.clefs && T.clefs.length && !T.clefs.some(keyIn)) E(w + " : aucune clef ne peut être donnée avec la réserve : l'épreuve serait impossible.");
+      Object.keys(T.signes || {}).forEach(function (g) { if (!T.signes[g].titre) E(w + " : signe « " + g + " » sans titre."); });
+      if (!hubs[k]) E(w + " : aucun passage ne la tient (epreuve: \"" + k + "\").");
+      var sure = (issues[k] || []).filter(function (id) { var r = P[id].issue; return r.carte == null && r.paire == null && r.if == null && !["with", "without", "when", "after", "before"].some(function (t) { return P[id][t] != null; }); });
+      if (!sure.length) E(w + " : aucune issue par défaut (issue: { epreuve: \"" + k + "\" } sans carte, paire ni condition) : une donne ratée n'aurait pas de suite.");
     });
   }
   function staticCheck(story) {
@@ -285,6 +329,11 @@
       if (k === "clues" && !story.mysteries[c.clues]) E(where + " : mystère « " + c.clues + " » inconnu.");
       if (k === "clue" && !story.clues[c.clue]) E(where + " : indice « " + c.clue + " » inconnu.");
       if (k === "fil") { if (!(story.fils || {})[c.fil]) E(where + " : fil « " + c.fil + " » inconnu (fils)."); [].concat(c.is || []).forEach(function (x) { if (!M.THREAD_STATES[x] && x !== "aucun") E(where + " : état de fil « " + x + " » inconnu (ouvert, noue, rate, aucun)."); }); }
+      if (["donne", "pose", "issue"].indexOf(k) >= 0 && !(story.epreuves || {})[c[k]]) E(where + " : épreuve « " + c[k] + " » inconnue (story.epreuves).");
+      if (k === "pose" && c.hero != null && !(story.heroes || {})[c.hero]) E(where + " : pose, héros « " + c.hero + " » inconnu.");
+      if (k === "issue") [].concat(c.is || []).forEach(function (x) { if (!P[x] || !P[x].issue || P[x].issue.epreuve !== c.issue) E(where + " : issue, « " + x + " » n'est pas une issue de l'épreuve « " + c.issue + " »."); });
+      if (k === "signe" && !Object.keys(story.epreuves || {}).some(function (e) { return ((story.epreuves[e].signes) || {})[c.signe]; })) E(where + " : signe « " + c.signe + " » inconnu (signes d'une épreuve).");
+      if (k === "ferveur" && c.min == null && c.max == null) E(where + " : la condition « ferveur » s'écrit { ferveur: true, min: …, max: … }.");
       if (k === "possede") [].concat(c.possede).forEach(function (x) { if (!(story.cartes || {})[x]) E(where + " : possede, carte « " + x + " » inconnue (cartes)."); });
       if (k === "carteJouee") [].concat(c.carteJouee).forEach(function (x) { if (!(story.cartes || {})[x]) E(where + " : carte « " + x + " » inconnue (cartes)."); });
       if (k === "savoir") [].concat(c.savoir).forEach(function (x) { if (!(story.savoirs || {})[x]) E(where + " : savoir « " + x + " » inconnu (story.savoirs)."); });
@@ -531,6 +580,7 @@
       }
     }
     cardCheck(story, E, W);
+    trialCheck(story, E, W);
     // At sea (8.1): the sky, the seasons, the wounds, the encounters, the things put together, the vigils, the charts.
     // The world of a book (8.6): pages to read before and during play, and names a touch explains.
     if (story.lore) {
@@ -895,7 +945,7 @@
       if (p.end) { ends++; return; }
       if (p.combat) { checkFight(p.combat, where); eachFx(p, function (fx) { checkFx(fx, where); }); return; }
       // back: true on the passage: the engine adds the way back to the crossroads the reader came from (7.9).
-      if ((!Array.isArray(p.choices) || !p.choices.length) && !p.routes && !p.shop && !p.back && !p.council && !p.battle && !p.duel && !p.puzzle && !p.halte) { E(where + " : aucun choix (seules les fins n'en ont pas)."); return; }
+      if ((!Array.isArray(p.choices) || !p.choices.length) && !p.routes && !p.shop && !p.back && !p.council && !p.battle && !p.duel && !p.puzzle && !p.halte && !p.epreuve) { E(where + " : aucun choix (seules les fins n'en ont pas)."); return; }
       if (p.place && !places[p.place]) E(where + " : lieu « " + p.place + " » inconnu.");
       if (p.shop && !(story.shops || {})[p.shop]) E(where + " : boutique « " + p.shop + " » inconnue.");
       if (p.urgent != null && !(typeof p.urgent === "number" && p.urgent >= 5 && p.urgent <= 120)) E(where + " : tag urgent, un nombre de secondes entre 5 et 120.");
@@ -1110,6 +1160,8 @@
       // 7.9: the people met on a crossroads at their hour, the witness's reactions, the accusation, the deadline.
       if (p.hub && p.place) Object.keys(story.people || {}).forEach(function (k) { (story.people[k].at || []).forEach(function (a) { if (a.place === p.place && a.talk) add(a.talk); }); });
       if (p.montrer) { var cf = (story.people[p.montrer] || {}).confront || {}; Object.keys(cf).forEach(function (k) { add(cf[k]); }); }
+      // 14.6: a trial's crossroads leads to every issue of the trial.
+      if (p.epreuve) Object.keys(P).forEach(function (k) { if (P[k].issue && P[k].issue.epreuve === p.epreuve) add(k); });
       if (p.accuse) add(p.accuse.to);
       if (story.deadline && (!story.deadline.acts || story.deadline.acts.indexOf(p.act) >= 0)) add(story.deadline.to);
       // 8.0: after a vote, after a battle, and the scenes the world imposes (march, a creditor) from any page of their acts.
