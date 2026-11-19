@@ -72,15 +72,15 @@ module.exports = {
     "Zénith regarde le registre. Il regarde Mademoiselle Vernis. Il regarde, très longuement, Basile, au garde-à-vous, puis Salée, appuyée sur son diable de mottes, les mains violettes d'encre jusqu'aux poignets.",
     "« Depuis quand est-il en restauration ? »",
     "— Depuis neuf heures moins deux, dit Mademoiselle Vernis, sans ciller. C'est écrit. Ce qui est écrit au registre fait foi. »",
-    "Il y a un silence de cave. Puis Zénith fait un geste, et Phébus baisse le réflectomètre. Le président s'en va sans un mot. En passant devant Salée, il s'arrête, regarde ses mains violettes, et dit, très doucement : « Joli travail. » Ce n'est pas un compliment.",
-    { if: { signe: "reflet" }, text: "Avant de sortir, Zénith jette un dernier regard au Héraut. Dans le ventre poli de l'ange, au lieu de son propre reflet, il voit une demi-seconde un petit visage joufflu, doré, qui le regarde en soufflant dans une trompette. Il ne dit rien. Il manque la marche du seuil." },
+    "Il y a un silence de cave. Puis Zénith fait un geste, et Phébus baisse le réflectomètre. Le président s'en va. En passant devant Salée, il s'arrête, regarde ses mains violettes, et dit, très doucement : « Joli travail. » Ce n'est pas un compliment.",
+    { if: { signe: "reflet" }, text: "Avant de sortir, Zénith jette un dernier regard au Héraut. Dans le ventre poli de l'ange, au lieu de son propre reflet, il voit une demi-seconde un petit visage joufflu, doré, qui le regarde en soufflant dans une trompette. Il manque la marche du seuil." },
     "Quand la porte s'est refermée, Mademoiselle Vernis referme le registre, regarde les deux jeunes gens, et dit : « Je n'ai rien vu. J'ai lu. » Elle s'en va. Octave, derrière elle, emporte le registre sous son bras, comme une pièce à conviction.",
   ], [{ label: "Laisser passer la fin de la matinée", to: "C2" }]),
   I2_chiot: I("visite", "chiot", "I", "Monseigneur", "salle", { set: { mesure: "non" }, flag: ["chiot:mord", "heraut:miroir"] }, [
     "Au moment où Phébus appuie sur la détente, Monseigneur saute des bras de son maître. Il n'a jamais rien fait de sa vie, à part dormir et grandir des pattes, et il choisit cet instant pour commencer. Il traverse la Salle froide en trois bonds désarticulés, et il plante ses dents de lait dans le câble du réflectomètre.",
     "Le câble cède. L'écran s'éteint. Phébus regarde son appareil mort, puis le chiot, qui le regarde aussi, le câble dans la gueule, sans aboyer. Il n'aboie jamais. On dit que c'est de race.",
     "« Monseigneur ! » s'écrie Monsieur Hippolyte, et il fond en larmes, de fierté.",
-    "Zénith ne dit rien pendant un long moment. Puis il dit : « Nous avons d'autres câbles. » Mais Lumen, avec un temps de retard, vient de découvrir que les autres câbles sont restés dans la camionnette, à trois cents mètres, et que la camionnette est fermée par un Verrou Lumière qui ne s'ouvre qu'au soleil, et que la camionnette est garée à l'ombre.",
+    "Zénith se tait un long moment. Puis il dit : « Nous avons d'autres câbles. » Mais Lumen, avec un temps de retard, vient de découvrir que les autres câbles sont restés dans la camionnette, à trois cents mètres, et que la camionnette est fermée par un Verrou Lumière qui ne s'ouvre qu'au soleil, et que la camionnette est garée à l'ombre.",
     "Le président s'en va. Il s'en va lentement, en homme qui a l'habitude de revenir.",
     { if: { signe: "reflet" }, text: "En sortant, il jette un regard au Héraut, et dans le ventre poli de l'ange il voit une demi-seconde, au lieu de son reflet, un petit visage doré qui souffle dans une trompette. Il se frotte les yeux. Il dit à Phébus qu'il fait trop froid dans cette cave, que le froid donne des visions. Phébus note : *froid, visions*." },
   ], [{ label: "Laisser passer la fin de la matinée", to: "C2" }]),
@@ -93,7 +93,7 @@ module.exports = {
     "Monsieur Hippolyte s'avance en tremblant. « Il n'est pas à vendre. Il n'est pas à louer. C'est mon arrière-grand-mère qui l'a fait.",
     "— On ne vous demande ni de vendre ni de louer, dit Zénith, avec une grande douceur. Le Raccordement s'occupe de tout. » Il fait un signe. Lumen colle sur le socle une étiquette autocollante. *Réservé · Consortium des Panneaux Réunis · Ne pas déplacer.*",
     "Monsieur Hippolyte pleure. Mademoiselle Vernis note. Octave regarde l'étiquette comme on regarde une tache sur une nappe. Basile ne bouge pas, au garde-à-vous, à un mètre cinquante. Salée, appuyée sur son diable, a les jointures blanches.",
-    { if: { signe: "reflet" }, text: "En partant, Zénith jette un dernier regard au Héraut. Dans son ventre d'acier poli, à la place de son reflet, il voit une demi-seconde un petit visage doré qui souffle dans une trompette, et qui le regarde sans aucune bienveillance. Il ne dit rien. Il s'en souviendra." },
+    { if: { signe: "reflet" }, text: "En partant, Zénith jette un dernier regard au Héraut. Dans son ventre d'acier poli, à la place de son reflet, il voit une demi-seconde un petit visage doré qui souffle dans une trompette, et qui le regarde sans aucune bienveillance. Il se tait. Il s'en souviendra." },
   ], [{ label: "Laisser passer la fin de la matinée", to: "C2" }]),
 
   // ================================================================ III · the plaquette
@@ -115,7 +115,7 @@ module.exports = {
     { if: { signe: "page" }, text: "Sur le pupitre, la plaquette tourne d'elle-même une page, sans un souffle d'air, et s'ouvre sur une carte du pays. Au milieu, collé sur le papier gras d'un sandwich oublié, un petit ange doré a l'air de montrer quelque chose du bout de sa trompette : deux points, où toutes les lignes se rejoignent. Mirevaux. Le Domaine." },
   ], [{ label: "Regarder l'heure : midi moins le quart", to: "C3" }]),
   I3_reseau: I("plaquette", ["calendrier", "carte_reseau"], "I", "La case rouge et les lignes bleues", "route", { set: { comprend: "oui" }, flag: ["paire:plaquette", "midi:compris"], clue: ["c_plaquette", "c_carte"] }, [
-    "Ce qui fait comprendre, ce n'est pas la plaquette. Ce sont deux objets qui n'ont rien à voir avec elle.",
+    "Ce qui fait comprendre, ce sont deux objets étrangers à la plaquette.",
     "Le premier est le calendrier des livraisons de la crèmerie, où un homme du Consortium a entouré de rouge, ce matin, la case de midi, en écrivant dedans *Raccordement*. Le second est une carte du réseau, dépliée, avec chaque champ de panneaux en petit carré bleu et chaque ligne en veine fine, oubliée par un technicien sur un pupitre, ou tombée d'une camionnette sur le bord de la route.",
     "« Midi, dit une voix au canal 4. Ils ont entouré midi. Chez ma mère. Chez tout le monde, sûrement.",
     "— Et les lignes, dit l'autre voix. Toutes les lignes vont au même endroit. Deux endroits. Mirevaux. Et ici. »",
@@ -235,7 +235,7 @@ module.exports = {
     "Le capot de l'armoire résiste. La notice est en douze langues, et Basile a commencé par le finnois. Au talkie, Salée lit des pages qui parlent du bonheur des familles. Le compteur tourne.",
     "Les techniciens arrivent en bas de l'escalier. Ils ne disent rien. Phébus pose la main sur l'épaule de Basile, sans violence, et le reconduit vers l'escalier, comme on reconduit un visiteur qui s'est trompé de salle. Lumen referme l'armoire derrière eux.",
     "Basile remonte au jour. Le Domaine brûle doucement par endroits, comme une tarte oubliée. Les panneaux des toits, braqués sur les fenêtres, renvoient le soleil dans les chambres, et les rideaux de soie prennent feu un par un.",
-    "À trois heures, quand les techniciens sont repartis, Octave descend au local technique avec la clé maîtresse de la maison, celle qu'aucun garde n'a jamais vue. Il ouvre l'armoire. Il abaisse le levier rouge, de la main gauche, en tenant sa veste de la droite pour ne pas la froisser. Le compteur s'arrête. Il remonte. Il ne dit rien à personne. Aux grilles, un déclic : les serrures solaires ont lâché.",
+    "À trois heures, quand les techniciens sont repartis, Octave descend au local technique avec la clé maîtresse de la maison, celle qu'aucun garde n'a jamais vue. Il ouvre l'armoire. Il abaisse le levier rouge, de la main gauche, en tenant sa veste de la droite pour ne pas la froisser. Le compteur s'arrête. Il remonte, et garde la chose pour lui. Aux grilles, un déclic : les serrures solaires ont lâché.",
   ], [{ label: "Attendre le soir", to: "C4" }]),
 
   // ================================================================ VII · the scrap-dealers
@@ -253,7 +253,7 @@ module.exports = {
     "Elle monte dans le deuxième camion avec trois Ferrailleurs qui ne la regardent pas. Elle s'assied sur une pile de cordes, le col relevé. Le camion démarre. Personne ne compte les têtes : on compte le métal.",
     "Au talkie, glissé dans sa manche, elle murmure à Basile : « Je suis dedans. Deuxième camion. On arrive par la cour dans trois heures.",
     "— Je serai à la porte verte », dit Basile. Puis : « Salée. Il y a une chose que je n'ai pas dite. Le règlement prévoit qu'on peut sortir une collection en cas de péril. Article 88. Il faut seulement l'écrire au registre. »",
-    "Salée ne dit rien pendant un long moment. Le camion cahote. Puis elle dit : « Alors écris. »",
+    "Salée garde le silence un long moment. Le camion cahote. Puis elle dit : « Alors écris. »",
     { if: { signe: "capsule" }, text: "Avant de monter, Salée a croisé Ripaille près du feu. La cheffe a baissé les yeux sur une capsule de son propre blouson, sur le cœur, et elle est restée un moment immobile, comme si la capsule lui avait parlé. Sur la capsule, il y a un petit ange doré : une marque de bière qui a racheté, un jour, une licence de la Maison. Ripaille a passé le pouce dessus. Elle n'a rien dit. Elle a laissé le chalumeau dans le premier camion." },
   ], [{ label: "Rouler vers le Domaine dans la nuit", to: "E8" }]),
   I7_guide: I("ferrailleurs", ["baratte", "plan_domaine"], "II", "La guide", "camp", { set: { convoi: "guide" }, flag: "paire:ferrailleurs" }, [
@@ -360,7 +360,7 @@ module.exports = {
     "Ils travaillent à deux, sans parler. Basile descend aux caves et remonte le beurre à pleins seaux. Salée le tasse dans les deux moitiés du moule, des mains, du coude, du poing. Ils couchent le Héraut d'inox dans la première moitié, comme dans un berceau. Ils posent la seconde par-dessus. Ils serrent. Le beurre déborde par la jointure, en bourrelet doré, comme une crème trop pleine.",
     "Ils attendent. Le beurre de cave refroidit dans le plâtre. Le ciel pâlit. Ils ouvrent.",
     "Dedans, il y a un ange de beurre. Doré, lisse, parfait. Joufflu, les ailes repliées, la trompette aux lèvres, un pied levé. C'est l'Enjambeur, le vrai, celui des mottes et des affiches, grand comme un enfant de dix ans. Personne ne pourrait deviner ce qu'il y a dedans. Il ne brille pas. Il luit, doucement, mat, chaud, comme une joue.",
-    { if: { signe: "fidele" }, text: "Pendant qu'ils travaillaient, quelqu'un est venu. Un garçon de seize ans, maigre, sérieux, un casque trop grand sur la tête : Gaston. Il les a vus porter, tasser, mouler. Il n'a rien demandé. Il a pris un seau, il est descendu aux caves, et il a remonté du beurre avec eux jusqu'au bout, sans un mot. Maintenant, devant l'ange, il se signe, très lentement, et il reste là." },
+    { if: { signe: "fidele" }, text: "Pendant qu'ils travaillaient, quelqu'un est venu. Un garçon de seize ans, maigre, sérieux, un casque trop grand sur la tête : Gaston. Il les a vus porter, tasser, mouler. Il n'a rien demandé. Il a pris un seau, il est descendu aux caves, et il a remonté du beurre avec eux jusqu'au bout. Maintenant, devant l'ange, il se signe, très lentement, et il reste là." },
   ], [{ label: "Porter l'ange sur la bascule du Carrefour", to: "Z_bascule" }]),
   I10_trompette: I("entrepot", "trompette", "III", "La trompette de l'enseigne", "entrepot", { set: { beurre: "trompette" } }, [
     "Ils descendent aux caves et remontent le beurre à pleins seaux, tiède, mou, doré, et ils en couvrent le Héraut d'inox à pleines mains, couche après couche, des pieds aux ailes, comme on beurre une tartine pour quelqu'un qu'on aime. Le beurre prend la forme de l'acier, à peu près. L'ange devient un ange de beurre, à peu près : un peu trop épais aux genoux, un peu trop mince aux joues.",
