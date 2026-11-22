@@ -1,0 +1,30 @@
+// « L'Île à hélice », Jules Verne, 1895 : un livre à lire, sans choix (lecture: true). Texte de Verne, domaine public,
+// d'après l'édition numérisée par le Projet Gutenberg. Les notes de l'auteur restent entre parenthèses à leur place.
+// Les titres des chapitres sont ceux de Verne ; les titres des pages sont de Claude, comme tout ce qui vit dans les
+// tags (gens, lieux, mots, résumés).
+// Les lieux du livre.
+module.exports = {
+  californie: { ambiance: "route", name: "La route de Basse-Californie", x: 93, y: 20, region: "Le littoral du Pacifique, au sud de San Diego", desc: "Une route déserte entre les collines et la mer, où les voitures publiques versent plus souvent qu'à leur tour.", map: "pacifique", arrive: "I1_1" },
+  freschal: { ambiance: "village", name: "Freschal", x: 91, y: 23, region: "La Basse-Californie", desc: "Une bourgade endormie, dont aucun habitant n'ouvre sa porte la nuit.", map: "pacifique", arrive: "I2_4" },
+  milliard: { ambiance: "ville", name: "Milliard-City", x: 84, y: 30, region: "Au milieu de Standard-Island", desc: "Une ville aux avenues numérotées qui se coupent à angle droit, aux hôtels pareils à des palais, coupée en deux quartiers : Bâbord et Tribord.", map: "pacifique", arrive: "I3_1" },
+  casino: { ambiance: "ville", name: "Le casino", x: 85, y: 29, region: "Milliard-City", desc: "Le palais des plaisirs de la ville : salle de concert, musée, bibliothèque, ateliers des journaux, et l'appartement du quatuor.", map: "pacifique", arrive: "I6_4" },
+  observatoire: { ambiance: "ville", name: "L'observatoire", x: 83, y: 31, region: "Le square au bout de la Unième Avenue", desc: "Une haute tour d'où l'on voit toute l'île et la mer, siège du commodore et de ses astronomes.", map: "pacifique", arrive: "I4_6" },
+  hoteldeville: { ambiance: "ville", name: "L'hôtel de ville", x: 85, y: 31, region: "L'autre bout de la Unième Avenue", desc: "Le palais municipal, avec son beffroi, son grand balcon et la salle où siège le conseil des notables.", map: "pacifique", arrive: "I8_1" },
+  parc: { ambiance: "champs", name: "Le parc et la campagne", x: 82, y: 29, region: "Autour de Milliard-City", desc: "Des pelouses, des bois, une rivière, la Serpentine, des fermes et des troupeaux, sur un sol d'acier recouvert de terre.", map: "pacifique", arrive: "I4_3" },
+  tribord: { ambiance: "port", name: "Tribord-Harbour", x: 86, y: 33, region: "Une extrémité de Standard-Island", desc: "Un port creusé dans la coque, avec ses quais, ses usines d'électricité et ses machines qui font tourner l'une des deux hélices.", map: "pacifique", arrive: "I4_5" },
+  babord: { ambiance: "port", name: "Bâbord-Harbour", x: 81, y: 33, region: "L'autre extrémité de Standard-Island", desc: "Le port jumeau, avec ses quais, ses usines et la seconde machinerie.", map: "pacifique", arrive: "II13_2" },
+  large: { ambiance: "mer", name: "En plein Pacifique", x: 72, y: 38, region: "Le Pacifique nord", desc: "La mer libre, que l'île à hélice traverse sans hâte d'un archipel à l'autre.", map: "pacifique", arrive: "I7_1" },
+  sandwich: { ambiance: "port", name: "Honolulu", x: 60, y: 20, region: "L'archipel des Sandwich", desc: "La capitale de l'île d'Oahu, au pied des volcans, ville déjà toute américaine.", map: "pacifique", arrive: "I9_2" },
+  ligne: { ambiance: "mer", name: "La Ligne", x: 66, y: 44, region: "L'Équateur", desc: "La ligne imaginaire qui partage la Terre en deux, que les navires passent en faisant la fête.", map: "pacifique", arrive: "I10_5" },
+  marquises: { ambiance: "port", name: "Nouka-Hiva", x: 76, y: 52, region: "L'archipel des Marquises", desc: "Une île de hautes falaises et de baies profondes, dont la principale abrite le village de Taio-Haé.", map: "pacifique", arrive: "I11_1" },
+  pomotou: { ambiance: "mer", name: "Les Pomotou", x: 74, y: 60, region: "L'archipel des Pomotou", desc: "Un semis d'îles basses de corail, aux lagons verts, dangereuses à approcher.", map: "pacifique", arrive: "I12_4" },
+  tahiti: { ambiance: "port", name: "Papeeté", x: 67, y: 63, region: "Tahiti, archipel de la Société", desc: "Une jolie ville française au bord d'une rade, sous les montagnes vertes de Tahiti.", map: "pacifique", arrive: "I13_1" },
+  cook: { ambiance: "mer", name: "Les îles de Cook", x: 58, y: 68, region: "Sous protectorat anglais", desc: "Un groupe d'îles verdoyantes, dont Mangia et Rarotonga, où règnent des pasteurs plus que des rois.", map: "pacifique", arrive: "II1_3" },
+  samoa: { ambiance: "port", name: "Les Samoa", x: 45, y: 57, region: "L'archipel des Navigateurs", desc: "Des îles volcaniques couvertes de forêts : Tétuila et le port de Pago-Pago, Upolu et la ville d'Apia.", map: "pacifique", arrive: "II2_2" },
+  tonga: { ambiance: "village", name: "Tonga-Tabou", x: 42, y: 71, region: "L'archipel des Tonga", desc: "Une île basse et fertile, avec le port de Maofuga, le village de Mua et ses vieilles tombes royales.", map: "pacifique", arrive: "II5_1" },
+  fidji: { ambiance: "port", name: "Suva", x: 34, y: 64, region: "Viti-Levou, archipel des Fidji", desc: "La capitale anglaise de l'archipel, au bord d'une large baie.", map: "pacifique", arrive: "II8_1" },
+  rewa: { ambiance: "foret", name: "La Rewa", x: 35, y: 62, region: "L'intérieur de Viti-Levou", desc: "Une grande rivière entre les bananiers et les cocotiers, qui mène aux villages de l'intérieur.", map: "pacifique", arrive: "II9_2" },
+  hebrides: { ambiance: "mer", name: "Les Nouvelles-Hébrides", x: 22, y: 62, region: "Le Pacifique occidental", desc: "Un archipel de cent cinquante îles, au nord de la Nouvelle-Calédonie.", map: "pacifique", arrive: "II10_7" },
+  derive: { ambiance: "mer", name: "Vers le sud", x: 26, y: 80, region: "Le Pacifique sud", desc: "Une mer sans île, où les courants portent vers le tropique et au-delà.", map: "pacifique", arrive: "II13_1" },
+  auckland: { ambiance: "port", name: "Auckland", x: 30, y: 93, region: "La Nouvelle-Zélande", desc: "La capitale de l'île du Nord de la Nouvelle-Zélande.", map: "pacifique", arrive: "II14_5" },
+};
