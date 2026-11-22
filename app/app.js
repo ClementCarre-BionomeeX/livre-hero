@@ -2733,6 +2733,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "18.6", items: ["Nouveau livre à lire : « Un billet de loterie » de Jules Verne (1886), en entier."] },
     { v: "18.5", items: ["Nouveau livre à lire : « Kéraban-le-Têtu » de Jules Verne (1883), en entier."] },
     { v: "18.4", items: ["Nouveau livre à lire : « L'Archipel en feu » de Jules Verne (1884), en entier."] },
     { v: "18.3", items: ["Nouveau livre à lire : « La Maison à vapeur » de Jules Verne (1880), en entier."] },
