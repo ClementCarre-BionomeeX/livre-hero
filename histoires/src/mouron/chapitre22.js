@@ -1,0 +1,103 @@
+// « Le Mouron rouge » (The Scarlet Pimpernel), baronne Orczy, 1905 : un livre à lire, sans choix (lecture: true).
+// Texte : traduction nouvelle par Claude, faite pour cette bibliothèque à partir du texte anglais de 1905 (Project
+// Gutenberg n° 60, domaine public). Les titres des chapitres sont ceux d'Orczy, traduits ; ceux des pages, comme tout
+// ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude. Le portrait du vieux voiturier (ch. XXVI,
+// « The Jew » dans l'original) et quelques remarques de narrateur ont été adoucis ; voir la notice.
+// Chapitre C22 · Chapitre 22 · Calais
+module.exports = {
+  C22_1: { act: "C22", title: "La traversée", place: "mer",
+    text: [
+      "Les nuits les plus épuisantes, les jours les plus longs finissent forcément tôt ou tard.",
+      "Marguerite avait passé plus de quinze heures dans une torture morale si aiguë qu'elle avait failli en perdre la raison. Après une nuit sans sommeil, elle se leva de bonne heure, folle d'impatience, mourant d'envie de se mettre en route, terrifiée à l'idée de nouveaux obstacles. Elle se leva avant que personne fût debout dans la maison, tant elle craignait de manquer l'unique occasion en or de partir.",
+      "En descendant, elle trouva sir Andrew Ffoulkes assis dans la salle commune. Il était sorti une demi-heure plus tôt et était allé à la jetée de l'Amirauté, pour constater que ni le paquebot français ni aucun navire affrété ne pouvait encore sortir de Douvres. La tempête était alors à son comble, et la marée allait tourner. Si le vent ne tombait ni ne tournait, il leur faudrait forcément attendre encore dix ou douze heures, jusqu'à la marée suivante, avant de pouvoir partir. Or la tempête ne tombait pas, le vent ne tournait pas, et la mer se retirait rapidement.",
+      "Marguerite sentit la nausée du désespoir en apprenant cette triste nouvelle. Seule la plus ferme résolution l'empêcha de s'effondrer tout à fait et d'ajouter ainsi à l'anxiété du jeune homme, devenue visiblement très vive.",
+      "Il avait beau la cacher, Marguerite voyait bien que sir Andrew était tout aussi impatient qu'elle de rejoindre son camarade et ami. Cette inaction forcée leur était terrible à tous deux.",
+      "Comment ils passèrent cette journée épuisante à Douvres, Marguerite ne put jamais le dire par la suite. Elle avait terreur de se montrer, de peur que les espions de Chauvelin ne fussent dans les parages ; elle avait donc pris un petit salon particulier, et elle et sir Andrew y restèrent assis heure après heure, essayant de prendre, à de longs intervalles, quelques repas machinaux que leur apportait la petite Sally, sans rien d'autre à faire que penser, supposer, et seulement de temps à autre espérer.",
+      "La tempête était tombée juste trop tard ; la mer était alors trop basse pour qu'un navire pût prendre le large. Le vent avait tourné et s'installait en une bonne brise de nord-ouest, une vraie bénédiction pour une traversée rapide vers la France.",
+      "Et ils attendaient tous deux, se demandant si l'heure viendrait jamais où ils pourraient enfin partir. Il y avait eu une éclaircie heureuse dans cette longue journée épuisante : quand sir Andrew était redescendu à la jetée, puis était revenu dire à Marguerite qu'il avait affrété une goélette rapide, dont le patron était prêt à prendre la mer dès que la marée serait favorable.",
+      "Dès lors, les heures parurent moins pesantes ; l'attente était moins désespérée ; et enfin, à cinq heures de l'après-midi, Marguerite, étroitement voilée, suivie de sir Andrew Ffoulkes qui portait, en sa qualité de laquais, un certain nombre de bagages, descendit à la jetée.",
+      "Une fois à bord, l'air de la mer, vif et frais, la ranima ; la brise était juste assez forte pour gonfler joliment les voiles de la Foam Crest, qui filait gaiement vers le large.",
+      "Le coucher du soleil était splendide après la tempête, et Marguerite, regardant les blanches falaises de Douvres disparaître peu à peu, se sentit plus en paix, et de nouveau presque pleine d'espoir.",
+      "Sir Andrew était plein d'attentions, et elle sentait quelle chance elle avait de l'avoir à ses côtés dans sa grande détresse.",
+      "Peu à peu, la côte grise de la France commença d'émerger des brumes du soir qui s'épaississaient vite. On voyait vaciller une ou deux lumières, et les clochers de plusieurs églises se dresser hors de la brume environnante.",
+      "Une demi-heure plus tard, Marguerite avait débarqué sur le sol français. Elle était de retour dans ce pays où, en ce moment même, des hommes massacraient leurs semblables par centaines et envoyaient au billot, par milliers, des femmes et des enfants innocents.",
+      "L'aspect même du pays et de ses habitants, jusque dans cette lointaine ville de la côte, parlait de cette révolution en ébullition, à cinq cents kilomètres de là, dans le beau Paris, rendu hideux par le sang qui coulait sans cesse de ses fils les plus nobles, par les lamentations des veuves et les cris des orphelins."
+    ] },
+
+  C22_2: { act: "C22", title: "Les bonnets rouges", place: "calais",
+    text: [
+      "Les hommes portaient tous le bonnet rouge, plus ou moins propre, mais toujours avec la cocarde tricolore épinglée sur le côté gauche. Marguerite remarqua avec un frisson qu'au lieu de la mine rieuse et gaie habituelle à ses compatriotes, leurs visages portaient à présent invariablement une expression de méfiance sournoise.",
+      "Chacun, désormais, espionnait ses voisins : le mot le plus innocent, dit en plaisantant, pouvait à tout moment être produit comme preuve de penchants aristocratiques ou de trahison envers le peuple. Les femmes mêmes allaient avec une curieuse lueur de peur et de haine tapie dans leurs yeux bruns ; et toutes regardaient Marguerite quand elle mit pied à terre, suivie de sir Andrew, et murmuraient sur son passage : « Sacrés aristos ! » ou bien « Sacrés Anglais ! »",
+      "Leur présence ne suscita du reste pas d'autre commentaire. Calais, même en ce temps-là, commerçait sans cesse avec l'Angleterre, et l'on voyait souvent des marchands anglais sur cette côte. On savait bien qu'en raison des lourds droits de douane anglais, il passait en contrebande une grande quantité de vins et d'eaux-de-vie de France. Cela plaisait énormément au bourgeois français : il aimait voir le gouvernement et le roi d'Angleterre, qu'il haïssait l'un et l'autre, frustrés de leurs revenus ; et un contrebandier anglais était toujours le bienvenu dans les tavernes délabrées de Calais et de Boulogne.",
+      "Aussi, tandis que sir Andrew guidait peu à peu Marguerite à travers les rues tortueuses de Calais, beaucoup de ceux qui se retournaient avec un juron pour regarder ces étrangers vêtus à l'anglaise pensaient sans doute qu'ils venaient acheter des marchandises frappées de droits pour leur pays de brouillard, et ne leur accordaient qu'une pensée en passant.",
+      "Marguerite se demandait pourtant comment la haute et massive silhouette de son mari avait pu traverser Calais sans être remarquée ; elle se demandait quel déguisement il prenait pour accomplir sa noble tâche sans trop attirer l'attention.",
+      "Sans échanger plus de quelques mots, sir Andrew la conduisait à travers toute la ville, de l'autre côté par rapport à leur point de débarquement, sur le chemin du cap Gris-Nez. Les rues étaient étroites, tortueuses et pour la plupart malodorantes, d'un mélange de poisson gâté et de cave humide. Il était tombé de grosses pluies pendant la tempête de la nuit précédente, et parfois Marguerite enfonçait dans la boue jusqu'aux chevilles, car les rues n'étaient éclairées que par la lueur d'une lampe, de loin en loin, à l'intérieur d'une maison.",
+      "Mais elle ne prêtait aucune attention à ces petits désagréments. « Nous trouverons peut-être Blakeney au Chat gris », avait dit sir Andrew au débarquement, et elle marchait comme sur un tapis de pétales de roses, car elle allait le retrouver presque tout de suite.",
+      "Enfin ils arrivèrent. Sir Andrew connaissait visiblement le chemin, car il avait marché sans hésiter dans l'obscurité, sans le demander à personne. Il faisait alors trop noir pour que Marguerite remarquât l'aspect extérieur de la maison. Le Chat gris, comme l'avait appelé sir Andrew, était visiblement une petite auberge de bord de route, à la sortie de Calais, sur le chemin de Gris-Nez. Elle se trouvait à quelque distance de la côte, car le bruit de la mer semblait venir de loin.",
+      "Sir Andrew frappa à la porte du pommeau de sa canne, et de l'intérieur Marguerite entendit une sorte de grognement et une bordée de jurons marmonnés. Sir Andrew frappa de nouveau, plus impérieusement cette fois : on entendit d'autres jurons, puis des pas traînants semblèrent approcher de la porte. Bientôt elle s'ouvrit toute grande, et Marguerite se trouva sur le seuil de la pièce la plus délabrée, la plus sordide qu'elle eût jamais vue de sa vie.",
+      "Le papier, si on pouvait l'appeler ainsi, pendait des murs en lambeaux ; il ne semblait pas y avoir dans la pièce un seul meuble que l'on pût, avec la plus folle imagination, appeler « entier ». La plupart des chaises avaient le dossier cassé, d'autres n'avaient plus de siège ; un coin de la table était calé par un fagot de bois, là où le quatrième pied s'était brisé.",
+      "Dans un coin de la pièce se trouvait une énorme cheminée, où pendait une marmite d'où montait une odeur de soupe chaude, ma foi pas tout à fait déplaisante. D'un côté de la pièce, haut dans le mur, il y avait une sorte de soupente, devant laquelle pendait un rideau en loques à carreaux bleus et blancs. Un escalier branlant y menait."
+    ] },
+
+  C22_3: { act: "C22", title: "Le Chat gris", place: "chatgris", fx: { meet: ["brogard"] },
+    text: [
+      "Sur les grands murs nus, au papier décoloré tout taché de saletés diverses, on avait tracé à la craie, de loin en loin, en grandes lettres hardies, les mots : « Liberté, Égalité, Fraternité. »",
+      "Tout ce logis sordide était faiblement éclairé par une lampe à huile malodorante, suspendue aux poutres branlantes du plafond. Tout cela avait l'air si horriblement sordide, si sale et si peu engageant, que Marguerite osait à peine franchir le seuil.",
+      "Sir Andrew, lui, s'était avancé sans hésiter.",
+      "— Des voyageurs anglais, citoyen ! dit-il hardiment, en français.",
+      "L'individu qui était venu ouvrir et qui était, selon toute apparence, le propriétaire de ce logis sordide, était un paysan âgé et lourdement bâti, vêtu d'une blouse bleue sale, de gros sabots d'où dépassaient de tous côtés des brins de paille, d'un pantalon bleu râpé et de l'inévitable bonnet rouge à cocarde tricolore qui proclamait ses opinions politiques du moment. Il tenait une courte pipe de bois, d'où s'échappait une odeur de tabac âcre. Il regarda les deux voyageurs avec quelque méfiance et beaucoup de mépris, en marmonnant « Sacrrrés Anglais ! », et cracha par terre pour mieux montrer son indépendance d'esprit ; il s'écarta néanmoins pour les laisser entrer, sachant fort bien sans doute que ces mêmes sacrés Anglais avaient toujours la bourse bien garnie.",
+      "— Seigneur ! dit Marguerite en entrant dans la pièce, son mouchoir sur son joli nez, quel affreux trou ! Êtes-vous sûr que c'est bien ici ?",
+      "— Oui ! c'est bien ici, répondit le jeune homme, en époussetant une chaise pour Marguerite de son élégant mouchoir bordé de dentelle ; mais je jure n'avoir jamais vu de trou plus infâme.",
+      "— Ma foi ! dit-elle en regardant avec quelque curiosité et beaucoup d'horreur les murs délabrés, les chaises cassées, la table branlante, cela n'a certes rien d'engageant.",
+      "Le patron du Chat gris, nommé Brogard, ne s'occupait plus de ses hôtes ; il pensait qu'ils commanderaient bientôt à souper, et qu'en attendant, il ne convenait pas à un citoyen libre de montrer de la déférence, ni même de la politesse, envers qui que ce fût, si élégamment vêtu qu'il fût.",
+      "Près de l'âtre était assise une silhouette recroquevillée, vêtue, semblait-il, surtout de haillons : c'était apparemment une femme, encore qu'on eût eu peine à le distinguer, sans le bonnet, autrefois blanc, et ce qui ressemblait à un semblant de jupon. Elle marmonnait toute seule, et de temps à autre remuait le brouet de sa marmite.",
+      "— Hé, mon ami ! dit enfin sir Andrew, nous voudrions souper… La citoyenne que voilà, ajouta-t-il, nous mijote une délicieuse soupe, je le gage, et ma maîtresse n'a rien mangé depuis plusieurs heures.",
+      "Il fallut quelques minutes à Brogard pour examiner la question. Un citoyen libre ne répond pas trop vite aux désirs de ceux qui ont besoin de lui.",
+      "— Sacrrrés aristos ! marmonna-t-il, et il cracha une fois de plus par terre.",
+      "Puis il se dirigea très lentement vers un buffet dans un coin de la pièce ; il en tira une vieille soupière d'étain et, lentement, sans un mot, la tendit à sa moitié, qui, dans le même silence, se mit à la remplir de la soupe de sa marmite.",
+      "Marguerite avait suivi tous ces préparatifs avec une horreur absolue ; sans la gravité de son dessein, elle aurait fui sur-le-champ ce repaire de saleté et de mauvaises odeurs.",
+      "— Ma foi ! nos hôtes ne sont pas gens bien gais, dit sir Andrew, voyant l'horreur sur le visage de Marguerite. Je voudrais pouvoir vous offrir un repas plus copieux et plus appétissant… mais je crois que vous trouverez la soupe mangeable et le vin bon ; ces gens se vautrent dans la saleté, mais vivent bien en général.",
+      "— Allons ! je vous en prie, sir Andrew, dit-elle doucement, ne vous inquiétez pas pour moi. Mon esprit n'est guère porté à songer au souper.",
+      "Brogard poursuivait lentement ses lugubres préparatifs ; il avait posé sur la table deux cuillers et deux verres, que sir Andrew prit la précaution d'essuyer soigneusement.",
+      "Brogard avait aussi apporté une bouteille de vin et du pain, et Marguerite fit l'effort d'approcher sa chaise de la table et de faire semblant de manger. Sir Andrew, comme il convenait à son rôle de laquais, se tenait debout derrière sa chaise."
+    ] },
+
+  C22_4: { act: "C22", title: "Le souper de Brogard", place: "chatgris",
+    text: [
+      "— Allons, Madame, je vous en prie, dit-il, voyant que Marguerite semblait tout à fait incapable de manger, je vous supplie d'essayer d'avaler quelque chose ; souvenez-vous que vous avez besoin de toutes vos forces.",
+      "La soupe n'était certes pas mauvaise ; elle sentait bon et avait bon goût. Marguerite l'aurait peut-être appréciée, sans cet horrible décor. Elle rompit pourtant le pain et but un peu de vin.",
+      "— Non, sir Andrew, dit-elle, je n'aime pas vous voir debout. Vous avez autant besoin de manger que moi. Cette créature me prendra tout au plus pour une Anglaise excentrique qui s'enfuit avec son laquais, si vous vous asseyez pour partager près de moi ce semblant de souper.",
+      "De fait, Brogard, après avoir posé sur la table le strict nécessaire, semblait ne plus se soucier de ses hôtes. La mère Brogard était sortie de la pièce sans bruit, en traînant les pieds, et l'homme restait là, à flâner, à fumer sa pipe malodorante, parfois sous le nez même de Marguerite, comme doit le faire tout citoyen né libre et l'égal de chacun.",
+      "— Au diable cette brute ! dit sir Andrew avec une colère bien britannique, tandis que Brogard s'appuyait contre la table, fumant et toisant de haut ces deux sacrrrés Anglais.",
+      "— Au nom du ciel, mon ami, l'admonesta vivement Marguerite, voyant que sir Andrew, par instinct britannique, serrait le poing d'un air menaçant, souvenez-vous que vous êtes en France, et qu'en cette année de grâce, c'est l'humeur du peuple.",
+      "— J'aimerais tordre le cou à cette brute ! grommela sauvagement sir Andrew.",
+      "Il avait suivi le conseil de Marguerite et s'était assis près d'elle à table, et tous deux faisaient de nobles efforts pour se tromper l'un l'autre en faisant semblant de manger et de boire.",
+      "— Je vous en prie, dit Marguerite, gardez cette créature de bonne humeur, pour qu'elle réponde aux questions que nous devons lui poser.",
+      "— Je ferai de mon mieux, mais, palsambleu ! j'aimerais mieux lui tordre le cou que l'interroger. Hé ! mon ami, dit-il aimablement en français, en tapotant l'épaule de Brogard, voyez-vous beaucoup de gens de notre qualité par ici ? Beaucoup de voyageurs anglais, je veux dire ?",
+      "Brogard le regarda par-dessus son épaule, tira quelques bouffées de sa pipe, car il n'était pas pressé, puis grommela :",
+      "— Heu ! quelquefois !",
+      "— Ah ! dit négligemment sir Andrew, les voyageurs anglais savent toujours où trouver du bon vin, hein, mon ami ? Dites-moi : ma maîtresse désirait savoir si par hasard vous n'auriez pas vu un grand ami à elle, un gentilhomme anglais, qui vient souvent à Calais pour affaires ; il est grand, et il était récemment en route pour Paris ; ma maîtresse espérait le rencontrer à Calais.",
+      "Marguerite s'efforçait de ne pas regarder Brogard, de peur de trahir devant lui l'anxiété brûlante avec laquelle elle attendait sa réponse. Mais un citoyen français né libre n'est jamais pressé de répondre aux questions ; Brogard prit son temps, puis dit très lentement :",
+      "— Un grand Anglais ? Aujourd'hui ! Oui.",
+      "— Oui, aujourd'hui, grommela Brogard d'un air maussade.",
+      "Puis il prit tranquillement le chapeau de sir Andrew sur une chaise voisine, s'en coiffa, tira sur sa blouse sale, et s'efforça en somme d'exprimer par une pantomime que l'individu en question portait de très beaux habits.",
+      "— Sacrré aristo ! grommela-t-il. Ce grand Anglais !",
+      "Marguerite put à peine retenir un cri.",
+      "— C'est bien sir Percy, murmura-t-elle, et pas même déguisé !",
+      "Elle sourit, au milieu de toute son angoisse et à travers ses larmes montantes, à la pensée de cette « passion dominante, forte jusque dans la mort » : Percy courant aux dangers les plus fous, les plus insensés, l'habit à la dernière mode sur le dos et les dentelles de son jabot impeccables.",
+      "— Oh ! quelle témérité ! soupira-t-elle. Vite, sir Andrew ! demandez à cet homme quand il est parti.",
+      "— Ah ! oui, mon ami, dit sir Andrew à Brogard, avec la même insouciance affectée, milord porte toujours de beaux habits ; le grand Anglais que vous avez vu était certainement l'ami de ma maîtresse. Et il est parti, dites-vous ?",
+      "— Il est parti… oui… mais il revient… ici… il a commandé à souper…",
+      "Sir Andrew posa vivement la main sur le bras de Marguerite, en signe d'avertissement ; il était grand temps, car l'instant d'après sa joie folle, éperdue, l'aurait trahie. Il était sain et sauf, il allait revenir ici tout à l'heure, elle le verrait dans quelques instants peut-être… Oh ! sa joie était si folle qu'elle semblait presque plus qu'elle n'en pouvait supporter.",
+      "— Ici ! dit-elle à Brogard, qui semblait soudain transformé à ses yeux en messager céleste de la félicité. Ici ! Avez-vous dit que le gentilhomme anglais revenait ici ?",
+      "Le messager céleste de la félicité cracha par terre, pour exprimer son mépris envers tous les aristos, quels qu'ils fussent, qui s'avisaient de hanter le Chat gris.",
+      "— Heu ! grommela-t-il, il a commandé à souper ; il reviendra… Sacrré Anglais ! ajouta-t-il, pour protester contre tout ce tapage autour d'un simple Anglais.",
+      "— Mais où est-il maintenant ? Le savez-vous ? demanda-t-elle avec empressement, en posant sa délicate main blanche sur la manche sale de sa blouse bleue.",
+      "— Il est allé chercher un cheval et une charrette, dit laconiquement Brogard, en secouant d'un geste bourru, de son bras, cette jolie main que des princes avaient été fiers de baiser.",
+      "— À quelle heure est-il parti ?",
+      "Mais Brogard en avait visiblement assez de ces questions. Il ne trouvait pas convenable qu'un citoyen, l'égal de n'importe qui, fût ainsi interrogé comme au catéchisme par ces sacrrrés aristos, fussent-ils de riches Anglais. Il convenait nettement mieux à sa toute neuve dignité d'être aussi grossier que possible ; répondre docilement à des questions polies était un signe certain de servilité.",
+      "— Je ne sais pas, dit-il d'un ton bourru. J'en ai assez dit, voyons, les aristos !… Il est venu aujourd'hui. Il a commandé à souper. Il est sorti. Il reviendra. Voilà !",
+      "Et sur cette dernière affirmation de son droit, en citoyen et en homme libre, d'être aussi grossier qu'il lui plaisait, Brogard sortit de la pièce en traînant les pieds et en claquant la porte derrière lui."
+    ] },
+
+};
