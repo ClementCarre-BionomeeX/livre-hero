@@ -1,0 +1,17 @@
+// « L'Archipel en feu », Jules Verne, 1884 : un livre à lire, sans choix (lecture: true). Texte de Verne, domaine public,
+// d'après l'édition numérisée par le Projet Gutenberg (saisie d'Ebooks libres et gratuits). Les notes de l'auteur restent
+// entre parenthèses à leur place. Les titres des chapitres sont ceux de Verne ; les titres des pages sont de Claude, comme
+// tout ce qui vit dans les tags (gens, lieux, mots, résumés).
+// Les gens du livre (syntaxe de « Qui est qui » : aka, qui, aspect, face). Cliquables à partir de leur entrée en scène.
+module.exports = {
+  starkos: { name: "Nicolas Starkos", aka: ["Nicolas Starkos", "capitaine Starkos", "Starkos"], face: { age: "adulte", hair: "noir", coif: "court", beard: "moustache", skin: "hale", iris: "noir" }, qui: "Un marin de Vitylo, au Magne, capitaine de la sacolève Karysta.", aspect: { allure: "taille moyenne, front haut et fier", visage: "moustaches de Klephte, regard fixe et dur" } },
+  andronika: { name: "Andronika", aka: ["Andronika Starkos", "Andronika"], face: { age: "ancien", hair: "gris", coif: "foulard", skin: "hale", iris: "noir" }, qui: "Une veuve du Magne partie se battre pour l'indépendance de la Grèce.", aspect: { allure: "plus de soixante ans, haute et droite", visage: "grands yeux noirs un peu sauvages" } },
+  henry: { name: "Henry d'Albaret", aka: ["Henry d'Albaret", "commandant d'Albaret", "capitaine d'Albaret", "d'Albaret", "Henry"], face: { age: "jeune", hair: "chatain", coif: "court", beard: "moustache" }, qui: "Un jeune officier de marine français, venu se battre pour la Grèce avec le colonel Fabvier." },
+  hadjine: { name: "Hadjine Elizundo", aka: ["Hadjine Elizundo", "Hadjine"], face: { age: "jeune", hair: "noir", coif: "long", skin: "dore", iris: "noir" }, qui: "La fille du banquier Elizundo, à Corfou.", aspect: { allure: "vingt-deux ans, très belle et grave" } },
+  elizundo: { name: "Elizundo", aka: ["banquier Elizundo", "Elizundo"], face: { age: "ancien", hair: "blanc", coif: "degarni", beard: "sans" }, qui: "Un banquier de Corfou, riche et silencieux, dont personne ne connaît le passé.", aspect: { signe: "regard fuyant, sous des paupières lourdes" } },
+  xaris: { name: "Xaris", aka: ["Xaris"], face: { age: "adulte", hair: "noir", coif: "court", beard: "moustache", skin: "hale" }, qui: "Le serviteur dévoué d'Hadjine Elizundo, un Grec d'une force prodigieuse.", aspect: { signe: "des bras de fer" } },
+  skopelo: { name: "Skopélo", aka: ["Skopélo"], face: { age: "mur", hair: "gris", coif: "court", beard: "barbe", skin: "hale" }, qui: "Le second et l'homme d'affaires de Nicolas Starkos." },
+  todros: { name: "Le capitaine Todros", aka: ["capitaine Todros", "Todros"], face: { age: "mur", hair: "gris", coif: "court", beard: "moustache", skin: "hale" }, qui: "Le second de la corvette Syphanta, un vieux marin d'Hydra qui a servi sous Canaris.", aspect: { allure: "une cinquantaine d'années, bonne humeur de matelot" } },
+  sacratif: { name: "Sacratif", aka: ["Sacratif"], face: { age: "adulte", hair: "noir", coif: "court", beard: "barbe" }, qui: "Le plus redouté des pirates de l'Archipel, dont on ne sait ni le visage ni l'origine.", aspect: { signe: "le pavillon noir" } },
+  fabvier: { name: "Le colonel Fabvier", aka: ["colonel Fabvier", "Fabvier"], face: { age: "mur", hair: "brun", coif: "court", beard: "moustache" }, qui: "Un officier français qui commande les troupes régulières grecques ; il a vraiment existé." },
+};

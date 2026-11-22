@@ -1,0 +1,26 @@
+// « L'Archipel en feu », Jules Verne, 1884 : un livre à lire, sans choix (lecture: true). Texte de Verne, domaine public,
+// d'après l'édition numérisée par le Projet Gutenberg (saisie d'Ebooks libres et gratuits). Les notes de l'auteur restent
+// entre parenthèses à leur place. Les titres des chapitres sont ceux de Verne ; les titres des pages sont de Claude, comme
+// tout ce qui vit dans les tags (gens, lieux, mots, résumés).
+// Les lieux du livre.
+module.exports = {
+  vitylo: { ambiance: "village", name: "Vitylo", map: "grece", x: 34, y: 64, region: "Le Magne, au fond du Péloponnèse", desc: "Un port bâti en amphithéâtre sur des roches abruptes, au pied du Taygète, sur le golfe de Coron ; ses gens vivent volontiers des navires qui s'y brisent.", arrive: "I_1" },
+  maison: { ambiance: "nuit", name: "La maison de la falaise", map: "grece", x: 35, y: 63, region: "Au-dessus de Vitylo", desc: "Une petite maison de bois isolée sur la falaise, abandonnée depuis des années, où l'on ne monte que par des sentiers abrupts.", arrive: "II_2" },
+  grece: { ambiance: "montagne", name: "La Grèce", map: "grece", x: 40, y: 48, region: "Entre la mer Ionienne et la mer Égée", desc: "Un pays de montagnes et de golfes, qui se bat depuis 1821 contre l'Empire ottoman.", arrive: "III_1" },
+  navarin: { ambiance: "mer", name: "La rade de Navarin", map: "grece", x: 27, y: 61, region: "La Messénie", desc: "Une vaste rade fermée par l'île de Sphactérie, où mouille la flotte turque et égyptienne d'Ibrahim.", arrive: "V_3" },
+  arkadia: { ambiance: "ville", name: "Arkadia", map: "grece", x: 27, y: 56, region: "La côte messénienne", desc: "L'ancienne Cyparissia, que les soldats d'Ibrahim ont détruite : un château, une église et des maisons en ruine sur un contrefort.", arrive: "V_4" },
+  ionienne: { ambiance: "mer", name: "La mer Ionienne", map: "grece", x: 17, y: 42, region: "Les îles Ioniennes", desc: "Zante, « la fleur du Levant », Céphalonie, Ithaque, Leucade : une chaîne d'îles sous protection anglaise, le long de la côte grecque.", arrive: "VI_1" },
+  corfou: { ambiance: "ville", name: "Corfou", map: "grece", x: 9, y: 21, region: "Les îles Ioniennes", desc: "La capitale des îles Ioniennes, sous protection anglaise : une citadelle, une esplanade, des rues italiennes à arcades, et un port où passent tous ceux qui vont se battre en Grèce.", arrive: "IV_1" },
+  banque: { ambiance: "ville", name: "La maison Elizundo", map: "grece", x: 10, y: 20, region: "La Strada Reale, à Corfou", desc: "Une maison austère et triste, à l'extrémité de la Strada Reale, où le banquier Elizundo tient son comptoir.", arrive: "IV_3" },
+  athenes: { ambiance: "chateau", name: "L'Acropole d'Athènes", map: "grece", x: 47, y: 45, region: "L'Attique", desc: "La citadelle d'Athènes, assiégée par les Turcs en 1826 et 1827, où des centaines de femmes et d'enfants s'étaient réfugiés.", arrive: "IV_2" },
+  scio: { ambiance: "ville", name: "Scio", map: "grece", x: 71, y: 39, region: "Les Sporades, près de l'Asie Mineure", desc: "L'île de Chio, magnifique et fertile, que les massacres de 1822 ont dépeuplée ; les Turcs tiennent sa citadelle.", arrive: "IX_1" },
+  syphanta: { ambiance: "mer", name: "À bord de la Syphanta", map: "grece", x: 60, y: 44, region: "L'Archipel", desc: "Une corvette de vingt-deux canons, fine et rapide, armée par des négociants de Corfou pour faire la chasse aux pirates.", arrive: "X_1" },
+  thasos: { ambiance: "mer", name: "Thasos", map: "grece", x: 57, y: 5, region: "Le nord de l'Archipel", desc: "Une île du nord de la mer Égée, près de Samothrace, où les pirates trouvent abri dans les criques.", arrive: "X_5" },
+  salonique: { ambiance: "mer", name: "Le golfe de Salonique", map: "grece", x: 40, y: 8, region: "Le nord-ouest de l'Archipel", desc: "Un golfe profond de la côte ottomane, au pied de l'Olympe.", arrive: "XI_1" },
+  cyclades: { ambiance: "mer", name: "Les Cyclades", map: "grece", x: 58, y: 58, region: "Le centre de l'Archipel", desc: "Syra, Naxos, Paros, Milo, Santorin : des îles semées sur la mer Égée, refuge des chassés du continent et des pirates.", arrive: "XI_5" },
+  hydra: { ambiance: "mer", name: "Hydra et Spetzia", map: "grece", x: 44, y: 55, region: "Le golfe de Nauplie", desc: "Deux îles de marins, dont les flottes ont porté la guerre sur mer contre les Turcs.", arrive: "XI_4" },
+  crete: { ambiance: "mer", name: "La Crète", map: "grece", x: 58, y: 86, region: "Le sud de l'Archipel", desc: "La plus grande île de l'Archipel, devenue l'arsenal des Égyptiens ; Grabouse, à l'ouest, est un nid à forbans.", arrive: "XI_6" },
+  scarpanto: { ambiance: "ville", name: "Arkassa", map: "grece", x: 81, y: 81, region: "L'île de Scarpanto", desc: "La petite capitale d'une île grecque sous un cadi turc, avec sa citadelle et son batistan, le bazar où l'on vend les captifs.", arrive: "XII_1" },
+  large: { ambiance: "mer", name: "En pleine mer", map: "grece", x: 70, y: 74, region: "Entre la Crète et la Grèce", desc: "La haute mer de l'Archipel, où un navire sans vent reste immobile.", arrive: "XI_9" },
+  egine: { ambiance: "village", name: "Égine", map: "grece", x: 45, y: 49, region: "Le golfe d'Égine", desc: "Une île proche d'Athènes, où siège le nouveau gouvernement grec.", arrive: "XV_4" },
+};
