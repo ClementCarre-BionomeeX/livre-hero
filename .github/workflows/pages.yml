@@ -29,5 +29,16 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
-      - id: deploiement
+      # The artifact sometimes shows up in the API a few seconds after its upload: deploy-pages then finds
+      # « 0 artifact(s) » and the run fails though nothing is wrong. Wait a little, and try once more if needed.
+      - run: sleep 15
+      - id: essai
         uses: actions/deploy-pages@v4
+        continue-on-error: true
+      - if: steps.essai.outcome == 'failure'
+        run: sleep 45
+      - id: reprise
+        if: steps.essai.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+      - id: deploiement
+        run: echo "page_url=${{ steps.essai.outputs.page_url || steps.reprise.outputs.page_url }}" >> "$GITHUB_OUTPUT"

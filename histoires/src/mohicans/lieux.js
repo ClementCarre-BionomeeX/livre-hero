@@ -1,0 +1,23 @@
+// « Le Dernier des Mohicans » (The Last of the Mohicans), James Fenimore Cooper, 1826 : un livre à lire, sans choix
+// (lecture: true). Texte de Cooper (1789-1851, domaine public), dans la traduction d'Auguste-Jean-Baptiste Defauconpret
+// (1767-1843, domaine public), d'après l'édition d'Ebooks libres et gratuits. Les chapitres n'ont pas de titre dans
+// cette traduction : ceux d'ici, comme ceux des pages et tout ce qui vit dans les tags (gens, lieux, mots, résumés),
+// sont de Claude.
+// Les lieux du livre.
+module.exports = {
+  edouard: { ambiance: "chateau", name: "Le fort Édouard", map: "horican", x: 60, y: 90, region: "Sur l'Hudson, au bout du portage", desc: "Un fort de terre et de bois au bord de l'Hudson, un camp de tentes, la cabane du général Webb, des tambours au petit jour.", arrive: "I_1" },
+  sentier: { ambiance: "foret", name: "Le sentier de la forêt", map: "horican", x: 52, y: 82, region: "Entre le fort Édouard et le Horican", desc: "Un sentier étroit sous des arbres immenses, loin de la route militaire, où les chevaux marchent l'un derrière l'autre.", arrive: "II_1" },
+  riviere: { ambiance: "foret", name: "Au bord de la rivière", map: "horican", x: 45, y: 78, region: "Dans la forêt", desc: "Un petit ruisseau qui se perd dans une rivière, des arbres penchés sur l'eau, un tronc renversé où s'asseoir.", arrive: "III_1" },
+  glenn: { ambiance: "souterrain", name: "Le rocher de Glenn", map: "horican", x: 38, y: 74, region: "Une île dans la cataracte", desc: "Un rocher entre deux chutes d'eau, deux cavernes reliées, des couvertures pendues pour cacher le feu et le grondement de la cataracte.", arrive: "V_5" },
+  colline: { ambiance: "montagne", name: "La colline de la halte", map: "horican", x: 30, y: 60, region: "Au nord, sur la route des Hurons", desc: "Une petite montagne en forme de pyramide, quelques arbres au sommet, une source, et toute la plaine en dessous.", arrive: "XI_1" },
+  vieuxfort: { ambiance: "nuit", name: "Le vieux fort", map: "horican", x: 34, y: 66, region: "Dans les bois", desc: "Des murs de troncs à demi pourris dans un bois de châtaigniers, une source claire, et un tertre couvert d'herbe où dorment des guerriers.", arrive: "XIII_1" },
+  montagne: { ambiance: "montagne", name: "Au-dessus du lac", map: "horican", x: 44, y: 58, region: "Les montagnes du Horican", desc: "Une plate-forme de rocher au sommet, le lac, le fort assiégé, les tentes et les batteries de Montcalm sous la brume.", arrive: "XIV_1" },
+  williamhenry: { ambiance: "chateau", name: "Le fort William-Henry", map: "horican", x: 50, y: 52, region: "Au bout du lac Horican", desc: "Un fort de terre et de bois au bord du lac, des bastions écornés par les boulets, une poterne, des drapeaux blancs pendant les trêves.", arrive: "XIV_7" },
+  plaine: { ambiance: "champs", name: "La plaine du massacre", map: "horican", x: 52, y: 48, region: "Devant William-Henry", desc: "Une plaine brûlée par le vent, des corps sans sépulture, des corbeaux, et les bois noirs autour.", arrive: "XVII_6" },
+  horican: { ambiance: "eau", name: "Le lac Horican", map: "horican", x: 55, y: 30, region: "Le Saint-Lac", desc: "Une eau claire et immobile, semée d'îles boisées, entre des montagnes couvertes de forêts.", arrive: "XX_1" },
+  castors: { ambiance: "foret", name: "L'étang des castors", map: "horican", x: 25, y: 22, region: "Le pays des Hurons", desc: "Un ruisseau barré, un étang sur une grande clairière, des arbres abattus et des huttes rondes qu'on prendrait pour un village.", arrive: "XXI_1" },
+  hurons: { ambiance: "village", name: "Le village des Hurons", map: "horican", x: 20, y: 16, region: "Au nord, dans les bois", desc: "Des huttes d'écorce, une grande hutte du conseil, des feux de broussailles, des enfants et des chiens.", arrive: "XXIII_1" },
+  caverne: { ambiance: "souterrain", name: "La caverne des Hurons", map: "horican", x: 16, y: 12, region: "Au pied d'une montagne", desc: "Une caverne divisée en salles par des cloisons de branches, un lit de feuilles, une torche et des provisions.", arrive: "XXIV_6" },
+  delawares: { ambiance: "village", name: "Le camp des Delawares", map: "horican", x: 30, y: 10, region: "À quelques milles des Hurons", desc: "Des huttes rangées sur une terrasse au pied d'une montagne, une foule silencieuse, le cercle du conseil et le vieux Tamenund.", arrive: "XXVIII_1" },
+  bataille: { ambiance: "combat", name: "La montagne des cavernes", map: "horican", x: 18, y: 8, region: "Au-dessus du village huron", desc: "Des bois en pente, un ruisseau, des rochers à pic, des passages obscurs et un précipice au sommet.", arrive: "XXXI_4" },
+};
