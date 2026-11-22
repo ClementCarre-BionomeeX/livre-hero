@@ -2733,6 +2733,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "17.4", items: ["Nouveau livre à lire : « De la Terre à la Lune » de Jules Verne (1865), en entier.", "Six emblèmes de couverture de plus : la lune, la montagne, la clé, la feuille, la plume et le soleil (des histoires les demandaient et avaient une étoile à la place)."] },
     { v: "17.3", items: ["Nouveau livre à lire : « Les Enfants du capitaine Grant » de Jules Verne (1868), en entier, ses trois parties.", "Deux emblèmes de couverture de plus : la bouteille à la mer et la vague (six livres la demandaient et avaient une étoile à la place)."] },
     { v: "17.2", items: ["Nouveau livre à lire : « Cinq semaines en ballon » de Jules Verne (1863), en entier."] },
     { v: "17.1", items: ["Nouveau livre à lire : « Deux ans de vacances » de Jules Verne (1888), en entier."] },
@@ -3084,7 +3085,7 @@
 
   // ------------------------------------------------------------------ book covers
   // Intent: cover(StoryMeta) -> Element = a cover drawn by the device: a cloth colour, a gilt frame, the story's emblem
-  // (tag cover.motif: dedale, flocon, sceau, oeil, vanne, ecu, etoile, fleur, globe, bouteille, vague), its title. Why: Clément, 13/11 (piste 16).
+  // (tag cover.motif: dedale, flocon, sceau, oeil, vanne, ecu, etoile, fleur, globe, bouteille, vague, lune, montagne, cle, feuille, plume, soleil), its title. Why: Clément, 13/11 (piste 16).
   var COVER_CLOTHS = ["#5b2a2a", "#2f4a3a", "#2c3c5a", "#4f3a22", "#3d2d4d", "#4a4a2a", "#2a4a4d"];
   var COVER_MOTIFS = {
     dedale: function (g, s) { for (var i = 0; i < 5; i++) { var r = 8 + i * 9; g.appendChild(s("rect", { x: -r, y: -r, width: 2 * r, height: 2 * r, fill: "none", "stroke-dasharray": (r * 6) + " " + (6 + i * 2), "stroke-dashoffset": i * 11 })); } },
@@ -3097,6 +3098,12 @@
     fleur: function (g, s) { for (var i = 0; i < 5; i++) g.appendChild(s("ellipse", { cx: 0, cy: -21, rx: 11, ry: 20, transform: "rotate(" + (i * 72) + ")", fill: "none" })); g.appendChild(s("circle", { r: 6 })); },
     bouteille: function (g, s) { var b = s("g", { transform: "rotate(-28)" }); b.appendChild(s("path", { d: "M-15 40 V-6 Q-15 -16 -6 -20 V-34 H6 V-20 Q15 -16 15 -6 V40 Q15 44 11 44 H-11 Q-15 44 -15 40 Z", fill: "none" })); b.appendChild(s("rect", { x: -7, y: -42, width: 14, height: 8, rx: 2 })); b.appendChild(s("path", { d: "M-7 -2 H7 V30 H-7 Z M-7 6 H7 M-7 14 H7 M-7 22 H7", fill: "none", "stroke-width": "1.2" })); g.appendChild(b); for (var i = 0; i < 2; i++) g.appendChild(s("path", { d: "M-46 " + (46 + i * 8) + " q11.5 -6 23 0 t23 0 t23 0 t23 0", fill: "none" })); },
     vague: function (g, s) { g.appendChild(s("path", { d: "M-44 10 Q-30 -40 6 -30 Q-20 -24 -12 -2 Q-4 12 20 6 Q40 0 44 10", fill: "none" })); for (var i = 0; i < 3; i++) g.appendChild(s("path", { d: "M-46 " + (22 + i * 9) + " q11.5 -6 23 0 t23 0 t23 0 t23 0", fill: "none" })); },
+    lune: function (g, s) { g.appendChild(s("path", { d: "M14 -38 A40 40 0 1 0 14 38 A30 30 0 0 1 14 -38 Z", fill: "none" })); [[26, -26, 3], [34, 8, 2], [22, 26, 2.5]].forEach(function (p) { g.appendChild(s("circle", { cx: p[0], cy: p[1], r: p[2] })); }); },
+    montagne: function (g, s) { g.appendChild(s("path", { d: "M-46 36 L-16 -14 L-2 8 L16 -36 L46 36 Z", fill: "none" })); g.appendChild(s("path", { d: "M7 -14 L16 -36 L25 -14 L19 -18 L13 -12 Z M-24 0 L-16 -14 L-9 -2", fill: "none", "stroke-width": "1.4" })); },
+    cle: function (g, s) { g.appendChild(s("circle", { cy: -26, r: 14, fill: "none" })); g.appendChild(s("circle", { cy: -26, r: 5, fill: "none" })); g.appendChild(s("path", { d: "M0 -12 V42 M0 26 H13 V32 M0 36 H10", fill: "none" })); },
+    feuille: function (g, s) { g.appendChild(s("path", { d: "M0 40 Q-36 6 0 -42 Q36 6 0 40 Z", fill: "none" })); g.appendChild(s("path", { d: "M0 48 V-34 M0 -12 l-12 -10 M0 -12 l12 -10 M0 6 l-16 -12 M0 6 l16 -12 M0 22 l-12 -10 M0 22 l12 -10", fill: "none", "stroke-width": "1.4" })); },
+    plume: function (g, s) { g.appendChild(s("path", { d: "M-24 34 Q-14 -14 34 -44 Q22 0 -24 34 Z", fill: "none" })); g.appendChild(s("path", { d: "M-36 48 L22 -30", fill: "none" })); g.appendChild(s("path", { d: "M-8 18 l-6 -12 M4 4 l-4 -14 M14 -10 l-2 -14", fill: "none", "stroke-width": "1.2" })); },
+    soleil: function (g, s) { g.appendChild(s("circle", { r: 17, fill: "none" })); for (var i = 0; i < 12; i++) g.appendChild(s("path", { d: i % 2 ? "M0 -25 V-36" : "M0 -25 L-4 -44 M0 -25 L4 -44", transform: "rotate(" + (i * 30) + ")", fill: "none" })); },
     globe: function (g, s) { g.appendChild(s("circle", { r: 40, fill: "none" })); g.appendChild(s("path", { d: "M-40 0 H40 M-35 -20 H35 M-35 20 H35", fill: "none" })); [14, 28].forEach(function (rx) { g.appendChild(s("ellipse", { rx: rx, ry: 40, fill: "none" })); }); g.appendChild(s("path", { d: "M0 -40 V40", fill: "none" })); },
   };
   function cover(m, st) {
