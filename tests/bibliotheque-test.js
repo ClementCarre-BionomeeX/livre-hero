@@ -40,7 +40,7 @@ var top = function (q) { var r = B.search(cards, q); return r.length ? r[0].m.id
 var ids = function (q) { return B.search(cards, q).map(function (x) { return x.m.id; }); };
 [["stevensn", "ile|enleve|jekyll|fleche|ballantrae"], ["welles", "guerremondes|hommeinvisible|ilemoreau|machinetemps|premiershommes"], ["jeckyl", "jekyll"],
   ["ile au tresor", "ile"], ["Île au trésor", "ile"], ["l'ile du docteur", "ilemoreau"], ["huisclos", "huisclos"], ["huis clos", "huisclos"], ["enquete", "enquete|lupin"],
-  ["machine temps", "machinetemps"], ["invisble", "hommeinvisible"], ["croc blanc", "crocblanc"], ["conan doyle", "mondeperdu"], ["douzième coup", "douzieme"],
+  ["machine temps", "machinetemps"], ["invisble", "hommeinvisible"], ["croc blanc", "crocblanc"], ["conan doyle", "mondeperdu|quatre"], ["douzième coup", "douzieme"],
   ["sarance", "siege"], ["londn", "crocblanc"], ["cendre", "cendres"], ["science fiction", "guerremondes|hommeinvisible|ilemoreau|machinetemps|premiershommes|mondeperdu"]].forEach(function (c) {
   check(new RegExp("^(" + c[1] + ")$").test(top(c[0]) || ""), "recherche « " + c[0] + " » : premier livre " + top(c[0]) + ", attendu " + c[1]);
 });
