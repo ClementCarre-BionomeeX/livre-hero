@@ -50,7 +50,7 @@ def chapters(scope, prefix):
         if not m: print('saute :', ht[:60]); continue
         k += 1; r = roman(k); num = m.group(2)
         # « I X Les colères » : un numéro coupé d'une espace ; on garde le numéro attendu et on retire ce qui le précède
-        mm = re.match(r'^' + r'\s?'.join(r) + r'\b\.?\s*(.*)$', ht)
+        mm = re.match(r'^(?:Chapitre\s+)?' + r'\s?'.join(r) + r'\b\.?\s*(.*)$', ht)
         title = mm.group(1) if mm else m.group(3)
         if not mm and num.replace(' ', '') not in ('premier', 'PREMIER'): print('numéro inattendu :', ht[:40], 'au lieu de', r)
         paras = []
