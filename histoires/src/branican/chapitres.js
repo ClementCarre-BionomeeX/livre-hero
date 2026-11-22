@@ -1,0 +1,41 @@
+// « Mistress Branican », Jules Verne, 1891 : un livre à lire, sans choix (lecture: true). Texte de Verne, domaine public,
+// d'après l'édition numérisée par le Projet Gutenberg. Les notes de l'auteur restent entre parenthèses à leur place.
+// Les titres des chapitres sont ceux de Verne ; les titres des pages sont de Claude, comme tout ce qui vit dans les
+// tags (gens, lieux, mots, résumés).
+// Les chapitres (les actes du moteur). recap : résumé montré par « Où en étais-je ? » seulement une fois le chapitre fini.
+var RECAP = require("./resumes.js");
+module.exports = [
+  { id: "I1", title: "Première partie · I. Le « Franklin »", question: "", levels: [1, 1], start: "I1_1" },
+  { id: "I2", title: "Première partie · II. Situation de famille", question: "", levels: [1, 1], start: "I2_1" },
+  { id: "I3", title: "Première partie · III. Prospect-House", question: "", levels: [1, 1], start: "I3_1" },
+  { id: "I4", title: "Première partie · IV. À bord du « Boundary »", question: "", levels: [1, 1], start: "I4_1" },
+  { id: "I5", title: "Première partie · V. Trois mois se passent", question: "", levels: [1, 1], start: "I5_1" },
+  { id: "I6", title: "Première partie · VI. Fin d'une triste année", question: "", levels: [1, 1], start: "I6_1" },
+  { id: "I7", title: "Première partie · VII. Éventualités diverses", question: "", levels: [1, 1], start: "I7_1" },
+  { id: "I8", title: "Première partie · VIII. Situation difficile", question: "", levels: [1, 1], start: "I8_1" },
+  { id: "I9", title: "Première partie · IX. Révélations", question: "", levels: [1, 1], start: "I9_1" },
+  { id: "I10", title: "Première partie · X. Préparatifs", question: "", levels: [1, 1], start: "I10_1" },
+  { id: "I11", title: "Première partie · XI. Première campagne dans la Malaisie", question: "", levels: [1, 1], start: "I11_1" },
+  { id: "I12", title: "Première partie · XII. Encore un an", question: "", levels: [1, 1], start: "I12_1" },
+  { id: "I13", title: "Première partie · XIII. Campagne dans la mer de Timor", question: "", levels: [1, 1], start: "I13_1" },
+  { id: "I14", title: "Première partie · XIV. L'île Browse", question: "", levels: [1, 1], start: "I14_1" },
+  { id: "I15", title: "Première partie · XV. Épave vivante", question: "", levels: [1, 1], start: "I15_1" },
+  { id: "I16", title: "Première partie · XVI. Harry Felton", question: "", levels: [1, 1], start: "I16_1" },
+  { id: "I17", title: "Première partie · XVII. Par oui et par non", question: "", levels: [1, 1], start: "I17_1" },
+  { id: "II1", title: "Deuxième partie · I. En naviguant", question: "", levels: [1, 1], start: "II1_1" },
+  { id: "II2", title: "Deuxième partie · II. Godfrey", question: "", levels: [1, 1], start: "II2_1" },
+  { id: "II3", title: "Deuxième partie · III. Un chapeau historique", question: "", levels: [1, 1], start: "II3_1" },
+  { id: "II4", title: "Deuxième partie · IV. Le train d'Adélaïde", question: "", levels: [1, 1], start: "II4_1" },
+  { id: "II5", title: "Deuxième partie · V. À travers l'Australie méridionale", question: "", levels: [1, 1], start: "II5_1" },
+  { id: "II6", title: "Deuxième partie · VI. Rencontre inattendue", question: "", levels: [1, 1], start: "II6_1" },
+  { id: "II7", title: "Deuxième partie · VII. En remontant vers le nord", question: "", levels: [1, 1], start: "II7_1" },
+  { id: "II8", title: "Deuxième partie · VIII. Au delà de la station d'Alice-Spring", question: "", levels: [1, 1], start: "II8_1" },
+  { id: "II9", title: "Deuxième partie · IX. Journal de mistress Branican", question: "", levels: [1, 1], start: "II9_1" },
+  { id: "II10", title: "Deuxième partie · X. Encore quelques extraits", question: "", levels: [1, 1], start: "II10_1" },
+  { id: "II11", title: "Deuxième partie · XI. Indices et incidents", question: "", levels: [1, 1], start: "II11_1" },
+  { id: "II12", title: "Deuxième partie · XII. Derniers efforts", question: "", levels: [1, 1], start: "II12_1" },
+  { id: "II13", title: "Deuxième partie · XIII. Chez les Indas", question: "", levels: [1, 1], start: "II13_1" },
+  { id: "II14", title: "Deuxième partie · XIV. Le jeu de Len Burker", question: "", levels: [1, 1], start: "II14_1" },
+  { id: "II15", title: "Deuxième partie · XV. Le dernier campement", question: "", levels: [1, 1], start: "II15_1" },
+  { id: "II16", title: "Deuxième partie · XVI. Dénouement", question: "", levels: [1, 1], start: "II16_1" },
+].map(function (a) { var r = RECAP[a.id] || {}; a.recap = r.text || ""; a.notice = !!r.notice; return a; });
