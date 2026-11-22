@@ -1,0 +1,115 @@
+// « La Marque des quatre » (The Sign of the Four), Arthur Conan Doyle, 1890 : un livre à lire, sans choix (lecture: true).
+// Texte de Conan Doyle (1859-1930, domaine public), dans la traduction française publiée chez Hachette en 1896, d'après
+// l'édition du projet Gutenberg. Les titres des chapitres sont ceux de cette traduction ; ceux des pages, comme tout ce
+// qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude.
+// Chapitre VI · VI. Théorie de Sherlock Holmes
+module.exports = {
+  VI_1: { act: "VI", title: "La fenêtre", place: "pondichery",
+    text: [
+      "« Maintenant, Watson, dit Holmes en se frottant les mains, nous avons une bonne demi-heure devant nous, tâchons d'en profiter. Comme je vous l'ai dit, mon opinion est à peu près faite, mais il ne faut pas que ma présomption m'entraîne sur une fausse piste. Quelque simple que paraisse l'affaire, elle peut renfermer bien des dessous mystérieux.",
+      "— Vous trouvez cela simple ? m'écriai-je.",
+      "— Sans aucun doute, affirma-t-il en prenant le ton doctoral d'un professeur qui fait une conférence. Asseyez-vous là, dans ce coin, de façon que vos empreintes ne puissent pas me gêner plus tard. Maintenant commençons notre petit travail. En premier lieu, comment ces gens ont-ils pu pénétrer ici, puis comment ont-ils pu en sortir ? La porte n'a pas été ouverte depuis hier au soir ; examinons la fenêtre. »",
+      "Il prit la lampe pour mieux s'éclairer, tout en marmottant quelques réflexions qui s'adressaient plutôt à lui-même qu'à moi. « La fenêtre est fermée à l'intérieur. — La boiserie paraît très solide. — Il n'y a pas de charnières apparentes à l'extérieur. — Voyons, ouvrons-la. — Pas de gouttières ou de tuyaux, le toit hors de portée ; cependant, un homme est entré par cette fenêtre, puisqu'il a laissé l'empreinte de son pied sur le rebord. — Il avait plu un peu hier soir, et voici une marque ronde toute boueuse ; la voilà de nouveau sur le plancher, et encore là, près de la table. Voyez vous-même, Watson ; quel précieux indice ! »",
+      "Je regardai ces traces aux contours parfaitement définis.",
+      "« Mais ce n'est pas l'empreinte d'un pied, dis-je.",
+      "— Non, mais cela m'en dit bien plus long, car c'est celle laissée par une jambe de bois. Regardez sur le rebord de la fenêtre, vous voyez la marque d'une chaussure épaisse, garnie d'un gros talon ferré, et à côté cette autre marque toute ronde.",
+      "— L'homme à la jambe de bois aurait donc passé par là ?",
+      "— Parfaitement. Mais il n'était pas seul. Il a eu un aide, et un aide fort habile qui a joué un rôle important dans l'affaire. Seriez-vous capable d'escalader ce mur, vous, docteur ? »",
+      "J'ouvris la fenêtre et je regardai. La lune donnait encore sur cette partie de la maison. Nous étions au moins à vingt mètres du sol, et sur ce mur de briques lisses je ne voyais ni arête ni creux qui permît au pied de se poser.",
+      "« C'est absolument impossible, répondis-je.",
+      "— Sans aide, évidemment. Mais supposez que vous ayez dans cette chambre un ami qui vous jetât une grosse corde semblable à celle que je vois là dans le coin, après l'avoir assujettie par son extrémité à ce fort crochet fiché dans le mur. Il me semble alors qu'avec un peu d'adresse vous pourriez vous hisser jusqu'ici, même avec une jambe de bois. Vous pourriez aussi bien redescendre de la même façon. Votre complice remonterait alors la corde, la détacherait du crochet et la jetterait dans un coin, puis, après avoir fermé la fenêtre, il reprendrait le chemin par lequel il était venu. Je dois ajouter », continua-t-il, en examinant la corde, « que notre invalide, tout en sachant bien grimper, ne doit pas être un marin de profession. Ses mains sont loin d'être endurcies, car ma loupe me permet d'apercevoir plusieurs taches de sang, et surtout à l'extrémité du câble. D'où je conclus qu'en se laissant glisser trop rapidement en bas, il s'est arraché la peau des mains.",
+      "— Tout cela est fort bien, dis-je, mais l'énigme s'épaissit de plus en plus. Quel est cet aide mystérieux ? Comment est-il entré dans la chambre ?"
+    ] },
+
+  VI_2: { act: "VI", title: "Le numéro deux", place: "pondichery",
+    text: [
+      "— Oui, l'aide, répéta Holmes pensif. C'est certainement un être bien intéressant à étudier et, grâce à lui, l'affaire sort tout à fait de l'ordinaire. Il apporte un élément nouveau dans les annales criminelles de notre pays, quoique des cas semblables se soient rencontrés dans les Indes et, si j'ai bonne mémoire, en Sénégambie.",
+      "— Comment donc s'est-il introduit ici ? répétai-je. La porte est fermée, la fenêtre est inaccessible. Serait-il entré par la cheminée ?",
+      "— J'y ai déjà pensé, répondit Holmes, mais l'ouverture est bien trop étroite.",
+      "— Alors par où ? persistai-je.",
+      "— Vous ne voulez pas appliquer mes procédés, dit-il en secouant la tête. Combien de fois ne vous ai-je pas dit, qu'une fois toutes les hypothèses matériellement inadmissibles, écartées, c'est parmi celles qui restent, quelque improbables qu'elles puissent paraître, qu'il faut chercher la vraie solution. Ici nous savons que cet individu n'a pu entrer ni par la porte, ni par la fenêtre, ni par la cheminée. Il n'a pas pu davantage se dissimuler dans cette pièce, où il est impossible de se cacher. Par où donc est-il venu ?",
+      "— Ah ! par le trou du plafond, m'écriai-je.",
+      "— Naturellement. Il n'y a pas d'autre explication plausible. Ayez la bonté de tenir un instant cette lampe et je vais inspecter la chambre au-dessus, la cachette qui renfermait le trésor. »",
+      "Il monta sur l'escabeau et saisissant une poutre de chaque main, se hissa dans le grenier. Puis, se couchant à plat ventre, il prit la lampe que je lui tendais et je le suivis de la même façon.",
+      "La pièce dans laquelle nous nous trouvions avait environ trois mètres sur deux. Le plancher était formé par des poutres entre lesquelles s'étendait la mince couche de lattes et de plâtre de telle sorte qu'en marchant il fallait sauter d'une solive à l'autre. Le plafond se terminait en arête aiguë et suivait évidemment les contours du toit. Du reste, aucun meuble ; seule la poussière de plusieurs années s'était accumulée sur le sol en couches épaisses.",
+      "« C'est bien cela », dit Sherlock Holmes, en touchant de la main la paroi du mur, « j'aperçois une trappe qui donne à l'extérieur. Soulevons-la, et voici le toit lui-même qui s'incline en pente assez douce. Nous connaissons donc le chemin qu'a suivi notre numéro un. Voyons si nous ne découvrons pas d'autres indices révélateurs. »",
+      "Il posa la lampe par terre et aussitôt, pour la seconde fois de la soirée, une expression de surprise intense se dessina sur ses traits. Pour moi, dès que mon regard eut suivi la direction du sien, je me sentis frissonner de la tête aux pieds. On distinguait par terre des empreintes nombreuses et très nettes, faites par un pied nu, bien dessiné, parfaitement conformé, mais dont les dimensions n'étaient pas moitié aussi grandes que celles d'un pied appartenant à un homme de taille moyenne.",
+      "« Holmes, lui dis-je à l'oreille, un enfant a été mêlé à cet horrible crime. »",
+      "En une seconde, Holmes était redevenu maître de lui.",
+      "« J'ai eu un instant d'hésitation, dit-il, quoique cependant tout cela soit fort naturel. Si ma mémoire ne m'avait trahi, j'aurais dû m'y attendre. Mais nous n'avons plus rien à voir ici, redescendons.",
+      "— Comment donc expliquez-vous de telles empreintes ? » demandai-je avec curiosité, lorsque nous nous retrouvâmes dans la pièce inférieure.",
+      "« Mon cher Watson, me dit-il avec un mouvement d'impatience, tâchez donc d'analyser un peu les faits par vous-même. Puisque vous connaissez ma méthode, appliquez-la et il sera ensuite intéressant de comparer les résultats que nous aurons obtenus chacun de notre côté."
+    ] },
+
+  VI_3: { act: "VI", title: "Par le toit", place: "pondichery",
+    text: [
+      "— Je ne puis trouver aucune explication rationnelle de tout ceci, répondis-je.",
+      "— Bah ! elle s'imposera bientôt à vous, reprit-il d'un ton léger. — Quoique je croie n'avoir plus rien d'important à faire ici, je ne veux cependant rien négliger. »",
+      "Il tira de sa poche une loupe et un mètre, puis se mettant à genoux, il parcourut ainsi la chambre d'un bout à l'autre, prenant des mesures, appliquant son nez long et mince contre le plancher, comparant et examinant tout de ses yeux perçants, enfoncés dans leur orbite comme ceux d'un oiseau de proie. Ses mouvements rapides, quoique silencieux et discrets, ressemblaient à ceux d'un limier cherchant à démêler la voie, et je pensais quel terrible criminel il eût fait, s'il avait tourné contre les lois l'énergie et la sagacité qu'il mettait à les défendre. Tout en travaillant ainsi, il se murmurait à lui-même des phrases inintelligibles, quand soudain il poussa un cri de joie.",
+      "« Décidément, la veine est pour nous, dit-il. Tout va se simplifier maintenant. Le numéro un a eu la malchance de mettre le pied dans du goudron. Voyez son empreinte dans cette mare noirâtre formée par le liquide qui s'est écoulé de la bonbonne.",
+      "— Eh bien !",
+      "— Eh bien ! nous le tenons, voilà tout. Je connais un chien qui pourrait suivre une telle piste jusqu'au bout du monde. Étant donné qu'une meute est capable de chasser à travers tout un pays un hareng saur traîné par terre, jusqu'où un chien, entraîné spécialement, pourra-t-il suivre une odeur aussi forte que celle-ci ? Cela ressemble à l'énoncé d'une règle de trois…. Mais taisons-nous, car voici les respectables soutiens de la loi. »",
+      "Le son de pas pesants, le bourdonnement de grosses voix, montaient du rez-de-chaussée en même temps que la porte d'entrée se refermait lourdement.",
+      "« Avant qu'ils arrivent, dit Holmes, tâtez donc les bras et les jambes de ce pauvre diable. Que sentez-vous ?",
+      "— Les muscles sont raides et durs comme du bois, répondis-je.",
+      "— Parfaitement. Ils sont bien plus contractés que dans le cas d'une mort naturelle ; de plus, voyez cette figure tordue, ce sourire étrange que les anciens auteurs appellent le « risus sardonicus », et dites-moi la conclusion que vous tirez de tout cela.",
+      "— La mort est due à un poison végétal d'une violence extrême, répondis-je, à une substance comme la strychnine produisant des effets tétaniques.",
+      "— C'est bien la première idée que j'ai eue en apercevant la contraction des muscles et de la face. Aussi ai-je commencé par chercher comment le poison avait été administré et, vous l'avez vu, j'ai aussitôt découvert cette épine qui a été enfoncée ou plutôt lancée derrière l'oreille. Je dis lancée, car, regardez : la partie du crâne où elle se trouvait est juste dans la direction du trou fait dans le plafond ; et maintenant, examinez cette épine. »",
+      "Je la pris avec soin et la présentai à la lumière de la lampe. Elle était longue, pointue, noirâtre, et la pointe semblait avoir été enduite avec une substance gommeuse ; l'extrémité opposée avait été taillée et arrondie d'une façon spéciale à l'aide d'un couteau.",
+      "« Est-ce une épine qui pousse en Angleterre ? demanda-t-il.",
+      "— Non, certainement.",
+      "— Avec toutes ces données, vous devez pouvoir arriver à une conclusion juste…. Mais voici les agents officiels ; nous autres irréguliers nous n'avons qu'à battre en retraite. »",
+      "Les pas, qui s'étaient rapprochés peu à peu, résonnaient maintenant bruyamment dans le corridor et un homme de haute taille, très fort, vêtu d'un complet gris, entra brusquement dans la chambre. La figure rouge, l'aspect sanguin, l'air convaincu de son importance, il cligna ses petits yeux soulignés par de grosses poches bouffies, en promenant çà et là un regard perçant. Sur ses talons marchait un agent en uniforme et derrière eux venait le pauvre Thaddeus Sholto, encore tout tremblant."
+    ] },
+
+  VI_4: { act: "VI", title: "Athelney Jones", place: "pondichery",
+    text: [
+      "« En voilà une affaire, s'écria ce gros homme d'une voix rude et enrouée, en voilà une belle affaire ! Mais qui diable est là ? Ah çà ! cette maison est bourrée comme un terrier de lapins.",
+      "— Il me semble que vous pourriez me reconnaître, monsieur Athelney Jones, dit Holmes froidement.",
+      "— Mais certainement, certainement, vous êtes monsieur Sherlock Holmes, le théoriste. Si je vous reconnais ! Ah ! je n'oublierai jamais le cours que vous nous avez fait sur les causes, les effets, les déductions et tout le tremblement, dans l'affaire des bijoux de Bishopgate. Il est vrai que vous nous avez mis sur la vraie piste, mais avouez que le hasard vous a mieux servi que votre habileté.",
+      "— Mon Dieu, c'est un raisonnement bien simple, qui m'a donné la solution du problème.",
+      "— Allons, allons, reconnaissez-le donc sans fausse honte…. Mais cette fois qu'est-ce qui nous attend ? Une affaire médiocre, il me semble, bien médiocre. Un crime épouvantable, c'est vrai ; seulement, impossible d'échafauder là-dessus la moindre théorie. C'est une veine que je me sois justement trouvé à Norwood pour raison de service. J'étais dans le poste même de police quand on est venu demander du secours. De quoi pensez-vous que cet individu soit mort ?",
+      "— Oh ! ce n'est pas un cas où je puisse échafauder quelque théorie, répliqua Holmes sèchement.",
+      "— Voyons, ne vous fâchez pas ; je conviens qu'il vous arrive assez souvent de mettre dans le mille. Mais qu'est-ce qu'on m'a dit ? La porte fermée à l'intérieur, des bijoux valant une douzaine de millions disparus ? Et la fenêtre, comment était-elle ?",
+      "— Fermée, seulement un escabeau se trouvait devant.",
+      "— Eh bien, si elle était fermée, l'escabeau ne signifie rien, cela tombe sous le sens. Après tout, l'homme a bien pu mourir d'une attaque. Oui, mais il y a ces bijoux qui manquent. Ah ! j'ai une idée. Voyez-vous, j'ai de temps en temps comme cela des intuitions soudaines. Veuillez sortir un instant, monsieur Sholto, et vous aussi, sergent ; votre ami peut rester, monsieur Holmes. Que penseriez-vous de l'hypothèse suivante ? Sholto avoue être resté avec son frère, hier soir. Ce frère est mort subitement d'une attaque, et Sholto a emporté le trésor. Hein ? que dites-vous de cela ?",
+      "— Je dis qu'évidemment le mort s'est ensuite levé pour aller tranquillement fermer la porte à double tour.",
+      "— Hum ! c'est vrai, il y a là une lacune. Soyons avant tout logiques. Ce Thaddeus Sholto était avec son frère et, d'après ce que nous savons, ils ont eu une discussion ; mais voilà que l'autre est mort et que les bijoux se sont envolés. Or, depuis que Thaddeus a quitté son frère, personne n'a revu ce dernier et le lit qu'il occupait n'a pas été défait. De plus, Thaddeus paraît bouleversé et son aspect est, comment dirais-je ? peu sympathique. Vous voyez la façon dont je tends mon filet au-dessus de Thaddeus, les mailles commencent à l'enserrer étroitement.",
+      "— Vous n'êtes pas encore complètement au courant de tous les détails de l'affaire, dit Holmes. Cette épine, que j'ai les meilleures raisons de croire empoisonnée, était fichée dans le crâne de ce malheureux à l'endroit où vous en voyez encore la marque. Ce papier, avec l'inscription que vous pouvez y lire, était placé sur la table, et à côté se trouvait cette arme bizarre terminée par une sorte de massue en pierre. Comment tout cela concorde-t-il avec votre théorie ?",
+      "— Cela la confirme en tous points, répliqua le gros détective d'un ton important. La maison est pleine de curiosités indiennes. Thaddeus a monté ici la massue ; si l'épine est empoisonnée, il a pu mieux que personne s'en servir pour accomplir le crime. Le papier n'est évidemment qu'une frime, un simple trompe-l'œil. Le seul point à élucider est de savoir comment il est sorti. Ah ! mais voilà, j'aperçois une ouverture dans le plafond. »"
+    ] },
+
+  VI_5: { act: "VI", title: "Un nom et un signalement", place: "pondichery", fx: { meet: ["sherman", "toby"] },
+    text: [
+      "Avec une agilité que son apparence massive n'aurait guère fait soupçonner, il s'élança sur les marches de l'escabeau et s'introduisit dans le grenier. Une seconde après, il nous annonçait d'une voix triomphante qu'il avait découvert la porte donnant sur le toit.",
+      "« Il est capable de tomber à peu près juste, remarqua Holmes, en haussant les épaules, car il a parfois des éclairs de bon sens. Comme dit le proverbe français : « Il n'y a pas de sots si incommodes que ceux qui ont de l'esprit ».",
+      "En français dans le texte.",
+      "— Vous voyez bien, dit Athelney Jones en apparaissant de nouveau au sommet de l'escalier, il vaut mieux s'en rapporter aux faits qu'à toutes les théories possibles. Voilà mon opinion pleinement confirmée. Il existe une trappe communiquant avec le toit et elle est restée entr'ouverte.",
+      "— C'est moi qui l'ai ouverte.",
+      "— Oh vraiment ! vous l'aviez donc déjà trouvée ? »",
+      "Cette découverte sembla le déconcerter un peu.",
+      "« Quoi qu'il en soit, elle nous indique le chemin que notre individu a pris pour s'en aller. Agent ! cria-t-il.",
+      "— Voilà, monsieur, répondit une voix dans le corridor.",
+      "— Priez donc M. Sholto de revenir ici. Monsieur Sholto, je dois en conscience vous prévenir que désormais toutes vos paroles pourront être interprétées contre vous. Car, au nom de la Reine, je vous arrête sous l'inculpation du meurtre commis sur la personne de votre frère.",
+      "— Ah ! je vous l'avais bien dit, s'écria le pauvre petit être en se tordant les mains et en jetant sur nous des regards égarés.",
+      "— N'ayez aucune inquiétude, monsieur Sholto, dit Holmes, je crois pouvoir me faire fort de prouver clairement votre innocence.",
+      "— Prenez garde de promettre plus que vous ne pourrez tenir, monsieur l'amateur de théories, prenez garde, dit le détective d'un ton aigre ; cela vous sera peut-être plus difficile que vous ne le pensez.",
+      "— Monsieur Jones, non seulement je ferai éclater l'innocence de ce malheureux, mais, pour votre gouverne, je puis même vous donner le nom et le signalement de l'un des deux individus qui ont pénétré hier soir dans cette pièce. Son nom doit être : Jonathan Small. C'est un homme qui n'a qu'une instruction rudimentaire, il est petit, énergique, et amputé de la jambe droite ; sa jambe de bois est usée du côté intérieur. La chaussure qu'il porte au pied gauche est de fabrication grossière, carrée du bout, avec un talon cerclé de fer. Enfin il est entre deux âges, fortement bronzé par le soleil, et sort du bagne. Ces indications sommaires pourront vous être de quelque utilité, surtout si vous notez en outre qu'il doit avoir la peau intérieure des mains arrachée sur une certaine largeur. Quant à son compagnon….",
+      "— Ah, il a un compagnon », interrompit Athelney Jones en ricanant, quoiqu'il fût facile de voir l'impression produite sur lui par le ton assuré d'Holmes.",
+      "« Son compagnon, reprit celui-ci en pivotant sur ses talons, est un personnage fort étrange. Mais j'espère pouvoir vous les présenter tous les deux, avant peu. Voulez-vous venir un instant, Watson, j'aurais un mot à vous dire ? »",
+      "Il m'emmena jusque sur le palier de l'escalier.",
+      "« Cet événement inattendu, dit-il, nous a fait perdre de vue le but réel de notre excursion.",
+      "— C'est à quoi je pensais, répondis-je. Miss Morstan ne peut pas rester plus longtemps dans cette sinistre maison.",
+      "— Non, il faut que vous la rameniez chez elle. Elle demeure chez Mrs Cecil Forrester, dans le bas de Camberwell, assez près d'ici, comme vous voyez. Je vous attendrai, dans le cas où vous voudriez revenir. Mais peut-être vous sentez-vous trop fatigué ?",
+      "— En aucune façon. D'ailleurs je crois qu'il me serait impossible de dormir avant d'en savoir davantage sur cette affaire si extraordinaire. J'ai déjà vu bien des spectacles effrayants, mais la succession rapide de tant d'aventures étranges m'a, je vous assure, ébranlé tous les nerfs. Aussi, au point où nous en sommes, je voudrais poursuivre l'enquête avec vous.",
+      "— Votre aide me sera très utile, répondit-il, nous travaillerons pour notre compte et nous laisserons ce brave Jones exulter en présence de toutes les chimères qu'il se forge. Quand vous aurez ramené miss Morstan, je voudrais que vous alliez jusqu'à Pinchin Lane, nº 3. C'est sur le bord de l'eau, dans le quartier de Lambeth. La troisième maison sur la droite est celle d'un empailleur nommé Sherman. Vous verrez sur la fenêtre une belette saisissant un jeune lapin. Secouez le vieux Sherman, dites-lui bonjour de ma part, et après lui avoir expliqué que j'ai besoin de Toby tout de suite, ramenez ensuite ledit Toby avec vous dans la voiture.",
+      "— Toby est un chien, je suppose.",
+      "— Oui, une espèce de vilain bâtard, mais qui a un nez extraordinaire. Je préfère son assistance à celle de toute la police de Londres.",
+      "— C'est bon, je vous le ramènerai, dis-je. Il est une heure du matin. Si je puis trouver un bon cheval, je serai de retour avant trois heures.",
+      "— Et moi, dit Holmes, je vais voir ce que je puis tirer de Mme Bernstone et du serviteur indien, qui, d'après ce que m'a dit Mr Thaddeus, couche dans une mansarde voisine. Puis j'étudierai les procédés du fameux Jones et je subirai ses plaisanteries qui, à la vérité, manquent un peu de sel. Mais Gœthe, avec sa grande connaissance des hommes, n'a-t-il pas dit :",
+      "« Wir sind gewohnt dass die Menschen verhöhnen, was sie nicht verstehen ! »",
+      "Gœthe est toujours plein de profondeur. »",
+      "« Nous sommes habitués à voir les gens se moquer de ce qu'ils ne comprennent pas. »"
+    ] },
+
+};

@@ -2733,6 +2733,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "15.9", items: ["« La Marque des quatre » d'Arthur Conan Doyle, à lire en entier dans la traduction de 1896 : Sherlock Holmes, le docteur Watson, miss Morstan et ses perles, un trésor rapporté des Indes et une poursuite sur la Tamise. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "15.8", items: ["« Le Fantôme de l'Opéra » de Gaston Leroux, à lire en entier : la loge n° 5, le lustre, la voix dans la loge de Christine Daaé, et le jeune vicomte de Chagny qui descend dans les dessous de l'Opéra. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "15.7", items: ["« Le Mystère de la chambre jaune » de Gaston Leroux, à lire en entier : le crime du Glandier dans une chambre fermée de l'intérieur, et le jeune reporter Joseph Rouletabille contre le grand Frédéric Larsan. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "15.6", items: ["« Arsène Lupin, gentleman-cambrioleur » de Maurice Leblanc, à lire en entier : les neuf aventures de 1907, du paquebot la Provence au château de Thibermesnil, avec l'inspecteur Ganimard toujours sur ses talons. Avec les gens, les lieux et les mots d'un toucher."] },

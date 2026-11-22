@@ -1,0 +1,87 @@
+// « La Marque des quatre » (The Sign of the Four), Arthur Conan Doyle, 1890 : un livre à lire, sans choix (lecture: true).
+// Texte de Conan Doyle (1859-1930, domaine public), dans la traduction française publiée chez Hachette en 1896, d'après
+// l'édition du projet Gutenberg. Les titres des chapitres sont ceux de cette traduction ; ceux des pages, comme tout ce
+// qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude.
+// Chapitre V · V. Le drame de Pondichery Lodge
+module.exports = {
+  V_1: { act: "V", title: "Le portier", place: "pondichery", fx: { meet: ["macmurdo"] },
+    text: [
+      "Il était près de onze heures quand nous arrivâmes au lieu où nous attendait le dénouement tragique des aventures de cette nuit. Nous avions laissé loin derrière nous le brouillard humide qui recouvrait la grande cité et la nuit était passablement belle. Un vent chaud soufflait de l'ouest et de gros nuages montaient lentement dans le ciel, laissant de temps en temps le croissant de la lune jeter des lueurs intermittentes. On y voyait assez pour se diriger ; cependant Thaddeus Sholto prit une des lanternes de la voiture pour mieux éclairer notre chemin.",
+      "Pondichery Lodge était situé au milieu d'un jardin qu'entourait un mur très élevé, hérissé de tessons de verre. Une simple porte très étroite et garnie de ferrures y donnait seule accès. Notre guide frappa d'une manière particulière en faisant ce *rat-tat-tat*… par lequel les facteurs ont coutume de s'annoncer.",
+      "« Qui va là ? » cria de l'intérieur une voix bourrue.",
+      "« C'est moi, Mac Murdo. Ne reconnaissez-vous donc plus ma manière de frapper ? »",
+      "On entendit la voix grommeler sourdement, puis des clefs s'entre-choquèrent et la porte tourna lentement sur ses gonds, laissant voir sur le seuil un homme de taille moyenne, mais remarquablement large d'épaules. À la lueur de la lanterne, nous distinguâmes une tête aux mâchoires saillantes, à l'œil clignotant et faux.",
+      "— C'est vous, monsieur Thaddeus. Quels sont ces gens qui vous accompagnent ? Je n'ai aucun ordre du maître à leur sujet.",
+      "— Vraiment, Mac Murdo ? Cela m'étonne. J'avais prévenu hier soir mon frère que j'amènerais quelques amis avec moi.",
+      "— Il n'est pas sorti de sa chambre de toute la journée, monsieur Thaddeus, et, je vous le répète, je n'ai pas d'ordre. Vous savez qu'il m'est impossible de violer ma consigne. Vous, vous pouvez entrer si vous voulez, mais vos amis resteront où ils sont. »",
+      "C'était là un contretemps inattendu. Thaddeus Sholto regarda autour de lui d'une façon perplexe :",
+      "« C'est trop fort, Mac Murdo, dit-il ; si je me porte garant pour eux, cela doit vous suffire, il me semble. D'ailleurs, voici une jeune fille qu'on ne peut vraiment laisser à cette heure se morfondre au milieu de la route.",
+      "— Désolé, monsieur Thaddeus, reprit le portier d'un ton ferme. Il y a des gens qui peuvent être de vos amis à vous, et ne pas être ceux de mon maître. Il me paie bien pour que je fasse mon service et je le fais en conscience. Or je ne connais aucune des personnes qui sont là.",
+      "— Oh si, vous en connaissez, Mac Murdo, s'écria Sherlock Holmes fort à propos ; car je ne pense pas que vous ayez pu m'oublier. Ne vous rappelez-vous pas l'amateur qui, il y a quatre ans, le soir où on donnait votre bénéfice chez Alison, a fourni trois assauts contre vous ?",
+      "— Quoi, vous seriez monsieur Sherlock Holmes ? s'écria l'ancien lutteur. Bon Dieu, comment ai-je pu ne pas vous reconnaître ? Si, au lieu de rester là tranquillement derrière les autres, vous vous étiez approché et vous m'aviez donné un certain coup de revers sur la mâchoire, je vous aurais reconnu sans hésiter. Ah ! on peut dire que vous avez gaspillé les dons du bon Dieu, vous ! Comme vous auriez pu viser haut dans la partie, si vous aviez voulu !",
+      "— Vous voyez, Watson, me dit Holmes en riant, si le reste vient à me manquer, j'aurai toujours une profession savante ouverte devant moi. Et maintenant je suis sûr que ce brave camarade ne va pas nous laisser ainsi dehors exposés au froid."
+    ] },
+
+  V_2: { act: "V", title: "Le jardin retourné", place: "pondichery", fx: { meet: ["bernstone"] },
+    text: [
+      "— Entrez, entrez donc, monsieur, vous et vos amis, répondit-il. Je vous fais mes excuses, monsieur Thaddeus, mais j'ai des ordres très sévères. Il fallait savoir qui étaient vos amis avant de les introduire. »",
+      "Une fois entrés, nous suivîmes une allée sablée qui serpentait dans un jardin mal tenu pour aboutir à une construction quadrangulaire fort massive et sans aucune architecture. Cette bâtisse se trouvait dans une obscurité complète, sauf un angle éclairé par la lune dont les rayons se reflétaient sur une des fenêtres du grenier. Le lugubre aspect de cet énorme bâtiment, plongé dans un silence de mort, donnait le frisson. Tout le premier, Sholto semblait mal à son aise et la lanterne vacillait dans sa main tremblante.",
+      "« Je n'y comprends rien, dit-il. Il faut qu'il y ait eu quelque malentendu. J'avais bien spécifié à Bartholomé que nous viendrions le voir, et cependant ses fenêtres ne sont pas éclairées. Je ne sais vraiment pas ce que cela veut dire.",
+      "— L'entrée de sa maison est-elle toujours aussi difficile à forcer ? demanda Holmes.",
+      "— Oui ; il a continué les traditions de mon père. Il était son favori, vous savez, et je m'imagine quelquefois que le major a dû lui en dire plus long qu'à moi. Voici la fenêtre de Bartholomé, là, de ce côté, éclairée par la lune. Mais il me semble bien qu'il n'y a aucune lumière à l'intérieur.",
+      "— Aucune, dit Holmes, seulement j'aperçois une lueur à cette petite fenêtre près de la porte.",
+      "— Ah ! c'est la chambre de la femme de charge, de la vieille Mrs Bernstone. Elle va pouvoir nous renseigner ; seulement veuillez m'attendre quelques secondes ici, car, comme elle n'est pas prévenue, nous lui ferions une peur atroce si nous entrions tous à la fois. Mais chut ! qu'entends-je ? »",
+      "Il éleva la lanterne ; sa main tremblait tellement que les rayons de lumière dansaient tout autour de nous. Miss Morstan saisit mon bras et nous restâmes immobiles, le cœur battant, l'oreille tendue. De la sombre demeure s'élevait un son plaintif, désolé, qui perçait le silence de la nuit : c'étaient les gémissements aigus d'une femme affolée par la peur.",
+      "« La voix de Mrs Bernstone, murmura Sholto. C'est la seule femme qui habite la maison. Restez là. Je serai de retour dans un instant. »",
+      "Il se précipita vers la porte et frappa d'une manière particulière. Une grande femme, déjà âgée, vint lui ouvrir et tressaillit de joie en l'apercevant.",
+      "« Oh ! monsieur Thaddeus, que je suis heureuse de vous voir ! que je suis donc heureuse, mon bon monsieur Thaddeus ! »",
+      "Et nous l'entendîmes réitérer ses exclamations jusqu'au moment où, la porte se refermant, elles ne parvinrent plus jusqu'à nous que comme un murmure lointain et monotone.",
+      "Notre guide nous avait laissé la lanterne. Holmes la promena lentement autour de lui, examinant tout soigneusement, depuis la maison jusqu'aux tas de fumier répandus dans le jardin.",
+      "Miss Morstan resta seule avec moi, sa main dans la mienne. Quelle chose singulière que l'amour ! Nous ne nous étions jamais vus avant ce jour, nous n'avions jamais échangé ni un mot, ni un regard de tendresse, et cependant à l'heure où nous sentions un danger planer au-dessus de nous, d'elles-mêmes nos mains s'étaient cherchées. Bien souvent depuis je m'en suis étonné. Mais à ce moment il me parut tout simple de me rapprocher d'elle, comme elle de son côté, ainsi qu'elle me l'a souvent répété, vint d'instinct chercher auprès de moi aide et protection. Nous étions donc là comme deux enfants, la main dans la main, et nos cœurs se sentaient heureux en dépit des sombres mystères qui nous environnaient."
+    ] },
+
+  V_3: { act: "V", title: "Une main dans la mienne", place: "pondichery",
+    text: [
+      "« Quel étrange endroit ! » dit-elle, en promenant ses regards autour d'elle.",
+      "« En effet, répondis-je, c'est comme si tous les mulots d'Angleterre s'y étaient donné rendez-vous. Cela me rappelle une colline que j'ai vue près de Ballarat et où avaient opéré des chercheurs d'or.",
+      "— L'aspect est le même et pour la même raison, dit Holmes. Au lieu de chercheurs d'or ce sont des chercheurs de trésor qui ont tout bouleversé ici. Pensez donc qu'ils ont travaillé pendant six ans ; qu'y a-t-il rien d'étonnant à ce que ce jardin soit retourné comme une carrière de sable ? »",
+      "À ce moment la porte de la maison s'ouvrit violemment et Thaddeus Sholto bondit vers nous, les bras levés au ciel, avec l'expression de la plus vive terreur.",
+      "« Il est arrivé un malheur à Bartholomé, s'écria-t-il. Oh, j'ai trop peur, ces émotions me tueront ! »",
+      "Il pleurait presque dans sa frayeur, et cette figure malingre et grimaçante, qui émergeait du large collet d'astrakan, semblait celle d'un enfant peureux implorant protection.",
+      "« Entrons dans la maison, dit Holmes, de son ton autoritaire.",
+      "— Oui, je vous en prie, supplia Thaddeus Sholto ; pour ma part, je suis incapable de prendre la moindre décision. »",
+      "Nous le suivîmes tous dans la chambre de la femme de charge située à gauche dans le corridor. La vieille femme, à moitié folle d'inquiétude, se promenait de long en large en se tordant les mains. Mais la vue de miss Morstan sembla la calmer un peu.",
+      "« Que Dieu bénisse votre doux et tendre visage ! s'écria-t-elle en sanglotant nerveusement, cela me fait du bien de vous voir ; je viens de passer une si terrible journée ! »",
+      "Notre compagne caressa cette main émaciée qui portait les marques du travail journalier, tout en murmurant ce que son cœur de femme lui suggérait pour réconforter la pauvre créature. Une faible rougeur vint colorer les joues pâles de cette dernière qui reprit :",
+      "« Monsieur s'est enfermé à clef et ne veut pas me répondre. Toute la journée j'ai attendu qu'il m'appelât, car il défend en général qu'on le dérange, mais il y a une heure, craignant qu'un malheur ne lui fût arrivé, je suis montée au laboratoire et j'ai regardé par le trou de la serrure. Allez, monsieur Thaddeus, allez-y, et voyez vous-même. Voilà dix ans que je suis dans la maison ; j'ai connu M. Bartholomé heureux, je l'ai connu malheureux, mais jamais je ne lui ai vu une figure comme celle-là. »",
+      "Sherlock Holmes prit la lampe et nous précéda ; Thaddeus Sholto tremblait tellement qu'on entendait ses dents s'entre-choquer ; je fus même obligé de passer mon bras sous le sien pour l'aider à monter l'escalier, tant ses jambes lui refusaient tout service. Deux fois, Holmes tira sa loupe de sa poche et examina attentivement, sur les nattes posées en guise de tapis, ce qui me semblait à moi être tout simplement de petits amas de poussière. Il montait lentement, marche par marche, tenant la lampe près de terre et promenant son regard perçant à droite et à gauche. Miss Morstan était restée en bas avec la tremblante Mrs Bernstone.",
+      "Au troisième étage, l'escalier se terminait par un long couloir, orné à droite d'un grand panneau de tapisserie indienne, et sur lequel à gauche s'ouvraient trois portes. Holmes continuait à s'avancer de la même manière lente et méthodique ; nous nous tenions derrière lui en le suivant de près, tandis que nos ombres allongées se profilaient dans le corridor d'une façon fantastique ; la troisième porte était celle que nous cherchions. Holmes y frappa sans recevoir de réponse et essaya alors de tourner la poignée. Mais la serrure était fermée à l'intérieur et même un solide verrou avait été tiré, ainsi que nous pûmes nous en convaincre en appliquant la lampe contre la rainure. On pouvait cependant voir par le trou de la serrure. Sherlock Holmes, s'étant penché pour regarder, se releva aussitôt en aspirant bruyamment."
+    ] },
+
+  V_4: { act: "V", title: "La porte fermée", place: "pondichery",
+    text: [
+      "« Il y a quelque chose de diabolique dans tout ceci, Watson, dit-il, plus ému que je ne l'avais jamais vu. Qu'en pensez-vous ? »",
+      "Je regardai à mon tour par l'étroite ouverture, et je reculai d'horreur. Un rayon de lune pénétrait dans la chambre et l'éclairait ainsi d'une lueur indécise et blafarde. Face à moi et comme suspendue en l'air — car tout le reste du corps demeurait dans l'ombre, — je n'apercevais qu'une tête, et cette tête était celle de notre compagnon Thaddeus ! Même crâne pointu, même calvitie, même couronne de cheveux roux, même apparence exsangue. Mais un terrible sourire, une grimace extraordinaire, en contractaient tous les traits, et dans cette chambre silencieuse, éclairée seulement par un rayon de la lune, ce spectacle était terrifiant. Telle était la ressemblance entre ce visage et celui de notre petit ami, que je me retournai pour m'assurer qu'il était toujours bien avec nous. Je me rappelai alors que, d'après ce qu'il nous avait dit, son frère et lui étaient jumeaux.",
+      "« C'est horrible, murmurai-je à Holmes, que faut-il faire ?",
+      "— Il faut ouvrir la porte », répondit-il, et, se jetant dessus, il pesa de toutes ses forces contre elle. Elle craqua, grinça, mais ne céda point. Nous nous arc-boutâmes alors tous les deux et cette fois elle s'ouvrit brusquement ; nous étions dans la chambre de Bartholomé Sholto.",
+      "Cette pièce avait servi de laboratoire de chimie. Contre le mur en face de la porte, s'alignait sur une étagère une double rangée de fioles bouchées à l'émeri et la table était couverte de petites lampes Bunsen, d'éprouvettes et de cornues. Dans les coins on voyait des bonbonnes d'acide enveloppées de paille. L'une d'elles semblait avoir été fêlée, car un liquide noirâtre s'en était échappé et avait formé une espèce de ruisseau qui répandait dans l'air une odeur acre rappelant celle du goudron. Un escabeau placé sur un amoncellement de plâtras donnait accès à un trou ouvert dans le plafond et assez large pour livrer passage à un homme. Au pied de cet escabeau gisait une longue corde à nœuds. Devant la table, effondré dans un fauteuil, le maître de la maison était assis, la tête penchée sur l'épaule gauche, un sourire énigmatique et spectral errant sur sa figure. Il était déjà raide et froid et avait certainement cessé de vivre depuis plusieurs heures. Je remarquai que non seulement ses traits, mais ses membres eux-mêmes étaient tordus et contournés de la plus étrange façon. Près de lui sur la table, on voyait une arme singulière : c'était un bâton fait d'un bois noir et résistant, à l'extrémité duquel on avait grossièrement fixé, à l'aide d'un bout de filin, une pierre en forme de marteau. À côté, un chiffon de papier portait quelques mots griffonnés. Holmes y jeta les yeux et nous le tendit.",
+      "« Voyez », dit-il, d'un ton significatif.",
+      "À la lumière de la lanterne, je pus lire avec un frisson d'horreur ces mots : « La marque des quatre ».",
+      "« Au nom du ciel, que signifie tout ceci ? m'écriai-je.",
+      "— Cela signifie assassinat, dit-il en se penchant sur le cadavre. Ah ! je m'en doutais, voyez donc ! »",
+      "Il me désigna une longue pointe brunâtre enfoncée dans la peau juste au-dessus de l'oreille.",
+      "« Cela ressemble à une épine, dis-je.",
+      "— C'en est une en effet. Vous pouvez la retirer, mais faites bien attention, car elle doit être empoisonnée. »",
+      "Je la pris entre le pouce et l'index et je l'arrachai si facilement que c'est à peine si elle laissa une trace derrière elle. Seule, une petite tache de sang marquait l'endroit de la piqûre.",
+      "« Tout ceci est un mystère indéchiffrable pour moi, dis-je. Plus nous avançons et plus il s'obscurcit.",
+      "— Bien au contraire, répondit Holmes. Il s'éclaircit à chaque pas. Il ne me manque plus que quelques anneaux pour reconstituer tout l'enchaînement des faits. »",
+      "Nous avions à peu près oublié la présence de notre compagnon, depuis que nous étions entrés dans la chambre. Il se tenait toujours sur le seuil de la porte se tordant les mains, gémissant sourdement et nous offrant ainsi l'image vivante de la terreur. Tout à coup il poussa un cri strident :",
+      "« Le trésor est enlevé, dit-il, ils ont volé le trésor ! Voici le trou par lequel nous l'avons fait passer. J'ai aidé mon frère. Je suis le dernier qui l'ait vu hier soir et je l'ai entendu fermer sa porte pendant que je descendais.",
+      "— Quelle heure était-il ?",
+      "— Il était dix heures. Et maintenant le voilà mort et la police va être appelée et je vais être soupçonné d'être pour quelque chose dans tout cela. Oh ! oui, bien sûr. Mais vous ne le croyez pas, vous, messieurs ! N'est-ce pas, vous ne me soupçonnez pas ? Est-ce que je vous aurais amenés ici si j'avais été coupable ? Oh, mon Dieu ! mon Dieu ! je crois que je vais devenir fou. »",
+      "Il levait les bras au ciel, et agitait les jambes comme un épileptique.",
+      "« Vous n'avez aucune raison de vous tourmenter, Mr Sholto, dit Holmes avec bonté en mettant la main sur son épaule ; suivez seulement mon conseil : prenez une voiture et allez raconter toute l'affaire à la police, en lui proposant de l'aider autant que vous le pourrez. Nous allons attendre ici votre retour. »",
+      "Le petit homme obéit comme un automate et nous l'entendîmes dégringoler l'escalier dans l'obscurité."
+    ] },
+
+};
