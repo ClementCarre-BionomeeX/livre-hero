@@ -2733,6 +2733,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "16.1", items: ["Nouveau livre à lire : « Le Livre de la jungle » de Rudyard Kipling (1894), dans la traduction de Fabulet et d'Humières, avec ses poèmes et ses chants en vers."] },
     { v: "16.0", items: ["« Le Dernier des Mohicans » de James Fenimore Cooper, à lire en entier dans la traduction de Defauconpret : Œil-de-Faucon, Chingachgook et Uncas, les deux filles du colonel Munro, le Renard-Subtil, et le siège du fort William-Henry en 1757. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "15.9", items: ["« La Marque des quatre » d'Arthur Conan Doyle, à lire en entier dans la traduction de 1896 : Sherlock Holmes, le docteur Watson, miss Morstan et ses perles, un trésor rapporté des Indes et une poursuite sur la Tamise. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "15.8", items: ["« Le Fantôme de l'Opéra » de Gaston Leroux, à lire en entier : la loge n° 5, le lustre, la voix dans la loge de Christine Daaé, et le jeune vicomte de Chagny qui descend dans les dessous de l'Opéra. Avec les gens, les lieux et les mots d'un toucher."] },
