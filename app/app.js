@@ -2733,6 +2733,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "17.3", items: ["Nouveau livre à lire : « Les Enfants du capitaine Grant » de Jules Verne (1868), en entier, ses trois parties.", "Deux emblèmes de couverture de plus : la bouteille à la mer et la vague (six livres la demandaient et avaient une étoile à la place)."] },
     { v: "17.2", items: ["Nouveau livre à lire : « Cinq semaines en ballon » de Jules Verne (1863), en entier."] },
     { v: "17.1", items: ["Nouveau livre à lire : « Deux ans de vacances » de Jules Verne (1888), en entier."] },
     { v: "17.0", items: ["Nouveau livre à lire : « Le Tour du monde en quatre-vingts jours » de Jules Verne (1872), en entier, avec une couverture au globe terrestre."] },
@@ -3083,7 +3084,7 @@
 
   // ------------------------------------------------------------------ book covers
   // Intent: cover(StoryMeta) -> Element = a cover drawn by the device: a cloth colour, a gilt frame, the story's emblem
-  // (tag cover.motif: dedale, flocon, sceau, oeil, vanne, ecu, etoile, fleur, globe), its title. Why: Clément, 13/11 (piste 16).
+  // (tag cover.motif: dedale, flocon, sceau, oeil, vanne, ecu, etoile, fleur, globe, bouteille, vague), its title. Why: Clément, 13/11 (piste 16).
   var COVER_CLOTHS = ["#5b2a2a", "#2f4a3a", "#2c3c5a", "#4f3a22", "#3d2d4d", "#4a4a2a", "#2a4a4d"];
   var COVER_MOTIFS = {
     dedale: function (g, s) { for (var i = 0; i < 5; i++) { var r = 8 + i * 9; g.appendChild(s("rect", { x: -r, y: -r, width: 2 * r, height: 2 * r, fill: "none", "stroke-dasharray": (r * 6) + " " + (6 + i * 2), "stroke-dashoffset": i * 11 })); } },
@@ -3094,6 +3095,8 @@
     ecu: function (g, s) { g.appendChild(s("path", { d: "M-32 -36 H32 V0 Q32 28 0 42 Q-32 28 -32 0 Z", fill: "none" })); g.appendChild(s("path", { d: "M0 -36 V42 M-32 -6 H32", fill: "none" })); },
     etoile: function (g, s) { g.appendChild(s("path", { d: "M0 -42 L10 -12 L42 -12 L16 6 L26 38 L0 18 L-26 38 L-16 6 L-42 -12 L-10 -12 Z", fill: "none" })); },
     fleur: function (g, s) { for (var i = 0; i < 5; i++) g.appendChild(s("ellipse", { cx: 0, cy: -21, rx: 11, ry: 20, transform: "rotate(" + (i * 72) + ")", fill: "none" })); g.appendChild(s("circle", { r: 6 })); },
+    bouteille: function (g, s) { var b = s("g", { transform: "rotate(-28)" }); b.appendChild(s("path", { d: "M-15 40 V-6 Q-15 -16 -6 -20 V-34 H6 V-20 Q15 -16 15 -6 V40 Q15 44 11 44 H-11 Q-15 44 -15 40 Z", fill: "none" })); b.appendChild(s("rect", { x: -7, y: -42, width: 14, height: 8, rx: 2 })); b.appendChild(s("path", { d: "M-7 -2 H7 V30 H-7 Z M-7 6 H7 M-7 14 H7 M-7 22 H7", fill: "none", "stroke-width": "1.2" })); g.appendChild(b); for (var i = 0; i < 2; i++) g.appendChild(s("path", { d: "M-46 " + (46 + i * 8) + " q11.5 -6 23 0 t23 0 t23 0 t23 0", fill: "none" })); },
+    vague: function (g, s) { g.appendChild(s("path", { d: "M-44 10 Q-30 -40 6 -30 Q-20 -24 -12 -2 Q-4 12 20 6 Q40 0 44 10", fill: "none" })); for (var i = 0; i < 3; i++) g.appendChild(s("path", { d: "M-46 " + (22 + i * 9) + " q11.5 -6 23 0 t23 0 t23 0 t23 0", fill: "none" })); },
     globe: function (g, s) { g.appendChild(s("circle", { r: 40, fill: "none" })); g.appendChild(s("path", { d: "M-40 0 H40 M-35 -20 H35 M-35 20 H35", fill: "none" })); [14, 28].forEach(function (rx) { g.appendChild(s("ellipse", { rx: rx, ry: 40, fill: "none" })); }); g.appendChild(s("path", { d: "M0 -40 V40", fill: "none" })); },
   };
   function cover(m, st) {
