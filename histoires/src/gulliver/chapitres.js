@@ -1,0 +1,45 @@
+// « Voyages de Gulliver » (Gulliver's Travels), Jonathan Swift, 1726 : un livre à lire, sans choix (lecture: true).
+// Texte de Swift (1667-1745, domaine public), dans la traduction de l'abbé Desfontaines (1727, domaine public), revue
+// au XIXe siècle, d'après l'édition d'Ebooks libres et gratuits. Les sommaires en italique ouvrent les chapitres de cette
+// édition ; les titres des chapitres et des pages, comme tout ce qui vit dans les tags (gens, lieux, mots, résumés),
+// sont de Claude.
+// Les chapitres (les actes du moteur). recap : résumé montré par « Où en étais-je ? » seulement une fois le chapitre fini.
+var RECAP = require("./resumes.js");
+module.exports = [
+  { id: "I1", title: "Voyage à Lilliput · I. Le naufrage", question: "", levels: [1, 1], start: "I1_1" },
+  { id: "I2", title: "Voyage à Lilliput · II. L'homme Montagne", question: "", levels: [1, 1], start: "I2_1" },
+  { id: "I3", title: "Voyage à Lilliput · III. La corde et le bâton", question: "", levels: [1, 1], start: "I3_1" },
+  { id: "I4", title: "Voyage à Lilliput · IV. Gros-boutiens et petits-boutiens", question: "", levels: [1, 1], start: "I4_1" },
+  { id: "I5", title: "Voyage à Lilliput · V. La flotte de Blefuscu", question: "", levels: [1, 1], start: "I5_1" },
+  { id: "I6", title: "Voyage à Lilliput · VI. Les lois de Lilliput", question: "", levels: [1, 1], start: "I6_1" },
+  { id: "I7", title: "Voyage à Lilliput · VII. L'acte d'accusation", question: "", levels: [1, 1], start: "I7_1" },
+  { id: "I8", title: "Voyage à Lilliput · VIII. Le retour", question: "", levels: [1, 1], start: "I8_1" },
+  { id: "II1", title: "Voyage à Brobdingnag · I. Dans le champ d'orge", question: "", levels: [1, 1], start: "II1_1" },
+  { id: "II2", title: "Voyage à Brobdingnag · II. La petite nourrice", question: "", levels: [1, 1], start: "II2_1" },
+  { id: "II3", title: "Voyage à Brobdingnag · III. À la cour de la reine", question: "", levels: [1, 1], start: "II3_1" },
+  { id: "II4", title: "Voyage à Brobdingnag · IV. Le roi s'informe de l'Europe", question: "", levels: [1, 1], start: "II4_1" },
+  { id: "II5", title: "Voyage à Brobdingnag · V. La poudre et les livres", question: "", levels: [1, 1], start: "II5_1" },
+  { id: "II6", title: "Voyage à Brobdingnag · VI. L'aigle", question: "", levels: [1, 1], start: "II6_1" },
+  { id: "III1", title: "Voyage à Laputa · I. L'île volante", question: "", levels: [1, 1], start: "III1_1" },
+  { id: "III2", title: "Voyage à Laputa · II. Les Laputiens", question: "", levels: [1, 1], start: "III2_1" },
+  { id: "III3", title: "Voyage à Laputa · III. L'aimant", question: "", levels: [1, 1], start: "III3_1" },
+  { id: "III4", title: "Voyage à Laputa · IV. Lagado", question: "", levels: [1, 1], start: "III4_1" },
+  { id: "III5", title: "Voyage à Laputa · V. L'académie des projets", question: "", levels: [1, 1], start: "III5_1" },
+  { id: "III6", title: "Voyage à Laputa · VI. Les académiciens politiques", question: "", levels: [1, 1], start: "III6_1" },
+  { id: "III7", title: "Voyage à Laputa · VII. L'île des sorciers", question: "", levels: [1, 1], start: "III7_1" },
+  { id: "III8", title: "Voyage à Laputa · VIII. Luggnagg", question: "", levels: [1, 1], start: "III8_1" },
+  { id: "III9", title: "Voyage à Laputa · IX. Les struldbruggs", question: "", levels: [1, 1], start: "III9_1" },
+  { id: "III10", title: "Voyage à Laputa · X. Le Japon", question: "", levels: [1, 1], start: "III10_1" },
+  { id: "IV1", title: "Voyage au pays des Houyhnhnms · I. Les yahous", question: "", levels: [1, 1], start: "IV1_1" },
+  { id: "IV2", title: "Voyage au pays des Houyhnhnms · II. Chez le maître cheval", question: "", levels: [1, 1], start: "IV2_1" },
+  { id: "IV3", title: "Voyage au pays des Houyhnhnms · III. La langue des Houyhnhnms", question: "", levels: [1, 1], start: "IV3_1" },
+  { id: "IV4", title: "Voyage au pays des Houyhnhnms · IV. Le vrai et le faux", question: "", levels: [1, 1], start: "IV4_1" },
+  { id: "IV5", title: "Voyage au pays des Houyhnhnms · V. La guerre et la loi", question: "", levels: [1, 1], start: "IV5_1" },
+  { id: "IV6", title: "Voyage au pays des Houyhnhnms · VI. L'argent", question: "", levels: [1, 1], start: "IV6_1" },
+  { id: "IV7", title: "Voyage au pays des Houyhnhnms · VII. Parallèle des yahous et des hommes", question: "", levels: [1, 1], start: "IV7_1" },
+  { id: "IV8", title: "Voyage au pays des Houyhnhnms · VIII. Les mœurs des Houyhnhnms", question: "", levels: [1, 1], start: "IV8_1" },
+  { id: "IV9", title: "Voyage au pays des Houyhnhnms · IX. L'assemblée", question: "", levels: [1, 1], start: "IV9_1" },
+  { id: "IV10", title: "Voyage au pays des Houyhnhnms · X. L'exhortation", question: "", levels: [1, 1], start: "IV10_1" },
+  { id: "IV11", title: "Voyage au pays des Houyhnhnms · XI. Pedro de Mendez", question: "", levels: [1, 1], start: "IV11_1" },
+  { id: "IV12", title: "Voyage au pays des Houyhnhnms · XII. Au lecteur", question: "", levels: [1, 1], start: "IV12_1" },
+].map(function (a) { var r = RECAP[a.id] || {}; a.recap = r.text || ""; a.notice = !!r.notice; return a; });
