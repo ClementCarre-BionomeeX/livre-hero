@@ -1,0 +1,87 @@
+// « Le Mouron rouge » (The Scarlet Pimpernel), baronne Orczy, 1905 : un livre à lire, sans choix (lecture: true).
+// Texte : traduction nouvelle par Claude, faite pour cette bibliothèque à partir du texte anglais de 1905 (Project
+// Gutenberg n° 60, domaine public). Les titres des chapitres sont ceux d'Orczy, traduits ; ceux des pages, comme tout
+// ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude. Le portrait du vieux voiturier (ch. XXVI,
+// « The Jew » dans l'original) et quelques remarques de narrateur ont été adoucis ; voir la notice.
+// Chapitre C27 · Chapitre 27 · Sur la piste
+module.exports = {
+  C27_1: { act: "C27", title: "Marguerite n'hésite pas", place: "route",
+    text: [
+      "Pas un instant Marguerite Blakeney n'hésita. Les derniers bruits devant le Chat gris s'étaient éteints dans la nuit. Elle avait entendu Desgas donner ses ordres à ses hommes, puis partir vers le fort chercher un renfort d'une douzaine d'hommes de plus : on n'en jugeait pas six suffisants pour capturer l'Anglais rusé, dont l'esprit fertile était plus dangereux encore que sa vaillance et sa force.",
+      "Puis, quelques minutes plus tard, elle entendit de nouveau la voix enrouée du vieux voiturier, qui criait visiblement après sa rosse, puis le roulement des roues et le bruit d'une charrette branlante cahotant sur la route défoncée.",
+      "Dans l'auberge, tout était silencieux. Brogard et sa femme, terrifiés par Chauvelin, n'avaient pas donné signe de vie ; ils espéraient qu'on les oublierait, et en tout cas qu'on ne les remarquerait pas : Marguerite n'entendait même plus leurs habituelles salves de jurons marmonnés.",
+      "Elle attendit encore un moment ou deux, puis descendit sans bruit l'escalier cassé, s'enveloppa étroitement de son manteau sombre et se glissa hors de l'auberge.",
+      "La nuit était assez noire, assez en tout cas pour dérober aux regards sa silhouette sombre, tandis que son oreille fine suivait le bruit de la charrette qui la précédait. Elle espérait, en se tenant bien dans l'ombre des fossés qui bordaient la route, n'être vue ni des hommes de Desgas quand ils approcheraient, ni des patrouilles qu'elle supposait toujours en service.",
+      "Elle entreprit ainsi la dernière étape de son voyage épuisant, seule, de nuit, et à pied. Près de trois lieues jusqu'à Miquelon, puis jusqu'à la cabane du père Blanchard, où que fût ce lieu fatal, probablement par des chemins difficiles : peu lui importait.",
+      "La rosse du vieux ne pouvait aller bien vite, et, quoique épuisée de fatigue morale et de tension nerveuse, elle savait qu'elle la suivrait aisément sur une route vallonnée, où la pauvre bête, sûrement à demi affamée, devrait souffler longtemps et souvent. La route courait à quelque distance de la mer, bordée de chaque côté d'arbustes et d'arbres rabougris, couverts d'un maigre feuillage, tous détournés du nord ; dans la demi-obscurité, leurs branches ressemblaient à des chevelures raides et fantomatiques soufflées par un vent éternel.",
+      "Par bonheur, la lune ne montrait aucune envie de percer les nuages, et Marguerite, serrant le bord de la route et se tenant tout près de la ligne basse des arbustes, était assez bien cachée. Tout était si calme autour d'elle : seulement, de loin, de très loin, venait comme une longue et douce plainte, le bruit de la mer lointaine.",
+      "L'air était vif et chargé de sel ; après cette inaction forcée dans l'auberge sordide et malodorante, Marguerite aurait goûté le doux parfum de cette nuit d'automne et le lointain grondement mélancolique des vagues ; elle se serait délectée du calme et de l'immobilité de ce lieu solitaire, calme que rompaient seulement, de loin en loin, le cri strident et lugubre de quelque mouette lointaine et le grincement des roues un peu plus loin sur la route ; elle aurait aimé la fraîcheur de l'air, la paisible immensité de la nature sur cette partie déserte de la côte ; mais son cœur était trop plein de cruels pressentiments, d'une grande douleur et d'un grand désir d'un être qui lui était devenu infiniment cher.",
+      "Ses pieds glissaient sur le talus herbeux, car elle jugeait plus sûr de ne pas marcher au milieu de la route, et elle avait peine à garder une bonne allure sur la pente boueuse. Elle jugea même préférable de ne pas trop s'approcher de la charrette ; tout était si silencieux que le roulement des roues ne pouvait manquer d'être un guide sûr.",
+      "La solitude était absolue. Déjà les rares lumières pâles de Calais étaient loin derrière, et sur cette route il n'y avait pas trace d'habitation humaine, pas même une cabane de pêcheur ou de bûcheron dans les environs ; loin sur sa droite, il y avait le bord de la falaise, et au-dessous la plage rocailleuse, où la marée montante se brisait avec son murmure lointain et continu. Et devant, le roulement des roues qui emportaient un ennemi implacable vers son triomphe.",
+      "Marguerite se demandait à quel endroit précis de cette côte déserte Percy pouvait bien se trouver en ce moment. Pas très loin sûrement, car il n'avait eu qu'un petit quart d'heure d'avance sur Chauvelin. Elle se demandait s'il savait que dans ce coin de France frais et parfumé d'océan rôdaient de nombreux espions, tous impatients d'apercevoir sa haute silhouette, de le suivre jusqu'à l'endroit où l'attendaient ses amis sans méfiance, puis de refermer le filet sur lui et sur eux."
+    ] },
+
+  C27_2: { act: "C27", title: "Dans la voiture du vieux", place: "route",
+    text: [
+      "Chauvelin, devant, secoué et cahoté dans la voiture du vieux, nourrissait d'agréables pensées. Il se frottait les mains de contentement en songeant à la toile qu'il avait tissée, et à laquelle cet Anglais omniprésent et audacieux ne pouvait espérer échapper. À mesure que le temps passait et que le vieux le menait sans hâte mais sûrement sur la route obscure, il se sentait de plus en plus impatient du grand finale de cette chasse passionnante au mystérieux Mouron rouge. La capture de l'audacieux conspirateur serait le plus beau fleuron de la couronne de gloire du citoyen Chauvelin. Pris la main dans le sac, sur le fait, en train d'aider et de soutenir les traîtres à la République française, l'Anglais ne pourrait réclamer aucune protection de son pays. Chauvelin était de toute façon bien décidé à ce que toute intervention arrive trop tard.",
+      "Pas un instant le moindre remords n'effleura son cœur quant à la terrible position où il avait mis la malheureuse femme qui avait trahi son mari sans le savoir. À vrai dire, Chauvelin avait même cessé de penser à elle : elle avait été un instrument utile, voilà tout.",
+      "La rosse efflanquée du vieux ne faisait guère que marcher. Elle allait à un petit trot lent, et son conducteur devait lui accorder de longues et fréquentes haltes.",
+      "— Sommes-nous encore loin de Miquelon ? demandait de temps à autre Chauvelin.",
+      "— Pas très loin, Votre Honneur, était l'invariable et placide réponse.",
+      "— Nous n'avons pas encore trouvé ton ami et le mien en tas sur la route, remarqua Chauvelin avec sarcasme.",
+      "— Patience, noble Excellence, répliqua le vieux ; ils sont devant nous. Je vois l'empreinte des roues de la charrette que conduit ce traître, ce gredin de Reuben.",
+      "— Tu es sûr de la route ?",
+      "— Aussi sûr que de la présence, dans les poches de la noble Excellence, de ces dix pièces d'or qui seront bientôt à moi, j'espère.",
+      "— Dès que j'aurai serré la main de mon ami le grand étranger, elles seront à toi, certainement.",
+      "— Écoutez, qu'est-ce que c'est ? dit soudain le vieux.",
+      "À travers le silence, jusque-là absolu, on entendait maintenant distinctement des sabots de chevaux sur la route boueuse.",
+      "— Ce sont des soldats, ajouta-t-il dans un murmure craintif.",
+      "— Arrête un moment, je veux entendre, dit Chauvelin.",
+      "Marguerite aussi avait entendu ce galop qui venait vers la charrette et vers elle. Depuis un moment, elle se tenait aux aguets, pensant que Desgas et sa troupe les rattraperaient bientôt ; mais ces cavaliers venaient de la direction opposée, sans doute de Miquelon. L'obscurité la cachait suffisamment. Elle s'était aperçue que la charrette s'était arrêtée et, avec la plus extrême prudence, marchant sans bruit sur la route détrempée, elle se rapprocha un peu.",
+      "Son cœur battait vite, elle tremblait de tous ses membres ; déjà elle avait deviné quelles nouvelles apportaient ces cavaliers. « Tout étranger sur ces routes ou sur la plage doit être filé, surtout s'il est grand ou se voûte comme pour déguiser sa taille ; dès qu'on l'aura aperçu, un messager à cheval devra revenir aussitôt faire son rapport. » Tels avaient été les ordres de Chauvelin. Le grand étranger avait-il donc été repéré, et était-ce là le messager à cheval venu apporter la grande nouvelle : le lièvre traqué avait enfin passé la tête dans le collet ?",
+      "Marguerite, voyant la charrette arrêtée, réussit à s'en rapprocher dans l'obscurité ; elle se glissa tout près, espérant arriver à portée de voix pour entendre ce qu'avait à dire le messager.",
+      "Elle entendit le bref échange du mot de passe :",
+      "— Liberté, Fraternité, Égalité !",
+      "Puis la question rapide de Chauvelin :",
+      "— Quelles nouvelles ?",
+      "Deux cavaliers s'étaient arrêtés près de la voiture.",
+      "Marguerite voyait leurs silhouettes se découper sur le ciel de minuit. Elle entendait leurs voix et l'ébrouement de leurs chevaux, et maintenant, derrière elle, à quelque distance, le pas régulier et cadencé d'une troupe en marche : Desgas et ses soldats.",
+      "Il y eut un long silence, pendant lequel sans doute Chauvelin convainquit les hommes de son identité, car bientôt questions et réponses se succédèrent rapidement.",
+      "— Vous avez vu l'étranger ? demanda Chauvelin avec empressement.",
+      "— Non, citoyen, nous n'avons vu aucun grand étranger ; nous sommes venus par le bord de la falaise.",
+      "— Alors ?",
+      "— À moins d'un quart de lieue après Miquelon, nous sommes tombés sur une construction de bois grossière, qui ressemblait à une cabane de pêcheur où il pourrait ranger ses outils et ses filets. Quand nous l'avons aperçue, elle semblait vide, et d'abord nous n'avons rien trouvé de suspect, jusqu'au moment où nous avons vu de la fumée sortir par une ouverture sur le côté. J'ai mis pied à terre et je m'en suis approché en rampant. Elle était vide alors, mais dans un coin de la cabane il y avait un feu de charbon de bois, et il y avait aussi deux tabourets. J'ai consulté mes camarades, et nous avons décidé qu'ils se mettraient à couvert avec les chevaux, bien hors de vue, et que je resterais en faction, ce que j'ai fait."
+    ] },
+
+  C27_3: { act: "C27", title: "Le rapport du soldat", place: "route",
+    text: [
+      "— Eh bien ! et as-tu vu quelque chose ?",
+      "— Une demi-heure plus tard environ, j'ai entendu des voix, citoyen, et bientôt deux hommes sont arrivés vers le bord de la falaise ; ils me semblaient venir de la route de Lille. L'un était jeune, l'autre tout à fait vieux. Ils se parlaient tout bas, et je ne pouvais entendre ce qu'ils disaient.",
+      "L'un était jeune, et l'autre tout à fait vieux. Le cœur douloureux de Marguerite faillit cesser de battre tandis qu'elle écoutait : le jeune était-il Armand ? son frère ? et le vieux de Tournay ? étaient-ce les deux fugitifs dont on se servait, à leur insu, comme d'appât pour prendre leur noble et intrépide sauveur ?",
+      "— Les deux hommes sont bientôt entrés dans la cabane, poursuivit le soldat, tandis que les nerfs à vif de Marguerite semblaient percevoir le petit rire triomphant de Chauvelin, et je m'en suis approché davantage. La cabane est très grossièrement bâtie, et j'ai saisi des bribes de leur conversation.",
+      "— Oui ? Vite ! Qu'as-tu entendu ?",
+      "— Le vieux a demandé au jeune s'il était sûr que c'était bien l'endroit. « Oh ! oui, a-t-il répondu, c'est bien l'endroit », et à la lueur du feu de charbon il a montré à son compagnon un papier qu'il portait sur lui. « Voici le plan, a-t-il dit, qu'il m'a donné avant mon départ de Londres. Nous devions nous en tenir strictement à ce plan, sauf contrordre, et je n'en ai reçu aucun. Voici la route que nous avons suivie, voyez… ici l'embranchement… ici nous coupons la route de Saint-Martin… et voici le sentier qui nous a menés au bord de la falaise. » J'ai dû faire un léger bruit à ce moment, car le jeune homme est venu à la porte de la cabane et a regardé anxieusement tout autour de lui. Quand il a rejoint son compagnon, ils ont chuchoté si bas que je ne pouvais plus les entendre.",
+      "— Eh bien ? Et alors ? demanda Chauvelin avec impatience.",
+      "— Nous étions six en tout à patrouiller cette partie de la plage ; nous nous sommes donc consultés, et nous avons jugé préférable que quatre restent pour surveiller la cabane, et que mon camarade et moi revenions aussitôt à cheval faire le rapport de ce que nous avions vu.",
+      "— Vous n'avez rien vu du grand étranger ?",
+      "— Rien, citoyen.",
+      "— Si tes camarades le voient, que feront-ils ?",
+      "— Ils ne le perdront pas de vue un instant, et s'il faisait mine de s'échapper, ou si un bateau se montrait, ils se refermeraient sur lui et, au besoin, ils tireraient : les coups de feu feraient accourir le reste de la patrouille. En tout cas, ils ne laisseraient pas partir l'étranger.",
+      "— Oui ! mais je ne voulais pas qu'on blesse l'étranger, pas encore, grommela férocement Chauvelin. Enfin, vous avez fait de votre mieux. Les Parques veuillent que je n'arrive pas trop tard…",
+      "— Nous avons croisé tout à l'heure une demi-douzaine d'hommes qui patrouillent cette route depuis plusieurs heures.",
+      "— Eh bien ?",
+      "— Ils n'ont vu aucun étranger non plus.",
+      "— Pourtant il est quelque part devant nous, dans une charrette, ou bien… Allons ! il n'y a pas un instant à perdre. À quelle distance d'ici est cette cabane ?",
+      "— À deux lieues environ, citoyen.",
+      "— Tu peux la retrouver ? tout de suite ? sans hésiter ?",
+      "— Je n'ai absolument aucun doute, citoyen.",
+      "— Le sentier jusqu'au bord de la falaise ? Même dans le noir ?",
+      "— La nuit n'est pas noire, citoyen, et je sais que je trouverai mon chemin, répéta fermement le soldat.",
+      "— Mets-toi derrière, alors. Que ton camarade ramène vos deux chevaux à Calais. Tu n'en auras pas besoin. Reste à côté de la charrette et dis au vieux de rouler droit devant ; puis arrête-le à un quart de lieue du sentier ; veille à ce qu'il prenne la route la plus directe.",
+      "Pendant que Chauvelin parlait, Desgas et ses hommes approchaient vite, et Marguerite entendait maintenant leurs pas à moins de cent mètres derrière elle. Elle jugea dangereux de rester où elle était, et inutile aussi, car elle en avait assez entendu. Elle semblait avoir soudain perdu jusqu'à la faculté de souffrir : son cœur, ses nerfs, son esprit semblaient engourdis après toutes ces heures d'angoisse incessante, couronnées par cet affreux désespoir.",
+      "Car il n'y avait plus maintenant le moindre espoir. À deux petites lieues de là, les fugitifs attendaient leur courageux libérateur. Il était en route, quelque part sur cette route solitaire, et bientôt il les rejoindrait ; alors le piège bien tendu se refermerait ; deux douzaines d'hommes, menés par un homme dont la haine était aussi mortelle que sa ruse était perfide, encercleraient la petite troupe de fugitifs et leur chef audacieux. Ils seraient tous pris. Armand, selon la parole donnée par Chauvelin, lui serait rendu ; mais son mari, Percy, qu'à chaque souffle elle semblait aimer et adorer davantage, tomberait entre les mains d'un ennemi sans remords, qui n'avait aucune pitié pour un cœur courageux, aucune admiration pour le courage d'une âme noble, et ne montrerait que de la haine pour l'adversaire rusé qui l'avait si longtemps déjoué.",
+      "Elle entendit le soldat donner quelques brèves indications au vieux ; puis elle se retira vivement au bord de la route et se blottit derrière des arbustes bas, tandis que Desgas et ses hommes arrivaient.",
+      "Tous se rangèrent sans bruit derrière la charrette, et lentement tous s'engagèrent sur la route obscure. Marguerite attendit d'estimer qu'ils étaient bien hors de portée de voix ; puis elle aussi, dans les ténèbres qui semblaient soudain devenues plus épaisses, se mit à avancer sans bruit."
+    ] },
+
+};

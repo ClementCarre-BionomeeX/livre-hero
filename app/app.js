@@ -2733,6 +2733,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "16.7", items: ["Nouveau livre à lire : « Le Mouron rouge » de la baronne Orczy (1905), en entier, dans une traduction nouvelle faite pour la bibliothèque. Les couvertures savent dessiner une fleur."] },
     { v: "16.6", items: ["Nouveau livre à lire : « Les Mines du roi Salomon » de H. Rider Haggard (1885), en entier, dans une traduction nouvelle faite pour la bibliothèque."] },
     { v: "16.5", items: ["Nouveau livre à lire : « Le Prisonnier de Zenda » d'Anthony Hope (1894), en entier, dans une traduction nouvelle faite pour la bibliothèque."] },
     { v: "16.4", items: ["Nouveau livre à lire : « Robinson Crusoé » de Daniel Defoe (1719), la première partie entière dans la traduction de Petrus Borel (1836)."] },
@@ -3077,7 +3078,7 @@
 
   // ------------------------------------------------------------------ book covers
   // Intent: cover(StoryMeta) -> Element = a cover drawn by the device: a cloth colour, a gilt frame, the story's emblem
-  // (tag cover.motif: dedale, flocon, sceau, oeil, vanne, ecu, etoile), its title. Why: Clément, 13/11 (piste 16).
+  // (tag cover.motif: dedale, flocon, sceau, oeil, vanne, ecu, etoile, fleur), its title. Why: Clément, 13/11 (piste 16).
   var COVER_CLOTHS = ["#5b2a2a", "#2f4a3a", "#2c3c5a", "#4f3a22", "#3d2d4d", "#4a4a2a", "#2a4a4d"];
   var COVER_MOTIFS = {
     dedale: function (g, s) { for (var i = 0; i < 5; i++) { var r = 8 + i * 9; g.appendChild(s("rect", { x: -r, y: -r, width: 2 * r, height: 2 * r, fill: "none", "stroke-dasharray": (r * 6) + " " + (6 + i * 2), "stroke-dashoffset": i * 11 })); } },
@@ -3087,6 +3088,7 @@
     vanne: function (g, s) { g.appendChild(s("path", { d: "M-40 -30 V30 M40 -30 V30 M-40 -30 H40 M-30 -16 H30 V4 H-30 Z", fill: "none" })); for (var i = 0; i < 3; i++) g.appendChild(s("path", { d: "M-44 " + (16 + i * 8) + " q11 -6 22 0 t22 0 t22 0 t22 0", fill: "none" })); },
     ecu: function (g, s) { g.appendChild(s("path", { d: "M-32 -36 H32 V0 Q32 28 0 42 Q-32 28 -32 0 Z", fill: "none" })); g.appendChild(s("path", { d: "M0 -36 V42 M-32 -6 H32", fill: "none" })); },
     etoile: function (g, s) { g.appendChild(s("path", { d: "M0 -42 L10 -12 L42 -12 L16 6 L26 38 L0 18 L-26 38 L-16 6 L-42 -12 L-10 -12 Z", fill: "none" })); },
+    fleur: function (g, s) { for (var i = 0; i < 5; i++) g.appendChild(s("ellipse", { cx: 0, cy: -21, rx: 11, ry: 20, transform: "rotate(" + (i * 72) + ")", fill: "none" })); g.appendChild(s("circle", { r: 6 })); },
   };
   function cover(m, st) {
     var NS = "http://www.w3.org/2000/svg", s = function (tag, a, kids) { var e = document.createElementNS(NS, tag); for (var k in a) e.setAttribute(k, a[k]); (kids || []).forEach(function (c) { e.appendChild(c); }); return e; };

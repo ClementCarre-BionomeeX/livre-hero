@@ -1,0 +1,85 @@
+// « Le Mouron rouge » (The Scarlet Pimpernel), baronne Orczy, 1905 : un livre à lire, sans choix (lecture: true).
+// Texte : traduction nouvelle par Claude, faite pour cette bibliothèque à partir du texte anglais de 1905 (Project
+// Gutenberg n° 60, domaine public). Les titres des chapitres sont ceux d'Orczy, traduits ; ceux des pages, comme tout
+// ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude. Le portrait du vieux voiturier (ch. XXVI,
+// « The Jew » dans l'original) et quelques remarques de narrateur ont été adoucis ; voir la notice.
+// Chapitre C17 · Chapitre 17 · Adieu
+module.exports = {
+  C17_1: { act: "C17", title: "La femme de chambre", place: "richmond", fx: { meet: ["louise"] },
+    text: [
+      "Quand Marguerite regagna sa chambre, elle trouva sa femme de chambre fort inquiète à son sujet.",
+      "— Votre Seigneurie doit être bien lasse, dit la pauvre femme, dont les yeux se fermaient à demi de sommeil. Il est plus de cinq heures.",
+      "— Ah ! oui, Louise, je serai sans doute lasse tout à l'heure, dit Marguerite avec bonté ; mais c'est vous qui êtes bien lasse à présent, alors allez vous coucher tout de suite. Je me mettrai au lit toute seule.",
+      "— Mais, milady…",
+      "— Allons, ne discutez pas, Louise, allez vous coucher. Donnez-moi un peignoir et laissez-moi.",
+      "Louise ne demandait qu'à obéir. Elle ôta à sa maîtresse sa somptueuse robe de bal et l'enveloppa d'un ample vêtement moelleux.",
+      "— Votre Seigneurie désire-t-elle autre chose ? demanda-t-elle quand ce fut fait.",
+      "— Non, plus rien. Éteignez les lumières en sortant.",
+      "— Oui, milady. Bonne nuit, milady.",
+      "— Bonne nuit, Louise.",
+      "La femme de chambre partie, Marguerite écarta les rideaux et ouvrit grandes les fenêtres. Le jardin et la rivière au-delà étaient inondés d'une lumière rose. Loin à l'orient, les rayons du soleil levant avaient changé ce rose en or éclatant. La pelouse était déserte à présent, et Marguerite regarda la terrasse où elle s'était tenue quelques instants plus tôt, essayant en vain de reconquérir l'amour d'un homme qui avait été autrefois tout à elle.",
+      "Chose étrange : à travers tous ses tourments, toute son anxiété pour Armand, ce qu'elle ressentait le plus vivement en cet instant, c'était un chagrin de cœur aigu et amer.",
+      "Ses membres mêmes semblaient douloureux du désir de l'amour d'un homme qui l'avait repoussée, qui avait résisté à sa tendresse, était resté froid à ses prières, et n'avait pas répondu à l'élan de passion qui lui avait fait sentir et espérer que les heureux jours d'autrefois, à Paris, n'étaient pas tout à fait morts et oubliés.",
+      "Comme tout cela était étrange ! Elle l'aimait encore. Et maintenant qu'elle revoyait ces derniers mois de malentendus et de solitude, elle comprenait qu'elle n'avait jamais cessé de l'aimer ; que tout au fond de son cœur, elle avait toujours vaguement senti que ses sottises, son rire creux, sa nonchalance indolente n'étaient qu'un masque ; que l'homme véritable, fort, passionné, volontaire, était toujours là : l'homme qu'elle avait aimé, dont l'intensité l'avait fascinée, dont la personnalité l'attirait, car elle avait toujours senti derrière cet esprit apparemment lent un certain quelque chose qu'il cachait au monde entier, et à elle plus qu'à tout autre.",
+      "Le cœur d'une femme est un problème si compliqué que sa propriétaire est souvent la plus incapable d'en trouver la solution.",
+      "Marguerite Blakeney, « la femme la plus spirituelle d'Europe », aimait-elle vraiment un sot ? Était-ce de l'amour qu'elle avait éprouvé pour lui un an plus tôt, en l'épousant ? Était-ce de l'amour qu'elle éprouvait maintenant qu'elle le savait toujours épris, mais résolu à ne plus redevenir son esclave, son amant passionné et ardent ? Marguerite elle-même n'aurait su le dire, en tout cas pas en ce moment ; peut-être son orgueil avait-il fermé son esprit à une meilleure intelligence de son propre cœur. Mais elle savait ceci : elle entendait reconquérir ce cœur obstiné. Elle vaincrait encore une fois… et ensuite, elle ne le perdrait plus jamais… Elle le garderait, elle garderait son amour, elle le mériterait et le chérirait ; car une chose était certaine : aucun bonheur ne lui était plus possible sans l'amour de cet homme-là.",
+      "Ainsi les pensées et les émotions les plus contradictoires se bousculaient follement dans son esprit. Absorbée par elles, elle avait laissé filer le temps ; peut-être, épuisée par cette longue agitation, avait-elle vraiment fermé les yeux et glissé dans un sommeil troublé, où des rêves fugitifs semblaient prolonger ses pensées inquiètes, quand soudain un bruit de pas derrière sa porte la tira de son rêve ou de sa méditation.",
+      "Nerveusement, elle se leva d'un bond et écouta ; la maison était toujours aussi silencieuse ; les pas s'étaient éloignés. Par la fenêtre grande ouverte, les rayons éclatants du soleil matinal inondaient la chambre de lumière. Elle leva les yeux vers la pendule : six heures et demie, trop tôt pour que personne de la maison fût déjà debout."
+    ] },
+
+  C17_2: { act: "C17", title: "Des pas dans la nuit", place: "richmond",
+    text: [
+      "Elle avait dû s'endormir, sans s'en rendre compte. Le bruit des pas, et aussi de voix étouffées, l'avait réveillée ; qu'est-ce que ce pouvait être ?",
+      "Doucement, sur la pointe des pieds, elle traversa la chambre et ouvrit la porte pour écouter : pas un bruit, ce silence particulier du petit matin où le sommeil pèse le plus lourd sur les hommes. Mais le bruit l'avait rendue nerveuse, et lorsque soudain, à ses pieds, sur le seuil même, elle vit quelque chose de blanc, une lettre visiblement, elle osa à peine y toucher. Cela avait l'air si fantomatique. Cela n'était certainement pas là quand elle était montée ; Louise l'avait-elle laissé tomber ? ou quelque esprit taquin s'amusait-il à lui montrer des lettres de fées là où il n'y en avait aucune ?",
+      "Enfin elle se baissa pour la ramasser et, stupéfaite, déconcertée au-delà de toute mesure, elle vit que la lettre lui était adressée, de la grande écriture d'homme d'affaires de son mari. Qu'avait-il donc à lui dire, au milieu de la nuit, qui ne pût attendre le matin ?",
+      "Elle déchira l'enveloppe et lut :",
+      "« Une circonstance tout à fait imprévue m'oblige à partir sur-le-champ pour le Nord ; je prie donc Votre Seigneurie de me pardonner si je ne me prévaux pas de l'honneur de lui dire au revoir. Mes affaires pourront me retenir une semaine environ ; je n'aurai donc pas le privilège d'assister mercredi à la fête sur l'eau de Votre Seigneurie. Je reste de Votre Seigneurie le très humble et très obéissant serviteur, PERCY BLAKENEY. »",
+      "Marguerite dut être soudain gagnée par la lenteur d'esprit de son mari, car il lui fallut relire maintes fois ces quelques lignes toutes simples avant d'en saisir pleinement le sens.",
+      "Elle restait sur le palier, tournant et retournant dans sa main cette lettre brève et mystérieuse, l'esprit vide, les nerfs tendus par l'agitation et par un pressentiment qu'elle aurait été bien en peine d'expliquer.",
+      "Sir Percy possédait certes des domaines considérables dans le Nord, et il y était souvent allé seul, pour une semaine entière ; mais il paraissait bien étrange que des circonstances fussent survenues entre cinq et six heures du matin, qui l'obligeaient à partir avec une telle précipitation.",
+      "Elle tenta en vain de secouer une nervosité inhabituelle : elle tremblait de la tête aux pieds. Un désir fou, invincible, la saisit de revoir son mari, tout de suite, s'il n'était pas déjà parti.",
+      "Oubliant qu'elle n'était vêtue que d'un léger peignoir du matin et que ses cheveux flottaient sur ses épaules, elle descendit l'escalier en courant et traversa le vestibule jusqu'à la porte d'entrée.",
+      "Celle-ci était, comme d'habitude, fermée à la barre et au verrou, car les domestiques de la maison n'étaient pas encore levés ; mais son oreille fine avait saisi un bruit de voix et le sabot d'un cheval frappant les dalles.",
+      "De ses doigts nerveux et tremblants, Marguerite défit les verrous un à un, se meurtrissant les mains, s'abîmant les ongles, car les serrures étaient lourdes et dures. Peu lui importait ; tout son corps tremblait d'anxiété à la seule idée d'arriver trop tard ; qu'il fût parti sans qu'elle l'eût vu et lui eût souhaité bon voyage !",
+      "Enfin elle tourna la clef et ouvrit la porte toute grande. Ses oreilles ne l'avaient pas trompée. Un palefrenier se tenait tout près, tenant deux chevaux ; l'un était Sultan, le cheval favori et le plus rapide de sir Percy, sellé pour la route.",
+      "L'instant d'après, sir Percy lui-même parut à l'autre angle de la maison et se dirigea vivement vers les chevaux. Il avait quitté son somptueux costume de bal, mais il était comme toujours irréprochablement et richement vêtu, d'un habit de drap fin avec jabot et manchettes de dentelle, de hautes bottes et d'une culotte de cheval.",
+      "Marguerite fit quelques pas en avant. Il leva les yeux et la vit. Un léger pli se forma entre ses sourcils.",
+      "— Vous partez ? dit-elle vivement, fiévreusement. Où allez-vous ?",
+      "— Comme j'ai eu l'honneur d'en informer Votre Seigneurie, des affaires urgentes et tout à fait imprévues m'appellent dans le Nord ce matin, dit-il de sa manière habituelle, froide et traînante."
+    ] },
+
+  C17_3: { act: "C17", title: "Un départ pour le Nord", place: "richmond",
+    text: [
+      "— Mais… vos invités, demain…",
+      "— J'ai prié Votre Seigneurie de présenter mes humbles excuses à Son Altesse Royale. Vous êtes une maîtresse de maison si parfaite qu'on ne remarquera pas mon absence, je pense.",
+      "— Mais vous auriez bien pu attendre pour ce voyage… jusqu'après notre fête sur l'eau, dit-elle, toujours vite et nerveusement. Cette affaire n'est sûrement pas si pressante… et vous n'en avez rien dit… tout à l'heure.",
+      "— Mes affaires, comme j'ai eu l'honneur de vous le dire, Madame, sont aussi imprévues que pressantes… Puis-je donc solliciter votre permission de partir ?… Puis-je faire quelque chose pour vous en ville ?… à mon retour ?",
+      "— Non… non… merci… rien… Mais vous reviendrez bientôt ?",
+      "— Très bientôt.",
+      "— Avant la fin de la semaine ?",
+      "— Je ne saurais dire.",
+      "À l'évidence, il cherchait à s'en aller, tandis qu'elle tendait tous ses nerfs pour le retenir un moment ou deux.",
+      "— Percy, dit-elle, ne voulez-vous pas me dire pourquoi vous partez aujourd'hui ? En tant que votre femme, j'ai sûrement le droit de le savoir. Vous n'êtes PAS appelé dans le Nord. Je le sais. Il n'y avait ni lettres ni courriers de là-bas avant notre départ pour l'Opéra hier soir, et rien ne vous attendait à notre retour du bal… Vous n'allez PAS dans le Nord, j'en suis convaincue… Il y a là un mystère… et…",
+      "— Allons, il n'y a aucun mystère, Madame, répliqua-t-il avec une légère impatience. Mes affaires concernent Armand… voilà ! À présent, ai-je votre congé ?",
+      "— Armand ?… Mais vous ne courrez aucun danger ?",
+      "— Un danger ? Moi ?… Allons, Madame, votre sollicitude me fait honneur. Comme vous le disiez, j'ai quelque influence ; j'entends en user avant qu'il soit trop tard.",
+      "— Me permettrez-vous au moins de vous remercier ?",
+      "— Non, Madame, dit-il froidement, c'est inutile. Ma vie est à votre service, et je suis déjà plus que payé.",
+      "— Et la mienne sera au vôtre, sir Percy, si seulement vous voulez l'accepter, en échange de ce que vous faites pour Armand, dit-elle en lui tendant impulsivement les deux mains. Voilà ! je ne vous retiens plus… mes pensées vous accompagnent… Adieu !…",
+      "Comme elle était belle dans ce soleil du matin, ses cheveux ardents ruisselant sur ses épaules ! Il s'inclina très bas et lui baisa la main ; elle sentit ce baiser brûlant, et son cœur frémit de joie et d'espoir.",
+      "— Vous reviendrez ? dit-elle tendrement.",
+      "— Très bientôt ! répondit-il en plongeant un regard ardent dans ses yeux bleus.",
+      "— Et… vous vous souviendrez ?… demanda-t-elle, tandis que ses yeux, en réponse au regard de son mari, lui promettaient l'infini.",
+      "— Je me souviendrai toujours, Madame, que vous m'avez fait l'honneur de réclamer mes services.",
+      "Les mots étaient froids et cérémonieux, mais cette fois ils ne la glacèrent pas. Son cœur de femme avait lu dans celui de son mari, sous le masque impassible que l'orgueil le forçait encore à porter.",
+      "Il s'inclina de nouveau, puis lui demanda congé. Elle s'écarta tandis qu'il sautait sur le dos de Sultan ; puis, comme il franchissait les grilles au galop, elle lui adressa d'un geste un dernier adieu.",
+      "Un tournant de la route le déroba bientôt à sa vue ; son palefrenier de confiance avait quelque peine à le suivre, car Sultan volait, répondant à l'humeur fiévreuse de son maître. Marguerite, avec un soupir presque heureux, se retourna et rentra. Elle regagna sa chambre, car soudain, comme une enfant fatiguée, elle se sentait toute ensommeillée.",
+      "Son cœur semblait tout à coup en paix ; il souffrait encore d'un désir confus, mais un espoir vague et délicieux l'apaisait comme un baume.",
+      "Elle ne s'inquiétait plus pour Armand. L'homme qui venait de partir à cheval, résolu à aider son frère, lui inspirait une confiance entière en sa force et en son pouvoir. Elle s'étonnait de l'avoir jamais pris pour un sot ; bien sûr, CELA était un masque, porté pour cacher la blessure amère qu'elle avait infligée à sa foi et à son amour. Sa passion l'aurait dominé, et il ne voulait pas lui laisser voir combien il tenait encore à elle et combien il souffrait.",
+      "Mais à présent tout irait bien : elle écraserait son propre orgueil, elle l'humilierait devant lui, elle lui dirait tout, elle se fierait à lui en tout ; et ces jours heureux reviendraient, où ils se promenaient ensemble dans les forêts de Fontainebleau, où ils parlaient peu, car il avait toujours été un homme silencieux, mais où elle sentait que contre ce cœur solide elle trouverait toujours le repos et le bonheur.",
+      "Plus elle songeait aux événements de la nuit, moins elle craignait Chauvelin et ses machinations. Il n'avait pas découvert l'identité du Mouron rouge, elle en était sûre. Lord Fancourt et Chauvelin lui-même lui avaient assuré que personne ne se trouvait dans la salle à manger à une heure, hormis le Français et Percy… Oui ! Percy ! elle aurait pu le lui demander, si elle y avait pensé ! Quoi qu'il en soit, elle ne craignait plus que le héros inconnu et courageux tombât dans le piège de Chauvelin ; sa mort, du moins, ne lui serait pas imputée.",
+      "Armand restait certes en danger, mais Percy avait donné sa parole qu'Armand serait sauf, et, en le regardant s'éloigner à cheval, Marguerite n'avait pas même songé de loin qu'il pût échouer dans ce qu'il entreprenait. Une fois Armand en sûreté en Angleterre, elle ne le laisserait pas retourner en France.",
+      "Elle se sentait presque heureuse à présent ; elle tira de nouveau soigneusement les rideaux pour arrêter le soleil perçant, se mit enfin au lit, posa la tête sur l'oreiller et, comme une enfant épuisée, s'endormit bientôt d'un sommeil paisible et sans rêves."
+    ] },
+
+};
