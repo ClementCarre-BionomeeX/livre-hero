@@ -1,0 +1,37 @@
+// « P'tit-Bonhomme », Jules Verne, 1893 : un livre à lire, sans choix (lecture: true). Texte de Verne, domaine public,
+// d'après l'édition numérisée par le Projet Gutenberg (Hetzel, 1893). Les notes de l'auteur restent entre parenthèses
+// à leur place. Les titres des chapitres sont ceux de Verne ; les titres des pages sont de Claude, comme tout ce qui
+// vit dans les tags (gens, lieux, mots, résumés).
+// Les mots et les noms de l'époque, expliqués d'un toucher. Rien de l'intrigue.
+module.exports = {
+  "landlord|landlords": "En Irlande, un grand propriétaire de terres, souvent anglais, qui les loue à des fermiers.",
+  "ragged-school|ragged-schools": "« École des déguenillés » : une école de charité pour les enfants les plus pauvres.",
+  "fermage|fermages": "Le loyer qu'un fermier paie au propriétaire pour la terre qu'il cultive.",
+  "tenancier|tenanciers": "Ici, celui qui loue et cultive la terre d'un autre.",
+  "régisseur": "Celui qui gère un domaine pour le compte du propriétaire.",
+  "intendant": "Celui qui administre la maison et les biens d'un grand seigneur.",
+  "éviction": "L'expulsion d'un fermier qui ne peut plus payer, avec sa famille, hors de sa ferme.",
+  "land-league|Land-League": "La Ligue agraire, fondée en 1879 pour défendre les fermiers irlandais contre les landlords.",
+  "home-rulers": "Les partisans du « Home Rule », l'autonomie de l'Irlande au sein du Royaume-Uni.",
+  "boycotté|boycottage|boycotter": "Mis en quarantaine : tout le monde refuse de travailler ou de commercer avec lui (du nom du capitaine Boycott, en Irlande, en 1880).",
+  "constable|constables": "Un agent de police, en pays anglais.",
+  "groom": "Un jeune domestique qui accompagne son maître à cheval ou en voiture.",
+  "dog-car": "Une petite voiture légère à deux roues, tirée par un cheval.",
+  "jaunting-car": "Une voiture irlandaise à deux roues où les voyageurs sont assis dos à dos, sur les côtés.",
+  "stirabout": "Une bouillie de farine d'avoine cuite à l'eau.",
+  "usquebaugh": "Le whisky irlandais, « l'eau-de-vie ».",
+  "penny|pence": "Une petite pièce anglaise ; douze pence font un shilling.",
+  "farthing|farthings": "Un quart de penny, la plus petite monnaie anglaise.",
+  "shilling|shillings": "Une pièce anglaise ; vingt shillings font une livre.",
+  "schooner": "Une goélette, voilier à deux mâts.",
+  "goélette": "Un voilier à deux mâts.",
+  "cabotage": "La navigation le long des côtes, d'un port à l'autre.",
+  "chauffeur": "Ici, l'homme qui entretient le feu des chaudières d'un navire à vapeur.",
+  "steamer": "Un navire à vapeur.",
+  "colporteur|colporteurs": "Un marchand qui va de village en village avec sa marchandise.",
+  "chattemite": "Quelqu'un qui prend des airs doux et humbles pour tromper.",
+  "papelard|papelards": "Faussement doux et dévot.",
+  "fripier|fripiers": "Un marchand de vieux habits.",
+  "Paddy|Paddys": "Un surnom familier de l'Irlandais, comme John Bull pour l'Anglais.",
+  "baby-farming": "Le commerce des femmes qui prenaient en pension, contre de l'argent, des enfants dont personne ne voulait.",
+};

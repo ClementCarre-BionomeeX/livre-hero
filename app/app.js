@@ -2733,6 +2733,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "19.6", items: ["Nouveau livre à lire : « P'tit-Bonhomme » de Jules Verne (1893), en entier."] },
     { v: "19.5", items: ["Nouveau livre à lire : « La Chasse au météore » de Jules Verne (1908), en entier."] },
     { v: "19.4", items: ["Nouveau livre à lire : « Les Naufragés du Jonathan » de Jules Verne (1909), en entier."] },
     { v: "19.3", items: ["Nouveau livre à lire : « Sans dessus dessous » de Jules Verne (1889), en entier."] },

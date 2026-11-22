@@ -1,0 +1,38 @@
+// « P'tit-Bonhomme », Jules Verne, 1893 : un livre à lire, sans choix (lecture: true). Texte de Verne, domaine public,
+// d'après l'édition numérisée par le Projet Gutenberg (Hetzel, 1893). Les notes de l'auteur restent entre parenthèses
+// à leur place. Les titres des chapitres sont ceux de Verne ; les titres des pages sont de Claude, comme tout ce qui
+// vit dans les tags (gens, lieux, mots, résumés).
+// Ce qui se passe dans chaque chapitre, en quelques lignes (Claude), montré par « Où en étais-je ? » une fois le chapitre lu.
+module.exports = {
+  I1: { text: "Verne présente l'Irlande, l'île d'Émeraude, ses landlords, ses fermiers et sa misère. Le dimanche 17 juin 1875, à Westport, au fond de la baie de Clew, arrive un homme dur qui pousse une charrette tirée par un chien : Thornpipe, montreur de marionnettes." },
+  I2: { text: "Thornpipe donne son spectacle aux gens de Westport : la reine Victoria, sa cour et ses ministres en bois, qui bougent d'eux-mêmes. Le public se demande ce qui les fait marcher.", notice: true },
+  I3: { text: "La « ragged-school » de Galway, l'école des déguenillés, et son directeur M. O'Bodkins, qui tient ses comptes mieux que ses élèves. Un nouveau pensionnaire y entre, sous la protection de Grip, un grand garçon de seize ans au bon cœur. Il y a aussi Carker, douze ans, qui promet de suivre les traces de ses parents.", notice: true },
+  I4: { text: "P'tit-Bonhomme cherche à comprendre ce qu'on lui dit de Dieu, refuse les mauvais coups qu'on lui propose, et défend ce qui est plus faible que lui." },
+  I5: { text: "Un rude hiver à l'école de Galway. Grip trouve de quoi réchauffer son petit ami. Au printemps, Carker met la main sur une bouteille de gin." },
+  I6: { text: "Une voyageuse charitable entre en scène : miss Anna Waston, grande actrice de Drury-Lane, en tournée en Irlande avec sa femme de chambre Élisa. Le train pour Limerick, et la vie d'un enfant gâté." },
+  I7: { text: "Miss Anna Waston a une idée : faire jouer P'tit-Bonhomme sur le théâtre de Limerick, dans un drame où un enfant retrouve sa mère." },
+  I8: { text: "Le comté de Kerry, la rivière de Cashen, et la ferme de Kerwan, tenue en fermage par la famille Mac Carthy : le père Martin, sa femme Martine, Grand'mère, leurs fils Murdock, Pat et Sim, et Kitty, la jeune femme de Murdock." },
+  I9: { text: "La vie à la ferme : les bêtes, les champs, les fêtes, et un enfant qui veut être payé de son travail." },
+  I10: { text: "Retour en arrière : le comté de Donegal, le hameau de Rindok, et une femme qu'on appelle la Hard, la « dure », qui prend en pension des enfants abandonnés.", notice: true },
+  I11: { text: "Un visiteur entre chez la Hard : un agent d'assurances qui vient lui proposer une affaire.", notice: true },
+  I12: { text: "P'tit-Bonhomme devient berger, avec le chien Birk. On attend des nouvelles de Pat, le fils marin." },
+  I13: { text: "Un double baptême à la ferme de Kerwan, une grande fête, et la complainte d'un matelot qui boit." },
+  I14: { text: "Les années passent. La terre rapporte de moins en moins, la colère gronde en Irlande, et l'hiver est dur." },
+  I15: { text: "Une année de malheurs pour la ferme : le froid, les inondations, les dettes, et la visite du régisseur Harbert." },
+  I16: { text: "Janvier 1882. Grand'mère est malade, et il faut aller chercher du secours à Tralee, à douze milles, de nuit, dans la neige." },
+  II1: { text: "Trelingar-castle, dans le comté de Cork. Leurs Seigneuries le marquis et la marquise de Piborne, nobles jusqu'au bout des ongles, et leur fils le comte Ashton ont perdu un portefeuille. L'intendant Scarlett s'en mêle." },
+  II2: { text: "Quatre mois sur les routes du comté de Cork : un enfant seul, son paquet de linge, un peu d'argent, et une rencontre." },
+  II3: { text: "P'tit-Bonhomme à Trelingar-castle. Une vie très différente de celle qu'il a connue, au service d'un jeune maître, parmi des domestiques qui le méprisent, et une lessiveuse qui l'aime bien." },
+  II4: { text: "Leurs Seigneuries partent visiter les lacs de Killarney, avec leur fils et son groom." },
+  II5: { text: "Le retour au château. Le comte Ashton a des chiens de chasse ; P'tit-Bonhomme a un chien de berger.", notice: true },
+  II6: { text: "De nouveau sur la route, avec un peu d'argent gagné. Une rivière, un cri, et un garçon de sept ans." },
+  II7: { text: "Sept mois à Cork, la capitale du Munster, à vendre des journaux et des petits riens, et à tenir ses comptes." },
+  II8: { text: "Un dimanche à Queenstown, le port de Cork, un navire, et un chauffeur noir de charbon.", notice: true },
+  II9: { text: "Une tournée de colporteurs le long de la côte sud-est, avec une charrette, un chien et une idée de Bob." },
+  II10: { text: "Dublin, la capitale, sa Liffey, ses quais, ses rues et ses statues, et un projet de boutique.", notice: true },
+  II11: { text: "Une boutique pour enfants dans un quartier populaire de Dublin, et un propriétaire, M. O'Brien, ancien négociant, qui croit à l'avenir d'un garçon de onze ans et demi." },
+  II12: { text: "Une annonce dans les journaux, les conseils de M. O'Brien, et un voyage d'affaires à Belfast.", notice: true },
+  II13: { text: "Grip a de plus en plus de mal à repartir sur son navire." },
+  II14: { text: "Une affaire de cargaison à Londonderry, la goélette Doris, et la mer." },
+  II15: { text: "Le dernier chapitre." },
+};
