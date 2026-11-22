@@ -1,0 +1,38 @@
+// « Deux ans de vacances », Jules Verne, 1888 : un livre à lire, sans choix (lecture: true). Texte de Verne, domaine
+// public, d'après l'édition numérique d'Ebooks libres et gratuits ; la préface de l'auteur n'est pas reprise. Les notes
+// de l'auteur restent entre parenthèses à leur appel. Verne ne donne pas de titres à ses chapitres : ceux des pages
+// sont de Claude, comme tout ce qui vit dans les tags (gens, lieux, mots, résumés).
+// Les chapitres (les actes du moteur). recap : résumé montré par « Où en étais-je ? » seulement une fois le chapitre fini.
+var RECAP = require("./resumes.js");
+module.exports = [
+  { id: "I", title: "Chapitre I", question: "", levels: [1, 1], start: "I_1" },
+  { id: "II", title: "Chapitre II", question: "", levels: [1, 1], start: "II_1" },
+  { id: "III", title: "Chapitre III", question: "", levels: [1, 1], start: "III_1" },
+  { id: "IV", title: "Chapitre IV", question: "", levels: [1, 1], start: "IV_1" },
+  { id: "V", title: "Chapitre V", question: "", levels: [1, 1], start: "V_1" },
+  { id: "VI", title: "Chapitre VI", question: "", levels: [1, 1], start: "VI_1" },
+  { id: "VII", title: "Chapitre VII", question: "", levels: [1, 1], start: "VII_1" },
+  { id: "VIII", title: "Chapitre VIII", question: "", levels: [1, 1], start: "VIII_1" },
+  { id: "IX", title: "Chapitre IX", question: "", levels: [1, 1], start: "IX_1" },
+  { id: "X", title: "Chapitre X", question: "", levels: [1, 1], start: "X_1" },
+  { id: "XI", title: "Chapitre XI", question: "", levels: [1, 1], start: "XI_1" },
+  { id: "XII", title: "Chapitre XII", question: "", levels: [1, 1], start: "XII_1" },
+  { id: "XIII", title: "Chapitre XIII", question: "", levels: [1, 1], start: "XIII_1" },
+  { id: "XIV", title: "Chapitre XIV", question: "", levels: [1, 1], start: "XIV_1" },
+  { id: "XV", title: "Chapitre XV", question: "", levels: [1, 1], start: "XV_1" },
+  { id: "XVI", title: "Chapitre XVI", question: "", levels: [1, 1], start: "XVI_1" },
+  { id: "XVII", title: "Chapitre XVII", question: "", levels: [1, 1], start: "XVII_1" },
+  { id: "XVIII", title: "Chapitre XVIII", question: "", levels: [1, 1], start: "XVIII_1" },
+  { id: "XIX", title: "Chapitre XIX", question: "", levels: [1, 1], start: "XIX_1" },
+  { id: "XX", title: "Chapitre XX", question: "", levels: [1, 1], start: "XX_1" },
+  { id: "XXI", title: "Chapitre XXI", question: "", levels: [1, 1], start: "XXI_1" },
+  { id: "XXII", title: "Chapitre XXII", question: "", levels: [1, 1], start: "XXII_1" },
+  { id: "XXIII", title: "Chapitre XXIII", question: "", levels: [1, 1], start: "XXIII_1" },
+  { id: "XXIV", title: "Chapitre XXIV", question: "", levels: [1, 1], start: "XXIV_1" },
+  { id: "XXV", title: "Chapitre XXV", question: "", levels: [1, 1], start: "XXV_1" },
+  { id: "XXVI", title: "Chapitre XXVI", question: "", levels: [1, 1], start: "XXVI_1" },
+  { id: "XXVII", title: "Chapitre XXVII", question: "", levels: [1, 1], start: "XXVII_1" },
+  { id: "XXVIII", title: "Chapitre XXVIII", question: "", levels: [1, 1], start: "XXVIII_1" },
+  { id: "XXIX", title: "Chapitre XXIX", question: "", levels: [1, 1], start: "XXIX_1" },
+  { id: "XXX", title: "Chapitre XXX", question: "", levels: [1, 1], start: "XXX_1" },
+].map(function (a) { var r = RECAP[a.id] || {}; a.recap = r.text || ""; a.notice = !!r.notice; return a; });

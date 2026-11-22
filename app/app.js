@@ -2733,6 +2733,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "17.1", items: ["Nouveau livre à lire : « Deux ans de vacances » de Jules Verne (1888), en entier."] },
     { v: "17.0", items: ["Nouveau livre à lire : « Le Tour du monde en quatre-vingts jours » de Jules Verne (1872), en entier, avec une couverture au globe terrestre."] },
     { v: "16.9", items: ["Nouveau livre à lire : « Kim » de Rudyard Kipling (1901), en entier, dans une traduction nouvelle faite pour la bibliothèque, qui retire les généralités du narrateur sur les « Orientaux »."] },
     { v: "16.8", items: ["Nouveau livre à lire : « Tarzan, l'enfant des singes » d'Edgar Rice Burroughs (1912), en entier, dans une traduction nouvelle faite pour la bibliothèque, qui retire le regard raciste du narrateur."] },
