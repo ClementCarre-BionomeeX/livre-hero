@@ -1,0 +1,32 @@
+// « Face au drapeau », Jules Verne, 1896 : un livre à lire, sans choix (lecture: true). Texte de Verne, domaine public,
+// d'après l'édition numérisée par le Projet Gutenberg (saisie d'Ebooks libres et gratuits). Les titres des chapitres
+// sont ceux de Verne ; ceux des pages sont de Claude, ainsi que tout ce qui vit dans les tags (gens, lieux, mots,
+// résumés).
+// Les mots et les noms de l'époque, expliqués d'un toucher. Rien de l'intrigue.
+module.exports = {
+  "goélette|goélettes": "Un voilier à deux mâts, fin et rapide.",
+  "tug": "Un remorqueur ; ici, un bateau sous-marin qui tire la goélette.",
+  "Fulgurateur": "L'engin inventé par Thomas Roch : un projectile chargé d'un explosif d'une puissance inouïe.",
+  "déflagrateur": "Le liquide qui fait partir l'explosif de Thomas Roch, et dont il garde le secret.",
+  "autopropulsif|autopropulsifs": "Qui se propulse lui-même, comme une fusée.",
+  "mélinite": "Un explosif puissant, inventé en France dans les années 1880.",
+  "croiseur|croiseurs": "Un navire de guerre rapide et bien armé.",
+  "inlet|inlets": "Une passe entre deux îles, qui fait communiquer une lagune avec la mer.",
+  "encablure|encablures": "Une mesure de distance en mer, d'environ deux cents mètres.",
+  "mille|milles": "En mer, une distance d'environ mille huit cent cinquante mètres.",
+  "look-out": "Une petite tourelle vitrée qui dépasse du bateau sous-marin, pour voir devant soi.",
+  "périscope": "Un tube à miroirs qui permet de voir au-dessus de l'eau sans sortir.",
+  "lagon": "Une étendue d'eau calme enfermée entre des rochers.",
+  "aliéniste|aliénistes": "Un médecin des fous.",
+  "steam-yacht|steam-yachts": "Un bateau de plaisance à vapeur.",
+  "steam-launches": "Des chaloupes à vapeur.",
+  "cachalot": "Une grosse baleine à dents.",
+  "squale|squales": "Un requin.",
+  "étale": "Le moment où la mer, à marée haute ou basse, ne monte ni ne descend.",
+  "jusant": "La marée descendante.",
+  "tonnelet": "Un petit tonneau.",
+  "augets": "Des gouttières de bois ou de métal qui servent de rampes de lancement aux engins.",
+  "chevalet|chevalets": "Un support à pieds ; ici, une rampe de tir.",
+  "lèse-patrie": "Un crime contre son propre pays.",
+  "spélonque": "Une grotte, une caverne.",
+};
