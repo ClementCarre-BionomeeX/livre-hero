@@ -1,0 +1,78 @@
+// « Les Pardaillan », Michel Zévaco, 1902 : un livre à lire, sans choix (lecture: true). Texte de Zévaco, domaine public,
+// d'après l'édition du projet Gutenberg (les deux premiers tomes, « Les Pardaillan » et « L'Épopée d'amour »). Les titres
+// des chapitres sont de Zévaco ; ceux des pages, comme tout ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude.
+// Chapitre II10 · L'Épopée d'amour · X. Où tout le monde se trouve heureux
+module.exports = {
+  II10_1: { act: "II10", title: "Une halte sur la côte", place: "paris",
+    text: [
+      "Le moment est venu où, semblable au voyageur qui monte une côte fort rude et très hérissée d'aspérités, nous devons prier le lecteur de souffler un instant avec nous et d'examiner de haut l'ensemble de la position.",
+      "Catherine de Médicis est la véritable protagoniste d'un gigantesque drame. La reine, par une lente manœuvre, se trouve à la veille d'un double événement qui doit, d'après elle, se présenter dans le même instant. En effet, l'extermination des huguenots ne doit-elle pas être, du même coup, la mort de son fils Déodat ?",
+      "Catherine redoutait les huguenots qui étaient capables de soutenir les prétentions qu'elle supposait à Henri de Béarn.",
+      "Elle redoutait les Guise, qu'elle supposait aussi férus d'un amour sans borne pour la puissance royale.",
+      "Elle redoutait le comte de Marillac, enfant d'une faute qui, si elle était découverte, ferait d'elle la risée de la cour.",
+      "Faire massacrer les huguenots par les Guise, et les Guise par les huguenots, assurer la disparition du comte son fils, telle dut être sa pensée conductrice.",
+      "Le résultat de la victoire était de placer le duc d'Anjou sur le trône, dès la mort escomptée de Charles IX, et de gouverner en souveraine maîtresse sous le nom de son fils préféré.",
+      "Toute cette laborieuse combinaison était sur le point d'aboutir : par Alice et Panigarola, elle tenait Marillac ; Charles IX, épouvanté et tremblant, persuadé que les huguenots conspiraient sa mort, devenait un instrument docile ; les Guise étaient prêts à se ruer dans Paris, le fer et la torche à la main.",
+      "Catherine était donc plus paisible, plus heureuse que nous ne l'avons jamais vue.",
+      "Si nous passons de la reine au comte de Marillac, de la mère au fils, nous voyons que Déodat vient de recevoir le double coup d'un bonheur imprévu.",
+      "Le pauvre jeune homme s'imagine avoir enfin touché le cœur de sa mère, et Catherine l'amuse par la fantasmagorie de sa maternité à demi avouée.",
+      "De plus, le comte a retrouvé toute sa sérénité d'amour pour Alice.",
+      "Les soupçons vagues, imprécis qu'il a pu concevoir, se sont évanouis sous le souffle de Catherine. Il n'a pas cessé un moment d'adorer Alice de Lux ; mais, maintenant, il est sûr d'elle…",
+      "L'époque de son mariage approche.",
+      "Un grand chagrin, pourtant, a traversé cette félicité : Jeanne d'Albret est morte !…",
+      "C'est-à-dire tout ce que le comte a vénéré jusque-là ! Mais ce chagrin lui-même s'efface lorsque Déodat songe qu'il a retrouvé une mère et une fiancée…",
+      "Encore un qui est heureux !…",
+      "Quant à Alice de Lux, la mort de Jeanne d'Albret lui a ôté le plus cruel de ses soucis. Seule, la reine de Navarre eût eu intérêt à la séparer du comte. Seule, elle pouvait et devait la dénoncer… La reine morte, Alice a respiré.",
+      "Catherine de Médicis lui a promis la suprême récompense de ses services.",
+      "Elle épousera le comte de Marillac !…",
+      "Une encore qui se persuade qu'après tant d'orages, elle est enfin arrivée au port d'un bonheur si durement conquis !…",
+      "Charles IX attend sans impatience le grand événement que lui a promis sa mère. Il ne sait pas au juste ce qui doit se passer. Il sait qu'il n'y aura plus de tracas, plus d'ennuis, plus de guerres ; il pourra courir les bois, chasser le cerf et le sanglier, sans se demander à chaque instant si l'un des chasseurs qui l'accompagnent ne va pas le tuer ; il pourra étudier de nouveaux airs sur le cor ; enfin, vivre à sa guise.",
+      "Dès lors, pense-t-il, les crises effrayantes qui, à la moindre émotion, le jettent dans des délires tantôt furieux, tantôt désespérés, ces crises ne se renouvelleront plus. Il régnera sans conteste, c'est-à-dire qu'il emploiera aux commodités de sa vie tout ce qu'un peuple entier peut produire de richesse, de génie, de science et d'art."
+    ] },
+
+  II10_2: { act: "II10", title: "Le roi en bourgeois", place: "paris",
+    text: [
+      "Il pourra librement, vêtu en bourgeois, parcourir sa bonne ville, s'arrêter parfois dans quelque guinguette, et finir toutes ses excursions chez Marie Touchet qu'il aime sans passion, mais avec une tendresse profonde. Voilà ce que rêve cet enfant de vingt ans ; pour le reste, il a ses conseillers, ses parlements, ses chanceliers et ses ministres qui s'occuperont de l'administration de son royaume.",
+      "Il a bonne mine, c'est-à-dire qu'au lieu d'être livide, comme à son ordinaire, il est simplement pâle.",
+      "Il semble même qu'il y ait une sorte de fierté dans ses yeux, une fierté qui étonne ses courtisans, inquiète Guise, et fait rêver Catherine.",
+      "C'est qu'il s'est passé une chose que toute la cour ignore :",
+      "Marie Touchet a accouché d'un beau garçon bien râblé, solide, criard, plein de vie ; Charles IX est père !… Un nouveau petit Valois est au monde ; et le roi songe quel titre il pourra bien lui conférer.",
+      "Il veut s'occuper de ce fils… et, pour cela, il faut que l'ère paisible prédite par sa mère se réalise enfin.",
+      "Jetons aussi un coup d'œil dans le logis de Marie Touchet.",
+      "Maris Touchet, c'est la fille du peuple, avec toutes ses exquises délicatesses. Si nous pénétrons chez elle, nous la trouvons penchée sur le berceau de son fils ; car, depuis quelques jours, elle est relevée de ses couches, et désormais elle ne vit plus que pour cet enfant.",
+      "Quel calme dans ce logis ! quelle propreté !… Quelle modestie aussi !… modestie charmante qui ne va pas sans coquetterie. Dans la chambre à coucher aux meubles de noyer ciré, toute claire, voici le berceau où dort le duc d'Angoulême. Au-dessus du berceau, un beau portrait de Charles IX en bourgeois. Le roi sourit dans son cadre. Et Marie lui sourit lorsque parfois son regard se lève de l'enfant jusqu'au père.",
+      "Passons maintenant à des personnages plus actifs.",
+      "Panigarola, dans son couvent, médite la destruction des huguenots et la mort de son rival Marillac. Étrange physionomie que celle de ce moine incroyant poussé à la haine par l'amour, devenu à son insu le redoutable instrument que manie la sainte Inquisition !",
+      "Le duc de Guise s'apprête pour la suprême conquête. Son plan est d'une effrayante simplicité : le roi paraît résister au mouvement de foi apostolique et romaine qui veut sauver l'Eglise en exterminant la réformation. Or, ce mouvement doit aboutir à quelque bataille géante dans les rues de Paris.",
+      "Alors, lui. Guise, accusera formellement Charles IX de connivence avec les huguenots ; il se fera nommer capitaine général de l'armée catholique, et, lorsque le massacre sera commencé, lorsque Paris brûlera, lorsque les ruisseaux des rues seront transformés en fleuves de sang, lorsque le peuple sera déchaîné, il marchera sur le Louvre ; le roi impopulaire, le roi des huguenots sera déposé ; Tavannes, le maréchal, est avec lui ; Damville lui garantit trois mille cavaliers qui sont en route, quatre mille arquebuses ; Guitalens, gouverneur de la Bastille, prépare son oubliette la plus sûre pour y enfermer Charles IX… et, lorsque le roi voudra se défendre, lorsqu'il appellera ses gardes, c'est Cosseins, son propre capitaine, qui l'arrêtera !…",
+      "Alors Guise arrêtera le carnage : il aura ainsi du même coup l'amour des catholiques qu'il aura déchaînés, et des huguenots qu'il aura sauvés.",
+      "Et, comme la France ne peut pas vivre sans roi, comme son oncle, le cardinal de Lorraine, a établi nettement la généalogie qui le fait descendre de Charlemagne, Henri de Guise sera roi !…",
+      "Le maréchal de Damville, lui aussi, prépare son coup.",
+      "Du fond de son gouvernement, il fait venir des troupes nombreuses : près de sept mille hommes qu'il a offerts à Guise pour l'aider à déposer Charles IX. Et, par un miracle de ruse, c'est à la prière même du roi que ces troupes se sont mises en route."
+    ] },
+
+  II10_3: { act: "II10", title: "La tempête au loin", place: "paris",
+    text: [
+      "Si Guise est tué, Damville cherchera audacieusement à se substituer à lui, et ce rêve le hante d'arriver tout sanglant dans le Louvre, d'arracher la couronne à Charles et de la poser sur sa tête !…",
+      "Si au contraire Guise réussit, Damville se contentera d'être le plus haut personnage du royaume après le roi.",
+      "Mais ce que veut surtout Damville, c'est l'écrasement de son frère.",
+      "La vieille haine qui date du jour lointain où Jeanne de Piennes le repoussa, cette haine a gangrené son âme. Elle est devenue un hideux ulcère inguérissable… Damville donnerait jusqu'à cette royauté qu'il rêve dans le secret de ses pensées, pour faire souffrir son frère. L'occasion va enfin se présenter : Damville s'est réservé l'attaque de l'hôtel de Montmorency… c'est lui qui veut prendre le vieil hôtel où le connétable son père a vécu ! Et le réduire en cendres ! Il prendra François et le tuera de ses mains… Puis il emportera Jeanne de Piennes.",
+      "Montmorency est donc compris dans les massacres. Pourtant il n'est pas huguenot !… C'est vrai, mais il est suspect. Le parti modéré qui veut l'apaisement le considère comme son chef naturel. Et puis d'ailleurs, est-il vraiment besoin d'être huguenot pour être condamné ?",
+      "Damville. donc, en cette période où nous essayons d'indiquer la position générale de la mise en scène historique, attendait avec la certitude que sa haine et son amour, avant peu, recevraient du même coup leur satisfaction. Par Gillot, il sait tout ce que fait et dit son frère, et il prend ses mesures en conséquence.",
+      "Car Gillot espionne activement… Seulement, il y a une chose, une seule, dont il n'a pu informer son oncle Gilles, pour la raison qu'il l'ignore. Et cette chose, qui peut-être bouleverserait de fond en comble les plans de Damville, c'est que la malheureuse Jeanne de Piennes est folle…",
+      "Pénétrons maintenant dans l'hôtel de Montmorency",
+      "Là se trouvent cinq personnages qui nous intéressent. D'abord, nos deux héros d'amour : le chevalier de Pardaillan et Loïse de Piennes de Montmorency.",
+      "Depuis qu'ils se sont dit leur amour, ils se parlent à peine. Et qu'est-il besoin de paroles ? Il n'est pas une pensée du chevalier qui n'aille à Loïse ; il n'est pas un battement du cœur de Loïse qui ne soit pour le chevalier. Pour Loïse. c'est bien simple : elle mourrait en ce moment sans s'apercevoir qu'elle meurt, pourvu que lui fût près d'elle ! Et quel danger est possible quand le chevalier est là ? Elle n'a pas confiance : elle est la confiance même.",
+      "Quant au chevalier, sûr de l'amour de Loïse, il croît n'avoir plus rien à redouter de la fortune adverse. Pourtant, il ne se croit pas certain d'être uni un jour à Loïse. Le maréchal de Montmorency a déclaré que sa fille est destinée au comte de Margency. Le chevalier de Pardaillan ne connaît pas ce comte, mais il fera tout au monde pour le rencontrer, et, l'épée à la main, lui disputera sa fiancée.",
+      "Il recherche activement deux choses. La première, c'est le moyen de sauver définitivement Loïse, c'est-à-dire de sortir de Paris ; la deuxième, c'est de savoir qui est le comte de Margency que le maréchal a choisi pour fiancé à Loïse.",
+      "Pendant ce temps, le vieux Pardaillan demeure à l'affût. Il fait manœuvrer son Gillot et échafaude un plan que nous ne tarderons pas à voir se développer sous nos yeux. Le vieux renard est inquiet. Il flaire il ne sait trop quel immense danger…",
+      "La pauvre Jeanne est folle. Que dire de plus ? C'est peut-être la plus heureuse. Sa douce et tendre folie l'a ramenée aux beaux jours de sa première jeunesse. Elle se croit à Margency. Par un phénomène assez rare, sa santé physique est entièrement rétablie.",
+      "Le maréchal de Montmorency, tenu à l'écart par les chefs huguenots parce qu'il a refusé de s'associer à l'entreprise d'Henri de Béarn, alors que la paix n'était pas déclarée, est, d'autre part, haï de la Cour, parce qu'on l'accuse de bienveillance pour les huguenots : les partis politiques ne comprennent pas l'indépendance chez un homme influent.",
+      "Mais François de Montmorency ne cherche pas l'estime et l'admiration de ses concitoyens, pour la raison bien simple qu'il ne les estime ni ne les admire. Il a vu trop d'ambitions déchaînées autour du trône ; il a vu trop de pensées criminelles, trop d'hypocrisies, trop de férocités : il ne rêve plus que la retraite au fond de son manoir…",
+      "Voilà donc, d'une façon générale, la position de tous nos personnages principaux.",
+      "Il plane sur cette situation un calme d'orage.",
+      "C'est ainsi que, dans les minutes tragiques qui précèdent la tempête, les arbres de la forêt demeurent immobiles ; pas un souffle ne traverse l'espace. Le ciel pur n'offre rien de menaçant, et les buées grises dont il se couvre paraissent devoir se dissiper bientôt.",
+      "Tout à coup ce ciel devient noir ; une rafale énorme balaie les airs, la tempête bat les horizons…"
+    ] },
+
+};

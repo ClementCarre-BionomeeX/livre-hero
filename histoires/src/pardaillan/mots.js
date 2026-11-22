@@ -1,0 +1,31 @@
+// « Les Pardaillan », Michel Zévaco, 1902 : un livre à lire, sans choix (lecture: true). Texte de Zévaco, domaine public,
+// d'après l'édition du projet Gutenberg (les deux premiers tomes, « Les Pardaillan » et « L'Épopée d'amour »). Les titres
+// des chapitres sont de Zévaco ; ceux des pages, comme tout ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude.
+// Les mots et les noms de l'époque, expliqués d'un toucher. Rien de l'intrigue.
+module.exports = {
+  "routier|routiers": "Un vieux soldat de métier, qui a fait toutes les guerres et couru toutes les routes.",
+  "reître|reîtres": "Un cavalier mercenaire, souvent allemand.",
+  "rapière|rapières": "Une longue épée de duel.",
+  "estramaçon": "Une longue et lourde épée qu'on manie à deux mains.",
+  "truand|truands": "Un gueux, un vagabond qui vit de mendicité ou de rapines.",
+  "Truanderie": "Le quartier des truands, près des Halles.",
+  "Cour des Miracles": "Un repaire de mendiants où, le soir, les faux infirmes retrouvent leurs jambes et leurs yeux.",
+  "ribaude|ribaudes": "Une fille de mauvaise vie.",
+  "huguenot|huguenots": "Un protestant de France.",
+  "réformé|réformés": "Un protestant, partisan de la religion réformée.",
+  "parpaillot|parpaillots|parpaillote": "Un mot injurieux pour dire protestant.",
+  "connétable": "Le chef des armées du roi.",
+  "escadron volant": "Les filles d'honneur de Catherine de Médicis, dont elle se servait pour séduire et espionner.",
+  "mignon|mignons": "Un jeune favori du duc d'Anjou, élégant et querelleur.",
+  "tocsin": "Une cloche qu'on sonne à coups pressés pour donner l'alarme.",
+  "arquebuse|arquebuses": "Une arme à feu longue qu'on épaule.",
+  "arquebusier|arquebusiers": "Un soldat armé d'une arquebuse.",
+  "hypocras": "Un vin sucré et parfumé d'épices.",
+  "chevalet": "Un instrument de torture sur lequel on étire le prisonnier.",
+  "oubliette|oubliettes": "Un cachot où l'on jette un prisonnier pour l'y oublier.",
+  "pertuisane|pertuisanes": "Une lance à large fer, arme des gardes.",
+  "Montfaucon": "Le grand gibet de Paris, hors des murs.",
+  "Pléiade": "Le groupe de poètes de Ronsard.",
+  "félonie": "La trahison d'un vassal envers son seigneur.",
+  "pistole|pistoles": "Une pièce d'or espagnole, qui vaut dix livres.",
+};
