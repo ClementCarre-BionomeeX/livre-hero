@@ -2733,6 +2733,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "15.8", items: ["« Le Fantôme de l'Opéra » de Gaston Leroux, à lire en entier : la loge n° 5, le lustre, la voix dans la loge de Christine Daaé, et le jeune vicomte de Chagny qui descend dans les dessous de l'Opéra. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "15.7", items: ["« Le Mystère de la chambre jaune » de Gaston Leroux, à lire en entier : le crime du Glandier dans une chambre fermée de l'intérieur, et le jeune reporter Joseph Rouletabille contre le grand Frédéric Larsan. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "15.6", items: ["« Arsène Lupin, gentleman-cambrioleur » de Maurice Leblanc, à lire en entier : les neuf aventures de 1907, du paquebot la Provence au château de Thibermesnil, avec l'inspecteur Ganimard toujours sur ses talons. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "15.5", items: ["« Les Pardaillan » de Michel Zévaco, à lire en entier : les deux premiers tomes, de Margency en 1553 à la Saint-Barthélemy, avec le chevalier, son père le vieux routier, Pipeau, Galaor et Giboulée. Avec les gens, les lieux et les mots d'un toucher."] },

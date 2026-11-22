@@ -1,0 +1,111 @@
+// « Le Fantôme de l'Opéra », Gaston Leroux, 1910 : un livre à lire, sans choix (lecture: true). Texte de Leroux
+// (1868-1927, domaine public), d'après l'édition du projet Gutenberg ; les notes de l'auteur sont entre parenthèses.
+// Les titres des chapitres sont de Leroux ; ceux des pages, comme tout ce qui vit dans les tags (gens, lieux, mots,
+// résumés), sont de Claude.
+// Chapitre XII · XII. Au-dessus des trappes
+module.exports = {
+  XII_1: { act: "XII", title: "Des fiançailles pour rire", place: "coulisses",
+    text: [
+      "Le lendemain, il la revit à l'Opéra. Elle avait toujours au doigt l'anneau d'or. Elle fut douce et bonne. Elle l'entretint des projets qu'il formait, de son avenir, de sa carrière.",
+      "Il lui apprit que le départ de l'expédition polaire avait été avancé et que, dans trois semaines, dans un mois au plus tard, il quitterait la France.",
+      "Elle l'engagea presque gaiement à considérer ce voyage avec joie, comme une étape de sa gloire future. Et comme il lui répondait que la gloire sans l'amour n'offrait à ses yeux aucun charme, elle le traita en enfant dont les chagrins doivent être passagers.",
+      "Il lui dit :",
+      "— Comment pouvez-vous, Christine, parler aussi légèrement de choses aussi graves ? Nous ne nous reverrons peut-être jamais plus !… Je puis mourir pendant cette expédition !…",
+      "— Et moi aussi, fit-elle simplement…",
+      "Elle ne souriait plus, elle ne plaisantait plus, Elle paraissait songer à une chose nouvelle qui lui entrait pour la première fois dans l'esprit. Son regard en était illuminé.",
+      "— À quoi pensez-vous, Christine ?",
+      "— Je pense que nous ne nous reverrons plus.",
+      "— Et c'est ce qui vous fait si rayonnante ?",
+      "— Et que, dans un mois, il faudra nous dire adieu… pour toujours !…",
+      "— À moins, Christine, que nous nous engagions notre foi et que nous nous attendions pour toujours.",
+      "Elle lui mit la main sur la bouche :",
+      "— Taisez-vous, Raoul !… Il ne s'agit point de cela, vous le savez bien !… Et nous ne nous marierons jamais ! C'est entendu !",
+      "Elle semblait avoir peine à contenir tout à coup une joie débordante. Elle tapa dans ses mains avec une allégresse enfantine… Raoul la regardait, inquiet, sans comprendre.",
+      "— Mais… mais…, fit-elle encore, entendant ses deux mains au jeune homme, ou plutôt en les lui donnant, comme si, soudain, elle avait résolu de lui en faire cadeau. Mais si nous ne pouvons nous marier, nous pouvons… nous pouvons nous fiancer !… Personne ne le saura que nous, Raoul !… Il y a eu des mariages secrets !.. Il peut bien y avoir des fiançailles secrètes !… Nous sommes fiancés, mon ami, pour un mois !… Dans un mois, vous partirez, et je pourrai être heureuse, avec le souvenir de ce mois-là, toute ma vie !",
+      "Elle était ravie de son idée… Et elle redevint grave.",
+      "— Ceci, dit-elle, *est un bonheur qui ne fera de mal à personne.*",
+      "Raoul avait compris. Il se rua sur cette inspiration. Il voulut en faire toute de suite une réalité. Il s'inclina devant Christine avec une humilité sans pareille et dit :",
+      "— Mademoiselle, j'ai l'honneur de vous demander votre main !",
+      "— Mais vous les avez déjà toutes les deux, mon cher fiancé !… Oh ! Raoul, comme nous allons être heureux !… Nous allons jouer au futur petit mari et à la future petite femme !…",
+      "Raoul se disait : l'imprudente ! d'ici un mois, j'aurai eu le temps de lui faire oublier ou de percer et de détruire « le mystère de la voix d'homme », et dans un mois Christine consentira à devenir ma femme. En attendant, jouons !",
+      "Ce fut le jeu le plus joli du monde, et auquel ils se plurent comme de purs enfants qu'ils étaient. Ah ! qu'ils se dirent de merveilleuses choses ! et que de serments éternels furent échangés ! L'idée qu'il n'y aurait plus personne pour tenir ces serments-là le mois écoulé les laissait dans un trouble qu'ils goûtaient avec d'affreuses délices, entre le rire et les larmes. Ils jouaient « au cœur » comme d'autres jouent « à la balle » ; seulement, comme c'étaient bien leurs deux cœurs qu'ils se renvoyaient, il leur fallait être très, très adroits, pour le recevoir sans leur faire mal. Un jour — c'était le huitième du jeu — le cœur de Raoul eut très mal et le jeune homme arrêta la partie par ces mots extravagants : « Je ne pars plus pour le pôle Nord. »"
+    ] },
+
+  XII_2: { act: "XII", title: "Deux jours d'absence", place: "coulisses",
+    text: [
+      "Christine, qui, dans son innocence, n'avait pas songé à la possibilité de cela, découvrit tout à coup le danger du jeu et se le reprocha amèrement. Elle ne répondit pas un mot à Raoul et rentra à la maison.",
+      "Ceci se passait l'après-midi, dans la loge de la chanteuse où elle lui donnait tous ses rendez-vous et où ils s'amusaient à de véritables dînettes autour de trois biscuits, de deux verres de porto, et d'un bouquet de violettes.",
+      "Le soir, elle ne chantait pas. Et il ne reçut pas la lettre coutumière, bien qu'ils se fussent donné la permission de s'écrire tous les jours de ce mois-là. Le lendemain matin, il courut chez la maman Valérius, qui lui apprit que Christine était absente pour deux jours. Elle était partie la veille au soir, à cinq heures, en disant qu'elle ne serait pas de retour avant le surlendemain. Raoul était bouleversé. Il détestait la maman Valérius, qui lui faisait part d'une pareille nouvelle avec une stupéfiante tranquillité. Il essaya d'en « tirer quelque chose », mais, de toute évidence, la bonne dame ne savait rien. Elle consentit simplement à répondre aux questions affolées du jeune homme :",
+      "— C'est le secret de Christine !",
+      "Et elle levait le doigt, disant cela avec une onction touchante qui recommandait la discrétion et qui, en même temps, avait la prétention de rassurer.",
+      "— Ah ! bien, s'exclamait méchamment Raoul, en descendant l'escalier comme un fou, ah ! bien ! les jeunes filles sont bien gardées avec cette maman Valérius-là !…",
+      "Où pouvait être Christine ?… Deux jours …Deux jours de moins dans leur bonheur si court ! Et ceci était de sa faute !… N'était-il point entendu qu'il devait partir ?… Et si sa ferme intention était de ne point partir, pourquoi avait-il parlé si tôt ? Il s'accusait de maladresse et fut le plus malheureux des hommes pendant quarante-huit heures, au bout desquelles Christine réapparut.",
+      "Elle réapparut dans un triomphe. Elle retrouva enfin le succès inouï de la soirée de gala. Depuis l'aventure du « crapaud », la Carlotta n'avait pu se produire en scène. La terreur d'un nouveaux « couac » habitait son cœur et lui enlevait tous ses moyens ; et les lieux, témoins de son incompréhensible défaite, lui étaient devenus odieux. Elle trouva le moyen de rompre son traité. Daaé, momentanément, fut priée de tenir l'emploi vacant. Un véritable délire l'accueillit dans *la Juive.*",
+      "Le vicomte, présent à cette soirée, naturellement, fut le seul à souffrir en écoutant les mille échos de ce nouveau triomphe ; car il vit que Christine avait toujours son anneau d'or : Une voix lointaine murmurait à l'oreille du jeune homme : « Ce soir, elle a encore l'anneau d'or, et ce n'est point toi qui le lui as donné. Ce soir, elle a encore donné son âme, et ce n'était pas à toi. »",
+      "Et encore la voix le poursuivait : « Si elle ne veut point te dire ce qu'elle a fait, depuis deux jours…, si elle te cache le lieu de sa retraite, il faut l'aller demander à Erik ! »",
+      "Il courut sur le plateau. Il se mit sur son passage. Elle le vit, car ses yeux le cherchaient. Elle lui dit : « Vite ! Vite ! Venez ! Et elle l'entraîna dans la loge, sans plus se préoccuper de tous les courtisans de sa jeune gloire qui murmuraient devant sa porte fermée : « C'est un scandale ! »",
+      "Raoul tomba tout de suite à ses genoux. Il lui jura qu'il partirait et la supplia de ne plus désormais retrancher une heure du bonheur idéal qu'elle lui avait promis. Elle laissa couler ses larmes. Ils s'embrassaient comme un frère et une sœur désespérés qui viennent d'être frappés par un deuil commun et qui se retrouvent pour pleurer un mort."
+    ] },
+
+  XII_3: { act: "XII", title: "Le royaume de Christine", place: "coulisses",
+    text: [
+      "Soudain, elle s'arracha à la douce et timide étreinte du jeune homme, sembla écouter quelque chose que l'on ne savait pas… et, d'un geste bref, elle montra la porte à Raoul. Quand il fut sur le seuil, elle lui dit, si bas que le vicomte devina ses paroles plus qu'il ne les entendit :",
+      "— Demain, mon cher fiancé ! Et soyez heureux, Raoul…, c'est pour vous que j'ai chanté ce soir !…",
+      "Il revint donc.",
+      "Mais, hélas ! ces deux jours d'absence avaient rompu le charme de leur aimable mensonge. Ils se regardaient, dans la loge, sans plus se rien dire, avec leurs tristes yeux. Raoul se retenait pour ne point crier : « Je suis jaloux ! Je suis jaloux ! Je suis jaloux ! Mais elle l'entendait tout de même.",
+      "Alors elle dit : « Allons nous promener, mon ami, l'air nous fera du bien ».",
+      "Raoul crut qu'elle allait lui proposer quelque partie de campagne, loin de ce monument, qu'il détestait comme une prison et dont il sentait rageusement le geôlier se promener dans les murs… le geôlier Erik… Mais elle le conduisit sur la scène, et le fit asseoir sur la margelle de bois d'une fontaine, dans la paix et la fraîcheur douteuse d'un premier décor planté pour le prochain spectacle ; un autre jour, elle erra avec lui, le tenant par la main, dans les allées abandonnées d'un jardin dont les plantes grimpantes avaient été découpées par les mains habiles d'un décorateur, comme si les vrais cieux, les vraies fleurs, la vraie terre lui étaient à jamais défendus et qu'elle fût condamnée à ne plus respirer d'autre atmosphère que celle du théâtre ! Le jeune homme hésitait à lui poser la moindre question, car, comme il lui apparaissait tout de suite qu'elle n'y pouvait répondre, il redoutait de la faire inutilement souffrir. De temps en temps un pompier passait, qui veillait de loin sur leur idylle mélancolique. Parfois, elle essayait courageusement de se tromper et de le tromper sur la beauté mensongère de ce cadre inventé pour l'illusion des hommes. Son imagination toujours vive le parait des plus éclatantes couleurs et telles, disait-elle, que la nature n'en pouvait fournir de comparables. Elle s'exaltait, cependant que Raoul, lentement, pressait sa main fiévreuse. Elle disait : « Voyez, Raoul, ces murailles, ces bois, ces berceaux, ces images de toile peinte, tout cela a vu les plus sublimes amours, car ici elles ont été inventées par les poètes, qui dépassent de cent coudées la taille des hommes. Dites-moi donc que notre amour se trouve bien là, mon Raoul, puisque lui aussi a été inventé, et qu'il n'est, lui aussi, hélas ! qu'une illusion !",
+      "Désolé, il ne répondait pas. Alors :",
+      "— Notre amour est trop triste sur la terre, promenons-le dans le ciel !… Voyez comme c'est facile ici !",
+      "Et elle l'entraînait plus haut que les nuages, dans le désordre magnifique du gril, et elle se plaisait à lui donner le vertige en courant devant lui sur les ponts fragiles du cintre, parmi les milliers de cordages qui se rattachaient aux poulies, aux treuils, aux tambours, au milieu d'une véritable forêt aérienne de vergues et de mâts. S'il hésitait, elle lui disait avec une moue adorable : « Vous, un marin ! »",
+      "Et puis, ils redescendaient sur la terre ferme, c'est-à-dire dans quelque corridor bien solide qui les conduisait à des rires, à des danses, à de la jeunesse grondée par une voix sévère : « Assouplissez, mesdemoiselles !… Surveillez vos pointes ! »… C'est la classe des gamines, de celles qui viennent de n'avoir plus six ans ou qui vont en avoir neuf ou dix… et elles ont déjà le corsage décolleté, le tutu léger, le pantalon blanc et les bas roses, et elles travaillent, elles travaillent de tous leurs petits pieds douloureux dans l'espoir de devenir élèves des quadrilles, compilées, petits sujets, premières danseuses, avec beaucoup de diamants autour… En attendant, Christine leur distribue des bonbons."
+    ] },
+
+  XII_4: { act: "XII", title: "Dix-sept étages", place: "coulisses",
+    text: [
+      "Un autre jour, elle le faisait entrer dans une vaste salle de son palais, toute pleine d'oripeaux, de défroques de chevaliers, de lances, d'écus et de panaches, et elle passait en revue tous les fantômes de guerriers immobiles et couverts de poussière. Elle leur adressait de bonnes paroles, leur promettant qu'ils reverraient les soirs éclatants de lumière, et les défilés en musique devant la rampe retentissante.",
+      "Elle le promena ainsi dans tout son empire, qui était factice, mais immense, s'étendant sur dix-sept étages du rez-de-chaussée jusqu'au faîte et habité par une armée de sujets. Elle passait au milieu d'eux comme une reine populaire, encourageant les travaux, s'asseyant dans les magasins, donnant de sages conseils aux ouvrières dont les mains hésitaient à tailler dans les riches étoffes qui devaient habiller des héros. Des habitants de ce pays faisaient tous les métiers. Il y avait des savetiers et des orfèvres. Tous avaient appris à l'aimer, car elle s'intéressait aux peines et aux petites manies de chacun. Elle savait des coins inconnus habités en secret par de vieux ménages.",
+      "Elle frappait à leur porte et leur présentait Raoul comme un prince charmant qui avait demandé sa main, et tous deux assis sur quelque accessoire vermoulu écoutaient les légendes de l'Opéra comme autrefois ils avaient, dans leur enfance, écouté les vieux contes bretons. Ces vieillards ne se rappelaient rien d'autre que l'Opéra. Ils habitaient là depuis des années innombrables. Les administrations disparues les y avaient oubliées ; les révolutions de palais les avaient ignorés ; au dehors, l'histoire de France avait passé sans qu'ils s'en fussent aperçus, et nul ne se souvenait d'eux.",
+      "Ainsi les journées précieuses s'écoulaient et Raoul et Christine, par l'intérêt excessif qu'ils semblaient apporter aux choses extérieures, s'efforçaient malhabilement de se cacher l'un à l'autre l'unique pensée de leur cœur. Un fait certain était que Christine, qui s'était montrée jusqu'alors la plus forte, devint tout à coup nerveuse au-delà de toute expression. Dans leurs expéditions, elle se prenait à courir sans raison ou bien s'arrêtait brusquement, et sa main, devenue glacée en un instant, retenait le jeune homme. Ses yeux semblaient parfois poursuivre des ombres imaginaires. Elle criait : « Par ici », puis « par ici », puis « par ici », en riant, d'un rire haletant qui se terminait souvent par des larmes. Raoul alors voulait parler, interroger malgré ses promesses, ses engagements. Mais, avant même qu'il eût formulé une question, elle répondait fébrilement : « Rien !… je vous jure qu'il n'y a rien ».",
+      "Une fois que, sur la scène, ils passaient devant une trappe entr'ouverte, Raoul se pencha sur le gouffre obscur et dit : « Vous m'avez fait visiter les dessus de votre empire, Christine… mais on raconte d'étranges histoires sur les dessous… Voulez-vous que nous y descendions ? » En entendant cela, elle le prit dans ses bras, comme si elle craignait de le voir disparaître dans le trou noir, et elle lui dit tout bas en tremblant : « Jamais !… Je vous défends d'aller là !… Et puis, ce n'est pas à moi !… *Tout ce qui est sous la terre lui appartient !* »",
+      "Raoul plongea ses yeux dans les siens et lui dit d'une voix rude :",
+      "— Il habite donc là-dessous ?",
+      "— Je ne vous ai pas dit cela !… Qui est-ce qui vous a dit une chose pareille ? Allons ! venez ! Il y a des moments, Raoul, où je me demande si vous n'êtes pas fou ?… Vous entendez toujours des choses impossibles !… Venez ! Venez !"
+    ] },
+
+  XII_5: { act: "XII", title: "Loin des trappes", place: "coulisses",
+    text: [
+      "Et elle le traînait littéralement, car il voulait rester obstinément près de la trappe, et ce trou l'attirait.",
+      "La trappe tout d'un coup fut fermée, et si subitement, sans qu'ils aient même aperçu la main qui la faisait agir, qu'ils en restèrent tout étourdis.",
+      "— C'est peut-être *lui* qui était là ? finit-il par dire.",
+      "Elle haussa les épaules, mais elle ne paraissait nullement rassurée.",
+      "— Non ! non ! ce sont les « fermeurs de trappes ». Il faut bien que les « fermeurs de trappes » fassent quelque chose… Ils ouvrent et ils ferment les trappes sans raison… C'est comme les « fermeurs de portes » ; il faut bien qu'ils « passent le temps ».",
+      "— Et si c'était *lui*, Christine ?",
+      "— Mais non ! Mais non ! *Il* s'est enfermé ! *il* travaille.",
+      "— Ah ! vraiment, *il* travaille ?",
+      "— Oui, *il* ne peut pas ouvrir et fermer les trappes et travailler. Nous sommes bien tranquilles.",
+      "Disant cela, elle frissonnait.",
+      "— À quoi donc travaille-t-*il* ?",
+      "— Oh ! à quelque chose de terrible !… Aussi nous sommes bien tranquilles !… Quand *il* travaille à cela, *il* ne voit rien ; *il* ne mange, ni ne boit, ni ne respire… pendant des jours et des nuits… c'est un mort vivant et *il* n'a pas le temps de s'amuser avec les trappes !",
+      "Elle frissonna encore, elle se pencha en écoutant du côté de la trappe… Raoul la laissait faire et dire. Il se tut. Il redoutait maintenant que le son de sa voix la fît soudain réfléchir, l'arrêtant dans le cours si fragile encore de ses confidences.",
+      "Elle ne l'avait pas quitté… elle le tenait toujours dans ses bras… elle soupira à son tour :",
+      "— Si c'était *lui !*",
+      "Raoul, timide, demanda :",
+      "— Vous avez peur de *lui ?*",
+      "Elle fit :",
+      "— Mais non ! mais non !",
+      "Le jeune homme se donna, bien involontairement, l'attitude de la prendre en pitié, comme on fait avec un être impressionnable qui est encore en proie à un songe récent. Il avait l'air de dire : « parce que vous savez, moi, je suis là ! » Et son geste fut, presque involontairement, menaçant ; alors, Christine le regarda avec étonnement, tel un phénomène de courage et de vertu, et elle eut l'air, dans sa pensée, de mesurer à sa juste valeur tant d'inutile et audacieuse chevalerie. Elle embrassa le pauvre Raoul comme une sœur qui le récompenserait, par un accès de tendresse, d'avoir fermé son petit poing fraternel pour la défendre contre les dangers toujours possibles de la vie.",
+      "Raoul comprit et rougit de honte. Il se trouvait aussi faible qu'elle. Il se disait : « Elle prétend qu'elle n'a pas peur, mais elle nous éloigne de la trappe en tremblant. » C'était la vérité. Le lendemain et les jours suivants, ils allèrent loger leurs curieuses et chastes amours, quasi dans les combles, bien loin des trappes. L'agitation de Christine ne faisait qu'augmenter au fur et à mesure que s'écoulaient les heures. Enfin, une après-midi, elle arriva très en retard, la figure si pâle et les yeux si rougis par un désespoir certain, que Raoul se résolut à toutes les extrémités, à celle, par exemple, qu'il lui exprima tout de go, « *de ne partir pour le Pôle Nord : que si elle lui confiait le secret de la Voix d'homme* ».",
+      "— Taisez-vous ! Au nom du ciel, taisez-vous. S'*il* vous entendait, malheureux Raoul !",
+      "Et les yeux hagards de la jeune fille faisaient autour d'eux le tour des choses.",
+      "— Je vous enlèverai à sa puissance, Christine, je le jure ! Et vous ne penserez même plus à lui, ce qui est nécessaire.",
+      "— Est-ce possible ?",
+      "Elle se permit ce doute qui était un encouragement, en entraînant le jeune homme jusqu'au dernier étage du théâtre, « à l'altitude », là où l'on est très loin, très loin des trappes.",
+      "— Je vous cacherai dans un coin inconnu du monde, où il ne viendra pas vous chercher. Vous serez sauvée, et alors je partirai puisque vous avez juré de ne pas vous marier jamais.",
+      "Christine se jeta sur les mains de Raoul et les lui serra avec un transport incroyable. Mais, inquiète à nouveau, elle tournait la tête.",
+      "— Plus haut ! dit-elle seulement… encore plus haut !… Et elle l'entraîna vers les sommets.",
+      "Il avait peine à la suivre. Ils furent bientôt sous les toits, dans le labyrinthe des charpentes. Ils glissaient entre les arcs-boutants, les chevrons, les jambes de force, les pans, les versants et les rampants ; ils couraient de poutre en poutre comme, dans une forêt, ils eussent couru d'arbre en arbre, aux troncs formidables…",
+      "Et, malgré la précaution qu'elle avait de regarder à chaque instant, derrière elle, elle ne vit point une ombre qui la suivait comme son ombre, qui s'arrêtait avec elle, qui repartait quand elle repayait et qui ne faisait pas plus de bruit que n'en doit faire une ombre. Raoul, lui, ne s'aperçut de rien, car, quand il avait Christine devant lui, rien ne l'intéressait de ce qui se passait derrière."
+    ] },
+
+};
