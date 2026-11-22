@@ -1,0 +1,108 @@
+// « Les Mines du roi Salomon » (King Solomon's Mines), H. Rider Haggard, 1885 : un livre à lire, sans choix (lecture: true).
+// Texte : traduction nouvelle par Claude, faite pour cette bibliothèque à partir du texte anglais de 1885 (Project
+// Gutenberg n° 2166, domaine public). Les titres des chapitres sont ceux de Haggard, traduits ; ceux des pages, comme
+// tout ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude. Quelques mots et généralités sur les
+// peuples d'Afrique, courants en 1885 et blessants aujourd'hui, ont été adoucis ou retirés ; la notice le dit.
+// Chapitre C3 · Chapitre 2 · La légende des mines de Salomon
+module.exports = {
+  C3_1: { act: "C3", title: "Ce qu'on disait à Bamangwato", place: "dunkeld", fx: { meet: ["evans"] },
+    text: [
+      "— Qu'avez-vous entendu dire, à Bamangwato, sur le voyage de mon frère ? demanda sir Henry, tandis que je m'arrêtais pour bourrer ma pipe avant de répondre au capitaine Good.",
+      "— J'ai entendu ceci, répondis-je, et je n'en ai jamais soufflé mot à âme qui vive jusqu'à aujourd'hui. J'ai entendu dire qu'il partait pour les mines de Salomon.",
+      "— Les mines de Salomon ? s'écrièrent à la fois mes deux auditeurs. Où sont-elles ?",
+      "— Je n'en sais rien, dis-je. Je sais où elles sont censées se trouver. J'ai vu un jour les sommets des montagnes qui les bordent, mais il y avait entre elles et moi cent trente milles de désert, et je n'ai pas connaissance qu'un seul Blanc l'ait jamais traversé, sauf un. Le mieux est peut-être que je vous raconte la légende des mines de Salomon telle que je la connais, à condition que vous me donniez votre parole de ne rien révéler de ce que je vous dirai sans ma permission. Êtes-vous d'accord ? J'ai mes raisons pour vous le demander.",
+      "Sir Henry fit signe que oui, et le capitaine Good répondit :",
+      "— Certainement, certainement.",
+      "— Eh bien, commençai-je, vous le devinez, les chasseurs d'éléphants sont en général des gens frustes, qui ne s'embarrassent guère que des choses de la vie et des façons des indigènes. Mais çà et là on rencontre un homme qui prend la peine de recueillir les traditions du pays et qui tâche de démêler un petit bout de l'histoire de cette terre obscure. C'est un homme de cette sorte qui m'a raconté le premier la légende des mines de Salomon, il y a près de trente ans. C'était pendant ma première chasse à l'éléphant, au pays des Matabélés. Il s'appelait Evans ; il fut tué l'année suivante, le pauvre, par un buffle blessé, et il repose près des chutes du Zambèze.",
+      "» Je racontais à Evans, un soir, je m'en souviens, de merveilleux travaux anciens que j'avais trouvés en chassant le koudou et l'élan dans ce qui est aujourd'hui le district de Lydenburg, au Transvaal. Je vois qu'on est retombé dessus récemment en prospectant pour l'or, mais je les connaissais depuis des années. Une grande route pour chariots, taillée dans le roc vif, mène à l'entrée d'une galerie. À l'intérieur de cette entrée, il y a des tas de quartz aurifère empilés, prêts pour le grillage, ce qui montre que les travailleurs, quels qu'ils aient été, sont partis en hâte. À une vingtaine de pas plus loin, la galerie est murée, et c'est un fort beau morceau de maçonnerie.",
+      "» « Oui, me dit Evans, mais je vais te conter quelque chose de plus curieux encore. » Et il me raconta comment il avait trouvé, loin dans l'intérieur, une ville en ruine, qu'il croyait être l'Ophir de la Bible ; d'autres, plus savants que lui, l'ont d'ailleurs dit aussi, bien après le temps du pauvre Evans. J'écoutais, je m'en souviens, toutes ces merveilles les oreilles grandes ouvertes, car j'étais jeune alors, et cette histoire d'une civilisation ancienne et des trésors que ces vieux aventuriers juifs ou phéniciens tiraient d'un pays retombé depuis longtemps dans la nuit, tout cela s'emparait de mon imagination. Soudain il me dit :",
+      "— Petit, as-tu jamais entendu parler des monts Suliman, au nord-ouest du pays des Mouchakouloumbwés ?",
+      "» Je lui répondis que non.",
+      "— Eh bien, dit-il, c'est là que Salomon avait vraiment ses mines. Ses mines de diamants, je veux dire.",
+      "— Comment le savez-vous ? demandai-je.",
+      "— Comment je le sais ? Mais Suliman, qu'est-ce que c'est, sinon Salomon déformé ? En arabe, c'est le même nom. Et puis une vieille sorcière du pays de Manica m'a tout raconté. Elle disait que les gens qui vivent de l'autre côté de ces montagnes sont une branche des Zoulous et parlent un zoulou à eux, mais qu'ils sont plus beaux et plus grands encore ; qu'il y a chez eux de grands sorciers, qui ont appris leur art des hommes blancs « quand le monde entier était obscur », et qui ont le secret d'une mine merveilleuse de « pierres brillantes ».",
+      "» Sur le moment, j'ai ri de cette histoire, tout en y prenant intérêt, car on n'avait pas encore découvert les Champs de diamants. Mais le pauvre Evans partit et fut tué, et pendant vingt ans je n'y pensai plus. Vingt ans plus tard exactement, et c'est long, messieurs, un chasseur d'éléphants ne vit pas souvent vingt ans de son métier, j'entendis parler plus précisément des monts Suliman et du pays qui s'étend au-delà. J'étais monté au-delà du pays de Manica, dans un endroit appelé le kraal de Sitanda, un lieu misérable où l'on ne trouvait rien à manger et presque pas de gibier. J'avais un accès de fièvre et j'étais en piteux état quand, un jour, arriva un Portugais avec un seul compagnon, un métis."
+    ] },
+
+  C3_2: { act: "C3", title: "Le Portugais du désert", place: "dunkeld", fx: { meet: ["silvestre"] },
+    text: [
+      "» Je connais bien le Portugais de bas étage de la baie de Delagoa. Il n'y a pas pire démon en liberté, en général, car il s'engraisse de la souffrance et de la chair humaines, sous la forme d'esclaves. Mais celui-là était d'une tout autre espèce que les gredins que j'avais l'habitude de rencontrer ; il me faisait plutôt penser aux nobles seigneurs dont j'ai lu les histoires, car il était grand et maigre, avec de grands yeux noirs et des moustaches grises en crocs. Nous causâmes un moment, car il parlait un mauvais anglais et je comprenais un peu le portugais. Il me dit qu'il s'appelait José Silvestre et qu'il avait une propriété près de la baie de Delagoa. Quand il repartit le lendemain avec son métis, il me dit adieu en ôtant son chapeau, à la vieille mode.",
+      "— Adieu, señor, dit-il. Si nous nous revoyons un jour, je serai l'homme le plus riche du monde, et je me souviendrai de vous.",
+      "» Je ris un peu, j'étais trop faible pour rire beaucoup, et je le regardai s'enfoncer vers le grand désert de l'ouest en me demandant s'il était fou, ou ce qu'il comptait bien trouver là-bas.",
+      "» Une semaine passa, et je vins à bout de ma fièvre. Un soir, j'étais assis par terre devant ma petite tente, à ronger le dernier pilon d'un misérable poulet que j'avais acheté à un indigène pour un bout de toile qui valait vingt poulets, et je regardais le soleil rouge et brûlant s'enfoncer sur le désert, quand soudain j'aperçus une silhouette sur la pente de la hauteur d'en face, à trois cents pas environ. Elle portait un habit ; ce devait être un Européen. La silhouette avançait à quatre pattes, puis se relevait, faisait quelques pas en titubant, retombait et se remettait à ramper. Voyant que ce devait être quelqu'un en détresse, j'envoyai un de mes chasseurs à son secours. Il arriva bientôt, et qui croyez-vous que c'était ?",
+      "— José Silvestre, parbleu, dit le capitaine Good.",
+      "— Oui, José Silvestre, ou plutôt son squelette avec un peu de peau dessus. Il avait le visage tout jaune de fièvre bilieuse, et ses grands yeux noirs lui sortaient presque de la tête, car toute la chair avait fondu. Il ne restait qu'une peau jaune comme du parchemin, des cheveux blancs et les os qui saillaient dessous.",
+      "— De l'eau ! Pour l'amour du Christ, de l'eau ! gémit-il.",
+      "» Je vis que ses lèvres étaient fendues et que sa langue, qui pointait entre elles, était enflée et noirâtre. Je lui donnai de l'eau avec un peu de lait, et il but à grandes gorgées, deux bons litres, sans s'arrêter. Je ne voulus pas lui en donner davantage. Puis la fièvre le reprit ; il tomba et se mit à délirer sur les monts Suliman, sur les diamants, sur le désert. Je le portai dans la tente et fis pour lui ce que je pus, c'est-à-dire bien peu ; mais je voyais comment cela finirait. Vers onze heures il se calma, et je m'étendis pour me reposer un peu. Je m'endormis. À l'aube je me réveillai, et dans la demi-clarté je vis Silvestre assis sur sa couche, étrange et décharné, les yeux fixés sur le désert. Bientôt le premier rayon du soleil traversa d'un trait la vaste plaine devant nous, jusqu'à toucher la lointaine crête de l'un des plus hauts des monts Suliman, à plus de cent milles de là.",
+      "— La voilà ! s'écria le mourant en portugais, en tendant son long bras maigre. Mais je n'y arriverai jamais, jamais. Personne n'y arrivera jamais !",
+      "» Il s'arrêta soudain, et parut prendre une décision.",
+      "— Ami, dit-il en se tournant vers moi, êtes-vous là ? Mes yeux s'obscurcissent.",
+      "— Oui, dis-je, oui. Recouchez-vous et reposez-vous.",
+      "— Oui, répondit-il, je me reposerai bientôt. J'ai le temps de me reposer, toute l'éternité. Écoutez, je meurs ! Vous avez été bon pour moi. Je vais vous donner l'écrit. Peut-être arriverez-vous là-bas, si vous survivez au désert, qui nous a tués, mon pauvre serviteur et moi.",
+      "» Il fouilla dans sa chemise et en tira ce que je pris pour une blague à tabac de Boer, faite de la peau de l'hippotrague noir. Elle était fermée par une petite lanière de cuir, ce que nous appelons une rimpi ; il essaya de la dénouer, sans y parvenir. Il me la tendit."
+    ] },
+
+  C3_3: { act: "C3", title: "Une carte écrite avec du sang", place: "dunkeld", fx: { meet: ["silvestra", "gagoula"] },
+    text: [
+      "— Dénouez-la, dit-il.",
+      "» Je le fis, et j'en tirai un lambeau de toile jaunie sur lequel quelque chose était écrit en lettres couleur de rouille. Dans ce chiffon se trouvait un papier. Il reprit faiblement, car ses forces le quittaient :",
+      "— Le papier contient tout ce qui est sur la toile. Il m'a fallu des années pour le lire. Écoutez : mon ancêtre, un proscrit de Lisbonne, l'un des premiers Portugais qui débarquèrent sur ces côtes, a écrit cela en mourant sur ces montagnes, où nul pied blanc ne s'était posé avant lui et ne s'est posé depuis. Il s'appelait José da Silvestra, et il vivait il y a trois cents ans. Son esclave, qui l'attendait de ce côté-ci des montagnes, le trouva mort et rapporta l'écrit à Delagoa. Il est resté depuis dans la famille, mais personne ne s'est soucié de le lire, jusqu'à ce que je le fasse enfin. J'y ai perdu la vie, mais un autre réussira peut-être, et deviendra l'homme le plus riche du monde, l'homme le plus riche du monde. Seulement, ne le donnez à personne, señor ; allez-y vous-même !",
+      "» Puis il se remit à divaguer, et en une heure tout fut fini. Dieu ait son âme ! Il mourut très paisiblement, et je l'enterrai profond, avec de grosses pierres sur la poitrine ; je ne crois donc pas que les chacals aient pu le déterrer. Puis je m'en allai.",
+      "— Oui, mais le document ? dit sir Henry, d'un ton plein d'intérêt.",
+      "— Oui, le document. Qu'y avait-il dedans ? ajouta le capitaine.",
+      "— Eh bien, messieurs, si vous voulez, je vais vous le dire. Je ne l'ai encore montré à personne, sauf à un vieux marchand portugais ivrogne qui me l'a traduit et l'avait tout à fait oublié le lendemain matin. Le chiffon original est chez moi, à Durban, avec la traduction du pauvre dom José, mais j'ai la version anglaise dans mon portefeuille, et une copie de la carte, si on peut appeler cela une carte. La voici.",
+      "Je lus ce qui suit :",
+      "« Moi, José da Silvestra, qui meurs à présent de faim dans la petite grotte où il n'y a pas de neige, sur le flanc nord du mamelon de la plus méridionale des deux montagnes que j'ai nommées les Seins de Saba, j'écris ceci en l'an 1590, avec un éclat d'os, sur un reste de mes vêtements, mon sang me servant d'encre. Si mon esclave le trouve quand il viendra et le rapporte à Delagoa, que mon ami (nom illisible) porte la chose à la connaissance du roi, afin qu'il envoie une armée ; si elle survit au désert et aux montagnes, et qu'elle peut vaincre les braves Koukouanas et leurs arts diaboliques, et pour cela il faudra amener beaucoup de prêtres, elle fera de lui le roi le plus riche depuis Salomon. De mes propres yeux, j'ai vu les diamants sans nombre entassés dans la chambre du trésor de Salomon, derrière la Mort blanche ; mais par la traîtrise de Gagoula, la flaireuse de sorciers, je n'ai rien pu emporter, à peine ma vie. Que celui qui viendra suive la carte et escalade la neige du sein gauche de Saba jusqu'au mamelon, sur le flanc nord duquel se trouve la grande route que fit Salomon ; de là, il y a trois jours de marche jusqu'au palais du roi. Qu'il tue Gagoula. Priez pour mon âme. Adieu. José da Silvestra. »",
+      "Quand j'eus fini de lire, et montré la copie de la carte tracée par la main mourante du vieux dom, avec son sang pour encre, il y eut un silence de stupeur.",
+      "— Eh bien, dit le capitaine Good, j'ai fait deux fois le tour du monde et relâché dans la plupart des ports, mais que je sois pendu comme un mutin si j'ai jamais entendu pareille histoire hors d'un livre, ni dedans d'ailleurs.",
+      "— C'est une curieuse histoire, monsieur Quatermain, dit sir Henry. Je suppose que vous ne vous moquez pas de nous ? Je sais qu'on se croit parfois permis de faire marcher les blancs-becs.",
+      "— Si vous pensez cela, sir Henry, dis-je, fort vexé, en remettant mon papier dans ma poche, car je n'aime pas qu'on me prenne pour un de ces sots qui trouvent spirituel de mentir et qui ne cessent de raconter aux nouveaux venus d'extraordinaires aventures de chasse qui ne sont jamais arrivées, si vous pensez cela, l'affaire est close."
+    ] },
+
+  C3_4: { act: "C3", title: "Le marché de sir Henry", place: "dunkeld",
+    text: [
+      "Et je me levai pour partir. Sir Henry posa sa large main sur mon épaule.",
+      "— Asseyez-vous, monsieur Quatermain, dit-il. Je vous demande pardon. Je vois très bien que vous ne cherchez pas à nous tromper, mais l'histoire m'a paru si étrange que j'avais peine à y croire.",
+      "— Vous verrez la carte et l'écrit originaux quand nous serons à Durban, répondis-je, un peu radouci ; car à bien y réfléchir, il n'y avait rien d'étonnant à ce qu'il doutât de ma bonne foi. Mais, repris-je, je ne vous ai rien dit de votre frère. Je connaissais l'homme qui l'accompagnait, Jim. C'était un Betchouana de naissance, bon chasseur, et un homme très habile. Le matin où M. Neville partait, je vis Jim près de mon chariot, qui hachait du tabac sur le timon.",
+      "— Jim, lui dis-je, où vas-tu cette fois ? À l'éléphant ?",
+      "— Non, Baas, répondit-il, nous cherchons quelque chose qui vaut bien plus que l'ivoire.",
+      "— Et quoi donc ? dis-je, car j'étais curieux. De l'or ?",
+      "— Non, Baas, quelque chose qui vaut plus que l'or.",
+      "» Et il eut un large sourire. Je ne posai pas d'autres questions, car je ne voulais pas rabaisser ma dignité en paraissant curieux, mais j'étais intrigué. Jim finit bientôt de hacher son tabac.",
+      "— Baas, dit-il.",
+      "» Je ne relevai pas.",
+      "— Baas, répéta-t-il.",
+      "— Eh bien, mon garçon, qu'y a-t-il ? demandai-je.",
+      "— Baas, nous allons chercher des diamants.",
+      "— Des diamants ! Mais alors vous partez dans la mauvaise direction. Il faut aller aux Champs.",
+      "— Baas, avez-vous jamais entendu parler du Suliman Berg ?",
+      "» C'est-à-dire des monts de Salomon, sir Henry.",
+      "— Oui !",
+      "— Avez-vous entendu parler des diamants qui sont là-bas ?",
+      "— J'ai entendu une sotte histoire, Jim.",
+      "— Ce n'est pas une histoire, Baas. J'ai connu autrefois une femme qui venait de là-bas et qui était arrivée au Natal avec son enfant. Elle me l'a dit. Elle est morte, maintenant.",
+      "— Ton maître servira de pâture aux vautours, Jim, s'il essaie d'atteindre le pays de Suliman, et toi aussi, s'ils trouvent quelque chose à grappiller sur ta vieille carcasse, lui dis-je.",
+      "» Il sourit.",
+      "— Peut-être, Baas. Il faut bien mourir. Moi, j'aimerais assez essayer un pays nouveau ; les éléphants s'épuisent, par ici.",
+      "— Ah, mon garçon, dis-je, attends un peu que le « vieil homme pâle » te prenne à la gorge, et nous verrons quelle chanson tu chanteras.",
+      "» Une demi-heure après, je vis le chariot de Neville s'ébranler. Bientôt Jim revint en courant.",
+      "— Adieu, Baas, dit-il. Je ne voulais pas partir sans vous dire adieu, car vous avez peut-être raison, et nous ne redescendrons jamais vers le sud.",
+      "— Ton maître va-t-il vraiment au Suliman Berg, Jim, ou est-ce que tu mens ?",
+      "— Non, répondit-il, il y va. Il m'a dit qu'il devait faire fortune d'une façon ou d'une autre, ou du moins essayer ; alors autant tenter sa chance avec les diamants.",
+      "— Oh ! dis-je. Attends un peu, Jim. Veux-tu porter un mot à ton maître, et promettre de ne le lui donner qu'une fois arrivés à Inyati ?",
+      "» C'était à une centaine de milles.",
+      "— Oui, Baas.",
+      "» Je pris donc un bout de papier et j'y écrivis : « Que celui qui viendra… escalade la neige du sein gauche de Saba jusqu'au mamelon, sur le flanc nord duquel se trouve la grande route de Salomon. »",
+      "— Maintenant, Jim, lui dis-je, quand tu lui donneras ceci, dis-lui qu'il fera bien de suivre ce conseil à la lettre. Tu ne dois pas le lui donner tout de suite, parce que je ne veux pas le voir revenir me poser des questions auxquelles je ne répondrai pas. Et maintenant file, paresseux, le chariot est presque hors de vue.",
+      "» Jim prit le billet et partit, et c'est tout ce que je sais de votre frère, sir Henry. Mais je crains fort…",
+      "— Monsieur Quatermain, dit sir Henry, je vais chercher mon frère. Je vais suivre sa trace jusqu'aux monts Suliman, et au-delà s'il le faut, jusqu'à ce que je le trouve ou que je sache qu'il est mort. Voulez-vous venir avec moi ?",
+      "Je suis, je crois l'avoir dit, un homme prudent, et même timide, et cette proposition m'effraya. Il me semblait qu'entreprendre un tel voyage, c'était courir à une mort certaine ; et, toute autre considération mise à part, comme j'avais un fils à entretenir, je ne pouvais pas me permettre de mourir à ce moment-là.",
+      "— Non, merci, sir Henry, je crois que je préfère m'en abstenir, répondis-je. Je suis trop vieux pour courir après des chimères de ce genre, et nous finirions comme mon pauvre ami Silvestre. J'ai un fils qui dépend de moi ; je ne puis risquer ma vie à la légère.",
+      "Sir Henry et le capitaine Good parurent très déçus.",
+      "— Monsieur Quatermain, dit le premier, je suis riche, et je tiens à cette entreprise. Vous fixerez le prix de vos services au chiffre que vous voudrez, dans la limite du raisonnable, et il vous sera versé avant notre départ. De plus, je prendrai des dispositions pour que, s'il nous arrivait malheur, à nous ou à vous, votre fils soit convenablement pourvu. Vous voyez par cette offre combien votre présence me paraît nécessaire. Et si par hasard nous atteignions cet endroit et trouvions des diamants, ils vous appartiendraient, à vous et à Good, à parts égales. Je n'en veux pas. Bien sûr, cette promesse-là ne vaut rien du tout ; mais il en irait de même de l'ivoire que nous pourrions trouver. Vous pouvez à peu près dicter vos conditions, monsieur Quatermain ; et, bien entendu, je paierai tous les frais.",
+      "— Sir Henry, dis-je, c'est l'offre la plus généreuse qu'on m'ait jamais faite, et un pauvre chasseur marchand n'a pas de quoi faire le dégoûté. Mais c'est la plus grosse affaire que j'aie jamais rencontrée, et il me faut le temps d'y réfléchir. Je vous donnerai ma réponse avant d'arriver à Durban.",
+      "— Très bien, répondit sir Henry.",
+      "Je leur souhaitai alors le bonsoir, j'allai me coucher, et je rêvai du pauvre Silvestre, mort depuis si longtemps, et des diamants."
+    ] },
+
+};

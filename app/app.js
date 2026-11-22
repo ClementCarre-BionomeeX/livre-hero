@@ -2733,6 +2733,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "16.6", items: ["Nouveau livre à lire : « Les Mines du roi Salomon » de H. Rider Haggard (1885), en entier, dans une traduction nouvelle faite pour la bibliothèque."] },
     { v: "16.5", items: ["Nouveau livre à lire : « Le Prisonnier de Zenda » d'Anthony Hope (1894), en entier, dans une traduction nouvelle faite pour la bibliothèque."] },
     { v: "16.4", items: ["Nouveau livre à lire : « Robinson Crusoé » de Daniel Defoe (1719), la première partie entière dans la traduction de Petrus Borel (1836)."] },
     { v: "16.3", items: ["Nouveau livre à lire : « Le Vagabond des étoiles » de Jack London (1915), dans la traduction de Paul Gruyer et Louis Postif : un condamné à mort de San Quentin revit ses vies passées."] },

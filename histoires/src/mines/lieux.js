@@ -1,0 +1,26 @@
+// « Les Mines du roi Salomon » (King Solomon's Mines), H. Rider Haggard, 1885 : un livre à lire, sans choix (lecture: true).
+// Texte : traduction nouvelle par Claude, faite pour cette bibliothèque à partir du texte anglais de 1885 (Project
+// Gutenberg n° 2166, domaine public). Les titres des chapitres sont ceux de Haggard, traduits ; ceux des pages, comme
+// tout ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude. Quelques mots et généralités sur les
+// peuples d'Afrique, courants en 1885 et blessants aujourd'hui, ont été adoucis ou retirés ; la notice le dit.
+// Les lieux du livre.
+module.exports = {
+  durban: { ambiance: "ville", name: "La maison de la Berea, à Durban", map: "afrique", x: 82, y: 78, region: "Le Natal", desc: "La petite maison de Quatermain sur la colline de la Berea, avec son allée d'orangers, au-dessus de la ville et de la mer.", arrive: "C1_1" },
+  dunkeld: { ambiance: "mer", name: "Le Dunkeld", map: "afrique", x: 60, y: 92, region: "La côte, du Cap au Natal", desc: "Un vapeur à fond plat qui roule terriblement, et qui remonte la côte du Cap jusqu'à Durban en quatre ou cinq jours.", arrive: "C2_2" },
+  brousse: { ambiance: "champs", name: "La brousse du Lukanga", map: "afrique", x: 62, y: 40, region: "Le chemin de Sitanda", desc: "Des plaines d'herbe haute, des épineux, le lit d'une rivière, une mare où viennent boire girafes, lions et éléphants.", arrive: "C5_1" },
+  sitanda: { ambiance: "village", name: "Le kraal de Sitanda", map: "afrique", x: 58, y: 34, region: "Au bord du désert", desc: "Un petit village d'indigènes au bord de la rivière Lukanga, le dernier endroit habité avant le désert.", arrive: "C6_2" },
+  desert: { ambiance: "route", name: "Le désert", map: "afrique", x: 48, y: 26, region: "Entre Sitanda et les montagnes", desc: "Des vagues de sable et de karoo sous un soleil écrasant, sans eau ni chemin, à marcher de nuit.", arrive: "C6_5" },
+  source: { ambiance: "eau", name: "La source de la butte", map: "afrique", x: 42, y: 21, region: "Le désert", desc: "Une entaille dans le roc, au sommet d'une butte, où dort une petite mare d'eau sale qui vaut tous les trésors du monde.", arrive: "C7_3" },
+  seins: { ambiance: "neige", name: "Les Seins de Saba", map: "afrique", x: 36, y: 14, region: "Les monts de Suliman", desc: "Deux montagnes jumelles couronnées de neige, qui barrent l'horizon au-dessus du désert.", arrive: "C7_4" },
+  caverne: { ambiance: "neige", name: "La caverne de la neige", map: "afrique", x: 34, y: 12, region: "Les monts de Suliman", desc: "Un trou dans le roc, sous la neige, où l'on ne se réchauffe jamais tout à fait.", arrive: "C7_5" },
+  route: { ambiance: "route", name: "La route de Salomon", map: "koukouanas", x: 20, y: 30, region: "Le pays des Koukouanas", desc: "Une large chaussée pavée, taillée dans la montagne, qui descend vers un pays vert de bois, de rivières et de champs.", arrive: "C8_4" },
+  kraal: { ambiance: "village", name: "Le premier kraal", map: "koukouanas", x: 30, y: 42, region: "Le pays des Koukouanas", desc: "Une grande ville de huttes rangées en rues, entourée d'un fossé et d'une palissade, où les régiments attendent en armes.", arrive: "C9_3" },
+  loo: { ambiance: "ville", name: "Loo", map: "koukouanas", x: 50, y: 58, region: "Le pays des Koukouanas", desc: "La capitale de Twala, une ville immense coupée par une rivière, avec au centre le grand kraal où le roi reçoit son armée.", arrive: "C10_1" },
+  colline: { ambiance: "combat", name: "La colline en fer à cheval", map: "koukouanas", x: 56, y: 50, region: "Aux portes de Loo", desc: "Une colline au sommet plat, aux flancs escarpés et rocheux, qui domine la plaine et la ville.", arrive: "C13_1" },
+  sorcieres: { ambiance: "montagne", name: "Les Trois Sorcières", map: "koukouanas", x: 70, y: 20, region: "Au bout de la route de Salomon", desc: "Trois pics enneigés en triangle, la grande fosse de la mine, et les trois colosses assis que l'on appelle les Silencieux.", arrive: "C17_1" },
+  stalactites: { ambiance: "souterrain", name: "La caverne aux stalactites", map: "koukouanas", x: 72, y: 18, region: "Sous la montagne", desc: "Une nef plus haute qu'une cathédrale, bordée de piliers blancs qui se forment goutte à goutte depuis des millénaires.", arrive: "C17_3" },
+  morts: { ambiance: "souterrain", name: "La salle des Morts", map: "koukouanas", x: 73, y: 17, region: "Sous la montagne", desc: "Une salle creusée de main d'homme, une longue table de pierre, des rois blancs assis autour, et la Mort qui préside.", arrive: "C17_4" },
+  tresor: { ambiance: "souterrain", name: "La chambre du trésor", map: "koukouanas", x: 74, y: 16, region: "Sous la montagne", desc: "Une petite pièce taillée dans le roc, derrière une porte de trente tonnes.", arrive: "C18_2" },
+  galeries: { ambiance: "souterrain", name: "Les galeries", map: "koukouanas", x: 71, y: 21, region: "Sous la montagne", desc: "Un labyrinthe de vieilles galeries de mine, noires comme l'encre, où court une rivière invisible.", arrive: "C19_4" },
+  oasis: { ambiance: "eau", name: "L'oasis", map: "afrique", x: 40, y: 18, region: "Le désert", desc: "Des arbres, de l'herbe et un ruisseau qui se perd dans le sable, au nord des Seins de Saba.", arrive: "C20_4" },
+};
