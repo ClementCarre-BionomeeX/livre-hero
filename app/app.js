@@ -2733,6 +2733,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "15.2", items: ["« Les Trois Mousquetaires » d'Alexandre Dumas, à lire en entier : d'Artagnan, Athos, Porthos et Aramis, les ferrets de la reine, le cardinal, le siège de La Rochelle et Milady. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "15.1", items: ["« Michel Strogoff » de Jules Verne, à lire en entier : le courrier du czar traverse la Sibérie envahie par les Tartares, de Moscou à Irkoutsk, sous un faux nom, sans jamais dire qui il est. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "15.0", items: ["« L'Île mystérieuse » de Jules Verne, à lire en entier : cinq évadés de Richmond tombent d'un ballon sur une île déserte du Pacifique et la mettent en valeur à partir de rien, une allumette, un chien, un savoir d'ingénieur. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "14.9", items: ["« Vingt mille lieues sous les mers » de Jules Verne, à lire en entier : la chasse au monstre, le Nautilus, le capitaine Nemo, et le tour du monde sous les mers, du Japon au pôle Sud. Avec les gens, les lieux et les mots d'un toucher."] },
