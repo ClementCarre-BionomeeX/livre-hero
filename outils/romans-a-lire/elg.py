@@ -47,11 +47,13 @@ def chapters(scope, prefix):
         if head is None: continue
         ht = text_of(head, [])
         ht = re.sub(r'^(Chapitre\s+I)\s*er\b', r'\1', ht, flags=re.I)  # « Chapitre I er » = premier
-        m = re.match(r'^(Chapitre\s+)?([IVXLC][IVXLC ]*|premier|PREMIER|\d+)\b\.?\s*(.*)$', ht, re.I)
+        ht = re.sub(r'^\*(.*)\*$', r'\1', ht).strip()  # tête tout en italique
+        GLUE = r'(?:\b\.?\s*|(?=(?-i:[A-ZÀ-Ý])))'  # « IVLe petit Parisien » : numéro collé au titre
+        m = re.match(r'^(Chapitre\s+)?([IVXLC][IVXLC ]*?|premier|PREMIER|\d+)' + GLUE + r'(.*)$', ht, re.I)
         if not m: print('saute :', ht[:60]); continue
         k += 1; r = roman(k); num = m.group(2)
         # « I X Les colères » : un numéro coupé d'une espace ; on garde le numéro attendu et on retire ce qui le précède
-        mm = re.match(r'^(?:Chapitre\s+)?' + r'\s?'.join(r) + r'\b\.?\s*(.*)$', ht, re.I)
+        mm = re.match(r'^(?:Chapitre\s+)?' + r'\s?'.join(r) + GLUE + r'(.*)$', ht, re.I)
         title = mm.group(1) if mm else m.group(3)
         if not mm and num.replace(' ', '') not in ('premier', 'PREMIER'): print('numéro inattendu :', ht[:40], 'au lieu de', r)
         paras = []

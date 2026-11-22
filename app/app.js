@@ -2733,6 +2733,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "15.4", items: ["« Le Bossu » de Paul Féval, à lire en entier : Lagardère, la botte de Nevers, Cocardasse et Passepoil, la Régence, la rue Quincampoix et le bossu qui loue sa bosse. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "15.3", items: ["« Le Comte de Monte-Cristo » d'Alexandre Dumas, à lire en entier : Edmond Dantès, le château d'If, l'abbé Faria, le trésor, Rome, puis Paris et la vengeance. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "15.2", items: ["« Les Trois Mousquetaires » d'Alexandre Dumas, à lire en entier : d'Artagnan, Athos, Porthos et Aramis, les ferrets de la reine, le cardinal, le siège de La Rochelle et Milady. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "15.1", items: ["« Michel Strogoff » de Jules Verne, à lire en entier : le courrier du czar traverse la Sibérie envahie par les Tartares, de Moscou à Irkoutsk, sous un faux nom, sans jamais dire qui il est. Avec les gens, les lieux et les mots d'un toucher."] },
