@@ -1,0 +1,14 @@
+// « Une ville flottante », Jules Verne, 1871 : un livre à lire, sans choix (lecture: true). Texte de Verne, domaine public,
+// d'après l'édition numérisée par le Projet Gutenberg (saisie d'Ebooks libres et gratuits). Verne n'a pas titré ses
+// chapitres : leurs titres, comme ceux des pages, sont de Claude, ainsi que tout ce qui vit dans les tags (gens, lieux,
+// mots, résumés).
+// Les gens du livre (syntaxe de « Qui est qui » : aka, qui, aspect, face). Cliquables à partir de leur entrée en scène.
+module.exports = {
+  fabian: { name: "Fabian Mac Elwin", aka: ["Fabian Mac Elwin", "capitaine Mac Elwin", "Mac Elwin", "Fabian"], face: { age: "jeune", hair: "chatain", coif: "court", beard: "moustache", skin: "clair" }, qui: "Un ami du narrateur, capitaine au 22e régiment de l'armée des Indes.", aspect: { allure: "grand, l'air d'un officier anglais", visage: "figure pâle et triste" } },
+  corsican: { name: "Archibald Corsican", aka: ["Archibald Corsican", "capitaine Corsican", "Corsican"], face: { age: "adulte", hair: "blond", coif: "court", beard: "moustache", skin: "hale" }, qui: "Un capitaine de l'armée des Indes, ami fidèle de Fabian, grand chasseur de tigres.", aspect: { allure: "six pieds, solide", visage: "barbe blonde, longues moustaches, menton rasé" } },
+  pitferge: { name: "Le docteur Pitferge", aka: ["docteur Dean Pitferge", "Dean Pitferge", "Pitferge"], face: { age: "mur", hair: "gris", coif: "court", beard: "sans", skin: "clair" }, qui: "Un original, docteur, qui suit le Great Eastern dans ses traversées et en sait tous les secrets.", aspect: { allure: "bavard, gai, sautant d'un sujet à l'autre" } },
+  anderson: { name: "Le capitaine Anderson", aka: ["capitaine Anderson", "Anderson"], face: { age: "mur", hair: "blond", coif: "court", beard: "barbe", skin: "clair" }, qui: "Le commandant du Great Eastern, qui a posé le câble transatlantique.", aspect: { allure: "cinquante ans, grand, pas tranquille", visage: "blond fauve, large figure souriante" } },
+  drake: { name: "Harry Drake", aka: ["Harry Drake", "Drake"], face: { age: "adulte", hair: "noir", coif: "court", beard: "moustache", skin: "clair" }, qui: "Un Anglais joueur et tapageur, fils d'un négociant de Calcutta, presque ruiné.", aspect: { allure: "bruyant, insolent, toujours entouré", visage: "figure mauvaise" } },
+  ellen: { name: "Ellen Hodges", aka: ["Ellen Hodges", "miss Hodges", "Ellen"], face: { age: "jeune", hair: "chatain", coif: "long", skin: "porcelaine" }, qui: "La jeune fille que Fabian a aimée à Bombay." },
+  docteurt: { name: "Le docteur T…", aka: ["docteur T…"], face: { age: "adulte", hair: "noir", coif: "court", beard: "sans", skin: "clair", marks: ["lunettes"] }, qui: "Un passager qui se dit docteur, en route pour Québec, et admire Drake.", aspect: { allure: "petit, court, figure ronde", visage: "nez busqué, lunettes d'or" } },
+};
