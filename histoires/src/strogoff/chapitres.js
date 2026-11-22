@@ -1,0 +1,40 @@
+// « Michel Strogoff », Jules Verne, 1876 : un livre à lire, sans choix (lecture: true). Texte de Verne, domaine
+// public, d'après l'édition numérique d'Ebooks libres et gratuits. Les notes de l'auteur sont remises entre parenthèses
+// à leur appel. Les titres des chapitres sont de Verne ; ceux des pages, comme tout ce qui vit dans les tags (gens,
+// lieux, mots, résumés), sont de Claude.
+// Les chapitres (les actes du moteur). recap : résumé montré par « Où en étais-je ? » seulement une fois le chapitre fini.
+var RECAP = require("./resumes.js");
+module.exports = [
+  { id: "I1", title: "Première partie · I. Une fête au Palais-Neuf", question: "", levels: [1, 1], start: "I1_1" },
+  { id: "I2", title: "Première partie · II. Russes et Tartares", question: "", levels: [1, 1], start: "I2_1" },
+  { id: "I3", title: "Première partie · III. Michel Strogoff", question: "", levels: [1, 1], start: "I3_1" },
+  { id: "I4", title: "Première partie · IV. De Moscou à Nijni-Novgorod", question: "", levels: [1, 1], start: "I4_1" },
+  { id: "I5", title: "Première partie · V. Un arrêté en deux articles", question: "", levels: [1, 1], start: "I5_1" },
+  { id: "I6", title: "Première partie · VI. Frère et sœur", question: "", levels: [1, 1], start: "I6_1" },
+  { id: "I7", title: "Première partie · VII. En descendant le Volga", question: "", levels: [1, 1], start: "I7_1" },
+  { id: "I8", title: "Première partie · VIII. En remontant la Kama", question: "", levels: [1, 1], start: "I8_1" },
+  { id: "I9", title: "Première partie · IX. En *tarentass* nuit et jour", question: "", levels: [1, 1], start: "I9_1" },
+  { id: "I10", title: "Première partie · X. Un orage dans les monts Ourals", question: "", levels: [1, 1], start: "I10_1" },
+  { id: "I11", title: "Première partie · XI. Voyageurs en détresse", question: "", levels: [1, 1], start: "I11_1" },
+  { id: "I12", title: "Première partie · XII. Une provocation", question: "", levels: [1, 1], start: "I12_1" },
+  { id: "I13", title: "Première partie · XIII. Au-dessus de tout, le devoir", question: "", levels: [1, 1], start: "I13_1" },
+  { id: "I14", title: "Première partie · XIV. Mère et fils", question: "", levels: [1, 1], start: "I14_1" },
+  { id: "I15", title: "Première partie · XV. Les marais de la Baraba", question: "", levels: [1, 1], start: "I15_1" },
+  { id: "I16", title: "Première partie · XVI. Un dernier effort", question: "", levels: [1, 1], start: "I16_1" },
+  { id: "I17", title: "Première partie · XVII. Versets et chansons", question: "", levels: [1, 1], start: "I17_1" },
+  { id: "II1", title: "Deuxième partie · I. Un camp tartare", question: "", levels: [1, 1], start: "II1_1" },
+  { id: "II2", title: "Deuxième partie · II. Une attitude d'Alcide Jolivet", question: "", levels: [1, 1], start: "II2_1" },
+  { id: "II3", title: "Deuxième partie · III. Coup pour coup", question: "", levels: [1, 1], start: "II3_1" },
+  { id: "II4", title: "Deuxième partie · IV. L'entrée triomphale", question: "", levels: [1, 1], start: "II4_1" },
+  { id: "II5", title: "Deuxième partie · V. Regarde de tous tes yeux, regarde !", question: "", levels: [1, 1], start: "II5_1" },
+  { id: "II6", title: "Deuxième partie · VI. Un ami de grande route", question: "", levels: [1, 1], start: "II6_1" },
+  { id: "II7", title: "Deuxième partie · VII. Le passage de l'Yeniseï", question: "", levels: [1, 1], start: "II7_1" },
+  { id: "II8", title: "Deuxième partie · VIII. Un lièvre qui traverse la route", question: "", levels: [1, 1], start: "II8_1" },
+  { id: "II9", title: "Deuxième partie · IX. Dans la steppe", question: "", levels: [1, 1], start: "II9_1" },
+  { id: "II10", title: "Deuxième partie · X. Baïkal et Angara", question: "", levels: [1, 1], start: "II10_1" },
+  { id: "II11", title: "Deuxième partie · XI. Entre deux rives", question: "", levels: [1, 1], start: "II11_1" },
+  { id: "II12", title: "Deuxième partie · XII. Irkoutsk", question: "", levels: [1, 1], start: "II12_1" },
+  { id: "II13", title: "Deuxième partie · XIII. Un courrier du czar", question: "", levels: [1, 1], start: "II13_1" },
+  { id: "II14", title: "Deuxième partie · XIV. La nuit du 5 au 6 octobre", question: "", levels: [1, 1], start: "II14_1" },
+  { id: "II15", title: "Deuxième partie · XV. Conclusion", question: "", levels: [1, 1], start: "II15_1" },
+].map(function (a) { var r = RECAP[a.id] || {}; a.recap = r.text || ""; a.notice = !!r.notice; return a; });
