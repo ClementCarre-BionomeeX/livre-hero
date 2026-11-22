@@ -1,0 +1,36 @@
+// « Cinq semaines en ballon », Jules Verne, 1863 : un livre à lire, sans choix (lecture: true). Texte de Verne,
+// domaine public, d'après l'édition numérique illustrée d'Ebooks libres et gratuits ; les gravures sont retirées, et le
+// sommaire que Verne met en tête de chaque chapitre est gardé, en italique. Les notes de l'auteur restent entre
+// parenthèses à leur appel. Les titres des pages sont de Claude, comme tout ce qui vit dans les tags (gens, lieux, mots,
+// résumés).
+// Les mots et les noms de l'époque, expliqués d'un toucher. Rien de l'intrigue.
+module.exports = {
+  "aérostat|aérostats": "Un ballon qui flotte dans l'air parce qu'il est rempli d'un gaz plus léger que l'air.",
+  "hydrogène": "Le plus léger de tous les gaz ; on en gonflait les ballons. Il brûle très facilement.",
+  "nacelle": "Le panier suspendu sous un ballon, où se tiennent les voyageurs.",
+  "lest": "Des sacs de sable qu'on jette d'un ballon pour le faire monter.",
+  "soupape": "Un clapet en haut du ballon, qu'on ouvre pour laisser sortir le gaz et descendre.",
+  "chalumeau": "Un tube où l'on brûle un gaz pour obtenir une flamme très chaude.",
+  "serpentin": "Un tuyau enroulé en spirale, où le gaz circule pour se réchauffer.",
+  "baromètre": "Un instrument qui mesure le poids de l'air ; il annonce le temps, et sert aussi à connaître la hauteur.",
+  "gutta-percha": "Une gomme tirée d'un arbre d'Asie, qui rend les tissus imperméables.",
+  "carabine": "Un fusil à canon court et rayé, très précis.",
+  "simoun": "Un vent brûlant du désert, qui soulève des tempêtes de sable.",
+  "caravane|caravanes": "Une longue file de marchands et de bêtes de somme qui voyagent ensemble à travers le désert.",
+  "oasis": "Un endroit du désert où il y a de l'eau et des arbres.",
+  "cheik": "Un chef arabe, à la tête d'une tribu ou d'un village.",
+  "sultan": "Le souverain d'un pays musulman.",
+  "marabout": "Un saint homme musulman, qu'on vénère et qu'on écoute.",
+  "Talibas": "Les guerriers religieux qui suivaient le marabout Al-Hadji.",
+  "gypaètes": "De très grands oiseaux de proie, de la famille des vautours.",
+  "tembé": "Mot du pays : une grande maison basse, à cour fermée.",
+  "Waganga|Wanganga": "Les sorciers et guérisseurs du pays de Kazeh.",
+  "lazariste|Lazaristes": "Un prêtre de la Congrégation de la Mission, fondée par saint Vincent de Paul, qui envoyait des missionnaires au loin.",
+  "Nyanza": "Mot du pays : un grand lac.",
+  "Fahrenheit": "L'échelle de température des Anglais : l'eau y gèle à 32 degrés et bout à 212.",
+  "Excelsior": "Mot latin : « Toujours plus haut ! », la devise du docteur.",
+  "pinte|pintes": "Une mesure de liquide d'un peu plus d'un demi-litre.",
+  "Traveller's club": "Un club de Londres réservé aux grands voyageurs.",
+  "consul": "Un représentant de son pays dans une ville étrangère, qui aide ses compatriotes.",
+  "transport": "Ici, un navire de la marine qui transporte du matériel ou des troupes.",
+};
