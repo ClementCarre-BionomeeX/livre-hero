@@ -1,0 +1,30 @@
+// « Le Pays des fourrures », Jules Verne, 1873 : un livre à lire, sans choix (lecture: true). Texte de Verne, domaine public,
+// d'après l'édition numérisée par le Projet Gutenberg. Les notes de l'auteur restent entre parenthèses à leur place. Les
+// titres des chapitres sont ceux de Verne ; les titres des pages sont de Claude, comme tout ce qui vit dans les tags (gens,
+// lieux, mots, résumés).
+// Les gens du livre (syntaxe de « Qui est qui » : aka, qui, aspect, face). Cliquables à partir de leur entrée en scène.
+module.exports = {
+  hobson: { name: "Jasper Hobson", aka: ["Jasper Hobson", "lieutenant Hobson", "Hobson", "monsieur Jasper"], face: { age: "adulte", hair: "brun", coif: "court", beard: "moustache" }, qui: "Un lieutenant de la Compagnie de la baie d'Hudson, chargé de fonder un fort sur la mer polaire.", aspect: { allure: "quarante ans, petit, maigre, énergique", signe: "né au Fort-Assiniboine, fils d'un major" } },
+  paulina: { name: "Mrs. Paulina Barnett", aka: ["Mrs. Paulina Barnett", "Paulina Barnett", "Mrs. Paulina", "Mrs. Barnett"], face: { age: "mur", hair: "gris", coif: "chignon" }, qui: "Une voyageuse anglaise célèbre, qui suit l'expédition de Jasper Hobson.", aspect: { allure: "quarante ans, grande, veuve", visage: "longs bandeaux déjà blanchis par place" } },
+  madge: { name: "Madge", aka: ["Madge"], face: { age: "mur", hair: "gris", coif: "chignon" }, qui: "La compagne écossaise de Mrs. Paulina Barnett, plus amie que servante.", aspect: { allure: "grande, vigoureusement charpentée", signe: "espère toujours" } },
+  long: { name: "Le sergent Long", aka: ["sergent Long"], face: { age: "mur", hair: "gris", coif: "court", beard: "barbe" }, qui: "Le sergent de Jasper Hobson, un soldat qui ne discute jamais un ordre.", aspect: { allure: "cinquante ans, raide comme la consigne", visage: "rude barbe comme en fibres de coco" } },
+  black: { name: "Thomas Black", aka: ["Thomas Black", "Black"], face: { age: "mur", hair: "gris", coif: "court", beard: "barbe" }, qui: "Un astronome de Greenwich, venu observer l'éclipse de soleil du 18 juillet 1860.", aspect: { allure: "cinquante ans, gros et court", visage: "cheveux grisonnants, barbe inculte" } },
+  craventy: { name: "Le capitaine Craventy", aka: ["capitaine Craventy", "Craventy"], face: { age: "mur", hair: "gris", coif: "court", beard: "barbe" }, qui: "Le commandant du Fort-Reliance, sur le lac de l'Esclave." },
+  joliffe: { name: "Le caporal Joliffe", aka: ["caporal Joliffe", "Mr. Joliffe", "Joliffe"], face: { age: "adulte", hair: "chatain", coif: "court", beard: "moustache" }, qui: "Un caporal du détachement, « chargé du détail », qui obéit à sa femme sans en convenir." },
+  mrsjoliffe: { name: "Mrs. Joliffe", aka: ["Mrs. Joliffe", "Mrs Joliffe", "mistress Joliffe"], face: { age: "jeune", hair: "brun", coif: "chignon" }, qui: "La femme du caporal Joliffe, une petite Canadienne vive et adroite, cuisinière du fort." },
+  macnap: { name: "Mac Nap", aka: ["Mac Nap"], face: { age: "adulte", hair: "roux", coif: "court", beard: "barbe" }, qui: "Le maître charpentier du détachement, un Écossais." },
+  mrsmacnap: { name: "Mrs. Mac Nap", aka: ["Mrs. Mac Nap"], face: { age: "adulte", hair: "chatain", coif: "chignon" }, qui: "La femme du charpentier Mac Nap, une Écossaise." },
+  rae: { name: "Raë", aka: ["John Raë", "Raë"], face: { age: "adulte", hair: "brun", coif: "court", beard: "barbe" }, qui: "Le forgeron du détachement." },
+  mrsrae: { name: "Mrs. Raë", aka: ["Mrs. Raë"], face: { age: "jeune", hair: "noir", coif: "tresses", skin: "cuivre" }, qui: "La femme du forgeron Raë, une Indienne." },
+  marbre: { name: "Marbre", aka: ["Marbre"], face: { age: "adulte", hair: "brun", coif: "court", beard: "barbe" }, qui: "Un soldat chasseur du détachement, qui observe beaucoup." },
+  sabine: { name: "Sabine", aka: ["Sabine"], face: { age: "adulte", hair: "chatain", coif: "court", beard: "moustache" }, qui: "Un soldat chasseur du détachement, le compagnon de chasse de Marbre." },
+  petersen: { name: "Petersen", aka: ["Petersen"], face: { age: "adulte", hair: "blond", coif: "court" }, qui: "Un soldat du détachement." },
+  belcher: { name: "Belcher", aka: ["Belcher"], face: { age: "adulte", hair: "brun", coif: "court" }, qui: "Un soldat du détachement." },
+  garry: { name: "Garry", aka: ["Garry"], face: { age: "jeune", hair: "chatain", coif: "court" }, qui: "Un soldat du détachement." },
+  pond: { name: "Pond", aka: ["Pond"], face: { age: "adulte", hair: "brun", coif: "court", beard: "moustache" }, qui: "Un soldat du détachement." },
+  hope: { name: "Hope", aka: ["Hope"], face: { age: "jeune", hair: "blond", coif: "court" }, qui: "Un soldat du détachement." },
+  kellet: { name: "Kellet", aka: ["Kellet"], face: { age: "adulte", hair: "noir", coif: "court" }, qui: "Un soldat du détachement." },
+  felton: { name: "Le sergent Felton", aka: ["sergent Felton", "Felton"], face: { age: "mur", hair: "gris", coif: "court", beard: "barbe" }, qui: "Le sergent qui commande le Fort-Confidence, beau-frère du sergent Long." },
+  norman: { name: "Norman", aka: ["Norman"], face: { age: "ancien", hair: "blanc", coif: "court", beard: "barbe" }, qui: "Un vieux marin de la Compagnie, au Fort-Confidence." },
+  kalumah: { name: "Kalumah", aka: ["Kalumah"], face: { age: "jeune", hair: "noir", coif: "tresses", skin: "cuivre" }, qui: "Une jeune Esquimaude qui parle anglais, l'amie de Mrs. Paulina Barnett.", aspect: { signe: "a servi chez le gouverneur d'Uppernawik" } },
+};
