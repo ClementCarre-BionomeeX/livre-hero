@@ -1,0 +1,17 @@
+// « L'Île mystérieuse », Jules Verne, 1874-1875 : un livre à lire, sans choix (lecture: true). Texte de Verne,
+// domaine public, d'après l'édition numérique d'Ebooks libres et gratuits. Les notes de l'auteur sont remises entre
+// parenthèses à leur appel. Verne ne titre pas ses chapitres, seulement ses trois parties ; les titres des pages, comme
+// tout ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude.
+// Les gens du livre (syntaxe de « Qui est qui » : aka, qui, aspect, face). Cliquables à partir de leur entrée en scène.
+module.exports = {
+  cyrus: { name: "Cyrus Smith", aka: ["Cyrus Smith", "Cyrus", "Smith"], face: { age: "mur", hair: "gris", coif: "court", beard: "moustache" }, qui: "Un ingénieur du Massachusetts, officier de l'armée du Nord, le chef naturel des colons.", aspect: { allure: "maigre, osseux, sec, calme et adroit", visage: "moustache épaisse, cheveux courts grisonnants", signe: "sait tout faire, ne s'étonne de rien" } },
+  spilett: { name: "Gédéon Spilett", aka: ["Gédéon Spilett", "Spilett"], face: { age: "mur", hair: "roux", coif: "court", beard: "barbe" }, qui: "Le reporter du New York Herald, prisonnier avec Cyrus Smith.", aspect: { allure: "grand, quarante ans au plus, énergique", visage: "favoris blonds tirant sur le rouge", signe: "son carnet ; bon tireur, sait soigner" } },
+  pencroff: { name: "Pencroff", aka: ["Pencroff"], face: { age: "adulte", hair: "noir", coif: "court", skin: "hale" }, qui: "Un marin du Nord, de Nantucket, qui se trouvait par hasard à Richmond avec Harbert.", aspect: { allure: "solide gaillard, bon cœur, jure souvent", visage: "hâlé, yeux vifs", signe: "sa pipe ; rêve d'un bateau" } },
+  harbert: { name: "Harbert Brown", aka: ["Harbert Brown", "Harbert"], face: { age: "jeune", hair: "chatain", coif: "court" }, qui: "Un garçon de quinze ans, fils d'un capitaine mort, dont Pencroff a fait son protégé.", aspect: { allure: "jeune garçon courageux et studieux", signe: "connaît les plantes et les bêtes" } },
+  nab: { name: "Nab", aka: ["Nab"], face: { age: "adulte", hair: "noir", coif: "crepus", skin: "ebene" }, qui: "Né esclave, affranchi par Cyrus Smith, qu'il a voulu suivre partout.", aspect: { allure: "vigoureux, adroit, intelligent", signe: "dévoué jusqu'à la mort à son maître", habits: "cuisinier de la colonie" } },
+  top: { name: "Top", aka: ["Top"], face: {  }, qui: "Le chien de Cyrus Smith, qui ne le quitte jamais.", aspect: { allure: "grand chien, fidèle et intelligent" } },
+  jup: { name: "Jup", aka: ["Jup", "maître Jup"], face: {  }, qui: "Un orang-outan apprivoisé par les colons, qui sert à table.", aspect: { allure: "grand singe doux et adroit", signe: "fume la pipe de Pencroff" } },
+  ayrton: { name: "Ayrton", aka: ["Ayrton"], face: { age: "mur", hair: "gris", coif: "long", beard: "longue" }, qui: "L'homme trouvé sur l'île Tabor.", aspect: { allure: "grand, maigre, robuste, regard sombre", visage: "barbe et cheveux longs et durs", signe: "parle peu, travaille beaucoup" } },
+  harvey: { name: "Bob Harvey", aka: ["Bob Harvey"], face: { age: "adulte", hair: "brun", coif: "court", skin: "hale", beard: "barbe" }, qui: "Le chef des pirates du Speedy, un ancien complice d'Ayrton.", aspect: { allure: "pirate audacieux et sans pitié" } },
+  nemo: { name: "Le capitaine Nemo", aka: ["capitaine Nemo", "Nemo"], face: { age: "ancien", hair: "blanc", coif: "long", beard: "longue" }, qui: "Le vieillard de la crypte.", aspect: { allure: "vieillard couché, encore majestueux", visage: "front haut, regard fier, barbe blanche" } },
+};
