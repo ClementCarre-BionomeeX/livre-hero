@@ -2733,6 +2733,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "17.8", items: ["Nouveau livre à lire : « Les Indes noires » de Jules Verne (1877), en entier."] },
     { v: "17.7", items: ["Nouveau livre à lire : « Le Château des Carpathes » de Jules Verne (1892), en entier."] },
     { v: "17.6", items: ["Nouveau livre à lire : « Voyages et aventures du capitaine Hatteras » de Jules Verne (1866), en entier, ses deux parties."] },
     { v: "17.5", items: ["Nouveau livre à lire : « Autour de la Lune » de Jules Verne (1869), la suite de « De la Terre à la Lune », en entier."] },
