@@ -1,0 +1,37 @@
+// « Sans dessus dessous », Jules Verne, 1889 : un livre à lire, sans choix (lecture: true). Texte de Verne, domaine public,
+// d'après l'édition numérisée par le Projet Gutenberg (troisième édition Hetzel). Les notes de l'auteur restent entre
+// parenthèses à leur place. Les titres des chapitres et des pages sont de Claude (ceux de Verne, très longs, sont cités
+// dans les résumés quand ils servent), comme tout ce qui vit dans les tags (gens, lieux, mots, résumés).
+// Les mots et les noms de l'époque, expliqués d'un toucher. Rien de l'intrigue.
+module.exports = {
+  "Gun-Club": "Le club des artilleurs de Baltimore, fondé pendant la guerre de Sécession, héros de « De la Terre à la Lune ».",
+  "North Polar Practical Association": "« Association pratique du Pôle nord » : le nom de la société qui veut acheter les régions polaires.",
+  "Barbicane and Co": "Le nom de la société du président Barbicane et de ses associés.",
+  "adjudication|adjudicataire|adjudicataires": "La vente aux enchères d'un bien au plus offrant ; l'adjudicataire est celui qui l'emporte.",
+  "commissaire-priseur": "L'officier public qui dirige les ventes aux enchères.",
+  "déclaration de command": "La déclaration par laquelle celui qui a acheté aux enchères nomme la personne pour qui il a acheté.",
+  "Auctions": "Les ventes aux enchères, en anglais.",
+  "cents": "Des centièmes de dollar.",
+  "rixdaler|rixdalers": "Une ancienne monnaie d'argent du nord de l'Europe.",
+  "kronor|krone|krones": "Les couronnes, monnaies de Suède et du Danemark.",
+  "houille|houillères": "Le charbon de terre ; les houillères sont les mines de charbon.",
+  "paléocrystique": "« Des glaces anciennes » : se dit de la mer gelée qu'on supposait autour du Pôle.",
+  "méli-mélonite": "L'explosif inventé par le capitaine Nicholl, d'une puissance inouïe.",
+  "Columbiad": "Le canon géant du Gun-Club, dans « De la Terre à la Lune ».",
+  "gutta-percha": "Une gomme durcie, proche du caoutchouc, dont Maston a fait le dessus de son crâne.",
+  "solstice": "Le moment de l'année où le Soleil est au plus haut ou au plus bas : le jour le plus long ou le plus court.",
+  "équinoxe|équinoxes": "Le moment de l'année, au printemps et à l'automne, où le jour et la nuit durent autant.",
+  "écliptique": "Le grand cercle que le Soleil semble décrire dans le ciel au cours d'une année.",
+  "Joviens": "Les habitants supposés de la planète Jupiter.",
+  "polytechnicien|Polytechniciens": "Un ancien élève de l'École polytechnique, à Paris, qui forme des ingénieurs et des officiers.",
+  "pipots": "Les polytechniciens, dans l'argot de l'École.",
+  "whist": "Un jeu de cartes anglais, ancêtre du bridge.",
+  "fougasse": "Une mine creusée dans le sol et bourrée de poudre.",
+  "pulvérin": "Une poudre fine qui sert à amorcer une charge.",
+  "tromomètre": "Un pendule qui enregistre les petits tremblements du sol.",
+  "Harpocrate": "Le dieu grec du silence, représenté un doigt sur la bouche.",
+  "lyncher": "Exécuter quelqu'un sans jugement, par une foule.",
+  "Wamasai": "Le pays des Masaï, en Afrique orientale.",
+  "patraque": "Une vieille montre qui marche mal ; ici, la Terre.",
+  "Yankee|Yankees": "Un Américain du Nord-Est des États-Unis ; par extension, un Américain.",
+};
