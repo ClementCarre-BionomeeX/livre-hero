@@ -1,0 +1,29 @@
+// « Les Indes noires », Jules Verne, 1877 : un livre à lire, sans choix (lecture: true). Texte de Verne,
+// domaine public, d'après l'édition numérisée par le Projet Gutenberg. Les notes de l'auteur restent entre parenthèses
+// à leur place. Les titres des chapitres sont ceux de Verne ; les titres des pages sont de Claude, comme tout ce qui vit
+// dans les tags (gens, lieux, mots, résumés).
+// Ce qui se passe dans chaque chapitre, en quelques lignes (Claude), montré par « Où en étais-je ? » une fois le chapitre lu.
+module.exports = {
+  I: { text: "Le 3 décembre, à Édimbourg, l'ingénieur James Starr reçoit une lettre de Simon Ford, l'ancien overman de la fosse Dochart, qui lui donne rendez-vous au puits Yarow. Il y a dix ans, Starr a fermé les houillères d'Aberfoyle, leur charbon épuisé. Le soir, une seconde lettre, sans signature, lui dit que la première est sans objet." },
+  II: { text: "Starr part quand même. Le *Prince de Galles* remonte le golfe de Forth sous la pluie, entre les châteaux, les villages et les ports. À Stirling, le train de Callander. À la gare, un jeune homme l'attend : Harry, le fils de Simon Ford." },
+  III: { text: "Comment se forme la houille, depuis les forêts géantes des premiers âges de la Terre. Où l'on en trouve, combien il en reste, et pourquoi les houillères d'Aberfoyle ont dû fermer." },
+  IV: { text: "Harry conduit Starr à travers la campagne jusqu'à la fosse Dochart, désolée et vide. Dans le puits Yarow, ils croisent Jack Ryan, le camarade d'Harry, qui remonte en chantant. Au fond, dans une galerie, une grosse pierre tombe aux pieds de l'ingénieur." },
+  V: { text: "Le cottage creusé dans la roche, où Simon Ford vit depuis dix ans avec sa femme Madge et son fils, sans presque jamais remonter au jour. Le vieil overman, l'accueil, et un bon repas écossais. La lettre anonyme intrigue toute la famille." },
+  VI: { text: "Les croyances des mineurs écossais, leurs lutins et leurs fées. Simon et Harry n'y croient pas, mais depuis quelque temps Harry entend des coups de pic et des détonations là où personne ne travaille." },
+  VII: { text: "Simon emmène Starr à l'extrémité de la fosse. Le grisou, l'ancien métier de pénitent, la lampe de Davy. Devant une paroi, la lampe ne montre rien : les fissures ont été bouchées. Harry les débouche, et le gaz s'enflamme." },
+  VIII: { text: "Le lendemain, avec Madge, on revient avec de la dynamite. L'explosion ouvre une brèche, et Harry s'engage le premier dans le noir." },
+  IX: { text: "Ce qu'était la Nouvelle-Aberfoyle : un immense réseau de galeries et de cavernes sous les lacs et les montagnes du comté, plein de charbon." },
+  X: { text: "L'exploration de la Nouvelle-Aberfoyle, jusqu'à une caverne immense au-dessus d'un lac souterrain. Au retour, la lampe tombe des mains d'Harry, frappée par on ne sait quoi. À tâtons, ils retrouvent la paroi : l'ouverture a disparu." },
+  XI: { text: "Édimbourg s'inquiète de la disparition de Starr. Jack Ryan, lui, en veut à Harry d'avoir manqué la fête d'Irvine. Un soir de veillée à la ferme de Melrose, on parle des Dames de feu de Dundonald-Castle, et une flamme s'allume dans les ruines pendant qu'un navire approche de la côte." },
+  XII: { text: "Jack, blessé dans le sauvetage, se remet à la ferme pendant que la justice enquête en vain. Puis il apprend que Starr a disparu. Il court au puits Yarow, revient avec Sir W. Elphiston et des agents, trouve le cottage vide, et la troupe se lance à la poursuite d'une lueur qui fuit dans les galeries." },
+  XIII: { text: "Trois ans plus tard. Coal-city, la ville des mineurs sous la voûte de la grande caverne, ses lumières électriques, sa chapelle au bord du lac Malcolm, le nouveau cottage de Simon. Jack Ryan est de la famille, et Harry explore sans fin la mine." },
+  XIV: { text: "Harry est soucieux : il croit l'ennemi inconnu toujours là. Un dimanche de juin, il confie à Jack qu'il a entendu des battements d'ailes, puis un gémissement, au fond d'un puits naturel. Le lendemain, il s'y fait descendre au bout d'une corde." },
+  XV: { text: "Ce qu'Harry a remonté du puits est une jeune fille, Nell, qui n'a jamais vu le jour. On la soigne, on l'aime, elle se tait sur son passé. Harry découvre un passage secret entre la mine et les ruines de Dundonald, et finit par dire à Nell ce qu'il croit lui devoir." },
+  XVI: { text: "Sur l'échelle oscillante d'un puits, Jack pousse Harry à épouser Nell. Harry veut d'abord qu'elle connaisse le monde du dehors. Il l'instruit, et Starr comme Simon approuvent le mariage. Mais dans un coin sombre de la mine, quelqu'un n'en veut pas." },
+  XVII: { text: "Le soir du 20 août, Starr, Harry et Jack emmènent Nell à la surface. Le ciel, les étoiles, l'eau salée du Forth, la lune, une barque de nuit jusqu'à Édimbourg, et le lever du soleil du haut d'Arthur-Seat." },
+  XVIII: { text: "Puis Glasgow et la Clyde, et le lendemain le lac Lomond et ses îles, le pays de Rob Roy, puis le lac Katrine sur le *Rob-Roy*, au son d'une cornemuse. Harry demande à Nell de l'épouser. Elle n'a pas fini de répondre que le bateau touche le fond." },
+  XIX: { text: "Le même jour, à Coal-city, une vague envahit la rive du lac Malcolm. Le lit du lac Katrine s'est effondré dans la mine. Starr, Simon et Harry trouvent la preuve que ce n'est pas un accident. Puis, un mois avant le mariage, les attentats se multiplient, et un matin un nom apparaît sur la porte du cottage." },
+  XX: { text: "Simon Ford se souvient de l'homme qui portait ce nom. Puis Nell, enfin, raconte son enfance au fond de la mine." },
+  XXI: { text: "On veille, on cherche, rien ne bouge. Le jour du mariage, tout Coal-city est à la chapelle de Saint-Gilles. Au moment où Nell va répondre, un rocher s'ouvre au bord du lac." },
+  XXII: { text: "Six mois plus tard, à la chapelle de Saint-Gilles. Jack Ryan à la cornemuse, Simon qui compte vivre deux cents ans, et la légende qu'on chante encore dans les veillées écossaises." },
+};
