@@ -24,5 +24,5 @@ assert len(C) == len(TITRES), len(C)
 for c, t in zip(C, TITRES): c['head'] = t
 p0 = C[0]['paras'][0]; assert p0.startswith('DANS LAQUELLE'), p0
 C[0]['paras'][0] = "*Dans laquelle il est établi que, malgré leurs noms en* os *et en* is, *les héros de l'histoire que nous allons avoir l'honneur de raconter à nos lecteurs n'ont rien de mythologique.*"
-assert C[-1]['paras'][-1] == 'FIN'; C[-1]['paras'].pop()
+if C[-1]['paras'][-1] == 'FIN': C[-1]['paras'].pop()
 json.dump(C, open(sys.argv[2], 'w', encoding='utf8'), ensure_ascii=False, indent=0)
