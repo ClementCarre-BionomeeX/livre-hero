@@ -2733,6 +2733,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "15.6", items: ["« Arsène Lupin, gentleman-cambrioleur » de Maurice Leblanc, à lire en entier : les neuf aventures de 1907, du paquebot la Provence au château de Thibermesnil, avec l'inspecteur Ganimard toujours sur ses talons. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "15.5", items: ["« Les Pardaillan » de Michel Zévaco, à lire en entier : les deux premiers tomes, de Margency en 1553 à la Saint-Barthélemy, avec le chevalier, son père le vieux routier, Pipeau, Galaor et Giboulée. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "15.4", items: ["« Le Bossu » de Paul Féval, à lire en entier : Lagardère, la botte de Nevers, Cocardasse et Passepoil, la Régence, la rue Quincampoix et le bossu qui loue sa bosse. Avec les gens, les lieux et les mots d'un toucher."] },
     { v: "15.3", items: ["« Le Comte de Monte-Cristo » d'Alexandre Dumas, à lire en entier : Edmond Dantès, le château d'If, l'abbé Faria, le trésor, Rome, puis Paris et la vengeance. Avec les gens, les lieux et les mots d'un toucher."] },

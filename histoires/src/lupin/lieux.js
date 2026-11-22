@@ -1,0 +1,23 @@
+// « Arsène Lupin, gentleman-cambrioleur », Maurice Leblanc, 1907 : un livre à lire, sans choix (lecture: true). Texte de
+// Leblanc (1864-1941, domaine public), d'après l'édition du projet Gutenberg ; la préface de Jules Claretie n'est pas
+// reprise. Les titres des nouvelles sont de Leblanc ; ceux des pages, comme tout ce qui vit dans les tags (gens, lieux,
+// mots, résumés), sont de Claude.
+// Les lieux du livre.
+module.exports = {
+  provence: { ambiance: "mer", name: "La Provence", map: "mer", x: 50, y: 50, region: "L'Atlantique", desc: "Un transatlantique rapide, ses salons de première classe, son pont où l'on flirte, et son télégraphe sans fil qui relie encore le navire au monde.", arrive: "I_1" },
+  newyork: { ambiance: "ville", name: "Le quai de New York", map: "mer", x: 88, y: 40, region: "L'Amérique", desc: "La passerelle qui s'abat, la foule qui se presse entre deux balustrades, et un vieil homme appuyé sur son parapluie.", arrive: "I_6" },
+  malaquis: { ambiance: "chateau", name: "Le château du Malaquis", map: "normandie", x: 55, y: 40, region: "La Seine, entre Jumièges et Saint-Wandrille", desc: "Un petit château féodal campé sur sa roche en pleine Seine, quatre portes, un pont-levis, et des salons pleins de tableaux et de bibelots.", arrive: "II_1" },
+  caudebec: { ambiance: "eau", name: "Caudebec", map: "normandie", x: 60, y: 45, region: "La Seine", desc: "Une petite ville sur la rive, ses quais, les bureaux d'un journal local, et un pêcheur qui taquine le goujon.", arrive: "II_3" },
+  sante: { ambiance: "souterrain", name: "La prison de la Santé", map: "paris", x: 50, y: 70, region: "Paris, rive gauche", desc: "Une cellule étroite, un greffe, une cour où l'on promène les détenus, et une porte de fer à laquelle on sonne.", arrive: "II_6" },
+  palais: { ambiance: "ville", name: "Le Palais de justice", map: "paris", x: 52, y: 50, region: "Paris, l'île de la Cité", desc: "Une salle d'assises comble, des avocats, des journalistes, un président qui interroge et un accusé qui ne répond guère.", arrive: "III_5" },
+  paris: { ambiance: "ville", name: "Paris", map: "paris", x: 45, y: 55, region: "Paris", desc: "Le boulevard Saint-Michel, la rue Saint-Jacques, des terrasses de café, et au bout le bois de Boulogne.", arrive: "III_3" },
+  train: { ambiance: "route", name: "Le train de Rouen", map: "normandie", x: 75, y: 60, region: "La ligne de Paris au Havre", desc: "Un compartiment de première classe, des banquettes, un filet à bagages, et la campagne qui défile sous la pluie.", arrive: "IV_1" },
+  rouen: { ambiance: "ville", name: "Rouen", map: "normandie", x: 68, y: 50, region: "La Normandie", desc: "La gare, son commissariat, ses quais, et les boulevards qui ceignent la vieille cité normande.", arrive: "IV_5" },
+  foret: { ambiance: "foret", name: "Le bois de Buchy", map: "normandie", x: 80, y: 42, region: "Le pays de Bray", desc: "Une ligne de chemin de fer, un bosquet, une cabane de bûcherons, et des gendarmes qui battent les taillis.", arrive: "IV_7" },
+  dreux: { ambiance: "ville", name: "L'hôtel de Dreux-Soubise", map: "paris", x: 40, y: 40, region: "Paris, faubourg Saint-Germain", desc: "Un hôtel ancien, un cabinet de toilette fermé, une cour de service, et sous les combles un logement de pauvre.", arrive: "V_1" },
+  neuilly: { ambiance: "nuit", name: "Le pavillon de Neuilly", map: "paris", x: 20, y: 35, region: "Neuilly, boulevard Maillot", desc: "Un pavillon isolé au milieu de terrains vagues, un grand salon trop vaste pour la maison, une seule fenêtre tout en haut, et un jardin fermé d'une grille.", arrive: "VI_1" },
+  imbert: { ambiance: "ville", name: "L'hôtel Imbert", map: "paris", x: 35, y: 25, region: "Paris", desc: "Un escalier somptueux, une chambre de secrétaire sous le bureau du maître, et dans ce bureau un coffre-fort qu'on ne quitte pas des yeux.", arrive: "VII_2" },
+  hoche: { ambiance: "nuit", name: "L'avenue Hoche", map: "paris", x: 30, y: 32, region: "Paris, près du parc Monceau", desc: "Un immeuble cossu, une concierge réveillée, cinq étages, et au bout d'un couloir la chambre d'une ancienne cantatrice.", arrive: "VIII_1" },
+  montmartre: { ambiance: "ville", name: "Montmartre", map: "paris", x: 50, y: 15, region: "Paris, les hauteurs", desc: "Une petite chambre sous les toits, des cabarets, des marchands de vin, et des rues qui descendent vers les boulevards.", arrive: "VIII_4" },
+  thibermesnil: { ambiance: "chateau", name: "Le château de Thibermesnil", map: "normandie", x: 70, y: 15, region: "Le pays de Caux, près de Dieppe", desc: "Un château bâti par le duc Rollon, une tour environnée d'eau, une bibliothèque immense, une terrasse sur le jardin, et dans le parc une chapelle en ruines.", arrive: "IX_1" },
+};

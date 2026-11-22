@@ -39,7 +39,7 @@ check(B.matches(cards[0], { joueurs: ["deux", "plusieurs"] }) === !!cards[0].mul
 var top = function (q) { var r = B.search(cards, q); return r.length ? r[0].m.id : null; };
 var ids = function (q) { return B.search(cards, q).map(function (x) { return x.m.id; }); };
 [["stevensn", "ile|enleve|jekyll|fleche|ballantrae"], ["welles", "guerremondes|hommeinvisible|ilemoreau|machinetemps|premiershommes"], ["jeckyl", "jekyll"],
-  ["ile au tresor", "ile"], ["Île au trésor", "ile"], ["l'ile du docteur", "ilemoreau"], ["huisclos", "huisclos"], ["huis clos", "huisclos"], ["enquete", "enquete"],
+  ["ile au tresor", "ile"], ["Île au trésor", "ile"], ["l'ile du docteur", "ilemoreau"], ["huisclos", "huisclos"], ["huis clos", "huisclos"], ["enquete", "enquete|lupin"],
   ["machine temps", "machinetemps"], ["invisble", "hommeinvisible"], ["croc blanc", "crocblanc"], ["conan doyle", "mondeperdu"], ["douzième coup", "douzieme"],
   ["sarance", "siege"], ["londn", "crocblanc"], ["cendre", "cendres"], ["science fiction", "guerremondes|hommeinvisible|ilemoreau|machinetemps|premiershommes|mondeperdu"]].forEach(function (c) {
   check(new RegExp("^(" + c[1] + ")$").test(top(c[0]) || ""), "recherche « " + c[0] + " » : premier livre " + top(c[0]) + ", attendu " + c[1]);
@@ -116,7 +116,7 @@ check(B.sortKey({ title: "Le Monde perdu" }) === "monde perdu" && B.sortKey({ ti
     // Orders
     await pg.selectOption(".lib-sort", "titre");
     var byTitle = await titles(pg);
-    check(byTitle.length === P.STORIES.length && byTitle[0] === "Le Bossu" && byTitle[1] === "Le Cahier de Solène" && byTitle[2] === "Le Cartographe de fièvre", "ordre par titre : " + byTitle.slice(0, 3).join(" | "));
+    check(byTitle.length === P.STORIES.length && byTitle[0] === "Arsène Lupin, gentleman-cambrioleur" && byTitle[1] === "Le Bossu" && byTitle[2] === "Le Cahier de Solène", "ordre par titre : " + byTitle.slice(0, 3).join(" | "));
     await pg.selectOption(".lib-sort", "recent");
     check((await titles(pg))[0] === "Le labyrinthe de Kardan", "« Lus récemment » : Kardan d'abord");
     await pg.selectOption(".lib-sort", "rayons");
