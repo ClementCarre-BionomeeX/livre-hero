@@ -1,0 +1,38 @@
+// « Les Naufragés du Jonathan », Jules Verne, 1909 : un livre à lire, sans choix (lecture: true). Texte de Verne,
+// domaine public, d'après l'édition numérisée par le Projet Gutenberg (Hetzel, 1909). Les notes de l'auteur restent entre
+// parenthèses à leur place. Les titres des chapitres sont ceux de Verne ; les titres des pages sont de Claude, comme
+// tout ce qui vit dans les tags (gens, lieux, mots, résumés).
+// Ce qui se passe dans chaque chapitre, en quelques lignes (Claude), montré par « Où en étais-je ? » une fois le chapitre lu.
+module.exports = {
+  I1: { text: "Avril 1880, sur la Terre de Feu, au bord du canal du Beagle. Un Indien qui chasse le guanaque tombe sous les griffes d'un jaguar ; un coup de carabine l'abat. Le tireur arrive avec deux Fuégiens, un pilote et son fils : c'est un Européen que les Indiens appellent le Kaw-djer." },
+  I2: { text: "Verne décrit la Magellanie, ses îles, ses canaux, son climat moins terrible qu'on le croit, et ses rares habitants, Fuégiens, Pêcherais et Patagons. Qui est le Kaw-djer ? Personne ne le sait. On raconte ce qu'on a vu de lui depuis son arrivée, et comment il s'est attaché le pilote Karroly et son fils Halg.", notice: true },
+  I3: { text: "L'Île Neuve, à l'entrée du canal du Beagle, où le Kaw-djer vit depuis des années. Un aviso est passé avec des commissaires chiliens et argentins, et Karroly rapporte de Punta-Arenas une nouvelle qui touche l'homme sans maître au plus profond." },
+  I4: { text: "Une nuit de mars, par une tempête furieuse, le Kaw-djer, Karroly et Halg aperçoivent un grand navire en perdition près du cap Horn. Il faut lui montrer la terre, puis faire bien davantage." },
+  I5: { text: "Qui sont les passagers du clipper Jonathan, parti de San Francisco pour une colonie d'Afrique ? Plus de mille émigrants pauvres, de tous les pays : un monde en petit." },
+  II1: { text: "L'île Hoste au jour levé : la côte rocheuse de la presqu'île Hardy, le navire encastré dans les récifs, une foule qui ne sait que faire. Harry Rhodes remercie le Kaw-djer, et l'on fait connaissance avec le maître d'équipage Hartlepool, les deux orateurs Lewis Dorick et Ferdinand Beauval, chacun sa doctrine, et deux enfants, Dick et Sand." },
+  II2: { text: "La famille Ceroni : le père, Lazare, un ivrogne violent ; la mère, Tullia, qui endure ; leur fille Graziella, seize ans. Ce que le Kaw-djer découvre chez eux l'oblige à une décision qui va contre tout ce qu'il croit.", notice: true },
+  II3: { text: "La chaloupe revient de Punta-Arenas avec la réponse du gouverneur chilien. Les naufragés devront passer l'hiver dans l'île. Le Kaw-djer choisit un meilleur emplacement, la baie Scotchwell, et l'on s'y transporte, malgré un mauvais coup qui prive tout le monde d'un bien précieux." },
+  II4: { text: "L'hiver dans l'île Hoste : les maisons démontables, les veillées chez les Rhodes, l'Irlandais Patterson qui ne perd jamais un sou, Halg qui s'éprend de Graziella. Quatre familles de cultivateurs, dont celle de Germain Rivière, partent s'établir sur un plateau de l'intérieur. Dick se mesure à plus fort que lui." },
+  II5: { text: "Un rival pour Halg, des grottes que découvrent les enfants, la chasse aux loups marins, les querelles de voisinage, la misère de ceux qui n'ont plus rien. Le Kaw-djer réfléchit à ce que deviennent les hommes laissés à eux-mêmes. Puis on surprend des voleurs, la colère monte, et un cri éclate." },
+  II6: { text: "Un navire chilien mouille devant le campement, porteur d'une proposition qui change tout. Mais le Kaw-djer est introuvable, et les émigrants doivent choisir seuls.", notice: true },
+  II7: { text: "Les naufragés sont devenus les Hosteliens. La fête, la musique de Fritz Gross, puis l'installation : chacun prend sa terre, ou n'en prend pas. Ferdinand Beauval se fait élire Gouverneur, et le Kaw-djer regarde faire." },
+  II8: { text: "Halg ne veut pas d'histoire avec Sirk, mais Sirk en cherche. Un transport chilien apporte des vivres et des semences, et son commandant a une mission auprès du Kaw-djer. La capitale prend le nom de Libéria et s'amuse." },
+  II9: { text: "Le deuxième hiver arrive, et avec lui la faim. Ceux qui étaient partis défricher l'intérieur reviennent un à un. Un jour de juillet, une délégation vient supplier le Kaw-djer." },
+  II10: { text: "Plus de sept cents colons sont revenus à la côte, misérables. Lewis Dorick souffle sur la colère contre Beauval, des bandes vont piller les fermes. Le Kaw-djer, Halg et leurs amis passent une soirée au bord de la rivière.", notice: true },
+  II11: { text: "Une nuit et un jour terribles. Libéria brûle, et Harry Rhodes vient poser au Kaw-djer une dernière fois la même question.", notice: true },
+  III1: { text: "Le Kaw-djer arrive à Libéria avec quinze volontaires armés. Il éteint l'incendie, fait cesser la tuerie, donne ses premiers ordres, et l'on découvre des vivres que certains avaient cachés pendant la famine." },
+  III2: { text: "Le travail reprend sous un chef. Chacun a sa place, même les plus inattendus, et Mme Rhodes devient commerçante. Dick et Sand se sont établis à leur compte. Patterson réclame justice pour sa terre." },
+  III3: { text: "Février 1884, dix-huit mois après : le port, l'école, le bazar, des navires qui viennent commercer. Lewis Dorick et quelques mécontents se retrouvent pour parler du Gouverneur, et ils ne s'en tiennent pas aux paroles." },
+  III4: { text: "Au matin, le Kaw-djer fait une découverte qui le stupéfie. Il garde l'affaire pour lui et Hartlepool, et pense à un vieux projet : un phare au cap Horn. Dans les grottes de la pointe de l'Est, les conjurés préparent leur seconde tentative." },
+  III5: { text: "Dick a surpris une conversation qu'il n'aurait pas dû entendre. Un enfant devient un héros." },
+  III6: { text: "Les suites d'une nuit tragique. Puis une crue noie la plaine, Patterson perd ce qu'il aimait le plus au monde, et le Kaw-djer se choisit un élève." },
+  III7: { text: "Une horde de Patagons a passé le détroit et marche sur la colonie. Le Kaw-djer part à sa rencontre avec la milice jusqu'à l'isthme de la presqu'île Dumas.", notice: true },
+  III8: { text: "À Libéria, Harry Rhodes et Hartlepool organisent la défense. Patterson monte la garde à contrecœur, et une nuit il a une visite." },
+  III9: { text: "Dick a remarqué quelque chose. Les Patagons attaquent, la colonie se défend, puis vient l'heure de la justice.", notice: true },
+  III10: { text: "Cinq ans ont passé. Libéria a son théâtre, son commerce, ses pêcheries ; Sand et Dick ont grandi. Le gouverneur chilien de Punta-Arenas vient en visite, et le Kaw-djer lui demande un rocher sans valeur." },
+  III11: { text: "Une partie de chasse fait une trouvaille. Le Kaw-djer sait trop ce qu'elle peut coûter, et il essaie d'en régler les effets par des lois. Les colons, eux, ne pensent plus qu'à une chose." },
+  III12: { text: "Le deuxième acte du drame : des milliers d'aventuriers venus de partout, l'ancien matelot Kennedy qui fait fortune, une compagnie minière franco-anglaise, le désordre partout, et un nom qui court de bouche en bouche.", notice: true },
+  III13: { text: "Ruinés et affamés après l'hiver, les prospecteurs descendent sur Libéria et envoient des délégués au Gouverneur." },
+  III14: { text: "Le Kaw-djer remet de l'ordre dans l'île. Mais un navire de guerre chilien entre au Bourg-Neuf, et son officier apporte une exigence." },
+  III15: { text: "Dick ouvre au lever du soleil le pli que lui a laissé le Kaw-djer." },
+};
