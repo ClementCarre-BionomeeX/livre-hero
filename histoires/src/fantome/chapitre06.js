@@ -1,0 +1,82 @@
+// « Le Fantôme de l'Opéra », Gaston Leroux, 1910 : un livre à lire, sans choix (lecture: true). Texte de Leroux
+// (1868-1927, domaine public), d'après l'édition du projet Gutenberg ; les notes de l'auteur sont entre parenthèses.
+// Les titres des chapitres sont de Leroux ; ceux des pages, comme tout ce qui vit dans les tags (gens, lieux, mots,
+// résumés), sont de Claude.
+// Chapitre V · V. Suite de « La loge n° 5 »
+module.exports = {
+  V_1: { act: "V", title: "Mame Giry", place: "bureau",
+    text: [
+      "Ayant dit, M. Richard ne s'occupa plus du tout de l'inspecteur et traita de diverses affaires avec son administrateur qui venait d'entrer. L'inspecteur avait pensé qu'il pouvait s'en aller et tout doucement, tout doucement, oh ! mon Dieu ! si doucement !… à reculons, il s'était rapproché de la porte, quand M. Richard, s'apercevant de la manœuvre, cloua l'homme sur place d'un tonitruant : « Bougez pas ! »",
+      "Par les soins de M. Rémy, on était allé chercher l'ouvreuse, qui était concierge rue de Provence, à deux pas de l'Opéra. Elle fit bientôt son entrée.",
+      "— Comment vous appelez-vous ?",
+      "— Mame Giry. Vous me connaissez bien, monsieur le directeur ; c'est moi la mère de la petite Giry, la petite Meg, quoi !",
+      "Ceci fut dit d'un ton rude et solennel qui impressionna un instant M. Richard. Il regarda Mame Giry (châle déteint, souliers usés, vieille robe de taffetas, chapeau couleur de suie). Il était de toute évidence, à l'attitude de M. le directeur, que celui-ci rie connaissait nullement ou ne se rappelait point avoir connu Mame Giry, ni même la petite Giry, « ni même la petite Meg ! » Mais l'orgueil de Mame Giry était tel que cette célèbre ouvreuse (je crois bien que c'est de son nom que l'on a fait le mot bien connu dans l'argot des coulisses : « giries ». Exemple : une artiste reproche à une camarade ses potins, ses papotages ; elle lui dira : « Tout ça, c'est des giries »), que cette ouvreuse, disons-nous, s'imaginait être connue de tout le monde.",
+      "— Connais pas ! finit par proclamer M. le directeur… Mais, mame Giry, il n'empêche que je voudrais bien savoir ce qui vous est arrivé hier soir, pour que vous ayez été forcée, vous et M. l'inspecteur, d'avoir recours à un garde municipal…",
+      "— J'voulais justement vous voir pour vous en parler, m'sieur le directeur, à seule fin qu'il ne vous arrive pas les mêmes désagréments qu'à MM. Debienne et Poligny… Eux, non plus, au commencement, ils ne voulaient pas m'écouter…",
+      "— Je ne vous demande pas tout ça. Je vous demande ce qui vous est arrivé hier soir !",
+      "Mame Giry devint rouge d'indignation. On ne lui avait jamais parlé sur un ton pareil. Elle se leva comme pour partir, ramassant déjà les plis de sa jupe et agitant avec dignité les plumes de son chapeau couleur de suie ; mais, se ravisant, elle se rassit et dit d'une voix rogue :",
+      "— Il est arrivé qu'on a encore embêté le fantôme !",
+      "Là-dessus, comme M. Richard allait éclater, M. Moncharmin intervint et dirigea l'interrogatoire, d'où il résulta que mame Giry trouvait tout naturel qu'une voix se fît entendre pour proclamer qu'il y avait du monde dans une loge où il n'y avait personne. Elle ne pouvait s'expliquer ce phénomène, qui n'était point nouveau pour elle, que par l'intervention du fantôme. Ce fantôme, personne ne le voyait dans la loge, mais tout le monde pouvait l'entendre. Elle l'avait entendu souvent, elle, et on pouvait l'en croire, car elle ne mentait jamais. On pouvait demander à MM. Debienne et Poligny et à tous ceux qui la connaissaient, et aussi à M. Isidore Saack, à qui le fantôme avait cassé la jambe !",
+      "— Oui-dà ? interrompit Moncharmin. Le fantôme a cassé la jambe à ce pauvre Isidore Saack ?",
+      "Mame Giry ouvrit de grands yeux où se peignait l'étonnement qu'elle ressentait devant tant d'ignorance. Enfin, elle consentit à instruire ces deux malheureux innocents. La chose s'était passée du temps de MM. Debienne et Poligny, toujours dans la loge n° 5 et aussi pendant une représentation de *Faust.*",
+      "Mame Giry tousse, assure sa voix… elle commence… on dirait qu'elle se prépare à chanter toute la partition de Gounod.",
+      "— Voilà, monsieur. Il y avait, ce soir-là, au premier rang M. Maniera et sa dame, les lapidaires de la rue Mogador, et, derrière Mme Maniera, leur ami intime, M. Isidore Saack. Méphistophélès chantait (*Mame Giry chante*) : « Vous qui faites l'endormie », et alors M. Maniera entend dans son oreille droite (sa femme était à sa gauche) une voix qui lui dit : « Ah ! ah ! ce n'est pas Julie qui fait l'endormie ! » (Sa dame s'appelle justement Julie). M. Maniera se retourne à droite pour voir qui est-ce qui lui parlait ainsi. Personne ! Il se frotte l'oreille et se dit à lui-même : « Est-ce que je rêve ? » Là-dessus, Méphistophélès continuait sa chanson… Mais j'ennuie peut-être messieurs les directeurs ?"
+    ] },
+
+  V_2: { act: "V", title: "Le petit banc", place: "bureau",
+    text: [
+      "— Non ! non ! continuez…",
+      "— Messieurs les directeurs sont trop bons !",
+      "(*Une grimace de Mame Giry.*) Donc, Méphistophélès continuait sa chanson (*Mame Giry chante*) : « Catherine que j'adore — pourquoi refuser — à l'amant qui vous implore — un si doux baiser ? » et aussitôt M. Maniera entend, toujours dans son oreille droite, la voix qui lui dit : « Ah ! ah ! ce n'est pas Julie qui refuserait un baiser à Isidore ? » Là-dessus, il se retourne, mais cette fois, du côté de sa dame et d'Isidore, et qu'est-ce qu'il voit ? Isidore qui avait pris par derrière la main de sa dame et qui la couvrait de baisers dans le petit creux du gant… comme ça, mes bons messieurs. (*Mame Giry couvre de baisers le coin de chair laissé à nu par son gant de filoselle.*) Alors, vous pensez bien que ça ne s'est pas passé à la douce ! Clic ! Clac ! M. Maniera, qui était grand et fort comme vous, monsieur Richard ; distribua une paire de gifles à M. Isidore Saack, qui était mince et faible comme M. Moncharmin, sauf le respect que je lui dois. C'était un scandale. Dans la salle, on criait : « Assez ! Assez ! Il va le tuer !… » Enfin, M. Isidore Saack put s'échapper…",
+      "— Le fantôme ne lui avait donc pas cassé la jambe ? demande M. Moncharmin, un peu vexé de ce que son physique ait fait une si petite impression sur Mame Giry.",
+      "— Il la lui a cassée, mossieu, réplique Mame Giry avec hauteur (car elle a compris l'intention blessante). Il la lui a cassée tout net dans *la grande* escalier, qu'il descendait trop vite, mossieu ! et si bien, ma foi, que le pauvre ne la remontera pas de sitôt !…",
+      "— C'est le fantôme qui vous a raconté les propos qu'il avait glissés dans l'oreille droite de M. Maniera ? questionne toujours avec un sérieux qu'il croit du plus haut comique, le juge d'instruction Moncharmin.",
+      "— Non ! mossieu, c'est mossieu Maniera lui-même. Ainsi…",
+      "— Mais vous, vous avez parlé déjà au fantôme, ma brave dame ?",
+      "— Comme je vous parle, mon brav'mossieu…",
+      "— Et quand il vous parle, le fantôme, qu'est-ce qu'il vous dit ?",
+      "— Eh bien ! il me dit de lui apporter un p'tit banc !",
+      "À ces mots prononcés solennellement, la figure de Mame Giry devint de marbre, de marbre jaune, veiné de raies rouges, comme celui des colonnes qui soutiennent le grand escalier et que l'on appelle marbre sarrancolin.",
+      "Cette fois, Richard était reparti à rire de compagnie avec Moncharmin et le secrétaire Rémy ; mais instruit par l'expérience, l'inspecteur ne riait plus. Appuyé au mur, il se demandait, en remuant fébrilement ses clefs dans sa poche, comment cette histoire allait finir. Et plus Mame Giry le prenait sur un ton « rogue », plus il craignait le retour de la colère de M. le directeur ! Et maintenant, voilà que devant l'hilarité directoriale, Mame Giry osait devenir menaçante ! menaçante en vérité !",
+      "— Au lieu de rire du fantôme, s'écria-t-elle indignée, vous feriez mieux de faire comme M. Poligny, qui, lui, s'est rendu compte par lui-même…",
+      "— Rendu compte de quoi ? interroge Moncharmin, qui ne s'est jamais tant amusé.",
+      "— Du fantôme !… Puisque je vous le dis… Tenez !… (*Elle se calme subitement, car elle juge que l'heure est grave.*) *Tenez !*… Je m'en rappelle comme si c'était d'hier. Cette fois, on jouait la *Juive.* M. Poligny avait voulu assister, tout seul, dans la loge du fantôme, à la représentation. Mme Krauss avait obtenu un succès fou. Elle venait de chanter, vous savez bien, la machine du second acte (*Mame Giry chante à mi-voix*) :",
+      "Près de celui que j'aime Je veux vivre et mourir, Et la mort, elle-même, Ne peut nous désunir.",
+      "— Bien ! Bien ! j'y suis… fait observer avec un sourire décourageant M. Moncharmin.",
+      "Mais Mame Giry continue à mi-voix, en balançant la plume de son chapeau couleur de suie :",
+      "Partons ! partons ! Ici-bas, dans les deux, Même sort désormais nous attend tous les deux.",
+      "— Oui ! Oui ! nous y sommes ? répète Richard, à nouveau impatienté… et alors ? et alors ?"
+    ] },
+
+  V_3: { act: "V", title: "Une douce voix d'homme", place: "bureau",
+    text: [
+      "— Et alors, c'est à ce moment-là que Léopold s'écrie : « Fuyons ! » n'est-ce pas ? et qu'Eléazar les arrête, en leur demandant : « Où courez-vous ? » Eh bien, juste à ce moment-là, M. Poligny, que j'observais du fond d'une loge à côté, qui était restée vide, M. Poligny s'est levé tout droit, et est parti raide comme une statue, et je n'ai eu que le temps de lui demander, comme Eléazar : « Où allez-vous ? » Mais il ne m'a pas répondu et il était plus pâle qu'un mort ! Je l'ai regardé descendre l'escalier, mais il ne s'est pas cassé la jambe… Pourtant, il marchait comme dans un rêve, comme dans un mauvais rêve, et il ne retrouvait seulement pas son chemin… lui qui était payé pour bien connaître l'Opéra !",
+      "Ainsi s'exprima Mame Giry, et elle se tut pour juger de l'effet qu'elle avait produit. L'histoire de Poligny avait fait hocher la tête à Moncharmin.",
+      "— Tout cela ne me dit pas dans quelles circonstances, ni comment le fantôme de l'Opéra vous a demandé un petit banc ? insista-t-il, en regardant fixement la mère Giry, comme on dit, entre « quatre-z-yeux ».",
+      "— Eh bien, mais, c'est depuis ce soir-là… car, à partir de ce soir-là, on l'a laissé tranquille not' fantôme… on n'a plus essayé de lui disputer sa loge. MM. Debienne et Poligny ont donné des ordres pour qu'on la lui laisse à toutes les représentations. Alors, quand il venait, il me demandait son petit banc…",
+      "— Euh ! euh ! un fantôme qui demande un petit banc ? C'est donc une femme, votre fantôme ? interrogea Moncharmin.",
+      "— Non, le fantôme est un homme.",
+      "— Comment le savez-vous ?",
+      "Il a une voix d'homme, oh ! une douce voix d'homme ! Voilà comment ça se passe : Quand il vient à l'Opéra, il arrive d'ordinaire vers le milieu du premier acte, il frappe trois petits coups secs à la porte de la loge n° 5. La première fois que j'ai entendu ces trois coups-là, alors que je savais très bien qu'il n'y avait encore personne dans la loge, vous pensez si j'ai été intriguée ! J'ouvre la porte, j'écoute, je regarde : personne ! et puis voilà-t-il pas que j'entends une voix qui me dit : « Mame Jules » (c'est le nom de défunt mon mari), un petit « banc, s.v.p. ? » Sauf vot'respect, m'sieur le directeur, j'en étais comme une tomate… Mais la voix continua : « Vous effrayez pas, Mame Jules, c'est moi le fantôme de l'Opéra !!! » Je regardai du côté d'où venait la voix qui était, du reste si bonne, et si « accueillante », qu'elle ne me faisait presque plus peur. La voix, m'sieur le directeur, *était assise sur le premier fauteuil du premier rang, à droite.* Sauf que je ne voyais personne sur le fauteuil, on aurait juré qu'il y avait quelqu'un dessus, qui parlait, et quelqu'un de bien poli, ma foi.",
+      "— La loge à droite de la loge n° 5, demanda Moncharmin, était-elle occupée ?",
+      "— Non ; la loge n° 7 comme la loge n° 3 à gauche n'étaient pas encore occupées. On n'était qu'au commencement du spectacle.",
+      "— Et qu'est-ce que vous avez fait ?",
+      "— Eh bien, j'ai apporté le petit banc. Évidemment, ça n'était pas pour lui qu'il demandait un petit banc, c'était pour sa dame ! Mais elle, je ne l'ai jamais entendue ni vue…",
+      "Hein ? Quoi ? le fantôme avait une femme maintenant ! De Mame Giry, le double regard de MM. Moncharmin et Richard monta jusqu'à l'inspecteur, qui, derrière l'ouvreuse, agitait les bras dans le dessein d'attirer sur lui l'attention de ses chefs. Il se frappait le front d'un index désolé pour faire comprendre aux directeurs que la mère Jules était bien certainement folle, pantomime qui engagea définitivement M. Richard à se séparer d'un inspecteur qui gardait dans son service une hallucinée. La bonne femme continuait, toute à son fantôme, vantant maintenant sa générosité.",
+      "— À la fin du spectacle, il me donne toujours une pièce de quarante sous, quelquefois cent sous, quelquefois même dix francs, quand il a été plusieurs jours sans venir. Seulement, depuis qu'on a recommencé à l'ennuyer, il ne me donne plus rien du tout…",
+      "— Pardon, ma brave femme… (Révolte nouvelle de la plume du chapeau couleur de suie, devant une aussi persistante familiarité) pardon !… Mais comment le fantôme fait-il pour vous remettre vos quarante sous ? interroge Moncharmin, né curieux.",
+      "— Bah ! il les laisse sur la tablette de la loge. Je les trouve là avec le programme que je lui apporte toujours ; des soirs je retrouve même des fleurs dans ma loge, une rose qui sera tombée du corsage de sa dame… car, sûr, il doit venir quelquefois avec une dame, pour qu'un jour, ils aient oublié un éventail.",
+      "— Ah ! ah ! le fantôme a oublié un éventail ? Et qu'en avez-vous fait ?",
+      "— Eh bien ! je le lui ai rapporté la fois suivante.",
+      "Ici, la voix de l'inspecteur se fit entendre :",
+      "— Vous n'avez pas observé le règlement, Mame Giry, je vous mets à l'amende.",
+      "— Taisez-vous, imbécile ! (*Voix de basse de M. Firmin Richard.*)",
+      "— Vous avez rapporté l'éventail ! Et alors ?",
+      "— Et alors, ils l'ont remporté, m'sieur le directeur ; je ne l'ai plus retrouvé à la fin du spectacle, à preuve qu'ils ont laissé à la place une boîte de bonbons anglais que j'aime tant, m'sieur le directeur. C'est une des gentillesses du fantôme…",
+      "— C'est bien, Mame Giry… Vous pouvez vous retirer.",
+      "Quand Mame Giry eut salué respectueusement, non sans une certaine dignité qui ne l'abandonnait jamais, ses deux directeurs, ceux-ci déclarèrent à M. l'inspecteur qu'ils étaient décidés à se priver des services de cette vieille folle. Et ils congédièrent M. l'inspecteur.",
+      "Quand M. l'inspecteur se fut retiré à son tour, après avoir protesté de son dévouement à la maison, MM. les directeurs avertirent M. l'administrateur qu'il eût à faire régler le compte de M. l'inspecteur. Quand ils furent seuls, MM. les directeurs se communiquèrent une même pensée, qui leur était venue en même temps à tous deux, celle d'aller faire un petit tour du côté de la loge n° 5.",
+      "Nous les y suivrons bientôt."
+    ] },
+
+};

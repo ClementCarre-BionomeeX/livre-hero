@@ -1,6 +1,6 @@
 # gut.py source.txt [source2.txt …] chapitres.json : texte brut de Gutenberg (miroir orkeilius/gutenberg_fr_mirror).
 # Un chapitre s'ouvre sur une ligne « CHAPITRE N. » (ou « CHAPITRE PREMIER »), ou sur une ligne qui ne porte que le
-# numéro romain attendu (« XXXII »), suivie du titre sur une ou deux lignes. Une ligne seule « PRÉFACE », « ÉPILOGUE »
+# numéro romain attendu (« XXXII »), suivie du titre sur une ou deux lignes. Une ligne seule « PRÉFACE » (ou « AVANT-PROPOS »), « ÉPILOGUE »
 # ou « CONCLUSION » ouvre aussi un chapitre (ids « P », « E », « CONCL »). Plusieurs fichiers (les tomes) se suivent.
 # Dans chaque fichier, la table des matières du début est sautée (on commence au premier chapitre qui a du texte) et
 # l'on s'arrête à « FIN », « FIN DU TOME… », à la « TABLE » finale ou à la licence. Les paragraphes sont séparés par des lignes vides ;
@@ -9,7 +9,7 @@
 # cœur, œil, sœur… redeviennent « œ » ; une ligne coupée sur un trait d'union se recolle sans espace.
 import json, re, sys
 sys.path.insert(0, sys.argv[0].rsplit('/', 1)[0]); from typo import typo
-HEADS = {'PRÉFACE': 'P', 'ÉPILOGUE': 'E', 'CONCLUSION': 'CONCL'}
+HEADS = {'PRÉFACE': 'P', 'AVANT-PROPOS': 'P', 'ÉPILOGUE': 'E', 'CONCLUSION': 'CONCL'}
 def roman(n):
     out = ''
     for v, r in ((100, 'C'), (90, 'XC'), (50, 'L'), (40, 'XL'), (10, 'X'), (9, 'IX'), (5, 'V'), (4, 'IV'), (1, 'I')):
@@ -62,7 +62,11 @@ for src in sys.argv[1:-1]:
     flush()
 for c in chs:
     out = []; notes = {}
-    raw = c.pop('raw')
+    raw = c.pop('raw'); j = 0
+    while j < len(raw):  # une note sur plusieurs paragraphes : on les recolle jusqu'au « ] » final
+        if raw[j].startswith('[Note ') and not raw[j].rstrip().endswith(']') and j + 1 < len(raw):
+            raw[j] = raw[j] + ' ' + raw.pop(j + 1); continue
+        j += 1
     for p in raw:
         m = re.match(r'^\[Note (\d+):\s*(.*)\]$', p)
         if m: notes[m.group(1)] = m.group(2)
