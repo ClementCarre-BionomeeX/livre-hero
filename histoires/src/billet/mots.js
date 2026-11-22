@@ -1,0 +1,35 @@
+// « Un billet de loterie », Jules Verne, 1886 : un livre à lire, sans choix (lecture: true). Texte de Verne, domaine public,
+// d'après l'édition numérisée par le Projet Gutenberg (saisie d'Ebooks libres et gratuits). L'unique note de l'auteur
+// reste entre parenthèses à sa place. Verne n'a pas titré ses chapitres : leurs titres, comme ceux des pages, sont de
+// Claude, ainsi que tout ce qui vit dans les tags (gens, lieux, mots, résumés).
+// Les mots et les noms de l'époque, expliqués d'un toucher. Rien de l'intrigue.
+module.exports = {
+  "Telemark": "Une province montagneuse du sud de la Norvège.",
+  "Storthing": "Le parlement de la Norvège.",
+  "bailliage|bailliages": "Une province, en Norvège.",
+  "kariol|kariols": "Une petite voiture norvégienne à deux roues et à une place, tirée par un cheval.",
+  "skydskarl": "Un garçon qui s'accroche à l'arrière de la kariol pour ramener le cheval au relais.",
+  "soeter|soeters": "Une petite ferme d'été dans la montagne, où l'on garde les bêtes.",
+  "gaard|gaards": "Une ferme, en Norvège.",
+  "field|fields": "Un plateau élevé et dénudé, en Norvège.",
+  "fiord|fiords": "Un long golfe étroit entre des falaises, sur la côte de Norvège.",
+  "piga": "La servante, dans les auberges norvégiennes.",
+  "skilling|skillings": "Une petite monnaie norvégienne de l'époque.",
+  "marks": "Une monnaie ; cent mille marks font, dit Verne, environ cent mille francs.",
+  "aviso|avisos": "Un petit navire de guerre rapide, qui porte des ordres ou fait des recherches.",
+  "brick-goélette": "Un voilier à deux mâts.",
+  "brick": "Un voilier à deux mâts portant des voiles carrées.",
+  "armateur|armateurs": "Celui qui possède et arme des navires de commerce ou de pêche.",
+  "icefield|icefields": "Un vaste champ de glace flottante.",
+  "iceberg|icebergs": "Une montagne de glace qui flotte sur la mer.",
+  "usurier": "Celui qui prête de l'argent à un intérêt très élevé.",
+  "équinoxe": "Le moment de l'année, au printemps et en automne, où le jour et la nuit sont égaux ; il amène souvent des tempêtes.",
+  "flatbröd": "Une galette de pain plate et sèche, en Norvège.",
+  "stock-fish": "De la morue séchée.",
+  "brandevin": "De l'eau-de-vie.",
+  "multers": "Des baies orange qui poussent dans les marais du Nord.",
+  "Rollon": "Un chef viking qui conquit la Normandie au dixième siècle.",
+  "fille d'honneur": "La demoiselle qui accompagne la mariée.",
+  "posada": "Une auberge, en Espagne et en Italie.",
+  "fonda": "Une auberge, en Espagne.",
+};
