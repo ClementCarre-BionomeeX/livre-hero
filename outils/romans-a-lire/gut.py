@@ -3,7 +3,7 @@
 # numéro romain attendu (« XXXII »), suivie du titre sur une ou deux lignes. Une ligne seule « PRÉFACE », « ÉPILOGUE »
 # ou « CONCLUSION » ouvre aussi un chapitre (ids « P », « E », « CONCL »). Plusieurs fichiers (les tomes) se suivent.
 # Dans chaque fichier, la table des matières du début est sautée (on commence au premier chapitre qui a du texte) et
-# l'on s'arrête à « FIN », « FIN DU TOME… » ou à la licence. Les paragraphes sont séparés par des lignes vides ;
+# l'on s'arrête à « FIN », « FIN DU TOME… », à la « TABLE » finale ou à la licence. Les paragraphes sont séparés par des lignes vides ;
 # l'italique _…_ devient *…* ; les notes « [Note 1: …] » vont entre parenthèses à la fin du paragraphe qui porte
 # l'appel « [1] » ; typo.py aligne la typographie. Les titres restent tels quels : la fiche les réécrit. Les « oe » de
 # cœur, œil, sœur… redeviennent « œ » ; une ligne coupée sur un trait d'union se recolle sans espace.
@@ -25,7 +25,7 @@ def flush():
     buf.clear()
 for src in sys.argv[1:-1]:
     L = open(src, encoding='utf8').read().replace('\r', '').split('\n')
-    end = next((i for i, l in enumerate(L) if l.startswith('*** END OF') or re.match(r'^FIN( DU TOME.*)?\.?$', l.strip())), len(L))
+    end = next((i for i, l in enumerate(L) if l.startswith('*** END OF') or re.match(r'^(FIN( DU TOME.*)?\.?|TABLE)$', l.strip())), len(L))
     def head_at(i, expect=None):
         s = L[i].strip()
         m = re.match(r'^CHAPITRE\s+([IVXLC]+|PREMIER)\.?$', s)

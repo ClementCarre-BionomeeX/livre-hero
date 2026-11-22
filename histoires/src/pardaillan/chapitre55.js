@@ -1,0 +1,45 @@
+// « Les Pardaillan », Michel Zévaco, 1902 : un livre à lire, sans choix (lecture: true). Texte de Zévaco, domaine public,
+// d'après l'édition du projet Gutenberg (les deux premiers tomes, « Les Pardaillan » et « L'Épopée d'amour »). Les titres
+// des chapitres sont de Zévaco ; ceux des pages, comme tout ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude.
+// Chapitre II18 · L'Épopée d'amour · XVIII. Les fiancés
+module.exports = {
+  II18_1: { act: "II18", title: "Le moine se relève", place: "auxerrois",
+    text: [
+      "Panigarola referma sa robe, rabattit son capuchon et s'agenouilla… Catherine le contempla un instant avec un sourire aigu. Puis elle se dirigea vers la porte par laquelle était entré le moine.",
+      "Il était à ce moment près de minuit.",
+      "Elle entendit le roulement d'un carrosse et ouvrit elle-même Le carrosse s'arrêta. Trois femmes en descendirent. L'une d'elles était Alice de Lux, pâle, vêtue de blanc. Elle eut comme une hésitation, puis entra. Les deux autres femmes remontèrent alors dans le carrosse qui s'éloigna aussitôt.",
+      "L'espionne, en pénétrant dans l'église, demeura un instant palpitante, interrogeant les ténèbres que les quatre flambeaux du maître-autel, là-bas, tout au loin trouaient de leurs lumières blafardes.",
+      "Mais une main saisit sa main ; une voix murmura à son oreille :",
+      "— Mon enfant, vous voilà donc ?…",
+      "Alice reconnut alors la reine.",
+      "— Vous le cherchez, n'est-ce pas ? reprit Catherine. Patience… il va venir…",
+      "— Comme vous êtes bonne, madame !…",
+      "— As-tu vu la voiture qui doit vous emmener ?…",
+      "— Je n'ai pas remarqué, madame ! Mais je ne vois pas… le prêtre… Quoi ! personne dans cette église ?…",
+      "— Patience ! te dis-je…",
+      "— Voici minuit qui sonne, madame.",
+      "— Oui. Et voici ton fiancé, dit la reine.",
+      "En effet, comme le premier coup de minuit résonnait, le signal fut frappé à la porte, du dehors. Alice, palpitante, allongea le bras pour ouvrir. La reine retint ce bras, d'un geste rude.",
+      "— C'est moi qui ouvre ! gronda-t-elle.",
+      "Alice demeura toute saisie. Et, de fait, c'était étrange que la reine fût postée à cette entrée de l'église, qu'elle n'eût pas commis le soin d'ouvrir à quelque domestique ; qu'elle-même, de ses mains royales, s'occupât de cette besogne.",
+      "Elle apparut à la malheureuse affolée comme une horrible araignée embusquée au centre de la toile qu'elle avait tendue.",
+      "« Ce n'est pas Marillac », songea-t-elle éperdue.",
+      "Elle se trompait : c'était bien Marillac !",
+      "La reine ayant ouvert, inspecta les abords de l'église pour s'assurer que le comte était venu seul.",
+      "— Quoi ! demanda la reine, vous n'avez pas amené avec vous deux ou trois amis ?",
+      "Marillac, reconnaissant la reine fut frappe d'étonnement. Il s'inclina avec une profonde émotion. Ah cette reine qui attendait à la porte, qui lui ouvrait elle-même ! Quelle autre qu'une mère lui eût donné une telle preuve d'excessive bienveillance !",
+      "— Madame, dit-il, Votre Majesté oublie qu'elle m'a ordonné de venir seul… Cependant, je dois l'avouer j'avais résolu de me faire accompagner de celui qui est pour moi plus qu'un ami… mais le chevalier ne sera libre que demain matin…",
+      "— Oui, oui, interrompit vivement Catherine.",
+      "Elle ferma la porte et un soupir de joie terrible s'exhala de sa poitrine.",
+      "Les deux fiancés s'entrevirent dans l'ombre, se reconnurent plutôt qu'ils ne se virent ; à l'instant, leurs mains s'enlacèrent et ils oublièrent l'univers…",
+      "D'instinct, ils marchèrent vers le maître-autel, attirés par les quatre étoiles qui brillaient faiblement.",
+      "La reine marchait derrière eux, les couvant de son regard funèbre.",
+      "Les fiancés s'arrêtèrent au pied de l'autel.",
+      "Alice murmura :",
+      "— Je ne vois pas le prêtre qui doit nous unir… Serait-il en retard ?",
+      "Catherine s'avança vers Panigarola prosterné, le toucha à l'épaule et dit :",
+      "— Voici celui qui va vous unir…",
+      "Le moine se releva lentement, découvrit son visage et se tourna vers les fiancés…"
+    ] },
+
+};
