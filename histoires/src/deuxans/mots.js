@@ -1,0 +1,42 @@
+// « Deux ans de vacances », Jules Verne, 1888 : un livre à lire, sans choix (lecture: true). Texte de Verne, domaine
+// public, d'après l'édition numérique d'Ebooks libres et gratuits ; la préface de l'auteur n'est pas reprise. Les notes
+// de l'auteur restent entre parenthèses à leur appel. Verne ne donne pas de titres à ses chapitres : ceux des pages
+// sont de Claude, comme tout ce qui vit dans les tags (gens, lieux, mots, résumés).
+// Les mots et les noms de l'époque, expliqués d'un toucher. Rien de l'intrigue.
+module.exports = {
+  "schooner": "Mot anglais pour une goélette, un voilier à deux mâts.",
+  "yacht": "Un bateau de plaisance, qu'on garde pour se promener sur la mer.",
+  "mousse": "Un jeune garçon qui apprend le métier de marin à bord d'un navire.",
+  "yole": "Un canot léger et étroit, à avirons.",
+  "misaine": "Le mât de l'avant d'un voilier, et la grande voile qu'il porte.",
+  "récifs": "Des rochers à fleur d'eau, où les navires se brisent.",
+  "brasses|brasse": "Mesure de marine : une brasse, c'est la longueur des deux bras étendus, un peu moins de deux mètres.",
+  "milles|mille": "Mesure de distance des Anglais : un mille fait environ seize cents mètres ; le mille marin, un peu plus.",
+  "yards": "Mesure anglaise d'un peu moins d'un mètre.",
+  "pension": "Une école où les élèves sont logés et nourris.",
+  "faggisme|fags": "Dans les pensions anglaises, l'usage qui oblige les plus petits à servir les grands.",
+  "rio": "Mot espagnol : une rivière.",
+  "creek": "Mot anglais : un ruisseau, une petite rivière.",
+  "lazo": "Une longue lanière de cuir terminée par un nœud coulant, qu'on lance pour attraper un animal.",
+  "bolas": "Des boules de pierre reliées par des cordes, qu'on lance dans les jambes d'un animal pour le faire tomber.",
+  "ajoupa": "Une hutte de branches, comme en bâtissent les chasseurs.",
+  "nandû": "L'autruche d'Amérique du Sud.",
+  "guanaque|guanaques": "Un grand animal d'Amérique du Sud, cousin du lama, à long cou.",
+  "vigogne|vigognes": "Un petit lama sauvage des Andes, à laine très fine.",
+  "pécaris": "Des sortes de petits sangliers d'Amérique.",
+  "tinamous": "Des oiseaux d'Amérique du Sud qui ressemblent aux perdrix.",
+  "jaguar": "Un grand félin d'Amérique, à pelage tacheté.",
+  "chacal|chacals": "Un animal sauvage qui ressemble à un petit loup.",
+  "phoques": "Des mammifères marins, qu'on chassait pour leur graisse, dont on tirait de l'huile.",
+  "halkett-boat": "Un canot de caoutchouc qui se plie comme un sac et se gonfle au besoin.",
+  "fanal": "Une grosse lanterne, à bord d'un navire ou pour faire signal.",
+  "virevau|virevaux": "Un petit treuil à bord d'un navire, pour enrouler une corde.",
+  "master": "Mot anglais : le maître d'équipage, ou le patron d'un navire marchand.",
+  "chaloupe": "Une grande embarcation à voile et à rames, que porte un navire.",
+  "radoubage|radoub": "La réparation de la coque d'un navire.",
+  "palets|quoits": "Des disques de fer qu'on lance vers une cheville plantée en terre ; on marque des points à qui s'en approche.",
+  "érables": "De grands arbres ; certaines espèces donnent une sève sucrée dont on fait du sucre.",
+  "Robinson Crusoé": "Le roman de Daniel Defoe (1719) : un marin qui vit seul vingt-huit ans sur une île.",
+  "Robinson suisse": "Le roman de Johann David Wyss (1812) : une famille naufragée sur une île déserte.",
+  "Christmas": "Mot anglais : Noël.",
+};
