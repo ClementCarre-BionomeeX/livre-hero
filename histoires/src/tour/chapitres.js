@@ -1,0 +1,45 @@
+// « Le Tour du monde en quatre-vingts jours », Jules Verne, 1872 : un livre à lire, sans choix (lecture: true).
+// Texte de Verne, domaine public, d'après l'édition numérique d'Ebooks libres et gratuits ; les légendes des gravures
+// sont retirées. Les notes de l'auteur restent entre parenthèses à leur appel. Les titres des chapitres sont de Verne ;
+// ceux des pages, comme tout ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude.
+// Les chapitres (les actes du moteur). recap : résumé montré par « Où en étais-je ? » seulement une fois le chapitre fini.
+var RECAP = require("./resumes.js");
+module.exports = [
+  { id: "I", title: "Chapitre I · Dans lequel Phileas Fogg et Passepartout s'acceptent réciproquement l'un comme maître, l'autre comme domestique", question: "", levels: [1, 1], start: "I_1" },
+  { id: "II", title: "Chapitre II · Où Passepartout est convaincu qu'il a enfin trouvé son idéal", question: "", levels: [1, 1], start: "II_1" },
+  { id: "III", title: "Chapitre III · Où s'engage une conversation qui pourra coûter cher à Phileas Fogg", question: "", levels: [1, 1], start: "III_1" },
+  { id: "IV", title: "Chapitre IV · Dans lequel Phileas Fogg stupéfie Passepartout, son domestique", question: "", levels: [1, 1], start: "IV_1" },
+  { id: "V", title: "Chapitre V · Dans lequel une nouvelle valeur apparaît sur la place de Londres", question: "", levels: [1, 1], start: "V_1" },
+  { id: "VI", title: "Chapitre VI · Dans lequel l'agent Fix montre une impatience bien légitime", question: "", levels: [1, 1], start: "VI_1" },
+  { id: "VII", title: "Chapitre VII · Qui témoigne une fois de plus de l'inutilité des passeports en matière de police", question: "", levels: [1, 1], start: "VII_1" },
+  { id: "VIII", title: "Chapitre VIII · Dans lequel Passepartout parle un peu plus peut-être qu'il ne conviendrait", question: "", levels: [1, 1], start: "VIII_1" },
+  { id: "IX", title: "Chapitre IX · Où la mer Rouge et la mer des Indes se montrent propices aux desseins de Phileas Fogg", question: "", levels: [1, 1], start: "IX_1" },
+  { id: "X", title: "Chapitre X · Où Passepartout est trop heureux d'en être quitte en perdant sa chaussure", question: "", levels: [1, 1], start: "X_1" },
+  { id: "XI", title: "Chapitre XI · Où Phileas Fogg achète une monture à un prix fabuleux", question: "", levels: [1, 1], start: "XI_1" },
+  { id: "XII", title: "Chapitre XII · Où Phileas Fogg et ses compagnons s'aventurent à travers les forêts de l'Inde et ce qui s'ensuit", question: "", levels: [1, 1], start: "XII_1" },
+  { id: "XIII", title: "Chapitre XIII · Dans lequel Passepartout prouve une fois de plus que la fortune sourit aux audacieux", question: "", levels: [1, 1], start: "XIII_1" },
+  { id: "XIV", title: "Chapitre XIV · Dans lequel Phileas Fogg descend toute l'admirable vallée du Gange sans même songer à la voir", question: "", levels: [1, 1], start: "XIV_1" },
+  { id: "XV", title: "Chapitre XV · Où le sac aux bank-notes s'allège encore de quelques milliers de livres", question: "", levels: [1, 1], start: "XV_1" },
+  { id: "XVI", title: "Chapitre XVI · Où Fix n'a pas l'air de connaître du tout les choses dont on lui parle", question: "", levels: [1, 1], start: "XVI_1" },
+  { id: "XVII", title: "Chapitre XVII · Où il est question de choses et d'autres pendant la traversée de Singapore à Hong-Kong", question: "", levels: [1, 1], start: "XVII_1" },
+  { id: "XVIII", title: "Chapitre XVIII · Dans lequel Phileas Fogg, Passepartout, Fix, chacun de son côté, va à ses affaires", question: "", levels: [1, 1], start: "XVIII_1" },
+  { id: "XIX", title: "Chapitre XIX · Où Passepartout prend un trop vif intérêt à son maître, et ce qui s'ensuit", question: "", levels: [1, 1], start: "XIX_1" },
+  { id: "XX", title: "Chapitre XX · Dans lequel Fix entre directement en relation avec Phileas Fogg", question: "", levels: [1, 1], start: "XX_1" },
+  { id: "XXI", title: "Chapitre XXI · Où le patron de la *Tankadère* risque fort de perdre une prime de deux cents livres", question: "", levels: [1, 1], start: "XXI_1" },
+  { id: "XXII", title: "Chapitre XXII · Où Passepartout voit bien que, même aux antipodes, il est prudent d'avoir quelque argent dans sa poche", question: "", levels: [1, 1], start: "XXII_1" },
+  { id: "XXIII", title: "Chapitre XXIII · Dans lequel le nez de Passepartout s'allonge démesurément", question: "", levels: [1, 1], start: "XXIII_1" },
+  { id: "XXIV", title: "Chapitre XXIV · Pendant lequel s'accomplit la traversée de l'océan Pacifique", question: "", levels: [1, 1], start: "XXIV_1" },
+  { id: "XXV", title: "Chapitre XXV · Où l'on donne un léger aperçu de San Francisco, un jour de meeting", question: "", levels: [1, 1], start: "XXV_1" },
+  { id: "XXVI", title: "Chapitre XXVI · Dans lequel on prend le train express du chemin de fer du Pacifique", question: "", levels: [1, 1], start: "XXVI_1" },
+  { id: "XXVII", title: "Chapitre XXVII · Dans lequel Passepartout suit, avec une vitesse de vingt milles à l'heure, un cours d'histoire mormone", question: "", levels: [1, 1], start: "XXVII_1" },
+  { id: "XXVIII", title: "Chapitre XXVIII · Dans lequel Passepartout ne put parvenir à faire entendre le langage de la raison", question: "", levels: [1, 1], start: "XXVIII_1" },
+  { id: "XXIX", title: "Chapitre XXIX · Où il sera fait le récit d'incidents divers qui ne se rencontrent que sur les rail-roads de l'Union", question: "", levels: [1, 1], start: "XXIX_1" },
+  { id: "XXX", title: "Chapitre XXX · Dans lequel Phileas Fogg fait tout simplement son devoir", question: "", levels: [1, 1], start: "XXX_1" },
+  { id: "XXXI", title: "Chapitre XXXI · Dans lequel l'inspecteur Fix prend très sérieusement les intérêts de Phileas Fogg", question: "", levels: [1, 1], start: "XXXI_1" },
+  { id: "XXXII", title: "Chapitre XXXII · Dans lequel Phileas Fogg engage une lutte directe contre la mauvaise chance", question: "", levels: [1, 1], start: "XXXII_1" },
+  { id: "XXXIII", title: "Chapitre XXXIII · Où Phileas Fogg se montre à la hauteur des circonstances", question: "", levels: [1, 1], start: "XXXIII_1" },
+  { id: "XXXIV", title: "Chapitre XXXIV · Qui procure à Passepartout l'occasion de faire un jeu de mots atroce, mais peut-être inédit", question: "", levels: [1, 1], start: "XXXIV_1" },
+  { id: "XXXV", title: "Chapitre XXXV · Dans lequel Passepartout ne se fait pas répéter deux fois l'ordre que son maître lui donne", question: "", levels: [1, 1], start: "XXXV_1" },
+  { id: "XXXVI", title: "Chapitre XXXVI · Dans lequel Phileas Fogg fait de nouveau prime sur le marché", question: "", levels: [1, 1], start: "XXXVI_1" },
+  { id: "XXXVII", title: "Chapitre XXXVII · Dans lequel il est prouvé que Phileas Fogg n'a rien gagné à faire ce tour du monde, si ce n'est le bonheur", question: "", levels: [1, 1], start: "XXXVII_1" },
+].map(function (a) { var r = RECAP[a.id] || {}; a.recap = r.text || ""; a.notice = !!r.notice; return a; });
