@@ -2733,6 +2733,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "17.5", items: ["Nouveau livre à lire : « Autour de la Lune » de Jules Verne (1869), la suite de « De la Terre à la Lune », en entier."] },
     { v: "17.4", items: ["Nouveau livre à lire : « De la Terre à la Lune » de Jules Verne (1865), en entier.", "Six emblèmes de couverture de plus : la lune, la montagne, la clé, la feuille, la plume et le soleil (des histoires les demandaient et avaient une étoile à la place)."] },
     { v: "17.3", items: ["Nouveau livre à lire : « Les Enfants du capitaine Grant » de Jules Verne (1868), en entier, ses trois parties.", "Deux emblèmes de couverture de plus : la bouteille à la mer et la vague (six livres la demandaient et avaient une étoile à la place)."] },
     { v: "17.2", items: ["Nouveau livre à lire : « Cinq semaines en ballon » de Jules Verne (1863), en entier."] },
