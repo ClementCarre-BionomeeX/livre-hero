@@ -2733,6 +2733,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "16.8", items: ["Nouveau livre à lire : « Tarzan, l'enfant des singes » d'Edgar Rice Burroughs (1912), en entier, dans une traduction nouvelle faite pour la bibliothèque, qui retire le regard raciste du narrateur."] },
     { v: "16.7", items: ["Nouveau livre à lire : « Le Mouron rouge » de la baronne Orczy (1905), en entier, dans une traduction nouvelle faite pour la bibliothèque. Les couvertures savent dessiner une fleur."] },
     { v: "16.6", items: ["Nouveau livre à lire : « Les Mines du roi Salomon » de H. Rider Haggard (1885), en entier, dans une traduction nouvelle faite pour la bibliothèque."] },
     { v: "16.5", items: ["Nouveau livre à lire : « Le Prisonnier de Zenda » d'Anthony Hope (1894), en entier, dans une traduction nouvelle faite pour la bibliothèque."] },

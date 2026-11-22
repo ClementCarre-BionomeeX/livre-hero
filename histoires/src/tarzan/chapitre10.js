@@ -1,0 +1,59 @@
+// « Tarzan, l'enfant des singes » (Tarzan of the Apes), Edgar Rice Burroughs, 1912 : un livre à lire, sans choix (lecture: true).
+// Texte : traduction nouvelle par Claude, faite pour cette bibliothèque à partir du texte anglais de 1912 (Project
+// Gutenberg n° 78, domaine public). Les titres des chapitres sont ceux de Burroughs, traduits (le ch. XXI est renommé) ;
+// ceux des pages, comme tout ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude. Le regard raciste du
+// narrateur sur les Africains et sur Esmeralda a été retiré ou adouci ; voir la notice.
+// Chapitre C10 · Chapitre 10 · Le fantôme de la peur
+module.exports = {
+  C10_1: { act: "C10", title: "Le village de huttes", place: "mbonga",
+    text: [
+      "D'un haut perchoir, Tarzan contempla le village de huttes de chaume, au-delà de la plantation qui l'en séparait.",
+      "Il vit qu'à un endroit la forêt touchait le village, et il s'y rendit, poussé par une curiosité fiévreuse de voir de près des animaux de son espèce, d'en apprendre davantage sur leurs mœurs et de regarder les étranges tanières où ils vivaient.",
+      "Sa vie sauvage parmi les brutes féroces de la jungle ne laissait aucune place à l'idée que ces êtres pussent être autre chose que des ennemis. La ressemblance de forme ne l'induisit pas en erreur sur l'accueil qu'on lui ferait s'il était découvert par eux, les premiers de son espèce qu'il eût jamais vus.",
+      "Tarzan, l'enfant des singes, n'était pas un sentimental. Il ne savait rien de la fraternité humaine. Tout ce qui était hors de sa tribu était son ennemi mortel, à quelques exceptions près, dont Tantor, l'éléphant, était un exemple frappant.",
+      "Et il savait tout cela sans malice ni haine. Tuer était la loi du monde sauvage qu'il connaissait. Ses plaisirs primitifs étaient peu nombreux, mais le plus grand de tous était de chasser et de tuer ; aussi accordait-il aux autres le droit de nourrir les mêmes désirs que lui, même s'il pouvait être lui-même l'objet de leur chasse.",
+      "Sa vie étrange ne l'avait rendu ni morose ni sanguinaire. S'il prenait plaisir à tuer, et s'il tuait le rire aux lèvres, cela ne révélait aucune cruauté innée. Il tuait le plus souvent pour se nourrir ; mais, étant un homme, il tuait parfois pour le plaisir, ce que ne fait aucun autre animal ; car il était réservé à l'homme seul, parmi toutes les créatures, de tuer sans raison et gratuitement, pour le simple plaisir d'infliger la souffrance et la mort.",
+      "Et quand il tuait pour se venger ou pour se défendre, il le faisait aussi sans emportement, car c'était une affaire fort sérieuse qui n'admettait aucune légèreté.",
+      "C'est ainsi qu'à présent, en approchant prudemment du village de Mbonga, il était tout prêt à tuer ou à être tué s'il était découvert. Il avançait avec une prudence inaccoutumée, car Kulonga lui avait appris un grand respect pour les petits éclats de bois pointus qui donnaient la mort si vite et si sûrement.",
+      "Il arriva enfin à un grand arbre, chargé d'un épais feuillage et de boucles pendantes de lianes géantes. De ce berceau presque impénétrable au-dessus du village, il se tapit et regarda la scène au-dessous de lui, s'émerveillant de chaque détail de cette vie nouvelle et étrange.",
+      "Des enfants nus couraient et jouaient dans la rue du village. Des femmes écrasaient des bananes séchées dans de grossiers mortiers de pierre, tandis que d'autres faisaient des galettes avec la farine. Au loin, dans les champs, il voyait encore d'autres femmes qui binaient, désherbaient ou récoltaient.",
+      "Toutes portaient autour des hanches d'étranges ceintures d'herbe sèche qui bouffaient, et beaucoup étaient chargées d'anneaux de laiton et de cuivre aux chevilles, aux bras et aux poignets. Autour de bien des cous pendaient de curieux fils de métal enroulés, et plusieurs étaient encore ornées de grands anneaux au nez.",
+      "Tarzan, l'enfant des singes, regardait avec un étonnement croissant ces étranges créatures. Il vit plusieurs hommes qui somnolaient à l'ombre, tandis qu'à l'extrême bord de la clairière il apercevait de temps en temps des guerriers armés qui gardaient apparemment le village contre une attaque surprise.",
+      "Il remarqua que seules les femmes travaillaient. Nulle part on ne voyait un homme labourer les champs ou accomplir une des tâches domestiques du village.",
+      "Enfin, ses yeux se posèrent sur une femme juste au-dessous de lui.",
+      "Devant elle, sur un petit feu bas, il y avait un petit chaudron où bouillonnait une masse épaisse, rougeâtre et goudronneuse. D'un côté d'elle était posée une quantité de flèches de bois dont elle trempait la pointe dans la substance bouillante, avant de les poser sur un étroit râtelier de branches, de l'autre côté.",
+      "Tarzan, l'enfant des singes, était fasciné. Voilà le secret du terrible pouvoir destructeur des petits projectiles de l'Archer. Il remarqua l'extrême soin que prenait la femme pour qu'aucune parcelle de la matière ne touche ses mains ; et une fois qu'une goutte éclaboussa un de ses doigts, il la vit plonger le doigt dans un récipient d'eau et frotter vivement la minuscule tache avec une poignée de feuilles.",
+      "Tarzan ne savait rien du poison ; mais son raisonnement avisé lui dit que c'était cette substance mortelle qui tuait, et non la petite flèche, qui n'était que la messagère qui la portait dans le corps de sa victime."
+    ] },
+
+  C10_2: { act: "C10", title: "Le fantôme de la nuit", place: "mbonga",
+    text: [
+      "Qu'il aimerait avoir davantage de ces petits éclats qui donnaient la mort ! Si seulement la femme voulait quitter son travail un instant, il pourrait se laisser tomber, en ramasser une poignée et être de retour dans l'arbre avant qu'elle eût respiré trois fois.",
+      "Tandis qu'il cherchait un moyen de détourner son attention, il entendit un cri sauvage de l'autre côté de la clairière. Il regarda et vit un guerrier debout sous l'arbre même où il avait tué, une heure plus tôt, le meurtrier de Kala.",
+      "L'homme criait en agitant sa lance au-dessus de sa tête. De temps en temps, il montrait quelque chose sur le sol devant lui.",
+      "Le village fut aussitôt en émoi. Des hommes armés sortirent en courant de bien des huttes et traversèrent la clairière au pas de course vers la sentinelle surexcitée. Derrière eux accoururent les vieillards, puis les femmes et les enfants, si bien qu'en un instant le village fut désert.",
+      "Tarzan, l'enfant des singes, savait qu'ils avaient trouvé le corps de sa victime ; mais cela l'intéressait bien moins que le fait que personne ne restait au village pour l'empêcher de prendre une provision des flèches qui étaient au-dessous de lui.",
+      "Vivement et sans bruit, il se laissa tomber à terre près du chaudron de poison. Un instant, il resta immobile, ses yeux vifs et brillants parcourant l'intérieur de la palissade.",
+      "Personne en vue. Ses yeux se posèrent sur la porte ouverte d'une hutte voisine. Il allait jeter un coup d'œil à l'intérieur, se dit Tarzan, et il s'approcha prudemment de la petite construction au toit de chaume.",
+      "Un instant, il resta dehors, écoutant attentivement. Aucun bruit ; il se glissa dans la pénombre de l'intérieur.",
+      "Des armes étaient accrochées aux murs : de longues lances, des couteaux de forme étrange, deux boucliers étroits. Au milieu de la pièce, il y avait une marmite, et au fond une litière d'herbes sèches couverte de nattes tressées, qui servait évidemment de lit à ses propriétaires. Plusieurs crânes humains étaient posés sur le sol.",
+      "Tarzan, l'enfant des singes, tâta chaque objet, soupesa les lances, les flaira, car il « voyait » surtout par ses narines sensibles et très exercées. Il décida qu'il aurait un de ces longs bâtons pointus ; mais il ne pouvait pas en prendre un cette fois-ci, à cause des flèches qu'il comptait emporter.",
+      "À mesure qu'il décrochait chaque objet, il le posait sur un tas au milieu de la pièce. Tout en haut, il plaça la marmite, retournée, et sur la marmite un des crânes ricanants, sur lequel il fixa la coiffure de plumes du défunt Kulonga.",
+      "Puis il recula, contempla son œuvre et sourit. Tarzan, l'enfant des singes, aimait les farces.",
+      "Mais voilà qu'il entendit au-dehors le bruit de nombreuses voix, de longs hurlements lugubres et de grandes lamentations. Il tressaillit. Était-il resté trop longtemps ? Il gagna vivement la porte et regarda le long de la rue du village vers la porte de la palissade.",
+      "Les villageois n'étaient pas encore en vue, mais il les entendait clairement approcher à travers la plantation. Ils devaient être tout près.",
+      "Comme l'éclair, il traversa d'un bond l'espace découvert jusqu'au tas de flèches. En ramassant tout ce qu'il pouvait porter sous un bras, il renversa d'un coup de pied le chaudron bouillant, et disparut dans le feuillage au-dessus juste au moment où les premiers villageois franchissaient la porte, à l'autre bout de la rue. Puis il se retourna pour regarder ce qui se passait en bas, prêt à prendre son vol comme un oiseau sauvage au premier signe de danger.",
+      "Les villageois remontèrent la rue en file, quatre d'entre eux portant le corps de Kulonga. Derrière venaient les femmes, poussant des cris étranges et d'étranges lamentations. Ils arrivèrent devant la porte de la hutte de Kulonga, celle-là même où Tarzan avait fait ses ravages.",
+      "À peine une demi-douzaine d'entre eux y étaient-ils entrés qu'ils en ressortirent en courant dans une confusion folle et jacassante. Les autres s'empressèrent de s'assembler alentour. Il y eut beaucoup de gestes agités, de doigts tendus et de bavardages ; puis plusieurs guerriers s'approchèrent et regardèrent à l'intérieur.",
+      "Enfin, un vieil homme qui portait de nombreux ornements de métal aux bras et aux jambes, et un lourd collier de trophées sur la poitrine, entra dans la hutte.",
+      "C'était Mbonga, le roi, le père de Kulonga.",
+      "Pendant quelques instants, tout fut silencieux. Puis Mbonga ressortit, le visage marqué à la fois de colère et de crainte superstitieuse. Il dit quelques mots aux guerriers assemblés, et en un instant les hommes couraient à travers le petit village, fouillant minutieusement chaque hutte et chaque recoin à l'intérieur de la palissade.",
+      "À peine la fouille avait-elle commencé qu'on découvrit le chaudron renversé, et avec lui le vol des flèches empoisonnées. On ne trouva rien de plus, et ce fut un groupe complètement saisi et effrayé qui se blottit quelques instants plus tard autour de son roi.",
+      "Mbonga ne pouvait rien expliquer des étranges événements qui s'étaient produits. La découverte du corps encore chaud de Kulonga, au bord même de leurs champs, à portée de voix du village, poignardé et dépouillé à la porte de la maison de son père, était déjà assez mystérieuse en elle-même ; mais ces dernières découvertes effrayantes à l'intérieur du village, dans la hutte même du défunt Kulonga, remplissaient leurs cœurs de consternation et n'éveillaient dans leurs esprits que les plus effroyables explications superstitieuses.",
+      "Ils se tenaient par petits groupes, parlant à voix basse, et jetant sans cesse derrière eux des regards effrayés.",
+      "Tarzan, l'enfant des singes, les observa quelque temps de son haut perchoir dans le grand arbre. Il y avait dans leur attitude bien des choses qu'il ne pouvait comprendre, car il ignorait la superstition, et n'avait de la peur, sous quelque forme que ce fût, qu'une vague idée.",
+      "Le soleil était haut dans le ciel. Tarzan n'avait encore rien mangé ce jour-là, et il y avait bien des kilomètres jusqu'à l'endroit où l'attendaient les savoureux restes de Horta, le sanglier.",
+      "Il tourna donc le dos au village de Mbonga et se fondit dans les retraites feuillues de la forêt."
+    ] },
+
+};
