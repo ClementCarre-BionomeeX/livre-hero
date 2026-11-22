@@ -2733,6 +2733,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "16.3", items: ["Nouveau livre à lire : « Le Vagabond des étoiles » de Jack London (1915), dans la traduction de Paul Gruyer et Louis Postif : un condamné à mort de San Quentin revit ses vies passées."] },
     { v: "16.2", items: ["Nouveau livre à lire : les « Voyages de Gulliver » de Jonathan Swift (1726), les quatre voyages dans la traduction de l'abbé Desfontaines."] },
     { v: "16.1", items: ["Nouveau livre à lire : « Le Livre de la jungle » de Rudyard Kipling (1894), dans la traduction de Fabulet et d'Humières, avec ses poèmes et ses chants en vers."] },
     { v: "16.0", items: ["« Le Dernier des Mohicans » de James Fenimore Cooper, à lire en entier dans la traduction de Defauconpret : Œil-de-Faucon, Chingachgook et Uncas, les deux filles du colonel Munro, le Renard-Subtil, et le siège du fort William-Henry en 1757. Avec les gens, les lieux et les mots d'un toucher."] },

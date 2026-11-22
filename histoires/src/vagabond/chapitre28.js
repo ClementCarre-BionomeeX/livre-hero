@@ -1,0 +1,80 @@
+// « Le Vagabond des étoiles » (The Star Rover), Jack London, 1915 : un livre à lire, sans choix (lecture: true).
+// Texte de London (1876-1916, domaine public), dans la traduction de Paul Gruyer et Louis Postif (Crès, 1925, domaine
+// public), d'après la saisie du projet Gutenberg. Les titres des chapitres sont ceux des traducteurs ; ceux des pages,
+// comme tout ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude.
+// Chapitre XXVIII · XXVIII. Qui serai-je quand je revivrai ?
+module.exports = {
+  XXVIII_1: { act: "XXVIII", title: "Le médecin et les journalistes", place: "folsom",
+    text: [
+      "… … … … … … … … … … … …",
+      "Je viens d'avoir une conversation avec le garde de la Mort qui est de service. Il a connu Jake Oppenheimer, qui occupait cette même cellule il y a un an, avant de marcher au gibet comme je vais le faire moi-même.",
+      "C'est un ancien soldat. Il chique continuellement, et de façon malpropre. Sa barbe grise et sa moustache sont toutes maculées de traînées jaunes. Il est veuf, avec quatorze enfants vivants, tous mariés, et il est le grand-père de trente et un petits-enfants vivants, l'arrière-grand-père de quatre petites filles.",
+      "Ce n'est pas sans difficulté que j'ai obtenu ces renseignements. J'ai dû les lui extirper avec autant de peine que s'il se fût agi de lui extraire une molaire.",
+      "C'est une sorte de rustre, d'une intelligence très inférieure. L'esprit ne l'a jamais tourmenté. Et c'est pour cette raison, sans doute, qu'il a vécu si vieux et a, sans se troubler, procréé tant d'enfants.",
+      "Ses idées ont dû se bloquer chez lui, dès l'âge de trente ans. Le monde lui est indifférent. Il se contente, d'ordinaire, de répondre oui ou non à mes questions. Ce n'est point qu'il soit naturellement hargneux ou morose. Mais il n'a point d'idées à exprimer.",
+      "Je me demande si je ne devrais pas souhaiter, pour ma prochaine réincarnation, une existence comme la sienne, purement végétative, et qui me reposerait grandement des élans divins de mon intelligence.",
+      "… … … … … … … … … … … …",
+      "Après avoir été secoué, bousculé, assommé de coups de poing et coups de pied, par Thurston et par ses chiens pendeurs, tout en remontant ce terrible escalier, j'éprouvai un immense, un infini soulagement, lorsque je me retrouvai dans mon étroite cellule.",
+      "Là, tout me paraissait si sûr, si stable. J'étais comme un enfant perdu qui, après une équipée, rejoint la maison paternelle. Je me prenais d'affection pour ces murs que, durant des années, j'avais tant haïs.",
+      "Ces bons murs, épais et solides, que j'avais, à droite et à gauche, à portée immédiate de ma main, empêchaient l'espace de bondir sur moi, comme une bête fauve. L'agoraphobie est une terrible maladie. Je plains sincèrement ceux qui en sont atteints. Du peu que j'en ai tâté, je ne crains pas d'affirmer que la surmonter est plus difficile que d'accepter la pendaison.",
+      "… … … … … … … … … … … …",
+      "Je viens de me faire une pinte de bon sang. Le médecin de la prison, imaginez-vous, un homme fort sympathique au demeurant, est entré dans ma Cellule de Mort, pour faire un brin de causette avec moi… et m'offrir incidemment ses bons offices. C'est à dire une dose suffisante de morphine, qu'il me fournirait, et que j'absorberais pendant la nuit. Demain matin, m'a-t-il affirmé, je ne me rendrais même pas compte que je marche à la potence.",
+      "J'ai décliné sa proposition. J'en ai ri aux éclats.",
+      "Je me souviens du cas de Jake Oppenheimer, que l'on m'a conté. Lui non plus, n'a pas eu peur de la mort.",
+      "Son dernier matin venu, et son petit déjeuner terminé, comme il était déjà dans sa chemise sans col, les reporters furent introduits dans sa cellule, curieux de recueillir ses dernières paroles. Écoutez comment il les mystifia."
+    ] },
+
+  XXVIII_2: { act: "XXVIII", title: "Tu ne tueras point", place: "folsom",
+    text: [
+      "Comme ils lui demandaient ce qu'il pensait de la peine de mort — poser une question semblable à un homme qui va mourir et que l'on va voir mourir, c'est, vous l'avouerez, un toupet de sauvage — il leur répondit, beau joueur comme il l'avait toujours été dans sa vie :",
+      "— Gentlemen, je pense vivre assez pour la voir un jour abolie…",
+      "Ça, c'était tapé !",
+      "J'ai vécu d'innombrables existences et je puis affirmer que, depuis la création du monde, la barbarie humaine n'a pas fait un pas vers le progrès. Nous avons mis sur elle, au cours des siècles, un léger vernis. Rien de plus.",
+      "« Tu ne tueras point… » a proclamé la Loi divine. Du bluff ! La preuve en est qu'on me pendra demain matin. Dans les arsenaux de toutes les nations se construisent, à cette heure, des canons et des navires, dreadnoughts et superdreadnoughts, et mille instruments savants, destinés à tuer. « Tu ne tueras point… » Bluff ! Bluff ! Bluff !",
+      "Nos femmes, à l'Age de Pierre, étaient plus vertueuses que ne sont les nôtres aujourd'hui. Nous ne mangions pas d'aliments frelatés, empoisonnés par un mercantilisme éhonté. Les filles des pauvres n'étaient point condamnées, pour vivre, à la prostitution. La prostitution était inconnue.",
+      "Je vous ai conté ce qu'au début du vingtième siècle après Jésus-Christ, j'ai enduré dans mon cachot, et toutes les tortures de la camisole. Jamais je n'ai connu, dans les siècles passés, de tourments équivalents.",
+      "Nous sommes aussi sauvages que nos premiers ancêtres. Mais ceux-ci, quand ils tuaient, le faisaient franchement et le front levé, ils acceptaient la responsabilité de leur acte. Nous, nous avons adjoint à nos meurtres l'hypocrisie. Nous ne nous cachions pas, autrefois, derrière l'autorité des philosophes, des prédicateurs subventionnés et des professeurs de droit.",
+      "Il y a cent ans, cinquante ans, cinq ans seulement, les voies de fait n'entraînaient pas, aux États-Unis, la peine capitale. Aujourd'hui, Jake Oppenheimer a été pendu en Californie, pour ce seul délit. Et moi je vais l'être, pour un coup de poing sur le nez d'un homme. Voilà le progrès, bonté divine !",
+      "Mais, si les singes et les tigres étaient soumis à un pareil régime, il y a longtemps que la race en aurait disparu ! N'est-ce pas votre avis ?",
+      "Seigneur ! Seigneur ! On plaint le Christ parce qu'il a été crucifié… Qu'est-ce que nous dirions alors, Oppenheimer et moi ?",
+      "… … … … … … … … … … … …",
+      "Comme Ed. Morrell me le frappait un jour avec ses doigts, « le pire usage qu'on puisse faire d'un homme est de le pendre ».",
+      "Non, je n'ai vraiment aucun respect pour la peine capitale. Et ce n'est pas seulement une mauvaise action pour les chiens pendeurs qui l'exécutent, moyennant salaire. C'est une honte pour la société qui la tolère, et paie pour elle des impôts.",
+      "« Être pendu par le cou, jusqu'à ce que mort s'ensuive… » Ainsi s'exprime le Code, dans sa phraséologie bizarre. Mais la pendaison est une chose sotte, stupide et, par dessus tout, antiscientifique. Voilà pourquoi elle me répugne.",
+      "… … … … … … … … … … … …",
+      "Le matin est arrivé. Mon dernier matin. J'ai dormi, toute la nuit, comme un enfant."
+    ] },
+
+  XXVIII_3: { act: "XXVIII", title: "Qui serai-je ?", place: "folsom",
+    text: [
+      "Dormi si paisiblement qu'à un moment le garde de la Mort s'en est effrayé. Il a cru que je m'étais étouffé sous mes couvertures.",
+      "L'inquiétude du pauvre homme faisait pitié. Son pain et son beurre étaient en jeu. Si j'eusse été réellement mort, il eût été mal noté, révoqué peut-être, et la perspective d'aller grossir le nombre des sans-travail est amère à cette heure.",
+      "L'Europe, m'a-t-on dit, liquide, depuis deux ans, un passif fort lourd. Ce sera ensuite le tour des États-Unis. Cela signifie une crise commerciale prochaine, une panique financière peut-être, et que l'armée des sans-travail fournira, l'hiver prochain, de plus longues queues aux distributions de pain des œuvres d'assistance.",
+      "On m'a apporté mon petit déjeuner. Cela paraît idiot, mais je l'ai absorbé de bon cœur. Le gouverneur m'a offert lui-même un litre de whisky.",
+      "Je l'en ai remercié et lui ai répondu qu'il veuille bien en faire don, de ma part, au Quartier des Assassins. Pauvre gouverneur ! Il craint, si je ne suis pas ivre, que je ne me rebiffe et mette du désordre dans la cérémonie, et que je ne lui adresse, devant les reporters, des reproches sur sa prison.",
+      "On m'a mis une chemise sans col…",
+      "Il semble que je sois devenu soudain un personnage important. C'est incroyable, le grand nombre de gens qui s'intéressent à moi…",
+      "Le docteur vient de sortir. Je lui ai demandé qu'il me tâte le pouls. Les battements sont normaux…",
+      "Je jette, au hasard, ces lignes sur le papier. Feuille par feuille, elles sortent des murs de la prison, par une voie secrète.",
+      "Je suis l'homme le plus calme de cette prison. J'ai l'air d'un enfant prêt à entreprendre un voyage. J'ai hâte de m'en aller, curieux des pays nouveaux que je dois voir. Pourquoi aurais-je peur de la mort, moi qui, si souvent, suis entré dans les ténèbres de la mort volontaire, pour en ressortir aussitôt ?",
+      "… … … … … … … … … … … …",
+      "Le gouverneur, à la place du litre de whisky, m'a expédié une bouteille de champagne. Je l'ai envoyée au Quartier des Assassins. Que de considérations l'on a pour moi, en ce dernier jour ! Étrange ! Étrange ! Ces hommes qui vont me tuer sont, j'imagine, épouvantés de ma mort. Ils tiennent à se mettre en règle avec leur conscience et je dois leur paraître un être supérieur, ayant déjà le pied dans l'Éternité.",
+      "… … … … … … … … … … … …",
+      "Ed. Morrell vient de me faire parvenir un petit mot. Il m'affirme qu'il a fait les cent pas, toute la nuit, devant le mur du Quartier des Condamnés à mort.",
+      "On lui a interdit, administrativement, de venir me faire ses adieux. Bandits ! Je le dis sans le savoir. Mais je le suppose. On a dû se défier de lui. Ces gens sont des enfants. Ils me tuent et, la nuit prochaine, lorsqu'ils m'auront allongé le cou, ils auront peur, pour la plupart, de rester dans l'obscurité.",
+      "Voici quel était le message d'Ed. Morrell : « Ma main est dans la tienne, vieux camarade ! Je sais que, même au bout de la corde, c'est toi qui auras gagné la partie. Ils n'auront pas eu la dynamite. »",
+      "… … … … … … … … … … … …",
+      "Les reporters se sont éloignés. Je ne les verrai plus, la prochaine et dernière fois, que du haut du gibet, avant que le bourreau ne me cache la face sous le voile noir.",
+      "… … … … … … … … … … … …",
+      "Quelques lignes encore…",
+      "En les écrivant, je retarde la cérémonie. Le corridor est plein de fonctionnaires et de hauts dignitaires. Tous sont nerveux. Ils désirent, évidemment, en finir au plus vite. Sans doute plusieurs d'entre eux sont-ils attendus à déjeuner. Je les désoblige beaucoup en tenant encore ma plume…",
+      "Le prêtre m'a renouvelé sa demande de rester avec moi jusqu'à la fin. Le pauvre homme ! Pourquoi lui refuserais-je cette consolation ?",
+      "J'ai consenti, et maintenant il a l'air tout réjoui. Mon Dieu, qu'il faut peu de chose pour rendre heureux certains hommes ! Je pourrais m'attarder encore à en rire, pendant cinq joyeuses minutes, s'ils n'étaient pas si pressés.",
+      "… … … … … … … … … … … …",
+      "Je termine ici. Je ne puis que me répéter. Il n'y a pas de mort absolue. L'esprit est la vie, et l'esprit ne saurait mourir.",
+      "Seule, la chair meurt et passe, et, par l'effet de fermentations chimiques, se dissout et se transmute, pour renaître, comme une matière plastique, sous des formes nouvelles et diverses. Formes éphémères qui, à leur tour, périront pour renaître encore.",
+      "Qui serai-je quand je revivrai ? Voilà… Voilà ce qui me préoccupe… Qui serai-je et de quelles femmes serai-je aimé ?",
+      "… … … … … … … … … … … …"
+    ] },
+
+};

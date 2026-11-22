@@ -1,0 +1,82 @@
+// « Le Vagabond des étoiles » (The Star Rover), Jack London, 1915 : un livre à lire, sans choix (lecture: true).
+// Texte de London (1876-1916, domaine public), dans la traduction de Paul Gruyer et Louis Postif (Crès, 1925, domaine
+// public), d'après la saisie du projet Gutenberg. Les titres des chapitres sont ceux des traducteurs ; ceux des pages,
+// comme tout ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude.
+// Chapitre X · X. Un sourire quand même
+module.exports = {
+  X_1: { act: "X", title: "Dix jours", place: "cellule", fx: { meet: ["hutchins"] },
+    text: [
+      "Le lendemain matin, et ce fut ce qui acheva de me décider, le gouverneur Atherton pénétra dans mon cachot avec des intentions mauvaises, bien arrêtées.",
+      "Il était flanqué du capitaine Jamie, du docteur Jackson, de Face-de-Tourte et d'un nommé Al. Hutchins.",
+      "Hutchins purgeait une condamnation de quarante ans et faisait tout pour être gracié. De tous ses pareils, qui étaient passés hommes de confiance, il était le mieux en cour. Il était le chef des autres. Et vous vous rendrez compte que ce n'est pas une méprisable situation, quand vous saurez qu'à ce métier il se faisait trois mille dollars par an, de ses tours de bâton. Avec un homme comme lui, possédant un pécule de dix à douze mille dollars et une promesse de grâce dans sa poche, le gouverneur Atherton savait, quels que fussent ses ordres, qu'il pouvait compter être aveuglément obéi.",
+      "Le gouverneur, comme je l'ai dit, entra dans ma cellule avec des desseins meurtriers. Ils se lisaient sur son visage. Ses actes le prouvèrent.",
+      "— Examinez-le, ordonna-t-il au docteur Jackson.",
+      "Je dus me déshabiller, et ce misérable avorton m'arracha lui-même la chemise, incrustée de crasse, que je portais depuis mon arrivée dans ma cellule d'isolement. Il mit à nu mon pauvre corps dévasté, dont la peau était ridée comme un vieux parchemin. Partout elle était ravagée de plaies et de meurtrissures, provenant de mes nombreuses séances dans la camisole.",
+      "L'examen fut fait pour la forme, avec une impudente hypocrisie.",
+      "— Tiendra-t-il ? demanda le gouverneur Atherton.",
+      "— Oui, répondit Jackson.",
+      "— Comment est le cœur ?",
+      "— Magnifique !",
+      "— Vous estimez, docteur, qu'il peut supporter impunément dix jours consécutifs de camisole ?",
+      "— Certainement.",
+      "Le gouverneur Atherton eut un ricanement.",
+      "— Eh bien, moi, dit-il, je ne le crois pas. Mais cela ne nous empêchera pas de tenter l'expérience. A bas, Standing !",
+      "J'obéis, comme toujours, en m'allongeant, la face sur le sol, sur la toile étendue. Le gouverneur parut ruminer pendant un moment.",
+      "— Enroule-toi dedans ! finit-il par ordonner.",
+      "Je m'efforçai d'obéir. Mais telle était ma faiblesse que je ne pus que me tortiller en vain et que je demeurai aplati.",
+      "— Il faut l'y aider, commenta le docteur Jackson.",
+      "Atherton haussa les épaules.",
+      "— D'aide, dit-il, il n'en aura plus besoin, quand j'aurai fini avec lui. C'est bon ! Prêtez-lui la main. J'ai autre chose à faire que de perdre mon temps ici.",
+      "Je fus donc lacé, puis roulé sur le dos. Je fixai des yeux, dans cette position, le gouverneur Atherton, qui était en face de moi.",
+      "— Standing, prononça-t-il lentement, j'ai épuisé avec toi tous les bons procédés. En voilà assez ! Je suis lassé, dégoûté de ton entêtement. Ma patience est à bout. Le docteur Jackson, ici présent, affirme que tu es en état de supporter dix jours de camisole. Pèse bien ce que tu risques. Une dernière fois, je t'offre une chance. Dis-moi où est la dynamite. A l'instant précis où elle sera entre mes mains, j'ordonnerai qu'on te tire de cette cellule. Tu seras libre de prendre un bain, de te raser, et tu recevras des vêtements propres. Tu auras six mois pour te tourner les pouces, au régime d'excellente nourriture de l'Infirmerie. Après quoi, tu passeras homme de confiance et seras attaché à la Bibliothèque. Tu ne peux vraiment pas me demander d'être plus gentil que je ne suis. En parlant, tu ne vends personne. Tu es le seul à San Quentin qui sache où est la dynamite. Pas un de tes camarades n'en sera compromis. La conscience la plus chatouilleuse ne peut s'offusquer de te voir céder. Il n'y a donc que des avantages à ce que tu parles. Au cas contraire…"
+    ] },
+
+  X_2: { act: "X", title: "Le défi", place: "cellule",
+    text: [
+      "Il y eut un silence, et le gouverneur esquissa un geste significatif.",
+      "— Au cas contraire… Eh bien ! tu commenceras sur-le-champ les dix jours de camisole.",
+      "Cette perspective avait de quoi m'épouvanter. J'étais si débile que j'étais persuadé, non moins que le gouverneur Atherton, que ces dix jours équivalaient à un arrêt de mort.",
+      "En cette minute terrible, je me souvins fort à propos du système Morrell. L'instant, ou jamais, était venu de le mettre en pratique et d'avoir foi en lui. Je ne baissai pas les yeux et souris au gouverneur Atherton. Ce sourire était celui d'un croyant, et d'un croyant était la calme proposition que je lui formulai :",
+      "— Gouverneur ! Regardez mon sourire. Si, dans dix jours, lorsque je serai délacé, vous le trouvez encore sur mes lèvres, consentez-vous à me donner un paquet de Durham, et deux autres à Morrell et à Oppenheimer ?",
+      "— Les voilà bien, ces intellectuels ! grogna en sourdine le capitaine Jamie. Ils se croient supérieurs aux autres hommes et les bravent, dans leur orgueil.",
+      "Le gouverneur Atherton, qui était colérique de sa nature, éclata. Il prit ma proposition pour une bravade et clama :",
+      "— Ce que tu viens de dire, Darrell, te vaudra d'être serré d'un cran de plus !",
+      "— J'ai parlé sérieusement et en toute loyauté, gouverneur Atherton… répondis-je, sans me départir de mon calme. Vous pouvez commander qu'on me serre aussi étroitement qu'il vous plaira. Si, dans dix jours, j'ai encore ce même sourire… consentez-vous à nous donner à nous trois, moi, Morrell et Oppenheimer, les trois paquets de papier brun ?",
+      "Il riposta :",
+      "— Tu sembles bien sûr de toi !",
+      "— La foi la plus complète est entrée dans mon cœur.",
+      "— Tu t'es converti, alors ? ricana-t-il.",
+      "— Naturellement… Je prétends simplement qu'il y a plus de vie en moi que vous ne croyez et que, de cette vie, vous ne sauriez trouver le terme. Donnez-moi, à votre gré, cent jours de camisole. Après cent jours, en vous regardant, je sourirai encore.",
+      "— Cent jours… A quoi bon ? Après dix, tu auras démissionné de l'existence, et largement !",
+      "— Si c'est votre pensée, promettez-moi les trois paquets de tabac. Que risquez-vous ?",
+      "— Veux-tu plutôt, et tout de suite, mon poing dans la figure ?",
+      "— Si tel est votre bonheur, ne vous gênez pas, répliquai-je, toujours suave et convaincu. Et tapez fort ! Même en marmelade, ma figure saura vous sourire. Voyons ! n'hésitez pas… Acceptez plutôt le pari.",
+      "Il faut qu'un homme soit singulièrement bas et désespéré pour oser rire, comme je le faisais, en de telles circonstances, à la barbe du gouverneur. Ou plutôt, il faut qu'il ait une foi bien sincère dans la réalité de son offre.",
+      "Le capitaine Jamie parut sentir cette foi qui me soulevait tout entier.",
+      "— Je me souviens, dit-il, d'un ancien prisonnier, qui tenait de semblables propos. C'était un Suédois. Il y a de cela vingt ans et vous n'étiez pas encore ici, gouverneur. Cet homme en avait tué un autre, pour vingt-cinq cents. Ce qui lui avait valu d'être condamné à mort. Il était cuisinier de son métier. Lui aussi avait la foi. Il racontait qu'un char d'or venait le prendre sur la terre, pour le conduire au ciel. Et, un beau jour, il s'assit sur le fourneau de la prison qui était chauffé à blanc, en chantant des cantiques et des « hosanna ! » tout en grillant. On l'en arracha, quand on l'y trouva. Deux jours après, il mourut à l'infirmerie. Il avait eu la chair brûlée jusqu'aux os. Mais, jusqu'à son dernier soupir, il affirma n'avoir point senti la chaleur. (*Note : Monnaie qui vaut le centième du dollar américain.*)"
+    ] },
+
+  X_3: { act: "X", title: "Un sourire", place: "cellule",
+    text: [
+      "— Et je vous dis, moi, fulmina Atherton, que nous forcerons Standing à se dégonfler !",
+      "Je réitérai mon défi :",
+      "— Alors, promettez le tabac !",
+      "En une telle colère était le gouverneur qu'il m'eût prêté à rire, si ma situation n'avait été aussi tragique. Il avait le visage convulsé, il serrait les poings, et je vis le moment où il allait tomber sur moi, à bras raccourcis.",
+      "Il fit un effort sur lui-même et redevint maître de lui.",
+      "— Il suffit, Standing ! Tu seras maté. Et, à défaut de tabac, je parie ma main à couper qu'en dépit de la solidité de ton coffre, tu ne souriras pas dans dix jours… Allons, mes petits, enroulez-le, et serrez, jusqu'à ce que vous entendiez craquer ses côtes ! Montre-lui, Hutchins, comme tu opères.",
+      "Je fus effectivement enroulé et lacé comme jamais encore je ne l'avais été. L'homme de confiance en chef me prouva, sans discussion possible, son habileté. J'essayai de carotter le plus d'espace réalisable. Mais je m'étais, depuis si longtemps, dépouillé de presque toute ma chair, mes muscles étaient réduits à des fibres tellement amorphes, que je fus incapable de subtiliser grand'chose. Le peu que je me ménageai, je l'obtins par une sorte de gonflement des jointures, à toutes les articulations des os de ma charpente. Encore en fus-je subtilement frustré par Hutchins, qui avait, par sa propre expérience, appris toutes les ruses de la camisole.",
+      "Ce misérable avait été un homme cependant. Mais on l'avait brisé sur la roue, et tout son moral s'était éteint en lui. Ses dix à douze mille dollars et sa liberté en perspective avaient fait de lui l'esclave du gouverneur. J'ai su, plus tard, qu'il y avait aussi une femme, demeurée fidèle, et qui l'attendait. Le facteur féminin explique bien des actes de l'homme, et des plus vilains.",
+      "Ce fut, en réalité, un véritable meurtre, accompli de propos délibéré, dont Hutchins se rendit, ce matin-là, coupable envers moi. Le pied sur mon dos, il tirait le lacet, toujours un peu plus, s'arrêtait, puis tirait encore. Il me semblait que ma charpente allait céder sous cette compression inusitée, que tous mes organes vitaux allaient s'anéantir. Je savais que je ne mourrais pas, oui, *je le savais*, et pourtant il me semblait que la mort était sur moi. La tête me tournait, mon sang battait à briser mes veines et mes artères, des ongles de mes orteils à la racine de mes cheveux.",
+      "— C'est assez serré, intervint, bien à contre-cœur, le capitaine Jamie.",
+      "— J'opine de même, déclara le docteur Jackson. Vous serreriez jusqu'à demain que le résultat sur lui serait le même. Ou il est tabou, ou il devrait être mort depuis longtemps.",
+      "Le gouverneur Atherton se pencha vers moi. Après maints efforts, il réussit à insérer son index entre la toile et mon dos.",
+      "Il fronça le sourcil, mit à son tour le pied sur mon corps et tira, de toutes ses forces, sur le lacet. Mais il ne put gagner quoi que ce soit en plus.",
+      "— Hutchins, dit-il, je tire mon chapeau devant vous ! Vous vous y connaissez supérieurement. Et maintenant retournez-le, afin que nous puissions voir sa binette.",
+      "On me roula sur le dos.",
+      "Je fixai des yeux le cercle des mes tortionnaires. Ce que je sais bien, c'est que si l'on m'avait lacé comme je l'étais, la première fois où je fus mis en camisole, j'en serais mort en dix minutes. Mais j'étais entraîné. J'avais derrière moi des milliers d'heures de ce supplice. Puis j'avais foi dans le système Morrell.",
+      "Goguenard, le gouverneur Atherton persifla :",
+      "— Ris donc, maintenant, damné que tu es ! Allons ris un peu ! Et commence par sourire, si tu le peux…",
+      "Mes poumons écrasés haletaient vers un peu d'air. Mon cœur menaçait d'éclater. Mon cerveau vacillait. Et pourtant un sourire à l'adresse du gouverneur Atherton se dessina sur mes lèvres."
+    ] },
+
+};
