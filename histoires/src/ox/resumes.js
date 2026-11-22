@@ -1,0 +1,48 @@
+// « Le Docteur Ox », Jules Verne, 1874 : un livre à lire, sans choix (lecture: true). Recueil de quatre récits de
+// Jules Verne et d'un récit de son frère Paul, domaine public, d'après l'édition numérisée par le Projet Gutenberg
+// (Hetzel). Les titres des chapitres de « Maître Zacharius » et d'« Un hivernage dans les glaces » sont ceux de Verne ;
+// ceux du « Docteur Ox », très longs chez Verne, sont de Claude et cités dans les résumés, comme les titres des pages
+// et tout ce qui vit dans les tags (gens, lieux, mots, résumés).
+// Ce qui se passe dans chaque chapitre, en quelques lignes (Claude), montré par « Où en étais-je ? » une fois le chapitre lu.
+module.exports = {
+  I1: { text: "« Comme quoi il est inutile de chercher, même sur les meilleures cartes, la petite ville de Quiquendone. » Verne présente Quiquendone, en Flandre, ses deux mille trois cent quatre-vingt-treize habitants, et leur calme sans égal." },
+  I2: { text: "« Où le bourgmestre van Tricasse et le conseiller Niklausse s'entretiennent des affaires de la ville. » Une conversation qui prend son temps, dans le parloir du bourgmestre, et la maison où il vit avec sa femme, sa fille Suzel, sa sœur Tatanémance et sa servante Lotchè." },
+  I3: { text: "« Où le commissaire Passauf fait une entrée aussi bruyante qu'inattendue. » On parle de l'éclairage au gaz que le docteur Ox offre à la ville, quand quelqu'un frappe à la porte." },
+  I4: { text: "« Où le docteur Ox se révèle comme un physiologiste de premier ordre et un audacieux expérimentateur. » Qui est le docteur Ox ? Et que dit-il à son préparateur Ygène, dans leur cabinet de travail ?" },
+  I5: { text: "« Où le bourgmestre et le conseiller vont faire une visite au docteur Ox, et ce qui s'ensuit. »" },
+  I6: { text: "« Où Frantz Niklausse et Suzel van Tricasse forment quelques projets d'avenir. » Deux fiancés très patients." },
+  I7: { text: "« Où les andante deviennent des allegro et les allegro des vivace. » Une représentation des Huguenots au théâtre de Quiquendone, où l'on joue d'ordinaire les opéras très, très lentement." },
+  I8: { text: "« Où l'antique et solennelle valse allemande se change en tourbillon. » Le lendemain du théâtre, puis une soirée chez le bourgmestre." },
+  I9: { text: "« Où le docteur Ox et son préparateur Ygène ne se disent que quelques mots. »" },
+  I10: { text: "« Dans lequel on verra que l'épidémie envahit la ville entière et quel effet elle produisit. » Les plantes, les bêtes et les gens de Quiquendone changent." },
+  I11: { text: "« Où les Quiquendoniens prennent une résolution héroïque. » Une vieille querelle avec la ville voisine de Virgamen revient à la mémoire de tous." },
+  I12: { text: "« Dans lequel le préparateur Ygène émet un avis raisonnable, qui est repoussé avec vivacité par le docteur Ox. »" },
+  I13: { text: "« Où il est prouvé une fois de plus que d'un lieu élevé on domine toutes les petitesses humaines. » Le bourgmestre et le conseiller montent à la tour du beffroi." },
+  I14: { text: "« Où les choses sont poussées si loin que les habitants de Quiquendone, les lecteurs et même l'auteur réclament un dénoûment immédiat. »" },
+  I15: { text: "« Où le dénoûment éclate. »" },
+  I16: { text: "« Où le lecteur intelligent voit bien qu'il avait deviné juste, malgré toutes les précautions de l'auteur. »" },
+  I17: { text: "« Où s'explique la théorie du docteur Ox. »" },
+  II1: { text: "Genève, au bord du Rhône, en un temps où l'on fabriquait les premières montres. Maître Zacharius, vieil horloger de génie, vit avec sa fille Gérande, son apprenti Aubert Thün et la vieille servante Scholastique. Depuis quelque temps, les montres qu'il a faites s'arrêtent, et lui-même dépérit." },
+  II2: { text: "L'orgueil de maître Zacharius, qui a inventé l'échappement et croit avoir mis la vie dans ses horloges." },
+  II3: { text: "Gérande promène son père dans Genève. Un petit vieillard étrange s'attache à leurs pas." },
+  II4: { text: "Les clients de maître Zacharius viennent se plaindre. Gérande tente de ramener son père à Dieu, à l'église de Saint-Pierre." },
+  II5: { text: "Maître Zacharius quitte Genève. Gérande et Aubert le cherchent le long du lac Léman, jusque dans les montagnes." },
+  III1: { text: "Francfort, en septembre 185… Un aéronaute s'apprête à monter en ballon pendant la grande foire. Personne n'ose l'accompagner ; il part seul. Mais quand il s'élève, il n'est pas seul dans la nacelle. Un récit de Jules Verne à la première personne." },
+  IV1: { text: "Dunkerque, le 12 mai. Le vieux capitaine Jean Cornbutte annonce au curé le retour de son navire, la Jeune-Hardie, et le mariage de son fils Louis avec sa nièce Marie. Toute la noce va au bout de la jetée attendre le brick." },
+  IV2: { text: "Jean Cornbutte décide de partir. Marie veut venir." },
+  IV3: { text: "La Jeune-Hardie longe la côte de Norvège jusqu'à Bodoë, relâche aux Feroë, et se prépare à affronter les glaces." },
+  IV4: { text: "Les premiers bancs de glace, les passes étroites, et le second André Vasling qui conteste les choix du timonier Penellan." },
+  IV5: { text: "La mer libre, puis l'île Liverpool, sur la côte du Groenland, et ses habitants.", notice: true },
+  IV6: { text: "La côte est bloquée par les glaces. Une petite troupe part à pied chercher un abri pour le navire." },
+  IV7: { text: "L'équipage installe le navire pour l'hiver polaire." },
+  IV8: { text: "Jean Cornbutte tient conseil et prépare une expédition vers le nord, en traîneau, malgré la nuit qui vient." },
+  IV9: { text: "La caravane se met en route et construit une maison de neige." },
+  IV10: { text: "Une tempête de neige." },
+  IV11: { text: "Au matin, une obscurité complète. Puis, au loin, un nuage de fumée." },
+  IV12: { text: "Le retour vers la Jeune-Hardie, à travers les glaces." },
+  IV13: { text: "Le froid, la maladie, et deux camps qui se forment à bord." },
+  IV14: { text: "Le 20 janvier : la faim, le scorbut, et un danger nouveau." },
+  IV15: { text: "Des ours blancs autour du navire." },
+  IV16: { text: "Le printemps arctique, le dégel, et le retour." },
+  V1: { text: "Chamonix, le 18 août 1871. Paul Verne, le frère de Jules, veut faire l'ascension du mont Blanc, malgré le temps, le guide-chef et l'accident de l'année d'avant. Avec son ami Donatien Levesque et des guides, il monte par les Grands-Mulets. Un récit vrai, à la première personne." },
+};
