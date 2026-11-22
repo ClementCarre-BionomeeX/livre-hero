@@ -1,0 +1,36 @@
+// « Les Naufragés du Jonathan », Jules Verne, 1909 : un livre à lire, sans choix (lecture: true). Texte de Verne,
+// domaine public, d'après l'édition numérisée par le Projet Gutenberg (Hetzel, 1909). Les notes de l'auteur restent entre
+// parenthèses à leur place. Les titres des chapitres sont ceux de Verne ; les titres des pages sont de Claude, comme
+// tout ce qui vit dans les tags (gens, lieux, mots, résumés).
+// Les gens du livre (syntaxe de « Qui est qui » : aka, qui, aspect, face). Cliquables à partir de leur entrée en scène.
+module.exports = {
+  kawdjer: { name: "Le Kaw-djer", aka: ["Kaw-djer"], face: { age: "mur", hair: "gris", coif: "court", beard: "barbe", skin: "hale" }, qui: "Un Européen sans nom qui vit parmi les Indiens de la Magellanie, chasseur et médecin, ennemi de toute autorité.", aspect: { allure: "grand, robuste, impassible", visage: "cheveux et barbe grisonnants, coupés ras" } },
+  karroly: { name: "Karroly", aka: ["Karroly"], face: { age: "mur", hair: "noir", coif: "long", beard: "sans", skin: "cuivre", iris: "noir" }, qui: "Un Fuégien, pilote des canaux de la Magellanie, fidèle compagnon du Kaw-djer." },
+  halg: { name: "Halg", aka: ["Halg"], face: { age: "jeune", hair: "noir", coif: "long", beard: "sans", skin: "cuivre", iris: "noir" }, qui: "Le fils de Karroly, que le Kaw-djer aime comme son fils.", aspect: { allure: "dix-sept ans, vif et dévoué" } },
+  rhodes: { name: "Harry Rhodes", aka: ["Harry Rhodes", "M. Rhodes"], face: { age: "mur", hair: "gris", coif: "court", beard: "moustache", skin: "clair" }, qui: "Un émigrant américain, ruiné à cinquante ans par la faute d'autrui, homme droit et ferme." },
+  mmerhodes: { name: "Mme Rhodes", aka: ["Mme Rhodes", "madame Rhodes"], face: { age: "mur", hair: "chatain", coif: "chignon", skin: "clair" }, qui: "La femme de Harry Rhodes, sérieuse et bonne." },
+  edward: { name: "Edward Rhodes", aka: ["Edward Rhodes", "Edward"], face: { age: "jeune", hair: "chatain", coif: "court", beard: "sans", skin: "clair" }, qui: "Le fils des Rhodes, dix-huit ans." },
+  clary: { name: "Clary Rhodes", aka: ["Clary"], face: { age: "jeune", hair: "blond", coif: "long", skin: "clair" }, qui: "La fille des Rhodes, quinze ans." },
+  hartlepool: { name: "Le maître Hartlepool", aka: ["Hartlepool"], face: { age: "mur", hair: "brun", coif: "court", beard: "barbe", skin: "hale" }, qui: "Le maître d'équipage du Jonathan, marin solide et sans illusions." },
+  dick: { name: "Dick", aka: ["Dick"], face: { age: "enfant", hair: "chatain", coif: "court", skin: "clair" }, qui: "Un des deux mousses du Jonathan, petit, gouailleur et brave comme un lion." },
+  sand: { name: "Sand", aka: ["Sand"], face: { age: "enfant", hair: "blond", coif: "court", skin: "clair" }, qui: "L'autre mousse du Jonathan, timide, l'ami inséparable de Dick." },
+  lazare: { name: "Lazare Ceroni", aka: ["Lazare Ceroni", "Lazare", "Ceroni"], face: { age: "mur", hair: "noir", coif: "court", beard: "moustache", skin: "hale" }, qui: "Un émigrant piémontais, ivrogne et brutal." },
+  tullia: { name: "Tullia Ceroni", aka: ["Tullia"], face: { age: "mur", hair: "noir", coif: "chignon", skin: "hale" }, qui: "La femme de Lazare Ceroni, patiente et douce, qui endure tout." },
+  graziella: { name: "Graziella Ceroni", aka: ["Graziella"], face: { age: "jeune", hair: "noir", coif: "long", skin: "hale", iris: "noir" }, qui: "La fille des Ceroni, seize ans, sérieuse et courageuse." },
+  sirk: { name: "Sirk", aka: ["Sirk"], face: { age: "adulte", hair: "brun", coif: "court", beard: "barbe", skin: "clair" }, qui: "Un émigrant brutal et paresseux, qui tourne autour de Graziella." },
+  dorick: { name: "Lewis Dorick", aka: ["Lewis Dorick", "Dorick"], face: { age: "adulte", hair: "brun", coif: "court", beard: "sans", skin: "clair" }, qui: "Un émigrant américain qui prêche le communisme intégral.", aspect: { allure: "aspect glacial", visage: "visage rasé, parole tranchante" } },
+  beauval: { name: "Ferdinand Beauval", aka: ["Ferdinand Beauval", "Beauval"], face: { age: "adulte", hair: "brun", coif: "long", beard: "barbe", skin: "clair" }, qui: "Un émigrant français, ancien avocat et orateur, qui prêche le collectivisme.", aspect: { allure: "éloquent, sûr de son étoile" } },
+  kennedy: { name: "Kennedy", aka: ["Kennedy"], face: { age: "adulte", hair: "roux", coif: "court", beard: "barbe", skin: "clair" }, qui: "Un matelot du Jonathan, sournois et paresseux." },
+  sirdey: { name: "Sirdey", aka: ["Sirdey"], face: { age: "adulte", hair: "brun", coif: "court", beard: "moustache", skin: "clair" }, qui: "Le cuisinier du Jonathan, un fourbe." },
+  patterson: { name: "Patterson", aka: ["Patterson"], face: { age: "mur", hair: "roux", coif: "degarni", beard: "barbe", skin: "clair" }, qui: "Un émigrant irlandais pour qui l'argent est tout." },
+  gross: { name: "Fritz Gross", aka: ["Fritz Gross"], face: { age: "mur", hair: "gris", coif: "long", beard: "barbe", skin: "clair" }, qui: "Un violoniste de talent que l'alcool a détruit." },
+  rame: { name: "John Rame", aka: ["John Rame"], face: { age: "adulte", hair: "blond", coif: "court", beard: "moustache", skin: "porcelaine" }, qui: "Un jeune rentier épuisé par une vie de plaisirs, le plus inutile des colons." },
+  fredmoore: { name: "Fred Moore", aka: ["Fred Moore"], face: { age: "adulte", hair: "brun", coif: "court", beard: "barbe", skin: "clair" }, qui: "Un émigrant violent, ami de Lewis Dorick, qui a un frère, William." },
+  riviere: { name: "Germain Rivière", aka: ["Germain Rivière"], face: { age: "mur", hair: "chatain", coif: "court", beard: "barbe", skin: "hale" }, qui: "Un cultivateur français, travailleur et sensé, chef de famille." },
+  marcel: { name: "Marcel Norely", aka: ["Marcel Norely"], face: { age: "enfant", hair: "chatain", coif: "court", skin: "porcelaine" }, qui: "Un petit garçon infirme, qui marche avec une béquille, l'ami de Dick et de Sand." },
+  fuentes: { name: "Le commandant Fuentès", aka: ["commandant Fuentès", "José Fuentès", "Fuentès"], face: { age: "mur", hair: "noir", coif: "court", beard: "moustache", skin: "hale" }, qui: "Le commandant d'un transport chilien envoyé à l'île Hoste." },
+  aguire: { name: "M. Aguire", aka: ["M. Aguire", "Aguire"], face: { age: "mur", hair: "noir", coif: "court", beard: "moustache", skin: "hale" }, qui: "Le gouverneur chilien de Punta-Arenas." },
+  athlinata: { name: "Athlinata", aka: ["Athlinata"], face: { age: "adulte", hair: "noir", coif: "long", beard: "sans", skin: "cuivre", iris: "noir" }, qui: "Un guerrier patagon fait prisonnier." },
+  smith: { name: "Alexander Smith", aka: ["Alexander Smith"], face: { age: "adulte", hair: "blond", coif: "court", beard: "barbe", skin: "clair" }, qui: "Un ingénieur anglais, chef d'une compagnie minière." },
+  reynaud: { name: "Maurice Reynaud", aka: ["Maurice Reynaud", "Reynaud"], face: { age: "adulte", hair: "brun", coif: "court", beard: "moustache", skin: "clair" }, qui: "Un Français, directeur d'une compagnie minière." },
+};
