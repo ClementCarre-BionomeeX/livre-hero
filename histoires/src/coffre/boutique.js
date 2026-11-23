@@ -31,7 +31,7 @@ module.exports = {
       "La limousine s'arrête sous l'auvent, contre la pompe. La portière arrière s'ouvre. Un homme en descend, long et sec, en pardessus gris anthracite, un parapluie fermé à la main, et il traverse les cinq mètres jusqu'à la porte sans presser le pas, comme si le vent était une rumeur qui ne le concernait pas. Le carillon joue ses cinq notes. La dernière est toujours fausse.",
       "« Albéric Débit, dit-il, inspecteur des Ventes de la Maison Croûte & Chrome. » Il ouvre un carnet à souches. « Mademoiselle Ghislaine, boutique du kilomètre 66. Onze ans de gérance aujourd'hui même, à minuit. Ventes enregistrées : aucune. » Il lève les yeux vers toi. « Et vous êtes ? Peu importe. Vous êtes, au mieux, une visite. »",
       "Il pose son parapluie contre le comptoir, exactement à la verticale. « Article douze du contrat de gérance : une boutique de la Maison qui n'a rien vendu en onze ans est fermée à l'aube de la onzième année. Son coffre est rapatrié au Domaine, sans être ouvert. Le camion passera à six heures. » Il referme le carnet. « Une seule vente, une seule, et la boutique demeure. Je le dis par honnêteté. Je m'attends au pire, toujours, et c'est ce qui fait de moi un excellent inspecteur. »",
-      "Mademoiselle Ghislaine ne dit rien. Elle passe la main, une fois, sur le marbre du comptoir, à l'endroit où il n'y a rien à essuyer.",
+      "Pour toute réponse, Mademoiselle Ghislaine passe la main, une fois, sur le marbre du comptoir, à l'endroit où il n'y a rien à essuyer.",
     ],
     choices: [{ label: "Regarder autour de toi", to: "A_boutique" }] },
 
@@ -202,7 +202,7 @@ module.exports = {
     fx: { item: "telegramme" },
     text: [
       "La serviette de cuir noir bâille aux pieds de Monsieur Débit, entre un carnet à souches neuf et un tampon encreur. Un télégramme dépasse, une bande de papier bleu pâle collée sur un formulaire de la Maison. Tu t'accroupis. Monsieur Débit ronfle un paragraphe entier au-dessus de ta tête.",
-      "Les mots du télégramme sont des mots qui n'existent pas, en capitales, avec leurs points et leurs espaces, sous l'en-tête : *Direction des Ventes à Inspecteur A. Débit. Chiffré selon l'usage.* Tu le laisses en place, et tu le recopies, lettre à lettre, au dos d'un ticket de caisse vierge que Mademoiselle Ghislaine te tend sans un mot, par-dessus le comptoir.",
+      "Les mots du télégramme sont des mots qui n'existent pas, en capitales, avec leurs points et leurs espaces, sous l'en-tête : *Direction des Ventes à Inspecteur A. Débit. Chiffré selon l'usage.* Tu le laisses en place, et tu le recopies, lettre à lettre, au dos d'un ticket de caisse vierge que Mademoiselle Ghislaine te tend par-dessus le comptoir.",
       "Puis tu remets le télégramme dans la serviette, exactement de travers, comme il était.",
     ],
     choices: [{ label: "Déchiffrer ta copie", to: "A_telegramme_chiffre" }, { back: "A_boutique" }] },
