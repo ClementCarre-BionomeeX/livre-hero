@@ -2780,6 +2780,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "21.8", items: ["Quatrième histoire courte à énigmes de la série Croûte & Chrome : « Une nuit à l'Inaccessible ». La garde de nuit d'un socle vide, un gardien qui ne parle pas, et un violoniste qui ne vient pas jouer à minuit. Nouveau dans les énigmes : des dalles à lire et des manettes qui s'entraînent l'une l'autre."] },
     { v: "21.7", items: ["Troisième histoire courte à énigmes de la série Croûte & Chrome : « Le Levain de la Banque ». À Mirevaux, la pâte mère du seul boulanger a disparu dans la nuit, une lettre de rançon est punaisée à la porte, et la fournée de midi nourrit la moitié de la ville. Nouveau dans les énigmes : un chiffre dont on refait l'alphabet lettre à lettre, et un plan dont on suit les flèches."] },
     { v: "21.6", items: ["Nouveau livre à lire : « Le Vicomte de Bragelonne », d'Alexandre Dumas (1847-1850), la fin de la trilogie des mousquetaires : d'Artagnan, Athos, Porthos et Aramis face au jeune Louis XIV, à Fouquet et à Colbert, et l'amour de Raoul pour Louise de La Vallière."] },
     { v: "21.5", items: ["Deuxième histoire courte à énigmes de la série Croûte & Chrome : « Le Coffre du kilomètre 66 ». Une nuit de tempête à la boutique Hell's Butter™ du désert, une vendeuse qui n'a rien vendu en onze ans, un coffre dont la combinaison est « fournie à l'intérieur », et un inspecteur qui vient fermer à l'aube."] },
