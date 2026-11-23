@@ -2780,6 +2780,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "21.2", items: ["Nouvelle histoire courte à énigmes, la première d'une série Croûte & Chrome : « Émotions vendues séparément ». Une après-midi à la Tour des Mentions, un rédacteur introuvable, et sa piste cachée dans les petites lignes.", "Nouveau dans les énigmes : des mots à regarder de près avec ce que l'on porte (une loupe, une lampe, un aimant…), des messages chiffrés dont il faut trouver la clef (la page montre ce que donne ta clef à mesure que tu essaies), des claviers à taper, des leviers qui s'entraînent, des grilles à cocher."] },
     { v: "21.1", items: ["Nouveau livre à lire : « Le Capitaine Fracasse », de Théophile Gautier (1863), un baron ruiné qui suit une troupe de comédiens sur les routes."] },
     { v: "21.0", items: ["Nouveau livre à lire : « Vingt ans après », d'Alexandre Dumas (1845), la suite des « Trois Mousquetaires » : d'Artagnan a quarante ans et part retrouver ses trois amis."] },
     { v: "20.9", items: ["Nouveau livre à lire : « Le Pilote du Danube », de Jules Verne (1908), un pêcheur à la ligne descend le grand fleuve avec un passager curieux."] },
