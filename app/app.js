@@ -2780,6 +2780,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "25.2", items: ["Nouveau livre à lire : « Le Speronare », d'Alexandre Dumas (1842) : en 1835, refoulé de Naples, Dumas loue un petit bâtiment sicilien et fait le tour de la Sicile avec le peintre Jadin, son bouledogue et un équipage de conteurs. L'Etna, Syracuse, Palerme, des brigands, des tempêtes et l'histoire des Vêpres siciliennes."] },
     { v: "25.1", items: ["Nouveau livre à lire : « Impressions de voyage en Suisse », d'Alexandre Dumas (1833-1837) : en 1832, le jeune auteur, réchappé du choléra, part à pied par les cols et les glaciers ; Guillaume Tell, le mont Blanc, les ours de Berne, des guides, des aubergistes et des légendes. Les gens, les lieux et les mots s'ouvrent d'un toucher."] },
     { v: "25.0", items: ["Nouveau livre à lire : « Lancelot du Lac », le grand roman de chevalerie du XIIIe siècle mis en nouveau langage par Paulin Paris : le fils du roi Ban, emporté par une fée au fond d'un lac, grandit sans savoir son nom, puis arrive à la cour du roi Artus."] },
     { v: "24.9", items: ["Nouveau livre à lire : « Le Roman de Tristan et Iseut », renouvelé par Joseph Bédier (1900) d'après les poèmes du XIIe siècle : Tristan, neveu du roi Marc de Cornouailles, va chercher en Irlande la fiancée de son oncle, Iseut la Blonde."] },
