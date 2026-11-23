@@ -2780,6 +2780,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "21.6", items: ["Nouveau livre à lire : « Le Vicomte de Bragelonne », d'Alexandre Dumas (1847-1850), la fin de la trilogie des mousquetaires : d'Artagnan, Athos, Porthos et Aramis face au jeune Louis XIV, à Fouquet et à Colbert, et l'amour de Raoul pour Louise de La Vallière."] },
     { v: "21.5", items: ["Deuxième histoire courte à énigmes de la série Croûte & Chrome : « Le Coffre du kilomètre 66 ». Une nuit de tempête à la boutique Hell's Butter™ du désert, une vendeuse qui n'a rien vendu en onze ans, un coffre dont la combinaison est « fournie à l'intérieur », et un inspecteur qui vient fermer à l'aube."] },
     { v: "21.4", items: ["Nouveau livre à lire : « La Tulipe noire », d'Alexandre Dumas (1850), un savant hollandais en prison, la fille de son geôlier, et une fleur que tout le pays rêve de voir naître."] },
     { v: "21.3", items: ["Nouveau livre à lire : « La Reine Margot », d'Alexandre Dumas (1845), les noces de Marguerite de Valois et de Henri de Navarre, et la nuit de la Saint-Barthélemy."] },
