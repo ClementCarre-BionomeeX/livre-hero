@@ -1,0 +1,137 @@
+// « Le Club ne se réunit pas » · the afternoon. The office gives the rule and the seating; the pool is the hub, where
+// the tray, the opera glasses and the net see what nobody may look at. The note in the pool is the whole mystery.
+module.exports = {
+  A_office: { act: "I", title: "L'office", place: "office",
+    fx: { meet: "ferdinand", clue: "i_regle" },
+    text: [
+      "L'office du Club est creusé sous la terrasse, dans la roche rouge du canyon, et il y fait frais comme dans une cave à vin, ce qu'il est aussi. L'argenterie dort dans des tiroirs doublés de feutre vert. Les seaux à glace transpirent en rang. Au-dessus de ta tête, à travers six mètres de roche, de teck et de marbre, il y a une piscine, et autour de la piscine, dans une heure, il y aura cinq personnes qui pèsent ensemble davantage que tout ce qui reste du monde.",
+      "Monsieur Ferdinand t'attend debout, en habit noir, les gants gris perle croisés sur le ventre. Il ne t'invite pas à t'asseoir ; personne ne l'a jamais vu s'asseoir, et il n'imagine pas que d'autres le fassent en sa présence. Il parle si bas que tu dois te pencher, et il a l'air de considérer ce geste comme une première leçon.",
+      "« Le Club des Inaccessibles ne se réunit pas, dit-il. Ses membres se trouvent, une fois l'an, au même endroit, par une coïncidence onéreuse. Ils ne se parlent pas. Ils ne s'écrivent pas. Toute communication entre membres est une parole. Toute parole est une faute. La faute entraîne l'expulsion. Le règlement tient en ces trois phrases, et le Club en est très fier : c'est le règlement le plus court du Domaine, et le plus cher. »",
+      "Il pose devant toi un registre de cuir noir, ouvert à la page de l'année. « Le Registre des Dédains. Vous y trouverez ce que chacun ne supporte pas. Vous placerez les cinq transats en conséquence. Personne ne doit voir, du coin de l'œil, quelqu'un qu'il méprise. Je vous rappelle qu'ils méprisent à peu près tout le monde, et que le Registre n'en note que l'essentiel. »",
+      { if: { voie: "valet" }, text: "Vingt ans chez la duchesse t'ont appris à lire ce genre de registre. Il ne dit pas qui on aime. Il dit qui on supporte, à la rigueur, à côté de soi, et dans le grand monde, cela s'appelle une amitié." },
+      { if: { voie: "maitre_nageur" }, text: "Tu as passé huit ans au pied du canyon, à la piscine des valets, où l'on se pousse dans l'eau en riant. Ici, en haut, on a construit une piscine immense, pour cinq personnes qui n'y entreront jamais. Tu commences à comprendre ce qu'est le luxe : de l'eau qu'on regarde." },
+      { if: { voie: "secretaire" }, text: "Tu reconnais l'écriture du Registre au premier coup d'œil : une main de secrétaire, ronde, appliquée, la main de quelqu'un qu'on paie pour écrire à la place des autres. Elle est probablement celle de Monsieur Ferdinand. Il n'a jamais écrit une phrase à lui de sa vie, et il est le seul du Club à savoir écrire." },
+    ],
+    choices: [
+      { label: "Lire le rappel de l'usage, au bas de la page", once: true, to: "A_usage" },
+      { label: "Établir le plan des transats", to: "A_plan" },
+      { label: "Laisser chaque membre choisir son transat", to: "A_hasard" },
+    ] },
+  A_usage: { act: "I", title: "L'usage", place: "office",
+    fx: { clue: "i_usage" },
+    text: [
+      "Au bas de la page, d'une écriture plus petite, comme on écrit les choses gênantes : un rappel de l'usage. Quand un membre doit écrire au service (pour un glaçon, une serviette, une ombrelle), il chiffre son billet en avançant chaque lettre d'autant de rangs dans l'alphabet que le numéro de son transat.",
+      "« Ainsi, murmure Monsieur Ferdinand, qui lit par-dessus ton épaule sans en avoir l'air, le service sait qui demande, et personne ne l'a dit. Un membre qui écrit en clair à un domestique, c'est une confidence. Un membre qui écrit en chiffre, c'est une procédure. Le Club adore les procédures. Elles lui évitent les gens. »",
+    ],
+    choices: [{ back: "A_office" }] },
+  A_plan: { act: "I", title: "Le plan des transats", place: "office", puzzle: "p_plan",
+    text: ["Tu poses le Registre ouvert sur la table d'argenterie, une feuille de plan à côté, et un crayon. Monsieur Ferdinand se tient derrière toi, aussi immobile qu'un portemanteau, et aussi attentif qu'un portemanteau qui jugerait les manteaux."],
+    choices: [{ back: "A_office" }] },
+  A_hasard: { act: "I", title: "Le libre choix", place: "office",
+    text: [
+      "« Les membres du Club sont des adultes, dis-tu. Ils sauront bien choisir leur place. »",
+      "Monsieur Ferdinand te regarde pendant trois secondes, ce qui, chez lui, équivaut à un cri. « Ils sont surtout riches, dit-il. Un riche à qui l'on laisse le choix choisit la place de quelqu'un d'autre. C'est ainsi qu'on devient riche. » Il tire sa montre à gousset de sa poche, et il ne la regarde pas. « Mais faites. Faites. Je suis curieux, depuis quarante ans, de voir ce que cela donne. »",
+    ],
+    choices: [
+      { label: "Ouvrir la grille de la terrasse, et laisser faire", to: "F_regards" },
+      { label: "Reprendre le Registre, tout compte fait", to: "A_office" },
+    ] },
+
+  A_arrivee: { act: "I", title: "La coïncidence", place: "piscine", takes: 1,
+    fx: { clue: "i_fragment" },
+    text: [
+      "Monsieur Ferdinand prend ton plan, le lit une fois, et le plie en quatre sans un mot, ce qui est une approbation. Tu montes à la terrasse disposer les serviettes, les coupes et les seaux à glace, et à seize heures précises, le Club des Inaccessibles se trouve là, par hasard.",
+      "Ils arrivent un par un, chacun par un escalier différent, à quatre minutes d'intervalle. Mademoiselle Valmont, robe blanche et lunettes noires, va droit au transat de l'ouest sans regarder où elle marche, comme si le sol avait été posé pour elle. Monsieur Croûte-Chrome, en smoking blanc, s'assoit au bord du sien, déjà en larmes. Monsieur Orbe prend le milieu, comme une bille prend le fond d'un bol. La Baronne de Saindoux s'installe sous son ombrelle, ferme les yeux, et disparaît. Monsieur Sorbier, le dernier, regarde son hélicoptère à l'est, et se détend imperceptiblement, comme un homme qui vérifie que sa fortune est encore garée.",
+      "Personne ne salue personne. Personne ne voit personne. La coïncidence est parfaite. Tu sers le champagne en passant derrière les transats, le plateau tenu de biais, invisible, comme on te l'a appris : tu ne regardes pas les membres, tu regardes ce que le plateau te montre d'eux.",
+      "C'est en revenant vers l'office que tu le vois, sur la margelle, près de l'eau : un coin de papier crème, détrempé, collé à la pierre, avec trois lettres d'encre bleue bavée. Tu le ramasses. Tu le portes à Monsieur Ferdinand, en bas.",
+      "Il le regarde longtemps. Il devient, si c'est possible, encore plus pâle. « Quelqu'un, dit-il, a écrit à quelqu'un. Le reste du billet est à l'eau. » Il remet le coin de papier dans ta main, et referme tes doigts dessus avec ses gants. « Je veux savoir qui, avant que le soleil touche le canyon. Discrètement. Personne ne doit savoir que je le sais. Moi compris, si possible. »",
+    ],
+    choices: [{ back: "A_piscine" }] },
+
+  // ------------------------------------------------------------------ the pool (the hub)
+  A_piscine: { act: "I", title: "La piscine du Club", place: "piscine", hub: true, backName: "la piscine",
+    text: [
+      { first: true, text: "La piscine est longue comme une rue et bleue comme une idée. À son bord ouest, l'eau passe par-dessus la margelle sans un bruit et s'en va dans le canyon, si bien qu'on croit voir une nappe d'eau suspendue au-dessus de six cents mètres de vide. Les cinq transats de teck blanc s'alignent face à ce spectacle, chacun séparé de son voisin par une table basse et un mètre cinquante de mépris." },
+      { again: true, text: "La piscine, son débordement silencieux, le canyon rouge en dessous, et les cinq transats alignés face au vide, chacun séparé de son voisin par un mètre cinquante de mépris." },
+      "Le règlement te défend de regarder les membres. Le plateau d'argent, les jumelles d'opéra et ce que tu as dans les mains te permettent de les voir. Il y a {{examen:lea|Léa Valmont}} au transat 1, {{examen:hippolyte|Hippolyte Croûte-Chrome}} au 2, {{examen:orbe|Monsieur Orbe}} au 3, {{examen:saindoux|la Baronne de Saindoux}} au 4, {{examen:sorbier|Monsieur Sorbier}} au 5, et {{examen:bassin|l'eau de la piscine}}.",
+      { if: { all: [{ item: "billet" }, { not: { has: "billet:lu" } }] }, text: "Le billet repêché sèche sur un coin de ton plateau, ses capitales bleues tournées vers le ciel. Elles ne font aucun mot, pour l'instant." },
+      { if: { has: "billet:lu" }, text: "Le billet est sec, plié dans ta poche, et tu sais ce qu'il dit. Au transat 2, un vieil homme pleure en smoking blanc. Au transat 1, une jeune femme regarde l'ouest. Entre eux, un mètre cinquante, une table basse, et onze ans." },
+    ],
+    choices: [
+      { label: "Servir une tournée de champagne", once: true, to: "A_tournee" },
+      { label: "Aller à la cabane du maître nageur", hide: { item: "epuisette" }, to: "A_cabane" },
+      { label: "Déchiffrer le billet mouillé", hide: { any: [{ not: { item: "billet" } }, { has: "billet:lu" }] }, to: "A_dechiffrer" },
+      { label: "Descendre rendre compte à Monsieur Ferdinand", hide: { not: { has: "billet:lu" } }, to: "A_rapport" },
+      { label: "Porter le billet à Léa Valmont, sur ton plateau", hide: { not: { has: "billet:lu" } }, to: "F_reponse" },
+      { label: "Brûler le billet à la flamme d'une bougie de table", hide: { not: { has: "billet:lu" } }, to: "F_secret" },
+      { label: "Attendre que le soleil touche le canyon", to: "A_soir" },
+    ] },
+  A_tournee: { act: "I", title: "La tournée", place: "piscine",
+    text: [
+      "Tu remplis six coupes : cinq pour les membres, une de réserve, parce qu'au Club on ne sait jamais qui pourrait se trouver là par hasard. Tu les portes sur le plateau, en équilibre, et tu passes derrière les transats, de l'ouest vers l'est, sans un regard, comme une marée.",
+      "La difficulté est la Baronne. Son ombrelle mauve dépasse sur l'allée de quarante centimètres, à hauteur exacte de tes coupes, et la Baronne déteste qu'on frôle son ombrelle autant qu'elle déteste qu'on l'évite ostensiblement. Il faut passer entre les deux.",
+    ],
+    choices: [
+      { label: "Passer sous l'ombrelle, le plateau haut, sans un frisson", test: { dom: "discretion", diff: 0, label: "Service invisible" },
+        win: { to: "A_tournee_ok" }, lose: { to: "A_tournee_rate" } },
+    ] },
+  A_tournee_ok: { act: "I", title: "Sans un frisson", place: "piscine",
+    text: [
+      "Tu passes. L'ombrelle ne bouge pas, les coupes non plus, et la Baronne, qui a senti ton passage à trois millimètres de sa dentelle, entrouvre un œil, le referme, et soupire d'aise : rien n'est plus agréable, à son âge, qu'un domestique qui sait exister à peine.",
+      "Au bout du rang, Monsieur Sorbier prend sa coupe sans la regarder et te glisse un billet de banque plié, sans te regarder non plus. Tu le déplies à l'office : cent euros, et au dos, au crayon d'argent, un seul mot, *Correct.* Venant de lui, c'est une décoration.",
+    ],
+    choices: [{ back: "A_piscine" }] },
+  A_tournee_rate: { act: "I", title: "Un frisson", place: "piscine",
+    text: [
+      "Le bord de ton plateau effleure la dentelle de l'ombrelle. Une seule coupe tinte contre une autre, un son minuscule, pur, comme une petite cuillère contre un cristal pendant un enterrement.",
+      "La Baronne ouvre les yeux. Elle ne te regarde pas : elle regarde son ombrelle. Puis elle ouvre son éventail, lentement, et le tourne vers toi. Sur la soie, en lettres d'or, un seul mot : *Non.* Elle le referme. Elle referme les yeux. Tu as été blâmé{e}, dans les formes, sans un mot. Le Club est très fort pour ces choses-là.",
+    ],
+    choices: [{ back: "A_piscine" }] },
+  A_cabane: { act: "I", title: "La cabane du maître nageur", place: "cabane",
+    fx: { item: "epuisette" },
+    text: [
+      "La cabane est un petit temple de teck au bout de la terrasse, avec des bouées dorées au mur, des serviettes pliées en cygnes, et un fauteuil de maître nageur, très haut, où personne ne s'assoit : le Club ne se baigne pas, et un maître nageur qui surveille une piscine vide serait une dépense ridicule. Le Club a donc acheté le fauteuil, et pas le maître nageur.",
+      "Contre la porte, une épuisette à long manche de bambou, au filet de soie, qui n'a jamais servi qu'une fois, en 1994, pour repêcher une perruque. Tu la prends.",
+      { if: { voie: "maitre_nageur" }, text: "Tu la soupèses, par habitude. Le manche est trop long d'un mètre pour une piscine, mais d'une longueur parfaite pour atteindre le fond près du débordement, là où les choses que le courant pousse vers le vide s'arrêtent, juste avant de tomber." },
+    ],
+    choices: [{ back: "A_piscine" }] },
+  A_dechiffrer: { act: "I", title: "Le billet mouillé", place: "piscine", puzzle: "p_billet",
+    text: ["Tu t'éloignes derrière la cabane, à l'abri des regards qui ne te regardent pas, et tu poses le billet sur ton plateau, au soleil, pour finir de le sécher."],
+    choices: [{ back: "A_piscine" }] },
+  A_billet_lu: { act: "I", title: "Onze ans", place: "piscine",
+    text: [
+      "En reculant chaque lettre de deux rangs, le billet se lit :",
+      "*Mademoiselle, je vous vois saler votre champagne depuis onze ans. Ma nourrice le faisait. Elle venait du désert. Pardonnez-moi de vous l'écrire.*",
+      { if: { has: "plan:juste" }, text: "Deux rangs. Le transat numéro 2. C'est toi qui l'y as placé, sur ton plan, entre la jeune femme de l'ouest et l'homme rond du milieu : Hippolyte Croûte-Chrome." },
+      { if: { not: { has: "plan:juste" } }, text: "Deux rangs. Le transat numéro 2, entre la jeune femme de l'ouest et l'homme rond du milieu : Hippolyte Croûte-Chrome." },
+      { if: { has: "vu:encre" }, text: "Tu revois, dans l'argent du plateau, le bout de ses doigts tachés de bleu, qu'il a essayé de frotter, sans y parvenir, comme on essaie d'effacer une chose qu'on a dite." },
+      "Le billet a glissé de la table basse quand il a voulu le poser, discrètement, près de la coupe de sa voisine. Ou bien il ne l'a pas posé. Il l'a tenu au-dessus de l'eau, longtemps, et il l'a lâché. Un homme qui pleure en smoking blanc depuis onze ans peut très bien avoir fait les deux.",
+      { if: { voie: "secretaire" }, text: "La main est tremblée, mais elle ne barre rien. Il a écrit d'un trait, sans brouillon, comme on écrit une chose qu'on se répète depuis longtemps et qu'on sait par cœur. Tu as lu des milliers de lettres de riches. C'est la première qui ne demande rien." },
+      "Le soleil descend vers le canyon. Monsieur Ferdinand attend en bas un nom. Au transat 1, Léa Valmont tire de sa petite boîte d'argent une pincée de sel, à l'abri de son poignet, et la laisse tomber dans sa coupe, sans savoir que quelqu'un la regarde faire depuis onze ans, et qu'il a fini par le lui écrire.",
+    ],
+    choices: [{ back: "A_piscine" }] },
+  A_rapport: { act: "I", title: "Le rapport", place: "office",
+    text: [
+      "Monsieur Ferdinand t'attend à l'office, debout, la montre à la main, sans la regarder. Il ne te demande rien. Il attend que tu parles, de la manière dont un notaire attend qu'on signe.",
+      "Tu as le billet dans ta poche. Tu as un nom dans la bouche. Tu as, en haut, sur la terrasse, un vieil homme qui pleure et une jeune femme qui sale son champagne, à un mètre cinquante l'un de l'autre, depuis onze ans.",
+    ],
+    choices: [
+      { label: "« Monsieur Croûte-Chrome, au transat 2. Voici le billet. »", to: "F_expulsion" },
+      { label: "« Le billet est illisible, Monsieur Ferdinand. L'eau a tout mangé. »", test: { dom: "social", diff: -20, label: "Mensonge de service" },
+        win: { to: "F_secret" }, lose: { to: "A_rapport_perce" } },
+    ] },
+  A_rapport_perce: { act: "I", title: "Le regard de Monsieur Ferdinand", place: "office",
+    text: [
+      "Monsieur Ferdinand te regarde pendant cinq secondes. C'est très long, cinq secondes, sous ce regard-là : on a le temps d'y repenser à toute sa vie, et de la trouver mal repassée.",
+      "« L'eau n'a jamais rien mangé dans cette piscine, dit-il enfin. Elle est filtrée trois fois par jour. » Il tend la main, gantée, paume ouverte. Il ne dit pas *donnez*. Il n'a pas besoin de le dire : sa main le dit en trois langues.",
+    ],
+    choices: [
+      { label: "Lui remettre le billet, et le nom", to: "F_expulsion" },
+      { label: "Remonter en courant porter le billet à Léa Valmont", to: "F_reponse" },
+    ] },
+  A_soir: { act: "I", title: "Le soleil touche le canyon", place: "piscine", takes: "evening",
+    text: [
+      "Le soleil descend, rouge, énorme, et touche le bord du canyon. L'eau de la piscine devient orange, puis rose, et coule par-dessus la margelle comme du vin. Les cinq membres du Club regardent le même coucher de soleil, chacun pour soi, sans se le dire, et c'est la chose la plus proche d'une réunion qu'ils aient jamais faite.",
+    ],
+    choices: [{ label: "Descendre à l'office", to: "F_coucher" }] },
+};
