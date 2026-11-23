@@ -1,0 +1,43 @@
+// « La Reine de la Côte noire » (Queen of the Black Coast), Robert E. Howard, 1934 : un livre à lire, sans choix (lecture: true).
+// Texte : traduction nouvelle par Claude, faite pour cette bibliothèque à partir du texte anglais paru dans Weird Tales
+// en mai 1934 (Project Gutenberg n° 42183, domaine public). Les titres des chapitres et les épigraphes sont ceux de
+// Howard, traduits ; les titres des pages et tout ce qui vit dans les tags (gens, lieux, mots, résumés) sont de Claude.
+// Les mots et les noms de l'époque, expliqués d'un toucher. Rien de l'intrigue.
+module.exports = {
+  "Argos": "Un royaume marchand de l'âge hyborien, au bord de la mer de l'Ouest, avec ses ports et ses galères.",
+  "Koush": "Un royaume noir de la côte, au sud de la Stygie, où les marchands viennent acheter l'ivoire et le cuivre.",
+  "Zingara": "Un royaume de l'âge hyborien, au nord d'Argos, sur la même côte.",
+  "Shem": "Un pays de prairies et de déserts au sud des royaumes hyboriens, entre Argos et la Stygie.",
+  "Shémite|Shémites|shémite": "Du Shem, un pays de prairies et de déserts au sud des royaumes hyboriens.",
+  "Stygie|Stygiens": "Un vieux royaume sombre au sud du Shem, le long du fleuve Styx, gouverné par des prêtres et des sorciers.",
+  "Styx": "Le grand fleuve de la Stygie, qui se jette dans la mer à Khemi.",
+  "Khemi": "Le grand port de la Stygie, à l'embouchure du Styx, aux châteaux noirs.",
+  "Set": "Le dieu-serpent des Stygiens, que les autres peuples tiennent pour un démon.",
+  "Hyborien|Hyboriens": "Les peuples des royaumes du nord et de l'ouest de l'âge hyborien, comme Argos, l'Aquilonie ou la Némédie.",
+  "Cimmérien|Cimmériens": "De Cimmérie, un pays de collines sombres et froides, loin au nord, peuplé de barbares.",
+  "Ases": "Un peuple du Nordheim, aux cheveux d'or.",
+  "Vanes": "Un peuple du Nordheim, aux cheveux roux, ennemi des Ases.",
+  "Nordheim": "Les terres glacées de l'extrême nord, où vivent les Ases et les Vanes.",
+  "Némédie": "Un grand royaume hyborien, rival de l'Aquilonie.",
+  "Aquilonie": "Le plus puissant des royaumes hyboriens, à l'ouest.",
+  "Ophir": "Un petit royaume riche de l'âge hyborien.",
+  "Koth": "Un grand royaume de l'âge hyborien, au nord du Shem.",
+  "Askalon": "Une ancienne cité du Shem, dont Bêlit dit descendre des rois.",
+  "Zarkheba": "Un fleuve du sud, aux eaux empoisonnées, que les peuples de la côte évitent.",
+  "Bel": "Le dieu des voleurs, né au Shem.",
+  "Ashtoreth|Derketo|Adonis": "Des dieux du Shem.",
+  "Shushan": "Une riche cité du Shem.",
+  "Skelos": "Un sorcier de légende ; son « Puits » est un abîme de magie noire.",
+  "Valhalla": "Le séjour des guerriers morts dans les croyances du Nordheim.",
+  "galuchat": "Un cuir de poisson ou de raie, grenu et très dur.",
+  "haubert": "Une longue chemise de mailles ou d'écailles de métal.",
+  "coprah": "La chair séchée de la noix de coco, dont on tire de l'huile.",
+  "dunette": "Le pont surélevé à l'arrière d'un navire.",
+  "tauds": "Des toiles tendues au-dessus du pont pour abriter l'équipage.",
+  "mantelets": "Des panneaux de bois dressés pour protéger des flèches.",
+  "vergue": "La longue pièce de bois fixée en travers du mât, qui porte la voile.",
+  "étrave": "La pièce qui forme l'avant de la coque d'un navire.",
+  "étambot": "La pièce qui forme l'arrière de la coque d'un navire.",
+  "héliotropes": "Des pierres vertes tachetées de rouge, qu'on appelle aussi pierres de sang.",
+  "berserk": "Un guerrier pris d'une fureur aveugle au combat.",
+};
