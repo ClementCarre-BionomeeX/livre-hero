@@ -1,0 +1,43 @@
+// « Clous rouges » (Red Nails), Robert E. Howard, 1936 : un livre à lire, sans choix (lecture: true).
+// Texte : traduction nouvelle par Claude, faite pour cette bibliothèque à partir du texte anglais paru dans Weird Tales
+// de juillet à octobre 1936 (Project Gutenberg n° 32759, domaine public). Les titres des chapitres sont ceux de Howard ;
+// ceux des pages et tout ce qui vit dans les tags (gens, lieux, mots, résumés) sont de Claude.
+// Les mots et les noms de l'époque, expliqués d'un toucher. Rien de l'intrigue.
+module.exports = {
+  "Xuchotl": "La ville au milieu de la plaine, bâtie jadis par un peuple venu de l'est, et prise par les Tlazitlans.",
+  "Xuchotlans": "Le peuple qui bâtit Xuchotl et l'habitait avant les Tlazitlans.",
+  "Tecuhltli": "Le quartier ouest de Xuchotl, et le clan qui y vit ; il porte le nom du frère qui le fonda.",
+  "Xotalanc": "Le quartier est de Xuchotl, et le clan ennemi de Tecuhltli, du nom de l'autre frère.",
+  "Xotalancas|Xotalanca": "Les gens du clan de Xotalanc.",
+  "Tlazitlans|Tlazitlan": "Un peuple des bords du lac Zuad, en Stygie, dont une tribu se réfugia à Xuchotl.",
+  "Zuad": "Un lac de la Stygie, près de la frontière du Kush.",
+  "Stygie|Stygiens|Stygien|stygien|stygienne": "Un royaume du sud où règnent des prêtres sorciers.",
+  "Sukhmet": "Une ville de la frontière stygienne, au milieu des prairies, près d'un camp de mercenaires.",
+  "Darfar": "Un pays du Sud, à la frontière duquel campent les mercenaires de Zarallo.",
+  "Kush": "Un vaste pays du Sud, sur la côte.",
+  "Pount": "Un pays du Sud, à l'est du Kush.",
+  "Kosala|Kosaliens": "Un pays lointain de l'est ; les bâtisseurs de Xuchotl en venaient.",
+  "Vendhya": "Un royaume riche de l'Orient lointain.",
+  "Afghulis": "Un peuple de montagnards, dans l'Himélie.",
+  "Himélie": "De hautes montagnes, au-dessus de la Vendhya.",
+  "Aquilonie|aquilonienne|Aquilonienne": "Le grand royaume hyborien de l'ouest, d'où vient Valéria.",
+  "Cimmérie": "Un pays de collines et de brumes, au nord, d'où vient Conan.",
+  "Zingara|Zingariens": "Un royaume de marins, au sud-ouest.",
+  "Argos": "Un royaume de marchands, sur la côte ouest.",
+  "Shem|shémite|Shémites": "Un pays de prairies et de déserts, au sud-ouest.",
+  "Confrérie Rouge": "Une confrérie de pirates des mers de l'ouest.",
+  "Francs Compagnons": "Une compagnie de mercenaires, menée par Zarallo.",
+  "kozak": "Un cavalier pillard des steppes de l'est.",
+  "Derketa": "Une déesse du Sud, la Reine des Morts ; on appelle Pommes de Derketa des fruits pourpres au jus mortel.",
+  "Mitra": "Le grand dieu des royaumes hyboriens.",
+  "Crom": "Le dieu sombre des Cimmériens, qui vit sur une montagne et n'écoute pas les prières.",
+  "Set": "Le dieu-serpent de la Stygie.",
+  "Serpents d'Or": "Des serpents préhistoriques ; on dit que les pierres de feu sont leurs yeux pétrifiés.",
+  "Crâne Brûlant": "Un crâne de sorcier qui luit d'un feu froid et glace ceux qui le regardent.",
+  "Rampant": "Une bête qui rampe dans les salles et que craignent les Tecuhltli.",
+  "Salles du Silence": "Le centre de Xuchotl, vide, entre les quartiers ennemis.",
+  "Grande Salle": "La salle qui coupe Xuchotl du nord au sud.",
+  "Porte de l'Aigle": "La porte de bronze de Tecuhltli, à l'étage le plus haut.",
+  "lotus noir": "Une grande fleur noire dont le parfum fait dormir d'un sommeil profond.",
+  "mastodonte": "Une énorme bête préhistorique, pareille à un éléphant.",
+};

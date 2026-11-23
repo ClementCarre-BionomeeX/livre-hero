@@ -1,0 +1,165 @@
+# Fiche de « Clous rouges » pour livre.py (Robert E. Howard, Weird Tales, juillet-octobre 1936 ; traduction nouvelle par Claude, 2026).
+# Texte : /mnt/project-files/livre-heros/classiques/clous/NN.txt (d'après Gutenberg 32759, « Red Nails »),
+# passé par traduction.py (pages C1_1…). Les titres des sept chapitres sont ceux de Howard, traduits.
+# Ce qui doit rester caché jusqu'à sa page (titres de pages, qui, aspect, lieux, résumés) : l'âge de Tascela (C3_7) ;
+# la trahison d'Olmec (C5_6) ; ce que veut Tascela (C6_4) ; ce qu'est devenu Tolkemec (C7_4).
+HEAD = """// « Clous rouges » (Red Nails), Robert E. Howard, 1936 : un livre à lire, sans choix (lecture: true).
+// Texte : traduction nouvelle par Claude, faite pour cette bibliothèque à partir du texte anglais paru dans Weird Tales
+// de juillet à octobre 1936 (Project Gutenberg n° 32759, domaine public). Les titres des chapitres sont ceux de Howard ;
+// ceux des pages et tout ce qui vit dans les tags (gens, lieux, mots, résumés) sont de Claude."""
+
+BASE = {
+  "id": "clous",
+  "title": "Clous rouges",
+  "subtitle": "Un récit de Conan le Cimmérien · Robert E. Howard, 1936",
+  "summary": "Valéria de la Confrérie Rouge, pirate, a fui un camp de mercenaires vers le sud, et Conan l'a suivie. Un monstre les chasse de la forêt ; au milieu d'une plaine se dresse une ville sans fenêtres, sans gardes, aux salles éclairées par des pierres de feu. Ses habitants, peu nombreux, s'entretuent depuis cinquante ans, et à chaque mort ils plantent un clou rouge dans une colonne d'ébène. Le dernier récit de Conan écrit par Robert E. Howard, en entier, dans une traduction nouvelle, sans choix : on le lit page après page, avec les gens, les lieux et les mots expliqués d'un appui.",
+  "tags": ["aventure", "fantastique"],
+  "author": "Robert E. Howard · traduction de Claude (2026)",
+  "lecture": True,
+  "age": 16,
+  "skin": "parchemin",
+  "cover": {"motif": "cle", "color": "#5a0f0f"},
+  "glossary": None,
+  "voice": "troisième personne, passé",
+  "version": 1,
+  "notice": {
+    "title": "Un récit de 1936",
+    "text": [
+      "Robert E. Howard publie *Clous rouges* en trois livraisons, de juillet à octobre 1936, dans *Weird Tales*, une revue américaine de récits étranges. C'est le dernier récit de Conan qu'il a écrit ; il est mort en juin 1936, à trente ans, avant la fin de la parution. Le récit se passe dans l'« âge hyborien », un passé imaginaire plein de royaumes et de dieux inventés. Il est dans le domaine public.",
+      "La traduction est nouvelle, faite pour cette bibliothèque à partir du texte anglais, et elle suit Howard de près, sauf sur deux points. Howard décrit sans cesse les gens par leur couleur de peau, et il glisse des remarques méprisantes sur les « peuples noirs » du Sud, sur le « sang mêlé » des habitants de la ville, et sur les esclaves qui l'auraient bâtie. La traduction a retiré ces hiérarchies : il reste des descriptions de personnes, sans jugement attaché à leur peau. Elle a aussi rendu plus sobres des passages où Howard s'attarde sur la nudité et le corps de ses héroïnes.",
+      "Il faut nommer ce que le récit montre. Conan poursuit Valéria de ses avances alors qu'elle le repousse. Valéria fouette une servante ligotée pour la faire parler. Un prince s'empare de Valéria par la force, et une sorcière l'étend sur un autel pour la sacrifier. On raconte des tortures, des massacres, des têtes conservées comme trophées, et des sacrifices humains offerts à un dragon.",
+    ],
+  },
+  "intro": [],
+  "world": {"start": {"place": "foret", "hour": 16, "gold": 0, "food": 0, "items": [], "kits": {"guerrier": [], "rodeur": [], "voleur": [], "mage": [], "pretre": [], "barde": []}}},
+}
+
+T = ["Le crâne sur le rocher", "À la lueur des joyaux de feu", "Le peuple de la vendetta", "Le parfum du lotus noir", "Vingt clous rouges", "Les yeux de Tascela", "Il vient des ténèbres"]
+R = [
+  "Valéria de la Confrérie Rouge a poignardé un officier stygien et fui vers le sud le camp des mercenaires de Zarallo, près de Sukhmet. Dans une forêt sans fin, elle grimpe sur un rocher et aperçoit une ville au milieu d'une plaine. Conan, qui l'a suivie, la rejoint là-haut. Un dragon dévore son cheval et les assiège sur le rocher. Conan trempe une lance de fortune dans le jus des Pommes de Derketa et frappe le monstre ; le poison le rend fou, et ils s'enfuient vers la plaine, où ils dorment.",
+  "À l'aube, ils trouvent la ville, Xuchotl, sans gardes ; une porte s'ouvre sur des salles closes, éclairées par des pierres de feu. Seule, Valéria voit un homme entrer dans une chambre, où l'on retrouve son corps la gorge tranchée ; son compagnon tombe à genoux devant un Crâne Brûlant, et Valéria tue celui qui porte le crâne. Le rescapé, Techotl, la prend pour une amie. Quatre Xotalancas les attaquent ; Conan arrive et achève le combat. Techotl les guide à travers les salles vides jusqu'à son clan, Tecuhltli, en fuyant une bête qui rampe.",
+  "À Tecuhltli, le prince Olmec et la princesse Tascela les reçoivent. Olmec raconte : des Tlazitlans fuyant la Stygie ont pris la ville grâce à l'esclave Tolkemec, puis se sont divisés en clans qui s'entretuent depuis cinquante ans ; un clou rouge marque chaque ennemi tué. Olmec offre des joyaux contre leur aide, et ils acceptent. Le soir, Techotl confie à Conan que Tascela était déjà adulte cinquante ans plus tôt.",
+  "La nuit, Yasala, la servante de Tascela, tente d'endormir Valéria avec un lotus noir. Valéria la ligote et la fouette pour la faire parler. Yasala lui jette du vin aux yeux et s'enfuit vers les catacombes, où elle crie, puis se tait. Un fracas d'épées éclate dans les salles.",
+  "Les Xotalancas entrent dans Tecuhltli grâce à une flûte qui rend fous les gardes. Avec Conan et Valéria, les Tecuhltli les massacrent tous : vingt clous rouges. Valéria est blessée au mollet. Conan part vers Xotalanc avec Yanath et Topal ; il n'y trouve personne, mais des têtes conservées sous verre. Yanath devient fou et tue Topal, qui avoue en mourant qu'Olmec lui avait ordonné de tuer Conan. Techotl, mourant, révèle qu'Olmec a enlevé Valéria et qu'il ne reste plus qu'un dragon. En chemin, Conan trouve Olmec ligoté sur un instrument de torture.",
+  "Olmec s'empare de Valéria et poignarde Techotl qui s'interpose. Tascela les rejoint, paralyse Olmec avec un vin de Stygie et le livre à la vieille machine de torture. Elle ligote Valéria et lui révèle qu'elle est vieille de plusieurs siècles, et qu'elle compte lui prendre sa jeunesse.",
+  "Conan libère Olmec, qui le mène par un escalier secret, puis tente de le tuer ; Conan l'étrangle. Dans la salle du trône, Valéria est étendue sur un autel et Conan est pris dans un piège à mâchoires. Tolkemec surgit des catacombes avec une baguette de feu et tue tous les Tecuhltli. Libéré par Tascela, Conan le tue d'un couteau lancé ; Valéria tue Tascela. Ils partent vers la côte.",
+]
+CHAPTERS = [{"title": "Chapitre " + str(i + 1) + " · " + t, "text": r} for i, (t, r) in enumerate(zip(T, R))]
+CHAPTERS[1]["notice"] = True
+
+PLACES = {
+  "foret": {"ambiance": "foret", "name": "La forêt du Sud", "map": "xuchotl", "x": 50, "y": 90, "region": "Au sud du Darfar", "desc": "Une forêt épaisse et sombre, sans route ni clairière, qui semble ne jamais finir."},
+  "rocher": {"ambiance": "montagne", "name": "Le rocher", "map": "xuchotl", "x": 40, "y": 82, "region": "Au sud du Darfar", "desc": "Un pic rocheux qui dépasse la cime des arbres, avec une corniche et des pommiers aux fruits pourpres à son pied."},
+  "plaine": {"ambiance": "champs", "name": "La plaine", "map": "xuchotl", "x": 50, "y": 70, "region": "Xuchotl", "desc": "Une plaine nue, cernée par l'anneau de la forêt, avec une ville au milieu."},
+  "grandesalle": {"ambiance": "chateau", "name": "La Grande Salle", "map": "xuchotl", "x": 50, "y": 50, "region": "Xuchotl", "desc": "Une longue salle qui coupe la ville du nord au sud, avec trois galeries à balustres de chaque côté."},
+  "galeries": {"ambiance": "nuit", "name": "Les salles d'en haut", "map": "xuchotl", "x": 46, "y": 40, "region": "Xuchotl", "desc": "Des chambres vides au-dessus de la Grande Salle, éclairées de joyaux verts, au sol de pierre rougeoyante."},
+  "silence": {"ambiance": "nuit", "name": "Les Salles du Silence", "map": "xuchotl", "x": 40, "y": 50, "region": "Xuchotl", "desc": "Le centre inhabité de la ville, entre les quartiers ennemis, où l'on se glisse pour tuer."},
+  "trone": {"ambiance": "chateau", "name": "La salle du trône de Tecuhltli", "map": "xuchotl", "x": 20, "y": 50, "region": "Tecuhltli", "desc": "Une vaste salle aux tentures de velours, une estrade de jade, un siège d'ivoire et une colonne d'ébène derrière."},
+  "chambres": {"ambiance": "nuit", "name": "Les chambres des hôtes", "map": "xuchotl", "x": 16, "y": 44, "region": "Tecuhltli", "desc": "Un long couloir derrière l'estrade, des chambres richement ornées, et une porte cerclée de cuivre."},
+  "garde": {"ambiance": "chateau", "name": "La salle de garde de l'Aigle", "map": "xuchotl", "x": 26, "y": 46, "region": "Tecuhltli", "desc": "Une pièce carrée derrière la Porte de l'Aigle, avec une chaîne, des verrous et un jeu de miroirs."},
+  "xotalanc": {"ambiance": "chateau", "name": "Xotalanc", "map": "xuchotl", "x": 80, "y": 50, "region": "Xotalanc", "desc": "Le quartier est de la ville, pareil à Tecuhltli, derrière une porte de bronze."},
+  "porte": {"ambiance": "chateau", "name": "La salle de la porte basse", "map": "xuchotl", "x": 22, "y": 58, "region": "Tecuhltli", "desc": "Une salle aux portes voilées de tapisseries, à l'étage inférieur, devant une porte de bronze extérieure."},
+  "torture": {"ambiance": "souterrain", "name": "La vieille salle de torture", "map": "xuchotl", "x": 28, "y": 60, "region": "Xuchotl", "desc": "Une salle hors de Tecuhltli, où reste une machine trop lourde pour être emportée."},
+  "escalier": {"ambiance": "nuit", "name": "L'escalier dans le mur", "map": "xuchotl", "x": 18, "y": 38, "region": "Tecuhltli", "desc": "Un escalier d'ivoire caché dans l'épaisseur du mur, qui monte à une tour sur les toits."},
+}
+
+PEOPLE = {
+  "conan": {"name": "Conan le Cimmérien", "aka": ["Conan", "Cimmérien"], "face": {"age": "jeune", "hair": "noir", "coif": "milong", "beard": "sans", "iris": "bleu", "skin": "hale"}, "qui": "Un barbare du Nord, ancien pirate, mercenaire chez Zarallo.", "aspect": {"allure": "un géant, large de poitrine", "visage": "des yeux bleus et farouches"}},
+  "valeria": {"name": "Valéria", "aka": ["Valéria"], "f": True, "face": {"age": "jeune", "hair": "blond", "coif": "boucles", "skin": "clair"}, "qui": "Une pirate aquilonienne de la Confrérie Rouge.", "aspect": {"allure": "grande, souple, l'épée à la main", "visage": "des boucles blondes"}},
+  "zarallo": {"name": "Zarallo", "aka": ["Zarallo"], "qui": "Le chef des Francs Compagnons, des mercenaires qui gardent la frontière.", "aspect": {"allure": "un capitaine de mercenaires"}},
+  "techotl": {"name": "Techotl", "aka": ["Techotl"], "face": {"age": "adulte", "hair": "noir", "coif": "long", "beard": "sans", "skin": "brun"}, "qui": "Un guerrier du clan de Tecuhltli.", "aspect": {"allure": "un guerrier au pagne de soie", "visage": "de longs cheveux noirs raides"}},
+  "chicmec": {"name": "Chicmec", "aka": ["Chicmec"], "qui": "Le compagnon de Techotl.", "aspect": {"allure": "un guerrier de Tecuhltli"}},
+  "olmec": {"name": "Olmec", "aka": ["Olmec"], "face": {"age": "mur", "hair": "noir", "coif": "boucles", "beard": "longue", "iris": "noir", "skin": "brun"}, "qui": "Le prince de Tecuhltli.", "aspect": {"allure": "un géant aux épaules de taureau", "visage": "une barbe d'un noir bleuté", "signe": "une robe de soie pourpre"}},
+  "tascela": {"name": "Tascela", "aka": ["Tascela"], "f": True, "face": {"age": "jeune", "hair": "noir", "iris": "noir", "skin": "brun"}, "qui": "Une princesse de Tecuhltli, assise près d'Olmec.", "aspect": {"allure": "grande et souple, la plus belle", "visage": "des yeux sombres et brûlants"}},
+  "yasala": {"name": "Yasala", "aka": ["Yasala"], "f": True, "face": {"age": "jeune", "hair": "noir", "skin": "brun"}, "qui": "La servante de Tascela.", "aspect": {"allure": "une belle fille maussade", "signe": "un éventail de plumes d'autruche"}},
+  "xatmec": {"name": "Xatmec", "aka": ["Xatmec"], "qui": "Un garde de la Porte de l'Aigle.", "aspect": {"allure": "un guerrier de Tecuhltli"}},
+  "yanath": {"name": "Yanath", "aka": ["Yanath"], "qui": "Un guerrier de Tecuhltli.", "aspect": {"allure": "un guerrier au bras bandé"}},
+  "topal": {"name": "Topal", "aka": ["Topal"], "qui": "Un guerrier de Tecuhltli.", "aspect": {"allure": "un guerrier légèrement blessé"}},
+  "tolkemec": {"name": "Tolkemec", "aka": ["Tolkemec"], "face": {"age": "ancien", "hair": "blanc", "beard": "longue"}, "qui": "L'esclave qui ouvrit jadis les portes de Xuchotl aux Tlazitlans.", "aspect": {"allure": "le plus haï du peuple de Xuchotl"}},
+}
+
+WORDS = {
+  "Xuchotl": "La ville au milieu de la plaine, bâtie jadis par un peuple venu de l'est, et prise par les Tlazitlans.",
+  "Xuchotlans": "Le peuple qui bâtit Xuchotl et l'habitait avant les Tlazitlans.",
+  "Tecuhltli": "Le quartier ouest de Xuchotl, et le clan qui y vit ; il porte le nom du frère qui le fonda.",
+  "Xotalanc": "Le quartier est de Xuchotl, et le clan ennemi de Tecuhltli, du nom de l'autre frère.",
+  "Xotalancas|Xotalanca": "Les gens du clan de Xotalanc.",
+  "Tlazitlans|Tlazitlan": "Un peuple des bords du lac Zuad, en Stygie, dont une tribu se réfugia à Xuchotl.",
+  "Zuad": "Un lac de la Stygie, près de la frontière du Kush.",
+  "Stygie|Stygiens|Stygien|stygien|stygienne": "Un royaume du sud où règnent des prêtres sorciers.",
+  "Sukhmet": "Une ville de la frontière stygienne, au milieu des prairies, près d'un camp de mercenaires.",
+  "Darfar": "Un pays du Sud, à la frontière duquel campent les mercenaires de Zarallo.",
+  "Kush": "Un vaste pays du Sud, sur la côte.",
+  "Pount": "Un pays du Sud, à l'est du Kush.",
+  "Kosala|Kosaliens": "Un pays lointain de l'est ; les bâtisseurs de Xuchotl en venaient.",
+  "Vendhya": "Un royaume riche de l'Orient lointain.",
+  "Afghulis": "Un peuple de montagnards, dans l'Himélie.",
+  "Himélie": "De hautes montagnes, au-dessus de la Vendhya.",
+  "Aquilonie|aquilonienne|Aquilonienne": "Le grand royaume hyborien de l'ouest, d'où vient Valéria.",
+  "Cimmérie": "Un pays de collines et de brumes, au nord, d'où vient Conan.",
+  "Zingara|Zingariens": "Un royaume de marins, au sud-ouest.",
+  "Argos": "Un royaume de marchands, sur la côte ouest.",
+  "Shem|shémite|Shémites": "Un pays de prairies et de déserts, au sud-ouest.",
+  "Confrérie Rouge": "Une confrérie de pirates des mers de l'ouest.",
+  "Francs Compagnons": "Une compagnie de mercenaires, menée par Zarallo.",
+  "kozak": "Un cavalier pillard des steppes de l'est.",
+  "Derketa": "Une déesse du Sud, la Reine des Morts ; on appelle Pommes de Derketa des fruits pourpres au jus mortel.",
+  "Mitra": "Le grand dieu des royaumes hyboriens.",
+  "Crom": "Le dieu sombre des Cimmériens, qui vit sur une montagne et n'écoute pas les prières.",
+  "Set": "Le dieu-serpent de la Stygie.",
+  "Serpents d'Or": "Des serpents préhistoriques ; on dit que les pierres de feu sont leurs yeux pétrifiés.",
+  "Crâne Brûlant": "Un crâne de sorcier qui luit d'un feu froid et glace ceux qui le regardent.",
+  "Rampant": "Une bête qui rampe dans les salles et que craignent les Tecuhltli.",
+  "Salles du Silence": "Le centre de Xuchotl, vide, entre les quartiers ennemis.",
+  "Grande Salle": "La salle qui coupe Xuchotl du nord au sud.",
+  "Porte de l'Aigle": "La porte de bronze de Tecuhltli, à l'étage le plus haut.",
+  "lotus noir": "Une grande fleur noire dont le parfum fait dormir d'un sommeil profond.",
+  "mastodonte": "Une énorme bête préhistorique, pareille à un éléphant.",
+}
+
+PT = {
+  "C1_1": ("Une cavalière dans la forêt", "foret"),
+  "C1_2": ("Du haut du rocher", "rocher"),
+  "C1_3": ("Ce qui s'est passé à Sukhmet", "rocher"),
+  "C1_4": ("Un cri dans les fourrés", "rocher"),
+  "C1_5": ("Le monstre", "rocher"),
+  "C1_6": ("Assiégés", "rocher"),
+  "C1_7": ("Les Pommes de Derketa", "rocher"),
+  "C1_8": ("La lance empoisonnée", "rocher"),
+  "C1_9": ("La fuite sous les arbres", "foret"),
+  "C1_10": ("La nuit dans la plaine", "plaine"),
+  "C2_1": ("La ville au milieu de la plaine", "plaine"),
+  "C2_2": ("La porte ouverte", "grandesalle"),
+  "C2_3": ("Les pierres de feu", "grandesalle"),
+  "C2_4": ("Seule dans les salles", "galeries"),
+  "C2_5": ("Le Crâne Brûlant", "galeries"),
+  "C2_6": ("Techotl", "galeries"),
+  "C2_7": ("Quatre hommes", "galeries"),
+  "C2_8": ("Le retour de Conan", "galeries"),
+  "C2_9": ("La route de Tecuhltli", "silence"),
+  "C3_1": ("Derrière la Porte de l'Aigle", "garde"),
+  "C3_2": ("Le pilier de la vengeance", "trone"),
+  "C3_3": ("Le dieu-dragon", "trone"),
+  "C3_4": ("Le récit d'Olmec", "trone"),
+  "C3_5": ("Le commencement de la vendetta", "trone"),
+  "C3_6": ("Cinquante ans de sang", "trone"),
+  "C3_7": ("Des chambres pour la nuit", "chambres"),
+  "C4_1": ("La fleur noire", "chambres"),
+  "C4_2": ("L'escalier des catacombes", "chambres"),
+  "C5_1": ("La flûte derrière la porte", "garde"),
+  "C5_2": ("La bataille de la salle du trône", "trone"),
+  "C5_3": ("Vingt clous rouges", "trone"),
+  "C5_4": ("La porte de Xotalanc", "xotalanc"),
+  "C5_5": ("Les têtes derrière les vitres", "xotalanc"),
+  "C5_6": ("Ce que disent les mourants", "silence"),
+  "C6_1": ("Une femme qui croit aux fantômes", "chambres"),
+  "C6_2": ("Les bras d'Olmec", "chambres"),
+  "C6_3": ("Le vin de Tascela", "porte"),
+  "C6_4": ("Le secret de Tascela", "porte"),
+  "C7_1": ("Le chevalet", "torture"),
+  "C7_2": ("L'escalier dans le mur", "escalier"),
+  "C7_3": ("L'autel noir", "trone"),
+  "C7_4": ("Celui qui vient des ténèbres", "trone"),
+  "C7_5": ("La baguette de jade", "trone"),
+}
+PAGES = {p: list(t) for p, t in PT.items()}
