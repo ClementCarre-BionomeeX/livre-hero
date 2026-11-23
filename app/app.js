@@ -2780,6 +2780,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "24.1", items: ["Nouveau livre à lire : « Frankenstein », de Mary Shelley (1818), dans sa première traduction française : dans les glaces du pôle, un navire recueille un homme épuisé qui poursuivait une silhouette gigantesque, et qui a voulu percer le secret de la vie."] },
     { v: "24.0", items: ["Nouveau livre à lire : « Histoire d'un casse-noisette », d'Alexandre Dumas (1844) : le soir de Noël, à Nuremberg, la petite Marie soigne un bonhomme de bois qui casse les noisettes, et à minuit l'armoire aux joujoux s'éveille."] },
     { v: "23.9", items: ["Nouveau livre à lire : « Acté », d'Alexandre Dumas (1839) : à Corinthe, en l'an 57, une jeune Grecque ouvre la maison de son père à un Romain à la barbe d'or venu disputer aux Grecs les couronnes de la lutte, de la course et du chant."] },
     { v: "23.8", items: ["Nouveau livre à lire : « La Femme au collier de velours », d'Alexandre Dumas (1850) : le jeune Hoffmann quitte sa fiancée de Mannheim pour le Paris de 1793 et s'éprend d'une danseuse de l'Opéra au collier de velours noir."] },
