@@ -1,0 +1,131 @@
+// « L'Heure du dragon » (The Hour of the Dragon), Robert E. Howard, 1935-1936 : un livre à lire, sans choix (lecture: true).
+// Texte : traduction nouvelle par Claude, faite pour cette bibliothèque à partir du texte anglais paru dans Weird Tales
+// de décembre 1935 à avril 1936 (Project Gutenberg n° 42243, domaine public). Les titres des chapitres sont ceux de Howard ;
+// ceux des pages et tout ce qui vit dans les tags (gens, lieux, mots, résumés) sont de Claude.
+// Chapitre C10 · Chapitre 10 · Une pièce de l'Achéron
+module.exports = {
+  C10_1: { act: "C10", title: "Les prêtres d'Asura", place: "asura", fx: { meet: ["hadrathus"] },
+    text: [
+      "Tous ses guides n'entrèrent pas dans la salle. Quand la porte se referma, Conan ne vit plus qu'un seul homme devant lui : une silhouette mince, enveloppée d'un manteau noir à capuchon. L'homme rejeta le capuchon et découvrit un visage pâle et ovale, aux traits calmes et finement ciselés.",
+      "Le roi remit Albiona sur ses pieds, mais elle s'accrochait toujours à lui et regardait autour d'elle avec appréhension. La salle était vaste, avec des murs de marbre en partie couverts de tentures de velours noir, d'épais tapis précieux sur le sol de mosaïque, le tout baigné de la douce lueur dorée de lampes de bronze.",
+      "Conan posa instinctivement la main sur sa poignée. Il y avait du sang sur sa main, du sang caillé autour de l'entrée du fourreau, car il avait rengainé sa lame sans la nettoyer.",
+      "« Où sommes-nous ? » demanda-t-il.",
+      "L'étranger répondit par une révérence basse et profonde, où le roi soupçonneux ne put déceler aucune trace d'ironie.",
+      "« Dans le temple d'Asura, Majesté. »",
+      "Albiona poussa un faible cri et se serra contre Conan, regardant avec crainte les portes noires et voûtées, comme si elle s'attendait à voir entrer quelque forme hideuse des ténèbres.",
+      "« Ne craignez rien, madame, dit leur guide. Rien ici ne vous fera de mal, quoi qu'en dise la superstition vulgaire. Si votre souverain a été assez convaincu de l'innocence de notre religion pour nous protéger de la persécution des ignorants, alors l'une de ses sujettes n'a certes rien à redouter.",
+      "— Qui es-tu ? demanda Conan.",
+      "— Je suis Hadrathus, prêtre d'Asura. L'un de mes fidèles vous a reconnu quand vous êtes entré dans la ville, et il m'en a apporté la nouvelle. »",
+      "Conan grogna un juron.",
+      "« Ne craignez pas que d'autres aient découvert qui vous êtes, lui assura Hadrathus. Votre déguisement aurait trompé n'importe qui, sauf un fidèle d'Asura, dont le culte est de chercher sous l'apparence de l'illusion. On vous a suivi jusqu'à la tour de guet, et certains des nôtres sont entrés dans le tunnel pour vous aider si vous reveniez par ce chemin. D'autres, dont moi, ont cerné la tour. Et maintenant, roi Conan, c'est à vous de commander. Ici, dans le temple d'Asura, vous êtes toujours roi.",
+      "— Pourquoi risqueriez-vous votre vie pour moi ? demanda le roi.",
+      "— Vous étiez notre ami quand vous étiez sur votre trône, répondit Hadrathus. Vous nous avez protégés quand les prêtres de Mitra cherchaient à nous chasser du pays à coups de fouet. »",
+      "Conan regarda autour de lui avec curiosité. Il n'était jamais venu au temple d'Asura, et n'avait même pas su de façon certaine qu'il en existait un à Tarantia. Les prêtres de cette religion avaient l'habitude de cacher leurs temples d'une manière remarquable. Le culte de Mitra dominait de loin dans les nations hyboriennes, mais celui d'Asura persistait, malgré l'interdiction officielle et l'hostilité populaire. On avait raconté à Conan de sombres histoires de temples cachés où une épaisse fumée montait sans cesse d'autels noirs sur lesquels on sacrifiait des gens enlevés, devant un grand serpent lové dont la tête effrayante se balançait éternellement dans les ombres hantées.",
+      "La persécution poussait les fidèles d'Asura à cacher leurs temples avec un art rusé et à envelopper leurs rites d'obscurité ; et ce secret, à son tour, faisait naître des soupçons plus monstrueux et des histoires plus noires.",
+      "Mais Conan avait la large tolérance du barbare, et il avait refusé de persécuter les fidèles d'Asura ou de permettre au peuple de le faire sur la foi de preuves aussi minces que celles qu'on présentait contre eux : des rumeurs et des accusations impossibles à prouver. « Si ce sont des magiciens noirs, avait-il dit, comment vous laisseraient-ils les harceler ? S'ils n'en sont pas, il n'y a pas de mal en eux. Par les démons de Crom ! Que les hommes adorent les dieux qu'ils veulent. »"
+    ] },
+
+  C10_2: { act: "C10", title: "Hadrathus", place: "asura",
+    text: [
+      "Sur une respectueuse invitation de Hadrathus, il s'assit dans un fauteuil d'ivoire et fit signe à Albiona d'en prendre un autre, mais elle préféra s'asseoir sur un tabouret d'or à ses pieds, serrée contre sa cuisse, comme si elle cherchait la sécurité dans ce contact. Comme la plupart des fidèles orthodoxes de Mitra, elle avait une horreur instinctive des fidèles et du culte d'Asura, inculquée dans sa petite enfance et son enfance par des histoires extravagantes de sacrifices humains et de dieux à forme d'homme qui se traînaient dans des temples obscurs.",
+      "Hadrathus se tenait devant eux, tête nue et inclinée.",
+      "« Quel est votre désir, Majesté ?",
+      "— D'abord manger », grogna-t-il, et le prêtre frappa un gong d'or d'une baguette d'argent.",
+      "À peine les notes moelleuses avaient-elles cessé de résonner que quatre silhouettes encapuchonnées passèrent par une porte voilée d'un rideau, portant un grand plateau d'argent à quatre pieds chargé de plats fumants et de vases de cristal. Ils le posèrent devant Conan en s'inclinant bas, et le roi s'essuya les mains sur le damas et fit claquer ses lèvres avec un plaisir non déguisé.",
+      "« Prenez garde, Majesté ! chuchota Albiona. Ces gens mangent de la chair humaine !",
+      "— Je parie mon royaume que ce n'est rien d'autre qu'un honnête rôti de bœuf, répondit Conan. Allons, petite, mange ! Tu dois avoir faim après l'ordinaire de la prison. »",
+      "Ainsi conseillée, et avec l'exemple sous les yeux de celui dont la parole était pour elle la loi suprême, la comtesse obéit et mangea avec voracité, quoique délicatement, tandis que son suzerain dévorait les quartiers de viande et lampait le vin avec autant d'entrain que s'il n'avait pas déjà mangé une fois cette nuit-là.",
+      "« Vous autres prêtres, vous êtes malins, Hadrathus, dit-il, un grand os de bœuf dans les mains et la bouche pleine. J'accueillerais volontiers vos services dans ma campagne pour reprendre mon royaume. »",
+      "Lentement, Hadrathus secoua la tête, et Conan abattit l'os de bœuf sur la table dans un accès de colère impatiente.",
+      "« Par les démons de Crom ! Qu'ont donc les hommes d'Aquilonie ? D'abord Servius, maintenant toi ! Vous ne savez rien faire d'autre que hocher vos têtes stupides quand je parle de chasser ces chiens ? »",
+      "Hadrathus soupira et répondit lentement : « Monseigneur, c'est une chose pénible à dire, et je voudrais bien dire autre chose. Mais la liberté de l'Aquilonie est finie. Que dis-je, c'est peut-être la liberté du monde entier qui est finie ! Les âges se suivent dans l'histoire du monde, et nous entrons maintenant dans un âge d'horreur et d'esclavage, comme il y en eut un il y a longtemps.",
+      "— Que veux-tu dire ? » demanda le roi, mal à l'aise.",
+      "Hadrathus se laissa tomber dans un fauteuil, les coudes sur les cuisses, les yeux au sol.",
+      "« Ce ne sont pas seulement les seigneurs rebelles d'Aquilonie et les armées de Némédie qui sont rangés contre vous, répondit Hadrathus. C'est la sorcellerie, une magie noire effroyable venue de la sombre jeunesse du monde. Une forme terrible s'est levée des ombres du Passé, et nul ne peut lui tenir tête.",
+      "— Que veux-tu dire ? répéta Conan.",
+      "— Je parle de Xaltotun d'Achéron, qui est mort il y a trois mille ans et qui pourtant marche aujourd'hui sur la terre. »",
+      "Conan se tut, tandis qu'une image flottait dans son esprit : celle d'un visage barbu d'une beauté calme et inhumaine. De nouveau, il fut hanté par un malaise, un sentiment de déjà-vu. Achéron : le son du mot éveillait dans son esprit des vibrations instinctives de souvenirs et d'associations."
+    ] },
+
+  C10_3: { act: "C10", title: "L'Achéron", place: "asura",
+    text: [
+      "« L'Achéron, répéta-t-il. Xaltotun d'Achéron… L'ami, es-tu fou ? L'Achéron est un mythe depuis plus de siècles que je ne saurais en compter. Je me suis souvent demandé s'il avait jamais existé.",
+      "— Ce fut une noire réalité, répondit Hadrathus, un empire de magiciens noirs, plongé dans un mal aujourd'hui depuis longtemps oublié. Il fut enfin renversé par les tribus hyboriennes de l'ouest. Les sorciers d'Achéron pratiquaient une nécromancie immonde, une thaumaturgie de l'espèce la plus mauvaise, une magie effroyable que leur avaient enseignée des démons. Et de tous les sorciers de ce royaume maudit, aucun n'égalait Xaltotun de Python.",
+      "— Alors comment a-t-on pu le renverser ? demanda Conan, sceptique.",
+      "— D'une façon ou d'une autre, une source de puissance cosmique qu'il gardait jalousement lui fut volée et retournée contre lui. Cette source lui a été rendue, et il est invincible. »",
+      "Albiona, serrant autour d'elle le manteau noir du bourreau, regardait tour à tour le prêtre et le roi, sans comprendre la conversation. Conan secoua la tête avec colère.",
+      "« Tu te moques de moi, gronda-t-il. Si Xaltotun est mort depuis trois mille ans, comment cet homme peut-il être lui ? C'est quelque coquin qui a pris le nom de l'ancien. »",
+      "Hadrathus se pencha vers une table d'ivoire et ouvrit un petit coffret d'or qui s'y trouvait. Il en tira un objet qui brillait d'un éclat terne dans la lumière douce : une large pièce d'or de frappe antique.",
+      "« Vous avez vu Xaltotun sans son voile ? Alors regardez ceci. C'est une pièce frappée dans l'ancien Achéron, avant sa chute. Ce noir empire était si imprégné de sorcellerie que même cette pièce a son usage dans les œuvres de magie. »",
+      "Conan la prit et la regarda en fronçant les sourcils. On ne pouvait se tromper sur sa grande antiquité. Conan avait manié bien des pièces dans ses années de pillage, et il en avait une bonne connaissance pratique. Les bords étaient usés et l'inscription presque effacée. Mais le visage frappé sur l'une des faces restait net et distinct. Et le souffle de Conan siffla entre ses dents serrées. Il ne faisait pas frais dans la salle, mais il sentit son cuir chevelu le picoter, sa chair se contracter, glacée. Le visage était celui d'un homme barbu, impénétrable, d'une beauté calme et inhumaine.",
+      "« Par Crom ! C'est lui ! » murmura Conan. Il comprenait maintenant le sentiment de déjà-vu que la vue de l'homme barbu avait éveillé en lui dès le début. Il avait déjà vu une pièce comme celle-là, il y avait longtemps, dans un pays lointain.",
+      "D'un haussement d'épaules, il gronda : « La ressemblance n'est qu'une coïncidence ; ou s'il est assez malin pour prendre le nom d'un sorcier oublié, il est assez malin pour prendre aussi ses traits. » Mais il parlait sans conviction. La vue de cette pièce avait ébranlé les fondations de son univers. Il sentait la réalité et la stabilité s'effriter dans un abîme d'illusion et de sorcellerie. Un sorcier, cela se comprenait ; mais ceci était une diablerie qui dépassait la raison.",
+      "« Nous ne pouvons douter que ce soit bien Xaltotun de Python, dit Hadrathus. C'est lui qui a fait crouler les falaises à la Valkia, par ses sortilèges qui asservissent les esprits élémentaires de la terre ; c'est lui qui a envoyé la créature des ténèbres dans votre tente avant l'aube. »",
+      "Conan le regarda en fronçant les sourcils. « Comment le sais-tu ?",
+      "— Les fidèles d'Asura ont des voies secrètes de connaissance. Peu importe. Mais comprenez-vous combien il serait vain de sacrifier vos sujets pour tenter de reprendre votre couronne ? »"
+    ] },
+
+  C10_4: { act: "C10", title: "La source de sa puissance", place: "asura",
+    text: [
+      "Conan appuya le menton sur son poing et fixa le vide d'un air sombre. Albiona l'observait avec anxiété, son esprit tâtonnant, perdu, dans les dédales du problème qui se posait à lui.",
+      "« N'y a-t-il aucun sorcier au monde qui puisse faire une magie capable de combattre celle de Xaltotun ? » demanda-t-il enfin.",
+      "Hadrathus secoua la tête. « S'il y en avait un, nous autres d'Asura le connaîtrions. On dit que notre culte est un reste de l'ancien culte stygien du serpent. C'est un mensonge. Nos ancêtres venaient de Vendhya, au-delà de la mer de Vilayet et des montagnes bleues de l'Himélie. Nous sommes des fils de l'Orient, non du Sud, et nous connaissons tous les sorciers de l'Orient, qui sont plus grands que ceux de l'Occident. Et il n'en est pas un qui ne serait un fétu de paille dans le vent devant la noire puissance de Xaltotun.",
+      "— Mais il a été vaincu une fois, insista Conan.",
+      "— Oui ; une source cosmique fut retournée contre lui. Mais à présent cette source est de nouveau entre ses mains, et il veillera à ce qu'on ne la lui vole plus.",
+      "— Et qu'est-ce que cette maudite source ? demanda Conan avec irritation.",
+      "— On l'appelle le Cœur d'Ahriman. Quand l'Achéron fut renversé, le prêtre primitif qui l'avait volé et retourné contre Xaltotun le cacha dans une caverne hantée et bâtit un petit temple au-dessus. Par trois fois ensuite le temple fut rebâti, chaque fois plus grand et plus orné, mais toujours sur l'emplacement du sanctuaire d'origine, bien que les hommes en aient oublié la raison. Le souvenir du symbole caché s'effaça de l'esprit du commun, et ne se conserva que dans les livres des prêtres et les volumes ésotériques. D'où il venait, nul ne le sait. Certains disent que c'est le cœur véritable d'un dieu, d'autres que c'est une étoile tombée du ciel il y a longtemps. Jusqu'à ce qu'on le vole, personne ne l'avait regardé depuis trois mille ans.",
+      "» Quand la magie des prêtres de Mitra échoua contre celle d'Altaro, l'acolyte de Xaltotun, ils se rappelèrent l'antique légende du Cœur, et le grand prêtre et un acolyte descendirent dans la crypte sombre et terrible sous le temple, où aucun prêtre n'était descendu depuis trois mille ans. Les anciens volumes à reliure de fer qui parlent du Cœur dans leur symbolisme obscur racontent aussi qu'une créature des ténèbres fut laissée là par l'ancien prêtre pour le garder.",
+      "» Très loin au fond, dans une salle carrée dont les portes voûtées s'ouvraient sur une noirceur sans mesure, le prêtre et son acolyte trouvèrent un autel de pierre noire qui luisait faiblement d'un éclat inexplicable.",
+      "» Sur cet autel reposait un curieux vase d'or, pareil à un coquillage à deux valves, qui adhérait à la pierre comme une bernacle. Mais il était béant et vide. Le Cœur d'Ahriman avait disparu. Tandis qu'ils regardaient, horrifiés, le gardien de la crypte, la créature des ténèbres, tomba sur eux et déchira le grand prêtre, qui en mourut. Mais l'acolyte repoussa l'être, un errant des abîmes sans esprit et sans âme, amené jadis pour garder le Cœur, et s'échappa par le long escalier noir et étroit, emportant le prêtre mourant ; celui-ci, avant de mourir, apprit d'une voix haletante la nouvelle à ses fidèles, leur ordonna de se soumettre à une puissance qu'ils ne pouvaient vaincre et leur imposa le secret. Mais la nouvelle a couru en chuchotements parmi les prêtres, et nous autres d'Asura l'avons apprise.",
+      "— Et Xaltotun tire sa puissance de ce symbole ? demanda Conan, toujours sceptique."
+    ] },
+
+  C10_5: { act: "C10", title: "Le Cœur volé", place: "asura",
+    text: [
+      "— Non. Sa puissance vient du gouffre noir. Mais le Cœur d'Ahriman est venu de quelque univers lointain de lumière flamboyante, et contre lui les puissances des ténèbres ne peuvent tenir, quand il est entre les mains d'un adepte. C'est comme une épée qui pourrait le frapper, non une épée dont il pourrait frapper. Il rend la vie, et peut détruire la vie. Il l'a volé, non pour s'en servir contre ses ennemis, mais pour les empêcher de s'en servir contre lui.",
+      "— Une coupe d'or en forme de coquillage sur un autel noir, au fond d'une caverne, murmura Conan, le front plissé, cherchant à saisir l'image fuyante. Cela me rappelle quelque chose que j'ai entendu ou vu. Mais, au nom de Crom, qu'est-ce que ce fameux Cœur ?",
+      "— Il a la forme d'un grand joyau, comme un rubis, mais il palpite d'un feu aveuglant dont aucun rubis n'a jamais brûlé. Il luit comme une flamme vivante… »",
+      "Mais Conan se leva d'un bond et frappa son poing droit dans sa paume gauche avec un bruit de tonnerre.",
+      "« Crom ! rugit-il. Quel sot j'ai été ! Le Cœur d'Ahriman ! Le cœur de mon royaume ! Trouve le cœur de ton royaume, disait Zélata. Par Ymir, c'était le joyau que j'ai vu dans la fumée verte, le joyau que Tarascus a volé à Xaltotun pendant qu'il dormait du sommeil du lotus noir ! »",
+      "Hadrathus aussi était debout, et son calme était tombé comme un vêtement.",
+      "« Que dites-vous ? Le Cœur volé à Xaltotun ?",
+      "— Oui ! tonna Conan. Tarascus craignait Xaltotun et voulait estropier sa puissance, qu'il croyait logée dans le Cœur. Peut-être pensait-il que le sorcier mourrait si le Cœur était perdu. Par Crom… ahhh ! » Avec une grimace sauvage de déception et de dégoût, il laissa retomber son poing serré.",
+      "« J'oubliais. Tarascus l'a donné à un voleur pour qu'il le jette à la mer. À l'heure qu'il est, le gaillard doit être presque à Kordava. Avant que j'aie pu le suivre, il aura pris la mer et livré le Cœur au fond de l'océan.",
+      "— La mer ne le gardera pas ! s'écria Hadrathus, frémissant d'excitation. Xaltotun lui-même l'aurait jeté à l'océan depuis longtemps, s'il n'avait su que la première tempête le rejetterait sur le rivage. Mais sur quelle plage inconnue ne risque-t-il pas d'échouer !",
+      "— Eh bien, dit Conan, qui retrouvait son assurance élastique, rien ne garantit que le voleur le jettera. Si je connais les voleurs, et je devrais, car j'ai été voleur en Zamora dans ma prime jeunesse, il ne le jettera pas. Il le vendra à quelque riche marchand. Par Crom ! » Il allait et venait à grands pas dans son excitation grandissante. « Cela vaut la peine de le chercher ! Zélata m'a dit de trouver le cœur de mon royaume, et tout ce qu'elle m'a montré d'autre s'est révélé vrai. Se peut-il que le pouvoir de vaincre Xaltotun se cache dans cette babiole écarlate ?",
+      "— Oui ! J'en mets ma tête à couper ! cria Hadrathus, le visage illuminé de ferveur, les yeux flamboyants, les poings serrés. Avec lui entre nos mains, nous pouvons braver les pouvoirs de Xaltotun ! Je le jure ! Si nous pouvons le reprendre, nous avons une chance égale de reprendre votre couronne et de chasser les envahisseurs de nos portes. Ce ne sont pas les épées de Némédie que craint l'Aquilonie, mais les arts noirs de Xaltotun. »",
+      "Conan le regarda un moment, impressionné par le feu du prêtre."
+    ] },
+
+  C10_6: { act: "C10", title: "La quête", place: "asura",
+    text: [
+      "« C'est comme une quête dans un cauchemar, dit-il enfin. Pourtant tes paroles font écho à la pensée de Zélata, et tout ce qu'elle a dit d'autre était vrai. Je vais chercher ce joyau.",
+      "— Il tient le destin de l'Aquilonie, dit Hadrathus avec conviction. Je vais envoyer des hommes avec vous…",
+      "— Non ! s'écria le roi avec impatience, peu désireux d'être encombré de prêtres dans sa quête, si habiles qu'ils fussent dans les arts ésotériques. C'est une tâche pour un homme d'armes. J'irai seul. D'abord en Poitain, où je laisserai Albiona chez Trocéro. Puis à Kordava, et sur la mer au-delà, s'il le faut. Il se peut que, même si le voleur compte exécuter l'ordre de Tarascus, il ait quelque peine à trouver un navire en partance à cette époque de l'année.",
+      "— Et si vous trouvez le Cœur, s'écria Hadrathus, je préparerai la voie à votre reconquête. Avant que vous reveniez en Aquilonie, je ferai courir la nouvelle par des voies secrètes que vous êtes vivant et que vous revenez avec une magie plus forte que celle de Xaltotun. J'aurai des hommes prêts à se soulever à votre retour. Ils se soulèveront, s'ils ont l'assurance d'être protégés des arts noirs de Xaltotun.",
+      "» Et je vous aiderai pendant votre voyage. »",
+      "Il se leva et frappa un gong.",
+      "« Un tunnel secret part de sous ce temple et mène à un endroit hors des murs de la ville. Vous irez en Poitain sur un bateau de pèlerins. Personne n'osera vous inquiéter.",
+      "— Comme tu voudras. » Avec un but précis en tête, Conan brûlait d'impatience et d'énergie. « Pourvu seulement que ce soit vite fait. »",
+      "Pendant ce temps, ailleurs dans la ville, les événements ne traînaient pas. Un messager hors d'haleine avait fait irruption dans le palais où Valérius s'amusait avec ses danseuses, et, se jetant à genoux, avait raconté en haletant une histoire confuse d'évasion sanglante et de belle captive envolée. Il apportait aussi la nouvelle que le comte Thespius, à qui l'on avait confié l'exécution de la sentence d'Albiona, était mourant et suppliait qu'on lui laisse dire un mot à Valérius avant de passer.",
+      "S'enveloppant en hâte de son manteau, Valérius accompagna l'homme par divers chemins tortueux et arriva dans une chambre où gisait Thespius. Il n'y avait pas de doute que le comte était mourant ; une écume sanglante bouillonnait sur ses lèvres à chaque hoquet frissonnant. On avait bandé son bras tranché pour arrêter le sang, mais, même sans cela, l'entaille de son flanc était mortelle.",
+      "Seul dans la chambre avec le mourant, Valérius jura doucement.",
+      "« Par Mitra, j'aurais cru qu'il n'avait jamais vécu qu'un seul homme capable de porter un coup pareil.",
+      "— Valérius ! haleta le mourant. Il vit ! Conan vit !",
+      "— Que dis-tu ? s'exclama l'autre.",
+      "— Je le jure par Mitra ! gargouilla Thespius, s'étranglant avec le sang qui lui montait aux lèvres. C'est lui qui a emporté Albiona ! Il n'est pas mort… ce n'est pas un fantôme revenu de l'enfer pour nous hanter. Il est de chair et de sang, et plus terrible que jamais. La ruelle derrière la tour est pleine de morts. Prends garde, Valérius… il est revenu… pour nous tuer tous… »",
+      "Un fort frisson secoua le corps maculé de sang, et le comte Thespius retomba, inerte.",
+      "Valérius regarda le mort en fronçant les sourcils, jeta un rapide coup d'œil autour de la chambre vide et, allant vivement à la porte, l'ouvrit soudain. Le messager et un groupe de gardes némédiens se tenaient à quelques pas dans le corridor. Valérius marmonna quelque chose qui pouvait marquer la satisfaction.",
+      "« Toutes les portes ont-elles été fermées ? demanda-t-il.",
+      "— Oui, Majesté.",
+      "— Triplez la garde à chacune. Que personne n'entre ni ne sorte de la ville sans l'examen le plus strict. Mettez des hommes à fouiller les rues et les quartiers. Un prisonnier de grande valeur s'est évadé, avec l'aide d'un rebelle aquilonien. L'un de vous a-t-il reconnu cet homme ?",
+      "— Non, Majesté. Le vieux veilleur l'a entrevu, mais il a seulement pu dire que c'était un géant, vêtu du costume noir du bourreau, dont nous avons trouvé le corps nu dans une cellule vide.",
+      "— C'est un homme dangereux, dit Valérius. Ne prenez aucun risque avec lui. Vous connaissez tous la comtesse Albiona. Cherchez-la, et si vous la trouvez, tuez-la sur-le-champ avec son compagnon. N'essayez pas de les prendre vivants. »",
+      "De retour dans sa chambre du palais, Valérius fit venir devant lui quatre hommes d'aspect curieux et étranger. Ils étaient grands, décharnés, le visage immobile comme un masque. Ils se ressemblaient beaucoup, vêtus de la même façon de longues robes noires sous lesquelles on apercevait à peine leurs pieds en sandales. Leurs traits restaient dans l'ombre de leurs capuchons. Ils se tenaient devant Valérius, les mains dans leurs larges manches, les bras croisés. Valérius les regarda sans plaisir. Dans ses lointains voyages, il avait rencontré bien des peuples étranges.",
+      "« Quand je vous ai trouvés mourant de faim dans les jungles du Khitaï, dit-il brusquement, exilés de votre royaume, vous m'avez juré de me servir. Vous m'avez assez bien servi, à votre abominable manière. Je vous demande un dernier service, et ensuite je vous délie de votre serment.",
+      "» Conan le Cimmérien, roi d'Aquilonie, est toujours vivant, malgré la sorcellerie de Xaltotun, ou peut-être à cause d'elle. Je n'en sais rien. L'esprit ténébreux de ce démon ressuscité est trop tortueux et trop subtil pour qu'un homme mortel le sonde. Mais tant que Conan vit, je ne suis pas en sûreté. Le peuple m'a accepté comme le moindre de deux maux, quand il le croyait mort. Qu'il reparaisse, et le trône vacillera sous mes pieds dans la révolution avant que j'aie pu lever la main.",
+      "» Peut-être mes alliés comptent-ils se servir de lui pour me remplacer, s'ils décident que j'ai fait mon temps. Je n'en sais rien. Je sais que cette planète est trop petite pour deux rois d'Aquilonie. Cherchez le Cimmérien. Usez de vos talents surnaturels pour le débusquer où qu'il se cache ou qu'il coure. Il a beaucoup d'amis à Tarantia. On l'a aidé quand il a emporté Albiona. Il a fallu plus d'un homme, même un homme comme Conan, pour faire tout ce carnage dans la ruelle derrière la tour. Mais assez parlé. Prenez vos bâtons et suivez sa piste. Où cette piste vous mènera, je n'en sais rien. Mais trouvez-le ! Et quand vous l'aurez trouvé, tuez-le ! »",
+      "Les quatre Khitaniens s'inclinèrent ensemble, et, toujours sans un mot, se retournèrent et sortirent de la chambre à pas feutrés, sans bruit."
+    ] },
+
+};
