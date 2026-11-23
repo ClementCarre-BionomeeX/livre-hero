@@ -2733,6 +2733,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "20.8", items: ["Nouveau livre à lire : « Robur-le-Conquérant », de Jules Verne (1886), la querelle du ballon et de la machine volante."] },
     { v: "20.7", items: ["Nouveau livre à lire : « Clous rouges », le dernier récit de Conan le Cimmérien écrit par Robert E. Howard (1936), dans une traduction nouvelle."] },
     { v: "20.6", items: ["Nouveau livre à lire : « L'Heure du dragon », le seul roman de Conan le Cimmérien, de Robert E. Howard (1935-1936), dans une traduction nouvelle."] },
     { v: "20.5", items: ["Nouveau livre à lire : « Ombres sur Zamboula », un récit de Conan le Cimmérien de Robert E. Howard (1935), dans une traduction nouvelle."] },
