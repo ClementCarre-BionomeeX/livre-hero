@@ -2780,6 +2780,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "22.4", items: ["Nouveau livre à lire : « Le Chevalier de Maison-Rouge », d'Alexandre Dumas (1845-1846), un roman de la Terreur : Paris en 1793, un jeune républicain, une femme mystérieuse et un complot pour sauver la reine prisonnière."] },
     { v: "22.3", items: ["Nouveau livre à lire : « Les Quarante-Cinq », d'Alexandre Dumas (1847-1848), la fin de la trilogie des derniers Valois : la garde secrète de quarante-cinq Gascons, les complots de la Ligue, et Chicot sur les routes du royaume."] },
     { v: "22.2", items: ["Septième histoire courte à énigmes de la série Croûte & Chrome : « Le Catalogue de 1899 ». Le premier Catalogue de la Maison passe aux enchères ce soir, et il y manque peut-être quelque chose. Nouveau dans les énigmes : une préface qui se lit de haut en bas, une lampe qui montre ce que l'œil ne voit pas, et un chiffre dont la clef est un nom de ville."] },
     { v: "22.1", items: ["Sixième histoire courte à énigmes de la série Croûte & Chrome : « Le Papier chromé ». Une nuit à l'imprimerie de la Maison, avant que le Catalogue parte sous presse, et une vieille typographe renvoyée la veille qui a laissé un message. Nouveau dans les énigmes : une lettre déchirée à remettre dans l'ordre, une encre invisible qu'on fait paraître avec un fer chaud, et un chiffre dont l'alphabet commence par un mot."] },
