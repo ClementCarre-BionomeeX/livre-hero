@@ -15,7 +15,7 @@
 
   function textOf(t) { return typeof t === "string" ? t : (t && typeof t.text === "string" ? t.text : ""); }
   // 8.6: the marks of words with effects ({{fx:tremble|mots}}…) are read as the words they carry.
-  function plain(t) { return String(t).replace(/\{\{(fx|cle|or|envers|encre|tache|gens|dit):([^{}|]*)(?:\|([^{}]*))?\}\}/g, function (a, k, x, y) { return k === "tache" || k === "dit" ? "" : y == null ? x : y; }).replace(/\*\*?|__?/g, "").replace(/\{[^}]*\}/g, "x"); }
+  function plain(t) { return String(t).replace(/\{\{(fx|cle|or|envers|encre|tache|gens|dit|examen|chiffre):([^{}|]*)(?:\|([^{}]*))?\}\}/g, function (a, k, x, y) { return k === "tache" || k === "dit" ? "" : y == null ? x : y; }).replace(/\*\*?|__?/g, "").replace(/\{[^}]*\}/g, "x"); }
   function words(t) { return plain(t).match(WORD) || []; }
   function cut(t, at, len) { var s = Math.max(0, at - 30); return (s ? "…" : "") + t.slice(s, at + (len || 0) + 30).replace(/\s+/g, " ") + "…"; }
 
