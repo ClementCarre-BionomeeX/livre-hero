@@ -1,0 +1,35 @@
+// « Vingt ans après », Alexandre Dumas, 1845 : un livre à lire, sans choix (lecture: true). Texte de Dumas
+// (avec Auguste Maquet), domaine public, d'après l'édition numérique du projet Gutenberg. Les titres des chapitres sont
+// de Dumas ; ceux des pages, comme tout ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude.
+// Les mots et les noms de l'époque, expliqués d'un toucher. Rien de l'intrigue.
+module.exports = {
+  "Fronde|frondeur|frondeurs|frondeuse": "Le parti qui se soulève contre Mazarin, de 1648 à 1653 ; le nom vient de la fronde des gamins de Paris.",
+  "coadjuteur": "L'évêque qui aide un archevêque et doit lui succéder ; ici, Gondy, coadjuteur de l'archevêque de Paris.",
+  "Parlement|parlement": "En France, la grande cour de justice de Paris, qui enregistre les édits du roi ; en Angleterre, l'assemblée qui fait les lois.",
+  "conseiller": "Un juge du Parlement de Paris.",
+  "régente": "La reine qui gouverne à la place d'un roi trop jeune ; ici, Anne d'Autriche, pour Louis XIV, qui a dix ans.",
+  "Éminence": "Le titre qu'on donne à un cardinal.",
+  "mousquetaire|mousquetaires": "Un soldat de la garde du roi, armé d'un mousquet.",
+  "pistole|pistoles": "Une pièce d'or, qui vaut dix livres.",
+  "louis": "Une pièce d'or à l'effigie du roi.",
+  "bedeau": "L'homme qui garde l'ordre dans une église pendant les offices.",
+  "enfant de chœur": "Un enfant qui sert la messe.",
+  "jésuite|jésuites": "Un prêtre de la Compagnie de Jésus.",
+  "exempt": "Un officier de police ou de garde, chargé des arrestations et des prisonniers.",
+  "poire d'angoisse": "Un bâillon de fer en forme de poire, qu'on enfonce dans la bouche.",
+  "barricade|barricades": "Un rempart de pavés, de tonneaux et de chaînes dressé en travers d'une rue.",
+  "Te Deum": "Un chant d'action de grâces qu'on chante à l'église après une victoire.",
+  "puritain|puritains": "Un protestant anglais très austère ; les puritains forment l'armée de Cromwell.",
+  "covenant": "Le pacte des Écossais presbytériens.",
+  "lansquenet": "Un jeu de cartes et de hasard, où l'on mise de l'argent.",
+  "felouque": "Un petit navire étroit et rapide, à voiles et à rames.",
+  "sloop": "Un petit voilier à un mât.",
+  "chaloupe": "Une grande barque qu'un navire emporte avec lui.",
+  "généralissime": "Le chef suprême de toutes les armées d'un parti.",
+  "chevau-léger|chevau-légers": "Un cavalier de la cavalerie légère.",
+  "Gascon|Gascons": "Un homme de Gascogne, dans le sud-ouest de la France.",
+  "baron": "Le titre de noblesse au-dessus de celui de chevalier ; Porthos n'est qu'écuyer et rêve d'être baron.",
+  "relais": "Une maison de poste où l'on change de chevaux.",
+  "oratoire": "Une petite pièce pour prier.",
+  "M. le Prince": "Le prince de Condé, premier prince du sang, vainqueur de Rocroi et de Lens.",
+};

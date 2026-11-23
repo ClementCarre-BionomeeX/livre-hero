@@ -2780,6 +2780,8 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "21.1", items: ["Nouveau livre à lire : « Le Capitaine Fracasse », de Théophile Gautier (1863), un baron ruiné qui suit une troupe de comédiens sur les routes."] },
+    { v: "21.0", items: ["Nouveau livre à lire : « Vingt ans après », d'Alexandre Dumas (1845), la suite des « Trois Mousquetaires » : d'Artagnan a quarante ans et part retrouver ses trois amis."] },
     { v: "20.9", items: ["Nouveau livre à lire : « Le Pilote du Danube », de Jules Verne (1908), un pêcheur à la ligne descend le grand fleuve avec un passager curieux."] },
     { v: "20.8", items: ["Nouveau livre à lire : « Robur-le-Conquérant », de Jules Verne (1886), la querelle du ballon et de la machine volante."] },
     { v: "20.7", items: ["Nouveau livre à lire : « Clous rouges », le dernier récit de Conan le Cimmérien écrit par Robert E. Howard (1936), dans une traduction nouvelle."] },
