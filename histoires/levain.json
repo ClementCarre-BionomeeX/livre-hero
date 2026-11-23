@@ -1,0 +1,3407 @@
+{
+ "id": "levain",
+ "title": "Le Levain de la Banque",
+ "subtitle": "Croûte & Chrome · un matin à Mirevaux, et une mère qui a disparu",
+ "summary": "À Mirevaux, il n'y a qu'un boulanger : Firmin Levain, qui cuit le seul vrai pain des ruines dans le coffre-fort d'une ancienne banque. Son pain lève grâce à Eugénie, une pâte mère vieille de trente et un ans qu'il nourrit chaque soir comme une vieille tante. Ce matin, le bocal d'Eugénie est vide, et une lettre de rançon est punaisée à la porte du coffre. La fournée de midi nourrit la moitié de la ville. Il te reste six heures.",
+ "tags": [
+  "enigmes",
+  "humour",
+  "intrigue"
+ ],
+ "serie": "Croûte 'n Chrome",
+ "author": "Claude, pour Clément",
+ "age": 10,
+ "skin": "sable",
+ "cover": {
+  "motif": "feuille",
+  "color": "#8a5a2b"
+ },
+ "glossary": {
+  "vasque|vasques": "Grand bassin de pierre peu profond, où coule une fontaine.",
+  "oriel|oriels": "Fenêtre qui avance sur la façade, comme un petit balcon fermé.",
+  "chevrier|chevrière|chevriers": "Celui ou celle qui garde les chèvres.",
+  "boyau|boyaux": "Passage long et étroit.",
+  "toise|toises": "Ancienne mesure de longueur, un peu moins de deux mètres.",
+  "coudée|coudées": "Ancienne mesure de longueur : du coude au bout des doigts.",
+  "lieue|lieues": "Ancienne mesure de distance, environ quatre kilomètres, une heure de marche.",
+  "arnica": "Plante dont on tire un remède contre les coups et les bleus.",
+  "gambison|gambisons": "Veste épaisse et rembourrée, portée seule ou sous une armure.",
+  "broigne|broignes": "Vêtement de cuir renforcé de plaques ou d'anneaux de métal.",
+  "cotte|cottes": "Tunique. La cotte de mailles est faite de petits anneaux de fer entrelacés.",
+  "cuirasse|cuirasses": "Armure qui protège la poitrine et le dos.",
+  "heaume|heaumes": "Grand casque qui couvre toute la tête.",
+  "pourpoint|pourpoints": "Veste ajustée qui couvre le buste.",
+  "tabard|tabards": "Tunique sans manches portée par-dessus l'armure, souvent aux couleurs d'un seigneur.",
+  "hallebarde|hallebardes": "Arme à long manche, terminée par une lame de hache et une pointe.",
+  "piquier|piquiers": "Soldat armé d'une pique, une très longue lance.",
+  "arbalète|arbalètes": "Arc monté sur un manche de bois, qu'on tend avec un mécanisme ; il tire des carreaux.",
+  "baudrier|baudriers": "Bande de cuir portée en travers du corps, qui soutient l'épée.",
+  "ceinturon|ceinturons": "Grosse ceinture qui porte une arme.",
+  "herboristerie|herboristeries": "Boutique où l'on vend des plantes qui soignent.",
+  "apothicairerie": "Boutique de l'apothicaire, qui prépare les remèdes.",
+  "onguent|onguents": "Pommade qui soigne.",
+  "ravine|ravines": "Petit ravin creusé par l'eau.",
+  "rotonde|rotondes": "Salle ou bâtiment de forme ronde.",
+  "coupole|coupoles": "Toit en forme de demi-boule.",
+  "charretière": "Une porte charretière est assez large pour laisser passer une charrette.",
+  "cochère": "Une porte cochère est assez large pour laisser passer une voiture à chevaux.",
+  "caillé": "Le lait caillé est un lait épaissi, un peu aigre.",
+  "écuelle|écuelles": "Bol large et creux.",
+  "jonc|joncs": "Plante à tige droite qui pousse au bord de l'eau.",
+  "muletier|muletiers|muletière": "Celui ou celle qui conduit les mulets.",
+  "chamelier|chameliers": "Celui qui conduit les chameaux.",
+  "caravanier|caravaniers|caravanière": "Celui ou celle qui conduit une caravane de marchands.",
+  "osselets": "Jeu de petits os qu'on lance et qu'on rattrape.",
+  "chaulé|chaulés|chaulée|chaulées": "Blanchi à la chaux.",
+  "chaux": "Poudre blanche tirée du calcaire : on en blanchit les murs, on en fait du mortier.",
+  "margelle|margelles": "Rebord de pierre autour d'un puits.",
+  "rouvre|rouvres": "Une espèce de chêne.",
+  "câprier|câpriers": "Arbuste qui pousse dans les murs ; on mange ses boutons, les câpres.",
+  "auvent|auvents": "Petit toit au-dessus d'une porte, d'une fenêtre ou d'un étal.",
+  "garance": "Plante dont la racine donne une teinture rouge.",
+  "guède": "Plante dont on tire une teinture bleue.",
+  "astrolabe|astrolabes": "Instrument ancien pour mesurer la hauteur des étoiles et s'orienter.",
+  "éboulis": "Amas de pierres tombées d'une pente.",
+  "gourdin|gourdins": "Bâton gros et court qui sert d'arme.",
+  "tisonne|tisonnes|tisonner": "Remuer les braises du feu.",
+  "tonsure|tonsures": "Cercle rasé sur le haut du crâne, que portent certains religieux.",
+  "amadou": "Matière très sèche, tirée d'un champignon, qui prend feu d'une étincelle.",
+  "éperon|éperons": "Avancée pointue d'une montagne, d'un rocher ou d'un mur ; ou pointe de métal au talon du cavalier.",
+  "vélin": "Parchemin très fin, fait de peau de veau.",
+  "feuillet|feuillets": "Feuille d'un cahier ou d'un livre.",
+  "tenture|tentures": "Grand tissu tendu sur un mur ou devant une ouverture.",
+  "écluse|écluses": "Ouvrage qui retient l'eau d'une rivière ou d'un canal, et la laisse passer à volonté.",
+  "fagot|fagots": "Paquet de petit bois attaché.",
+  "contrebas": "En contrebas : plus bas.",
+  "baluchon|baluchons": "Petit paquet d'affaires noué dans un tissu.",
+  "besace|besaces": "Sac qu'on porte à l'épaule.",
+  "cairn|cairns": "Tas de pierres empilées pour marquer un chemin ou un lieu.",
+  "pilotis": "Pieux enfoncés dans le sol ou dans l'eau, sur lesquels on bâtit.",
+  "soupente|soupentes": "Petit réduit sous un escalier ou sous le toit.",
+  "bourg|bourgs": "Gros village où se tient le marché.",
+  "hameau|hameaux": "Tout petit village.",
+  "gibet|gibets": "Potence où l'on pendait les condamnés.",
+  "poulie|poulies": "Roue sur laquelle passe une corde, pour soulever une charge.",
+  "billot|billots": "Gros bloc de bois sur lequel on coupe ou on fend.",
+  "colporteur|colporteurs|colporteuse|colporteuses": "Marchand qui va de village en village, sa marchandise sur le dos.",
+  "fioritures": "Ornements, détails décoratifs.",
+  "collet|collets": "Piège fait d'un nœud coulant.",
+  "visière|visières": "Partie d'un casque qui protège le visage.",
+  "crevasse|crevasses": "Fente profonde dans la roche ou dans la glace.",
+  "milicien|miliciens|milicienne": "Habitant armé chargé de garder un lieu, sans être un vrai soldat.",
+  "enclume|enclumes": "Bloc de fer sur lequel le forgeron frappe le métal.",
+  "chanvre": "Plante dont on fait des cordes et de la toile.",
+  "meule|meules": "Grosse pierre ronde qui écrase le grain ; ou grand tas de foin.",
+  "dédale|dédales": "Labyrinthe, lieu où l'on se perd.",
+  "sauge": "Plante au parfum fort, qui soigne.",
+  "reliquaire|reliquaires": "Coffret précieux qui garde les restes d'un saint.",
+  "portefaix": "Homme dont le métier est de porter les fardeaux.",
+  "greffier|greffiers|greffière|greffières": "Personne chargée d'écrire et de garder les actes officiels.",
+  "scriptorium": "Salle où l'on copie les livres à la main.",
+  "cocagne": "Le pays de cocagne est un pays imaginaire où tout abonde.",
+  "grelot|grelots": "Petite boule de métal creuse qui tinte.",
+  "luthier|luthiers": "Artisan qui fabrique les instruments à cordes.",
+  "crieur|crieurs|crieuse": "Personne qui annonce les nouvelles à voix haute dans les rues.",
+  "relieur|relieurs": "Artisan qui coud et habille les livres.",
+  "ossuaire|ossuaires": "Lieu où l'on rassemble les os des morts.",
+  "almanach|almanachs": "Petit livre qui donne le calendrier, les saisons, des conseils et des prédictions.",
+  "nacre": "Matière brillante aux reflets changeants, à l'intérieur des coquillages.",
+  "écritoire|écritoires": "Petit pupitre ou coffret qui contient de quoi écrire.",
+  "teinturier|teinturiers|teinturière|teinturières": "Artisan qui colore les tissus.",
+  "étal|étals": "Table où le marchand expose sa marchandise.",
+  "alpage|alpages|estive": "Pâturage de montagne où l'on monte les bêtes pour l'été.",
+  "tisserand|tisserands|tisserande": "Artisan qui fabrique les tissus sur un métier.",
+  "moutier": "Ancien mot pour un monastère.",
+  "cloître|cloîtres": "Galerie couverte qui entoure la cour d'un monastère.",
+  "combe|combes": "Petite vallée étroite.",
+  "liard|liards": "Petite pièce de monnaie de très peu de valeur.",
+  "denier|deniers": "Ancienne pièce de monnaie.",
+  "fascines": "Fagots de branches serrées, pour renforcer un talus ou combler un fossé.",
+  "mélèze|mélèzes": "Arbre de montagne, cousin du sapin, qui perd ses aiguilles en hiver.",
+  "surplomb": "Partie qui avance au-dessus du vide.",
+  "complies": "Dernière prière du soir, chez les moines.",
+  "vêpres": "Prière de la fin d'après-midi, chez les moines.",
+  "héraut|hérauts": "Messager officiel qui porte les annonces d'un seigneur.",
+  "ménestrel|ménestrels": "Musicien et chanteur qui va de château en château.",
+  "péage|péager": "Le péage est le droit qu'on paie pour passer un pont ou un chemin.",
+  "chamois": "Chèvre sauvage des montagnes.",
+  "tréteau|tréteaux": "Support à quatre pieds ; on pose une planche dessus pour faire une table.",
+  "muret|murets": "Petit mur bas.",
+  "lavoir|lavoirs": "Bassin public où l'on lave le linge.",
+  "lavandière|lavandières": "Femme qui lave le linge au lavoir ou à la rivière.",
+  "linteau|linteaux": "Pierre ou poutre posée au-dessus d'une porte ou d'une fenêtre.",
+  "tilleul|tilleuls": "Grand arbre aux fleurs parfumées, dont on fait des tisanes.",
+  "rucher|ruchers": "Ensemble de ruches.",
+  "levain": "Pâte qui fait lever le pain.",
+  "fournil": "La pièce où le boulanger pétrit et cuit son pain.",
+  "pupitre|pupitres": "Petite table inclinée pour lire ou écrire.",
+  "lutrin|lutrins": "Grand pupitre sur pied où l'on pose un gros livre.",
+  "poterne|poternes": "Petite porte discrète dans le mur d'un château.",
+  "stalle|stalles": "Siège de bois dans le chœur d'une église ; ou case d'un cheval à l'écurie.",
+  "étuve|étuves": "Pièce très chaude, pleine de vapeur.",
+  "lauze|lauzes": "Pierre plate qui couvre les toits en montagne.",
+  "roulier|rouliers": "Charretier qui transporte des marchandises sur les routes.",
+  "lampion|lampions": "Petite lanterne de papier.",
+  "clerc|clercs": "Homme d'Église, ou personne instruite qui sait lire et écrire.",
+  "encrier|encriers": "Petit pot qui contient l'encre.",
+  "colimaçon": "Un escalier en colimaçon tourne sur lui-même.",
+  "chambranle|chambranles": "Encadrement d'une porte ou d'une fenêtre.",
+  "beffroi|beffrois": "Tour où l'on sonne la cloche de la ville.",
+  "claie|claies": "Treillage de branches ou d'osier.",
+  "râtelier|râteliers": "Support où l'on range les armes ; ou mangeoire à foin.",
+  "embrasure|embrasures": "Ouverture dans un mur où se loge une porte ou une fenêtre.",
+  "cantinière|cantinières": "Femme qui vend à boire et à manger aux soldats.",
+  "herse|herses": "Grille qui descend pour fermer l'entrée d'un château.",
+  "chapelain|chapelains": "Prêtre au service d'un château ou d'une chapelle.",
+  "quignon|quignons": "Gros morceau de pain.",
+  "raidillon": "Petit chemin en pente raide.",
+  "joute|joutes|jouter": "Combat à cheval, lance contre lance, pour l'honneur.",
+  "écuyer|écuyers": "Jeune homme au service d'un chevalier.",
+  "replat|replats": "Endroit plat sur une pente.",
+  "bivouac|bivouacs": "Campement en plein air pour la nuit.",
+  "copiste|copistes": "Personne qui recopie les livres à la main.",
+  "mâtin|mâtins": "Gros chien de garde.",
+  "mansarde|mansardes": "Chambre sous le toit.",
+  "houlette": "Bâton de berger.",
+  "rouet|rouets": "Roue qui sert à filer la laine.",
+  "falot|falots": "Grosse lanterne.",
+  "naufrageur|naufrageurs": "Pilleur qui attire les bateaux sur les rochers.",
+  "naseaux": "Narines du cheval.",
+  "colombages": "Charpente de bois apparente dans les murs d'une maison, remplie de terre ou de briques.",
+  "angélus": "Cloche qui sonne le matin, à midi et le soir pour la prière.",
+  "chaume": "Paille qui couvre le toit des maisons.",
+  "quenouille|quenouilles": "Bâton autour duquel on enroule la laine à filer.",
+  "plastron|plastrons": "Pièce qui protège ou orne la poitrine.",
+  "batelier|bateliers|batelière": "Personne qui conduit un bateau sur une rivière.",
+  "marinier|mariniers": "Personne qui conduit un bateau sur une rivière ou un canal.",
+  "gentiane|gentianes": "Fleur de montagne, bleue ou jaune.",
+  "paillasse|paillasses": "Matelas rempli de paille.",
+  "sacristain|sacristains": "Homme qui garde l'église et ses objets.",
+  "parvis": "Place devant une église.",
+  "margrave|margraves": "Seigneur qui gouverne une province de frontière.",
+  "charron|charrons": "Artisan qui fabrique les roues et les charrettes.",
+  "pierrier|pierriers": "Machine de guerre qui lance des pierres.",
+  "heurtoir|heurtoirs": "Anneau de métal fixé à une porte, pour frapper.",
+  "complainte|complaintes": "Chanson triste.",
+  "battoir|battoirs": "Palette de bois pour battre le linge au lavoir.",
+  "barrique|barriques": "Tonneau.",
+  "fenaison|fenaisons": "Moment où l'on coupe et fait sécher le foin.",
+  "luth|luths": "Instrument à cordes au ventre bombé.",
+  "rebec|rebecs": "Petit violon ancien.",
+  "rabot|rabots": "Outil pour aplanir le bois.",
+  "rayonnage|rayonnages": "Étagères.",
+  "plioir": "Lame d'os ou de bois pour plier le papier.",
+  "paneterie": "Pièce où l'on garde le pain.",
+  "bouquetin|bouquetins": "Chèvre sauvage des montagnes, aux grandes cornes.",
+  "palefrenier|palefreniers": "Homme qui soigne les chevaux.",
+  "cellérier": "Moine chargé des provisions du monastère.",
+  "aussière|aussières": "Gros cordage d'un bateau.",
+  "coursive|coursives": "Passage étroit à l'intérieur d'un bateau.",
+  "comite": "Officier qui commande les rameurs d'une galère.",
+  "cambuse": "Réserve à provisions d'un bateau.",
+  "sentine": "Fond de la cale d'un bateau, où s'amasse l'eau sale.",
+  "galère|galères": "Navire de guerre à rames.",
+  "tonnelier|tonneliers": "Artisan qui fabrique les tonneaux.",
+  "paraphe|paraphes": "Signature courte, en quelques traits.",
+  "postillon|postillons": "Cavalier qui conduit une voiture de poste.",
+  "soupirail|soupiraux": "Petite ouverture qui donne de l'air et du jour à une cave.",
+  "oratoire|oratoires": "Petite chapelle.",
+  "andain|andains": "Rangée d'herbe coupée, laissée sur le pré pour sécher.",
+  "écheveau|écheveaux": "Fil enroulé en grande boucle.",
+  "besicles": "Anciennes lunettes.",
+  "licol|licols": "Courroie passée à la tête d'un cheval pour le mener.",
+  "ramure|ramures": "Les branches d'un arbre ; ou les bois d'un cerf.",
+  "violoneux": "Joueur de violon de village.",
+  "hauban|haubans": "Cordages qui tiennent le mât d'un bateau.",
+  "alezan|alezane": "Cheval à la robe brun-roux.",
+  "lingère|lingères": "Femme qui s'occupe du linge d'une maison.",
+  "cordier|cordiers": "Artisan qui fabrique les cordes.",
+  "corderie|corderies": "Atelier où l'on fabrique les cordes.",
+  "filin|filins": "Cordage.",
+  "drisse|drisses": "Cordage qui sert à hisser une voile.",
+  "psautier|psautiers": "Livre de psaumes, chants de prière.",
+  "verrier|verriers": "Artisan qui travaille le verre.",
+  "lices": "Terrain clos où se déroulent les tournois.",
+  "prévôt|prévôte|prévôts": "Officier qui rend la justice au nom du seigneur.",
+  "strophe|strophes": "Groupe de vers dans un poème ou une chanson.",
+  "hampe|hampes": "Long manche d'une lance ou d'un drapeau.",
+  "orfèvre|orfèvres": "Artisan qui travaille l'or et l'argent.",
+  "sellier|selliers": "Artisan qui fabrique les selles.",
+  "fondeur|fondeurs": "Artisan qui fond le métal, par exemple pour faire les cloches.",
+  "épissoir": "Outil pointu qui sert à joindre deux cordes en entrelaçant leurs brins.",
+  "épisser|épisse": "Joindre deux cordes en entrelaçant leurs brins.",
+  "parapet|parapets": "Petit mur qui protège du vide, au bord d'un pont ou d'un rempart.",
+  "créneau|créneaux": "Ouverture en haut d'un rempart, entre deux pans de mur.",
+  "bandoulière": "Portée en bandoulière : en travers du corps, d'une épaule à la hanche opposée.",
+  "serpe|serpes": "Outil à lame courbe pour couper les branches.",
+  "salpêtre": "Dépôt blanc qui se forme sur les murs humides.",
+  "lichen|lichens": "Plante sans racines, en croûte ou en touffes, qui pousse sur les pierres et les arbres.",
+  "surlendemain": "Le jour qui suit le lendemain.",
+  "adjuration|adjurations": "Prière pressante et solennelle, faite au nom de Dieu ou d'une chose sacrée.",
+  "anspect|anspects": "Gros levier de bois dont les marins se servent pour soulever ou déplacer de lourdes charges.",
+  "aumonière|aumônière|aumonières|aumônières": "Petite bourse qu'on portait suspendue à la ceinture.",
+  "bajoue|bajoues": "Partie de la joue d'un animal qui descend vers la mâchoire.",
+  "banknote|banknotes": "Billet de banque (mot anglais).",
+  "bissac|bissacs": "Sac à deux poches, qu'on porte sur l'épaule, une poche devant et une derrière.",
+  "bougran": "Toile forte et raide, gommée, qui servait à donner de la tenue aux vêtements.",
+  "brigantine|brigantines": "Voile en forme de trapèze, tendue à l'arrière d'un navire.",
+  "brouillamini": "Désordre, confusion, affaire très embrouillée.",
+  "carguer|carguées|cargué|carguée|cargués|carguèrent|carguez": "Replier une voile contre sa vergue ou son mât pour qu'elle ne prenne plus le vent.",
+  "cenelle|cenelles": "Petit fruit rouge de l'aubépine.",
+  "claquet": "Petite latte qui frappe sans arrêt la trémie d'un moulin, avec un bruit sec et régulier.",
+  "clissé|clissée|clissées|clissés": "Entouré d'osier tressé, comme une grosse bouteille qu'on protège.",
+  "coudoyer|coudoyant|coudoyaient|coudoyait|coudoie|coudoient": "Frôler, toucher du coude en passant ; se coudoyer, c'est se bousculer dans la foule.",
+  "courbatu|courbatue|courbatus": "Courbaturé, le corps tout endolori de fatigue.",
+  "diantrement": "Diablement, extrêmement (juron adouci).",
+  "dogcart|dogcarts": "Petite voiture légère à deux roues, tirée par un cheval, avec un coffre sous le siège.",
+  "décacheter|décacheté|décacheta|décachetée|décachetai|décachetant|décachetait": "Ouvrir une lettre en brisant le cachet de cire qui la fermait.",
+  "déplantoir": "Petite pelle de jardinier, pour déterrer une plante avec sa motte.",
+  "déventa|déventer|déventé|déventées": "Déventer une voile : lui retirer le vent, qui ne la gonfle plus.",
+  "horripilation": "Frisson qui hérisse les poils, sous l'effet du dégoût ou de la peur.",
+  "embardée|embardées|embardait|embardant|embarda": "Brusque écart d'un navire ou d'une voiture hors de sa route.",
+  "empenné|empennée|empennées|empennés": "Garni de plumes à l'arrière, comme une flèche, pour bien voler droit.",
+  "enverguer|enverguré|envergua|envergués": "Attacher une voile à sa vergue, la barre de bois qui la porte.",
+  "flageolant|flageolante|flageolants|flageolantes": "Qui tremble sur ses jambes, mal assuré.",
+  "fleureter": "Conter fleurette, faire la cour (mot ancien).",
+  "flingot|flingots": "Fusil (argot).",
+  "fongueux|fongueuse|fongueuses": "Qui ressemble à un champignon, boursouflé et spongieux.",
+  "fouailler|fouaillé|fouaillait|fouaillant": "Fouetter à coups répétés.",
+  "fredaine|fredaines": "Écart de conduite sans grande gravité, folie de jeunesse.",
+  "funambulesque": "Extravagant, ridicule, digne d'un saltimbanque.",
+  "gaillardise|gaillardises": "Propos un peu leste, plaisanterie osée.",
+  "galhauban|galhaubans": "Long cordage qui retient un mât sur le côté, depuis le flanc du navire.",
+  "gorgonesque": "Digne des Gorgones, monstres grecs à chevelure de serpents, dont le regard changeait en pierre.",
+  "gréeur|gréeurs": "Ouvrier qui pose le gréement d'un navire : mâts, vergues, voiles et cordages.",
+  "guéable": "Qu'on peut traverser à pied, par un gué.",
+  "haillonneux|haillonneuse|haillonneuses": "Vêtu de haillons, de vieux habits en lambeaux.",
+  "héliographe|héliographes": "Appareil à miroir qui envoie au loin des signaux lumineux en renvoyant les rayons du soleil.",
+  "inclémence": "Rigueur, dureté, surtout du temps qu'il fait.",
+  "indolemment": "Avec nonchalance, sans se presser ni se donner de peine.",
+  "intempestivité": "Caractère de ce qui arrive à contretemps, mal à propos.",
+  "lichéneux|lichéneuse|lichéneuses": "Couvert de lichens, ou qui leur ressemble.",
+  "marmotter|marmottait|marmottaient|marmottée|marmottées|marmottant|marmotta|marmottement": "Murmurer entre ses dents, d'une voix confuse.",
+  "matineux|matineuse": "Qui se lève ou paraît de bon matin.",
+  "messeoir|messeyait|messied": "Ne pas aller bien, ne pas convenir. Un grain de beauté « qui ne lui messeyait pas » lui allait bien.",
+  "minaudière|minaudières|minaudier": "Qui minaude : prend des airs affectés et gentils pour plaire.",
+  "mixtionner|mixtionnai|mixtionnant": "Mélanger des drogues pour préparer une potion.",
+  "nébulosité|nébulosités": "Petite tache floue et lumineuse dans le ciel nocturne, comme un nuage d'étoiles.",
+  "papilloter|papillotaient|papillotait|papillotant|papillotement": "Cligner rapidement des yeux, battre des paupières ; pour une lumière, scintiller.",
+  "piaffer|piaffement|piaffements|piaffait|piaffant|piaffaient": "Pour un cheval, frapper le sol de ses pieds de devant, avec impatience.",
+  "prestesse": "Agilité, rapidité dans les gestes.",
+  "putréfaction|putréfactions": "Pourriture, décomposition d'un corps mort.",
+  "pédamment": "En pédant : d'un ton savant et prétentieux.",
+  "quintessentiel|quintessentielle": "Réduit à ce qu'il y a de plus essentiel et de plus pur.",
+  "radicelle|radicelles": "Petite racine très fine.",
+  "rhumatisant|rhumatisants|rhumatisante": "Qui souffre de rhumatismes, de douleurs dans les articulations.",
+  "réfringent|réfringente|réfringents": "Qui fait dévier les rayons de lumière qui la traversent, comme une loupe ou un prisme.",
+  "sibilant|sibilante|sibilantes": "Sifflant, comme la voix qui chuinte entre les dents.",
+  "spongiosité": "Caractère de ce qui est poreux comme une éponge.",
+  "steamboat|steamboats|steamer|steamers": "Bateau à vapeur (mot anglais).",
+  "stylographe|stylographes": "Stylo à réservoir d'encre, nouveauté de la fin du XIXe siècle.",
+  "sério-comique": "À la fois sérieux et comique.",
+  "tourie|touries": "Grosse bouteille de grès ou de verre, protégée d'osier, pour les acides et les produits chimiques.",
+  "tranchelard": "Couteau de cuisine à lame longue et mince, pour couper le lard.",
+  "transfixa|transfixer": "Transpercer de part en part.",
+  "tressaut|tressauts": "Sursaut, brusque tressaillement.",
+  "ténuité": "Extrême finesse, minceur, légèreté.",
+  "ululement|ululements|ululation|ululer|ululait|ululant": "Long cri plaintif, comme celui de la chouette.",
+  "vanterie|vanteries": "Parole de vantardise.",
+  "vivisecteur|vivisecteurs|vivisection|vivisectés|vivisecté|vivisectée": "La vivisection est l'opération faite sur un animal vivant, pour l'étudier ; le vivisecteur la pratique.",
+  "vérandah|véranda|vérandas": "Galerie couverte, ouverte ou vitrée, le long d'une maison.",
+  "ébrancher|ébranché|ébranchée|ébranchés": "Couper les branches d'un arbre abattu.",
+  "ébrouement|ébrouements": "Ébrouer : souffler bruyamment par les naseaux en secouant la tête, comme un cheval ou un chien.",
+  "épaissement": "D'une couche épaisse.",
+  "éréthisme": "État d'excitation extrême, où les nerfs et les sens sont tendus à l'excès.",
+  "étrivière|étrivières": "Courroie qui tient l'étrier à la selle.",
+  "abstrus|abstruse|abstruses": "Difficile à comprendre, obscur.",
+  "couturé|couturée|couturés|couturées": "Couvert de cicatrices, comme cousu de coutures.",
+  "damnable": "Qui mérite la damnation ; détestable.",
+  "inclément|inclémente|incléments": "Rude, dur, sans douceur (pour un climat ou une saison).",
+  "souquer|souquaient|souquait|souquez|souquant|souquèrent|souquions": "Tirer fort sur les avirons.",
+  "échalier|échaliers": "Clôture faite de branches, ou échelle de bois pour enjamber une haie.",
+  "sensément": "Avec bon sens.",
+  "chatoyer|chatoyait|chatoyant|chatoyante|chatoyants|chatoyantes|chatoiement": "Briller avec des reflets changeants, selon la lumière.",
+  "impedimenta": "Bagages encombrants qui ralentissent la marche (mot latin).",
+  "déjeté|déjetés|déjetée": "Déformé, tordu, de travers.",
+  "refouloir|refouloirs": "Long bâton qui sert à tasser la poudre et le boulet au fond d'un canon.",
+  "caréner|carénaient|carénage": "Coucher un navire sur le flanc pour nettoyer et réparer sa coque.",
+  "clopiner|clopinait|clopine|clopina|clopinant": "Marcher en boitant un peu.",
+  "démantibuler|démantibulée|démantibulé": "Démolir, disloquer, mettre en pièces.",
+  "déparer": "Gâter l'apparence de quelque chose, l'enlaidir.",
+  "rodomontade|rodomontades": "Vantardise de fanfaron.",
+  "soûlard|soûlards|soulard": "Ivrogne.",
+  "empanaché|empanachée": "Garni d'un panache, d'une sorte de plumet.",
+  "touer": "Faire avancer un navire en le tirant avec des câbles, depuis des canots ou un point fixe.",
+  "opiat|opiats": "Remède à base d'opium, qui fait dormir.",
+  "incivil|incivile|incivils": "Impoli, grossier.",
+  "geignement|geignements": "Petite plainte qu'on pousse en gémissant.",
+  "scélératesse|scélératesses": "Méchanceté criminelle, acte de scélérat.",
+  "foliacé|foliacée": "Qui a la forme d'une feuille.",
+  "lougre|lougres": "Petit voilier à deux ou trois mâts, rapide, souvent utilisé par les contrebandiers.",
+  "ralingue|ralingues": "Cordage cousu sur le bord d'une voile pour la renforcer.",
+  "torrentueux|torrentueuse": "Violent et rapide, comme un torrent.",
+  "spatulé|spatulés|spatulée": "Élargi au bout, en forme de spatule.",
+  "progéniteur": "Ancêtre, parent qui a donné naissance.",
+  "décrépir|décrépies|décrépi|décrépis": "Décrépi : dont l'enduit, le crépi, est tombé.",
+  "mésintelligence": "Désaccord, mauvaise entente.",
+  "éventaire|éventaires": "Étal de marchand, en plein air, devant une boutique.",
+  "poltronnerie": "Lâcheté.",
+  "inarticulé|inarticulée|inarticulés|inarticulées": "Qui ne forme pas de mots distincts.",
+  "impénétrabilité": "Le fait d'être impénétrable : on ne peut rien deviner de ce qu'on pense.",
+  "fadaise|fadaises": "Niaiserie, chose sans intérêt.",
+  "rapiéçage": "Pièces de tissu cousues pour réparer un vêtement ou une voile.",
+  "phénique": "L'acide phénique est un désinfectant très puissant, à l'odeur forte, qu'on employait dans les hôpitaux.",
+  "tolet|tolets": "Cheville plantée dans le bord d'une barque, qui retient l'aviron.",
+  "braiment|braiments": "Cri de l'âne.",
+  "chassieux|chassieuse": "Aux paupières collées d'une humeur jaunâtre, la chassie.",
+  "dodeliner|dodelinait|dodelinant|dodelina": "Balancer doucement la tête.",
+  "entremettre|entremit|entremettait": "S'entremettre : intervenir entre deux personnes, s'en mêler.",
+  "plâtras": "Débris de plâtre, de murs effondrés.",
+  "lofer|lofez|lofa": "Pour un voilier, remonter vers le vent, tourner la proue vers le côté d'où il souffle.",
+  "molletière|molletières": "Bande de tissu enroulée autour du mollet, par-dessus la chaussure.",
+  "pédantesque": "Digne d'un pédant : savant de façon prétentieuse et minutieuse.",
+  "adamantin|adamantine": "Dur comme le diamant.",
+  "bourrade|bourrades": "Poussée brusque, coup du coude ou du poing.",
+  "exhalaison|exhalaisons": "Odeur, vapeur qui se dégage de quelque chose.",
+  "angliciste": "Qui connaît bien l'anglais.",
+  "ergoteur|ergoteuse|ergoteurs": "Qui ergote : chicane sur des détails.",
+  "trépidation|trépidations": "Tremblement continu, secousses rapides.",
+  "étourdiment": "Sans réfléchir, à la légère.",
+  "béer|béaient|béait": "Être grand ouvert.",
+  "encalminé|encalminés|encalminée": "Immobilisé faute de vent, pour un voilier.",
+  "onduleux|onduleuse|onduleuses": "Qui ondule, fait des vagues.",
+  "jaseur|jaseuse|jaseurs": "Bavard.",
+  "phtisique|phtisiques|phtisie": "La phtisie est l'ancien nom de la tuberculose des poumons ; un phtisique en est atteint.",
+  "ponté|pontés|pontée": "Un bateau ponté est couvert d'un pont, à la différence d'une barque ouverte.",
+  "animalcule|animalcules": "Animal minuscule, souvent visible seulement au microscope.",
+  "apoplectique": "Qui semble au bord de l'apoplexie : rouge, congestionné, le cou gonflé.",
+  "mangeaille": "Nourriture (mot familier).",
+  "suppurer|suppure|suppurait|suppurante": "Laisser couler du pus.",
+  "cagot|cagots|cagote": "Faux dévot, hypocrite.",
+  "députer|députèrent|députa": "Envoyer quelqu'un pour représenter les autres.",
+  "irisation|irisations|irisé|irisée|irisés|irisées": "Reflets aux couleurs de l'arc-en-ciel.",
+  "chitineux|chitineuse": "Fait de chitine, la matière dure de la carapace des insectes et des crustacés.",
+  "grabat|grabats": "Lit misérable.",
+  "rengainer|rengaina|rengainé|rengainant": "Remettre une arme dans son fourreau.",
+  "cicérone|cicérones": "Guide qui fait visiter un lieu aux étrangers et le leur explique.",
+  "factionnaire|factionnaires": "Soldat en faction : la sentinelle de garde.",
+  "flûté|flûtée": "Aigu et doux, comme le son d'une flûte.",
+  "polypier|polypiers": "Colonie de minuscules animaux marins, ou d'eau douce, qui vivent fixés ensemble, comme le corail.",
+  "carotter": "Soutirer de l'argent par ruse (familier).",
+  "mortifiant|mortifiante|mortifiants": "Humiliant, vexant.",
+  "lippu|lippue|lippus": "Aux lèvres épaisses et pendantes.",
+  "prognathe|prognathes": "Dont la mâchoire avance fortement.",
+  "zézaiement": "Défaut de prononciation : on dit « z » pour « j », « s » pour « ch ».",
+  "caquetage|caquetages": "Bruit de poules qui caquettent ; bavardage incessant.",
+  "minauder": "Prendre des airs gentils et affectés pour plaire.",
+  "taïaut": "Cri du chasseur qui voit la bête et lance les chiens.",
+  "méphitique|méphitiques": "Puant et toxique.",
+  "ânonner|ânonnée|ânonnait|ânonnant": "Lire ou réciter péniblement, en hésitant.",
+  "clopin-clopant": "En boitillant, de façon irrégulière.",
+  "dégouttant|dégouttants|dégouttait|dégoutté|dégoutter|dégouttaient": "Dégoutter : couler goutte à goutte. Un homme dégouttant est trempé, il ruisselle.",
+  "fraîchir|fraîchit|fraîchissait": "Pour le vent, devenir plus fort.",
+  "idiosyncrasique": "Propre à une personne, lié à sa nature particulière.",
+  "seoir|seyait|sied|seyaient": "Aller bien, convenir.",
+  "vitupérer|vitupérait|vitupéra|vitupérant": "Protester avec violence, accabler de reproches.",
+  "abhorrer|abhorrait|abhorre|abhorrais|abhorrent": "Avoir en horreur.",
+  "détrousseur|détrousseurs": "Voleur qui dépouille les voyageurs.",
+  "escrimer|escrimant|escrimai|escrimait": "S'escrimer : s'acharner, faire de grands efforts.",
+  "fondrière|fondrières": "Trou plein d'eau ou de boue dans un chemin ou un marais.",
+  "lanterner|lanternait": "Faire attendre, amuser par des délais.",
+  "raboteux|raboteuse|raboteuses": "Inégal, plein d'aspérités.",
+  "réfracter|réfracte|réfractée|réfracterait|réfracté|réfracta|réfraction": "Dévier les rayons de lumière qui passent d'une matière dans une autre, de l'air dans l'eau par exemple.",
+  "bourbeux|bourbeuse|bourbeuses": "Plein de boue.",
+  "patelle|patelles": "Coquillage en forme de petit chapeau, accroché aux rochers.",
+  "émonder|émondés|émondé": "Couper les branches inutiles d'un arbre.",
+  "floconneux|floconneuse|floconneuses": "Qui ressemble à des flocons.",
+  "obséquiosité": "Politesse exagérée et servile.",
+  "bermudien|bermudienne": "Voile triangulaire haute, venue des Bermudes ; ici, le petit navire qui la porte.",
+  "haquet": "Charrette étroite et longue, sans ridelles, pour transporter les tonneaux.",
+  "incommunicable": "Qu'on ne peut transmettre à personne.",
+  "saloir": "Coffre où l'on conserve la viande dans le sel. « Bon pour le saloir » : bon à être tué.",
+  "accort|accorte|accortes": "Gracieux et aimable.",
+  "chiquenaude": "Petit coup donné en détendant un doigt replié contre le pouce.",
+  "clayonnage": "Treillage de branches entrelacées, qui forme un mur ou une clôture.",
+  "estafilade|estafilades": "Longue entaille faite par une lame.",
+  "rustaud|rustauds|rustaude": "Grossier, lourdaud, sans manières.",
+  "enjôler|enjôla|enjôlé": "Séduire par des paroles flatteuses, pour tromper.",
+  "jureur": "Qui jure sans cesse, qui sacre.",
+  "lumignon|lumignons": "Petite lumière faible ; bout de chandelle.",
+  "tenailler|tenaillait": "Tourmenter sans relâche (la faim, le remords).",
+  "glapir|glapit|glapi|glapissait|glapissant|glapissement|glapissements": "Pousser un cri aigu, comme le renard ou le petit chien.",
+  "nervuré|nervurées|nervurée": "Marqué de nervures, les petites lignes saillantes d'une feuille.",
+  "caparaçon|caparaçons|caparaçonné|caparaçonnés": "Housse d'apparat sur un cheval ; ici, une armure brillante.",
+  "cytise|cytises": "Arbuste aux grappes de fleurs jaunes.",
+  "louvoyant|louvoyer|louvoyait": "Louvoyer : avancer en zigzag contre le vent, pour un voilier ; tourner autour d'un sujet, en être évasif.",
+  "rubicond|rubiconde|rubiconds": "Très rouge de visage.",
+  "carminé|carminée|carminées": "D'un rouge vif, couleur de carmin.",
+  "alacrité": "Vivacité joyeuse, entrain.",
+  "bossoir|bossoirs": "Grosse pièce de bois ou de fer qui dépasse à l'avant du navire et sert à hisser l'ancre ; aussi, les épaules avant de la coque.",
+  "dépenaillé|dépenaillés|dépenaillée": "En haillons, en loques.",
+  "efflanqué|efflanquée|efflanqués": "Très maigre, aux flancs creux.",
+  "ébahissement": "Grande surprise, stupéfaction.",
+  "dressoir|dressoirs": "Meuble de salle à manger, à étagères, où l'on expose la vaisselle.",
+  "impudemment": "Avec impudence, effrontément.",
+  "insoucieux|insoucieuse": "Qui ne se soucie pas de quelque chose.",
+  "piaillement|piaillements|piaillant|piailler": "Cri aigu et répété des petits oiseaux.",
+  "œillade|œillades": "Coup d'œil lancé en signe d'entente.",
+  "espar|espars": "Longue pièce de bois d'un navire : mât, vergue, bôme.",
+  "felouque|felouques": "Petit navire à voiles et à rames, long et étroit, de la Méditerranée.",
+  "haler|halaient|halé|hala|halait|halai|halant|halez": "Tirer avec un cordage, à force de bras.",
+  "placidité": "Calme paisible.",
+  "suscription": "Ce qui est écrit sur l'enveloppe d'une lettre : le nom et l'adresse du destinataire.",
+  "bilieux|bilieuse": "Dû à un excès de bile ; aussi, d'humeur sombre et colérique.",
+  "caboteur|caboteurs": "Navire qui fait du cabotage : il navigue de port en port le long des côtes.",
+  "flagorneur|flagorneuse": "Qui flatte de façon basse et servile.",
+  "houppelande|houppelandes": "Grand manteau ample, long et chaud.",
+  "ondoyant|ondoyante|ondoyants|ondoyantes|ondoyaient|ondoyait|ondoyer": "Qui ondule, se balance en vagues souples.",
+  "congère|congères": "Amas de neige poussé par le vent.",
+  "frusques": "Vieux vêtements (familier).",
+  "amonceler|amoncelée|amoncelaient|amoncellent|amoncelé|amoncelés|amoncelées|amoncellement|amoncellements": "Entasser, accumuler en tas.",
+  "baragouin": "Langage incompréhensible.",
+  "encoignure|encoignures": "Angle formé par deux murs qui se rencontrent ; recoin.",
+  "fangeux|fangeuse|fangeuses": "Plein de fange, de boue.",
+  "pépiement|pépiements": "Petit cri aigu des jeunes oiseaux.",
+  "tempétueux|tempétueuse": "Agité par la tempête.",
+  "verticille|verticilles": "Groupe de feuilles ou de fleurs disposées en cercle autour d'une tige, au même niveau.",
+  "éperonner|éperonnant|éperonné|éperonna": "Piquer son cheval avec l'éperon pour le faire avancer.",
+  "embouché": "Mal embouché : grossier, qui dit des grossièretés.",
+  "intertitre|intertitres": "Titre secondaire, à l'intérieur d'un article.",
+  "sinuosité|sinuosités": "Courbe, détour sinueux.",
+  "compassé|compassée": "Raide, guindé, trop étudié.",
+  "mitré": "Qui porte la mitre, le haut bonnet pointu des évêques et de certains abbés.",
+  "moutardier": "Petit pot où l'on sert la moutarde.",
+  "stomacal|stomacale": "De l'estomac. Une pompe stomacale sert à le vider.",
+  "troène|troènes": "Arbuste à petites fleurs blanches, très employé pour les haies.",
+  "volubilité": "Facilité et rapidité à parler.",
+  "stridulation|stridulations": "Bruit aigu et vibrant, comme celui du grillon.",
+  "hululement|hululements": "Cri du hibou ou de la chouette.",
+  "oscillatoire": "Qui va et vient, comme un balancier.",
+  "épiphyte|épiphytes": "Se dit d'une plante qui pousse sur une autre sans s'en nourrir.",
+  "filandreux|filandreuse|filandreuses": "Plein de fibres longues et dures.",
+  "paturon|paturons": "Partie de la jambe du cheval, juste au-dessus du sabot.",
+  "accoutré|accoutrés|accoutrée|accoutrement": "Habillé de façon bizarre ou ridicule.",
+  "busqué": "Courbé en bosse : un nez busqué est arqué.",
+  "exécration": "Horreur, haine profonde.",
+  "gréer|gréé|gréée|gréa": "Munir un navire de son gréement : mâts, voiles, cordages.",
+  "ingénument": "Avec naïveté, en toute franchise.",
+  "loqueteux|loqueteuse": "Vêtu de loques.",
+  "oiseux|oiseuse|oiseuses": "Inutile, vain.",
+  "pulvérulent|pulvérulente": "En poudre.",
+  "tournebroche": "Mécanisme qui fait tourner la broche ; autrefois, le garçon ou le chien chargé de la tourner.",
+  "chaloupé|chaloupée": "Balancé, roulant d'un côté et de l'autre, comme une chaloupe sur l'eau.",
+  "pestilentiel|pestilentielle|pestilentiels": "Qui répand la peste, ou une puanteur malsaine.",
+  "tasseau|tasseaux": "Petite tablette ou pièce de bois fixée au mur, qui soutient quelque chose.",
+  "théodolite|théodolites": "Instrument d'arpenteur, monté sur trépied, qui mesure les angles pour dresser les cartes.",
+  "becqueter|becquetaient|becquetait|becqueta": "Donner des coups de bec, picorer.",
+  "déconfit|déconfits|déconfite": "Dépité, honteux d'un échec.",
+  "flétrissure|flétrissures": "Tache à l'honneur, déshonneur.",
+  "mousqueterie": "Feu de nombreux fusils tirés ensemble.",
+  "pommelé|pommelés|pommelée": "Couvert de petites taches rondes, ou de petits nuages ronds.",
+  "rudoyer|rudoyait|rudoyé|rudoyée": "Traiter rudement, brutalement.",
+  "tourbeux|tourbeuse|tourbeuses": "Plein de tourbe, cette terre noire et spongieuse des marais.",
+  "verruqueux|verruqueuse|verruqueuses": "Couvert de verrues.",
+  "ankylose": "Raideur d'une articulation qui ne bouge presque plus.",
+  "bigorneau|bigorneaux": "Petit coquillage de mer, en spirale, qui se mange.",
+  "encrasser|encrassait|encrassai|encrassé": "Couvrir de crasse ; la coque d'un navire s'encrasse d'algues et de coquillages.",
+  "immatérialité": "Le fait d'être sans matière, sans corps.",
+  "émoulu": "Frais émoulu : sorti depuis peu (d'une école).",
+  "fardier|fardiers": "Lourd chariot bas, pour transporter de gros fardeaux.",
+  "inamical|inamicaux|inamicale": "Hostile, peu amical.",
+  "ventriloquie": "Art de parler sans remuer les lèvres, de sorte que la voix semble venir d'ailleurs.",
+  "défroques": "Vieux vêtements usés.",
+  "embrouillamini": "Grande confusion, désordre.",
+  "rotondité": "Forme ronde, rebondie.",
+  "équarri|équarris|équarrie": "Équarrir un tronc : le tailler à angles droits, en poutre carrée.",
+  "acrimonieux|acrimonieuse": "Plein d'aigreur, de rancune.",
+  "soue|soues": "Étable à cochons.",
+  "aviné|avinée|avinés": "Qui sent le vin, abîmé par la boisson.",
+  "compulser|compulsaient|compulsait": "Consulter, feuilleter des livres ou des documents.",
+  "exorde": "Début d'un discours.",
+  "fulminant|fulminer|fulminait": "Fulminer : exploser de colère, en menaces ou en reproches.",
+  "homoncule|homoncules": "Petit homme, petit être chétif.",
+  "lampée|lampées": "Grande gorgée qu'on avale d'un coup.",
+  "pressurer|pressuré": "Accabler de taxes, soutirer tout ce qu'on peut à quelqu'un.",
+  "rebiffer": "Se rebiffer : regimber, refuser avec brusquerie.",
+  "rebuffade|rebuffades": "Refus brutal, accueil méprisant.",
+  "vermoulu|vermoulus|vermoulue|vermoulues": "Rongé par les vers, en parlant du bois.",
+  "douceâtre": "D'une douceur fade ; ici, mièvre.",
+  "forban|forbans": "Pirate, bandit.",
+  "égosiller|égosillaient|égosillait": "S'égosiller : crier jusqu'à s'enrouer.",
+  "bombance": "Repas copieux, fête où l'on boit et mange beaucoup.",
+  "cartouchière|cartouchières": "Ceinture ou sacoche où l'on range les cartouches.",
+  "dégriser|dégrisés|dégrisé|dégrisa": "Faire passer l'ivresse ; ramener à la raison.",
+  "giration|girations": "Mouvement en rond, tournoiement.",
+  "grêlé|grêlée": "Marqué de petits creux sur la peau, laissés par la petite vérole.",
+  "phosphorescence|phosphorescent|phosphorescente|phosphorescents|phosphorescentes": "Lueur que certaines choses ou certains êtres émettent dans l'obscurité.",
+  "radotage|radotages": "Propos sans suite, répétés sans fin.",
+  "décontenancer|décontenança|décontenancé": "Faire perdre contenance, déconcerter.",
+  "pédonculé|pédonculés|pédonculées": "Porté au bout d'une tige.",
+  "surcot|surcots": "Vêtement de dessus, sans manches, qu'on portait au Moyen Âge.",
+  "aiguillette|aiguillettes": "Cordon terminé par un bout de métal.",
+  "ardoisé": "Gris bleuté, couleur d'ardoise.",
+  "chuintement|chuintements": "Bruit de sifflement étouffé.",
+  "ligué|liguée|ligués": "Uni contre quelqu'un.",
+  "vesse-de-loup|vesses-de-loup": "Champignon rond qui, mûr, éclate en lâchant un nuage de poudre.",
+  "vrombir|vrombissait|vrombissement": "Bourdonner fort, en vibrant.",
+  "éjecteur": "Pièce d'un fusil qui rejette la douille après le tir.",
+  "appas": "Charmes, attraits.",
+  "bâté|bâtés|bâtée": "Qui porte un bât, la selle des bêtes de somme. Un âne bâté : un imbécile.",
+  "chaparder|chapardez|chapardait": "Voler de petites choses.",
+  "clergyman|clergymen": "Pasteur, prêtre protestant anglais.",
+  "goujaterie": "Grossièreté, manque d'égards.",
+  "historiographe|historiographes": "Écrivain chargé d'écrire l'histoire de son temps.",
+  "discourtois|discourtoise": "Impoli.",
+  "entrebâillement": "Espace laissé par une porte entrouverte.",
+  "fétu|fétus": "Brin de paille. Ne pas s'en soucier d'un fétu : pas du tout.",
+  "saturnien|saturniens": "Mélancolique et sombre, sous l'influence de la planète Saturne, disait-on.",
+  "séraphique": "Digne d'un séraphin, d'un ange.",
+  "tympanique": "En forme de tambour, tendu comme une peau de tambour.",
+  "émailler|émaille": "Parsemer, semer çà et là.",
+  "babiller|babillait|babillaient|babillage|babillard": "Bavarder sans fin, de façon légère.",
+  "déveine": "Malchance.",
+  "malfamé|malfamée|malfamées|malfamés": "Qui a mauvaise réputation.",
+  "maugréer|maugréant|maugréa|maugréait": "Grogner, protester entre ses dents.",
+  "oison|oisons": "Petit de l'oie ; une personne niaise.",
+  "paletot|paletots": "Veste ou manteau court et ample.",
+  "révérer|révère|révéré|révérée": "Honorer avec un profond respect.",
+  "toron|torons": "Faisceau de fils tordus ensemble ; plusieurs torons font un cordage.",
+  "wagonnet|wagonnets": "Petit wagon, comme ceux des mines.",
+  "empoté": "Maladroit.",
+  "aménité|aménités": "Amabilité, douceur dans les manières.",
+  "brodequin|brodequins": "Chaussure montante, lacée.",
+  "foulure|foulures": "Entorse légère.",
+  "géode|géodes": "Pierre creuse dont l'intérieur est tapissé de cristaux.",
+  "joliesse": "Grâce, charme de ce qui est joli.",
+  "antiphrase": "Manière de dire le contraire de ce qu'on pense, par ironie.",
+  "membraneux|membraneuse|membraneuses": "Fait d'une membrane, une peau mince et souple.",
+  "psalmodier|psalmodiant|psalmodiait": "Chanter ou réciter d'un ton monotone, comme les psaumes.",
+  "sablonnière|sablonnières": "Carrière d'où l'on tire du sable.",
+  "croupi|croupie|croupir": "Croupir : stagner et pourrir, pour l'eau qui ne coule pas.",
+  "houri|houris": "Belle jeune femme du paradis promis par l'islam.",
+  "rouerie|roueries": "Ruse, habileté sans scrupules.",
+  "démâter|démâté|démâtée": "Démâté : qui a perdu ses mâts.",
+  "galvauder": "Galvauder quelque chose : le gâcher, le prodiguer sans mesure.",
+  "insociable": "Qui fuit la compagnie des autres.",
+  "policeman|policemen": "Agent de police anglais.",
+  "reptation": "Action de ramper.",
+  "surexcitation": "Excitation extrême.",
+  "tancer|tança|tancé": "Réprimander vivement.",
+  "évertuer|évertuais|évertuai|évertuait": "S'évertuer : faire tous ses efforts.",
+  "concavité|concavités": "Creux, partie creuse d'une surface courbe.",
+  "toiser|toisa|toisait|toisant": "Regarder quelqu'un de haut en bas, avec dédain.",
+  "élancement|élancements": "Douleur vive et lancinante.",
+  "catacombe|catacombes": "Souterrain où l'on enterrait autrefois les morts.",
+  "discordant|discordante|discordants|discordantes": "Qui sonne faux, sans harmonie.",
+  "endimanché|endimanchée|endimanchés": "Vêtu de ses habits du dimanche.",
+  "esclaffer|esclaffa|esclaffèrent": "S'esclaffer : éclater de rire.",
+  "gaucherie": "Maladresse.",
+  "inassouvi|inassouvie|inassouvis": "Qui n'a pas été satisfait, apaisé.",
+  "spadassin|spadassins": "Homme d'épée payé pour tuer, tueur à gages.",
+  "vasière|vasières": "Étendue de vase au bord de la mer, découverte à marée basse.",
+  "zodiacal|zodiacale": "La lumière zodiacale : faible lueur qu'on voit dans le ciel, après le coucher ou avant le lever du soleil, dans les régions où l'air est très pur.",
+  "bastingage|bastingages": "Rebord qui entoure le pont d'un navire, comme un garde-fou.",
+  "caillebotis": "Treillis de lattes de bois qui sert de plancher ou de couvercle à une écoutille.",
+  "colleter|colletait|colletaient": "Se colleter : se battre corps à corps.",
+  "dussé-je": "« Dussé-je » : même si je devais.",
+  "passiflore": "Plante grimpante des pays chauds, aux grandes fleurs étranges.",
+  "suinter|suinta|suinté|suintait|suinte|suintement": "Couler très lentement, goutte à goutte, à travers quelque chose.",
+  "benzine": "Liquide qui dissout les graisses, qu'on employait pour détacher les vêtements.",
+  "emplâtre|emplâtres": "Pansement collant, enduit d'une pommade.",
+  "excursionniste|excursionnistes": "Promeneur qui fait une excursion, une sortie d'une journée.",
+  "hypertrophié|hypertrophiées|hypertrophiés|hypertrophiée": "Développé à l'excès, énorme.",
+  "moucheture|mouchetures": "Petite tache, comme un point.",
+  "opiner|opina": "Donner son avis.",
+  "amure|amures": "Tribord amures, bâbord amures : le côté par lequel un voilier reçoit le vent.",
+  "berlue": "Avoir la berlue : voir des choses qui n'existent pas, se tromper.",
+  "casuistique": "Art de trouver de bonnes raisons pour justifier ce qui ne l'est pas.",
+  "faquin|faquins": "Homme méprisable, impertinent.",
+  "phalène|phalènes": "Grand papillon de nuit.",
+  "saccade|saccades": "Mouvement brusque et irrégulier.",
+  "siliceux|siliceuse|siliceuses": "Fait de silice, la matière du sable et du verre.",
+  "troupier|troupiers": "Simple soldat.",
+  "ébattre": "S'ébattre : jouer, se donner du mouvement en liberté.",
+  "cerclé|cerclée|cerclées": "Entouré d'un cercle, d'un anneau (de fer, d'argent…).",
+  "disjoint|disjointe|disjointes": "Dont les parties ne tiennent plus ensemble.",
+  "désappointement|désappointé|désappointée": "Déception.",
+  "empêtrer|empêtra|empêtrai|empêtré|empêtrée": "S'empêtrer : s'embrouiller, se prendre comme dans des liens.",
+  "glaïeul|glaïeuls": "Plante à bulbe, aux grandes fleurs en épi.",
+  "malavisé|malavisée": "Imprudent, peu réfléchi.",
+  "ployer|ployé|ployai|ployaient|ployés|ployées|ploie|ployait|ployant": "Plier, se courber.",
+  "pétrification": "Changement en pierre ; immobilité de pierre.",
+  "stentor": "Voix de stentor : voix très puissante (d'après un héros grec à la voix énorme).",
+  "talonner|talonné|talonnait": "Poursuivre de près, harceler.",
+  "affabilité": "Amabilité accueillante.",
+  "cabaretier|cabaretiers|cabaretière": "Patron d'un cabaret, d'un débit de boissons.",
+  "céruse": "Blanc de céruse : peinture blanche à base de plomb.",
+  "doucereux|doucereuse|doucereuses": "D'une douceur fausse et affectée.",
+  "empoignade|empoignades": "Bagarre, corps à corps.",
+  "maraud|marauds": "Coquin, vaurien.",
+  "meurtrissure|meurtrissures": "Bleu, marque laissée par un coup.",
+  "patraque": "Un peu malade, mal en point (familier).",
+  "transvaser|transvasé": "Verser d'un récipient dans un autre.",
+  "venaison": "Viande de gros gibier : cerf, chevreuil, sanglier.",
+  "conciliabule|conciliabules": "Discussion à voix basse, en petit groupe.",
+  "darder|dardés|darda|dardait": "Lancer comme un dard, comme une flèche.",
+  "deviser|devisai|devisait|devisaient": "Converser tranquillement.",
+  "gloriole": "Vanité, petite gloire qu'on recherche.",
+  "gloutonnerie": "Avidité de glouton.",
+  "refréner|refrénée|refréna": "Retenir, contenir.",
+  "révulsé|révulsés": "Yeux révulsés : retournés vers le haut, dont on voit le blanc.",
+  "susdit|susdite": "Nommé plus haut.",
+  "écailleux|écailleuse|écailleuses": "Couvert d'écailles.",
+  "diablerie|diableries": "Tour diabolique, malice.",
+  "halètement|halètements": "Respiration courte et précipitée.",
+  "monomanie": "Idée fixe, obsession.",
+  "mouffette|mouffettes": "Petit animal d'Amérique qui projette un liquide puant quand on l'attaque.",
+  "trépasser|trépassa|trépassé": "Mourir.",
+  "bacchanale|bacchanales": "Fête bruyante et débauchée.",
+  "chopine|chopines": "Ancienne mesure de liquide, environ un demi-litre.",
+  "courtepointe|courtepointes": "Couverture de lit piquée.",
+  "crécelle|crécelles": "Instrument de bois qui fait un bruit sec en tournant ; autrefois, le lépreux l'agitait pour avertir de son passage.",
+  "luxuriance": "Abondance, exubérance de la végétation.",
+  "ragoûtant|ragoûtante": "Peu ragoûtant : peu appétissant, déplaisant.",
+  "raréfié|raréfiée|raréfiés": "Rendu moins dense, plus rare : l'air raréfié des hauteurs.",
+  "vilenie|vilenies": "Action basse et méprisable.",
+  "ballotter|ballottés|ballottait|ballotté|ballottée|ballottement": "Secouer en tous sens.",
+  "billevesée|billevesées": "Idée creuse, sornette.",
+  "béance|béances": "Large ouverture, vide qui bée.",
+  "ceindre|ceignit|ceints|ceinte|ceint": "Entourer, mettre autour de la taille ou de la tête.",
+  "gelure|gelures": "Brûlure de la peau causée par le froid.",
+  "nimbé|nimbée|nimbés": "Entouré d'un nimbe, d'un halo de lumière.",
+  "oblitérer|oblitérant|oblitéré": "Effacer, recouvrir.",
+  "rançonner|rançonne|rançonnait": "Exiger de l'argent par la force.",
+  "tisonnier|tisonniers": "Tige de fer pour remuer les braises.",
+  "torsadé|torsadées|torsadée": "Tordu en spirale.",
+  "trotteuse": "Petite aiguille d'une montre qui marque les secondes.",
+  "éraflure|éraflures": "Égratignure légère.",
+  "bénédicité": "Prière qu'on dit avant le repas.",
+  "fanfaronnade|fanfaronnades": "Vantardise de fanfaron.",
+  "fugacité": "Le fait de ne durer qu'un instant.",
+  "indocile|indociles": "Qui n'obéit pas.",
+  "rafistoler|rafistola|rafistolé": "Réparer grossièrement.",
+  "suburbain|suburbaine|suburbaines": "De la banlieue.",
+  "belligérant|belligérante": "En guerre, qui fait la guerre.",
+  "emmitouflé|emmitouflés|emmitouflée": "Enveloppé de vêtements chauds.",
+  "irrésolu|irrésolue": "Indécis, qui n'arrive pas à se décider.",
+  "perceptif|perceptive|perceptives": "Qui perçoit : les facultés perceptives sont les sens.",
+  "prosternation|prosternations": "Action de se prosterner, de s'incliner jusqu'à terre.",
+  "rabatteur|rabatteurs": "Homme qui attire les clients vers un commerce, souvent louche.",
+  "rabougri|rabougris|rabougrie|rabougries": "Mal venu, chétif, tordu.",
+  "sansonnet|sansonnets": "Étourneau, oiseau qu'on apprend à siffler.",
+  "bardane|bardanes": "Plante aux grandes feuilles, dont les fruits épineux s'accrochent aux vêtements.",
+  "crinoline": "Jupon raidi de cerceaux qui donnait de l'ampleur aux robes.",
+  "surplis": "Vêtement blanc à manches larges que le prêtre porte par-dessus la soutane.",
+  "étriller|étrillée|étrillé": "Malmener, battre.",
+  "babil": "Bavardage enfantin.",
+  "commissure|commissures": "Coin des lèvres.",
+  "esquif": "Petite embarcation légère.",
+  "filasse": "Couleur filasse : d'un blond terne, comme l'étoupe de chanvre.",
+  "imposte": "Petite fenêtre au-dessus d'une porte.",
+  "obséquieux|obséquieuse|obséquieuses": "D'une politesse exagérée et servile.",
+  "passementerie|passementeries": "Galons, franges et glands qui ornent les vêtements et les meubles.",
+  "prodigalité": "Générosité excessive, dépense sans compter.",
+  "pusillanimité": "Manque de courage, peur de prendre le moindre risque.",
+  "raban|rabans": "Petit cordage de marin.",
+  "salsepareille": "Boisson à base de racine de salsepareille, une plante grimpante.",
+  "trémolo|trémolos": "Tremblement de la voix ou d'une note.",
+  "entrepont|entreponts": "Étage d'un navire situé entre deux ponts.",
+  "expurgé|expurgée": "Débarrassé de ce qui choque.",
+  "fricoter|fricotait": "Manigancer, trafiquer en cachette (familier).",
+  "hunier|huniers": "Voile carrée placée au-dessus de la grande voile basse.",
+  "réprobateur|réprobatrice": "Qui marque la désapprobation, le blâme.",
+  "substratum": "Ce qui est en dessous, la couche profonde sur laquelle le reste repose.",
+  "traversin|traversins": "Long oreiller qui occupe toute la largeur du lit.",
+  "vanneau|vanneaux": "Oiseau des champs, à huppe noire, qui pousse un cri plaintif.",
+  "vocifération|vociférations": "Cris de colère.",
+  "artimon": "Le mât d'artimon est le mât arrière d'un navire.",
+  "invraisemblance": "Le fait de ne pas paraître vrai.",
+  "rebouteux": "Guérisseur de village qui remet en place les os démis.",
+  "babord|bâbord": "Le côté gauche d'un navire, quand on regarde vers l'avant.",
+  "bigrement": "Drôlement, très (familier).",
+  "charbonneux|charbonneuse": "Noirci comme du charbon.",
+  "désœuvrement": "État de celui qui n'a rien à faire.",
+  "simiesque": "Qui ressemble au singe.",
+  "trogne": "Visage grossier et rubicond de buveur.",
+  "affleurer|affleurait": "Arriver au même niveau ; apparaître à la surface.",
+  "déconsidéré": "Qui a perdu l'estime des autres.",
+  "gargote|gargotes": "Restaurant à bas prix, sale et mal tenu.",
+  "infailliblement": "À coup sûr.",
+  "mascaret": "Grosse vague qui remonte une rivière depuis la mer, à la marée montante.",
+  "rebattre|rebats|rebattues": "Rebattre les oreilles : répéter sans cesse la même chose.",
+  "soldatesque": "De soldat grossier et brutal.",
+  "étioler|étiolée|étiolé": "S'étioler : s'affaiblir, pâlir faute de lumière ou de vigueur.",
+  "capiteux|capiteuse": "Qui monte à la tête.",
+  "cautériser": "Brûler une plaie pour arrêter le sang ou l'infection.",
+  "débander|débandèrent": "Se débander : se disperser en désordre.",
+  "flammèche|flammèches": "Parcelle enflammée qui s'échappe d'un feu.",
+  "fourrager|fourrageant": "Fouiller en mettant du désordre.",
+  "moleskine": "Toile de coton enduite qui imite le cuir.",
+  "savetier|savetiers": "Cordonnier qui raccommode les vieilles chaussures.",
+  "tricorne|tricornes": "Chapeau à trois cornes.",
+  "éconduire|éconduisit|éconduit": "Renvoyer, congédier quelqu'un.",
+  "bastonnade|bastonnades": "Volée de coups de bâton.",
+  "faîtière": "La poutre faîtière soutient le haut du toit, le faîte.",
+  "singerie|singeries": "Grimace, imitation moqueuse.",
+  "écot": "Part que chacun paie d'un repas ; payer son écot : payer sa part.",
+  "épaulement|épaulements": "Renflement du terrain, comme une épaule de la montagne.",
+  "côtelé|côtelées": "Marqué de côtes, de saillies parallèles.",
+  "raffut": "Grand bruit, tapage (familier).",
+  "sagace": "Fin, perspicace.",
+  "sardonique": "Moqueur et méchant.",
+  "taloche|taloches": "Gifle, tape sur la tête (familier).",
+  "tohu-bohu": "Désordre bruyant, confusion.",
+  "tombereau|tombereaux": "Charrette à caisse basculante, pour les terres et les ordures.",
+  "acquiescement": "Accord, consentement.",
+  "arborescent|arborescente|arborescentes": "Qui a la forme d'un arbre ; les fougères arborescentes sont hautes comme des arbres.",
+  "cimeterre|cimeterres": "Sabre oriental à lame courbe et large.",
+  "courlis": "Oiseau de rivage à long bec courbé.",
+  "délayer|délayaient": "Mélanger à un liquide pour éclaircir.",
+  "effarement": "Stupeur mêlée de peur.",
+  "fourbi|fourbis": "Affaires, attirail ; ici, un truc, un moyen (familier).",
+  "roide|roides": "Raide (forme ancienne).",
+  "trépidant": "Agité de secousses, frémissant.",
+  "étagé|étagées|étagés": "Disposé par étages, en gradins.",
+  "badinage|badinages": "Plaisanterie légère.",
+  "cuver|cuvé": "Cuver son vin : dormir pour faire passer l'ivresse.",
+  "ductile": "Qu'on peut étirer et façonner sans le casser.",
+  "froufrou|froufrous": "Bruit léger d'une étoffe qui frotte.",
+  "guttural|gutturaux|gutturale": "Qui vient du fond de la gorge.",
+  "hâle": "Couleur brune que le soleil et le grand air donnent à la peau.",
+  "poupard|poupards": "Poupée, bébé joufflu.",
+  "rabrouer|rabrouée|rabroué": "Accueillir quelqu'un rudement, le remettre à sa place.",
+  "rapacité": "Avidité à s'enrichir.",
+  "verrat|verrats": "Cochon mâle.",
+  "éraillé|éraillée": "Voix éraillée : rauque, cassée.",
+  "arpent|arpents": "Ancienne mesure de surface pour les terres, environ un demi-hectare.",
+  "contrit|contrite": "Qui regrette sa faute.",
+  "malignité": "Méchanceté.",
+  "muid|muids": "Ancienne mesure, un grand tonneau, pour le vin, le grain ou le sel.",
+  "bateleur|bateleurs": "Saltimbanque qui fait des tours sur les places publiques.",
+  "colportage": "Livres de colportage : petits livres bon marché vendus par les marchands ambulants.",
+  "escamoter|escamoté|escamota": "Faire disparaître habilement.",
+  "fourvoyer": "Se fourvoyer : se tromper de chemin, faire fausse route.",
+  "terrassier|terrassiers": "Ouvrier qui creuse et déplace la terre.",
+  "virevolter|virevoltait": "Tourner rapidement sur soi-même.",
+  "cartilagineux|cartilagineuse": "Fait de cartilage, une matière souple et dure, comme le bout du nez.",
+  "crânement": "Avec courage, fièrement.",
+  "plénier|plénière": "Conseil plénier : où tous les membres sont présents.",
+  "ponceux|ponceuse": "Fait de pierre ponce, une lave légère et pleine de trous.",
+  "tabatière|tabatières": "Petite boîte où l'on garde le tabac à priser ; fenêtre en tabatière : petit châssis vitré qui s'ouvre dans un toit.",
+  "tripode|tripodes": "Machine à trois pieds.",
+  "apitoiement": "Pitié, attendrissement.",
+  "crénelé|crénelée": "Garni de créneaux.",
+  "hardes": "Vieux vêtements, pauvres effets ; à la chasse, la harde est aussi le lien qui attache les chiens par couples.",
+  "inavoué|inavouée": "Qu'on ne s'avoue pas, qu'on garde secret.",
+  "oriflamme|oriflammes": "Bannière, drapeau long et pointu.",
+  "pouding": "Pudding : gâteau anglais.",
+  "repaître": "Se repaître : se nourrir, se rassasier.",
+  "setter|setters": "Chien de chasse anglais à poil long.",
+  "émacié|émaciée": "Très amaigri.",
+  "coterie": "Petit groupe fermé de gens qui se soutiennent.",
+  "entiché": "S'enticher : se prendre d'un engouement soudain.",
+  "froidure": "Le froid.",
+  "fumerolle|fumerolles": "Petite fumée qui sort du sol près d'un volcan.",
+  "gantelet|gantelets": "Gant de fer d'une armure.",
+  "immémorial|immémoriale|immémoriales|immémoriaux": "Si ancien qu'on n'en garde pas le souvenir.",
+  "indolent|indolents|indolentes|indolente": "Nonchalant, mou, qui évite l'effort.",
+  "inextinguible|inextinguibles": "Qu'on ne peut éteindre, arrêter : un rire inextinguible.",
+  "scaphandrier": "Plongeur muni d'un scaphandre, combinaison étanche à casque.",
+  "besogneux": "Qui manque d'argent, pauvre.",
+  "domesticité": "Ensemble des domestiques d'une maison.",
+  "herculéen|herculéenne": "Digne d'Hercule : d'une force énorme.",
+  "mélopée|mélopées": "Chant lent et monotone.",
+  "scripteur": "Celui qui écrit, l'auteur d'un écrit.",
+  "arçon|arçons": "Armature de la selle ; les pistolets d'arçon pendaient à la selle.",
+  "dégorger|dégorgée|dégorgea|dégorgé": "Rejeter, vomir ce qu'on a avalé ; déverser.",
+  "gercer|gercées|gercé|gercure|gerçures": "Gercé : fendillé par le froid ou la sécheresse.",
+  "impudent|impudente|impudents": "Effronté, insolent.",
+  "mémorialiste|mémorialistes": "Celui qui écrit des mémoires, le récit des événements dont il est témoin.",
+  "pisteur": "Celui qui suit les pistes, les traces des bêtes ou des hommes.",
+  "prestidigitation": "Art de faire des tours de passe-passe.",
+  "vivat|vivats": "Acclamation, cri de « vive ! ».",
+  "déprédation|déprédations": "Pillage, dégâts.",
+  "honorabilité": "Le fait d'être honorable, respectable.",
+  "libeller|libellée|libellé": "Rédiger dans les formes.",
+  "monacal|monacale": "De moine.",
+  "palan|palans": "Système de poulies et de cordages pour soulever de lourdes charges.",
+  "polyèdre": "Solide à plusieurs faces planes, comme un dé.",
+  "rembarrer|rembarra": "Repousser quelqu'un avec rudesse.",
+  "soliloque|soliloques": "Discours d'une personne qui parle seule.",
+  "celluloïd": "Matière plastique ancienne, dont on faisait des cols de chemise et des pellicules de film.",
+  "entrefaites": "Sur ces entrefaites : à ce moment-là.",
+  "flouer|floués|floue|floué": "Duper, voler par ruse.",
+  "hune|hunes": "Plate-forme fixée en haut d'un mât.",
+  "molester|molestent|molesté": "Maltraiter, brutaliser.",
+  "pataud|pataude": "Lourd et maladroit.",
+  "presbytérien|presbytérienne|presbytériens": "Protestant d'Écosse, d'une Église gouvernée par des assemblées d'anciens.",
+  "ramier|ramiers": "Gros pigeon sauvage.",
+  "tangentiel|tangentielle": "Qui s'exerce selon la tangente, à angle droit du rayon : la force qui fait filer en ligne droite ce qui tourne.",
+  "graphologie": "Étude de l'écriture, pour en tirer le caractère de celui qui écrit.",
+  "immondice|immondices": "Ordures, saleté.",
+  "reculade": "Recul précipité.",
+  "ébruiter|ébruite|ébruité": "S'ébruiter : se répandre, être divulgué.",
+  "éculé|éculées|éculés": "Usé, déformé au talon (pour une chaussure).",
+  "goulûment": "Avidement, en avalant vite.",
+  "inconséquent": "Qui agit sans suite logique, contre ce qu'il dit.",
+  "jovialité": "Gaieté franche.",
+  "médire|médit": "Dire du mal de quelqu'un.",
+  "reluquer|reluqua|reluquant": "Regarder avec convoitise ou curiosité (familier).",
+  "régénérateur": "Qui fait renaître, redonne vie et vigueur.",
+  "azalée|azalées": "Arbuste à belles fleurs.",
+  "biaiser": "User de détours, ne pas agir franchement.",
+  "goguenard|goguenarde|goguenardes": "Moqueur.",
+  "manant|manants": "Paysan, homme du peuple ; terme de mépris.",
+  "misaine": "Le mât de misaine est le mât avant d'un navire.",
+  "ouvragé|ouvragée|ouvragés": "Finement travaillé, décoré.",
+  "séant": "Le derrière ; sur son séant : assis.",
+  "écervelé|écervelés|écervelée": "Étourdi, sans cervelle.",
+  "estran": "Bande du rivage que la mer couvre et découvre.",
+  "inférer": "Tirer une conclusion, déduire.",
+  "insensiblement": "Peu à peu, sans qu'on s'en aperçoive.",
+  "notarial|notariale": "De notaire.",
+  "rêche|rêches": "Rude au toucher.",
+  "échancrure|échancrures": "Creux découpé dans un bord.",
+  "élégiaque|élégiaques": "Plaintif ; les vers élégiaques sont ceux des élégies, des poèmes de plainte.",
+  "ascensionnel|ascensionnelle": "Qui fait monter.",
+  "blafard|blafarde|blafardes|blafards": "D'une pâleur terne.",
+  "castagnette|castagnettes": "Instrument fait de deux coquilles de bois qu'on fait claquer dans la main.",
+  "déhanché|déhanchée": "Qui se balance sur les hanches en marchant.",
+  "libation|libations": "Le fait de boire beaucoup (d'alcool).",
+  "magnanimité": "Grandeur d'âme, générosité.",
+  "opulent|opulente|opulentes": "Riche, abondant.",
+  "plantule|plantules": "Toute jeune plante qui sort de la graine.",
+  "sapristi": "Juron de surprise.",
+  "surimpression": "Ce qui se superpose à autre chose.",
+  "télépathique|télépathiques": "De la télépathie, la transmission supposée de la pensée sans parole.",
+  "voracité": "Avidité à manger.",
+  "charançon|charançons": "Petit insecte qui ronge les grains et le biscuit.",
+  "flageller|flagellaient": "Fouetter.",
+  "inconséquence": "Manque de logique, de suite dans les idées ou la conduite.",
+  "invectiver|invectivent|invectivait": "Lancer des injures.",
+  "liquéfier|liquéfiait|liquéfiés|liquéfie": "Rendre liquide.",
+  "sensitif": "Qui transmet les sensations.",
+  "abjection": "Bassesse extrême.",
+  "affûter": "Aiguiser.",
+  "bourbe": "Boue épaisse.",
+  "chamaillerie|chamailleries": "Petite dispute.",
+  "clouté|cloutée": "Garni de clous.",
+  "fanal|fanaux": "Grosse lanterne de navire ou de port.",
+  "jobard": "Naïf, facile à duper.",
+  "obole": "Petite somme d'argent qu'on donne.",
+  "professer|professait": "Déclarer ouvertement un sentiment, une opinion.",
+  "quadrupède|quadrupèdes": "Animal à quatre pattes.",
+  "sabord|sabords": "Ouverture dans la coque d'un navire, par où passe la bouche d'un canon.",
+  "airelle|airelles": "Petit arbuste à baies rouges ou bleues.",
+  "blatte|blattes": "Cafard.",
+  "courroucé|courroucés|courroucée|courroucer": "En colère.",
+  "défroqué": "Qui a quitté l'habit de moine ou de prêtre.",
+  "isocèle": "Un triangle isocèle a deux côtés égaux.",
+  "lancette": "Petit couteau de chirurgien, à lame pointue, pour faire une saignée.",
+  "protubérance|protubérances": "Bosse, saillie.",
+  "cabestan|cabestans": "Treuil vertical qu'on fait tourner avec des barres, pour remonter l'ancre.",
+  "flegmatique": "Calme, qu'on n'émeut pas facilement.",
+  "guindé|guindée": "Raide, affecté, sans naturel.",
+  "opercule": "Couvercle.",
+  "pigmentaire": "Qui donne sa couleur à la peau, à l'œil.",
+  "poché": "Œil poché : meurtri d'un coup.",
+  "revêche": "Peu aimable, difficile à mener.",
+  "rosser|rossé": "Battre violemment.",
+  "vareuse|vareuses": "Veste courte et ample de marin.",
+  "canonnière|canonnières": "Petit navire de guerre armé de canons.",
+  "clapotis": "Bruit léger des petites vagues.",
+  "cotre|cotres": "Petit voilier rapide à un seul mât ; ici, un navire des douanes.",
+  "flandrin": "Grand flandrin : grand garçon mou et dégingandé.",
+  "fruste": "Rude, sans finesse ni manières.",
+  "indolence": "Nonchalance, mollesse.",
+  "loisible": "Il est loisible de : il est permis de.",
+  "amphitryon|amphitryons": "Celui qui reçoit à dîner, l'hôte.",
+  "fidéicommis": "Bien confié à quelqu'un qui doit le gérer, puis le remettre à un autre.",
+  "gredin|gredins": "Bandit, vaurien.",
+  "hébété|hébétée|hébétés": "Abruti, comme assommé.",
+  "immixtion": "Le fait de se mêler de ce qui ne vous regarde pas.",
+  "incomber|incombait|incombent|incombe": "Revenir à quelqu'un comme une charge, un devoir.",
+  "linnéen|linnéenne": "La Société linnéenne de Londres : une société savante de naturalistes.",
+  "linotte|linottes": "Petit oiseau. Une tête de linotte : une étourdie.",
+  "oripeau|oripeaux": "Vieux vêtement voyant, de peu de valeur.",
+  "prospecteur|prospecteurs": "Chercheur d'or ou de minerais.",
+  "prévenance|prévenances": "Attention aimable pour quelqu'un.",
+  "sempiternel|sempiternelle": "Qui dure sans fin, éternel.",
+  "shakespearien": "Le shakespearien et le baconien : deux camps qui se disputaient pour savoir qui avait écrit les pièces de Shakespeare.",
+  "simagrée|simagrées": "Manières affectées, grimaces.",
+  "solliciteur": "Celui qui sollicite, qui demande une faveur.",
+  "sujétion": "Dépendance, soumission.",
+  "épagneul|épagneuls": "Chien de chasse à longues oreilles et poil soyeux.",
+  "bravade|bravades": "Défi, attitude provocante.",
+  "centuple": "Au centuple : cent fois plus.",
+  "diablesse": "Femme méchante ou énergique, diable de femme.",
+  "prostré|prostrés|prostrée|prostrées": "Abattu, sans force, effondré.",
+  "spongieux|spongieuse|spongieuses": "Mou et poreux comme une éponge.",
+  "anthropomorphisme": "Le fait de prêter aux bêtes ou aux choses des sentiments humains.",
+  "diaphane": "Si mince et léger qu'on voit à travers.",
+  "galopin|galopins": "Gamin effronté.",
+  "malachite": "Pierre d'un vert vif, veinée.",
+  "rébarbatif|rébarbative": "Repoussant, peu engageant.",
+  "aridité": "Sécheresse ; ici, l'ennui d'une vie sans agrément.",
+  "circonvolution|circonvolutions": "Repli, enroulement.",
+  "domiciliaire": "Une visite domiciliaire : une fouille de la maison.",
+  "infinitésimal|infinitésimaux|infinitésimale": "Infiniment petit.",
+  "interjection": "Exclamation lancée pour interrompre.",
+  "libelle|libelles": "Petit écrit injurieux contre quelqu'un.",
+  "matrone|matrones": "Femme d'âge mûr, respectable et imposante.",
+  "méli-mélo": "Mélange confus.",
+  "poudré|poudrée": "Couvert de poudre ; une perruque poudrée est blanchie de poudre, selon la mode d'autrefois.",
+  "éreinté|éreintée|éreintés": "Épuisé de fatigue.",
+  "bigarré|bigarrée|bigarrés": "Aux couleurs variées et mêlées.",
+  "carquois": "Étui à flèches.",
+  "casernement|casernements": "Bâtiments où logent les soldats.",
+  "chenapan|chenapans": "Vaurien, bandit.",
+  "corallien|corallienne|coralliennes": "Formé de corail.",
+  "estoc": "Frapper d'estoc : avec la pointe de l'épée.",
+  "fermage|fermages": "Loyer qu'un fermier paie pour la terre qu'il cultive.",
+  "frimas": "Brouillard givrant de l'hiver.",
+  "irrévérence": "Manque de respect.",
+  "louage": "Voiture de louage : qu'on loue avec son cocher.",
+  "nauséeux|nauséeuse": "Qui donne la nausée.",
+  "polarisé|polarisés": "Orienté, chargé d'électricité dans un sens précis.",
+  "promptitude": "Rapidité.",
+  "redingote|redingotes": "Longue veste d'homme, croisée, serrée à la taille.",
+  "volubile": "Qui parle vite et beaucoup.",
+  "baleinier|baleiniers": "Navire qui chasse la baleine.",
+  "balourd|balourds": "Lourdaud, maladroit.",
+  "braillard|braillards": "Qui crie fort et sans arrêt.",
+  "caboche": "Tête (familier).",
+  "charpie": "Linge effiloché qui servait à panser les plaies.",
+  "escarcelle": "Grande bourse pendue à la ceinture.",
+  "gargantuesque|gargantuesques": "Énorme, digne de Gargantua.",
+  "gâteux": "Dont l'esprit baisse avec l'âge.",
+  "parallélogramme": "Figure à quatre côtés, parallèles deux à deux.",
+  "paralytique": "Atteint de paralysie.",
+  "scabreux|scabreuse": "Délicat, risqué.",
+  "carnassier|carnassiers|carnassière": "Qui se nourrit de chair.",
+  "cimier|cimiers": "Ornement au sommet d'un casque.",
+  "diligent|diligente|diligentes": "Soigneux et rapide.",
+  "jérémiade|jérémiades": "Plainte sans fin.",
+  "léthargique": "Plongé dans un sommeil profond, ou dans une torpeur sans réaction.",
+  "nursery": "Chambre des enfants, dans une maison anglaise.",
+  "poltron|poltronne": "Peureux, lâche.",
+  "rabâcher": "Répéter sans cesse la même chose.",
+  "routinier": "Qui suit la routine, sans imagination.",
+  "échauffourée|échauffourées": "Bagarre brève et confuse.",
+  "appentis": "Petit bâtiment au toit à une seule pente, adossé à un mur.",
+  "attouchement": "Le fait de toucher.",
+  "bécassine|bécassines": "Oiseau des marais, au long bec.",
+  "canonnade": "Tir de canons prolongé.",
+  "chicaner|chicané": "Discuter sur des riens, ergoter.",
+  "derechef": "De nouveau.",
+  "droguerie": "Commerce de produits chimiques et de drogues.",
+  "dépravé|dépravés|dépravée": "Corrompu, vicieux.",
+  "mufle": "Bout du museau de certains animaux.",
+  "scrutateur": "Qui examine attentivement.",
+  "taffetas": "Étoffe de soie brillante. Le taffetas d'Angleterre était un sparadrap.",
+  "éméché": "Un peu ivre.",
+  "arroger|arrogé": "S'arroger : s'attribuer sans droit.",
+  "bohémien|bohémiens|bohémienne|bohémiennes": "Nomade, gitan.",
+  "dépérissement": "Affaiblissement progressif.",
+  "haut-de-chausses": "Culotte bouffante qui allait de la ceinture aux genoux.",
+  "hortensia|hortensias": "Arbuste aux grosses boules de fleurs.",
+  "limpidité": "Clarté, transparence.",
+  "oblong|oblongue|oblongues": "Plus long que large.",
+  "pharynx": "Fond de la gorge.",
+  "précession": "Lent mouvement de l'axe de la Terre, qui fait un tour complet en environ 26 000 ans.",
+  "quérir": "Aller chercher.",
+  "roquet|roquets": "Petit chien hargneux qui aboie beaucoup.",
+  "tangage": "Mouvement d'un navire qui se balance de l'avant à l'arrière.",
+  "vanné": "Épuisé (familier).",
+  "acariâtre": "D'humeur aigre et querelleuse.",
+  "ciller|cillé|cille": "Battre des paupières.",
+  "crépi|crépis": "Enduit de mortier sur un mur.",
+  "deça|deçà": "En deçà : de ce côté-ci.",
+  "dénégation": "Le fait de nier.",
+  "godillot|godillots": "Grosse chaussure (familier).",
+  "moignon|moignons": "Ce qui reste d'un membre coupé.",
+  "spolier|spolié|spoliés": "Dépouiller quelqu'un de son bien par la force ou la ruse.",
+  "sénilité": "Affaiblissement dû à la vieillesse.",
+  "babouche|babouches": "Pantoufle orientale, sans talon.",
+  "futaie|futaies": "Forêt de grands arbres aux troncs élevés.",
+  "ingénu|ingénue|ingénus": "Naïf, candide.",
+  "timoré|timorée|timorés|timorées": "Craintif, qui n'ose rien.",
+  "véhément|véhémente|véhéments|véhémence": "Plein de force et de passion, emporté.",
+  "justaucorps": "Vêtement serré à la taille, à basques, qui descendait jusqu'aux genoux.",
+  "plinthe|plinthes": "Bande de bois au bas d'un mur, le long du sol.",
+  "timbale|timbales": "Gobelet de métal.",
+  "tonitruant|tonitruante": "Qui fait un bruit de tonnerre.",
+  "esclandre|esclandres": "Scandale bruyant en public.",
+  "marmiton|marmitons": "Jeune aide de cuisine.",
+  "mistress": "Madame, en anglais.",
+  "pamphlétaire|pamphlétaires": "Auteur de pamphlets, de petits écrits violents contre quelqu'un.",
+  "expédient|expédients": "Moyen de se tirer d'embarras, souvent peu glorieux.",
+  "frugal|frugale|frugaux": "Simple et peu abondant (pour un repas).",
+  "musqué|musquée|musqués": "Qui sent le musc, odeur forte de certains animaux.",
+  "sorbier|sorbiers": "Arbre aux grappes de baies rouge orangé.",
+  "âpreté": "Dureté, rudesse.",
+  "accointance|accointances": "Relation, fréquentation (souvent peu recommandable).",
+  "bruine": "Petite pluie fine et froide.",
+  "charivari": "Vacarme.",
+  "ergot|ergots": "Petit ongle pointu à l'arrière de la patte du coq et de certains animaux ; l'ergot de seigle est un champignon vénéneux du grain.",
+  "harangue|harangues": "Discours solennel adressé à une foule.",
+  "maraude": "En maraude : en quête de quelque chose à voler ou à chasser.",
+  "rebrousse-poil": "À rebrousse-poil : dans le mauvais sens, en irritant.",
+  "camaïeu": "Peinture en différents tons d'une même couleur.",
+  "clapier|clapiers": "Cabane à lapins.",
+  "embobiner": "Tromper par de belles paroles (familier).",
+  "nabot|nabots": "Homme de très petite taille (péjoratif).",
+  "étrave": "Pièce qui forme l'avant de la coque d'un navire.",
+  "œillères": "Pièces de cuir qui empêchent un cheval de voir sur les côtés.",
+  "bielle|bielles": "Tige articulée qui transmet un mouvement dans une machine.",
+  "galion|galions": "Grand navire espagnol qui rapportait l'or des Amériques.",
+  "gigue|gigues": "Danse vive et sautillante.",
+  "curée": "Ruée sauvage sur une proie, comme les chiens sur le gibier qu'on leur abandonne.",
+  "masure|masures": "Maison misérable, délabrée.",
+  "putride": "Pourri, en décomposition.",
+  "condisciple|condisciples": "Camarade d'études.",
+  "fifre|fifres": "Petite flûte au son aigu, jouée dans les armées.",
+  "pitance": "Maigre nourriture.",
+  "ascétique|ascétiques": "Qui vit dans la privation, sobre et sévère.",
+  "fatras": "Amas confus de choses sans valeur.",
+  "limier|limiers": "Chien de chasse qui suit la piste ; un policier qui traque.",
+  "opiniâtreté": "Obstination tenace.",
+  "pugilat": "Bagarre à coups de poing.",
+  "térébenthine": "Essence tirée de la résine des pins, qui sert à diluer la peinture.",
+  "lapider": "Tuer à coups de pierres.",
+  "pinacle|pinacles": "Petite tour pointue qui couronne le haut d'un édifice ; au sens figuré, le sommet.",
+  "suif": "Graisse animale dont on faisait les chandelles.",
+  "aigrette|aigrettes": "Petit héron blanc ; bouquet de plumes ou d'étincelles qui se dresse.",
+  "appareiller": "Quitter le port, pour un navire.",
+  "carolingien|carolingienne|carolingiens": "Du temps de Charlemagne et de ses descendants.",
+  "extatique": "Ravi en extase.",
+  "mâture": "Ensemble des mâts d'un navire.",
+  "prosaïque": "Terre à terre, sans poésie.",
+  "sépia": "Brun foncé, couleur de l'encre de seiche.",
+  "timonier|timoniers": "Matelot qui tient le gouvernail.",
+  "âtre": "Foyer de la cheminée.",
+  "blockhaus": "Petit fortin.",
+  "damoiselle|damoiselles": "Jeune fille noble.",
+  "insolvable": "Qui ne peut pas payer ses dettes.",
+  "poussif|poussive": "Qui s'essouffle vite.",
+  "éhonté|éhontée|éhontés": "Sans honte, effronté.",
+  "feu follet|feux follets": "Petite flamme qui flotte la nuit au-dessus des marais.",
+  "pédoncule|pédoncules": "Petite tige qui porte une fleur, un fruit, ou les yeux de certains animaux.",
+  "sornette|sornettes": "Propos frivole, sottise.",
+  "autocrate|autocrates": "Souverain qui gouverne seul, avec un pouvoir absolu.",
+  "cancan|cancans": "Bavardage malveillant.",
+  "contigu|contiguë|contigus": "Qui touche, voisin.",
+  "débonnaire": "Doux et bon jusqu'à la faiblesse.",
+  "décorum": "Règles de bonne tenue, convenances.",
+  "guêtre|guêtres": "Bande de cuir ou de tissu qui couvre le bas de la jambe et le dessus du pied.",
+  "tenancier|tenanciers|tenancière": "Celui qui tient un établissement, une auberge.",
+  "tocsin": "Sonnerie de cloche répétée, pour donner l'alarme.",
+  "benêt|benêts": "Niais, sot.",
+  "médisance|médisances": "Le fait de dire du mal des autres.",
+  "ostentation": "Étalage vaniteux.",
+  "victuaille|victuailles": "Provisions de bouche, nourriture.",
+  "commérage|commérages": "Bavardage indiscret.",
+  "idolâtre|idolâtres": "Qui adore des idoles.",
+  "engeance": "Catégorie de gens méprisables.",
+  "charlatanisme": "Comportement de charlatan, d'imposteur.",
+  "circonspection": "Prudence réfléchie.",
+  "irascible": "Qui se met facilement en colère.",
+  "lancier|lanciers": "Cavalier armé d'une lance.",
+  "temporiser": "Retarder, gagner du temps.",
+  "vénéneux|vénéneuse|vénéneuses": "Qui contient du poison (pour une plante ou un champignon).",
+  "cuticule": "Fine peau protectrice.",
+  "inextricable|inextricables": "Qu'on ne peut démêler.",
+  "rusticité": "Simplicité un peu rude des gens de la campagne.",
+  "baliverne|balivernes": "Propos sans intérêt, sottise.",
+  "butor": "Oiseau des marais au cri sourd ; au figuré, homme grossier.",
+  "marotte|marottes": "Idée fixe, manie.",
+  "retors|retorse": "Rusé et peu scrupuleux.",
+  "scorie|scories": "Déchet qui reste après la fonte d'un métal ou une éruption.",
+  "alun": "Sel minéral qui resserre les chairs.",
+  "augurer|augurai|augurait": "Prévoir, présager.",
+  "métayer|métayers": "Fermier qui partage ses récoltes avec le propriétaire de la terre.",
+  "glabre": "Sans poils, sans barbe.",
+  "lémurien|lémuriens": "Animal proche du singe, comme le maki de Madagascar.",
+  "suaire": "Linceul, drap dont on enveloppe les morts.",
+  "chas": "Trou d'une aiguille.",
+  "morfondre": "Se morfondre : s'ennuyer à attendre.",
+  "tignasse": "Chevelure épaisse et mal peignée.",
+  "gréement": "Ensemble des mâts, voiles et cordages d'un navire.",
+  "incrustation|incrustations": "Couche de matière qui se dépose et adhère.",
+  "apoplexie": "Malaise brutal, avec perte de connaissance, dû à un afflux de sang au cerveau.",
+  "saborder": "Couler volontairement son propre navire.",
+  "soporifique": "Qui fait dormir.",
+  "maraudeur|maraudeurs": "Voleur de petites choses, rôdeur.",
+  "bacille|bacilles": "Microbe en forme de bâtonnet.",
+  "croisillon|croisillons": "Barre qui croise une autre, dans une fenêtre.",
+  "accastilleur": "Marchand de tout ce qui équipe un bateau : poulies, cordages, ferrures.",
+  "aiguade": "Lieu où un navire fait sa provision d'eau douce.",
+  "ahanant|ahanent|ahane": "Ahaner : peiner en soufflant fort sous l'effort.",
+  "andouiller|andouillers": "Ramification des bois du cerf.",
+  "antiscorbutique": "Qui protège du scorbut, la maladie des marins privés de fruits et de légumes frais.",
+  "apostiller": "Annoter un acte en marge, y ajouter une recommandation.",
+  "armillaire|armillaires": "Sphère armillaire : globe fait d'anneaux de métal, qui figure le mouvement du ciel.",
+  "arpète|arpètes": "Jeune apprenti ou apprentie, à qui l'on confie les petites tâches.",
+  "arsenical|arsenicale": "Dû à l'arsenic, un poison violent.",
+  "bluteau|bluteaux": "Tamis du moulin qui sépare la farine du son.",
+  "boisage|boisages": "Charpente de bois qui soutient les galeries d'une mine.",
+  "boiseur|boiseurs": "Mineur qui pose les boisages des galeries.",
+  "bossué|bossuée|bossués": "Cabossé, marqué de bosses.",
+  "boucharde": "Marteau de tailleur de pierre, à tête hérissée de pointes.",
+  "bouffette|bouffettes": "Petit nœud bouffant de ruban.",
+  "brigandine|brigandines": "Veste de toile ou de cuir doublée de petites plaques de fer.",
+  "bringé|bringée": "Se dit d'un chien au pelage rayé de bandes sombres.",
+  "brisque": "Ancien jeu de cartes.",
+  "brucelle|brucelles|demi-brucelle": "Petite pince fine d'horloger ou de bijoutier.",
+  "cabillot|cabillots": "Cheville de bois ou de fer où l'on tourne les cordages, à bord ; elle sert aussi de gourdin.",
+  "cacarder": "Crier, pour une oie.",
+  "capeler": "Passer une boucle de cordage autour d'un mât ou d'une pièce.",
+  "cargue|cargues": "Cordage qui relève une voile contre sa vergue.",
+  "cellérière": "Religieuse (ou religieux) chargée des vivres et des provisions du couvent.",
+  "chiqueur": "Qui mâche du tabac.",
+  "chuinte|chuinter|chuintent": "Chuinter : siffler doucement, comme la vapeur qui s'échappe.",
+  "couperosé|couperosée|couperosées": "Marqué de petites veines rouges, sur les joues ou le nez.",
+  "contrebute|contrebuter": "Contrebuter : soutenir une voûte, un mur, en s'appuyant contre lui.",
+  "débâche": "Débâcher : retirer la bâche.",
+  "décintrement": "Moment où l'on retire la charpente de bois qui soutenait une voûte ou une arche pendant sa construction.",
+  "décommis|décommets": "Décommettre : défaire les brins tordus d'un cordage.",
+  "déhale|déhaler": "Se déhaler : se déplacer en tirant sur ses amarres ou sur une ancre.",
+  "démailler|démaillent": "Couteau à démailler : couteau de pêcheur pour dégager le poisson des mailles du filet.",
+  "dépositoire|dépositoires": "Salle où l'on dépose les morts en attendant de les enterrer.",
+  "désarrime": "Désarrimer : défaire le chargement solidement calé d'un navire.",
+  "drosse": "Drosser : entraîner un navire hors de sa route, pour le courant ou le vent.",
+  "empenne": "Les plumes fixées au bout d'une flèche, qui la guident.",
+  "empointure|empointures": "Coin supérieur d'une voile, au bout de la vergue.",
+  "enfléchure|enfléchures": "Échelon de corde tendu entre les haubans, pour monter dans la mâture.",
+  "envergent|enverguées": "Enverguer : attacher une voile à sa vergue.",
+  "faseye": "Faseyer : battre au vent, pour une voile mal gonflée.",
+  "ferler|ferlée|ferles|ferlées|ferlés": "Ferler : plier une voile serrée sur sa vergue.",
+  "frontail": "Pièce de la bride qui passe sur le front du cheval.",
+  "futaille|futailles": "Tonneau.",
+  "gabarier|gabariers": "Batelier qui mène une gabare, grand bateau plat de rivière.",
+  "gabelou|gabelous": "Agent qui perçoit la taxe sur le sel ; par extension, douanier.",
+  "galibot": "Jeune garçon employé dans une mine.",
+  "glaisière|glaisières": "Endroit d'où l'on tire la glaise.",
+  "glène|glènes": "Cordage roulé en rond sur le pont.",
+  "grènetis": "Petits grains en relief qui bordent une pièce de monnaie ou un sceau.",
+  "gîtée": "Gîter : pencher sur le côté, pour un navire.",
+  "haveneau": "Filet en forme de poche monté sur un cadre, pour pêcher la crevette.",
+  "hercheur|hercheuse|hercheuses": "Ouvrier ou ouvrière qui pousse les wagonnets dans une mine.",
+  "jaseron": "Chaîne fine aux mailles serrées.",
+  "jointoyés|jointoyée|jointoie": "Jointoyer : garnir de mortier les joints entre les pierres.",
+  "lampier|lampière": "Celui ou celle qui entretient les lampes d'une église.",
+  "lustrine": "Étoffe de coton lustrée ; les employés de bureau en portaient des manches pour protéger leurs habits.",
+  "mentonnet": "Petite pièce en saillie où vient s'arrêter un loquet.",
+  "mitrée": "En forme de mitre, le haut bonnet pointu des évêques.",
+  "morion|morions": "Casque de fer à bords relevés, avec une crête.",
+  "mosette": "Courte pèlerine que portent certains prélats.",
+  "mulon|mulons": "Grand tas de sel récolté, sur le bord des marais salants.",
+  "méjuge": "Se méjuger : pour un cerf, poser le pied de derrière à côté de la trace du pied de devant.",
+  "oubliers": "Pâtissier qui faisait et vendait des oublies, fines gaufres roulées.",
+  "ouvreau|ouvreaux": "Ouverture d'un four de verrier, par où l'on cueille le verre en fusion.",
+  "ovalisés": "Déformés en ovale par l'usure.",
+  "palanche|palanches": "Pièce de bois posée sur les épaules, pour porter deux seaux.",
+  "palastre": "Boîte de métal qui renferme le mécanisme d'une serrure.",
+  "phrygane": "Insecte dont la larve vit au fond des ruisseaux, dans un étui de gravier.",
+  "pommadé": "Aux cheveux enduits de pommade, luisants et plaqués.",
+  "pontant": "Ponter : miser contre la banque, au jeu.",
+  "pontil": "Tige de fer où le verrier fixe la pièce qu'il travaille.",
+  "poucier": "Petite palette d'un loquet, qu'on abaisse du pouce pour ouvrir.",
+  "peccavi": "« J'ai péché », en latin : début d'une prière de pénitence.",
+  "rabouté": "Rabouter : mettre bout à bout, rattacher deux morceaux.",
+  "racage|racages": "Collier de billes de bois qui fait coulisser une vergue le long du mât.",
+  "radoube|radoubée": "Radouber : réparer la coque d'un navire.",
+  "ragué": "Raguer : s'user en frottant, pour un cordage.",
+  "ramendage|ramendant|ramendeuse|ramendeuses": "Ramender : réparer les filets de pêche.",
+  "ravauder|ravaude|ravaudent|ravaudant|ravaudage": "Raccommoder à l'aiguille un vêtement, une voile.",
+  "rembuché": "Rembucher : rentrer au bois, pour une bête chassée.",
+  "rencogne": "Se rencogner : se serrer dans un coin.",
+  "ressusciteur|ressusciteurs": "Voleur de cadavres, qui les vendait aux médecins pour leurs leçons d'anatomie.",
+  "retassait|retassée": "Retasser : tasser de nouveau.",
+  "rivelaine|rivelaines": "Pic de mineur à deux pointes.",
+  "rogneur": "Celui qui rognait les pièces d'or ou d'argent pour en voler un peu de métal.",
+  "saintier": "Fondeur de cloches.",
+  "saleur": "Ouvrier qui sale le poisson pour le conserver.",
+  "salorge": "Hangar où l'on entrepose le sel.",
+  "shipchandler": "Marchand qui fournit les navires en vivres et en matériel.",
+  "soleret|solerets": "Chaussure de fer de l'armure.",
+  "souillarde": "Arrière-cuisine où l'on fait la vaisselle.",
+  "suggestible": "Qui se laisse facilement influencer, convaincre de ce qu'on lui suggère.",
+  "taud|tauds": "Bâche tendue au-dessus du pont d'un navire, contre le soleil ou la pluie.",
+  "tendelet": "Petit abri de toile tendu à l'arrière d'une barque.",
+  "terre-neuvier|terre-neuviers": "Navire, ou marin, qui va pêcher la morue au large de Terre-Neuve.",
+  "tesselle": "Petit cube de pierre ou de verre d'une mosaïque.",
+  "tiraude": "Corde qu'on tire pour sonner une cloche.",
+  "tonsurée|tonsurées": "Au crâne rasé en rond, comme les moines.",
+  "tourière|tourières": "Religieuse chargée des relations du couvent avec l'extérieur.",
+  "tousseux": "Qui tousse sans cesse ; un pauvre hère malade.",
+  "touée": "Touer : faire avancer un navire en tirant sur une ancre ou une amarre.",
+  "vantelle|vantelles": "Petite vanne d'une porte d'écluse, qu'on ouvre pour faire passer l'eau.",
+  "venderesse": "Femme qui vend un bien, dans un acte de notaire.",
+  "vivandier|vivandière|vivandiers|vivandières": "Marchand qui suit une armée et vend des vivres aux soldats.",
+  "volvelle": "Instrument fait de disques de papier ou de métal qui tournent l'un sur l'autre, pour calculer les marées, les astres.",
+  "ébauchoir": "Outil de sculpteur ou de menuisier pour dégrossir le bois.",
+  "éclissée": "Éclisser : maintenir un membre cassé entre des attelles.",
+  "écubier": "Trou à l'avant d'un navire, par où passe la chaîne de l'ancre.",
+  "épissant|épissent|épisseurs": "Épisser : réunir deux bouts de cordage en entrelaçant leurs brins.",
+  "épontil|épontille": "Pilier qui soutient un pont, à l'intérieur d'un navire.",
+  "étoupée": "Étouper : boucher avec de l'étoupe, de la filasse goudronnée.",
+  "anatife|anatifes": "Petit coquillage qui s'accroche aux coques et aux bois flottants.",
+  "chènevière": "Champ de chanvre.",
+  "grenetier": "Officier du grenier à sel, qui vendait le sel du roi et percevait la taxe.",
+  "luisance|luisances": "Lueur, reflet qui luit.",
+  "moraillon": "Pièce de fer à charnière qui ferme un coffre avec un cadenas.",
+  "bassinoire|bassinoires": "Bassin de cuivre à long manche, rempli de braises, qui chauffait les lits.",
+  "futaine": "Étoffe grossière de fil et de coton.",
+  "sayon|sayons": "Casaque grossière de paysan ou de soldat.",
+  "harengère": "Marchande de harengs ; femme criarde et grossière.",
+  "papegai": "Oiseau de bois placé en haut d'un mât, cible d'un concours de tir.",
+  "sacristine": "Religieuse ou femme chargée de la sacristie et des objets du culte.",
+  "bésicles": "Lunettes, autrefois.",
+  "poissé": "Enduit de poix, la colle noire du cordonnier.",
+  "jaspée": "Tachetée de plusieurs couleurs, comme le jaspe.",
+  "racornie|racorni": "Durci et recroquevillé.",
+  "tourbier|tourbiers": "Ouvrier qui extrait la tourbe.",
+  "archal": "Fil d'archal : fil de laiton.",
+  "bajoyer": "Mur de chaque côté d'une écluse.",
+  "pontées": "Pontées : couvertes d'un pont.",
+  "vielleux": "Joueur de vielle, instrument à cordes et à manivelle.",
+  "limeur|limeurs": "Ouvrier qui lime le métal.",
+  "algébriste": "Savant qui pratique l'algèbre.",
+  "goémonier|goémoniers": "Celui qui récolte le goémon, les algues de la côte.",
+  "crocher": "Accrocher avec un croc, une gaffe.",
+  "rocou": "Teinture rouge tirée des graines d'un arbuste d'Amérique.",
+  "bouline": "Nœud de bouline : nœud de marin qui fait une boucle fixe, qui ne glisse pas.",
+  "calfater|calfatées|calfate|calfatée|calfatait|calfatage": "Calfater : boucher les joints entre les planches d'un bateau avec de l'étoupe et du goudron.",
+  "calfat|calfats": "Ouvrier qui calfate les navires.",
+  "gauchi": "Gauchir : se déformer, se tordre.",
+  "caronade|caronades": "Canon court et gros, sur les navires.",
+  "obit|obits": "Messe dite chaque année pour un mort ; registre de ces messes.",
+  "pertuisane|pertuisanes": "Arme à long manche terminée par un large fer pointu.",
+  "souffleté": "Souffleter : gifler.",
+  "filoselle": "Bourre de soie, étoffe grossière.",
+  "coxo-fémorale|coxo-fémoral": "De la hanche (articulation entre l'os du bassin et le fémur).",
+  "sardinière": "Ouvrière qui prépare les sardines à la conserverie.",
+  "valetaille": "Les valets, la domesticité, dit avec mépris.",
+  "garcette": "Petit bout de corde tressée ; on en frappait les matelots pour les punir.",
+  "lèchefrite|lèchefrites": "Plat placé sous la broche, qui recueille le jus du rôti.",
+  "plumassier": "Marchand ou artisan qui prépare les plumes de parure.",
+  "safre": "Oxyde de cobalt, qui donne un bleu profond au verre et à la faïence.",
+  "épaulière": "Pièce d'armure qui protège l'épaule.",
+  "cataleptique|cataleptiques": "Plongé dans une raideur immobile, comme mort, sans conscience.",
+  "gammare|gammares": "Petite crevette d'eau douce.",
+  "barrot|barrots": "Poutre posée en travers d'un navire, qui porte le pont.",
+  "enfumoir": "Appareil qui souffle de la fumée pour calmer les abeilles.",
+  "grelin|grelins": "Gros cordage d'amarrage.",
+  "suint": "Graisse qui imprègne la laine des moutons.",
+  "éteignoir|éteignoirs": "Petit cône de métal au bout d'une perche, pour éteindre les chandelles.",
+  "après-dînée": "L'après-midi (le dîner se prenait à midi).",
+  "grenu|grenue": "À la surface couverte de petits grains.",
+  "lampisterie": "Local où l'on garde et entretient les lampes (d'une mine, d'une gare).",
+  "camphrée": "Parfumée au camphre, à l'odeur forte et fraîche.",
+  "fourrageur|fourrageurs": "Soldat envoyé chercher du fourrage, du ravitaillement, souvent par pillage.",
+  "goupillée": "Goupiller : régler, arranger en secret (une machine, une affaire).",
+  "fourniment": "Équipement complet du soldat.",
+  "hourd": "Galerie de bois en saillie au sommet d'une muraille.",
+  "volter": "Faire tourner son cheval sur lui-même.",
+  "arrobe": "Ancienne mesure de poids, environ douze kilos.",
+  "bobèche|bobèches": "Petite coupelle qui reçoit la cire coulant de la bougie.",
+  "bollard": "Grosse borne d'amarrage sur un quai.",
+  "girelle": "Plateau du tour de potier.",
+  "vaigrage": "Revêtement de planches qui double l'intérieur de la coque.",
+  "espagnolette": "Barre de fer tournante qui ferme les deux battants d'une fenêtre.",
+  "prélart": "Grosse toile goudronnée qui couvre les marchandises.",
+  "serinette|serinettes": "Petit orgue à manivelle qui servait à apprendre des airs aux oiseaux.",
+  "tuyauté": "Plissé en petits tuyaux réguliers, au fer chaud.",
+  "prosecteur": "Celui qui prépare les dissections pour les leçons d'anatomie.",
+  "hanap": "Grande coupe à boire, à pied, souvent couverte.",
+  "plantoir": "Outil pointu de jardinier pour faire les trous où l'on plante.",
+  "taret|tarets": "Petit mollusque qui creuse des galeries dans le bois immergé.",
+  "crocheteur": "Portefaix, qui porte les fardeaux à l'aide d'un crochet.",
+  "gobie|gobies": "Petit poisson des côtes.",
+  "pendable": "Qui mérite la corde, la pendaison.",
+  "poitrinaire": "Malade de la poitrine, tuberculeux.",
+  "connaissement": "Reçu des marchandises chargées sur un navire.",
+  "gazetier": "Celui qui écrit une gazette, un journal.",
+  "quinquet": "Lampe à huile à réservoir.",
+  "contremarche": "Partie verticale d'une marche d'escalier.",
+  "intaille": "Pierre fine gravée en creux.",
+  "chanfrein|chanfreins": "Arête abattue en biais sur une pièce de bois ou de métal ; aussi, le devant de la tête du cheval, entre les yeux et les naseaux.",
+  "maroufle": "Rustre, coquin (injure ancienne).",
+  "tranchet": "Couteau plat de cordonnier.",
+  "empesées": "Raidies à l'amidon.",
+  "mareyeuse|mareyeuses": "Marchande qui achète le poisson aux pêcheurs pour le revendre.",
+  "cardeur": "Ouvrier qui démêle la laine avant de la filer.",
+  "piétin": "Maladie du pied des moutons.",
+  "tafia": "Eau-de-vie de canne à sucre.",
+  "épissure": "Jonction de deux cordages dont on entrelace les brins.",
+  "étier": "Canal qui amène l'eau de mer dans les marais salants.",
+  "criste-marine": "Plante charnue des rochers du bord de mer.",
+  "foliot": "Balancier des anciennes horloges.",
+  "rhabillage": "Réparation d'une montre, d'une horloge.",
+  "gorgerin": "Pièce d'armure qui protège le cou.",
+  "guimpe|guimpes": "Pièce de toile qui couvre le cou et la poitrine des religieuses.",
+  "orpiment": "Minéral jaune vif, très toxique, dont on tirait une couleur.",
+  "ripisylve": "Bois qui borde une rivière.",
+  "merrain": "Planches de chêne fendues dont on fait les tonneaux.",
+  "sardoine": "Pierre fine d'un brun rouge.",
+  "saulaie|saulaies": "Lieu planté de saules.",
+  "dalot|dalots": "Trou dans le bord d'un navire, par où s'écoule l'eau du pont.",
+  "glandée": "Récolte des glands, ou pâture des cochons sous les chênes.",
+  "tranchoir|tranchoirs": "Planche ou grande tranche de pain sur laquelle on découpait la viande.",
+  "marli": "Bord intérieur d'une assiette, entre le fond et le rebord.",
+  "absoute": "Prières dites autour du cercueil, après la messe des morts.",
+  "merlon": "Partie pleine d'un parapet crénelé, entre deux créneaux.",
+  "redent|redents": "Ressaut en gradin, sur un pignon ou un mur.",
+  "cacatois": "Petite voile tout en haut du mât.",
+  "ajour|ajours": "Ouverture qui laisse passer le jour.",
+  "catarrhe": "Inflammation qui fait tousser et cracher.",
+  "ipéca": "Racine dont on tirait un remède qui fait vomir.",
+  "recuite": "Recuire : réchauffer le métal puis le laisser refroidir lentement, pour l'adoucir.",
+  "ridelle|ridelles": "Côté à claire-voie d'une charrette.",
+  "cirier": "Celui qui fabrique ou vend les cierges et la cire.",
+  "targette": "Petit verrou plat.",
+  "nable": "Trou au fond d'une embarcation pour vider l'eau, fermé d'un bouchon.",
+  "cellerier": "Moine chargé des provisions du monastère.",
+  "collationné": "Collationner : comparer une copie à l'original.",
+  "esquille|esquilles": "Petit éclat d'un os brisé.",
+  "filigrané": "Papier filigrané : marqué d'un dessin qu'on voit par transparence.",
+  "haleur|haleurs": "Celui qui tire un bateau avec une corde, depuis la rive.",
+  "mailloche": "Gros maillet de bois.",
+  "herboriser": "Cueillir des plantes pour les étudier.",
+  "aiguière|aiguières": "Grand vase à bec et à anse, pour verser l'eau.",
+  "louchet": "Bêche étroite.",
+  "seriner": "Répéter sans cesse pour faire apprendre (on apprenait ainsi des airs aux serins).",
+  "cressonnière": "Marchande de cresson.",
+  "jusant": "Marée descendante.",
+  "paraison": "Boule de verre en fusion que le verrier cueille au bout de sa canne.",
+  "égaillent|égaillée|égailler": "S'égailler : se disperser de tous côtés.",
+  "guindeau": "Treuil à axe couché, qui sert à lever l'ancre.",
+  "pépie": "Pépier : pousser de petits cris aigus, comme un oisillon.",
+  "revaudrai": "Revaloir : rendre la pareille, en bien ou en mal.",
+  "goulée|goulées": "Grande bouchée, grande gorgée.",
+  "moutonne": "Moutonner : se couvrir de petites vagues écumantes.",
+  "embouche": "Emboucher : porter à la bouche un instrument à vent.",
+  "chevalement": "Charpente qui surmonte un puits de mine, avec les poulies de la cage.",
+  "devineresse": "Femme qui prédit l'avenir.",
+  "mitron|mitrons": "Garçon boulanger.",
+  "pampille|pampilles": "Petite pendeloque de verre ou de cristal d'un lustre.",
+  "pansu|pansues": "Au ventre rebondi.",
+  "quêteur|quêteurs": "Moine qui va de porte en porte demander l'aumône pour son couvent.",
+  "traille": "Bac à traille : bac qui traverse en glissant le long d'un câble tendu d'une rive à l'autre.",
+  "bézoard": "Concrétion de pierre trouvée dans l'estomac de certains animaux, qu'on croyait remède contre les poisons.",
+  "duègne": "Vieille femme chargée de surveiller une jeune fille.",
+  "forcit": "Forcir : devenir plus fort.",
+  "gabarre|gabare|gabares": "Grand bateau plat de rivière, pour les marchandises.",
+  "salicorne|salicornes": "Petite plante charnue des marais salés.",
+  "thuriféraire": "Celui qui porte l'encensoir à l'église.",
+  "armorié|armoriés": "Orné d'armoiries.",
+  "boiser": "Soutenir une galerie de mine par des poutres.",
+  "corselet": "Cuirasse légère qui couvre le buste.",
+  "renardeau|renardeaux": "Petit du renard.",
+  "élingue": "Cordage passé autour d'une charge pour la hisser.",
+  "bolée|bolées": "Contenu d'un bol (de cidre).",
+  "fontainier": "Celui qui entretient les fontaines et les conduites d'eau.",
+  "drapière": "Ville drapière : ville qui fabrique du drap de laine.",
+  "logette": "Petite loge.",
+  "lorgnon|lorgnons": "Lunettes sans branches, qu'on pince sur le nez.",
+  "tympanon": "Instrument à cordes qu'on frappe avec de petites baguettes.",
+  "paumelle|paumelles": "Bande de cuir que le voilier passe à sa paume pour pousser l'aiguille.",
+  "douelle|douelles": "Planche courbe d'un tonneau.",
+  "béguine": "Femme pieuse qui vit en communauté sans prononcer de vœux ; une dévote.",
+  "engrener|engrènent|engrenées": "Engrener : se prendre l'une dans l'autre, pour des roues dentées.",
+  "galuchat": "Peau de raie ou de requin, grenue, qui recouvre des étuis précieux.",
+  "lanterneau|lanterneaux": "Petite construction vitrée au sommet d'un toit, qui éclaire et aère.",
+  "varangue|varangues": "Pièce courbe posée en travers de la quille, au fond d'un navire.",
+  "écrouant": "Écrouer : inscrire sur le registre d'une prison, emprisonner.",
+  "campêche": "Bois d'Amérique dont on tire une teinture.",
+  "dalmatique": "Ample tunique à manches courtes que portent les diacres à la messe.",
+  "fuselé": "En forme de fuseau, mince et allongé.",
+  "alidade": "Règle de visée d'un instrument d'astronomie ou d'arpentage.",
+  "cuilleron": "Partie creuse de la cuiller.",
+  "curiale": "Maison curiale : presbytère, maison du curé.",
+  "pendeloque|pendeloques": "Ornement de cristal suspendu à un lustre.",
+  "bisaïeul": "Arrière-grand-père.",
+  "damassée": "Damassé : tissé d'un motif qui apparaît par jeu de reflets.",
+  "davier": "Pince de dentiste pour arracher les dents.",
+  "escogriffe": "Homme grand et mal bâti.",
+  "ferronnière": "Marchande d'objets de fer.",
+  "gouailleuse|gouailleur": "Moqueur, qui raille avec insolence.",
+  "lunule|lunules": "Petite tache blanche en forme de croissant à la base de l'ongle.",
+  "panaris": "Infection au bout d'un doigt.",
+  "prunellier|prunelliers": "Arbuste épineux qui donne de petites prunes bleues et âpres.",
+  "affermé|affermés": "Affermer : louer une terre ou un bien contre une redevance.",
+  "chéneau|chéneaux": "Gouttière au bord d'un toit.",
+  "crapaudine": "Pièce de métal creuse où tourne le pivot d'une porte ou d'un axe.",
+  "encablure|encablures": "Mesure de distance en mer, environ deux cents mètres.",
+  "boutefeu": "Mineur chargé de faire sauter les mines.",
+  "crépine|crépines": "Frange tissée qui orne un dais, un rideau.",
+  "droguiste": "Marchand de produits pour la teinture, la peinture, la pharmacie.",
+  "fenil": "Grenier à foin.",
+  "fluxion": "Gonflement inflammatoire ; fluxion de poitrine : pneumonie.",
+  "clenche": "Levier d'un loquet de porte.",
+  "nouet": "Petit sachet de linge noué, où l'on enferme une substance.",
+  "thériaque": "Ancien remède contre les poisons, fait de dizaines d'ingrédients.",
+  "transbordée": "Transborder : faire passer d'un navire à un autre.",
+  "empan|empans": "Mesure ancienne : l'écart entre le pouce et le petit doigt, la main bien ouverte.",
+  "penture|pentures": "Bande de fer qui fixe une porte ou un volet sur ses gonds.",
+  "sébile": "Petite écuelle de bois où l'on recueille l'argent, l'aumône.",
+  "purgation|purgations": "Remède qui purge le ventre.",
+  "shako": "Haut chapeau militaire à visière.",
+  "étambot": "Pièce de bois qui prolonge la quille à l'arrière et porte le gouvernail.",
+  "bachot|bachots": "Petite barque de rivière.",
+  "maie": "Coffre de bois où l'on pétrissait et gardait le pain.",
+  "mantelet|mantelets": "Petit manteau court.",
+  "écouvillon": "Brosse à long manche pour nettoyer l'âme d'un canon.",
+  "ablette|ablettes": "Petit poisson de rivière, argenté.",
+  "alène": "Poinçon de cordonnier pour percer le cuir.",
+  "bergeronnette": "Petit oiseau qui hoche sans cesse la queue.",
+  "chausse-trape|chausse-trapes": "Piège ; pièce de fer à pointes jetée au sol.",
+  "hoir|hoirs": "Héritiers.",
+  "caque": "Baril où l'on serre les harengs salés.",
+  "clapot": "Agitation de petites vagues qui clapotent.",
+  "droguet": "Étoffe de laine grossière.",
+  "pistole": "Ancienne pièce d'or ; en prison, payer la pistole, c'est payer pour une meilleure cellule.",
+  "enrubanné|enrubannés": "Orné de rubans.",
+  "recenseur": "Celui qui fait le recensement des habitants.",
+  "fourbir|fourbit|fourbie|fourbissent": "Fourbir : astiquer une arme pour la faire briller.",
+  "desceller|descellée|descellées|descellé|descelleras|descelle": "Desceller : détacher ce qui était scellé dans la pierre.",
+  "lambrissé|lambrissée|lambrissés": "Couvert de lambris, de boiseries.",
+  "cordelle": "Tirer à la cordelle : haler un bateau à la corde, depuis la rive.",
+  "pattée": "Croix pattée : croix dont les branches s'élargissent au bout.",
+  "pylore": "Passage entre l'estomac et l'intestin.",
+  "rouf": "Petite cabine construite sur le pont d'un bateau.",
+  "sourdent|sourdre": "Sourdre : sortir de terre, jaillir, pour l'eau.",
+  "appontement": "Plate-forme où accostent les bateaux.",
+  "batardeau": "Barrage provisoire qui met à sec un endroit où l'on doit bâtir dans l'eau.",
+  "catafalque": "Estrade décorée où l'on pose le cercueil pendant les funérailles.",
+  "jusquiame": "Plante vénéneuse, autrefois remède pour calmer et endormir.",
+  "longère": "Maison basse et longue, de plain-pied.",
+  "trisaïeule|trisaïeul": "Mère (ou père) d'un arrière-grand-parent.",
+  "essayeur|essayeurs": "Celui qui vérifie le titre de l'or et de l'argent des monnaies.",
+  "goémon": "Algues que la mer rejette sur la côte.",
+  "grège": "Soie grège : soie brute, telle qu'on la tire du cocon.",
+  "merlette|merlettes": "Petit oiseau sans pattes ni bec, dessiné sur les armoiries.",
+  "ratafia": "Liqueur faite d'eau-de-vie et de fruits.",
+  "réséda": "Plante à petites fleurs très parfumées.",
+  "rôt|rôts": "Plat de viande rôtie servi au cours d'un grand repas.",
+  "tartane|tartanes": "Petit voilier de la Méditerranée.",
+  "consomption|consomptions": "Amaigrissement et épuisement lent, causé par une maladie.",
+  "dunette": "Pont surélevé à l'arrière d'un navire.",
+  "porion|porions": "Contremaître dans une mine.",
+  "basane": "Peau de mouton tannée, dont on couvre les livres.",
+  "bouilleur": "Celui qui distille l'eau-de-vie.",
+  "complexion": "Constitution, tempérament du corps.",
+  "régalade": "Boire à la régalade : en versant le liquide dans la bouche sans toucher le récipient des lèvres.",
+  "colchique|colchiques": "Fleur des prés, vénéneuse, dont on tirait un remède contre la goutte.",
+  "placet|placets": "Petite requête écrite, présentée à un puissant pour obtenir une faveur.",
+  "fontis": "Effondrement du terrain au-dessus d'une galerie creusée.",
+  "mâchefer": "Résidu des forges, fait de scories et de charbon brûlé.",
+  "onciale": "Écriture à grandes lettres arrondies des anciens manuscrits.",
+  "presbyte": "Qui voit mal de près.",
+  "pétrel|pétrels": "Oiseau de mer qui vit au large.",
+  "tabellion": "Notaire de village.",
+  "torchère|torchères": "Grand chandelier qui porte plusieurs flambeaux.",
+  "ardillon": "Pointe de métal d'une boucle de ceinture.",
+  "charroi|charrois": "Convoi de charrettes.",
+  "feuillure": "Rainure où vient se loger une porte, un volet, un panneau.",
+  "ganse|ganses": "Cordonnet ou ruban qui borde un vêtement, un chapeau.",
+  "hallebardier|hallebardiers": "Garde armé d'une hallebarde.",
+  "carder": "Démêler la laine avec une brosse à pointes avant de la filer.",
+  "catalepsie": "État où le corps reste raide et immobile, comme mort, sans conscience.",
+  "consoude": "Plante des lieux humides dont les feuilles servaient à soigner les plaies et les os.",
+  "crassier|crassiers": "Grand tas des déchets d'une mine ou d'une usine.",
+  "estives": "Pâturages de montagne où les troupeaux passent l'été.",
+  "maquignon|maquignons": "Marchand de chevaux, souvent rusé et malhonnête.",
+  "porte-faix": "Homme qui porte des fardeaux pour gagner sa vie.",
+  "porterie": "Loge du portier, à l'entrée d'un couvent.",
+  "rémouleur": "Artisan qui aiguise les couteaux sur une meule.",
+  "cornier": "Poteau cornier : poteau d'angle d'une maison à pans de bois.",
+  "faillies": "Maison faillie : qui a fait faillite.",
+  "virole": "Bague de métal qui serre le bout d'un manche.",
+  "brigantin": "Petit navire à deux mâts.",
+  "centaurée": "Plante des champs, aux fleurs en pompon.",
+  "contreseing": "Signature qui accompagne celle d'un autre pour la confirmer.",
+  "flageolet": "Petite flûte à bec.",
+  "octosyllabe|octosyllabes": "Vers de huit syllabes.",
+  "sarrau|sarraus": "Blouse de travail ample.",
+  "encaustique": "Cire à faire briller les meubles et les parquets.",
+  "hysope": "Plante aromatique, utilisée comme remède.",
+  "barbotine": "Argile délayée dans l'eau, que le potier utilise pour coller ou lisser.",
+  "clepsydre": "Horloge à eau.",
+  "clocheton": "Petit clocher.",
+  "huche|huches": "Grand coffre de bois où l'on range le pain ou la farine.",
+  "mirliton": "Petit instrument de carton qui nasille quand on chante dedans.",
+  "neume|neumes": "Signe des anciennes notations musicales.",
+  "remontoir": "Mécanisme qui sert à remonter une montre ou une horloge.",
+  "œils-de-bœuf": "Œil-de-bœuf : petite fenêtre ronde ; aussi, une horloge ronde.",
+  "adoube|adoubée": "Adouber : faire chevalier.",
+  "chiourme": "Les forçats d'une galère.",
+  "espalier": "Arbre fruitier palissé contre un mur.",
+  "gaffer|gaffé": "Accrocher avec une gaffe, une perche à crochet.",
+  "garde-chiourme": "Surveillant des forçats.",
+  "génuflexion": "Mouvement par lequel on fléchit le genou.",
+  "membrure|membrures": "Côte de bois qui forme la carcasse d'un navire.",
+  "évangéliaire": "Livre qui contient les Évangiles lus à la messe.",
+  "archère|archères": "Fente étroite dans une muraille, pour tirer à l'arc.",
+  "axolotl": "Salamandre du Mexique qui garde toute sa vie l'allure d'une larve.",
+  "brai|brais": "Goudron épais qui sert à calfater les bateaux.",
+  "croup": "Maladie grave de la gorge, qui étouffe les enfants.",
+  "jambage|jambages": "Trait vertical d'une lettre.",
+  "noroît": "Vent du nord-ouest.",
+  "rosat": "Miel rosat : préparé avec des roses.",
+  "serrement": "Barrage de bois et de terre qui ferme une galerie de mine.",
+  "stère|stères": "Mesure de bois de chauffage, un mètre cube.",
+  "vaisselier": "Meuble où l'on range et expose la vaisselle.",
+  "voilette": "Petit voile attaché au chapeau, qui couvre le visage.",
+  "émeri": "Bouché à l'émeri : fermé par un bouchon de verre poli, parfaitement hermétique.",
+  "besant|besants": "Pièce d'or ancienne.",
+  "godille": "Rame unique à l'arrière, qu'on agite pour avancer.",
+  "goulotte": "Petit canal qui conduit un liquide.",
+  "votif|votifs": "Offert pour remercier d'un vœu exaucé.",
+  "ammonite": "Coquille fossile enroulée en spirale.",
+  "antiphonaire|antiphonaires": "Livre des chants de l'office.",
+  "atour|atours": "Parure ; dame d'atour : dame chargée de la toilette d'une reine.",
+  "gavotte": "Danse ancienne à deux temps.",
+  "mouchette|mouchettes": "Ciseaux pour couper la mèche brûlée des chandelles.",
+  "pointeau": "Poinçon d'acier qui marque un point sur le métal.",
+  "tâcheron": "Ouvrier payé à la tâche ; signe de tâcheron : marque gravée par le tailleur de pierre.",
+  "éclisse": "Éclisser : maintenir un membre cassé entre des attelles.",
+  "égoutier|égoutiers": "Ouvrier qui entretient les égouts.",
+  "bossage|bossages": "Pierre de façade taillée en saillie, en relief.",
+  "caraco": "Corsage ample de femme, en usage autrefois.",
+  "congre|congres": "Grand poisson de mer, au corps de serpent.",
+  "fecit": "« L'a fait », en latin : se lit après le nom de l'artisan, sur son œuvre.",
+  "haste": "Trait vertical d'une lettre qui monte au-dessus de la ligne.",
+  "hydrographe": "Savant qui dresse les cartes des mers et des côtes.",
+  "luette": "Petite masse de chair qui pend au fond de la gorge.",
+  "ulcération": "Plaie ouverte qui ne se referme pas.",
+  "venelle|venelles": "Petite rue étroite.",
+  "vernissée": "Couverte d'un vernis brillant, cuit au four.",
+  "chaufferette": "Petite boîte remplie de braises, sur laquelle on posait les pieds.",
+  "gourd|gourds": "Engourdi par le froid.",
+  "marbrier": "Artisan qui taille le marbre, les pierres tombales.",
+  "poussier": "Poussière de charbon ; coup de poussier : explosion de cette poussière dans une mine.",
+  "étamé|étamée": "Couvert d'une fine couche d'étain.",
+  "argentifère": "Qui contient de l'argent (le métal).",
+  "bonneteau": "Jeu de rue truqué où l'on parie sur la place d'une carte parmi trois.",
+  "coudrier": "Noisetier.",
+  "doreur": "Artisan qui pose la dorure.",
+  "hobereau": "Petit noble de campagne.",
+  "poivrière|poivrières": "Tourelle d'angle à toit pointu.",
+  "rascasse": "Poisson de roche épineux, qu'on met dans les soupes.",
+  "saunière|saunières": "Ouvrière ou propriétaire d'un marais salant.",
+  "camail": "Courte pèlerine à capuchon que portent les chanoines.",
+  "hallali": "Sonnerie de trompe qui annonce que la bête chassée est aux abois.",
+  "mascaron": "Visage sculpté, souvent grotesque, qui orne une fontaine ou une façade.",
+  "poêlon": "Petite casserole à long manche.",
+  "voussoir|voussoirs": "Pierre taillée en coin, qui forme une voûte ou une arche.",
+  "codicille|codicilles": "Ajout à un testament, qui le complète ou le modifie.",
+  "cornouiller": "Arbuste au bois très dur.",
+  "occiput": "Arrière du crâne.",
+  "panneton|pannetons": "Partie de la clé qui entre dans la serrure et fait jouer le pêne.",
+  "tope|toper|topez": "Toper : se taper dans la main pour conclure un marché.",
+  "valvule": "Petite membrane qui, dans le cœur ou les veines, ne laisse passer le sang que dans un sens.",
+  "écorcheur|écorcheurs": "Bandit de grand chemin ; autrefois, soldat pillard.",
+  "commue|commuée": "Commuer une peine : la remplacer par une peine moins lourde.",
+  "distique": "Groupe de deux vers.",
+  "encanailler": "S'encanailler : fréquenter des gens de mauvaise vie, par goût.",
+  "fausset": "Voix de fausset : voix aiguë, forcée.",
+  "hure": "Tête du sanglier.",
+  "tarière": "Grande vrille pour percer le bois.",
+  "clairet": "Vin rouge léger.",
+  "mi-drisse": "À mi-drisse : à mi-hauteur du mât, en signe de deuil.",
+  "mortaise": "Entaille faite dans le bois pour y loger une autre pièce.",
+  "patène": "Petite assiette d'or ou d'argent où l'on pose l'hostie.",
+  "pâmoison": "Évanouissement.",
+  "bonnette|bonnettes": "Voile d'appoint, ajoutée sur le côté des voiles principales.",
+  "cantonade": "À la cantonade : sans s'adresser à personne en particulier.",
+  "genouillère": "Pièce qui protège le genou.",
+  "puisard": "Trou où s'écoulent et se perdent les eaux.",
+  "taiseux": "Qui parle peu.",
+  "triforium": "Galerie étroite qui court au-dessus des arcades, dans une église.",
+  "capon": "Palan qui sert à hisser l'ancre.",
+  "couperose": "Rougeur du visage, faite de petites veines.",
+  "fluorine": "Minéral transparent, souvent violet ou vert.",
+  "mazurka": "Danse vive d'origine polonaise.",
+  "murène": "Poisson de mer au corps de serpent, qui mord.",
+  "pelisse": "Manteau garni ou doublé de fourrure.",
+  "vinasse": "Mauvais vin.",
+  "cantinier": "Celui ou celle qui tient la cantine d'une troupe et vend à boire aux soldats.",
+  "clavette|clavettes": "Cheville de métal qui bloque une pièce sur un axe.",
+  "columbarium": "Mur creusé de niches où l'on range les urnes funéraires.",
+  "comtoise|comtoises": "Haute horloge de parquet, à balancier.",
+  "listel": "Petit filet, bordure en relief sur une pièce de monnaie.",
+  "scieur|scieurs": "Scieur de long : ouvrier qui débite les troncs à la scie.",
+  "chanoinesse": "Religieuse d'un chapitre de femmes nobles.",
+  "faîtage|faîtages": "Pièce de charpente qui forme l'arête du toit.",
+  "laie": "Femelle du sanglier.",
+  "sexte": "Office de prière de midi, dans les monastères.",
+  "vairon|vairons": "Yeux vairons : de deux couleurs différentes.",
+  "vasistas": "Petite fenêtre qui s'ouvre dans une porte ou une plus grande fenêtre.",
+  "écailler|écaillait|écaillent": "Écailler : ouvrir les huîtres (un écailler les ouvre et les vend), ôter les écailles d'un poisson ; s'écailler : se détacher par petites plaques.",
+  "carabin": "Étudiant en médecine.",
+  "gouge|gouges": "Ciseau à lame creuse du sculpteur, du menuisier.",
+  "latiniste": "Qui connaît bien le latin.",
+  "limaille": "Poussière de métal qui tombe sous la lime.",
+  "marguillier|marguilliers": "Laïc chargé des biens et de l'entretien d'une église.",
+  "burette|burettes": "Petit flacon à bec pour l'huile ou le vin.",
+  "luté": "Luter : boucher hermétiquement avec un enduit.",
+  "nasillard|nasillarde": "Qui parle du nez.",
+  "sabotier": "Artisan qui fabrique des sabots.",
+  "touille|touillant": "Touiller : remuer, mélanger.",
+  "affale": "Affaler : faire descendre une voile, un cordage.",
+  "colophon": "Note à la fin d'un manuscrit, qui dit qui l'a copié, et quand.",
+  "crédence": "Buffet où l'on pose la vaisselle, ou les objets du culte.",
+  "fougasse|fougasses": "Pain plat, souvent garni.",
+  "prêle|prêles": "Plante des lieux humides à tiges creuses ; il en existait de géantes avant les dinosaures.",
+  "ripe": "Riper : glisser de côté.",
+  "bourrache": "Plante aux fleurs bleues, qu'on boit en tisane.",
+  "culée|culées": "Massif de maçonnerie qui soutient le bout d'un pont, sur la rive.",
+  "gloser": "Commenter, expliquer un texte.",
+  "réticule": "Petit sac à main de dame.",
+  "suroît": "Vent du sud-ouest.",
+  "terril|terrils": "Grand tas de déblais au pied d'une mine.",
+  "aurochs": "Grand bœuf sauvage, aujourd'hui disparu.",
+  "capitonnée|capitonnées": "Rembourrée et piquée de place en place.",
+  "ferronnier": "Artisan qui travaille le fer.",
+  "moufle|moufles": "Système de poulies pour soulever les charges lourdes ; aussi, gros gant où seul le pouce est séparé.",
+  "ostensoir": "Pièce d'orfèvrerie où l'on expose l'hostie consacrée.",
+  "badigeon": "Lait de chaux dont on enduit les murs.",
+  "bonimenteur": "Celui qui fait le boniment, qui attire les badauds par des paroles flatteuses.",
+  "cornaline": "Pierre fine rouge orangé.",
+  "nuitamment": "De nuit.",
+  "boniment|boniments": "Discours pour attirer et séduire les clients.",
+  "perruquier|perruquiers": "Artisan qui fait les perruques.",
+  "passereau": "Petit oiseau, comme le moineau.",
+  "receleur|receleuse|receleurs|receleuses": "Celui ou celle qui cache et revend des objets volés.",
+  "vantail|vantaux": "Battant d'une porte ou d'une fenêtre.",
+  "abaque": "Boulier, cadre à boules pour compter.",
+  "avitaillement": "Fourniture de vivres et de matériel aux navires.",
+  "calleux|calleuses|calleuse": "Durci par le travail, couvert de cals.",
+  "chinée": "Tissée de fils de plusieurs couleurs mêlées.",
+  "coutelas": "Grand couteau à lame large.",
+  "empennage": "Les plumes fixées à l'arrière d'une flèche.",
+  "encensoir": "Petit brasier suspendu à des chaînes, où brûle l'encens à l'église.",
+  "goupillon": "Bâton à boule percée de trous, dont le prêtre asperge l'eau bénite.",
+  "grésil": "Fine grêle, blanche et dure.",
+  "papillote|papillotes": "Petit papier où l'on enroulait une mèche de cheveux pour la friser.",
+  "vert-de-grisées": "Couvertes de vert-de-gris, la rouille verte du cuivre.",
+  "vénal": "Qui se laisse acheter.",
+  "coutelier": "Artisan qui fabrique et vend les couteaux.",
+  "fioriture": "Ornement superflu.",
+  "galoche|galoches": "Chaussure à semelle de bois.",
+  "palétuvier|palétuviers": "Arbre des côtes tropicales, aux racines plongées dans l'eau.",
+  "rapine|rapines": "Vol, pillage.",
+  "écru|écrue": "Qui a gardé sa couleur naturelle, sans être blanchi.",
+  "bicorne": "Chapeau à deux pointes.",
+  "bouquiniste": "Marchand de vieux livres.",
+  "ferrugineuse": "Qui contient du fer.",
+  "huitaine": "Sous huitaine : dans les huit jours.",
+  "jaque|jaques": "Veste rembourrée qui protège au combat.",
+  "montoir": "Borne qui aide à monter à cheval.",
+  "vergue|vergues": "Longue pièce de bois fixée en travers d'un mât, qui porte une voile.",
+  "échalas": "Pieu qui soutient un pied de vigne.",
+  "apprêté": "Traité pour avoir meilleure apparence.",
+  "brasero|braseros": "Bassin de métal où brûlent des braises, pour chauffer.",
+  "bretteur": "Qui aime se battre à l'épée.",
+  "débride": "Débrider une plaie : l'ouvrir, en couper les bords pour la nettoyer.",
+  "rémige|rémiges": "Grande plume de l'aile.",
+  "tubéreuse": "Fleur blanche au parfum très puissant.",
+  "cochléaire": "Plante des côtes, remède contre le scorbut.",
+  "concussion": "Abus d'un agent public qui exige des sommes qui ne sont pas dues.",
+  "corné|cornés": "Corner une page : en plier le coin ; corner : sonner du cor.",
+  "rapière": "Longue épée fine.",
+  "étamine": "Étoffe légère de laine ou de crin.",
+  "adoubement": "Cérémonie où l'on fait quelqu'un chevalier.",
+  "borax": "Sel minéral utilisé pour souder les métaux.",
+  "breloque": "Battre la breloque : fonctionner mal, de façon irrégulière.",
+  "millepertuis": "Plante à fleurs jaunes, dont on fait une huile pour soigner la peau.",
+  "pêne|pênes": "Pièce de la serrure que la clef fait avancer ou reculer.",
+  "reposoir|reposoirs": "Autel dressé dans la rue, où l'on s'arrête pendant une procession.",
+  "voussure|voussures": "Arc qui forme la courbe d'une voûte ou d'un portail.",
+  "patère|patères": "Crochet fixé au mur pour suspendre les vêtements.",
+  "pilastre": "Pilier plat engagé dans un mur.",
+  "pleurésie": "Inflammation de l'enveloppe des poumons.",
+  "psalmodie": "Chant des psaumes sur une seule note.",
+  "pèlerine|pèlerines": "Courte cape sur les épaules.",
+  "caban": "Grosse veste de marin.",
+  "caravansérail|caravansérails": "Grande auberge où s'arrêtent les caravanes.",
+  "darse": "Bassin d'un port.",
+  "diamantaire": "Celui qui taille ou vend les diamants.",
+  "radoub": "Réparation de la coque d'un navire.",
+  "bourrelier": "Artisan qui fabrique les harnais.",
+  "galérien": "Forçat condamné aux galères.",
+  "narval": "Cétacé des mers arctiques, armé d'une longue corne.",
+  "profès": "Moine qui a prononcé ses vœux.",
+  "redoux": "Radoucissement du temps en hiver.",
+  "aronde": "Queue d'aronde : assemblage en forme de queue d'hirondelle.",
+  "chenet|chenets": "Support de métal sur lequel on pose les bûches.",
+  "ecchymose": "Bleu, tache laissée sous la peau par un coup.",
+  "galène": "Minerai de plomb.",
+  "guimbarde": "Petit instrument de métal qu'on fait vibrer entre les dents.",
+  "jars": "Mâle de l'oie.",
+  "ombilic": "Petit renflement au centre d'un plat.",
+  "palissandre": "Bois précieux, brun violacé.",
+  "pâtre": "Berger.",
+  "torque": "Collier rigide de métal, torsadé.",
+  "varech": "Algues rejetées par la mer.",
+  "zibeline": "Fourrure très précieuse, d'une petite martre de Sibérie.",
+  "estacade": "Barrage de pieux ou de radeaux, en travers d'un cours d'eau ou d'un port.",
+  "franc-alleu": "Terre libre, qui ne doit rien à un seigneur.",
+  "poularde": "Jeune poule engraissée.",
+  "carde": "Brosse à pointes de fer pour démêler la laine.",
+  "profundis": "De profundis : psaume qu'on récite pour les morts.",
+  "rasade": "Verre plein à ras bord.",
+  "réprouvés": "Les maudits, ceux qu'on rejette (ici, enterrés à l'écart).",
+  "yole": "Embarcation légère et longue, à avirons.",
+  "glose": "Commentaire qui explique un texte.",
+  "mainlevée": "Acte qui lève une saisie, une interdiction.",
+  "aérage": "Aération d'une mine ; puits d'aérage : puits qui fait entrer l'air frais.",
+  "brocart": "Riche étoffe de soie brochée d'or ou d'argent.",
+  "fauchon": "Arme à lame recourbée.",
+  "murex": "Coquillage hérissé de pointes.",
+  "subornation": "Fait de pousser quelqu'un à mentir, par l'argent ou les menaces.",
+  "capitation": "Impôt par tête.",
+  "grenaille|grenailles": "Petits grains de métal.",
+  "guichetier": "Gardien de prison qui ouvre et ferme les portes.",
+  "quinquina": "Écorce amère dont on tire un remède contre la fièvre.",
+  "salaison": "Conservation du poisson ou de la viande dans le sel.",
+  "vomitif": "Remède qui fait vomir.",
+  "bringue": "Grande bringue : grande fille mal bâtie (familier).",
+  "coron|corons": "Rangée de maisons de mineurs, toutes pareilles.",
+  "encorbellement": "Construction en saillie, qui avance au-dessus du vide.",
+  "furoncle|furoncles": "Gros bouton rouge et douloureux.",
+  "solive|solives": "Poutre qui porte un plancher.",
+  "trachéotomie": "Opération qui ouvre la gorge pour permettre de respirer.",
+  "ténia": "Ver solitaire, parasite de l'intestin.",
+  "belladone": "Plante très vénéneuse, aux baies noires.",
+  "cataplasme|cataplasmes": "Bouillie médicinale posée chaude sur la peau.",
+  "ciguë": "Plante très vénéneuse.",
+  "dédit": "Somme à payer si l'on revient sur un engagement.",
+  "guéridon": "Petite table ronde à un seul pied.",
+  "madrier|madriers": "Planche très épaisse.",
+  "nodule": "Petite boule dure sous la peau.",
+  "vénériennes": "Maladies vénériennes : qui se transmettent par l'amour charnel.",
+  "datura": "Plante très toxique, qui donne des hallucinations.",
+  "gangrenée|gangrené": "Atteinte de gangrène : les chairs pourrissent et meurent.",
+  "officinalis": "Mot latin des noms de plantes : « qui sert de remède ».",
+  "reinette|reinettes": "Variété de pomme.",
+  "rouent": "Rouer de coups : battre violemment.",
+  "étrille": "Étriller : brosser un cheval avec une brosse de fer.",
+  "léproserie": "Hôpital où l'on isolait les lépreux.",
+  "noria": "Suite continue de seaux, de porteurs, qui montent et descendent.",
+  "pavois": "Partie de la coque qui dépasse au-dessus du pont, comme un muret.",
+  "polder|polders": "Terre gagnée sur la mer, protégée par des digues.",
+  "rupestre": "Qui vit sur les rochers.",
+  "scellement": "Fixation d'une pièce de fer dans la pierre, au plomb ou au mortier.",
+  "écarteur": "Instrument de chirurgien qui tient ouverte une plaie.",
+  "casaque|casaques": "Veste ample.",
+  "ausculter|ausculte|ausculté": "Écouter les bruits du cœur et des poumons pour soigner.",
+  "cochenille": "Teinture rouge tirée d'un petit insecte.",
+  "damer|damés|damé|damée": "Tasser la terre à coups de pilon.",
+  "gourmette|gourmettes": "Chaînette qui passe sous la mâchoire du cheval, attachée au mors.",
+  "rajah": "Prince de l'Inde.",
+  "gangue": "Enveloppe de terre ou de roche qui entoure une pierre, un objet.",
+  "percheron": "Grand et puissant cheval de trait.",
+  "torchis": "Mélange de terre et de paille dont on fait les murs.",
+  "baleinière": "Embarcation longue et légère, utilisée pour chasser la baleine.",
+  "drome": "Ensemble des mâts, vergues et embarcations de rechange rangés sur le pont.",
+  "vergé": "Papier vergé : où l'on voit en transparence de fines lignes serrées.",
+  "vénerie": "Chasse à courre, avec meute ; l'équipage de cette chasse.",
+  "calame": "Roseau taillé pour écrire.",
+  "cannelure|cannelures": "Rainure creusée en long.",
+  "choucas": "Petit corbeau à nuque grise.",
+  "gueuse": "Mendiante, misérable.",
+  "mélisse": "Plante aromatique au parfum de citron.",
+  "ressaut": "Saillie, avancée d'un mur ou d'un rocher.",
+  "arbalétrier|arbalétriers": "Soldat armé d'une arbalète.",
+  "collyre|collyres": "Remède pour les yeux.",
+  "hongre|hongres": "Cheval castré.",
+  "magnésie": "Poudre blanche, remède contre les maux d'estomac.",
+  "meneau|meneaux": "Montant de pierre qui divise une fenêtre en compartiments.",
+  "pisé": "Terre argileuse tassée dont on fait des murs.",
+  "séné": "Plante dont on tire une purge.",
+  "chancre": "Plaie qui ronge la chair.",
+  "dégrisement": "Cellule de dégrisement : où l'on enferme les ivrognes le temps qu'ils dessoûlent.",
+  "pectorale|pectorales": "Croix pectorale : croix que porte un évêque sur la poitrine.",
+  "serti|sertie|serties|sertir": "Sertir : enchâsser une pierre dans du métal.",
+  "capharnaüm": "Lieu encombré de choses en désordre.",
+  "intercalaire": "Feuille glissée entre d'autres pour les séparer.",
+  "veneur|veneurs": "Celui qui dirige les chiens à la chasse à courre ; grand veneur : chef des chasses d'un prince.",
+  "cassonade": "Sucre roux.",
+  "acanthe": "Plante dont les feuilles découpées ornent les sculptures.",
+  "brame": "Bramer : crier, pour le cerf.",
+  "chevau-léger|chevau-légers": "Cavalier de la cavalerie légère.",
+  "sextant|sextants": "Instrument qui mesure la hauteur des astres pour faire le point en mer.",
+  "poncé": "Rendu lisse à la pierre ponce.",
+  "jabot|jabots": "Ornement de dentelle sur le devant d'une chemise ; chez l'oiseau, poche du cou où s'amasse la nourriture.",
+  "goguette": "En goguette : de bonne humeur, en train de faire la fête.",
+  "indivis": "En indivis : possédé ensemble, sans partage.",
+  "arrhes": "Somme versée d'avance pour conclure un marché.",
+  "batiste": "Toile de lin très fine.",
+  "bornage": "Pose des bornes qui marquent les limites d'un terrain.",
+  "contrefort|contreforts": "Massif de maçonnerie qui épaule un mur.",
+  "neuvaine": "Prières dites pendant neuf jours de suite.",
+  "tanche|tanches": "Poisson d'eau douce.",
+  "répons": "Chant de l'office repris en alternance par le chœur.",
+  "bordage|bordages": "Planches qui forment la coque d'un navire.",
+  "conque|conques": "Grand coquillage en spirale, dans lequel on peut souffler.",
+  "bardeau|bardeaux": "Petite planche mince qui couvre un toit.",
+  "gauler|gaulé": "Faire tomber les fruits d'un arbre avec une perche.",
+  "grume|grumes": "Tronc abattu, qui a encore son écorce.",
+  "jacquemart|jacquemarts": "Automate qui frappe les heures sur la cloche d'une horloge.",
+  "mousqueton": "Petit fusil court ; anneau à fermoir.",
+  "saumâtre|saumâtres": "Mélangé d'eau de mer, un peu salé.",
+  "sémaphore": "Poste de signaux sur la côte, qui communique avec les navires.",
+  "grondin|grondins": "Poisson de mer à grosse tête.",
+  "menuet": "Danse ancienne, lente et gracieuse.",
+  "quolibet|quolibets": "Plaisanterie moqueuse.",
+  "gaude": "Plante dont on tirait une teinture jaune.",
+  "souille": "Mare boueuse où se vautre le sanglier.",
+  "aloès": "Plante grasse au suc amer.",
+  "destrier": "Cheval de bataille.",
+  "valériane": "Plante dont la racine calme les nerfs.",
+  "arpentage": "Mesure de la surface d'un terrain.",
+  "ciboire": "Vase sacré où l'on garde les hosties.",
+  "grisou": "Gaz des mines, qui explose au contact d'une flamme.",
+  "maroquin": "Cuir fin de chèvre.",
+  "trémie": "Grand entonnoir où l'on verse le grain au-dessus de la meule.",
+  "avers": "Face d'une pièce de monnaie, d'une médaille.",
+  "fourrier|fourriers": "Sous-officier chargé du logement et des vivres d'une troupe.",
+  "chasuble|chasubles": "Vêtement du prêtre pour la messe.",
+  "exigible": "Qu'on a le droit de réclamer.",
+  "lazaret|lazarets": "Lieu où l'on isole les voyageurs suspects de maladie contagieuse.",
+  "péristyle": "Rangée de colonnes autour d'un édifice ou devant sa façade.",
+  "boulin|boulins": "Trou d'un pigeonnier où niche un couple de pigeons.",
+  "chenu|chenus": "Blanchi par l'âge.",
+  "fauconnier": "Celui qui dresse les faucons pour la chasse.",
+  "guano": "Fiente d'oiseaux de mer, entassée, utilisée comme engrais.",
+  "décoction|décoctions": "Remède obtenu en faisant bouillir des plantes.",
+  "moniale|moniales": "Religieuse cloîtrée.",
+  "supplique|suppliques": "Demande écrite, humble et pressante.",
+  "guinguette": "Cabaret de banlieue, où l'on boit et danse.",
+  "épinette": "Petit clavecin.",
+  "alexandrin|alexandrins": "Vers de douze syllabes.",
+  "baptistère": "Bâtiment ou chapelle où l'on baptise.",
+  "cornette": "Grande coiffe blanche de certaines religieuses.",
+  "in-quarto": "Format de livre où chaque feuille est pliée en quatre.",
+  "mousquet|mousquets": "Ancienne arme à feu, longue et lourde.",
+  "étiage": "Niveau le plus bas d'un cours d'eau.",
+  "chamade": "Batterie de tambour ou sonnerie qui demande à parlementer.",
+  "haussière|haussières": "Gros cordage d'amarrage.",
+  "encan": "Vente à l'encan : vente aux enchères.",
+  "marqueterie": "Décor fait de petites pièces de bois de couleurs assemblées.",
+  "usurier|usuriers": "Prêteur qui exige des intérêts excessifs.",
+  "bief|biefs": "Canal qui amène l'eau à la roue d'un moulin.",
+  "courtine": "Muraille entre deux tours.",
+  "décime": "Décimer : tuer en grand nombre.",
+  "quadrille|quadrilles": "Danse à figures, à plusieurs couples.",
+  "scapulaire|scapulaires": "Deux petits carrés d'étoffe bénite, reliés par des cordons, portés sur la poitrine.",
+  "anche|anches": "Languette qui vibre dans certains instruments à vent.",
+  "scorbut|scorbuts": "Maladie des marins privés de fruits et de légumes frais.",
+  "semonce": "Réprimande ; coup de semonce : coup tiré pour avertir.",
+  "capitainerie": "Bureau du capitaine d'un port.",
+  "gousset|goussets": "Petite poche du gilet, pour la montre.",
+  "jatte": "Bol large, sans anse.",
+  "porphyre": "Roche dure, rouge ou verte.",
+  "évent|évents": "Ouverture qui laisse passer l'air.",
+  "saur|saurs": "Hareng saur : salé et fumé.",
+  "scander|scandent|scandé": "Prononcer en marquant fortement le rythme.",
+  "antienne": "Refrain chanté avant et après un psaume ; une rengaine.",
+  "maréchaussée": "La gendarmerie d'autrefois.",
+  "gabelle|gabelles": "Ancien impôt sur le sel.",
+  "liseré": "Bordure étroite d'une autre couleur.",
+  "nasse|nasses": "Panier à poissons dont on ne peut pas ressortir.",
+  "treille|treilles": "Vigne qui grimpe le long d'un mur ou d'une tonnelle.",
+  "cul-de-jatte": "Personne privée de ses jambes.",
+  "négrier": "Marchand d'esclaves africains ; navire qui les transportait.",
+  "cordeau": "Corde tendue pour tracer des lignes droites.",
+  "tamaris": "Arbuste des bords de mer.",
+  "candi": "Sucre candi : en gros cristaux.",
+  "flanche": "Flancher : faiblir, céder.",
+  "roof": "Petite cabine sur le pont d'un bateau.",
+  "pochoir": "Plaque découpée pour peindre un dessin à l'identique.",
+  "mangrove": "Forêt de palétuviers, sur les côtes tropicales.",
+  "entomologiste": "Savant qui étudie les insectes.",
+  "sterne": "Oiseau de mer proche de la mouette.",
+  "cliquet|cliquets": "Pièce qui ne laisse tourner une roue dentée que dans un sens.",
+  "excroissance": "Petite masse qui pousse anormalement.",
+  "levain|levains": "Une pâte de farine et d'eau qu'on laisse fermenter, et qu'on nourrit chaque jour : elle fait lever le pain.",
+  "pâte mère": "Le levain qu'un boulanger garde d'une fournée à l'autre, et parfois pendant des années.",
+  "fournée|fournées": "Tout le pain qui cuit en une fois dans le four.",
+  "tamis": "Un cercle de bois tendu d'une toile fine, pour passer la farine et en ôter les grumeaux.",
+  "rançon|rançons": "Ce qu'on exige pour rendre ce qu'on a enlevé.",
+  "créance|créances": "Une dette vue du côté de celui à qui l'on doit.",
+  "registre|registres": "Un grand cahier où l'on note tout, ligne après ligne.",
+  "chambre forte": "La salle blindée d'une banque, où l'on garde l'argent et les papiers précieux.",
+  "lanterne-tempête": "Une lanterne à pétrole dont la flamme est protégée du vent par un verre.",
+  "Doux": "Le clan de motards qui tient que l'Enjambeur est de beurre doux, et non salé."
+ },
+ "voice": "deuxième personne, présent",
+ "version": 1,
+ "start": "A_fournil",
+ "intro": [
+  "Il y a trente et un ans, le monde s'est effondré. Mirevaux est restée debout à moitié, comme un homme qui a perdu une jambe et qui tient à garder son chapeau.",
+  "Au carrefour, la statue de beurre du Grand Enjambeur veille sur les motards. Dans la grande rue, la Banque de Mirevaux, ses colonnes, sa coupole fendue, et dans son coffre-fort, le seul four de la ville."
+ ],
+ "acts": [
+  {
+   "id": "I",
+   "title": "Un matin à Mirevaux",
+   "question": "Qui a pris Eugénie, et où est-elle ?",
+   "levels": [
+    1,
+    1
+   ],
+   "start": "A_fournil"
+  }
+ ],
+ "voies": {
+  "mitron": {
+   "label": "Mitron de Firmin",
+   "labelF": "Mitronne de Firmin",
+   "tip": "La farine, la pâte, le four : tu connais le pain de l'intérieur.",
+   "like": "mage",
+   "bonus": {
+    "savoir": 30,
+    "nature": 25,
+    "social": 15,
+    "discretion": 10,
+    "combat": 5,
+    "magie": 5
+   }
+  },
+  "coursier": {
+   "label": "Coursier des Demi-Sel",
+   "labelF": "Coursière des Demi-Sel",
+   "tip": "Les rues, les toits, les raccourcis : tu vas partout avant tout le monde.",
+   "like": "rodeur",
+   "bonus": {
+    "nature": 30,
+    "discretion": 25,
+    "combat": 15,
+    "social": 10,
+    "savoir": 5,
+    "magie": 5
+   }
+  },
+  "chineur": {
+   "label": "Chineur des ruines",
+   "labelF": "Chineuse des ruines",
+   "tip": "Tu fouilles, tu marchandes, tu trouves ce que les autres ont jeté.",
+   "like": "voleur",
+   "bonus": {
+    "discretion": 30,
+    "social": 25,
+    "savoir": 15,
+    "nature": 10,
+    "combat": 5,
+    "magie": 5
+   }
+  }
+ },
+ "past": [
+  {
+   "q": "Pourquoi frappes-tu à la porte de la Banque, à cinq heures du matin ?",
+   "answers": [
+    {
+     "label": "Tu es son mitron depuis deux ans. Tu arrives tous les matins à cinq heures pour allumer le four, et tous les matins Firmin est déjà là.",
+     "fx": {
+      "voie": "mitron"
+     }
+    },
+    {
+     "label": "Tu viens prendre le pain du clan des Demi-Sel, pour la tournée de l'aube, et tu as un sac de toile de la taille d'un enfant.",
+     "fx": {
+      "voie": "coursier"
+     }
+    },
+    {
+     "label": "Tu apportes à Firmin un vieux thermomètre de four trouvé dans une cuisine écroulée, en échange d'une miche. Le marché est conclu d'avance ; Firmin ne marchande jamais, et tu le regrettes un peu.",
+     "fx": {
+      "voie": "chineur"
+     }
+    }
+   ]
+  }
+ ],
+ "lore": {
+  "pages": [
+   {
+    "title": "Le pain de Mirevaux",
+    "text": [
+     "**Firmin Levain** est le seul boulanger de Mirevaux. Il cuit du vrai pain, dans le **coffre-fort** de l'ancienne Banque de la grande rue, qu'il a transformé en fournil : les murs d'acier gardent la chaleur, et la porte blindée tient le pain à l'abri des chiens.",
+     "Son pain lève grâce à **Eugénie**, sa pâte mère. Il l'a commencée la semaine de l'Effondrement, avec la dernière farine du moulin, et il la nourrit depuis trente et un ans, chaque soir, d'une poignée de farine et d'un verre d'eau.",
+     "Les clans de motards se disputent tout, à Mirevaux, sauf le pain de Firmin."
+    ]
+   }
+  ],
+  "names": {
+   "Mirevaux": "La ville en ruines du désert, où se dresse le Grand Enjambeur.",
+   "Banque": "L'ancienne Banque de Mirevaux, dans la grande rue. Firmin cuit son pain dans son coffre-fort.",
+   "Enjambeur": "L'ange de beurre doré à la trompette, dieu des motards.",
+   "Demi-Sel": "Le clan de motards de Mama Salée, qui tient que l'Enjambeur est de beurre salé.",
+   "Doux": "Le clan rival, celui du Baron Doux, qui tient que l'Enjambeur est de beurre doux."
+  }
+ },
+ "companions": {},
+ "factions": {},
+ "relics": {},
+ "people": {
+  "firmin": {
+   "name": "Firmin Levain",
+   "aka": [
+    "Firmin"
+   ],
+   "face": {
+    "age": "mur",
+    "skin": "clair",
+    "hair": "chatain",
+    "coif": "degarni",
+    "beard": "moustache",
+    "eyes": "ronds",
+    "iris": "noisette",
+    "nose": "retrousse",
+    "lips": "pleines",
+    "shape": "rond",
+    "marks": []
+   },
+   "aspect": {
+    "allure": "rond, des avant-bras énormes",
+    "habits": "farine jusqu'aux coudes",
+    "signe": "sent le pain chaud à vingt pas"
+   },
+   "qui": "Le boulanger des ruines. On lui a pris son levain.",
+   "desc": "Le seul boulanger de Mirevaux. Il cuit du vrai pain dans le coffre-fort d'une ancienne banque, et il parle à sa pâte mère."
+  },
+  "escompte": {
+   "name": "Monsieur Escompte",
+   "aka": [
+    "Escompte",
+    "le caissier"
+   ],
+   "face": {
+    "age": "ancien",
+    "skin": "porcelaine",
+    "hair": "blanc",
+    "coif": "degarni",
+    "beard": "moustache",
+    "eyes": "tombants",
+    "iris": "gris",
+    "nose": "fin",
+    "lips": "fines",
+    "shape": "allonge",
+    "marks": [
+     "lunettes"
+    ]
+   },
+   "aspect": {
+    "allure": "maigre, des manchettes de lustrine",
+    "habits": "costume noir lustré aux coudes",
+    "signe": "un trousseau de clefs à la ceinture",
+    "voix": "parle en intérêts composés"
+   },
+   "qui": "Le dernier caissier de la Banque. Il y habite encore.",
+   "desc": "Le dernier employé de la Banque de Mirevaux. Il n'en est jamais parti, et il tient toujours le registre des dettes de la ville."
+  },
+  "baron": {
+   "name": "Le Baron Doux",
+   "aka": [
+    "le Baron",
+    "Baron Doux"
+   ],
+   "face": {
+    "age": "mur",
+    "skin": "beige",
+    "hair": "blond",
+    "coif": "long",
+    "beard": "longue",
+    "eyes": "tombants",
+    "iris": "bleu",
+    "nose": "large",
+    "lips": "pleines",
+    "shape": "rond",
+    "marks": []
+   },
+   "aspect": {
+    "allure": "un colosse",
+    "habits": "un gilet de cuir blanc",
+    "voix": "ne hausse jamais le ton"
+   },
+   "qui": "Le chef des Doux, le clan rival.",
+   "desc": "Le chef des Doux, qui tiennent que l'Enjambeur est de beurre doux. Un colosse qui parle à voix basse."
+  },
+  "crouton": {
+   "name": "Croûton",
+   "f": true,
+   "face": {
+    "age": "enfant",
+    "skin": "brun",
+    "hair": "noir",
+    "coif": "crepus",
+    "beard": "sans",
+    "eyes": "ronds",
+    "iris": "brun",
+    "nose": "retrousse",
+    "lips": "pleines",
+    "shape": "rond",
+    "marks": [
+     "cicatrice"
+    ]
+   },
+   "aspect": {
+    "allure": "treize ans, une salopette pleine de cambouis",
+    "signe": "une clé à molette à la poche",
+    "voix": "précise, sans un mot de trop"
+   },
+   "qui": "La mécanicienne des Demi-Sel. Treize ans.",
+   "desc": "La mécanicienne des Demi-Sel, treize ans. Elle parle peu, avec précision, et elle a toujours raison sur les machines."
+  },
+  "eugenie": {
+   "name": "Eugénie",
+   "f": true,
+   "aspect": {
+    "allure": "une pâte mère de trente et un ans",
+    "signe": "sent la pomme et le vin"
+   },
+   "qui": "Le levain de Firmin. Elle a disparu.",
+   "desc": "La pâte mère de Firmin, commencée la semaine de l'Effondrement. Elle fait lever tout le pain de Mirevaux."
+  }
+ },
+ "items": {
+  "tamis": {
+   "name": "Le tamis de Firmin",
+   "kind": "outil",
+   "keep": true,
+   "desc": "Un tamis de bois tendu de soie, plein d'une farine si fine qu'elle reste en l'air un moment avant de se décider à tomber. Elle se pose sur ce qu'on ne voyait pas, et le dessine."
+  },
+  "thermometre": {
+   "name": "Le thermomètre de four",
+   "kind": "outil",
+   "keep": true,
+   "desc": "Une longue sonde de laiton à cadran rond, gradué jusqu'à trois cents degrés. On l'enfonce dans le pain pour savoir s'il est cuit ; on peut l'enfoncer ailleurs."
+  },
+  "lanterne": {
+   "name": "La lanterne-tempête",
+   "kind": "outil",
+   "keep": true,
+   "desc": "Une lanterne à pétrole à verre bombé, cabossée, qui éclaire jaune et loin. Firmin s'en sert pour descendre à la cave."
+  },
+  "rancon": {
+   "name": "La lettre de rançon",
+   "kind": "document",
+   "keep": true,
+   "form": "billet",
+   "hand": "hative",
+   "desc": "Un papier beurré, plié en quatre, punaisé à la porte du fournil avec une punaise en forme d'ange.",
+   "text": "**{{chiffre:p_rancon}}**"
+  },
+  "plan": {
+   "name": "Le plan des conduits",
+   "kind": "document",
+   "keep": true,
+   "form": "carte",
+   "hand": "imprimee",
+   "desc": "Un plan bleu de la Banque de Mirevaux, roulé dans un tube de carton, prêté par Monsieur Escompte. Chaque salle y porte une flèche : le sens de l'air dans les conduits."
+  },
+  "registre": {
+   "name": "Ce qui reste du Registre des créances",
+   "kind": "document",
+   "keep": true,
+   "form": "registre",
+   "hand": "soignee",
+   "desc": "La couverture de cuir du grand Registre des créances de Mirevaux, et trois pages rongées.",
+   "text": "*Registre des créances de la ville de Mirevaux.*\n\n*… doit à la Banque la somme de…* (le reste est mangé)\n\n*… intérêts composés depuis l'Effondrement…* (mangé)\n\n*Total général :* (mangé)"
+  }
+ },
+ "clues": {
+  "i_eugenie": {
+   "rev": "M",
+   "text": "Eugénie a disparu dans la nuit. Son bocal est vide, son couvercle posé à côté. Une lettre de rançon est punaisée à la porte du fournil."
+  },
+  "i_pas": {
+   "rev": "M",
+   "text": "Sous la farine du tamis, devant la porte du fournil : les seules empreintes sont celles de Firmin, en sabots. Personne d'autre n'est entré cette nuit."
+  },
+  "i_fils": {
+   "rev": "M",
+   "text": "Dans la grille d'aération du fournil, à la lanterne : des fils de pâte blonde, collés aux barreaux, qui descendent dans le conduit."
+  },
+  "i_chaleur": {
+   "rev": "M",
+   "text": "La nuit a été la plus chaude de l'été. Firmin avait nourri Eugénie deux fois, de peur qu'elle ait faim."
+  },
+  "i_signature": {
+   "rev": "M",
+   "text": "La lettre de rançon est signée de deux mots, au bas, dans le même chiffre que le reste : le titre et le nom du chef des Doux."
+  },
+  "i_tiede": {
+   "rev": "M",
+   "text": "Le thermomètre dans le papier beurré de la lettre : il est froid, et le beurre dur. La lettre a été punaisée à l'aube, longtemps après la disparition."
+  },
+  "i_conduit": {
+   "rev": "M",
+   "text": "Le plan des conduits : l'air de la Banque descend de salle en salle, du fournil jusqu'à la chambre forte du sous-sol, où dort le Registre des créances."
+  },
+  "i_cadran": {
+   "rev": "M",
+   "text": "Monsieur Escompte : la chambre forte s'ouvre comme on compte les intérêts, « deux à gauche pour le capital, un à droite pour le taux, et trois à gauche pour les années »."
+  }
+ },
+ "quests": [],
+ "mysteries": {
+  "M": {
+   "title": "Qui a pris Eugénie ?",
+   "act": "I",
+   "solved": "eugenie:trouvee",
+   "answer": {
+    "person": "eugenie",
+    "text": "Personne : par la nuit la plus chaude de l'été, nourrie deux fois, Eugénie a débordé de son bocal et coulé dans le conduit d'aération, jusqu'à la chambre forte, où elle a mangé le Registre des créances. Les Doux ont trouvé le bocal vide à l'aube, et ils ont écrit la rançon pour en profiter."
+   }
+  }
+ },
+ "examens": {
+  "bocal": {
+   "title": "Le bocal d'Eugénie",
+   "nu": "Un grand bocal de verre épais, de ceux où l'on gardait les cornichons avant l'Effondrement, posé sur l'étagère du fond, près du four. Il est vide. Le couvercle de fer-blanc est posé à côté, à l'envers. Sur les parois, des traînées blondes sèchent, et le bord du verre, tout autour, est collant comme une lèvre de confiture.",
+   "avec": {
+    "thermometre": {
+     "text": "Tu plonges la sonde au fond du bocal, là où reste un fond de pâte. L'aiguille monte à trente-quatre degrés : la chaleur d'une main. Ce qui reste d'Eugénie est vivant, et il travaille encore."
+    },
+    "tamis": {
+     "text": "Tu tamises un nuage de farine sur l'étagère. Elle se pose et dessine, autour du bocal, une auréole de pâte séchée qui déborde le bord du verre de tous les côtés, puis une seule coulée, large comme une main, qui file vers le mur."
+    },
+    "lanterne": {
+     "text": "La lanterne fait briller les traînées sur les parois : elles montent jusqu'au bord, de l'intérieur. Rien n'a coulé dans le bocal ; tout en est sorti."
+    }
+   }
+  },
+  "porte": {
+   "title": "La porte du fournil",
+   "nu": "La porte blindée du coffre-fort, épaisse comme un dictionnaire, entrouverte. Firmin la ferme chaque soir à clef, dit-il, et chaque matin il la trouve fermée. Ce matin aussi. Le sol devant elle est de carreaux de marbre poussiéreux, et la lettre de rançon y était punaisée, sur la face du côté hall, à hauteur d'homme.",
+   "avec": {
+    "tamis": {
+     "text": "Tu secoues le tamis au-dessus du seuil, côté fournil. La farine se pose sur le marbre, et les empreintes apparaissent, une à une, comme sur une plaque de photographe : de gros sabots de bois, qui vont et viennent, encore et encore, ceux de Firmin. Pas une autre semelle.",
+     "fx": {
+      "clue": "i_pas"
+     }
+    },
+    "lanterne": {
+     "text": "Tu promènes la lanterne sur la serrure. Pas une rayure. Celui qui a ouvert cette porte cette nuit avait la clef, ou il n'a pas eu besoin de l'ouvrir."
+    },
+    "thermometre": {
+     "text": "Tu poses la sonde contre l'acier de la porte : quarante et un degrés. Le four a brûlé toute la nuit. Il fait dans ce fournil la chaleur d'un mois d'août dans un mois d'août."
+    }
+   }
+  },
+  "grille": {
+   "title": "La grille d'aération",
+   "nu": "Dans le mur, derrière l'étagère d'Eugénie, une grille de fonte carrée, grande comme un plateau, par où la Banque respirait autrefois. Elle donne sur un conduit noir.",
+   "avec": {
+    "lanterne": {
+     "text": "Tu lèves la lanterne devant la grille. La lumière entre dans le conduit et descend : collés aux barreaux, et plus loin aux parois, des fils de pâte blonde, étirés, luisants, comme des toiles d'araignée faites par une araignée qui aurait aimé le pain.",
+     "fx": {
+      "clue": "i_fils",
+      "flag": "vu:fils"
+     }
+    },
+    "thermometre": {
+     "text": "Tu tends la sonde entre les barreaux. L'air du conduit est plus frais que le fournil, et il descend : la flamme d'une allumette s'y couche vers le bas."
+    },
+    "tamis": {
+     "text": "La farine passe entre les barreaux et s'envole vers le bas, aspirée. Le conduit avale tout ce qu'on lui donne."
+    }
+   }
+  },
+  "lettre": {
+   "title": "La lettre de rançon",
+   "nu": "Une feuille de papier beurré, pliée en quatre, punaisée à la porte avec une punaise en forme d'ange. Des capitales tracées au doigt, dans le beurre, qui ne font aucun mot. Le papier sent le beurre doux.",
+   "avec": {
+    "thermometre": {
+     "text": "Tu glisses la sonde dans le pli du papier : le beurre est froid et dur, à la température de l'aube. Une lettre écrite au beurre et punaisée dans un fournil à quarante degrés aurait fondu en une heure. Celle-ci est arrivée tard, bien après Eugénie.",
+     "fx": {
+      "clue": "i_tiede",
+      "flag": "vu:tard"
+     }
+    },
+    "lanterne": {
+     "text": "À contre-jour, devant la lanterne, le papier beurré devient transparent. On voit, au dos, un tampon délavé : *Beurrerie des Doux. Qualité extra-fine.*",
+     "fx": {
+      "flag": "vu:tampon"
+     }
+    },
+    "tamis": {
+     "text": "La farine se colle aux lettres de beurre et les fait ressortir, blanches, sur le papier : des capitales larges, appliquées, tracées par un gros doigt."
+    }
+   }
+  }
+ },
+ "puzzles": {
+  "p_rancon": {
+   "kind": "clef",
+   "scheme": "libre",
+   "key": "beurre doux",
+   "title": "La lettre de rançon",
+   "plain": "Nous avons Eugenie. Pour la revoir, donnez la recette du pain aux Doux avant midi. Le Baron.",
+   "text": "Les capitales de beurre ne font aucun mot, mais elles ont la forme d'une lettre : des mots courts, une phrase, un point, deux mots au bas comme une signature. Chaque lettre a été remplacée par une autre, toujours la même, sans ordre apparent. Il faut refaire l'alphabet, lettre à lettre, sous la lettre. Ce qu'on sait déjà aide : qui a pu signer, par exemple, et ce qu'on a pris.",
+   "keyLabel": "La lettre claire sous chaque lettre",
+   "hint": [
+    {
+     "if": {
+      "clue": "i_signature"
+     },
+     "text": "Deux mots au bas : le titre et le nom du chef des Doux."
+    },
+    {
+     "if": {
+      "clue": "i_eugenie"
+     },
+     "text": "Une lettre de rançon nomme ce qu'elle a pris."
+    }
+   ],
+   "tryLabel": "Lire la lettre ainsi",
+   "label": "Déchiffrer la lettre de rançon",
+   "leave": "Garder la lettre en poche",
+   "win": {
+    "to": "A_rancon_lue",
+    "fx": {
+     "flag": "rancon:lue",
+     "ep": [
+      "seance",
+      500
+     ]
+    }
+   }
+  },
+  "p_plan": {
+   "kind": "grille",
+   "title": "Le plan des conduits",
+   "cols": 4,
+   "text": "Le plan bleu de la Banque, déroulé sur la table, tenu aux coins par des pots de farine. Seize salles en quatre rangs, du toit au sous-sol, et dans chacune une flèche : le sens où va l'air. Eugénie est partie par la grille du fournil, et elle suit l'air. Marque chaque salle par où elle passe, depuis le fournil, jusqu'à celle où l'air s'arrête.",
+   "cells": [
+    "Toit ↓",
+    "Coupole →",
+    "Bureau ↓",
+    "Salon ←",
+    "Guichets →",
+    "Fournil ↓",
+    "Hall ←",
+    "Escalier ↓",
+    "Archives ↑",
+    "Couloir →",
+    "Caisse ↓",
+    "Cave ←",
+    "Citerne →",
+    "Vestiaire ↑",
+    "Chambre forte ■",
+    "Puits ←"
+   ],
+   "answer": [
+    5,
+    9,
+    10,
+    14
+   ],
+   "hint": [
+    {
+     "if": {
+      "has": "vu:fils"
+     },
+     "text": "Les fils de pâte descendaient dans le conduit, derrière la grille du fournil."
+    }
+   ],
+   "wrongText": "Tu suis du doigt le chemin que tu as marqué. Quelque part, il va contre l'air, ou il en manque un morceau. Eugénie, elle, ne remonte jamais le courant.",
+   "tryLabel": "Suivre ce chemin",
+   "label": "Suivre les flèches sur le plan",
+   "leave": "Rouler le plan",
+   "win": {
+    "to": "A_plan_suivi",
+    "fx": {
+     "clue": "i_conduit",
+     "flag": "plan:suivi",
+     "ep": [
+      "seance",
+      400
+     ]
+    }
+   }
+  },
+  "p_cadran": {
+   "kind": "suite",
+   "title": "Le cadran de la chambre forte",
+   "tries": 3,
+   "text": "Au milieu de la porte ronde de la chambre forte, un grand cadran d'acier, gradué de zéro à cent, et une poignée en étoile. Le cadran tourne à gauche ou à droite, d'un tour entier à chaque fois, avec un déclic sourd qu'on sent dans les dents.",
+   "symbols": [
+    "↺ à gauche",
+    "↻ à droite"
+   ],
+   "answer": [
+    "↺ à gauche",
+    "↺ à gauche",
+    "↻ à droite",
+    "↺ à gauche",
+    "↺ à gauche",
+    "↺ à gauche"
+   ],
+   "hint": [
+    {
+     "if": {
+      "clue": "i_cadran"
+     },
+     "text": "« Deux à gauche pour le capital, un à droite pour le taux, et trois à gauche pour les années. »"
+    }
+   ],
+   "wrongText": "Le cadran revient à zéro tout seul, avec un bruit de caisse qui se ferme sur les doigts.",
+   "tryLabel": "Tirer la poignée",
+   "label": "Tourner le cadran",
+   "leave": "Lâcher le cadran",
+   "win": {
+    "to": "A_chambre_forte",
+    "fx": {
+     "ep": [
+      "seance",
+      300
+     ]
+    }
+   },
+   "lose": {
+    "to": "A_cadran_bloque"
+   }
+  }
+ },
+ "achievements": {
+  "sans_rancon": {
+   "title": "Elle est partie seule",
+   "desc": "Comprendre que personne n'est entré dans le fournil.",
+   "if": {
+    "all": [
+     {
+      "clue": "i_pas"
+     },
+     {
+      "clue": "i_fils"
+     }
+    ]
+   }
+  },
+  "rancon": {
+   "title": "L'alphabet du beurre",
+   "desc": "Déchiffrer la lettre de rançon.",
+   "if": {
+    "has": "rancon:lue"
+   }
+  },
+  "eugenie": {
+   "title": "La mère retrouvée",
+   "desc": "Retrouver Eugénie.",
+   "if": {
+    "has": "eugenie:trouvee"
+   }
+  }
+ },
+ "endings": {},
+ "world": {
+  "noFood": true,
+  "money": {
+   "units": [
+    {
+     "name": "euro",
+     "plural": "euros",
+     "value": 1,
+     "short": "€"
+    }
+   ]
+  },
+  "start": {
+   "place": "fournil",
+   "hour": 5,
+   "gold": 3,
+   "food": 0,
+   "items": [
+    "tamis",
+    "thermometre"
+   ],
+   "kits": {}
+  },
+  "places": {
+   "fournil": {
+    "ambiance": "souterrain",
+    "name": "Le fournil du coffre-fort",
+    "map": "banque",
+    "x": 40,
+    "y": 40,
+    "desc": "L'ancien coffre-fort de la Banque, ses murs d'acier, son four, son étagère, et le bocal vide."
+   },
+   "hall": {
+    "ambiance": "ville",
+    "name": "Le hall de la Banque",
+    "map": "banque",
+    "x": 50,
+    "y": 20,
+    "desc": "Le grand hall à colonnes, ses guichets de marbre, sa coupole fendue."
+   },
+   "rue": {
+    "ambiance": "ville",
+    "name": "La grande rue",
+    "map": "banque",
+    "x": 70,
+    "y": 10,
+    "desc": "La grande rue de Mirevaux, ses façades sans fenêtres, et la queue qui se forme devant la Banque."
+   },
+   "doux": {
+    "ambiance": "ville",
+    "name": "Le garage des Doux",
+    "map": "banque",
+    "x": 90,
+    "y": 30,
+    "desc": "Un ancien garage de la grande rue, peint en blanc crème, où les Doux astiquent leurs motos."
+   },
+   "soussol": {
+    "ambiance": "souterrain",
+    "name": "Le sous-sol de la Banque",
+    "map": "banque",
+    "x": 50,
+    "y": 80,
+    "desc": "Les couloirs du sous-sol, la cave, et la porte ronde de la chambre forte."
+   }
+  },
+  "routes": [],
+  "regions": {},
+  "events": {}
+ },
+ "banter": [],
+ "passages": {
+  "A_fournil": {
+   "act": "I",
+   "title": "Le fournil",
+   "place": "fournil",
+   "hub": true,
+   "backName": "le fournil",
+   "fx": {
+    "meet": "firmin",
+    "clue": "i_eugenie",
+    "item": "rancon"
+   },
+   "text": [
+    {
+     "first": true,
+     "text": "La Banque de Mirevaux dort encore, ses colonnes grises dressées dans le petit jour comme des invités qui attendent qu'on leur ouvre. Tu traverses le hall aux guichets de marbre, tu descends les six marches, et tu trouves la porte du coffre-fort entrouverte, épaisse comme un dictionnaire, avec, dans l'entrebâillement, la chaleur du four, l'odeur du bois, et un bruit que tu n'avais jamais entendu dans ce fournil : un homme qui pleure en pétrissant le vide."
+    },
+    {
+     "first": true,
+     "text": "Firmin Levain est debout devant son pétrin, les avant-bras blancs jusqu'aux coudes, et il ne pétrit rien. Il a la figure ronde et rouge d'un pain trop cuit. Il te voit, il lève vers toi ses deux mains pleines de farine, et il dit d'une voix de petit garçon : « Eugénie. On m'a pris Eugénie. »"
+    },
+    {
+     "first": true,
+     "text": "Sur l'étagère du fond, près du four, {{examen:bocal|le grand bocal de verre}} où vivait la pâte mère est vide, son couvercle posé à côté. Derrière l'étagère, dans le mur, {{examen:grille|une grille d'aération}} de fonte ouvre sur le noir. Sur la face extérieure de {{examen:porte|la porte blindée}}, côté hall, une feuille pliée en quatre est punaisée avec une punaise en forme d'ange : {{examen:lettre|la lettre de rançon}}. Firmin l'a décrochée, lue, recrochée. Il te la tend. Il ne sait pas la lire. Personne ne saurait."
+    },
+    {
+     "again": true,
+     "text": "Le fournil d'acier, la chaleur du four qu'on a gardé allumé par habitude, et Firmin, qui tourne autour de son pétrin comme autour d'un berceau vide."
+    },
+    {
+     "again": true,
+     "text": "Sur l'étagère, {{examen:bocal|le bocal vide}}. Derrière, {{examen:grille|la grille d'aération}}. Sur la porte, côté hall, {{examen:porte|la porte blindée}} et la punaise en forme d'ange qui tenait {{examen:lettre|la lettre de rançon}}."
+    },
+    {
+     "if": {
+      "has": "eugenie:trouvee"
+     },
+     "text": "Eugénie est rentrée. Firmin l'a installée dans une bassine de cuivre, faute d'un bocal assez grand, et il lui parle à voix basse en lui donnant sa farine, comme on parle à une convalescente qui a fait une bêtise."
+    }
+   ],
+   "choices": [
+    {
+     "label": "Demander à Firmin ce qui s'est passé cette nuit",
+     "once": true,
+     "to": "A_firmin_nuit"
+    },
+    {
+     "label": "Déchiffrer la lettre de rançon",
+     "hide": {
+      "has": "rancon:lue"
+     },
+     "to": "A_rancon"
+    },
+    {
+     "label": "Monter dans le hall de la Banque",
+     "to": "A_hall"
+    },
+    {
+     "label": "Aller dans la grande rue",
+     "to": "A_rue"
+    },
+    {
+     "label": "Descendre au sous-sol, où mènent les conduits",
+     "hide": {
+      "not": {
+       "has": "plan:suivi"
+      }
+     },
+     "to": "A_soussol"
+    },
+    {
+     "label": "Attendre midi auprès de Firmin",
+     "hide": {
+      "has": "eugenie:trouvee"
+     },
+     "to": "A_attendre"
+    }
+   ]
+  },
+  "A_firmin_nuit": {
+   "act": "I",
+   "title": "La nuit la plus chaude",
+   "place": "fournil",
+   "fx": {
+    "clue": "i_chaleur"
+   },
+   "text": [
+    "Firmin s'assied sur un sac de farine, qui soupire. « Hier soir, il faisait une chaleur à faire cuire un œuf sur un guidon. La nuit la plus chaude de l'été. Eugénie avait soif, elle bullait comme une soupe. Je l'ai nourrie à huit heures, comme tous les soirs, une poignée de farine et un verre d'eau. Puis j'ai eu peur qu'elle ait faim, avec cette chaleur. Je l'ai nourrie une deuxième fois, à minuit. Je lui ai mis le couvercle. Je suis monté dormir dans le hall, sur les banquettes des clients. »",
+    "Il s'essuie les yeux avec le dos du poignet, et se met de la farine sur le nez. « J'ai fermé la porte. Je ferme toujours la porte. À quatre heures, je suis redescendu. La porte était fermée. Le bocal était vide. J'ai couru dans la rue en criant. Toute la rue m'a entendu. Quand je suis revenu, il y avait cette lettre sur la porte. »",
+    "Il regarde la lettre. « Trente et un ans, petit{e}. Je l'ai commencée la semaine de l'Effondrement, avec la dernière farine du moulin. Elle a nourri la ville tous les jours depuis. Il n'y a pas de recette. Il y a Eugénie. »",
+    {
+     "if": {
+      "voie": "mitron"
+     },
+     "text": "Tu connais Eugénie mieux que personne, après lui. Tu l'as nourrie, les soirs où il avait de la fièvre. Une pâte mère trop nourrie par grande chaleur, tu l'as vue faire une fois : elle monte, elle soulève le couvercle, elle cherche la sortie. Ce soir-là, il y avait eu un torchon, et tu l'avais rattrapée."
+    }
+   ],
+   "choices": [
+    {
+     "back": "A_fournil"
+    }
+   ]
+  },
+  "A_rancon": {
+   "act": "I",
+   "title": "La lettre de rançon",
+   "place": "fournil",
+   "puzzle": "p_rancon",
+   "text": [
+    "Tu déplies le papier beurré sur le bord du pétrin. Les capitales tracées au doigt luisent un peu dans la chaleur du four. Firmin regarde par-dessus ton épaule, et sa respiration sent la levure."
+   ],
+   "choices": [
+    {
+     "back": "A_fournil"
+    }
+   ]
+  },
+  "A_rancon_lue": {
+   "act": "I",
+   "title": "Ce que dit la lettre",
+   "place": "fournil",
+   "fx": {
+    "clue": "i_signature"
+   },
+   "text": [
+    "Les lettres se remettent en place une à une, et la rançon se lève sur le papier beurré, appliquée, un peu ronde, comme une lettre d'enfant écrite par un colosse :",
+    "*Nous avons Eugénie. Pour la revoir, donnez la recette du pain aux Doux avant midi. Le Baron.*",
+    "Firmin lit avec toi, en remuant les lèvres. Puis il se redresse, et pour la première fois de la matinée, il a l'air d'un homme et pas d'un orphelin. « La recette ? dit-il. Farine, eau, sel. Les Doux la connaissent. Tout le monde la connaît. La recette, c'est elle. » Il tape du poing sur le pétrin, et un nuage blanc monte jusqu'au plafond d'acier. « Le Baron. »",
+    {
+     "if": {
+      "any": [
+       {
+        "has": "vu:tard"
+       },
+       {
+        "has": "vu:tampon"
+       }
+      ]
+     },
+     "text": "Une chose te gêne, pourtant, et tu la gardes pour toi un moment. Ce papier est trop froid, ou trop propre, pour une lettre qui aurait passé la nuit dans ce fournil."
+    }
+   ],
+   "choices": [
+    {
+     "back": "A_fournil"
+    }
+   ]
+  },
+  "A_hall": {
+   "act": "I",
+   "title": "Le hall de la Banque",
+   "place": "hall",
+   "fx": {
+    "meet": "escompte"
+   },
+   "text": [
+    {
+     "first": true,
+     "text": "Le hall de la Banque de Mirevaux est une nef. Douze colonnes de marbre gris montent jusqu'à une coupole de verre fendue, par où tombent, en biais, un rayon de petit jour et un peu de sable. Les guichets de marbre sont alignés sous leurs grilles de cuivre, avec leurs encriers secs et leurs pancartes : *Dépôts. Retraits. Créances.* Au dernier guichet, une lampe verte est allumée."
+    },
+    {
+     "first": true,
+     "text": "Derrière, un vieil homme maigre en costume noir lustré aux coudes, des manchettes de lustrine aux poignets, recopie quelque chose dans un cahier, à la plume. Il lève la tête. Ses lunettes descendent d'un cran. « Escompte, dit-il. Caissier principal. Le guichet ouvre à neuf heures. Il ouvre à neuf heures depuis trente et un ans. Personne ne vient. Je suis là quand même. Une banque qui ferme ses guichets, voyez-vous, avoue qu'elle a quelque chose à cacher. »"
+    },
+    {
+     "again": true,
+     "text": "Le hall, ses colonnes, sa coupole fendue. Au dernier guichet, sous la lampe verte, Monsieur Escompte recopie, et il recopiera jusqu'à la fin du monde, qui a déjà eu lieu."
+    },
+    {
+     "if": {
+      "has": "eugenie:trouvee"
+     },
+     "text": "Monsieur Escompte ne recopie plus. Il est assis devant son cahier ouvert, la plume à la main, et il regarde la page blanche comme on regarde un compte à découvert."
+    }
+   ],
+   "choices": [
+    {
+     "label": "« Vous travaillez encore pour la Banque ? »",
+     "once": true,
+     "to": "A_escompte_banque"
+    },
+    {
+     "label": "« Où mènent les conduits d'aération de la Banque ? »",
+     "hide": {
+      "any": [
+       {
+        "not": {
+         "has": "vu:fils"
+        }
+       },
+       {
+        "item": "plan"
+       }
+      ]
+     },
+     "to": "A_escompte_plan"
+    },
+    {
+     "label": "Dérouler le plan des conduits sur un guichet",
+     "hide": {
+      "any": [
+       {
+        "not": {
+         "item": "plan"
+        }
+       },
+       {
+        "has": "plan:suivi"
+       }
+      ]
+     },
+     "to": "A_plan"
+    },
+    {
+     "back": "A_fournil"
+    }
+   ]
+  },
+  "A_escompte_banque": {
+   "act": "I",
+   "title": "Le caissier principal",
+   "place": "hall",
+   "fx": {
+    "clue": "i_cadran"
+   },
+   "text": [
+    "« Pour la Banque, contre la Banque, la nuance est comptable. » Monsieur Escompte pose sa plume. « La Banque est morte. Restent les créances. Chaque habitant de Mirevaux doit quelque chose à cette maison, depuis avant l'Effondrement : un prêt, un découvert, une hypothèque sur une maison qui n'existe plus. Les intérêts courent. Ils courent depuis trente et un ans. Ils ont couru plus loin que tout le monde. »",
+    "Il désigne le sol de marbre, sous ses pieds. « Tout est écrit dans le Registre des créances, en bas, dans la chambre forte. Je descends le voir tous les soirs. Je fais tourner le cadran comme mon chef me l'a appris, et je le récite, parce que je l'ai toujours récité. » Ses lèvres bougent toutes seules : « *Deux à gauche pour le capital, un à droite pour le taux, et trois à gauche pour les années.* » Il s'arrête net. Il te regarde. « Je n'ai rien dit. C'est un tic. Un caissier a des tics comme un pendule a des secondes. »",
+    "Il reprend sa plume. « Un jour, la ville paiera. Ce jour-là, je serai prêt. »",
+    {
+     "if": {
+      "voie": "chineur"
+     },
+     "text": "Tu as acheté et vendu à tout le monde dans cette ville, et tu as entendu cent fois parler de la Banque, comme d'une maison hantée. Le fantôme, c'est lui. Il a l'air beaucoup plus fatigué que dans les histoires."
+    }
+   ],
+   "choices": [
+    {
+     "back": "A_hall"
+    }
+   ]
+  },
+  "A_escompte_plan": {
+   "act": "I",
+   "title": "Le plan bleu",
+   "place": "hall",
+   "fx": {
+    "item": "plan"
+   },
+   "text": [
+    "« Les conduits ? » Monsieur Escompte relève ses lunettes. « La Banque respire, jeune homme, ou jeune fille. L'air chaud monte du fournil, l'air frais descend vers les caves. L'architecte était un homme soigneux : il a mis une flèche dans chaque salle. »",
+    "Il fouille sous son guichet, en sort un tube de carton, et en tire un plan bleu qu'il te tend avec répugnance, comme un prêt sans garantie. « Rendez-le-moi. Vous me le rendrez, n'est-ce pas ? Il n'y a pas d'intérêts sur un plan, mais il y a des principes. »"
+   ],
+   "choices": [
+    {
+     "label": "Dérouler le plan sur le guichet",
+     "to": "A_plan"
+    },
+    {
+     "back": "A_hall"
+    }
+   ]
+  },
+  "A_plan": {
+   "act": "I",
+   "title": "Le plan des conduits",
+   "place": "hall",
+   "puzzle": "p_plan",
+   "text": [
+    "Tu étales le plan bleu sur le marbre du guichet, et Monsieur Escompte, de l'autre côté de la grille, pose sur les coins quatre encriers secs."
+   ],
+   "choices": [
+    {
+     "back": "A_hall"
+    }
+   ]
+  },
+  "A_plan_suivi": {
+   "act": "I",
+   "title": "Là où l'air s'arrête",
+   "place": "hall",
+   "text": [
+    "Ton doigt descend du fournil, glisse dans le couloir, tourne vers la caisse, descend encore, et s'arrête sur une salle ronde, tout en bas, où la flèche devient un carré noir : *Chambre forte.* L'air s'y arrête. Ce qui coule avec l'air s'y arrête aussi.",
+    "De l'autre côté du guichet, Monsieur Escompte a pâli. « La chambre forte, dit-il. Le Registre. » Il se lève, se rassied. « Personne ne peut y entrer. Il faut le cadran. Il faut moi. »",
+    "Il ne se lève pas une seconde fois. Il a l'air d'un homme qui préfère ne pas savoir ce qu'il y a dans son coffre, tant qu'il peut encore croire que tout y est."
+   ],
+   "choices": [
+    {
+     "back": "A_fournil"
+    }
+   ]
+  },
+  "A_rue": {
+   "act": "I",
+   "title": "La grande rue",
+   "place": "rue",
+   "text": [
+    {
+     "first": true,
+     "text": "La grande rue de Mirevaux s'éveille dans une lumière de cuivre. Les façades n'ont plus de fenêtres, elles ont des trous, et dans les trous il y a des gens qui regardent. Devant la Banque, une queue s'est déjà formée : des mères avec des paniers, des motards des deux clans qui ne se regardent pas, de vieux hommes assis sur des caisses. Ils attendent le pain de midi, comme tous les jours. La rumeur court la queue d'un bout à l'autre, et revient grossie : *Eugénie. On a pris Eugénie.*"
+    },
+    {
+     "first": true,
+     "text": "Assise sur le trottoir, une gamine en salopette pleine de cambouis démonte une lanterne avec une clé à molette, et la remonte, l'air de vérifier qu'elle avait bien compris la première fois. C'est Croûton, la mécanicienne des Demi-Sel."
+    },
+    {
+     "again": true,
+     "text": "La grande rue, la queue qui s'allonge devant la Banque, et la rumeur qui va et vient."
+    },
+    "Plus loin, à l'angle, un ancien garage peint en blanc crème : le garage des Doux. Des motos blanches luisent devant, alignées comme des dents."
+   ],
+   "choices": [
+    {
+     "label": "T'asseoir à côté de Croûton",
+     "once": true,
+     "to": "A_crouton"
+    },
+    {
+     "label": "Entrer au garage des Doux",
+     "to": "A_doux"
+    },
+    {
+     "back": "A_fournil"
+    }
+   ]
+  },
+  "A_crouton": {
+   "act": "I",
+   "title": "Croûton",
+   "place": "rue",
+   "fx": {
+    "meet": "crouton",
+    "item": "lanterne",
+    "flag": "vu:doux"
+   },
+   "text": [
+    "Croûton ne lève pas les yeux de sa lanterne. « Eugénie, dit-elle. Je sais. Toute la rue sait. Firmin a crié à quatre heures. » Elle serre un écrou. « À quatre heures et demie, deux Doux sont passés avec un pot de beurre. Ils sont entrés dans la Banque. Ils sont ressortis sans le pot. »",
+    "Elle referme le verre de la lanterne, l'allume d'un coup de briquet, la regarde brûler, satisfaite, et te la tend. « Tiens. Pour descendre. Dans une banque, tout ce qui compte est en bas. » Tu demandes comment elle sait que tu vas descendre. Elle hausse les épaules. « Tout le monde finit par descendre, dans une banque. »"
+   ],
+   "choices": [
+    {
+     "back": "A_rue"
+    }
+   ]
+  },
+  "A_doux": {
+   "act": "I",
+   "title": "Le garage des Doux",
+   "place": "doux",
+   "fx": {
+    "meet": "baron"
+   },
+   "text": [
+    {
+     "first": true,
+     "text": "Le garage sent le beurre et la cire à moto. Une douzaine de motards en gilets de cuir blanc astiquent des motos blanches avec des chiffons blancs, en silence, d'un geste lent et circulaire, comme on prie. Au fond, sur un fauteuil de dentiste récupéré on ne sait où, un colosse blond à la barbe longue est assis, les mains posées sur les genoux. Le Baron Doux. Il te regarde entrer et ne bouge rien, sauf les yeux."
+    },
+    {
+     "first": true,
+     "text": "« Le petit du pain, dit-il d'une voix très douce, qui fait trembler les verres. On t'attendait plus tôt. »"
+    },
+    {
+     "again": true,
+     "text": "Le garage blanc, les chiffons qui tournent, et le Baron dans son fauteuil, qui t'attendait."
+    }
+   ],
+   "choices": [
+    {
+     "label": "« Rendez Eugénie à Firmin. »",
+     "hide": {
+      "has": "doux:avoue"
+     },
+     "to": "A_doux_exiger"
+    },
+    {
+     "label": "Lui dire ce que tu sais de la lettre",
+     "if": {
+      "any": [
+       {
+        "has": "vu:tard"
+       },
+       {
+        "has": "vu:tampon"
+       },
+       {
+        "has": "vu:doux"
+       }
+      ]
+     },
+     "hide": {
+      "any": [
+       {
+        "not": {
+         "any": [
+          {
+           "has": "vu:tard"
+          },
+          {
+           "has": "vu:tampon"
+          },
+          {
+           "has": "vu:doux"
+          }
+         ]
+        }
+       },
+       {
+        "has": "doux:avoue"
+       }
+      ]
+     },
+     "to": "A_doux_aveu"
+    },
+    {
+     "back": "A_rue"
+    }
+   ]
+  },
+  "A_doux_exiger": {
+   "act": "I",
+   "title": "Le Baron",
+   "place": "doux",
+   "text": [
+    "Le Baron t'écoute jusqu'au bout. Il a la patience des très gros hommes, qui savent qu'ils auront toujours le dernier mot parce qu'ils sont le dernier mot. « Une lettre, dit-il. Du beurre doux. » Il écarte les mains. « Il y a du beurre doux dans toutes les cuisines de Mirevaux, petit. Le beurre doux est la vérité. La vérité est partout. »",
+    "Autour de vous, les chiffons ont cessé de tourner. Une douzaine de Doux te regardent, sans hostilité, avec l'attention polie qu'on porte à un moustique qui hésite.",
+    "« Reviens avec mieux qu'une lettre, dit le Baron. Ou reviens avec la recette. Je suis un homme patient jusqu'à midi. »",
+    {
+     "if": {
+      "voie": "coursier"
+     },
+     "text": "Tu portes au cou le petit sachet de sel des Demi-Sel. Le Baron l'a vu en premier. Il ne l'a pas regardé une seconde fois, ce qui est, de sa part, une politesse ou une menace, et sans doute les deux."
+    }
+   ],
+   "choices": [
+    {
+     "back": "A_doux"
+    }
+   ]
+  },
+  "A_doux_aveu": {
+   "act": "I",
+   "title": "Trop froide",
+   "place": "doux",
+   "fx": {
+    "flag": "doux:avoue",
+    "ep": [
+     "seance",
+     300
+    ]
+   },
+   "text": [
+    "Tu poses la lettre sur le genou du Baron. Puis tu lui dis ce que tu sais.",
+    {
+     "if": {
+      "has": "vu:doux"
+     },
+     "text": "À quatre heures et demie, deux de ses garçons sont entrés dans la Banque avec un pot de beurre, et ils en sont ressortis les mains vides. Croûton les a vus. Croûton voit tout ce qui a des roues, et les Doux en ont toujours."
+    },
+    {
+     "if": {
+      "has": "vu:tard"
+     },
+     "text": "Le beurre de la lettre était froid et dur, à la température de l'aube. Dans un fournil à quarante degrés, une lettre punaisée à minuit aurait coulé jusqu'au carrelage. Elle est arrivée après les cris de Firmin, pas avant."
+    },
+    {
+     "if": {
+      "has": "vu:tampon"
+     },
+     "text": "Au dos du papier beurré, à contre-jour, le tampon de la Beurrerie des Doux. *Qualité extra-fine.* Le Baron achète ses emballages chez lui-même."
+    },
+    "Le Baron se tait longtemps. Les chiffons ont cessé de tourner. Puis il soupire, et le fauteuil de dentiste soupire avec lui. « À quatre heures, dit-il, le boulanger a crié dans la rue qu'on lui avait pris sa mère. Deux de mes garçons ont entendu. Ils sont venus me réveiller. Nous n'avons pas pris Eugénie. Nous avons pris l'occasion. »",
+    "Il replie la lettre, très soigneusement, avec ses gros doigts. « Trente et un ans que nous achetons notre pain chez un homme qui le sale. Nous voulions la recette. Nous voulions un pain doux. » Il te rend la lettre. « Nous n'avons pas ta mère, petit. Cherche-la ailleurs. Et ne dis pas trop fort que les Doux ont écrit au beurre ce qu'ils n'avaient pas. »"
+   ],
+   "choices": [
+    {
+     "back": "A_doux"
+    }
+   ]
+  },
+  "A_soussol": {
+   "act": "I",
+   "title": "Le sous-sol",
+   "place": "soussol",
+   "text": [
+    "Sous la Banque, il fait frais, et il fait noir, et il fait silence, comme sous toutes les banques du monde. Le couloir descend en pente douce, voûté, carrelé de blanc comme un vieux métro. Tu suis le chemin du plan : le couloir, la caisse, encore une volée de marches.",
+    {
+     "if": {
+      "item": "lanterne"
+     },
+     "text": "La lanterne de Croûton éclaire jaune et loin. Le long du plafond court un gros conduit de tôle, et à chaque jointure du conduit, des fils de pâte blonde pendent, collants, luisants, de plus en plus épais à mesure que tu descends. Ça sent la pomme et le vin."
+    },
+    {
+     "if": {
+      "not": {
+       "item": "lanterne"
+      }
+     },
+     "text": "Tu avances à tâtons, la main sur le carrelage froid. À un moment, tes doigts rencontrent quelque chose de collant, de tiède, d'élastique, qui pend du plafond. Ça sent la pomme et le vin."
+    },
+    "Au bout, une porte ronde d'acier, haute de deux mètres, avec en son milieu un grand cadran gradué et une poignée en étoile. Par le joint du bas, entre la porte et le seuil, sort une langue de pâte blonde, large comme un pied, qui respire. Elle se gonfle, doucement. Elle se dégonfle. Elle se gonfle.",
+    "De l'autre côté, quelque chose, ou quelqu'un, fait *blop*."
+   ],
+   "choices": [
+    {
+     "label": "Tourner le cadran",
+     "hide": {
+      "has": "chambre:ouverte"
+     },
+     "to": "A_cadran"
+    },
+    {
+     "back": "A_fournil"
+    }
+   ]
+  },
+  "A_cadran": {
+   "act": "I",
+   "title": "Le cadran",
+   "place": "soussol",
+   "puzzle": "p_cadran",
+   "text": [
+    "Tu poses la main sur le cadran d'acier. Il est froid. La langue de pâte, sous la porte, se gonfle contre ta botte, comme un chat qui réclame."
+   ],
+   "choices": [
+    {
+     "back": "A_soussol"
+    }
+   ]
+  },
+  "A_cadran_bloque": {
+   "act": "I",
+   "title": "Le cadran bloqué",
+   "place": "soussol",
+   "takes": 2,
+   "fx": {
+    "meet": "crouton"
+   },
+   "text": [
+    "Au troisième essai, le cadran se bloque, avec un claquement de mâchoire. La poignée en étoile refuse de bouger. Derrière la porte, Eugénie fait *blop*, d'un ton de reproche.",
+    "Tu remontes chercher de l'aide. Dans la rue, Croûton, la mécanicienne des Demi-Sel, écoute, ramasse sa clé à molette, et te suit sans un mot. En bas, elle regarde la porte ronde, longtemps, puis elle se couche par terre, à côté de la langue de pâte, et elle s'attaque aux gonds. « Les banques, dit-elle entre deux écrous, mettent tout leur argent dans la serrure. Jamais dans les gonds. »",
+    "Il lui faut deux heures. La porte tombe vers l'intérieur, lentement, comme un arbre, sur quelque chose de mou."
+   ],
+   "choices": [
+    {
+     "label": "Entrer dans la chambre forte",
+     "to": "A_chambre_forte"
+    }
+   ]
+  },
+  "A_chambre_forte": {
+   "act": "I",
+   "title": "La chambre forte",
+   "place": "soussol",
+   "fx": {
+    "flag": [
+     "eugenie:trouvee",
+     "chambre:ouverte"
+    ],
+    "meet": "eugenie",
+    "ep": [
+     "seance",
+     300
+    ]
+   },
+   "text": [
+    "La chambre forte est une salle ronde, voûtée, aux murs couverts de petits coffres numérotés. Au milieu, sur un pupitre de chêne, un grand registre ouvert, ou ce qu'il en reste. Et tout le reste de la salle, du sol à la moitié des murs, est rempli d'une seule chose, blonde, vivante, tiède, qui respire.",
+    "Eugénie. Elle a débordé de son bocal dans la nuit la plus chaude de l'été, nourrie deux fois, elle a cherché l'air, elle a passé la grille, elle a suivi le conduit, de salle en salle, comme suivent l'air toutes les choses qui fermentent, et elle s'est arrêtée là où l'air s'arrête. Elle a grossi. Elle a eu faim. Elle a trouvé du papier.",
+    "Du Registre des créances de la ville de Mirevaux, trente et un ans de dettes et d'intérêts composés, il reste la couverture de cuir, la tranche dorée, et trois pages rongées sur les bords. Le reste est dans Eugénie. Elle en est toute marbrée de bleu, d'encre de banque.",
+    "Derrière toi, dans le couloir, un pas de vieil homme, pressé. Monsieur Escompte paraît sur le seuil, sa lampe verte à la main. Il voit le pupitre. Il voit la couverture vide. Il dit, d'une voix blanche : « Elle a mangé la ville. »",
+    "Puis il se redresse, et sa voix redevient celle d'un guichet. « Cette pâte a consommé un bien de la Banque. Trente et un ans de créances. Elle est désormais la créance. Je la saisis. »"
+   ],
+   "choices": [
+    {
+     "label": "« Un registre mangé ne prouve plus rien, Monsieur Escompte. »",
+     "test": {
+      "dom": "social",
+      "diff": 0,
+      "label": "Plaidoirie"
+     },
+     "win": {
+      "to": "A_escompte_cede"
+     },
+     "lose": {
+      "to": "A_escompte_tient"
+     }
+    },
+    {
+     "label": "Lui proposer un marché au nom de Firmin",
+     "to": "A_marche"
+    },
+    {
+     "label": "Le laisser saisir Eugénie",
+     "to": "F_gage"
+    }
+   ]
+  },
+  "A_escompte_cede": {
+   "act": "I",
+   "title": "Un compte soldé",
+   "place": "soussol",
+   "fx": {
+    "item": "registre"
+   },
+   "text": [
+    "Monsieur Escompte ouvre la bouche, la referme. Il regarde la couverture vide sur le pupitre. Il fait, de tête, un calcul très long, et tu vois passer dans ses yeux trente et un ans d'intérêts composés, qui courent, qui courent, et qui tombent dans le vide.",
+    "« Un registre mangé ne prouve plus rien, répète-t-il, à voix basse, comme une prière qu'on apprend. » Il pose sa lampe verte. Il ôte ses manchettes de lustrine, l'une, puis l'autre, et les plie. « Alors mon compte est soldé. Moi aussi. »",
+    "Il te tend la couverture du Registre et ses trois pages. « Gardez-les. Je n'ai plus rien à garder. »"
+   ],
+   "choices": [
+    {
+     "label": "Ramener Eugénie au fournil",
+     "to": "A_retour"
+    }
+   ]
+  },
+  "A_escompte_tient": {
+   "act": "I",
+   "title": "Les principes",
+   "place": "soussol",
+   "text": [
+    "« Un registre mangé, dit Monsieur Escompte, est un registre conservé ailleurs. » Il pose la main sur Eugénie, avec précaution, comme sur un comptoir. Elle se gonfle sous sa paume. Il retire la main, un peu vite. « Je tiens bon. Les principes. »"
+   ],
+   "choices": [
+    {
+     "label": "Lui proposer un marché au nom de Firmin",
+     "to": "A_marche"
+    },
+    {
+     "label": "Le laisser saisir Eugénie",
+     "to": "F_gage"
+    }
+   ]
+  },
+  "A_marche": {
+   "act": "I",
+   "title": "Le marché",
+   "place": "soussol",
+   "fx": {
+    "flag": "escompte:paye",
+    "item": "registre"
+   },
+   "text": [
+    "Tu proposes à Monsieur Escompte ce que Firmin donnerait, tu le sais, sans réfléchir : une miche par jour, la première de chaque fournée, chaude, portée au guichet à neuf heures, à l'ouverture. Pendant trente et un ans. Capital et intérêts.",
+    "Monsieur Escompte réfléchit. Tu le vois compter. Puis tu le vois arrêter de compter, ce qui doit lui arriver rarement. « Une miche chaude, dit-il. À l'ouverture du guichet. » Sa voix flanche sur *chaude*. « Trente et un ans que le guichet ouvre et que personne ne vient. »",
+    "Il tend la main par-dessus Eugénie. Tu la serres. Elle est sèche et légère comme un reçu. « Marché conclu. Prenez la couverture du Registre : elle est à vous, en garantie. Il n'y a plus rien dedans, de toute façon. »"
+   ],
+   "choices": [
+    {
+     "label": "Ramener Eugénie au fournil",
+     "to": "A_retour"
+    }
+   ]
+  },
+  "A_retour": {
+   "act": "I",
+   "title": "Le retour d'Eugénie",
+   "place": "fournil",
+   "takes": 2,
+   "text": [
+    "Il faut quatre seaux, deux bassines, une brouette et toute la queue de la grande rue, qui fait la chaîne dans l'escalier du sous-sol, pour remonter Eugénie. Les Demi-Sel passent un seau aux Doux, qui le passent aux Demi-Sel, sans se regarder, et sans renverser une goutte.",
+    "Firmin attend au fournil. Quand le premier seau arrive, il plonge les deux mains dedans jusqu'aux coudes, et il pleure, et il rit, et il dit des choses à Eugénie que personne n'entend. Elle sent la pomme, le vin, et un peu l'encre.",
+    "Dans la queue, la nouvelle remonte l'escalier de main en main avec les seaux : Eugénie a mangé le Registre des créances. Trente et un ans de dettes. Les gens se regardent, sans oser y croire. Quelqu'un, très loin derrière, commence à rire, puis se tait, parce qu'à Mirevaux on ne rit pas des choses graves avant de les avoir mangées."
+   ],
+   "choices": [
+    {
+     "label": "Monter sur une caisse et l'annoncer à toute la rue",
+     "to": "F_dettes"
+    },
+    {
+     "label": "Laisser la nouvelle courir toute seule, et allumer le four",
+     "to": "A_fournee"
+    }
+   ]
+  },
+  "A_fournee": {
+   "act": "I",
+   "title": "La fournée de midi",
+   "place": "fournil",
+   "takes": "noon",
+   "text": [
+    "Firmin pétrit comme on se bat. Tu tiens le four, tu fends le bois, tu portes la farine. Eugénie lève dans les pâtrons comme si elle avait quelque chose à prouver, et peut-être a-t-elle quelque chose à prouver. Le pain de ce matin sera un peu bleu à la mie, à cause de l'encre. Firmin dit que ça s'en ira dans trois fournées.",
+    "À midi, la porte blindée s'ouvre en grand sur la grande rue, et l'odeur sort la première."
+   ],
+   "choices": [
+    {
+     "label": "Mettre de côté une miche sans sel, pour le Baron",
+     "if": {
+      "has": "doux:avoue"
+     },
+     "hide": {
+      "not": {
+       "has": "doux:avoue"
+      }
+     },
+     "to": "F_fournee"
+    },
+    {
+     "label": "Ouvrir la vente",
+     "to": "Z_midi"
+    }
+   ]
+  },
+  "A_attendre": {
+   "act": "I",
+   "title": "Midi",
+   "place": "fournil",
+   "takes": "noon",
+   "text": [
+    "Tu t'assieds sur un sac de farine, à côté de Firmin. Il a lâché le pétrin. Il regarde le four, qui brûle pour rien. Les heures passent dans le fournil d'acier comme dans un coffre : sans bruit, et sans que rien ne s'y dépose.",
+    "À midi, la grande rue attend devant la porte blindée. Elle attend longtemps."
+   ],
+   "choices": [
+    {
+     "label": "Ouvrir la porte à la rue",
+     "to": "Z_midi"
+    }
+   ]
+  },
+  "Z_midi": {
+   "act": "I",
+   "title": "Midi",
+   "place": "fournil",
+   "branch": [
+    {
+     "if": {
+      "has": "eugenie:trouvee"
+     },
+     "to": "F_eugenie"
+    },
+    {
+     "to": "F_vide"
+    }
+   ]
+  },
+  "F_fournee": {
+   "act": "I",
+   "title": "Le pain des deux clans",
+   "place": "rue",
+   "end": true,
+   "fx": {
+    "flag": "fin:fournee"
+   },
+   "text": [
+    "À midi, la porte blindée s'ouvre sur la grande rue, et l'odeur sort la première, chaude, épaisse, avec ce goût de pomme et de vin qu'Eugénie donne à tout ce qu'elle touche. La queue frémit d'un bout à l'autre comme une couleuvre qu'on réveille.",
+    "Au milieu de la queue, à la place qui lui revient, c'est-à-dire la dernière, le Baron Doux attend, son gilet blanc sur les épaules, les mains jointes devant lui. Ses garçons sont derrière. De la lettre au beurre, la rue garde le silence. Tout le monde le sait, et le savoir suffit.",
+    "Quand son tour arrive, Firmin lui tend une miche, et une seconde, plus petite, à part, enveloppée dans du papier. « Celle-là est sans sel, dit Firmin. Pour essayer. La recette, c'est farine, eau, et Eugénie. Le sel, je le mets parce que la ville le demande. Pour vous, une fois par semaine, je n'en mettrai pas. »",
+    "Le Baron prend la petite miche comme on prend un nouveau-né. Il la porte à son nez. Il ferme les yeux. Quand il les rouvre, ils sont humides, et il dit d'une voix si douce que la rue entière se penche pour l'entendre : « Elle est fade. » Il sourit. « Elle est parfaite. »",
+    {
+     "if": {
+      "item": "registre"
+     },
+     "text": "Le soir, la couverture vide du Registre des créances est clouée au-dessus de la porte du fournil, comme un trophée de chasse. On vient de loin pour la voir. On la touche en passant, pour la chance, et pour être bien sûr."
+    }
+   ]
+  },
+  "F_eugenie": {
+   "act": "I",
+   "title": "La mère est rentrée",
+   "place": "rue",
+   "end": true,
+   "fx": {
+    "flag": "fin:eugenie"
+   },
+   "text": [
+    "À midi, la porte blindée s'ouvre sur la grande rue, et l'odeur sort la première. La queue frémit d'un bout à l'autre. Le pain d'aujourd'hui est un peu bleu à la mie, de l'encre de banque, et personne ne s'en plaint : on le mange en se disant qu'on mange trente et un ans de dettes, et il a meilleur goût que jamais.",
+    "Le Baron Doux est dans la queue, lui aussi, à sa place, avec ses garçons. Il prend sa miche sans un mot. Firmin la lui donne sans un mot. La lettre au beurre reste dans ta poche ; tu ne sais pas qui l'a écrite pour de bon, et le Baron a l'air de quelqu'un qui préfère qu'on reste dans cette ignorance. Tu l'y laisses. Il y a des énigmes qu'on emporte avec son pain.",
+    {
+     "if": {
+      "has": "escompte:paye"
+     },
+     "text": "Le lendemain, à neuf heures précises, Firmin pose une miche chaude sur le marbre du dernier guichet. Monsieur Escompte la regarde longtemps, sous sa lampe verte, comme on regarde un premier versement. Puis il la rompt, et il mange, et il ne recopie rien de toute la matinée."
+    },
+    {
+     "if": {
+      "not": {
+       "has": "escompte:paye"
+      }
+     },
+     "text": "Le lendemain, au dernier guichet de la Banque, Monsieur Escompte commence un nouveau registre, de mémoire. Il se souvient de tout. Il se souviendra toujours de tout. Mais la ville a mangé son pain, et il est seul, désormais, à croire à ses chiffres."
+    }
+   ]
+  },
+  "F_dettes": {
+   "act": "I",
+   "title": "Le pain qui a mangé les dettes",
+   "place": "rue",
+   "end": true,
+   "fx": {
+    "flag": "fin:dettes"
+   },
+   "text": [
+    "Tu montes sur une caisse, au milieu de la grande rue, et tu l'annonces : Eugénie est rentrée, et elle a mangé le Registre des créances. Toutes les dettes de Mirevaux. Les prêts, les découverts, les hypothèques sur des maisons qui n'existent plus, et trente et un ans d'intérêts composés. Il n'en reste que la couverture.",
+    "La rue se tait. Puis une vieille femme, au milieu de la queue, pose son panier, lève les bras au ciel, et pousse un cri que personne à Mirevaux n'avait entendu depuis l'Effondrement : un cri de joie. La rue entière la suit. Les Demi-Sel et les Doux s'embrassent sans s'en apercevoir, et s'en aperçoivent trop tard pour revenir en arrière.",
+    "La fournée de midi part en un quart d'heure. On la mange debout, dans la rue, en se passant les miches. On l'appellera désormais le pain des dettes, et chaque année, à la même date, Firmin cuira une fournée bleue, à l'encre, pour qu'on se souvienne.",
+    "Au dernier guichet de la Banque, Monsieur Escompte écoute la rue chanter, sous sa lampe verte. Le soir, il pose sur le pupitre vide de la chambre forte un écriteau, de sa plus belle main de caissier : *Compte soldé.* Puis il ferme la porte ronde, et il tourne le cadran, deux à gauche, un à droite, trois à gauche, pour la dernière fois."
+   ]
+  },
+  "F_gage": {
+   "act": "I",
+   "title": "La créance",
+   "place": "soussol",
+   "end": true,
+   "fx": {
+    "flag": "fin:gage"
+   },
+   "text": [
+    "Monsieur Escompte appose sur Eugénie une étiquette de saisie, au bout d'une longue épingle, en tremblant un peu. Elle se gonfle autour de l'épingle, et l'avale, étiquette comprise. Il en appose une seconde. Elle l'avale aussi. À la troisième, il renonce à l'étiquette, et il referme la porte ronde de la chambre forte sur elle, deux à gauche, un à droite, trois à gauche.",
+    "« Le gage est sous bonne garde, dit-il. Le boulanger pourra le racheter. Le prix est le Registre. Trente et un ans de créances. » Il réfléchit. « Avec les intérêts. »",
+    "À midi, la grande rue attend devant la porte blindée du fournil. Le pain manque. Il manquera demain. Il reviendra, peut-être, le jour où quelqu'un, à Mirevaux, aura de quoi payer une dette qu'une pâte a mangée.",
+    "Dans la chambre forte, sous la Banque, Eugénie continue de lever, très lentement, dans le noir. On dit qu'à la saison chaude, par le conduit, toute la grande rue sent la pomme et le vin, et que les enfants y collent le nez, en passant, pour se rappeler ce qu'est le pain."
+   ]
+  },
+  "F_vide": {
+   "act": "I",
+   "title": "Une ville sans pain",
+   "place": "rue",
+   "end": true,
+   "fx": {
+    "flag": "fin:vide"
+   },
+   "text": [
+    "À midi, la porte blindée s'ouvre sur la grande rue, et il en sort seulement l'odeur froide du métal. Firmin se tient sur le seuil, les mains vides, blanches jusqu'aux coudes, et la queue comprend avant qu'il ait parlé. Les gens repartent un par un, sans un mot, leurs paniers vides au bras. Les Demi-Sel partent d'un côté. Les Doux de l'autre, très vite.",
+    {
+     "if": {
+      "has": "rancon:lue"
+     },
+     "text": "La rançon court jusqu'au soir : la recette contre Eugénie. Firmin n'a rien à donner que la vérité, farine, eau, sel, et le Baron ne la croit pas. On ne croit pas ce qui est trop simple, quand on a écrit une lettre au beurre pour l'obtenir."
+    },
+    "Firmin recommence une pâte mère, le soir même, avec la farine du jour et l'eau de la citerne. Il lui faudra trois semaines pour qu'elle lève, et trente et un ans pour qu'elle ressemble à Eugénie. Il l'appelle Eugénie-Deux. Il la nourrit une fois par soir, pas deux, même quand il fait chaud.",
+    "Et quelquefois, la nuit, quand il dort sur les banquettes du hall, il entend sous le marbre, très loin, très bas, un *blop*."
+   ]
+  }
+ }
+}
