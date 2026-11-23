@@ -2733,6 +2733,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "21.2", items: ["Nouveau livre à lire : « La Reine Margot », d'Alexandre Dumas (1845), les noces de Marguerite de Valois et de Henri de Navarre, et la nuit de la Saint-Barthélemy."] },
     { v: "21.1", items: ["Nouveau livre à lire : « Le Capitaine Fracasse », de Théophile Gautier (1863), un baron ruiné qui suit une troupe de comédiens sur les routes."] },
     { v: "21.0", items: ["Nouveau livre à lire : « Vingt ans après », d'Alexandre Dumas (1845), la suite des « Trois Mousquetaires » : d'Artagnan a quarante ans et part retrouver ses trois amis."] },
     { v: "20.9", items: ["Nouveau livre à lire : « Le Pilote du Danube », de Jules Verne (1908), un pêcheur à la ligne descend le grand fleuve avec un passager curieux."] },
