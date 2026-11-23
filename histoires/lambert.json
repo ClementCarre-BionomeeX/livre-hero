@@ -2001,9 +2001,9 @@
    "paris": {
     "ambiance": "ville",
     "name": "Paris",
-    "map": "france",
+    "map": "paris",
     "x": 50,
-    "y": 28,
+    "y": 50,
     "region": "Paris",
     "desc": "Le Paris des clubs, des tables de jeu et des boulevards, où l'on juge un homme à son cheval et à son tailleur.",
     "arrive": "IV_1"
@@ -2011,9 +2011,9 @@
    "opera": {
     "ambiance": "ville",
     "name": "L'Opéra",
-    "map": "france",
-    "x": 51,
-    "y": 27,
+    "map": "paris",
+    "x": 55,
+    "y": 30,
     "region": "Paris, rue Le Peletier",
     "desc": "Le foyer des abonnés et des dandys, un soir de Robert le Diable, et la file des voitures à la sortie.",
     "arrive": "III_1"
@@ -2021,9 +2021,9 @@
    "muette": {
     "ambiance": "foret",
     "name": "L'allée de la Muette",
-    "map": "france",
-    "x": 48,
-    "y": 28,
+    "map": "paris",
+    "x": 10,
+    "y": 45,
     "region": "Bois de Boulogne",
     "desc": "Une allée du bois de Boulogne, noyée de brouillard à l'aube, où l'on vient se battre loin des regards.",
     "arrive": "V_1"
@@ -2031,9 +2031,9 @@
    "cabinet": {
     "ambiance": "ville",
     "name": "Le cabinet du docteur Fabien",
-    "map": "france",
-    "x": 50,
-    "y": 29,
+    "map": "paris",
+    "x": 45,
+    "y": 60,
     "region": "Paris",
     "desc": "Un cabinet de médecin, des livres, une lampe, et des confidences reçues à minuit.",
     "arrive": "VI_1"
@@ -2041,9 +2041,9 @@
    "taitbout": {
     "ambiance": "ville",
     "name": "L'appartement de la rue Taitbout",
-    "map": "france",
-    "x": 51,
-    "y": 28,
+    "map": "paris",
+    "x": 60,
+    "y": 40,
     "region": "Paris, rue Taitbout, n° 11",
     "desc": "Un appartement de luxe neuf, valets, tapis et secrétaire à secrets, où l'on ferme la porte à double tour.",
     "arrive": "VII_1"
@@ -2061,9 +2061,9 @@
    "bicetre": {
     "ambiance": "souterrain",
     "name": "Bicêtre",
-    "map": "france",
-    "x": 51,
-    "y": 30,
+    "map": "paris",
+    "x": 60,
+    "y": 90,
     "region": "Aux portes de Paris",
     "desc": "Une prison aux portes massives, des corridors sombres, et en bas quelques marches, les cachots des condamnés à mort.",
     "arrive": "XVII_1"
@@ -2071,9 +2071,9 @@
    "tuileries": {
     "ambiance": "chateau",
     "name": "Les Tuileries",
-    "map": "france",
-    "x": 50,
-    "y": 27,
+    "map": "paris",
+    "x": 48,
+    "y": 45,
     "region": "Paris",
     "desc": "Le palais du roi : au salon, la reine et les princesses à leur tapisserie ; plus loin, le cabinet où le roi travaille seul.",
     "arrive": "XVIII_1"
