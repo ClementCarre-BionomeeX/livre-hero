@@ -2780,6 +2780,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "23.6", items: ["Nouveau livre à lire : « Pauline », d'Alexandre Dumas (1838) : une tempête sur la côte normande, une abbaye en ruine, une clef enterrée dans la nuit, et une jeune femme que tout Paris croit morte."] },
     { v: "23.5", items: ["Nouveau livre à lire : « Gabriel Lambert », d'Alexandre Dumas (1844) : à Toulon, parmi les forçats qui rament pour lui, Dumas reconnaît un homme croisé autrefois dans les salons de Paris, et remonte le fil de sa vie."] },
     { v: "23.4", items: ["Nouveau livre à lire : « Le Capitaine Pamphile », d'Alexandre Dumas (1840) : dans l'atelier d'un peintre où vivent un ours, un singe et une grenouille, on lit les voyages d'un capitaine marseillais sans scrupules, une farce féroce sur le commerce, les hommes et les bêtes."] },
     { v: "23.3", items: ["Nouveau livre à lire : « Le Comte de Moret », d'Alexandre Dumas, roman resté inachevé : Paris, décembre 1628, Richelieu, Louis XIII et leur cour conspirent autour d'un fils naturel de Henri IV revenu d'Italie, avant de partir forcer les passages des Alpes."] },
