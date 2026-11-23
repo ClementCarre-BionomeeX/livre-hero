@@ -448,7 +448,7 @@
       });
       [].concat(fx.relic || [], fx.give || []).forEach(function (x) { if (!story.relics[x]) E(where + " : relique « " + x + " » inconnue."); });
       [].concat(fx.quest || [], fx.questSeen || []).forEach(function (x) { if (!qids[x]) E(where + " : quête « " + x + " » inconnue."); });
-      [].concat(fx.item || [], fx.drop || []).forEach(function (x) { if (!items[x]) E(where + " : objet « " + x + " » inconnu."); });
+      [].concat(fx.item || [], fx.drop || []).forEach(function (x) { if (!(items || story.items || {})[x]) E(where + " : objet « " + x + " » inconnu."); });
       [].concat(fx.reveal || []).forEach(function (x) { if (!places[x]) E(where + " : lieu « " + x + " » inconnu."); });
       [].concat(fx.meet || []).forEach(function (x) { if (!people[x]) E(where + " : personnage « " + x + " » inconnu."); });
       Object.keys(fx.assign || {}).concat([].concat(fx.away || [])).concat(Object.keys(fx.awayUnless || {})).forEach(function (x) { if (!story.companions[x]) E(where + " : compagnon « " + x + " » inconnu."); });

@@ -97,7 +97,7 @@ module.exports = {
     rancon: { name: "La lettre de rançon", kind: "document", keep: true, form: "billet", hand: "hative",
       desc: "Un papier beurré, plié en quatre, punaisé à la porte du fournil avec une punaise en forme d'ange.",
       text: "**{{chiffre:p_rancon}}**" },
-    plan: { name: "Le plan des conduits", kind: "document", keep: true, form: "carte", hand: "imprimee",
+    plan: { name: "Le plan des conduits", kind: "document", keep: true, form: "acte", hand: "imprimee",
       desc: "Un plan bleu de la Banque de Mirevaux, roulé dans un tube de carton, prêté par Monsieur Escompte. Chaque salle y porte une flèche : le sens de l'air dans les conduits." },
     registre: { name: "Ce qui reste du Registre des créances", kind: "document", keep: true, form: "registre", hand: "soignee",
       desc: "La couverture de cuir du grand Registre des créances de Mirevaux, et trois pages rongées.",
