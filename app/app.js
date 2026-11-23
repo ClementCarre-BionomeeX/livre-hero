@@ -2780,6 +2780,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "24.8", items: ["Nouveau livre à lire : « Les Mille et Une Nuits », dans la traduction d'Antoine Galland (1704-1717), en contes choisis : Scheherazade raconte chaque nuit au sultan qui veut la faire mourir le pêcheur et le génie, les trois Calenders, les sept voyages de Sindbad, Aladdin et Ali Baba."] },
     { v: "24.7", items: ["Nouveau livre à lire : « La Fille du géant du gel », de Robert E. Howard (écrit en 1932), en traduction nouvelle : seul debout sur un champ de bataille du Nord glacé, le jeune Conan voit une femme aux cheveux d'or rire de lui sur la neige."] },
     { v: "24.6", items: ["Nouveau livre à lire : « L'Ombre qui glisse », de Robert E. Howard (1933), en traduction nouvelle : perdus dans le désert du Sud, Conan et Natala entrent dans une ville aux murs verts dont les habitants dorment comme des morts."] },
     { v: "24.5", items: ["Nouveau livre à lire : « Larrons dans la maison », de Robert E. Howard (1934), en traduction nouvelle : pour sauver sa tête, un jeune noble fait évader le voleur Conan et l'envoie tuer le Prêtre rouge, dans une maison pleine de pièges."] },
