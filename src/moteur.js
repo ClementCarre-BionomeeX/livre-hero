@@ -424,6 +424,8 @@
     if ("arch" in c) return s.arch === c.arch;
     if ("voie" in c) return s.voie === c.voie;
     if ("trouvaille" in c) return !!(s.found || {})[c.trouvaille];
+    // 21.0: looked at closely ({ examen: "<id>" }, or "<id>:<item>", or "<id>:nu")
+    if ("examen" in c) return !!s.flags["examen:" + c.examen];
     if ("trouvailles" in c) return Object.keys(s.found || {}).length >= +c.trouvailles;
     if ("quest" in c) return !!s.flags["quete:" + c.quest];
     // is: { key: value | [values] | null } reads a state set by fx.set (null: no value yet).
@@ -2810,10 +2812,77 @@
     return [{ sys: "puzzle", group: "enigme", label: interp(s, p.puzzleLabel || D.label || ("Te pencher sur " + lowArt(interp(s, D.title)))) }];
   }
   function plain(x) { return String(x == null ? "" : x).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]/g, ""); }
+  // Intent: the kinds of puzzle, and the form of their answer (21.0 adds clef, suite, leviers, grille).
+  //   molettes: [symbol per wheel] · ordre: [piece indices] · chiffre: a word · suite: [symbols tapped in order]
+  //   leviers: [0|1 per lamp] · grille: [cell indices], in any order · clef: the key (a number for cesar, a word for
+  //   mot and vigenere, the letters the reader set for each letter of the cipher for libre)
+  var PUZZLE_KINDS = { molettes: 1, chiffre: 1, ordre: 1, clef: 1, suite: 1, leviers: 1, grille: 1 };
+  var LISTED = { molettes: 1, ordre: 1, suite: 1, leviers: 1 };
   function answerFits(D, want, ans) {
     if (ans == null || ans === "") return false;
-    if (D.kind === "molettes" || D.kind === "ordre") return Array.isArray(ans) && ans.length === want.length && ans.every(function (x, i) { return String(x) === String(want[i]); });
+    var norm = function (v) { return v === true ? "1" : v === false ? "0" : String(v); };
+    if (LISTED[D.kind]) return Array.isArray(ans) && Array.isArray(want) && ans.length === want.length && ans.every(function (x, i) { return norm(x) === norm(want[i]); });
+    if (D.kind === "grille") { if (!Array.isArray(ans)) return false; var a = ans.map(Number).sort(function (x, y) { return x - y; }), w = [].concat(want).map(Number).sort(function (x, y) { return x - y; }); return a.length === w.length && a.every(function (x, i) { return x === w[i]; }); }
+    if (D.kind === "clef") return keyFits(D, ans);
     return [].concat(want).some(function (a) { return plain(a) === plain(ans); });
+  }
+  // ------------------------------------------------------------------ ciphers with a key (21.0)
+  // Intent: the author writes the message in clear (plain) with its scheme and key; the engine writes the cipher. The
+  // reader looks for the key: whatever key gives back the clear message is right. Why: Clément, 23/11 — « un texte
+  // avec changement de lettres et une clef à trouver ». A cipher worked by hand is a cipher with a mistake in it.
+  //   cesar: every letter moves on `key` ranks (1 to 25) · mot: the alphabet begins with the key word (its letters
+  //   once each), then the rest in order · vigenere: each letter moves on by the rank of the key's letter, in turn ·
+  //   libre: a substitution the reader rebuilds letter by letter (the key word builds it, as for mot).
+  var ABC = "abcdefghijklmnopqrstuvwxyz", CLEF_SCHEMES = { cesar: 1, mot: 1, vigenere: 1, libre: 1 };
+  function bare(ch) { return ch.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase(); }
+  function keyAlphabet(word) { var out = "", seen = {}; (plain(word).replace(/[0-9]/g, "") + ABC).split("").forEach(function (c) { if (!seen[c]) { seen[c] = 1; out += c; } }); return out; }
+  // Intent: crypt(Puzzle, key, text, dir) -> text = the text enciphered (dir 1) or deciphered (dir -1) with that key, in
+  // capitals; what is not a letter stays as it is. For libre deciphering, key = { cipherLetter: guessedLetter }.
+  function crypt(D, key, text, dir) {
+    var sch = D.scheme, out = "", n = 0, kw = sch === "vigenere" ? plain(key).replace(/[0-9]/g, "") : "", alpha = sch === "mot" || sch === "libre" ? keyAlphabet(dir > 0 || sch === "mot" ? key : "") : null;
+    var shift = sch === "cesar" ? ((parseInt(key, 10) || 0) % 26 + 26) % 26 : 0;
+    String(text).split("").forEach(function (ch) {
+      var b = bare(ch); if (b.length !== 1 || ABC.indexOf(b) < 0) { out += dir > 0 ? ch.toUpperCase() : ch; return; }
+      var i = ABC.indexOf(b), o;
+      if (sch === "cesar") o = ABC[(i + dir * shift + 26) % 26];
+      else if (sch === "vigenere") { var k = kw ? ABC.indexOf(kw[n % kw.length]) : 0; n++; o = ABC[(i + dir * k + 26) % 26]; }
+      else if (dir > 0) o = alpha[i];
+      else if (sch === "mot") o = ABC[alpha.indexOf(b)];
+      else o = (key && key[b]) || "·";
+      out += o.toUpperCase();
+    });
+    return out;
+  }
+  // Intent: cipherOf(Puzzle) -> the cipher the page shows (cached on the puzzle, never written in the story)
+  function cipherOf(D) {
+    if (D.kind !== "clef") return D.cipher || "";
+    if (!D._cipher) { var c = crypt(D, D.key, D.plain, 1); try { Object.defineProperty(D, "_cipher", { value: c, enumerable: false, configurable: true }); } catch (e) { return c; } }
+    return D._cipher;
+  }
+  // Intent: decipher(Puzzle, guess) -> the cipher read with the reader's key, for the page to show as they try
+  function decipher(D, guess) { return crypt(D, guess, cipherOf(D), -1); }
+  function libreKey(ans) { var k = {}; if (typeof ans === "string") ans.split(",").forEach(function (p) { var q = p.split(":"); if (q.length === 2 && q[0] && q[1]) k[bare(q[0])] = bare(q[1]); }); else if (ans && typeof ans === "object") Object.keys(ans).forEach(function (c) { if (ans[c]) k[bare(c)] = bare(String(ans[c])); }); return k; }
+  function keyFits(D, ans) {
+    var guess = D.scheme === "libre" ? libreKey(ans) : ans;
+    if (D.scheme !== "libre" && plain(guess) === "") return false;
+    return plain(decipher(D, guess)) === plain(D.plain);
+  }
+  // Levers (21.0): pulling a lever turns it and flips the lamps it is wired to (levers[i].flips); without lamps, the
+  // levers are their own lamps and `flips` names the other levers it moves. Intent: leverPress(Puzzle, state, i) ->
+  // state = { lev: [0|1], lamp: [0|1] } after pulling lever i.
+  function leverStart(D) { var nl = (D.levers || []).length, lamps = D.lamps ? D.lamps.length : nl; return { lev: (D.levers || []).map(function (L, i) { return D.lamps ? 0 : +!!((D.start || [])[i]); }), lamp: Array.from({ length: lamps }, function (x, i) { return +!!((D.start || [])[i]); }) }; }
+  function leverPress(D, st, i) {
+    var L = (D.levers || [])[i]; if (!L) return st;
+    var lev = st.lev.slice(), lamp = st.lamp.slice(); lev[i] = 1 - lev[i];
+    if (!D.lamps) lamp[i] = lev[i];
+    [].concat(L.flips || []).forEach(function (j) { if (j === i && !D.lamps) return; lamp[j] = 1 - lamp[j]; if (!D.lamps) lev[j] = lamp[j]; });
+    return { lev: lev, lamp: lamp };
+  }
+  // Intent: leverReach(Puzzle) -> Bool = the lamps can be brought to the answer from the start (the validator asks).
+  function leverReach(D) {
+    var want = [].concat(D.answer).map(function (x) { return +!!x; }).join(""), st0 = leverStart(D), seen = {}, todo = [st0], n = 0;
+    while (todo.length && n < 5000) { var st = todo.shift(), k = st.lamp.join("") + "/" + st.lev.join(""); if (seen[k]) continue; seen[k] = 1; n++; if (st.lamp.join("") === want) return true; (D.levers || []).forEach(function (L, i) { todo.push(leverPress(D, st, i)); }); }
+    return false;
   }
   function puzzleRight(D, ans) { return answerFits(D, D.answer, ans); }
   // Intent: puzzleMatch(Story, State, Puzzle, answer) -> { alt: Alt | null } | null = which right answer was given.
@@ -2825,7 +2894,7 @@
     return a ? { alt: a } : null;
   }
   // Two readings (12.1): what a reader typed right in an earlier game (s.answers, from the profile) can be given again.
-  function answerLabel(x) { return Array.isArray(x) ? x.join(" · ") : String(x); }
+  function answerLabel(x) { return Array.isArray(x) ? x.join(" · ") : x && typeof x === "object" ? Object.keys(x).sort().map(function (k) { return k.toUpperCase() + "=" + String(x[k]).toUpperCase(); }).join(" ") : String(x); }
   function puzzleOpen(story, s) { var id = story.passages[s.node].puzzle; pocketKeep(story, s, id); s.puzzle = { id: id, from: s.node, wrong: 0, msg: null, forced: false }; s.node = "@enigme"; }
   function puzzleDone(story, s, ok, alt, ans) {
     var z = s.puzzle, D = puzzleDef(story, z.id), br = (ok ? (alt || D.win) : D.lose) || {};
@@ -2884,7 +2953,7 @@
   }
   function puzzleView(story, s) {
     var z = s.puzzle, D = puzzleDef(story, z.id), text = [interp(s, D.text)], cs = [];
-    if (D.cipher) text.push("> " + interp(s, D.cipher));
+    if (D.cipher || D.kind === "clef") text.push("> " + (D.kind === "clef" ? cipherOf(D) : interp(s, D.cipher)));
     (D.hint || []).forEach(function (hn) { if (evalCond(story, s, hn.if)) text.push("*" + interp(s, hn.text) + "*"); });
     if (z.msg) text.push(z.msg);
     if (D.tries) text.push("*Essais restants : " + (D.tries - z.wrong) + ".*");
@@ -2893,7 +2962,11 @@
     if (D.force && !z.forced) cs.push({ sys: "puzzleForce", group: "enigme", label: interp(s, D.force.label || "Forcer"), test: { dom: D.force.dom, diff: D.force.diff || 0, label: D.force.testLabel } });
     cs.push({ sys: "puzzleLeave", label: interp(s, D.carry ? D.leave || "Garder l'énigme en suspens" : D.leave || "Laisser cela pour l'instant") });
     return { title: interp(s, D.title), kind: "enigme", text: text, choices: cs,
-      puzzle: { id: z.id, kind: D.kind, wheels: D.wheels || null, pieces: (D.pieces || []).map(function (x) { return interp(s, x); }), size: (D.answer || []).length || null } };
+      puzzle: { id: z.id, kind: D.kind, wheels: D.wheels || null, labels: D.labels || null, pieces: (D.pieces || []).map(function (x) { return interp(s, x); }), size: Array.isArray(D.answer) ? D.answer.length : null,
+        // 21.0: a cipher with a key, a sequence to tap, levers to pull, a grid to mark
+        scheme: D.scheme || null, cipher: D.kind === "clef" ? cipherOf(D) : null, keyLabel: D.keyLabel || null,
+        symbols: D.symbols || null, once: !!D.once, levers: D.levers ? D.levers.map(function (L) { return interp(s, L.name || L); }) : null, lamps: D.lamps || null, states: D.states || null, start: D.kind === "leviers" ? leverStart(D) : null,
+        cols: D.cols || null, cells: D.cells || null, readOut: !!D.readOut } };
   }
   // Dreams (story.dreams: [{ to, if, weight }], story.dreamChance): arriving on a passage marked `reveil: true` (the
   // morning after the night), the engine may first play a dream not dreamt yet whose condition holds, one a night. The
@@ -3456,12 +3529,17 @@
   //   {{gens:<id>|texte}}    these words name that person (people or companions); {{gens:aucun|texte}}: they name nobody
   //   {{dit:<id>}}           the words in guillemets of this paragraph are said by that person (or heros, or aucun)
   var TEXT_FX = { tremble: "tremble", ondule: "ondule", irise: "irisé", chuchote: "chuchoté", efface: "s'efface", rature: "raturé", ecrit: "s'écrit lettre à lettre", lueur: "luit" };
-  var MARK_RE = /\{\{(fx|cle|or|envers|encre|tache|gens|dit):([^{}|]*)(?:\|([^{}]*))?\}\}/g;
-  var MARK_KINDS = { fx: 1, cle: 1, or: 1, envers: 1, encre: 1, tache: 1, gens: 1, dit: 1 };
+  //   {{examen:<id>|mot}}    words to look at closely (21.0): a tap offers « à l'œil nu » and each thing the hero
+  //                          carries; story.examens[id] says what each shows
+  //   {{chiffre:<puzzle>}}   the cipher of a puzzle `clef` (21.0), written by the engine from its clear text and key
+  var MARK_SRC = "\\{\\{(fx|cle|or|envers|encre|tache|gens|dit|examen|chiffre):([^{}|]*)(?:\\|([^{}]*))?\\}\\}";
+  var MARK_RE = new RegExp(MARK_SRC, "g");
+  var MARK_KINDS = { fx: 1, cle: 1, or: 1, envers: 1, encre: 1, tache: 1, gens: 1, dit: 1, examen: 1, chiffre: 1 };
   function plainOf(story, s, t) {
     return String(t).replace(MARK_RE, function (all, k, a, b) {
       if (k === "tache" || k === "dit") return "";
       if (k === "encre") return s && (s.items || []).indexOf(a) >= 0 ? (b || "") : "";
+      if (k === "chiffre") { var CZ = ((story && story.puzzles) || {})[a]; return CZ ? cipherOf(CZ) : ""; }
       if (k === "envers" || (k === "cle" && b == null)) return a;
       return b == null ? a : b;
     }).replace(/ {2,}/g, " ").replace(/ ([,.;:!?»])/g, function (m, c) { return c === "»" || c === ":" || c === ";" || c === "!" || c === "?" ? m : c; });
@@ -3671,6 +3749,32 @@
     if (T.text) ev(s, interp(s, T.text), "");
     apply(story, s, T.fx);
     return true;
+  }
+  // ------------------------------------------------------------------ looking closely (21.0)
+  // Intent: words of a page to look at with what one carries ({{examen:<id>|mot}}; story.examens: { <id>: { title, nu,
+  // fx, avec: { <item>: { text, fx } }, autre } }). A tap on the words offers « À l'œil nu » and each thing in the bag;
+  // each look tells its own text (avec[item], else autre, else a line of the engine), and gives its fx the first time.
+  // Why: Clément, 23/11 — « des textes à cliquer qui changent en fonction des objets ». The flags examen:<id> and
+  // examen:<id>:<item> (or :nu) let a page, a choice or a puzzle hint know what the reader has seen.
+  function lowItem(n) { return String(n).replace(/^(L['’]|Le |La |Les |Un |Une |Des |Ton |Ta |Tes )/, function (m) { return m.toLowerCase(); }); }
+  function examenOf(story, id) { var X = (story.examens || {})[id]; if (!X) throw new Error("examen inconnu : " + id); return X; }
+  // Intent: examineWith(Story, State) -> [{ item, label }] = the ways to look: the naked eye, then each thing carried once
+  function examineWith(story, s) {
+    var out = [{ item: null, label: "À l'œil nu" }], seen = {};
+    (s.items || []).forEach(function (it) { var I = (story.items || {})[it]; if (!I || seen[it]) return; seen[it] = 1; out.push({ item: it, label: "Avec " + lowItem(I.name) }); });
+    return out;
+  }
+  // Intent: examine(Story, State, ExamenId, ItemId | null) -> { text, first } | null (null: the hero lacks the item)
+  function examine(story, s, id, item) {
+    var X = examenOf(story, id), I = item ? (story.items || {})[item] : null;
+    if (item && (!I || (s.items || []).indexOf(item) < 0)) return null;
+    var A0 = item ? (X.avec || {})[item] : null, text = !item ? (X.nu || "Tu regardes de près. Rien de plus que ce que la page dit.") : A0 ? A0.text : X.autre ? X.autre : I.name + " ne t'apprend rien de plus ici.";
+    var key = id + ":" + (item || "nu"); s.examined = s.examined || {};
+    var first = !s.examined[key]; if (first) s.examined[key] = s.turn || 1;
+    s.flags["examen:" + id] = true; if (!item || A0) s.flags["examen:" + key] = true;
+    text = interp(s, text);
+    if (first) { ev(s, "🔍 " + (X.title ? interp(s, X.title) + ", " : "") + (item ? "avec " + lowItem(I.name) : "à l'œil nu") + " : " + text, A0 || !item ? "good" : ""); apply(story, s, item ? A0 && A0.fx : X.fx); }
+    return { text: text, first: first };
   }
   // The page follows the hero's state (Clément, 15/11, piste T5): troubled words tremble, a tired page blurs at the
   // edges, a wounded one darkens at its margins. A story may add its own (story.moods: [{ if, mood }]).
@@ -4590,6 +4694,7 @@
     battleDef: battleDef, heroForce: heroForce, tick: tick, reached: reached,
     weatherOf: weatherOf, weatherKind: weatherKind, weatherMod: weatherMod, roadTollOn: roadTollOn, seasonOf: seasonOf, woundsOpen: woundsOpen, woundDef: woundDef, woundDays: woundDays, FATIGUE_MAX: FATIGUE_MAX,
     traitOf: traitOf, traitWord: traitWord, practiceOf: practiceOf, TRAIT_MAX: TRAIT_MAX, DUEL_MOVES: DUEL_MOVES, puzzleRight: puzzleRight,
+    PUZZLE_KINDS: PUZZLE_KINDS, CLEF_SCHEMES: CLEF_SCHEMES, cipherOf: cipherOf, decipher: decipher, crypt: crypt, leverStart: leverStart, leverPress: leverPress, leverReach: leverReach, MARK_SRC: MARK_SRC, examine: examine, examineWith: examineWith, examenOf: examenOf,
     stateValue: stateValue, ROLE_FLAG: ROLE_FLAG, VOICE_FLAG: VOICE_FLAG, BALLOT_FLAG: BALLOT_FLAG, postHolder: postHolder,
     secretsOf: secretsOf, secretKnown: secretKnown, secretDef: secretDef, interludeOf: interludeOf, autreForm: autreForm,
     doubt: doubt, accountBy: accountBy, topicSolved: topicSolved, dreadOf: dreadOf, dreadMax: dreadMax, dreadWord: dreadWord, dreadTrouble: dreadTrouble, attachOf: attachOf, ATTACH_MAX: ATTACH_MAX,

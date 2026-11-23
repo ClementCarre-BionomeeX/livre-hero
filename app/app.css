@@ -733,6 +733,39 @@ ul.vote-res { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap
 .puzzle .piece { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px dashed var(--line); }
 .puzzle .piece-moves { display: flex; gap: 4px; flex-shrink: 0; }
 .puzzle .puzzle-input { width: 100%; max-width: 360px; padding: 8px; font-size: 1.05em; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); color: var(--ink); }
+
+/* 21.0: puzzles with a key, sequences, levers, grids; words to look at closely. */
+.puzzle .wheel-rows { display: flex; flex-direction: column; gap: 6px; width: 100%; }
+.puzzle .wheel-row { display: grid; grid-template-columns: minmax(6em, 1fr) auto minmax(6em, auto) auto; align-items: center; gap: 6px; }
+.puzzle .wheel-row .wheel-face { font-size: 1.05em; min-width: 6em; }
+.puzzle .wheel-label { font-weight: 600; }
+.puzzle .clef-disk { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.puzzle .clef-out { font-family: var(--mono, monospace); letter-spacing: .08em; padding: 8px 10px; border: 1px dashed var(--line); border-radius: 6px; background: var(--paper); width: 100%; box-sizing: border-box; white-space: pre-wrap; word-break: break-word; }
+.puzzle .clef-table { display: flex; flex-wrap: wrap; gap: 6px; }
+.puzzle .clef-cell { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.puzzle .clef-from { font-weight: 700; font-family: var(--mono, monospace); }
+.puzzle .clef-to { width: 2em; text-align: center; padding: 4px 0; font-size: 1.05em; text-transform: uppercase; border: 1px solid var(--line); border-radius: 4px; background: var(--paper); color: var(--ink); }
+.puzzle .suite-seq { display: flex; flex-wrap: wrap; gap: 4px; min-height: 2.2em; align-items: center; }
+.puzzle .suite-tile { padding: 4px 8px; border: 1px solid var(--line); border-radius: 5px; background: var(--paper); font-weight: 700; }
+.puzzle .suite-keys, .puzzle .suite-tools { display: flex; flex-wrap: wrap; gap: 6px; }
+.puzzle .suite-keys .btn { min-width: 2.6em; min-height: 2.4em; font-size: 1.15em; font-weight: 700; }
+.puzzle .levers { display: flex; flex-wrap: wrap; gap: 8px; }
+.puzzle .lever { display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 5.5em; padding: 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); color: var(--ink); cursor: pointer; font: inherit; }
+.puzzle .lever-knob { width: 10px; height: 28px; border-radius: 5px; background: var(--line); transform: rotate(-25deg); transition: transform .2s; }
+.puzzle .lever.on .lever-knob { transform: rotate(25deg); background: var(--accent, #b8860b); }
+.puzzle .lamps { display: flex; flex-wrap: wrap; gap: 10px; }
+.puzzle .lamp { display: inline-flex; align-items: center; gap: 5px; }
+.puzzle .lamp i { width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--line); background: var(--paper); }
+.puzzle .lamp.on i { background: #f2c14e; box-shadow: 0 0 8px rgba(242, 193, 78, .8); }
+.puzzle .grille { display: grid; gap: 3px; width: 100%; max-width: 420px; }
+.puzzle .grille-cell { aspect-ratio: 1; min-height: 2.2em; border: 1px solid var(--line); border-radius: 4px; background: var(--paper); color: var(--ink); font: inherit; font-weight: 700; cursor: pointer; padding: 0; }
+.puzzle .grille-cell.on { background: var(--ink); color: var(--paper); }
+.tx-examen { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; border-bottom: 1px dotted currentColor; text-decoration: none; }
+.tx-examen::after { content: " 🔍"; font-size: .7em; opacity: .55; }
+.tx-examen.vu::after { opacity: .3; }
+.tx-chiffre { font-family: var(--mono, monospace); letter-spacing: .08em; }
+.ex-pop .ex-ways { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0; }
+.ex-pop .ex-res:not(:empty) { border-top: 1px dashed var(--line); padding-top: 6px; }
 .trait-axis { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; }
 .trait-axis .axis { position: relative; flex: 1; height: 4px; border-radius: 2px; background: var(--line); }
 .trait-axis .axis i { position: absolute; top: -4px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--accent); }
