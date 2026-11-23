@@ -2780,6 +2780,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "25.4", items: ["Nouveau livre à lire : « Le Corricolo », d'Alexandre Dumas (1843) : l'hiver 1835 à Naples, rue par rue, en petite voiture au galop, avec ses lazzaroni, son roi Nasone, le miracle de saint Janvier, le Vésuve, Pompéi, puis la route de Rome."] },
     { v: "25.3", items: ["Nouveau livre à lire : « Le Capitaine Aréna », d'Alexandre Dumas (1842), la suite du « Speronare » : une maison de fous à Palerme, les volcans des îles Éoliennes, les histoires de sorcières et de bandits que racontent les matelots, puis la Calabre à dos de mulet, sur les pas du roi Murat, dans un pays qui tremble."] },
     { v: "25.2", items: ["Nouveau livre à lire : « Le Speronare », d'Alexandre Dumas (1842) : en 1835, refoulé de Naples, Dumas loue un petit bâtiment sicilien et fait le tour de la Sicile avec le peintre Jadin, son bouledogue et un équipage de conteurs. L'Etna, Syracuse, Palerme, des brigands, des tempêtes et l'histoire des Vêpres siciliennes."] },
     { v: "25.1", items: ["Nouveau livre à lire : « Impressions de voyage en Suisse », d'Alexandre Dumas (1833-1837) : en 1832, le jeune auteur, réchappé du choléra, part à pied par les cols et les glaciers ; Guillaume Tell, le mont Blanc, les ours de Berne, des guides, des aubergistes et des légendes. Les gens, les lieux et les mots s'ouvrent d'un toucher."] },
