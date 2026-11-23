@@ -1,0 +1,107 @@
+// « Le Cuir de Gras-Double » · the night at the camp (the hub), the ride to the angel at dawn, and the cellar.
+module.exports = {
+  A_bucher: { act: "I", title: "Le bûcher", place: "camp",
+    fx: { meet: "mama" },
+    text: [
+      "On brûle la moto de Gras-Double à dix heures du soir, au milieu du cercle des tentes, sur un bûcher de vieux pneus et de planches, arrosé d'essence et de beurre, comme il se doit. Les flammes montent droites dans la nuit sans vent. Trente motards en cuir noir les regardent en silence, casque sous le bras. Quelqu'un sale le feu, par habitude.",
+      "Mama Salée s'avance, grande, lente, sa cape de cuir traînant dans le sable. Elle tient sur ses avant-bras, comme on porte un enfant endormi, un cuir noir immense, à six écussons. « Le cuir du plus ancien revient au plus jeune, dit-elle. C'est la loi. Gras-Double était le plus ancien. » Elle se tourne vers toi. « Tu es le plus jeune. »",
+      "Elle te passe le cuir sur les épaules. Il te tombe aux genoux. Il pèse le poids d'un homme. Derrière toi, quelqu'un fait tourner un couteau entre ses doigts, de plus en plus vite : Lardon, l'autre aspirant, qui a six mois de plus que toi et un gilet sans écusson.",
+      "« Gras-Double a porté ce cuir trente ans, dit Mama Salée, et il a cousu le dernier écusson lui-même. Personne ne sait ce qu'ils disent. Il disait : *celui qui lira mon cuir boira*. » Elle se tait. Puis, plus bas, pour toi seul{e} : « Le puits donne de la vase. Lis vite. »",
+      { if: { voie: "chanteur" }, text: "Il y a, dans le *Chant du Demi-Sel*, un couplet qu'on ne chante plus, le cent huitième : *Le vieux part seul sous la lune ronde / et revient le ventre plein d'eau douce / il a bu à la cave du monde / et il ne dit rien, et il tousse.* Tu l'as toujours trouvé mauvais. Ce soir, tu le trouves exact." },
+    ],
+    choices: [{ label: "Rester au campement, le cuir sur le dos", to: "A_camp" }] },
+
+  // ------------------------------------------------------------------ the camp (the hub)
+  A_camp: { act: "I", title: "Le campement", place: "camp", hub: true, backName: "le campement",
+    text: [
+      { first: true, text: "Le bûcher retombe en braises. Les motards rentrent sous leurs tentes, un par un, et le campement s'endort dans l'odeur de beurre brûlé. Il reste toi, le cuir, les étoiles, et le grincement de la poulie du puits, que le vent fait tourner à vide." },
+      { again: true, text: "Le campement dort. Les braises du bûcher rougeoient. La poulie du puits grince au vent." },
+      "Tu peux regarder de près {{examen:cuir|le cuir}} que tu portes, {{examen:puits|le puits}}, ou {{examen:moto|la moto de Gras-Double}}, qui achève de brûler.",
+      { if: { has: "ecussons:lus" }, text: "L'ange, dans le désert, il n'y en a qu'un : la statue de l'Enjambeur, sur la vieille route, à deux heures de moto vers le nord-est." },
+    ],
+    choices: [
+      { label: "Déchiffrer les écussons", hide: { any: [{ not: { item: "ecussons" } }, { has: "ecussons:lus" }] }, to: "A_ecussons" },
+      { label: "Aller voir Mama Salée sous sa tente", once: true, to: "A_mama" },
+      { label: "Parler à Lardon", once: true, to: "A_lardon" },
+      { label: "Partir sur la vieille route avant l'aube", hide: { any: [{ not: { has: "ecussons:lus" } }, { not: { item: "carte" } }] }, to: "A_route" },
+      { label: "Dormir jusqu'au matin", to: "F_exode" },
+    ] },
+  A_ecussons: { act: "I", title: "Les six écussons", place: "camp", puzzle: "p_ecussons",
+    text: ["Tu t'assieds près des braises, le cuir étalé sur tes genoux, et tu suis du doigt les lettres d'argent."],
+    choices: [{ back: "A_camp" }] },
+  A_ecussons_lus: { act: "I", title: "Ce que dit le cuir", place: "camp",
+    text: [
+      "En reculant chaque lettre de six rangs, les écussons se lisent, de l'épaule gauche à la hanche droite :",
+      "*Trois carrés devant l'ange, du côté où il souffle, entre deux rochers. Creuse.*",
+      "Trente ans, il a porté ça sur le dos, devant tout le clan, brodé en lettres d'argent. Personne ne l'a lu. C'est la meilleure cachette du désert : un secret qu'on montre à tout le monde.",
+      { if: { not: { item: "carte" } }, text: "Des carrés : il faudrait une carte. Gras-Double n'en a jamais montré aucune. Il ne montrait rien. Il cousait." },
+    ],
+    choices: [{ back: "A_camp" }] },
+  A_mama: { act: "I", title: "Mama Salée", place: "camp",
+    fx: { clue: ["i_eau", "i_six"] },
+    text: [
+      "Mama Salée est assise sous sa tente, sur une selle posée par terre, et elle sale une tasse d'eau brune avant de la boire. Elle te fait signe d'entrer d'un mouvement de menton.",
+      "« Trois jours d'eau, dit-elle. Après, on lève le camp, et on roule jusqu'au prochain puits, qui est à six jours. On ne sera pas tous au prochain puits. » Elle boit. « Gras-Double, lui, partait seul, une fois par mois, et il revenait avec sa gourde pleine d'une eau qui ne sentait rien. Il disait qu'il la trouvait *chez l'ange*. On croyait qu'il parlait de prière. »",
+      "Elle pose la main sur l'écusson du bas, sur ton cuir, celui qui est cousu à l'envers. « Celui-là, il l'a cousu lui-même. Il disait qu'il l'avait mis la tête en bas pour qu'on sache qu'il fallait les compter. Il ne savait pas compter plus loin que ses écussons. Il le disait en riant. Il ne riait pas souvent. »",
+    ],
+    choices: [{ back: "A_camp" }] },
+  A_lardon: { act: "I", title: "Lardon", place: "camp",
+    fx: { meet: "lardon" },
+    text: [
+      "Lardon est assis sur sa moto, le couteau tournant entre ses doigts. Il ne te regarde pas : il regarde le cuir. « Il te va mal, dit-il. Il est trop grand pour toi. Il était trop grand pour tout le monde. »",
+      "Il fait tourner le couteau. « Je l'ai suivi, une fois, Gras-Double. Il y a un an. Il roulait vers le nord-est, sur la vieille route. Je l'ai perdu dans le vent de sable, près de la statue de l'ange. Le lendemain matin, il est rentré avec sa gourde pleine, et il m'a regardé comme on regarde un chien qui a suivi la mauvaise voiture. »",
+      "Il range son couteau d'un coup sec. « Si tu sais lire ce cuir, aspirant{e}, tu ferais bien de partir avant l'aube. Parce que moi, je sais où est l'ange. »",
+    ],
+    choices: [{ back: "A_camp" }] },
+
+  A_route: { act: "I", title: "La vieille route", place: "route", takes: "day",
+    text: [
+      "Tu pousses ta moto hors du cercle des tentes sans démarrer, pour ne réveiller personne, et tu ne lances le moteur qu'au bout de cent mètres. Le cuir de Gras-Double claque au vent derrière toi comme un drapeau.",
+      "La vieille route file vers le nord-est, droite, à moitié mangée par le sable, avec ses bornes kilométriques qui dépassent du désert comme des pierres tombales. La lune descend. À l'est, le ciel pâlit. Et du sud, sans prévenir, monte le vent de sable.",
+      { if: { voie: "eclaireur" }, text: "Tu le sens venir avant de le voir : l'air devient sec, électrique, et les petits cailloux se mettent à trembler sur l'asphalte. Tu as une minute pour décider comment le traverser." },
+    ],
+    choices: [
+      { label: "Rouler à travers le vent, les yeux sur les bornes", test: { dom: "nature", diff: 0, label: "Traverser le vent de sable" },
+        win: { to: "A_ange" }, lose: { to: "A_vent" } },
+    ] },
+  A_vent: { act: "I", title: "Le vent de sable", place: "route", takes: 1,
+    fx: { flag: "lardon:devant" },
+    text: [
+      "Le vent te prend de face. Le sable te gifle, t'aveugle, te remplit la bouche. Tu perds la route, tu la retrouves, tu la reperds. Tu t'arrêtes, couché{e} contre ta moto, le cuir sur la tête, et tu attends que le monde redevienne un endroit.",
+      "Quand le vent tombe, le soleil est levé. Sur le sable frais, à côté de la route, il y a des traces de pneus toutes neuves, qui vont vers le nord-est. Quelqu'un est passé pendant que tu attendais. Quelqu'un qui roule vite, et qui sait où est l'ange.",
+    ],
+    choices: [{ label: "Repartir vers le nord-est, plein gaz", to: "A_ange" }] },
+  A_ange: { act: "I", title: "L'ange", place: "ange",
+    text: [
+      "La statue de l'Enjambeur se dresse au bord de la vieille route, enfoncée dans le sable jusqu'aux genoux : un ange de pierre potelé, aux ailes écaillées, dont la dorure ne tient plus que dans les plis. Il souffle dans sa trompette vers le nord, vers rien, avec la conviction de quelqu'un qui annonce une très bonne nouvelle.",
+      "Autour de lui, le désert. Quelques rochers. Trois puits de pierre, comblés de sable depuis longtemps. Pas une tente, pas un arbre, pas une trace d'eau. Gras-Double venait boire ici.",
+      { if: { has: "lardon:devant" }, text: "La moto de Lardon est couchée au pied de la statue. Lardon creuse, à genoux, à mains nues, au pied d'un puits mort, en jurant. Il lève la tête en t'entendant arriver, et il ne s'arrête pas de creuser. Il n'a pas la carte. Il a l'ange." },
+    ],
+    choices: [
+      { label: "Déplier la carte et choisir où creuser", to: "A_carte" },
+    ] },
+  A_carte: { act: "I", title: "La carte cousue", place: "ange", puzzle: "p_carte",
+    text: ["Tu t'agenouilles dans le sable, le dos à la statue, la carte à plat devant toi, et tu poses sur ses coins quatre cailloux."],
+    choices: [{ back: "A_ange" }, { label: "Renoncer, et reprendre la route du campement", fx: { flag: "renonce" }, to: "F_exode" }] },
+  A_trous: { act: "I", title: "Trois trous", place: "ange",
+    text: [
+      "Trois trous, trois fois du sable. Le soleil est haut, maintenant, et il tape sur le cuir noir comme sur une enclume. Ta gourde est vide. Tu t'assieds au bord du dernier trou, les mains en sang.",
+      { if: { has: "lardon:devant" }, text: "Derrière toi, un cri. Lardon a cessé de creuser au pied du puits mort. Il s'est mis à creuser ailleurs, en suivant du regard la trompette de l'ange, puis il s'est arrêté entre deux rochers, et il a frappé quelque chose de dur. Une plaque de fer. Il te regarde. Il a les yeux brillants." },
+      { if: { not: { has: "lardon:devant" } }, text: "Derrière toi, un bruit de moteur. Lardon arrive, couvert de sable, et descend de moto sans un mot. Il regarde tes trois trous, la carte, l'ange. Il suit des yeux la trompette, compte à mi-voix, et va s'agenouiller entre deux rochers, à trois carrés devant la statue. Il creuse. Il frappe quelque chose de dur. Une plaque de fer." },
+    ],
+    choices: [{ label: "Aller voir ce qu'il a trouvé", to: "F_lardon" }] },
+  A_source: { act: "I", title: "La cave de l'ange", place: "ange",
+    text: [
+      "Tu creuses entre les deux rochers, à trois carrés devant la statue. À un mètre, ta main heurte du fer : une plaque rouillée, avec un anneau. Tu tires. Elle se soulève sur un escalier qui descend dans le noir, et monte vers toi une odeur que tu n'as pas sentie depuis l'enfance : de la fraîcheur.",
+      "Tu descends, le briquet à la main. C'est une cave, vaste, voûtée, sèche, ensevelie avec la boutique qu'elle servait : au mur, à demi effacé, *Hell's Butter™ · Maison Croûte & Chrome · Dépôt du désert*. Et partout, sur des étagères de fer, du sol à la voûte, en rangs de cent, des bouteilles de verre épais à bouchon d'or.",
+      "*Eau de Passage™. Eau de source d'exception, pour le motard qui a tout. 2 000 €.* Des milliers. La Maison les a stockées ici avant l'Effondrement, pour les vendre aux bikers milliardaires, et elle les a oubliées sous le sable quand la boutique a été ensevelie. Personne n'en a jamais acheté une seule. Elles sont toutes pleines.",
+      "Au fond, une chaise de camping, une couverture, un petit autel au beurre, et une étagère presque vide, celle que Gras-Double a bue, une bouteille par mois, pendant trente ans. Sur la chaise, un carton, écrit au crayon gras : *J'ai pas volé. Je bois ce qu'ils ont pas vendu.*",
+      { if: { has: "vu:bouteille" }, text: "La bouteille de la sacoche, sur le bûcher. Il en emportait une à chaque fois, et rapportait la gourde pleine, et cachait la bouteille vide sous sa selle. Jusqu'au bout." },
+      { if: { has: "lardon:devant" }, text: "En haut, au bord du trou, une ombre : Lardon, couvert de sable, qui regarde dans le noir sans oser descendre. « Qu'est-ce qu'il y a ? » demande-t-il. Il a la voix d'un enfant." },
+    ],
+    choices: [
+      { label: "Remonter une bouteille pour chaque motard du clan, et rentrer au campement", to: "F_partage" },
+      { label: "Refermer la plaque, et garder le secret comme Gras-Double", to: "F_secret" },
+      { label: "Rouler jusqu'à la boutique de la Maison, au kilomètre 66, pour leur parler de leur stock", to: "F_maison" },
+    ] },
+};
