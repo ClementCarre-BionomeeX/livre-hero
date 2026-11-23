@@ -1,0 +1,38 @@
+// « Le Chevalier d'Harmental », Alexandre Dumas, 1842 : un livre à lire, sans choix (lecture: true). Texte de
+// Dumas (avec Auguste Maquet), domaine public, d'après l'édition numérique du projet Gutenberg. Cette édition ne
+// titre pas ses chapitres ; les titres des pages, comme tout ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude.
+// Les mots et les noms de l'époque, expliqués d'un toucher. Rien de l'intrigue.
+module.exports = {
+  "Régence|régence": "Le gouvernement d'un prince à la place d'un roi trop jeune. De 1715 à 1723, pendant l'enfance de Louis XV, le régent est Philippe d'Orléans.",
+  "légitimés|princes légitimés": "Les fils que Louis XIV avait eus de madame de Montespan, et qu'il avait reconnus et faits princes : le duc du Maine et le comte de Toulouse.",
+  "lit de justice": "Une séance solennelle du Parlement où le roi en personne imposait sa volonté.",
+  "conseil de régence": "Le conseil qui gouvernait avec le régent pendant la minorité du roi.",
+  "Philippiques": "Les odes de Lagrange-Chancel contre le régent, qu'elles accusaient des pires crimes.",
+  "roué|roués": "Le nom que le régent donnait à ses compagnons de débauche : des gens, disait-il, bons à rouer.",
+  "domino|dominos": "Une longue robe à capuchon qu'on portait au bal masqué pour n'être pas reconnu.",
+  "épinette": "Un petit clavecin.",
+  "petite maison": "Une maison discrète, souvent hors de la ville, où un grand seigneur recevait ses maîtresses et ses amis.",
+  "grisette|grisettes": "Une jeune ouvrière de Paris, vêtue d'étoffe grise, coquette et peu farouche.",
+  "faux sauniers|faux saunier": "Des contrebandiers qui vendaient du sel sans payer la gabelle ; des gens prêts à tout.",
+  "mousquetaires gris|mousquetaires": "Les cavaliers de la maison du roi ; les gris montaient des chevaux gris, les noirs des chevaux noirs.",
+  "chevau-légers": "Une compagnie de cavalerie de la garde du roi.",
+  "gardes françaises": "Le régiment d'infanterie qui gardait le roi à Paris.",
+  "écuyer": "Un gentilhomme attaché à un prince, qui veille sur ses chevaux et l'accompagne à la guerre.",
+  "brevet": "Un acte royal qui accorde un grade, une pension ou une faveur.",
+  "grand d'Espagne": "Le plus haut rang de la noblesse espagnole, qui permet de rester couvert devant le roi.",
+  "louis": "Une pièce d'or valant vingt-quatre livres.",
+  "écu|écus": "Une pièce d'argent de trois ou de six livres.",
+  "lieue|lieues": "Une mesure de distance, d'environ quatre kilomètres.",
+  "Mouche-à-Miel": "L'ordre de fantaisie fondé par la duchesse du Maine à Sceaux : on y jurait fidélité à la reine des abeilles.",
+  "Denain": "La victoire de Villars sur les Impériaux en 1712, qui sauva la France à la fin du règne de Louis XIV.",
+  "Malplaquet": "Une bataille sanglante de 1709, perdue par les Français mais avec honneur.",
+  "Nerwinde": "Une victoire française de 1693 sur les Anglais et les Hollandais, en Flandre.",
+  "Almanza": "Une victoire franco-espagnole de 1707 qui assura le trône d'Espagne à Philippe V.",
+  "Philippe V": "Le petit-fils de Louis XIV, devenu roi d'Espagne en 1700, oncle du petit Louis XV.",
+  "quadruple alliance": "Le traité de 1718 entre la France, l'Angleterre, la Hollande et l'Empereur, contre l'Espagne d'Alberoni.",
+  "carlin": "Un petit chien au museau noir et écrasé.",
+  "clerc de procureur|procureur": "Un procureur menait les procès pour ses clients ; son clerc copiait les actes et courait les greffes.",
+  "Morgue": "Le lieu où l'on exposait les morts inconnus, pour qu'on vienne les reconnaître.",
+  "Filles-Repenties": "Un couvent où se retiraient les femmes qui voulaient quitter une vie galante.",
+  "flamberge": "Une épée, dans le langage des bretteurs : « flamberge au vent », c'est l'épée hors du fourreau.",
+};
