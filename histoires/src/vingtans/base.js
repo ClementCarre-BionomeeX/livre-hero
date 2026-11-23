@@ -2,7 +2,7 @@
 // (avec Auguste Maquet), domaine public, d'après l'édition numérique du projet Gutenberg. Les titres des chapitres sont
 // de Dumas ; ceux des pages, comme tout ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude.
 module.exports = {
-  id: "vingt",
+  id: "vingtans",
   title: "Vingt ans après",
   subtitle: "Un roman à lire · Alexandre Dumas, 1845",
   summary: "1648. Richelieu est mort, Louis XIII aussi ; la reine Anne d'Autriche gouverne avec le cardinal Mazarin, que Paris déteste. D'Artagnan a quarante ans et n'est toujours que lieutenant aux mousquetaires. Mazarin a besoin d'hommes sûrs : il le charge de retrouver Athos, Porthos et Aramis. Les quatre amis se retrouvent, mais pas tous du même côté, entre la Fronde qui gronde à Paris et la guerre civile qui emporte l'Angleterre.",
