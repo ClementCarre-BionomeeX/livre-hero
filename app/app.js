@@ -2780,6 +2780,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "25.0", items: ["Nouveau livre à lire : « Lancelot du Lac », le grand roman de chevalerie du XIIIe siècle mis en nouveau langage par Paulin Paris : le fils du roi Ban, emporté par une fée au fond d'un lac, grandit sans savoir son nom, puis arrive à la cour du roi Artus."] },
     { v: "24.9", items: ["Nouveau livre à lire : « Le Roman de Tristan et Iseut », renouvelé par Joseph Bédier (1900) d'après les poèmes du XIIe siècle : Tristan, neveu du roi Marc de Cornouailles, va chercher en Irlande la fiancée de son oncle, Iseut la Blonde."] },
     { v: "24.8", items: ["Nouveau livre à lire : « Les Mille et Une Nuits », dans la traduction d'Antoine Galland (1704-1717), en contes choisis : Scheherazade raconte chaque nuit au sultan qui veut la faire mourir le pêcheur et le génie, les trois Calenders, les sept voyages de Sindbad, Aladdin et Ali Baba."] },
     { v: "24.7", items: ["Nouveau livre à lire : « La Fille du géant du gel », de Robert E. Howard (écrit en 1932), en traduction nouvelle : seul debout sur un champ de bataille du Nord glacé, le jeune Conan voit une femme aux cheveux d'or rire de lui sur la neige."] },
