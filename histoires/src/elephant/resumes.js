@@ -1,0 +1,10 @@
+// « La Tour de l'éléphant » (The Tower of the Elephant), Robert E. Howard, 1933 : un livre à lire, sans choix (lecture: true).
+// Texte : traduction nouvelle par Claude, faite pour cette bibliothèque à partir du texte anglais paru dans Weird Tales
+// en mars 1933 (Project Gutenberg of Australia, domaine public). Les chapitres de Howard sont seulement numérotés ; leurs
+// titres, ceux des pages et tout ce qui vit dans les tags (gens, lieux, mots, résumés) sont de Claude.
+// Ce qui se passe dans chaque chapitre, en quelques lignes (Claude), montré par « Où en étais-je ? » une fois le chapitre lu.
+module.exports = {
+  C1: { text: "Au Maul, le quartier des voleurs de Zamora, un ravisseur venu de Koth se vante de vendre une jeune Brythunienne à un comte d'Ophir. Il parle de la tour de l'Éléphant, où le prêtre Yara garde le joyau qui fait sa magie. Un jeune Cimmérien demande pourquoi personne ne l'a volé ; on se moque de lui, le Kothien le pousse et tire l'épée. La chandelle tombe, et dans le noir le Cimmérien tue son homme." },
+  C2: { text: "Conan escalade le mur du jardin de la tour et trouve un garde étranglé. Le meurtrier est Taurus de Némédie, le prince des voleurs, venu pour le même joyau ; ils s'associent. Taurus tue les lions du jardin avec une poudre de lotus noir, Conan tue le dernier, et ils montent par une corde jusqu'au sommet de la tour. Dans une salle pleine de joyaux, une araignée géante les attend. Conan descend ensuite l'escalier d'argent vers une porte d'ivoire." },
+  C3: { text: "Derrière la porte d'ivoire, Conan trouve un être à tête d'éléphant, aveugle et torturé : Yag-kosha, venu jadis d'une autre planète, que Yara a asservi par la ruse et forcé à servir sa magie pendant trois cents ans. Il demande à Conan de lui arracher le cœur, d'en verser le sang sur le joyau et de porter le joyau à Yara. Conan obéit. Yara rapetisse jusqu'à disparaître dans la gemme, où Yag-kosha, rendu à ses ailes, le poursuit. Conan sort à l'aube, et la tour s'écroule derrière lui.", notice: true },
+};
