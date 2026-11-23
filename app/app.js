@@ -2780,6 +2780,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "23.0", items: ["Nouveau livre à lire : « Le Chevalier d'Harmental », d'Alexandre Dumas (1842), un roman de Paris en 1718 : un jeune colonel en disgrâce se jette dans une conspiration contre le régent, tandis qu'une jeune fille, de l'autre côté de la rue du Temps-Perdu, occupe ses pensées."] },
     { v: "22.9", items: ["Nouveau livre à lire : « Les Compagnons de Jéhu », d'Alexandre Dumas (1857), un roman de 1799 et 1800 : des gentilshommes masqués arrêtent les diligences pour la cause du roi, une chartreuse abandonnée passe pour hantée, et l'aide de camp de Bonaparte, qui semble chercher la mort, se lance à leur poursuite."] },
     { v: "22.8", items: ["Nouveau livre à lire : « Le Collier de la Reine », d'Alexandre Dumas (1849-1850), une intrigue de cour en 1784 : un collier de diamants trop cher pour la reine, un cardinal amoureux, un magicien qui lit l'avenir et une aventurière qui descend des Valois.", "La couverture de « La Reine Margot » montre maintenant une fleur : son motif de couronne n'existait pas et retombait sur l'étoile par défaut."] },
     { v: "22.7", items: ["Nouveau livre à lire : « Le Chevalier de Maison-Rouge », d'Alexandre Dumas (1845-1846), un roman de la Terreur : Paris en 1793, un jeune républicain, une femme mystérieuse et un complot pour sauver la reine prisonnière."] },
