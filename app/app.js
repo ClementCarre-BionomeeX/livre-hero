@@ -2780,6 +2780,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "25.1", items: ["Nouveau livre à lire : « Impressions de voyage en Suisse », d'Alexandre Dumas (1833-1837) : en 1832, le jeune auteur, réchappé du choléra, part à pied par les cols et les glaciers ; Guillaume Tell, le mont Blanc, les ours de Berne, des guides, des aubergistes et des légendes. Les gens, les lieux et les mots s'ouvrent d'un toucher."] },
     { v: "25.0", items: ["Nouveau livre à lire : « Lancelot du Lac », le grand roman de chevalerie du XIIIe siècle mis en nouveau langage par Paulin Paris : le fils du roi Ban, emporté par une fée au fond d'un lac, grandit sans savoir son nom, puis arrive à la cour du roi Artus."] },
     { v: "24.9", items: ["Nouveau livre à lire : « Le Roman de Tristan et Iseut », renouvelé par Joseph Bédier (1900) d'après les poèmes du XIIe siècle : Tristan, neveu du roi Marc de Cornouailles, va chercher en Irlande la fiancée de son oncle, Iseut la Blonde."] },
     { v: "24.8", items: ["Nouveau livre à lire : « Les Mille et Une Nuits », dans la traduction d'Antoine Galland (1704-1717), en contes choisis : Scheherazade raconte chaque nuit au sultan qui veut la faire mourir le pêcheur et le génie, les trois Calenders, les sept voyages de Sindbad, Aladdin et Ali Baba."] },

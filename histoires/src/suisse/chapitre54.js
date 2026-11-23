@@ -1,0 +1,75 @@
+// « Impressions de voyage en Suisse », d'Alexandre Dumas (1833-1837) : un livre à lire, sans choix (lecture: true).
+// Domaine public, d'après l'édition numérique d'Ebooks libres et gratuits ; les notes des éditeurs sont retirées, deux
+// chapitres remis dans l'ordre du voyage, deux mots retouchés (voir la notice). Les titres des chapitres sont de Dumas ;
+// ceux des pages, comme tout ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude.
+// Chapitre LIII · Pourquoi je n'ai pas continué le dessin
+module.exports = {
+  LIII_1: { act: "LIII", title: "Le récit écrit dans la nuit", place: "pfafers",
+    text: [
+      "Je passai une partie de la nuit à écrire le récit de mon jeune compatriote, et j'y mis cette promptitude surtout afin de lui conserver, autant que possible, la couleur terrible et simple qu'il avait prise en passant par sa bouche ; malheureusement, ce qui augmente surtout l'intérêt, dans pareille relation, c'est qu'elle soit faite par celui-là même qui en est le héros. Cette lutte du courage intelligent et de la destruction aveugle, ce combat de l'homme et de la nature grandit démesurément le vaincu, et Ajax se cramponnant à son rocher et criant à la tempête : « J'échapperai malgré les dieux » est plus magnifique qu'Achille traînant sept fois Hector autour des murailles de Troie.",
+      "Le lendemain, je ne voulus point partir sans avoir déjeuné avec le major Buchwalder, dont la plus grande douleur était l'inactivité à laquelle le condamnait sa blessure ; cependant, il avait grand espoir d'être rendu, pour le printemps de 1833, à ses travaux, car il commençait à pouvoir s'appuyer sur sa jambe, dans laquelle la sensibilité revenait chaque jour davantage ; il m'en voulut donner une preuve en me conduisant jusqu'à la porte des bains ; mais, arrivés là, nous étions au bord du cercle de Popilius, défense expresse lui était faite par la faculté de le franchir, et, rappelé à son propre malheur par la grande faculté de locomotion que Dieu a accordée à mes jambes, il prit mélancoliquement congé de moi par le souhait antique : *I pede fausto.*",
+      "Après avoir fait quelques pas, nous nous arrêtâmes pour jeter un dernier regard sur le rocher à pic qui domine, de la hauteur de mille pieds à peu près, le cours de la Tamina. Ce rocher, coupé comme une scie, semble le fragment d'un rempart gigantesque au sommet duquel, comme une guérite de factionnaire, s'élève une petite cabane dont les deux tiers posent sur le sol, et dont l'autre tiers est suspendu sur le précipice ; dans cette dernière partie, une trappe a été pratiquée, et, pendant que nous cherchions dans quel but pouvait avoir été établie cette trappe qui, vu la distance, nous apparaissait à peine comme un point noir, elle donna passage à un objet qui nous parut d'abord gros comme un manche à balai, et qui, se détachant des régions supérieures et tombant dans le lit de la rivière, se trouva être, lorsqu'il fut arrivé à sa destination, un sapin de la plus grande taille dépouillé de ses branches et tout préparé pour une construction quelconque. L'arbre tomba debout au milieu du cours de la Tamina, oscilla quelque temps, puis, prenant son parti, se coucha dans la rivière comme dans un lit. Aussitôt les eaux bouillonneuses le soulevèrent ainsi qu'une plume et l'emportèrent avec elles, rapide comme une flèche. Plusieurs sapins suivirent immédiatement le premier et s'éloignèrent incontinent par la même route. Nous comprîmes alors que les paysans, pour s'épargner la peine du transport jusqu'à Ragaz, chargeaient la Tamina de cet office dont, comme on le voit, grâce à sa rapidité même, elle s'acquittait en conscience.",
+      "Comme ce spectacle, qui nous avait étonnés d'abord, ne nous offrait pas une grande variété de détails, nous nous engageâmes bientôt dans une route opposée à celle que nous avions prise pour venir, et qui, au lieu de nous mener à la plaine par une pente douce, nous y conduisit par un escalier rapide et taillé dans le roc. Nous suivîmes ses zigzags pendant une demi-heure, à peu près, puis nous nous trouvâmes enfin au niveau de la petite cabane aux sapins.",
+      "En revenant à Malans, nous passâmes près du château de Wartenstein, qui appartient, nous dit-on, au couvent de Pfäfers. Nous traversâmes une petite montagne qui se nomme, je crois, Bruder, puis nous arrivâmes au Zollbrück, et enfin à Malans, où je ne trouvai rien de remarquable, si ce n'est une pluie comme jamais je n'en avais vu.",
+      "Cela ne m'empêcha pas de trouver un homme et une voiture. Je m'inquiétai d'abord en voyant qu'elle ne pouvait contenir que deux personnes ; mais le conducteur me tira d'embarras en me disant qu'il conduirait sur le brancard. Je lui demandai combien il évaluait le rhume qu'il devait infailliblement attraper ; il fit son prix à cinq francs ; je le payai d'avance, tant j'étais sûr qu'il ne pouvait manquer de gagner son argent."
+    ] },
+
+  LIII_2: { act: "LIII", title: "La choucroute", place: "pfafers",
+    text: [
+      "Je ne m'étais pas trompé : nous eûmes un si pitoyable temps que je n'eus pas le courage d'aller visiter, en passant à Mayenfeld, la grotte de Fläsch, remarquable cependant par ses stalactites. À Saint-Luzisteig, nous vîmes en passant la forteresse destinée à mettre de ce côté la Suisse à l'abri d'un coup de main de la part de l'Autriche, qui, à cette époque, avait manifesté quelques velléités hostiles envers la république. Six pièces de canon avaient été établies là provisoirement, et, à tout hasard, tournaient leurs gueules du côté de l'empire. Il est vrai qu'elles se gardaient toutes seules, ce qui leur ôtait un peu l'air formidable qu'elles s'efforçaient de prendre.",
+      "Dix minutes après, nous entrâmes dans la principauté de Liechtenstein.",
+      "Quelque envie que j'eusse de gagner le plus promptement possible le lac de Constance, force me fut de m'arrêter à Vaduz : depuis notre départ, il pleuvait à verse, et le cheval et le conducteur refusèrent obstinément de faire un pas de plus, sous prétexte, la bête, qu'elle entrait dans la boue jusqu'au ventre, et l'homme, qu'il était mouillé jusqu'aux os. Il y aurait vraiment eu, au reste, de la cruauté à insister.",
+      "Il ne fallut pas moins, je l'avoue, que cette considération philanthropique pour me déterminer à entrer dans la misérable auberge dont le bouchon avait arrêté net mon équipage ; ce n'était plus un de ces jolis chalets suisses qui n'ont contre eux que d'avoir été parodiés si souvent et si malheureusement dans nos jardins anglais. Depuis Saint-Luzisteig, nous avions quitté la république helvétique, et nous étions entrés dans la petite principauté de Liechtenstein qui, toute libre qu'elle se vante d'être, me parut cependant relever de l'empire par la malpropreté de ses habitants. À peine avais-je mis le pied dans l'allée étroite qui conduisait à la cuisine, laquelle était en même temps la salle commune aux voyageurs, que je fus aigrement pris à la gorge par une odeur de choucroute qui venait m'annoncer d'avance, comme les cartes mises à la porte de certains restaurants, le menu de mon dîner. Or, je dirai de la choucroute ce que certain abbé disait des limandes, que, s'il n'y avait sur la terre que la choucroute et moi, le monde finirait bientôt.",
+      "Je commençai donc à passer en revue tout mon répertoire tudesque, et à l'appliquer à la carte d'une auberge de village. La précaution n'était point inutile, car, à peine fus-je assis à table, dont deux voituriers, premiers occupants, voulurent bien me céder un bout, qu'on m'apporta une pleine assiette creuse du mets en question ; heureusement, j'étais préparé à cette infâme plaisanterie, et, de même que madame Geoffrin repoussa Gibbon, je repoussai le plat qui fumait comme un Vésuve avec un *nicht gut* si franchement prononcé qu'on dut me prendre pour un Saxon de pure race ; or, les Saxons, pour la pureté du langage, sont à l'Allemagne ce que les Tourangeaux sont à la France.",
+      "Un Allemand croit toujours avoir mal entendu lorsqu'on lui dit qu'on n'aime pas la choucroute ; et, lorsque c'est dans sa propre langue que l'on méprise ce mets national, on comprendra que son étonnement, pour me servir d'une expression familière à sa langue, se dresse en montagne.",
+      "Il y eut donc un instant de silence, de stupéfaction, pareil à celui qui aurait suivi un abominable blasphème, et pendant lequel l'hôtesse me parut occupée laborieusement à remettre sur pied ses idées bouleversées ; le résultat de ses réflexions fut une phrase prononcée d'une voix si altérée que les paroles en restèrent parfaitement inintelligibles pour moi, mais à laquelle la physionomie qui accompagnait ces paroles prêtait évidemment ce sens : « Mais, mon Dieu Seigneur, si vous n'aimez pas la choucroute, qu'est-ce que vous aimez donc ? »",
+      "— *Alles dies, ausgenommen*, répondis-je.",
+      "Ce qui veut dire, pour ceux qui ne sont pas de ma force en philologie : « Tout, excepté cela. »",
+      "Il paraît que le dégoût avait produit sur moi le même effet que l'indignation sur Juvénal : seulement, au lieu de m'inspirer le vers, il m'avait donné l'accent ; je m'en aperçus à la manière soumise avec laquelle l'hôtesse enleva la malheureuse choucroute. Je restai donc dans l'attente du second service, m'amusant, pour tuer le temps, à faire des boulettes à l'aide de mon pain et à déguster avec des grimaces de singe une espèce de piquette qui, parce qu'elle avait un abominable goût de pierre à fusil et qu'elle demeurait dans une bouteille à long goulot, avait la fatuité de se présenter comme du vin du Rhin."
+    ] },
+
+  LIII_3: { act: "LIII", title: "Le chou dessiné", place: "feldkirch",
+    text: [
+      "— Eh bien ? lui dis-je.",
+      "— Eh bien ? fit-elle.",
+      "— Ce souper ?",
+      "— Ah ! oui.",
+      "Et elle me rapporta la choucroute.",
+      "Je pensai que, si je n'en faisais pas justice, elle me poursuivrait jusqu'au jour du jugement dernier. J'appelai donc un chien de la race de ceux du Saint-Bernard qui, assis sur son derrière et les yeux fermés, se rôtissait obstinément le museau et les pattes devant un foyer à faire cuire un bœuf. À la première idée qu'il eut de mes bonnes intentions pour lui, il quitta la cheminée, vint à moi et, en trois coups de langue, lapa le comestible qui faisait contestation.",
+      "— Bien, la bête, fis-je en le caressant lorsqu'il eut fini.",
+      "Et je rendis l'assiette vide à l'hôtesse.",
+      "— Et vous ? me dit-elle.",
+      "— Moi, je mangerai autre chose.",
+      "— Mais je n'ai pas autre chose, répondit-elle.",
+      "— Comment ! m'écriai-je du fond de l'estomac, vous n'avez pas des œufs ?",
+      "— Non.",
+      "— Des côtelettes ?",
+      "— Non.",
+      "— Des pommes de terre.",
+      "— Non.",
+      "— Des…",
+      "Une idée lumineuse me traversa l'esprit : je me rappelai qu'on m'avait recommandé de ne point passer dans la principauté de Liechtenstein sans manger de ses champignons, qui sont renommés à vingt lieues à la ronde ; seulement, lorsque je voulus mettre à profit ce bienheureux souvenir, il n'y eut qu'une difficulté, c'est que je ne me rappelai pas plus en allemand qu'en italien le nom que j'avais si grand besoin de prononcer si je ne voulais pas aller me coucher à jeun ; je restai donc la bouche ouverte sur le pronom indéfini.",
+      "— Des… des… Comment diable appelez-vous en allemand des… ?",
+      "— Des… ? répéta machinalement l'hôtesse.",
+      "— Eh ! pardieu ! oui, des…",
+      "En ce moment, mes yeux tombèrent machinalement sur mon album.",
+      "— Attendez, dis-je, attendez.",
+      "Je pris alors mon crayon, et, sur une belle feuille blanche, je dessinai, avec tout le soin dont j'étais capable, le précieux végétal qui formait pour le moment le but de mes désirs ; aussi je puis dire que mon dessin approchait de la ressemblance autant qu'il est permis à l'œuvre de l'homme de reproduire l'œuvre de Dieu. Pendant ce temps, l'hôtesse me suivait des yeux avec une curiosité intelligente qui me paraissait du meilleur augure.",
+      "— *Ah ja, ja, ja,* dit-elle au moment où je donnais le dernier coup de crayon au dessin.",
+      "Elle avait compris, l'honnête femme !…",
+      "— Si bien compris que, cinq minutes après, elle rentra avec un parapluie tout ouvert.",
+      "— Voilà, dit-elle.",
+      "Je jetai les yeux sur mon malheureux dessin, la ressemblance était parfaite.",
+      "— Allons, dis-je, vaincu comme Turnus, *adverso Marte,* rendez-moi la choucroute.",
+      "— La choucroute ?",
+      "— Oui.",
+      "— Il n'y en a plus, de choucroute ! Dragon a mangé le reste.",
+      "Je trempai mon pain dans mon vin, et j'allai me coucher.",
+      "Avant de m'endormir, je jetai les yeux sur ma carte géographique ; elle me donna une singulière idée. Je recommandai à mon guide de me réveiller à trois heures du matin afin d'avoir le temps de la mettre à exécution. Nous partîmes donc avant le jour, et le soleil ne nous attrapa qu'en Autriche.",
+      "Je m'arrêtai un instant sur le pont de Feldkirch, afin de plonger ma vue dans le Tyrol, dont les montagnes bleuâtres s'ouvrent pour laisser passer l'Ill, rivière tortueuse qui prend sa source dans la vallée de Paznaun et va se jeter dans le Rhin entre Oberriet et Rüthi ; puis je continuai ma course, conservant le Rhin à ma gauche, et voyant naître et s'enrichir sur sa rive occidentale ses magnifiques coteaux couverts de vignes dont le vin pétille dans des bouteilles de forme bizarre et se verse dans des verres bleus qu'on appelle *Rœmer,* parce qu'ils ont conservé la forme de la coupe dans laquelle buvait l'empereur romain, le jour de son élection. Depuis Defis, le sol allait s'aplanissant : les montagnes s'ouvraient à droite et à gauche, comme pour un pont ; on n'apercevait point encore le lac de Constance, mais on le devinait en voyant se dérouler cette vaste vallée qui mourait sur un horizon de plaines. À Lauterach seulement, nous commençâmes à apercevoir cette magnifique nappe d'eau qui semble une partie du ciel encadrée dans la terre pour servir de miroir à Dieu. Enfin, nous touchâmes ses rives à Bregenz, où je déjeunai.",
+      "Malgré le souper de perroquet que j'avais fait la veille, j'expédiai mon repas aussi militairement qu'il me fut possible. Puis aussitôt, laissant là mon homme et sa voiture, je dis adieu à l'Autriche, et me jetai dans un bateau qui me conduisit à la petite île de Lindau en Bavière. J'y touchai par conscience, je grimpai sur le premier monticule venu, du sommet duquel je découvris, comme Robinson, mon île tout entière ; puis, me remettant aussitôt en route, j'allai, à force de rames, aborder au bout d'une heure à cette langue de terre wurtembergeoise qui vient, s'amincissant entre deux rivières, lécher l'eau du lac ; enfin, prenant une voiture à Oberndorf, je ne m'arrêtai que pour souper à Mœsburg, dans le grand-duché de Bade.",
+      "J'étais parti le matin d'une principauté libre, j'avais longé une république, écorné un empire, déjeuné dans un royaume, et enfin, j'étais venu me coucher dans un grand-duché, tout cela en dix-huit heures.",
+      "Le lendemain, j'arrivai à Constance."
+    ] },
+
+};
