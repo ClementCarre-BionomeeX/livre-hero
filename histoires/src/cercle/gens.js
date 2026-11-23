@@ -1,0 +1,17 @@
+// « Le Peuple du Cercle noir » (The People of the Black Circle), Robert E. Howard, 1934 : un livre à lire, sans choix
+// (lecture: true). Texte : traduction nouvelle par Claude, faite pour cette bibliothèque à partir du texte anglais paru
+// dans Weird Tales de septembre à novembre 1934 (Project Gutenberg n° 42259, domaine public). Les titres des chapitres
+// sont ceux de Howard ; ceux des pages et tout ce qui vit dans les tags (gens, lieux, mots, résumés) sont de Claude.
+// Les gens du livre (syntaxe de « Qui est qui » : aka, qui, aspect, face). Cliquables à partir de leur entrée en scène.
+module.exports = {
+  conan: { name: "Conan le Cimmérien", aka: ["Conan", "Cimmérien"], face: { age: "jeune", hair: "noir", coif: "court", beard: "sans", iris: "bleu", skin: "hale" }, qui: "Un barbare de l'Ouest devenu chef des Afghulis, une tribu des collines.", aspect: { allure: "immense, vêtu en montagnard", visage: "traits sombres, yeux bleus flamboyants", signe: "long couteau, ceinture bakhariote" } },
+  yasmina: { name: "La Devi Yasmina", aka: ["Yasmina", "Devi"], f: true, face: { age: "jeune", hair: "noir", coif: "long", skin: "brun" }, qui: "La sœur du roi de Vendhya.", aspect: { allure: "souple, fière, impérieuse", visage: "grands yeux sombres" } },
+  bhunda: { name: "Bhunda Chand", aka: ["Bhunda Chand"], face: { age: "jeune", hair: "noir", coif: "long", skin: "brun" }, qui: "Le jeune roi de Vendhya.", aspect: { allure: "jeune roi, sur un lit de velours", visage: "longs cheveux noirs" } },
+  wazam: { name: "Le wazam", aka: ["wazam"], face: { age: "ancien", skin: "brun" }, qui: "Un noble qui a vieilli à la cour du roi de Vendhya.", aspect: { allure: "vieux courtisan" } },
+  kerim: { name: "Kerim Shah", aka: ["Kerim Shah"], face: { age: "adulte", hair: "noir", coif: "court", skin: "hale" }, qui: "Un noble qui se dit prince d'Iranistan, et qui sert en secret le roi Yezdigerd du Touran.", aspect: { allure: "grand, solidement bâti, richement vêtu", signe: "arc touranien" } },
+  khemsa: { name: "Khemsa", aka: ["Khemsa"], face: { age: "adulte", hair: "noir", coif: "court", skin: "brun" }, qui: "Un homme au turban vert, au service des Prophètes noirs de Yimsha.", aspect: { allure: "calme, assis en tailleur", visage: "regard impersonnel", signe: "robe de poil de chameau, turban vert" } },
+  chunder: { name: "Chunder Shan", aka: ["Chunder Shan"], face: { age: "adulte", skin: "brun" }, qui: "Le gouverneur de Peshkhauri, ville frontière de Vendhya.", aspect: { allure: "prudent, pèse chacune de ses paroles" } },
+  gitara: { name: "Gitara", aka: ["Gitara"], f: true, face: { age: "jeune", hair: "noir", coif: "boucles", skin: "brun" }, qui: "La suivante de la Devi Yasmina.", aspect: { allure: "mince et brune", visage: "beau visage, yeux comme des joyaux noirs" } },
+  yarafzal: { name: "Yar Afzal", aka: ["Yar Afzal"], face: { age: "adulte", hair: "noir", coif: "court", beard: "barbe", skin: "hale" }, qui: "Le chef des Wazulis de Khurum, un ami de Conan.", aspect: { allure: "aussi grand que Conan, plus gros", visage: "barbe teinte de rouge", signe: "tulwar" } },
+  maitre: { name: "Le Maître de Yimsha", aka: ["Maître"], face: { age: "adulte", hair: "noir", coif: "court", beard: "sans" }, qui: "Celui qui commande aux Voyants noirs de Yimsha.", aspect: { allure: "longue robe de velours noir brodée d'or", visage: "calme, yeux luisants un peu obliques", signe: "calotte de velours" } },
+};

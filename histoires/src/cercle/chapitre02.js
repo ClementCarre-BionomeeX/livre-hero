@@ -1,0 +1,103 @@
+// « Le Peuple du Cercle noir » (The People of the Black Circle), Robert E. Howard, 1934 : un livre à lire, sans choix
+// (lecture: true). Texte : traduction nouvelle par Claude, faite pour cette bibliothèque à partir du texte anglais paru
+// dans Weird Tales de septembre à novembre 1934 (Project Gutenberg n° 42259, domaine public). Les titres des chapitres
+// sont ceux de Howard ; ceux des pages et tout ce qui vit dans les tags (gens, lieux, mots, résumés) sont de Claude.
+// Chapitre C2 · Chapitre 2 · Un barbare des collines
+module.exports = {
+  C2_1: { act: "C2", title: "Le gouverneur de Peshkhauri", place: "fort", fx: { meet: ["chunder", "gitara"] },
+    text: [
+      "Chunder Shan, gouverneur de Peshkhauri, posa sa plume d'or et relut avec soin ce qu'il avait écrit sur le parchemin qui portait son sceau officiel. S'il gouvernait Peshkhauri depuis si longtemps, c'est qu'il pesait chacune de ses paroles, dite ou écrite. Le danger engendre la prudence, et seul un homme méfiant vit longtemps dans ce pays sauvage où les plaines brûlantes de Vendhya rencontrent les escarpements des Himéliens. À une heure de cheval vers l'ouest ou vers le nord, on passait la frontière et l'on se trouvait dans les Collines, où les hommes vivaient selon la loi du couteau.",
+      "Le gouverneur était seul dans sa chambre, assis à sa table d'ébène marqueté, richement sculptée. Par la large fenêtre, ouverte pour la fraîcheur, il voyait un carré de la nuit bleue des Himéliens, semé de grandes étoiles blanches. Un parapet voisin était une ligne d'ombre, et l'on devinait à peine, plus loin, sous la faible lumière des étoiles, des créneaux et des embrasures. La forteresse du gouverneur était solide, et bâtie hors des murs de la ville qu'elle gardait. La brise qui agitait les tapisseries du mur apportait les faibles bruits des rues de Peshkhauri : de temps à autre des bribes de chants plaintifs, ou le pincement d'une cithare.",
+      "Le gouverneur relisait ce qu'il avait écrit, lentement, la main ouverte devant les yeux pour les protéger de la lampe de bronze à beurre, en remuant les lèvres. Distraitement, tout en lisant, il entendit le martèlement de sabots de chevaux devant la barbacane, et le qui-vive sec des gardes. Il n'y prit pas garde, tout à sa lettre. Elle était adressée au *wazam* de Vendhya, à la cour royale d'Ayodhya, et disait, après les salutations d'usage :",
+      "« Que Votre Excellence sache que j'ai fidèlement exécuté ses instructions. Les sept hommes des tribus sont bien gardés dans leur prison, et j'ai fait savoir à plusieurs reprises dans les collines que leur chef vienne en personne négocier leur libération. Mais il n'a pas bougé, sinon pour me faire dire que, s'ils ne sont pas libérés, il brûlera Peshkhauri et couvrira sa selle de ma peau, que Votre Excellence me pardonne. Il est tout à fait capable de le tenter, et j'ai triplé le nombre des lanciers de garde. L'homme n'est pas originaire du Ghulistan. Je ne peux prédire avec certitude ce qu'il fera. Mais puisque c'est le désir de la Devi… »",
+      "En un seul instant, il fut hors de son fauteuil d'ivoire, debout, face à la porte voûtée. Il voulut saisir l'épée courbe posée sur la table dans son fourreau orné, puis arrêta son geste.",
+      "C'était une femme qui était entrée sans être annoncée, une femme dont les voiles légers ne cachaient pas plus les riches vêtements qu'elle portait dessous que la souplesse et la beauté de sa haute et mince silhouette. Un voile vaporeux lui tombait jusque sous la poitrine, retenu par une coiffe flottante qu'entourait une triple tresse d'or et qu'ornait un croissant d'or. Ses yeux sombres regardèrent par-dessus le voile le gouverneur stupéfait ; puis, d'un geste impérieux de sa main blanche, elle se découvrit le visage.",
+      "« Devi ! »",
+      "Le gouverneur tomba à genoux devant elle, la surprise et le trouble gâtant quelque peu la dignité de sa révérence. D'un geste, elle lui fit signe de se relever, et il s'empressa de la conduire au fauteuil d'ivoire, en s'inclinant sans cesse jusqu'à la ceinture. Mais ses premiers mots furent un reproche.",
+      "« Majesté ! C'était bien imprudent ! La frontière est agitée. Les raids des collines ne cessent pas. Vous êtes venue avec une forte escorte ?",
+      "— Une suite nombreuse m'a suivie jusqu'à Peshkhauri, répondit-elle. J'ai logé mes gens en ville et je suis venue jusqu'au fort avec ma suivante, Gitara. »",
+      "Chunder Shan gémit d'horreur.",
+      "« Devi ! Vous ne comprenez pas le danger. À une heure de cheval d'ici, les collines grouillent de barbares qui font métier de meurtre et de pillage. On a enlevé des femmes et poignardé des hommes entre le fort et la ville. Peshkhauri n'est pas comme vos provinces du Sud…"
+    ] },
+
+  C2_2: { act: "C2", title: "Une rançon de sorciers", place: "fort", fx: { meet: ["conan"] },
+    text: [
+      "— Mais je suis ici, et saine et sauve, coupa-t-elle avec une pointe d'impatience. J'ai montré ma bague à sceau au garde de la porte, et à celui qui est devant ta porte, et ils m'ont laissée entrer sans m'annoncer, sans me reconnaître, en me prenant pour un courrier secret d'Ayodhya. Ne perdons pas de temps.",
+      "« Tu n'as reçu aucune nouvelle du chef des barbares ?",
+      "— Rien que des menaces et des malédictions, Devi. Il est méfiant et soupçonneux. Il croit à un piège, et peut-être ne faut-il pas l'en blâmer. Les Kshatriyas n'ont pas toujours tenu leurs promesses aux gens des collines.",
+      "— Il faut l'amener à composition ! » coupa Yasmina, les jointures de ses poings serrés toutes blanches.",
+      "« Je ne comprends pas », dit le gouverneur en secouant la tête. « Quand le hasard m'a fait capturer ces sept montagnards, j'ai rendu compte de leur capture au *wazam*, comme c'est l'usage ; et alors, avant que j'aie pu les pendre, est arrivé l'ordre de les garder et d'entrer en rapport avec leur chef. Je l'ai fait, mais l'homme se tient à l'écart, comme je l'ai dit. Ces hommes sont de la tribu des Afghulis, mais lui est un étranger venu de l'ouest, et il s'appelle Conan. J'ai menacé de les pendre demain à l'aube, s'il ne vient pas.",
+      "— Bien ! s'écria la Devi. Tu as bien fait. Et je vais te dire pourquoi j'ai donné ces ordres. Mon frère… »",
+      "Elle s'interrompit, la gorge serrée, et le gouverneur inclina la tête, du geste habituel de respect pour un souverain disparu.",
+      "« Le roi de Vendhya a été tué par la magie, dit-elle enfin. J'ai consacré ma vie à la perte de ses assassins. En mourant, il m'a donné une piste, et je l'ai suivie. J'ai lu le *Livre de Skelos*, et j'ai parlé avec des ermites sans nom dans les cavernes au-dessous de Jhelai. J'ai appris comment, et par qui, il a été tué. Ses ennemis étaient les Prophètes noirs du mont Yimsha.",
+      "— Asura ! » chuchota Chunder Shan en pâlissant.",
+      "Les yeux de la Devi le transpercèrent comme une lame.",
+      "« Tu les crains ?",
+      "— Qui ne les craint pas, Majesté ? répondit-il. Ce sont des démons noirs qui hantent les collines inhabitées au-delà du Zhaibar. Mais les sages disent qu'ils se mêlent rarement de la vie des hommes mortels.",
+      "— Pourquoi ils ont tué mon frère, je ne le sais pas, répondit-elle. Mais j'ai juré sur l'autel d'Asura de les détruire ! Et j'ai besoin de l'aide d'un homme d'au-delà de la frontière. Une armée de Kshatriyas, sans aide, n'atteindrait jamais Yimsha.",
+      "— Oui, marmonna Chunder Shan. Là, vous dites vrai. Il faudrait se battre à chaque pas, avec des montagnards hirsutes qui feraient rouler des rochers de chaque hauteur et qui nous chargeraient avec leurs longs couteaux dans chaque vallée. Les Touraniens se sont frayé un chemin à travers les Himéliens, une fois ; mais combien sont revenus à Khurusun ? Bien peu de ceux qui ont échappé aux épées des Kshatriyas, quand le roi votre frère a défait leur armée sur la rivière Jhumda, ont jamais revu Secunderam.",
+      "— Et c'est pourquoi il me faut commander à des hommes d'au-delà de la frontière, dit-elle, des hommes qui connaissent le chemin du mont Yimsha…",
+      "— Mais les tribus craignent les Prophètes noirs et fuient la montagne maudite, coupa le gouverneur.",
+      "— Et le chef, Conan, les craint-il ? demanda-t-elle.",
+      "— Ma foi, quant à cela, marmonna le gouverneur, je doute qu'il y ait quoi que ce soit que ce démon-là craigne.",
+      "— C'est ce qu'on m'a dit. C'est donc avec lui que je dois traiter. Il veut qu'on libère ses sept hommes. Fort bien ; leur rançon sera la tête des Prophètes noirs ! »",
+      "Sa voix vibrait de haine en prononçant ces derniers mots, et ses mains se serraient à ses côtés. On eût dit l'image même de la passion incarnée, debout là, la tête haute, la poitrine haletante."
+    ] },
+
+  C2_3: { act: "C2", title: "L'homme de l'Ouest", place: "fort",
+    text: [
+      "De nouveau le gouverneur s'agenouilla, car sa sagesse lui enseignait, entre autres choses, qu'une femme dans une telle tempête est aussi dangereuse qu'un cobra aveugle pour tous ceux qui l'entourent.",
+      "« Il en sera fait selon votre désir, Majesté. »",
+      "Puis, comme elle montrait un visage plus calme, il se releva et se risqua à lui glisser un avertissement.",
+      "« Je ne peux pas prédire ce que fera le chef Conan. Les tribus sont toujours turbulentes, et j'ai des raisons de croire que des émissaires des Touraniens les excitent à razzier nos frontières. Votre Majesté le sait, les Touraniens se sont établis à Secunderam et dans d'autres villes du Nord, bien que les tribus des collines restent invaincues. Le roi Yezdigerd regarde depuis longtemps vers le sud avec une convoitise avide, et cherche peut-être à obtenir par la traîtrise ce qu'il n'a pu gagner par les armes. J'ai pensé que Conan pourrait fort bien être un de ses espions.",
+      "— Nous verrons, répondit-elle. S'il aime ses hommes, il sera aux portes à l'aube, pour parlementer. Je passerai la nuit dans la forteresse. Je suis venue déguisée à Peshkhauri, et j'ai logé ma suite dans une auberge au lieu du palais. Hormis mes gens, toi seul sais que je suis ici.",
+      "— Je vais vous escorter jusqu'à vos appartements, Majesté », dit le gouverneur.",
+      "En franchissant la porte, il fit signe au guerrier qui montait la garde, et l'homme les suivit, la lance au salut.",
+      "La suivante, voilée comme sa maîtresse, attendait devant la porte, et le petit groupe parcourut un large couloir sinueux, éclairé de torches fumeuses, jusqu'aux appartements réservés aux visiteurs de marque : des généraux et des vice-rois, le plus souvent ; jamais encore un membre de la famille royale n'avait honoré la forteresse. Chunder Shan avait le sentiment troublé que ces appartements ne convenaient pas à un aussi haut personnage que la Devi, et bien qu'elle cherchât à le mettre à l'aise en sa présence, il fut content quand elle le congédia et qu'il put se retirer en s'inclinant. Tous les serviteurs du fort avaient été appelés pour servir son hôte royale, sans qu'il révèle qui elle était, et il posta une escouade de lanciers devant ses portes, parmi lesquels le guerrier qui avait gardé sa propre chambre. Dans sa préoccupation, il oublia de le remplacer.",
+      "Le gouverneur ne l'avait pas quittée depuis longtemps quand Yasmina se souvint soudain d'une autre chose dont elle avait voulu lui parler, mais qu'elle avait oubliée jusque-là. Il s'agissait des agissements passés d'un certain Kerim Shah, un noble d'Iranistan, qui avait vécu quelque temps à Peshkhauri avant de venir à la cour d'Ayodhya. Un vague soupçon à son sujet s'était éveillé en elle quand elle l'avait entrevu à Peshkhauri ce soir-là. Elle se demandait s'il l'avait suivie depuis Ayodhya. Comme c'était une Devi vraiment peu ordinaire, elle ne fit pas rappeler le gouverneur, mais sortit seule dans le couloir et se hâta vers sa chambre.",
+      "Chunder Shan, en entrant dans sa chambre, ferma la porte et alla à sa table. Il y prit la lettre qu'il était en train d'écrire et la déchira en morceaux. À peine avait-il fini qu'il entendit quelque chose tomber doucement sur le parapet, près de la fenêtre. Il leva les yeux, vit une silhouette se dresser un instant contre les étoiles, puis un homme sauta légèrement dans la pièce. La lumière fit luire un long éclat d'acier dans sa main.",
+      "« Chut ! avertit-il. Pas de bruit, ou j'envoie un valet au diable ! »",
+      "Le gouverneur arrêta son geste vers l'épée posée sur la table. Il était à portée du couteau du Zhaibar, long d'une aune, qui étincelait dans le poing de l'intrus, et il connaissait la rapidité désespérée d'un montagnard.",
+      "L'envahisseur était un homme grand, à la fois fort et souple. Il était vêtu comme un montagnard, mais ses traits sombres et ses yeux bleus flamboyants ne s'accordaient pas avec sa tenue. Chunder Shan n'avait jamais vu un homme comme lui ; ce n'était pas un Oriental, mais quelque barbare venu de l'Ouest. Mais son aspect était aussi indompté et redoutable que celui de n'importe quel homme des tribus qui hantent les collines du Ghulistan."
+    ] },
+
+  C2_4: { act: "C2", title: "Par la fenêtre", place: "fort",
+    text: [
+      "« Tu viens comme un voleur dans la nuit », remarqua le gouverneur, qui retrouvait un peu de son sang-froid, tout en se rappelant qu'il n'y avait aucun garde à portée de voix. Mais le montagnard ne pouvait pas le savoir.",
+      "« J'ai escaladé un bastion, gronda l'intrus. Un garde a passé la tête par-dessus le créneau juste à temps pour que je la lui cogne avec le manche de mon couteau.",
+      "— Tu es Conan ?",
+      "— Qui d'autre ? Tu as fait savoir dans les collines que tu voulais que je vienne parlementer avec toi. Eh bien, par Crom, je suis venu ! Écarte-toi de cette table, ou je t'éventre.",
+      "— Je veux seulement m'asseoir », répondit le gouverneur en s'enfonçant prudemment dans le fauteuil d'ivoire, qu'il éloigna de la table en le faisant rouler.",
+      "Conan allait et venait devant lui, agité, jetant des regards soupçonneux vers la porte, éprouvant du pouce le fil de rasoir de son couteau long de trois pieds. Il ne marchait pas comme un Afghuli, et il était d'une franchise brutale là où l'Orient est subtil.",
+      "« Tu tiens sept de mes hommes, dit-il brusquement. Tu as refusé la rançon que je t'ai offerte. Que diable veux-tu ?",
+      "— Discutons des conditions, répondit prudemment Chunder Shan.",
+      "— Des conditions ? »",
+      "Il y avait dans sa voix un timbre de colère dangereuse.",
+      "« Qu'est-ce que tu veux dire ? Je ne t'ai pas offert de l'or ? »",
+      "Chunder Shan rit.",
+      "« De l'or ? Il y a plus d'or à Peshkhauri que tu n'en as jamais vu.",
+      "— Tu mens, répliqua Conan. J'ai vu le *souk* des orfèvres de Khurusun.",
+      "— Eh bien, plus qu'un Afghuli n'en a jamais vu, corrigea Chunder Shan. Et ce n'est qu'une goutte de tous les trésors de Vendhya. Pourquoi désirerions-nous de l'or ? Il nous serait plus avantageux de pendre ces sept voleurs. »",
+      "Conan lâcha un juron sulfureux, et la longue lame trembla dans son poing tandis que les muscles saillaient en crêtes sur son bras brun.",
+      "« Je vais te fendre la tête comme un melon mûr ! »",
+      "Une flamme bleue et sauvage dansait dans les yeux du montagnard, mais Chunder Shan haussa les épaules, sans quitter des yeux l'acier aiguisé.",
+      "« Tu peux me tuer facilement, et sans doute t'enfuir ensuite par-dessus le mur. Mais cela ne sauverait pas les sept hommes de ta tribu. Mes hommes les pendraient à coup sûr. Et ces hommes sont des chefs chez les Afghulis.",
+      "— Je le sais, gronda Conan. La tribu aboie comme des loups à mes trousses parce que je n'ai pas obtenu leur libération. Dis-moi en termes clairs ce que tu veux, parce que, par Crom ! s'il n'y a pas d'autre moyen, je soulèverai une horde et je la mènerai jusqu'aux portes de Peshkhauri ! »",
+      "À voir l'homme debout bien d'aplomb, le couteau au poing et les yeux flamboyants, Chunder Shan ne douta pas qu'il en fût capable. Le gouverneur ne croyait pas qu'une horde des collines pût prendre Peshkhauri, mais il ne souhaitait pas voir la campagne dévastée.",
+      "« Il y a une mission que tu dois accomplir, dit-il en choisissant ses mots avec autant de soin que s'ils avaient été des rasoirs. Là… »",
+      "Conan avait bondi en arrière en pivotant au même instant face à la porte, les lèvres retroussées. Son oreille de barbare avait saisi le pas rapide de pantoufles légères devant la porte. L'instant d'après, la porte s'ouvrit toute grande et une mince silhouette vêtue de soie entra en hâte en refermant la porte, puis s'arrêta net à la vue du montagnard.",
+      "Chunder Shan se leva d'un bond, le cœur au bord des lèvres.",
+      "« Devi ! » s'écria-t-il malgré lui, perdant un instant la tête dans sa frayeur.",
+      "« *Devi !* »",
+      "Ce fut comme un écho explosif sur les lèvres du montagnard. Chunder Shan vit la reconnaissance et une intention flamber dans les farouches yeux bleus.",
+      "Le gouverneur poussa un cri désespéré et saisit son épée, mais le montagnard bougea avec la vitesse dévastatrice d'un ouragan. Il bondit, envoya le gouverneur rouler à terre d'un coup sauvage du manche de son couteau, enleva d'un bras musclé la Devi stupéfaite et s'élança vers la fenêtre. Chunder Shan, qui luttait frénétiquement pour se relever, vit l'homme se tenir un instant en équilibre sur le rebord, dans un envol de jupes de soie et de membres blancs qui était sa captive royale, et entendit son grondement farouche et triomphant :",
+      "« *Maintenant*, ose donc pendre mes hommes ! »",
+      "Puis Conan sauta sur le parapet et disparut. Un cri éperdu parvint aux oreilles du gouverneur.",
+      "« Gardes ! *Gardes !* » hurla le gouverneur, qui se releva péniblement et courut en titubant vers la porte.",
+      "Il l'ouvrit d'un coup et tituba dans le couloir. Ses cris résonnèrent dans les couloirs, et des guerriers accoururent, bouche bée de voir le gouverneur qui se tenait la tête fendue d'où ruisselait le sang.",
+      "« Faites sortir les lanciers ! rugit-il. On a enlevé quelqu'un ! »",
+      "Même dans sa frénésie, il lui restait assez de bon sens pour taire toute la vérité. Il s'arrêta net en entendant soudain dehors un martèlement de sabots, un cri éperdu et un hurlement sauvage d'exultation barbare.",
+      "Suivi des gardes ahuris, le gouverneur se rua vers l'escalier. Dans la cour du fort, une troupe de lanciers se tenait près de chevaux sellés, prête à partir au premier signal. Chunder Shan lança son escadron au galop à la poursuite du fugitif, bien que la tête lui tournât au point qu'il dut se cramponner des deux mains à sa selle. Il ne révéla pas qui était la victime, mais dit seulement que la noble dame qui portait la bague au sceau royal avait été enlevée par le chef des Afghulis. Le ravisseur était hors de vue et hors de portée d'oreille, mais ils savaient quel chemin il prendrait : la route qui mène tout droit à l'entrée du Zhaibar. Il n'y avait pas de lune ; des huttes de paysans se dressaient vaguement à la lumière des étoiles. Derrière eux s'effaçaient le sombre bastion du fort et les tours de Peshkhauri. Devant eux se dressaient les murs noirs des Himéliens."
+    ] },
+
+};

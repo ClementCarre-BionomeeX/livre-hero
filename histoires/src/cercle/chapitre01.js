@@ -1,0 +1,55 @@
+// « Le Peuple du Cercle noir » (The People of the Black Circle), Robert E. Howard, 1934 : un livre à lire, sans choix
+// (lecture: true). Texte : traduction nouvelle par Claude, faite pour cette bibliothèque à partir du texte anglais paru
+// dans Weird Tales de septembre à novembre 1934 (Project Gutenberg n° 42259, domaine public). Les titres des chapitres
+// sont ceux de Howard ; ceux des pages et tout ce qui vit dans les tags (gens, lieux, mots, résumés) sont de Claude.
+// Chapitre C1 · Chapitre 1 · La mort frappe un roi
+module.exports = {
+  C1_1: { act: "C1", title: "Les gongs de la nuit", place: "ayodhya", fx: { meet: ["yasmina", "bhunda", "wazam"] },
+    text: [
+      "Le roi de Vendhya se mourait. À travers la nuit chaude et étouffante, les gongs des temples grondaient et les conques mugissaient. Leur vacarme n'arrivait qu'en écho affaibli dans la chambre au dôme d'or où Bhunda Chand se débattait sur l'estrade aux coussins de velours. Des gouttes de sueur luisaient sur sa peau sombre ; ses doigts tordaient l'étoffe brochée d'or sous lui. Il était jeune ; aucune lance ne l'avait touché, aucun poison ne se cachait dans son vin. Mais ses veines saillaient comme des cordes bleues sur ses tempes, et ses yeux se dilataient à l'approche de la mort. Des esclaves tremblantes étaient agenouillées au pied de l'estrade, et penchée sur lui, le regardant avec une intensité passionnée, se tenait sa sœur, la Devi Yasmina. Avec elle était le *wazam*, un noble qui avait vieilli à la cour royale.",
+      "Elle rejeta la tête en arrière, dans un geste emporté de colère et de désespoir, quand le tonnerre des tambours lointains parvint à ses oreilles.",
+      "« Les prêtres et leur vacarme ! s'écria-t-elle. Ils ne sont pas plus savants que les médecins, qui ne peuvent rien ! Non, il se meurt, et personne ne peut dire pourquoi. Il se meurt en ce moment même, et je suis là, impuissante, moi qui brûlerais la ville entière et verserais le sang de milliers d'hommes pour le sauver.",
+      "— Il n'est pas un homme d'Ayodhya qui ne mourrait à sa place, si cela se pouvait, Devi, répondit le *wazam*. Ce poison…",
+      "— Je te dis que ce n'est pas un poison ! cria-t-elle. Depuis sa naissance, on l'a gardé de si près que les plus habiles empoisonneurs de l'Orient n'ont jamais pu l'atteindre. Cinq crânes qui blanchissent sur la Tour des Milans peuvent témoigner des tentatives qui ont été faites, et qui ont échoué. Tu le sais bien, dix hommes et dix femmes n'ont d'autre charge que de goûter sa nourriture et son vin, et cinquante guerriers en armes gardent sa chambre, comme ils la gardent en ce moment. Non, ce n'est pas un poison ; c'est de la sorcellerie, une magie noire et effroyable… »",
+      "Elle se tut, car le roi parlait ; ses lèvres livides ne bougeaient pas, et ses yeux vitreux ne reconnaissaient rien. Mais sa voix s'éleva en un appel étrange, indistinct et lointain, comme s'il l'appelait d'au-delà de vastes gouffres balayés par le vent.",
+      "« Yasmina ! Yasmina ! Ma sœur, où es-tu ? Je ne te trouve pas. Tout est ténèbres, et grondement de grands vents !",
+      "— Mon frère ! cria Yasmina en saisissant convulsivement sa main inerte. Je suis là ! Tu ne me reconnais pas… »",
+      "Sa voix s'éteignit devant le vide absolu de son visage. Un gémissement sourd et confus s'éteignit sur ses lèvres. Les esclaves, au pied de l'estrade, geignaient de peur, et Yasmina se frappait la poitrine d'angoisse.",
+      "Dans une autre partie de la ville, un homme se tenait sur un balcon grillagé qui dominait une longue rue où des torches s'agitaient, jetant des lueurs sinistres et fumeuses sur des visages sombres levés et sur le blanc d'yeux brillants. Une longue plainte montait de la foule.",
+      "L'homme haussa ses larges épaules et rentra dans la chambre aux arabesques. C'était un homme grand, solidement bâti, richement vêtu.",
+      "« Le roi n'est pas encore mort, mais on chante déjà le chant funèbre », dit-il à un autre homme assis en tailleur sur une natte, dans un coin.",
+      "Celui-ci portait une robe de poil de chameau brun et des sandales, et un turban vert sur la tête. Son expression était tranquille, son regard impersonnel.",
+      "« Le peuple sait qu'il ne verra pas une autre aube », répondit-il.",
+      "Le premier l'honora d'un long regard scrutateur.",
+      "« Ce que je ne comprends pas, dit-il, c'est pourquoi j'ai dû attendre si longtemps que tes maîtres frappent. S'ils ont tué le roi maintenant, pourquoi n'ont-ils pas pu le tuer il y a des mois ?",
+      "— Même les arts que tu appelles sorcellerie obéissent à des lois cosmiques, répondit l'homme au turban vert. Les étoiles dirigent ces actions, comme les autres affaires. Même mes maîtres ne peuvent changer les étoiles. Il fallait que les cieux soient dans l'ordre voulu pour qu'ils accomplissent cette nécromancie. »",
+      "D'un long ongle taché, il traça les constellations sur le sol dallé de marbre.",
+      "« La pente de la lune présageait du mal pour le roi de Vendhya ; les étoiles sont en tumulte, le Serpent est dans la Maison de l'Éléphant. Pendant une telle conjonction, les gardiens invisibles se retirent de l'esprit de Bhunda Chand. Un chemin s'ouvre dans les royaumes invisibles, et dès qu'un point de contact a été établi, de puissantes forces ont été mises en jeu le long de ce chemin."
+    ] },
+
+  C1_2: { act: "C1", title: "Le dernier ordre", place: "ayodhya", fx: { meet: ["kerim", "khemsa"] },
+    text: [
+      "— Un point de contact ? demanda l'autre. Tu veux dire cette mèche de cheveux de Bhunda Chand ?",
+      "— Oui. Toutes les parties rejetées du corps humain en font encore partie, rattachées à lui par des liens impalpables. Les prêtres d'Asura ont une vague idée de cette vérité ; aussi, les rognures d'ongles, les cheveux et les autres déchets de la personne des membres de la famille royale sont-ils soigneusement réduits en cendres, et les cendres cachées. Mais sur les instances pressantes de la princesse de Khosala, qui aimait en vain Bhunda Chand, il lui donna en souvenir une mèche de ses longs cheveux noirs. Quand mes maîtres ont décidé de sa perte, la mèche, dans son étui d'or incrusté de pierreries, a été volée sous l'oreiller de la princesse pendant son sommeil, et remplacée par une autre, si semblable qu'elle n'a jamais vu la différence. Puis la vraie mèche a voyagé par caravane de chameaux sur la longue, très longue route de Peshkhauri, et de là par le col de Zhaibar, jusqu'à ce qu'elle parvienne entre les mains de ceux à qui elle était destinée.",
+      "— Rien qu'une mèche de cheveux, murmura le noble.",
+      "— Par laquelle on tire une âme de son corps et on la fait passer à travers des gouffres d'espace retentissant », répliqua l'homme assis sur la natte.",
+      "Le noble l'examina avec curiosité.",
+      "« Je ne sais pas si tu es un homme ou un démon, Khemsa, dit-il enfin. Peu d'entre nous sont ce qu'ils paraissent. Moi, que les Kshatriyas connaissent sous le nom de Kerim Shah, prince d'Iranistan, je ne suis pas plus masqué que la plupart des hommes. Ils sont tous traîtres d'une façon ou d'une autre, et la moitié d'entre eux ne savent pas qui ils servent. Là, du moins, je n'ai pas de doute ; car je sers le roi Yezdigerd du Touran.",
+      "— Et moi les Prophètes noirs de Yimsha, dit Khemsa ; et mes maîtres sont plus grands que le tien, car ils ont accompli par leur art ce que Yezdigerd n'a pas pu faire avec cent mille épées. »",
+      "Dehors, la plainte des milliers d'êtres torturés montait en frissonnant vers les étoiles qui incrustaient la nuit moite de Vendhya, et les conques mugissaient comme des bœufs à l'agonie.",
+      "Dans les jardins du palais, les torches faisaient briller des casques polis, des épées courbes et des corselets ciselés d'or. Tous les hommes de guerre de noble naissance d'Ayodhya étaient rassemblés dans le grand palais ou alentour, et à chaque porte, à chaque large arche, cinquante archers montaient la garde, l'arc à la main. Mais la Mort marchait à travers le palais royal, et nul ne pouvait arrêter son pas de fantôme.",
+      "Sur l'estrade, sous le dôme d'or, le roi cria de nouveau, secoué de paroxysmes effroyables. De nouveau sa voix vint, faible et lointaine, et de nouveau la Devi se pencha sur lui, tremblant d'une peur plus noire que la terreur de la mort.",
+      "« Yasmina ! »",
+      "De nouveau ce cri lointain, étrangement plaintif, venu de royaumes sans mesure.",
+      "« Aide-moi ! Je suis loin de ma maison mortelle ! Des sorciers ont tiré mon âme à travers les ténèbres balayées par le vent. Ils cherchent à rompre le cordon d'argent qui me lie à mon corps mourant. Ils se pressent autour de moi ; leurs mains sont griffues, leurs yeux sont rouges comme une flamme qui brûle dans l'obscurité. *Aïe*, sauve-moi, ma sœur ! Leurs doigts me brûlent comme le feu ! Ils veulent tuer mon corps et damner mon âme ! Qu'est-ce qu'ils amènent devant moi ? *Aïe !* »",
+      "À la terreur de ce cri sans espoir, Yasmina hurla sans pouvoir se retenir et se jeta de tout son corps sur lui, dans l'abandon de son angoisse. Il fut secoué d'une convulsion terrible ; l'écume jaillit de ses lèvres tordues, et ses doigts crispés laissèrent leurs marques sur les épaules de la jeune femme. Mais le vide vitreux quitta ses yeux comme la fumée chassée d'un feu, et il leva vers sa sœur un regard qui la reconnaissait.",
+      "« Mon frère ! sanglota-t-elle. Mon frère…",
+      "— Vite ! haleta-t-il, et sa voix affaiblie était lucide. Je sais maintenant ce qui me mène au bûcher. J'ai fait un long voyage et je comprends. J'ai été ensorcelé par les sorciers des Himéliens. Ils ont tiré mon âme hors de mon corps et l'ont emportée au loin, dans une chambre de pierre. Là, ils se sont efforcés de rompre le cordon d'argent de la vie, et de pousser mon âme dans le corps d'une immonde créature de la nuit que leur sorcellerie a fait monter de l'enfer. Ah ! Je sens qu'ils m'attirent en ce moment ! Ton cri et l'étreinte de tes doigts m'ont ramené, mais je m'en vais vite. Mon âme s'accroche à mon corps, mais sa prise faiblit. Vite, tue-moi, avant qu'ils prennent mon âme au piège pour toujours !",
+      "— Je ne peux pas ! gémit-elle en se frappant la poitrine.",
+      "— Vite, je te l'ordonne ! »",
+      "Il y avait dans son murmure défaillant l'ancienne note impérieuse.",
+      "« Tu ne m'as jamais désobéi : obéis à mon dernier ordre ! Envoie mon âme pure à Asura ! Hâte-toi, si tu ne veux pas me damner à passer l'éternité sous la forme d'un spectre immonde des ténèbres. Frappe, je te l'ordonne ! *Frappe !* »",
+      "Sanglotant éperdument, Yasmina tira de sa ceinture un poignard orné de pierreries et le plongea jusqu'à la garde dans la poitrine de son frère. Il se raidit, puis se détendit, un sourire sombre aux lèvres de son visage mort. Yasmina se jeta face contre terre sur le sol jonché de roseaux, frappant les joncs de ses poings serrés. Dehors, les gongs et les conques braillaient et tonnaient, et les prêtres se tailladaient avec des couteaux de cuivre."
+    ] },
+
+};

@@ -1,0 +1,178 @@
+# Fiche du « Peuple du Cercle noir » pour livre.py (Robert E. Howard, Weird Tales, sept.-nov. 1934 ; traduction nouvelle par Claude, 2026).
+# Texte : /mnt/project-files/livre-heros/classiques/cercle/NN.txt (d'après Gutenberg 42259, « The People of the Black Circle »),
+# passé par traduction.py (pages C1_1…). Les titres des dix chapitres sont ceux de Howard, traduits.
+# Ce qui doit rester caché jusqu'à sa page (titres de pages, qui, aspect, lieux, résumés) : le choix de Gitara (C3_1) ;
+# le sort des sept prisonniers (C3_3, C7_1) ; ce que devient Khemsa (C6_6) ; les formes du Maître (C9_9) ; la fin (C10_5).
+HEAD = """// « Le Peuple du Cercle noir » (The People of the Black Circle), Robert E. Howard, 1934 : un livre à lire, sans choix
+// (lecture: true). Texte : traduction nouvelle par Claude, faite pour cette bibliothèque à partir du texte anglais paru
+// dans Weird Tales de septembre à novembre 1934 (Project Gutenberg n° 42259, domaine public). Les titres des chapitres
+// sont ceux de Howard ; ceux des pages et tout ce qui vit dans les tags (gens, lieux, mots, résumés) sont de Claude."""
+
+BASE = {
+  "id": "cercle",
+  "title": "Le Peuple du Cercle noir",
+  "subtitle": "Un récit de Conan le Cimmérien · Robert E. Howard, 1934",
+  "summary": "Le jeune roi de Vendhya se meurt, et nul poison n'en est la cause : des sorciers tirent son âme hors de son corps, de très loin, depuis une montagne du nord. Sa sœur, la Devi Yasmina, veut venger sa mort. Il lui faut une épée contre la magie, et dans les collines de la frontière, il y a ce chef de tribu venu d'ailleurs, que ses hommes appellent Conan. Un récit de Conan le Cimmérien, de Robert E. Howard, en entier, dans une traduction nouvelle, sans choix : on le lit page après page, avec les gens, les lieux et les mots expliqués d'un appui.",
+  "tags": ["aventure", "fantastique"],
+  "author": "Robert E. Howard · traduction de Claude (2026)",
+  "lecture": True,
+  "age": 15,
+  "skin": "parchemin",
+  "cover": {"motif": "montagne", "color": "#2c2436"},
+  "glossary": None,
+  "voice": "troisième personne, passé",
+  "version": 1,
+  "notice": {
+    "title": "Un récit de 1934",
+    "text": [
+      "Robert E. Howard publie *Le Peuple du Cercle noir* en trois parties, de septembre à novembre 1934, dans *Weird Tales*, une revue américaine de récits étranges. Conan y est chef d'une tribu des collines, à la frontière d'un royaume qui ressemble à l'Inde, dans l'« âge hyborien », un passé imaginaire plein de royaumes et de dieux inventés. Howard est mort en 1936, à trente ans ; ses récits sont dans le domaine public.",
+      "La traduction est nouvelle, faite pour cette bibliothèque à partir du texte anglais, et elle suit Howard de près. Elle allège deux passages qui jugent tout un peuple : l'un explique la magie de Khemsa par une prétendue nature des « Orientaux », l'autre prête aux montagnards une haine de l'étranger qui serait propre à leur race.",
+      "C'est un récit violent, et il faut nommer ce qu'il contient. Une jeune femme y accuse Conan, à tort, de l'avoir violée ; une vision fait revivre à Yasmina, entre autres souffrances, des viols subis dans des vies passées ; Conan lui donne une claque sur les fesses sans lui demander son avis, et il lui annonce qu'il la gardera, qu'elle le veuille ou non. Le récit présente tout cela comme de la passion. C'était un lieu commun des récits d'aventure du temps ; aujourd'hui, on y voit une emprise.",
+    ],
+  },
+  "intro": [],
+  "world": {"start": {"place": "ayodhya", "hour": 22, "gold": 0, "food": 0, "items": [], "kits": {"guerrier": [], "rodeur": [], "voleur": [], "mage": [], "pretre": [], "barde": []}}},
+}
+
+T = ["La mort frappe un roi", "Un barbare des collines", "Khemsa use de magie", "Une rencontre dans le col", "L'étalon noir", "La montagne des Voyants noirs", "En route pour Yimsha", "Yasmina connaît la terreur", "Le château des sorciers", "Yasmina et Conan"]
+R = [
+  "À Ayodhya, le roi Bhunda Chand se meurt d'un mal que personne n'explique. Dans la ville, Kerim Shah, espion du roi Yezdigerd du Touran, apprend de Khemsa, serviteur des Prophètes noirs de Yimsha, qu'une mèche de cheveux volée a permis aux sorciers d'arracher l'âme du roi à son corps. Revenu à lui un instant, Bhunda Chand supplie sa sœur Yasmina de le tuer avant qu'ils prennent son âme au piège. Elle obéit.",
+  "À Peshkhauri, ville frontière, la Devi Yasmina arrive en secret chez le gouverneur Chunder Shan. Elle veut que Conan, chef des Afghulis, dont sept hommes sont prisonniers au fort, aille détruire les sorciers de Yimsha. Conan entre par la fenêtre pour parlementer ; quand il comprend qu'elle est la Devi, il l'enlève et s'enfuit vers les collines, poursuivi par les cavaliers du fort.",
+  "Gitara, la suivante de Yasmina, court rejoindre Khemsa, qu'elle aime, et le pousse à trahir ses maîtres pour se servir lui-même de la Devi. Kerim Shah, qui les a entendus, écrit au gouverneur de Secunderam d'envoyer ses cavaliers. Khemsa entre au fort par la sorcellerie et tue les sept prisonniers afghulis, pour que Chunder Shan ne puisse pas les échanger contre la Devi.",
+  "Conan emporte Yasmina vers le col du Zhaibar. Des montagnards tuent son cheval dans une embuscade : ce sont les Wazulis de Yar Afzal, son ami, qui l'emmènent à leur village. Les cavaliers du fort trouvent le cheval mort et un Wazuli tué. Plus haut dans le col, Kerim Shah et trente Irakzaïs partent vers la vallée de Gurashah, au-devant des cavaliers de Secunderam.",
+  "Yasmina s'éveille dans la maison-forteresse de Yar Afzal, à Khurum. Un éclaireur apprend aux Wazulis que les Kshatriyas battent les collines et que Kerim Shah y est revenu. Un guerrier humilié par Yar Afzal rencontre Khemsa, qui lui remet une boule de jade noir pour son chef. Dans la main de Yar Afzal, la boule devient une araignée, et il meurt. Une voix venue de nulle part ordonne de tuer l'étranger. Conan se défend, puis s'enfuit avec Yasmina sur l'étalon noir par une porte secrète, renversant Khemsa au passage.",
+  "Conan et Yasmina chevauchent vers l'Afghulistan. Il achète à une jeune Galzaïe les habits que Yasmina revêt. Au loin se dresse le Yimsha, et un nuage cramoisi s'en détache. Sur une corniche, Khemsa leur barre la route avec Gitara, mais les quatre Seigneurs du Cercle noir descendent de la montagne pour le punir. Ils jettent Gitara dans l'abîme, et Khemsa tombe avec un pan de la falaise. Puis le nuage cramoisi emporte Yasmina.",
+  "Conan rencontre ses Afghulis, qui le traitent de traître : on a tué les sept prisonniers, et ils le croient complice du gouverneur. Plus loin, il trouve Khemsa mourant, qui lui donne une ceinture tressée et lui dit comment entrer chez ses anciens maîtres. Sur la piste, Conan tombe sur Kerim Shah et ses Irakzaïs, qui cherchaient la Devi. Ils font alliance pour aller la reprendre au Yimsha.",
+  "Yasmina s'éveille dans une salle obscure, devant le Maître de Yimsha. Il lui apprend que les Voyants ont tué son frère pour complaire à Yezdigerd, change en fleur le poignard qu'elle tourne contre lui, et veut faire d'elle son esclave. Il lui fait revivre toutes ses vies passées, avec toutes leurs souffrances. À son réveil, une forme encapuchonnée au visage de cadavre se penche sur elle, et elle s'évanouit.",
+  "Conan, Kerim Shah et les Irakzaïs montent à l'assaut du Yimsha. Un chien enragé, un faucon, des boules de feu et une trompe qui fait trembler la montagne les attendent ; les acolytes s'enfuient. Par la veine d'or, ils traversent le gouffre de brume mortelle et tuent les acolytes sur l'autre bord. Dans le château, les Quatre décapitent les Irakzaïs, mais Conan, soutenu par la ceinture, brise le globe aux grenades d'or, et les Quatre meurent. Le Maître arrache le cœur de Kerim Shah ; Conan le blesse, le poursuit sous la forme d'un serpent géant qui s'en prenait à Yasmina, et la retrouve.",
+  "Conan emporte Yasmina hors du château. Il refuse de la ramener à Vendhya et veut la garder ; elle refuse de le suivre. De la crête, ils voient les cavaliers de Secunderam acculer cinq cents Afghulis dans une gorge, et une armée de Vendhya qui arrive par l'autre vallée. Conan descend se battre avec ses hommes ; Yasmina prend son cheval et mène ses cavaliers sur les Touraniens, qui sont mis en déroute. Un vautour fond sur elle ; Conan le tue, et c'est un corps en robe noire qui tombe. Ils se quittent en se promettant de se revoir, armée contre armée.",
+]
+CHAPTERS = [{"title": "Chapitre " + str(i + 1) + " · " + t, "text": r} for i, (t, r) in enumerate(zip(T, R))]
+CHAPTERS[1]["notice"] = True
+
+PLACES = {
+  "ayodhya": {"ambiance": "chateau", "name": "Le palais d'Ayodhya", "map": "himeliens", "x": 82, "y": 88, "region": "Vendhya", "desc": "La capitale de Vendhya, ses temples et ses gongs, et la chambre au dôme d'or où se meurt le roi."},
+  "fort": {"ambiance": "chateau", "name": "Le fort de Peshkhauri", "map": "himeliens", "x": 48, "y": 62, "region": "La frontière", "desc": "La forteresse du gouverneur, ses bastions, ses cours et sa prison, aux portes des collines."},
+  "peshkhauri": {"ambiance": "ville", "name": "La ville de Peshkhauri", "map": "himeliens", "x": 50, "y": 64, "region": "La frontière", "desc": "Une ville frontière aux toits plats, à un mille du fort, où les caravanes arrivent par le col."},
+  "zhaibar": {"ambiance": "nuit", "name": "Le col du Zhaibar", "map": "himeliens", "x": 40, "y": 52, "region": "Les Himéliens", "desc": "La grande route des caravanes à travers les montagnes, ses gorges noires et ses embuscades."},
+  "khurum": {"ambiance": "village", "name": "Le village de Khurum", "map": "himeliens", "x": 32, "y": 44, "region": "Le pays wazuli", "desc": "Des huttes de pierre et de boue au fond d'une vallée, et la maison-forteresse du chef, à la porte de bronze."},
+  "pistes": {"ambiance": "montagne", "name": "Les pistes des Himéliens", "map": "himeliens", "x": 26, "y": 36, "region": "Les Himéliens", "desc": "Des sentiers à peine tracés, des ravins sans fond, des arêtes coupantes et un vent qui descend des glaces."},
+  "corniche": {"ambiance": "montagne", "name": "La corniche", "map": "himeliens", "x": 22, "y": 30, "region": "Les Himéliens", "desc": "Une large corniche entre des pentes accidentées et un précipice gigantesque."},
+  "crete": {"ambiance": "route", "name": "La longue crête", "map": "himeliens", "x": 24, "y": 32, "region": "Les Himéliens", "desc": "Une crête étroite comme une chaussée au-dessus d'un lit de rivière à sec, et des sentiers taillés dans les failles."},
+  "salle": {"ambiance": "nuit", "name": "La salle aux dragons", "map": "himeliens", "x": 17, "y": 21, "region": "Le Yimsha", "desc": "Une grande salle obscure, sans portes visibles, tendue de tapisseries où rampent des dragons."},
+  "pente": {"ambiance": "montagne", "name": "Les pentes du Yimsha", "map": "himeliens", "x": 18, "y": 26, "region": "Le Yimsha", "desc": "Une pente nue semée de rochers, et tout en haut, une tour de pierre."},
+  "gouffre": {"ambiance": "souterrain", "name": "Le gouffre de brume", "map": "himeliens", "x": 17, "y": 23, "region": "Le Yimsha", "desc": "Un ravin à pic qui fait le tour de la montagne, empli d'une brume rose, au fond brillant comme l'argent."},
+  "chateau": {"ambiance": "temple", "name": "Le château des Voyants noirs", "map": "himeliens", "x": 16, "y": 20, "region": "Le Yimsha", "desc": "Un édifice en pyramide taillé dans la montagne, ses galeries de jade vert et ses escaliers."},
+  "arete": {"ambiance": "route", "name": "L'arête entre deux vallées", "map": "himeliens", "x": 21, "y": 27, "region": "Les Himéliens", "desc": "Une haute arête d'où l'on plonge à droite et à gauche sur deux vallées profondes."},
+  "gorge": {"ambiance": "combat", "name": "La gorge sans issue", "map": "himeliens", "x": 23, "y": 28, "region": "Les Himéliens", "desc": "Un étroit défilé qui finit en cuvette fermée de murailles infranchissables."},
+}
+
+PEOPLE = {
+  "conan": {"name": "Conan le Cimmérien", "aka": ["Conan", "Cimmérien"], "face": {"age": "jeune", "hair": "noir", "coif": "court", "beard": "sans", "iris": "bleu", "skin": "hale"}, "qui": "Un barbare de l'Ouest devenu chef des Afghulis, une tribu des collines.", "aspect": {"allure": "immense, vêtu en montagnard", "visage": "traits sombres, yeux bleus flamboyants", "signe": "long couteau, ceinture bakhariote"}},
+  "yasmina": {"name": "La Devi Yasmina", "aka": ["Yasmina", "Devi"], "f": True, "face": {"age": "jeune", "hair": "noir", "coif": "long", "skin": "brun"}, "qui": "La sœur du roi de Vendhya.", "aspect": {"allure": "souple, fière, impérieuse", "visage": "grands yeux sombres"}},
+  "bhunda": {"name": "Bhunda Chand", "aka": ["Bhunda Chand"], "face": {"age": "jeune", "hair": "noir", "coif": "long", "skin": "brun"}, "qui": "Le jeune roi de Vendhya.", "aspect": {"allure": "jeune roi, sur un lit de velours", "visage": "longs cheveux noirs"}},
+  "wazam": {"name": "Le wazam", "aka": ["wazam"], "face": {"age": "ancien", "skin": "brun"}, "qui": "Un noble qui a vieilli à la cour du roi de Vendhya.", "aspect": {"allure": "vieux courtisan"}},
+  "kerim": {"name": "Kerim Shah", "aka": ["Kerim Shah"], "face": {"age": "adulte", "hair": "noir", "coif": "court", "skin": "hale"}, "qui": "Un noble qui se dit prince d'Iranistan, et qui sert en secret le roi Yezdigerd du Touran.", "aspect": {"allure": "grand, solidement bâti, richement vêtu", "signe": "arc touranien"}},
+  "khemsa": {"name": "Khemsa", "aka": ["Khemsa"], "face": {"age": "adulte", "hair": "noir", "coif": "court", "skin": "brun"}, "qui": "Un homme au turban vert, au service des Prophètes noirs de Yimsha.", "aspect": {"allure": "calme, assis en tailleur", "visage": "regard impersonnel", "signe": "robe de poil de chameau, turban vert"}},
+  "chunder": {"name": "Chunder Shan", "aka": ["Chunder Shan"], "face": {"age": "adulte", "skin": "brun"}, "qui": "Le gouverneur de Peshkhauri, ville frontière de Vendhya.", "aspect": {"allure": "prudent, pèse chacune de ses paroles"}},
+  "gitara": {"name": "Gitara", "aka": ["Gitara"], "f": True, "face": {"age": "jeune", "hair": "noir", "coif": "boucles", "skin": "brun"}, "qui": "La suivante de la Devi Yasmina.", "aspect": {"allure": "mince et brune", "visage": "beau visage, yeux comme des joyaux noirs"}},
+  "yarafzal": {"name": "Yar Afzal", "aka": ["Yar Afzal"], "face": {"age": "adulte", "hair": "noir", "coif": "court", "beard": "barbe", "skin": "hale"}, "qui": "Le chef des Wazulis de Khurum, un ami de Conan.", "aspect": {"allure": "aussi grand que Conan, plus gros", "visage": "barbe teinte de rouge", "signe": "tulwar"}},
+  "maitre": {"name": "Le Maître de Yimsha", "aka": ["Maître"], "face": {"age": "adulte", "hair": "noir", "coif": "court", "beard": "sans"}, "qui": "Celui qui commande aux Voyants noirs de Yimsha.", "aspect": {"allure": "longue robe de velours noir brodée d'or", "visage": "calme, yeux luisants un peu obliques", "signe": "calotte de velours"}},
+}
+NO_AUTO = ["yasmina", "bhunda", "wazam"]
+MEET = {"C1_1": ["yasmina", "bhunda", "wazam"]}
+
+WORDS = {
+  "Vendhya|vendhyen|Vendhyenne": "Un grand royaume du sud de l'âge hyborien, aux plaines chaudes et aux temples innombrables.",
+  "Ayodhya": "La capitale de Vendhya, où siège le roi.",
+  "Kshatriya|Kshatriyas|kshatriyas|kshatriya": "La caste des guerriers nobles de Vendhya ; on appelle ainsi leurs cavaliers.",
+  "Devi": "Le titre de la reine, ou de la princesse royale, de Vendhya.",
+  "wazam": "Un grand dignitaire de la cour de Vendhya.",
+  "Asura": "Le dieu des Vendhyens ; ses prêtres veillent sur l'âme du roi.",
+  "Iranistan": "Un royaume de l'ouest de Vendhya, dont les peuples des collines se disent parents.",
+  "Touran|Touranien|Touraniens|touraniennes": "Le grand royaume hyrkanien du nord, dont le roi est Yezdigerd.",
+  "Hyrkanien": "D'un peuple de cavaliers venu de l'est, qui tient le Touran.",
+  "Himéliens|himéliens": "Les hautes montagnes qui ferment Vendhya au nord-ouest, pays de tribus libres.",
+  "Ghulistan": "Le pays des collines, au-delà de la frontière de Vendhya, où vivent les tribus.",
+  "Peshkhauri": "Une ville frontière de Vendhya, gardée par un fort, à l'entrée des collines.",
+  "Zhaibar|Zhaibaris": "Le grand col qui traverse les Himéliens ; les Zhaibaris sont les tribus qui y vivent.",
+  "Afghulis|Afghuli|Afghulistan|afghulie|afghuli": "Une tribu des collines, dont Conan est le chef ; l'Afghulistan est leur pays.",
+  "Ghor": "Le village principal des Afghulis.",
+  "Wazulis|Wazuli|Wazulie|wazuli|wazulis": "Une tribu des collines, voisine des Afghulis.",
+  "Irakzaïs|Irakzaï": "Une tribu des villages du bas Zhaibar, près de la frontière.",
+  "Dagozaï|Dagozaïs": "Une tribu des collines.",
+  "Galzaïe|galzaï": "D'une tribu des collines, les Galzaïs.",
+  "Khurakzaïs": "Une tribu des collines.",
+  "Khurum": "Une vallée du pays wazuli, et son village.",
+  "Yimsha": "Une montagne du nord des Himéliens, dont les tribus se tiennent aussi loin qu'elles peuvent.",
+  "Rakhsha|Rakhshas": "Un sorcier, dans la langue des collines.",
+  "Secunderam": "Une ville tenue par les Touraniens, au nord des collines.",
+  "Gurashah": "Une vallée des collines, au nord.",
+  "Shalizah|Amir Jehun": "Des cols des Himéliens.",
+  "Khosala": "Un royaume voisin de Vendhya.",
+  "Khorbhul": "Une place forte des collines tenue par les Touraniens.",
+  "tulwar|tulwars": "Un sabre courbe, l'arme des hommes des collines.",
+  "shoki": "Une plante des collines dont on tire de l'encre.",
+  "kozak|kozaks|kozaki": "Les bandes d'aventuriers et de hors-la-loi des steppes, qui pillent les frontières du Touran.",
+  "hetman": "Un chef des kozaks.",
+  "Zaporoska": "Une rivière des steppes où campent les kozaks.",
+  "Yezud": "Une cité où l'on adore un dieu araignée de pierre noire.",
+  "stygienne|stygien": "De Stygie, un royaume du sud où règnent des prêtres sorciers.",
+  "Skelos": "Un sorcier de légende ; on invoque son nom dans les incantations.",
+  "Khitaï": "Un royaume de l'extrême est, aux jungles hantées.",
+  "Tarim": "Un dieu des Hyrkaniens du Touran.",
+  "Crom": "Le dieu sombre des Cimmériens, qui vit sur une montagne et n'écoute pas les prières.",
+  "Cimmérie": "Le pays de collines brumeuses du nord d'où vient Conan.",
+  "bakhariote": "De Bakhariot, un pays où l'on fait de belles ceintures de cuir.",
+  "Jhumda": "Un fleuve de Vendhya.",
+  "Zamora": "Un royaume de l'est, réputé pour ses voleurs et ses temples interdits.",
+  "Atlantide": "Un continent englouti, dans les légendes de l'âge hyborien.",
+}
+
+PT = {
+  "C1_1": ("Les gongs de la nuit", "ayodhya"),
+  "C1_2": ("Le dernier ordre", "ayodhya"),
+  "C2_1": ("Le gouverneur de Peshkhauri", "fort"),
+  "C2_2": ("Une rançon de sorciers", "fort"),
+  "C2_3": ("L'homme de l'Ouest", "fort"),
+  "C2_4": ("Par la fenêtre", "fort"),
+  "C3_1": ("Une course dans la nuit", "peshkhauri"),
+  "C3_2": ("Ce qu'on entend sur les toits", "peshkhauri"),
+  "C3_3": ("La porte de la prison", "fort"),
+  "C4_1": ("Le ravisseur", "zhaibar"),
+  "C4_2": ("L'embuscade du col", "zhaibar"),
+  "C4_3": ("Trente cavaliers en loques", "zhaibar"),
+  "C5_1": ("Le réveil chez les Wazulis", "khurum"),
+  "C5_2": ("Ce que dit l'éclaireur", "khurum"),
+  "C5_3": ("Le chef de Khurum", "khurum"),
+  "C5_4": ("La boule de jade noir", "khurum"),
+  "C5_5": ("La porte secrète", "khurum"),
+  "C6_1": ("Vers l'Afghulistan", "pistes"),
+  "C6_2": ("Les habits de la Galzaïe", "pistes"),
+  "C6_3": ("Le pic de Yimsha", "pistes"),
+  "C6_4": ("L'homme au turban vert", "corniche"),
+  "C6_5": ("Les quatre en noir", "corniche"),
+  "C6_6": ("Au bord de l'abîme", "corniche"),
+  "C7_1": ("Cinq cents cavaliers", "crete"),
+  "C7_2": ("Un homme sur la piste", "crete"),
+  "C7_3": ("La ceinture tressée", "crete"),
+  "C7_4": ("Un allié douteux", "crete"),
+  "C8_1": ("Le Maître de Yimsha", "salle"),
+  "C8_2": ("Le lotus d'or", "salle"),
+  "C8_3": ("Toutes les vies d'une femme", "salle"),
+  "C9_1": ("Au pied du Yimsha", "pente"),
+  "C9_2": ("La tour des acolytes", "pente"),
+  "C9_3": ("Le gouffre de brume", "gouffre"),
+  "C9_4": ("La veine d'or", "gouffre"),
+  "C9_5": ("La galerie de jade", "chateau"),
+  "C9_6": ("L'autel aux serpents", "chateau"),
+  "C9_7": ("Quatre sur l'escalier", "chateau"),
+  "C9_8": ("En haut des marches", "chateau"),
+  "C9_9": ("La chambre au paravent", "chateau"),
+  "C10_1": ("Le gouffre, à rebours", "gouffre"),
+  "C10_2": ("Une reine des plaines", "arete"),
+  "C10_3": ("Deux vallées", "arete"),
+  "C10_4": ("Un chef n'abandonne pas les siens", "arete"),
+  "C10_5": ("La gorge sans issue", "gorge"),
+}
+PAGES = {p: list(t) for p, t in PT.items()}
