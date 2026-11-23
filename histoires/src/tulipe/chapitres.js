@@ -1,0 +1,40 @@
+// « La Tulipe noire », Alexandre Dumas, 1850 : un livre à lire, sans choix (lecture: true). Texte de Dumas, domaine
+// public, numérisé par le projet Gutenberg. Les titres des chapitres sont de Dumas ; ceux des pages, comme tout ce qui
+// vit dans les tags (gens, lieux, mots, résumés), sont de Claude.
+// Les chapitres (les actes du moteur). recap : résumé montré par « Où en étais-je ? » seulement une fois le chapitre fini.
+var RECAP = require("./resumes.js");
+module.exports = [
+  { id: "I", title: "Chapitre I · Un peuple reconnaissant", question: "", levels: [1, 1], start: "I_1" },
+  { id: "II", title: "Chapitre II · Les deux frères", question: "", levels: [1, 1], start: "II_1" },
+  { id: "III", title: "Chapitre III · L'élève de Jean de Witt", question: "", levels: [1, 1], start: "III_1" },
+  { id: "IV", title: "Chapitre IV · Les massacreurs", question: "", levels: [1, 1], start: "IV_1" },
+  { id: "V", title: "Chapitre V · L'amateur de tulipes et son voisin", question: "", levels: [1, 1], start: "V_1" },
+  { id: "VI", title: "Chapitre VI · La haine d'un tulipier", question: "", levels: [1, 1], start: "VI_1" },
+  { id: "VII", title: "Chapitre VII · L'homme heureux fait connaissance avec le malheur", question: "", levels: [1, 1], start: "VII_1" },
+  { id: "VIII", title: "Chapitre VIII · Une invasion", question: "", levels: [1, 1], start: "VIII_1" },
+  { id: "IX", title: "Chapitre IX · La chambre de famille", question: "", levels: [1, 1], start: "IX_1" },
+  { id: "X", title: "Chapitre X · La fille du geôlier", question: "", levels: [1, 1], start: "X_1" },
+  { id: "XI", title: "Chapitre XI · Le testament de Cornélius van Baërle", question: "", levels: [1, 1], start: "XI_1" },
+  { id: "XII", title: "Chapitre XII · L'exécution", question: "", levels: [1, 1], start: "XII_1" },
+  { id: "XIII", title: "Chapitre XIII · Ce qui se passait pendant ce temps-là dans l'âme d'un spectateur", question: "", levels: [1, 1], start: "XIII_1" },
+  { id: "XIV", title: "Chapitre XIV · Les pigeons de Dordrecht", question: "", levels: [1, 1], start: "XIV_1" },
+  { id: "XV", title: "Chapitre XV · Le guichet", question: "", levels: [1, 1], start: "XV_1" },
+  { id: "XVI", title: "Chapitre XVI · Maître et écolière", question: "", levels: [1, 1], start: "XVI_1" },
+  { id: "XVII", title: "Chapitre XVII · Premier caïeu", question: "", levels: [1, 1], start: "XVII_1" },
+  { id: "XVIII", title: "Chapitre XVIII · L'amoureux de Rosa", question: "", levels: [1, 1], start: "XVIII_1" },
+  { id: "XIX", title: "Chapitre XIX · Femme et fleur", question: "", levels: [1, 1], start: "XIX_1" },
+  { id: "XX", title: "Chapitre XX · Ce qui s'était passé pendant ces huit jours", question: "", levels: [1, 1], start: "XX_1" },
+  { id: "XXI", title: "Chapitre XXI · Le second caïeu", question: "", levels: [1, 1], start: "XXI_1" },
+  { id: "XXII", title: "Chapitre XXII · Épanouissement", question: "", levels: [1, 1], start: "XXII_1" },
+  { id: "XXIII", title: "Chapitre XXIII · L'envieux", question: "", levels: [1, 1], start: "XXIII_1" },
+  { id: "XXIV", title: "Chapitre XXIV · Où la tulipe noire change de maître", question: "", levels: [1, 1], start: "XXIV_1" },
+  { id: "XXV", title: "Chapitre XXV · Le président van Herysen", question: "", levels: [1, 1], start: "XXV_1" },
+  { id: "XXVI", title: "Chapitre XXVI · Un membre de la société horticole", question: "", levels: [1, 1], start: "XXVI_1" },
+  { id: "XXVII", title: "Chapitre XXVII · Le troisième caïeu", question: "", levels: [1, 1], start: "XXVII_1" },
+  { id: "XXVIII", title: "Chapitre XXVIII · La chanson des fleurs", question: "", levels: [1, 1], start: "XXVIII_1" },
+  { id: "XXIX", title: "Chapitre XXIX · Où van Baërle, avant de quitter Loewestein, règle ses comptes avec Gryphus", question: "", levels: [1, 1], start: "XXIX_1" },
+  { id: "XXX", title: "Chapitre XXX · Où l'on commence de se douter à quel supplice était réservé Cornélius van Baërle", question: "", levels: [1, 1], start: "XXX_1" },
+  { id: "XXXI", title: "Chapitre XXXI · Harlem", question: "", levels: [1, 1], start: "XXXI_1" },
+  { id: "XXXII", title: "Chapitre XXXII · Une dernière prière", question: "", levels: [1, 1], start: "XXXII_1" },
+  { id: "XXXIII", title: "Chapitre XXXIII · Conclusion", question: "", levels: [1, 1], start: "XXXIII_1" },
+].map(function (a) { var r = RECAP[a.id] || {}; a.recap = r.text || ""; a.notice = !!r.notice; return a; });
