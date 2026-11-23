@@ -1,0 +1,11 @@
+// « L'Ombre qui glisse » (The Slithering Shadow), Robert E. Howard, 1933 : un livre à lire, sans choix (lecture: true).
+// Texte : traduction nouvelle par Claude, faite pour cette bibliothèque à partir du texte anglais paru dans Weird Tales
+// en septembre 1933 (domaine public). Les chapitres de Howard sont seulement numérotés ; leurs titres, ceux des pages et
+// tout ce qui vit dans les tags (gens, lieux, mots, résumés) sont de Claude.
+// Ce qui se passe dans chaque chapitre, en quelques lignes (Claude), montré par « Où en étais-je ? » une fois le chapitre lu.
+module.exports = {
+  C1: { text: "Rescapés de l'armée du prince Almuric, anéantie aux confins de Kush, Conan et Natala, une Brythunienne qu'il a tirée d'un marché aux esclaves, n'ont plus d'eau dans le désert du Sud. Au moment où Conan tire son sabre pour épargner à Natala une longue agonie, une ville surgit à l'horizon. Xuthal est ouverte, somptueuse et muette ; le garde de la porte, qu'on croyait mort, se jette sur Conan ; une ombre énorme emporte un dormeur sur son estrade. La Stygienne Thalis, venue là toute jeune, leur explique la ville : ses habitants passent leur vie dans les rêves du lotus noir, et leur dieu Thog se nourrit d'eux. Elle offre à Conan de rester avec elle." },
+  C2: { text: "Thalis a entraîné Natala par une porte secrète, dans un couloir obscur, pour la laisser à celui qui habite les ténèbres. Natala la blesse d'un coup de dague ; folle de rage, Thalis l'attache à un anneau et la fouette. Puis une forme noire sort de l'ombre.", notice: true },
+  C3: { text: "Conan se jette contre le mur, puis contre les guerriers de Xuthal tirés de leurs rêves par le tumulte. Il se fraie un chemin dans un escalier, se perd dans les salles du haut et tombe par une trappe dans le couloir secret, où il trouve Natala aux prises avec le monstre. Le combat roule dans le noir jusqu'au bord d'un puits.", notice: true },
+  C4: { text: "Conan revient, déchiré et à bout de forces, et délivre Natala. Par un autre tunnel, ils remontent dans une salle à fontaine, où Natala trouve près d'une dormeuse une jarre du vin d'or de Xuthal. L'élixir rend à Conan toute sa vigueur. Par une fenêtre du mur, une corde de soie les descend dans le désert, en route vers l'oasis du sud." },
+};

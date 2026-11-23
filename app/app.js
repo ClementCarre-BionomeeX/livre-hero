@@ -2780,6 +2780,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "24.6", items: ["Nouveau livre à lire : « L'Ombre qui glisse », de Robert E. Howard (1933), en traduction nouvelle : perdus dans le désert du Sud, Conan et Natala entrent dans une ville aux murs verts dont les habitants dorment comme des morts."] },
     { v: "24.5", items: ["Nouveau livre à lire : « Larrons dans la maison », de Robert E. Howard (1934), en traduction nouvelle : pour sauver sa tête, un jeune noble fait évader le voleur Conan et l'envoie tuer le Prêtre rouge, dans une maison pleine de pièges."] },
     { v: "24.4", items: ["Nouveau livre à lire : « La Citadelle écarlate », de Robert E. Howard (1933), en traduction nouvelle : trahi par un allié, le roi Conan tombe aux mains de ses ennemis, qui l'emmènent à Khorshemish, au pied de la citadelle rouge d'un sorcier."] },
     { v: "24.3", items: ["Nouveau livre à lire : « Le Phénix sur l'épée », de Robert E. Howard (1932), en traduction nouvelle : Conan est devenu roi d'Aquilonie, et dans une maison obscure de la capitale, un hors-la-loi et son esclave stygien préparent sa mort."] },
