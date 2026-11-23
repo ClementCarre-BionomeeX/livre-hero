@@ -2780,6 +2780,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "23.9", items: ["Nouveau livre à lire : « Acté », d'Alexandre Dumas (1839) : à Corinthe, en l'an 57, une jeune Grecque ouvre la maison de son père à un Romain à la barbe d'or venu disputer aux Grecs les couronnes de la lutte, de la course et du chant."] },
     { v: "23.8", items: ["Nouveau livre à lire : « La Femme au collier de velours », d'Alexandre Dumas (1850) : le jeune Hoffmann quitte sa fiancée de Mannheim pour le Paris de 1793 et s'éprend d'une danseuse de l'Opéra au collier de velours noir."] },
     { v: "23.7", items: ["Nouveau livre à lire : « Les Mille et Un Fantômes », d'Alexandre Dumas (1849) : un soir de 1831, chez le maire de Fontenay-aux-Roses, de vieux témoins de la Révolution et une dame d'une pâleur de marbre racontent chacun ce qu'ils ont vu de l'autre monde."] },
     { v: "23.6", items: ["Nouveau livre à lire : « Pauline », d'Alexandre Dumas (1838) : une tempête sur la côte normande, une abbaye en ruine, une clef enterrée dans la nuit, et une jeune femme que tout Paris croit morte."] },

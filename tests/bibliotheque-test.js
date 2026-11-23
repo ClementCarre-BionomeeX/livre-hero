@@ -116,7 +116,7 @@ check(B.sortKey({ title: "Le Monde perdu" }) === "monde perdu" && B.sortKey({ ti
     // Orders
     await pg.selectOption(".lib-sort", "titre");
     var byTitle = await titles(pg);
-    check(byTitle.length === P.STORIES.length && byTitle[0] === "L'Archipel en feu" && byTitle[1] === "Arsène Lupin, gentleman-cambrioleur" && byTitle[2] === "Au-delà de la rivière Noire", "ordre par titre : " + byTitle.slice(0, 3).join(" | "));
+    check(byTitle.length === P.STORIES.length && byTitle[0] === "Acté" && byTitle[1] === "L'Archipel en feu" && byTitle[2] === "Arsène Lupin, gentleman-cambrioleur", "ordre par titre : " + byTitle.slice(0, 3).join(" | "));
     await pg.selectOption(".lib-sort", "recent");
     check((await titles(pg))[0] === "Le labyrinthe de Kardan", "« Lus récemment » : Kardan d'abord");
     await pg.selectOption(".lib-sort", "rayons");
