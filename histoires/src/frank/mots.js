@@ -1,0 +1,32 @@
+// « Frankenstein », Mary Shelley, 1818 : un livre à lire, sans choix (lecture: true). Traduction française de 1821 (J. S.,
+// attribuée à Jules Saladin), domaine public, d'après l'édition numérique du projet Gutenberg. Les chapitres n'ont pas de titre ; les
+// titres des pages, comme tout ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude.
+// Les mots et les noms de l'époque, expliqués d'un toucher. Rien de l'intrigue.
+module.exports = {
+  "syndic|syndics": "À Genève, un des magistrats élus qui gouvernaient la république.",
+  "philosophie naturelle": "Le nom qu'on donnait alors aux sciences de la nature : physique, chimie, histoire naturelle.",
+  "alchimie": "L'ancienne science qui cherchait à changer les métaux en or et à trouver le remède de toutes les maladies.",
+  "alchimistes": "Les savants de l'alchimie, qui cherchaient la pierre philosophale et l'élixir de vie.",
+  "élixir de vie": "Le breuvage rêvé par les alchimistes, qui devait chasser la maladie et la mort.",
+  "pierre philosophale": "La substance que cherchaient les alchimistes pour changer les métaux en or.",
+  "charnier|charniers": "Un lieu où l'on entassait les ossements des morts.",
+  "assises": "Le tribunal qui juge les crimes, réuni à date fixe dans une ville.",
+  "apoplexie": "Une attaque brutale, souvent mortelle, qui frappe le cerveau.",
+  "laudanum": "Un remède à base d'opium, qu'on prenait en gouttes pour dormir.",
+  "esquif": "Une petite embarcation légère.",
+  "gruau": "Une bouillie de grains d'avoine ou d'orge.",
+  "lieue|lieues": "Une ancienne mesure de distance, environ quatre kilomètres.",
+  "diligence|diligences": "Une grande voiture à chevaux qui transportait les voyageurs d'une ville à l'autre.",
+  "échafaud": "L'estrade où l'on exécutait les condamnés.",
+  "excommunication": "La sentence par laquelle l'Église chasse un fidèle de sa communauté.",
+  "môle": "Ici, le Môle, une montagne en pain de sucre au-dessus de la vallée de l'Arve.",
+  "magnétisme": "La force de l'aimant, qui fait tourner l'aiguille de la boussole vers le nord.",
+  "Paradis perdu": "Le grand poème de Milton (1667) sur la révolte de Satan et la chute d'Adam et Ève.",
+  "Werther": "*Les Souffrances du jeune Werther*, le roman de Goethe (1774) sur un jeune homme désespéré d'amour.",
+  "Plutarque": "Un auteur grec qui a écrit les *Vies* des grands hommes de la Grèce et de Rome.",
+  "Volney": "Un philosophe français, auteur des *Ruines* (1791), une méditation sur la grandeur et la chute des empires.",
+  "Agrippa": "Corneille Agrippa, un savant du XVIe siècle, auteur d'un traité de magie.",
+  "Paracelse": "Un médecin et alchimiste suisse du XVIe siècle.",
+  "Tartarie": "Le nom qu'on donnait aux immenses steppes de l'Asie centrale.",
+  "convalescence": "Le temps où l'on reprend des forces après une maladie.",
+};
