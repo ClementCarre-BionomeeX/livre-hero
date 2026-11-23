@@ -1,0 +1,97 @@
+// « Le Corricolo », d'Alexandre Dumas (1843) : un livre à lire, sans choix (lecture: true). Domaine public, d'après
+// l'édition numérique du projet Gutenberg ; les notes de Dumas sont gardées, quelques passages retouchés (voir la notice). Les titres
+// des chapitres sont de Dumas ; ceux des pages, comme tout ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude.
+// Chapitre IV · Toledo
+module.exports = {
+  IV_1: { act: "IV", title: "La rue de tout le monde", place: "toledo", fx: { meet: ["barbaja"] },
+    text: [
+      "Toledo est la rue de tout le monde. C'est la rue des restaurans, des cafés, des boutiques ; c'est l'artère qui alimente et traverse tous les quartiers de la ville ; c'est le fleuve où vont se dégorger tous les torrens de la foule. L'aristocratie y passe en voiture, la bourgeoisie y vend ses étoffes, le peuple y fait sa sieste. Pour le noble, c'est une promenade ; pour le marchand, un bazar ; pour le lazzarone, un domicile.",
+      "Toledo est aussi le premier pas fait par Naples vers la civilisation moderne, telle que l'entendent nos progressistes, c'est le lien qui réunit la cité poétique à la ville industrielle, c'est un terrain neutre où l'on peut suivre d'un œil curieux les restes de l'ancien monde qui s'en va et les envahissemens du nouveau monde qui arrive. A côté de la classique osteria aux vieux rideaux tachetés par les mouches, un galant pâtissier français étale sa femme, ses brioches et ses babas. En face d'un respectable fabricant d'antiquités à l'usage de messieurs les Anglais se pavane un marchand d'allumettes chimiques. Au dessus d'un bureau de loterie s'élève un brillant salon de coiffure ; enfin, pour dernier trait caractéristique de la fusion qui s'opère, la rue de Toledo est pavée en lave comme Herculanum et Pompéia, et éclairée au gaz comme Londres et Paris.",
+      "Tout est à voir dans la rue de Toledo ; mais comme il est impossible de tout décrire, il faut se borner à trois palais, qui sont ce qu'elle offre de plus saillant et de plus remarquable : le palais du roi à une extrémité, le palais de la ville à l'autre extrémité, et au milieu le palais de Barbaja.",
+      "Quant au palais du roi de Naples, l'occasion se présentera de nous en occuper. Passons à la ville. La ville se compose : 1. d'un carrosse à douze places, peint et doré dans le plus beau style espagnol du dix-septième siècle ; 2. de douze magistrats, élus moitié parmi les nobles, moitié parmi les bourgeois napolitains, portant fièrement la cape et l'épée, chaussés de petits souliers à boucles et coiffés d'énormes perruques à la Louis XIV ; 3. de six chevaux harnachés, empanachés, caparaçonnés avec la plus grande magnificence. Voici maintenant les fonctions respectives de tout le personnel de la ville ; le carrosse est tenu de sortir deux fois par an de sa remise, les douze magistrats sont chargés de s'asseoir dans le carrosse, et les six chevaux sont obligés de traîner le tout d'un bout de Toledo à l'autre, le plus lentement possible. Tout le monde s'acquitte à merveille de ses devoirs.",
+      "Reste donc à expliquer à mes lecteurs ce que c'est, ou plutôt ce que c'était que Barbaja ; car, hélas ! au moment où j'écris ces lignes, ce grand homme a disparu, cette grande gloire s'est évanouie, ce grand astre s'est éteint.",
+      "Domenico Barbaja était le véritable type de l'impresario italien. En France, nous connaissons le directeur, le régisseur, le commissaire du roi, le caissier, les contrôleurs, nous ne connaissons pas l'impresario. L'impresario est tout cela à la fois, mais il est plus encore. Nos théâtres sont régis constitutionnellement, nos directeurs règnent et ne gouvernent pas, suivant la célèbre maxime parlementaire. L'impresario italien est un despote, un czar, un sultan, régnant par le droit divin dans son théâtre, n'ayant, comme les rois les plus légitimes, d'autres règles que sa propre volonté, et ne devant compte de son administration qu'à Dieu et à sa conscience.",
+      "Il est à la fois pour les artistes un exploiteur habile et un père indulgent, un maître absolu et un ami fidèle, un guide éclairé et un juge incorruptible."
+    ] },
+
+  IV_2: { act: "IV", title: "Domenico Barbaja", place: "toledo",
+    text: [
+      "C'est un homme faisant la traite des blancs pour son compte et en disposant à son gré, sans reconnaître à qui que ce soit au monde le droit de visite sur ses planches, couvrant sa marchandise de son pavillon, et défendant les droits de son pavillon avec une intrépidité tout américaine.",
+      "Au reste, l'impresario n'a pas seulement le droit pour lui, il a aussi la force. Il a à ses ordres un piquet de cavalerie et un peloton d'infanterie, un commissaire de police et un capitaine de place, des sbires, des carabiniers, des gendarmes pour envoyer immédiatement en prison les chanteurs qui s'aviseraient d'avoir des caprices et le public qui oserait siffler sans raison.",
+      "Domenico Barbaja 1er a donc régné d'une manière aussi complète et aussi absolue pendant l'espace de quarante ans. C'était un homme de taille moyenne, mais bâti en Hercule, la poitrine large, les épaules carrées, le poignet de fer. Sa tête était assez commune, et ses traits ne se piquaient pas d'une grande régularité ; mais ses yeux pétillaient d'esprit, d'intelligence et de malice.",
+      "Goldoni l'avait prévu en écrivant *le Bourru bienfaisant*. Excellent cœur, mais les manières les plus brusques, le caractère le plus violent et le plus emporté du monde. Il est impossible de traduire dans aucune langue le dictionnaire d'injures et de gros mots dont il se servait à l'égard des artistes de son théâtre. Mais il n'en est pas un qui lui ait gardé rancune, tant ils étaient sûrs qu'au moindre succès Barbaja serait là pour les embrasser avec effusion, à la moindre chute pour les consoler avec délicatesse, à la moindre maladie pour les veiller nuit et jour avec une tendresse et un dévoûment paternels.",
+      "Parti d'un café de Milan, où il servait en qualité de garçon, il était arrivé à diriger en même temps les théâtres de Saint-Charles, de la Scala et de Vienne, à régner sans contestation et sans contrôle sur le public italien et sur le public allemand, c'est-à-dire sur deux publics dont l'un passe pour être le plus capricieux et l'autre pour être le plus difficile de l'univers. Après avoir amassé sou par sou sa fortune, Barbaja la dépensait noblement en prodigalités royales et en généreux bienfaits. Il avait un palais pour loger les artistes, une villa pour traiter ses amis, des jeux publics pour amuser tout le monde. Génie vraiment extraordinaire et instinctif, n'ayant jamais su écrire une lettre ni déchiffrer une note, et traçant avec un parfait bon sens aux poètes le plan de leurs libretti, aux compositeurs le choix de leurs morceaux ; doué par Dieu de la voix la plus criarde et la plus dissonante, et formant par ses conseils les premiers chanteurs, de l'Italie ; ne parlant que son patois milanais, et se faisant comprendre à merveille par les rois et par les empereurs avec lesquels il traitait de puissance à puissance.",
+      "Aussi prenait-il ses engagemens sur parole et sans jamais accepter la moindre condition. Il fallait se livrer à discrétion à Barbaja. Il avait toujours sous sa main de quoi récompenser largement et de quoi punir avec la dernière sévérité. Une ville se montrait-elle accommodante à l'endroit des décors, un public encourageait-il les débutans avec cette bienveillance qui triple les moyens d'un artiste, un gouvernement ne lésinait-il pas trop sur la subvention ? ville, public, gouvernement, étaient aussitôt dans les bonnes grâces de l'impresario ; il leur envoyait Rubini, la Pasta, Lablache, l'élite de sa troupe. Mais si une autre ville, au contraire, se montrait par trop exigeante, si un autre public abusait de son droit de siffler acheté à la porte, si un autre gouvernement affichait des prétentions excessives, Barbaja leur lâchait le rebut de ses chanteurs, ses *chiens*, comme il les appelait par une expression énergique ; leur faisait écorcher les oreilles pendant une entière saison, et écoutait les plaintes et les sifflets des patiens avec le même sang-froid qu'un empereur romain assistant au spectacle du cirque."
+    ] },
+
+  IV_3: { act: "IV", title: "L'imprésario en campagne", place: "toledo", fx: { meet: ["brutus"] },
+    text: [
+      "Il fallait voir le noble imprésario assis dans sa belle loge d'avant-scène, en face du roi, un soir de première représentation, grave, impassible, se tournant tantôt vers les acteurs, tantôt vers le public. Si c'était l'artiste qui bronchait, Barbaja était le premier à l'immoler avec une sévérité digne de Brutus, en lui jetant un : « *Can de Dio* ! » qui faisait trembler la salle. Si, au contraire, c'était le public qui avait tort, Barbaja se redressait comme une vipère, et lui lançait à pleine voix un : « *Fioli d'una vacea*, voulez-vous vous taire vous ne méritez que de la canaille ! » Si c'était le roi par hasard qui manquait d'applaudir à temps, Barbaja se contentait de hausser les épaules et sortait en grommelant de sa loge.",
+      "Barbaja ne se fiait à personne du soin de former sa troupe ; il avait pour principe d'engager le moins possible les artistes connus, parce qu'une réputation arrivée à son apogée ne pouvait plus que décroître, et qu'avec des talens célèbres il y avait plus à perdre qu'à gagner. Il aimait mieux les créer lui-même, et commençait d'ordinaire ses expériences *in anima vili*.",
+      "Voici sa manière de procéder :",
+      "Il sortait par une belle matinée de mai ou de septembre, et se faisait conduire par son cocher dans les environs de Naples. Arrivé à la campagne, il descendait de sa calèche, congédiait ses gens, et s'acheminait seul et à pied à la recherche de l'*ut* de poitrine. S'il rencontrait un paysan assez beau, assez bien tourné et assez paresseux pour faire un ténor, il s'approchait de lui amicalement, lui posait la main sur l'épaule, et engageait la conversation à peu près en ces termes :",
+      "— Eh bien ! mon ami, le travail nous fatigue un peu, n'est-ce pas ? Nous n'avons pas la force de lever la bêche ?",
+      "— Je me reposais, eccellenza.",
+      "— Connu ! connu ! le paysan napolitain se repose toujours.",
+      "— C'est qu'il fait une chaleur étouffante. Et puis la terre est si dure !",
+      "— Je parie que tu dois avoir une belle voix ; je ne connais rien qui soulage et qui donne des forces comme un peu de musique ; si tu me chantais une chanson ?",
+      "— Moi, monsieur ! Je n'ai jamais chanté de ma vie.",
+      "— Raison de plus ; tu auras la voix plus fraîche.",
+      "— Vous voulez plaisanter !",
+      "— Non, je veux t'entendre.",
+      "— Et qu'est-ce que je gagnerai à me faire entendre de vous ?",
+      "— Mais peut-être que si ta voix me plaît tu ne travailleras plus, je te prendrai avec moi.",
+      "— Pour domestique ?",
+      "— Mieux que cela.",
+      "— Pour cuisinier ?",
+      "— Mieux, te dis-je.",
+      "— Et pourquoi donc ? demandait alors le paysan avec quelque défiance.",
+      "— Qu'est-ce que ça te fait ? chante toujours.",
+      "— Bien fort ?",
+      "— De tous tes poumons, et surtout ouvre bien la bouche.",
+      "Si le malheureux n'avait qu'une voix de baryton ou de basse-taille, l'impresario tournait lestement sur ses talons en lui laissant quelque maxime bien consolante sur l'amour du travail et le bonheur de la vie champêtre ; mais s'il était assez heureux dans sa journée pour mettre la main sur un ténor, il l'emmenait avec lui et le faisait monter… derrière sa voiture.",
+      "Il ne gâtait pas les artistes, celui-là.",
+      "S'agissait-il d'engager un homme : — Qu'est-ce qu'il te faut, mon garçon ? lui demandait Barbaja de sa voix brusque et de son ton bourru ; tu auras assez de cinquante francs par mois pour commencer. Des souliers pour te chausser, un habit pour te couvrir, du macaroni pour te régaler, que demandes-tu davantage ? Sois grand artiste d'abord, et ensuite tu me feras la loi comme je te la fais maintenant. Hélas ! ce temps ne viendra que trop tôt ; tu as une belle voix, et la preuve c'est que je t'ai engagé ; tu as de l'intelligence et la preuve c'est que tu voudrais me voler. Attends donc, cher ami, le bien te viendra en chantant. Si je te donnais beaucoup d'argent tout de suite, tu ferais le beau, tu te griserais tous les jours, et tu perdrais ta voix au bout de trois semaines."
+    ] },
+
+  IV_4: { act: "IV", title: "Une audition", place: "toledo", fx: { meet: ["rossini", "donizetti"] },
+    text: [
+      "Avec les femmes, le raisonnement était beaucoup plus court et plus simple :",
+      "— Chère enfant, je ne te donnerai pas un sou ; c'est toi, au contraire, qui dois me payer. Je t'offre les moyens de montrer au public tout ce que tu possèdes d'agrémens naturels. Tu es jolie ; si tu as du talent, tu arriveras bien vite ; si tu n'en as pas, tu arriveras plus vite encore. Crois-moi, tu m'en remercieras plus tard lorsque tu auras acquis un peu plus d'expérience. Si tu étais déjà riche à tes débuts, tu épouserais un choriste qui te battrait ou un prince qui te réduirait à la misère.",
+      "Convaincus par une logique aussi entraînante, les artistes s'engageaient pour cinquante francs par mois ; mais il arrivait le plus souvent qu'après le premier trimestre ils devaient six mille francs à un usurier. Alors Barbaja, pour ne pas les faire aller en prison, payait leurs dettes, et le compte était soldé.",
+      "Pendant mon séjour à Naples, on racontait plusieurs anecdotes sur le grand impresario, qui peignent l'homme tout entier et donnent une exacte mesure de ses connaissances en musique.",
+      "Je ne sais plus quel marquis napolitain, dont l'influence était grande à la cour, lui avait recommandé une jeune fille comme ayant pour le théâtre la vocation la plus décidée et annonçant le plus bel avenir. Barbaja fit une moue très significative et enfonça ses deux mains dans les poches de sa veste de nankin, attitude qu'il prenait habituellement quand il ne pouvait pas donner un libre cours à sa colère.",
+      "— Vous verrez, mon cher, répliqua le marquis avec un air de suffisance qui échauffait de plus en plus la bile du terrible impresario, c'est un véritable prodige !",
+      "— Bien, bien ! qu'elle vienne demain à midi.",
+      "Le lendemain, à l'heure dite, la débutante met sa plus belle robe, prend ses cahiers, et, flanquée de l'éternelle mère que vous connaissez, se présente au palais de Barbaja.",
+      "Le directeur de l'orchestre était déjà au piano, Barbaja se promenait de long en large dans son salon.",
+      "— Signor impresario, dit la vieille femme après une profonde révérence, il est du devoir d'une mère, devoir religieux et sacré, de vous avertir que cette pauvre enfant, étant pure comme le cristal, et timide comme une colombe…",
+      "— Nous commençons mal, interrompit brusquement Barbaja ; au théâtre il faut être effrontée.",
+      "— Ce n'est pas cependant que je veuille entendre, reprend la mère de sa voix la plus mielleuse…",
+      "Mais l'impresario, lui tournant le dos, s'approcha de la jeune fille et lui dit d'un ton passablement impatienté : — Voyons, ma chère, que veux-tu me chanter ?",
+      "Il aurait tutoyé la reine en personne.",
+      "— Monsieur, balbutie la débutante, devenue rouge jusqu'au blanc des yeux, j'ai la prière de *Norma*…",
+      "— Comment, malheureuse ! s'écrie Barbaja d'une voix tonnante ; après la Ronzi, oserais-tu aborder la prière de *Norma* ? Quelle audace !",
+      "— Je chanterai, si vous le préférez, la cavatine du *Barbier*.",
+      "— La cavatine du *Barbier* ! après la Fodor ! Quelle indignité !",
+      "— Pardon, monsieur, dit la jeune fille en tremblant ; j'essaierai la romance du *Saule*.",
+      "— La romance du *Saule* ! après la Malibran ! Quelle profanation !",
+      "— Alors il ne me reste plus que des solféges, reprend la pauvre débutante presque en sanglotant.",
+      "— A la bonne heure ! Va pour les solféges !",
+      "La jeune fille essuie ses larmes, la mère lui glisse à l'oreille un mot de consolation, l'accompagnateur l'encourage ; bref, elle s'en tire à merveille. Jamais solféges n'avaient été mieux exécutés.",
+      "La physionomie de Barbaja s'éclaircit, son front se déride, un sourire de satisfaction erre sur ses lèvres.",
+      "— Eh bien, monsieur ! s'écrie la mère dans la plus grande anxiété, que pensez-vous de ma fille ?",
+      "— Eh, madame ! la voix n'est pas mauvaise, mais du diable si j'ai pu comprendre un seul mot.",
+      "Une autre fois (on était en plein hiver) on répétait un opéra nouveau, et les chanteurs chargés des premiers rôles, désolés de quitter leur édredon, étaient toujours en retard. Barbaja, furieux, avait juré la veille de mettre à l'amende le premier qui ne se trouverait pas à l'heure, fût-ce le ténor ou la prima donna elle-même, pour faire un exemple.",
+      "La répétition commence, Barbaja s'éloigne un peu vers le fond d'une coulisse pour gronder le machiniste ; tout à coup les voix se taisent, l'orchestre s'arrête, on attend quelqu'un.",
+      "— Qu'y a-t-il ? s'écrie l'impresario en se précipitant vers la rampe.",
+      "— Rien, monsieur, répond le premier violon.",
+      "— Qu'est-ce qui manque ? Je veux le savoir.",
+      "— Il manque un *ré*.",
+      "— A l'amende.",
+      "Tout cela n'empêche pas que Domenico Barbaja n'ait créé Lablache, Tamburini, Rubini, Donzelli, la Colbron, la Pasta, la Fodor, Donizetti, Bellini, Rossini lui-même ; oui, le grand Rossini.",
+      "Les plus grands chefs-d'œuvre du maître souverain ont été composés pour Barbaja, et Dieu seul peut savoir ce qu'il en a coûté au pauvre impresario de prières, de violences et de ruses pour forcer au travail le génie le plus libre, le plus insouciant et le plus heureux qui ait jamais plané sur le beau ciel de l'Italie.",
+      "J'en citerai un exemple qui caractérise parfaitement l'imprésario et le compositeur."
+    ] },
+
+};

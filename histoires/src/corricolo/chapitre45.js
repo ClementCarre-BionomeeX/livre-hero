@@ -1,0 +1,104 @@
+// « Le Corricolo », d'Alexandre Dumas (1843) : un livre à lire, sans choix (lecture: true). Domaine public, d'après
+// l'édition numérique du projet Gutenberg ; les notes de Dumas sont gardées, quelques passages retouchés (voir la notice). Les titres
+// des chapitres sont de Dumas ; ceux des pages, comme tout ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude.
+// Chapitre XLIV · L'auberge de Sainte-Agathe
+module.exports = {
+  XLIV_1: { act: "XLIV", title: "Adieu Naples", place: "routerome",
+    text: [
+      "C'en était fait, je devais quitter Naples. Le rêve était fini, la vision allait s'envoler dans les cieux. Je vous avoue, mes chers lecteurs, que, lorsque je vis disparaître Capo-di-Chino à ma gauche et le Champ-de-Mars à ma droite, lorsque, étendu sur les coussins de ma voiture, je me mis à songer tristement que, selon toutes les probabilités humaines, et grâce surtout à la bienveillante protection du marquis de Soval et à la justice éclairée du roi Ferdinand, je ne verrais plus ces merveilles, mon cœur se serra par un sentiment d'angoisse indéfinissable, des larmes me vinrent aux bords des paupières, et je me rappelai malgré moi le mélancolique proverbe italien : Voir Naples et mourir !",
+      "En m'éloignant de ce pays enchanté, j'éprouvais donc quelque chose de semblable à ce qui doit se passer dans l'âme de l'exilé disant un dernier adieu à sa patrie. Oui, je m'étais épris de tendresse, de sympathie et de pitié pour cette terre étrangère que Dieu, dans sa prédilection jalouse, a comblée de ses bienfaits et de ses richesses ; pour cette oisive et nonchalante favorite dont la vie entière est une fête, dont la seule préoccupation est le bonheur ; pour cette ingrate et voluptueuse sirène qui s'endort au bruit des vagues et se réveille aux chants du rossignol, et à qui le rossignol et les vagues répètent dans leur doux langage un éternel refrain de joie et d'amour, et traduisent dans leur musique divine les paroles du Seigneur : « A toi, ma bien-aimée, mes plus riches tapis de verdure et de fleurs ; à toi mon plus beau pavillon d'or et d'azur ; à toi mes sources les plus limpides et les plus fraîches ; à toi mes parfums les plus suaves et les plus purs ; à toi mes trésors d'harmonie ; à toi mes torrens de lumière. » Hélas ! pourquoi faut-il que l'homme, cet esclave envieux et stérile, s'attache à détruire partout l'œuvre de Dieu ; pourquoi tout paradis terrestre doit-il cacher un serpent !",
+      "Absorbé par ces idées passablement lugubres, je baissai la tête sur ma poitrine et je me laissai aller à ma rêverie. Jadin ronflait à mes côtés du sommeil des justes, avec cette différence cependant que la trompette des archanges ne l'aurait pas éveillé. Il avait lancé sa dernière malédiction sur les douaniers de Sa Majesté sicilienne, avait craché sur la barrière en guise d'adieu, et s'était endormi comme un homme qui n'a plus de comptes à rendre à sa conscience. Je voulus m'assurer si mes regrets bruyans n'avaient pas troublé le repos de mon camarade. J'attendis deux ou trois cahots de première force ; Jadin subit l'épreuve sans sourciller, il aurait subi l'épreuve du canon tiré à bout d'oreille. Alors je fermai les yeux à mon tour, et je repassai dans mon esprit tous ces rians tableaux que j'avais admirés pour la première et pour la dernière fois de ma vie. Je ne sais combien de temps dura ma méditation ou mon rêve, je ne sais combien d'heures je restai dans cet engourdissement de l'âme qui n'est plus la veille, mais qui n'est pas encore le sommeil ; ce que je sais très bien et dont je me souviens, Dieu merci, avec une grande précision de détails, c'est que j'en fus arraché brusquement par un accident survenu à notre voiture. L'essieu s'était brisé et nous étions dans une mare.",
+      "Cette fois Jadin était éveillé, non point par sa chute, comme on pourrait le croire, mais par la fraîcheur de l'eau qui venait de pénétrer ses vêtemens les plus intimes, et il jurait de toute l'indignation de son âme et de toute la force de ses poumons. Il pouvait être environ trois heures ; la route était déserte ; le postillon s'en était allé demander du secours."
+    ] },
+
+  XLIV_2: { act: "XLIV", title: "Le petit paysan", place: "santagata",
+    text: [
+      "Lorsque je dis que la route était déserte, je me trompe, car, en tournant la tête à gauche, je vis près de nous une espèce de petit lazzarone de douze à treize ans, crépu, hâlé, doré de reflets changeans, imitant à merveille le bronze florentin, les yeux noirs comme du charbon, les lèvres rouges comme du corail et les dents blanches comme des perles. Il était fièrement drapé dans des haillons qui auraient fait envie à Murillo, et nous regardait d'un air intelligent et réfléchi, sans daigner nous tendre la main ni pour nous aider, ni pour nous demander l'aumône. Dans un pays où la nudité presque complète est le privilége du mendiant et du lazzarone, et où tout homme du peuple, quels que soient ses besoins, n'aborde jamais l'étranger sans se croire le droit de mettre sa bourse à contribution, ce luxe de guenilles et ce silence de dédain ne furent pas sans me causer un certain étonnement.",
+      "— Où sommes-nous ? lui demandai-je en sautant par dessus la roue qui gisait renversée au milieu du chemin.",
+      "— *A Sant-Agata di Goti*, répondit le petit sauvage sans déranger un pli de son bizarre accoutrement.",
+      "— Pardieu ! fit Jadin, il s'agit bien de Goths et de Visigoths, ne voyez-vous pas que nous sommes en Afrique ? Voilà de la véritable couleur locale ou je ne m'y connais guère.",
+      "Le petit paysan fixa son regard sur Jadin, comme pour deviner le sens de ses paroles, et fronça le sourcil d'un air de défiance et de soupçon, se croyant sans doute offensé par ce peu de mots prononcés devant lui dans une langue inconnue. Je me hâtai de rassurer la susceptibilité du jeune habitant de Sainte-Agathe, en lui faisant comprendre de mon mieux que Jadin s'extasiait sur la qualité de son teint et sur l'originalité de son costume.",
+      "L'enfant ne fut pas dupe de ma bienveillante traduction et se contenta de répondre, en haussant les épaules, que, si les hommes de son pays étaient bronzés par le soleil, les femmes y étaient plus blanches et plus jolies que partout ailleurs, et que si lui et ses frères n'avaient que des haillons pour tout vêtement, c'était pour que leurs sœurs portassent des jupes brodées et des corsages à galons d'or.",
+      "Ces paroles furent dites d'un ton si simple que je me suis réconcilié tout à coup avec l'indolence et la misère du petit lazzarone.",
+      "— Y a-t-il une auberge, une cabane, un chenil dans ce maudit village ? demanda Jadin en se servant cette fois du patois napolitain, dans lequel il avait fait, dans les derniers temps, de rapides progrès.",
+      "— *C'e una superba locanda*, répondit l'enfant en regardant Jadin avec une singulière expression de malice.",
+      "— Eh bien ! mon garçon, lui dis-je, si tu nous mènes à cette *superba locanda*, voici une pièce de six carlins pour ta peine.",
+      "— Je ne suis pas un mendiant, répondit le jeune homme aux haillons, en me lançant un regard d'une hauteur incroyable.",
+      "Je tombais d'étonnement en étonnement. Un enfant de la dernière classe du peuple napolitain, dont l'extérieur annonçait le dénûment le plus complet, refuser une demi-piastre, c'était quelque chose de tellement fabuleux que, n'en croyant pas mes oreilles, je me tournai vers Jadin pour m'assurer si je n'avais pas mal entendu.",
+      "— Comment, drôle ! tu ne veux pas de notre argent ? fit Jadin en lui montrant la monnaie qu'il prit de mes mains."
+    ] },
+
+  XLIV_3: { act: "XLIV", title: "La voiture versée", place: "santagata",
+    text: [
+      "— Je ne l'ai pas gagné, répondit le petit paysan avec son stoïcisme habituel.",
+      "— Tu te trompes, mon garçon, repris-je à mon tour, ce n'est pas à titre d'aumône que nous t'offrons cette somme, c'est pour te récompenser du service que tu vas nous rendre en nous menant à un hôtel.",
+      "— Je ne suis pas un guide, répliqua l'étrange garçon avec le plus imperturbable sang-froid.",
+      "— Eh bien ! quel est donc l'état de votre seigneurie ? demanda Jadin en portant respectueusement la main à son chapeau.",
+      "— Mon état ?… c'est de regarder les voitures qui passent et les passagers qui tombent.",
+      "— Hein ! comment le trouvez-vous, Jadin ?",
+      "— Je le trouve tout à fait magnifique, et je veux absolument croquer la tête de ce coquin.",
+      "Comme nous l'avons dit, le descendant des Goths n'était pas très fort sur le français. Il crut que Jadin le menaçait tout bonnement de lui couper la tête. Sa colère, long-temps contenue, éclata avec fureur. Il grinça des dents comme un tigre blessé, tira de ses haillons un long poignard à lame triangulaire, et s'éloigna lentement à reculons, en fixant sur Jadin ses fauves prunelles qui lançaient des éclairs. Son intention évidente était d'attirer son adversaire loin de la grande route, dans quelque endroit plus désert ou plus sombre, pour consommer tranquillement sa vengeance.",
+      "— Attends-moi, attends-moi, petit brigand, s'écria Jadin en riant, je vais t'apprendre a faire usage d'armes prohibées. Et il fit un pas pour s'élancer à sa poursuite.",
+      "Mais au même instant le postillon reparut suivi de cinq ou six paysans de Sainte-Agathe, les uns plus cuivrés que les autres ; et le petit sauvage, en voyant arriver du monde, cacha promptement son poignard et se sauva à toutes jambes.",
+      "On mit la voiture sur pied, on constata les dégâts, et nous acquîmes la triste conviction que nous ne pouvions pas nous remettre en route avant la nuit. Je fis part au postillon de notre singulière rencontre, et lui demandai quelques renseignemens sur l'étonnant personnage qui venait de s'enfuir à leur approche. Le postillon sourit, et pour toute réponse frappa deux ou trois fois son front du bout de son index. Comme je ne comprenais rien du tout à cette pantomime, je le priai de s'expliquer plus clairement. Il me raconta alors que ce méchant gamin, que nous avions pris pour un Africain, ne l'était pas plus que les autres habitans de Sainte-Agathe, et qu'il ne fallait pas nous étonner de ses manières, car il était un peu fou, ainsi que le reste de sa famille.",
+      "— Mais au nom du diable ! s'écria Jadin, exaspéré par toutes ces lenteurs, où pourrais-je enfin trouver une auberge pour sécher mes habits ?",
+      "— Tiens ! en effet, reprit le postillon en l'examinant avec curiosité, son excellence a versé du côté du ruisseau.",
+      "La *locanda* était à deux pas. J'ai abusé si souvent de la patience de mes lecteurs en leur parlant des auberges d'Italie, que je puis me borner cette fois à les renvoyer aux descriptions précédentes. J'ajouterai seulement que l'auberge de Sainte-Agathe surpasse en saleté toutes celles que j'ai décrites jusqu'ici. Cet affreux coupe-gorge s'appelle, je crois, la *nobile locanda del Sole*.",
+      "Jadin fit allumer un grand feu, et se mit en devoir de se sécher de son mieux, trempé qu'il était jusqu'aux os. Moi, je sortis à l'aventure, fort inquiet de savoir comment j'emploierais les trois ou quatre mortelles heures pendant lesquelles on devait réparer notre voiture. De dîner, il n'en était pas question. Comme nous comptions nous arrêter seulement à Mola di Gaëta, nous n'avions pas pris de provisions avec nous, et de son côté l'hôte de Sainte-Agathe s'était empressé de mettre à notre disposition sa cuisine, ses ustensiles ; mais, comme on le pense bien, là se bornèrent ses offres de service : des objets à mettre sous notre dent, il n'en fut aucunement question. Je pris le premier chemin de traverse qui s'offrit à mes pas, décidé à tuer le temps en parcourant la campagne. J'avais fait à peine un huitième de mille, lorsqu'au détour d'un buisson je me trouvai nez à nez avec mon sauvage. Il se chauffait tranquillement au soleil, et ne fit pas un mouvement ni pour m'éviter ni pour marcher à ma rencontre."
+    ] },
+
+  XLIV_4: { act: "XLIV", title: "Mon petit Giotto", place: "santagata",
+    text: [
+      "— Eh bien ! mon enfant, lui dis-je en l'abordant comme une vieille connaissance, vous vous êtes singulièrement mépris sur les intentions de mon camarade. Il ne voulait vous faire aucun mal. Seulement, comme il vous trouvait la tête d'un grand caractère, il eût été charmé de faire votre portrait.",
+      "— Comment, c'était un peintre ! s'écria l'enfant ébahi.",
+      "— Certainement, qu'y a-t-il là d'étonnant ?",
+      "— C'était un peintre ! répéta le petit paysan, comme en se parlant à lui-même.",
+      "— Oui, c'était un peintre, et de quelque talent, j'ose vous en répondre.",
+      "— Mais moi je suis peintre aussi, s'écria le pauvre garçon d'un air exalté, *son pittore anch'io*, ou plutôt je le serai, car je suis trop jeune encore pour avoir un état.",
+      "— Eh bien, mon cher, vous voyez que, pour un collègue, vous ne vous êtes pas montré trop aimable, et si c'eût été en pays civilisé, on eût pu croire que vous vous connaissiez.",
+      "— Ah ! pardonnez-moi, monsieur ; si j'avais pu deviner que vous étiez des artistes, car vous êtes artiste aussi, vous, n'est-ce pas, eccellenza ?",
+      "— Artiste… oui, oui… à peu près…",
+      "— Si j'avais pu croire cela, au lieu de vous laisser égorger dans cette vilaine auberge, je vous aurais mené chez mon grand-père, qui est peintre aussi, lui, ou plutôt qui l'a été, car il est maintenant trop vieux pour avoir un état.",
+      "— Mais nous sommes encore à temps, mon garçon.",
+      "— Vous avez raison, monsieur, dit le futur peintre en faisant quelques pas dans la direction de la *locanda*. Mais il parut se raviser tout à coup ; et se tournant vers moi avec un certain embarras :",
+      "— Je réfléchis, dit-il, qu'il vaudra peut-être mieux nous passer de votre ami.",
+      "— Et pourquoi cela ?",
+      "— Dame ! c'est qu'il aime à rire, comme j'ai pu m'en apercevoir, et qu'il pourrait avoir du désagrément avec mon grand-père ; car dans notre famille nous ne sommes pas endurans. Vous, c'est autre chose… vous ne vous êtes pas trop moqué de mes haillons, et je crois qu'avec un peu de bonne volonté de part et d'autre nous pourrons nous entendre.",
+      "— C'est convenu, mon petit Giotto ; et en attendant que vous reveniez un peu de vos préventions sur le compte de mon ami, je profiterai seul de l'hospitalité que vous voulez bien m'offrir.",
+      "— Et vous n'en serez pas fâché, je vous le promets. Vous allez voir d'abord mes trois frères, trois garçons les plus forts et les plus beaux de la province, le premier est vigneron, le second pêcheur, le troisième garde-chasse.",
+      "— Je serai flatté de faire leur connaissance.",
+      "— Puis mes trois sœurs, trois madones.",
+      "— De mieux en mieux, mon cher hôte.",
+      "— Et puis enfin…",
+      "— Comment ! ce n'est pas tout ?",
+      "— Puis enfin, répéta le petit paysan en baissant la voix et regardant autour de lui d'un air mystérieux, vous verrez trois tableaux, trois merveilles ; et vous pourrez vous vanter d'avoir une fière chance si vous obtenez que mon grand-père vous les montre.",
+      "— Vous piquez furieusement ma curiosité.",
+      "— Oui, mais il faut savoir s'y prendre, car, voyez-vous, mon grand-père tient plus à ses tableaux qu'à tous ses enfans ; il verrait mes trois frères se casser le cou, mes trois sœurs se noyer, qu'il ne pousserait pas un cri, qu'il ne verserait pas une larme ; moi-même, qu'il préfère à tous les autres parce que je porte son nom et que je serai peut-être un jour comme lui, je tomberais dans la gueule d'un ours ou dans le fond d'un précipice qu'il en serait médiocrement affligé ; mais, s'il arrivait malheur à quelqu'un de ses tableaux, je crois qu'il en mourrait du coup, ou que tout au moins il en perdrait la raison."
+    ] },
+
+  XLIV_5: { act: "XLIV", title: "La maison blanche", place: "santagata",
+    text: [
+      "— Je comprends cette passion d'artiste et d'antiquaire ; mais que faut-il donc que je fasse pour mériter les bonnes grâces de votre respectable aïeul ?",
+      "— D'abord il ne faudra pas trop lui dire du bien de ses tableaux, car il croirait que vous voulez les acheter et il vous ferait mettre à la porte.",
+      "— Soyez tranquille ! j'en dirai du mal.",
+      "— Gardez-vous-en bien, il deviendrait furieux et pourrait bien avoir envie de vous faire jeter par la fenêtre.",
+      "— Diable ! diable ! Je n'en dirai rien du tout, alors.",
+      "— Je vous ai dit, monsieur, que mon grand-père est un vieillard, il faut lui pardonner quelque chose, reprit le petit lazzarone d'un ton grave et sentencieux qui contrastait singulièrement avec sa condition et son âge. Puis, comme s'il se fût ennuyé de jouer un rôle trop sérieux, il partit d'un grand éclat de rire et mesura en quatre bonds la distance qui nous séparait du sentier que nous devions prendre pour arriver à l'atelier rustique du vieux peintre de Sainte-Agathe. Je suivais avec quelque peine mon jeune guide, qui courait devant moi comme un chevreuil, en sautant fossés et barrières, en enjambant torrens et buissons, sans que rien pût arrêter son élan.",
+      "Au moment où nous passions sous un de ces berceaux de vigne si communs en Italie, l'enfant leva la tête, et me montra du doigt un très beau garçon de vingt à vingt-cinq ans qui se tenait gracieusement penché au bout d'une longue échelle, et coupait des sarmens avec un couteau recourbé qu'on appelle dans le pays *roncillo*.",
+      "— Bonjour, Vito, s'écria joyeusement mon gamin en secouant le pied de l'échelle.",
+      "— Bonjour, flâneur, répondit le personnage aérien sans interrompre sa besogne.",
+      "— C'est mon frère le vigneron, dit mon guide avec un sentiment de fierté, et il reprit sa course.",
+      "Un peu plus loin, il s'arrêta de nouveau aux bords d'une petite rivière qui coupait en deux le chemin. Un jeune homme très brun et très robuste se tenait assis sur la berge, les jambes nues et pendantes, les bras tendus, le corps avancé ; d'une main il jetait de la chaux vive pour troubler le courant, de l'autre il battait les eaux avec une perche. Il était impossible de passer devant cet homme sans l'admirer. C'était une de ces natures riches et puissantes que Michel-Ange eût souhaitées pour modèle.",
+      "— Bonjour, André, fit le futur artiste en lui tapant sur l'épaule, combien de truites aurons-nous ce soir ?",
+      "— Bonjour, gourmand, répondit l'homme à la perche.",
+      "— Ne faites pas attention, monsieur, c'est mon frère le pêcheur.",
+      "Enfin, nous étions presque à la porte d'une petite maison blanche et coquette, qu'il m'avait indiquée de loin comme le but de notre promenade artistique, lorsque nous rencontrâmes un troisième paysan, plus remarquable par sa taille et sa bonne mine que les deux autres, quoique, à vrai dire, son costume ne fût pas moins négligé que celui de ses frères. Le seul luxe qu'il se permît, c'était un très beau fusil anglais qu'il portait à l'épaule.",
+      "— Bonjour, Orso, s'écria l'enfant gâté de la famille, en lui sautant au cou.",
+      "— Bonjour, mauvais garnement, répondit Orso en lui rendant ses caresses.",
+      "— C'est mon frère le chasseur, dit mon petit Raphaël en herbe, d'une voix triomphante.",
+      "Et sans me laisser le temps de prononcer une parole, il me prit lestement par la main, et m'entraîna dans une de ces petites cours italiennes qui ressemblent si bien à un *impluvium*, pavée d'une mosaïque grossière et abritée d'une verte tonnelle. Nous franchîmes un escalier découvert dont les marches étaient tapissées de mousse et émaillées de ces grandes et belles fleurs dans lesquelles la dévotion napolitaine a découvert tous les emblèmes de la passion, et nous nous trouvâmes dans une assez vaste salle, haute, aérée, lumineuse, qui devait être la pièce de réception et d'apparat. Là, mon petit sauvage aux haillons pittoresques me présenta trois jeunes filles qui s'étaient levées à notre approche, et se serraient dans un seul groupe timides et confuses. La plus jeune n'avait pas encore quinze ans, et l'aînée en avait vingt à peine. Je fus ébloui de leur beauté et de leur fraîcheur. Rien de plus gracieux et de plus charmant que leurs jupes flottantes et leurs étroits corsages brodés de filigrane. On eût dit, sans aucune exagération poétique, trois roses blanches sur le même rosier.",
+      "— Voici mes sœurs, monsieur, et j'espère que je ne vous ai pas menti en vous disant qu'elles ne me ressemblaient guère ni pour le teint ni pour le costume. Celle-ci s'appelle Concetta, celle-ci Nunziata, celle-ci Assunta, les trois plus beaux noms de la Vierge. Et à chaque nom qu'il prononçait, le petit démon imprimait un baiser sur le front rougissant de celle de ses sœurs qu'il voulait désigner.",
+      "— Et maintenant, dit-il, montons à l'atelier de mon grand-père."
+    ] },
+
+};
