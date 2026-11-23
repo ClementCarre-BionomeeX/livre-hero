@@ -1,0 +1,34 @@
+// « Impressions de voyage en Suisse », d'Alexandre Dumas (1833-1837) : un livre à lire, sans choix (lecture: true).
+// Domaine public, d'après l'édition numérique d'Ebooks libres et gratuits ; les notes des éditeurs sont retirées, deux
+// chapitres remis dans l'ordre du voyage, deux mots retouchés (voir la notice). Les titres des chapitres sont de Dumas ;
+// ceux des pages, comme tout ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude.
+// Chapitre P · Exposition
+module.exports = {
+  P_1: { act: "P", title: "Un demi-flacon d'éther", place: "paris",
+    text: [
+      "Il n'y a pas de voyageur qui ne croie devoir rendre compte à ses lecteurs des motifs de son voyage. Je suis trop respectueux envers mes célèbres devanciers, depuis M. de Bougainville, qui fit le tour du monde, jusqu'à M. de Maistre, qui fit le tour de sa chambre, pour ne pas suivre leur exemple. D'ailleurs, on trouvera dans mon exposition, si courte qu'elle soit, deux choses fort importantes qu'on chercherait vainement ailleurs : une recette contre le choléra et une preuve de l'infaillibilité des journaux.",
+      "Le 15 avril 1832, en revenant de conduire jusqu'à l'escalier mes deux bons et célèbres amis Liszt et Boulanger, qui avaient passé la soirée à se prémunir avec moi contre le fléau régnant en prenant force thé noir, je sentis que les jambes me manquaient tout à coup ; en même temps, un éblouissement me passa sur les yeux et un frisson dans la peau ; je me retins à une table pour ne pas tomber : j'avais le choléra.",
+      "S'il était asiatique ou européen, épidémique ou contagieux, c'est ce que j'ignore complètement ; mais ce que je sais très bien, c'est que, sentant que, cinq minutes plus tard, je ne pourrais plus parler, je me dépêchai de demander du sucre et de l'éther.",
+      "Ma bonne, qui est une fille fort intelligente, et qui m'avait vu quelquefois, après mon dîner, tremper un morceau de sucre dans du rhum, présuma que je lui demandais quelque chose de pareil. Elle remplit un verre à liqueur d'éther pur, posa sur son orifice le plus gros morceau de sucre qu'elle put trouver, et me l'apporta au moment où je venais de me coucher, grelottant de tous mes membres.",
+      "Comme je commençais à perdre la tête, j'étendis machinalement la main ; je sentis qu'on m'y mettait quelque chose ; en même temps, j'entendis une voix qui me disait :",
+      "— Avalez cela, monsieur ; cela vous fera du bien.",
+      "J'approchai ce quelque chose de ma bouche, et j'avalai ce qu'il contenait, c'est-à-dire un demi-flacon d'éther.",
+      "Dire la révolution qui se fit dans ma personne, lorsque cette liqueur diabolique me traversa le torse, est chose impossible, car presque aussitôt je perdis connaissance. Une heure après, je revins à moi : j'étais roulé dans un grand tapis de fourrures, j'avais aux pieds une boule d'eau bouillante ; deux personnes, tenant chacune à la main une bassinoire pleine de feu, me frottaient sur toutes les coutures. Un instant, je me crus mort et en enfer : l'éther me brûlait la poitrine au dedans, les frictions me rissolaient au dehors ; enfin, au bout d'un quart d'heure, le froid s'avoua vaincu : je fondis en eau comme la Biblis de M. Dupaty, et le médecin déclara que j'étais sauvé. Il était temps : deux tours de broche de plus, et j'étais rôti."
+    ] },
+
+  P_2: { act: "P", title: "Fusillé dans le journal", place: "paris",
+    text: [
+      "Quatre jours après, je vis s'asseoir au pied de mon lit le directeur de la Porte-Saint-Martin ; son théâtre était plus malade encore que moi, et le moribond appelait à son secours le convalescent. M. Harel me dit qu'il lui fallait, dans quinze jours au plus tard, une pièce qui produisît cinquante mille écus au moins ; il ajouta, pour me déterminer, que l'état de fièvre où je me trouvais était très favorable au travail d'imagination, vu l'exaltation cérébrale qui en était la conséquence. Cette raison me parut si concluante que je me mis aussitôt à l'œuvre : je lui donnai sa pièce au bout de huit jours au lieu de quinze ; elle lui rapporta cent mille écus au lieu de cinquante mille : il est vrai que je faillis en devenir fou.",
+      "Ce travail forcé ne me remit pas le moins du monde ; et, à peine pouvais-je me tenir debout, tant j'étais faible encore, lorsque j'appris la mort du général Lamarque. Le lendemain, je fus nommé par la famille l'un des commissaires du convoi : ma charge était de faire prendre à l'artillerie de la garde nationale, dont je faisais partie, la place que la hiérarchie militaire lui assignait dans le cortège.",
+      "Tout Paris a vu passer ce convoi, sublime d'ordre, de recueillement et de patriotisme. Qui changea cet ordre en désordre, ce recueillement en colère, ce patriotisme en rébellion ? C'est ce que j'ignore ou veux ignorer, jusqu'au jour où la royauté de juillet rendra, comme celle de Charles IX, ses comptes à Dieu, ou comme celle de Louis XVI, ses comptes aux hommes.",
+      "Le 9 juin, je lus dans une feuille légitimiste que j'avais été pris les armes à la main, à l'affaire du cloître Saint-Méry, jugé militairement pendant la nuit, et fusillé à trois heures du matin.",
+      "La nouvelle avait un caractère si officiel ; le récit de mon exécution, que, du reste, j'avais supportée avec le plus grand courage, était tellement détaillé ; les renseignements venaient d'une si bonne source que j'eus un instant de doute ; d'ailleurs, la conviction du rédacteur était grande ; pour la première fois, il disait du bien de moi dans son journal : il était donc évident qu'il me croyait mort.",
+      "Je rejetai ma couverture, je sautai à bas de mon lit, et je courus à ma glace pour me donner à moi-même des preuves de mon existence. Au même instant, la porte de ma chambre s'ouvrit, et un commissionnaire entra, porteur d'une lettre de Charles Nodier, conçue en ces termes :",
+      "« Mon cher Alexandre,",
+      "« Je lis à l'instant, dans un journal, que vous avez été fusillé hier, à trois heures du matin : ayez la bonté de me faire savoir si cela vous empêchera de venir demain à l'Arsenal dîner avec Taylor. »",
+      "Je fis dire à Charles que, pour ce qui était d'être mort ou vivant, je ne pouvais pas trop lui en répondre, attendu que, moi-même, je n'avais pas encore d'opinion bien arrêtée sur ce point ; mais que, dans l'un ou l'autre cas, j'irais toujours le lendemain dîner avec lui ; ainsi, qu'il n'avait qu'à se tenir prêt, comme don Juan, à fêter la statue du commandeur.",
+      "Le lendemain, il fut bien constaté que je n'étais pas mort ; cependant, je n'y avais pas gagné grand'chose, car j'étais toujours fort malade. Ce que voyant, mon médecin m'ordonna ce qu'un médecin ordonne lorsqu'il ne sait plus qu'ordonner : un voyage en Suisse.",
+      "En conséquence, le 21 juillet 1832, je partis de Paris."
+    ] },
+
+};
