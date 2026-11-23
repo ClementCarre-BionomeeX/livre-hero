@@ -2780,6 +2780,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "24.3", items: ["Nouveau livre à lire : « Le Phénix sur l'épée », de Robert E. Howard (1932), en traduction nouvelle : Conan est devenu roi d'Aquilonie, et dans une maison obscure de la capitale, un hors-la-loi et son esclave stygien préparent sa mort."] },
     { v: "24.2", items: ["Nouveau livre à lire : « La Tour de l'éléphant », de Robert E. Howard (1933), en traduction nouvelle : au Maul, le quartier des voleurs de Zamora, le jeune Conan entend parler d'une tour d'argent où dort un joyau que personne n'a jamais pu voler."] },
     { v: "24.1", items: ["Nouveau livre à lire : « Frankenstein », de Mary Shelley (1818), dans sa première traduction française : dans les glaces du pôle, un navire recueille un homme épuisé qui poursuivait une silhouette gigantesque, et qui a voulu percer le secret de la vie."] },
     { v: "24.0", items: ["Nouveau livre à lire : « Histoire d'un casse-noisette », d'Alexandre Dumas (1844) : le soir de Noël, à Nuremberg, la petite Marie soigne un bonhomme de bois qui casse les noisettes, et à minuit l'armoire aux joujoux s'éveille."] },
