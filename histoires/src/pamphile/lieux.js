@@ -1,0 +1,25 @@
+// « Le Capitaine Pamphile », Alexandre Dumas, 1840 : un livre à lire, sans choix (lecture: true). Texte de Dumas,
+// domaine public, d'après l'édition numérique du projet Gutenberg. Les titres des chapitres sont ceux de Dumas ; les
+// titres des pages, comme tout ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude.
+// Les lieux du livre.
+module.exports = {
+  paris: { ambiance: "ville", name: "Paris en 1831", map: "paris", x: 50, y: 50, region: "Paris", desc: "La ville des peintres et des gens d'esprit, du magasin de comestibles de Chevet aux ateliers du faubourg Saint-Denis.", arrive: "I_1" },
+  atelier: { ambiance: "ville", name: "L'atelier de Decamps", map: "paris", x: 60, y: 35, region: "Paris, rue du faubourg Saint-Denis", desc: "Un atelier de peintre où l'on reçoit en robe de chambre, entre les armes, les oiseaux empaillés, les pipes bourrées, un ours dans sa niche et un singe qui peint.", arrive: "I_3" },
+  plaine: { ambiance: "champs", name: "La plaine Saint-Denis", map: "paris", x: 60, y: 8, region: "Au nord de Paris", desc: "Le terrain de chasse des Parisiens, où le gibier est rare et les chasseurs nombreux.", arrive: "III_3" },
+  bal: { ambiance: "nuit", name: "Le bal masqué de l'Odéon", map: "paris", x: 45, y: 65, region: "Paris, rive gauche", desc: "Un bal où les arlequins dansent la contredanse et où personne ne s'étonne de croiser un ours.", arrive: "VIII_4" },
+  johannot: { ambiance: "ville", name: "L'atelier de Tony Johannot", map: "paris", x: 40, y: 45, region: "Paris", desc: "L'atelier d'un illustrateur qui grave sur bois la nuit, mal chauffé pendant l'hiver.", arrive: "XV_1" },
+  orleans: { ambiance: "ville", name: "Orléans", map: "monde", x: 47, y: 32, region: "Loiret", desc: "La ville de Jeanne d'Arc, de ses érudits, de ses confiseurs et de ses liquoristes.", arrive: "XVI_1" },
+  roxelane: { ambiance: "mer", name: "La Roxelane", map: "monde", x: 40, y: 40, region: "Brick de commerce, port d'attache Marseille", desc: "Un brick fin marcheur, lesté de canons au lieu de pavés, dont le capitaine ne paie jamais une marchandise qu'il peut prendre.", arrive: "VI_2" },
+  bango: { ambiance: "foret", name: "La rivière Bango", map: "monde", x: 52, y: 66, region: "Afrique, près de Saint-Paul-de-Loanda", desc: "Une rive de fleuve africain où chassent les tigres, où nagent les hippopotames et où les singes volent les déjeuners.", arrive: "V_1" },
+  mer: { ambiance: "mer", name: "En haute mer", map: "monde", x: 64, y: 70, region: "De l'Atlantique à la mer des Indes", desc: "La route des navires marchands, où la Roxelane fait ses « échanges » à coups de canon.", arrive: "V_4" },
+  terreneuve: { ambiance: "mer", name: "Les bancs de Terre-Neuve", map: "monde", x: 28, y: 22, region: "Atlantique Nord", desc: "Des eaux froides où l'on pêche la morue et la baleine, entre l'Islande et le cap Farewell.", arrive: "IX_1" },
+  saintlaurent: { ambiance: "eau", name: "Le fleuve Saint-Laurent", map: "monde", x: 24, y: 24, region: "Canada", desc: "Un fleuve immense entre les forêts et les montagnes, que l'on remonte en canot vers les grands lacs.", arrive: "X_1" },
+  foret: { ambiance: "foret", name: "Les forêts du Nouveau Monde", map: "monde", x: 22, y: 28, region: "Amérique du Nord", desc: "Une forêt vierge aux arbres comme des colonnes, aux lianes en festons, pleine de loups et de serpents.", arrive: "XII_1" },
+  hutte: { ambiance: "foret", name: "La hutte des Sioux", map: "monde", x: 21, y: 29, region: "Amérique du Nord", desc: "Une hutte de chasseurs partagée par une natte, où l'on soupe de buffle et d'eau-de-vie d'érable.", arrive: "XII_5" },
+  delaware: { ambiance: "route", name: "Les bords de la Delaware", map: "monde", x: 23, y: 31, region: "Pennsylvanie", desc: "Une route déserte entre les rochers, où l'on peut rencontrer un ours.", arrive: "XIII_1" },
+  philadelphie: { ambiance: "port", name: "Philadelphie", map: "monde", x: 23, y: 32, region: "Pennsylvanie", desc: "La capitale de la Pennsylvanie, ses tavernes de matelots et son port sur la Delaware.", arrive: "XIII_3" },
+  afrique: { ambiance: "foret", name: "Le pays des Petits-Namaquois", map: "monde", x: 54, y: 76, region: "Afrique australe, sur la rivière Orange", desc: "Des villages de cases, des éléphants qui viennent manger le maïs, et une guerre entre deux peuples.", arrive: "XVII_3" },
+  martinique: { ambiance: "port", name: "La Martinique", map: "monde", x: 26, y: 44, region: "Antilles françaises", desc: "Une île à sucre, où l'on achète encore des hommes en cachette.", arrive: "XVIII_1" },
+  mosquitos: { ambiance: "village", name: "La côte des Mosquitos", map: "monde", x: 18, y: 46, region: "Amérique centrale", desc: "Une côte de cabanes au bord de la baie de Carthago, gouvernée par un chef en vieil habit d'uniforme.", arrive: "XVIII_2" },
+  londres: { ambiance: "ville", name: "Londres", map: "monde", x: 46, y: 24, region: "Angleterre", desc: "La ville des banquiers, des lithographies et des émigrants prêts à croire au pays de cocagne.", arrive: "XIX_1" },
+};
