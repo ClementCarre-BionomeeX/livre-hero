@@ -1,0 +1,10 @@
+// « Larrons dans la maison » (Rogues in the House), Robert E. Howard, 1934 : un livre à lire, sans choix (lecture: true).
+// Texte : traduction nouvelle par Claude, faite pour cette bibliothèque à partir du texte anglais paru dans Weird Tales
+// en janvier 1934 (domaine public). Les chapitres de Howard sont seulement numérotés ; leurs titres, ceux des pages et
+// tout ce qui vit dans les tags (gens, lieux, mots, résumés) sont de Claude.
+// Ce qui se passe dans chaque chapitre, en quelques lignes (Claude), montré par « Où en étais-je ? » une fois le chapitre lu.
+module.exports = {
+  C1: { text: "À une fête de la cour, Nabonidus, le Prêtre rouge, tend au jeune noble Murilo un coffret d'or : il contient l'oreille d'un secrétaire qui vendait des secrets d'État pour lui. Murilo va trouver en prison un voleur cimmérien, Conan, arrêté pour le meurtre d'un prêtre receleur, et lui promet l'évasion s'il tue Nabonidus. Mais le geôlier acheté est arrêté, et Murilo, désespéré, se rend lui-même chez le Prêtre rouge à minuit. Dans le jardin, le chien de garde est mort ; dans la maison, le serviteur Joka a la nuque brisée ; dans un grand fauteuil attend une silhouette en robe rouge." },
+  C2: { text: "Le nouveau geôlier entre seul dans la cellule de Conan, et ne ressort pas. Libre, le Cimmérien décide qu'il doit quand même sa promesse à Murilo. Mais il passe d'abord par le Dédale, le quartier des voleurs, pour régler son compte à la fille qui l'a vendu à la police et à son nouvel amant." },
+  C3: { text: "Murilo se réveille dans les souterrains de la maison et y retrouve Conan, entré par l'égout et bloqué par une herse. Ils découvrent Nabonidus, assommé : la chose qui porte sa robe là-haut est un autre habitant de la maison. Le prêtre et ses deux ennemis concluent une trêve de larrons. Dans un grand miroir, ils regardent la salle du haut, où des conspirateurs viennent de pénétrer, et voient jouer les pièges du prêtre. Puis il faut monter, et affronter ce qui garde la porte.", notice: true },
+};
