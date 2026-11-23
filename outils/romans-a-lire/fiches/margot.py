@@ -14,7 +14,7 @@ BASE = {
   "lecture": True,
   "age": 14,
   "skin": "parchemin",
-  "cover": {"motif": "couronne", "color": "#5a1e2a"},
+  "cover": {"motif": "fleur", "color": "#5a1e2a"},
   "glossary": None,
   "voice": "troisième personne, passé",
   "version": 1,
