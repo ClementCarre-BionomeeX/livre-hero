@@ -1,0 +1,41 @@
+// « Une sorcière naîtra » (A Witch Shall Be Born), Robert E. Howard, 1934 : un livre à lire, sans choix (lecture: true).
+// Texte : traduction nouvelle par Claude, faite pour cette bibliothèque à partir du texte anglais paru dans Weird Tales
+// en décembre 1934 (Project Gutenberg n° 42227, domaine public). Les titres des chapitres sont ceux de Howard ; ceux des
+// pages et tout ce qui vit dans les tags (gens, lieux, mots, résumés) sont de Claude.
+// Les mots et les noms de l'époque, expliqués d'un toucher. Rien de l'intrigue.
+module.exports = {
+  "Khauran": "Un petit royaume au bord du désert, et sa ville, qui tient une route des caravanes.",
+  "Khauranien|Khauraniens|khauranien|khauraniens": "De Khauran.",
+  "Koth|Kothien|kothien": "Un grand royaume hyborien, à l'ouest de Khauran.",
+  "Ishtar": "La déesse qu'on adore à Khauran.",
+  "Mitra": "Le grand dieu des royaumes hyboriens de l'ouest.",
+  "Shémites|Shémite|shémite|shémites": "Les peuples du Shem : gens des cités de l'ouest, ou nomades du désert de l'est.",
+  "Shem": "Un vaste pays de prairies et de déserts, au sud des royaumes hyboriens.",
+  "Zuagirs|Zuagir": "Des nomades du désert, au-delà de la rivière de Khauran.",
+  "Zaporoska": "Une rivière des steppes où campent les kozaks.",
+  "kozak|kozaki": "Les bandes d'aventuriers et de hors-la-loi des steppes, qui pillent les frontières du Touran.",
+  "hetman": "Un chef des kozaks.",
+  "voïvode": "Un titre de chef de guerre, chez les Kothiens.",
+  "Compagnies libres": "Des troupes de mercenaires qui se vendent au plus offrant.",
+  "askhaurienne": "De la dynastie askhaurienne, la famille royale de Khauran.",
+  "Khitaï": "Un royaume de l'extrême est, aux jungles hantées.",
+  "Stygie": "Un royaume du sud où règnent des prêtres sorciers.",
+  "Paikang": "Une cité du Khitaï, aux tours pourpres.",
+  "Touran|Touraniens|touranien|touraniens": "Le grand royaume hyrkanien, au nord-est.",
+  "Némédie": "Un grand royaume hyborien de l'ouest.",
+  "Kordava": "La capitale de la Zingara, connue pour ses cuirs.",
+  "khalat": "Une longue robe à manches, qu'on serre d'une ceinture.",
+  "keffieh": "Une coiffe d'étoffe des hommes du désert, tenue par un cordon.",
+  "asshuri": "Les guerriers en armure des cités du Shem.",
+  "Akrel": "Une oasis du désert, à l'est de Khauran.",
+  "Vezek": "Un avant-poste touranien où les caravanes paient le péage.",
+  "Shushan": "Une riche cité du Shem.",
+  "Argos": "Un royaume hyborien du bord de la mer.",
+  "Hyboriens|Hyborien|hyborienne|hyboriens": "Les peuples des grands royaumes de l'ouest, dont viennent les gens de Khauran.",
+  "Pelishtim|Anakim|Akkharim": "Des cités du Shem de l'ouest.",
+  "tcherkesse": "D'un peuple des steppes, renommé pour ses couteaux.",
+  "bakhariote": "De Bakhariot, un pays où l'on fait de belles ceintures de cuir.",
+  "tulwars": "Des sabres courbes.",
+  "Crom": "Le dieu sombre des Cimmériens, qui vit sur une montagne et n'écoute pas les prières.",
+  "Korveka": "Une bataille où l'armée de Khauran s'est illustrée.",
+};

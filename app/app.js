@@ -2733,6 +2733,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "20.2", items: ["Nouveau livre à lire : « Une sorcière naîtra », un récit de Conan le Cimmérien de Robert E. Howard (1934), dans une traduction nouvelle."] },
     { v: "20.1", items: ["Nouveau livre à lire : « Le Peuple du Cercle noir », un récit de Conan le Cimmérien de Robert E. Howard (1934), dans une traduction nouvelle."] },
     { v: "20.0", items: ["Nouveau livre à lire : « Le Démon de fer », un récit de Conan le Cimmérien de Robert E. Howard (1934), dans une traduction nouvelle."] },
     { v: "19.9", items: ["Nouveau livre à lire : « La Reine de la Côte noire », un récit de Conan le Cimmérien de Robert E. Howard (1934), dans une traduction nouvelle."] },
