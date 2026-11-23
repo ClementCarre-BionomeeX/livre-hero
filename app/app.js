@@ -2733,6 +2733,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "20.0", items: ["Nouveau livre à lire : « Le Démon de fer », un récit de Conan le Cimmérien de Robert E. Howard (1934), dans une traduction nouvelle."] },
     { v: "19.9", items: ["Nouveau livre à lire : « La Reine de la Côte noire », un récit de Conan le Cimmérien de Robert E. Howard (1934), dans une traduction nouvelle."] },
     { v: "19.8", items: ["Nouveau livre à lire : « Ombres au clair de lune », un récit de Conan le Cimmérien de Robert E. Howard (1934), dans une traduction nouvelle."] },
     { v: "19.7", items: ["Nouveau livre à lire : « Le Docteur Ox » de Jules Verne (1874), ses quatre récits et l'ascension du mont Blanc de son frère Paul, en entier."] },
