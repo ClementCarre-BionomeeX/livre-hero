@@ -1,0 +1,24 @@
+// « La Dame de Monsoreau », Alexandre Dumas, 1846 : un livre à lire, sans choix (lecture: true). Texte de Dumas
+// (avec Auguste Maquet), domaine public, d'après l'édition numérique du projet Gutenberg. Les titres des chapitres sont
+// de Dumas, sauf celui du chapitre LXXIII, qui n'en a pas dans l'édition ; ceux des pages, comme tout ce qui vit dans
+// les tags (gens, lieux, mots, résumés), sont de Claude.
+// Les lieux du livre.
+module.exports = {
+  louvre: { ambiance: "chateau", name: "Le Louvre", map: "paris", x: 34, y: 48, region: "Paris, au bord de la Seine", desc: "Le palais du roi, sa chambre au grand lit, son cabinet des armes, ses antichambres pleines de mignons, et des corridors où l'on écoute aux portes.", arrive: "I_1" },
+  saintantoine: { ambiance: "nuit", name: "La maison des Tournelles", map: "paris", x: 72, y: 50, region: "Paris, rue Saint-Antoine", desc: "Une petite maison près de la Bastille, une porte garnie de clous, une allée, un escalier de douze marches, et une chambre où un portrait de femme semble sortir de son cadre.", arrive: "II_1" },
+  tournelles: { ambiance: "combat", name: "Le Marché-aux-Chevaux", map: "paris", x: 70, y: 44, region: "Paris, l'ancien enclos des Tournelles", desc: "Une place unie, quelques arbres maigres, et des barrières de bois où l'on attache les chevaux.", arrive: "LXXXII_2" },
+  montmorency: { ambiance: "ville", name: "L'hôtel Montmorency", map: "paris", x: 48, y: 44, region: "Paris", desc: "Le grand hôtel où une jeune mariée attend, la nuit de ses noces, un mari que le roi ne lâche pas.", arrive: "IV_1" },
+  hotelbussy: { ambiance: "ville", name: "L'hôtel de Bussy", map: "paris", x: 40, y: 40, region: "Paris", desc: "La maison d'un gentilhomme magnifique, des pages, des chevaux, une table ouverte, et un jeune médecin installé dans une chambre.", arrive: "XLII_1" },
+  hotelmonsoreau: { ambiance: "ville", name: "L'hôtel de Monsoreau", map: "paris", x: 58, y: 42, region: "Paris", desc: "La maison du grand veneur, un lit de blessé, un jardin où l'on se promène sur ordre du mari.", arrive: "LXXVII_1" },
+  jussienne: { ambiance: "temple", name: "Sainte-Marie l'Égyptienne", map: "paris", x: 42, y: 36, region: "Paris, rue de la Jussienne", desc: "Une petite chapelle, des ravenelles sur le vieux mur, un jardin, et un banc à l'ombre.", arrive: "XLIII_1" },
+  saintegenevieve: { ambiance: "temple", name: "L'abbaye Sainte-Geneviève", map: "paris", x: 50, y: 76, region: "Paris, sur la montagne Sainte-Geneviève", desc: "Un guichet où l'on montre un signe, une église pleine de moines encapuchonnés, des confessionnaux, une crypte et des cellules.", arrive: "XVII_7" },
+  corne: { ambiance: "ville", name: "La *Corne d'Abondance*", map: "paris", x: 46, y: 70, region: "Paris, rue Saint-Jacques", desc: "Une hôtellerie fréquentée des écoliers et des moines, un petit cabinet, du vin de Romanée, et une carpe qui ressemble beaucoup à une poularde.", arrive: "XVIII_1" },
+  paris: { ambiance: "ville", name: "Paris", map: "paris", x: 50, y: 60, region: "Paris", desc: "Des rues étroites et sans lanternes, des processions, des cabarets, et des registres de la Ligue où l'on signe en pleine rue.", arrive: "III_3" },
+  vincennes: { ambiance: "foret", name: "Le bois de Vincennes", map: "paris", x: 95, y: 52, region: "Près de Paris", desc: "Le rond-point du roi Saint-Louis, une meute, des piqueurs, et le grand veneur sur son cheval noir.", arrive: "XI_2" },
+  route: { ambiance: "route", name: "Les routes du royaume", map: "france", x: 46, y: 30, region: "Le royaume", desc: "Des chemins de poste, des hôtelleries, des relais, et des voyageurs qui ne voyagent pas seuls.", arrive: "XIII_5" },
+  chartres: { ambiance: "temple", name: "Chartres", map: "france", x: 42, y: 30, region: "La Beauce", desc: "Une grande cathédrale où l'on vient en pèlerinage demander un héritier à Notre-Dame.", arrive: "XXXIII_1" },
+  lyon: { ambiance: "ville", name: "Lyon", map: "france", x: 68, y: 66, region: "Le Lyonnais", desc: "La place des Terreaux, l'hôtellerie du *Cygne de la Croix*, et deux chambres séparées par une cloison.", arrive: "XXIX_4" },
+  angers: { ambiance: "chateau", name: "Angers", map: "france", x: 30, y: 46, region: "L'Anjou", desc: "Un château ducal sur la Maine, une milice bourgeoise, des cloches, et une poterne pour les visiteurs qu'on n'attend pas.", arrive: "LV_1" },
+  meridor: { ambiance: "champs", name: "Méridor", map: "france", x: 31, y: 48, region: "L'Anjou", desc: "Un vieux château au milieu des forêts, un parc fermé d'un mur, un sycomore, et un vieillard en deuil.", arrive: "XIII_2" },
+  beauge: { ambiance: "chateau", name: "Le château de Beaugé", map: "france", x: 34, y: 44, region: "L'Anjou", desc: "Un château de chasse au bord d'un étang, des fenêtres fermées de l'extérieur, et une barque dans la brume.", arrive: "XIII_6" },
+};
