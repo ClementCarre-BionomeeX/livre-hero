@@ -1,0 +1,20 @@
+// « Pauline », Alexandre Dumas, 1838 : un livre à lire, sans choix (lecture: true). Texte de Dumas,
+// domaine public, d'après l'édition numérique du projet Gutenberg. Les chapitres de Dumas n'ont pas de titre ; les
+// titres des pages, comme tout ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude.
+// Les lieux du livre.
+module.exports = {
+  suisse: { ambiance: "montagne", name: "Les lacs et les bains de Suisse", map: "europe", x: 52, y: 50, region: "Suisse", desc: "Le lac des Quatre-Cantons à Fluélen et la galerie souterraine des bains de Pfeffers, où l'on croise des voyageurs qui veulent rester inconnus.", arrive: "I_1" },
+  baveno: { ambiance: "eau", name: "Le lac Majeur", map: "europe", x: 53, y: 56, region: "Italie du Nord, de Baveno à Sesto Calende", desc: "Une auberge au bord de l'eau, des lauriers-roses, des myrtes et des orangers, trois îles, et sur une colline un jardin qui domine le lac.", arrive: "I_2" },
+  grisier: { ambiance: "ville", name: "La salle d'armes de Grisier", map: "paris", x: 55, y: 35, region: "Paris", desc: "Une salle d'armes et son petit salon, où l'on écoute le maître, le fleuret à la main et le cigare à la bouche.", arrive: "I_4" },
+  trouville: { ambiance: "port", name: "Trouville", map: "normandie", x: 70, y: 40, region: "Normandie, côte du Calvados", desc: "Un petit port de pêcheurs, l'un des plus pittoresques de Normandie, avec l'auberge de madame Oseraie.", arrive: "II_1" },
+  cote: { ambiance: "mer", name: "La côte du Calvados", map: "normandie", x: 45, y: 35, region: "De Trouville à l'embouchure de l'Orne", desc: "Des galets, des dunes, des rochers, une mer qui se révolte la nuit sous la foudre, et des pêcheurs qui passent au matin.", arrive: "II_2" },
+  abbaye: { ambiance: "souterrain", name: "L'abbaye de Grand-Pré", map: "normandie", x: 40, y: 45, region: "Sur la colline, près de Dives", desc: "Une abbaye en ruine : un cloître, une chapelle ouverte au ciel, un petit cimetière, et sous la voûte, les caveaux des anciens supérieurs.", arrive: "II_3" },
+  burcy: { ambiance: "chateau", name: "Le château de Burcy", map: "normandie", x: 36, y: 52, region: "Près de Dives", desc: "Un vieux château de chasse, avec son parc, son allée de marronniers, un pavillon fermé dans un massif de chênes, et des murs plus épais qu'il n'y paraît.", arrive: "III_4" },
+  manche: { ambiance: "mer", name: "La Manche", map: "europe", x: 38, y: 32, region: "Du Havre à Brighton", desc: "Une nuit froide et calme sur le pont d'un paquebot, sous les étoiles.", arrive: "V_4" },
+  londres: { ambiance: "ville", name: "Londres", map: "europe", x: 38, y: 24, region: "Angleterre, Piccadilly", desc: "Une petite maison meublée à Piccadilly, un jardin, une pelouse et un banc, loin de tous ceux qui pourraient reconnaître un visage.", arrive: "VI_1" },
+  meulien: { ambiance: "champs", name: "La campagne de Meulien", map: "europe", x: 43, y: 38, region: "Aux environs de Paris", desc: "Le château de la famille de Pauline et celui des Lucienne, voisins, avec leurs forêts de chasse et leurs pavillons au bord des clairières.", arrive: "VII_2" },
+  paris: { ambiance: "ville", name: "Paris", map: "paris", x: 40, y: 55, region: "Faubourg Saint-Germain", desc: "Les hôtels du faubourg Saint-Germain, les bals de charité, les ambassades et les allées où l'on se rencontre à cheval.", arrive: "VIII_3" },
+  inde: { ambiance: "foret", name: "Les Indes", map: "monde", x: 70, y: 45, region: "De Goa à Bombay", desc: "Une garnison anglaise, un dîner d'officiers, et à trois lieues un marais de roseaux où une tigresse a mis bas.", arrive: "VII_5" },
+  ecosse: { ambiance: "montagne", name: "L'Écosse", map: "europe", x: 36, y: 10, region: "Écosse", desc: "Les lacs, les ruines et les sentiers des romans de Walter Scott, que l'on visite le livre à la main.", arrive: "XIV_3" },
+  versailles: { ambiance: "foret", name: "Versailles", map: "europe", x: 41, y: 42, region: "Près de la pièce d'eau des Suisses", desc: "Un terrain choisi par des officiers de la garnison, vingt pas mesurés, et le soleil en face.", arrive: "XV_5" },
+};
