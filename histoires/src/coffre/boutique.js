@@ -1,0 +1,298 @@
+// « Le Coffre du kilomètre 66 » · the night in the shop. A_boutique is the hub; the window, the safe, the counter, the
+// inspector and the awning all lead back to it. What the reader carries changes what the window shows (examens).
+module.exports = {
+  // ------------------------------------------------------------------ the road, the door, the inspector
+  A_route: { act: "I", title: "Le kilomètre 65", place: "route",
+    text: [
+      "Le vent s'est levé à la tombée du jour, d'un coup, comme un rideau qu'on arrache. Depuis, le désert entier marche vers l'ouest à hauteur d'homme : un sable fin, roux, qui siffle sur ton casque, entre dans tes gants, dans tes dents, dans les pensées. Les phares de ta moto portent à dix mètres, et au-delà commence une rumeur orange qui avance, à la place de la route.",
+      "Au kilomètre 65, le moteur tousse. Deux fois, poliment, comme un majordome qui annonce une mauvaise nouvelle. Puis il se tait, et tu entends, pour la première fois depuis des heures, le silence énorme qu'il y a sous le vent.",
+      { if: { voie: "mecano" }, text: "Tu sais avant d'ouvrir le réservoir. Tu l'ouvres quand même, par principe : il sonne creux comme une promesse électorale. La boîte de vitesses ficelée sur le porte-bagages t'a coûté les vingt derniers kilomètres d'essence, et elle garde l'air satisfait des objets lourds." },
+      { if: { voie: "eclaireur" }, text: "Mama Salée dit qu'un éclaireur qui tombe en panne sèche dans une tempête a rempli sa mission : il sait désormais que la route n'est pas sûre. Tu te répètes cette pensée pour voir si elle console. Elle console à peu près autant qu'un caillou dans une botte." },
+      { if: { voie: "pelerin" }, text: "Tu poses la main sur la sacoche où dort le petit pot de beurre salé de ton offrande, et tu dis tout haut une prière à l'Enjambeur. Le vent la reprend et l'emporte vers l'ouest, avec le reste." },
+      "Alors, droit devant, à travers le sable, tu vois une lumière : une lumière blanche, nette, carrée, aussi immobile qu'une vitrine. Une borne passe à ta gauche, à demi ensevelie. Tu y lis, à la lueur de ton phare qui faiblit : *66*.",
+    ],
+    choices: [{ label: "Pousser la moto jusqu'à la lumière", to: "A_porte" }] },
+
+  A_porte: { act: "I", title: "La boutique", place: "boutique",
+    fx: { meet: "ghislaine", clue: ["i_notes", "i_onze"] },
+    text: [
+      "C'est un cube de marbre blanc et de verre, posé au bord de la route comme un écrin oublié sur une plage. Sous un auvent, à côté, se dresse une pompe à essence dorée, haute et fine, avec l'air hautain d'une statue qui attend qu'on la paie pour bouger. Au fronton, en lettres chromées d'où coule un beurre doré figé : **HELL'S BUTTER™**. Et dessous, plus petit : *Born to ride. Condemned to spread.*",
+      "Tu appuies ta moto contre le mur, sous l'auvent, et tu pousses la porte. Au-dessus de toi, un petit carillon en forme d'ange joue cinq notes grêles, montantes, dont la dernière est fausse. Puis la porte se referme derrière toi, et le vent n'existe plus.",
+      "Il fait frais, il fait propre, il fait silence. Le sol est de marbre, les vitrines brillent, et il flotte une odeur de cire, de chrome et de beurre très ancien. Derrière un comptoir de marbre noir, une femme se tient debout : tailleur doré, chignon platine, gants de soie, pas un grain de sable sur elle. Elle te regarde entrer comme on regarde un orage par la fenêtre d'une église.",
+      "« Bienvenue chez Hell's Butter™, dit-elle dans un murmure de cathédrale. Je suis Mademoiselle Ghislaine. Nous ne servons pas les clients. Mais nous les accueillons. »",
+      "Tu demandes de l'essence. Elle baisse les yeux vers ses gants, très brièvement. « La pompe est fermée à clef. La clef est dans le coffre. Le coffre n'a jamais été ouvert. » Elle désigne, derrière elle, un coffre-fort chromé de la hauteur d'un homme. « La combinaison est fournie à l'intérieur. C'est écrit sur la porte. Je tiens cette boutique depuis onze ans, et je n'y ai jamais rien vendu. J'en excuse la clientèle : elle passe ailleurs. »",
+    ],
+    choices: [{ label: "Lui demander s'il y a quelqu'un d'autre ici", to: "A_phares" }] },
+
+  A_phares: { act: "I", title: "Les phares", place: "boutique", takes: 1,
+    fx: { meet: ["debit", "anselme"], clue: "i_article" },
+    text: [
+      "Mademoiselle Ghislaine n'a pas le temps de répondre. Deux phares jaunes trouent le sable, derrière la vitre, très bas, très lents, à la vitesse d'un homme qui marche. Puis la forme qui les porte sort de la tempête : une limousine noire, interminable, qui avance sans moteur, poussée à l'arrière par un jeune valet en queue-de-pie, courbé en deux, les escarpins enfoncés dans le sable jusqu'aux chevilles.",
+      "La limousine s'arrête sous l'auvent, contre la pompe. La portière arrière s'ouvre. Un homme en descend, long et sec, en pardessus gris anthracite, un parapluie fermé à la main, et il traverse les cinq mètres jusqu'à la porte sans presser le pas, comme si le vent était une rumeur qui ne le concernait pas. Le carillon joue ses cinq notes. La dernière est toujours fausse.",
+      "« Albéric Débit, dit-il, inspecteur des Ventes de la Maison Croûte & Chrome. » Il ouvre un carnet à souches. « Mademoiselle Ghislaine, boutique du kilomètre 66. Onze ans de gérance aujourd'hui même, à minuit. Ventes enregistrées : aucune. » Il lève les yeux vers toi. « Et vous êtes ? Peu importe. Vous êtes, au mieux, une visite. »",
+      "Il pose son parapluie contre le comptoir, exactement à la verticale. « Article douze du contrat de gérance : une boutique de la Maison qui n'a rien vendu en onze ans est fermée à l'aube de la onzième année. Son coffre est rapatrié au Domaine, sans être ouvert. Le camion passera à six heures. » Il referme le carnet. « Une seule vente, une seule, et la boutique demeure. Je le dis par honnêteté. Je m'attends au pire, toujours, et c'est ce qui fait de moi un excellent inspecteur. »",
+      "Mademoiselle Ghislaine ne dit rien. Elle passe la main, une fois, sur le marbre du comptoir, à l'endroit où il n'y a rien à essuyer.",
+    ],
+    choices: [{ label: "Regarder autour de toi", to: "A_boutique" }] },
+
+  // ------------------------------------------------------------------ the shop (the hub)
+  A_boutique: { act: "I", title: "La boutique", place: "boutique", hub: true, backName: "la boutique",
+    text: [
+      { first: true, text: "La boutique est plus grande dedans que dehors, comme les églises et les dettes. Le long des murs, des vitrines éclairées par en dessous présentent chacune un objet, sur un socle, avec son carton calligraphié. Au fond, le comptoir de marbre noir, la caisse enregistreuse dorée, qui n'a jamais sonné, et derrière, le coffre. Dehors, de l'autre côté de la vitre, la pompe dorée attend sous l'auvent, dans un tourbillon orange." },
+      { again: true, text: "Les vitrines, le comptoir, la caisse dorée qui n'a jamais sonné, et le coffre. Derrière la vitre, le vent fait toujours la même chose, avec la même énergie." },
+      { if: { not: { has: "debit:dort" } }, text: "Monsieur Débit s'est assis dans l'unique fauteuil de la boutique, un fauteuil de cuir blanc prévu pour un client qui n'est jamais venu, et il le trouve, visiblement, à la hauteur de ses attentes." },
+      { if: { has: "debit:dort" }, text: "Monsieur Débit dort, assis bien droit dans le fauteuil blanc, le parapluie entre les genoux, sa serviette de cuir noir ouverte à ses pieds. Il ronfle avec régularité, par paragraphes." },
+      { if: { has: "coffre:ouvert" }, text: "La porte du coffre est restée entrouverte. Mademoiselle Ghislaine passe devant de temps en temps, et elle la regarde comme on regarde une fenêtre qu'on croyait murée." },
+      { if: { has: "debit:achete" }, text: "Sur le comptoir, la caisse dorée montre encore son ticket, le premier : *6 666 €. Essence Privilège™. Un litre.*" },
+    ],
+    choices: [
+      { label: "Regarder les vitrines", to: "A_vitrines" },
+      { label: "Examiner le coffre", to: "A_coffre" },
+      { label: "Parler à Mademoiselle Ghislaine", to: "A_ghislaine" },
+      { label: "Parler à Monsieur Débit", hide: { has: "debit:dort" }, to: "A_debit" },
+      { label: "Lire le télégramme qui dépasse de la serviette", hide: { any: [{ not: { has: "debit:dort" } }, { item: "telegramme" }] }, to: "A_telegramme" },
+      { label: "Déchiffrer le télégramme recopié", hide: { any: [{ not: { item: "telegramme" } }, { has: "telegramme:lu" }] }, to: "A_telegramme_chiffre" },
+      { label: "Réveiller Monsieur Débit pour lui proposer le plein", hide: { any: [{ not: { has: "debit:dort" } }, { not: { has: "pompe:marche" } }, { has: "debit:achete" }, { has: "debit:refus" }] }, to: "A_debit_plein" },
+      { label: "Ouvrir le Kit Complet de Survie™", hide: { any: [{ not: { item: "kit" } }, { has: "kit:ouvert" }] }, to: "A_kit" },
+      { label: "Braver le vent jusqu'à la pompe", to: "A_auvent" },
+      { label: "T'asseoir sur les marches du comptoir et attendre l'aube", to: "A_attendre" },
+    ] },
+
+  A_vitrines: { act: "I", title: "Les vitrines", place: "boutique",
+    text: [
+      { first: true, text: "Tu fais le tour des vitrines, lentement, comme on fait le tour d'une chapelle où l'on n'a pas été invité. Chaque objet repose sur son socle dans une lumière qui monte du dessous et lui donne l'air de flotter, ou de se noyer. Rien n'a bougé depuis onze ans. Tout a été essuyé tous les matins." },
+      { again: true, text: "Les vitrines, et leurs objets qui flottent dans la lumière d'en dessous, chacun avec son carton." },
+      "Sur un socle de marbre noir, {{examen:pot|le Pot d'Échappement Tartineur™}}, chromé, en forme de baguette. Dans un écrin réfrigéré, {{examen:couteau|le Couteau de Route™}}, avec sa petite plaque de laiton. Sous une cloche de verre, {{examen:beurre|le Beurre de Passage™}}, sur son lit de sable doré. Sur une assiette d'argent, {{examen:tartine|la Tartine de Raid™}}.",
+      "Au-dessus de la porte, pendu à sa chaîne, {{examen:carillon|le carillon de l'Enjambeur}} tend sa trompette vers la tempête.",
+      { if: { all: [{ has: "chiffre:couteau" }, { has: "chiffre:beurre" }] }, text: "Un 8 au dos d'une plaque, un 3 au cœur d'une motte de beurre. Monsieur Pêne a semé ses chiffres dans la vitrine il y a onze ans, et la vitrine les a gardés sans rien dire, comme elle garde tout." },
+      { if: { item: "chamois" }, text: "Mademoiselle Ghislaine te regarde manier sa peau de chamois avec l'inquiétude d'une mère qui a prêté son enfant." },
+    ],
+    choices: [{ back: "A_boutique" }] },
+
+  // ------------------------------------------------------------------ the safe
+  A_coffre: { act: "I", title: "Le coffre", place: "boutique",
+    text: [
+      { if: { not: { has: "coffre:ouvert" } }, text: "Tu passes derrière le comptoir avec la permission muette de Mademoiselle Ghislaine. {{examen:porte_coffre|La porte du coffre}} se dresse devant toi, chromée, froide, avec ses quatre molettes surmontées chacune d'un petit dessin, et sa promesse en capitales, qui n'en est pas une." },
+      { if: { not: { has: "coffre:ouvert" } }, text: "Tu as la sensation, devant ce coffre, d'être devant un homme très poli qui t'a déjà dit non." },
+      { if: { has: "coffre:ouvert" }, text: "Le coffre est ouvert, et il a l'air soulagé, comme un homme qui a enfin dit ce qu'il avait sur le cœur. Sur l'étagère du haut, la carte de la combinaison est toujours là, fournie à l'intérieur." },
+      { if: { all: [{ has: "coffre:ouvert" }, { not: { has: "kit:pris" } }] }, text: "Sur l'étagère du bas, le Kit Complet de Survie™ n° 1 attend dans son cuir noir, propriété d'un client qui ne viendra pas." },
+      { if: { all: [{ has: "coffre:ouvert" }, { not: { has: "coffre:facture" } }, { not: { has: "kit:pris" } }] }, text: "Sous le Kit dépasse toujours le coin d'une feuille pliée en trois, à en-tête doré." },
+      { if: { all: [{ has: "coffre:ouvert" }, { not: { has: "coffre:facture" } }, { has: "kit:pris" }] }, text: "Là où dormait le Kit, une feuille pliée en trois, à en-tête doré, est restée seule sur l'étagère." },
+    ],
+    choices: [
+      { label: "Tourner les molettes", hide: { has: "coffre:ouvert" }, to: "A_coffre_molettes" },
+      { label: "Déplier la feuille à en-tête doré", hide: { any: [{ not: { has: "coffre:ouvert" } }, { has: "coffre:facture" }] }, to: "A_facture" },
+      { label: "Prendre le Kit Complet de Survie™", hide: { any: [{ not: { has: "coffre:ouvert" } }, { item: "kit" }, { has: "kit:pris" }] }, fx: { item: "kit", flag: "kit:pris" }, to: "A_coffre" },
+      { back: "A_boutique" },
+    ] },
+  A_coffre_molettes: { act: "I", title: "Les molettes", place: "boutique", puzzle: "p_coffre",
+    text: ["Tu poses les doigts sur les molettes. Elles sont froides, et le chrome garde un instant la buée de ta main."],
+    choices: [{ back: "A_coffre" }] },
+  A_coffre_ouvert: { act: "I", title: "Fournie à l'intérieur", place: "boutique",
+    fx: { item: "clef_pompe" },
+    text: [
+      "La poignée tourne. Dans l'épaisseur de la porte, un pêne d'acier recule, puis un autre, puis un troisième, avec la lenteur solennelle d'un vieillard qui se lève pour un hymne. La porte s'ouvre. Il en sort un souffle froid qui sent le métal et le papier.",
+      "Mademoiselle Ghislaine s'est approchée sans bruit. Elle se tient derrière ton épaule, les mains jointes dans ses gants de soie, et elle ne respire plus.",
+      "Sur l'étagère du haut, une carte de bristol, debout contre la paroi : *Combinaison : 6 8 3 5.* Fournie à l'intérieur. Sur l'étagère du milieu, une longue clef dorée à panneton double, avec son étiquette : *Pompe. Ne pas servir.* Tu la prends. Sur l'étagère du bas, un coffret de cuir noir à coins chromés, frappé de l'ange : *Le Kit Complet de Survie™ n° 1.* Et glissée sous le coffret, une feuille pliée en trois, à en-tête doré.",
+      { if: { has: "debit:dort" }, text: "Dans le fauteuil blanc, Monsieur Débit ronfle toujours, par paragraphes. Il n'a rien entendu. Ou bien il ronfle très bien." },
+    ],
+    choices: [
+      { label: "Déplier la feuille à en-tête doré", to: "A_facture" },
+      { label: "Prendre le Kit", fx: { item: "kit", flag: "kit:pris" }, to: "A_coffre" },
+      { back: "A_boutique" },
+    ] },
+  A_facture: { act: "I", title: "La feuille pliée en trois", place: "boutique",
+    fx: { item: "facture", flag: "coffre:facture" },
+    text: [
+      "Tu prends la feuille pliée en trois, et tu la déplies sur le comptoir. C'est une facture. *Facture n° 1. Article : Kit Complet de Survie™ n° 1. Acheteur : Monsieur Sorbier, terrasse du Canyon. Prix : 99 999 €. Réglé comptant. Livraison : jamais, à la demande expresse du client, qui souhaite posséder ce Kit sans avoir à le voir.* La date est celle de la première semaine de la boutique.",
+      "Mademoiselle Ghislaine lit par-dessus ton épaule. Elle lit deux fois. Puis elle dit, très bas, d'une voix que tu ne lui connaissais pas, une voix ordinaire, presque une voix de la route : « J'ai vendu quelque chose. Il y a onze ans. La première semaine. Et personne ne me l'a dit. »",
+      "Elle ôte un de ses gants, pour la première fois de la soirée, et elle touche la facture du bout des doigts nus, comme on touche une photo.",
+    ],
+    choices: [{ back: "A_coffre" }] },
+
+  // ------------------------------------------------------------------ Mademoiselle Ghislaine
+  A_ghislaine: { act: "I", title: "Mademoiselle Ghislaine", place: "boutique",
+    text: [
+      { first: true, text: "Mademoiselle Ghislaine se tient derrière son comptoir dans la posture exacte où elle se tenait quand tu es entré{e}, et sans doute dans celle où elle se tenait il y a onze ans, au matin de l'ouverture. On a l'impression qu'elle s'assied seulement quand la boutique dort, et que la boutique ne dort jamais." },
+      { again: true, text: "Mademoiselle Ghislaine incline la tête d'un millimètre, ce qui chez elle est un « Je vous écoute » complet, avec formule de politesse." },
+      { if: { has: "coffre:facture" }, text: "Elle a posé la facture n° 1 sur le comptoir, bien à plat, sous la lampe, et elle la regarde de temps en temps, comme on regarde une lettre d'amour qu'on a reçue avec onze ans de retard." },
+    ],
+    choices: [
+      { label: "« Onze ans, toute seule ici ? »", once: true, to: "A_gh_onze" },
+      { label: "« Qui a posé ce coffre ? »", hide: { item: "carte_pene" }, to: "A_gh_coffre" },
+      { label: "« Combien coûte tout cela ? »", once: true, to: "A_gh_prix" },
+      { label: "« Monsieur Débit peut-il vraiment vous fermer ? »", once: true, to: "A_gh_debit" },
+      { back: "A_boutique" },
+    ] },
+  A_gh_onze: { act: "I", title: "Onze ans", place: "boutique",
+    text: [
+      "« Onze ans. » Elle dit le nombre comme un prix. « La Maison m'a engagée au Domaine, à l'essai, pour une boutique de route. On m'a conduite ici en voiture, un matin, on m'a remis les clefs, la liste des prix et un contrat de gérance. On m'a dit : *Le camion de ravitaillement passera.* Il est passé. Il passe tous les mois. Il apporte des gants de soie, de la cire et des cartons calligraphiés. Il repart à vide, puisque je n'ai rien vendu. »",
+      "Elle regarde la vitre, où le sable passe. « Les motards s'arrêtent, parfois. Ils collent le nez à la vitrine. Ils lisent les prix. Ils repartent. Un jour, un grand barbu des Demi-Sel est entré, il a regardé la Tartine de Raid™ pendant une heure, et il a pleuré. Puis il est reparti. J'ai trouvé cela très beau. Une larme, hélas, se compte à part. »",
+      { if: { voie: "pelerin" }, text: "Tu as connu, toi aussi, ce barbu, ou un autre semblable : au clan, on raconte l'histoire du frère qui a vu la Tartine. On en a fait un cantique. Tu décides de ne pas le chanter maintenant." },
+    ],
+    choices: [{ back: "A_ghislaine" }] },
+  A_gh_coffre: { act: "I", title: "Le serrurier", place: "boutique",
+    fx: { item: ["carte_pene", "chamois"], clue: "i_pene", meet: "pene" },
+    text: [
+      "« Monsieur Pêne. Achille Pêne, serrurier de la Maison. » Le nom lui vient trop vite, comme une chose qu'on a beaucoup tenue dans sa main. « Il est venu la première semaine, pour poser le coffre. Il est resté trois jours. Il était très lent. Il disait qu'un coffre se pose comme un mot dans une phrase, et qu'il faut savoir où il veut aller. Le troisième soir, il m'a laissé une carte postale. »",
+      "Elle se retourne, décroche de derrière le comptoir une carte jaunie, punaisée côté image contre le mur, et te la tend. « Je l'ai lue de loin. Ce qu'un homme vous écrit, on le lit de loin, quand on est en service. C'est une question de tenue. »",
+      "Puis, comme tu as les mains pleines de sable, elle sort d'un tiroir une peau de chamois pliée en quatre, et te la donne aussi, avec une hésitation de seconde. « Pour ne pas rayer le chrome. Rendez-la-moi. C'est la seule que j'aie. »",
+      { if: { voie: "eclaireur" }, text: "Tu as appris à lire les traces sur le sable : celles qui vont droit, celles qui reviennent. Cette carte est une trace qui revient. L'homme est reparti, mais il a laissé de quoi retrouver le chemin jusqu'à lui." },
+    ],
+    choices: [{ back: "A_ghislaine" }] },
+  A_gh_prix: { act: "I", title: "Les prix", place: "boutique",
+    fx: { clue: "i_doute" },
+    text: [
+      "Mademoiselle Ghislaine ferme les yeux, et récite, d'une seule haleine, sans regarder un seul carton :",
+      "« Le Pot d'Échappement Tartineur™ : soixante-six mille six cent soixante-six euros, hors moto, homologation et beurre. Le Couteau de Route™ : mille deux cents euros, pour tartiner avec élégance au milieu du chaos. Le Beurre de Passage™ : quatre mille euros la motte, marqué du sceau. La Tartine de Raid™ : trois cent trente-trois euros, pour la survie motorisée. L'Essence Privilège™ : six mille six cent soixante-six euros le litre. Le Kit Complet de Survie™ : quatre-vingt-dix-neuf mille neuf cent quatre-vingt-dix-neuf euros, sur commande, pour affronter les kilomètres, les frontières et le doute. »",
+      "Elle rouvre les yeux. « Je les sais tous par cœur. Les objets, je les essuie ; je les ai regardés une fois, la première semaine. Ce qu'on sait, on cesse de le voir. »",
+      "Tu as sept euros dans ta poche. Tu gardes le chiffre pour toi. Elle le sait, de toute façon. Elle sait tous les prix.",
+    ],
+    choices: [{ back: "A_ghislaine" }] },
+  A_gh_debit: { act: "I", title: "L'article douze", place: "boutique",
+    text: [
+      "« Il le peut. » Elle n'a pas regardé vers le fauteuil. « J'ai signé l'article douze. Je l'ai lu, même, ce qui est rare. Je pensais qu'en onze ans, quelqu'un achèterait au moins la Tartine. »",
+      "Elle ajuste un gant. « La boutique, je saurai la quitter, vous savez. C'est le dehors qui m'inquiète. Dehors, je ne connais aucun prix. »",
+    ],
+    choices: [{ back: "A_ghislaine" }] },
+
+  // ------------------------------------------------------------------ Monsieur Débit
+  A_debit: { act: "I", title: "Monsieur Débit", place: "boutique",
+    fx: { flag: "debit:dort" },
+    text: [
+      "Monsieur Débit t'écoute approcher sans tourner la tête. « Vous voulez me parler. Parlez. Je vous écoute, et je note. »",
+      "Tu lui parles de ta panne, de l'essence, de la pompe. « La pompe, dit-il, est un actif de la Maison. Elle sert les clients, et un client est quelqu'un qui paie. Je vous laisse conclure. » Tu lui demandes comment rentre sa limousine. « Une limousine de la Maison, Monsieur, ou Madame, peu importe, quand elle a soif, on la remplace. Le camion de six heures me ramènera avec le coffre, et la limousine sera remplacée. Celle-ci est d'ailleurs poussiéreuse. »",
+      "Tu lui demandes pourquoi le coffre doit partir fermé. Pour la première fois, il te regarde, et ses yeux gris sont deux pièces de monnaie posées sur une balance. « Un coffre fermé est un actif. Un coffre ouvert est un inventaire. La Maison préfère les actifs. Les inventaires ont une fâcheuse tendance à contenir des choses. »",
+      "Puis il ôte ses lunettes, les plie, les range dans la poche de poitrine de son pardessus, croise les mains sur le pommeau de son parapluie, et ferme les yeux. « Un inspecteur constate, précise-t-il. Les yeux fermés, il constate mieux. Réveillez-moi à six heures, ou si quelqu'un achète quelque chose. Je dormirai donc jusqu'à six heures. »",
+      "Au bout d'une minute, il ronfle. Par paragraphes.",
+    ],
+    choices: [{ back: "A_boutique" }] },
+  A_debit_plein: { act: "I", title: "Le plein", place: "boutique",
+    text: [
+      "Tu touches l'épaule de Monsieur Débit. Il ouvre un œil, puis l'autre, avec le décalage d'un guichet qui ouvre son second volet. « Quelqu'un a acheté quelque chose ? »",
+      "Tu lui dis que la pompe marche. Que sa limousine est sèche. Que le camion de six heures ramènera le coffre, mais qu'un inspecteur des Ventes qui arrive au Domaine dans un camion de livraison, assis entre deux cartons de gants de soie, aura l'air de ce qu'il est : une marchandise de retour.",
+      "Mademoiselle Ghislaine, derrière le comptoir, ne dit rien. Elle a posé un doigt sur la touche de la caisse dorée, et elle attend.",
+    ],
+    choices: [
+      { label: "« Un litre, Monsieur l'Inspecteur. Pour arriver par vos propres roues. »", test: { dom: "social", diff: 0, label: "Persuasion" },
+        win: { to: "A_debit_achete" }, lose: { to: "A_debit_refuse" } },
+      { label: "Lui glisser à l'oreille le mot qui chiffre son courrier", hide: { not: { has: "telegramme:lu" } }, to: "A_debit_achete" },
+      { back: "A_boutique" },
+    ] },
+  A_debit_achete: { act: "I", title: "La caisse dorée", place: "boutique",
+    fx: { flag: "debit:achete", ep: ["seance", 400] },
+    text: [
+      { if: { has: "telegramme:lu" }, text: "Au mot *Débit*, prononcé tout bas, à son oreille, avec l'accent de sa propre Direction, l'inspecteur se fige. Il comprend, d'un coup, que son courrier a été lu, et qu'un homme dont on a lu le courrier se trouve, pour la première fois de sa carrière, en position de client." },
+      "Monsieur Débit se tait longtemps. Il regarde la limousine sous l'auvent, à travers le sable, puis il regarde ses propres chaussures, qui sont propres, puis il ressort son carnet à souches. « Une note de frais, dit-il enfin, est un dédommagement. L'achat, c'est autre chose. » Il détache un feuillet. « Un litre d'Essence Privilège™. Pour la limousine. Au compte de la Direction des Ventes. »",
+      "Mademoiselle Ghislaine appuie sur la touche. La caisse dorée, pour la première fois en onze ans, fait le bruit pour lequel on l'a construite : une sonnerie claire, ronde, un peu trop forte, qui remplit toute la boutique et fait trembler le carillon au-dessus de la porte. Le tiroir sort. Il est vide. Elle y pose le feuillet de Monsieur Débit, très doucement, comme on couche un enfant.",
+      "« Six mille six cent soixante-six euros, dit-elle. Merci de votre visite chez Hell's Butter™. » Sa voix tremble sur *visite*. Pas sur le prix.",
+      "Monsieur Débit referme son carnet. « Je constate une vente, dit-il, d'un ton d'homme qui constate une fuite d'eau. L'article douze ne s'applique plus. » Il referme les yeux. « Je constate aussi que j'ai été manœuvré. Je le noterai demain. »",
+    ],
+    choices: [{ back: "A_boutique" }] },
+  A_debit_refuse: { act: "I", title: "Un inspecteur constate", place: "boutique",
+    fx: { flag: "debit:refus" },
+    text: [
+      "Monsieur Débit t'écoute jusqu'au bout, sans t'interrompre, ce qui est pire. Puis il dit : « Un inspecteur constate. Le jour où j'achèterai quelque chose dans une boutique que j'inspecte, je serai un client, et je devrai m'inspecter moi-même. J'ai d'autres boutiques à fermer. »",
+      "Il referme les yeux. Derrière le comptoir, Mademoiselle Ghislaine retire son doigt de la touche, et lisse son gant.",
+    ],
+    choices: [{ back: "A_boutique" }] },
+
+  // ------------------------------------------------------------------ the telegram
+  A_telegramme: { act: "I", title: "La serviette", place: "boutique",
+    fx: { item: "telegramme" },
+    text: [
+      "La serviette de cuir noir bâille aux pieds de Monsieur Débit, entre un carnet à souches neuf et un tampon encreur. Un télégramme dépasse, une bande de papier bleu pâle collée sur un formulaire de la Maison. Tu t'accroupis. Monsieur Débit ronfle un paragraphe entier au-dessus de ta tête.",
+      "Les mots du télégramme sont des mots qui n'existent pas, en capitales, avec leurs points et leurs espaces, sous l'en-tête : *Direction des Ventes à Inspecteur A. Débit. Chiffré selon l'usage.* Tu le laisses en place, et tu le recopies, lettre à lettre, au dos d'un ticket de caisse vierge que Mademoiselle Ghislaine te tend sans un mot, par-dessus le comptoir.",
+      "Puis tu remets le télégramme dans la serviette, exactement de travers, comme il était.",
+    ],
+    choices: [{ label: "Déchiffrer ta copie", to: "A_telegramme_chiffre" }, { back: "A_boutique" }] },
+  A_telegramme_chiffre: { act: "I", title: "Chiffré selon l'usage", place: "boutique", puzzle: "p_telegramme",
+    text: ["Tu étales le ticket sur le comptoir, sous la lampe. Mademoiselle Ghislaine détourne les yeux, par tenue, et regarde quand même, par onze ans de solitude."],
+    choices: [{ back: "A_boutique" }] },
+  A_telegramme_lu: { act: "I", title: "Ce que dit le télégramme", place: "boutique",
+    text: [
+      "Les lettres se remettent en place une à une, et le télégramme se lève sous la lampe, sec, pressé, payé au mot :",
+      "*Fermez avant l'aube. Que personne n'ouvre le coffre : il contient la vente Sorbier. Le Kit sera revendu.*",
+      "Mademoiselle Ghislaine lit avec toi. Elle relit. Tu vois le mot *vente* passer dans ses yeux comme une voiture sur une route où il n'en passe jamais.",
+      { if: { has: "coffre:facture" }, text: "La facture n° 1 est sur le comptoir, à côté du ticket. Ce que la Maison voulait garder fermé est déjà ouvert. Elle comptait reprendre le Kit sans le dire, le rapporter au Domaine dans un coffre scellé, et le vendre une seconde fois, comme neuf, à un autre client qui ne viendrait jamais le chercher." },
+      { if: { not: { has: "coffre:facture" } }, text: "Une vente, dans le coffre. La Maison sait que la boutique a vendu quelque chose, et elle veut qu'on l'oublie avant six heures du matin. Tu regardes le coffre, derrière le comptoir. Il te rend ton regard, en chrome." },
+      { if: { voie: "mecano" }, text: "Tu connais ce genre de montage, dans les casses : on revend la même pièce deux fois, en la repeignant entre les deux. La Maison fait pareil, avec du papier à en-tête." },
+    ],
+    choices: [{ back: "A_boutique" }] },
+
+  // ------------------------------------------------------------------ the kit
+  A_kit: { act: "I", title: "Le Kit", place: "boutique", puzzle: "p_kit",
+    text: [
+      "Tu poses le coffret de cuir noir sur le comptoir. Mademoiselle Ghislaine fait un pas en arrière. « Il est à Monsieur Sorbier, dit-elle. Je devrais vous en empêcher. » Elle te laisse faire. Elle a onze ans de curiosité derrière elle, et une facture devant.",
+    ],
+    choices: [{ back: "A_boutique" }] },
+  A_kit_ouvert: { act: "I", title: "Le doute", place: "boutique",
+    fx: { item: "notice", flag: "kit:ouvert" },
+    text: [
+      "Le fermoir cède avec un soupir de cuir. Le couvercle se lève sur un intérieur de velours noir, divisé en compartiments comme une boîte à bijoux, et chaque compartiment a sa petite étiquette dorée.",
+      "*Le kilomètre* : un minuscule compteur kilométrique en argent, bloqué sur zéro. *La frontière* : une petite barrière de chrome, pliante, haute comme un doigt, avec son panneau *Privé*. *La tartine* : une Tartine de Raid™ en modèle réduit, dure comme une médaille. *Le couteau* : un Couteau de Route™ de beurre, emballé dans du papier d'argent, que le froid du coffre a gardé intact.",
+      "Le dernier compartiment, le plus grand, au milieu, est marqué *Le doute*. Il est vide. Une carte, au fond : *Le doute est fourni vide. Il se remplit à l'usage.*",
+      "Sous le velours du compartiment vide, pliée en accordéon, une notice : *Ravitaillement aux pompes Hell's Butter™.*",
+      "Mademoiselle Ghislaine regarde longtemps le compartiment du doute. « Monsieur Sorbier a payé quatre-vingt-dix-neuf mille neuf cent quatre-vingt-dix-neuf euros pour ça, dit-elle. Et il ne l'a jamais vu. » Elle réfléchit. « Il a fait une excellente affaire. Le doute, quand on ne l'ouvre pas, reste plein. »",
+      "Tu refermes le Kit. Tu le gardes sous le bras. Il pèse à peu près ce que pèse une mauvaise idée.",
+    ],
+    choices: [{ back: "A_boutique" }] },
+
+  // ------------------------------------------------------------------ outside, under the awning
+  A_auvent: { act: "I", title: "Sous l'auvent", place: "auvent",
+    text: [
+      { first: true, text: "Dehors, le vent te prend à la gorge comme un créancier. Sous l'auvent, le sable tourne en rond, lentement, avec l'obstination d'une pensée qu'on ne parvient pas à chasser. La pompe dorée se dresse au milieu du tourbillon, impassible, et sur son flanc quatre voyants de verre épais, deux allumés, deux éteints, regardent la nuit comme les yeux d'une bête qui n'a pas décidé si elle dormait." },
+      { again: true, text: "Le sable, l'auvent, la pompe dorée et ses quatre yeux de verre." },
+      "Contre le mur, ta moto s'ensable doucement, les roues déjà prises jusqu'aux moyeux. Contre la pompe, la limousine de Monsieur Débit est arrêtée, interminable, ses vitres arrière fumées. Dans la lumière du plafonnier, à l'avant, le valet est assis à la place du chauffeur, et il vide ses escarpins par la portière, l'un après l'autre, avec une patience de sablier.",
+      "Sur le flanc de la pompe, sous les voyants, {{examen:plaque_pompe|une plaque émaillée}} a été poncée par onze ans de vent.",
+      { if: { has: "pompe:marche" }, text: "Les quatre voyants brûlent ensemble, jaunes et fiers. Ta moto a bu. Elle attend, la tête tournée vers la route, comme un cheval qui a senti l'écurie." },
+    ],
+    choices: [
+      { label: "Ouvrir la pompe avec la clef dorée", hide: { any: [{ not: { item: "clef_pompe" } }, { has: "pompe:marche" }] }, to: "A_pompe" },
+      { label: "Frapper à la vitre du valet", once: true, to: "A_anselme" },
+      { label: "Enfourcher ta moto", hide: { not: { has: "pompe:marche" } }, to: "A_depart" },
+      { back: "A_boutique" },
+    ] },
+  A_anselme: { act: "I", title: "Le valet", place: "auvent",
+    fx: { clue: "i_nom" },
+    text: [
+      "Le valet baisse la vitre de trois doigts. Le sable entre aussitôt, ravi. « Anselme, dit-il. Valet de Monsieur l'Inspecteur. Je suis autorisé à parler aux ventes, seulement. » Il réfléchit. « Mais Monsieur dort. Alors je parle un peu. »",
+      "Il a poussé la limousine depuis le kilomètre 61. « Monsieur refuse de faire le plein. Il dit qu'une limousine qui fait le plein avoue qu'elle a roulé. Alors quand elle s'arrête, je pousse. Monsieur reste à l'arrière, il lit son courrier. »",
+      "Tu lui demandes quel genre de courrier. « Des télégrammes de la Direction. Chiffrés. Monsieur chiffre tout avec son nom de famille. Il dit que c'est la seule chose qu'on ne peut pas lui facturer. » Il te regarde par l'entrebâillement, très sérieux. « Je vide mes chaussures. C'est tout ce que je fais. »",
+      "Et il remonte la vitre.",
+    ],
+    choices: [{ back: "A_auvent" }] },
+  A_pompe: { act: "I", title: "La pompe dorée", place: "auvent", puzzle: "p_pompe",
+    text: [
+      "La clef dorée entre dans la serrure de la pompe avec un bruit d'os. Tu tournes. Un capot s'ouvre sur quatre vannes à volant de laiton, alignées sous les quatre voyants, et sur un pistolet doré, enroulé sur son tuyau comme un serpent qui aurait fait des études.",
+    ],
+    choices: [{ back: "A_auvent" }] },
+  A_pompe_marche: { act: "I", title: "Essence Privilège™", place: "auvent",
+    text: [
+      "Les quatre voyants brûlent ensemble. Dans le ventre de la pompe, quelque chose s'éveille, gargouille, monte. Tu décroches le pistolet, tu l'enfonces dans le réservoir de ta moto, tu presses : il en sort un liquide doré, épais, qui sent l'essence et, très légèrement, la vanille.",
+      "Le compteur de la pompe tourne. *Essence Privilège™. 6 666 € le litre.* Il tourne vite. Tu t'arrêtes au plein, et tu regardes le chiffre, et tu as sept euros.",
+      "La porte de la boutique s'ouvre derrière toi, cinq notes, la dernière fausse. Mademoiselle Ghislaine est sur le seuil, dans le vent, les mains jointes, et le sable n'ose pas se poser sur elle. Elle regarde le compteur. « Vous avez sept euros, dit-elle. Le litre en coûte six mille six cent soixante-six. » Elle réfléchit, avec une gravité de notaire. « Prenez-le. Ce sera la seule chose qui sortira d'ici sans facture. Offrir m'est interdit. Je regarde donc ailleurs. »",
+      "Et elle regarde ailleurs, très précisément, vers le kilomètre 67.",
+    ],
+    choices: [{ back: "A_auvent" }] },
+
+  // ------------------------------------------------------------------ leaving at night, or waiting for the dawn
+  A_depart: { act: "I", title: "Le moteur", place: "auvent",
+    text: [
+      "Tu dégages les roues du sable à coups de botte, tu enfourches ta moto, tu donnes le contact. Le moteur tousse, hésite, puis il prend, d'un grondement épais, doré, presque gras, comme s'il digérait un repas de fête. Le phare perce le tourbillon jusqu'à la borne du kilomètre 66, et un peu au-delà.",
+      "Derrière la vitre de la boutique, Mademoiselle Ghislaine se tient à son comptoir. Elle garde les mains jointes. Elle attend six heures, comme elle a attendu onze ans : debout.",
+      { if: { item: "kit" }, text: "Le Kit Complet de Survie™ n° 1 est sanglé sur ton porte-bagages. Il appartient à Monsieur Sorbier, qui a payé pour ne jamais le voir." },
+    ],
+    choices: [
+      { label: "Partir dans la nuit avec le Kit de Monsieur Sorbier", hide: { not: { item: "kit" } }, to: "F_kit" },
+      { label: "Partir dans la nuit", hide: { item: "kit" }, to: "F_nuit" },
+      { label: "Couper le moteur, et rester jusqu'à l'aube", to: "A_attendre" },
+    ] },
+  A_attendre: { act: "I", title: "La nuit", place: "boutique", takes: "morning",
+    text: [
+      "Tu t'assieds sur les marches de marbre du comptoir, le dos contre le bois noir, et tu regardes la tempête tourner derrière la vitre. Mademoiselle Ghislaine reste debout. Elle n'a pas l'air d'attendre ; elle a l'air d'être ce que l'on attend.",
+      "Vers trois heures, le vent faiblit. Vers quatre heures, il se tait. Le sable retombe, par couches, comme un rideau de théâtre qu'on descend sur une pièce qui a mal fini, et le désert reparaît, lisse, rose, immense, sans une trace. Vers cinq heures, la ligne de l'horizon devient blanche.",
+      "À six heures moins cinq, un klaxon retentit au loin, du côté du kilomètre 61. Monsieur Débit ouvre les yeux à l'instant précis où il l'entend, remet ses lunettes, et se lève. « Six heures, dit-il. Je constate. »",
+    ],
+    choices: [{ label: "Te lever avec lui", to: "Z_aube" }] },
+};
