@@ -2780,6 +2780,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "23.7", items: ["Nouveau livre à lire : « Les Mille et Un Fantômes », d'Alexandre Dumas (1849) : un soir de 1831, chez le maire de Fontenay-aux-Roses, de vieux témoins de la Révolution et une dame d'une pâleur de marbre racontent chacun ce qu'ils ont vu de l'autre monde."] },
     { v: "23.6", items: ["Nouveau livre à lire : « Pauline », d'Alexandre Dumas (1838) : une tempête sur la côte normande, une abbaye en ruine, une clef enterrée dans la nuit, et une jeune femme que tout Paris croit morte."] },
     { v: "23.5", items: ["Nouveau livre à lire : « Gabriel Lambert », d'Alexandre Dumas (1844) : à Toulon, parmi les forçats qui rament pour lui, Dumas reconnaît un homme croisé autrefois dans les salons de Paris, et remonte le fil de sa vie."] },
     { v: "23.4", items: ["Nouveau livre à lire : « Le Capitaine Pamphile », d'Alexandre Dumas (1840) : dans l'atelier d'un peintre où vivent un ours, un singe et une grenouille, on lit les voyages d'un capitaine marseillais sans scrupules, une farce féroce sur le commerce, les hommes et les bêtes."] },
