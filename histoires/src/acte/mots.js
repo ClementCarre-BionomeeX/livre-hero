@@ -1,0 +1,30 @@
+// « Acté », Alexandre Dumas, 1839 : un livre à lire, sans choix (lecture: true). Texte de Dumas,
+// domaine public, d'après l'édition numérique du projet Gutenberg. Les chapitres de Dumas n'ont pas de titre ; les
+// titres des pages, comme tout ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude.
+// Les mots et les noms de l'époque, expliqués d'un toucher. Rien de l'intrigue.
+module.exports = {
+  "birème|birèmes": "Un navire antique à deux rangs de rames superposés.",
+  "trirème|trirèmes": "Un navire antique à trois rangs de rames superposés.",
+  "triclinium": "La salle à manger romaine, où l'on mange couché sur des lits autour de la table.",
+  "proconsul": "Le gouverneur romain d'une province.",
+  "licteur|licteurs": "L'huissier qui marche devant un magistrat romain en portant des faisceaux de verges.",
+  "quadrige|quadriges": "Un char attelé de quatre chevaux de front.",
+  "spina": "Le mur bas qui partage en deux la piste d'un cirque romain, et autour duquel tournent les chars.",
+  "cythare|cithare": "Un instrument à cordes que l'on pince, tenu contre la poitrine.",
+  "stole": "La longue robe des femmes romaines.",
+  "chlamyde": "Un court manteau grec agrafé sur l'épaule.",
+  "caldarium": "La salle chaude des bains romains.",
+  "affranchi|affranchis": "Un ancien esclave rendu libre par son maître.",
+  "prétorien|prétoriens": "Un soldat de la garde de l'empereur.",
+  "rétiaire": "Un gladiateur armé d'un filet et d'un trident.",
+  "mirmillon": "Un gladiateur casqué, armé d'une épée courte et d'un bouclier.",
+  "spoliaire": "La salle sous l'amphithéâtre où l'on porte les gladiateurs morts ou blessés.",
+  "bestiaire|bestiaires": "Celui qu'on jette dans l'arène contre les bêtes sauvages.",
+  "sesterce|sesterces": "Une petite pièce de monnaie romaine.",
+  "eunuque": "Un homme châtré, autrefois employé au service des palais.",
+  "apôtre": "L'un des disciples envoyés par le Christ pour répandre sa parole.",
+  "néophyte": "Une personne qui vient d'entrer dans une religion.",
+  "catacombes": "Les galeries souterraines de Rome où les premiers chrétiens enterraient leurs morts et se cachaient.",
+  "préteur": "Un magistrat romain chargé de la justice, ou du gouvernement d'une province.",
+  "ides": "Dans le calendrier romain, le milieu du mois ; les ides de mars tombent le 15.",
+};
