@@ -10,7 +10,7 @@
   var COND_KEYS = ["voie", "trouvaille", "trouvailles", "is", "count", "has", "not", "all", "any", "clues", "clue", "mark", "present", "loyal", "met", "gone", "conf", "fear", "relics", "relic",
     "given", "item", "hour", "voeu", "answered", "gold", "food", "pv", "clock", "fac", "level", "day", "since", "night", "seen", "arch", "quest", "place", "known", "person", "party",
     "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "via", "regard", "fresh", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed",
-    "temps", "saison", "blessure", "cicatrice", "fatigue", "trait", "duel",
+    "temps", "saison", "blessure", "cicatrice", "fatigue", "trait", "duel", "examen",
     "recit", "doute", "dementi", "silences", "geste", "poids", "angoisse", "attache",
     "secret", "confie", "garde", "savoir", "lu", "voile", "voiles", "lens", "scrutin", "role", "voix", "fil", "carteJouee", "possede", "escale", "escaleOuverte", "marin", "equipage", "donne", "pose", "issue", "signe", "ferveur"];
   // The siege's conditions (8.0) carry a second key (is, member, hero, losses): they are read by their first key.
@@ -248,16 +248,17 @@
     }
     // Words with effects (8.6): every mark of every paragraph is one the engine knows; every find is hidden somewhere.
     (function () {
-      var texts = [], hidden = {}, kws = M.keywordsOf(story);
+      var texts = [], hidden = {}, shownX = {}, kws = M.keywordsOf(story);
       var take = function (where, t) { if (typeof t === "string") texts.push([where, t]); else if (t && typeof t === "object") { if (typeof t.text === "string") texts.push([where, t.text]); if (typeof t.else === "string") texts.push([where, t.else]); Object.keys(t.cases || {}).forEach(function (c) { texts.push([where, t.cases[c]]); }); } };
       Object.keys(story.passages || {}).forEach(function (id) { (story.passages[id].text || []).forEach(function (t) { take("§ " + id, t); }); });
       (story.epilogue || []).forEach(function (e, i) { take("Épilogue " + (i + 1), e); });
+      Object.keys(story.items || {}).forEach(function (k) { var tx = story.items[k].text; if (typeof tx === "string" && /\{\{(examen|chiffre):/.test(tx)) take("Objet " + k, tx); });
       texts.forEach(function (x) {
         var where = x[0], t = x[1];
         if (/\{\{[a-z]+:/.test(t)) {
-          var rest = t.replace(/\{\{(fx|cle|or|envers|encre|tache|gens|dit):([^{}|]*)(?:\|([^{}]*))?\}\}/g, "");
+          var rest = t.replace(new RegExp(M.MARK_SRC, "g"), "");
           var bad = rest.match(/\{\{[a-z]+:[^}]*\}?\}?/);
-          if (bad) E(where + " : marque inconnue ou mal fermée « " + bad[0].slice(0, 40) + " » (fx, cle, or, envers, encre, tache, gens, dit).");
+          if (bad) E(where + " : marque inconnue ou mal fermée « " + bad[0].slice(0, 40) + " » (" + Object.keys(M.MARK_KINDS).join(", ") + ").");
         }
         M.marksOf(t).forEach(function (m) {
           if (m.kind === "fx") { if (!M.TEXT_FX[m.arg]) E(where + " : effet « " + m.arg + " » inconnu (" + Object.keys(M.TEXT_FX).join(", ") + ")."); if (!m.text) E(where + " : effet « " + m.arg + " » sans texte."); }
@@ -267,9 +268,19 @@
           if (m.kind === "gens") { if (m.arg !== "aucun" && !M.personOf(story, m.arg)) E(where + " : {{gens:" + m.arg + "|…}}, personnage inconnu (people, companions ou « aucun »)."); if (!m.text) E(where + " : {{gens:" + m.arg + "}} sans texte."); }
           if (m.kind === "dit") { if (m.arg !== "aucun" && m.arg !== "heros" && !M.personOf(story, m.arg) && !(story.heroes || {})[m.arg]) E(where + " : {{dit:" + m.arg + "}}, personnage inconnu (people, companions, heroes, « heros » ou « aucun »)."); if (m.text != null) E(where + " : {{dit:" + m.arg + "}} ne prend pas de texte."); if (!/«/.test(t)) E(where + " : {{dit:" + m.arg + "}} dans un paragraphe sans paroles entre guillemets."); }
           if ((m.kind === "envers" || m.kind === "tache") && !m.arg) E(where + " : « " + m.kind + " » sans texte.");
+          // 21.0: words to look at closely, the cipher of a puzzle with a key
+          if (m.kind === "examen") { if (!(story.examens || {})[m.arg]) E(where + " : {{examen:" + m.arg + "|…}}, examen inconnu (story.examens)."); else shownX[m.arg] = 1; if (!m.text) E(where + " : {{examen:" + m.arg + "}} sans texte."); }
+          if (m.kind === "chiffre") { var CZ = (story.puzzles || {})[m.arg]; if (!CZ || CZ.kind !== "clef") E(where + " : {{chiffre:" + m.arg + "}}, il faut une énigme de sorte clef."); if (m.text != null) E(where + " : {{chiffre:" + m.arg + "}} ne prend pas de texte."); }
         });
       });
       Object.keys(story.trouvailles || {}).forEach(function (k) { if (!hidden[k]) E("Trouvaille « " + k + " » cachée nulle part (aucun {{or:" + k + "|…}} dans les textes)."); });
+      Object.keys(story.examens || {}).forEach(function (k) {
+        var X = story.examens[k], w = "Examen « " + k + " »";
+        if (!shownX[k]) E(w + " : aucun texte ne le montre ({{examen:" + k + "|…}}).");
+        Object.keys(X.avec || {}).forEach(function (i) { if (!(story.items || {})[i]) E(w + " : objet « " + i + " » inconnu."); else if (!X.avec[i].text) E(w + ", avec « " + i + " » : sans texte."); checkFx(X.avec[i].fx, w); });
+        if (!X.avec || !Object.keys(X.avec).length) W(w + " : aucun objet n'y change rien (avec) ; un mot à regarder de près sert d'habitude à un objet.");
+        checkFx(X.fx, w);
+      });
       Object.keys(story.keywords || {}).forEach(function (k) { if (!story.keywords[k].def) E("Mot-clé « " + k + " » sans définition (def)."); });
       (story.moods || []).forEach(function (m, i) { if (!M.MOODS[m.mood]) E("Humeur " + (i + 1) + " : « " + m.mood + " » inconnue (" + Object.keys(M.MOODS).join(", ") + ")."); });
     })();
@@ -672,11 +683,42 @@
     });
     Object.keys(story.puzzles || {}).forEach(function (k) {
       var Z = story.puzzles[k], w = "Énigme « " + k + " »";
-      if (["molettes", "chiffre", "ordre"].indexOf(Z.kind) < 0) E(w + " : sorte « " + Z.kind + " » inconnue (molettes, chiffre, ordre).");
+      if (!M.PUZZLE_KINDS[Z.kind]) E(w + " : sorte « " + Z.kind + " » inconnue (" + Object.keys(M.PUZZLE_KINDS).join(", ") + ").");
+      if (Z.kind === "molettes" && Z.labels && (!Array.isArray(Z.labels) || Z.labels.length !== (Z.wheels || []).length)) E(w + " : autant de noms (labels) que de molettes.");
+      // 21.0: the engine writes the cipher; the key must give back the clear text, and a word key must be letters.
+      if (Z.kind === "clef") {
+        if (!M.CLEF_SCHEMES[Z.scheme]) E(w + " : chiffre « " + Z.scheme + " » inconnu (" + Object.keys(M.CLEF_SCHEMES).join(", ") + ").");
+        if (!Z.plain || !/[a-zA-Zà-ÿ]/.test(Z.plain)) E(w + " : il faut le texte clair (plain).");
+        if (Z.cipher) E(w + " : le moteur écrit lui-même le chiffre ; retirer cipher.");
+        if (Z.scheme === "cesar" && !(+Z.key >= 1 && +Z.key <= 25 && +Z.key === Math.round(+Z.key))) E(w + " : la clef d'un chiffre de César est un nombre de 1 à 25.");
+        if ((Z.scheme === "mot" || Z.scheme === "vigenere" || Z.scheme === "libre") && !(typeof Z.key === "string" && /^[a-zà-ÿ' -]+$/i.test(Z.key))) E(w + " : la clef est un mot (des lettres).");
+        if (Z.answer != null) E(w + " : la réponse d'un chiffre à clef est sa clef (key) ; retirer answer.");
+        if (Z.plain && Z.key != null && M.CLEF_SCHEMES[Z.scheme] && Z.scheme !== "libre" && !M.puzzleRight(Z, Z.key)) E(w + " : la clef ne rend pas le texte clair.");
+        if (Z.plain && M.CLEF_SCHEMES[Z.scheme] && String(M.cipherOf(Z)).replace(/[^A-Z]/g, "") === String(Z.plain).toUpperCase().normalize("NFD").replace(/[^A-Z]/g, "")) E(w + " : avec cette clef, le chiffre laisse le texte en clair.");
+      }
+      if (Z.kind === "suite") {
+        if (!Array.isArray(Z.symbols) || !Z.symbols.length) E(w + " : il faut les symboles à taper (symbols).");
+        else if (!Array.isArray(Z.answer) || !Z.answer.length) E(w + " : il faut la suite attendue (answer).");
+        else { Z.answer.forEach(function (a) { if (Z.symbols.indexOf(a) < 0) E(w + " : « " + a + " » manque dans symbols."); });
+          if (Z.once) Z.symbols.forEach(function (x) { if (Z.answer.filter(function (y) { return y === x; }).length > Z.symbols.filter(function (y) { return y === x; }).length) E(w + " : « " + x + " » sert plus souvent qu'il n'est donné (once)."); }); }
+      }
+      if (Z.kind === "leviers") {
+        var nlamp = Z.lamps ? Z.lamps.length : (Z.levers || []).length;
+        if (!Array.isArray(Z.levers) || Z.levers.length < 2) E(w + " : il faut au moins deux leviers (levers).");
+        else if (!Array.isArray(Z.answer) || Z.answer.length !== nlamp) E(w + " : answer donne l'état voulu de chaque " + (Z.lamps ? "lampe" : "levier") + " (" + nlamp + ").");
+        else { Z.levers.forEach(function (L, i) { [].concat(L.flips || []).forEach(function (j) { if (!(j >= 0 && j < nlamp)) E(w + " : le levier " + (i + 1) + " touche « " + j + " », hors de la liste."); }); if (!L.name) E(w + " : le levier " + (i + 1) + " sans nom."); });
+          if (!M.leverReach(Z)) E(w + " : l'état voulu est impossible à atteindre depuis le départ.");
+          if (Z.levers.length <= 12 && M.puzzleRight(Z, M.leverStart(Z).lamp)) E(w + " : l'état de départ est déjà la réponse."); }
+      }
+      if (Z.kind === "grille") {
+        var nc = (Z.cells || []).length;
+        if (!nc || !(Z.cols >= 1)) E(w + " : il faut les cases (cells) et le nombre de colonnes (cols).");
+        else if (!Array.isArray(Z.answer) || !Z.answer.length || Z.answer.some(function (i) { return !(i >= 0 && i < nc); })) E(w + " : answer liste les numéros des cases à marquer (de 0 à " + (nc - 1) + ").");
+      }
       if (!Z.title || !Z.text) E(w + " : il faut title et text.");
       if (Z.kind === "molettes") { if (!Array.isArray(Z.wheels) || !Array.isArray(Z.answer) || Z.wheels.length !== Z.answer.length) E(w + " : autant de molettes que de symboles dans answer."); else Z.answer.forEach(function (a, i) { if (Z.wheels[i].indexOf(a) < 0) E(w + " : le symbole « " + a + " » manque sur la molette " + (i + 1) + "."); }); }
       if (Z.kind === "ordre") { var n = (Z.pieces || []).length, ok = Array.isArray(Z.answer) && Z.answer.length === n && Z.answer.slice().sort().every(function (x, i) { return x === i; }); if (!ok) E(w + " : answer doit ranger chaque morceau une fois (indices de 0 à " + (n - 1) + ")."); }
-      if (Z.kind === "chiffre" && !Z.answer) E(w + " : il faut la réponse (answer).");
+      if ((Z.kind === "chiffre" || Z.kind === "molettes" || Z.kind === "ordre") && !Z.answer) E(w + " : il faut la réponse (answer).");
       // 12.1: a carried puzzle (carry) gives its effects wherever it is solved; it may lead somewhere only from its own
       // page (win.to), and it has no tries to lose. Its alternative answers (alt) each lead somewhere or give something.
       if (Z.carry) { if (Z.tries || Z.lose) E(w + " : une énigme gardée en suspens (carry) n'a ni essais comptés (tries) ni issue lose."); if (!Z.win || (Z.win.to && !P[Z.win.to])) E(w + " : issue win vers un passage inconnu."); else checkFx(Z.win.fx, w); }
@@ -684,7 +726,7 @@
       (Z.alt || []).forEach(function (a, i) {
         var wa = w + ", autre réponse " + (a.id || i + 1);
         if (!a.id || !/^[a-z0-9_]+$/.test(a.id)) E(wa + " : il faut un id (minuscules, chiffres, _).");
-        if (a.answer == null || (Z.kind !== "chiffre" && !Array.isArray(a.answer))) E(wa + " : il faut la réponse (answer), de la même forme que celle de l'énigme.");
+        if (a.answer == null || (Z.kind !== "chiffre" && Z.kind !== "clef" && !Array.isArray(a.answer))) E(wa + " : il faut la réponse (answer), de la même forme que celle de l'énigme.");
         if (a.to != null && !P[a.to]) E(wa + " : passage « " + a.to + " » inconnu.");
         if (a.to == null && !a.fx) E(wa + " : elle ne mène nulle part et ne donne rien (to ou fx).");
         if (a.to != null && Z.carry) W(wa + " : depuis les énigmes en suspens, seul son fx compte ; to ne vaut que sur la page de l'énigme.");
@@ -1396,10 +1438,12 @@
       if (c.sys === "ask") { var NM = ["", "La Marmite d'Ortie", "  Au Chaudron {e} *qui* fume  ", "Chez Moi"]; return Object.assign({}, c, { answer: NM[Math.floor(rnd() * NM.length)] }); }
       if (c.sys !== "puzzleTry" || !s.puzzle) return c;
       var Z = (story.puzzles || {})[s.puzzle.id] || {}, right = [].concat(Z.answer)[0];
-      if (Z.kind === "molettes" || Z.kind === "ordre") right = Z.answer;
+      if (Z.kind === "molettes" || Z.kind === "ordre" || Z.kind === "suite" || Z.kind === "leviers" || Z.kind === "grille") right = Z.answer;
+      // 21.0: a cipher with a key: the key (for libre, the letters the key gives each letter of the cipher)
+      if (Z.kind === "clef") right = Z.scheme === "libre" ? (function () { var k = {}, cp = M.cipherOf(Z), pl = String(Z.plain).toUpperCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); cp.split("").forEach(function (c, i) { if (/[A-Z]/.test(c)) k[c.toLowerCase()] = pl.charAt(i).toLowerCase(); }); return k; })() : Z.key;
       var alts = (Z.alt || []).filter(function (a) { return M.evalCond(story, s, a.if); });
       if (alts.length && (pr > 0.95 || rnd() < 0.5)) { var A0 = alts[Math.floor(rnd() * alts.length)]; right = Z.kind === "chiffre" ? [].concat(A0.answer)[0] : A0.answer; }
-      var wrong = Z.kind === "molettes" ? (Z.wheels || []).map(function (w) { return w[0]; }) : Z.kind === "ordre" ? (Z.pieces || []).map(function (x, i) { return i; }) : "?";
+      var wrong = Z.kind === "molettes" ? (Z.wheels || []).map(function (w) { return w[0]; }) : Z.kind === "ordre" ? (Z.pieces || []).map(function (x, i) { return i; }) : Z.kind === "suite" ? [(Z.symbols || ["?"])[0]] : Z.kind === "leviers" ? M.leverStart(Z).lamp : Z.kind === "grille" ? [0] : Z.kind === "clef" ? (Z.scheme === "cesar" ? 0 : "zzz") : "?";
       return Object.assign({}, c, { answer: rnd() < (pr == null ? 0.7 : pr) ? right : wrong });
     }
     // 8.4: a story for several players is played alone here; a ghost partner stands for the others. At each rendezvous
@@ -1495,7 +1539,9 @@
           v = tryVeils(s, shy ? 0.1 : mode === "explore" ? 1 : mode === "lose" ? 0.2 : 0.6, rnd) || M.view(story, s);
           v.text.forEach(function (t) { if (/undefined|NaN|\[object|\{[a-z]+\}|\{autre:/.test(t)) throw new Error("texte suspect : " + t.slice(0, 80)); });
           // 8.6: a reader taps a hidden find, often; and nothing of a mark ever reaches the plain text.
-          (v.marked || []).forEach(function (t) { M.marksOf(t).forEach(function (m) { if (m.kind === "or" && rnd() < 0.5) { try { M.trouve(story, s, m.arg); } catch (e) { errs["trouvaille " + m.arg + " : " + e.message] = 1; } } }); });
+          (v.marked || []).forEach(function (t) { M.marksOf(t).forEach(function (m) { if (m.kind === "or" && rnd() < 0.5) { try { M.trouve(story, s, m.arg); } catch (e) { errs["trouvaille " + m.arg + " : " + e.message] = 1; } }
+            // 21.0: a curious reader looks at the words with one of the things in the bag, or with the naked eye
+            if (m.kind === "examen" && rnd() < 0.6) { try { var ways = M.examineWith(story, s), wy = ways[Math.floor(rnd() * ways.length)]; M.examine(story, s, m.arg, wy.item); } catch (e) { errs["examen " + m.arg + " : " + e.message] = 1; } } }); });
           v.text.forEach(function (t) { if (/\{\{[a-z]+:/.test(t)) throw new Error("marque restée dans le texte : " + t.slice(0, 80)); });
         } catch (e) { errs["§ " + s.node + " : " + e.message] = 1; return; }
         Object.keys(s.seen).forEach(function (k) { if (!seen[k]) seen[k] = 1; });

@@ -981,7 +981,7 @@
   // Why: Clément, 15/11 — words that tremble or shimmer, rule words one taps, hidden letters for the reader to find.
   // The engine gives v.marked to draw and v.text, without the marks, to everything that reads aloud or searches.
   var TextFx = (function () {
-    var RE = /\{\{(fx|cle|or|envers|encre|tache|gens|dit):([^{}|]*)(?:\|([^{}]*))?\}\}/g, LETTERED = { tremble: 1, ondule: 1, ecrit: 1 }, pop = null;
+    var RE = new RegExp(M.MARK_SRC, "g"), LETTERED = { tremble: 1, ondule: 1, ecrit: 1 }, pop = null;
     function mode() { var m = pref("textFx"); return m === "aucun" || m === "discret" ? m : "anime"; }
     // Each letter in its own span (--i its rank), words kept whole; tags and entities left as they are.
     function letters(html) {
@@ -1007,6 +1007,9 @@
         if (k === "encre") return (s.items || []).indexOf(a) >= 0 ? "<span class=\"tx-encre\">" + (b || "") + "</span>" : "<span class=\"tx-encre-vide\" aria-hidden=\"true\">" + new Array(Math.max(4, Math.round(plainOfHtml(b || "").length * 0.6))).join("\u00a0") + "</span>";
         if (k === "gens") return a === "aucun" || !People.on() ? (b || "") : People.button(st, s, a, b || "");
         if (k === "dit") return "";   // who says the words of the paragraph: read by Talk, never shown
+        // 21.0: words to look at with what one carries; the cipher of a puzzle, written by the engine
+        if (k === "examen") { var seenX = Object.keys(s.examined || {}).some(function (x) { return x.indexOf(a + ":") === 0; }); return "<button type=\"button\" class=\"tx-examen" + (seenX ? " vu" : "") + "\" data-examen=\"" + esc(a) + "\" aria-label=\"" + esc(plainOfHtml(b || "")) + ", à regarder de près\">" + (b || "") + "</button>"; }
+        if (k === "chiffre") { var CZ = (st.puzzles || {})[a]; return "<span class=\"tx-chiffre\">" + esc(CZ ? M.cipherOf(CZ) : "") + "</span>"; }
         if (k === "tache") return "<span class=\"tx-tache\" role=\"img\" aria-label=\"Un mot sous une tache d'encre\"><span aria-hidden=\"true\">" + a + "</span></span>";
         return all;
       });
@@ -1047,7 +1050,21 @@
         return part.replace(/\u0001([a-z0-9_]+)\u0002([^\u0003]*)\u0003/g, "<button type=\"button\" class=\"kw\" data-kw=\"$1\">$2</button>");
       }).join("");
     }
-    function close() { if (pop) { pop.remove(); pop = null; } }
+    function close() { if (pop) { pop.remove(); pop = null; } if (A.examDirty) { A.examDirty = false; persist(); render(); } }
+    // 21.0: a tap on words to look at: the naked eye, then each thing carried; the answer shows in the bubble, and the
+    // page is drawn again when it closes (a clue in the notebook, a flag that opens a choice).
+    function place(el) { var r = el.getBoundingClientRect(), w = Math.min(340, innerWidth - 24); pop.style.width = w + "px"; pop.style.left = Math.max(12, Math.min(innerWidth - w - 12, r.left + r.width / 2 - w / 2)) + window.scrollX + "px"; pop.style.top = r.bottom + 8 + window.scrollY + "px"; }
+    function openExamen(el) {
+      if (pop) { pop.remove(); pop = null; } var G = A.game; if (!G) return; var st = G.story, id = el.getAttribute("data-examen"), X = (st.examens || {})[id]; if (!X) return;
+      var res = h("div", { class: "ex-res", "aria-live": "polite" });
+      var look = function (it) {
+        if (G.multi && A.multi && A.multi.kind !== "local") return;
+        var r; try { r = M.examine(st, G.s, id, it); } catch (e) { return; } if (!r) return;
+        res.innerHTML = md(r.text); A.examDirty = true;
+      };
+      pop = h("div", { class: "gl-pop ex-pop", role: "dialog", "aria-label": "Regarder de près" }, h("b", null, el.textContent), h("div", { class: "ex-ways" }, M.examineWith(st, G.s).map(function (w) { return h("button", { class: "btn ghost sm", onclick: function () { look(w.item); } }, w.label); })), res);
+      pop.dataset.for = "examen:" + id; document.body.appendChild(pop); place(el);
+    }
     function openKw(btn) {
       close(); var G = A.game, st = G ? G.story : null, all = M.keywordsOf(st), k = btn.getAttribute("data-kw"), K = all[k]; if (!K) return;
       pop = h("div", { class: "gl-pop kw-pop", role: "tooltip" }, h("b", null, btn.textContent), " · ", K.def);
@@ -1065,7 +1082,9 @@
       var t = e.target.closest ? e.target : null; if (!t) return;
       var kw = t.closest("button.kw");
       if (kw) { e.stopPropagation(); if (pop && pop.dataset.for === kw.getAttribute("data-kw")) close(); else openKw(kw); return; }
-      if (!t.closest(".kw-pop")) close();
+      var exw = t.closest("[data-examen]");
+      if (exw) { e.stopPropagation(); if (pop && pop.dataset.for === "examen:" + exw.getAttribute("data-examen")) close(); else openExamen(exw); return; }
+      if (!t.closest(".kw-pop") && !t.closest(".ex-pop")) close();
       var or = t.closest("[data-or]"); if (or) { find(or); return; }
       var env = t.closest("[data-envers]"); if (env) env.classList.toggle("lu");
     }, true);
@@ -1113,7 +1132,21 @@
         });
       }).join("");
     }
-    function close() { if (pop) { pop.remove(); pop = null; } }
+    function close() { if (pop) { pop.remove(); pop = null; } if (A.examDirty) { A.examDirty = false; persist(); render(); } }
+    // 21.0: a tap on words to look at: the naked eye, then each thing carried; the answer shows in the bubble, and the
+    // page is drawn again when it closes (a clue in the notebook, a flag that opens a choice).
+    function place(el) { var r = el.getBoundingClientRect(), w = Math.min(340, innerWidth - 24); pop.style.width = w + "px"; pop.style.left = Math.max(12, Math.min(innerWidth - w - 12, r.left + r.width / 2 - w / 2)) + window.scrollX + "px"; pop.style.top = r.bottom + 8 + window.scrollY + "px"; }
+    function openExamen(el) {
+      if (pop) { pop.remove(); pop = null; } var G = A.game; if (!G) return; var st = G.story, id = el.getAttribute("data-examen"), X = (st.examens || {})[id]; if (!X) return;
+      var res = h("div", { class: "ex-res", "aria-live": "polite" });
+      var look = function (it) {
+        if (G.multi && A.multi && A.multi.kind !== "local") return;
+        var r; try { r = M.examine(st, G.s, id, it); } catch (e) { return; } if (!r) return;
+        res.innerHTML = md(r.text); A.examDirty = true;
+      };
+      pop = h("div", { class: "gl-pop ex-pop", role: "dialog", "aria-label": "Regarder de près" }, h("b", null, el.textContent), h("div", { class: "ex-ways" }, M.examineWith(st, G.s).map(function (w) { return h("button", { class: "btn ghost sm", onclick: function () { look(w.item); } }, w.label); })), res);
+      pop.dataset.for = "examen:" + id; document.body.appendChild(pop); place(el);
+    }
     function open(btn) {
       close();
       var c = cache, d = c.defs && c.defs[btn.getAttribute("data-gl")]; if (!d) return;
@@ -1236,7 +1269,21 @@
       }
       return box;
     }
-    function close() { if (pop) { pop.remove(); pop = null; } }
+    function close() { if (pop) { pop.remove(); pop = null; } if (A.examDirty) { A.examDirty = false; persist(); render(); } }
+    // 21.0: a tap on words to look at: the naked eye, then each thing carried; the answer shows in the bubble, and the
+    // page is drawn again when it closes (a clue in the notebook, a flag that opens a choice).
+    function place(el) { var r = el.getBoundingClientRect(), w = Math.min(340, innerWidth - 24); pop.style.width = w + "px"; pop.style.left = Math.max(12, Math.min(innerWidth - w - 12, r.left + r.width / 2 - w / 2)) + window.scrollX + "px"; pop.style.top = r.bottom + 8 + window.scrollY + "px"; }
+    function openExamen(el) {
+      if (pop) { pop.remove(); pop = null; } var G = A.game; if (!G) return; var st = G.story, id = el.getAttribute("data-examen"), X = (st.examens || {})[id]; if (!X) return;
+      var res = h("div", { class: "ex-res", "aria-live": "polite" });
+      var look = function (it) {
+        if (G.multi && A.multi && A.multi.kind !== "local") return;
+        var r; try { r = M.examine(st, G.s, id, it); } catch (e) { return; } if (!r) return;
+        res.innerHTML = md(r.text); A.examDirty = true;
+      };
+      pop = h("div", { class: "gl-pop ex-pop", role: "dialog", "aria-label": "Regarder de près" }, h("b", null, el.textContent), h("div", { class: "ex-ways" }, M.examineWith(st, G.s).map(function (w) { return h("button", { class: "btn ghost sm", onclick: function () { look(w.item); } }, w.label); })), res);
+      pop.dataset.for = "examen:" + id; document.body.appendChild(pop); place(el);
+    }
     function refresh(id) { var G = A.game; if (pop && pop.dataset.for === id && G) pop.replaceChild(card(G.story, G.s, id), pop.firstChild); }
     function open(btn) {
       close(); var G = A.game; if (!G) return;
@@ -2733,6 +2780,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "21.2", items: ["Nouvelle histoire courte à énigmes, la première d'une série Croûte & Chrome : « Émotions vendues séparément ». Une après-midi à la Tour des Mentions, un rédacteur introuvable, et sa piste cachée dans les petites lignes.", "Nouveau dans les énigmes : des mots à regarder de près avec ce que l'on porte (une loupe, une lampe, un aimant…), des messages chiffrés dont il faut trouver la clef (la page montre ce que donne ta clef à mesure que tu essaies), des claviers à taper, des leviers qui s'entraînent, des grilles à cocher."] },
     { v: "21.1", items: ["Nouveau livre à lire : « Le Capitaine Fracasse », de Théophile Gautier (1863), un baron ruiné qui suit une troupe de comédiens sur les routes."] },
     { v: "21.0", items: ["Nouveau livre à lire : « Vingt ans après », d'Alexandre Dumas (1845), la suite des « Trois Mousquetaires » : d'Artagnan a quarante ans et part retrouver ses trois amis."] },
     { v: "20.9", items: ["Nouveau livre à lire : « Le Pilote du Danube », de Jules Verne (1908), un pêcheur à la ligne descend le grand fleuve avec un passager curieux."] },
@@ -5190,6 +5238,7 @@
           } else if (tag === "circle" || tag === "ellipse") {
             var cx = num(node.getAttribute("cx")), cy = num(node.getAttribute("cy")), rr = num(node.getAttribute(tag === "circle" ? "r" : "rx")), ry = tag === "circle" ? rr : num(node.getAttribute("ry"));
             if (id === "" && node.parentNode && node.parentNode.tagName === "svg") return;   // the paper and the wash behind
+            if (!node.hasAttribute("cx")) return;   // a badge drawn round its own centre (the hero's mark, 21.0 fix): it stays flat
             var e = document.createElementNS(NS, "ellipse");
             Array.prototype.forEach.call(node.attributes, function (at) { if (!/^(cx|cy|r|rx|ry)$/.test(at.name)) e.setAttribute(at.name, at.value); });
             e.setAttribute("cx", f2(W(cx, cy + dy, pop))); e.setAttribute("cy", f2(cy)); e.setAttribute("rx", f2(rr * dW(cx, cy + dy))); e.setAttribute("ry", f2(ry));
@@ -5720,7 +5769,7 @@
     modalHead(box, it.name, close);
     var body = h("div", { class: "drawer-body" });
     if (it.desc) body.appendChild(h("p", { class: "small muted" }, it.desc));
-    body.appendChild(h("div", { class: "manuscrit " + (it.form || "lettre") + " " + (it.hand || "soignee"), html: md(A.game ? M.veilMark(A.game.story, A.game.s, it.text) : it.text) }));
+    body.appendChild(h("div", { class: "manuscrit " + (it.form || "lettre") + " " + (it.hand || "soignee"), html: A.game ? TextFx.render(st, A.game.s, md(M.veilMark(A.game.story, A.game.s, it.text))) : md(it.text) }));   // 21.0: a cipher, words to look at, in a letter too
     box.appendChild(body);
   }
   // ------------------------------------------------------------------ contradictions (7.9)
@@ -5922,9 +5971,76 @@
   // with the choice « Essayer »; the engine checks it.
   function renderPuzzle(v) {
     var z = v.puzzle, tryC = v.choices.filter(function (c) { return c.sys === "puzzleTry"; })[0], box = h("div", { class: "puzzle puzzle-" + z.kind, role: "group", "aria-label": v.title });
-    A.puz = A.puz && A.puz.id === z.id ? A.puz : { id: z.id, wheels: (z.wheels || []).map(function () { return 0; }), order: (z.pieces || []).map(function (x, i) { return i; }), text: "" };
-    var P = A.puz, answer;
-    if (z.kind === "molettes") {
+    A.puz = A.puz && A.puz.id === z.id ? A.puz : { id: z.id, wheels: (z.wheels || []).map(function () { return 0; }), order: (z.pieces || []).map(function (x, i) { return i; }), text: "",
+      shift: 0, map: {}, seq: [], lev: z.start ? JSON.parse(JSON.stringify(z.start)) : null, cells: {} };
+    var P = A.puz, answer, D = (((A.game || {}).story || {}).puzzles || {})[z.id] || {};
+    if (z.kind === "molettes" && z.labels) {
+      // 21.0: wheels with a name each (a table to fill: who sat where, which key opens which door)
+      box.appendChild(h("div", { class: "wheel-rows" }, z.wheels.map(function (w, i) {
+        var turn = function (d) { P.wheels[i] = (P.wheels[i] + d + w.length) % w.length; render(); };
+        return h("div", { class: "wheel-row" }, h("span", { class: "wheel-label" }, z.labels[i] || ""),
+          h("button", { class: "btn ghost sm", "aria-label": (z.labels[i] || "Molette " + (i + 1)) + " : précédent", onclick: function () { turn(-1); } }, "◀"),
+          h("span", { class: "wheel-face", "aria-live": "polite" }, w[P.wheels[i]]),
+          h("button", { class: "btn ghost sm", "aria-label": (z.labels[i] || "Molette " + (i + 1)) + " : suivant", onclick: function () { turn(1); } }, "▶"));
+      })));
+      answer = function () { return P.wheels.map(function (k, i) { return z.wheels[i][k]; }); };
+    } else if (z.kind === "clef") {
+      // 21.0: a cipher with a key. The page reads the cipher with the reader's key as they try (M.decipher).
+      var out = h("div", { class: "clef-out", "aria-live": "polite" }), guess, show = function () { out.textContent = M.decipher(D, guess()); };
+      if (z.scheme === "cesar") {
+        guess = function () { return P.shift; };
+        var turnC = function (d) { P.shift = (P.shift + d + 26) % 26; render(); };
+        box.appendChild(h("div", { class: "clef-disk" }, h("button", { class: "btn ghost sm", "aria-label": "Un rang de moins", onclick: function () { turnC(-1); } }, "◀"),
+          h("span", { class: "wheel-face", "aria-live": "polite" }, String(P.shift)),
+          h("button", { class: "btn ghost sm", "aria-label": "Un rang de plus", onclick: function () { turnC(1); } }, "▶"),
+          h("span", { class: "small muted" }, "A → " + "ABCDEFGHIJKLMNOPQRSTUVWXYZ".charAt(P.shift) + " (la lettre claire et sa lettre chiffrée)")));
+      } else if (z.scheme === "libre") {
+        guess = function () { return P.map; };
+        var letters = []; String(z.cipher).replace(/[A-Z]/g, function (c) { if (letters.indexOf(c) < 0) letters.push(c); return c; }); letters.sort();
+        box.appendChild(h("div", { class: "clef-table" }, letters.map(function (c) {
+          var lc = c.toLowerCase();
+          return h("label", { class: "clef-cell" }, h("span", { class: "clef-from" }, c), h("input", { type: "text", maxlength: "1", class: "clef-to", value: (P.map[lc] || "").toUpperCase(), "aria-label": "La lettre claire sous " + c, autocomplete: "off",
+            oninput: function (e) { var v = String(e.target.value || "").slice(-1).toLowerCase(); e.target.value = v.toUpperCase(); if (v) P.map[lc] = v; else delete P.map[lc]; show(); } }));
+        })));
+      } else {
+        guess = function () { return P.text; };
+        box.appendChild(h("input", { type: "text", class: "puzzle-input", "aria-label": z.keyLabel || "La clef", placeholder: z.keyLabel || "La clef", value: P.text, autocomplete: "off",
+          oninput: function (e) { P.text = e.target.value; show(); },
+          onkeydown: function (e) { if (e.key === "Enter" && tryC) { e.preventDefault(); pick(Object.assign({}, tryC, { answer: P.text })); } } }));
+      }
+      box.appendChild(h("div", { class: "label" }, "Ce que donne ta clef"));
+      box.appendChild(out); show();
+      answer = guess;
+    } else if (z.kind === "suite") {
+      // 21.0: symbols to tap in order (a keypad, the notes of a tune, letters to put back into a word)
+      var used = function (x) { return P.seq.filter(function (y) { return y === x; }).length; };
+      box.appendChild(h("div", { class: "suite-seq", "aria-live": "polite" }, P.seq.length ? P.seq.map(function (x) { return h("span", { class: "suite-tile" }, x); }) : h("span", { class: "small muted" }, "Rien encore.")));
+      box.appendChild(h("div", { class: "suite-keys" }, z.symbols.map(function (x) {
+        var off = z.once && used(x) >= z.symbols.filter(function (y) { return y === x; }).length;
+        return h("button", { class: "btn ghost", disabled: off || (z.size && P.seq.length >= z.size) ? "disabled" : null, onclick: function () { P.seq.push(x); render(); } }, x);
+      })));
+      box.appendChild(h("div", { class: "suite-tools" }, h("button", { class: "btn ghost sm", disabled: P.seq.length ? null : "disabled", onclick: function () { P.seq.pop(); render(); } }, "Effacer le dernier"),
+        h("button", { class: "btn ghost sm", disabled: P.seq.length ? null : "disabled", onclick: function () { P.seq = []; render(); } }, "Tout effacer")));
+      answer = function () { return P.seq.slice(); };
+    } else if (z.kind === "leviers") {
+      // 21.0: levers that move each other, or lamps (M.leverPress decides what each pull does)
+      var ST = z.states || ["baissé", "levé"];
+      if (z.lamps) box.appendChild(h("div", { class: "lamps" }, z.lamps.map(function (nm, i) { return h("span", { class: "lamp" + (P.lev.lamp[i] ? " on" : ""), "aria-label": nm + (P.lev.lamp[i] ? " : allumé" : " : éteint") }, h("i", { "aria-hidden": "true" }), nm); })));
+      box.appendChild(h("div", { class: "levers" }, z.levers.map(function (nm, i) {
+        var on = z.lamps ? P.lev.lev[i] : P.lev.lamp[i];
+        return h("button", { class: "lever" + (on ? " on" : ""), "aria-pressed": on ? "true" : "false", onclick: function () { P.lev = M.leverPress(D, P.lev, i); render(); } }, h("span", { class: "lever-knob", "aria-hidden": "true" }), h("span", null, nm), h("span", { class: "small muted" }, ST[on ? 1 : 0]));
+      })));
+      box.appendChild(h("button", { class: "btn ghost sm", onclick: function () { P.lev = JSON.parse(JSON.stringify(z.start)); render(); } }, "Tout remettre comme au début"));
+      answer = function () { return P.lev.lamp.slice(); };
+    } else if (z.kind === "grille") {
+      // 21.0: cells to mark (squares of a map, holes of a grid laid over a letter); readOut shows the marked cells' letters
+      var marked = function () { return Object.keys(P.cells).filter(function (k) { return P.cells[k]; }).map(Number).sort(function (a, b) { return a - b; }); };
+      box.appendChild(h("div", { class: "grille", style: "grid-template-columns: repeat(" + (z.cols || 4) + ", minmax(2.2em, 1fr))" }, z.cells.map(function (c, i) {
+        return h("button", { class: "grille-cell" + (P.cells[i] ? " on" : ""), "aria-pressed": P.cells[i] ? "true" : "false", "aria-label": (c || "case " + (i + 1)) + ", ligne " + (Math.floor(i / (z.cols || 4)) + 1) + ", colonne " + (i % (z.cols || 4) + 1), onclick: function () { P.cells[i] = !P.cells[i]; render(); } }, c || "\u00a0");
+      })));
+      if (z.readOut) box.appendChild(h("div", { class: "clef-out", "aria-live": "polite" }, marked().map(function (i) { return z.cells[i]; }).join("") || "·"));
+      answer = marked;
+    } else if (z.kind === "molettes") {
       box.appendChild(h("div", { class: "wheels" }, z.wheels.map(function (w, i) {
         var turn = function (d) { P.wheels[i] = (P.wheels[i] + d + w.length) % w.length; render(); };
         return h("div", { class: "wheel" }, h("button", { class: "btn ghost sm", "aria-label": "Molette " + (i + 1) + " : symbole précédent", onclick: function () { turn(-1); } }, "▲"),
