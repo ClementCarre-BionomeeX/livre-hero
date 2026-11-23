@@ -133,4 +133,9 @@ bad.puzzles.code.answer = ["4"]; bad.passages.P.text.push("{{examen:inconnu|ici}
 var r2 = V.validate(bad, { games: 5 }).errors.join("\n");
 assert(/nombre de 1 à 25/.test(r2), r2); assert(/retirer cipher/.test(r2), r2); assert(/impossible à atteindre/.test(r2), r2);
 assert(/« 4 » manque dans symbols/.test(r2), r2); assert(/examen inconnu/.test(r2), r2);
+// 21.8: a look that gives an object (fx item) is checked before the story's objects are listed (it used to crash).
+var giv = story(); giv.examens.etiquette.avec.loupe.fx = { item: "billet" };
+assert.deepStrictEqual(V.validate(giv, { games: 5 }).errors, []);
+giv.examens.etiquette.avec.loupe.fx = { item: "fantome" };
+assert(/objet « fantome » inconnu/.test(V.validate(giv, { games: 5 }).errors.join("\n")));
 console.log("enigmes-test : OK");
