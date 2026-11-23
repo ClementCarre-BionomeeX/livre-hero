@@ -1,0 +1,36 @@
+// « Le Collier de la Reine », Alexandre Dumas, 1849-1850 : un livre à lire, sans choix (lecture: true). Texte de
+// Dumas (avec Auguste Maquet), domaine public, d'après l'édition numérique du projet Gutenberg. Les titres des chapitres
+// sont de Dumas ; ceux des pages, comme tout ce qui vit dans les tags (gens, lieux, mots, résumés), sont de Claude.
+// Les mots et les noms de l'époque, expliqués d'un toucher. Rien de l'intrigue.
+module.exports = {
+  "lieutenant de police": "Le magistrat qui dirigeait la police de Paris, avec ses commissaires, ses archers et ses espions.",
+  "baquet": "La grande cuve de Mesmer, d'où sortaient des tiges de fer que les malades tenaient pour recevoir le « fluide ».",
+  "magnétisme|magnétisme animal": "La doctrine de Mesmer : un fluide invisible circulerait entre les corps, et l'on guérirait en le dirigeant.",
+  "domino|dominos": "Une longue robe à capuchon qu'on portait au bal masqué pour n'être pas reconnu.",
+  "Œil-de-Bœuf": "L'antichambre du roi à Versailles, éclairée par une fenêtre ovale, où l'on attendait d'être reçu.",
+  "grand aumônier": "Le premier ecclésiastique de la cour, chargé des aumônes et des offices du roi.",
+  "traite|traites": "Un papier par lequel on s'engage à payer une somme à une date fixée.",
+  "échéance|échéances": "Le jour où une dette doit être payée.",
+  "billets de caisse|bons de caisse": "Des papiers de banque qui valaient de l'argent comptant.",
+  "écrin": "La boîte doublée de velours où l'on range un bijou.",
+  "joaillier|joailliers": "Un marchand et monteur de pierres précieuses ; Boehmer et Bossange étaient ceux de la couronne.",
+  "sellette": "Le petit siège bas, infamant, où l'accusé s'asseyait pour son dernier interrogatoire devant les juges.",
+  "parlement": "La grande cour de justice de Paris, qui jugeait les affaires les plus graves.",
+  "garde des Sceaux": "Le ministre de la Justice, qui garde le sceau du roi.",
+  "contrôleur général": "Le ministre des Finances.",
+  "louis|louis d'or|doubles louis": "Une pièce d'or valant vingt-quatre livres ; le double louis en vaut quarante-huit.",
+  "écu|écus": "Une pièce d'argent valant trois ou six livres.",
+  "bailli": "Un titre de l'ordre de Malte ; Suffren était bailli de l'ordre.",
+  "exempt": "Un officier de police chargé des arrestations.",
+  "gazetier|gazetiers": "Un homme qui écrit et vend une gazette, un petit journal.",
+  "pamphlet|pamphlets|pamphlétaire": "Un petit écrit satirique et méchant contre une personne ; le pamphlétaire est celui qui l'écrit.",
+  "petite maison": "Une maison discrète, souvent à l'écart, où un grand seigneur recevait en secret.",
+  "coureur": "Un valet qui court ou chevauche devant la voiture de son maître et porte ses messages.",
+  "mantelet": "Une petite cape de femme, qui couvre les épaules.",
+  "manchon|manchons": "Un rouleau de fourrure ouvert aux deux bouts, où l'on glisse les mains pour les tenir au chaud.",
+  "de gueules|macles": "Termes de blason : « de gueules » veut dire rouge ; les macles sont des losanges évidés, ceux des armes des Rohan.",
+  "élixir": "Une boisson merveilleuse, qui prétend guérir ou rajeunir.",
+  "Conciergerie": "La prison du Palais de justice, dans l'île de la Cité.",
+  "Châtelet": "Le tribunal et la prison de la police de Paris.",
+  "procureur général": "Le magistrat qui soutient l'accusation au nom du roi.",
+};

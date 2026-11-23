@@ -15,7 +15,7 @@ module.exports = {
   age: 14,
   skin: "parchemin",
   cover: {
-    "motif": "couronne",
+    "motif": "fleur",
     "color": "#5a1e2a"
   },
   glossary: Object.assign({}, require("../glossaire.js"), require("./mots.js")),
