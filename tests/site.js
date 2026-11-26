@@ -44,6 +44,10 @@ fs.mkdirSync(path.join(OUT, "histoires"), { recursive: true });
 fs.writeFileSync(path.join(OUT, "index.html"), page);
 fs.writeFileSync(path.join(OUT, "livre-jeu-complet.html"), whole);
 P.STORIES.forEach(function (id, i) { fs.writeFileSync(path.join(OUT, "histoires", id + ".json"), stories[i]); });
+// The books' other writings (25.5), read only when a reader picks one (then kept offline like the rest).
+var WRITINGS = P.STORIES.filter(function (id) { return P.writingsOf(id); });
+fs.mkdirSync(path.join(OUT, "histoires/ecritures"), { recursive: true });
+WRITINGS.forEach(function (id) { fs.copyFileSync(path.join(ROOT, "histoires/ecritures", id + ".json"), path.join(OUT, "histoires/ecritures", id + ".json")); });
 // The version online, read by the page (no-store) to tell the reader an update is there.
 fs.writeFileSync(path.join(OUT, "version.json"), JSON.stringify(build));
 ICONS.forEach(function (f) { fs.copyFileSync(path.join(APP, f), path.join(OUT, f)); });
@@ -79,7 +83,7 @@ fs.writeFileSync(path.join(OUT, "catalogue", "index.json"), JSON.stringify(catIn
 // is kept under its own content hash, in one cache that outlives the versions. A new version downloads only the files
 // whose hash changed (a book corrected, the page), never the 32 MB again; an interrupted download (a 4G that comes and
 // goes) starts again where it stopped. The page reads the copy first, the network only for what it does not hold.
-var files = ["index.html", "manifest.webmanifest"].concat(ICONS, ["vendor/qrcode.js", "vendor/jsQR.js"], P.STORIES.map(function (id) { return "histoires/" + id + ".json"; }));
+var files = ["index.html", "manifest.webmanifest"].concat(ICONS, ["vendor/qrcode.js", "vendor/jsQR.js"], P.STORIES.map(function (id) { return "histoires/" + id + ".json"; }), WRITINGS.map(function (id) { return "histoires/ecritures/" + id + ".json"; }));
 var hashes = {};
 files.forEach(function (f) { hashes[f] = crypto.createHash("sha1").update(fs.readFileSync(path.join(OUT, f))).digest("hex").slice(0, 10); });
 var version = crypto.createHash("sha1").update(JSON.stringify(hashes)).digest("hex").slice(0, 10);
@@ -94,8 +98,9 @@ fs.writeFileSync(path.join(OUT, "sw.js"), [
   "var FILES = " + JSON.stringify(hashes) + ";",
   'function rel(url) { var p = new URL(url).pathname, base = new URL(self.registration.scope).pathname; p = p.indexOf(base) === 0 ? p.slice(base.length) : p.replace(/^\\//, ""); return p === "" ? "index.html" : decodeURIComponent(p); }',
   'function key(f) { return new URL(f + "?v=" + FILES[f], self.registration.scope).href; }',
+  "// The other writings of the books (histoires/ecritures/) are kept when first read, not downloaded in advance.",
   "// One file after the other (Clément, 16/11: an old tablet stopped when everything was read at once); what is kept stays.",
-  'self.addEventListener("install", function (e) { e.waitUntil(caches.open(STORE).then(function (c) { return Object.keys(FILES).reduce(function (p, f) { return p.then(function () { return c.match(key(f)).then(function (hit) { if (hit) return null; return fetch(new Request(f, { cache: "reload" })).then(function (r) { if (!r.ok) throw new Error(f + " " + r.status); return c.put(key(f), r); }); }); }); }, Promise.resolve()); }).then(function () { return self.skipWaiting(); })); });',
+  'self.addEventListener("install", function (e) { e.waitUntil(caches.open(STORE).then(function (c) { return Object.keys(FILES).filter(function (f) { return f.indexOf("histoires/ecritures/") !== 0; }).reduce(function (p, f) { return p.then(function () { return c.match(key(f)).then(function (hit) { if (hit) return null; return fetch(new Request(f, { cache: "reload" })).then(function (r) { if (!r.ok) throw new Error(f + " " + r.status); return c.put(key(f), r); }); }); }); }, Promise.resolve()); }).then(function () { return self.skipWaiting(); })); });',
   "// Taking over: the copies of other versions go (the older caches, the files whose hash is no longer listed).",
   'self.addEventListener("activate", function (e) { var keep = {}; Object.keys(FILES).forEach(function (f) { keep[key(f)] = 1; }); e.waitUntil(caches.keys().then(function (ks) { return Promise.all(ks.filter(function (k) { return k !== STORE && k !== VOIX; }).map(function (k) { return caches.delete(k); })); }).then(function () { return caches.open(STORE); }).then(function (c) { return c.keys().then(function (rs) { return Promise.all(rs.filter(function (r) { return !keep[r.url]; }).map(function (r) { return c.delete(r); })); }); }).then(function () { return self.clients.claim(); })); });',
   "// The page asks what is kept, and to keep what is missing (Plus → Hors ligne).",
