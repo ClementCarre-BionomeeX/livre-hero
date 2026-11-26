@@ -629,3 +629,22 @@ Demande de Clément (23/11) : une dizaine d'histoires courtes à énigmes, avec 
 | condition | `{ examen: "<id>" }` · `"<id>:<objet>"` · `"<id>:nu"` | Ces mots ont été regardés, avec cet objet, à l'œil nu. `after: "examen:<id>:<objet>"` marche aussi. |
 
 Ce que le moteur garantit : un chiffre toujours juste (il l'écrit lui-même) ; une clef équivalente acceptée ; un regard à la loupe impossible sans la loupe ; l'effet d'un regard donné une fois. Le validateur refuse une clef qui ne rend pas le texte clair, un chiffre écrit à la main, une clef qui laisse le texte en clair, un symbole de réponse absent du clavier, des leviers sans solution, un examen inconnu ou montré nulle part, un objet d'examen inconnu ; les parties d'essai regardent les mots avec une chose prise au hasard dans le sac. Conseil d'écriture : un choix qui n'existe qu'après une découverte se cache (`hide`) au lieu d'être grisé, sinon il annonce la découverte. Exemple : `tests/enigmes-test.js`, « Émotions vendues séparément » (`histoires/src/mentions/`).
+
+## Le dossier du carnet (26/11, 25.7) : où et quand, rangé tout seul
+
+Rien à déclarer. Le moteur note de lui-même où et quand chaque chose est venue au héros, et l'onglet « Dossier » du carnet
+la range par lieu, par personne ou par jour :
+
+| Noté | Quand | Dans l'état |
+|---|---|---|
+| un lieu | la première fois que le héros s'y trouve (`place` d'un passage, arrivée d'une route, lieu du départ) ; un lieu seulement montré sur la carte (`reveal`) n'y est pas | `s.placeAt[lieu]` |
+| une rencontre | `meet`, `met`, `join` (déjà retenu depuis le 15/11, avec désormais la page et l'heure) | `s.metAt[id]` |
+| un indice | `clue` | `s.clueAt[indice]` |
+| un objet, un document | `item` (le bagage du départ n'est pas une trouvaille) | `s.itemAt[objet]` |
+| une personne qui revient | chaque page lue qui nomme une personne déjà rencontrée (même repérage que « Qui est qui » : `aka`, `{{gens:id|…}}`, `{{gens:aucun|…}}`) | `s.vu[id] = { c, l }` : le compte, et les six dernières `[jour, page, lieu, heure]` |
+
+Chaque note retient le jour, l'heure, le lieu et la page (`{ d, h, p, n, t }`). Le dossier ne relie jamais deux choses
+pour le lecteur et ne montre que ce que les pages ont montré, sans total ni case vide à remplir : les liens, c'est au
+lecteur de les faire. Pour qu'une personne y soit bien rangée, poser `meet` sur la page où elle entre en scène, comme
+pour « Qui est qui ». Un livre à lire (`lecture`) n'affiche pas de jours.
+

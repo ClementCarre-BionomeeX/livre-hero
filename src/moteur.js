@@ -874,7 +874,7 @@
       // A clue that has faded (its moment is past) can no longer be found: the scene should have said so (fresh).
       if (faded(story, s, id)) { guard(s, "l'indice « " + id + " » s'est effacé et le texte le donne encore (tag fresh)"); return; }
       if (!s.clues[id]) {
-        s.clues[id] = true;
+        s.clues[id] = true; noteAt(s, "clueAt", id);
         // A closed room (8.3): a clue noted in the grip of dread is marked so; the reader may weigh it.
         var shaky = story.dread && dreadTrouble(story, s); if (shaky) { s.shaky = s.shaky || {}; s.shaky[id] = 1; }
         ev(s, "Indice (" + ((story.mysteries[cl.rev] || {}).title || cl.rev) + ") : " + cl.text + (shaky ? " (noté dans le trouble)" : ""), "clue" + (shaky ? " shaky" : ""));
@@ -946,7 +946,7 @@
       if (!(story.items || {})[it]) throw new Error("objet inconnu " + it);
       var I = story.items[it];
       if (I.unique !== false && s.items.indexOf(it) >= 0) return;
-      s.items.push(it);
+      s.items.push(it); noteAt(s, "itemAt", it);
       // A letter, a register, a deed: the page offers to read it at once (7.9, « Lettres et documents »).
       if (I.kind === "document" && I.text) ev(s, "Document : " + I.name, "item doc", { doc: it }); else ev(s, "Objet : " + I.name, "item");
       // A chart (8.1): the places it shows go on the reader's map.
@@ -1295,7 +1295,7 @@
   function arrive(story, s) {
     var t = s.travel, pl = W(story).places[t.to];
     s.routesDone[t.route] = true;
-    s.place = t.to; s.known[t.to] = true; s.travel = null;
+    s.place = t.to; s.known[t.to] = true; s.travel = null; noteAt(s, "placeAt", t.to);
     ev(s, "Arrivée : " + pl.name + " · " + timeLabel(s), "map");
     var arrivePassage = (pl.arriveIf || []).filter(function (a) { return evalCond(story, s, a.if); }).map(function (a) { return a.passage; })[0] || pl.arrive;
     enter(story, s, arrivePassage);
@@ -3546,7 +3546,45 @@
   }
   // Intent: personOf(story, id) -> the person (people, else companions) or null
   // Where and when the hero first met someone (people or companions), for the card of who is who.
-  function metAt(s, id) { s.metAt = s.metAt || {}; if (!s.metAt[id]) s.metAt[id] = { day: day(s), place: s.place || null }; }
+  function metAt(s, id) { s.metAt = s.metAt || {}; if (!s.metAt[id]) s.metAt[id] = { day: day(s), place: s.place || null, h: hour(s), n: s.node || null, t: s.turn || 0 }; }
+  // Intent: the investigation notebook (25.7, Clément 26/11): the engine alone writes down where and when each thing
+  // came to the hero (a clue, a thing, a place first entered, a person seen again), and the notebook files them by
+  // place, by person and by day. Nothing is written that the page did not show, and nothing is linked for the reader:
+  // only where and when. Stories declare nothing new.
+  function stampOf(s) { return { d: day(s), h: hour(s), p: s.place || null, n: s.node || null, t: s.turn || 0 }; }
+  function noteAt(s, box, id) { var B = s[box] = s[box] || {}; if (!B[id]) B[id] = stampOf(s); }
+  // Intent: namedIn(story, s, texts) -> [id] = the people met (and companions known) that the page names, in order:
+  // {{gens:id|…}} when the author says it, else the forms of their names (nameForms); {{gens:aucun|…}} names nobody.
+  var NAME_EDGE = /[A-Za-zÀ-ÖØ-öø-ÿŒœ'’-]/;
+  function namedIn(story, s, texts) {
+    var forms = nameForms(story), ids = [];
+    var known = function (id) { return id !== s.lead && !!((s.people || {})[id] || ((s.met || {})[id] && (story.companions || {})[id])); };
+    var add = function (id) { if (known(id) && ids.indexOf(id) < 0) ids.push(id); };
+    [].concat(texts || []).forEach(function (raw) {
+      raw = String(raw);
+      raw.replace(/\{\{gens:([a-z0-9_]+)\|/g, function (all, id) { if (id !== "aucun") add(id); return all; });
+      var t = unveil(plainOf(story, s, raw.replace(/\{\{gens:aucun\|[^{}]*\}\}/g, " ")));
+      forms.forEach(function (f) {
+        if (!known(f[1]) || ids.indexOf(f[1]) >= 0) return;
+        for (var i = t.indexOf(f[0]); i >= 0; i = t.indexOf(f[0], i + 1)) {
+          if (!NAME_EDGE.test(t.charAt(i - 1) || " ") && !NAME_EDGE.test(t.charAt(i + f[0].length) || " ")) { add(f[1]); return; }
+        }
+      });
+    });
+    return ids;
+  }
+  // Intent: dossierSee(story, s, texts) -> () ! writes(s.vu) = the people this page names are seen here, now (once per
+  // page read). Kept small for the saves: how many times, and the latest few as [day, page, place, hour].
+  var SEEN_KEEP = 6;
+  function dossierSee(story, s, texts) {
+    if (!s.node || (s.vuTurn === (s.turn || 0) && s.vuNode === s.node)) return;
+    s.vuTurn = s.turn || 0; s.vuNode = s.node;
+    namedIn(story, s, texts).forEach(function (id) {
+      var V = s.vu = s.vu || {}, L = V[id] = V[id] || { c: 0, l: [] }, last = L.l[L.l.length - 1];
+      if (last && last[1] === s.node && last[0] === day(s)) return;
+      L.c++; L.l.push([day(s), s.node, s.place || null, hour(s)]); if (L.l.length > SEEN_KEEP) L.l.shift();
+    });
+  }
   function personOf(story, id) { return (story.people || {})[id] || (story.companions || {})[id] || null; }
   // Intent: aspectOf(story, s, id) -> { allure, visage, habits, signe, voix } = how the person looks now: what the story
   // declares, then what the passages changed (fx.aspect). With no visage declared, one is read from the face.
@@ -4412,6 +4450,7 @@
     (story.quests || []).forEach(function (q) { if (!s.flags["quete-manquee:" + q.id] && questStarted(s, q) && questMissed(story, s, q)) { s.flags["quete-manquee:" + q.id] = true; ev(s, "Quête manquée : " + q.title + ".", "quest"); } });
     (story.quests || []).forEach(function (q) { if (q.start === id && s.seen[id] && questOpen(story, s, q)) ev(s, "(Tu reprends : " + q.title + ".)", "quest"); });
     if (p.place) { s.place = p.place; s.known[p.place] = true; }
+    if (s.place && ((W(story).places || {})[s.place])) noteAt(s, "placeAt", s.place);
     if (p.hub || p.routes || p.aparte) s.hubLast = id;
     var first = !s.seen[id];
     s.seen[id] = (s.seen[id] || 0) + 1;
@@ -4709,7 +4748,7 @@
   }
 
   var API = {
-    FACE: FACE, FACE_KEYS: FACE_KEYS, ASPECT_KEYS: ASPECT_KEYS, ASPECT_MAX_WORDS: ASPECT_MAX_WORDS, personOf: personOf, aspectOf: aspectOf, quiOf: quiOf, nameForms: nameForms, glossaryNames: glossaryNames, faceErrors: faceErrors, REGARDS: REGARDS, mysterySolved: mysterySolved, happened: happened, TAVERN_GAMES_PER_DAY: TAVERN_GAMES_PER_DAY,
+    FACE: FACE, FACE_KEYS: FACE_KEYS, ASPECT_KEYS: ASPECT_KEYS, ASPECT_MAX_WORDS: ASPECT_MAX_WORDS, personOf: personOf, namedIn: namedIn, dossierSee: dossierSee, aspectOf: aspectOf, quiOf: quiOf, nameForms: nameForms, glossaryNames: glossaryNames, faceErrors: faceErrors, REGARDS: REGARDS, mysterySolved: mysterySolved, happened: happened, TAVERN_GAMES_PER_DAY: TAVERN_GAMES_PER_DAY,
     ARCHS: ARCHS, archOf: archOf, usesOf: usesOf, plainOf: plainOf, marksOf: marksOf, speakers: speakers, femOf: femOf, TEXT_FX: TEXT_FX, MARK_KINDS: MARK_KINDS, MOODS: MOODS, keywordsOf: keywordsOf, keywordFor: keywordFor, trouve: trouve, moodOf: moodOf, TECHS: TECHS, techsOf: techsOf, partyView: partyView, cpv: cpv, cpvMax: cpvMax, FRONT: FRONT, DOMAINS: DOMAINS, EP: EP, EP_PER_LEVEL: EP_PER_LEVEL, MAX_LEVEL: MAX_LEVEL, DIFFS: DIFFS, LOYAL_AT: LOYAL_AT, SUCCESS: SUCCESS, STEP_HOURS: STEP_HOURS,
     setRng: setRng, setDice: setDice, nudgeOf: nudgeOf, ambianceOf: ambianceOf, AMBIANCES: AMBIANCES, isNightNow: function (s) { var h = s.time % 24; return h >= NIGHT_FROM || h < NIGHT_TO; }, DIFFICULTY: DIFFICULTY, featsOf: featsOf, endingsOf: endingsOf, endingOf: endingOf, fatesOf: fatesOf, fateCount: fateCount, freshState: freshState, level: level, pvMax: pvMax, bonus: bonus, chance: chance, rollTest: rollTest,
     readingOf: readingOf, recalled: recalled, pocketOf: pocketOf, puzzleMatch: puzzleMatch, evalCond: evalCond, describeCond: describeCond, textList: textList, view: view, allowed: allowed, target: target,
