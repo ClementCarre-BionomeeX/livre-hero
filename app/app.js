@@ -2780,6 +2780,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "25.5", items: ["Un dossier dans le carnet, qui se tient tout seul : les lieux où tu passes, les gens que tu rencontres et ceux qui reviennent dans tes pages, ce que tu trouves, chacun avec le jour et l'endroit. Range-le par lieu, par personne ou par jour ; les liens, c'est toi qui les fais. L'onglet Indices dit aussi où et quand chacun a été trouvé."] },
     { v: "25.4", items: ["Nouveau livre à lire : « Le Corricolo », d'Alexandre Dumas (1843) : l'hiver 1835 à Naples, rue par rue, en petite voiture au galop, avec ses lazzaroni, son roi Nasone, le miracle de saint Janvier, le Vésuve, Pompéi, puis la route de Rome."] },
     { v: "25.3", items: ["Nouveau livre à lire : « Le Capitaine Aréna », d'Alexandre Dumas (1842), la suite du « Speronare » : une maison de fous à Palerme, les volcans des îles Éoliennes, les histoires de sorcières et de bandits que racontent les matelots, puis la Calabre à dos de mulet, sur les pas du roi Murat, dans un pays qui tremble."] },
     { v: "25.2", items: ["Nouveau livre à lire : « Le Speronare », d'Alexandre Dumas (1842) : en 1835, refoulé de Naples, Dumas loue un petit bâtiment sicilien et fait le tour de la Sicile avec le peintre Jadin, son bouledogue et un équipage de conteurs. L'Etna, Syracuse, Palerme, des brigands, des tempêtes et l'histoire des Vêpres siciliennes."] },
@@ -3434,6 +3435,8 @@
     // A closed room (8.3): the reader says how much tenderness the book may show (Réglages), the engine reads it.
     if (st.attachments) s.tendre = pref("attachements");
     var v = G.multi ? multiView() : M.view(st, s);
+    // The investigation notebook (25.5): the people this page names are seen here, now (written once per page).
+    if (!G.multi && v.passage && M.dossierSee) M.dossierSee(st, s, v.marked || v.text);
     var pvMax = M.pvMax(s), U = M.usesOf(st);     // only what the story uses (8.5)
     app.appendChild(topBar([
       h("button", { class: "btn ghost sm", onclick: function () { stopSpeaking(); leaveGame(); } }, "← Bibliothèque"),
@@ -5414,7 +5417,7 @@
   })();
 
   // ------------------------------------------------------------------ the notebook
-  var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["notes", "Notes"], ["soupcons", "Soupçons"], ["tableau", "Tableau d'enquête"], ["documents", "Documents"], ["reconst", "Reconstitution"], ["ville", "La ville"], ["conseil", "Conseil"], ["dettes", "Dettes et promesses"], ["liens", "Qui est avec qui"], ["equipage", "L'équipage"], ["versions", "Versions"], ["secrets", "Secrets"], ["chronique", "Chronique"], ["voiles", "Sous les mots"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["frise", "Frise"], ["marques", "Marque-pages"], ["exploits", "Hauts faits"], ["codex", "Bestiaire et atlas"], ["mots", "Mots"], ["journal", "Journal"], ["coulisses", "Coulisses"], ["intrigue", "L'intrigue"]];
+  var TABS = [["heros", "Héros"], ["sac", "Sac"], ["quetes", "Quêtes"], ["indices", "Indices"], ["dossier", "Dossier"], ["notes", "Notes"], ["soupcons", "Soupçons"], ["tableau", "Tableau d'enquête"], ["documents", "Documents"], ["reconst", "Reconstitution"], ["ville", "La ville"], ["conseil", "Conseil"], ["dettes", "Dettes et promesses"], ["liens", "Qui est avec qui"], ["equipage", "L'équipage"], ["versions", "Versions"], ["secrets", "Secrets"], ["chronique", "Chronique"], ["voiles", "Sous les mots"], ["compagnons", "Compagnons"], ["carte", "Carte"], ["gens", "Gens"], ["frise", "Frise"], ["marques", "Marque-pages"], ["exploits", "Hauts faits"], ["codex", "Bestiaire et atlas"], ["mots", "Mots"], ["journal", "Journal"], ["coulisses", "Coulisses"], ["intrigue", "L'intrigue"]];
   // Documents and Reconstitution only show in a story that has them (7.9).
   function tabsOf(st) {
     var docs = Object.keys(st.items || {}).some(function (k) { return st.items[k].kind === "document" && st.items[k].text; });
@@ -5426,11 +5429,13 @@
     has.quetes = n(st.quests) > 0; has.indices = n(st.clues) > 0; has.soupcons = has.tableau = n(st.mysteries) > 0;
     has.intrigue = n(st.savoirs) > 0 || n(st.leads) > 0; has.compagnons = n(st.companions) > 0; has.gens = n(st.people) > 0; has.carte = places > 1; has.codex = n(st.enemies) > 0 || places > 1;
     has.voiles = !!st.lenses;
+    // The investigation notebook (25.5): any story where one meets people, goes places or finds clues.
+    has.dossier = has.gens || has.compagnons || places > 1 || has.indices;
     return TABS.filter(function (t) { return (t[0] !== "documents" || docs) && (t[0] !== "reconst" || plan) && (has[t[0]] == null || has[t[0]]); })
       .map(function (t) { return t[0] === "ville" && st.stocksTab ? [t[0], st.stocksTab] : t[0] === "chronique" && st.chroniquesTab ? [t[0], st.chroniquesTab] : t[0] === "equipage" && st.equipage && st.equipage.title ? [t[0], st.equipage.title] : t; });
   }
   // The notebook's tabs in four groups (8.5): past nine tabs, the group is chosen first, then the tab.
-  var TAB_GROUPS = [["toi", "Toi", ["heros", "sac", "quetes", "compagnons", "secrets"]], ["enquete", "L'enquête", ["indices", "soupcons", "tableau", "documents", "voiles", "reconst", "versions"]],
+  var TAB_GROUPS = [["toi", "Toi", ["heros", "sac", "quetes", "compagnons", "secrets"]], ["enquete", "L'enquête", ["dossier", "indices", "soupcons", "tableau", "documents", "voiles", "reconst", "versions"]],
     ["monde", "Le monde", ["chronique", "gens", "carte", "ville", "equipage", "conseil", "dettes", "liens", "codex", "mots"]], ["livre", "Le livre", ["intrigue", "journal", "frise", "marques", "notes", "exploits", "coulisses"]]];
   var TABS_FLAT = 9;
   function tabGroupOf(tab) { return (TAB_GROUPS.filter(function (g) { return g[2].indexOf(tab) >= 0; })[0] || TAB_GROUPS[0])[0]; }
@@ -5466,7 +5471,7 @@
     var fill = function () {
       body.textContent = "";
       if ((A.carnetQ || "").trim().length >= SEARCH_MIN) { searchCarnet(body, G.story, G.s, A.carnetQ.trim()); return; }
-      ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, notes: tabNotes, soupcons: tabSuspects, tableau: tabBoard, documents: tabDocs, reconst: tabRecon, ville: tabCity, conseil: tabCouncil, dettes: tabDebts, liens: tabTies, equipage: tabCrew, versions: tabVersions, secrets: tabSecrets, chronique: tabChronique, voiles: tabVeils, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, frise: tabFrise, marques: tabMarks, exploits: tabFeats, codex: tabCodex, mots: tabWords, journal: tabLog, coulisses: tabBackstage, intrigue: tabPlot })[A.carnetTab](body, G.story, G.s);
+      ({ heros: tabHero, sac: tabBag, quetes: tabQuests, indices: tabClues, dossier: tabDossier, notes: tabNotes, soupcons: tabSuspects, tableau: tabBoard, documents: tabDocs, reconst: tabRecon, ville: tabCity, conseil: tabCouncil, dettes: tabDebts, liens: tabTies, equipage: tabCrew, versions: tabVersions, secrets: tabSecrets, chronique: tabChronique, voiles: tabVeils, compagnons: tabCompanions, carte: tabMap, gens: tabPeople, frise: tabFrise, marques: tabMarks, exploits: tabFeats, codex: tabCodex, mots: tabWords, journal: tabLog, coulisses: tabBackstage, intrigue: tabPlot })[A.carnetTab](body, G.story, G.s);
     };
     fill();
     q.addEventListener("input", function () { A.carnetQ = q.value; fill(); });
@@ -5578,6 +5583,101 @@
     if (rum.length) { any = true; b.appendChild(h("div", { class: "label" }, "Rumeurs entendues")); rum.forEach(function (r) { b.appendChild(h("div", { class: "clue rumor", html: md(r.text) })); }); }
     if (!any) b.appendChild(h("div", { class: "notice" }, "Rien encore. Regarde, écoute, fouille."));
   }
+  // ------------------------------------------------------------------ the investigation notebook (25.5)
+  // Intent: tabDossier = what came to the hero, filed by itself by place, by person or by day: places first entered,
+  // people met and seen again, clues found, things and documents taken, each with where and when. The engine writes
+  // the provenance (s.placeAt, s.metAt, s.vu, s.clueAt, s.itemAt); the notebook only sorts it. It never links two
+  // things for the reader, and shows nothing the pages have not shown.
+  // Why: Clément, 26/11: a notebook that keeps itself, without whispering the answer.
+  var DOSSIER_VIEWS = [["lieu", "Par lieu"], ["personne", "Par personne"], ["jour", "Par jour"]], DOSSIER_SEEN_SHOWN = 6;
+  function dossierPlace(st, k) { var pl = (((st.world || {}).places) || {})[k]; return pl ? pl.name : ""; }
+  function dossierPage(st, s, n) { var P = n && n.charAt(0) !== "@" && (st.passages || {})[n]; return P && P.title ? String(M.interp(s, P.title)).replace(/\*/g, "") : ""; }
+  // Intent: dossierWhen(Story, State, Stamp, withPlace?) -> "jour 2, 15 h · La Halle" (a book to read has no days)
+  function dossierWhen(st, s, P, withPlace) {
+    if (!P) return "";
+    var d = P.d != null ? P.d : P.day, out = [];
+    if (!st.lecture && d != null) out.push("jour " + d + (s && s.clockShown && P.h != null ? ", " + P.h + " h" : ""));
+    var pl = withPlace ? dossierPlace(st, P.p !== undefined ? P.p : P.place) : "";
+    if (pl) out.push(pl);
+    return out.join(" · ");
+  }
+  function dossierFolk(st, s) {
+    var ids = Object.keys(s.people || {}).filter(function (k) { return (st.people || {})[k]; });
+    Object.keys(s.met || {}).forEach(function (k) { if ((st.companions || {})[k] && k !== s.lead && ids.indexOf(k) < 0) ids.push(k); });
+    var t = function (k) { var m = (s.metAt || {})[k]; return m ? (m.t != null ? m.t : 0) + (m.day || 0) * 1e-6 : Infinity; };
+    return ids.sort(function (a, c) { return t(a) - t(c); });
+  }
+  function dossierFace(st, s, k) { return (st.people || {})[k] ? personFace(st, k, 30) : portraitOf(st, k, s, 30); }
+  function dossierName(st, k) { var p = M.personOf(st, k); return p ? String(p.name) : k; }
+  // the sightings of a person, the meeting page left out
+  function dossierSeen(s, k) {
+    var m = (s.metAt || {})[k], once = {}, V = (s.vu || {})[k] || { l: [] };
+    return V.l.map(function (x) { return { d: x[0], n: x[1], p: x[2], h: x[3] }; })
+      .filter(function (P) { var key = P.d + "|" + P.n; if (once[key] || (m && m.n && P.n === m.n && P.d === m.day)) return false; once[key] = 1; return true; });
+  }
+  function tabDossier(b, st, s) {
+    var by = A.dossierBy || "lieu", clues = Object.keys(s.clueAt || {}).filter(function (k) { return (st.clues || {})[k] && s.clues[k]; });
+    var items = Object.keys(s.itemAt || {}).filter(function (k) { return (st.items || {})[k]; }), folk = dossierFolk(st, s);
+    var places = Object.keys(s.placeAt || {}).filter(function (k) { return dossierPlace(st, k); }).sort(function (a, c) { return s.placeAt[a].t - s.placeAt[c].t || s.placeAt[a].d - s.placeAt[c].d; });
+    b.appendChild(h("p", { class: "small muted" }, "Ce carnet se tient tout seul : où et quand tu as croisé chacun, ce que tu as trouvé et où. Les liens, c'est toi qui les fais."));
+    b.appendChild(h("div", { class: "chips dossier-by", role: "group", "aria-label": "Ranger" }, DOSSIER_VIEWS.map(function (x) {
+      return h("button", { class: "chip" + (by === x[0] ? " on" : ""), "aria-pressed": by === x[0] ? "true" : "false", onclick: function () { A.dossierBy = x[0]; render(); } }, x[1]);
+    })));
+    if (!places.length && !folk.length && !clues.length && !items.length) { b.appendChild(h("div", { class: "notice" }, "Rien encore. Il se remplit au fil des pages.")); return; }
+    var clueLine = function (k) { return h("div", { class: "clue dossier-clue", html: "🔎 " + md(st.clues[k].text) }); };
+    var itemLine = function (k) { var it = M.item(st, k); return h("div", { class: "small dossier-item" }, (it.kind === "document" ? "📜 " : "◇ ") + it.name); };
+    var who = function (k) { return h("button", { type: "button", class: "pp dossier-who", "data-pp": k }, h("span", { html: dossierFace(st, s, k) }), h("span", null, dossierName(st, k).split(",")[0])); };
+    if (by === "lieu") {
+      var at = function (box, k) { var P = (s[box] || {})[k]; return P ? (P.p !== undefined ? P.p : P.place) : null; };
+      var block = function (title, sub, k) {
+        var met = folk.filter(function (x) { return at("metAt", x) === k; });
+        var seen = folk.filter(function (x) { return met.indexOf(x) < 0 && dossierSeen(s, x).some(function (P) { return P.p === k; }); });
+        var cs = clues.filter(function (x) { return s.clueAt[x].p === k; }), its = items.filter(function (x) { return s.itemAt[x].p === k; });
+        if (k == null && !met.length && !seen.length && !cs.length && !its.length) return;
+        var sec = h("section", { class: "dossier-block" }, h("h3", null, title), sub ? h("div", { class: "small muted" }, sub) : null);
+        if (met.length) sec.appendChild(h("div", { class: "dossier-row" }, h("span", { class: "label" }, "Rencontrés ici"), h("div", { class: "dossier-folk" }, met.map(who))));
+        if (seen.length) sec.appendChild(h("div", { class: "dossier-row" }, h("span", { class: "label" }, "Nommés ici"), h("div", { class: "dossier-folk" }, seen.map(who))));
+        if (cs.length) { sec.appendChild(h("span", { class: "label" }, "Trouvé ici")); cs.forEach(function (x) { sec.appendChild(clueLine(x)); }); }
+        if (its.length) { if (!cs.length) sec.appendChild(h("span", { class: "label" }, "Trouvé ici")); its.forEach(function (x) { sec.appendChild(itemLine(x)); }); }
+        b.appendChild(sec);
+      };
+      places.forEach(function (k) { var P = s.placeAt[k]; block(dossierPlace(st, k), st.lecture ? "" : "Première venue : " + dossierWhen(st, s, P), k); });
+      block("En chemin, ailleurs", "", null);
+      return;
+    }
+    if (by === "personne") {
+      if (!folk.length) { b.appendChild(h("div", { class: "notice" }, "Personne encore.")); return; }
+      folk.forEach(function (k) {
+        var m = (s.metAt || {})[k], seen = dossierSeen(s, k), qui = M.quiOf(st, s, k);
+        var sec = h("section", { class: "dossier-block" }, h("div", { class: "dossier-head" }, who(k), qui ? h("span", { class: "small muted" }, qui) : null));
+        if (m) sec.appendChild(h("div", { class: "small" }, h("b", null, "Rencontre : "), [dossierWhen(st, s, m, true), dossierPage(st, s, m.n) ? "« " + dossierPage(st, s, m.n) + " »" : ""].filter(Boolean).join(" · ") || "au début du livre"));
+        if (seen.length) {
+          var shown = seen.slice(-DOSSIER_SEEN_SHOWN), more = (s.vu[k].c || 0) - s.vu[k].l.length + seen.length - shown.length;
+          sec.appendChild(h("div", { class: "small" }, h("b", null, "Revient dans tes pages : "), h("ul", { class: "plain dossier-seen" }, shown.map(function (P) {
+            return h("li", null, [dossierWhen(st, s, P, true), dossierPage(st, s, P.n) ? "« " + dossierPage(st, s, P.n) + " »" : ""].filter(Boolean).join(" · "));
+          }))));
+          if (more > 0) sec.appendChild(h("div", { class: "small muted" }, "Et " + more + " fois plus tôt."));
+        }
+        b.appendChild(sec);
+      });
+      return;
+    }
+    // by day: a place first entered, a meeting, a clue, a thing, in the order they came
+    var rows = [];
+    places.forEach(function (k) { rows.push({ P: s.placeAt[k], o: 0, el: function () { return h("div", { class: "small dossier-place" }, "📍 " + dossierPlace(st, k)); } }); });
+    folk.forEach(function (k) { var m = (s.metAt || {})[k]; if (m) rows.push({ P: { d: m.day, t: m.t != null ? m.t : -1, n: m.n }, o: 1, who: k }); });
+    clues.forEach(function (k) { rows.push({ P: s.clueAt[k], o: 2, el: function () { return clueLine(k); } }); });
+    items.forEach(function (k) { rows.push({ P: s.itemAt[k], o: 3, el: function () { return itemLine(k); } }); });
+    rows.sort(function (x, y) { return (x.P.d || 0) - (y.P.d || 0) || (x.P.t || 0) - (y.P.t || 0) || x.o - y.o; });
+    var lastD = null, lastN = null, row = null;
+    rows.forEach(function (r) {
+      if (!st.lecture && r.P.d !== lastD) { b.appendChild(h("div", { class: "logday" }, "Jour " + r.P.d)); lastD = r.P.d; lastN = null; row = null; }
+      if (r.P.n && r.P.n !== lastN) { var pt = dossierPage(st, s, r.P.n); if (pt) b.appendChild(h("div", { class: "small muted dossier-page" }, "« " + pt + " »")); lastN = r.P.n; row = null; }
+      // the people met on one page side by side
+      if (r.who) { if (!row) { row = h("div", { class: "dossier-folk" }); b.appendChild(row); } row.appendChild(who(r.who)); return; }
+      row = null; b.appendChild(r.el());
+    });
+  }
   // ------------------------------------------------------------------ the reader's notes
   // Intent: Notes = the reader's own page in the carnet: free text and the clues they pinned (📌), kept in the save
   // (doc.notes, doc.pins) and shown again with « Précédemment… » when the game is resumed. Why: Clément, 13/11.
@@ -5586,7 +5686,8 @@
   function pinsOf(G) { return (G && G.doc && G.doc.pins) || {}; }
   function clueRow(st, k) {
     var G = A.game, on = !!pinsOf(G)[k], solo = !G.multi && !G.ephemeral;
-    return h("div", { class: "clue pinnable" }, h("div", { html: md(st.clues[k].text) }),
+    var at = dossierWhen(st, G.s, ((G.s && G.s.clueAt) || {})[k], true);
+    return h("div", { class: "clue pinnable" }, h("div", null, h("div", { html: md(st.clues[k].text) }), at ? h("div", { class: "small muted dossier-at" }, at) : null),
       solo ? h("button", { class: "btn ghost sm pin" + (on ? " on" : ""), "aria-pressed": on ? "true" : "false", title: on ? "Retirer de mes notes" : "Épingler dans mes notes", "aria-label": on ? "Retirer de mes notes" : "Épingler dans mes notes",
         onclick: function () { var p = G.doc.pins = G.doc.pins || {}; if (p[k]) delete p[k]; else p[k] = Date.now(); persist(); render(); } }, "📌") : null);
   }

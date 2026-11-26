@@ -11,7 +11,7 @@ assert.strictEqual(forms["l'Aïeule"], "maeve", "aka");
 assert.strictEqual(forms["Ismaël"], "chevrier");
 var s = M.freshState(st, {}); s.name = "Ivo"; s.arch = Object.keys(M.ARCHS)[0]; M.start(st, s);
 M.enter(st, s, "K_arrivee");
-assert.deepStrictEqual(s.metAt.hesna, { day: 1, place: "kardan" });
+assert.strictEqual(s.metAt.hesna.day, 1); assert.strictEqual(s.metAt.hesna.place, "kardan"); assert.strictEqual(s.metAt.hesna.n, "K_arrivee");
 var a = M.aspectOf(st, s, "hesna");
 assert.strictEqual(a.visage, "cheveux noirs bouclés", "visage read from the face when none is written");
 assert.strictEqual(a.habits, "tablier d'auberge, louche à la main");
