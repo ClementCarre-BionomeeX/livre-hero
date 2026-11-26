@@ -434,6 +434,8 @@
     // What this reader has kept from earlier games (8.9): a thing learned (fx.learn), a page already read.
     if ("savoir" in c) return [].concat(c.savoir).every(function (k) { return !!(s.lore || {})[k]; });
     if ("lu" in c) return !!(s.lu || {})[c.lu];
+    // 25.8: what this reader has lived in another book of the library ("<book>", "<book>:<trace>", "<book>:fin:<id>").
+    if ("ailleurs" in c) return elsewhereOk(s, c.ailleurs);
     if ("via" in c) return [].concat(c.via).some(function (k) { return k === s.via || k === s.from; });
     if ("regard" in c) return regardOk(s, c.regard);
     if ("fresh" in c) return [].concat(c.fresh).every(function (k) { return !faded(story, s, k); });
@@ -519,6 +521,7 @@
     if ("known" in c) return "Tu ne connais pas encore ce lieu.";
     if ("hour" in c) return "Pas à cette heure-ci" + (c.hour.min != null ? " : à partir de " + c.hour.min + " h" : "") + (c.hour.max != null ? (c.hour.min != null ? ", avant " : " : avant ") + c.hour.max + " h" : "") + ".";
     if ("savoir" in c || "lu" in c || "second" in c) return "Une autre partie ouvrira ce chemin.";
+    if ("ailleurs" in c) return "Ce chemin s'ouvre ailleurs.";
     if ("lead" in c) return "Il faut que " + nameOf(story, c.lead) + " mène le groupe.";
     if ("souv" in c) return "Ce souvenir n'est plus à toi.";
     if ("souvenirs" in c) return c.min != null ? "Il faut avoir gardé au moins " + c.min + " souvenirs." : "Il faut avoir donné plus de souvenirs.";
@@ -677,6 +680,8 @@
     // second: the second reading. The reader has already reached an ending of this story in an earlier game
     // (true), or this ending (its id, with or without "fin:"). The app gives it at the start of a game (s.second).
     if (t.second != null && !secondOk(s, t.second)) return false;
+    // ailleurs: the memory of the other books (25.8). The app gives it at the start of a game (s.ailleurs).
+    if (t.ailleurs != null && !elsewhereOk(s, t.ailleurs)) return false;
     // regard: { person: "cordial" | [words] } — the line a person says depends on how they see the hero (7.9).
     if (t.regard != null && !regardOk(s, t.regard)) return false;
     // fresh: "clue" — shown while that clue can still be found (its `fades` moment has not passed, 7.9).
@@ -710,7 +715,39 @@
     if (k === false) return !Object.keys(known).length;
     return [].concat(k).some(function (e) { return !!(known[e] || known["fin:" + e]); });
   }
-  var SCENE_TAGS = ["with", "without", "when", "after", "before", "second", "regard", "fresh", "camp", "temps", "saison", "tendre", "trouble", "calme"];
+  // ------------------------------------------------------------------ the books remember the reader (25.8)
+  // A book declares what it leaves behind: `traces: { id: { if, axe } }` (a JSON condition read when a game ends; no
+  // `if`: the book was finished). The app keeps the traces earned in the reader's profile, and gives the next game of
+  // ANOTHER book what its text asks about (s.ailleurs, a set of keys, taken once at the start). A set, never an order:
+  // what a book shows depends on the traces held, whatever the order the books were read in.
+  // Keys: "<book>" (an ending of it was reached), "<book>:<trace>", "<book>:fin:<id>".
+  // Intent: elsewhereOk(State, Key | [Key] | false) -> bool   (false: this reader holds nothing this book asks about)
+  function elsewhereOk(s, k) {
+    var held = s.ailleurs || {};
+    if (k === false) return !Object.keys(held).length;
+    if (k === true) return Object.keys(held).length > 0;
+    return [].concat(k).every(function (x) { return !!held[x]; });
+  }
+  // Intent: tracesOf(Story, State) -> [{ id, axe }] = the traces this finished game leaves. A trace never reads the
+  // memory of the other books (the validator refuses it), so that no order hides behind a chain of books.
+  function tracesOf(story, s) {
+    var dec = story.traces || {};
+    return Object.keys(dec).filter(function (k) { return dec[k].if == null || evalCond(story, s, dec[k].if); }).map(function (k) { return { id: k, axe: dec[k].axe || null }; });
+  }
+  // Intent: elsewhereRefs(Story) -> [Key] = every key of another book this story asks about, tags and conditions.
+  function elsewhereRefs(story) {
+    var out = {};
+    (function walk(x) {
+      if (!x || typeof x !== "object") return;
+      if (Array.isArray(x)) return x.forEach(walk);
+      Object.keys(x).forEach(function (k) {
+        if (k === "ailleurs" && typeof x[k] !== "boolean") [].concat(x[k]).forEach(function (r) { if (typeof r === "string") out[r] = 1; });
+        else walk(x[k]);
+      });
+    })({ passages: story.passages, quests: story.quests, world: story.world, people: story.people, achievements: story.achievements, endings: story.endings });
+    return Object.keys(out).sort();
+  }
+  var SCENE_TAGS = ["with", "without", "when", "after", "before", "second", "ailleurs", "regard", "fresh", "camp", "temps", "saison", "tendre", "trouble", "calme"];
   // blessure: true = some wound is open; an id or a list: one of these is open; false: none is.
   function woundOk(story, s, w) { var open = woundsOpen(story, s); if (w === true) return open.length > 0; if (w === false) return !open.length; return [].concat(w).some(function (k) { return open.indexOf(k) >= 0; }); }
   function sceneOk(story, s, p) { return !SCENE_TAGS.some(function (k) { return p[k] != null; }) || tagsOk(story, s, p, null); }
@@ -733,7 +770,7 @@
           s.once = s.once || {}; var key = node + "#" + i, visit = s.seen[node] || 1;
           if (s.once[key] == null) s.once[key] = visit; else if (s.once[key] !== visit) return;
         }
-        if (ok && t.text != null) { out.push(interp(s, veilMark(story, s, t.text))); if (marks && t.second != null && t.second !== false) marks.push(out.length - 1); }
+        if (ok && t.text != null) { out.push(interp(s, veilMark(story, s, t.text))); if (marks && ((t.second != null && t.second !== false) || (t.ailleurs != null && t.ailleurs !== false))) marks.push(out.length - 1); }
         else if (!ok && t.else != null) out.push(interp(s, veilMark(story, s, t.else)));
       }
     });
@@ -3863,11 +3900,12 @@
   // Intent: unveils(Choice) -> bool = the choice is open only thanks to an earlier game (savoir, lu, second): a path unveiled.
   function unveils(c) {
     if (c.skip || c.second != null) return !c.skip && c.second !== false;
+    if (c.ailleurs != null && c.ailleurs !== false) return true;
     return unveilsIf(c.if);
   }
   function unveilsIf(cond) {
     var hit = false;
-    (function walk(x) { if (!x || typeof x !== "object" || hit) return; if (Array.isArray(x)) return x.forEach(walk); if ("not" in x) return; if ("savoir" in x || "lu" in x || ("second" in x && x.second !== false)) { hit = true; return; } ["all", "any", "count"].forEach(function (k) { if (x[k]) walk(x[k]); }); })(cond);
+    (function walk(x) { if (!x || typeof x !== "object" || hit) return; if (Array.isArray(x)) return x.forEach(walk); if ("not" in x) return; if ("savoir" in x || "lu" in x || ("second" in x && x.second !== false) || ("ailleurs" in x && x.ailleurs !== false)) { hit = true; return; } ["all", "any", "count"].forEach(function (k) { if (x[k]) walk(x[k]); }); })(cond);
     return hit;
   }
   function allowed(story, s, p, c) {
@@ -4750,7 +4788,7 @@
   var API = {
     FACE: FACE, FACE_KEYS: FACE_KEYS, ASPECT_KEYS: ASPECT_KEYS, ASPECT_MAX_WORDS: ASPECT_MAX_WORDS, personOf: personOf, namedIn: namedIn, dossierSee: dossierSee, aspectOf: aspectOf, quiOf: quiOf, nameForms: nameForms, glossaryNames: glossaryNames, faceErrors: faceErrors, REGARDS: REGARDS, mysterySolved: mysterySolved, happened: happened, TAVERN_GAMES_PER_DAY: TAVERN_GAMES_PER_DAY,
     ARCHS: ARCHS, archOf: archOf, usesOf: usesOf, plainOf: plainOf, marksOf: marksOf, speakers: speakers, femOf: femOf, TEXT_FX: TEXT_FX, MARK_KINDS: MARK_KINDS, MOODS: MOODS, keywordsOf: keywordsOf, keywordFor: keywordFor, trouve: trouve, moodOf: moodOf, TECHS: TECHS, techsOf: techsOf, partyView: partyView, cpv: cpv, cpvMax: cpvMax, FRONT: FRONT, DOMAINS: DOMAINS, EP: EP, EP_PER_LEVEL: EP_PER_LEVEL, MAX_LEVEL: MAX_LEVEL, DIFFS: DIFFS, LOYAL_AT: LOYAL_AT, SUCCESS: SUCCESS, STEP_HOURS: STEP_HOURS,
-    setRng: setRng, setDice: setDice, nudgeOf: nudgeOf, ambianceOf: ambianceOf, AMBIANCES: AMBIANCES, isNightNow: function (s) { var h = s.time % 24; return h >= NIGHT_FROM || h < NIGHT_TO; }, DIFFICULTY: DIFFICULTY, featsOf: featsOf, endingsOf: endingsOf, endingOf: endingOf, fatesOf: fatesOf, fateCount: fateCount, freshState: freshState, level: level, pvMax: pvMax, bonus: bonus, chance: chance, rollTest: rollTest,
+    setRng: setRng, setDice: setDice, nudgeOf: nudgeOf, ambianceOf: ambianceOf, AMBIANCES: AMBIANCES, isNightNow: function (s) { var h = s.time % 24; return h >= NIGHT_FROM || h < NIGHT_TO; }, DIFFICULTY: DIFFICULTY, featsOf: featsOf, tracesOf: tracesOf, elsewhereRefs: elsewhereRefs, endingsOf: endingsOf, endingOf: endingOf, fatesOf: fatesOf, fateCount: fateCount, freshState: freshState, level: level, pvMax: pvMax, bonus: bonus, chance: chance, rollTest: rollTest,
     readingOf: readingOf, recalled: recalled, pocketOf: pocketOf, puzzleMatch: puzzleMatch, evalCond: evalCond, describeCond: describeCond, textList: textList, view: view, allowed: allowed, target: target,
     depotTag: depotTag, depotFits: depotFits, depotPuts: depotPuts, depotTakes: depotTakes, chroniquesOf: chroniquesOf, DEPOT_FLAG: DEPOT_FLAG, stockShown: stockShown,
     apply: apply, enter: enter, choose: choose, start: start, present: present, loyal: loyal, clueCount: clueCount,

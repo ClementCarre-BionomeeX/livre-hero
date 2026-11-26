@@ -147,6 +147,14 @@ module.exports = {
     preface: { title: "Sept capitales", desc: "Lire ce que dit la préface du Catalogue, de haut en bas.", if: { has: "preface:lue" } },
     page: { title: "La dernière page", desc: "Lire la page cousue dans la reliure.", if: { has: "page:lue" } },
   },
+  // 25.8, what this book leaves for the others of the series: where the last page went. One axis (the last game
+  // finished wins): read aloud, given to Madame Vernis, sold with the lot, or never told to anyone.
+  traces: {
+    "page-lue": { if: { has: "fin:pain" }, axe: "page" },
+    "page-mentions": { if: { has: "fin:vernis" }, axe: "page" },
+    "page-vendue": { if: { has: "fin:sorbier" }, axe: "page" },
+    "page-tue": { if: { any: [{ has: "fin:adjuge" }, { has: "fin:suspendu" }] }, axe: "page" },
+  },
   endings: {},
   world: {
     noFood: true,

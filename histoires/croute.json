@@ -3929,6 +3929,18 @@
    },
    "text": [
     "Le bureau de Madame Clarisse Vernis occupe l'aile est, au-dessus de la roseraie. Il y a des dossiers jusqu'au plafond, rangés par couleur. Madame Vernis dirige les Mentions légales de la Maison : c'est elle qui écrit, en petit, sous chaque produit, ce qui est vendu séparément. Elle est très droite, en tailleur gris perle, avec des lunettes fines et un stylo-plume en or qu'elle ne referme jamais, au cas où.",
+    {
+     "ailleurs": "catalogue:page-mentions",
+     "text": "Sur le coin du bureau, une épreuve du prochain Catalogue attend sa signature. Sous chaque produit, entre *non comestible* et *émotions vendues séparément*, court une ligne de six points que tu ne lui connaissais pas : *Cent pains ordinaires offerts au quartier. Comestibles.* Le mot est de sa main."
+    },
+    {
+     "ailleurs": "catalogue:page-lue",
+     "text": "Un dossier dépasse des autres, d'une couleur qu'aucune étagère ne porte. Il a l'épaisseur d'un annuaire et s'intitule *Pain ordinaire, arriérés, 1899 à ce jour*. Madame Vernis garde la main posée dessus, comme on tient un couvercle."
+    },
+    {
+     "ailleurs": "catalogue:page-vendue",
+     "text": "Dans la corbeille du courrier traîne un bon de livraison : *cent pains ordinaires, Bas-Quartier, lundi, une fois*. Le montant est d'un sou pièce. Elle l'a retourné face contre le bois ; le papier est mince, et le chiffre se lit à l'envers."
+    },
     "« Asseyez-vous, Octave. Je serai brève. Je le suis toujours, sauf en bas de page. »",
     "Elle te tend une feuille.",
     "« Une ordonnance de saisie. Il circule dans le désert des contrefaçons de la Baguette Éternelle. Elles sont vendues sous le comptoir de notre propre boutique, au kilomètre 66, par une vendeuse que je n'ai pas encore pu convoquer : elle se trouve au milieu du désert, et le désert ne répond pas aux convocations. Ces baguettes ont la couleur de l'inox. Mais elles sont faites de pain. » Elle marque une pause. « Elles sont comestibles, Octave. »",
