@@ -41,7 +41,7 @@ function check(ok, what) { if (!ok) bad.push(what); }
     await pg.getByRole("button", { name: "Tout télécharger maintenant" }).click();
     await pg.waitForFunction(function () { return /Téléchargement terminé/.test(document.getElementById("app").innerText); }, null, { timeout: 30000 }).catch(function () { bad.push("« Tout télécharger » dit quand c'est fini"); });
     var av = await pg.evaluate(function () { return window.__avance; });
-    // the three books, and the other writings of the books (25.5), kept only on a reader's request until « Tout télécharger »
+    // the three books, and the other writings of the books (25.6), kept only on a reader's request until « Tout télécharger »
     var W = fs.existsSync(path.join(ROOT, "histoires/ecritures")) ? fs.readdirSync(path.join(ROOT, "histoires/ecritures")).length : 0, N = 3 + W;
     check(av.length === N + 1 && av[N].done === N && av[N].total === N, "l'avancement compte les fichiers un par un (" + JSON.stringify(av.map(function (x) { return x.done + "/" + x.total; })) + ")");
     // without network: the site opens, a book starts

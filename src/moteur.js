@@ -4679,7 +4679,7 @@
     enter(story, s, startOf(story, s));
   }
 
-  // ------------------------------------------------------------------ writing styles (25.5)
+  // ------------------------------------------------------------------ writing styles (25.6)
   // Intent: writingKey(String) -> String = the name of a string of prose, short and stable (its length and FNV-1a hash),
   // by which a book's other writings (histoires/ecritures/<id>.json, outils/ecritures/extraire.js) find it.
   // Intent: writing(story, table, style) -> Story = the same book with its prose in another writing: every string whose

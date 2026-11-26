@@ -44,7 +44,7 @@ fs.mkdirSync(path.join(OUT, "histoires"), { recursive: true });
 fs.writeFileSync(path.join(OUT, "index.html"), page);
 fs.writeFileSync(path.join(OUT, "livre-jeu-complet.html"), whole);
 P.STORIES.forEach(function (id, i) { fs.writeFileSync(path.join(OUT, "histoires", id + ".json"), stories[i]); });
-// The books' other writings (25.5), read only when a reader picks one (then kept offline like the rest).
+// The books' other writings (25.6), read only when a reader picks one (then kept offline like the rest).
 var WRITINGS = P.STORIES.filter(function (id) { return P.writingsOf(id); });
 fs.mkdirSync(path.join(OUT, "histoires/ecritures"), { recursive: true });
 WRITINGS.forEach(function (id) { fs.copyFileSync(path.join(ROOT, "histoires/ecritures", id + ".json"), path.join(OUT, "histoires/ecritures", id + ".json")); });
