@@ -2,7 +2,7 @@
 // Livre-jeu page: the library of stories, player profiles, saved games, character creation, the reading screen and
 // the notebook (carnet). Rules live in Moteur (src/moteur.js); this file only shows the state and saves it.
 (function () {
-  var M = window.Moteur, V = window.Validateur, R = window.Relecture, Bib = window.Bibliotheque;
+  var M = window.Moteur, V = window.Validateur, R = window.Relecture, Bib = window.Bibliotheque, CF = window.CarteFins;
   var UNDO_MAX = 25;                       // states kept for "Choix précédent" (each a few KB; a save stays far under 256 KiB)
   var LOG_MAX = 250;                       // journal entries kept in a save
   var PART_CHARS = 180000;                 // an imported story is cut in parts under the 256 KiB document limit
@@ -349,6 +349,7 @@
     else if (A.screen === "spect") renderSpect();
     else if (A.screen === "album") renderAlbum();
     else if (A.screen === "stats") renderStats();
+    else if (A.screen === "fins") renderEndMap();
     if (A.carnet) renderCarnet();
     if (A.modal) renderModal();
     Array.prototype.forEach.call(document.querySelectorAll(".prose"), Lettrine.place);
@@ -2780,6 +2781,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "25.5", items: ["Carte des fins : sur la fiche d'un livre à plusieurs fins (« Fins trouvées ») et à la dernière page, la carte de tout ce que tu as lu de ce livre, partie après partie. Les fins trouvées y brillent en étoiles ; les chemins jamais pris s'effacent dans le brouillard, sans dire où ils mènent."] },
     { v: "25.4", items: ["Nouveau livre à lire : « Le Corricolo », d'Alexandre Dumas (1843) : l'hiver 1835 à Naples, rue par rue, en petite voiture au galop, avec ses lazzaroni, son roi Nasone, le miracle de saint Janvier, le Vésuve, Pompéi, puis la route de Rome."] },
     { v: "25.3", items: ["Nouveau livre à lire : « Le Capitaine Aréna », d'Alexandre Dumas (1842), la suite du « Speronare » : une maison de fous à Palerme, les volcans des îles Éoliennes, les histoires de sorcières et de bandits que racontent les matelots, puis la Calabre à dos de mulet, sur les pas du roi Murat, dans un pays qui tremble."] },
     { v: "25.2", items: ["Nouveau livre à lire : « Le Speronare », d'Alexandre Dumas (1842) : en 1835, refoulé de Naples, Dumas loue un petit bâtiment sicilien et fait le tour de la Sicile avec le peintre Jadin, son bouledogue et un équipage de conteurs. L'Etna, Syracuse, Palerme, des brigands, des tempêtes et l'histoire des Vêpres siciliennes."] },
@@ -4150,6 +4152,7 @@
       h("div", { class: "row" },
         A.game && A.game.multi ? null : h("button", { class: "btn primary", onclick: function () { newGame(st.id); } }, v.twice && v.twice.reading === 1 ? "Commencer la seconde lecture" : "Relire avec un autre héros"),
         A.game && !A.game.multi ? h("button", { class: "btn", onclick: function () { openRecit(); } }, "📖 Mon aventure") : null,
+        A.game && !A.game.multi && !A.game.ephemeral && CF && CF.worth(st) ? h("button", { class: "btn", onclick: function () { openEndMap(st.id); } }, "🗺 Carte des fins") : null,
         h("button", { class: "btn", onclick: function () { A.carnet = true; A.carnetTab = "quetes"; render(); } }, "Ce que tu as fait"),
         A.game && !A.game.multi && !A.game.ephemeral ? h("button", { class: "btn", onclick: function () { A.carnet = true; A.carnetTab = "soupcons"; render(); } }, "🕵 Ce que tu croyais") : null,
         A.game && !A.game.multi && !A.game.ephemeral ? h("button", { class: "btn", "aria-expanded": A.compare ? "true" : "false", onclick: function () { A.compare = !A.compare; render(); } }, "👪 Comparer en famille") : null,
@@ -7030,6 +7033,15 @@
       if (at === "" || done[node + ":" + at]) return;
       tr = tr || (r.trail = r.trail || {}); var o = tr[node] = tr[node] || {}; o[at] = (o[at] || 0) + 1; done[node + ":" + at] = 1; changed = true;
     }); });
+    // The pages read (25.5, « Carte des fins »): kept with the page they were reached from when no way written in it
+    // says so (a road, an event), so that the map can hang them where they belong.
+    var pg = r.pages = r.pages || {}, at = d.atNode, nPg = 0;
+    Object.keys(s.seen || {}).forEach(function (k) {
+      if (pg[k] || !st.passages[k]) return;
+      pg[k] = at && at !== k && st.passages[at] && CF && CF.forward(st.passages[at], st.passages).indexOf(k) < 0 ? at : 1; nPg++;
+    });
+    if (s.node && st.passages[s.node]) d.atNode = s.node;
+    if (nPg && (fresh.length >= TRAIL_BATCH || v.kind === "end")) changed = true;
     if (v.kind === "end") {
       var e = M.endingOf(st, s); if (e && !r.endings[e.id]) { r.endings[e.id] = Date.now(); changed = true; }
       // A composed ending (8.8) also counts its dénouement as found.
@@ -7057,6 +7069,7 @@
         h("ul", { class: "plain" }, ends.map(function (e) { return r.endings[e.id] ? h("li", null, "✦ " + e.title, (r.iron || {})[e.id] ? h("span", { class: "iron", title: "Trouvée sans retour" }, " ⚔ sans retour") : null, composedOf(st, r, e.id)) : h("li", { class: "muted" }, "· · · " + (st.fates ? "un dénouement encore inconnu" : "une fin encore inconnue")); }))));
       box.appendChild(h("div", { class: "small" }, h("div", { class: "label" }, "Hauts faits"),
         h("ul", { class: "plain" }, feats.map(function (f) { return r.feats[f.id] ? h("li", null, "★ " + f.title + (f.desc ? " · " : ""), h("span", { class: "muted" }, f.desc)) : f.story ? h("li", { class: "muted" }, "☆ un haut fait caché") : h("li", { class: "muted" }, "☆ " + f.title + " · " + f.desc); }))));
+      if (CF && CF.worth(st)) box.appendChild(h("button", { class: "btn sm", onclick: function () { openEndMap(m.id); } }, "🗺 Carte des fins"));
       var runs = r.runs || [], ck = "cmp:" + m.id;
       if (runs.length) {
         box.appendChild(h("button", { class: "btn ghost sm", "aria-expanded": A.open[ck] ? "true" : "false", onclick: function () { A.open[ck] = !A.open[ck]; render(); } }, "👪 Comparer ta dernière lecture avec la maison" + (A.open[ck] ? " ▴" : " ▾")));
@@ -7110,6 +7123,108 @@
     var all = 0, got = 0;
     Object.keys(st.passages || {}).forEach(function (id) { var n = ((st.passages[id] || {}).choices || []).length; all += n; var o = t[id]; if (o) got += Object.keys(o).filter(function (k) { return +k < n; }).length; });
     return all ? " · pistes explorées : " + Math.round(100 * got / all) + " %" : "";
+  }
+  // ------------------------------------------------------------------ the map of the endings found (25.5)
+  // Intent: openEndMap(StoryId) -> () = « Carte des fins » for the reader of the moment: over all their games of this
+  // book, the pages read, the endings found as stars, the ways never taken in the fog (src/cartefins.js).
+  // Why: Clément, 26/11: a map of the endings found per book, the branches not explored left in the fog, to make one
+  // read again. Nothing not read can be guessed from it (rules in src/cartefins.js).
+  // The games kept on this device fill the pages read before the record kept them (before 25.5), once.
+  var ENDMAP_DX = 20, ENDMAP_DY = 30, ENDMAP_R = 5, ENDMAP_W = 360, ENDMAP_CHAR = 6.4, ENDMAP_FOG = 54;
+  function openEndMap(id) {
+    var back = A.screen, prof = A.game && !A.game.multi ? A.profiles.filter(function (p) { return p.id === A.game.doc.profil; })[0] || A.profile : A.profile;
+    A.endMap = { book: id, act: null, pick: null, back: back, reader: prof ? prof.id : null, extra: {} };
+    A.screen = "fins"; render(); window.scrollTo(0, 0);
+    var mine = (A.allGames || []).filter(function (g) { return prof && g.profil === prof.id && g.story === id && !g.test; });
+    Promise.all([loadStory(id).catch(function () { return null; })].concat(mine.map(function (g) { return Store.get("parties", g.id).catch(function () { return null; }); }))).then(function (got) {
+      var E = A.endMap; if (!E || E.book !== id || A.screen !== "fins") return;
+      var st = A.builtins[id] || got[0]; if (!st) return; E.story = st;
+      var r = recordOf(prof, id), pg = {}, add = 0;
+      got.slice(1).forEach(function (d) { var s; try { s = d && d.state ? JSON.parse(d.state) : null; } catch (e) { s = null; } Object.keys((s && s.seen) || {}).forEach(function (k) { if (st.passages[k]) pg[k] = 1; }); });
+      E.extra = pg;
+      // kept in the record, so that a game erased later leaves its pages on the map
+      if (prof && prof.records && prof.records[id]) { var rp = r.pages = r.pages || {}; Object.keys(pg).forEach(function (k) { if (!rp[k]) { rp[k] = 1; add++; } }); if (add) { prof.updated = Date.now(); Store.put("profils", prof.id, prof).catch(function () {}); } }
+      render();
+    });
+  }
+  function closeEndMap() { var b = (A.endMap || {}).back; A.endMap = null; A.screen = b === "game" && A.game ? "game" : "home"; render(); }
+  function renderEndMap() {
+    var E = A.endMap || {}, st = A.builtins[E.book] || E.story, prof = A.profiles.filter(function (p) { return p.id === E.reader; })[0];
+    app.appendChild(topBar([h("button", { class: "btn ghost sm", onclick: closeEndMap }, E.back === "game" ? "← Retour au livre" : "← Bibliothèque"), h("span", { class: "brand grow" }, "Carte des fins")]));
+    var w = h("main", { class: "wrap endmap" }); app.appendChild(w);
+    if (!st) { w.appendChild(h("p", { class: "small muted" }, "Ouverture du livre…")); return; }
+    var r = recordOf(prof, st.id), m = CF.map(st, r, E.extra), F = m.ends;
+    w.appendChild(h("h2", null, st.title));
+    if (prof) w.appendChild(h("div", { class: "small muted" }, "Ce que " + prof.name + " a découvert, toutes parties confondues."));
+    w.appendChild(h("div", { class: "endmap-sum" },
+      h("div", { class: "endmap-big" }, h("span", { class: "endmap-star", "aria-hidden": "true" }, "✦"), " " + F.found.length + " fin" + (F.found.length > 1 ? "s" : "") + " trouvée" + (F.found.length > 1 ? "s" : "") + " sur " + F.total),
+      st.fates ? h("div", { class: "small" }, "Fins composées : " + composedFound(r) + " sur " + M.fateCount(st)) : null,
+      h("div", { class: "small muted" }, m.pages.known + " pages lues sur " + m.pages.total + " · " + (m.stubs ? m.stubs + " chemin" + (m.stubs > 1 ? "s" : "") + " jamais pris, dans le brouillard" : "aucun chemin laissé de côté sur les pages lues"))));
+    if (F.found.length) w.appendChild(h("ol", { class: "endmap-ends" }, F.found.map(function (e) {
+      var actOf = null; m.acts.forEach(function (a) { if (a.nodes.some(function (n) { return n.id === e.at; })) actOf = a.id; });
+      return h("li", null, h("button", { class: "linkish", onclick: function () { E.act = actOf; E.pick = { kind: "end", id: e.at }; render(); var el = document.querySelector(".endmap svg .em-end.pick"); if (el && el.scrollIntoView) el.scrollIntoView({ block: "center", behavior: REDUCED ? "auto" : "smooth" }); } }, h("span", { class: "endmap-n" }, String(e.n)), e.title));
+    })));
+    var left = F.total - F.found.length;
+    w.appendChild(h("p", { class: "endmap-left" }, left ? (left > 1 ? left + " fins dorment encore dans le brouillard." : "Une fin dort encore dans le brouillard.") : "Toutes les fins sont trouvées."));
+    if (!m.acts.length) { w.appendChild(h("div", { class: "notice" }, "Rien encore : la carte se dessine à mesure que tu lis.")); return; }
+    var act = m.acts.filter(function (a) { return a.id === E.act; })[0] || m.acts[0];
+    if (m.acts.length > 1 || m.hiddenActs) w.appendChild(h("div", { class: "seg wrap endmap-acts" }, m.acts.map(function (a) {
+      return h("button", { class: "btn sm" + (a === act ? " on" : ""), "aria-pressed": a === act ? "true" : "false", onclick: function () { E.act = a.id; E.pick = null; render(); } }, a.title || "Le livre");
+    }), m.hiddenActs ? h("span", { class: "small muted fogged" }, (m.hiddenActs > 1 ? m.hiddenActs + " actes" : "un acte") + " dans le brouillard") : null));
+    w.appendChild(endMapSvg(st, act, E));
+    var pk = E.pick, cap = null;
+    if (pk && pk.kind === "stub") { var p0 = st.passages[pk.from] || {}; cap = h("div", { class: "notice endmap-cap" }, "À la page « " + String(p0.title || "").replace(/\*/g, "") + " », ", pk.label ? h("i", null, "« " + pk.label + " »") : "un autre chemin", " : tu ne l'as jamais pris."); }
+    else if (pk && pk.kind === "pages") cap = h("div", { class: "notice endmap-cap" }, h("b", null, pk.titles.length + " pages lues autour : "), pk.titles.join(" · "));
+    else if (pk && pk.id && st.passages[pk.id]) { var en = F.found.filter(function (e) { return e.at === pk.id; }); cap = h("div", { class: "notice endmap-cap" }, en.length ? h("b", null, "✦ " + en.map(function (e) { return e.title; }).join(" · ") + " · ") : null, "Page lue : « " + String(st.passages[pk.id].title || "").replace(/\*/g, "") + " »"); }
+    if (cap) w.appendChild(cap);
+    w.appendChild(h("div", { class: "small muted endmap-legend" }, "● page lue · ◆ un choix · ✦ une fin trouvée · ◌ plusieurs pages lues autour · ☁ un chemin jamais pris, sans dire où il mène."));
+  }
+  // Intent: endMapSvg(Story, Act, EndMapState) -> Element = one act drawn from top to bottom: the depth goes right,
+  // each page has its row; the stubs end in a cloud of fog where their words fade.
+  function endMapSvg(st, a, E) {
+    var NS = "http://www.w3.org/2000/svg";
+    function svg(tag, attrs, text) { var e = document.createElementNS(NS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); if (text != null) e.textContent = text; return e; }
+    var X = function (d) { return 14 + d * ENDMAP_DX; }, Y = function (x) { return 18 + x * ENDMAP_DY; };
+    var W = Math.max(ENDMAP_W, X(a.depth) + 190), H = Y(a.width) + 4, pos = {};
+    a.nodes.forEach(function (n) { pos[n.id] = n; });
+    var root = svg("svg", { class: "endmap-svg", viewBox: "0 0 " + W + " " + H, width: W, height: H, role: "img", "aria-label": "Carte des pages lues de " + (a.title || st.title) });
+    var defs = svg("defs", {}), fade = svg("linearGradient", { id: "em-fade", x1: 0, y1: 0, x2: 1, y2: 0 });
+    fade.appendChild(svg("stop", { offset: "0", "stop-color": "currentColor", "stop-opacity": ".85" })); fade.appendChild(svg("stop", { offset: "1", "stop-color": "currentColor", "stop-opacity": "0" }));
+    var blur = svg("filter", { id: "em-blur", x: "-50%", y: "-50%", width: "200%", height: "200%" });
+    var turb = svg("feTurbulence", { type: "fractalNoise", baseFrequency: ".09", numOctaves: 2, seed: 3, result: "n" }); blur.appendChild(turb);
+    blur.appendChild(svg("feDisplacementMap", { in: "SourceGraphic", in2: "n", scale: 9 })); blur.appendChild(svg("feGaussianBlur", { stdDeviation: 3.2 }));
+    defs.appendChild(fade); defs.appendChild(blur); root.appendChild(defs);
+    a.edges.forEach(function (e) {
+      var f = pos[e.from], t = pos[e.to]; if (!f || !t) return;
+      // straight down the column, then across to the child: a tree read like a table of contents
+      root.appendChild(svg("path", { d: "M" + X(f.y) + " " + Y(f.x) + " V" + Y(t.x) + " H" + X(t.y), class: "em-edge" + (e.folded ? " folded" : "") }));
+    });
+    var pick = function (o) { return function () { E.pick = E.pick && JSON.stringify(E.pick) === JSON.stringify(o) ? null : o; render(); }; };
+    a.stubs.forEach(function (s) {
+      var f = pos[s.from], x0 = X(f.y), y0 = Y(f.x), x1 = X(s.y), y1 = Y(s.x), on = E.pick && E.pick.kind === "stub" && E.pick.from === s.from && E.pick.label === s.label && E.pick.x === s.x;
+      root.appendChild(svg("path", { d: "M" + x0 + " " + y0 + " V" + y1 + " H" + (x1 + 8), class: "em-stub" }));
+      var g = svg("g", { class: "em-fog" + (on ? " pick" : ""), tabindex: 0, role: "button", "aria-label": "Un chemin jamais pris" + (s.label ? " : " + s.label : "") });
+      g.appendChild(svg("ellipse", { cx: x1 + 22, cy: y1, rx: 26, ry: 11, class: "em-cloud", filter: "url(#em-blur)" }));
+      if (s.label) { var room = Math.floor((W - x1 - 24) / ENDMAP_CHAR), lb = s.label.length > room ? s.label.slice(0, room - 1) + "…" : s.label; g.appendChild(svg("text", { x: x1 + 19, y: y1 + 4, class: "em-stub-label", fill: "url(#em-fade)" }, lb)); }
+      g.appendChild(svg("text", { x: x1 + 4, y: y1 + 4, class: "em-cloud-mark" }, "☁"));
+      g.addEventListener("click", pick({ kind: "stub", from: s.from, label: s.label, x: s.x }));
+      root.appendChild(g);
+    });
+    a.nodes.forEach(function (n) {
+      var cx = X(n.y), cy = Y(n.x), on = E.pick && E.pick.id === n.id, g = svg("g", { class: "em-node em-" + n.kind + (on ? " pick" : ""), tabindex: 0, role: "button" });
+      g.appendChild(svg("circle", { cx: cx, cy: cy, r: 12, class: "em-hit" }));
+      if (n.kind === "end") { g.appendChild(svg("text", { x: cx, y: cy + 5, class: "em-star", "text-anchor": "middle" }, "✦")); }
+      else if (n.kind === "fork") g.appendChild(svg("rect", { x: cx - ENDMAP_R, y: cy - ENDMAP_R, width: 2 * ENDMAP_R, height: 2 * ENDMAP_R, transform: "rotate(45 " + cx + " " + cy + ")", class: "em-dot" }));
+      else if (n.kind === "pages") g.appendChild(svg("circle", { cx: cx, cy: cy, r: ENDMAP_R + 1, class: "em-ring" }));
+      else g.appendChild(svg("circle", { cx: cx, cy: cy, r: n.kind === "start" ? ENDMAP_R + 1.5 : ENDMAP_R - 1, class: "em-dot" }));
+      var label = n.kind === "pages" ? n.count + " pages lues" : n.kind === "end" ? n.end.join(", ") + " · " + n.title : n.kind === "start" ? "Début · " + n.title : n.title;
+      var room = Math.floor((W - cx - 16) / ENDMAP_CHAR); if (label.length > room) label = label.slice(0, Math.max(4, room - 1)) + "…";
+      g.appendChild(svg("text", { x: cx + 11, y: cy + 4, class: "em-label" }, label));
+      g.setAttribute("aria-label", label);
+      g.addEventListener("click", pick(n.kind === "pages" ? { kind: "pages", id: n.id, titles: n.titles } : { kind: "page", id: n.id }));
+      root.appendChild(g);
+    });
+    return h("div", { class: "endmap-wrap" }, root);
   }
   // Intent: tabPlot(Element, Story, State) -> () = « L'intrigue » (8.9): over all this reader's games, the people one may
   // follow (open, or still closed with their hint), what was learned and kept, and the endings found.
