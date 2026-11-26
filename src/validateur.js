@@ -9,7 +9,7 @@
 
   var COND_KEYS = ["voie", "trouvaille", "trouvailles", "is", "count", "has", "not", "all", "any", "clues", "clue", "mark", "present", "loyal", "met", "gone", "conf", "fear", "relics", "relic",
     "given", "item", "hour", "voeu", "answered", "gold", "food", "pv", "clock", "fac", "level", "day", "since", "night", "seen", "arch", "quest", "place", "known", "person", "party",
-    "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "via", "regard", "fresh", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed",
+    "lead", "away", "team", "souv", "souvenirs", "heroLevel", "second", "ailleurs", "via", "regard", "fresh", "stock", "days", "promise", "vote", "lean", "battle", "camp", "missed",
     "temps", "saison", "blessure", "cicatrice", "fatigue", "trait", "duel", "examen",
     "recit", "doute", "dementi", "silences", "geste", "poids", "angoisse", "attache",
     "secret", "confie", "garde", "savoir", "lu", "voile", "voiles", "lens", "scrutin", "role", "voix", "fil", "carteJouee", "possede", "escale", "escaleOuverte", "marin", "equipage", "donne", "pose", "issue", "signe", "ferveur"];
@@ -167,7 +167,7 @@
       if (!sure.length) E(w + " : aucune issue par défaut (issue: { epreuve: \"" + k + "\" } sans carte, paire ni condition) : une donne ratée n'aurait pas de suite.");
     });
   }
-  function staticCheck(story) {
+  function staticCheck(story, opts) {
     var errs = [], warns = [];
     function E(m) { errs.push(m); } function W(m) { warns.push(m); }
     ["id", "title", "start", "acts", "passages"].forEach(function (k) { if (!story[k]) E("Il manque « " + k + " » à l'histoire."); });
@@ -1061,7 +1061,35 @@
     (story.past || []).forEach(function (q, i) { (q.answers || []).forEach(function (a) { checkFx(a.fx, "Ton passé " + (i + 1)); }); });
     Object.keys(story.trouvailles || {}).forEach(function (k) { checkFx(story.trouvailles[k].fx, "Trouvaille « " + k + " »"); });
     if (!ends) E("Aucune fin (passage avec end: true).");
+    // 25.8, the books remember the reader. What a book leaves (traces) and what it asks of the others (ailleurs).
+    // The engine guarantees the order of reading never matters: a trace never reads the memory, a book never asks
+    // itself, and (with the library at hand, opts.library) the book and the trace asked about exist.
+    var TR = story.traces || {}, LIB = (opts || {}).library || null;
+    Object.keys(TR).forEach(function (k) {
+      var t = TR[k] || {}, w = "trace « " + k + " »";
+      if (/[:|]/.test(k) || k.indexOf("fin") === 0 && k.length === 3) E(w + " : un nom de trace ne contient ni « : » ni « | ».");
+      if (t.if != null) { checkCond(t.if, w); if (/"ailleurs"/.test(JSON.stringify(t.if))) E(w + " : une trace ne lit jamais la mémoire des autres livres (ailleurs), sinon l'ordre de lecture compterait."); }
+      if (t.axe != null && typeof t.axe !== "string") E(w + " : axe attend un nom.");
+    });
+    M.elsewhereRefs(story).forEach(function (key) {
+      var at = key.indexOf(":"), book = at < 0 ? key : key.slice(0, at), what = at < 0 ? null : key.slice(at + 1), w = "ailleurs « " + key + " »";
+      if (!book || what === "") { E(w + " : attendu « livre », « livre:trace » ou « livre:fin:nom »."); return; }
+      if (book === story.id) { E(w + " : un livre ne se cite pas lui-même (pour ses propres parties d'avant : second, savoir, lu)."); return; }
+      if (!LIB) return;
+      var L = LIB[book];
+      if (!L) { E(w + " : le livre « " + book + " » n'est pas dans la bibliothèque."); return; }
+      if (what == null) return;
+      if (what.indexOf("fin:") === 0) { if (!L.endings[what] && !L.endings[what.slice(4)]) E(w + " : « " + what.slice(4) + " » n'est pas une fin de « " + book + " »."); }
+      else if (!(what in L.traces)) E(w + " : le livre « " + book + " » ne déclare pas la trace « " + what + " ».");
+    });
     return { errors: errs, warnings: warns };
+  }
+  // Intent: libraryCard(Story) -> { traces: { id: axe | null }, endings: { id: 1 } } = what the other books may ask of it.
+  function libraryCard(story) {
+    var tr = {}, en = {};
+    Object.keys(story.traces || {}).forEach(function (k) { tr[k] = (story.traces[k] || {}).axe || null; });
+    M.endingsOf(story).forEach(function (e) { en[e.id] = 1; });
+    return { traces: tr, endings: en };
   }
 
   // Echo rule: each side quest declares a tag set somewhere; a later act or an ending must read it.
@@ -1511,7 +1539,24 @@
         if (!s.flags[f] && rnd() < 0.4) s.flags[f] = true;
       });
     }
-    function play(mode, seed, toutJouer, second) {
+    // 25.8: the memory of the other books a game starts with. A set of keys, so that every order of reading is covered
+    // by a few sets: nothing (the book read first), all it asks about (read last), one key alone (each echo by itself).
+    var REFS = M.elsewhereRefs(story), LIBR = opts.library || null, tracesGot = {};
+    function memoryOf(k) {
+      if (!REFS.length || k % 3 === 0) return null;
+      var out = {};
+      if (k % 3 === 2) { out[REFS[Math.floor(k / 3) % REFS.length]] = 1; return out; }
+      // All of it: of two traces on the same axis of a book, one only (they exclude each other), turning with k.
+      var axis = {};
+      REFS.forEach(function (key, n) {
+        var at = key.indexOf(":"), book = at < 0 ? key : key.slice(0, at), what = at < 0 ? null : key.slice(at + 1);
+        var ax = what && LIBR && LIBR[book] ? LIBR[book].traces[what] : null;
+        if (ax) { var slot = book + "|" + ax; (axis[slot] = axis[slot] || []).push(key); } else out[key] = 1;
+      });
+      Object.keys(axis).forEach(function (a) { out[axis[a][Math.floor(k / 3) % axis[a].length]] = 1; });
+      return out;
+    }
+    function play(mode, seed, toutJouer, second, memory) {
       var rnd = seededRng(seed), s = null, fixed = mode === "win" ? 0.94 : mode === "lose" ? 0.02 : null;
       var shy = seed % 7 === 3; // one game in seven barely touches the hidden words, as a reader who rarely taps may
       // Fixed dice only on tests: a fight always uses real dice, or two sides that always miss would never end.
@@ -1526,6 +1571,7 @@
       if (second && story.puzzles) { s.answers = {}; Object.keys(story.puzzles).forEach(function (k) { if (rnd() < 0.5) s.answers[k] = [story.puzzles[k].answer]; }); }
       // 8.3: one game in four, the reader has masked the tender lines.
       if (seed % 4 === 1) s.tendre = "masquer";
+      if (memory) s.ailleurs = memory;
       (story.past || []).forEach(function (q) { var a = q.answers[Math.floor(rnd() * q.answers.length)]; try { M.apply(story, s, a.fx); } catch (e) { errs["Ton passé : " + e.message] = 1; } });
       try { M.start(story, s); } catch (e) { errs["départ : " + e.message] = 1; return; }
       var actWas = s.lastAct;
@@ -1548,6 +1594,7 @@
         Object.keys(s.guards || {}).forEach(function (k) { guards[k] = 1; });
         if (v.kind === "end") {
           endings[s.node] = (endings[s.node] || 0) + 1;
+          M.tracesOf(story, s).forEach(function (t) { tracesGot[t.id] = 1; });
           // 12.1, the guarantee of a book read twice: each reading ends on its own ending.
           if (story.twice) { var want = story.twice[second ? "second" : "first"], got = (M.endingOf(story, s) || {}).id; if (got && got !== want && got !== "fin:" + want) errs["§ " + s.node + " : la " + (second ? "seconde" : "première") + " lecture finit sur « " + got + " », au lieu de « " + want + " » (twice)."] = 1; }
           var lv = M.level(s); levelAtEnd[lv] = (levelAtEnd[lv] || 0) + 1;
@@ -1584,12 +1631,14 @@
     var n = 0;
     for (var i = 1; i <= games; i++) {
       var mode = modes[i % modes.length];
-      play(mode, i * 7919, i % 2 === 0, i % 5 < 2);
+      // the memory turns every six games, so that each set meets the six ways of playing
+      play(mode, i * 7919, i % 2 === 0, i % 5 < 2, memoryOf(Math.floor(i / modes.length)));
       n++;
     }
     var T = typeof process !== "undefined" && process.env && process.env.VALID_TIME, t0 = Date.now();
     if (T) console.log("parties : " + n + ", passages jamais vus : " + ids.filter(function (id) { return !seen[id]; }).length + (T === "list" || T === "stop" ? " : " + ids.filter(function (id) { return !seen[id] && !P[id].branch; }).join(" ") : ""));
     if (T === "stop") { console.log("impasses : " + JSON.stringify(dead) + "\nboucles : " + JSON.stringify(loops) + "\nerreurs : " + JSON.stringify(Object.keys(errs).slice(0, 20))); M.setRng(null); return { unreached: [], endings: endings, errors: [], deadEnds: dead, loops: loops }; }
+    Object.keys(story.traces || {}).forEach(function (k) { if (games >= 60 && !tracesGot[k]) errs["trace « " + k + " » : jamais laissée par une partie d'essai (sa condition ne tient à aucune fin)."] = 1; });
     reachMissing();
     if (T) console.log("recherche ciblée : " + (Date.now() - t0) + " ms");
     M.setRng(null);
@@ -1616,7 +1665,7 @@
   }
   function validate(story, opts) {
     M.prepare(story);
-    var st = staticCheck(story);
+    var st = staticCheck(story, opts);
     var rep = { errors: st.errors.slice(), warnings: st.warnings.slice(), sim: null };
     if (rep.errors.length) return rep;
     rep.warnings = rep.warnings.concat(echoCheck(story));
@@ -1644,6 +1693,6 @@
     return null;
   }
 
-  var API = { validate: validate, strictCheck: strictCheck, staticCheck: staticCheck, echoCheck: echoCheck, simulate: simulate, actOfProblem: actOfProblem, readTags: readTags };
+  var API = { validate: validate, strictCheck: strictCheck, staticCheck: staticCheck, libraryCard: libraryCard, echoCheck: echoCheck, simulate: simulate, actOfProblem: actOfProblem, readTags: readTags };
   if (typeof module !== "undefined" && module.exports) module.exports = API; else root.Validateur = API;
 })(typeof self !== "undefined" ? self : this);

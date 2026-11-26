@@ -2219,6 +2219,8 @@
     // 12.0: the answers this reader found to the puzzles in earlier games, offered again (« Répondre ce que tu sais déjà »).
     if (!C.multi && A.profile && st.puzzles) { var ra = recordOf(A.profile, st.id).answers; if (ra) s.answers = clone(ra); }
     if (!C.multi && A.profile && (st.savoirs || st.leads)) { var rec0 = recordOf(A.profile, st.id); s.lore = Object.assign({}, rec0.lore || {}); s.lore0 = Object.assign({}, s.lore); s.lu = {}; Object.keys(rec0.trail || {}).forEach(function (k) { s.lu[k] = 1; }); }
+    // 25.8: what this reader has lived in the other books, for the keys this book asks about (tag ailleurs).
+    if (!C.multi && A.profile) { var mem = elsewhereOf(A.profile, st); if (Object.keys(mem).length) s.ailleurs = mem; }
     s.events = [];
     (st.past || []).forEach(function (q, qi) { M.apply(st, s, q.answers[C.past[qi]].fx); });
     var pastEvents = s.events.slice();
@@ -2817,6 +2819,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "25.8", items: ["Les livres de la série Croûte 'n Chrome commencent à se répondre. Ce que tu fais dans l'un peut laisser une trace dans un autre, quel que soit l'ordre où tu les lis. Rien ne l'annonce : à toi de le remarquer."] },
     { v: "25.7", items: ["Un dossier dans le carnet, qui se tient tout seul : les lieux où tu passes, les gens que tu rencontres et ceux qui reviennent dans tes pages, ce que tu trouves, chacun avec le jour et l'endroit. Range-le par lieu, par personne ou par jour ; les liens, c'est toi qui les fais. L'onglet Indices dit aussi où et quand chacun a été trouvé."] },
     { v: "25.6", items: ["Réglages → « Style d'écriture » : lire un livre dans le texte d'aujourd'hui (Mélange), dans son texte façon Doyle, ou dans son tout premier texte, plus court et plus direct (Sobre). Pour les livres écrits avant le 16 novembre : Kardan, les Cendres, Malvoran, les Taiseurs, la Marée, la Retenue et les autres histoires de cette époque. Le changement vaut aussi pour la page en cours ; l'histoire, les choix et les indices restent les mêmes."] },
     { v: "25.5", items: ["Carte des fins : sur la fiche d'un livre à plusieurs fins (« Fins trouvées ») et à la dernière page, la carte de tout ce que tu as lu de ce livre, partie après partie. Les fins trouvées y brillent en étoiles ; les chemins jamais pris s'effacent dans le brouillard, sans dire où ils mènent."] },
@@ -7192,12 +7195,33 @@
       if (e && s.ironman) { var ir = r.iron = r.iron || {}; if (!ir[e.id]) { ir[e.id] = Date.now(); changed = true; } }
       if (e && !Object.keys(s.met || {}).some(function (k) { return s.met[k] === "gone"; })) { var ly = r.loyal = r.loyal || {}; if (!ly[e.id]) { ly[e.id] = Date.now(); changed = true; } }
       if (e && s.turn && (!r.best || s.turn < r.best)) { r.best = s.turn; changed = true; }
+      // 25.8, the books remember the reader: the traces this finished game leaves, for the other books to read.
+      // A plain trace is kept for good; on an axis (two outcomes that exclude each other), the last game finished wins.
+      M.tracesOf(st, s).forEach(function (t) {
+        if (t.axe) { var ax = r.axes = r.axes || {}; ax[t.axe] = { id: t.id, t: Date.now() }; }
+        else { var tr2 = r.traces = r.traces || {}; tr2[t.id] = Date.now(); }
+        changed = true;
+      });
       // The road taken, for « Comparer en famille »: the choice made at each page, kept for the last games finished.
       if (d.picks && !(r.runs || []).some(function (x) { return x.g === d.id; })) {
         r.runs = (r.runs || []).concat([{ g: d.id, end: e ? e.id : null, t: Date.now(), hero: s.name, picks: d.picks }]).slice(-RUNS_KEPT); changed = true;
       }
     }
     if (changed) { prof.updated = Date.now(); Store.put("profils", prof.id, prof).catch(function () {}); }
+  }
+  // Intent: elsewhereOf(Profile, Story) -> { Key: 1 } = among the keys the story asks about ("<book>", "<book>:<trace>",
+  // "<book>:fin:<id>"), those this reader holds from the OTHER books. Read from the profile alone: the other book
+  // need not be loaded (offline, a book of the shelf is fetched only when opened).
+  function elsewhereOf(prof, st) {
+    var out = {}, recs = (prof && prof.records) || {};
+    M.elsewhereRefs(st).forEach(function (key) {
+      var at = key.indexOf(":"), book = at < 0 ? key : key.slice(0, at), what = at < 0 ? null : key.slice(at + 1), r = recs[book];
+      if (!r || book === st.id || !Object.keys(r.endings || {}).length) return;
+      if (what == null) out[key] = 1;
+      else if (what.indexOf("fin:") === 0) { if ((r.endings || {})[what] || (r.endings || {})[what.slice(4)]) out[key] = 1; }
+      else if ((r.traces || {})[what] || Object.keys(r.axes || {}).some(function (a) { return r.axes[a].id === what; })) out[key] = 1;
+    });
+    return out;
   }
   function recordOf(prof, id) { return ((prof && prof.records) || {})[id] || { endings: {}, feats: {} }; }
   function renderRecords(m) {

@@ -648,3 +648,39 @@ pour le lecteur et ne montre que ce que les pages ont montré, sans total ni cas
 lecteur de les faire. Pour qu'une personne y soit bien rangée, poser `meet` sur la page où elle entre en scène, comme
 pour « Qui est qui ». Un livre à lire (`lecture`) n'affiche pas de jours.
 
+## Les livres se souviennent du lecteur (26/11, 25.8) : traces, `ailleurs`
+
+Une série de livres qu'on lit dans n'importe quel ordre, et qui se répondent. Un livre **déclare ce qu'il laisse** derrière lui ; un autre **le lit**. Le moteur fait le reste : il prend les traces à la fin d'une partie terminée, les garde dans le profil du lecteur, et les donne au début d'une partie d'un autre livre.
+
+**Le livre source** déclare ses traces, comme des hauts faits (une condition lue quand la partie finit ; sans `if`, « ce livre a été fini ») :
+
+```js
+traces: {
+  "page-lue":      { if: { has: "fin:pain" },   axe: "page" },
+  "page-mentions": { if: { has: "fin:vernis" }, axe: "page" },
+  "fini":          { }
+}
+```
+
+`axe` range ensemble des issues qui s'excluent : sur un axe, la partie terminée la plus récente l'emporte (le lecteur qui rejoue et choisit l'inverse change sa trace). Sans `axe`, une trace est gardée pour de bon.
+
+**Le livre qui se souvient** écrit un tag `ailleurs` sur un paragraphe, un choix ou un passage entier (une page cachée), ou la condition `{ ailleurs: … }` dans un `if` :
+
+```js
+{ ailleurs: "catalogue:page-mentions", text: "Sur le coin du bureau…", else: "…" }   // else : facultatif
+{ label: "Pousser la porte du fond", ailleurs: "catalogue", to: "CACHE" }            // a fini ce livre
+{ label: "Saluer", if: { ailleurs: "catalogue:fin:vernis" }, to: "…" }               // a trouvé cette fin
+```
+
+Trois formes de clé : `"livre"` (une fin de ce livre a été atteinte), `"livre:trace"`, `"livre:fin:nom"`. Une liste demande toutes ses clés.
+
+Ce que le moteur garantit :
+
+- **L'ordre de lecture ne compte jamais.** La mémoire est un ensemble de clés, prises une fois au début de la partie. Une trace ne lit jamais `ailleurs` (refusé), un livre ne se cite pas lui-même (pour ses propres parties d'avant : `second`, `savoir`, `lu`).
+- **Rien ne s'annonce.** Un choix fermé par `ailleurs` est absent, jamais grisé. Ouvert, il porte la marque des chemins dévoilés.
+- **Une partie abandonnée ne laisse rien.** Les traces se prennent à la fin, comme les fins. Les parties à plusieurs n'en laissent pas et n'en lisent pas.
+- **Sans mémoire, le livre se joue comme avant.** Le validateur joue un tiers des parties sans rien, un tiers avec tout ce que le livre demande (une seule trace par axe), un tiers avec une seule clé. Un passage que seul un autre livre ouvre doit être atteint ; une trace qu'aucune fin ne laisse est une erreur ; un livre ou une trace cités qui n'existent pas aussi (`node tests/build.js` connaît toute la bibliothèque).
+
+À l'auteur : ce que `ailleurs` ouvre **s'ajoute** (une réplique, un détail, un choix de plus, une page). Jamais la seule route vers une fin ou une quête. Et puisque l'ordre est libre, un écho s'écrit comme une trace laissée dans le monde (un dossier, une rumeur, un regard), pas comme une cause.
+
+Premier écho de la série Croûte 'n Chrome : ce que le lecteur a fait de la dernière page du *Catalogue de 1899* se voit dans un bureau de *La Grande Fonte*. Tests : `tests/ailleurs-test.js`, `tests/memoire-test.js`.

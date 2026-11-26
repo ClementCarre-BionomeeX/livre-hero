@@ -2335,6 +2335,39 @@
    }
   }
  },
+ "traces": {
+  "page-lue": {
+   "if": {
+    "has": "fin:pain"
+   },
+   "axe": "page"
+  },
+  "page-mentions": {
+   "if": {
+    "has": "fin:vernis"
+   },
+   "axe": "page"
+  },
+  "page-vendue": {
+   "if": {
+    "has": "fin:sorbier"
+   },
+   "axe": "page"
+  },
+  "page-tue": {
+   "if": {
+    "any": [
+     {
+      "has": "fin:adjuge"
+     },
+     {
+      "has": "fin:suspendu"
+     }
+    ]
+   },
+   "axe": "page"
+  }
+ },
  "endings": {},
  "world": {
   "noFood": true,

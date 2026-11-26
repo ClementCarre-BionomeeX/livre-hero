@@ -10,13 +10,16 @@ for (var i = 0; i < args.length; i++) { if (args[i] === "--games") games = +args
 var STORIES = P.STORIES;
 
 var built = [], failed = false;
+// 25.8: what each book leaves for the others (traces, endings), so that a book asking about another is held to it.
+var LIBRARY = {}, M0 = require(path.join(ROOT, "src/moteur.js"));
+STORIES.forEach(function (id) { var st = JSON.parse(JSON.stringify(require(path.join(ROOT, "histoires/src", id, "index.js")))); M0.prepare(st); LIBRARY[st.id] = V.libraryCard(st); });
 STORIES.forEach(function (id) {
   var story = require(path.join(ROOT, "histoires/src", id, "index.js"));
   var json = JSON.stringify(story);
   fs.writeFileSync(path.join(ROOT, "histoires", id + ".json"), JSON.stringify(story, null, 1));
   built.push(json);
   if (only && only !== id) return;
-  var t0 = Date.now(), rep = V.validate(JSON.parse(json), { games: games });
+  var t0 = Date.now(), rep = V.validate(JSON.parse(json), { games: games, library: LIBRARY });
   var sim = rep.sim;
   console.log("== " + story.title + " (" + Object.keys(story.passages).length + " passages, " + Math.round(json.length / 1024) + " Ko) en " + (Date.now() - t0) + " ms");
   if (sim) {
