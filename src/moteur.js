@@ -3547,7 +3547,7 @@
   // Intent: personOf(story, id) -> the person (people, else companions) or null
   // Where and when the hero first met someone (people or companions), for the card of who is who.
   function metAt(s, id) { s.metAt = s.metAt || {}; if (!s.metAt[id]) s.metAt[id] = { day: day(s), place: s.place || null, h: hour(s), n: s.node || null, t: s.turn || 0 }; }
-  // Intent: the investigation notebook (25.5, Clément 26/11): the engine alone writes down where and when each thing
+  // Intent: the investigation notebook (25.7, Clément 26/11): the engine alone writes down where and when each thing
   // came to the hero (a clue, a thing, a place first entered, a person seen again), and the notebook files them by
   // place, by person and by day. Nothing is written that the page did not show, and nothing is linked for the reader:
   // only where and when. Stories declare nothing new.
@@ -4718,6 +4718,35 @@
     enter(story, s, startOf(story, s));
   }
 
+  // ------------------------------------------------------------------ writing styles (25.6)
+  // Intent: writingKey(String) -> String = the name of a string of prose, short and stable (its length and FNV-1a hash),
+  // by which a book's other writings (histoires/ecritures/<id>.json, outils/ecritures/extraire.js) find it.
+  // Intent: writing(story, table, style) -> Story = the same book with its prose in another writing: every string whose
+  // key is in the table takes the table's text; the rest (marks, conditions, targets, numbers) is the same object.
+  // Why: Clément, 26/11: read one book in its « mélange » (today's text), its Doyle text or its first, plain text.
+  // Guarantee: the structure does not change (the tool keeps only strings with the same tokens at the same place), so
+  // what the validator checked of the book holds in every writing; a string without a variant keeps today's text.
+  function writingKey(t) {
+    var h = 0x811c9dc5;
+    for (var i = 0; i < t.length; i++) { h ^= t.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
+    return t.length.toString(36) + "." + h.toString(36);
+  }
+  function writing(story, table, style) {
+    if (!table || !Object.keys(table).length) return story;
+    function walk(x) {
+      if (typeof x === "string") { if (x.length < 13 || x.indexOf(" ") < 0) return x; var v = table[writingKey(x)]; return v != null ? v : x; }
+      if (!x || typeof x !== "object") return x;
+      var out = null, i, y;
+      if (Array.isArray(x)) { for (i = 0; i < x.length; i++) { y = walk(x[i]); if (y !== x[i]) { out = out || x.slice(); out[i] = y; } } return out || x; }
+      for (var k in x) { if (!Object.prototype.hasOwnProperty.call(x, k)) continue; y = walk(x[k]); if (y !== x[k]) { out = out || Object.assign({}, x); out[k] = y; } }
+      return out || x;
+    }
+    var st = walk(story);
+    if (st === story) st = Object.assign({}, story);
+    st.writing = style;
+    return st;
+  }
+
   var API = {
     FACE: FACE, FACE_KEYS: FACE_KEYS, ASPECT_KEYS: ASPECT_KEYS, ASPECT_MAX_WORDS: ASPECT_MAX_WORDS, personOf: personOf, namedIn: namedIn, dossierSee: dossierSee, aspectOf: aspectOf, quiOf: quiOf, nameForms: nameForms, glossaryNames: glossaryNames, faceErrors: faceErrors, REGARDS: REGARDS, mysterySolved: mysterySolved, happened: happened, TAVERN_GAMES_PER_DAY: TAVERN_GAMES_PER_DAY,
     ARCHS: ARCHS, archOf: archOf, usesOf: usesOf, plainOf: plainOf, marksOf: marksOf, speakers: speakers, femOf: femOf, TEXT_FX: TEXT_FX, MARK_KINDS: MARK_KINDS, MOODS: MOODS, keywordsOf: keywordsOf, keywordFor: keywordFor, trouve: trouve, moodOf: moodOf, TECHS: TECHS, techsOf: techsOf, partyView: partyView, cpv: cpv, cpvMax: cpvMax, FRONT: FRONT, DOMAINS: DOMAINS, EP: EP, EP_PER_LEVEL: EP_PER_LEVEL, MAX_LEVEL: MAX_LEVEL, DIFFS: DIFFS, LOYAL_AT: LOYAL_AT, SUCCESS: SUCCESS, STEP_HOURS: STEP_HOURS,
@@ -4742,6 +4771,7 @@
     CARD_TYPES: CARD_TYPES, SUITS: SUITS, SUIT_WORDS: SUIT_WORDS, RARITIES: RARITIES, THREAD_STATES: THREAD_STATES, cardInfo: cardInfo, filsOf: filsOf, DECK_FX: DECK_FX, GAIN_PLACES: GAIN_PLACES, LOSS_FROM: LOSS_FROM, resolve: resolve, stopOf: stopOf,
     escaleOpen: escaleOpen, crewView: crewView, crewIs: crewIs, crewCount: crewCount, crewLean: crewLean, CREW_WORDS: CREW_WORDS, CREW_MAX: CREW_MAX,
     countOf: countOf, counterOpen: counterOpen, clientPool: clientPool, answerOf: answerOf, cleanAnswer: cleanAnswer,
+    writingKey: writingKey, writing: writing,
     item: item, weapon: weapon, armor: armor, useItem: useItem, day: day, timeLabel: timeLabel, routesFrom: routesFrom, isNight: isNight,
   };
   if (typeof module !== "undefined" && module.exports) module.exports = API; else root.Moteur = API;

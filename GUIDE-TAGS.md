@@ -630,7 +630,7 @@ Demande de Clément (23/11) : une dizaine d'histoires courtes à énigmes, avec 
 
 Ce que le moteur garantit : un chiffre toujours juste (il l'écrit lui-même) ; une clef équivalente acceptée ; un regard à la loupe impossible sans la loupe ; l'effet d'un regard donné une fois. Le validateur refuse une clef qui ne rend pas le texte clair, un chiffre écrit à la main, une clef qui laisse le texte en clair, un symbole de réponse absent du clavier, des leviers sans solution, un examen inconnu ou montré nulle part, un objet d'examen inconnu ; les parties d'essai regardent les mots avec une chose prise au hasard dans le sac. Conseil d'écriture : un choix qui n'existe qu'après une découverte se cache (`hide`) au lieu d'être grisé, sinon il annonce la découverte. Exemple : `tests/enigmes-test.js`, « Émotions vendues séparément » (`histoires/src/mentions/`).
 
-## Le dossier du carnet (26/11, 25.5) : où et quand, rangé tout seul
+## Le dossier du carnet (26/11, 25.7) : où et quand, rangé tout seul
 
 Rien à déclarer. Le moteur note de lui-même où et quand chaque chose est venue au héros, et l'onglet « Dossier » du carnet
 la range par lieu, par personne ou par jour :

@@ -1424,6 +1424,44 @@ button.pp.pp-face-btn { border-bottom: 0; display: inline-flex; align-items: cen
 /* A name to write (14.7, story.asks): the shop's sign, before the choice that carries it. */
 .choices .ask { margin: 6px 0 10px; gap: 6px; }
 .choices .ask .ask-input { width: 100%; max-width: 420px; padding: 10px; font-size: 1.15em; font-family: inherit; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); color: var(--ink); }
+
+/* ------------------------------------------------------------------ Carte des fins (25.5) */
+.endmap h2 { margin: .4rem 0 .1rem; font-family: var(--title); }
+.endmap-sum { margin: .7rem 0 .4rem; }
+.endmap-big { font-family: var(--title); font-size: 1.35rem; color: var(--ink); }
+.endmap-star { color: var(--gold); }
+.endmap-ends { list-style: none; padding: 0; margin: .3rem 0; display: flex; flex-direction: column; gap: .25rem; }
+.endmap-ends .linkish { background: none; border: 0; padding: 2px 0; font: inherit; color: var(--ink); cursor: pointer; text-align: left; display: inline-flex; gap: .5rem; align-items: baseline; }
+.endmap-ends .linkish:hover, .endmap-ends .linkish:focus-visible { color: var(--accent); }
+.endmap-n { display: inline-grid; place-items: center; min-width: 1.5em; height: 1.5em; border-radius: 50%; background: var(--gold); color: var(--paper); font-size: .8em; font-weight: 700; }
+.endmap-left { font-style: italic; color: var(--muted); margin: .4rem 0 .6rem; }
+.endmap-acts { margin: .3rem 0; align-items: center; }
+.endmap-acts .fogged { font-style: italic; padding: 0 .4rem; filter: blur(.3px); }
+.endmap-wrap { overflow: auto; max-height: 70vh; border: 1px solid var(--line); border-radius: 10px; margin: .5rem 0; background: var(--paper);
+  background-image: radial-gradient(ellipse at 100% 100%, color-mix(in srgb, var(--muted) 16%, transparent), transparent 60%); -webkit-overflow-scrolling: touch; }
+.endmap-svg { display: block; }
+.endmap-svg .em-edge { stroke: var(--accent); stroke-width: 1.8; fill: none; opacity: .75; }
+.endmap-svg .em-edge.folded { stroke-width: 2.6; }
+.endmap-svg .em-stub { stroke: var(--muted); stroke-width: 1.2; fill: none; stroke-dasharray: 2 3; opacity: .7; }
+.endmap-svg .em-cloud { fill: var(--muted); opacity: .32; }
+.endmap-svg .em-fog { cursor: pointer; color: var(--muted); }
+.endmap-svg .em-fog.pick .em-cloud { opacity: .55; }
+.endmap-svg .em-cloud-mark { font: 11px var(--sans); fill: var(--muted); }
+.endmap-svg .em-stub-label { font: italic 11.5px var(--serif); }
+.endmap-svg .em-node { cursor: pointer; }
+.endmap-svg .em-hit { fill: transparent; }
+.endmap-svg .em-dot { fill: var(--accent); }
+.endmap-svg .em-start .em-dot { fill: var(--paper); stroke: var(--accent); stroke-width: 2.5; }
+.endmap-svg .em-ring { fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-dasharray: 2.2 1.8; }
+.endmap-svg .em-star { font: 18px var(--sans); fill: var(--gold); }
+.endmap-svg .em-label { font: 11.5px var(--sans); fill: var(--ink); }
+.endmap-svg .em-pages .em-label, .endmap-svg .em-page .em-label { fill: var(--muted); }
+.endmap-svg .em-end .em-label { font-weight: 700; fill: var(--gold); }
+.endmap-svg .pick .em-label { text-decoration: underline; }
+.endmap-svg .em-node.pick .em-hit { fill: var(--accent-soft); }
+.endmap-svg :focus-visible { outline: 2px solid var(--accent); }
+.endmap-cap { margin: .4rem 0; }
+.endmap-legend { margin: .3rem 0 1rem; }
 /* the investigation notebook (25.5): filed by place, by person, by day */
 .dossier-by { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 12px; }
 .dossier-by .chip { font: inherit; font-size: 13px; font-weight: 600; border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 999px; padding: 3px 12px; cursor: pointer; }

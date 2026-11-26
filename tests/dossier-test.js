@@ -1,5 +1,5 @@
 "use strict";
-// The investigation notebook (25.5, Clément 26/11): the engine writes where and when each thing came to the hero
+// The investigation notebook (25.7, Clément 26/11): the engine writes where and when each thing came to the hero
 // (places, people met and seen again, clues, things), the notebook files them by place, by person and by day.
 // Usage: node tests/site.js && node tests/dossier-test.js [dossier-de-captures]
 var fs = require("fs"), path = require("path"), http = require("http"), assert = require("assert");
