@@ -25,9 +25,18 @@ function buildOf(storiesJson) {
   return { version: version, id: hsh.digest("hex").slice(0, 7), date: date };
 }
 // The library card of a story (src/bibliotheque.js, as storyMeta in app/app.js), and where its whole text is (site only).
+// A book's other writings (25.6): those of histoires/ecritures/<id>.json with enough strings to read differently.
+var WRITING_MIN = 20;
+function writingsOf(id) {
+  var f = path.join(ROOT, "histoires/ecritures", id + ".json");
+  if (!fs.existsSync(f)) return null;
+  var t = JSON.parse(fs.readFileSync(f, "utf8")), out = Object.keys(t).filter(function (w) { return Object.keys(t[w]).length >= WRITING_MIN; });
+  return out.length ? out : null;
+}
 function cardOf(json) {
   var m = B.card(JSON.parse(json));
   m.file = "histoires/" + m.id + ".json";
+  var w = writingsOf(m.id); if (w) m.writings = w;
   return m;
 }
 function safe(js) { return js.replace(/<\/script/gi, "<\\/script"); }
@@ -56,4 +65,4 @@ function assemble(storiesJson, opts) {
   ]).join("\n");
 }
 var STORIES = ["kardan", "cendres", "vaudrenne", "pages", "quarante", "temoin", "malvoran", "soiree", "enquete", "siege", "mer", "ecole", "huisclos", "adeux", "maree", "retenue", "mondeperdu", "taiseurs", "courrier", "guerremondes", "hommeinvisible", "machinetemps", "ilemoreau", "premiershommes", "jekyll", "crocblanc", "fleche", "enleve", "ballantrae", "ile", "douzieme", "troisclefs", "aiguille", "comete", "testament", "masque", "orsenne", "cartographe", "croute", "retraite", "raccordement", "potions", "centre", "vingtmille", "ilemysterieuse", "strogoff", "mousquetaires", "montecristo", "bossu", "pardaillan", "lupin", "jaune", "fantome", "quatre", "mohicans", "jungle", "gulliver", "vagabond", "robinson", "zenda", "mines", "mouron", "tarzan", "kim", "tour", "deuxans", "ballon", "grant", "terre", "autour", "hatteras", "carpathes", "indes", "begum", "jangada", "nord", "fourrures", "vapeur", "archipel", "keraban", "billet", "chinois", "drapeau", "village", "helice", "flottante", "branican", "sansdessus", "jonathan", "meteore", "ptitbonhomme", "ox", "ombres", "reine", "demon", "cercle", "sorciere", "joyaux", "riviere", "zamboula", "dragon", "clous", "robur", "pilote", "vingtans", "fracasse", "mentions", "margot", "tulipe", "bragelonne", "monsoreau", "quarantecinq", "maisonrouge", "collier", "jehu", "harmental", "georges", "paul", "moret", "pamphile", "lambert", "pauline", "fantomes", "velours", "acte", "casse", "frank", "elephant", "phenix", "citadelle", "larrons", "xuthal", "atali", "nuits", "tristan", "lancelot", "suisse", "speronare", "capitaine", "corricolo", "coffre", "levain", "inaccessible", "club", "papier", "catalogue", "cuir", "comtesse", "assez"];
-module.exports = { assemble: assemble, buildOf: buildOf, STORIES: STORIES };
+module.exports = { assemble: assemble, buildOf: buildOf, writingsOf: writingsOf, STORIES: STORIES };

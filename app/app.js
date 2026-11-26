@@ -255,6 +255,40 @@
     }
     return builtinFetches[m.id];
   }
+  // Intent: Writing = a book read in another of its writings (25.6): « mélange » (today's text, the default), « doyle »
+  // or « sobre » (the first, plain text), for the books that went through the style passes of 15 and 16/11. The card
+  // says which writings a book has (writings, tests/page.js); the table of strings (histoires/ecritures/<id>.json,
+  // outils/ecritures/extraire.js) is read when a reader picks one, then kept offline; the engine applies it
+  // (M.writing). Why: Clément, 26/11: choose the writing style when reading.
+  // Guarantee: only the prose changes; a book without that writing, or whose table cannot be read, keeps today's text.
+  var WRITINGS = { melange: "Mélange", doyle: "Doyle", sobre: "Sobre" };
+  var Writing = (function () {
+    var tables = {}, asks = {}, styled = {};
+    function wanted(id) { var w = pref("ecriture"), m = A.builtinMeta[id]; return w !== "melange" && m && (m.writings || []).indexOf(w) >= 0 ? w : "melange"; }
+    function table(id) {
+      if (tables[id]) return Promise.resolve(tables[id]);
+      if (!asks[id]) asks[id] = fetch("histoires/ecritures/" + encodeURIComponent(id) + ".json").then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function (t) { tables[id] = t; return t; }, function (e) { delete asks[id]; throw e; });
+      return asks[id];
+    }
+    // ready(Story) -> Promise<Story> = the book in the reader's writing (the same object for « mélange »).
+    function ready(st) {
+      var base = A.builtins[st.id] || st, w = wanted(base.id);
+      if (w === "melange") return Promise.resolve(base);
+      var k = base.id + "|" + w;
+      if (styled[k] && styled[k].base === base) return Promise.resolve(styled[k].st);
+      return table(base.id).then(function (t) { var x = M.writing(base, t[w], w); styled[k] = { base: base, st: x }; return x; }, function () { return base; });
+    }
+    // again() ! the book being read takes the writing just chosen, at the same page.
+    function again() {
+      [A.game, A.multi].forEach(function (G) {
+        if (!G || !G.story || !A.builtins[G.story.id]) return;
+        ready(G.story).then(function (st) { if (G.story !== st) { G.story = st; render(); } });
+      });
+    }
+    return { ready: ready, again: again, wanted: wanted };
+  })();
+  function loadReadable(id) { return loadStory(id).then(Writing.ready); }
   function storyMeta(st) { return Bib.card(st); }
   function allStories() {
     var out = Object.keys(A.builtinMeta).map(function (k) { var m = clone(A.builtinMeta[k]); m.builtin = true; return m; });
@@ -706,8 +740,10 @@
       if (d.kind === "horsligne-avance") { O.progress = d; var bar = document.getElementById("horsligne-avance"); if (bar) { bar.value = d.done; bar.max = Math.max(1, d.total); var t = document.getElementById("horsligne-texte"); if (t) t.textContent = progressText(d); } else if (A.screen === "home") render(); return; }
       if (d.kind !== "horsligne") return;
       if (d.fetch) O.progress = null; else O.asking = false;
-      var books = d.kept.filter(function (f) { return /^histoires\//.test(f); }).length, allBooks = Object.keys(A.builtinMeta).filter(function (k) { return A.builtinMeta[k].file; }).length;
-      O.state = { books: books, allBooks: allBooks, rest: d.kept.length - books, allRest: d.all - allBooks, version: d.version, done: !!d.fetch || !!(O.state && O.state.done) }; if (d.fetch) O.busy = false;
+      // the other writings of the books (25.6) are kept when a reader picks one: counted apart, never « missing »
+      var books = d.kept.filter(function (f) { return /^histoires\/[^/]+$/.test(f); }).length, allBooks = Object.keys(A.builtinMeta).filter(function (k) { return A.builtinMeta[k].file; }).length;
+      var wr = d.kept.filter(function (f) { return /^histoires\/ecritures\//.test(f); }).length, allWr = Object.keys(A.builtinMeta).filter(function (k) { return A.builtinMeta[k].writings; }).length;
+      O.state = { books: books, allBooks: allBooks, rest: d.kept.length - books - wr, allRest: d.all - allBooks - allWr, version: d.version, done: !!d.fetch || !!(O.state && O.state.done) }; if (d.fetch) O.busy = false;
       if (A.screen === "home") render();
     });
     // a question at a time: the answer draws the page again, which must not ask again (14.3 looped there)
@@ -1932,7 +1968,7 @@
 
   // ------------------------------------------------------------------ creation
   function newGame(id) {
-    loadStory(id).then(function (st) {
+    loadReadable(id).then(function (st) {
       A.create = { story: st, name: "", arch: "", past: (st.past || []).map(function () { return -1; }), toutJouer: true, difficulty: "aventurier" };
       habitualHero(A.create, A.profile);
       A.screen = "create"; render(); window.scrollTo(0, 0);
@@ -2232,7 +2268,7 @@
     A.busy = true; render();
     Store.get("parties", id).then(function (g) {
       if (!g) throw new Error("Partie introuvable.");
-      return loadStory(g.story).then(function (st) {
+      return loadReadable(g.story).then(function (st) {
         g.id = id;
         A.game = { doc: g, story: st, s: upgradeState(st, JSON.parse(g.state)), undo: g.undo || [], log: g.log || [], recit: { k: Math.max(0, (g.recitParts || 1) - 1), pages: [] }, since: Date.now() };
         A.recap = !g.ended && (g.log || []).length > 1;
@@ -2781,6 +2817,7 @@
   // Intent: once per new version, a short note of what changed (NEWS, newest first), only the versions the reader has
   // not seen on this device. Why: Clément, 13/11 (piste 33).
   var NEWS = [
+    { v: "25.6", items: ["Réglages → « Style d'écriture » : lire un livre dans le texte d'aujourd'hui (Mélange), dans son texte façon Doyle, ou dans son tout premier texte, plus court et plus direct (Sobre). Pour les livres écrits avant le 16 novembre : Kardan, les Cendres, Malvoran, les Taiseurs, la Marée, la Retenue et les autres histoires de cette époque. Le changement vaut aussi pour la page en cours ; l'histoire, les choix et les indices restent les mêmes."] },
     { v: "25.5", items: ["Carte des fins : sur la fiche d'un livre à plusieurs fins (« Fins trouvées ») et à la dernière page, la carte de tout ce que tu as lu de ce livre, partie après partie. Les fins trouvées y brillent en étoiles ; les chemins jamais pris s'effacent dans le brouillard, sans dire où ils mènent."] },
     { v: "25.4", items: ["Nouveau livre à lire : « Le Corricolo », d'Alexandre Dumas (1843) : l'hiver 1835 à Naples, rue par rue, en petite voiture au galop, avec ses lazzaroni, son roi Nasone, le miracle de saint Janvier, le Vésuve, Pompéi, puis la route de Rome."] },
     { v: "25.3", items: ["Nouveau livre à lire : « Le Capitaine Aréna », d'Alexandre Dumas (1842), la suite du « Speronare » : une maison de fous à Palerme, les volcans des îles Éoliennes, les histoires de sorcières et de bandits que racontent les matelots, puis la Calabre à dos de mulet, sur les pas du roi Murat, dans un pays qui tremble."] },
@@ -3084,7 +3121,7 @@
     return sec;
   }
   function openSpect(x) {
-    loadStory(x.story).then(function (st) {
+    loadReadable(x.story).then(function (st) {
       if (A.spect && A.spect.unsub) A.spect.unsub();
       var S = A.spect = { doc: x, story: st, unsub: null };
       S.unsub = Room.db().doc("direct/" + safeKey(x.profil)).onSnapshot(function (snap) { if (snap.exists && A.spect === S) { S.doc = thaw(snap.data()); if (A.screen === "spect") render(); } }, function () {});
@@ -4183,7 +4220,7 @@
 
   // ---- setup
   function multiSetup(id) {
-    loadStory(id).then(function (st) {
+    loadReadable(id).then(function (st) {
       var S = A.msetup = { story: st, mode: "local", n: minPlayers(st), names: [], readers: [] };
       // The registered readers first, the one who opened the book at the head (Clément, 16/11).
       var ps = (A.profile ? [A.profile] : []).concat((A.profiles || []).filter(function (p) { return !A.profile || p.id !== A.profile.id; }));
@@ -4294,7 +4331,7 @@
     A.busy = true; render();
     Store.get("multis", id).then(function (d) {
       if (!d) throw new Error("Partie introuvable.");
-      return loadStory(d.story).then(function (st) {
+      return loadReadable(d.story).then(function (st) {
         d.id = id;
         var X = A.multi = { kind: "local", doc: d, story: st, g: JSON.parse(d.game), cur: d.cur, undo: d.undo || {}, logs: d.logs || {}, note: "" };
         X.g.players.forEach(function (p) { X.undo[p.id] = X.undo[p.id] || []; X.logs[p.id] = X.logs[p.id] || []; });
@@ -4656,7 +4693,7 @@
     A.busy = true; render();
     Room.get("salles", gid).then(function (sd) {
       if (!sd) throw new Error("Salle introuvable.");
-      return loadStory(sd.story).then(function (st) {
+      return loadReadable(sd.story).then(function (st) {
         sd.id = gid;
         return Room.list(sallePath(gid) + "/joueurs").then(function (seats) {
           var X = A.multi = { kind: "salle", gid: gid, doc: sd, story: st, seats: {}, monde: {}, me: lsGet("salle:" + gid), mine: null, undo: [], log: [], unsub: [], g: null, note: "" };
@@ -6351,7 +6388,7 @@
   // ------------------------------------------------------------------ reading preferences (per reader)
   // Intent: pref(Key) -> Value = the reader's own setting, else the default
   // Why: Clément (12/11): text size, spacing, theme, voice, real dice, sound… follow the reader, not the device.
-  var PREFS = { style: "carnet", choiceHand: true, skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, lore: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6, spread: "auto", pageTurn: true, swipe: false, contrast: false, cvd: false, quietFx: false, dice3d: true, attachements: "discret", trouble: true, textFx: "anime", gens: "aucun", gensRappel: "chaque", gensCarte: true, gensScene: false, gensDefaut: [], gensSuivi: {}, trail: true, visages: "repliques" };
+  var PREFS = { style: "carnet", choiceHand: true, skin: "histoire", size: "m", spacing: "normal", theme: "auto", font: "livre", lettrine: true, voice: "", highlight: true, ruler: false, dialogue: false, glossary: true, lore: true, nudge: false, syllables: false, voiceChoice: false, autoListen: true, battlePlan: true, relations: true, urgent: true, sfx: true, shakeDice: false, fog: true, rate: 1, autoRead: false, dice: "ecran", ambiance: false, music: false, volume: 0.6, spread: "auto", pageTurn: true, swipe: false, contrast: false, cvd: false, quietFx: false, dice3d: true, attachements: "discret", trouble: true, textFx: "anime", gens: "aucun", gensRappel: "chaque", gensCarte: true, gensScene: false, gensDefaut: [], gensSuivi: {}, trail: true, visages: "repliques", ecriture: "melange" };
   var SIZES = { s: ["Petit", 16], m: ["Normal", 18], l: ["Grand", 21], xl: ["Très grand", 24] };
   var SPACINGS = { serre: ["Serré", 1.5], normal: ["Normal", 1.72], aere: ["Aéré", 2] };
   var THEMES = { auto: "Comme l'appareil", light: "Clair", sepia: "Sépia", dark: "Sombre", soir: "Lumière du soir" };
@@ -6373,6 +6410,7 @@
     if (A.profile) { A.profile.prefs = p; var prof = A.profile; clearTimeout(setPref.t); setPref.t = setTimeout(function () { Store.put("profils", prof.id, prof).catch(function () {}); }, 600); }
     else lsSet("prefs", p);
     render();
+    if (k === "ecriture") Writing.again();
   }
   // ------------------------------------------------------------------ speed: the diagnosis and the old devices
   // Intent: Diag = what the page costs on this device, kept quietly (marks of the start, each drawing of the screen,
@@ -6706,6 +6744,10 @@
     b.appendChild(seg({ carnet: "Carnet", classique: "Classique" }, "style", "Style du livre"));
     if (pref("style") !== "classique") b.appendChild(prefToggle("choiceHand", "Choix écrits au crayon", "Les choix s'écrivent à la main dans le carnet. Sans cela, ils sont en italique, plus faciles à lire pour les longues phrases."));
     b.appendChild(seg(SKINS, "skin", pref("style") !== "classique" ? "Papier du carnet" : "Habillage du livre"));
+    b.appendChild(seg(WRITINGS, "ecriture", "Style d'écriture"));
+    var wbook = A.game && A.game.story && A.builtinMeta[A.game.story.id];
+    b.appendChild(h("p", { class: "small muted" }, "Mélange : le texte d'aujourd'hui, longues descriptions inquiétantes, piques irrévérencieuses, personnages hauts en couleur. Doyle : plus sec, des mesures et des déductions. Sobre : le premier texte, court et direct. Seuls les livres écrits avant le 16 novembre existent dans les trois ; les autres gardent leur texte." +
+      (wbook ? (wbook.writings && wbook.writings.length ? " Ce livre existe en " + ["melange"].concat(wbook.writings).map(function (w) { return WRITINGS[w]; }).join(", ").replace(/, ([^,]*)$/, " et $1") + "." : " Ce livre existe en un seul style.") : "")));
     b.appendChild(seg(SIZES, "size", "Taille du texte"));
     b.appendChild(seg(SPACINGS, "spacing", "Interligne"));
     b.appendChild(seg(FONTS, "font", "Police"));
