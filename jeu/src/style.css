@@ -1,0 +1,69 @@
+@font-face { font-family: "Literata"; src: url("../../app/polices/Literata-normal-400-latin.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Literata"; src: url("../../app/polices/Literata-italic-400-latin.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Literata"; src: url("../../app/polices/Literata-normal-600-latin.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Grimoire"; src: url("../../app/polices/GrimoireClair-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+
+:root {
+  --nuit: #1b1a17; --papier: #f4ead3; --encre: #2b2419; --or: #f2c75c; --sang: #a33a2c; --mousse: #4f7a3a; --brume: rgba(27, 26, 23, 0.86);
+  --rayon: 14px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--nuit); color: var(--papier); font-family: "Literata", Georgia, serif; overflow: hidden; touch-action: none; -webkit-user-select: none; user-select: none; }
+#carte { position: fixed; inset: 0; }
+button { font: inherit; cursor: pointer; border: 0; border-radius: 10px; min-height: 44px; }
+
+#hud { position: fixed; top: 0; left: 0; right: 0; display: flex; gap: 10px; align-items: center; padding: 8px 12px calc(8px) 12px; padding-top: max(8px, env(safe-area-inset-top)); background: linear-gradient(var(--brume), transparent); z-index: 10; pointer-events: none; }
+#hud > * { pointer-events: auto; }
+#hud .qui { font-family: "Grimoire", "Literata", serif; font-size: 19px; }
+#hud .pv { width: 120px; height: 12px; background: rgba(0,0,0,.5); border-radius: 6px; overflow: hidden; }
+#hud .pv i { display: block; height: 100%; background: #6fd16f; }
+#hud .vide { flex: 1; }
+#hud button { background: rgba(244,234,211,.14); color: var(--papier); padding: 0 12px; font-size: 20px; min-width: 48px; }
+
+#ici { position: fixed; left: 10px; bottom: max(10px, env(safe-area-inset-bottom)); max-width: min(360px, calc(100% - 20px)); background: var(--brume); border-radius: var(--rayon); padding: 10px 12px; z-index: 9; }
+#ici h2 { margin: 0 0 6px; font-family: "Grimoire", "Literata", serif; font-size: 20px; color: var(--or); }
+#ici p { margin: 0 0 8px; font-size: 14px; opacity: .85; }
+#ici button { display: block; width: 100%; text-align: left; margin-top: 6px; padding: 8px 12px; background: rgba(244,234,211,.12); color: var(--papier); }
+
+#livre { position: fixed; inset: 0; display: flex; align-items: flex-end; justify-content: center; background: rgba(10,9,8,.45); z-index: 20; padding: 12px; padding-top: 64px; }
+#livre .page { width: min(720px, 100%); max-height: 100%; overflow: auto; background: var(--papier); color: var(--encre); border-radius: var(--rayon) var(--rayon) 6px 6px; padding: 18px 22px 16px; box-shadow: 0 10px 40px rgba(0,0,0,.5); touch-action: pan-y; -webkit-user-select: text; user-select: text; }
+#livre h1 { font-family: "Grimoire", "Literata", serif; font-size: 26px; margin: 0 0 10px; color: #5a2b1c; }
+#livre p { font-size: 18px; line-height: 1.55; margin: 0 0 12px; }
+#livre .jets { font-size: 14px; color: #6a5a40; border-left: 3px solid #d8c69c; padding-left: 10px; margin: 0 0 12px; }
+#livre .jets div { margin: 2px 0; }
+#livre .choix { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+#livre .choix button { text-align: left; padding: 10px 14px; background: #2b2419; color: var(--papier); font-size: 17px; display: flex; gap: 10px; align-items: center; }
+#livre .choix button .chance { margin-left: auto; font-size: 14px; background: var(--or); color: var(--encre); border-radius: 8px; padding: 2px 8px; white-space: nowrap; }
+#livre .choix button[disabled] { opacity: .45; }
+#livre .choix button .pourquoi { display: block; font-size: 13px; opacity: .8; }
+
+#combat { position: fixed; left: 0; right: 0; bottom: 0; padding: 10px 12px; padding-bottom: max(10px, env(safe-area-inset-bottom)); background: linear-gradient(transparent, var(--brume) 30%); z-index: 9; display: flex; flex-direction: column; gap: 8px; }
+#combat .tour { font-family: "Grimoire", "Literata", serif; font-size: 20px; color: var(--or); }
+#combat .boutons { display: flex; gap: 8px; flex-wrap: wrap; }
+#combat .boutons button { background: rgba(244,234,211,.16); color: var(--papier); padding: 0 14px; }
+#combat .log { font-size: 14px; max-height: 96px; overflow: auto; opacity: .9; touch-action: pan-y; }
+#combat .log div { margin: 1px 0; }
+
+#volet { position: fixed; top: 60px; right: 10px; bottom: 10px; width: min(420px, calc(100% - 20px)); background: var(--papier); color: var(--encre); border-radius: var(--rayon); padding: 16px 18px; overflow: auto; z-index: 15; touch-action: pan-y; box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+#volet h2 { font-family: "Grimoire", "Literata", serif; margin: 0 0 10px; color: #5a2b1c; }
+#volet .fermer { float: right; background: #2b2419; color: var(--papier); padding: 0 14px; }
+#volet table { width: 100%; border-collapse: collapse; font-size: 16px; }
+#volet td { padding: 4px 0; border-bottom: 1px solid #e2d4b0; }
+#volet td:last-child { text-align: right; }
+
+#accueil { position: fixed; inset: 0; overflow: auto; background: radial-gradient(ellipse at 50% 20%, #3a3326, var(--nuit)); z-index: 30; display: flex; justify-content: center; padding: 24px 16px; touch-action: pan-y; }
+#accueil[hidden] { display: none; }
+#accueil .boite { width: min(680px, 100%); }
+#accueil h1 { font-family: "Grimoire", "Literata", serif; font-size: clamp(34px, 7vw, 56px); color: var(--or); text-align: center; margin: 30px 0 6px; }
+#accueil .sous { text-align: center; opacity: .8; margin: 0 0 28px; }
+#accueil .grand { display: block; width: 100%; margin: 10px 0; padding: 14px; font-size: 20px; background: var(--or); color: var(--encre); }
+#accueil .second { background: rgba(244,234,211,.14); color: var(--papier); }
+#accueil fieldset { border: 0; margin: 18px 0; padding: 0; }
+#accueil legend { font-size: 18px; color: var(--or); margin-bottom: 8px; }
+#accueil input[type=text] { width: 100%; font: inherit; font-size: 20px; padding: 10px 12px; border-radius: 10px; border: 0; }
+#accueil .options { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
+#accueil .options.ligne { grid-template-columns: 1fr; }
+#accueil .options button { text-align: left; padding: 10px 12px; background: rgba(244,234,211,.12); color: var(--papier); }
+#accueil .options button.on { background: var(--papier); color: var(--encre); }
+#accueil .options button small { display: block; opacity: .8; font-size: 13px; }
+[hidden] { display: none !important; }
