@@ -4810,6 +4810,8 @@
     escaleOpen: escaleOpen, crewView: crewView, crewIs: crewIs, crewCount: crewCount, crewLean: crewLean, CREW_WORDS: CREW_WORDS, CREW_MAX: CREW_MAX,
     countOf: countOf, counterOpen: counterOpen, clientPool: clientPool, answerOf: answerOf, cleanAnswer: cleanAnswer,
     writingKey: writingKey, writing: writing,
+    // The video game (jeu/, 27/11) plays fights on a hex map with the book's numbers: it needs these pieces.
+    combatKit: { heroStrike: heroStrike, techById: function (s, id) { return techById(s, id); }, openD100: openD100, defenceOf: defenceOf, meleeWeapon: meleeWeapon, ranged: ranged, members: members, compOf: compOf, domOf: domOf, diffOf: diffOf, endCombat: endCombat, alive: function (story, s, k) { return alive(story, s, k); }, enemyDef: enemyDef, MASTER_HIT: MASTER_HIT, MASTER_DMG: MASTER_DMG, DEFEND_BONUS: DEFEND_BONUS, COMPANION_DMG: COMPANION_DMG, COMP_BOLT_DMG: COMP_BOLT_DMG, COMP_CASTER_FROM: COMP_CASTER_FROM, CRIT_OVER: CRIT_OVER, UNARMED_DMG: UNARMED_DMG, FLEE_DIFF: FLEE_DIFF },
     item: item, weapon: weapon, armor: armor, useItem: useItem, day: day, timeLabel: timeLabel, routesFrom: routesFrom, isNight: isNight,
   };
   if (typeof module !== "undefined" && module.exports) module.exports = API; else root.Moteur = API;

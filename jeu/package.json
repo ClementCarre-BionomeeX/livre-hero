@@ -1,0 +1,21 @@
+{
+  "name": "malvoran-jeu",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Le Sceau de Malvoran, le jeu vidéo : jeu de rôle en hexagones sur le livre de livre-hero, règles RMU simplifiées",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "test": "vitest run",
+    "essai": "node tests/essai.mjs"
+  },
+  "devDependencies": {
+    "typescript": "5.8.3",
+    "vite": "6.3.5",
+    "vitest": "3.2.4"
+  },
+  "dependencies": {
+    "phaser": "3.90.0"
+  }
+}

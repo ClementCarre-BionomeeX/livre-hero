@@ -23,6 +23,10 @@ jobs:
         with:
           node-version: 22
       - run: node tests/site.js
+      # The video game of Malvoran (jeu/, 27/11), served beside the book at /jeu/.
+      # A failure here must not stop the book's own publication.
+      - run: cd jeu && npm ci && npm test && npm run build && cp -r dist ../site/jeu
+        continue-on-error: true
       # Optional quality voices (site/voix/, ~150 Mo), downloaded by readers only on request.
       - run: node tests/voix.js
       - uses: actions/configure-pages@v5
