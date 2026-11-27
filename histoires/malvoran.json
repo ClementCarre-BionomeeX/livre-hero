@@ -63043,6 +63043,10 @@
      "label": "Revendre le carnet à Danese, au prix fort",
      "tag": "Se taire contre de l'or",
      "to": "IIIV_sel_partage"
+    },
+    {
+     "label": "Garder le carnet sur toi, et décider plus tard",
+     "back": "IIIV_intendance"
     }
    ]
   },
@@ -63537,7 +63541,12 @@
      },
      "why": "Il te faudrait quelque chose qu'elle désire plus que son contrat.",
      "fx": {
-      "flag": "iiiv:echange_carnet"
+      "flag": "iiiv:echange_carnet",
+      "set": {
+       "sel": "denonce"
+      },
+      "quest": "III_sel",
+      "drop": "iiiv_registre_sel"
      },
      "to": "IIIV_otages_echange"
     },
